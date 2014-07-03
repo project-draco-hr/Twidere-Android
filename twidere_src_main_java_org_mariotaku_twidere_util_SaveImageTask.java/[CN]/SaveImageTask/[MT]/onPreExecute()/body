@@ -1,0 +1,6 @@
+{
+  final DialogFragment fragment=new ProgressDialogFragment();
+  fragment.setCancelable(false);
+  fragment.show(activity.getFragmentManager(),PROGRESS_FRAGMENT_TAG);
+  super.onPreExecute();
+}

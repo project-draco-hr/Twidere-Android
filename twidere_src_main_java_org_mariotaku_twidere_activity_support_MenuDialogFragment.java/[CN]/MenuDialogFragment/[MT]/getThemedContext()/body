@@ -1,0 +1,14 @@
+{
+  if (mThemedContext != null)   return mThemedContext;
+  final FragmentActivity activity=getActivity();
+  final int themeRes, accentColor;
+  if (activity instanceof IThemedActivity) {
+    themeRes=((IThemedActivity)activity).getThemeResourceId();
+    accentColor=((IThemedActivity)activity).getThemeColor();
+  }
+ else {
+    themeRes=ThemeUtils.getSettingsThemeResource(activity);
+    accentColor=ThemeUtils.getUserThemeColor(activity);
+  }
+  return mThemedContext=ThemeUtils.getThemedContextForActionIcons(activity,themeRes,accentColor);
+}

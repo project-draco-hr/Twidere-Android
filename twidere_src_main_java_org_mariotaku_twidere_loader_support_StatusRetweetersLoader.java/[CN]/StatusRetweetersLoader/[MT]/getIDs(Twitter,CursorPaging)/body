@@ -1,0 +1,5 @@
+{
+  if (twitter == null)   return null;
+  if (mStatusId > 0)   return twitter.getRetweetersIDs(mStatusId,paging);
+  return null;
+}

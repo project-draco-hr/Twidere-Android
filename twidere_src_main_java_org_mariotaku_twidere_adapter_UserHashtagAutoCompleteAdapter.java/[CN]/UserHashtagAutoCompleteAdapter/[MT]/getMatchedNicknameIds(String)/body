@@ -1,0 +1,15 @@
+{
+  if (TextUtils.isEmpty(str))   return new long[0];
+  final List<Long> list=new ArrayList<Long>();
+  for (  final Entry<String,?> entry : mUserNicknamePreferences.getAll().entrySet()) {
+    final String value=ParseUtils.parseString(entry.getValue());
+    final long key=ParseUtils.parseLong(entry.getKey(),-1);
+    if (key == -1 || TextUtils.isEmpty(value)) {
+      continue;
+    }
+    if (value.toLowerCase(mLocale).startsWith(str.toLowerCase(mLocale))) {
+      list.add(key);
+    }
+  }
+  return ArrayUtils.fromList(list);
+}

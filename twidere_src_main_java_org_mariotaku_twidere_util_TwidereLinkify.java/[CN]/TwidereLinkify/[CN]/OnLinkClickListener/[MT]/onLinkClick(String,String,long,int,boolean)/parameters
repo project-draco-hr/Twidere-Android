@@ -1,0 +1,5 @@
+String link
+String orig
+long account_id
+int type
+boolean sensitive

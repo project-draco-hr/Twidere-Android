@@ -1,0 +1,4 @@
+{
+  if (!mLoadMoreAutomatically)   return;
+  loadMoreUserLists();
+}

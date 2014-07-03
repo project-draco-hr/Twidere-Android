@@ -1,0 +1,6 @@
+{
+  final FragmentManager fm=mActivity.getFragmentManager();
+  final DialogFragment f=new ProgressDialogFragment();
+  f.setCancelable(false);
+  f.show(fm,"import_hosts_progress");
+}

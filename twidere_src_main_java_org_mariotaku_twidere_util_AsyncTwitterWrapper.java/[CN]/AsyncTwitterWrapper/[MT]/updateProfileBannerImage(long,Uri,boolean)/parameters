@@ -1,0 +1,3 @@
+long accountId
+Uri image_uri
+boolean delete_image

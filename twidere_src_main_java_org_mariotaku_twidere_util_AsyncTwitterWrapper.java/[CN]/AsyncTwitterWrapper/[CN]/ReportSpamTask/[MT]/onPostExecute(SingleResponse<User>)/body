@@ -1,0 +1,17 @@
+{
+  if (result.hasData() && result.getData().getId() > 0) {
+    for (    final Uri uri : STATUSES_URIS) {
+      final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
+      mResolver.delete(uri,where,null);
+    }
+    mMessagesManager.showInfoMessage(R.string.reported_user_for_spam,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_reporting_for_spam,result.getException(),true);
+  }
+  final Intent intent=new Intent(BROADCAST_BLOCKSTATE_CHANGED);
+  intent.putExtra(EXTRA_USER_ID,user_id);
+  intent.putExtra(EXTRA_SUCCEED,result.hasData());
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

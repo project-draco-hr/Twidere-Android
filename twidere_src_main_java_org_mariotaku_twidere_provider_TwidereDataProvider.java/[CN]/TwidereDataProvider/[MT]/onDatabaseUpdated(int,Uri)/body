@@ -1,0 +1,12 @@
+{
+  if (uri == null)   return;
+switch (tableId) {
+case TABLE_ID_ACCOUNTS:
+{
+      clearAccountColor();
+      clearAccountName();
+      break;
+    }
+}
+notifyContentObserver(getNotificationUri(tableId,uri));
+}

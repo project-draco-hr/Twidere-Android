@@ -1,0 +1,23 @@
+{
+  try {
+    final int tableId=getTableId(uri);
+    final String table=getTableNameById(tableId);
+    int result=0;
+    if (table != null) {
+switch (tableId) {
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+        return 0;
+    }
+    result=mDatabaseWrapper.update(table,values,selection,selectionArgs);
+  }
+  if (result > 0) {
+    onDatabaseUpdated(tableId,uri);
+  }
+  return result;
+}
+ catch (final SQLException e) {
+  throw new IllegalStateException(e);
+}
+}

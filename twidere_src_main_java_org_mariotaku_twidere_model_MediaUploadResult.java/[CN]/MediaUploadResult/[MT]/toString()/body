@@ -1,0 +1,3 @@
+{
+  return "MediaUploadResult{media_uris=" + Arrays.toString(media_uris) + ", error_code="+ error_code+ ", error_message="+ error_message+ "}";
+}

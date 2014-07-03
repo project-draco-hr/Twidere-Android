@@ -1,0 +1,5 @@
+{
+  if (mTexEnvMode == mode)   return;
+  mTexEnvMode=mode;
+  mGL.glTexEnvf(GL11.GL_TEXTURE_ENV,GL11.GL_TEXTURE_ENV_MODE,mode);
+}

@@ -1,0 +1,25 @@
+{
+  final ContentResolver cr=mActivity.getContentResolver();
+  InputStream is=null;
+  OutputStream os=null;
+  try {
+    final File cacheDir=mActivity.getCacheDir();
+    is=cr.openInputStream(mUri);
+    final BitmapFactory.Options opts=new BitmapFactory.Options();
+    opts.inJustDecodeBounds=true;
+    BitmapFactory.decodeStream(cr.openInputStream(mUri),null,opts);
+    final String mimeType=opts.outMimeType;
+    final String suffix=mimeType != null ? "." + MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType) : null;
+    final File outFile=File.createTempFile("temp_image_",suffix,cacheDir);
+    os=new FileOutputStream(outFile);
+    IoUtils.copyStream(is,os,null);
+    return SingleResponse.getInstance(outFile);
+  }
+ catch (  final IOException e) {
+    return SingleResponse.getInstance(e);
+  }
+ finally {
+    IoUtils.closeSilently(os);
+    IoUtils.closeSilently(is);
+  }
+}

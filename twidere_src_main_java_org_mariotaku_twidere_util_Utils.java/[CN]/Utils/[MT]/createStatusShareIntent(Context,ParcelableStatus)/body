@@ -1,0 +1,11 @@
+{
+  final Intent intent=new Intent(Intent.ACTION_SEND);
+  intent.setType("text/plain");
+  final String name=status.user_name, screenName=status.user_screen_name;
+  final String timeString=formatToLongTimeString(context,status.timestamp);
+  final String subject=context.getString(R.string.share_subject_format,name,screenName,timeString);
+  intent.putExtra(Intent.EXTRA_SUBJECT,subject);
+  intent.putExtra(Intent.EXTRA_TEXT,status.text_plain);
+  intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+  return intent;
+}

@@ -1,0 +1,3 @@
+{
+  return mPreferences.getInt(KEY_NOTIFICATION_LIGHT_COLOR,getDefaultNotificationLightColor());
+}

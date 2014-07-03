@@ -1,0 +1,3 @@
+{
+  return "StatusUpdate{status=" + status + ", inReplyToStatusId="+ inReplyToStatusId+ ", location="+ location+ ", placeId="+ placeId+ ", displayCoordinates="+ displayCoordinates+ ", possiblySensitive="+ possiblySensitive+ ", mediaName="+ mediaName+ ", mediaFile="+ mediaFile+ ", overrideContentType="+ overrideContentType+ "}";
+}

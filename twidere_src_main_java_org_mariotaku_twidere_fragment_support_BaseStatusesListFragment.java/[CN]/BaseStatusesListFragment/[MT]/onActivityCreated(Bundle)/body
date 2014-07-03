@@ -1,0 +1,23 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final Context context=getActivity();
+  mAsyncTaskManager=getAsyncTaskManager();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPositionManager=new PositionManager(context);
+  mMultiSelectManager=getMultiSelectManager();
+  mListView=getListView();
+  final boolean plainListStyle=mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false);
+  final boolean compactCards=mPreferences.getBoolean(KEY_COMPACT_CARDS,false);
+  mAdapter=newAdapterInstance(compactCards,plainListStyle);
+  mAdapter.setMenuButtonClickListener(this);
+  setListAdapter(null);
+  setListHeaderFooters(mListView);
+  setListAdapter(mAdapter);
+  if (!plainListStyle) {
+    mListView.setDivider(null);
+  }
+  mListView.setSelector(android.R.color.transparent);
+  mListView.setOnItemLongClickListener(this);
+  setListShown(false);
+  getLoaderManager().initLoader(0,getArguments(),this);
+}

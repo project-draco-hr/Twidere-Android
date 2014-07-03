@@ -1,0 +1,10 @@
+{
+  super(context);
+  mOmitIntentExtra=omitIntentExtra;
+  mExtras=extras;
+  mAccountId=accountId;
+  mUserId=userId;
+  mListId=listId;
+  mScreenName=screenName;
+  mListName=listName;
+}

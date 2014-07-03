@@ -1,0 +1,3 @@
+{
+  this(context,layoutRes,null);
+}

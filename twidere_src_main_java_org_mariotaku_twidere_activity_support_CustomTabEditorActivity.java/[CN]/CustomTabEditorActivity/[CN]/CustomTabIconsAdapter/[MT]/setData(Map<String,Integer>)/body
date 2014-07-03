@@ -1,0 +1,6 @@
+{
+  clear();
+  if (map == null)   return;
+  addAll(map.entrySet());
+  sort(new LocationComparator(mResources));
+}

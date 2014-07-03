@@ -1,0 +1,4 @@
+{
+  if (mThreadPool != null)   return mThreadPool;
+  return mThreadPool=new ThreadPool();
+}

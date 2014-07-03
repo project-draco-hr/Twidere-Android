@@ -1,0 +1,10 @@
+{
+  JSONObject json=null;
+  try {
+    json=res.asJSONObject();
+    return createPlaceList(json.getJSONObject("result").getJSONArray("places"),res,conf);
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone.getMessage() + ":" + json.toString(),jsone);
+  }
+}

@@ -1,0 +1,25 @@
+{
+switch (requestCode) {
+case REQUEST_SET_COLOR:
+{
+      if (resultCode == Activity.RESULT_OK) {
+        if (data == null)         return;
+        final ContentValues values=new ContentValues();
+        values.put(Accounts.COLOR,data.getIntExtra(EXTRA_COLOR,Color.WHITE));
+        final String where=Accounts.ACCOUNT_ID + " = " + mAccountsAdapter.getSelectedAccountId();
+        mResolver.update(Accounts.CONTENT_URI,values,where,null);
+      }
+      return;
+    }
+case REQUEST_SETTINGS:
+{
+    if (data == null)     return;
+    final FragmentActivity activity=getActivity();
+    if (data.getBooleanExtra(EXTRA_RESTART_ACTIVITY,false) && activity instanceof IThemedActivity) {
+      ((IThemedActivity)activity).restart();
+    }
+    return;
+  }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

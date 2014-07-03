@@ -1,0 +1,9 @@
+{
+  final boolean enable_in_home_timeline=mPreferences.getBoolean(KEY_FILTERS_IN_HOME_TIMELINE,true);
+  final boolean enable_in_mentions=mPreferences.getBoolean(KEY_FILTERS_IN_MENTIONS,true);
+  final boolean enable_for_rts=mPreferences.getBoolean(KEY_FILTERS_FOR_RTS,true);
+  menu.findItem(R.id.enable_in_home_timeline).setChecked(enable_in_home_timeline);
+  menu.findItem(R.id.enable_in_mentions).setChecked(enable_in_mentions);
+  menu.findItem(R.id.enable_for_rts).setChecked(enable_for_rts);
+  return true;
+}

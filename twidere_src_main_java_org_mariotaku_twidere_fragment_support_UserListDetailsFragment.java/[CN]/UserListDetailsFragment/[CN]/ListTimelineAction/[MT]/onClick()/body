@@ -1,0 +1,4 @@
+{
+  if (mUserList == null)   return;
+  openUserListTimeline(getActivity(),mUserList);
+}

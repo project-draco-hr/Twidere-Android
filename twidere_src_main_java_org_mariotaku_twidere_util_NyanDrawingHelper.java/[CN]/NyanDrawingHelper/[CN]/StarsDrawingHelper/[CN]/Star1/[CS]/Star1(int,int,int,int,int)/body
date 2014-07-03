@@ -1,0 +1,3 @@
+{
+  super(initialFrame,initialColumn,initialRow,maxColumn,maxRow);
+}

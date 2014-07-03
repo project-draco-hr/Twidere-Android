@@ -1,0 +1,8 @@
+{
+  if (isChecked) {
+    mCheckedFilterItems.add(mFilterItems[which]);
+  }
+ else {
+    mCheckedFilterItems.remove(mFilterItems[which]);
+  }
+}

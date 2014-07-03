@@ -1,0 +1,24 @@
+{
+switch (view.getId()) {
+case R.id.send:
+{
+      sendDirectMessage();
+      break;
+    }
+case R.id.recipient_selector:
+{
+    if (mAccountId <= 0)     return;
+    final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
+    intent.setClass(getActivity(),UserListSelectorActivity.class);
+    intent.putExtra(EXTRA_ACCOUNT_ID,mAccountId);
+    startActivityForResult(intent,REQUEST_SELECT_USER);
+    break;
+  }
+case R.id.add_image:
+{
+  final Intent intent=new Intent(getActivity(),ImagePickerActivity.class);
+  startActivityForResult(intent,REQUEST_PICK_IMAGE);
+  break;
+}
+}
+}

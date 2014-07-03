@@ -1,0 +1,30 @@
+{
+  final int b=borderSize << level;
+  final int t=tileSize << level;
+  final Rect wantRegion=new Rect(x - b,y - b,x + t + b,y + t + b);
+  BitmapRegionDecoder regionDecoder;
+  Rect overlapRegion;
+synchronized (this) {
+    regionDecoder=mRegionDecoder;
+    if (regionDecoder == null)     return null;
+    overlapRegion=new Rect(0,0,mImageWidth,mImageHeight);
+    GalleryUtils.assertTrue(overlapRegion.intersect(wantRegion));
+  }
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inPreferredConfig=Config.RGB_565;
+  options.inPreferQualityOverSpeed=true;
+  options.inSampleSize=1 << level;
+  Bitmap bitmap=null;
+synchronized (regionDecoder) {
+    bitmap=regionDecoder.decodeRegion(overlapRegion,options);
+  }
+  if (bitmap == null) {
+    Log.w(TAG,"fail in decoding region");
+  }
+  if (wantRegion.equals(overlapRegion))   return bitmap;
+  final int s=tileSize + 2 * borderSize;
+  final Bitmap result=Bitmap.createBitmap(s,s,Config.RGB_565);
+  final Canvas canvas=new Canvas(result);
+  canvas.drawBitmap(bitmap,overlapRegion.left - wantRegion.left >> level,overlapRegion.top - wantRegion.top >> level,null);
+  return result;
+}

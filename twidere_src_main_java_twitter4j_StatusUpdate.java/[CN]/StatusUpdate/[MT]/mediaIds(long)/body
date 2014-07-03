@@ -1,0 +1,4 @@
+{
+  setMediaIds(mediaIds);
+  return this;
+}

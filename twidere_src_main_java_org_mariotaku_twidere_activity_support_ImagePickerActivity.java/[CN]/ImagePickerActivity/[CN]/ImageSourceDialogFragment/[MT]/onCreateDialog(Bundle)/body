@@ -1,0 +1,5 @@
+{
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setItems(R.array.entries_image_sources,this);
+  return builder.create();
+}

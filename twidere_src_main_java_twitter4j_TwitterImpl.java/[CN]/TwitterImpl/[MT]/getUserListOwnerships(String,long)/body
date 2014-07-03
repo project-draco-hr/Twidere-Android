@@ -1,0 +1,6 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_LISTS_OWNERSHIPS;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_LISTS_OWNERSHIPS;
+  return factory.createPagableUserListList(get(url,signUrl,new HttpParameter("screen_name",listMemberScreenName),new HttpParameter("cursor",cursor)));
+}

@@ -1,0 +1,5 @@
+{
+  super.onLoaderReset(loader);
+  mNextCursor=-1;
+  mPrevCursor=-1;
+}

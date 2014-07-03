@@ -1,0 +1,4 @@
+{
+  super(context,attrs,defStyle);
+  mForegroundViewHelper=new ForegroundViewHelper(this,context,attrs,defStyle);
+}

@@ -1,0 +1,5 @@
+{
+  if (mUser == null)   return getString(R.string.lists_following_user);
+  final String display_name=getDisplayName(getActivity(),mUser.id,mUser.name,mUser.screen_name);
+  return getString(R.string.lists_following_user_with_name,display_name);
+}

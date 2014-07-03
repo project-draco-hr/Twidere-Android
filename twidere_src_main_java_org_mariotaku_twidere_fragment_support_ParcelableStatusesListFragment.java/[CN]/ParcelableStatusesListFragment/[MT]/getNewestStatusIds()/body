@@ -1,0 +1,5 @@
+{
+  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final long last_id=adapter.getCount() > 0 ? adapter.getStatus(0).id : -1;
+  return last_id > 0 ? new long[]{last_id} : null;
+}

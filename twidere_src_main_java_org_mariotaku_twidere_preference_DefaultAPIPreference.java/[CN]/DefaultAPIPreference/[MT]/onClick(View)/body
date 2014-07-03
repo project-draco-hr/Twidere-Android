@@ -1,0 +1,6 @@
+{
+  final boolean isVisible=mAdvancedAPIConfigView.isShown();
+  final int compoundRes=isVisible ? R.drawable.expander_close_holo : R.drawable.expander_open_holo;
+  mAdvancedAPIConfigLabel.setCompoundDrawablesWithIntrinsicBounds(compoundRes,0,0,0);
+  mAdvancedAPIConfigView.setVisibility(isVisible ? View.GONE : View.VISIBLE);
+}

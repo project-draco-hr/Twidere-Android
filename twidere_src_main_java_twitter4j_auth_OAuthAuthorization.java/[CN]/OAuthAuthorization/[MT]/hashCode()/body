@@ -1,0 +1,6 @@
+{
+  int result=consumerKey != null ? consumerKey.hashCode() : 0;
+  result=31 * result + (consumerSecret != null ? consumerSecret.hashCode() : 0);
+  result=31 * result + (oauthToken != null ? oauthToken.hashCode() : 0);
+  return result;
+}

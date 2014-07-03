@@ -1,0 +1,3 @@
+{
+  return getMediaTimeline(userId,null);
+}

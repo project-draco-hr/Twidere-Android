@@ -1,0 +1,6 @@
+{
+  initialCapacity=idealLongArraySize(initialCapacity);
+  mKeys=new long[initialCapacity];
+  mValues=new Object[initialCapacity];
+  mSize=0;
+}

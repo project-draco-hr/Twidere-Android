@@ -1,0 +1,15 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      if (mFinishOnly) {
+        finish();
+      }
+ else {
+        navigateUpFromSameTask();
+      }
+      break;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

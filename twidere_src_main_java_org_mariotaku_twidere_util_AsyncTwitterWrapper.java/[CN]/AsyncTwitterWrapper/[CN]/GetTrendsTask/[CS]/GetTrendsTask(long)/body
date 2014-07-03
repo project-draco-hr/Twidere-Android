@@ -1,0 +1,4 @@
+{
+  super(mContext,mAsyncTaskManager,TASK_TAG_GET_TRENDS);
+  this.account_id=account_id;
+}

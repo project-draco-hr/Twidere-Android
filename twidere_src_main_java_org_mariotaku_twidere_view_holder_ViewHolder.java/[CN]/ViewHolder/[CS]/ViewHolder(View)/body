@@ -1,0 +1,4 @@
+{
+  if (view == null)   throw new NullPointerException();
+  this.view=view;
+}

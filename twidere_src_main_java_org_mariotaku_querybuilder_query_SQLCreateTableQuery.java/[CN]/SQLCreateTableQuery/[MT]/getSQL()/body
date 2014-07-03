@@ -1,0 +1,20 @@
+{
+  if (table == null)   throw new NullPointerException("NAME must not be null!");
+  if ((newColumns == null || newColumns.length == 0) && selectStmt == null)   throw new NullPointerException("Columns or AS must not be null!");
+  final StringBuilder sb=new StringBuilder("CREATE ");
+  if (temporary) {
+    sb.append("TEMPORARY ");
+  }
+  sb.append("TABLE ");
+  if (createIfNotExists) {
+    sb.append("IF NOT EXISTS ");
+  }
+  sb.append(String.format("%s ",table));
+  if (newColumns != null && newColumns.length > 0) {
+    sb.append(String.format("(%s)",Utils.toString(newColumns)));
+  }
+ else {
+    sb.append(String.format("AS %s",selectStmt.getSQL()));
+  }
+  return sb.toString();
+}

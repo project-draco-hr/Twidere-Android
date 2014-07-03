@@ -1,0 +1,11 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final FriendshipJSONImpl that=(FriendshipJSONImpl)o;
+  if (followedBy != that.followedBy)   return false;
+  if (following != that.following)   return false;
+  if (id != that.id)   return false;
+  if (!name.equals(that.name))   return false;
+  if (!screenName.equals(that.screenName))   return false;
+  return true;
+}

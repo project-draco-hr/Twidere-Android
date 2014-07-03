@@ -1,0 +1,5 @@
+{
+  mUsersAdapter.setData(data,true);
+  mUsersListContainer.setVisibility(View.VISIBLE);
+  mUserListsContainer.setVisibility(View.GONE);
+}

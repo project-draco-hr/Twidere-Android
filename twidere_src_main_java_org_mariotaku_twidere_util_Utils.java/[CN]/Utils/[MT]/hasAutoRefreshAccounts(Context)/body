@@ -1,0 +1,5 @@
+{
+  final long[] accountIds=getAccountIds(context);
+  final long[] refreshIds=AccountPreferences.getAutoRefreshEnabledAccountIds(context,accountIds);
+  return refreshIds != null && refreshIds.length > 0;
+}

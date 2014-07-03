@@ -1,0 +1,10 @@
+{
+  if (mShowBars) {
+    hideBars();
+  }
+ else {
+    if (canShowBars()) {
+      showBars();
+    }
+  }
+}

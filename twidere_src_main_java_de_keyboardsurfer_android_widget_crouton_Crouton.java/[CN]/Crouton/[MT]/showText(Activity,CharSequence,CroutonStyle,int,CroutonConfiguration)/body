@@ -1,0 +1,3 @@
+{
+  makeText(activity,text,style,(ViewGroup)activity.findViewById(viewGroupResId)).setConfiguration(configuration).show();
+}

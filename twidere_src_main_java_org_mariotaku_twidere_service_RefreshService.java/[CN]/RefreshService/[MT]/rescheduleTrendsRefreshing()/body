@@ -1,0 +1,7 @@
+{
+  mAlarmManager.cancel(mPendingRefreshTrendsIntent);
+  final long refreshInterval=getRefreshInterval();
+  if (refreshInterval > 0) {
+    mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + refreshInterval,refreshInterval,mPendingRefreshTrendsIntent);
+  }
+}

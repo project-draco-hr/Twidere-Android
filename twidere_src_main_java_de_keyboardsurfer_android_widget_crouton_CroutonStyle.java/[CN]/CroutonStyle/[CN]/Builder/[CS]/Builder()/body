@@ -1,0 +1,15 @@
+{
+  configuration=CroutonConfiguration.DEFAULT;
+  paddingInPixels=10;
+  backgroundColorResourceId=android.R.color.holo_blue_light;
+  backgroundDrawableResourceId=0;
+  backgroundColorValue=-1;
+  isTileEnabled=false;
+  textColorResourceId=android.R.color.white;
+  heightInPixels=LayoutParams.WRAP_CONTENT;
+  widthInPixels=LayoutParams.MATCH_PARENT;
+  gravity=Gravity.CENTER;
+  imageDrawable=null;
+  imageResId=0;
+  imageScaleType=ImageView.ScaleType.FIT_XY;
+}

@@ -1,0 +1,16 @@
+{
+  super.onCreate();
+  ProfilingUtil.log(this,"onCreate");
+  mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+  mAlarmManager=(AlarmManager)getSystemService(Service.ALARM_SERVICE);
+  mAlarmReceiver=new LocationUpdateReceiver();
+  final IntentFilter filter=new IntentFilter();
+  filter.addAction(ACTION_GET_LOCATION);
+  registerReceiver(mAlarmReceiver,filter);
+  final Intent intent=new Intent(ACTION_GET_LOCATION);
+  locationIntent=PendingIntent.getBroadcast(this,0,intent,0);
+  mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),LOCATION_PERIOD_IN_MILLI,locationIntent);
+  final Intent i=new Intent(UploadReceiver.ACTION_UPLOAD_PROFILE);
+  uploadIntent=PendingIntent.getBroadcast(this,0,i,0);
+  mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),12 * 60 * 60* 1000,uploadIntent);
+}

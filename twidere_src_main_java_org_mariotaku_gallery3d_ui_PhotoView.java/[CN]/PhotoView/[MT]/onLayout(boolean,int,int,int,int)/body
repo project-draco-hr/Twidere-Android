@@ -1,0 +1,16 @@
+{
+  final int w=right - left;
+  final int h=bottom - top;
+  mTileView.layout(0,0,w,h);
+  mEdgeView.layout(0,0,w,h);
+  final GLRoot root=getGLRoot();
+  final int displayRotation=root.getDisplayRotation();
+  final int compensation=root.getCompensation();
+  if (mDisplayRotation != displayRotation || mCompensation != compensation) {
+    mDisplayRotation=displayRotation;
+    mCompensation=compensation;
+  }
+  if (changeSize) {
+    mPositionController.setViewSize(getWidth(),getHeight());
+  }
+}

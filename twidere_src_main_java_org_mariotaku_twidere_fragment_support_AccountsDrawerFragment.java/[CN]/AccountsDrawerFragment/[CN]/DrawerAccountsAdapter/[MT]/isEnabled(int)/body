@@ -1,0 +1,5 @@
+{
+  final Cursor c=getCursor();
+  if (c == null || c.isClosed() || !c.moveToPosition(position))   return false;
+  return c.getLong(mIndices.account_id) != mSelectedAccountId;
+}

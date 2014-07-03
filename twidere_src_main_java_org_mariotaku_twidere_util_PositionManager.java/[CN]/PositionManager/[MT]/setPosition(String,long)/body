@@ -1,0 +1,7 @@
+{
+  if (TextUtils.isEmpty(key))   return false;
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putLong(key,status_id);
+  editor.apply();
+  return true;
+}

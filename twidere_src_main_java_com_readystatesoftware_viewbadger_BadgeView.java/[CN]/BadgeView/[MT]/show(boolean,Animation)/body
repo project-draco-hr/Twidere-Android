@@ -1,0 +1,14 @@
+{
+  if (getBackground() == null) {
+    if (badgeBg == null) {
+      badgeBg=getDefaultBackground();
+    }
+    ViewAccessor.setBackground(this,badgeBg);
+  }
+  applyLayoutParams();
+  if (animate) {
+    startAnimation(anim);
+  }
+  setVisibility(View.VISIBLE);
+  isShown=true;
+}

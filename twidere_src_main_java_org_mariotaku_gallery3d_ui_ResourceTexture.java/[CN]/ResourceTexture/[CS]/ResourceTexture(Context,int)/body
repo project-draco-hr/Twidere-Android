@@ -1,0 +1,5 @@
+{
+  mContext=GalleryUtils.checkNotNull(context);
+  mResId=resId;
+  setOpaque(false);
+}

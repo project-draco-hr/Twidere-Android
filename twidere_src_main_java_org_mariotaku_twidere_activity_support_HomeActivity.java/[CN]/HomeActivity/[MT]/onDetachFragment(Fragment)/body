@@ -1,0 +1,5 @@
+{
+  if (fragment instanceof IBaseFragment && ((IBaseFragment)fragment).getTabPosition() != -1) {
+    mAttachedFragments.remove(((IBaseFragment)fragment).getTabPosition());
+  }
+}

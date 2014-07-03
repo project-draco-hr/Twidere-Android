@@ -1,0 +1,10 @@
+{
+  final Cursor cur=db.query(table,null,null,null,null,null,null,"1");
+  if (cur == null)   return null;
+  try {
+    return cur.getColumnNames();
+  }
+  finally {
+    cur.close();
+  }
+}

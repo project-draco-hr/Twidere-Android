@@ -1,0 +1,3 @@
+{
+  mAccountsAdapter.changeCursor(null);
+}

@@ -1,0 +1,6 @@
+{
+  super(createHandler());
+  mFragment=fragment;
+  mLoaderId=loaderId;
+  mCallback=callback;
+}

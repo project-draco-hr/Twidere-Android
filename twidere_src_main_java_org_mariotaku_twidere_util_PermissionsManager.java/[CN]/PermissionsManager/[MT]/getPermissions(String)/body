@@ -1,0 +1,7 @@
+{
+  if (isEmpty(packageName))   return new String[0];
+  final String permissionsString=mPreferences.getString(packageName,null);
+  if (isEmpty(permissionsString))   return new String[0];
+  if (permissionsString.contains(PERMISSION_DENIED))   return PERMISSIONS_DENIED;
+  return permissionsString.split("\\|");
+}

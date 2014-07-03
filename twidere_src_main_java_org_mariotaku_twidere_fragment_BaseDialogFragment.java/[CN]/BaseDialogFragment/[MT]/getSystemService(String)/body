@@ -1,0 +1,5 @@
+{
+  final Activity activity=getActivity();
+  if (activity != null)   return activity.getSystemService(name);
+  return null;
+}

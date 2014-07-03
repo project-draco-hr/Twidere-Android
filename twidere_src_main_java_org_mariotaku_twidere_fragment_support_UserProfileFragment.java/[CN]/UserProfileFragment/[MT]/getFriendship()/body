@@ -1,0 +1,15 @@
+{
+  final ParcelableUser user=mUser;
+  final LoaderManager lm=getLoaderManager();
+  lm.destroyLoader(LOADER_ID_FRIENDSHIP);
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,user.account_id);
+  args.putLong(EXTRA_USER_ID,user.id);
+  if (!mGetFriendShipLoaderInitialized) {
+    lm.initLoader(LOADER_ID_FRIENDSHIP,args,mFriendshipLoaderCallbacks);
+    mGetFriendShipLoaderInitialized=true;
+  }
+ else {
+    lm.restartLoader(LOADER_ID_FRIENDSHIP,args,mFriendshipLoaderCallbacks);
+  }
+}

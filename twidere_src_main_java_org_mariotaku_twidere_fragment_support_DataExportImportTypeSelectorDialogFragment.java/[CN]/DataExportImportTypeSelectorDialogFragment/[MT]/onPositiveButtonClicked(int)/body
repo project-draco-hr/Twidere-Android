@@ -1,0 +1,9 @@
+{
+  final FragmentActivity a=getActivity();
+  final Bundle args=getArguments();
+  if (args == null)   return;
+  final String path=args.getString(EXTRA_PATH);
+  if (a instanceof Callback) {
+    ((Callback)a).onPositiveButtonClicked(path,flags);
+  }
+}

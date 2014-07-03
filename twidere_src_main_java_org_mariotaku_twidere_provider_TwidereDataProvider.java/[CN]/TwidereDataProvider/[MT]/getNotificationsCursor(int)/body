@@ -1,0 +1,13 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.Notifications.MATRIX_COLUMNS);
+  if (id == NOTIFICATION_ID_HOME_TIMELINE) {
+    c.addRow(new Integer[]{id,mNewStatuses.size()});
+  }
+ else   if (id == NOTIFICATION_ID_MENTIONS) {
+    c.addRow(new Integer[]{id,mNewMentions.size()});
+  }
+ else   if (id == NOTIFICATION_ID_DIRECT_MESSAGES) {
+    c.addRow(new Integer[]{id,mNewMessages.size()});
+  }
+  return c;
+}

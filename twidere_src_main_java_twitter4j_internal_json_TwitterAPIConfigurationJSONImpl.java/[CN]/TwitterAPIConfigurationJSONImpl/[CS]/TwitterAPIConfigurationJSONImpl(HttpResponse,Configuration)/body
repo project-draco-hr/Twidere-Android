@@ -1,0 +1,32 @@
+{
+  super(res);
+  try {
+    final JSONObject json=res.asJSONObject();
+    photoSizeLimit=getInt("photo_size_limit",json);
+    shortURLLength=getInt("short_url_length",json);
+    shortURLLengthHttps=getInt("short_url_length_https",json);
+    charactersReservedPerMedia=getInt("characters_reserved_per_media",json);
+    final JSONObject sizes=json.getJSONObject("photo_sizes");
+    photoSizes=new HashMap<Integer,MediaEntity.Size>(4);
+    photoSizes.put(MediaEntity.Size.LARGE,new MediaEntityJSONImpl.Size(sizes.getJSONObject("large")));
+    JSONObject medium;
+    if (sizes.isNull("med")) {
+      medium=sizes.getJSONObject("medium");
+    }
+ else {
+      medium=sizes.getJSONObject("med");
+    }
+    photoSizes.put(MediaEntity.Size.MEDIUM,new MediaEntityJSONImpl.Size(medium));
+    photoSizes.put(MediaEntity.Size.SMALL,new MediaEntityJSONImpl.Size(sizes.getJSONObject("small")));
+    photoSizes.put(MediaEntity.Size.THUMB,new MediaEntityJSONImpl.Size(sizes.getJSONObject("thumb")));
+    final JSONArray nonUsernamePathsJSONArray=json.getJSONArray("non_username_paths");
+    nonUsernamePaths=new String[nonUsernamePathsJSONArray.length()];
+    for (int i=0; i < nonUsernamePathsJSONArray.length(); i++) {
+      nonUsernamePaths[i]=nonUsernamePathsJSONArray.getString(i);
+    }
+    maxMediaPerUpload=getInt("max_media_per_upload",json);
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

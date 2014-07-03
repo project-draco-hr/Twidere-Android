@@ -1,0 +1,7 @@
+{
+  clear();
+  if (data != null && !data.isEmpty()) {
+    addAll(data);
+  }
+  rebuildFilterInfo();
+}

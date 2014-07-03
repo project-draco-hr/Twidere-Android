@@ -1,0 +1,15 @@
+{
+  final Fragment f=mActivity.getSupportFragmentManager().findFragmentByTag(TAG_COPYING_IMAGE);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+  if (result.hasData()) {
+    final Intent data=new Intent();
+    data.setData(Uri.fromFile(result.getData()));
+    mActivity.setResult(RESULT_OK,data);
+  }
+ else   if (result.hasException()) {
+    Log.w(LOGTAG,result.getException());
+  }
+  mActivity.finish();
+}

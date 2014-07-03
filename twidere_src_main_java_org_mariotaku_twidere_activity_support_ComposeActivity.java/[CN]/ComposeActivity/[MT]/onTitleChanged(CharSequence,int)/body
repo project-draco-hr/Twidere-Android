@@ -1,0 +1,4 @@
+{
+  super.onTitleChanged(title,color);
+  mTitleView.setText(title);
+}

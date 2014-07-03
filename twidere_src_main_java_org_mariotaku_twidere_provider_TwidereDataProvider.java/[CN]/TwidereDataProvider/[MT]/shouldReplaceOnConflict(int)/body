@@ -1,0 +1,13 @@
+{
+switch (table_id) {
+case TABLE_ID_CACHED_HASHTAGS:
+case TABLE_ID_CACHED_STATUSES:
+case TABLE_ID_CACHED_USERS:
+case TABLE_ID_FILTERED_USERS:
+case TABLE_ID_FILTERED_KEYWORDS:
+case TABLE_ID_FILTERED_SOURCES:
+case TABLE_ID_FILTERED_LINKS:
+    return true;
+}
+return false;
+}

@@ -1,0 +1,64 @@
+{
+  if (result != null) {
+    if (result.succeed) {
+      final ContentValues values;
+switch (result.auth_type) {
+case Accounts.AUTH_TYPE_BASIC:
+{
+          values=makeAccountContentValuesBasic(result.conf,result.basic_username,result.basic_password,result.user,result.color,result.api_url_format);
+          break;
+        }
+case Accounts.AUTH_TYPE_TWIP_O_MODE:
+{
+        values=makeAccountContentValuesTWIP(result.conf,result.user,result.color,result.api_url_format);
+        break;
+      }
+case Accounts.AUTH_TYPE_OAUTH:
+case Accounts.AUTH_TYPE_XAUTH:
+{
+      values=makeAccountContentValuesOAuth(result.conf,result.access_token,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url);
+      break;
+    }
+default :
+{
+    values=null;
+  }
+}
+if (values != null) {
+mResolver.insert(Accounts.CONTENT_URI,values);
+}
+mLoggedId=result.user.getId();
+final Intent intent=new Intent(this,HomeActivity.class);
+final Bundle bundle=new Bundle();
+bundle.putLongArray(EXTRA_IDS,new long[]{mLoggedId});
+intent.putExtras(bundle);
+intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+startActivity(intent);
+finish();
+}
+ else if (result.already_logged_in) {
+Crouton.makeText(this,R.string.error_already_logged_in,CroutonStyle.ALERT).show();
+}
+ else {
+if (result.exception instanceof AuthenticityTokenException) {
+Crouton.makeText(this,R.string.wrong_api_key,CroutonStyle.ALERT).show();
+}
+ else if (result.exception instanceof WrongUserPassException) {
+Crouton.makeText(this,R.string.wrong_username_password,CroutonStyle.ALERT).show();
+}
+ else if (result.exception instanceof AuthenticationException) {
+showErrorMessage(this,getString(R.string.action_signing_in),result.exception.getCause(),true);
+}
+ else {
+showErrorMessage(this,getString(R.string.action_signing_in),result.exception,true);
+}
+}
+}
+setProgressBarIndeterminateVisibility(false);
+mEditPassword.setEnabled(true);
+mEditUsername.setEnabled(true);
+mSignInButton.setEnabled(true);
+mSignUpButton.setEnabled(true);
+mSetColorButton.setEnabled(true);
+setSignInButton();
+}

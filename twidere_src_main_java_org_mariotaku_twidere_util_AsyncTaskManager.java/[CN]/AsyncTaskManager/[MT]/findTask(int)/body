@@ -1,0 +1,6 @@
+{
+  for (  final ManagedAsyncTask<?,?,?> task : getTaskSpecList()) {
+    if (hashCode == task.hashCode())     return task;
+  }
+  return null;
+}

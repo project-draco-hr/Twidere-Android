@@ -1,0 +1,5 @@
+{
+  tryCreateDatabase();
+  if (mDatabase == null)   return 0;
+  return mDatabase.update(table,values,whereClause,whereArgs);
+}

@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createPagableUserListList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_MEMBERSHIPS,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_MEMBERSHIPS,new HttpParameter("cursor",cursor)));
+}

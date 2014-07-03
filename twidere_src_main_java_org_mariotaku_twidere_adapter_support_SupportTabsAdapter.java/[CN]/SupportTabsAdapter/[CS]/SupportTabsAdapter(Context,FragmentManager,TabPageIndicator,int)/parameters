@@ -1,0 +1,4 @@
+Context context
+FragmentManager fm
+TabPageIndicator indicator
+int columns

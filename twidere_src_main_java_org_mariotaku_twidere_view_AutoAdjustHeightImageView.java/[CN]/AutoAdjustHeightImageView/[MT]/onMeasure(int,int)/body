@@ -1,0 +1,12 @@
+{
+  final int width=MeasureSpec.getSize(widthMeasureSpec);
+  final Drawable d=getDrawable();
+  final Bitmap b=d instanceof BitmapDrawable ? ((BitmapDrawable)d).getBitmap() : null;
+  if (b != null) {
+    final int height=Math.round((float)width * (float)b.getHeight() / b.getWidth());
+    setMeasuredDimension(width,height);
+  }
+ else {
+    setMeasuredDimension(width,width);
+  }
+}

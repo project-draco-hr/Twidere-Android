@@ -1,0 +1,9 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final OptionItem option=getItem(position);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  text1.setText(option.name);
+  icon.setImageResource(option.icon);
+  return view;
+}

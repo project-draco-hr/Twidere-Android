@@ -1,0 +1,3 @@
+{
+  return new UserListsLoader(getActivity(),accountId,userId,screenName,getData());
+}

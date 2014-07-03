@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setHttpMaxTotalConnections(httpMaxConnections);
+  return this;
+}

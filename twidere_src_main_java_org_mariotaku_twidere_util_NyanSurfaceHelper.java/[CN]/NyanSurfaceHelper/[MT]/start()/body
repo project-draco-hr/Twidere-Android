@@ -1,0 +1,5 @@
+{
+  if (mThread != null)   return;
+  mThread=new DrawingThread(this,mNyanDrawingHelper);
+  mThread.start();
+}

@@ -1,0 +1,16 @@
+{
+  if (contributors != null) {
+    contributorsIDs=new long[contributors.length];
+    for (int i=0; i < contributors.length; i++) {
+      try {
+        contributorsIDs[i]=Long.parseLong(contributors[i]);
+      }
+ catch (      final NumberFormatException nfe) {
+        nfe.printStackTrace();
+        logger.warn("failed to parse contributors:" + nfe);
+      }
+    }
+    contributors=null;
+  }
+  return contributorsIDs;
+}

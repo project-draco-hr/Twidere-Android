@@ -1,0 +1,11 @@
+{
+  final byte buffer[]=new byte[1024];
+  int rc=is.read(buffer,0,buffer.length);
+  long downloaded=0;
+  while (rc > 0) {
+    downloaded+=rc;
+    mHandler.post(new ProgressUpdateRunnable(mListener,downloaded));
+    os.write(buffer,0,rc);
+    rc=is.read(buffer,0,buffer.length);
+  }
+}

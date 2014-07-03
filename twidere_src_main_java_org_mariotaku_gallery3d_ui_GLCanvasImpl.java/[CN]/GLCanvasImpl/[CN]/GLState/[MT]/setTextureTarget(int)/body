@@ -1,0 +1,10 @@
+{
+  if (mTextureTarget == target)   return;
+  if (mTextureTarget != 0) {
+    mGL.glDisable(mTextureTarget);
+  }
+  mTextureTarget=target;
+  if (mTextureTarget != 0) {
+    mGL.glEnable(mTextureTarget);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  if (table == null)   throw new NullPointerException("table must not be null!");
+  final StringBuilder sb=new StringBuilder();
+  sb.append("INSERT ");
+  if (onConflict != null) {
+    sb.append(String.format("OR %s ",onConflict.getAction()));
+  }
+  sb.append(String.format("INTO %s ",table));
+  sb.append(String.format("(%s) ",Utils.toString(columns,',',false)));
+  sb.append(String.format("%s ",select.getSQL()));
+  return sb.toString();
+}

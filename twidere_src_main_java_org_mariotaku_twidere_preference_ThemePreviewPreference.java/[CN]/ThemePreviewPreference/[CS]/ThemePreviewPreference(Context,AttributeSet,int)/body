@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyle);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  prefs.registerOnSharedPreferenceChangeListener(this);
+}

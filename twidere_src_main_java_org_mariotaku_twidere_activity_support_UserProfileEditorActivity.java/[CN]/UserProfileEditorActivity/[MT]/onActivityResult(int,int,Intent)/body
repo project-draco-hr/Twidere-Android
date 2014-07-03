@@ -1,0 +1,16 @@
+{
+  if (resultCode == RESULT_CANCELED)   return;
+  if (mTask == null || mTask.getStatus() != Status.PENDING)   return;
+switch (requestCode) {
+case REQUEST_UPLOAD_PROFILE_BANNER_IMAGE:
+{
+      mTask.execute();
+      break;
+    }
+case REQUEST_UPLOAD_PROFILE_IMAGE:
+{
+    mTask.execute();
+    break;
+  }
+}
+}

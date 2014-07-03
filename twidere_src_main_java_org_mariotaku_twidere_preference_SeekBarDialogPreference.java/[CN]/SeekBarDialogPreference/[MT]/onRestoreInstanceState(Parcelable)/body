@@ -1,0 +1,11 @@
+{
+  if (state == null || !state.getClass().equals(SavedState.class)) {
+    super.onRestoreInstanceState(state);
+    return;
+  }
+  final SavedState myState=(SavedState)state;
+  setMinProgress(myState.minProgress);
+  setMaxProgress(myState.maxProgress);
+  setProgress(myState.progress);
+  super.onRestoreInstanceState(myState.getSuperState());
+}

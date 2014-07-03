@@ -1,0 +1,25 @@
+{
+  final boolean succeed=result.hasData() && result.getData().id > 0;
+  final String message;
+  if (succeed) {
+    if (users.length == 1) {
+      final ParcelableUser user=users[0];
+      final String displayName=Utils.getDisplayName(mContext,user.id,user.name,user.screen_name);
+      message=mContext.getString(R.string.deleted_user_from_list,displayName,result.getData().name);
+    }
+ else {
+      final Resources res=mContext.getResources();
+      message=res.getQuantityString(R.plurals.deleted_N_users_from_list,users.length,users.length,result.getData().name);
+    }
+    mMessagesManager.showInfoMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_deleting,result.getException(),true);
+  }
+  final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_DELETED);
+  intent.putExtra(EXTRA_USER_LIST,result.getData());
+  intent.putExtra(EXTRA_USERS,users);
+  intent.putExtra(EXTRA_SUCCEED,succeed);
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

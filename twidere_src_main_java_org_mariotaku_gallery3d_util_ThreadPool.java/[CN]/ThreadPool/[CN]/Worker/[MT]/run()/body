@@ -1,0 +1,23 @@
+{
+  if (mListener != null) {
+    mListener.onFutureStart(this);
+  }
+  T result=null;
+  if (setMode(MODE_CPU)) {
+    try {
+      result=mJob.run(this);
+    }
+ catch (    final Throwable ex) {
+      Log.w(TAG,"Exception in running a job",ex);
+    }
+  }
+synchronized (this) {
+    setMode(MODE_NONE);
+    mResult=result;
+    mIsDone=true;
+    notifyAll();
+  }
+  if (mListener != null) {
+    mListener.onFutureDone(this);
+  }
+}

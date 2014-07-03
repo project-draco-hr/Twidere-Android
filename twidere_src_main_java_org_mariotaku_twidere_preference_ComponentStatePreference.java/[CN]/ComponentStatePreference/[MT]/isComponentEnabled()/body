@@ -1,0 +1,4 @@
+{
+  final int state=mPackageManager.getComponentEnabledSetting(mComponentName);
+  return state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED && state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER && state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED;
+}

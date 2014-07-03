@@ -1,0 +1,10 @@
+{
+  if (context == null || type == null)   return false;
+  final ContentResolver resolver=context.getContentResolver();
+  final String where=Tabs.TYPE + " = ?";
+  final Cursor cur=resolver.query(Tabs.CONTENT_URI,new String[0],where,new String[]{type},Tabs.DEFAULT_SORT_ORDER);
+  if (cur == null)   return false;
+  final boolean added=cur.getCount() > 0;
+  cur.close();
+  return added;
+}

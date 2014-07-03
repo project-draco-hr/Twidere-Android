@@ -1,0 +1,35 @@
+{
+switch (id) {
+case TABLE_ID_ACCOUNTS:
+{
+      if (!mPermissionsManager.checkSignature(Binder.getCallingUid()))       throw new SecurityException("Writing to accounts database is not allowed for third-party applications");
+      break;
+    }
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_INBOX:
+case TABLE_ID_DIRECT_MESSAGES_OUTBOX:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION_SCREEN_NAME:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+{
+    if (!checkPermission(PERMISSION_DIRECT_MESSAGES))     throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_DIRECT_MESSAGES");
+    break;
+  }
+case TABLE_ID_STATUSES:
+case TABLE_ID_MENTIONS:
+case TABLE_ID_TABS:
+case TABLE_ID_DRAFTS:
+case TABLE_ID_CACHED_USERS:
+case TABLE_ID_FILTERED_USERS:
+case TABLE_ID_FILTERED_KEYWORDS:
+case TABLE_ID_FILTERED_SOURCES:
+case TABLE_ID_FILTERED_LINKS:
+case TABLE_ID_TRENDS_LOCAL:
+case TABLE_ID_CACHED_STATUSES:
+case TABLE_ID_CACHED_HASHTAGS:
+{
+  if (!checkPermission(PERMISSION_WRITE))   throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_WRITE");
+  break;
+}
+}
+}

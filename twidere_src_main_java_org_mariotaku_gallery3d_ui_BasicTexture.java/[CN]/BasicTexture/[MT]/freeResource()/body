@@ -1,0 +1,8 @@
+{
+  final GLCanvas canvas=mCanvasRef;
+  if (canvas != null && isLoaded()) {
+    canvas.unloadTexture(this);
+  }
+  mState=STATE_UNLOADED;
+  setAssociatedCanvas(null);
+}

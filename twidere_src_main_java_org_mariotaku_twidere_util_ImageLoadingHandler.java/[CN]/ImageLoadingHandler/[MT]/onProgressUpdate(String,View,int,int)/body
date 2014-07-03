@@ -1,0 +1,8 @@
+{
+  if (total == 0 || view == null)   return;
+  final ProgressBar progress=findProgressBar(view.getParent());
+  if (progress != null) {
+    progress.setIndeterminate(false);
+    progress.setProgress(100 * current / total);
+  }
+}

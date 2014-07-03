@@ -1,0 +1,20 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final TextView text=(TextView)(view instanceof TextView ? view : view.findViewById(android.R.id.text1));
+  final File file=getItem(position);
+  if (file == null || text == null)   return view;
+  if (mCurrentPath != null && file.equals(mCurrentPath.getParentFile())) {
+    text.setText("..");
+  }
+ else {
+    text.setText(file.getName());
+  }
+  text.setSingleLine(true);
+  text.setEllipsize(TruncateAt.MARQUEE);
+  text.setPadding(mPadding,mPadding,position,mPadding);
+  final Drawable icon=mResources.getDrawable(file.isDirectory() ? R.drawable.ic_folder : R.drawable.ic_file);
+  icon.mutate();
+  icon.setColorFilter(mActionIconColor,PorterDuff.Mode.SRC_ATOP);
+  text.setCompoundDrawablesWithIntrinsicBounds(icon,null,null,null);
+  return view;
+}

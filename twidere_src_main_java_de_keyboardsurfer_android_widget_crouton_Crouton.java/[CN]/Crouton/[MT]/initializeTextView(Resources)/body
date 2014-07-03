@@ -1,0 +1,21 @@
+{
+  final TextView text=new TextView(activity);
+  text.setId(TEXT_ID);
+  text.setText(this.text);
+  text.setContentDescription(this.text);
+  text.setTypeface(Typeface.DEFAULT_BOLD);
+  text.setGravity(style.gravity);
+  if (style.textColorResourceId != 0) {
+    text.setTextColor(resources.getColor(style.textColorResourceId));
+  }
+  if (style.textSize != 0) {
+    text.setTextSize(TypedValue.COMPLEX_UNIT_SP,style.textSize);
+  }
+  if (style.textShadowColorResId != 0) {
+    initializeTextViewShadow(resources,text);
+  }
+  if (style.textAppearanceResId != 0) {
+    text.setTextAppearance(activity,style.textAppearanceResId);
+  }
+  return text;
+}

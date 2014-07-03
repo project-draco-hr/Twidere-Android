@@ -1,0 +1,3 @@
+{
+  return "CroutonManager{croutonQueue=" + croutonQueue + '}';
+}

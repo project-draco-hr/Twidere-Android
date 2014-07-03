@@ -1,0 +1,3 @@
+long id
+Bitmap bitmap
+boolean alphaChannel

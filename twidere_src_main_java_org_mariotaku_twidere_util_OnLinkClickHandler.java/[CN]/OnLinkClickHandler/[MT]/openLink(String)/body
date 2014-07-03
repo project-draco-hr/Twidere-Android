@@ -1,0 +1,10 @@
+{
+  if (activity == null || manager.isActive())   return;
+  final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(link));
+  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+  try {
+    activity.startActivity(intent);
+  }
+ catch (  final ActivityNotFoundException e) {
+  }
+}

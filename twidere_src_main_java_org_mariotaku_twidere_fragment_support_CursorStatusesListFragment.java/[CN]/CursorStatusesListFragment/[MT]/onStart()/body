@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  final ContentResolver resolver=getContentResolver();
+  resolver.registerContentObserver(Filters.CONTENT_URI,true,mReloadContentObserver);
+  if (getAccountId() <= 0) {
+    resolver.registerContentObserver(Accounts.CONTENT_URI,true,mReloadContentObserver);
+  }
+}

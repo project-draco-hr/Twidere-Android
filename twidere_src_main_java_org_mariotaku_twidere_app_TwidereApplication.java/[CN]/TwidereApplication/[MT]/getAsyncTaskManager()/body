@@ -1,0 +1,4 @@
+{
+  if (mAsyncTaskManager != null)   return mAsyncTaskManager;
+  return mAsyncTaskManager=AsyncTaskManager.getInstance();
+}

@@ -1,0 +1,3 @@
+{
+  return "MediaUpload{path=" + path + ", fd="+ fd+ ", size="+ size+ "}";
+}

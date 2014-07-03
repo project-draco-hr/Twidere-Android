@@ -1,0 +1,10 @@
+{
+  super(context,attrs,defStyle);
+  final Resources res=context.getResources();
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.ValueDependencyPreference,defStyle,0);
+  mDependencyKey=a.getString(R.styleable.ValueDependencyPreference_dependencyKey);
+  final int dependencyValueRes=a.getResourceId(R.styleable.ValueDependencyPreference_dependencyValues,0);
+  mDependencyValues=dependencyValueRes > 0 ? res.getStringArray(dependencyValueRes) : null;
+  mDependencyValueDefault=a.getString(R.styleable.ValueDependencyPreference_dependencyValueDefault);
+  a.recycle();
+}

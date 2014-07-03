@@ -1,0 +1,5 @@
+{
+  if (http != null) {
+    http.shutdown();
+  }
+}

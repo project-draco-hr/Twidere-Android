@@ -1,0 +1,5 @@
+{
+  super(mContext,mAsyncTaskManager);
+  mAccountId=account_id;
+  mUserId=user_id;
+}

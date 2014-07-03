@@ -1,0 +1,5 @@
+{
+  if (mAdapter == null || mAdapter.isEmpty())   return false;
+  setSelection(mAdapter.getCount() - 1);
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  if (isCancelled())   return;
+  onProgressUpdate(mResult);
+}

@@ -1,0 +1,6 @@
+{
+  final boolean wasEmpty=mHead == null;
+  tile.mNext=mHead;
+  mHead=tile;
+  return wasEmpty;
+}

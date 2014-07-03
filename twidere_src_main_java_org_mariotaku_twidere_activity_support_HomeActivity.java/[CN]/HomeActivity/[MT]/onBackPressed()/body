@@ -1,0 +1,7 @@
+{
+  if (mSlidingMenu != null && mSlidingMenu.isMenuShowing()) {
+    mSlidingMenu.showContent();
+    return;
+  }
+  super.onBackPressed();
+}

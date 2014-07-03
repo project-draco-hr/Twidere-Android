@@ -1,0 +1,28 @@
+{
+  while (true) {
+    if (tile.isContentValid()) {
+      source.offset(TILE_BORDER,TILE_BORDER);
+      canvas.drawTexture(tile,source,target);
+      return true;
+    }
+    final Tile parent=tile.getParentTile();
+    if (parent == null)     return false;
+    if (tile.mX == parent.mX) {
+      source.left/=2f;
+      source.right/=2f;
+    }
+ else {
+      source.left=(TILE_SIZE + source.left) / 2f;
+      source.right=(TILE_SIZE + source.right) / 2f;
+    }
+    if (tile.mY == parent.mY) {
+      source.top/=2f;
+      source.bottom/=2f;
+    }
+ else {
+      source.top=(TILE_SIZE + source.top) / 2f;
+      source.bottom=(TILE_SIZE + source.bottom) / 2f;
+    }
+    tile=parent;
+  }
+}

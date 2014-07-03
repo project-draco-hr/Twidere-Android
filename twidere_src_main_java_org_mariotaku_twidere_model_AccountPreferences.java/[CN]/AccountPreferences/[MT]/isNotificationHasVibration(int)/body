@@ -1,0 +1,3 @@
+{
+  return (flags & VALUE_NOTIFICATION_FLAG_VIBRATION) != 0;
+}

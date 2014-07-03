@@ -1,0 +1,7 @@
+{
+  mContext=getContext();
+  final TwidereApplication app=TwidereApplication.getInstance(mContext);
+  mPermissionsManager=new PermissionsManager(mContext);
+  mTwitterWrapper=app.getTwitterWrapper();
+  return true;
+}

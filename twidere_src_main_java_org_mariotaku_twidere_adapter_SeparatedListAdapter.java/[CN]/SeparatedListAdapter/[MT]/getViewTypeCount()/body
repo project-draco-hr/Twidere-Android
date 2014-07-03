@@ -1,0 +1,7 @@
+{
+  int total=1;
+  for (  final Adapter adapter : mSections.values()) {
+    total+=adapter.getViewTypeCount();
+  }
+  return total;
+}

@@ -1,0 +1,19 @@
+{
+switch (requestCode) {
+case REQUEST_IMPORT_SETTINGS:
+{
+      if (resultCode == RESULT_OK) {
+        gotoLastPage();
+      }
+ else {
+        gotoNextPage();
+      }
+      break;
+    }
+default :
+{
+    break;
+  }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

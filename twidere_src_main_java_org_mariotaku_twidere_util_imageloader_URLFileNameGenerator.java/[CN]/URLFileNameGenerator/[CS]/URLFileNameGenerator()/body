@@ -1,0 +1,3 @@
+{
+  mGenerator=new Md5FileNameGenerator();
+}

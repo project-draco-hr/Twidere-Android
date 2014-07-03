@@ -1,0 +1,8 @@
+{
+  if (mSlidingMenu.isMenuShowing()) {
+    mSlidingMenu.showContent();
+  }
+  updateSlidingMenuTouchMode();
+  updateActionsButton();
+  updateSmartBar();
+}

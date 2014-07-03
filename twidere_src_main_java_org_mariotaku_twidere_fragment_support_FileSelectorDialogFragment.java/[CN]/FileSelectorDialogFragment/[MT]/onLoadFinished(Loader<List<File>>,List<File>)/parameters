@@ -1,0 +1,2 @@
+Loader<List<File>> loader
+List<File> data

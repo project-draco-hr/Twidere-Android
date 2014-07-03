@@ -1,0 +1,12 @@
+{
+  HttpResponse response=null;
+  final long start=System.currentTimeMillis();
+  try {
+    response=http.get(url,sign_url,parameters,auth);
+  }
+  finally {
+    final long elapsedTime=System.currentTimeMillis() - start;
+    TwitterAPIMonitor.getInstance().methodCalled(url,elapsedTime,isOk(response));
+  }
+  return response;
+}

@@ -1,0 +1,6 @@
+{
+  for (  final Callback callback : mCallbacks) {
+    callback.onItemsCleared();
+  }
+  mAccountId=-1;
+}

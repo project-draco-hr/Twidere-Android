@@ -1,0 +1,4 @@
+{
+  if (isCursorClosed())   return null;
+  return cursor.getString(mScreenNameIdx != -1 ? mScreenNameIdx : mNameIdx);
+}

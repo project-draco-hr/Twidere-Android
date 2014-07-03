@@ -1,0 +1,39 @@
+{
+switch (requestCode) {
+case REQUEST_EDIT_API:
+{
+      if (resultCode == RESULT_OK) {
+        mAPIUrlFormat=data.getStringExtra(Accounts.API_URL_FORMAT);
+        mAuthType=data.getIntExtra(Accounts.AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
+        mSameOAuthSigningUrl=data.getBooleanExtra(Accounts.SAME_OAUTH_SIGNING_URL,false);
+        mConsumerKey=data.getStringExtra(Accounts.CONSUMER_KEY);
+        mConsumerSecret=data.getStringExtra(Accounts.CONSUMER_SECRET);
+        final boolean isTwipOMode=mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE;
+        mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
+        mSigninSignupContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+      }
+      setSignInButton();
+      invalidateOptionsMenu();
+      break;
+    }
+case REQUEST_SET_COLOR:
+{
+    if (resultCode == BaseSupportActivity.RESULT_OK) {
+      mUserColor=data != null ? data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT) : null;
+    }
+ else     if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
+      mUserColor=null;
+    }
+    setUserColorButton();
+    break;
+  }
+case REQUEST_BROWSER_SIGN_IN:
+{
+  if (resultCode == BaseSupportActivity.RESULT_OK && data != null) {
+    doLogin(data);
+  }
+  break;
+}
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

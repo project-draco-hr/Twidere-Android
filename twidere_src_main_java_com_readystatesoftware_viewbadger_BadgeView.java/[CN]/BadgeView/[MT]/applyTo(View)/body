@@ -1,0 +1,22 @@
+{
+  final LayoutParams lp=target.getLayoutParams();
+  final ViewParent parent=target.getParent();
+  final FrameLayout container=new FrameLayout(context);
+  if (target instanceof TabWidget) {
+    target=((TabWidget)target).getChildTabViewAt(targetTabIndex);
+    this.target=target;
+    ((ViewGroup)target).addView(container,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
+    setVisibility(View.GONE);
+    container.addView(this);
+  }
+ else {
+    final ViewGroup group=(ViewGroup)parent;
+    final int index=group.indexOfChild(target);
+    group.removeView(target);
+    group.addView(container,index,lp);
+    container.addView(target);
+    setVisibility(View.GONE);
+    container.addView(this);
+    group.invalidate();
+  }
+}

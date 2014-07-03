@@ -1,0 +1,6 @@
+Account[] accounts
+String text
+ParcelableLocation location
+ParcelableMediaUpdate[] medias
+long in_reply_to_status_id
+boolean is_possibly_sensitive

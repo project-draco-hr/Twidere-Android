@@ -1,0 +1,4 @@
+{
+  if (mTwitterWrapper != null)   return mTwitterWrapper;
+  return mTwitterWrapper=AsyncTwitterWrapper.getInstance(this);
+}

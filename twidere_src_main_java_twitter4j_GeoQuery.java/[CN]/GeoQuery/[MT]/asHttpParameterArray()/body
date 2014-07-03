@@ -1,0 +1,15 @@
+{
+  final ArrayList<HttpParameter> params=new ArrayList<HttpParameter>();
+  if (location != null) {
+    appendParameter("lat",location.getLatitude(),params);
+    appendParameter("long",location.getLongitude(),params);
+  }
+  if (ip != null) {
+    appendParameter("ip",ip,params);
+  }
+  appendParameter("accuracy",accuracy,params);
+  appendParameter("granularity",granularity,params);
+  appendParameter("max_results",maxResults,params);
+  final HttpParameter[] paramArray=new HttpParameter[params.size()];
+  return params.toArray(paramArray);
+}

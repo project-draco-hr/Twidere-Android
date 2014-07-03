@@ -1,0 +1,3 @@
+{
+  return generateAuthorizationHeader(req.getMethod().name(),req.getSignURL(),req.getParameters(),oauthToken);
+}

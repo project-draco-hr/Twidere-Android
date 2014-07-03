@@ -1,0 +1,3 @@
+{
+  return a.getInt(index,DEFAULT_PROGRESS);
+}

@@ -1,0 +1,12 @@
+{
+  if (mIsCancelled)   return;
+  mIsCancelled=true;
+  if (mWaitOnResource != null) {
+synchronized (mWaitOnResource) {
+      mWaitOnResource.notifyAll();
+    }
+  }
+  if (mCancelListener != null) {
+    mCancelListener.onCancel();
+  }
+}

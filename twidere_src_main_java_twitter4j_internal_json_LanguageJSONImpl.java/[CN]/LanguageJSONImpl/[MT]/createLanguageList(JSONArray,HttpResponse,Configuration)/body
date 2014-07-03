@@ -1,0 +1,18 @@
+{
+  try {
+    final int size=list.length();
+    final ResponseList<HelpResources.Language> languages=new ResponseListImpl<HelpResources.Language>(size,res);
+    for (int i=0; i < size; i++) {
+      final JSONObject json=list.getJSONObject(i);
+      final HelpResources.Language language=new LanguageJSONImpl(json);
+      languages.add(language);
+    }
+    return languages;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+catch (  final TwitterException te) {
+    throw te;
+  }
+}

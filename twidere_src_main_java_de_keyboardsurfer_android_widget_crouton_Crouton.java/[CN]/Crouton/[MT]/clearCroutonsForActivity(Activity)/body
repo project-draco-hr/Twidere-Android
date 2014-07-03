@@ -1,0 +1,3 @@
+{
+  CroutonManager.getInstance().clearCroutonsForActivity(activity);
+}

@@ -1,0 +1,4 @@
+{
+  if (mAnimationKind == ANIM_KIND_FLING)   return interpolateFlingPage(progress);
+ else   return interpolateLinear(progress);
+}

@@ -1,0 +1,6 @@
+{
+  mRenderLock.lock();
+  mFreeze=false;
+  mFreezeCondition.signalAll();
+  mRenderLock.unlock();
+}

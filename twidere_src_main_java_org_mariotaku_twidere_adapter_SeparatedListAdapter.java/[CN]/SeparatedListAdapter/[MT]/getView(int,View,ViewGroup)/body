@@ -1,0 +1,12 @@
+{
+  int sectionnum=0;
+  for (  final Object section : mSections.keySet()) {
+    final Adapter adapter=mSections.get(section);
+    final int size=adapter.getCount() + 1;
+    if (position == 0)     return mHeaders.getView(sectionnum,convertView,parent);
+    if (position < size)     return adapter.getView(position - 1,convertView,parent);
+    position-=size;
+    sectionnum++;
+  }
+  return null;
+}

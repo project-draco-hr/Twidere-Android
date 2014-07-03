@@ -1,0 +1,8 @@
+{
+  if ((option & VALUE_LINK_HIGHLIGHT_OPTION_CODE_UNDERLINE) != 0) {
+    ds.setUnderlineText(true);
+  }
+  if ((option & VALUE_LINK_HIGHLIGHT_OPTION_CODE_HIGHLIGHT) != 0) {
+    ds.setColor(ds.linkColor);
+  }
+}

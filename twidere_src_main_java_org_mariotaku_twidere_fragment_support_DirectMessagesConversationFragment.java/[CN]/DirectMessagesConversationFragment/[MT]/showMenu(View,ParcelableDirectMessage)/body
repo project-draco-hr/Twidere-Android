@@ -1,0 +1,15 @@
+{
+  if (mPopupMenu != null && mPopupMenu.isShowing()) {
+    mPopupMenu.dismiss();
+  }
+  final Context context=ThemeUtils.getThemedContextForActionIcons(getActivity());
+  mPopupMenu=PopupMenu.getInstance(context,view);
+  mPopupMenu.inflate(R.menu.action_direct_message);
+  final Menu menu=mPopupMenu.getMenu();
+  final MenuItem view_profile_item=menu.findItem(MENU_VIEW_PROFILE);
+  if (view_profile_item != null && dm != null) {
+    view_profile_item.setVisible(dm.account_id != dm.sender_id);
+  }
+  mPopupMenu.setOnMenuItemClickListener(this);
+  mPopupMenu.show();
+}

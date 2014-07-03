@@ -1,0 +1,56 @@
+{
+  if (getActivity() == null || getView() == null)   return;
+  setListShown(true);
+  setRefreshComplete();
+  setProgressBarIndeterminateVisibility(false);
+  setData(data);
+  mFirstVisibleItem=-1;
+  mReadPositions.clear();
+  final int firstVisiblePosition=mListView.getFirstVisiblePosition();
+  final int lastVisiblePosition=mListView.getLastVisiblePosition();
+  final int listVisiblePosition, savedChildIndex;
+  final boolean rememberPosition=mPreferences.getBoolean(KEY_REMEMBER_POSITION,true);
+  final boolean loadMoreFromTop=mPreferences.getBoolean(KEY_LOAD_MORE_FROM_TOP,false);
+  final int childCount=mListView.getChildCount();
+  if (firstVisiblePosition != 0 && lastVisiblePosition != mListView.getCount() - 1 && loadMoreFromTop) {
+    listVisiblePosition=lastVisiblePosition;
+    savedChildIndex=childCount - 1;
+    if (childCount > 0) {
+      final View lastChild=mListView.getChildAt(savedChildIndex);
+      mListScrollOffset=lastChild != null ? lastChild.getTop() : 0;
+    }
+  }
+ else {
+    listVisiblePosition=firstVisiblePosition;
+    savedChildIndex=0;
+    if (childCount > 0) {
+      final View firstChild=mListView.getChildAt(savedChildIndex);
+      mListScrollOffset=firstChild != null ? firstChild.getTop() : 0;
+    }
+  }
+  final long lastViewedId=mAdapter.getStatusId(listVisiblePosition);
+  mAdapter.setData(data);
+  mAdapter.setShowAccountColor(shouldShowAccountColor());
+  final int currFirstVisiblePosition=mListView.getFirstVisiblePosition();
+  final long currViewedId=mAdapter.getStatusId(currFirstVisiblePosition);
+  final long statusId;
+  if (lastViewedId <= 0) {
+    if (!rememberPosition)     return;
+    statusId=mPositionManager.getPosition(getPositionKey());
+  }
+ else   if ((listVisiblePosition > 0 || rememberPosition) && currViewedId > 0 && lastViewedId != currViewedId) {
+    statusId=lastViewedId;
+  }
+ else {
+    if (listVisiblePosition == 0 && mAdapter.getStatusId(0) != lastViewedId) {
+      mAdapter.setMaxAnimationPosition(mListView.getLastVisiblePosition());
+    }
+    return;
+  }
+  final int position=mAdapter.findPositionByStatusId(statusId);
+  if (position > -1 && position < mListView.getCount()) {
+    mAdapter.setMaxAnimationPosition(mListView.getLastVisiblePosition());
+    mListView.setSelectionFromTop(position,mListScrollOffset);
+    mListScrollOffset=0;
+  }
+}

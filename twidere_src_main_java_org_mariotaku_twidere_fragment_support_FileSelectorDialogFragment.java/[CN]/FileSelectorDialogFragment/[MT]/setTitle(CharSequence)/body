@@ -1,0 +1,5 @@
+{
+  final Dialog dialog=getDialog();
+  if (dialog == null)   return;
+  dialog.setTitle(title);
+}

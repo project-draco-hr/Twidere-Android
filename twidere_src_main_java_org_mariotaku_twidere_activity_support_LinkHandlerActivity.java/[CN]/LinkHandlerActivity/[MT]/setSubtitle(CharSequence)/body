@@ -1,0 +1,4 @@
+{
+  mSubtitleView.setVisibility(isEmpty(subtitle) ? View.GONE : View.VISIBLE);
+  mSubtitleView.setText(subtitle);
+}

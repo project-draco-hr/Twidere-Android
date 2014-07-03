@@ -1,0 +1,4 @@
+{
+  query.setOffset(offset);
+  return this;
+}

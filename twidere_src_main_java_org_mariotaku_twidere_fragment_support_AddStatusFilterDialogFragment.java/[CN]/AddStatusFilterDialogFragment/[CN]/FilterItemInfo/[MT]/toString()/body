@@ -1,0 +1,3 @@
+{
+  return "FilterItemInfo{type=" + type + ", value="+ value+ "}";
+}

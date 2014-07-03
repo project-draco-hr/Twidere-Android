@@ -1,0 +1,51 @@
+{
+  if (context == null || account == null)   return null;
+switch (account.auth_type) {
+case Accounts.AUTH_TYPE_OAUTH:
+case Accounts.AUTH_TYPE_XAUTH:
+{
+      final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+      final String prefConsumerKey=prefs.getString(KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);
+      final String prefConsumerSecret=prefs.getString(KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET);
+      final ConfigurationBuilder cb=new ConfigurationBuilder();
+      if (!isEmpty(account.api_url_format)) {
+        cb.setRestBaseURL(getApiUrl(account.api_url_format,"api","/1.1/"));
+        cb.setOAuthBaseURL(getApiUrl(account.api_url_format,"api","/oauth/"));
+        cb.setUploadBaseURL(getApiUrl(account.api_url_format,"upload","/1.1/"));
+        if (!account.same_oauth_signing_url) {
+          cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
+          cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);
+          cb.setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
+        }
+      }
+      if (!isEmpty(account.consumer_key) && !isEmpty(account.consumer_secret)) {
+        cb.setOAuthConsumerKey(account.consumer_key);
+        cb.setOAuthConsumerSecret(account.consumer_secret);
+      }
+ else       if (!isEmpty(prefConsumerKey) && !isEmpty(prefConsumerSecret)) {
+        cb.setOAuthConsumerKey(prefConsumerKey);
+        cb.setOAuthConsumerSecret(prefConsumerSecret);
+      }
+ else {
+        cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
+        cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
+      }
+      final OAuthAuthorization auth=new OAuthAuthorization(cb.build());
+      auth.setOAuthAccessToken(new AccessToken(account.oauth_token,account.oauth_token_secret));
+      return auth;
+    }
+case Accounts.AUTH_TYPE_BASIC:
+{
+    final String screenName=account.screen_name;
+    final String username=account.basic_auth_username;
+    final String loginName=username != null ? username : screenName;
+    final String password=account.basic_auth_password;
+    if (isEmpty(loginName) || isEmpty(password))     return null;
+    return new BasicAuthorization(loginName,password);
+  }
+default :
+{
+  return null;
+}
+}
+}

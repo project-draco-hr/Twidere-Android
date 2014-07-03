@@ -1,0 +1,3 @@
+{
+  this(resources,bitmap,shadowRadius,shadowColor,Color.TRANSPARENT);
+}

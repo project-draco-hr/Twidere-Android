@@ -1,0 +1,5 @@
+{
+  savePosition();
+  mMultiSelectManager.unregisterCallback(this);
+  super.onStop();
+}

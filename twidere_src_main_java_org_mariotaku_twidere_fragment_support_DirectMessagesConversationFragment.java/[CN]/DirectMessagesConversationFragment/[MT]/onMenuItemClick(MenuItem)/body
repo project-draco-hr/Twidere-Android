@@ -1,0 +1,23 @@
+{
+  if (mSelectedDirectMessage != null) {
+    final long message_id=mSelectedDirectMessage.id;
+    final long account_id=mSelectedDirectMessage.account_id;
+switch (item.getItemId()) {
+case MENU_DELETE:
+{
+        mTwitterWrapper.destroyDirectMessageAsync(account_id,message_id);
+        break;
+      }
+case MENU_COPY:
+{
+      if (ClipboardUtils.setText(getActivity(),mSelectedDirectMessage.text_plain)) {
+        showOkMessage(getActivity(),R.string.text_copied,false);
+      }
+      break;
+    }
+default :
+  return false;
+}
+}
+return true;
+}

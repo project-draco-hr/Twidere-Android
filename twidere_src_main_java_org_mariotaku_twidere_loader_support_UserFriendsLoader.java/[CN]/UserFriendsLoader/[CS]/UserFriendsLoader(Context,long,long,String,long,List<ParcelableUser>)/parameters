@@ -1,0 +1,6 @@
+Context context
+long account_id
+long user_id
+String screen_name
+long max_id
+List<ParcelableUser> users_list

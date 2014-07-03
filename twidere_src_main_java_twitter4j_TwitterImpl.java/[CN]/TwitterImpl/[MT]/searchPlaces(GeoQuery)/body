@@ -1,0 +1,3 @@
+{
+  return factory.createPlaceList(get(conf.getRestBaseURL() + ENDPOINT_GEO_SEARCH,conf.getSigningRestBaseURL() + ENDPOINT_GEO_SEARCH,query.asHttpParameterArray()));
+}

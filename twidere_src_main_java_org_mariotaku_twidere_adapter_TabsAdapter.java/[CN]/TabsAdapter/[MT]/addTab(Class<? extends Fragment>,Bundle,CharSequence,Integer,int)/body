@@ -1,0 +1,3 @@
+{
+  addTab(new TabSpec(title,icon,cls,args,position));
+}

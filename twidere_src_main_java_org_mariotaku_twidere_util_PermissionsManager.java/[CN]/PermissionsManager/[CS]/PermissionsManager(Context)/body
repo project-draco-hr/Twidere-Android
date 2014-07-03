@@ -1,0 +1,5 @@
+{
+  mContext=context;
+  mPreferences=SharedPreferencesWrapper.getInstance(context,PERMISSION_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPackageManager=context.getPackageManager();
+}

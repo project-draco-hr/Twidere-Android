@@ -1,0 +1,35 @@
+{
+  if (crouton.isShowing())   return;
+  final View croutonView=crouton.getView();
+  if (null == croutonView.getParent()) {
+    ViewGroup.LayoutParams params=croutonView.getLayoutParams();
+    if (null == params) {
+      params=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+    if (null != crouton.getViewGroup()) {
+      if (crouton.getViewGroup() instanceof FrameLayout) {
+        crouton.getViewGroup().addView(croutonView,params);
+      }
+ else {
+        crouton.getViewGroup().addView(croutonView,0,params);
+      }
+    }
+ else {
+      final Activity activity=crouton.getActivity();
+      if (null == activity || activity.isFinishing())       return;
+      activity.addContentView(croutonView,params);
+    }
+  }
+  croutonView.requestLayout();
+  croutonView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      ViewTreeObserverAccessor.removeOnGlobalLayoutListener(croutonView.getViewTreeObserver(),this);
+      croutonView.startAnimation(crouton.getInAnimation());
+      announceForAccessibilityCompat(crouton.getActivity(),crouton.getView(),crouton.getText(),getClass());
+      if (CroutonConfiguration.DURATION_INFINITE != crouton.getConfiguration().durationInMilliseconds) {
+        sendMessageDelayed(crouton,Messages.REMOVE_CROUTON,crouton.getConfiguration().durationInMilliseconds + crouton.getInAnimation().getDuration());
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+{
+  mAttachedFragments.remove(fragment);
+}

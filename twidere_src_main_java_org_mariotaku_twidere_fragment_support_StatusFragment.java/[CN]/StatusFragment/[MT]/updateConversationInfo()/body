@@ -1,0 +1,8 @@
+{
+  final boolean has_converstion=mStatus != null && mStatus.in_reply_to_status_id > 0;
+  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final boolean load_not_finished=adapter.isEmpty() || adapter.getStatus(adapter.getCount() - 1).in_reply_to_status_id > 0;
+  final boolean enable=has_converstion && load_not_finished;
+  mInReplyToView.setVisibility(enable ? View.VISIBLE : View.GONE);
+  mInReplyToView.setClickable(enable);
+}

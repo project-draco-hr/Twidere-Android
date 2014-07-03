@@ -1,0 +1,12 @@
+{
+switch (uri_code) {
+case CODE_REFRESH_ALL:
+case CODE_REFRESH_HOME_TIMELINE:
+case CODE_REFRESH_MENTIONS:
+case CODE_REFRESH_INBOX:
+case CODE_REFRESH_OUTBOX:
+{
+      if (!mPermissionsManager.checkCallingPermission(PERMISSION_REFRESH))       throw new SecurityException("Executing this command requires level PERMISSION_REFRESH");
+    }
+}
+}

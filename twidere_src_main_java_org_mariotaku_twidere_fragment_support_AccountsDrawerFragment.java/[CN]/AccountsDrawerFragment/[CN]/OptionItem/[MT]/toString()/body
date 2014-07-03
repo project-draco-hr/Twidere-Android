@@ -1,0 +1,3 @@
+{
+  return "AccountOption{name=" + name + ", icon="+ icon+ ", id="+ id+ "}";
+}

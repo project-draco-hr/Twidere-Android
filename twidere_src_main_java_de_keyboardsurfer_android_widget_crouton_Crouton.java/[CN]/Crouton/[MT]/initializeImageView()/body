@@ -1,0 +1,18 @@
+{
+  ImageView image;
+  image=new ImageView(activity);
+  image.setId(IMAGE_ID);
+  image.setAdjustViewBounds(true);
+  image.setScaleType(style.imageScaleType);
+  if (null != style.imageDrawable) {
+    image.setImageDrawable(style.imageDrawable);
+  }
+  if (style.imageResId != 0) {
+    image.setImageResource(style.imageResId);
+  }
+  final RelativeLayout.LayoutParams imageParams=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+  imageParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT,RelativeLayout.TRUE);
+  imageParams.addRule(RelativeLayout.CENTER_VERTICAL,RelativeLayout.TRUE);
+  image.setLayoutParams(imageParams);
+  return image;
+}

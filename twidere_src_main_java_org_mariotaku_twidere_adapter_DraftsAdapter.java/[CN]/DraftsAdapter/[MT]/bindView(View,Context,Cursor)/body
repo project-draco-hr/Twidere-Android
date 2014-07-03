@@ -1,0 +1,36 @@
+{
+  final DraftViewHolder holder=(DraftViewHolder)view.getTag();
+  final long[] accountIds=ArrayUtils.parseLongArray(cursor.getString(mIndices.account_ids),',');
+  final String text=cursor.getString(mIndices.text);
+  final ParcelableMediaUpdate[] medias=ParcelableMediaUpdate.fromJSONString(cursor.getString(mIndices.medias));
+  final long timestamp=cursor.getLong(mIndices.timestamp);
+  final int actionType=cursor.getInt(mIndices.action_type);
+  final String actionName=getActionName(context,actionType);
+  if (actionType == Drafts.ACTION_UPDATE_STATUS) {
+    final String mediaUri=medias != null && medias.length > 0 ? medias[0].uri : null;
+    holder.image_preview_container.setVisibility(TextUtils.isEmpty(mediaUri) ? View.GONE : View.VISIBLE);
+    if (mediaUri != null && !mediaUri.equals(mImageLoadingHandler.getLoadingUri(holder.image_preview))) {
+      mImageLoader.displayPreviewImage(holder.image_preview,mediaUri,mImageLoadingHandler);
+    }
+  }
+ else {
+    holder.image_preview_container.setVisibility(View.GONE);
+  }
+  holder.content.drawEnd(getAccountColors(context,accountIds));
+  holder.setTextSize(mTextSize);
+  final boolean emptyContent=TextUtils.isEmpty(text);
+  if (emptyContent) {
+    holder.text.setText(R.string.empty_content);
+  }
+ else {
+    holder.text.setText(text);
+  }
+  holder.text.setTypeface(holder.text.getTypeface(),emptyContent ? Typeface.ITALIC : Typeface.NORMAL);
+  if (timestamp > 0) {
+    final String timeString=Utils.formatSameDayTime(context,timestamp);
+    holder.time.setText(context.getString(R.string.action_name_saved_at_time,actionName,timeString));
+  }
+ else {
+    holder.time.setText(actionName);
+  }
+}

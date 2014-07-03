@@ -1,0 +1,11 @@
+{
+  if (mDividerPainter == null) {
+    if (mAccentColor != 0) {
+      mDividerPainter=new DividerPainter(mAccentColor);
+    }
+ else {
+      mDividerPainter=new DividerPainter(c);
+    }
+  }
+  mDividerPainter.paint(window);
+}

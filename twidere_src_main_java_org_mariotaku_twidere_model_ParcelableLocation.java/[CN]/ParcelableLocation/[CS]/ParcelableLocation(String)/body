@@ -1,0 +1,16 @@
+{
+  if (location_string == null) {
+    latitude=-1;
+    longitude=-1;
+    return;
+  }
+  final String[] longlat=location_string.split(",");
+  if (longlat == null || longlat.length != 2) {
+    latitude=-1;
+    longitude=-1;
+  }
+ else {
+    latitude=ParseUtils.parseDouble(longlat[0]);
+    longitude=ParseUtils.parseDouble(longlat[1]);
+  }
+}

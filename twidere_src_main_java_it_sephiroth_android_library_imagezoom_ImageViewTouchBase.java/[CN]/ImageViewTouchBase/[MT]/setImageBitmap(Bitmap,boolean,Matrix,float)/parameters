@@ -1,0 +1,4 @@
+Bitmap bitmap
+boolean reset
+Matrix matrix
+float maxZoom

@@ -1,0 +1,8 @@
+{
+  if (isRefreshing())   return;
+  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final ParcelableStatus status=adapter.getLastStatus();
+  if (status != null) {
+    getStatuses(new long[]{status.account_id},new long[]{status.id},null);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (context == null)   return false;
+  final long[] ids=getAccountIds(context);
+  if (ids == null)   return false;
+  for (  final long id : ids) {
+    if (id == account_id)     return true;
+  }
+  return false;
+}

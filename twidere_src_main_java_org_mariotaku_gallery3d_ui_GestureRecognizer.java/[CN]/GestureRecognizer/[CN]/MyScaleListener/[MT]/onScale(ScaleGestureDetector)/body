@@ -1,0 +1,3 @@
+{
+  return mListener.onScale(detector.getFocusX(),detector.getFocusY(),detector.getScaleFactor());
+}

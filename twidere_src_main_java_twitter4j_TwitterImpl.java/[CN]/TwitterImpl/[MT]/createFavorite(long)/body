@@ -1,0 +1,6 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_FAVORITES_CREATE;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_CREATE;
+  return factory.createStatus(post(url,signUrl,new HttpParameter("id",id),INCLUDE_ENTITIES));
+}

@@ -1,0 +1,22 @@
+{
+  final Uri uri=getContentUri();
+  final String table=getTableNameByUri(uri);
+  final String sort_by=Statuses.DEFAULT_SORT_ORDER;
+  final long account_id=getAccountId();
+  final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(getActivity());
+  final boolean no_account_selected=account_ids.length == 0;
+  setEmptyText(no_account_selected ? getString(R.string.no_account_selected) : null);
+  if (!no_account_selected) {
+    getListView().setEmptyView(null);
+  }
+  final Where accountWhere=Where.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(account_ids));
+  final Where where;
+  if (isFiltersEnabled()) {
+    final Where filterWhere=new Where(buildStatusFilterWhereClause(table,null,shouldEnableFiltersForRTs(getActivity())));
+    where=Where.and(accountWhere,filterWhere);
+  }
+ else {
+    where=accountWhere;
+  }
+  return new CursorLoader(getActivity(),uri,CursorStatusesAdapter.CURSOR_COLS,where.getSQL(),null,sort_by);
+}

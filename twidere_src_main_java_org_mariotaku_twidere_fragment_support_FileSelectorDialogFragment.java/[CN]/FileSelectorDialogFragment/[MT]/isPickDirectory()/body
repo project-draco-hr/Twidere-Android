@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  final String action=args != null ? args.getString(EXTRA_ACTION) : null;
+  return INTENT_ACTION_PICK_DIRECTORY.equals(action);
+}

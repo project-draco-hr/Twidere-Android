@@ -1,0 +1,18 @@
+{
+  if (context == null)   return null;
+  final String cached=sAccountScreenNames.get(accountId);
+  if (!isEmpty(cached))   return cached;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{Accounts.SCREEN_NAME},Accounts.ACCOUNT_ID + " = " + accountId,null,null);
+  if (cur == null)   return null;
+  try {
+    if (cur.getCount() > 0 && cur.moveToFirst()) {
+      final String name=cur.getString(0);
+      sAccountScreenNames.put(accountId,name);
+      return name;
+    }
+    return null;
+  }
+  finally {
+    cur.close();
+  }
+}

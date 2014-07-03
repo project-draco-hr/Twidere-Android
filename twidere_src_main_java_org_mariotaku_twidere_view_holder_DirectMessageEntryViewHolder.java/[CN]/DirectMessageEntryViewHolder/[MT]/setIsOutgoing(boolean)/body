@@ -1,0 +1,8 @@
+{
+  if (is_rtl) {
+    time.setCompoundDrawablesWithIntrinsicBounds(is_outgoing ? R.drawable.ic_indicator_sent : 0,0,0,0);
+  }
+ else {
+    time.setCompoundDrawablesWithIntrinsicBounds(0,0,is_outgoing ? R.drawable.ic_indicator_sent : 0,0);
+  }
+}

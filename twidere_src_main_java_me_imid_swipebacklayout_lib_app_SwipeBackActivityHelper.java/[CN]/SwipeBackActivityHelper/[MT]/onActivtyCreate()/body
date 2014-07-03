@@ -1,0 +1,5 @@
+{
+  final Window w=mActivity.getWindow();
+  w.setBackgroundDrawable(new EmptyDrawable());
+  mSwipeBackLayout=(SwipeBackLayout)LayoutInflater.from(mActivity).inflate(R.layout.swipeback_layout,null);
+}

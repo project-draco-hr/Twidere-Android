@@ -1,0 +1,12 @@
+{
+  final String stack_trace=errorContent.getProperty(ReportField.STACK_TRACE);
+  final StringBuilder builder=new StringBuilder();
+  builder.append(String.format(Locale.US,"Report date: %s\n",new Date(System.currentTimeMillis())));
+  builder.append(String.format(Locale.US,"Android version: %s\n",Build.VERSION.RELEASE));
+  builder.append(String.format(Locale.US,"API version: %d\n",Build.VERSION.SDK_INT));
+  builder.append(String.format(Locale.US,"App version name: %s\n",getAppVersionName()));
+  builder.append(String.format(Locale.US,"App version code: %d\n",getAppVersionCode()));
+  builder.append(String.format(Locale.US,"Configuration: %s\n",mContext.getResources().getConfiguration()));
+  builder.append(String.format(Locale.US,"Stack trace:\n%s\n",stack_trace));
+  return builder.toString();
+}

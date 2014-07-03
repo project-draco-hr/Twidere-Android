@@ -1,0 +1,8 @@
+{
+  final Context context=getThemedContext();
+  final AccountWithCredentials account=Account.getAccountWithCredentials(context,user.account_id);
+  if (AccountWithCredentials.isOfficialCredentials(context,account)) {
+    final MenuInflater inflater=new MenuInflater(context);
+    inflater.inflate(R.menu.action_incoming_friendship,menu);
+  }
+}

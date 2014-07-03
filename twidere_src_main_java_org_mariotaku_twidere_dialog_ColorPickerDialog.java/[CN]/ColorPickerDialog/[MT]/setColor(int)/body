@@ -1,0 +1,3 @@
+{
+  mColorPicker.setColor(color);
+}

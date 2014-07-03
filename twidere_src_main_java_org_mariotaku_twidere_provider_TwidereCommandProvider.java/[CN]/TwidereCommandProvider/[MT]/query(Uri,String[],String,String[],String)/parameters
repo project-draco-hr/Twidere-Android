@@ -1,0 +1,5 @@
+Uri uri
+String[] projection
+String where
+String[] whereArgs
+String sortOrder

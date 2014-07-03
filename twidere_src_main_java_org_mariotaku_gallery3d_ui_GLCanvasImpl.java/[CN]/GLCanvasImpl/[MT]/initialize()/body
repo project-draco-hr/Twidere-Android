@@ -1,0 +1,17 @@
+{
+  final GL11 gl=mGL;
+  final int size=BOX_COORDINATES.length * Float.SIZE / Byte.SIZE;
+  final FloatBuffer xyBuffer=allocateDirectNativeOrderBuffer(size).asFloatBuffer();
+  xyBuffer.put(BOX_COORDINATES,0,BOX_COORDINATES.length).position(0);
+  final int[] name=new int[1];
+  GLId.glGenBuffers(1,name,0);
+  mBoxCoords=name[0];
+  gl.glBindBuffer(GL11.GL_ARRAY_BUFFER,mBoxCoords);
+  gl.glBufferData(GL11.GL_ARRAY_BUFFER,xyBuffer.capacity() * (Float.SIZE / Byte.SIZE),xyBuffer,GL11.GL_STATIC_DRAW);
+  gl.glVertexPointer(2,GL11.GL_FLOAT,0,0);
+  gl.glTexCoordPointer(2,GL11.GL_FLOAT,0,0);
+  gl.glClientActiveTexture(GL11.GL_TEXTURE1);
+  gl.glTexCoordPointer(2,GL11.GL_FLOAT,0,0);
+  gl.glClientActiveTexture(GL11.GL_TEXTURE0);
+  gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+}

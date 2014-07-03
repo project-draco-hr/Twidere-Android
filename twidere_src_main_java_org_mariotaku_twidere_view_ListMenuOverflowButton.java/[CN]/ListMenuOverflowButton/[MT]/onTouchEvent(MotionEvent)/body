@@ -1,0 +1,23 @@
+{
+switch (e.getAction()) {
+case MotionEvent.ACTION_DOWN:
+    mRect.set(getLeft(),getTop(),getRight(),getBottom());
+  mIsDown=true;
+updateColorFilter();
+break;
+case MotionEvent.ACTION_MOVE:
+if (mRect.contains(getLeft() + (int)e.getX(),getTop() + (int)e.getY())) {
+break;
+}
+if (mIsDown) {
+mIsDown=false;
+updateColorFilter();
+}
+break;
+default :
+mIsDown=false;
+updateColorFilter();
+break;
+}
+return super.onTouchEvent(e);
+}

@@ -1,0 +1,6 @@
+{
+  if (mThread != null) {
+    mThread.cancel();
+  }
+  mThread=null;
+}

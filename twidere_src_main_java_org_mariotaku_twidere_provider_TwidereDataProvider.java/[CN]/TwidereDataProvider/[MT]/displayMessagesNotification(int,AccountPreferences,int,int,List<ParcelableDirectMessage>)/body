@@ -1,0 +1,70 @@
+{
+  final NotificationManager nm=getNotificationManager();
+  if (notifiedCount == 0 || accountPrefs == null || messages.isEmpty())   return;
+  final long accountId=accountPrefs.getAccountId();
+  final Context context=getContext();
+  final Resources resources=context.getResources();
+  final NotificationCompat.Builder notifBuilder=new NotificationCompat.Builder(context);
+  final ParcelableDirectMessage firstItem=messages.get(0);
+  final int messagesCount=messages.size();
+  final Intent deleteIntent=new Intent(BROADCAST_NOTIFICATION_DELETED);
+  deleteIntent.putExtra(EXTRA_NOTIFICATION_ID,NOTIFICATION_ID_DIRECT_MESSAGES);
+  deleteIntent.putExtra(EXTRA_NOTIFICATION_ACCOUNT,accountId);
+  final Intent contentIntent;
+  final String title;
+  if (messagesCount > 1) {
+    notifBuilder.setNumber(messagesCount);
+  }
+  final int usersCount=getSendersCount(messages);
+  contentIntent=new Intent(context,HomeActivity.class);
+  contentIntent.setAction(Intent.ACTION_MAIN);
+  contentIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+  contentIntent.putExtra(EXTRA_TAB_TYPE,TAB_TYPE_DIRECT_MESSAGES);
+  if (messagesCount == 1) {
+    final Uri.Builder uriBuilder=new Uri.Builder();
+    uriBuilder.scheme(SCHEME_TWIDERE);
+    uriBuilder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
+    uriBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(firstItem.account_id));
+    uriBuilder.appendQueryParameter(QUERY_PARAM_RECIPIENT_ID,String.valueOf(firstItem.sender_id));
+    final Intent statusIntent=new Intent(Intent.ACTION_VIEW,uriBuilder.build());
+    statusIntent.setExtrasClassLoader(context.getClassLoader());
+    contentIntent.putExtra(EXTRA_EXTRA_INTENT,statusIntent);
+  }
+  final String displayName=getDisplayName(context,firstItem.sender_id,firstItem.sender_name,firstItem.sender_screen_name,mNameFirst,mNickOnly);
+  if (usersCount > 1) {
+    title=resources.getString(R.string.notification_direct_message_multiple_users,displayName,usersCount - 1,messagesCount);
+  }
+ else   if (messagesCount > 1) {
+    title=resources.getString(R.string.notification_direct_message_multiple_messages,displayName,messagesCount);
+  }
+ else {
+    title=resources.getString(R.string.notification_direct_message,displayName);
+  }
+  notifBuilder.setLargeIcon(getProfileImageForNotification(firstItem.sender_profile_image_url));
+  buildNotification(notifBuilder,accountPrefs,notificationType,title,title,firstItem.text_plain,firstItem.timestamp,R.drawable.ic_stat_direct_message,null,contentIntent,deleteIntent);
+  final NotificationCompat.Style notifStyle;
+  if (messagesCount > 1) {
+    final NotificationCompat.InboxStyle inboxStyle=new NotificationCompat.InboxStyle(notifBuilder);
+    final int max=Math.min(4,messagesCount);
+    for (int i=0; i < max; i++) {
+      final ParcelableDirectMessage item=messages.get(i);
+      if (item == null)       return;
+      final String nameEscaped=HtmlEscapeHelper.escape(getDisplayName(context,item.sender_id,item.sender_name,item.sender_name,mNameFirst,mNickOnly));
+      final String textEscaped=HtmlEscapeHelper.escape(stripMentionText(item.text_unescaped,getAccountScreenName(context,item.account_id)));
+      inboxStyle.addLine(Html.fromHtml(String.format("<b>%s</b>: %s",nameEscaped,textEscaped)));
+    }
+    if (max == 4 && messagesCount - max > 0) {
+      inboxStyle.addLine(context.getString(R.string.and_more,messagesCount - max));
+    }
+    inboxStyle.setSummaryText(getAccountDisplayName(context,accountId,mNameFirst));
+    notifStyle=inboxStyle;
+  }
+ else {
+    final NotificationCompat.BigTextStyle bigTextStyle=new NotificationCompat.BigTextStyle(notifBuilder);
+    bigTextStyle.bigText(firstItem.text_unescaped);
+    bigTextStyle.setSummaryText(getAccountDisplayName(context,accountId,mNameFirst));
+    notifStyle=bigTextStyle;
+  }
+  final int accountNotificationId=getAccountNotificationId(NOTIFICATION_ID_DIRECT_MESSAGES,accountId);
+  nm.notify(accountNotificationId,notifStyle.build());
+}

@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final HttpClientWrapper that=(HttpClientWrapper)o;
+  if (!http.equals(that.http))   return false;
+  if (!requestHeaders.equals(that.requestHeaders))   return false;
+  if (!wrapperConf.equals(that.wrapperConf))   return false;
+  return true;
+}

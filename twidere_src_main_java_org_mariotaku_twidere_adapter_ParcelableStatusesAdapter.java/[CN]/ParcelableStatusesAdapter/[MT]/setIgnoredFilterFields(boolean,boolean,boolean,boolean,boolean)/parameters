@@ -1,0 +1,5 @@
+boolean user
+boolean textPlain
+boolean textHtml
+boolean source
+boolean retweetedById

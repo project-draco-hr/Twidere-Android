@@ -1,0 +1,5 @@
+{
+  ensureAuthorizationEnabled();
+  checkFileValidity(image);
+  return factory.createUser(post(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BACKGROUND_IMAGE,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BACKGROUND_IMAGE,new HttpParameter("image",image),new HttpParameter("tile",tile),INCLUDE_ENTITIES));
+}

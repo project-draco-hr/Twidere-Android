@@ -1,0 +1,5 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mViewPager=(ExtendedViewPager)view.findViewById(R.id.search_pager);
+  mPagerIndicator=(CirclePageIndicator)view.findViewById(R.id.search_pager_indicator);
+}

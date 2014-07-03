@@ -1,0 +1,4 @@
+{
+  if (listener == null || loader.isAbandoned() || loader.isReset())   return;
+  listener.onDownloadError(t);
+}

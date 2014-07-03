@@ -1,0 +1,14 @@
+{
+  if (result.hasData()) {
+    final String message=mContext.getString(R.string.unblocked_user,getUserName(mContext,result.getData()));
+    mMessagesManager.showInfoMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_unblocking,result.getException(),true);
+  }
+  final Intent intent=new Intent(BROADCAST_BLOCKSTATE_CHANGED);
+  intent.putExtra(EXTRA_USER_ID,mUserId);
+  intent.putExtra(EXTRA_SUCCEED,result.hasData());
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

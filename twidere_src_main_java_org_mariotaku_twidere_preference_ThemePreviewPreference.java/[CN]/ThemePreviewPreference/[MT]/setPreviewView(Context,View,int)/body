@@ -1,0 +1,48 @@
+{
+  if (view instanceof IExtendedView) {
+    ((IExtendedView)view).setTouchInterceptor(new DummyTouchInterceptor());
+  }
+  final View windowBackgroundView=view.findViewById(R.id.theme_preview_window_background);
+  final View windowContentOverlayView=view.findViewById(R.id.theme_preview_window_content_overlay);
+  final View actionBarView=view.findViewById(R.id.actionbar);
+  final TextView actionBarTitleView=(TextView)view.findViewById(R.id.actionbar_title);
+  final MenuBar actionBarSplitView=(MenuBar)view.findViewById(R.id.actionbar_split);
+  final View statusContentView=view.findViewById(R.id.theme_preview_status_content);
+  final int defaultTextSize=getDefaultTextSize(context);
+  final int titleTextAppearance=ThemeUtils.getTitleTextAppearance(context);
+  ViewAccessor.setBackground(windowBackgroundView,ThemeUtils.getWindowBackground(context));
+  ViewAccessor.setBackground(windowContentOverlayView,ThemeUtils.getWindowContentOverlay(context));
+  ViewAccessor.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes));
+  ViewAccessor.setBackground(actionBarSplitView,ThemeUtils.getActionBarSplitBackground(context,themeRes));
+  actionBarTitleView.setTextAppearance(context,titleTextAppearance);
+  actionBarSplitView.setEnabled(false);
+  actionBarSplitView.inflate(R.menu.menu_status);
+  actionBarSplitView.setIsBottomBar(true);
+  actionBarSplitView.show();
+  if (statusContentView != null) {
+    ViewAccessor.setBackground(statusContentView,ThemeUtils.getWindowBackground(context));
+    final ICardItemView cardView=(ICardItemView)statusContentView.findViewById(R.id.card);
+    final View profileView=statusContentView.findViewById(R.id.profile);
+    final ImageView profileImageView=(ImageView)statusContentView.findViewById(R.id.profile_image);
+    final TextView nameView=(TextView)statusContentView.findViewById(R.id.name);
+    final TextView screenNameView=(TextView)statusContentView.findViewById(R.id.screen_name);
+    final TextView textView=(TextView)statusContentView.findViewById(R.id.text);
+    final TextView timeSourceView=(TextView)statusContentView.findViewById(R.id.time_source);
+    final TextView repliesView=(TextView)statusContentView.findViewById(R.id.replies_view);
+    cardView.setItemSelector(null);
+    nameView.setTextSize(defaultTextSize * 1.25f);
+    textView.setTextSize(defaultTextSize * 1.25f);
+    screenNameView.setTextSize(defaultTextSize * 0.85f);
+    timeSourceView.setTextSize(defaultTextSize * 0.85f);
+    repliesView.setTextSize(defaultTextSize * 0.85f);
+    profileView.setBackgroundResource(0);
+    repliesView.setBackgroundResource(0);
+    textView.setTextIsSelectable(false);
+    profileImageView.setImageResource(R.drawable.ic_launcher);
+    nameView.setText(TWIDERE_PREVIEW_NAME);
+    screenNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
+    textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
+    final String time=formatToLongTimeString(context,System.currentTimeMillis());
+    timeSourceView.setText(toPlainText(context.getString(R.string.time_source,time,TWIDERE_PREVIEW_SOURCE)));
+  }
+}

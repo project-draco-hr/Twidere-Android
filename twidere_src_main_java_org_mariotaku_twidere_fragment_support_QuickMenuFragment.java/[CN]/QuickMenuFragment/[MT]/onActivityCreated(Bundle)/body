@@ -1,0 +1,13 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (mPreferences.getBoolean(KEY_QUICK_MENU_EXPANDED,false)) {
+  }
+ else {
+  }
+  mAdapter=new MergeAdapter();
+  mTrendsAdapter=new TrendsAdapter(getThemedContext());
+  mAdapter.addAdapter(mTrendsAdapter);
+  mListView.setAdapter(mAdapter);
+  getLoaderManager().initLoader(LOADER_ID_TRENDS,null,mTrendsCallback);
+}

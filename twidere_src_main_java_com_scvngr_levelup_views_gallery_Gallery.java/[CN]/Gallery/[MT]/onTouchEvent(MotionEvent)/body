@@ -1,0 +1,12 @@
+{
+  if (!isEnabled())   return false;
+  final boolean retValue=mGestureDetector.onTouchEvent(event);
+  final int action=event.getAction();
+  if (action == MotionEvent.ACTION_UP) {
+    onUp();
+  }
+ else   if (action == MotionEvent.ACTION_CANCEL) {
+    onCancel();
+  }
+  return retValue;
+}

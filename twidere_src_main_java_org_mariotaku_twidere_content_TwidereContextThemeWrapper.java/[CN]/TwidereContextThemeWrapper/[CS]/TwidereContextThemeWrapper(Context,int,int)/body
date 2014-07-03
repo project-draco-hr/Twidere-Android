@@ -1,0 +1,6 @@
+{
+  super(base,themeResource);
+  mThemeResourceId=themeResource;
+  mAccentColor=accentColor;
+  mAccentHelper=new TwidereAccentHelper(themeResource,accentColor);
+}

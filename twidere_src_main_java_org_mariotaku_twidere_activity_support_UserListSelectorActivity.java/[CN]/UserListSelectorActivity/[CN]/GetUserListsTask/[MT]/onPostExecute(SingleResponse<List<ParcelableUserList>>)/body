@@ -1,0 +1,15 @@
+{
+  final Fragment f=mActivity.getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG_GET_USER_LISTS);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+  if (result.getData() != null) {
+    mActivity.setUserListsData(result.getData(),result.getExtras().getBoolean(EXTRA_IS_MY_ACCOUNT));
+  }
+ else   if (result.getException() instanceof TwitterException) {
+    final TwitterException te=(TwitterException)result.getException();
+    if (te.getStatusCode() == HttpResponseCode.NOT_FOUND) {
+      mActivity.searchUser(mScreenName);
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  if (context == null)   return false;
+  ((ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE)).setText(text != null ? text : "");
+  return true;
+}

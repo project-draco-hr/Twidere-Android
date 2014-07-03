@@ -1,0 +1,4 @@
+{
+  super.onPostExecute(result);
+  context.sendBroadcast(new Intent(BROADCAST_TASK_STATE_CHANGED));
+}

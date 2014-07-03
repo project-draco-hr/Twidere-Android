@@ -1,0 +1,15 @@
+{
+  try {
+    final Twitter twitter=new TwitterFactory(conf).getInstance();
+    final AccessToken access_token=twitter.getOAuthAccessToken(new RequestToken(conf,request_token,request_token_secret),oauth_verifier);
+    final long userId=access_token.getUserId();
+    if (userId <= 0)     return new SigninResponse(false,false,null);
+    final User user=twitter.verifyCredentials();
+    if (isUserLoggedIn(context,userId))     return new SigninResponse(true,false,null);
+    final int color=user_color != null ? user_color : analyseUserProfileColor(user);
+    return new SigninResponse(conf,access_token,user,Accounts.AUTH_TYPE_OAUTH,color,api_url_format,same_oauth_signing_url);
+  }
+ catch (  final TwitterException e) {
+    return new SigninResponse(false,false,e);
+  }
+}

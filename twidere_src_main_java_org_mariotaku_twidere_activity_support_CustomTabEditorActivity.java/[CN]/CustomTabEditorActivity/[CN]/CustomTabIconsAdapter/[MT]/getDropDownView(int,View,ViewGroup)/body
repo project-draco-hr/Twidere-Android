@@ -1,0 +1,16 @@
+{
+  final View view=super.getDropDownView(position,convertView,parent);
+  view.findViewById(android.R.id.text2).setVisibility(View.GONE);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final Entry<String,Integer> item=getItem(position);
+  final int value=item.getValue();
+  if (value > 0) {
+    final String key=item.getKey();
+    text1.setText(key.substring(0,1).toUpperCase(Locale.US) + key.substring(1,key.length()));
+  }
+ else {
+    text1.setText(R.string.customize);
+  }
+  bindView(position,item,view);
+  return view;
+}

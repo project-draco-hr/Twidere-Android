@@ -1,0 +1,6 @@
+Context context
+long account_id
+String name
+String url
+String location
+String description

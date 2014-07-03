@@ -1,0 +1,8 @@
+{
+  super.onCreate();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  setInteractive(false);
+  setFullscreen(true);
+  setScreenBright(false);
+}

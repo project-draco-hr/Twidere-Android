@@ -1,0 +1,14 @@
+{
+  final DialogFragment df=new DataExportImportTypeSelectorDialogFragment();
+  final Bundle args=new Bundle();
+  args.putString(EXTRA_PATH,path);
+  args.putString(EXTRA_TITLE,getString(R.string.export_settings_type_dialog_title));
+  if (flags != null) {
+    args.putInt(EXTRA_FLAGS,flags);
+  }
+ else {
+    args.putInt(EXTRA_FLAGS,0);
+  }
+  df.setArguments(args);
+  df.show(getSupportFragmentManager(),"select_import_type");
+}

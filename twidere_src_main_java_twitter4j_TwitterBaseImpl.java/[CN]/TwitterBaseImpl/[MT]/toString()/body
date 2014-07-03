@@ -1,0 +1,3 @@
+{
+  return "TwitterBase{" + "conf=" + conf + ", http="+ http+ ", rateLimitStatusListeners="+ rateLimitStatusListeners+ ", auth="+ auth+ '}';
+}

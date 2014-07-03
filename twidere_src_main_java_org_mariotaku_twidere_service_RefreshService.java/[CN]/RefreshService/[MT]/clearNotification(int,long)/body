@@ -1,0 +1,3 @@
+{
+  mTwitterWrapper.clearNotificationAsync(notificationId,notificationAccount);
+}

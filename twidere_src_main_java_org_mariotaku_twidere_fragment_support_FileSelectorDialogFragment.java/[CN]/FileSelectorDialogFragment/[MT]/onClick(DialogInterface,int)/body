@@ -1,0 +1,14 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final FragmentActivity a=getActivity();
+      if (isPickDirectory() && a instanceof Callback) {
+        ((Callback)a).onFilePicked(getCurrentDirectory());
+      }
+      dismiss();
+      break;
+    }
+}
+return;
+}

@@ -1,0 +1,10 @@
+{
+  if (view == null)   return;
+  final ListAdapter adapter=view.getAdapter();
+  if (adapter == null)   return;
+  view.clearChoices();
+  view.setChoiceMode(AbsListView.CHOICE_MODE_NONE);
+  final int position=view.getFirstVisiblePosition(), offset=Utils.getFirstChildOffset(view);
+  view.setAdapter(adapter);
+  Utils.scrollListToPosition(view,position,offset);
+}

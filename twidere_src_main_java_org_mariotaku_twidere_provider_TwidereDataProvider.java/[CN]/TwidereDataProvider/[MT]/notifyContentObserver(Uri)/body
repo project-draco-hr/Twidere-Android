@@ -1,0 +1,5 @@
+{
+  final ContentResolver cr=getContentResolver();
+  if (uri == null || cr == null)   return;
+  cr.notifyChange(uri,null);
+}

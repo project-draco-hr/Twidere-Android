@@ -1,0 +1,8 @@
+{
+  final Drawable drawable=getDrawable();
+  if (drawable == null)   return;
+  final RectF rect=getCenter(horizontal,vertical);
+  if (rect.left != 0 || rect.top != 0) {
+    postTranslate(rect.left,rect.top);
+  }
+}

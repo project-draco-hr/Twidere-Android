@@ -1,0 +1,8 @@
+{
+  final Bundle args=getArguments();
+  final Bundle extras=new Bundle();
+  if (args != null && args.containsKey(EXTRA_EXTRAS)) {
+    extras.putAll(args.getBundle(EXTRA_EXTRAS));
+  }
+  return extras;
+}

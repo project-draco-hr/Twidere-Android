@@ -1,0 +1,6 @@
+{
+  if (mediaUris == null)   throw new IllegalArgumentException("Media uris must not be null");
+  media_uris=mediaUris;
+  error_code=0;
+  error_message=null;
+}

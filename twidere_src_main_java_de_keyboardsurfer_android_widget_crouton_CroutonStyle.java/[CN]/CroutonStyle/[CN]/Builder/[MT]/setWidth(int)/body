@@ -1,0 +1,4 @@
+{
+  widthInPixels=width;
+  return this;
+}

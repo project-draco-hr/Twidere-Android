@@ -1,0 +1,8 @@
+{
+  super.onPostExecute(result);
+  if (result != null && result.getData() != null) {
+    mGetUserInfoCalled=true;
+    displayUser(result.getData());
+  }
+  setUpdateState(false);
+}

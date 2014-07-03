@@ -1,0 +1,13 @@
+{
+  ensureAuthorizationEnabled();
+  final List<HttpParameter> httpParams=new ArrayList<HttpParameter>();
+  httpParams.add(new HttpParameter("list_id",listId));
+  if (newListName != null) {
+    httpParams.add(new HttpParameter("name",newListName));
+  }
+  httpParams.add(new HttpParameter("mode",isPublicList ? "public" : "private"));
+  if (newDescription != null) {
+    httpParams.add(new HttpParameter("description",newDescription));
+  }
+  return factory.createAUserList(post(conf.getRestBaseURL() + ENDPOINT_LISTS_UPDATE,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_UPDATE,httpParams.toArray(new HttpParameter[httpParams.size()])));
+}

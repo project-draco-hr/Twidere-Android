@@ -1,0 +1,11 @@
+{
+  final Ringtone ringtone=getSelectedRingtone();
+  if (ringtone != null && ringtone.isPlaying()) {
+    ringtone.stop();
+  }
+  if (positiveResult && mSelectedItem >= 0 && mSelectedItem < mValues.length) {
+    if (callChangeListener(mValues[mSelectedItem])) {
+      persistString(mValues[mSelectedItem]);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  final Twitter twitter=new TwitterFactory(conf).getInstance(new TwipOModeAuthorization());
+  final User user=twitter.verifyCredentials();
+  final long user_id=user.getId();
+  if (user_id <= 0)   return new SigninResponse(false,false,null);
+  if (isUserLoggedIn(context,user_id))   return new SigninResponse(true,false,null);
+  final int color=user_color != null ? user_color : analyseUserProfileColor(user);
+  return new SigninResponse(conf,user,color,api_url_format);
+}

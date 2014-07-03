@@ -1,0 +1,10 @@
+{
+  if (in == null)   return false;
+  for (  final twitter4j.Status status : in) {
+    if (since_id > 0 && status.getId() <= since_id) {
+      continue;
+    }
+    out.add(status);
+  }
+  return in.size() != out.size();
+}

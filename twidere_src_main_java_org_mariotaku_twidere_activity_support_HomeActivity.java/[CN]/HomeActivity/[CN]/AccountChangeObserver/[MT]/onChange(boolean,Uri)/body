@@ -1,0 +1,4 @@
+{
+  mActivity.notifyAccountsChanged();
+  mActivity.updateUnreadCount();
+}

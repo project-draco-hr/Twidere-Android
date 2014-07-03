@@ -1,0 +1,4 @@
+{
+  mAccountSelectStates.clear();
+  notifyDataSetChanged();
+}

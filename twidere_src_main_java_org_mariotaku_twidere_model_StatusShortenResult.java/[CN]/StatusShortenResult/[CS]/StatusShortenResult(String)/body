@@ -1,0 +1,6 @@
+{
+  if (shortened == null)   throw new IllegalArgumentException("Shortened text must not be null");
+  this.shortened=shortened;
+  error_code=0;
+  error_message=null;
+}

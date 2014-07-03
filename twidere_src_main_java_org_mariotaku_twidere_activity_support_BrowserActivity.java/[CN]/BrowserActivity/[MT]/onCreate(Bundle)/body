@@ -1,0 +1,18 @@
+{
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  mUri=getIntent().getData();
+  if (mUri == null) {
+    Crouton.showText(this,R.string.error_occurred,CroutonStyle.ALERT);
+    finish();
+    return;
+  }
+  final FragmentTransaction ft=getFragmentManager().beginTransaction();
+  final Fragment fragment=Fragment.instantiate(this,BaseWebViewFragment.class.getName());
+  final Bundle bundle=new Bundle();
+  bundle.putString(EXTRA_URI,mUri.toString());
+  fragment.setArguments(bundle);
+  ft.replace(android.R.id.content,fragment);
+  ft.commit();
+}

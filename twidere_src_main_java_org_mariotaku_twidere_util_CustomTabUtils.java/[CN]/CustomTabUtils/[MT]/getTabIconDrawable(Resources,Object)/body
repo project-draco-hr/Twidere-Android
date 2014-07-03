@@ -1,0 +1,17 @@
+{
+  if (res == null)   return null;
+  if (iconObj instanceof Integer) {
+    try {
+      return res.getDrawable((Integer)iconObj);
+    }
+ catch (    final Resources.NotFoundException e) {
+    }
+  }
+ else   if (iconObj instanceof Bitmap)   return new BitmapDrawable(res,(Bitmap)iconObj);
+ else   if (iconObj instanceof Drawable)   return (Drawable)iconObj;
+ else   if (iconObj instanceof File) {
+    final Bitmap b=getTabIconFromFile((File)iconObj,res);
+    if (b != null)     return new BitmapDrawable(res,b);
+  }
+  return res.getDrawable(R.drawable.ic_iconic_action_list);
+}

@@ -1,0 +1,4 @@
+{
+  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONPAUSE));
+  super.onPause();
+}

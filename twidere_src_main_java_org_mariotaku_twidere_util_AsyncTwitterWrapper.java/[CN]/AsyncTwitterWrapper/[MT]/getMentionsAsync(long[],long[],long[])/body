@@ -1,0 +1,5 @@
+{
+  mAsyncTaskManager.cancel(mGetMentionsTaskId);
+  final GetMentionsTask task=new GetMentionsTask(accountIds,max_ids,since_ids);
+  return mGetMentionsTaskId=mAsyncTaskManager.add(task,true);
+}

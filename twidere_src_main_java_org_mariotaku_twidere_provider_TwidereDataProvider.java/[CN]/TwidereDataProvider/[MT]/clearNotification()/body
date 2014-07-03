@@ -1,0 +1,6 @@
+{
+  mNewStatuses.clear();
+  mNewMentions.clear();
+  mNewMessages.clear();
+  getNotificationManager().cancelAll();
+}

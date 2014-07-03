@@ -1,0 +1,4 @@
+Activity activity
+CharSequence text
+CroutonStyle style
+int viewGroupResId

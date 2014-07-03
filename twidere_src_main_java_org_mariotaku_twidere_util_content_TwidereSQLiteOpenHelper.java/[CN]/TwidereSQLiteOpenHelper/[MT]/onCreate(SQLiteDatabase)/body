@@ -1,0 +1,22 @@
+{
+  db.beginTransaction();
+  db.execSQL(createTable(Accounts.TABLE_NAME,Accounts.COLUMNS,Accounts.TYPES,true));
+  db.execSQL(createTable(Statuses.TABLE_NAME,Statuses.COLUMNS,Statuses.TYPES,true));
+  db.execSQL(createTable(Mentions.TABLE_NAME,Mentions.COLUMNS,Mentions.TYPES,true));
+  db.execSQL(createTable(Drafts.TABLE_NAME,Drafts.COLUMNS,Drafts.TYPES,true));
+  db.execSQL(createTable(CachedUsers.TABLE_NAME,CachedUsers.COLUMNS,CachedUsers.TYPES,true));
+  db.execSQL(createTable(CachedStatuses.TABLE_NAME,CachedStatuses.COLUMNS,CachedStatuses.TYPES,true));
+  db.execSQL(createTable(CachedHashtags.TABLE_NAME,CachedHashtags.COLUMNS,CachedHashtags.TYPES,true));
+  db.execSQL(createTable(Filters.Users.TABLE_NAME,Filters.Users.COLUMNS,Filters.Users.TYPES,true));
+  db.execSQL(createTable(Filters.Keywords.TABLE_NAME,Filters.Keywords.COLUMNS,Filters.Keywords.TYPES,true));
+  db.execSQL(createTable(Filters.Sources.TABLE_NAME,Filters.Sources.COLUMNS,Filters.Sources.TYPES,true));
+  db.execSQL(createTable(Filters.Links.TABLE_NAME,Filters.Links.COLUMNS,Filters.Links.TYPES,true));
+  db.execSQL(createTable(DirectMessages.Inbox.TABLE_NAME,DirectMessages.Inbox.COLUMNS,DirectMessages.Inbox.TYPES,true));
+  db.execSQL(createTable(DirectMessages.Outbox.TABLE_NAME,DirectMessages.Outbox.COLUMNS,DirectMessages.Outbox.TYPES,true));
+  db.execSQL(createTable(CachedTrends.Local.TABLE_NAME,CachedTrends.Local.COLUMNS,CachedTrends.Local.TYPES,true));
+  db.execSQL(createTable(Tabs.TABLE_NAME,Tabs.COLUMNS,Tabs.TYPES,true));
+  db.execSQL(createDirectMessagesView().getSQL());
+  db.execSQL(createDirectMessageConversationEntriesView().getSQL());
+  db.setTransactionSuccessful();
+  db.endTransaction();
+}

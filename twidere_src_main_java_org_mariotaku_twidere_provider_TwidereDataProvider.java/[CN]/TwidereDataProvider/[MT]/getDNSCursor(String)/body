@@ -1,0 +1,12 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.DNS.MATRIX_COLUMNS);
+  try {
+    final String address=mHostAddressResolver.resolve(host);
+    if (host != null && address != null) {
+      c.addRow(new String[]{host,address});
+    }
+  }
+ catch (  final IOException e) {
+  }
+  return c;
+}

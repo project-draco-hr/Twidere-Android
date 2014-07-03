@@ -1,0 +1,6 @@
+long[] accountIds
+String text
+ParcelableLocation location
+ParcelableMediaUpdate[] medias
+long inReplyToStatusId
+boolean isPossiblySensitive

@@ -1,0 +1,6 @@
+double lat
+double lng
+int zoom
+int w
+int h
+Locale locale

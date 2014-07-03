@@ -1,0 +1,8 @@
+{
+  final Cursor c=getCursor();
+  if (c == null || c.isClosed())   return -1;
+  for (int i=0, count=c.getCount(); i < count; i++) {
+    if (c.moveToPosition(i) && c.getLong(mIndices.status_id) == status_id)     return i;
+  }
+  return -1;
+}

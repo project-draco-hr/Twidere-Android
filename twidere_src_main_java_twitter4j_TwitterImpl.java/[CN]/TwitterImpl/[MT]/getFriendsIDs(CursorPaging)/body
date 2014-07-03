@@ -1,0 +1,3 @@
+{
+  return factory.createIDs(get(conf.getRestBaseURL() + ENDPOINT_FRIENDS_IDS,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDS_IDS,paging.asPostParameterArray()));
+}

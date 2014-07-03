@@ -1,0 +1,32 @@
+{
+  if (resultCode != RESULT_OK) {
+    setResult(RESULT_CANCELED);
+    finish();
+    return;
+  }
+  final Uri src;
+switch (requestCode) {
+case REQUEST_PICK_IMAGE:
+{
+      src=intent.getData();
+      break;
+    }
+case REQUEST_TAKE_PHOTO:
+{
+    src=mTempPhotoUri;
+    break;
+  }
+default :
+{
+  finish();
+  return;
+}
+}
+if (src == null) return;
+mImageSelectedRunnable=new Runnable(){
+@Override public void run(){
+imageSelected(src);
+}
+}
+;
+}

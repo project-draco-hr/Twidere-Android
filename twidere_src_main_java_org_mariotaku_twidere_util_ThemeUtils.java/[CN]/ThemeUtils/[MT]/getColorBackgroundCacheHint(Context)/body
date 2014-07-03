@@ -1,0 +1,6 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.colorBackgroundCacheHint});
+  final int color=a.getColor(0,Color.TRANSPARENT);
+  a.recycle();
+  return color;
+}

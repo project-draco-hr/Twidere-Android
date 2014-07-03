@@ -1,0 +1,8 @@
+{
+  if (mActivity.mPreferences.getBoolean(KEY_IGNORE_SSL_ERROR,false)) {
+    handler.proceed();
+  }
+ else {
+    handler.cancel();
+  }
+}

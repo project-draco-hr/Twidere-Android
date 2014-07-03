@@ -1,0 +1,4 @@
+{
+  if (isEmpty(address))   return false;
+  return InetAddressUtilsHC4.isIPv4Address(address) || InetAddressUtilsHC4.isIPv6Address(address);
+}

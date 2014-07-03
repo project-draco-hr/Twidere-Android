@@ -1,0 +1,3 @@
+{
+  return mAsyncTaskManager.hasRunningTasksForTag(TASK_TAG_GET_TRENDS) || mAsyncTaskManager.hasRunningTasksForTag(TASK_TAG_STORE_TRENDS);
+}

@@ -1,0 +1,6 @@
+{
+  account_color_enabled=enabled && !show_as_gap;
+  if (!account_color_enabled) {
+    content.drawEnd(Color.TRANSPARENT);
+  }
+}

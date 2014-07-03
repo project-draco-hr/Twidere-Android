@@ -1,0 +1,8 @@
+{
+  final View view=inflater.inflate(R.layout.fragment_data_profiling_settings,container,false);
+  mTextView=(TextView)view.findViewById(android.R.id.text1);
+  mCheckBox=(CheckBox)view.findViewById(R.id.checkbox);
+  mSaveButton=(Button)view.findViewById(R.id.save);
+  mPreviewButton=(Button)view.findViewById(R.id.preview);
+  return view;
+}

@@ -1,0 +1,12 @@
+{
+  final SharedPreferences.Editor editor=getEditor();
+  if (editor == null)   return;
+  final Location item=mAdapter.getItem(which);
+  if (item != null) {
+    editor.putInt(KEY_LOCAL_TRENDS_WOEID,item.getWoeid());
+    editor.commit();
+  }
+  if (mDialog != null && mDialog.isShowing()) {
+    mDialog.dismiss();
+  }
+}

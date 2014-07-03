@@ -1,0 +1,10 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    return SingleResponse.getInstance(twitter.destroySavedSearch(mSearchId));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

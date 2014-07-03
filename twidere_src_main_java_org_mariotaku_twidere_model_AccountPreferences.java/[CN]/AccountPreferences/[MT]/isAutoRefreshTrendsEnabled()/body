@@ -1,0 +1,3 @@
+{
+  return mPreferences.getBoolean(KEY_AUTO_REFRESH_TRENDS,DEFAULT_AUTO_REFRESH_TRENDS);
+}

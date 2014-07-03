@@ -1,0 +1,14 @@
+{
+  final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
+  final ParcelableStatusUpdate.Builder builder=new ParcelableStatusUpdate.Builder();
+  builder.accounts(Account.getAccounts(this,mSendAccountIds));
+  builder.text(text);
+  builder.inReplyToStatusId(mInReplyToStatusId);
+  builder.location(mRecentLocation);
+  builder.isPossiblySensitive(mIsPossiblySensitive);
+  if (hasMedia()) {
+    builder.medias(getMedias());
+  }
+  final ContentValues values=ContentValuesCreator.makeStatusDraftContentValues(builder.build());
+  mResolver.insert(Drafts.CONTENT_URI,values);
+}

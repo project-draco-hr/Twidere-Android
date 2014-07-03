@@ -1,0 +1,9 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_settings_wizard);
+  mAdapter=new TabsAdapter(this,getFragmentManager(),null);
+  mViewPager.setAdapter(mAdapter);
+  mViewPager.setEnabled(false);
+  mIndicator.setViewPager(mViewPager);
+  initPages();
+}

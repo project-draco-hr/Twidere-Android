@@ -1,0 +1,6 @@
+{
+  if (mBitmapScreenNail != null) {
+    mBitmapScreenNail.recycle();
+    mBitmapScreenNail=null;
+  }
+}

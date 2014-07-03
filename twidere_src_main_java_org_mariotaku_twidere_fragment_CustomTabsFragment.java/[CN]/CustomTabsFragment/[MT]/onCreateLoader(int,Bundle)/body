@@ -1,0 +1,3 @@
+{
+  return new CursorLoader(getActivity(),Tabs.CONTENT_URI,Tabs.COLUMNS,null,null,Tabs.DEFAULT_SORT_ORDER);
+}

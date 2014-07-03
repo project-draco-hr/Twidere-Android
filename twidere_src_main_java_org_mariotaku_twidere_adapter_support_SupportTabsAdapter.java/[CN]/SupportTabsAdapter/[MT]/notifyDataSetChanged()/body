@@ -1,0 +1,6 @@
+{
+  super.notifyDataSetChanged();
+  if (mIndicator != null) {
+    mIndicator.notifyDataSetChanged();
+  }
+}

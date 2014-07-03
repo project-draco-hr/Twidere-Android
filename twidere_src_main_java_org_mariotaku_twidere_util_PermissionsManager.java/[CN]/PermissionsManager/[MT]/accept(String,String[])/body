@@ -1,0 +1,6 @@
+{
+  if (package_name == null || permissions == null)   return false;
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putString(package_name,ArrayUtils.toString(permissions,'|',false));
+  return editor.commit();
+}

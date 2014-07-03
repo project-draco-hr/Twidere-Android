@@ -1,0 +1,3 @@
+SQLiteDatabase database
+ParcelableStatus status
+boolean filter_rts

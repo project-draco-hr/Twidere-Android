@@ -1,0 +1,5 @@
+{
+  final boolean sizeChanged=right - left != mBounds.right - mBounds.left || bottom - top != mBounds.bottom - mBounds.top;
+  mBounds.set(left,top,right,bottom);
+  return sizeChanged;
+}

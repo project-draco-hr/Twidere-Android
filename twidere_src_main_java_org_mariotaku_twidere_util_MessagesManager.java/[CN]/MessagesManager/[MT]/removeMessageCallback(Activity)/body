@@ -1,0 +1,4 @@
+{
+  if (activity == null)   return false;
+  return mMessageCallbacks.remove(activity);
+}

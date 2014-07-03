@@ -1,0 +1,13 @@
+{
+  if (i != null && c != null && moveCursorToLast(c)) {
+    final long userId=mFilterIgnoreUser ? -1 : c.getLong(mIndices.user_id);
+    final String textPlain=mFilterIgnoreTextPlain ? null : c.getString(mIndices.text_plain);
+    final String textHtml=mFilterIgnoreTextHtml ? null : c.getString(mIndices.text_html);
+    final String source=mFilterIgnoreSource ? null : c.getString(mIndices.source);
+    final long retweetedById=mFilterRetweetedById ? -1 : c.getLong(mIndices.retweeted_by_user_id);
+    mIsLastItemFiltered=isFiltered(mDatabase,userId,textPlain,textHtml,source,retweetedById);
+  }
+ else {
+    mIsLastItemFiltered=false;
+  }
+}

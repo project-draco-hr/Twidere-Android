@@ -1,0 +1,34 @@
+{
+  final Context context=getActivity();
+  final FrameLayout root=new FrameLayout(context);
+  final LinearLayout pframe=new LinearLayout(context);
+  pframe.setId(INTERNAL_PROGRESS_CONTAINER_ID);
+  pframe.setOrientation(LinearLayout.VERTICAL);
+  pframe.setVisibility(View.GONE);
+  pframe.setGravity(Gravity.CENTER);
+  final ProgressBar progress=new ProgressBar(context,null,android.R.attr.progressBarStyleLarge);
+  pframe.addView(progress,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  root.addView(pframe,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  final FrameLayout lframe=new FrameLayout(context);
+  lframe.setId(INTERNAL_LIST_CONTAINER_ID);
+  final TextView tv=new TextView(getActivity());
+  tv.setId(INTERNAL_EMPTY_ID);
+  tv.setGravity(Gravity.CENTER);
+  lframe.addView(tv,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  final RefreshNowListView lv=new RefreshNowListView(getActivity());
+  lv.setId(android.R.id.list);
+  lv.setOverScrollMode(View.OVER_SCROLL_NEVER);
+  lv.setDrawSelectorOnTop(false);
+  lv.setOnRefreshListener(this);
+  lv.setConfig(ThemeUtils.buildRefreshNowConfig(context));
+  lv.setOnTouchListener(this);
+  lframe.addView(lv,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  final RefreshNowProgressIndicator indicator=new RefreshNowProgressIndicator(context);
+  indicator.setConfig(ThemeUtils.buildRefreshIndicatorConfig(context));
+  final int indicatorHeight=Math.round(3 * getResources().getDisplayMetrics().density);
+  lframe.addView(indicator,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,indicatorHeight,Gravity.TOP));
+  lv.setRefreshIndicatorView(indicator);
+  root.addView(lframe,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  root.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  return root;
+}

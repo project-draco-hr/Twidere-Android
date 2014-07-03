@@ -1,0 +1,10 @@
+{
+  ensureAuthorizationEnabled();
+  final List<HttpParameter> params=new ArrayList<HttpParameter>(5);
+  addParameterToList(params,"width",width);
+  addParameterToList(params,"height",height);
+  addParameterToList(params,"offset_left",offsetLeft);
+  addParameterToList(params,"offset_top",offsetTop);
+  params.add(new HttpParameter("banner","banner",banner));
+  post(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BANNER,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BANNER,params.toArray(new HttpParameter[params.size()]));
+}

@@ -1,0 +1,10 @@
+{
+  if (mStatus == null)   return;
+  mLoadImagesIndicator.setVisibility(View.GONE);
+  mImagePreviewGrid.setVisibility(View.VISIBLE);
+  mImagePreviewGrid.removeAllViews();
+  if (mStatus.medias != null) {
+    final int maxColumns=getResources().getInteger(R.integer.grid_column_image_preview);
+    MediaPreviewUtils.addToLinearLayout(mImagePreviewGrid,mImageLoader,mStatus.medias,maxColumns,this);
+  }
+}

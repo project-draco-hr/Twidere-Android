@@ -1,0 +1,3 @@
+List<T> list
+char token
+boolean include_space

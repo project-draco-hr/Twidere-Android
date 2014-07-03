@@ -1,0 +1,6 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mIsInstanceStateSaved=savedInstanceState != null;
+  final StaggeredGridView lv=getListView();
+  lv.setOnScrollListener(this);
+}

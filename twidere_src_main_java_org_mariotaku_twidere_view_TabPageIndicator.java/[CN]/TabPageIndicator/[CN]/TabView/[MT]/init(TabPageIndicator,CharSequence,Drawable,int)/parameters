@@ -1,0 +1,4 @@
+TabPageIndicator parent
+CharSequence label
+Drawable icon
+int index

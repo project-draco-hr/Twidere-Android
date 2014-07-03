@@ -1,0 +1,6 @@
+{
+  if (null == INSTANCE) {
+    INSTANCE=new CroutonManager();
+  }
+  return INSTANCE;
+}

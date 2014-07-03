@@ -1,0 +1,8 @@
+{
+  final int length=array.size();
+  final long[] result=new long[length];
+  for (int i=0, j=length; i < j; i++) {
+    result[i]=array.keyAt(i);
+  }
+  return result;
+}

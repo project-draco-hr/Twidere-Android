@@ -1,0 +1,9 @@
+{
+  final IconSpec spec=sIconMap.get(resId,null);
+  if (spec == null)   return null;
+  final IconicFontDrawable drawable=new IconicFontDrawable(mContext,spec.icon);
+  drawable.setIntrinsicWidth(mIconSize);
+  drawable.setIntrinsicHeight(mIconSize);
+  drawable.setIconColor(spec.color == 0 ? mIconColor : spec.color);
+  return drawable;
+}

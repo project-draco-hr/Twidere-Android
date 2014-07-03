@@ -1,0 +1,9 @@
+{
+  if (isInEditMode())   return;
+  final int width=getWidth(), height=getHeight();
+  if (mShader == null)   return;
+  super.onDraw(canvas);
+  mPaint.setShader(mShader);
+  mPaint.setXfermode(DST_IN);
+  canvas.drawRect(0,0,width,height,mPaint);
+}

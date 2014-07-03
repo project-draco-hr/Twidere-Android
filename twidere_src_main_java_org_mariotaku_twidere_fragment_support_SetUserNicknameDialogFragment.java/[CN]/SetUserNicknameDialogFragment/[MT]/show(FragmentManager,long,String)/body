@@ -1,0 +1,9 @@
+{
+  final SetUserNicknameDialogFragment f=new SetUserNicknameDialogFragment();
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_USER_ID,user_id);
+  args.putString(EXTRA_NAME,nickname);
+  f.setArguments(args);
+  f.show(fm,FRAGMENT_TAG_SET_USER_NICKNAME);
+  return f;
+}

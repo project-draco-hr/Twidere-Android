@@ -1,0 +1,4 @@
+{
+  if (maxId < 1)   throw new IllegalArgumentException("max_id should be positive integer. passed:" + maxId);
+  this.maxId=maxId;
+}

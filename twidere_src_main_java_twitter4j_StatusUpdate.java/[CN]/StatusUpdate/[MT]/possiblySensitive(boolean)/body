@@ -1,0 +1,4 @@
+{
+  setPossiblySensitive(possiblySensitive);
+  return this;
+}

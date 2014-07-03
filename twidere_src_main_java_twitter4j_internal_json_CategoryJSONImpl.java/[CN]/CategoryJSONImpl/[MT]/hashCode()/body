@@ -1,0 +1,6 @@
+{
+  int result=name != null ? name.hashCode() : 0;
+  result=31 * result + (slug != null ? slug.hashCode() : 0);
+  result=31 * result + size;
+  return result;
+}

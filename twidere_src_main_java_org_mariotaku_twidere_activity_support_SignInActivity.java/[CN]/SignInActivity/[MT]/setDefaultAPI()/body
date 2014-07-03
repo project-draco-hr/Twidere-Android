@@ -1,0 +1,27 @@
+{
+  final long apiLastChange=mPreferences.getLong(KEY_API_LAST_CHANGE,mAPIChangeTimestamp);
+  final boolean defaultApiChanged=apiLastChange != mAPIChangeTimestamp;
+  final String apiUrlFormat=getNonEmptyString(mPreferences,KEY_API_URL_FORMAT,null);
+  final int authType=mPreferences.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
+  final boolean sameOAuthSigningUrl=mPreferences.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
+  final String consumerKey=getNonEmptyString(mPreferences,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
+  final String consumerSecret=getNonEmptyString(mPreferences,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
+  if (isEmpty(mAPIUrlFormat) || defaultApiChanged) {
+    mAPIUrlFormat=apiUrlFormat;
+  }
+  if (mAuthType == 0 || defaultApiChanged) {
+    mAuthType=authType;
+  }
+  if (defaultApiChanged) {
+    mSameOAuthSigningUrl=sameOAuthSigningUrl;
+  }
+  if (isEmpty(mConsumerKey) || defaultApiChanged) {
+    mConsumerKey=consumerKey;
+  }
+  if (isEmpty(mConsumerSecret) || defaultApiChanged) {
+    mConsumerSecret=consumerSecret;
+  }
+  if (defaultApiChanged) {
+    mAPIChangeTimestamp=apiLastChange;
+  }
+}

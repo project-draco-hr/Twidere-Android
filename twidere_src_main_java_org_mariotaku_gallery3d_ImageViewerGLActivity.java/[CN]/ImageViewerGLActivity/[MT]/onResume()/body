@@ -1,0 +1,21 @@
+{
+  super.onResume();
+  mGLRootView.lockRenderThread();
+  try {
+    if (mAdapter == null) {
+      finish();
+      return;
+    }
+    mGLRootView.freeze();
+    setContentPane(mRootPane);
+    mPhotoView.resume();
+    if (!mShowBars) {
+      hideBars();
+    }
+    mHandler.sendEmptyMessageDelayed(MSG_UNFREEZE_GLROOT,UNFREEZE_GLROOT_TIMEOUT);
+  }
+  finally {
+    mGLRootView.unlockRenderThread();
+  }
+  mGLRootView.onResume();
+}

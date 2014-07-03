@@ -1,0 +1,10 @@
+{
+  if (mBlendEnabled == enabled)   return;
+  mBlendEnabled=enabled;
+  if (enabled) {
+    mGL.glEnable(GL11.GL_BLEND);
+  }
+ else {
+    mGL.glDisable(GL11.GL_BLEND);
+  }
+}

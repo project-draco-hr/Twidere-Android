@@ -1,0 +1,9 @@
+{
+  if (getActivity() == null || !getUserVisibleHint() || !isVisible())   return;
+  final LoaderManager lm=getLoaderManager();
+  final boolean hasRunningLoaders=lm.hasRunningLoaders();
+  if (!hasRunningLoaders) {
+    setRefreshing(true);
+  }
+  setRefreshing(hasRunningLoaders);
+}

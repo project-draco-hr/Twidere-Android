@@ -1,0 +1,3 @@
+{
+  return (mEnabledFlags & getItem(position).flag) != 0;
+}

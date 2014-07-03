@@ -1,0 +1,6 @@
+{
+  if (WIZARD_PREFERENCE_KEY_NEXT_PAGE.equals(preference.getKey())) {
+    gotoNextPage();
+  }
+  return true;
+}

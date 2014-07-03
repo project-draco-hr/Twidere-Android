@@ -1,0 +1,6 @@
+{
+  ensureTokenIsAvailable();
+  if (oauthToken instanceof AccessToken)   return (AccessToken)oauthToken;
+  oauthToken=new AccessToken(http.post(conf.getOAuthAccessTokenURL(),conf.getSigningOAuthAccessTokenURL(),this));
+  return (AccessToken)oauthToken;
+}

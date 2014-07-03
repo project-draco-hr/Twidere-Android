@@ -1,0 +1,3 @@
+{
+  mProgress=new ProgressDialog(context);
+}

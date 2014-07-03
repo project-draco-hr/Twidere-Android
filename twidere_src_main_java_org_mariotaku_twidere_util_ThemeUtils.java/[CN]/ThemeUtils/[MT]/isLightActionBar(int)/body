@@ -1,0 +1,15 @@
+{
+switch (themeRes) {
+case R.style.Theme_Twidere_Light:
+case R.style.Theme_Twidere_Light_SolidBackground:
+case R.style.Theme_Twidere_Light_Transparent:
+case R.style.Theme_Twidere_Light_Compose:
+case R.style.Theme_Twidere_Colored:
+case R.style.Theme_Twidere_Colored_SolidBackground:
+case R.style.Theme_Twidere_Colored_Transparent:
+case R.style.Theme_Twidere_Colored_Compose:
+case R.style.Theme_Twidere_Settings_Light:
+    return true;
+}
+return false;
+}

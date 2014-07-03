@@ -1,0 +1,4 @@
+{
+  if (header.fragment == null && header.intent == null)   return HEADER_TYPE_CATEGORY;
+ else   return HEADER_TYPE_NORMAL;
+}

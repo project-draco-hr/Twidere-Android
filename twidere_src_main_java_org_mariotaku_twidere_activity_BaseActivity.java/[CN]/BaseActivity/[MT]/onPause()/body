@@ -1,0 +1,4 @@
+{
+  mIsOnTop=false;
+  super.onPause();
+}

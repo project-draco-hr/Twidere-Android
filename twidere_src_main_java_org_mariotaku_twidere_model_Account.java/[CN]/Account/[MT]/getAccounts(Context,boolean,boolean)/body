@@ -1,0 +1,4 @@
+{
+  final List<Account> list=getAccountsList(context,activatedOnly,officialKeyOnly);
+  return list.toArray(new Account[list.size()]);
+}

@@ -1,0 +1,3 @@
+{
+  setImageDrawable(getContext().getResources().getDrawable(resId));
+}

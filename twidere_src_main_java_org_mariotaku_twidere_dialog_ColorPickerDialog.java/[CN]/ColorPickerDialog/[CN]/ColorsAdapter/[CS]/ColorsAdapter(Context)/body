@@ -1,0 +1,3 @@
+{
+  super(context,R.layout.gallery_item_color_picker_preset);
+}

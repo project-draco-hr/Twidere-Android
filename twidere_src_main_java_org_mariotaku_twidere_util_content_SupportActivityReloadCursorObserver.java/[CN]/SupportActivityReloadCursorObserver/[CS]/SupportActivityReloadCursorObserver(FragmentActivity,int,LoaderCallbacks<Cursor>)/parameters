@@ -1,0 +1,3 @@
+FragmentActivity activity
+int loaderId
+LoaderCallbacks<Cursor> callback

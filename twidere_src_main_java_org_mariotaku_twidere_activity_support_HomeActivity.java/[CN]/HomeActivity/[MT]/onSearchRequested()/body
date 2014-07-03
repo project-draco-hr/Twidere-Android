@@ -1,0 +1,8 @@
+{
+  final Bundle appSearchData=new Bundle();
+  if (mSelectedAccountToSearch != null) {
+    appSearchData.putLong(EXTRA_ACCOUNT_ID,mSelectedAccountToSearch.account_id);
+  }
+  startSearch(null,false,appSearchData,false);
+  return true;
+}

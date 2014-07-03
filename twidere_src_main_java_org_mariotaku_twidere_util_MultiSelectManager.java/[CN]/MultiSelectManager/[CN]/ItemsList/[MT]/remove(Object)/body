@@ -1,0 +1,18 @@
+{
+  final boolean ret=super.remove(object);
+  if (object instanceof ParcelableStatus) {
+    manager.mSelectedStatusIds.remove(((ParcelableStatus)object).id);
+  }
+ else   if (object instanceof ParcelableUser) {
+    manager.mSelectedUserIds.remove(((ParcelableUser)object).id);
+  }
+  if (ret) {
+    if (isEmpty()) {
+      manager.onItemsCleared();
+    }
+ else {
+      manager.onItemUnselected(object);
+    }
+  }
+  return ret;
+}

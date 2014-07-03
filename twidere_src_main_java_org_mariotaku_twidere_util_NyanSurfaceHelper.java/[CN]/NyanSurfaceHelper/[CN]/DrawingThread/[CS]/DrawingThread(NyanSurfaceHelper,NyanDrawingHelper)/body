@@ -1,0 +1,4 @@
+{
+  mSurfaceHelper=surfaceHelper;
+  mDrawingHelper=drawingHelper;
+}

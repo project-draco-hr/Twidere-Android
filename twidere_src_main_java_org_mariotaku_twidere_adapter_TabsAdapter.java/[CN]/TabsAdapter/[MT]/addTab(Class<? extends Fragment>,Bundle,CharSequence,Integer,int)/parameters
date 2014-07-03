@@ -1,0 +1,5 @@
+Class<? extends Fragment> cls
+Bundle args
+CharSequence title
+Integer icon
+int position

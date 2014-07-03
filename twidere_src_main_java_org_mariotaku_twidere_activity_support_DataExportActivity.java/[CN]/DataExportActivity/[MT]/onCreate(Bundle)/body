@@ -1,0 +1,13 @@
+{
+  super.onCreate(savedInstanceState);
+  if (savedInstanceState == null) {
+    final File extStorage=Environment.getExternalStorageDirectory();
+    final String storagePath=extStorage != null ? extStorage.getAbsolutePath() : "/";
+    final FileSelectorDialogFragment f=new FileSelectorDialogFragment();
+    final Bundle args=new Bundle();
+    args.putString(EXTRA_ACTION,INTENT_ACTION_PICK_DIRECTORY);
+    args.putString(EXTRA_PATH,storagePath);
+    f.setArguments(args);
+    f.show(getSupportFragmentManager(),"select_file");
+  }
+}

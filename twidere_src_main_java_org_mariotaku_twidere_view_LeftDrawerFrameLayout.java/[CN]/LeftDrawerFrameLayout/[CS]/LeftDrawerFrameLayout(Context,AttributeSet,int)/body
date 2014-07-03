@@ -1,0 +1,13 @@
+{
+  super(context,attrs,defStyle);
+  final Drawable bg;
+  if (ThemeUtils.isDarkDrawerEnabled(context)) {
+    bg=ThemeUtils.getWindowBackground(context,ThemeUtils.getDrawerThemeResource(context));
+  }
+ else {
+    bg=ThemeUtils.getWindowBackground(context);
+  }
+  ViewAccessor.setBackground(this,bg);
+  setWillNotDraw(false);
+  mClipPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+}

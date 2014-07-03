@@ -1,0 +1,6 @@
+{
+  int result=super.hashCode();
+  result=31 * result + (screenName != null ? screenName.hashCode() : 0);
+  result=31 * result + (int)(userId ^ userId >>> 32);
+  return result;
+}

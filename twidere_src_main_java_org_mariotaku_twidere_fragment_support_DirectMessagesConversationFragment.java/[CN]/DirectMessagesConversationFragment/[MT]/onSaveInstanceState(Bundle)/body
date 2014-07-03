@@ -1,0 +1,9 @@
+{
+  super.onSaveInstanceState(outState);
+  if (mEditText != null) {
+    outState.putCharSequence(EXTRA_TEXT,mEditText.getText());
+  }
+  outState.putLong(EXTRA_ACCOUNT_ID,mAccountId);
+  outState.putLong(EXTRA_RECIPIENT_ID,mRecipientId);
+  outState.putString(EXTRA_IMAGE_URI,mImageUri);
+}

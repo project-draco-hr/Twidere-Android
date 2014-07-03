@@ -1,0 +1,10 @@
+{
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,accountId);
+  args.putInt(EXTRA_SEARCH_ID,searchId);
+  args.putString(EXTRA_NAME,name);
+  final DestroySavedSearchDialogFragment f=new DestroySavedSearchDialogFragment();
+  f.setArguments(args);
+  f.show(fm,FRAGMENT_TAG);
+  return f;
+}

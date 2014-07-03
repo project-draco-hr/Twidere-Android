@@ -1,0 +1,4 @@
+Activity activity
+long accountId
+long statusId
+String screenName

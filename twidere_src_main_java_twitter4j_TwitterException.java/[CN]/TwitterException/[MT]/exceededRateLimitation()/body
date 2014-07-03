@@ -1,0 +1,3 @@
+{
+  return statusCode == 400 && getRateLimitStatus() != null || statusCode == ENHANCE_YOUR_CLAIM || statusCode == TOO_MANY_REQUESTS;
+}

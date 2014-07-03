@@ -1,0 +1,5 @@
+{
+  mHeaders.clear();
+  mSections.clear();
+  notifyDataSetChanged();
+}

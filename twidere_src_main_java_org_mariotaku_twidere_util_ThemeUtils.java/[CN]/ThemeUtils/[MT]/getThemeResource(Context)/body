@@ -1,0 +1,3 @@
+{
+  return getThemeResource(getThemeNameOption(context),getThemeBackgroundOption(context),getDarkActionBarOption(context));
+}

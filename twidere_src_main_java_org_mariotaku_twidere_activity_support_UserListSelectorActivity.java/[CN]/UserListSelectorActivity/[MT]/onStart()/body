@@ -1,0 +1,5 @@
+{
+  super.onStart();
+  final IntentFilter filter=new IntentFilter(BROADCAST_USER_LIST_CREATED);
+  registerReceiver(mStatusReceiver,filter);
+}

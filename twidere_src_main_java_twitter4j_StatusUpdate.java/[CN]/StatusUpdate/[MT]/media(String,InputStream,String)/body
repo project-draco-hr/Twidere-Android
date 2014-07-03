@@ -1,0 +1,4 @@
+{
+  setMedia(name,body,type);
+  return this;
+}

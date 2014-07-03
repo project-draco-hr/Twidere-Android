@@ -1,0 +1,3 @@
+{
+  return getLinkHighlightOptionInt(getLinkHighlightOption(context));
+}

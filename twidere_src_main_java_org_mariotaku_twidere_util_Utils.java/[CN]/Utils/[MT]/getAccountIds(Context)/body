@@ -1,0 +1,18 @@
+{
+  if (context == null)   return new long[0];
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_ID},null,null,null);
+  if (cur == null)   return new long[0];
+  try {
+    cur.moveToFirst();
+    final long[] ids=new long[cur.getCount()];
+    int i=0;
+    while (!cur.isAfterLast()) {
+      ids[i++]=cur.getLong(0);
+      cur.moveToNext();
+    }
+    return ids;
+  }
+  finally {
+    cur.close();
+  }
+}

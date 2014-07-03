@@ -1,0 +1,7 @@
+{
+  super.setBackgroundColor(Color.WHITE);
+  super.initialize(width,height,parentWidth,parentHeight);
+  mCamera=new Camera();
+  mWidth=width;
+  mHeight=height;
+}

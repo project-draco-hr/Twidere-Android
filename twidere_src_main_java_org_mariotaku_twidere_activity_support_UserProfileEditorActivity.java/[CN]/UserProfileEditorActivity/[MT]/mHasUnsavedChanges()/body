@@ -1,0 +1,4 @@
+{
+  if (mUser == null)   return false;
+  return !stringEquals(mEditName.getText(),mUser.name) || !stringEquals(mEditDescription.getText(),mUser.description_expanded) || !stringEquals(mEditLocation.getText(),mUser.location)|| !stringEquals(mEditUrl.getText(),isEmpty(mUser.url_expanded) ? mUser.url : mUser.url_expanded);
+}

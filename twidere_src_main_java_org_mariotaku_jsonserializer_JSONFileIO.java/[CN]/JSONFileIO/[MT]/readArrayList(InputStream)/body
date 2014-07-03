@@ -1,0 +1,10 @@
+{
+  try {
+    final JSONObject json=new JSONObject(convertString(stream));
+    final JSONParcelable.Creator<T> creator=getCreator(json.getString(KEY_CLASS));
+    return createArrayList(creator,json.getJSONArray(KEY_OBJECT));
+  }
+ catch (  final JSONException e) {
+    throw new IOException(e);
+  }
+}

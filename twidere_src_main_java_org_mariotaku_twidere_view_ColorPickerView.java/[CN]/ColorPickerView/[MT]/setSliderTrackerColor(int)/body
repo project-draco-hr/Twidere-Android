@@ -1,0 +1,5 @@
+{
+  mSliderTrackerColor=color;
+  mHueTrackerPaint.setColor(mSliderTrackerColor);
+  invalidate();
+}

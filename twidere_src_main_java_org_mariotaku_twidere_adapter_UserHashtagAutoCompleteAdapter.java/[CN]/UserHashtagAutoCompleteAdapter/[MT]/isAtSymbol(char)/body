@@ -1,0 +1,8 @@
+{
+switch (character) {
+case '\uff20':
+case '@':
+    return true;
+}
+return false;
+}

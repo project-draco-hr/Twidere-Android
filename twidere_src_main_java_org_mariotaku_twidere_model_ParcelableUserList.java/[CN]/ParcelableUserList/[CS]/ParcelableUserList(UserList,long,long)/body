@@ -1,0 +1,3 @@
+{
+  this(list,account_id,position,list.isFollowing());
+}

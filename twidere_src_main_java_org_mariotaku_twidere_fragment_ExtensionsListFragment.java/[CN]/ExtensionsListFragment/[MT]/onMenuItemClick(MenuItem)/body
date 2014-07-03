@@ -1,0 +1,24 @@
+{
+  if (mSelectedExtension == null)   return false;
+switch (item.getItemId()) {
+case MENU_SETTINGS:
+{
+      openSettings(mSelectedExtension);
+      break;
+    }
+case MENU_DELETE:
+{
+    final Uri packageUri=Uri.parse("package:" + mSelectedExtension.pname);
+    final Intent uninstallIntent=new Intent(Intent.ACTION_UNINSTALL_PACKAGE,packageUri);
+    startActivity(uninstallIntent);
+    break;
+  }
+case MENU_REVOKE:
+{
+  mPermissionsManager.revoke(mSelectedExtension.pname);
+  mAdapter.notifyDataSetChanged();
+  break;
+}
+}
+return false;
+}

@@ -1,0 +1,7 @@
+{
+  final int fullLength=(direction & 1) == 0 ? getWidth() : getHeight();
+  mEffect[direction].onPull((float)offset / fullLength);
+  if (!mEffect[direction].isFinished()) {
+    invalidate();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (newCols == null)   return null;
+  final String[] notNullCols=new String[newCols.length];
+  int count=0;
+  for (  final NewColumn column : newCols) {
+    if (column.getType().endsWith(" NOT NULL")) {
+      notNullCols[count++]=column.getName();
+    }
+  }
+  return ArrayUtils.subArray(notNullCols,0,count);
+}

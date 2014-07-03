@@ -1,0 +1,16 @@
+{
+  try {
+    final ContentResolver resolver=activity.getContentResolver();
+    final InputStream is=resolver.openInputStream(src);
+    final OutputStream os=resolver.openOutputStream(dst);
+    copyStream(is,os);
+    os.close();
+    if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && delete_src) {
+      new File(src.getPath()).delete();
+    }
+  }
+ catch (  final Exception e) {
+    return false;
+  }
+  return true;
+}

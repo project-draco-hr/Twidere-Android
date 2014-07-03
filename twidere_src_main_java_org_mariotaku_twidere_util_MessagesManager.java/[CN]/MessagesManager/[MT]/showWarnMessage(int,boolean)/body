@@ -1,0 +1,10 @@
+{
+  final Activity best=getBestActivity();
+  if (best != null) {
+    Utils.showWarnMessage(best,message_res,long_message);
+    return;
+  }
+  if (showToast()) {
+    Utils.showWarnMessage(mContext,message_res,long_message);
+  }
+}

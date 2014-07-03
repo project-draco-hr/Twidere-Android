@@ -1,0 +1,6 @@
+{
+  if (!(dialog instanceof AlertDialog))   return;
+  final AlertDialog alertDialog=(AlertDialog)dialog;
+  final Button positiveButton=alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+  positiveButton.setEnabled(getCheckedFlags() != 0);
+}

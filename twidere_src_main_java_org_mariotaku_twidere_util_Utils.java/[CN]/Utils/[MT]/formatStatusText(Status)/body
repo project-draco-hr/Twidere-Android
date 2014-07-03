@@ -1,0 +1,8 @@
+{
+  if (status == null)   return null;
+  final String text=status.getRawText();
+  if (text == null)   return null;
+  final HtmlBuilder builder=new HtmlBuilder(text,false,true,true);
+  parseEntities(builder,status);
+  return builder.build().replace("\n","<br/>");
+}

@@ -1,0 +1,6 @@
+{
+  if (mRecentLocation == null) {
+    mRecentLocation=location != null ? new ParcelableLocation(location) : null;
+    setProgressBarIndeterminateVisibility(false);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  int type=1;
+  for (  final Object section : mSections.keySet()) {
+    final Adapter adapter=mSections.get(section);
+    final int size=adapter.getCount() + 1;
+    if (position == 0)     return TYPE_SECTION_HEADER;
+    if (position < size)     return type + adapter.getItemViewType(position - 1);
+    position-=size;
+    type+=adapter.getViewTypeCount();
+  }
+  return -1;
+}

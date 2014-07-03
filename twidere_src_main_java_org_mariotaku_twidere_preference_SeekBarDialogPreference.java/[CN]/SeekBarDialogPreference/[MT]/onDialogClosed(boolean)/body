@@ -1,0 +1,9 @@
+{
+  super.onDialogClosed(positiveResult);
+  if (positiveResult) {
+    final int seekBarProgress=mSeekBar.getProgress() + mMinProgress;
+    if (callChangeListener(seekBarProgress)) {
+      setProgress(seekBarProgress);
+    }
+  }
+}

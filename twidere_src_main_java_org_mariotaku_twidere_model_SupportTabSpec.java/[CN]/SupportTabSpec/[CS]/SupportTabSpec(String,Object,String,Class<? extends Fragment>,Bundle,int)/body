@@ -1,0 +1,10 @@
+{
+  if (cls == null)   throw new IllegalArgumentException("Fragment cannot be null!");
+  if (name == null && icon == null)   throw new IllegalArgumentException("You must specify a name or icon for this tab!");
+  this.name=name;
+  this.icon=icon;
+  this.type=type;
+  this.cls=cls;
+  this.args=args;
+  this.position=position;
+}

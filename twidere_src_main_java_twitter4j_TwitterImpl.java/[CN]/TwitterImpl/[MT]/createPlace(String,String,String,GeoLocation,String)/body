@@ -1,0 +1,11 @@
+{
+  ensureAuthorizationEnabled();
+  final List<HttpParameter> params=new ArrayList<HttpParameter>(6);
+  addParameterToList(params,"name",name);
+  addParameterToList(params,"contained_within",containedWithin);
+  addParameterToList(params,"token",token);
+  addParameterToList(params,"lat",location.getLatitude());
+  addParameterToList(params,"long",location.getLongitude());
+  addParameterToList(params,"attribute:street_address",streetAddress);
+  return factory.createPlace(post(conf.getRestBaseURL() + ENDPOINT_GEO_PLACE,conf.getSigningRestBaseURL() + ENDPOINT_GEO_PLACE,params.toArray(new HttpParameter[params.size()])));
+}

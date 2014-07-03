@@ -1,0 +1,3 @@
+{
+  Utils.sendInsertCommand(context,ACTION_REFRESH_ALL,null);
+}

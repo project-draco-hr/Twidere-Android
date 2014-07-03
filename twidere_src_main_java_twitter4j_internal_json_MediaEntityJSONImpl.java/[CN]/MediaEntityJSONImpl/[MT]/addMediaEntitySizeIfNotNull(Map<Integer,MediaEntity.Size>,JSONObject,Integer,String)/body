@@ -1,0 +1,6 @@
+{
+  final JSONObject size_json=sizes_json.optJSONObject(key);
+  if (size_json != null) {
+    sizes.put(size,new Size(size_json));
+  }
+}

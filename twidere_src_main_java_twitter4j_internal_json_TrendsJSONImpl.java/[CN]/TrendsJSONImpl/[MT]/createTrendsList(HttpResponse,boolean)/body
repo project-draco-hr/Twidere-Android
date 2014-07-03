@@ -1,0 +1,30 @@
+{
+  final JSONObject json=res.asJSONObject();
+  ResponseList<Trends> trends;
+  try {
+    final Date asOf=InternalParseUtil.parseTrendsDate(json.getString("as_of"));
+    final JSONObject trendsJson=json.getJSONObject("trends");
+    final Location location=extractLocation(json);
+    trends=new ResponseListImpl<Trends>(trendsJson.length(),res);
+    @SuppressWarnings("unchecked") final Iterator<String> ite=trendsJson.keys();
+    while (ite.hasNext()) {
+      final String key=ite.next();
+      final JSONArray array=trendsJson.getJSONArray(key);
+      final Trend[] trendsArray=jsonArrayToTrendArray(array);
+      if (key.length() == 19) {
+        trends.add(new TrendsJSONImpl(asOf,location,getDate(key,"yyyy-MM-dd HH:mm:ss"),trendsArray));
+      }
+ else       if (key.length() == 16) {
+        trends.add(new TrendsJSONImpl(asOf,location,getDate(key,"yyyy-MM-dd HH:mm"),trendsArray));
+      }
+ else       if (key.length() == 10) {
+        trends.add(new TrendsJSONImpl(asOf,location,getDate(key,"yyyy-MM-dd"),trendsArray));
+      }
+    }
+    Collections.sort(trends);
+    return trends;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone.getMessage() + ":" + res.asString(),jsone);
+  }
+}

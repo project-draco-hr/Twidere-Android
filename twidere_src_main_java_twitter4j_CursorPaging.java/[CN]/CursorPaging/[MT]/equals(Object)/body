@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof CursorPaging))   return false;
+  final CursorPaging paging=(CursorPaging)o;
+  if (count != paging.count)   return false;
+  if (cursor != paging.cursor)   return false;
+  return true;
+}

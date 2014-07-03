@@ -1,0 +1,9 @@
+{
+  final boolean drawContent=child == mContentView;
+  drawShadow(canvas,child);
+  final boolean ret=super.drawChild(canvas,child,drawingTime);
+  if (mScrimOpacity > 0 && drawContent && mDragHelper.getViewDragState() != ViewDragHelper.STATE_IDLE) {
+    drawScrim(canvas,child);
+  }
+  return ret;
+}

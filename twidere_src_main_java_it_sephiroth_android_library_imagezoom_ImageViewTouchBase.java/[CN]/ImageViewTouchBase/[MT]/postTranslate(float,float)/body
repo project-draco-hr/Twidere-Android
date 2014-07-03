@@ -1,0 +1,4 @@
+{
+  mSuppMatrix.postTranslate(deltaX,deltaY);
+  setImageMatrix(getImageViewMatrix());
+}

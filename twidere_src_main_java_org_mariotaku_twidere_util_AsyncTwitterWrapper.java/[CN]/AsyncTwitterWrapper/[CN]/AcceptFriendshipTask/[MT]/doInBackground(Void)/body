@@ -1,0 +1,11 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final User user=twitter.acceptFriendship(mUserId);
+    return SingleResponse.getInstance(user,null);
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(null,e);
+  }
+}

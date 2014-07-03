@@ -1,0 +1,4 @@
+{
+  mAsyncTaskManager.add(new StoreLocalTrendsTask(result),true);
+  super.onPostExecute(result);
+}

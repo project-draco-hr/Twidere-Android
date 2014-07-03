@@ -1,0 +1,10 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof OptionItem))   return false;
+  final OptionItem other=(OptionItem)obj;
+  if (icon != other.icon)   return false;
+  if (id != other.id)   return false;
+  if (name != other.name)   return false;
+  return true;
+}

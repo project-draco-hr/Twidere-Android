@@ -1,0 +1,3 @@
+{
+  return mCompactCards != mPreferences.getBoolean(KEY_COMPACT_CARDS,false) || mPlainListStyle != mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false) || getThemeResourceId() != getCurrentThemeResourceId() || getThemeColor() != mCurrentThemeColor || !CompareUtils.objectEquals(getThemeFontFamily(),mCurrentThemeFontFamily) || getThemeBackgroundAlpha() != mCurrentThemeBackgroundAlpha || isDarkDrawerEnabled() != mCurrentIsDarkDrawerEnabled;
+}

@@ -1,0 +1,3 @@
+{
+  mNyanDrawingHelper=new NyanDrawingHelper(context);
+}

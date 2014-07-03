@@ -1,0 +1,6 @@
+{
+  super.onAttachedToWindow();
+  setContentView(R.layout.nyan_daydream);
+  mNyanDaydreamView.setOnSystemUiVisibilityChangeListener(this);
+  updateView();
+}

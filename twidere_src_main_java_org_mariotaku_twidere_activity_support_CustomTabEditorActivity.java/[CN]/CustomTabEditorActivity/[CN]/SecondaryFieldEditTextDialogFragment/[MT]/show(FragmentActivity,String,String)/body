@@ -1,0 +1,9 @@
+{
+  final SecondaryFieldEditTextDialogFragment f=new SecondaryFieldEditTextDialogFragment();
+  final Bundle args=new Bundle();
+  args.putString(EXTRA_TEXT,text);
+  args.putString(EXTRA_TITLE,title);
+  f.setArguments(args);
+  f.show(activity.getSupportFragmentManager(),FRAGMENT_TAG_EDIT_SECONDARY_FIELD);
+  return f;
+}

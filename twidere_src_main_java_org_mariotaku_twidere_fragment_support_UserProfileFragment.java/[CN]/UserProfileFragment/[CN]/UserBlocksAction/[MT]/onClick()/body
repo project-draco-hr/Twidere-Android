@@ -1,0 +1,5 @@
+{
+  final ParcelableUser user=mUser;
+  if (user == null)   return;
+  openUserBlocks(getActivity(),user.account_id);
+}

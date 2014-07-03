@@ -1,0 +1,52 @@
+{
+  if (uri == null || values == null || values.length == 0)   return;
+  preloadImages(values);
+  if (!uri.getBooleanQueryParameter(QUERY_PARAM_NOTIFY,true))   return;
+switch (getTableId(uri)) {
+case TABLE_ID_STATUSES:
+{
+      final int notifiedCount=notifyStatusesInserted(values);
+      final List<ParcelableStatus> items=new ArrayList<ParcelableStatus>(mNewStatuses);
+      Collections.sort(items);
+      final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
+      for (      final AccountPreferences pref : prefs) {
+        if (pref.isHomeTimelineNotificationEnabled()) {
+          final long accountId=pref.getAccountId();
+          displayStatusesNotification(notifiedCount,pref,pref.getHomeTimelineNotificationType(),NOTIFICATION_ID_HOME_TIMELINE,getStatusesForAccounts(items,accountId),R.string.notification_status,R.string.notification_status_multiple,R.drawable.ic_stat_twitter);
+        }
+      }
+      notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
+      break;
+    }
+case TABLE_ID_MENTIONS:
+{
+    final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
+    final int notifiedCount=notifyMentionsInserted(prefs,values);
+    final List<ParcelableStatus> items=new ArrayList<ParcelableStatus>(mNewMentions);
+    Collections.sort(items);
+    for (    final AccountPreferences pref : prefs) {
+      if (pref.isMentionsNotificationEnabled()) {
+        final long accountId=pref.getAccountId();
+        displayStatusesNotification(notifiedCount,pref,pref.getMentionsNotificationType(),NOTIFICATION_ID_MENTIONS,getStatusesForAccounts(items,accountId),R.string.notification_mention,R.string.notification_mention_multiple,R.drawable.ic_stat_mention);
+      }
+    }
+    notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS);
+    break;
+  }
+case TABLE_ID_DIRECT_MESSAGES_INBOX:
+{
+  final int notifiedCount=notifyIncomingMessagesInserted(values);
+  final List<ParcelableDirectMessage> items=new ArrayList<ParcelableDirectMessage>(mNewMessages);
+  Collections.sort(items);
+  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
+  for (  final AccountPreferences pref : prefs) {
+    if (pref.isDirectMessagesNotificationEnabled()) {
+      final long accountId=pref.getAccountId();
+      displayMessagesNotification(notifiedCount,pref,pref.getDirectMessagesNotificationType(),R.drawable.ic_stat_mention,getMessagesForAccounts(items,accountId));
+    }
+  }
+  notifyUnreadCountChanged(NOTIFICATION_ID_DIRECT_MESSAGES);
+  break;
+}
+}
+}

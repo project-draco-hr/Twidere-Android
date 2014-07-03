@@ -1,0 +1,10 @@
+{
+  super.onResume();
+  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONRESUME));
+  mViewPager.setEnabled(!mPreferences.getBoolean(KEY_DISABLE_TAB_SWIPE,false));
+  invalidateOptionsMenu();
+  updateActionsButtonStyle();
+  updateActionsButton();
+  updateSmartBar();
+  updateSlidingMenuTouchMode();
+}

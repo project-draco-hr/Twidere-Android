@@ -1,0 +1,7 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.Notifications.MATRIX_COLUMNS);
+  c.addRow(new Integer[]{NOTIFICATION_ID_HOME_TIMELINE,mUnreadStatuses.size()});
+  c.addRow(new Integer[]{NOTIFICATION_ID_MENTIONS,mNewMentions.size()});
+  c.addRow(new Integer[]{NOTIFICATION_ID_DIRECT_MESSAGES,mNewMessages.size()});
+  return c;
+}

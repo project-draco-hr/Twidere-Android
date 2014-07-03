@@ -1,0 +1,8 @@
+{
+  final Parcelable superState=super.onSaveInstanceState();
+  final SavedState myState=new SavedState(superState);
+  myState.minProgress=getMinProgress();
+  myState.maxProgress=getMaxProgress();
+  myState.progress=getProgress();
+  return myState;
+}

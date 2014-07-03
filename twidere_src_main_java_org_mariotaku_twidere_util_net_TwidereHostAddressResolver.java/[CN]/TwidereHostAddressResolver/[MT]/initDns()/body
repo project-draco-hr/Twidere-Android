@@ -1,0 +1,7 @@
+{
+  if (mDns != null)   return;
+  mDns=mLocalMappingOnly ? null : new SimpleResolver(mDnsAddress);
+  if (mDns != null) {
+    mDns.setTCP(true);
+  }
+}

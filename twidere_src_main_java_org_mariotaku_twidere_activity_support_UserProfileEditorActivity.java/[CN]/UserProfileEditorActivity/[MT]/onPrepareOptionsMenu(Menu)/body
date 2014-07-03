@@ -1,0 +1,7 @@
+{
+  final MenuItem save=menu.findItem(MENU_SAVE);
+  if (save != null) {
+    save.setEnabled(mHasUnsavedChanges() && (mTask == null || mTask.getStatus() != AsyncTask.Status.RUNNING));
+  }
+  return super.onPrepareOptionsMenu(menu);
+}

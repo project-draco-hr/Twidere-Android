@@ -1,0 +1,4 @@
+{
+  final NumberFormat nf=NumberFormat.getInstance(locale);
+  return nf.format(number);
+}

@@ -1,0 +1,9 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof ParcelableUserList))   return false;
+  final ParcelableUserList other=(ParcelableUserList)obj;
+  if (account_id != other.account_id)   return false;
+  if (id != other.id)   return false;
+  return true;
+}

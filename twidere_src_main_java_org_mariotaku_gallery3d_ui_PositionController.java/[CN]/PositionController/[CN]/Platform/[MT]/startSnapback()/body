@@ -1,0 +1,18 @@
+{
+  if (mAnimationStartTime != NO_ANIMATION)   return false;
+  if (mAnimationKind == ANIM_KIND_SCROLL && mListener.isHoldingDown())   return false;
+  if (mInScale)   return false;
+  final float scaleMin=mExtraScalingRange ? mBox.mScaleMin * SCALE_MIN_EXTRA : mBox.mScaleMin;
+  final float scaleMax=mExtraScalingRange ? mBox.mScaleMax * SCALE_MAX_EXTRA : mBox.mScaleMax;
+  final float scale=GalleryUtils.clamp(mBox.mCurrentScale,scaleMin,scaleMax);
+  int x=mCurrentX;
+  final int y=mDefaultY;
+  calculateStableBound(scale,HORIZONTAL_SLACK);
+  if (!viewWiderThanScaledImage(scale)) {
+    final float scaleDiff=mBox.mCurrentScale - scale;
+    x+=(int)(mFocusX * scaleDiff + 0.5f);
+  }
+  x=GalleryUtils.clamp(x,mBoundLeft,mBoundRight);
+  if (mCurrentX != x || mCurrentY != y)   return doAnimation(x,y,ANIM_KIND_SNAPBACK);
+  return false;
+}

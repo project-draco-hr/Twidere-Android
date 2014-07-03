@@ -1,0 +1,8 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof UserListJSONImpl))   return false;
+  final UserListJSONImpl other=(UserListJSONImpl)obj;
+  if (id != other.id)   return false;
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return "Crouton{" + "text=" + text + ", style="+ style+ ", configuration="+ configuration+ ", customView="+ customView+ ", onClickListener="+ onClickListener+ ", activity="+ activity+ ", viewGroup="+ viewGroup+ ", croutonView="+ croutonView+ ", inAnimation="+ inAnimation+ ", outAnimation="+ outAnimation+ ", lifecycleCallback="+ lifecycleCallback+ '}';
+}

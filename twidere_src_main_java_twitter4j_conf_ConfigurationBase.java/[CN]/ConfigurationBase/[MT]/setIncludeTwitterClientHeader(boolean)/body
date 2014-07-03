@@ -1,0 +1,4 @@
+{
+  includeTwitterClientHeader=includeHeader;
+  initRequestHeaders();
+}

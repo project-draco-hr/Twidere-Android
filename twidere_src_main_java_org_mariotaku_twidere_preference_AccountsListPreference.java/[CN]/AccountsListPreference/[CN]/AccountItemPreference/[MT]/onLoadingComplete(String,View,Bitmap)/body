@@ -1,0 +1,3 @@
+{
+  setIcon(new BitmapDrawable(getContext().getResources(),loadedImage));
+}

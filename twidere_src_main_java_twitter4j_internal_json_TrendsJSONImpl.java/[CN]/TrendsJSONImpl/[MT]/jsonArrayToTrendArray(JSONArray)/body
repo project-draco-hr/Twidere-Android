@@ -1,0 +1,8 @@
+{
+  final Trend[] trends=new Trend[array.length()];
+  for (int i=0; i < array.length(); i++) {
+    final JSONObject trend=array.getJSONObject(i);
+    trends[i]=new TrendJSONImpl(trend);
+  }
+  return trends;
+}

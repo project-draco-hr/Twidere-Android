@@ -1,0 +1,53 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final ParcelableUser user=mUser;
+  final Relationship relationship=mRelationship;
+  if (twitter == null || user == null)   return;
+  final int activatedColor=ThemeUtils.getUserThemeColor(getActivity());
+  final boolean isMyself=user.account_id == user.id;
+  final boolean isFollowing=relationship != null && relationship.isSourceFollowingTarget();
+  final boolean isProtected=user.is_protected;
+  final boolean creatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
+  final boolean destroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
+  setMenuItemAvailability(menu,MENU_EDIT,isMyself);
+  final MenuItem followItem=menu.findItem(MENU_FOLLOW);
+  followItem.setVisible(!isMyself);
+  final boolean shouldShowFollowItem=!creatingFriendship && !destroyingFriendship && !isMyself&& relationship != null;
+  followItem.setEnabled(shouldShowFollowItem);
+  if (shouldShowFollowItem) {
+    followItem.setTitle(isFollowing ? R.string.unfollow : isProtected ? R.string.send_follow_request : R.string.follow);
+    followItem.setIcon(isFollowing ? R.drawable.ic_iconic_action_cancel : R.drawable.ic_iconic_action_add);
+  }
+ else {
+    followItem.setTitle(null);
+    followItem.setIcon(null);
+  }
+  if (user.id != user.account_id && relationship != null) {
+    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
+    setMenuItemAvailability(menu,MENU_BLOCK,true);
+    final MenuItem blockItem=menu.findItem(MENU_BLOCK);
+    if (blockItem != null) {
+      final Drawable blockIcon=blockItem.getIcon();
+      if (relationship.isSourceBlockingTarget()) {
+        blockItem.setTitle(R.string.unblock);
+        blockIcon.mutate();
+        blockIcon.setColorFilter(activatedColor,PorterDuff.Mode.SRC_ATOP);
+      }
+ else {
+        blockItem.setTitle(R.string.block);
+        blockIcon.clearColorFilter();
+      }
+    }
+  }
+ else {
+    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
+    setMenuItemAvailability(menu,MENU_BLOCK,false);
+    setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
+  }
+  final Intent intent=new Intent(INTENT_ACTION_EXTENSION_OPEN_USER);
+  final Bundle extras=new Bundle();
+  extras.putParcelable(EXTRA_USER,user);
+  intent.putExtras(extras);
+  menu.removeGroup(MENU_GROUP_USER_EXTENSION);
+  addIntentToMenu(getActivity(),menu,intent,MENU_GROUP_USER_EXTENSION);
+}

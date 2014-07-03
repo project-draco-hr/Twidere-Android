@@ -1,0 +1,24 @@
+{
+  final int view_id=view.getId();
+  final ListView list=(ListView)view;
+  if (view_id == R.id.users_list) {
+    final ParcelableUser user=mUsersAdapter.getItem(position - list.getHeaderViewsCount());
+    if (user == null)     return;
+    if (isSelectingUser()) {
+      final Intent data=new Intent();
+      data.setExtrasClassLoader(getClassLoader());
+      data.putExtra(EXTRA_USER,user);
+      setResult(RESULT_OK,data);
+      finish();
+    }
+ else {
+      getUserLists(user.screen_name);
+    }
+  }
+ else   if (view_id == R.id.user_lists_list) {
+    final Intent data=new Intent();
+    data.putExtra(EXTRA_USER_LIST,mUserListsAdapter.getItem(position - list.getHeaderViewsCount()));
+    setResult(RESULT_OK,data);
+    finish();
+  }
+}

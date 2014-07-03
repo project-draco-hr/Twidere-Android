@@ -1,0 +1,3 @@
+{
+  return new ExtraConfiguration(key,titleRes,Type.BOOLEAN,def);
+}

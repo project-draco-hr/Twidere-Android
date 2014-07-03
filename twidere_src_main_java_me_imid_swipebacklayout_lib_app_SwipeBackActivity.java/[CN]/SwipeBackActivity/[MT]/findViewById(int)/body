@@ -1,0 +1,5 @@
+{
+  final View v=super.findViewById(id);
+  if (v == null && mSwipebackHelper != null)   return mSwipebackHelper.findViewById(id);
+  return v;
+}

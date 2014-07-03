@@ -1,0 +1,3 @@
+{
+  drawTexture(texture,x,y,width,height,mAlpha);
+}

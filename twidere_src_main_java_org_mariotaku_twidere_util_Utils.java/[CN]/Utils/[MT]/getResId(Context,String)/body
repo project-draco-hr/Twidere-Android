@@ -1,0 +1,9 @@
+{
+  if (context == null || string == null)   return 0;
+  Matcher m=PATTERN_RESOURCE_IDENTIFIER.matcher(string);
+  final Resources res=context.getResources();
+  if (m.matches())   return res.getIdentifier(m.group(2),m.group(1),context.getPackageName());
+  m=PATTERN_XML_RESOURCE_IDENTIFIER.matcher(string);
+  if (m.matches())   return res.getIdentifier(m.group(1),"xml",context.getPackageName());
+  return 0;
+}

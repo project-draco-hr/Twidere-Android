@@ -1,0 +1,6 @@
+{
+  mModel=model;
+  if (model != null) {
+    notifyModelInvalidated();
+  }
+}

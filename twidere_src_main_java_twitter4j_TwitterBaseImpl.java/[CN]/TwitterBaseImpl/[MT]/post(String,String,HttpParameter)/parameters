@@ -1,0 +1,3 @@
+String url
+String sign_url
+HttpParameter parameters

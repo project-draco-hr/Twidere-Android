@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof TwitterBaseImpl))   return false;
+  final TwitterBaseImpl that=(TwitterBaseImpl)o;
+  if (auth != null ? !auth.equals(that.auth) : that.auth != null)   return false;
+  if (!conf.equals(that.conf))   return false;
+  if (http != null ? !http.equals(that.http) : that.http != null)   return false;
+  if (!rateLimitStatusListeners.equals(that.rateLimitStatusListeners))   return false;
+  return true;
+}

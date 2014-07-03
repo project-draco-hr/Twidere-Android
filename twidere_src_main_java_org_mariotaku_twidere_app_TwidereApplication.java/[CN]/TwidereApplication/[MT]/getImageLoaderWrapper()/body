@@ -1,0 +1,4 @@
+{
+  if (mImageLoaderWrapper != null)   return mImageLoaderWrapper;
+  return mImageLoaderWrapper=new ImageLoaderWrapper(getImageLoader());
+}

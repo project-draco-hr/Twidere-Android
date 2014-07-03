@@ -1,0 +1,4 @@
+int targetX
+int targetY
+float targetScale
+int kind

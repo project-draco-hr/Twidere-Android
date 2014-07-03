@@ -1,0 +1,5 @@
+{
+  mIndices=cursor != null ? new ParcelableStatus.CursorIndices(cursor) : null;
+  rebuildFilterInfo(cursor,mIndices);
+  return super.swapCursor(cursor);
+}

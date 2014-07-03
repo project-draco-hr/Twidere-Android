@@ -1,0 +1,5 @@
+{
+  final Uri def=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+  final String path=mPreferences.getString(KEY_NOTIFICATION_RINGTONE,null);
+  return TextUtils.isEmpty(path) ? def : Uri.parse(path);
+}

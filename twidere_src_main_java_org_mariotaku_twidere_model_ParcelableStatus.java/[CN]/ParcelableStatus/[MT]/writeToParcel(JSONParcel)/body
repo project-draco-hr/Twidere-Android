@@ -1,0 +1,35 @@
+{
+  out.writeLong("status_id",id);
+  out.writeLong("account_id",account_id);
+  out.writeLong("status_timestamp",timestamp);
+  out.writeLong("user_id",user_id);
+  out.writeLong("retweet_id",retweet_id);
+  out.writeLong("retweet_timestamp",retweet_timestamp);
+  out.writeLong("retweeted_by_id",retweeted_by_id);
+  out.writeLong("retweet_count",retweet_count);
+  out.writeLong("favorite_count",favorite_count);
+  out.writeLong("in_reply_to_status_id",in_reply_to_status_id);
+  out.writeLong("in_reply_to_user_id",in_reply_to_user_id);
+  out.writeBoolean("is_gap",is_gap);
+  out.writeBoolean("is_retweet",is_retweet);
+  out.writeBoolean("is_favorite",is_favorite);
+  out.writeBoolean("is_protected",user_is_protected);
+  out.writeBoolean("is_verified",user_is_verified);
+  out.writeString("retweeted_by_name",retweeted_by_name);
+  out.writeString("retweeted_by_screen_name",retweeted_by_screen_name);
+  out.writeString("text_html",text_html);
+  out.writeString("text_plain",text_plain);
+  out.writeString("text_unescaped",text_unescaped);
+  out.writeString("name",user_name);
+  out.writeString("screen_name",user_screen_name);
+  out.writeString("in_reply_to_name",in_reply_to_name);
+  out.writeString("in_reply_to_screen_name",in_reply_to_screen_name);
+  out.writeString("source",source);
+  out.writeString("profile_image_url",user_profile_image_url);
+  out.writeParcelableArray("medias",medias);
+  out.writeParcelable("location",location);
+  out.writeLong("my_retweet_id",my_retweet_id);
+  out.writeBoolean("is_possibly_sensitive",is_possibly_sensitive);
+  out.writeBoolean("is_following",user_is_following);
+  out.writeParcelableArray("mentions",mentions);
+}

@@ -1,0 +1,8 @@
+{
+  mActivity=activity;
+  mApplication=TwidereApplication.getInstance(activity);
+  mPreferences=activity.getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  final Intent intent=activity.getIntent();
+  mConsumerKey=intent.getStringExtra(Accounts.CONSUMER_KEY);
+  mConsumerSecret=intent.getStringExtra(Accounts.CONSUMER_SECRET);
+}

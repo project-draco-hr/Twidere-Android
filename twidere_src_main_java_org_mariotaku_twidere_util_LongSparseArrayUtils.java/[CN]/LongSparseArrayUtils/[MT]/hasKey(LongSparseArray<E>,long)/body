@@ -1,0 +1,3 @@
+{
+  return array.indexOfKey(key) >= 0;
+}

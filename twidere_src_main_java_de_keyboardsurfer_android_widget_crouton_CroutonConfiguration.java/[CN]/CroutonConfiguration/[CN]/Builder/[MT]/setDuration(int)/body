@@ -1,0 +1,4 @@
+{
+  durationInMilliseconds=duration;
+  return this;
+}

@@ -1,0 +1,8 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final TextView summary_view=(TextView)view.findViewById(android.R.id.text2);
+  final String summary=getItem(position).getSummary();
+  summary_view.setText(summary);
+  summary_view.setVisibility(!TextUtils.isEmpty(summary) ? View.VISIBLE : View.GONE);
+  return view;
+}

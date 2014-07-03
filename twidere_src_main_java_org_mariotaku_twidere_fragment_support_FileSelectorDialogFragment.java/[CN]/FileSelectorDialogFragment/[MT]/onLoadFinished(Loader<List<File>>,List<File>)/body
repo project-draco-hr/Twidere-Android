@@ -1,0 +1,12 @@
+{
+  final File currentDir=getCurrentDirectory();
+  if (currentDir != null) {
+    mAdapter.setData(currentDir,data);
+    if (currentDir.getParent() == null) {
+      setTitle("/");
+    }
+ else {
+      setTitle(currentDir.getName());
+    }
+  }
+}

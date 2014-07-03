@@ -1,0 +1,6 @@
+Integer trend_locationWoeid
+Boolean sleep_timeEnabled
+String start_sleepTime
+String end_sleepTime
+String time_zone
+String lang

@@ -1,0 +1,6 @@
+{
+  for (  final ManagedAsyncTask<?,?,?> task : getTaskSpecList()) {
+    if (task.getStatus() == ManagedAsyncTask.Status.RUNNING)     return true;
+  }
+  return false;
+}

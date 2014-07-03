@@ -1,0 +1,6 @@
+{
+  if (text == null)   return true;
+  final String action=getIntent().getAction();
+  final boolean is_reply=INTENT_ACTION_REPLY.equals(action) || INTENT_ACTION_REPLY_MULTIPLE.equals(action);
+  return is_reply && text.equals(mOriginalText);
+}

@@ -1,0 +1,3 @@
+TextView view
+long account_id
+boolean sensitive

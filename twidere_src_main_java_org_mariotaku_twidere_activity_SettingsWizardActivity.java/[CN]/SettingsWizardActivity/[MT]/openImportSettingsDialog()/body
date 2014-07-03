@@ -1,0 +1,4 @@
+{
+  final Intent intent=new Intent(this,DataImportActivity.class);
+  startActivityForResult(intent,REQUEST_IMPORT_SETTINGS);
+}

@@ -1,0 +1,40 @@
+{
+  if (context == null)   return;
+  final String message;
+  if (te != null) {
+    if (action != null) {
+      if (te.exceededRateLimitation()) {
+        final RateLimitStatus status=te.getRateLimitStatus();
+        final long sec_until_reset=status.getSecondsUntilReset() * 1000;
+        final String next_reset_time=ParseUtils.parseString(getRelativeTimeSpanString(System.currentTimeMillis() + sec_until_reset));
+        message=context.getString(R.string.error_message_rate_limit_with_action,action,next_reset_time.trim());
+      }
+ else       if (isErrorCodeMessageSupported(te)) {
+        final String msg=StatusCodeMessageUtils.getMessage(context,te.getStatusCode(),te.getErrorCode());
+        message=context.getString(R.string.error_message_with_action,action,msg != null ? msg : trimLineBreak(te.getMessage()));
+      }
+ else       if (te.getCause() instanceof SSLException) {
+        final String msg=te.getCause().getMessage();
+        if (msg != null && msg.contains("!=")) {
+          message=context.getString(R.string.error_message_with_action,action,context.getString(R.string.ssl_error));
+        }
+ else {
+          message=context.getString(R.string.error_message_with_action,action,context.getString(R.string.network_error));
+        }
+      }
+ else       if (te.getCause() instanceof IOException) {
+        message=context.getString(R.string.error_message_with_action,action,context.getString(R.string.network_error));
+      }
+ else {
+        message=context.getString(R.string.error_message_with_action,action,trimLineBreak(te.getMessage()));
+      }
+    }
+ else {
+      message=context.getString(R.string.error_message,trimLineBreak(te.getMessage()));
+    }
+  }
+ else {
+    message=context.getString(R.string.error_unknown_error);
+  }
+  showErrorMessage(context,message,long_message);
+}

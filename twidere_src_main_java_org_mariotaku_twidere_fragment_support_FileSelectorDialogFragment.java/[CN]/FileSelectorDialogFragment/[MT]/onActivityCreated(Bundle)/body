@@ -1,0 +1,5 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final Bundle args=getArguments();
+  getLoaderManager().initLoader(0,args,this);
+}

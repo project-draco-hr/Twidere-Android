@@ -1,0 +1,7 @@
+{
+  _id=mCursor.getColumnIndex(Tabs._ID);
+  icon=mCursor.getColumnIndex(Tabs.ICON);
+  name=mCursor.getColumnIndex(Tabs.NAME);
+  type=mCursor.getColumnIndex(Tabs.TYPE);
+  arguments=mCursor.getColumnIndex(Tabs.ARGUMENTS);
+}

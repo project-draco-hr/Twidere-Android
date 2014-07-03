@@ -1,0 +1,11 @@
+{
+  if (this.text_size == text_size)   return false;
+  this.text_size=text_size;
+  text.setTextSize(text_size);
+  name.setTextSize(text_size);
+  screen_name.setTextSize(text_size * 0.75f);
+  time.setTextSize(text_size * 0.65f);
+  reply_retweet_status.setTextSize(text_size * 0.65f);
+  image_preview_count.setTextSize(text_size * 1.25f);
+  return true;
+}

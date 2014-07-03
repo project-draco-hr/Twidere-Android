@@ -1,0 +1,34 @@
+{
+  final Drawable drawable=getDrawable();
+  if (drawable == null)   return new RectF(0,0,0,0);
+  final RectF rect=getBitmapRect();
+  final float height=rect.height();
+  final float width=rect.width();
+  float deltaX=0, deltaY=0;
+  if (vertical) {
+    final int viewHeight=getHeight();
+    if (height < viewHeight) {
+      deltaY=(viewHeight - height) / 2 - rect.top;
+    }
+ else     if (rect.top > 0) {
+      deltaY=-rect.top;
+    }
+ else     if (rect.bottom < viewHeight) {
+      deltaY=getHeight() - rect.bottom;
+    }
+  }
+  if (horizontal) {
+    final int viewWidth=getWidth();
+    if (width < viewWidth) {
+      deltaX=(viewWidth - width) / 2 - rect.left;
+    }
+ else     if (rect.left > 0) {
+      deltaX=-rect.left;
+    }
+ else     if (rect.right < viewWidth) {
+      deltaX=viewWidth - rect.right;
+    }
+  }
+  mCenterRect.set(deltaX,deltaY,0,0);
+  return mCenterRect;
+}

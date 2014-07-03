@@ -1,0 +1,6 @@
+{
+  if (activity == null)   return null;
+  final SupportProgressDialogFragment f=new SupportProgressDialogFragment();
+  f.show(activity.getSupportFragmentManager(),tag);
+  return f;
+}

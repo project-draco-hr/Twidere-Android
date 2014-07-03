@@ -1,0 +1,3 @@
+{
+  return getTwidereApplication() != null ? getTwidereApplication().getMessagesManager() : null;
+}

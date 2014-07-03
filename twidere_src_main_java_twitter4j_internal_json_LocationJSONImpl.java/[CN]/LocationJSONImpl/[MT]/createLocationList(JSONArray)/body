@@ -1,0 +1,18 @@
+{
+  try {
+    final int size=list.length();
+    final ResponseList<Location> locations=new ResponseListImpl<Location>(size,null);
+    for (int i=0; i < size; i++) {
+      final JSONObject json=list.getJSONObject(i);
+      final Location location=new LocationJSONImpl(json);
+      locations.add(location);
+    }
+    return locations;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+catch (  final TwitterException te) {
+    throw te;
+  }
+}

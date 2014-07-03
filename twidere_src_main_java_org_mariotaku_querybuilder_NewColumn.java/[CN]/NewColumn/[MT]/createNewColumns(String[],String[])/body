@@ -1,0 +1,8 @@
+{
+  if (colNames == null || colTypes == null || colNames.length != colTypes.length)   throw new IllegalArgumentException("length of columns and types not match.");
+  final NewColumn[] newColumns=new NewColumn[colNames.length];
+  for (int i=0, j=colNames.length; i < j; i++) {
+    newColumns[i]=new NewColumn(colNames[i],colTypes[i]);
+  }
+  return newColumns;
+}

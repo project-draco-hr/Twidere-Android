@@ -1,0 +1,19 @@
+{
+  super.onLayout(changed,left,top,right,bottom);
+  mThisWidth=right - left;
+  mThisHeight=bottom - top;
+  final Runnable r=mOnLayoutRunnable;
+  if (r != null) {
+    mOnLayoutRunnable=null;
+    r.run();
+  }
+  if (getDrawable() != null) {
+    if (mFitToScreen) {
+      getProperBaseMatrix2(getDrawable(),mBaseMatrix);
+    }
+ else {
+      getProperBaseMatrix(getDrawable(),mBaseMatrix);
+    }
+    setImageMatrix(getImageViewMatrix());
+  }
+}

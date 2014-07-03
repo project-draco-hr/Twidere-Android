@@ -1,0 +1,6 @@
+{
+  super(view);
+  icon=(ImageView)findViewById(android.R.id.icon);
+  text1=(TextView)findViewById(android.R.id.text1);
+  text2=(TextView)findViewById(android.R.id.text2);
+}

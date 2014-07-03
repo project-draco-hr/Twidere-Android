@@ -1,0 +1,13 @@
+{
+  if (mPlatform.mAnimationStartTime != NO_ANIMATION) {
+    mPlatform.mCurrentX=mPlatform.mToX;
+    mPlatform.mCurrentY=mPlatform.mToY;
+    mPlatform.mAnimationStartTime=NO_ANIMATION;
+  }
+  if (mBox.mAnimationStartTime != NO_ANIMATION) {
+    mBox.mCurrentY=mBox.mToY;
+    mBox.mCurrentScale=mBox.mToScale;
+    mBox.mAnimationStartTime=NO_ANIMATION;
+  }
+  redraw();
+}

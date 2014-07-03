@@ -1,0 +1,8 @@
+{
+  activity.setProgressVisibility(false);
+  activity.removeAllMedia(Arrays.asList(medias));
+  activity.setMenu();
+  if (!result) {
+    Crouton.showText(activity,R.string.error_occurred,CroutonStyle.ALERT);
+  }
+}

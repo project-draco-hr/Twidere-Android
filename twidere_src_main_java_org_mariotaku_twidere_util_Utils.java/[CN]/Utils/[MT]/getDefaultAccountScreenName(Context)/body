@@ -1,0 +1,4 @@
+{
+  if (context == null)   return null;
+  return getAccountScreenName(context,getDefaultAccountId(context));
+}

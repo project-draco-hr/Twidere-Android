@@ -1,0 +1,10 @@
+{
+  if (scale > mMaxZoom) {
+    scale=mMaxZoom;
+  }
+  final float oldScale=getScale();
+  final float deltaScale=scale / oldScale;
+  postScale(deltaScale,centerX,centerY);
+  onZoom(getScale());
+  center(true,true);
+}

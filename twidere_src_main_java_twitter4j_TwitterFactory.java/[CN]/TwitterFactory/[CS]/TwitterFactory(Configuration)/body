@@ -1,0 +1,4 @@
+{
+  if (conf == null)   throw new NullPointerException("configuration cannot be null");
+  this.conf=conf;
+}

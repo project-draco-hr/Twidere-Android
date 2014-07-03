@@ -1,0 +1,5 @@
+{
+  mPreferences.unregisterOnSharedPreferenceChangeListener(this);
+  unregisterReceiver(mScreenReceiver);
+  super.onDestroy();
+}

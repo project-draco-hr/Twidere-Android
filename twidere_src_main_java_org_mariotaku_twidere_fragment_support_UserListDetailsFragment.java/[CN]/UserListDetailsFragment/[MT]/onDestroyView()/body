@@ -1,0 +1,5 @@
+{
+  mUserList=null;
+  getLoaderManager().destroyLoader(0);
+  super.onDestroyView();
+}

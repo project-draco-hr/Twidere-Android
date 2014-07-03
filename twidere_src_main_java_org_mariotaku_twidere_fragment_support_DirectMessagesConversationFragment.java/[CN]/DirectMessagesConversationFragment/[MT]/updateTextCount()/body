@@ -1,0 +1,5 @@
+{
+  if (mTextCountView == null || mEditText == null)   return;
+  final int count=mValidator.getTweetLength(ParseUtils.parseString(mEditText.getText()));
+  mTextCountView.setTextCount(count);
+}

@@ -1,0 +1,8 @@
+{
+  if (Utils.isDebugBuild()) {
+    Log.d(RECEIVER_LOGTAG,String.format("Received Broadcast %s",intent));
+  }
+  if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction()))   return;
+  startProfilingServiceIfNeeded(context);
+  startRefreshServiceIfNeeded(context);
+}

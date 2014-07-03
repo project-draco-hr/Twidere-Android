@@ -1,0 +1,7 @@
+{
+  super.onPostExecute(result);
+  if (result != null && result.getData() != null) {
+    displayUser(result.getData());
+  }
+  setUpdateState(false);
+}

@@ -1,0 +1,4 @@
+{
+  if (mIndicator == null)   return;
+  announceForAccessibilityCompat(mContext,mIndicator,getPageTitle(position),getClass());
+}

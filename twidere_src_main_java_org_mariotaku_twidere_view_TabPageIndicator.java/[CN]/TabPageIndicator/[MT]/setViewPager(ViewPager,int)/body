@@ -1,0 +1,4 @@
+{
+  setViewPager(pager);
+  setCurrentItem(initialPosition);
+}

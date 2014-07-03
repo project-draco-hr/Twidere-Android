@@ -1,0 +1,8 @@
+{
+  mContext=context;
+  mInflater=LayoutInflater.from(context);
+  mLayoutRes=layoutRes;
+  if (collection != null) {
+    addAll(collection);
+  }
+}

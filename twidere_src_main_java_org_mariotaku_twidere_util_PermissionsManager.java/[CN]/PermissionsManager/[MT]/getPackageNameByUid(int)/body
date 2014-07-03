@@ -1,0 +1,5 @@
+{
+  final String[] pkgs=mPackageManager.getPackagesForUid(uid);
+  if (pkgs != null && pkgs.length > 0)   return pkgs[0];
+  return null;
+}

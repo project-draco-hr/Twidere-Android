@@ -1,0 +1,19 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      onBackPressed();
+      break;
+    }
+case MENU_CENTER:
+{
+    final Fragment fragment=getSupportFragmentManager().findFragmentById(android.R.id.content);
+    if (!(fragment instanceof IMapFragment)) {
+      break;
+    }
+    ((IMapFragment)fragment).center();
+    break;
+  }
+}
+return true;
+}

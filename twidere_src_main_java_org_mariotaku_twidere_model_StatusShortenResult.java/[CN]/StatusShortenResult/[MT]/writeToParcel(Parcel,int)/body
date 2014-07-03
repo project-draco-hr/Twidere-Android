@@ -1,0 +1,5 @@
+{
+  dest.writeString(shortened);
+  dest.writeInt(error_code);
+  dest.writeString(error_message);
+}

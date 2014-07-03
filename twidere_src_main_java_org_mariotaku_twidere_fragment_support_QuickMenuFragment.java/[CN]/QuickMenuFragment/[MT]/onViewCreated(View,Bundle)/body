@@ -1,0 +1,7 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mListView=(ListView)view.findViewById(android.R.id.list);
+  mSlidingUpPanel=(SlidingUpPanelLayout)view.findViewById(R.id.activities_drawer);
+  final View activitiesContainer=view.findViewById(R.id.activities_container);
+  ViewAccessor.setBackground(activitiesContainer,ThemeUtils.getWindowBackground(getThemedContext()));
+}

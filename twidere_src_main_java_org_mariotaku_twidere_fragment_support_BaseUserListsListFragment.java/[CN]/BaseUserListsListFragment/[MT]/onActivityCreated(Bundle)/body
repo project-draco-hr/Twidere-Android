@@ -1,0 +1,22 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mTwitterWrapper=getTwitterWrapper();
+  mMultiSelectManager=getMultiSelectManager();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final Bundle args=getArguments();
+  if (args != null) {
+    mAccountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+    mUserId=args.getLong(EXTRA_USER_ID,-1);
+    mScreenName=args.getString(EXTRA_SCREEN_NAME);
+  }
+  mAdapter=new ParcelableUserListsAdapter(getActivity());
+  mListView=getListView();
+  mListView.setDivider(null);
+  mListView.setSelector(android.R.color.transparent);
+  mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
+  setListAdapter(mAdapter);
+  mAdapter.setMenuButtonClickListener(this);
+  getLoaderManager().initLoader(0,getArguments(),this);
+  setListShown(false);
+  setRefreshMode(RefreshMode.NONE);
+}

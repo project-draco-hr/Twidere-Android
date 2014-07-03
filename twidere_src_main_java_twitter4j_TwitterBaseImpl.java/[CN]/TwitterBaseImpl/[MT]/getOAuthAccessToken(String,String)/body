@@ -1,0 +1,3 @@
+{
+  return getOAuth().getOAuthAccessToken(screenName,password);
+}

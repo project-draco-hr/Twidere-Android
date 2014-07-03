@@ -1,0 +1,7 @@
+{
+  if (mCancelExtraScalingPending) {
+    mHandler.removeMessages(MSG_CANCEL_EXTRA_SCALING);
+    mPositionController.setExtraScalingRange(false);
+    mCancelExtraScalingPending=false;
+  }
+}

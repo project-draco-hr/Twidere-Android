@@ -1,0 +1,21 @@
+{
+  if (result.hasData()) {
+    final User user=result.getData();
+    final String message;
+    if (user.isProtected()) {
+      message=mContext.getString(R.string.sent_follow_request_to_user,getUserName(mContext,user));
+    }
+ else {
+      message=mContext.getString(R.string.followed_user,getUserName(mContext,user));
+    }
+    mMessagesManager.showOkMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_following,result.getException(),false);
+  }
+  final Intent intent=new Intent(BROADCAST_FRIENDSHIP_CHANGED);
+  intent.putExtra(EXTRA_USER_ID,user_id);
+  intent.putExtra(EXTRA_SUCCEED,result.hasData());
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

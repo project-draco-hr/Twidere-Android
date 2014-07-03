@@ -1,0 +1,16 @@
+{
+  final Bundle savedInstanceState=(Bundle)state;
+  super.onRestoreInstanceState(savedInstanceState.getParcelable(EXTRA_DATA));
+  final SharedPreferences pref=getSharedPreferences();
+  final String prefApiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_REST_BASE_URL);
+  final int prefAuthType=pref.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
+  final boolean prefSameOAuthSigningUrl=pref.getBoolean(KEY_API_URL_FORMAT,false);
+  final String prefConsumerKey=getNonEmptyString(pref,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
+  final String prefConsumerSecret=getNonEmptyString(pref,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
+  final String apiUrlFormat=trim(savedInstanceState.getString(Accounts.API_URL_FORMAT,prefApiUrlFormat));
+  final int authType=savedInstanceState.getInt(Accounts.AUTH_TYPE,prefAuthType);
+  final boolean sameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL,prefSameOAuthSigningUrl);
+  final String consumerKey=trim(savedInstanceState.getString(Accounts.CONSUMER_KEY,prefConsumerKey));
+  final String consumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET,prefConsumerSecret));
+  setValues(apiUrlFormat,authType,sameOAuthSigningUrl,consumerKey,consumerSecret);
+}

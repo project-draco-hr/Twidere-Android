@@ -1,0 +1,4 @@
+{
+  if (file == null)   throw new FileNotFoundException();
+  return readArray(new FileInputStream(file));
+}

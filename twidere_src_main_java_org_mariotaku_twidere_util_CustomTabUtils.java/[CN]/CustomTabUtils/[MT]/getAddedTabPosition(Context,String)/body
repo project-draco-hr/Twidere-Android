@@ -1,0 +1,17 @@
+{
+  if (context == null || type == null)   return -1;
+  final ContentResolver resolver=context.getContentResolver();
+  final String where=Tabs.TYPE + " = ?";
+  final Cursor cur=resolver.query(Tabs.CONTENT_URI,new String[]{Tabs.POSITION},where,new String[]{type},Tabs.DEFAULT_SORT_ORDER);
+  if (cur == null)   return -1;
+  final int position;
+  if (cur.getCount() > 0) {
+    cur.moveToFirst();
+    position=cur.getInt(cur.getColumnIndex(Tabs.POSITION));
+  }
+ else {
+    position=-1;
+  }
+  cur.close();
+  return position;
+}

@@ -1,0 +1,25 @@
+{
+  try {
+    final JSONArray indicesArray=json.getJSONArray("indices");
+    start=indicesArray.getInt(0);
+    end=indicesArray.getInt(1);
+    try {
+      url=new URL(json.getString("url"));
+    }
+ catch (    final MalformedURLException ignore) {
+    }
+    if (!json.isNull("expanded_url")) {
+      try {
+        expandedURL=new URL(json.getString("expanded_url"));
+      }
+ catch (      final MalformedURLException ignore) {
+      }
+    }
+    if (!json.isNull("display_url")) {
+      displayURL=json.getString("display_url");
+    }
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

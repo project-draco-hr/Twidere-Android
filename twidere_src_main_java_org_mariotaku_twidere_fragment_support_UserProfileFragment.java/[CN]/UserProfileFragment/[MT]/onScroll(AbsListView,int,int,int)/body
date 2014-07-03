@@ -1,0 +1,8 @@
+{
+  super.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+  final View headerView=mHeaderView, profileBannerView=mProfileBannerView;
+  if (headerView == null || profileBannerView == null)   return;
+  final float factor=-headerView.getTop() / (headerView.getWidth() * 0.5f);
+  profileBannerView.setAlpha(1.0f - factor);
+  profileBannerView.setTranslationY(headerView.getTop() / 2);
+}

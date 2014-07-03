@@ -1,0 +1,4 @@
+{
+  final Account a=Account.getAccount(mContext,mAccountId);
+  return a != null ? a.color : HOLO_BLUE_LIGHT;
+}

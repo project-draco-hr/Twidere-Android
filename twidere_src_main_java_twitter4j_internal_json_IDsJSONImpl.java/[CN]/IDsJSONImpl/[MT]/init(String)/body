@@ -1,0 +1,35 @@
+{
+  JSONArray idList;
+  try {
+    if (jsonStr.startsWith("{")) {
+      final JSONObject json=new JSONObject(jsonStr);
+      idList=json.getJSONArray("ids");
+      ids=new long[idList.length()];
+      for (int i=0; i < idList.length(); i++) {
+        try {
+          ids[i]=Long.parseLong(idList.getString(i));
+        }
+ catch (        final NumberFormatException nfe) {
+          throw new TwitterException("Twitter API returned malformed response: " + json,nfe);
+        }
+      }
+      previousCursor=InternalParseUtil.getLong("previous_cursor",json);
+      nextCursor=InternalParseUtil.getLong("next_cursor",json);
+    }
+ else {
+      idList=new JSONArray(jsonStr);
+      ids=new long[idList.length()];
+      for (int i=0; i < idList.length(); i++) {
+        try {
+          ids[i]=Long.parseLong(idList.getString(i));
+        }
+ catch (        final NumberFormatException nfe) {
+          throw new TwitterException("Twitter API returned malformed response: " + idList,nfe);
+        }
+      }
+    }
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

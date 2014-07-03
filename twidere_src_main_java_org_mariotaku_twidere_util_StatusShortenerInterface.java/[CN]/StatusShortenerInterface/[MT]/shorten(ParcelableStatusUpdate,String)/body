@@ -1,0 +1,10 @@
+{
+  if (mShortener == null)   return null;
+  try {
+    return mShortener.shorten(status,overrideStatusText);
+  }
+ catch (  final RemoteException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  super.draw(canvas);
+  canvas.drawColor(mColor);
+  canvas.drawLines(mPoints,mPaint);
+}

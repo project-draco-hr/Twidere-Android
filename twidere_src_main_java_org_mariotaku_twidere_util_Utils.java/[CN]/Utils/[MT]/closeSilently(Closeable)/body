@@ -1,0 +1,10 @@
+{
+  if (c == null)   return false;
+  try {
+    c.close();
+  }
+ catch (  final IOException e) {
+    return false;
+  }
+  return true;
+}

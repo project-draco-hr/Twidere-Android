@@ -1,0 +1,28 @@
+{
+  final String app_root=file.getParent();
+  final File tmp_dir=new File(app_root + "/tmp");
+  if (!tmp_dir.exists()) {
+    if (!tmp_dir.mkdirs()) {
+      ProfilingUtil.log(context,"cannot create tmp, do nothing.");
+      return;
+    }
+  }
+  final File tmp=new File(tmp_dir,file.getName());
+  file.renameTo(tmp);
+  try {
+    final HttpParameter param=new HttpParameter("upload",tmp);
+    final HttpResponse resp=client.post(url,null,new HttpParameter[]{param});
+    final int serverResponseCode=resp.getStatusCode();
+    ProfilingUtil.log(context,"server response code " + serverResponseCode);
+    if (serverResponseCode / 100 == 2) {
+      tmp.delete();
+    }
+ else {
+      putBackProfile(context,tmp,file);
+    }
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    putBackProfile(context,tmp,file);
+  }
+}

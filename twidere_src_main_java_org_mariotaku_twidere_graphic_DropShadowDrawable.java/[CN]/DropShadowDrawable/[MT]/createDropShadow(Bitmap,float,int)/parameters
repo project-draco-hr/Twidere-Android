@@ -1,0 +1,3 @@
+Bitmap src
+float radius
+int color

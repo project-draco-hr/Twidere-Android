@@ -1,0 +1,14 @@
+{
+  try {
+    for (    final ParcelableMediaUpdate media : activity.getMediasList()) {
+      final Uri uri=Uri.parse(media.uri);
+      if (uri == null)       return null;
+      if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
+        new File(uri.getPath()).delete();
+      }
+    }
+  }
+ catch (  final Exception e) {
+  }
+  return null;
+}

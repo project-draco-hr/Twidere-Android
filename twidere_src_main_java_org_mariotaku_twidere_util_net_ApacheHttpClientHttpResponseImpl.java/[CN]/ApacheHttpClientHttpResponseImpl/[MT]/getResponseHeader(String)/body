@@ -1,0 +1,5 @@
+{
+  final Header[] headers=res.getHeaders(name);
+  if (headers != null && headers.length > 0)   return headers[0].getValue();
+ else   return null;
+}

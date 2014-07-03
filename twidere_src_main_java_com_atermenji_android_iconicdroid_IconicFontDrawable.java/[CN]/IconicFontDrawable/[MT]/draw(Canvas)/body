@@ -1,0 +1,13 @@
+{
+  if (mIcon != null) {
+    final Rect viewBounds=getBounds();
+    updatePaddingBounds(viewBounds);
+    updateTextSize(viewBounds);
+    offsetIcon(viewBounds);
+    mPath.close();
+    if (mDrawContour) {
+      canvas.drawPath(mPath,mContourPaint);
+    }
+    canvas.drawPath(mPath,mIconPaint);
+  }
+}

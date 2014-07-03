@@ -1,0 +1,6 @@
+{
+  for (  final ParcelableUser user : mData) {
+    if (user.id == id)     return true;
+  }
+  return false;
+}

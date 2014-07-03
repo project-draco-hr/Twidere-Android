@@ -1,0 +1,5 @@
+{
+  final SQLCreateViewQuery.Builder qb=SQLQueryBuilder.createView(true,DirectMessages.TABLE_NAME);
+  qb.as(DirectMessagesQueryBuilder.build());
+  return qb.build();
+}

@@ -1,0 +1,5 @@
+{
+  if (mPageListener != null) {
+    mPageListener.onPageScrolled(position,positionOffset,positionOffsetPixels);
+  }
+}

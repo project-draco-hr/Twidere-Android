@@ -1,0 +1,5 @@
+{
+  int result=token.hashCode();
+  result=31 * result + tokenSecret.hashCode();
+  return result;
+}

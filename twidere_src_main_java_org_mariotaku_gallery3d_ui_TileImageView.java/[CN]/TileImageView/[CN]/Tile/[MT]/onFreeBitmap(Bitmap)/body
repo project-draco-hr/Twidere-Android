@@ -1,0 +1,5 @@
+{
+  if (sTilePool != null) {
+    sTilePool.recycle(bitmap);
+  }
+}

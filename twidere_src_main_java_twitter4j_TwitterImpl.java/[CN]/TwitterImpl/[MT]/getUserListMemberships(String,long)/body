@@ -1,0 +1,3 @@
+{
+  return getUserListMemberships(listMemberScreenName,cursor,false);
+}

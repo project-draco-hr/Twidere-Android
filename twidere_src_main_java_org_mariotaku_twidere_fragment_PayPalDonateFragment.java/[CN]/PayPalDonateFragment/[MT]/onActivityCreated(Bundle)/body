@@ -1,0 +1,7 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mEditName.setText(getDefaultAccountScreenName(getActivity()));
+  mEditAmount.addTextChangedListener(this);
+  mDonateButton.setOnClickListener(this);
+  mDonateButton.setEnabled(false);
+}

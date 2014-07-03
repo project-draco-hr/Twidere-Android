@@ -1,0 +1,7 @@
+{
+  final int option_int=getLinkHighlightOptionInt(option);
+  if (option_int == mLinkHighlightOption)   return;
+  mLinkHighlightOption=option_int;
+  mLinkify.setHighlightOption(option_int);
+  notifyDataSetChanged();
+}

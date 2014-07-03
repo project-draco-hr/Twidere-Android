@@ -1,0 +1,4 @@
+{
+  if (mSlidingMenu == null)   return;
+  mSlidingMenu.showContent();
+}

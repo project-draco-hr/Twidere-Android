@@ -1,0 +1,3 @@
+{
+  return INTENT_ACTION_EDIT_TAB.equals(getIntent().getAction());
+}

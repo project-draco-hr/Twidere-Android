@@ -1,0 +1,6 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(context,RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);
+  suggestions.clearHistory();
+}

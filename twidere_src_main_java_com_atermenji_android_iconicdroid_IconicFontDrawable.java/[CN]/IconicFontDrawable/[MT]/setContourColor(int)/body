@@ -1,0 +1,4 @@
+{
+  mContourPaint.setColor(contourColor);
+  invalidateSelf();
+}

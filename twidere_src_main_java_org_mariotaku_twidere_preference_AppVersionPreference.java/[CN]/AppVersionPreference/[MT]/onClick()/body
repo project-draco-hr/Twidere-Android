@@ -1,0 +1,12 @@
+{
+  mHandler.removeCallbacks(mResetCounterRunnable);
+  mClickCount++;
+  if (mClickCount >= 7) {
+    final Context context=getContext();
+    if (context != null) {
+      mClickCount=0;
+      context.startActivity(new Intent(context,NyanActivity.class));
+    }
+  }
+  mHandler.postDelayed(mResetCounterRunnable,3000);
+}

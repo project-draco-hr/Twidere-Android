@@ -1,0 +1,15 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final long[] userIds=new long[users.length];
+    for (int i=0, j=users.length; i < j; i++) {
+      userIds[i]=users[i].id;
+    }
+    final ParcelableUserList list=new ParcelableUserList(twitter.deleteUserListMembers(mUserListId,userIds),mAccountId);
+    return SingleResponse.getInstance(list,null);
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(null,e);
+  }
+}

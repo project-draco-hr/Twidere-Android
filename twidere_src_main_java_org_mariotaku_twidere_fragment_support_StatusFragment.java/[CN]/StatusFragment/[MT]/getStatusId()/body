@@ -1,0 +1,3 @@
+{
+  return mStatus != null ? mStatus.id : -1;
+}

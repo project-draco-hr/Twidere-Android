@@ -1,0 +1,4 @@
+{
+  final ProgressDialogFragment f=ProgressDialogFragment.show(mActivity,TAG_COPYING_IMAGE);
+  f.setCancelable(false);
+}

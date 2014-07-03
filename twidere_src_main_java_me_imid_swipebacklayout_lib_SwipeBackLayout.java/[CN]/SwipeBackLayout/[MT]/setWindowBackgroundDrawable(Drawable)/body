@@ -1,0 +1,4 @@
+{
+  if (mBackgroundView == null)   return;
+  mBackgroundView.setImageDrawable(d);
+}

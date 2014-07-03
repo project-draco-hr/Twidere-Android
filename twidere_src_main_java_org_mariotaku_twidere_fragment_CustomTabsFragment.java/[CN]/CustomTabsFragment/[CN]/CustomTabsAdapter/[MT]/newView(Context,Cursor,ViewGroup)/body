@@ -1,0 +1,9 @@
+{
+  final View view=super.newView(context,cursor,parent);
+  final Object tag=view.getTag();
+  if (!(tag instanceof TwoLineWithIconViewHolder)) {
+    final TwoLineWithIconViewHolder holder=new TwoLineWithIconViewHolder(view);
+    view.setTag(holder);
+  }
+  return view;
+}

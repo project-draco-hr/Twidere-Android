@@ -1,0 +1,10 @@
+{
+  if (array == null || array.length == 0)   throw new IllegalArgumentException();
+  long min=array[0];
+  for (int i=1, j=array.length; i < j; i++) {
+    if (min > array[i]) {
+      min=array[i];
+    }
+  }
+  return min;
+}

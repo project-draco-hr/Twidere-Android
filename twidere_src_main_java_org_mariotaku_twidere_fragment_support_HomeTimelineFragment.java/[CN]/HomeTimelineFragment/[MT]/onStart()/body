@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  final IntentFilter filter=new IntentFilter(BROADCAST_HOME_TIMELINE_REFRESHED);
+  filter.addAction(BROADCAST_TASK_STATE_CHANGED);
+  registerReceiver(mStatusReceiver,filter);
+}

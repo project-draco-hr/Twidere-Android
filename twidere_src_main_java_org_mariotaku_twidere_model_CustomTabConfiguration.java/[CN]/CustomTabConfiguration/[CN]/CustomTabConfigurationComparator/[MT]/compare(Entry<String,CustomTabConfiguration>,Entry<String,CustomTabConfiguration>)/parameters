@@ -1,0 +1,2 @@
+Entry<String,CustomTabConfiguration> lhs
+Entry<String,CustomTabConfiguration> rhs

@@ -1,0 +1,16 @@
+{
+  mStars.clear();
+  if (w <= 0 || h <= 0)   return;
+  for (int i=0; i < mStarRows; i++) {
+    final int frame=mRandom.nextInt(7);
+    final int col=mRandom.nextInt(mStarCols);
+    final Star star;
+    if (mRandom.nextBoolean()) {
+      star=new Star1(frame,col,i,mStarCols,mStarRows);
+    }
+ else {
+      star=new Star2(frame,col,i,mStarCols,mStarRows);
+    }
+    mStars.add(star);
+  }
+}

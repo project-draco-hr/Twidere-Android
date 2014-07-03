@@ -1,0 +1,3 @@
+{
+  return INTENT_ACTION_SELECT_USER.equals(getIntent().getAction());
+}

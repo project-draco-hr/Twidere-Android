@@ -1,0 +1,16 @@
+{
+  if (context == null)   return new long[0];
+  final ContentResolver resolver=context.getContentResolver();
+  final Cursor cur=ContentResolverUtils.query(resolver,uri,new String[]{Statuses.STATUS_ID},buildStatusFilterWhereClause(getTableNameByUri(uri),null,shouldEnableFiltersForRTs(context)),null,null);
+  if (cur == null)   return new long[0];
+  final long[] ids=new long[cur.getCount()];
+  cur.moveToFirst();
+  int i=0;
+  while (!cur.isAfterLast()) {
+    ids[i]=cur.getLong(0);
+    cur.moveToNext();
+    i++;
+  }
+  cur.close();
+  return ids;
+}

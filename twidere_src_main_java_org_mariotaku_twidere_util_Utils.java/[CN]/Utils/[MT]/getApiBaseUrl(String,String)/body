@@ -1,0 +1,5 @@
+{
+  if (pattern == null)   return null;
+  if (TextUtils.isEmpty(domain))   return pattern.replaceAll("\\[\\.?DOMAIN\\.?\\]","");
+  return pattern.replaceAll("\\[(\\.?)DOMAIN(\\.?)\\]",String.format("$1%s$2",domain));
+}

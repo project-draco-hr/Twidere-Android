@@ -1,0 +1,14 @@
+{
+  if (account_id < 0)   return SingleResponse.getInstance();
+  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  if (twitter != null) {
+    try {
+      final twitter4j.Status status=twitter.retweetStatus(status_id);
+      return SingleResponse.getInstance(status,null);
+    }
+ catch (    final TwitterException e) {
+      return SingleResponse.getInstance(null,e);
+    }
+  }
+  return SingleResponse.getInstance();
+}

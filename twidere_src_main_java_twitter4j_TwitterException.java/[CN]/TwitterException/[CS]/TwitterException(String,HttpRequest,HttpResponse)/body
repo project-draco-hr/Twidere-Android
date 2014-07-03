@@ -1,0 +1,6 @@
+{
+  this(message);
+  response=res;
+  request=req;
+  statusCode=res != null ? res.getStatusCode() : -1;
+}

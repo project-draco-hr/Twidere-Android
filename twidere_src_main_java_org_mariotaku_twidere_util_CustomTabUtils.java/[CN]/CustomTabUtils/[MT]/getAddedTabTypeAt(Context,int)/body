@@ -1,0 +1,14 @@
+{
+  if (context == null || position < 0)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  final Cursor cur=resolver.query(Tabs.CONTENT_URI,Tabs.COLUMNS,Tabs.POSITION + " = " + position,null,Tabs.DEFAULT_SORT_ORDER);
+  final int idx_type=cur.getColumnIndex(Tabs.TYPE);
+  try {
+    if (cur.getCount() == 0)     return null;
+    cur.moveToFirst();
+    return cur.getString(idx_type);
+  }
+  finally {
+    cur.close();
+  }
+}

@@ -1,0 +1,16 @@
+{
+  final int color=cursor.getInt(mUserColorIdx);
+  final AccountViewHolder holder=(AccountViewHolder)view.getTag();
+  holder.screen_name.setText("@" + cursor.getString(mScreenNameIdx));
+  holder.setAccountColor(color);
+  holder.setIsDefault(mDefaultAccountId != -1 && mDefaultAccountId == cursor.getLong(mAccountIdIdx));
+  if (mDisplayProfileImage) {
+    mImageLoader.displayProfileImage(holder.profile_image,cursor.getString(mProfileImageIdx));
+  }
+ else {
+    holder.profile_image.setImageResource(R.drawable.ic_profile_image_default);
+  }
+  final boolean isMultipleChoice=mChoiceMode == ListView.CHOICE_MODE_MULTIPLE || mChoiceMode == ListView.CHOICE_MODE_MULTIPLE_MODAL;
+  holder.checkbox.setVisibility(isMultipleChoice ? View.VISIBLE : View.GONE);
+  super.bindView(view,context,cursor);
+}

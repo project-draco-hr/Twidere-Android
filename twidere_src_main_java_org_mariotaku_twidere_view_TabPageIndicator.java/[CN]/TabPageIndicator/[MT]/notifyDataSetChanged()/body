@@ -1,0 +1,27 @@
+{
+  if (mTabLayout == null || mViewPager == null)   return;
+  mTabLayout.removeAllViews();
+  final PagerAdapter adapter=mViewPager.getAdapter();
+  mTabProvider=adapter instanceof TabProvider ? (TabProvider)adapter : null;
+  mTabListener=adapter instanceof TabListener ? (TabListener)adapter : null;
+  if (mTabProvider == null)   return;
+  final int count=adapter.getCount();
+  for (int i=0; i < count; i++) {
+    final CharSequence title=mTabProvider.getPageTitle(i);
+    final Drawable icon=mTabProvider.getPageIcon(i);
+    if (title != null && icon != null) {
+      addTab(title,icon,i);
+    }
+ else     if (title == null && icon != null) {
+      addTab(null,icon,i);
+    }
+ else     if (title != null && icon == null) {
+      addTab(title,null,i);
+    }
+  }
+  if (mSelectedTabIndex > count) {
+    mSelectedTabIndex=count - 1;
+  }
+  setCurrentItem(mSelectedTabIndex);
+  requestLayout();
+}

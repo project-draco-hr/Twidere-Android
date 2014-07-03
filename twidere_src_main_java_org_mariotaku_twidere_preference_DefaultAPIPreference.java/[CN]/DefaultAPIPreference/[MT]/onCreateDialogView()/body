@@ -1,0 +1,18 @@
+{
+  final View view=super.onCreateDialogView();
+  mEditAPIUrlFormat=(EditText)view.findViewById(R.id.api_url_format);
+  mEditAuthType=(RadioGroup)view.findViewById(R.id.auth_type);
+  mButtonOAuth=(RadioButton)view.findViewById(R.id.oauth);
+  mButtonxAuth=(RadioButton)view.findViewById(R.id.xauth);
+  mButtonBasic=(RadioButton)view.findViewById(R.id.basic);
+  mButtonTwipOMode=(RadioButton)view.findViewById(R.id.twip_o);
+  mAdvancedAPIConfigContainer=view.findViewById(R.id.advanced_api_config_container);
+  mAdvancedAPIConfigLabel=(TextView)view.findViewById(R.id.advanced_api_config_label);
+  mAdvancedAPIConfigView=view.findViewById(R.id.advanced_api_config);
+  mEditSameOAuthSigningUrl=(CheckBox)view.findViewById(R.id.same_oauth_signing_url);
+  mEditConsumerKey=(EditText)view.findViewById(R.id.consumer_key);
+  mEditConsumerSecret=(EditText)view.findViewById(R.id.consumer_secret);
+  mEditAuthType.setOnCheckedChangeListener(this);
+  mAdvancedAPIConfigLabel.setOnClickListener(this);
+  return view;
+}

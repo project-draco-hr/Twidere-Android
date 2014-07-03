@@ -1,0 +1,16 @@
+{
+  super(context,attrs,defStyle);
+  mValidator=new TwidereValidator(context);
+  if (isInEditMode()) {
+    mTextColor=0;
+    mLocale=Locale.getDefault();
+  }
+ else {
+    final int textAppearance=ThemeUtils.getTitleTextAppearance(context);
+    final TypedArray a=context.obtainStyledAttributes(textAppearance,new int[]{android.R.attr.textColor});
+    mTextColor=a.getColor(0,0);
+    a.recycle();
+    mLocale=getResources().getConfiguration().locale;
+    setTextColor(mTextColor);
+  }
+}

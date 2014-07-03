@@ -1,0 +1,15 @@
+{
+  if (values == null || values.length == 0)   return 0;
+  int result=0;
+  for (  final ContentValues value : values) {
+    final ParcelableDirectMessage message=new ParcelableDirectMessage(value);
+    mNewMessages.add(message);
+    if (mUnreadMessages.add(new UnreadItem(message.sender_id,message.account_id))) {
+      result++;
+    }
+  }
+  if (result > 0) {
+    saveUnreadItemsFile(mUnreadMessages,UNREAD_MESSAGES_FILE_NAME);
+  }
+  return result;
+}

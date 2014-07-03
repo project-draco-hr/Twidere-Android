@@ -1,0 +1,5 @@
+{
+  final boolean result=super.remove(position);
+  rebuildIdMap();
+  return result;
+}

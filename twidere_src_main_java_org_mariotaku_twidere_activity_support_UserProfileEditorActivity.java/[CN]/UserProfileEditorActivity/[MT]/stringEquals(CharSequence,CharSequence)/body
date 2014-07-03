@@ -1,0 +1,4 @@
+{
+  if (str1 == null || str2 == null)   return str1 == str2;
+  return str1.toString().equals(str2.toString());
+}

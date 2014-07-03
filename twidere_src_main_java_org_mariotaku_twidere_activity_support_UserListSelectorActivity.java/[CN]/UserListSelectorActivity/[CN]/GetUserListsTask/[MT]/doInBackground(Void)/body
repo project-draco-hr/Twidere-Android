@@ -1,0 +1,25 @@
+{
+  final Twitter twitter=getTwitterInstance(mActivity,mAccountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final ResponseList<UserList> lists=twitter.getUserLists(mScreenName);
+    final List<ParcelableUserList> data=new ArrayList<ParcelableUserList>();
+    boolean is_my_account=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountId));
+    for (    final UserList item : lists) {
+      final User user=item.getUser();
+      if (user != null && mScreenName.equalsIgnoreCase(user.getScreenName())) {
+        if (!is_my_account && user.getId() == mAccountId) {
+          is_my_account=true;
+        }
+        data.add(new ParcelableUserList(item,mAccountId));
+      }
+    }
+    final SingleResponse<List<ParcelableUserList>> result=SingleResponse.getInstance(data);
+    result.getExtras().putBoolean(EXTRA_IS_MY_ACCOUNT,is_my_account);
+    return result;
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    return SingleResponse.getInstance(e);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  ensureAuthorizationEnabled();
+  final HttpParameter[] params={new HttpParameter("status_id",statusId),new HttpParameter("report_as",reportAs.value()),new HttpParameter("block_user",blockUser)};
+  return post(conf.getRestBaseURL() + ENDPOINT_STATUSES_REPORT_SPAM,conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_REPORT_SPAM,params).getStatusCode();
+}

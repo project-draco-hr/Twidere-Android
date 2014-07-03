@@ -1,0 +1,6 @@
+Context context
+long user_id
+String name
+String screen_name
+boolean name_first
+boolean nickname_only

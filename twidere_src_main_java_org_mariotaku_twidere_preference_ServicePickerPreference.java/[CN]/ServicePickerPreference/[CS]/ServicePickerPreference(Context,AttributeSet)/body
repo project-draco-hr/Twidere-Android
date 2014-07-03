@@ -1,0 +1,5 @@
+{
+  super(context,attrs);
+  mPackageManager=context.getPackageManager();
+  init();
+}

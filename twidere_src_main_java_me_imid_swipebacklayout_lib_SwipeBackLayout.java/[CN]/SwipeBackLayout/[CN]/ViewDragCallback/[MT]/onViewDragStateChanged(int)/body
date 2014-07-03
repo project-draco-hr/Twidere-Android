@@ -1,0 +1,6 @@
+{
+  super.onViewDragStateChanged(state);
+  if (mSwipeListener != null) {
+    mSwipeListener.onScrollStateChange(state,mScrollPercent);
+  }
+}

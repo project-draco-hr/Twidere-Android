@@ -1,0 +1,5 @@
+{
+  if (context == null)   return null;
+  if (nickname_only)   return TWIDERE_PREVIEW_NICKNAME;
+  return context.getString(R.string.name_with_nickname,name_first ? TWIDERE_PREVIEW_NAME : "@" + TWIDERE_PREVIEW_SCREEN_NAME,TWIDERE_PREVIEW_NICKNAME);
+}

@@ -1,0 +1,16 @@
+{
+  if (status == null)   return SingleResponse.getInstance();
+  if (status.user_id == status.account_id)   return SingleResponse.getInstance(true);
+  final Twitter twitter=getTwitterInstance(context,status.account_id,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final Relationship result=twitter.showFriendship(status.account_id,status.user_id);
+    if (!result.isSourceFollowingTarget()) {
+      SingleResponse.getInstance(false);
+    }
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+  return SingleResponse.getInstance();
+}

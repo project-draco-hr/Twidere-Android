@@ -1,0 +1,9 @@
+{
+  super.onBoundsChange(bounds);
+  mBounds.set(bounds);
+  final int height=bounds.height();
+  final int width=bounds.width();
+  mNumRectanglesHorizontal=(int)Math.ceil(width / mAlphaPatternSize);
+  mNumRectanglesVertical=(int)Math.ceil(height / mAlphaPatternSize);
+  invalidateSelf();
+}

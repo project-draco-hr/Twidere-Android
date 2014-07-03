@@ -1,0 +1,11 @@
+{
+  if (event == null)   return false;
+switch (event.getKeyCode()) {
+case KeyEvent.KEYCODE_ENTER:
+{
+      updateStatus();
+      return true;
+    }
+}
+return false;
+}

@@ -1,0 +1,21 @@
+{
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  File initialDirectory=data != null ? new File(data.getPath()) : getExternalStorageDirectory();
+  if (initialDirectory == null) {
+    initialDirectory=new File("/");
+  }
+  final String action=intent.getAction();
+  if (!INTENT_ACTION_PICK_FILE.equals(action) && !INTENT_ACTION_PICK_DIRECTORY.equals(action)) {
+    finish();
+    return;
+  }
+  final FileSelectorDialogFragment f=new FileSelectorDialogFragment();
+  final Bundle args=new Bundle();
+  args.putString(EXTRA_ACTION,action);
+  args.putString(EXTRA_PATH,initialDirectory.getAbsolutePath());
+  args.putStringArray(EXTRA_FILE_EXTENSIONS,intent.getStringArrayExtra(EXTRA_FILE_EXTENSIONS));
+  f.setArguments(args);
+  f.show(getSupportFragmentManager(),"select_file");
+}

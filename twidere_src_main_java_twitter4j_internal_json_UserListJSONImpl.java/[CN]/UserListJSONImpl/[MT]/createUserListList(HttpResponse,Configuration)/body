@@ -1,0 +1,19 @@
+{
+  try {
+    final JSONArray list=res.asJSONArray();
+    final int size=list.length();
+    final ResponseList<UserList> users=new ResponseListImpl<UserList>(size,res);
+    for (int i=0; i < size; i++) {
+      final JSONObject userListJson=list.getJSONObject(i);
+      final UserList userList=new UserListJSONImpl(userListJson);
+      users.add(userList);
+    }
+    return users;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+catch (  final TwitterException te) {
+    throw te;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  super.onStart();
+  mMultiSelectHandler.dispatchOnStart();
+  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONSTART));
+  final ContentResolver resolver=getContentResolver();
+  resolver.registerContentObserver(Accounts.CONTENT_URI,true,mAccountChangeObserver);
+  final IntentFilter filter=new IntentFilter(BROADCAST_TASK_STATE_CHANGED);
+  filter.addAction(BROADCAST_UNREAD_COUNT_UPDATED);
+  registerReceiver(mStateReceiver,filter);
+  if (isTabsChanged(getHomeTabs(this)) || mBottomComposeButton != isBottomComposeButton() || getTabDisplayOptionInt(this) != mTabDisplayOption) {
+    restart();
+  }
+  ProfilingUtil.profile(this,ProfilingUtil.FILE_NAME_APP,"App onStart");
+  updateUnreadCount();
+}

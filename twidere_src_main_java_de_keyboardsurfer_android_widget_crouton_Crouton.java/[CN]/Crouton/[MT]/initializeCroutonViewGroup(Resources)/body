@@ -1,0 +1,36 @@
+{
+  final FrameLayout croutonView=new FrameLayout(activity);
+  if (null != onClickListener) {
+    croutonView.setOnClickListener(onClickListener);
+  }
+  final int height;
+  if (style.heightDimensionResId > 0) {
+    height=resources.getDimensionPixelSize(style.heightDimensionResId);
+  }
+ else {
+    height=style.heightInPixels;
+  }
+  final int width;
+  if (style.widthDimensionResId > 0) {
+    width=resources.getDimensionPixelSize(style.widthDimensionResId);
+  }
+ else {
+    width=style.widthInPixels;
+  }
+  croutonView.setLayoutParams(new FrameLayout.LayoutParams(width != 0 ? width : FrameLayout.LayoutParams.MATCH_PARENT,height));
+  if (style.backgroundColorValue != -1) {
+    croutonView.setBackgroundColor(style.backgroundColorValue);
+  }
+ else {
+    croutonView.setBackgroundColor(resources.getColor(style.backgroundColorResourceId));
+  }
+  if (style.backgroundDrawableResourceId != 0) {
+    final Bitmap background=BitmapFactory.decodeResource(resources,style.backgroundDrawableResourceId);
+    final BitmapDrawable drawable=new BitmapDrawable(resources,background);
+    if (style.isTileEnabled) {
+      drawable.setTileModeXY(Shader.TileMode.REPEAT,Shader.TileMode.REPEAT);
+    }
+    ViewAccessor.setBackground(croutonView,drawable);
+  }
+  return croutonView;
+}

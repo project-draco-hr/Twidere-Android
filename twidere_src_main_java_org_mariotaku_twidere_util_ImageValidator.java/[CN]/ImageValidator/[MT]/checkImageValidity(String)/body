@@ -1,0 +1,10 @@
+{
+  final BitmapFactory.Options opts=new BitmapFactory.Options();
+  opts.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(file,opts);
+  final String type=opts.outMimeType;
+  if (type == null)   return false;
+  if ("image/jpeg".equalsIgnoreCase(type))   return checkJPEGValidity(file);
+ else   if ("image/png".equalsIgnoreCase(type))   return checkPNGValidity(file);
+  return opts.outWidth > 0 && opts.outHeight > 0;
+}

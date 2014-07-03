@@ -1,0 +1,4 @@
+{
+  setGeoCode(location,radius,unit);
+  return this;
+}

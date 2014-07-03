@@ -1,0 +1,5 @@
+{
+  while (n-- > 0) {
+    textures[offset + n]=sNextId++;
+  }
+}

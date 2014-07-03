@@ -1,0 +1,4 @@
+{
+  GalleryUtils.assertTrue(alpha >= 0 && alpha <= 1);
+  mAlpha*=alpha;
+}

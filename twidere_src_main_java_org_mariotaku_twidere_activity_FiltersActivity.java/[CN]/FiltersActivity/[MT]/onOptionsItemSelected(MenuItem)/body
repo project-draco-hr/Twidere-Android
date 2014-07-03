@@ -1,0 +1,52 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      navigateUpFromSameTask();
+      return true;
+    }
+case MENU_ADD:
+{
+    final Fragment f=mAdapter.getItem(mViewPager.getCurrentItem());
+    if (!(f instanceof BaseFiltersFragment))     return true;
+    final Bundle args=new Bundle();
+    if (f instanceof FilteredUsersFragment) {
+      final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
+      intent.setClass(this,UserListSelectorActivity.class);
+      intent.putExtra(EXTRA_ACCOUNT_ID,getDefaultAccountId(this));
+      startActivityForResult(intent,REQUEST_SELECT_USER);
+      return true;
+    }
+    if (f instanceof FilteredSourcesFragment) {
+      args.putInt(EXTRA_AUTO_COMPLETE_TYPE,AUTO_COMPLETE_TYPE_SOURCES);
+    }
+    args.putParcelable(EXTRA_URI,((BaseFiltersFragment)f).getContentUri());
+    final AddItemFragment dialog=new AddItemFragment();
+    dialog.setArguments(args);
+    dialog.show(getFragmentManager(),"add_rule");
+    return true;
+  }
+case R.id.enable_in_home_timeline:
+{
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putBoolean(KEY_FILTERS_IN_HOME_TIMELINE,!item.isChecked());
+  editor.apply();
+  break;
+}
+case R.id.enable_in_mentions:
+{
+final SharedPreferences.Editor editor=mPreferences.edit();
+editor.putBoolean(KEY_FILTERS_IN_MENTIONS,!item.isChecked());
+editor.apply();
+break;
+}
+case R.id.enable_for_rts:
+{
+final SharedPreferences.Editor editor=mPreferences.edit();
+editor.putBoolean(KEY_FILTERS_FOR_RTS,!item.isChecked());
+editor.apply();
+break;
+}
+}
+return false;
+}

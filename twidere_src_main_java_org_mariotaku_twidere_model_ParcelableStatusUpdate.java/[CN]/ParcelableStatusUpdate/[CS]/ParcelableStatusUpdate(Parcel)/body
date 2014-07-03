@@ -1,0 +1,8 @@
+{
+  accounts=in.createTypedArray(Account.CREATOR);
+  text=in.readString();
+  location=in.readParcelable(ParcelableLocation.class.getClassLoader());
+  medias=in.createTypedArray(ParcelableMediaUpdate.CREATOR);
+  in_reply_to_status_id=in.readLong();
+  is_possibly_sensitive=in.readInt() == 1;
+}

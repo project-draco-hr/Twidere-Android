@@ -1,0 +1,17 @@
+{
+  final Uri uri=Uri.parse(url);
+  if (url.startsWith(OAUTH_CALLBACK_URL)) {
+    final String oauth_verifier=uri.getQueryParameter(EXTRA_OAUTH_VERIFIER);
+    final RequestToken request_token=mActivity.mRequestToken;
+    if (oauth_verifier != null && request_token != null) {
+      final Intent intent=new Intent();
+      intent.putExtra(EXTRA_OAUTH_VERIFIER,oauth_verifier);
+      intent.putExtra(EXTRA_REQUEST_TOKEN,request_token.getToken());
+      intent.putExtra(EXTRA_REQUEST_TOKEN_SECRET,request_token.getTokenSecret());
+      mActivity.setResult(RESULT_OK,intent);
+      mActivity.finish();
+    }
+    return true;
+  }
+  return false;
+}

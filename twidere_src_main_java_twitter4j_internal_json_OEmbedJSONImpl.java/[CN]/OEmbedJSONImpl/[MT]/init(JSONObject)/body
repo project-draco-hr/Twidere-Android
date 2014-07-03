@@ -1,0 +1,14 @@
+{
+  try {
+    html=json.getString("html");
+    authorName=json.getString("author_name");
+    url=json.getString("url");
+    version=json.getString("version");
+    cacheAge=json.getLong("cache_age");
+    authorURL=json.getString("author_url");
+    width=json.getInt("width");
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

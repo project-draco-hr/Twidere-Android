@@ -1,0 +1,4 @@
+{
+  if (context instanceof ITwidereContextWrapper)   return isDarkTheme(((ITwidereContextWrapper)context).getThemeResourceId());
+  return isDarkTheme(getThemeResource(context));
+}

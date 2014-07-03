@@ -1,0 +1,5 @@
+Drawable drawable
+int paddingTop
+int paddingLeft
+int paddingRight
+int paddingBottom

@@ -1,0 +1,3 @@
+{
+  return TwitterWrapper.deleteProfileBannerImage(UserProfileEditorActivity.this,account_id);
+}

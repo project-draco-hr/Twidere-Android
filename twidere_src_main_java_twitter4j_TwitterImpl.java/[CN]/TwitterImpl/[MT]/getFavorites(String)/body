@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST,new HttpParameter("screen_name",screenName),INCLUDE_ENTITIES));
+}

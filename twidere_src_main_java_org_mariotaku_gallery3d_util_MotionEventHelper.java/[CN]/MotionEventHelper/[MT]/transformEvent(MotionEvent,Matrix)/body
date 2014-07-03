@@ -1,0 +1,5 @@
+{
+  final MotionEvent newEvent=MotionEvent.obtain(e);
+  newEvent.transform(m);
+  return newEvent;
+}

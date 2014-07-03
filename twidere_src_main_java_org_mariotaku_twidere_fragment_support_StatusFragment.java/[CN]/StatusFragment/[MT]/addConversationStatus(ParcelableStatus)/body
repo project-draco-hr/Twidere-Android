@@ -1,0 +1,11 @@
+{
+  if (getActivity() == null || isDetached())   return;
+  final List<ParcelableStatus> data=getData();
+  if (data == null)   return;
+  data.add(status);
+  final ParcelableStatusesAdapter adapter=(ParcelableStatusesAdapter)getListAdapter();
+  adapter.setData(data);
+  if (!mLoadMoreAutomatically && mShouldScroll) {
+    setSelection(0);
+  }
+}

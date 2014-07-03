@@ -1,0 +1,3 @@
+{
+  return factory.createPagableUserList(get(conf.getRestBaseURL() + ENDPOINT_FRIENDS_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDS_LIST,mergeParameters(paging.asPostParameterArray(),new HttpParameter("screen_name",screenName))));
+}

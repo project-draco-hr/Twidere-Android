@@ -1,0 +1,24 @@
+{
+  final RingtoneManager manager=new RingtoneManager(context);
+  manager.setType(RingtoneManager.TYPE_NOTIFICATION);
+  final Cursor cur=manager.getCursor();
+  cur.moveToFirst();
+  final int count=cur.getCount();
+  mRingtones=new Ringtone[count + 1];
+  mEntries=new String[count + 1];
+  mValues=new String[count + 1];
+  final Uri default_uri=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+  final Ringtone default_ringtone=RingtoneManager.getRingtone(context,default_uri);
+  mRingtones[0]=default_ringtone;
+  mEntries[0]=context.getString(R.string.default_ringtone);
+  mValues[0]=default_uri.toString();
+  for (int i=0; i < count; i++) {
+    final Ringtone ringtone=manager.getRingtone(i);
+    mRingtones[i + 1]=ringtone;
+    mEntries[i + 1]=ringtone.getTitle(context);
+    mValues[i + 1]=manager.getRingtoneUri(i).toString();
+  }
+  setEntries(mEntries);
+  setEntryValues(mValues);
+  cur.close();
+}

@@ -1,0 +1,8 @@
+{
+  if (mViewPager == null || mSlidingMenu == null)   return;
+  final int position=mViewPager.getCurrentItem();
+  final boolean pagingEnabled=mViewPager.isEnabled();
+  final boolean atFirstOrLast=position == 0 || position == mPagerAdapter.getCount() - 1;
+  final int mode=!pagingEnabled || atFirstOrLast ? SlidingMenu.TOUCHMODE_FULLSCREEN : SlidingMenu.TOUCHMODE_MARGIN;
+  mSlidingMenu.setTouchModeAbove(mode);
+}

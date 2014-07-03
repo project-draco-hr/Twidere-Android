@@ -1,0 +1,10 @@
+Class<? extends Fragment> cls
+int title
+int icon
+int accountRequirement
+int secondaryFieldType
+int secondaryFieldTitle
+String secondaryFieldTextKey
+int sortPosition
+boolean singleTab
+ExtraConfiguration extraConfigurations

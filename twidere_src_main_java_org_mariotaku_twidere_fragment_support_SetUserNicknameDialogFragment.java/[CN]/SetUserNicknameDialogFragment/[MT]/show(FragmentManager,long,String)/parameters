@@ -1,0 +1,3 @@
+FragmentManager fm
+long user_id
+String nickname

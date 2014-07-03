@@ -1,0 +1,13 @@
+{
+  final String key=preference.getKey();
+  if (WIZARD_PREFERENCE_KEY_NEXT_PAGE.equals(key)) {
+    gotoNextPage();
+  }
+ else   if (WIZARD_PREFERENCE_KEY_USE_DEFAULTS.equals(key)) {
+    applyInitialSettings();
+  }
+ else   if (WIZARD_PREFERENCE_KEY_IMPORT_SETTINGS.equals(key)) {
+    openImportSettingsDialog();
+  }
+  return true;
+}

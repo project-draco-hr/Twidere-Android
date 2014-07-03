@@ -1,0 +1,6 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{R.attr.cardItemBackground});
+  final Drawable d=a.getDrawable(0);
+  a.recycle();
+  return d;
+}

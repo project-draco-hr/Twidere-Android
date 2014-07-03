@@ -1,0 +1,10 @@
+{
+  removeAllMessages();
+  if (croutonQueue == null)   return;
+  for (  final Crouton crouton : croutonQueue) {
+    if (crouton.isShowing()) {
+      ((ViewGroup)crouton.getView().getParent()).removeView(crouton.getView());
+    }
+  }
+  croutonQueue.clear();
+}

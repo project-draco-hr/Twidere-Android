@@ -1,0 +1,8 @@
+{
+  final RectF rect=mHueRect;
+  final float height=rect.height();
+  final Point p=new Point();
+  p.y=(int)(height - hue * height / 360f + rect.top);
+  p.x=(int)rect.left;
+  return p;
+}

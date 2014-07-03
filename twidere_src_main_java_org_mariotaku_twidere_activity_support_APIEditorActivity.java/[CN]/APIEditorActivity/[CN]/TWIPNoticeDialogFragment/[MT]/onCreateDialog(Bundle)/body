@@ -1,0 +1,9 @@
+{
+  final Context wrapped=ThemeUtils.getThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  builder.setTitle(android.R.string.dialog_alert_title);
+  builder.setMessage(R.string.twip_api_version_notice_message);
+  builder.setPositiveButton(R.string.save,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

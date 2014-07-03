@@ -1,0 +1,4 @@
+{
+  if (mSwipebackScreenshotManager != null)   return mSwipebackScreenshotManager;
+  return mSwipebackScreenshotManager=new SwipebackScreenshotManager(this);
+}

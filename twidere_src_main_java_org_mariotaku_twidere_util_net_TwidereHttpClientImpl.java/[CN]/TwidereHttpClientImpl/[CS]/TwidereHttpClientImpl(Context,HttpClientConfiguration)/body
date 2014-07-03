@@ -1,0 +1,26 @@
+{
+  this.conf=conf;
+  final HttpClientBuilder clientBuilder=HttpClients.custom();
+  final LayeredConnectionSocketFactory factory=TwidereSSLSocketFactory.getSocketFactory(context,conf.isSSLErrorIgnored());
+  clientBuilder.setSSLSocketFactory(factory);
+  final RequestConfig.Builder requestConfigBuilder=RequestConfig.custom();
+  requestConfigBuilder.setConnectionRequestTimeout(conf.getHttpConnectionTimeout());
+  requestConfigBuilder.setConnectTimeout(conf.getHttpConnectionTimeout());
+  requestConfigBuilder.setSocketTimeout(conf.getHttpReadTimeout());
+  requestConfigBuilder.setRedirectsEnabled(false);
+  clientBuilder.setDefaultRequestConfig(requestConfigBuilder.build());
+  if (conf.isProxyConfigured()) {
+    final HttpHost proxy=new HttpHost(conf.getHttpProxyHost(),conf.getHttpProxyPort());
+    clientBuilder.setProxy(proxy);
+    if (!TextUtils.isEmpty(conf.getHttpProxyUser())) {
+      if (logger.isDebugEnabled()) {
+        logger.debug("Proxy AuthUser: " + conf.getHttpProxyUser());
+        logger.debug("Proxy AuthPassword: " + InternalStringUtil.maskString(conf.getHttpProxyPassword()));
+      }
+      final CredentialsProvider credentialsProvider=new BasicCredentialsProvider();
+      credentialsProvider.setCredentials(new AuthScope(conf.getHttpProxyHost(),conf.getHttpProxyPort()),new UsernamePasswordCredentials(conf.getHttpProxyUser(),conf.getHttpProxyPassword()));
+      clientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+    }
+  }
+  client=clientBuilder.build();
+}

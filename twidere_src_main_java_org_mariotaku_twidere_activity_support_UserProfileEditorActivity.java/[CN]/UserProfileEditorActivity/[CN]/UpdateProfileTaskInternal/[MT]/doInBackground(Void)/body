@@ -1,0 +1,14 @@
+{
+  final SingleResponse<ParcelableUser> result=super.doInBackground(params);
+  if (result.getData() != null && isMyAccount(getContext(),result.getData().id)) {
+    final ContentResolver resolver=getContentResolver();
+    final ContentValues values=new ContentValues();
+    values.put(Accounts.NAME,result.getData().name);
+    values.put(Accounts.SCREEN_NAME,result.getData().screen_name);
+    values.put(Accounts.PROFILE_IMAGE_URL,result.getData().profile_image_url);
+    values.put(Accounts.PROFILE_BANNER_URL,result.getData().profile_banner_url);
+    final String where=Accounts.ACCOUNT_ID + " = " + result.getData().id;
+    resolver.update(Accounts.CONTENT_URI,values,where,null);
+  }
+  return result;
+}

@@ -1,0 +1,9 @@
+{
+  if (canvas == null)   return;
+  canvas.drawColor(mBackgroundColor);
+  if (mDrawingHelpers != null) {
+    for (    final IDrawingHelper h : mDrawingHelpers) {
+      h.dispatchOnDraw(canvas);
+    }
+  }
+}

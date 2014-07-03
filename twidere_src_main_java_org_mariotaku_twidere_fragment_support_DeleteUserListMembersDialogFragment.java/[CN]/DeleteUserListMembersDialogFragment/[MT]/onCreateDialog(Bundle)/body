@@ -1,0 +1,22 @@
+{
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final ParcelableUser[] users=getUsers();
+  final ParcelableUserList userList=getUserList();
+  if (users == null || userList == null)   throw new NullPointerException();
+  if (users.length == 1) {
+    final ParcelableUser user=users[0];
+    final String displayName=Utils.getDisplayName(wrapped,user.id,user.name,user.screen_name);
+    builder.setTitle(getString(R.string.delete_user,displayName));
+    builder.setMessage(getString(R.string.delete_user_from_list_confirm,displayName,userList.name));
+  }
+ else {
+    builder.setTitle(R.string.delete_users);
+    final Resources res=getResources();
+    final String message=res.getQuantityString(R.plurals.delete_N_users_from_list_confirm,users.length,users.length,userList.name);
+    builder.setMessage(message);
+  }
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,null);
+  return builder.create();
+}

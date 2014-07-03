@@ -1,0 +1,24 @@
+{
+  if (json == null) {
+    try {
+      if (responseAsString == null) {
+        responseAsString=asString();
+      }
+      json=new JSONObject(responseAsString);
+      if (CONF.isPrettyDebugEnabled()) {
+        logger.debug(json.toString(1));
+      }
+ else {
+        logger.debug(responseAsString != null ? responseAsString : json.toString());
+      }
+    }
+ catch (    final JSONException jsone) {
+      if (responseAsString == null)       throw new TwitterException(jsone.getMessage(),jsone);
+ else       throw new TwitterException(jsone.getMessage() + ":" + responseAsString,jsone);
+    }
+ finally {
+      disconnectForcibly();
+    }
+  }
+  return json;
+}

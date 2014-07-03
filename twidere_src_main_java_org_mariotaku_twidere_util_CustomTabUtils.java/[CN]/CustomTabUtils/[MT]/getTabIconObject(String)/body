@@ -1,0 +1,15 @@
+{
+  if (type == null)   return R.drawable.ic_iconic_action_list;
+  final Integer value=CUSTOM_TABS_ICON_NAME_MAP.get(type);
+  if (value != null)   return value;
+ else   if (type.contains("/")) {
+    try {
+      final File file=new File(type);
+      if (file.exists())       return file;
+    }
+ catch (    final Exception e) {
+      return R.drawable.ic_iconic_action_list;
+    }
+  }
+  return R.drawable.ic_iconic_action_list;
+}

@@ -1,0 +1,7 @@
+SpannableString string
+long account_id
+int type
+boolean sensitive
+OnLinkClickListener listener
+int highlightOption
+int highlightColor

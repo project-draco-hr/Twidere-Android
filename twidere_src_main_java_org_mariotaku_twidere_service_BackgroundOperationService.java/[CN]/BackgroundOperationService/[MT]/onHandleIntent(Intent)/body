@@ -1,0 +1,10 @@
+{
+  if (intent == null)   return;
+  final String action=intent.getAction();
+  if (INTENT_ACTION_UPDATE_STATUS.equals(action)) {
+    handleUpdateStatusIntent(intent);
+  }
+ else   if (INTENT_ACTION_SEND_DIRECT_MESSAGE.equals(action)) {
+    handleSendDirectMessageIntent(intent);
+  }
+}

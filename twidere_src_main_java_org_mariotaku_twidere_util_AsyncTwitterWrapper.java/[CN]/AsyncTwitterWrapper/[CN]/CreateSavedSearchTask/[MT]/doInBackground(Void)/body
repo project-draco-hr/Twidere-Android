@@ -1,0 +1,10 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
+  if (twitter == null)   return null;
+  try {
+    return SingleResponse.getInstance(twitter.createSavedSearch(mQuery));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

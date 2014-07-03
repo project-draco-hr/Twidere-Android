@@ -1,0 +1,24 @@
+{
+  mMultiSelectHandler=new MultiSelectEventHandler(this);
+  mMultiSelectHandler.dispatchOnCreate();
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  setUiOptions(getWindow(),data);
+  super.onCreate(savedInstanceState);
+  mActionBar=getActionBar();
+  mActionBar.setDisplayHomeAsUpEnabled(true);
+  mActionBar.setDisplayShowTitleEnabled(true);
+  mActionBar.setDisplayShowCustomEnabled(false);
+  mActionBar.setCustomView(R.layout.link_handler_actionbar);
+  final View view=mActionBar.getCustomView();
+  mGoTopView=view.findViewById(R.id.go_top);
+  mTitleView=(TextView)view.findViewById(R.id.actionbar_title);
+  mSubtitleView=(TextView)view.findViewById(R.id.actionbar_subtitle);
+  mGoTopView.setOnClickListener(this);
+  mGoTopView.setOnLongClickListener(this);
+  setProgressBarIndeterminateVisibility(false);
+  if (data == null || !showFragment(data)) {
+    finish();
+  }
+}

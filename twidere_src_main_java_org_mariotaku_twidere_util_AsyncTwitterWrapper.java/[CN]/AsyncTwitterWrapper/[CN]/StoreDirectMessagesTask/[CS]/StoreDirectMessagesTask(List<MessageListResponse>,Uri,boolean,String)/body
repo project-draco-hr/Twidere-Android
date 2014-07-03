@@ -1,0 +1,6 @@
+{
+  super(mContext,mAsyncTaskManager,tag);
+  responses=result;
+  this.uri=uri;
+  this.notify=notify;
+}

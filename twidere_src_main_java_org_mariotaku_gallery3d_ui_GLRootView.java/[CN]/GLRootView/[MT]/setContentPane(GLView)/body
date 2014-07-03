@@ -1,0 +1,19 @@
+{
+  if (mContentView == content)   return;
+  if (mContentView != null) {
+    if (mInDownState) {
+      final long now=SystemClock.uptimeMillis();
+      final MotionEvent cancelEvent=MotionEvent.obtain(now,now,MotionEvent.ACTION_CANCEL,0,0,0);
+      mContentView.dispatchTouchEvent(cancelEvent);
+      cancelEvent.recycle();
+      mInDownState=false;
+    }
+    mContentView.detachFromRoot();
+    BasicTexture.yieldAllTextures();
+  }
+  mContentView=content;
+  if (content != null) {
+    content.attachToRoot(this);
+    requestLayoutContentPane();
+  }
+}

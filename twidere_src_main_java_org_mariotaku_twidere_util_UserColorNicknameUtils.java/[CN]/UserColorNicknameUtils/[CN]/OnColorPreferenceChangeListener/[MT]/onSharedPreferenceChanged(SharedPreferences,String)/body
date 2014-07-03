@@ -1,0 +1,6 @@
+{
+  final long userId=ParseUtils.parseLong(key,-1);
+  if (mListener != null) {
+    mListener.onUserColorChanged(userId,sharedPreferences.getInt(key,0));
+  }
+}

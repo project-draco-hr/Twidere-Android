@@ -1,0 +1,8 @@
+{
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_USER_LIST,user_list);
+  final DestroyUserListDialogFragment f=new DestroyUserListDialogFragment();
+  f.setArguments(args);
+  f.show(fm,FRAGMENT_TAG);
+  return f;
+}

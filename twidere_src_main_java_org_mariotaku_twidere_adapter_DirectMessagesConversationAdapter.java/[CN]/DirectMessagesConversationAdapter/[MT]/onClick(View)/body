@@ -1,0 +1,33 @@
+{
+  if (mMultiSelectManager.isActive())   return;
+  final Object tag=view.getTag();
+  final int position=tag instanceof Integer ? (Integer)tag : -1;
+  if (position == -1)   return;
+switch (view.getId()) {
+case R.id.incoming_profile_image:
+case R.id.outgoing_profile_image:
+{
+      final ParcelableDirectMessage message=getDirectMessage(position);
+      if (message == null)       return;
+      if (mContext instanceof Activity) {
+        openUserProfile((Activity)mContext,message.account_id,message.sender_id,message.sender_screen_name);
+      }
+      break;
+    }
+case R.id.incoming_item_menu:
+case R.id.outgoing_item_menu:
+{
+    if (position == -1 || mListener == null)     return;
+    mListener.onMenuButtonClick(view,position,getItemId(position));
+    break;
+  }
+case R.id.incoming_image_preview:
+case R.id.outgoing_image_preview:
+{
+  if (position == -1)   return;
+  final ParcelableDirectMessage message=getDirectMessage(position);
+  if (message == null || message.first_media == null)   return;
+  openImage(mContext,message.account_id,message.first_media,false);
+}
+}
+}

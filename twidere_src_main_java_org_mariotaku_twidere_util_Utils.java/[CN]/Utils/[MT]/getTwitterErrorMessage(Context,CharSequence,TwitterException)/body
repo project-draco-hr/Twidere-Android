@@ -1,0 +1,23 @@
+{
+  if (context == null)   return null;
+  if (te == null)   return context.getString(R.string.error_unknown_error);
+  if (te.exceededRateLimitation()) {
+    final RateLimitStatus status=te.getRateLimitStatus();
+    final long secUntilReset=status.getSecondsUntilReset() * 1000;
+    final String nextResetTime=ParseUtils.parseString(getRelativeTimeSpanString(System.currentTimeMillis() + secUntilReset));
+    if (isEmpty(action))     return context.getString(R.string.error_message_rate_limit,nextResetTime.trim());
+    return context.getString(R.string.error_message_rate_limit_with_action,action,nextResetTime.trim());
+  }
+ else   if (te.getErrorCode() > 0) {
+    final String msg=StatusCodeMessageUtils.getTwitterErrorMessage(context,te.getErrorCode());
+    return getErrorMessage(context,action,msg != null ? msg : trimLineBreak(te.getMessage()));
+  }
+ else   if (te.getCause() instanceof SSLException) {
+    final String msg=te.getCause().getMessage();
+    if (msg != null && msg.contains("!="))     return getErrorMessage(context,action,context.getString(R.string.ssl_error));
+ else     return getErrorMessage(context,action,context.getString(R.string.network_error));
+  }
+ else   if (te.getCause() instanceof IOException)   return getErrorMessage(context,action,context.getString(R.string.network_error));
+ else   if (te.getCause() instanceof JSONException)   return getErrorMessage(context,action,context.getString(R.string.api_data_corrupted));
+ else   return getErrorMessage(context,action,trimLineBreak(te.getMessage()));
+}

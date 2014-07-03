@@ -1,0 +1,5 @@
+{
+  if (context == null)   return false;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return prefs.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false);
+}

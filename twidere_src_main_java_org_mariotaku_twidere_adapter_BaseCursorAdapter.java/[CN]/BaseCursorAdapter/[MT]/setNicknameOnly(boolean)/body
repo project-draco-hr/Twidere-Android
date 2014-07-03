@@ -1,0 +1,5 @@
+{
+  if (mNicknameOnly == nickname_only)   return;
+  mNicknameOnly=nickname_only;
+  notifyDataSetChanged();
+}

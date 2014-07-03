@@ -1,0 +1,8 @@
+{
+  if (this.text_size == text_size)   return;
+  this.text_size=text_size;
+  text.setTextSize(text_size);
+  name.setTextSize(text_size);
+  screen_name.setTextSize(text_size * 0.75f);
+  time.setTextSize(text_size * 0.65f);
+}

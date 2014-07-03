@@ -1,0 +1,3 @@
+{
+  super(result,Mentions.CONTENT_URI,notify,TASK_TAG_STORE_MENTIONS);
+}

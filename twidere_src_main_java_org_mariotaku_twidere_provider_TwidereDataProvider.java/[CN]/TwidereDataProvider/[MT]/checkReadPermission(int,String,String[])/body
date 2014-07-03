@@ -1,0 +1,43 @@
+{
+switch (id) {
+case VIRTUAL_TABLE_ID_PREFERENCES:
+case VIRTUAL_TABLE_ID_DNS:
+{
+      if (!checkPermission(PERMISSION_PREFERENCES))       throw new SecurityException("Access preferences requires level PERMISSION_LEVEL_PREFERENCES");
+      break;
+    }
+case TABLE_ID_ACCOUNTS:
+{
+    final String[] credentialsCols={Accounts.BASIC_AUTH_PASSWORD,Accounts.OAUTH_TOKEN,Accounts.OAUTH_TOKEN_SECRET,Accounts.CONSUMER_KEY,Accounts.CONSUMER_SECRET};
+    if (projection == null || ArrayUtils.contains(projection,credentialsCols) && !checkPermission(PERMISSION_ACCOUNTS))     throw new SecurityException("Access column " + ArrayUtils.toString(projection,',',true) + " in database accounts requires level PERMISSION_LEVEL_ACCOUNTS");
+    if (!checkPermission(PERMISSION_READ))     throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_READ");
+    break;
+  }
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_INBOX:
+case TABLE_ID_DIRECT_MESSAGES_OUTBOX:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION_SCREEN_NAME:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+{
+  if (!checkPermission(PERMISSION_DIRECT_MESSAGES))   throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_DIRECT_MESSAGES");
+  break;
+}
+case TABLE_ID_STATUSES:
+case TABLE_ID_MENTIONS:
+case TABLE_ID_TABS:
+case TABLE_ID_DRAFTS:
+case TABLE_ID_CACHED_USERS:
+case TABLE_ID_FILTERED_USERS:
+case TABLE_ID_FILTERED_KEYWORDS:
+case TABLE_ID_FILTERED_SOURCES:
+case TABLE_ID_FILTERED_LINKS:
+case TABLE_ID_TRENDS_LOCAL:
+case TABLE_ID_CACHED_STATUSES:
+case TABLE_ID_CACHED_HASHTAGS:
+{
+if (!checkPermission(PERMISSION_READ)) throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_READ");
+break;
+}
+}
+}

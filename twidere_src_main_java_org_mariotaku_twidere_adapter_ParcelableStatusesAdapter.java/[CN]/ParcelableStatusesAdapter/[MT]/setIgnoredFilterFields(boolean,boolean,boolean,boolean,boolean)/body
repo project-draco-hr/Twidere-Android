@@ -1,0 +1,8 @@
+{
+  mFilterIgnoreTextPlain=textPlain;
+  mFilterIgnoreTextHtml=textHtml;
+  mFilterIgnoreUser=user;
+  mFilterIgnoreSource=source;
+  mFilterRetweetedById=retweetedById;
+  rebuildFilterInfo();
+}

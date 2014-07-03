@@ -1,0 +1,5 @@
+{
+  if (context == null)   return -1;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return prefs.getLong(KEY_DEFAULT_ACCOUNT_ID,-1);
+}

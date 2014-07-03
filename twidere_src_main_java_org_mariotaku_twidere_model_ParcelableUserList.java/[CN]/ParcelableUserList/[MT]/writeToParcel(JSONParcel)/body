@@ -1,0 +1,15 @@
+{
+  out.writeLong("position",position);
+  out.writeLong("account_id",account_id);
+  out.writeLong("list_id",id);
+  out.writeBoolean("is_public",is_public);
+  out.writeBoolean("is_following",is_following);
+  out.writeString("name",name);
+  out.writeString("description",description);
+  out.writeLong("user_id",user_id);
+  out.writeString("user_name",user_name);
+  out.writeString("user_screen_name",user_screen_name);
+  out.writeString("user_profile_image_url",user_profile_image_url);
+  out.writeInt("members_count",members_count);
+  out.writeInt("subscribers_count",subscribers_count);
+}

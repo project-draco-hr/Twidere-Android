@@ -1,0 +1,4 @@
+{
+  if (mTextBounds.isEmpty())   return -1;
+ else   return mTextBounds.bottom - mTextBounds.top;
+}

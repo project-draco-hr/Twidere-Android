@@ -1,0 +1,10 @@
+{
+  if (down == mStillDown)   return;
+  mStillDown=down;
+  if (down) {
+    mListener.onDown(e);
+  }
+ else {
+    mListener.onUp(e);
+  }
+}

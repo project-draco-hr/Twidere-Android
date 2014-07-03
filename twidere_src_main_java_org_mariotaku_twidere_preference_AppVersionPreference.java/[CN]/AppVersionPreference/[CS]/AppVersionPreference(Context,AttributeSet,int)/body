@@ -1,0 +1,11 @@
+{
+  super(context,attrs,defStyle);
+  final PackageManager pm=context.getPackageManager();
+  try {
+    final PackageInfo info=pm.getPackageInfo(context.getPackageName(),0);
+    setTitle(info.applicationInfo.loadLabel(pm));
+    setSummary(info.versionName);
+  }
+ catch (  final PackageManager.NameNotFoundException e) {
+  }
+}

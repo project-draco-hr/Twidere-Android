@@ -1,0 +1,12 @@
+{
+  account_ids=in.createLongArray();
+  _id=in.readLong();
+  in_reply_to_status_id=in.readLong();
+  text=in.readString();
+  medias=in.createTypedArray(ParcelableMediaUpdate.CREATOR);
+  is_possibly_sensitive=in.readInt() == 1;
+  location=ParcelableLocation.fromString(in.readString());
+  timestamp=in.readLong();
+  action_type=in.readInt();
+  action_extras=createJSONObject(in.readString());
+}

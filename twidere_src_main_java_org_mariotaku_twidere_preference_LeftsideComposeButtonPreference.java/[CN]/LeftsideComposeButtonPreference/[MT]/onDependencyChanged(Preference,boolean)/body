@@ -1,0 +1,3 @@
+{
+  super.onDependencyChanged(dependency,disableDependent || FlymeUtils.hasSmartBar());
+}

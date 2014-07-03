@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof SupportTabSpec))   return false;
+  final SupportTabSpec spec=(SupportTabSpec)o;
+  return objectEquals(name,spec.name) && objectEquals(icon,spec.icon) && classEquals(cls,spec.cls)&& bundleEquals(args,spec.args)&& position == spec.position;
+}

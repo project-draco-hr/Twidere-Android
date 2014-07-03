@@ -1,0 +1,5 @@
+{
+  if (mModeChanged)   return true;
+  flingImages(velocityX,velocityY);
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createFriendshipList(get(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_LOOKUP,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_LOOKUP,new HttpParameter("screen_name",InternalStringUtil.join(screenNames))));
+}

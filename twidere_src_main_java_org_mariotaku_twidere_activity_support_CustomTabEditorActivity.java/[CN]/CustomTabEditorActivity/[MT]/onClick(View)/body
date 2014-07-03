@@ -1,0 +1,76 @@
+{
+  final CustomTabConfiguration conf=mTabConfiguration;
+  final Object value=mSecondaryFieldValue;
+switch (v.getId()) {
+case R.id.secondary_field:
+{
+      if (conf == null)       return;
+switch (conf.getSecondaryFieldType()) {
+case CustomTabConfiguration.FIELD_TYPE_USER:
+{
+          final Intent intent=new Intent(this,UserListSelectorActivity.class);
+          intent.setAction(INTENT_ACTION_SELECT_USER);
+          intent.putExtra(EXTRA_ACCOUNT_ID,getAccountId());
+          startActivityForResult(intent,REQUEST_SELECT_USER);
+          break;
+        }
+case CustomTabConfiguration.FIELD_TYPE_USER_LIST:
+{
+        final Intent intent=new Intent(this,UserListSelectorActivity.class);
+        intent.setAction(INTENT_ACTION_SELECT_USER_LIST);
+        intent.putExtra(EXTRA_ACCOUNT_ID,getAccountId());
+        startActivityForResult(intent,REQUEST_SELECT_USER_LIST);
+        break;
+      }
+case CustomTabConfiguration.FIELD_TYPE_TEXT:
+{
+      final int title=conf.getSecondaryFieldTitle();
+      SecondaryFieldEditTextDialogFragment.show(this,ParseUtils.parseString(value),getString(title > 0 ? title : R.string.content));
+      break;
+    }
+}
+break;
+}
+case R.id.save:
+{
+if (!isEditMode()) {
+if (conf == null) return;
+final boolean account_id_required=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_REQUIRED;
+final boolean no_account_id=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_NONE;
+final boolean secondaryFieldRequired=conf.getSecondaryFieldType() != CustomTabConfiguration.FIELD_TYPE_NONE;
+final boolean account_id_invalid=getAccountId() <= 0;
+final boolean secondary_field_invalid=mSecondaryFieldValue == null;
+if (account_id_required && account_id_invalid || secondaryFieldRequired && secondary_field_invalid) {
+  Toast.makeText(this,R.string.invalid_settings,Toast.LENGTH_SHORT).show();
+  return;
+}
+final Intent data=new Intent();
+final Bundle args=new Bundle();
+if (!no_account_id) {
+  args.putLong(EXTRA_ACCOUNT_ID,getAccountId());
+}
+if (secondaryFieldRequired) {
+  addSecondaryFieldValueToArguments(args);
+}
+data.putExtra(EXTRA_TYPE,mTabType);
+data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
+data.putExtra(EXTRA_ICON,getIconKey());
+data.putExtra(EXTRA_ARGUMENTS,ParseUtils.bundleToJSON(args));
+data.putExtra(EXTRA_EXTRAS,ParseUtils.bundleToJSON(mExtrasBundle));
+setResult(RESULT_OK,data);
+finish();
+}
+ else {
+if (mTabId < 0) return;
+final Intent data=new Intent();
+data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
+data.putExtra(EXTRA_ICON,getIconKey());
+data.putExtra(EXTRA_ID,mTabId);
+data.putExtra(EXTRA_EXTRAS,ParseUtils.bundleToJSON(mExtrasBundle));
+setResult(RESULT_OK,data);
+finish();
+}
+break;
+}
+}
+}

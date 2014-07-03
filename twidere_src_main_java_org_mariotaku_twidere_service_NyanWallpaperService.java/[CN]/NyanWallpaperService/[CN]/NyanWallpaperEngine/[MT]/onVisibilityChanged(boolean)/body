@@ -1,0 +1,6 @@
+{
+  super.onVisibilityChanged(visible);
+  if (mHelper != null) {
+    mHelper.setSkipDrawing(!visible);
+  }
+}

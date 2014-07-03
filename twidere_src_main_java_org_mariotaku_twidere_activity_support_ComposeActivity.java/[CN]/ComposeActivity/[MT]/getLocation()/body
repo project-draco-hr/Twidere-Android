@@ -1,0 +1,23 @@
+{
+  final Criteria criteria=new Criteria();
+  criteria.setAccuracy(Criteria.ACCURACY_FINE);
+  final String provider=mLocationManager.getBestProvider(criteria,true);
+  if (provider != null) {
+    final Location location;
+    if (mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+      location=mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+    }
+ else {
+      location=mLocationManager.getLastKnownLocation(provider);
+    }
+    if (location == null) {
+      mLocationManager.requestLocationUpdates(provider,0,0,this);
+      setProgressVisibility(true);
+    }
+    mRecentLocation=location != null ? new ParcelableLocation(location) : null;
+  }
+ else {
+    Crouton.showText(this,R.string.cannot_get_location,CroutonStyle.ALERT);
+  }
+  return provider != null;
+}

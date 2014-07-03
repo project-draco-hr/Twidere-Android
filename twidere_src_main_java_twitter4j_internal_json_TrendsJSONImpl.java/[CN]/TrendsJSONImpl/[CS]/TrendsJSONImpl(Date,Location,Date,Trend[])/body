@@ -1,0 +1,6 @@
+{
+  this.asOf=asOf;
+  this.location=location;
+  this.trendAt=trendAt;
+  this.trends=trends;
+}

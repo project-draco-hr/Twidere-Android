@@ -1,0 +1,5 @@
+{
+  final File cacheDir=getBestCacheDir(this,dirName);
+  final File fallbackCacheDir=getInternalCacheDir(this,dirName);
+  return new UnlimitedDiscCache(cacheDir,fallbackCacheDir,new URLFileNameGenerator());
+}

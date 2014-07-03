@@ -1,0 +1,4 @@
+AdapterView<?> view
+View child
+int position
+long id

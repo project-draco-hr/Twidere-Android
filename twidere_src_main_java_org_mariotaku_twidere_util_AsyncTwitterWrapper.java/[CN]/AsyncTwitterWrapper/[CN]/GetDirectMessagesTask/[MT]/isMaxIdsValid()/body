@@ -1,0 +1,3 @@
+{
+  return max_ids != null && max_ids.length == account_ids.length;
+}

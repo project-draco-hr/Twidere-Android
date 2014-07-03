@@ -1,0 +1,22 @@
+{
+  if (!isEnabled())   return false;
+  final int action=event.getAction();
+  if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+    mInDownState=false;
+  }
+ else   if (!mInDownState && action != MotionEvent.ACTION_DOWN)   return false;
+  if (mCompensation != 0) {
+    event=MotionEventHelper.transformEvent(event,mCompensationMatrix);
+  }
+  mRenderLock.lock();
+  try {
+    final boolean handled=mContentView != null && mContentView.dispatchTouchEvent(event);
+    if (action == MotionEvent.ACTION_DOWN && handled) {
+      mInDownState=true;
+    }
+    return handled;
+  }
+  finally {
+    mRenderLock.unlock();
+  }
+}

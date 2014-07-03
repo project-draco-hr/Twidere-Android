@@ -1,0 +1,9 @@
+{
+  if (mProgress == null)   return;
+  if (mProgress.isShowing()) {
+    mProgress.dismiss();
+  }
+  mProgress.setMessage(mContext.getString(R.string.please_wait));
+  mProgress.setCancelable(false);
+  mProgress.show();
+}

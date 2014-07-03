@@ -1,0 +1,4 @@
+{
+  mActivity=activity;
+  mPreferences=activity.getSharedPreferences(BaseWebViewFragment.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+}

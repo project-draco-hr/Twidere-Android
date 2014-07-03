@@ -1,0 +1,3 @@
+{
+  return "OEmbedJSONImpl{" + "html='" + html + '\''+ ", authorName='"+ authorName+ '\''+ ", url='"+ url+ '\''+ ", version='"+ version+ '\''+ ", cacheAge="+ cacheAge+ ", authorURL='"+ authorURL+ '\''+ ", width="+ width+ '}';
+}

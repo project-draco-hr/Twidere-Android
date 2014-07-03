@@ -1,0 +1,3 @@
+{
+  return mCollator.compare(object1.getName(),object2.getName());
+}

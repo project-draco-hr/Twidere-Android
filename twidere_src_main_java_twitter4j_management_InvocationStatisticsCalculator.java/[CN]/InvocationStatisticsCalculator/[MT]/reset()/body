@@ -1,0 +1,7 @@
+{
+  callCount=0;
+  errorCount=0;
+  totalTime=0;
+  times=new long[times.length];
+  index=0;
+}

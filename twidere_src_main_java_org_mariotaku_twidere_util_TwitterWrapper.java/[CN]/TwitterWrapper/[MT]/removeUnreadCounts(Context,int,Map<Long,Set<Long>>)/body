@@ -1,0 +1,12 @@
+{
+  if (context == null || position < 0 || counts == null)   return 0;
+  int result=0;
+  for (  final Entry<Long,Set<Long>> entry : counts.entrySet()) {
+    final Uri.Builder builder=UnreadCounts.CONTENT_URI.buildUpon();
+    builder.appendPath(String.valueOf(position));
+    builder.appendPath(String.valueOf(entry.getKey()));
+    builder.appendPath(ListUtils.toString(new ArrayList<Long>(entry.getValue()),',',false));
+    result+=context.getContentResolver().delete(builder.build(),null,null);
+  }
+  return result;
+}

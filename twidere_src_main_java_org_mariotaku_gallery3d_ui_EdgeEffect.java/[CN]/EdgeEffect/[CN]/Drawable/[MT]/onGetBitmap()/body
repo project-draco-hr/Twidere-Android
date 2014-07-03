@@ -1,0 +1,9 @@
+{
+  final Bitmap orig=super.onGetBitmap();
+  if (mPaint.getColorFilter() == null)   return orig;
+  final Bitmap bitmap=Bitmap.createBitmap(orig.getWidth(),orig.getHeight(),orig.getConfig());
+  final Canvas c=new Canvas(bitmap);
+  c.drawBitmap(orig,0,0,mPaint);
+  orig.recycle();
+  return bitmap;
+}

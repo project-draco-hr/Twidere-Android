@@ -1,0 +1,23 @@
+{
+  if (!changeSize)   return;
+  final int w=right - left;
+  final int h=bottom - top;
+  for (int i=0; i < 4; i++) {
+    if ((i & 1) == 0) {
+      mEffect[i].setSize(w,h);
+    }
+ else {
+      mEffect[i].setSize(h,w);
+    }
+  }
+  Matrix.setIdentityM(mMatrix,TOP_M);
+  Matrix.setIdentityM(mMatrix,LEFT_M);
+  Matrix.setIdentityM(mMatrix,BOTTOM_M);
+  Matrix.setIdentityM(mMatrix,RIGHT_M);
+  Matrix.rotateM(mMatrix,LEFT_M,90,0,0,1);
+  Matrix.scaleM(mMatrix,LEFT_M,1,-1,1);
+  Matrix.translateM(mMatrix,BOTTOM_M,0,h,0);
+  Matrix.scaleM(mMatrix,BOTTOM_M,1,-1,1);
+  Matrix.translateM(mMatrix,RIGHT_M,w,0,0);
+  Matrix.rotateM(mMatrix,RIGHT_M,90,0,0,1);
+}

@@ -1,0 +1,13 @@
+{
+  super(token,tokenSecret);
+  String sUserId;
+  try {
+    sUserId=token.substring(0,token.indexOf("-"));
+  }
+ catch (  final IndexOutOfBoundsException e) {
+    throw new IllegalArgumentException("Invalid access token format.");
+  }
+  if (sUserId != null) {
+    userId=Long.parseLong(sUserId);
+  }
+}

@@ -1,0 +1,32 @@
+{
+  if (mUser == null)   return;
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+switch (view.getId()) {
+case ProfileImageBannerLayout.VIEW_ID_PROFILE_IMAGE:
+{
+      mPopupMenu=PopupMenu.getInstance(this,view);
+      mPopupMenu.inflate(R.menu.action_profile_image);
+      mPopupMenu.setOnMenuItemClickListener(mProfileImageMenuListener);
+      break;
+    }
+case ProfileImageBannerLayout.VIEW_ID_PROFILE_BANNER:
+{
+    mPopupMenu=PopupMenu.getInstance(this,view);
+    mPopupMenu.inflate(R.menu.action_profile_banner_image);
+    final Menu menu=mPopupMenu.getMenu();
+    final MenuItem delete_submenu=menu.findItem(MENU_DELETE_SUBMENU);
+    final boolean has_profile_banner=!isEmpty(mUser.profile_banner_url);
+    delete_submenu.setVisible(has_profile_banner);
+    delete_submenu.setEnabled(has_profile_banner);
+    mPopupMenu.setOnMenuItemClickListener(mProfileBannerImageMenuListener);
+    break;
+  }
+default :
+{
+  return;
+}
+}
+mPopupMenu.show();
+}

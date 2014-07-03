@@ -1,0 +1,2 @@
+long account_id
+List<DirectMessage> list

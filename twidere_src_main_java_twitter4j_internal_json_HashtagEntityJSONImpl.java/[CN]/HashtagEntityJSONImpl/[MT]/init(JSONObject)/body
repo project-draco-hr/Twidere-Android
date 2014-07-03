@@ -1,0 +1,13 @@
+{
+  try {
+    final JSONArray indicesArray=json.getJSONArray("indices");
+    start=indicesArray.getInt(0);
+    end=indicesArray.getInt(1);
+    if (!json.isNull("text")) {
+      text=json.getString("text");
+    }
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

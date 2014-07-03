@@ -1,0 +1,7 @@
+{
+  setFrame(initialFrame);
+  mMaxColumn=maxColumn;
+  mMaxRow=maxRow;
+  setColumn(initialColumn);
+  setRow(initialRow);
+}

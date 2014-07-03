@@ -1,0 +1,9 @@
+{
+  final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
+  mStatusContainer.setVisibility(View.GONE);
+  mProgressContainer.setVisibility(View.VISIBLE);
+  mProgressBar.setVisibility(View.VISIBLE);
+  mMessageView.setVisibility(View.VISIBLE);
+  mMessageView.setText(R.string.please_wait);
+  return new TranslationResultLoader(getActivity(),status.account_id,status.id);
+}

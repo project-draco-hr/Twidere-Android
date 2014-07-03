@@ -1,0 +1,8 @@
+{
+  this.conf=conf;
+  http=new HttpClientWrapper(conf);
+  setOAuthConsumer(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret());
+  if (conf.getOAuthAccessToken() != null && conf.getOAuthAccessTokenSecret() != null) {
+    setOAuthAccessToken(new AccessToken(conf.getOAuthAccessToken(),conf.getOAuthAccessTokenSecret()));
+  }
+}

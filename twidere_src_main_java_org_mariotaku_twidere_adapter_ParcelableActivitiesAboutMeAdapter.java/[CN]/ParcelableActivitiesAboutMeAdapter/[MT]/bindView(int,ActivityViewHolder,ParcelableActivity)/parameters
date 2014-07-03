@@ -1,0 +1,3 @@
+int position
+ActivityViewHolder holder
+ParcelableActivity item

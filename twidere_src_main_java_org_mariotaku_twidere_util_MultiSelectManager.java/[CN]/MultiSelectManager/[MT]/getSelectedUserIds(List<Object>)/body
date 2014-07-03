@@ -1,0 +1,12 @@
+{
+  final ArrayList<Long> ids_list=new ArrayList<Long>();
+  for (  final Object item : selected_items) {
+    if (item instanceof ParcelableUser) {
+      ids_list.add(((ParcelableUser)item).id);
+    }
+ else     if (item instanceof ParcelableStatus) {
+      ids_list.add(((ParcelableStatus)item).user_id);
+    }
+  }
+  return ArrayUtils.fromList(ids_list);
+}

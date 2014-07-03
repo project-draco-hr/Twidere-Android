@@ -1,0 +1,10 @@
+{
+  final View view=mAdapter.getView(position,convertView,parent);
+  if (convertView == null) {
+    view.setPivotX(0);
+    view.setPivotX(0);
+    view.setRotation(view.getRotation() + 90);
+    view.setRotationY(view.getRotationY() + 180);
+  }
+  return view;
+}

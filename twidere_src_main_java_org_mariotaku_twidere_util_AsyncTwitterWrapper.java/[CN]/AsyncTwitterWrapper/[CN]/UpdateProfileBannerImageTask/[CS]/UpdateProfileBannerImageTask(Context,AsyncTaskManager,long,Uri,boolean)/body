@@ -1,0 +1,7 @@
+{
+  super(context,manager);
+  mContext=context;
+  mAccountId=account_id;
+  mImageUri=image_uri;
+  mDeleteImage=delete_image;
+}

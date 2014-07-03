@@ -1,0 +1,9 @@
+{
+  super(context,manager);
+  this.context=context;
+  this.account_id=account_id;
+  this.name=name;
+  this.url=url;
+  this.location=location;
+  this.description=description;
+}

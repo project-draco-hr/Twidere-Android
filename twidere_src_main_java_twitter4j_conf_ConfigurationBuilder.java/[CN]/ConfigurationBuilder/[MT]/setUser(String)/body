@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setUser(user);
+  return this;
+}

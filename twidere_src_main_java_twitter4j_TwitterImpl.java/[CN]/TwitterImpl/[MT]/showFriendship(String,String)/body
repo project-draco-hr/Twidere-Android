@@ -1,0 +1,3 @@
+{
+  return factory.createRelationship(get(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW,getParameterArray("source_screen_name",sourceScreenName,"target_screen_name",targetScreenName)));
+}

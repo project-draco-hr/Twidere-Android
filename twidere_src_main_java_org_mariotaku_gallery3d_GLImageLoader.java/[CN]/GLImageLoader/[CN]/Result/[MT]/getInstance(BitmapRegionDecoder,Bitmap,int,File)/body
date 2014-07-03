@@ -1,0 +1,3 @@
+{
+  return new Result(decoder,bitmap,orientation,file,null);
+}

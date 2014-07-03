@@ -1,0 +1,10 @@
+{
+  final GL11 gl=mGL;
+  saveTransform();
+  translate(x,y);
+  scale(width,height,1);
+  gl.glLoadMatrixf(mMatrixValues,0);
+  gl.glDrawArrays(GL11.GL_TRIANGLE_STRIP,OFFSET_FILL_RECT,4);
+  restoreTransform();
+  mCountTextureRect++;
+}

@@ -1,0 +1,11 @@
+{
+  removeAll();
+  for (  final Account account : accounts) {
+    final AccountItemPreference preference=new AccountItemPreference(getContext(),account,mSwitchKey,mSwitchDefault);
+    setupPreference(preference,account);
+    addPreference(preference);
+  }
+  final Preference preference=new Preference(getContext());
+  preference.setLayoutResource(R.layout.settings_layout_click_to_config);
+  addPreference(preference);
+}

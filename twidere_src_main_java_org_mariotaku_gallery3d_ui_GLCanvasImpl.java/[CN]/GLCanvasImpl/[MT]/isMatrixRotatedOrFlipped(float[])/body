@@ -1,0 +1,4 @@
+{
+  final float eps=1e-5f;
+  return Math.abs(matrix[MSKEW_X]) > eps || Math.abs(matrix[MSKEW_Y]) > eps || matrix[MSCALE_X] < -eps || matrix[MSCALE_Y] > eps;
+}

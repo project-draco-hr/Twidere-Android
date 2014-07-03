@@ -1,0 +1,4 @@
+{
+  if (INTENT_ACTION_QUOTE.equals(getIntent().getAction()) && mInReplyToStatus != null)   return mInReplyToStatus.user_is_protected && mInReplyToStatus.account_id != mInReplyToStatus.user_id;
+  return false;
+}

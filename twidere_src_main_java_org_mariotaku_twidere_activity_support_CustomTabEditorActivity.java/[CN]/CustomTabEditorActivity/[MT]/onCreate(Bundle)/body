@@ -1,0 +1,100 @@
+{
+  super.onCreate(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mImageLoader=TwidereApplication.getInstance(this).getImageLoaderWrapper();
+  final Intent intent=getIntent();
+  final String type=mTabType=intent.getStringExtra(EXTRA_TYPE);
+  final CustomTabConfiguration conf=getTabConfiguration(type);
+  if (type == null || conf == null) {
+    finish();
+    return;
+  }
+  mTabId=intent.getLongExtra(EXTRA_ID,-1);
+  setTitle(isEditMode() ? R.string.edit_tab : R.string.add_tab);
+  setContentView(R.layout.activity_custom_tab_editor);
+  mTabTypeName.setText(getTabTypeName(this,type));
+  mTabIconsAdapter=new CustomTabIconsAdapter(this);
+  mTabIconsAdapter.setData(getIconMap());
+  mAccountsAdapter=new AccountsSpinnerAdapter(this);
+  mAccountSpinner.setAdapter(mAccountsAdapter);
+  mTabIconSpinner.setAdapter(mTabIconsAdapter);
+  final String iconKey;
+  if (savedInstanceState != null) {
+    mExtrasBundle.putAll(savedInstanceState.getBundle(EXTRA_EXTRAS));
+  }
+  if (!isEditMode()) {
+    mTabConfiguration=conf;
+    final boolean has_secondary_field=conf.getSecondaryFieldType() != CustomTabConfiguration.FIELD_TYPE_NONE;
+    final boolean account_id_none=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_NONE;
+    mAccountContainer.setVisibility(account_id_none ? View.GONE : View.VISIBLE);
+    mSecondaryFieldContainer.setVisibility(has_secondary_field ? View.VISIBLE : View.GONE);
+    final boolean accountIdRequired=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_REQUIRED;
+    if (!accountIdRequired) {
+      mAccountsAdapter.add(Account.dummyInstance());
+    }
+    final boolean officialKeyOnly=intent.getBooleanExtra(EXTRA_OFFICIAL_KEY_ONLY,false);
+    mAccountsAdapter.addAll(Account.getAccountsList(this,false,officialKeyOnly));
+switch (conf.getSecondaryFieldType()) {
+case CustomTabConfiguration.FIELD_TYPE_USER:
+{
+        mSecondaryFieldLabel.setText(R.string.user);
+        setExtraFieldSelectText(mSecondaryFieldContainer,R.string.select_user);
+        break;
+      }
+case CustomTabConfiguration.FIELD_TYPE_USER_LIST:
+{
+      mSecondaryFieldLabel.setText(R.string.user_list);
+      setExtraFieldSelectText(mSecondaryFieldContainer,R.string.select_user_list);
+      break;
+    }
+case CustomTabConfiguration.FIELD_TYPE_TEXT:
+{
+    mSecondaryFieldLabel.setText(R.string.content);
+    setExtraFieldSelectText(mSecondaryFieldContainer,R.string.input_text);
+    break;
+  }
+}
+if (conf.getSecondaryFieldTitle() != 0) {
+mSecondaryFieldLabel.setText(conf.getSecondaryFieldTitle());
+}
+iconKey=findTabIconKey(conf.getDefaultIcon());
+mEditTabName.setText(mTabConfiguration.getDefaultTitle());
+}
+ else {
+if (mTabId < 0) {
+finish();
+return;
+}
+mAccountContainer.setVisibility(View.GONE);
+mSecondaryFieldContainer.setVisibility(View.GONE);
+iconKey=intent.getStringExtra(EXTRA_ICON);
+mEditTabName.setText(intent.getStringExtra(EXTRA_NAME));
+if (savedInstanceState == null && intent.hasExtra(EXTRA_EXTRAS)) {
+mExtrasBundle.putAll(ParseUtils.jsonToBundle(intent.getStringExtra(EXTRA_EXTRAS)));
+}
+}
+final int selection=mTabIconsAdapter.getIconPosition(iconKey);
+mTabIconSpinner.setSelection(selection > 0 ? selection : 0);
+final LayoutInflater inflater=getLayoutInflater();
+final ExtraConfiguration[] extraConfigurations=conf.getExtraConfigurations();
+if (extraConfigurations == null || extraConfigurations.length == 0) {
+mExtraConfigurationsContainer.setVisibility(View.GONE);
+}
+ else {
+mExtraConfigurationsContainer.setVisibility(View.VISIBLE);
+for (final ExtraConfiguration config : extraConfigurations) {
+final boolean hasCheckBox=config.getType() == ExtraConfiguration.Type.BOOLEAN;
+final View view=inflater.inflate(R.layout.list_item_extra_config,mExtraConfigurationsContent,false);
+final TextView title=(TextView)view.findViewById(android.R.id.title);
+final CheckBox checkBox=(CheckBox)view.findViewById(android.R.id.checkbox);
+title.setText(config.getTitleRes());
+checkBox.setVisibility(hasCheckBox ? View.VISIBLE : View.GONE);
+if (hasCheckBox) {
+  checkBox.setChecked(mExtrasBundle.getBoolean(config.getKey(),config.defaultBoolean()));
+}
+view.setTag(config);
+view.setOnClickListener(mOnExtraConfigurationClickListener);
+mExtraConfigurationsContent.addView(view);
+}
+}
+}

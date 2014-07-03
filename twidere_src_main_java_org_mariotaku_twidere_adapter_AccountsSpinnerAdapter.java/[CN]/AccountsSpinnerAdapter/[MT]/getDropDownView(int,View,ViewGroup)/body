@@ -1,0 +1,5 @@
+{
+  final View view=super.getDropDownView(position,convertView,parent);
+  bindView(view,getItem(position));
+  return view;
+}

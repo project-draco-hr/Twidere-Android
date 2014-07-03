@@ -1,0 +1,5 @@
+{
+  this.read_positions=Collections.synchronizedSet(new HashSet<Integer>(read_positions));
+  this.fragment=fragment;
+  adapter=fragment.getListAdapter();
+}

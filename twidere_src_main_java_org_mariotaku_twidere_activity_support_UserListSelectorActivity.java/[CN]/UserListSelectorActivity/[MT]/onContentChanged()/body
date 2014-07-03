@@ -1,0 +1,9 @@
+{
+  super.onContentChanged();
+  mUsersListContainer=findViewById(R.id.users_list_container);
+  mUserListsContainer=findViewById(R.id.user_lists_container);
+  mEditScreenName=(AutoCompleteTextView)findViewById(R.id.edit_screen_name);
+  mUserListsListView=(ListView)findViewById(R.id.user_lists_list);
+  mUsersListView=(ListView)findViewById(R.id.users_list);
+  mCreateUserListContainer=findViewById(R.id.create_list_container);
+}

@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof Trends))   return false;
+  final Trends trends1=(Trends)o;
+  if (asOf != null ? !asOf.equals(trends1.getAsOf()) : trends1.getAsOf() != null)   return false;
+  if (trendAt != null ? !trendAt.equals(trends1.getTrendAt()) : trends1.getTrendAt() != null)   return false;
+  if (!Arrays.equals(trends,trends1.getTrends()))   return false;
+  return true;
+}

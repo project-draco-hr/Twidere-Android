@@ -1,0 +1,58 @@
+{
+  if (mStatus == null)   return;
+  final ParcelableStatus status=mStatus;
+switch (view.getId()) {
+case R.id.profile:
+{
+      openUserProfile(getActivity(),status.account_id,status.user_id,null);
+      break;
+    }
+case R.id.follow:
+{
+    mTwitterWrapper.createFriendshipAsync(status.account_id,status.user_id);
+    break;
+  }
+case R.id.in_reply_to:
+{
+  showConversation();
+  break;
+}
+case R.id.replies_view:
+{
+openStatusReplies(getActivity(),status.account_id,status.id,status.user_screen_name);
+break;
+}
+case R.id.location_container:
+{
+final ParcelableLocation location=status.location;
+if (!ParcelableLocation.isValidLocation(location)) return;
+openMap(getActivity(),location.latitude,location.longitude);
+break;
+}
+case R.id.load_images:
+{
+if (status.is_possibly_sensitive) {
+final LoadSensitiveImageConfirmDialogFragment f=new LoadSensitiveImageConfirmDialogFragment();
+f.show(getChildFragmentManager(),"load_sensitive_image_confirmation");
+}
+ else {
+loadPreviewImages();
+}
+ProfilingUtil.profile(getActivity(),status.account_id,"Thumbnail click, " + status.id);
+break;
+}
+case R.id.retweets_container:
+{
+openStatusRetweeters(getActivity(),status.account_id,status.retweet_id > 0 ? status.retweet_id : status.id);
+break;
+}
+case R.id.favorites_container:
+{
+final AccountWithCredentials account=Account.getAccountWithCredentials(getActivity(),status.account_id);
+if (AccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
+openStatusFavoriters(getActivity(),status.account_id,status.retweet_id > 0 ? status.retweet_id : status.id);
+}
+break;
+}
+}
+}

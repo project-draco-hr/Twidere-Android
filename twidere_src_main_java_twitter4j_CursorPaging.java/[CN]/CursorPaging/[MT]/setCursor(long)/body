@@ -1,0 +1,4 @@
+{
+  if (cursor < 1 && cursor != -1)   throw new IllegalArgumentException("cursor should be -1 or positive integer. passed:" + cursor);
+  this.cursor=cursor;
+}

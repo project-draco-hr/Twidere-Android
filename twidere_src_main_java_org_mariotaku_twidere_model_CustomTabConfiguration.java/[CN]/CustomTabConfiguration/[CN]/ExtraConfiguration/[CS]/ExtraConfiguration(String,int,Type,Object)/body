@@ -1,0 +1,6 @@
+{
+  this.key=key;
+  this.titleRes=titleRes;
+  this.type=type;
+  this.defaultValue=defaultValue;
+}

@@ -1,0 +1,4 @@
+{
+  mSecondaryFieldValue=value;
+  setExtraFieldView(mSecondaryFieldContainer,value);
+}

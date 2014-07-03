@@ -1,0 +1,6 @@
+{
+  if (mFirstVisibleItem != firstVisibleItem) {
+    mReadPositions.add(firstVisibleItem);
+  }
+  mFirstVisibleItem=firstVisibleItem;
+}

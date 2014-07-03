@@ -1,0 +1,20 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.UnreadCounts.MATRIX_COLUMNS);
+  final int count;
+  if (TAB_TYPE_HOME_TIMELINE.equals(type) || TAB_TYPE_STAGGERED_HOME_TIMELINE.equals(type)) {
+    count=mUnreadStatuses.size();
+  }
+ else   if (TAB_TYPE_MENTIONS_TIMELINE.equals(type)) {
+    count=mUnreadMentions.size();
+  }
+ else   if (TAB_TYPE_DIRECT_MESSAGES.equals(type)) {
+    count=mUnreadMessages.size();
+  }
+ else {
+    count=0;
+  }
+  if (type != null) {
+    c.addRow(new Object[]{-1,type,count});
+  }
+  return c;
+}

@@ -1,0 +1,5 @@
+{
+  if (!(mCurrentVisibleFragment instanceof RefreshScrollTopInterface))   return false;
+  ((RefreshScrollTopInterface)mCurrentVisibleFragment).scrollToStart();
+  return true;
+}

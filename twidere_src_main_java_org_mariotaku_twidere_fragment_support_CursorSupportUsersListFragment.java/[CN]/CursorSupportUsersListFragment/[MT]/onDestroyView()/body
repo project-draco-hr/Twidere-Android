@@ -1,0 +1,5 @@
+{
+  super.onDestroyView();
+  mNextCursor=-1;
+  mPrevCursor=-1;
+}

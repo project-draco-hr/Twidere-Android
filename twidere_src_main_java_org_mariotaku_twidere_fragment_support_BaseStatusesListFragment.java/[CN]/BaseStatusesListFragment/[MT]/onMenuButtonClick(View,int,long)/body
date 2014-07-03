@@ -1,0 +1,6 @@
+{
+  if (mMultiSelectManager.isActive())   return;
+  final ParcelableStatus status=mAdapter.getStatus(position);
+  if (status == null)   return;
+  openMenu(button,status,position);
+}

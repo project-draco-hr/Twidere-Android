@@ -1,0 +1,8 @@
+{
+  final Bundle args=getArguments();
+  if (args == null)   return null;
+  final long account_id=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  final long user_id=args.getLong(EXTRA_USER_ID,-1);
+  final String screen_name=args.getString(EXTRA_SCREEN_NAME);
+  return new String[]{AUTHORITY_USER_TIMELINE,"account" + account_id,"user" + user_id + "name"+ screen_name};
+}

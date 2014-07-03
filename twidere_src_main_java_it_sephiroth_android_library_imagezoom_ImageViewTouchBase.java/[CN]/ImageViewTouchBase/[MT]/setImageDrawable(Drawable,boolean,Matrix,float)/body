@@ -1,0 +1,13 @@
+{
+  final int viewWidth=getWidth();
+  if (viewWidth <= 0) {
+    mOnLayoutRunnable=new Runnable(){
+      @Override public void run(){
+        setImageDrawable(drawable,reset,initial_matrix,maxZoom);
+      }
+    }
+;
+    return;
+  }
+  _setImageDrawable(drawable,reset,initial_matrix,maxZoom);
+}

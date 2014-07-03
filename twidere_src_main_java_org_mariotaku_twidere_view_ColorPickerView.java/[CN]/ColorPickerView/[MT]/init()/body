@@ -1,0 +1,13 @@
+{
+  ViewCompat.setLayerType(this,LAYER_TYPE_SOFTWARE,null);
+  mDensity=getContext().getResources().getDisplayMetrics().density;
+  PALETTE_CIRCLE_TRACKER_RADIUS*=mDensity;
+  RECTANGLE_TRACKER_OFFSET*=mDensity;
+  HUE_PANEL_WIDTH*=mDensity;
+  ALPHA_PANEL_HEIGHT*=mDensity;
+  PANEL_SPACING=PANEL_SPACING * mDensity;
+  mDrawingOffset=calculateRequiredOffset();
+  initPaintTools();
+  setFocusable(true);
+  setFocusableInTouchMode(true);
+}

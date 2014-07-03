@@ -1,0 +1,3 @@
+GLImageLoader loader
+DownloadListener listener
+Throwable t

@@ -1,0 +1,12 @@
+{
+  if (Utils.isDebugBuild()) {
+    StrictModeUtils.detectAllVmPolicy();
+    StrictModeUtils.detectAllThreadPolicy();
+  }
+  if (shouldOverrideActivityAnimation()) {
+    ThemeUtils.overrideActivityOpenAnimation(this);
+  }
+  setTheme();
+  super.onCreate(savedInstanceState);
+  setActionBarBackground();
+}

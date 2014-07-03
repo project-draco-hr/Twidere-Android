@@ -1,0 +1,5 @@
+{
+  if (context == null)   return true;
+  final SharedPreferences pref=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return pref == null || pref.getBoolean(KEY_THEME_DARK_ACTIONBAR,true);
+}

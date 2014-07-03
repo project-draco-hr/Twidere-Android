@@ -1,0 +1,5 @@
+{
+  final TwidereApplication app=TwidereApplication.getInstance(getContext());
+  final SQLiteOpenHelper helper=app.getSQLiteOpenHelper();
+  return helper.getWritableDatabase();
+}

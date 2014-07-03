@@ -1,0 +1,12 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+    final ParcelableStatus status=getStatus();
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+if (status == null || twitter == null) return;
+twitter.destroyStatusAsync(status.account_id,status.id);
+break;
+default :
+break;
+}
+}

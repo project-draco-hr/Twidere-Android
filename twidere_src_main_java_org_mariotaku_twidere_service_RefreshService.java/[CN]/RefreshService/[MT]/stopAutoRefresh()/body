@@ -1,0 +1,6 @@
+{
+  mAlarmManager.cancel(mPendingRefreshHomeTimelineIntent);
+  mAlarmManager.cancel(mPendingRefreshMentionsIntent);
+  mAlarmManager.cancel(mPendingRefreshDirectMessagesIntent);
+  mAlarmManager.cancel(mPendingRefreshTrendsIntent);
+}

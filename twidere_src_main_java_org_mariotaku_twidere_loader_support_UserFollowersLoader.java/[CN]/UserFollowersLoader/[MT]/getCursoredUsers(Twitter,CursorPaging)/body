@@ -1,0 +1,6 @@
+{
+  if (twitter == null)   return null;
+  if (mUserId > 0)   return twitter.getFollowersList(mUserId,paging);
+ else   if (mScreenName != null)   return twitter.getFollowersList(mScreenName,paging);
+  return null;
+}

@@ -1,0 +1,44 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mTwitterWrapper=getTwitterWrapper();
+  mValidator=new TwidereValidator(getActivity());
+  mLocale=getResources().getConfiguration().locale;
+  mAdapter=new DirectMessagesConversationAdapter(getActivity());
+  setListAdapter(mAdapter);
+  mAdapter.setMenuButtonClickListener(this);
+  mListView=getListView();
+  mListView.setDivider(null);
+  mListView.setSelector(android.R.color.transparent);
+  mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
+  mListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
+  mListView.setStackFromBottom(true);
+  setListShownNoAnimation(false);
+  if (mPreferences.getBoolean(KEY_QUICK_SEND,false)) {
+    mEditText.setOnEditorActionListener(this);
+  }
+  mEditText.addTextChangedListener(this);
+  final List<Account> accounts=Account.getAccountsList(getActivity(),false);
+  mAccountSpinner.setAdapter(new AccountsSpinnerAdapter(getActivity(),accounts));
+  mAccountSpinner.setOnItemSelectedListener(this);
+  mSendButton.setOnClickListener(this);
+  mAddImageButton.setOnClickListener(this);
+  mSendButton.setEnabled(false);
+  mRecipientSelector.setOnClickListener(this);
+  if (savedInstanceState != null) {
+    final long accountId=savedInstanceState.getLong(EXTRA_ACCOUNT_ID,-1);
+    final long recipientId=savedInstanceState.getLong(EXTRA_RECIPIENT_ID,-1);
+    showConversation(accountId,recipientId);
+    mEditText.setText(savedInstanceState.getString(EXTRA_TEXT));
+    mImageUri=savedInstanceState.getString(EXTRA_IMAGE_URI);
+  }
+ else {
+    final Bundle args=getArguments();
+    final long accountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+    final long recipientId=args != null ? args.getLong(EXTRA_RECIPIENT_ID,-1) : -1;
+    showConversation(accountId,recipientId);
+  }
+  final boolean isValid=mAccountId > 0 && mRecipientId > 0;
+  mConversationContainer.setVisibility(isValid ? View.VISIBLE : View.GONE);
+  mRecipientSelectorContainer.setVisibility(isValid ? View.GONE : View.VISIBLE);
+}

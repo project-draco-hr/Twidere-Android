@@ -1,0 +1,4 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.UnreadCounts.MATRIX_COLUMNS);
+  return c;
+}

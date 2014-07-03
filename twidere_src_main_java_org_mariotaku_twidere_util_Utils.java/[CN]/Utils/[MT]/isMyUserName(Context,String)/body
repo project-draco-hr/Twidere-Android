@@ -1,0 +1,7 @@
+{
+  if (context == null)   return false;
+  for (  final String account_screen_name : getAccountScreenNames(context)) {
+    if (account_screen_name.equalsIgnoreCase(screen_name))     return true;
+  }
+  return false;
+}

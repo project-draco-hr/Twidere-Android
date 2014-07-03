@@ -1,0 +1,4 @@
+Date asOf
+Location location
+Date trendAt
+Trend[] trends

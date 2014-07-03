@@ -1,0 +1,7 @@
+{
+  super(context,R.layout.list_item_two_line);
+  mContext=context;
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mProfileImageLoader=app.getImageLoaderWrapper();
+  configBaseAdapter(context,this);
+}

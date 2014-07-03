@@ -1,0 +1,4 @@
+{
+  if (!shouldUseNativeMenu() || mStatus == null)   return;
+  setMenuForStatus(getActivity(),menu,mStatus);
+}

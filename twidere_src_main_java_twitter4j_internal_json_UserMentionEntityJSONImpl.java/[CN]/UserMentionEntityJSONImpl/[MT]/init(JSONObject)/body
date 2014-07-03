@@ -1,0 +1,17 @@
+{
+  try {
+    final JSONArray indicesArray=json.getJSONArray("indices");
+    start=indicesArray.getInt(0);
+    end=indicesArray.getInt(1);
+    if (!json.isNull("name")) {
+      name=json.getString("name");
+    }
+    if (!json.isNull("screen_name")) {
+      screenName=json.getString("screen_name");
+    }
+    id=InternalParseUtil.getLong("id",json);
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+}

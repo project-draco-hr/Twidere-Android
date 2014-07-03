@@ -1,0 +1,15 @@
+{
+switch (view.getId()) {
+case R.id.retry:
+{
+      getUserListInfo(true);
+      break;
+    }
+case R.id.profile_image:
+{
+    if (mUserList == null)     return;
+    openUserProfile(getActivity(),mUserList.account_id,mUserList.user_id,mUserList.user_screen_name);
+    break;
+  }
+}
+}

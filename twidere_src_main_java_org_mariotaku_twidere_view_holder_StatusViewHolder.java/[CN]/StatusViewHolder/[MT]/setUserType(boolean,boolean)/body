@@ -1,0 +1,3 @@
+{
+  name.setCompoundDrawablesWithIntrinsicBounds(0,0,getUserTypeIconRes(isVerified,isProtected),0);
+}

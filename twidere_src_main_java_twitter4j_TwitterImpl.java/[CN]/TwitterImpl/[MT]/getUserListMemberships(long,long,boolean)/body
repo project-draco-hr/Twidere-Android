@@ -1,0 +1,6 @@
+{
+  if (filterToOwnedLists) {
+    ensureAuthorizationEnabled();
+  }
+  return factory.createPagableUserListList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_MEMBERSHIPS,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_MEMBERSHIPS,new HttpParameter("user_id",listMemberId),new HttpParameter("cursor",cursor),new HttpParameter("filter_to_owned_lists",filterToOwnedLists)));
+}

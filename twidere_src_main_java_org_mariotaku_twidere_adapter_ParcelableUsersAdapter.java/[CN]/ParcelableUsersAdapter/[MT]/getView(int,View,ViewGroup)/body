@@ -1,0 +1,51 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Object tag=view.getTag();
+  UserViewHolder holder=null;
+  if (tag instanceof UserViewHolder) {
+    holder=(UserViewHolder)tag;
+  }
+ else {
+    holder=new UserViewHolder(view);
+    holder.content.setOnOverflowIconClickListener(this);
+    if (mPlainList) {
+      ((View)holder.content).setPadding(0,0,0,0);
+      holder.content.setItemBackground(null);
+    }
+    view.setTag(holder);
+  }
+  holder.profile_image.setImageDrawable(null);
+  holder.position=position;
+  final ParcelableUser user=getItem(position);
+  final boolean showAccountColor=isShowAccountColor();
+  holder.setAccountColorEnabled(showAccountColor);
+  if (showAccountColor) {
+    holder.setAccountColor(getAccountColor(mContext,user.account_id));
+  }
+  holder.setUserColor(getUserColor(mContext,user.id));
+  holder.setTextSize(getTextSize());
+  holder.name.setCompoundDrawablesWithIntrinsicBounds(0,0,getUserTypeIconRes(user.is_verified,user.is_protected),0);
+  final String nick=getUserNickname(mContext,user.id);
+  holder.name.setText(TextUtils.isEmpty(nick) ? user.name : isNicknameOnly() ? nick : mContext.getString(R.string.name_with_nickname,user.name,nick));
+  holder.screen_name.setText("@" + user.screen_name);
+  holder.description.setVisibility(TextUtils.isEmpty(user.description_unescaped) ? View.GONE : View.VISIBLE);
+  holder.description.setText(user.description_unescaped);
+  holder.location.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
+  holder.location.setText(user.location);
+  holder.url.setVisibility(TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
+  holder.url.setText(user.url_expanded);
+  holder.statuses_count.setText(getLocalizedNumber(mLocale,user.statuses_count));
+  holder.followers_count.setText(getLocalizedNumber(mLocale,user.followers_count));
+  holder.friends_count.setText(getLocalizedNumber(mLocale,user.friends_count));
+  holder.profile_image.setVisibility(isDisplayProfileImage() ? View.VISIBLE : View.GONE);
+  if (isDisplayProfileImage()) {
+    mProfileImageLoader.displayProfileImage(holder.profile_image,user.profile_image_url);
+  }
+  if (position > mMaxAnimationPosition) {
+    if (mAnimationEnabled) {
+      view.startAnimation(holder.item_animation);
+    }
+    mMaxAnimationPosition=position;
+  }
+  return view;
+}

@@ -1,0 +1,8 @@
+{
+  if (isLongClickable()) {
+    if (mScaleDetector != null && !mScaleDetector.isInProgress()) {
+      setPressed(true);
+      performLongClick();
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  final boolean succeed=result.hasData() && result.getData().getId() > 0;
+  if (succeed) {
+    final String message=mContext.getString(R.string.created_list,result.getData().getName());
+    mMessagesManager.showOkMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_creating_list,result.getException(),true);
+  }
+  final Intent intent=new Intent(BROADCAST_USER_LIST_CREATED);
+  intent.putExtra(EXTRA_SUCCEED,succeed);
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

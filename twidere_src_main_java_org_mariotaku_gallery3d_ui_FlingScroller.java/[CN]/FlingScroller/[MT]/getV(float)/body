@@ -1,0 +1,3 @@
+{
+  return DECELERATED_FACTOR * mDistance * 1000* Math.pow(1 - progress,DECELERATED_FACTOR - 1) / mDuration;
+}

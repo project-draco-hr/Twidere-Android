@@ -1,0 +1,4 @@
+{
+  mBorderColor=color;
+  invalidate();
+}

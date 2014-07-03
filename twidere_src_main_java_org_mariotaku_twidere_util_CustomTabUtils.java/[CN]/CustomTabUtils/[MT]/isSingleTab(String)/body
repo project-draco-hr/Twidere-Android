@@ -1,0 +1,5 @@
+{
+  if (type == null)   return false;
+  final CustomTabConfiguration conf=getTabConfiguration(type);
+  return conf != null && conf.isSingleTab();
+}

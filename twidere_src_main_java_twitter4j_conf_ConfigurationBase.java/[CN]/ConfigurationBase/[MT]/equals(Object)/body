@@ -1,0 +1,134 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof ConfigurationBase))   return false;
+  final ConfigurationBase other=(ConfigurationBase)obj;
+  if (clientName == null) {
+    if (other.clientName != null)     return false;
+  }
+ else   if (!clientName.equals(other.clientName))   return false;
+  if (clientURL == null) {
+    if (other.clientURL != null)     return false;
+  }
+ else   if (!clientURL.equals(other.clientURL))   return false;
+  if (clientVersion == null) {
+    if (other.clientVersion != null)     return false;
+  }
+ else   if (!clientVersion.equals(other.clientVersion))   return false;
+  if (debug != other.debug)   return false;
+  if (defaultMaxPerRoute != other.defaultMaxPerRoute)   return false;
+  if (gzipEnabled != other.gzipEnabled)   return false;
+  if (hostAddressResolverFactory == null) {
+    if (other.hostAddressResolverFactory != null)     return false;
+  }
+ else   if (!hostAddressResolverFactory.equals(other.hostAddressResolverFactory))   return false;
+  if (httpClientFactory == null) {
+    if (other.httpClientFactory != null)     return false;
+  }
+ else   if (!httpClientFactory.equals(other.httpClientFactory))   return false;
+  if (httpConnectionTimeout != other.httpConnectionTimeout)   return false;
+  if (httpProxyHost == null) {
+    if (other.httpProxyHost != null)     return false;
+  }
+ else   if (!httpProxyHost.equals(other.httpProxyHost))   return false;
+  if (httpProxyPassword == null) {
+    if (other.httpProxyPassword != null)     return false;
+  }
+ else   if (!httpProxyPassword.equals(other.httpProxyPassword))   return false;
+  if (httpProxyPort != other.httpProxyPort)   return false;
+  if (httpProxyUser == null) {
+    if (other.httpProxyUser != null)     return false;
+  }
+ else   if (!httpProxyUser.equals(other.httpProxyUser))   return false;
+  if (httpReadTimeout != other.httpReadTimeout)   return false;
+  if (httpRetryCount != other.httpRetryCount)   return false;
+  if (httpRetryIntervalSeconds != other.httpRetryIntervalSeconds)   return false;
+  if (ignoreSSLError != other.ignoreSSLError)   return false;
+  if (includeEntitiesEnabled != other.includeEntitiesEnabled)   return false;
+  if (includeRTsEnabled != other.includeRTsEnabled)   return false;
+  if (includeTwitterClientHeader != other.includeTwitterClientHeader)   return false;
+  if (maxTotalConnections != other.maxTotalConnections)   return false;
+  if (oAuthAccessToken == null) {
+    if (other.oAuthAccessToken != null)     return false;
+  }
+ else   if (!oAuthAccessToken.equals(other.oAuthAccessToken))   return false;
+  if (oAuthAccessTokenSecret == null) {
+    if (other.oAuthAccessTokenSecret != null)     return false;
+  }
+ else   if (!oAuthAccessTokenSecret.equals(other.oAuthAccessTokenSecret))   return false;
+  if (oAuthAccessTokenURL == null) {
+    if (other.oAuthAccessTokenURL != null)     return false;
+  }
+ else   if (!oAuthAccessTokenURL.equals(other.oAuthAccessTokenURL))   return false;
+  if (oAuthAuthenticationURL == null) {
+    if (other.oAuthAuthenticationURL != null)     return false;
+  }
+ else   if (!oAuthAuthenticationURL.equals(other.oAuthAuthenticationURL))   return false;
+  if (oAuthAuthorizationURL == null) {
+    if (other.oAuthAuthorizationURL != null)     return false;
+  }
+ else   if (!oAuthAuthorizationURL.equals(other.oAuthAuthorizationURL))   return false;
+  if (oAuthBaseURL == null) {
+    if (other.oAuthBaseURL != null)     return false;
+  }
+ else   if (!oAuthBaseURL.equals(other.oAuthBaseURL))   return false;
+  if (oAuthConsumerKey == null) {
+    if (other.oAuthConsumerKey != null)     return false;
+  }
+ else   if (!oAuthConsumerKey.equals(other.oAuthConsumerKey))   return false;
+  if (oAuthConsumerSecret == null) {
+    if (other.oAuthConsumerSecret != null)     return false;
+  }
+ else   if (!oAuthConsumerSecret.equals(other.oAuthConsumerSecret))   return false;
+  if (oAuthRequestTokenURL == null) {
+    if (other.oAuthRequestTokenURL != null)     return false;
+  }
+ else   if (!oAuthRequestTokenURL.equals(other.oAuthRequestTokenURL))   return false;
+  if (password == null) {
+    if (other.password != null)     return false;
+  }
+ else   if (!password.equals(other.password))   return false;
+  if (prettyDebug != other.prettyDebug)   return false;
+  if (requestHeaders == null) {
+    if (other.requestHeaders != null)     return false;
+  }
+ else   if (!requestHeaders.equals(other.requestHeaders))   return false;
+  if (restBaseURL == null) {
+    if (other.restBaseURL != null)     return false;
+  }
+ else   if (!restBaseURL.equals(other.restBaseURL))   return false;
+  if (signingOAuthAccessTokenURL == null) {
+    if (other.signingOAuthAccessTokenURL != null)     return false;
+  }
+ else   if (!signingOAuthAccessTokenURL.equals(other.signingOAuthAccessTokenURL))   return false;
+  if (signingOAuthAuthenticationURL == null) {
+    if (other.signingOAuthAuthenticationURL != null)     return false;
+  }
+ else   if (!signingOAuthAuthenticationURL.equals(other.signingOAuthAuthenticationURL))   return false;
+  if (signingOAuthAuthorizationURL == null) {
+    if (other.signingOAuthAuthorizationURL != null)     return false;
+  }
+ else   if (!signingOAuthAuthorizationURL.equals(other.signingOAuthAuthorizationURL))   return false;
+  if (signingOAuthBaseURL == null) {
+    if (other.signingOAuthBaseURL != null)     return false;
+  }
+ else   if (!signingOAuthBaseURL.equals(other.signingOAuthBaseURL))   return false;
+  if (signingOAuthRequestTokenURL == null) {
+    if (other.signingOAuthRequestTokenURL != null)     return false;
+  }
+ else   if (!signingOAuthRequestTokenURL.equals(other.signingOAuthRequestTokenURL))   return false;
+  if (signingRestBaseURL == null) {
+    if (other.signingRestBaseURL != null)     return false;
+  }
+ else   if (!signingRestBaseURL.equals(other.signingRestBaseURL))   return false;
+  if (useSSL != other.useSSL)   return false;
+  if (user == null) {
+    if (other.user != null)     return false;
+  }
+ else   if (!user.equals(other.user))   return false;
+  if (userAgent == null) {
+    if (other.userAgent != null)     return false;
+  }
+ else   if (!userAgent.equals(other.userAgent))   return false;
+  return true;
+}

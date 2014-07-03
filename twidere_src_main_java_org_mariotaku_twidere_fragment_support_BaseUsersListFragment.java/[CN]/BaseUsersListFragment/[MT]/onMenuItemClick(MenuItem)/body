@@ -1,0 +1,19 @@
+{
+  if (mSelectedUser == null)   return false;
+switch (item.getItemId()) {
+default :
+{
+      if (item.getIntent() != null) {
+        try {
+          startActivity(item.getIntent());
+        }
+ catch (        final ActivityNotFoundException e) {
+          Log.w(LOGTAG,e);
+          return false;
+        }
+      }
+      break;
+    }
+}
+return true;
+}

@@ -1,0 +1,5 @@
+{
+  final String type=getBestBannerType(width);
+  final String url=TextUtils.isEmpty(base_url) ? null : base_url + "/" + type;
+  mImageLoader.displayImage(url,view,mBannerDisplayOptions);
+}

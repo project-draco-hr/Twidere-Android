@@ -1,0 +1,5 @@
+{
+  if (preferredHeight > height && preferredWidth > width)   return 1;
+  final int result=Math.round(Math.max(width,height) / (float)Math.max(preferredWidth,preferredHeight));
+  return Math.max(1,result);
+}

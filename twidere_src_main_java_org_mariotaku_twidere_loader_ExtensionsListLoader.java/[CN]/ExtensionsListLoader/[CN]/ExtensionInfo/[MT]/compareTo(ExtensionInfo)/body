@@ -1,0 +1,3 @@
+{
+  return label.compareToIgnoreCase(another.label);
+}

@@ -1,0 +1,6 @@
+{
+  mUserListsAdapter.setData(data,true);
+  mUsersListContainer.setVisibility(View.GONE);
+  mUserListsContainer.setVisibility(View.VISIBLE);
+  mCreateUserListContainer.setVisibility(is_my_account ? View.VISIBLE : View.GONE);
+}

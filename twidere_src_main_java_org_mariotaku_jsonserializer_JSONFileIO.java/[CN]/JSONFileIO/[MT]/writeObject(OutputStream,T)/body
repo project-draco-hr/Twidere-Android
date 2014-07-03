@@ -1,0 +1,17 @@
+{
+  if (stream == null || parcelable == null)   return;
+  final BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(stream,Charset.defaultCharset()));
+  final JSONObject json=new JSONObject();
+  try {
+    json.put(KEY_CLASS,parcelable.getClass().getName());
+    json.put(KEY_OBJECT,toJSONObject(parcelable));
+    writer.write(jsonToString(json));
+    writer.flush();
+  }
+ catch (  final JSONException e) {
+    throw new IOException(e);
+  }
+ finally {
+    Utils.closeSilently(writer);
+  }
+}

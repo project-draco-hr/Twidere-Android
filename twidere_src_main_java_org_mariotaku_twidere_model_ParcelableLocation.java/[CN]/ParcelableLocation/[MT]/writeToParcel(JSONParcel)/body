@@ -1,0 +1,4 @@
+{
+  out.writeDouble("latitude",latitude);
+  out.writeDouble("longitude",longitude);
+}

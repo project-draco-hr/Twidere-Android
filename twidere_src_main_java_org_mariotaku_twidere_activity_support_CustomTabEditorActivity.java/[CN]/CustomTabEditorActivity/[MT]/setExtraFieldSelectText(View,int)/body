@@ -1,0 +1,9 @@
+{
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final TextView text2=(TextView)view.findViewById(android.R.id.text2);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  text1.setVisibility(View.VISIBLE);
+  text2.setVisibility(View.GONE);
+  icon.setVisibility(View.GONE);
+  text1.setText(text);
+}

@@ -1,0 +1,12 @@
+{
+  try {
+    return OAuthPasswordAuthenticator.readOAuthPINFromHtml(new StringReader(html));
+  }
+ catch (  final XmlPullParserException e) {
+    e.printStackTrace();
+  }
+catch (  final IOException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

@@ -1,0 +1,11 @@
+{
+  if (Utils.isDebugBuild()) {
+    Log.d(LOGTAG,String.format("getCachedImageCursor(%s)",url));
+  }
+  final MatrixCursor c=new MatrixCursor(TweetStore.CachedImages.MATRIX_COLUMNS);
+  final File file=mImagePreloader.getCachedImageFile(url);
+  if (url != null && file != null) {
+    c.addRow(new String[]{url,file.getPath()});
+  }
+  return c;
+}

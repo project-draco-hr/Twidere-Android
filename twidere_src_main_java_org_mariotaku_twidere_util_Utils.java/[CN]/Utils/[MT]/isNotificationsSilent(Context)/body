@@ -1,0 +1,6 @@
+{
+  if (context == null)   return false;
+  final SharedPreferences prefs=context.getSharedPreferences(SILENT_NOTIFICATIONS_PREFERENCE_NAME,Context.MODE_PRIVATE);
+  final Calendar now=Calendar.getInstance();
+  return prefs.getBoolean("silent_notifications_at_" + now.get(Calendar.HOUR_OF_DAY),false);
+}

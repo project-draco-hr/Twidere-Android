@@ -1,0 +1,4 @@
+{
+  final String col=table != null ? table + "." + columnName : columnName;
+  return alias != null ? col + " AS " + alias : col;
+}

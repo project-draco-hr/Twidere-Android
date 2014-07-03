@@ -1,0 +1,7 @@
+{
+  final int textShadowColor=resources.getColor(style.textShadowColorResId);
+  final float textShadowRadius=style.textShadowRadius;
+  final float textShadowDx=style.textShadowDx;
+  final float textShadowDy=style.textShadowDy;
+  text.setShadowLayer(textShadowRadius,textShadowDx,textShadowDy,textShadowColor);
+}

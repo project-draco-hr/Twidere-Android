@@ -1,0 +1,19 @@
+{
+  if (activity == null || user == null)   return;
+  final Bundle extras=new Bundle();
+  extras.putParcelable(EXTRA_USER,user);
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_id));
+  if (user.id > 0) {
+    builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.id));
+  }
+  if (user.screen_name != null) {
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,user.screen_name);
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  intent.setExtrasClassLoader(activity.getClassLoader());
+  intent.putExtras(extras);
+  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+}

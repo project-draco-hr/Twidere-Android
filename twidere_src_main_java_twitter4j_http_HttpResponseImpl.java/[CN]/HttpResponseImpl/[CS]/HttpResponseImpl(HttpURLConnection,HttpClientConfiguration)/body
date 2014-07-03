@@ -1,0 +1,12 @@
+{
+  super(conf);
+  this.con=con;
+  if (con == null)   return;
+  statusCode=con.getResponseCode();
+  if (null == (is=con.getErrorStream())) {
+    is=con.getInputStream();
+  }
+  if (is != null && "gzip".equals(con.getContentEncoding())) {
+    is=new StreamingGZIPInputStream(is);
+  }
+}

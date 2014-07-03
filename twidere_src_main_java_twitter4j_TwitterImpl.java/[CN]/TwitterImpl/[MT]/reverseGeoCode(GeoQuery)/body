@@ -1,0 +1,9 @@
+{
+  try {
+    return factory.createPlaceList(get(conf.getRestBaseURL() + ENDPOINT_GEO_REVERSE_GEOCODE,conf.getSigningRestBaseURL() + ENDPOINT_GEO_REVERSE_GEOCODE,query.asHttpParameterArray()));
+  }
+ catch (  final TwitterException te) {
+    if (te.getStatusCode() == 404)     return factory.createEmptyResponseList();
+ else     throw te;
+  }
+}

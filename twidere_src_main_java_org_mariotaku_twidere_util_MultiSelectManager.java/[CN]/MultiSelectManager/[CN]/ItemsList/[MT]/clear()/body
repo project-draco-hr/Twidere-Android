@@ -1,0 +1,6 @@
+{
+  super.clear();
+  manager.mSelectedStatusIds.clear();
+  manager.mSelectedUserIds.clear();
+  manager.onItemsCleared();
+}

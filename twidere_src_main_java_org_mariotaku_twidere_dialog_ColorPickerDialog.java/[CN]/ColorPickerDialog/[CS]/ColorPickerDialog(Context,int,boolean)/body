@@ -1,0 +1,16 @@
+{
+  super(context);
+  mColorsAdapter=new ColorsAdapter(context);
+  mResources=context.getResources();
+  final float density=mResources.getDisplayMetrics().density;
+  mIconWidth=(int)(32 * density);
+  mIconHeight=(int)(32 * density);
+  mRectrangleSize=(int)(density * 5);
+  mNumRectanglesHorizontal=(int)Math.ceil(mIconWidth / mRectrangleSize);
+  mNumRectanglesVertical=(int)Math.ceil(mIconHeight / mRectrangleSize);
+  mTempBitmap=Bitmap.createBitmap(mIconWidth,mIconHeight,Config.ARGB_8888);
+  mCanvas=new Canvas(mTempBitmap);
+  init(context,initialColor,showAlphaSlider);
+  initColors();
+  mColorsAdapter.setCurrentColor(initialColor);
+}

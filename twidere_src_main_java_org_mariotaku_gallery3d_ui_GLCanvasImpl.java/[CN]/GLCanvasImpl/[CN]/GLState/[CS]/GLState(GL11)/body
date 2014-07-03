@@ -1,0 +1,14 @@
+{
+  mGL=gl;
+  gl.glDisable(GL11.GL_LIGHTING);
+  gl.glEnable(GL11.GL_DITHER);
+  gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+  gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+  gl.glEnable(GL11.GL_TEXTURE_2D);
+  gl.glTexEnvf(GL11.GL_TEXTURE_ENV,GL11.GL_TEXTURE_ENV_MODE,GL11.GL_REPLACE);
+  gl.glClearColor(0f,0f,0f,0f);
+  gl.glClearStencil(0);
+  gl.glEnable(GL11.GL_BLEND);
+  gl.glBlendFunc(GL11.GL_ONE,GL11.GL_ONE_MINUS_SRC_ALPHA);
+  gl.glPixelStorei(GL11.GL_UNPACK_ALIGNMENT,2);
+}

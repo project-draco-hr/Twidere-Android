@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  onPostStart();
+  if (mStoppedPreviously) {
+    onRestart();
+  }
+  mStoppedPreviously=false;
+}

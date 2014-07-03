@@ -1,0 +1,8 @@
+{
+  final Drawable drawable=getDrawable();
+  if (drawable == null)   return 1F;
+  final float fw=(float)drawable.getIntrinsicWidth() / (float)mThisWidth;
+  final float fh=(float)drawable.getIntrinsicHeight() / (float)mThisHeight;
+  final float max=Math.max(fw,fh) * 4;
+  return max;
+}

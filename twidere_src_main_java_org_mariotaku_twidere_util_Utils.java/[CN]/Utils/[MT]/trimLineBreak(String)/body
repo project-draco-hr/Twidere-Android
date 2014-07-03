@@ -1,0 +1,4 @@
+{
+  if (orig == null)   return null;
+  return orig.replaceAll("\\n+","\n");
+}

@@ -1,0 +1,31 @@
+{
+  final Context context=getContext();
+  final int result;
+  final SupportTabSpec tab=CustomTabUtils.getAddedTabAt(context,position);
+  final String type=tab.type;
+  if (TAB_TYPE_HOME_TIMELINE.equals(type) || TAB_TYPE_STAGGERED_HOME_TIMELINE.equals(type)) {
+    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
+    result=clearUnreadCount(mUnreadStatuses,account_ids);
+    saveUnreadItemsFile(mUnreadStatuses,UNREAD_STATUSES_FILE_NAME);
+  }
+ else   if (TAB_TYPE_MENTIONS_TIMELINE.equals(type)) {
+    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
+    result=clearUnreadCount(mUnreadMentions,account_ids);
+    mUnreadMentions.clear();
+    saveUnreadItemsFile(mUnreadMentions,UNREAD_MENTIONS_FILE_NAME);
+  }
+ else   if (TAB_TYPE_DIRECT_MESSAGES.equals(type)) {
+    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
+    result=clearUnreadCount(mUnreadMessages,account_ids);
+    mUnreadMessages.clear();
+    saveUnreadItemsFile(mUnreadMessages,UNREAD_MESSAGES_FILE_NAME);
+  }
+ else   return 0;
+  if (result > 0) {
+    notifyUnreadCountChanged(position);
+  }
+  return result;
+}

@@ -1,0 +1,5 @@
+{
+  final Cursor old=super.swapCursor(c);
+  mIndices=c != null ? new Account.Indices(c) : null;
+  return old;
+}

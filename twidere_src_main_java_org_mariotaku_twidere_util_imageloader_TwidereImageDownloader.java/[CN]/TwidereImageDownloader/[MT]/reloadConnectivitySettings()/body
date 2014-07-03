@@ -1,0 +1,4 @@
+{
+  mClient=getImageLoaderHttpClient(mContext);
+  mFastImageLoading=mContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getBoolean(KEY_FAST_IMAGE_LOADING,true);
+}

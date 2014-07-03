@@ -1,0 +1,18 @@
+{
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final View view=LayoutInflater.from(wrapped).inflate(R.layout.auto_complete_textview,null);
+  builder.setView(view);
+  mEditText=(AutoCompleteTextView)view.findViewById(R.id.edit_text);
+  if (savedInstanceState != null) {
+    mEditText.setText(savedInstanceState.getCharSequence(EXTRA_TEXT));
+  }
+  mUserAutoCompleteAdapter=new UserHashtagAutoCompleteAdapter(wrapped);
+  mEditText.setAdapter(mUserAutoCompleteAdapter);
+  mEditText.setThreshold(1);
+  mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+  builder.setTitle(R.string.screen_name);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

@@ -1,0 +1,4 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)   return bitmap.getByteCount();
+  return bitmap.getRowBytes() * bitmap.getHeight();
+}

@@ -1,0 +1,24 @@
+{
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  buildDialog(builder);
+  final View view=LayoutInflater.from(wrapped).inflate(R.layout.auto_complete_textview,null);
+  builder.setView(view);
+  mEditText=(AutoCompleteTextView)view.findViewById(R.id.edit_text);
+  final Bundle args=getArguments();
+  final int auto_complete_type=args != null ? args.getInt(EXTRA_AUTO_COMPLETE_TYPE,0) : 0;
+  if (auto_complete_type != 0) {
+    if (auto_complete_type == AUTO_COMPLETE_TYPE_SOURCES) {
+      mUserAutoCompleteAdapter=new SourceAutoCompleteAdapter(getActivity());
+    }
+ else {
+      mUserAutoCompleteAdapter=new UserHashtagAutoCompleteAdapter(getActivity());
+    }
+    mEditText.setAdapter(mUserAutoCompleteAdapter);
+    mEditText.setThreshold(1);
+  }
+  builder.setTitle(R.string.add_rule);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

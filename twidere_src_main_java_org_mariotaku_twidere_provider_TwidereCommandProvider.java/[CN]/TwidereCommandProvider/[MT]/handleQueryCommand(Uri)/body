@@ -1,0 +1,23 @@
+{
+  final int uri_code=COMMAND_URI_MATCHER.match(uri);
+  checkQueryPermission(uri_code);
+  try {
+switch (uri_code) {
+case CODE_REFRESH_HOME_TIMELINE:
+      if (mTwitterWrapper.isHomeTimelineRefreshing())       return getEmptyCursor();
+case CODE_REFRESH_MENTIONS:
+    if (mTwitterWrapper.isMentionsRefreshing())     return getEmptyCursor();
+case CODE_REFRESH_INBOX:
+  if (mTwitterWrapper.isReceivedDirectMessagesRefreshing())   return getEmptyCursor();
+case CODE_REFRESH_OUTBOX:
+if (mTwitterWrapper.isSentDirectMessagesRefreshing()) return getEmptyCursor();
+default :
+return null;
+}
+}
+ catch (final RuntimeException e) {
+e.printStackTrace();
+if (Thread.currentThread().getId() != 1) throw new IllegalStateException("This method cannot be called from non-UI thread");
+}
+return null;
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    return get(conf.getRestBaseURL() + ENDPOINT_LEGAL_TOS,conf.getSigningRestBaseURL() + ENDPOINT_LEGAL_TOS).asJSONObject().getString("tos");
+  }
+ catch (  final JSONException e) {
+    throw new TwitterException(e);
+  }
+}

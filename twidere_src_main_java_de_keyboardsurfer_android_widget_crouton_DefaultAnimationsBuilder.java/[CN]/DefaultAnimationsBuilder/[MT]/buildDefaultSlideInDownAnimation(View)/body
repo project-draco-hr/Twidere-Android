@@ -1,0 +1,8 @@
+{
+  if (!areLastMeasuredInAnimationHeightAndCurrentEqual(croutonView) || null == slideInDownAnimation) {
+    slideInDownAnimation=new TranslateAnimation(0,0,-croutonView.getMeasuredHeight(),0);
+    slideInDownAnimation.setDuration(DURATION);
+    setLastInAnimationHeight(croutonView.getMeasuredHeight());
+  }
+  return slideInDownAnimation;
+}

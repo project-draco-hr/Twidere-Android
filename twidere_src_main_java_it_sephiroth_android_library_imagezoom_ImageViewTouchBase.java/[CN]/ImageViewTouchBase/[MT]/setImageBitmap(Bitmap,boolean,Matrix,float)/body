@@ -1,0 +1,9 @@
+{
+  Log.i(LOG_TAG,"setImageBitmap: " + bitmap);
+  if (bitmap != null) {
+    setImageDrawable(new FastBitmapDrawable(bitmap),reset,matrix,maxZoom);
+  }
+ else {
+    setImageDrawable(null,reset,matrix,maxZoom);
+  }
+}

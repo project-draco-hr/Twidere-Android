@@ -1,0 +1,6 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (activity instanceof CustomTabEditorActivity) {
+    ((CustomTabEditorActivity)activity).setSecondaryFieldValue(ParseUtils.parseString(mEditText.getText()));
+  }
+}

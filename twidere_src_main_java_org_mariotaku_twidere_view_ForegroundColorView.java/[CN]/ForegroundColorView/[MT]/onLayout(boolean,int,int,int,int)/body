@@ -1,0 +1,4 @@
+{
+  mForegroundViewHelper.dispatchOnLayout(changed,left,top,right,bottom);
+  super.onLayout(changed,left,top,right,bottom);
+}

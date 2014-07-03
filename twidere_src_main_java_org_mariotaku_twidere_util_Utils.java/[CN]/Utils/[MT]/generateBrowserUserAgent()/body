@@ -1,0 +1,3 @@
+{
+  return String.format(UA_TEMPLATE,Build.VERSION.RELEASE,Build.MODEL,Build.ID);
+}

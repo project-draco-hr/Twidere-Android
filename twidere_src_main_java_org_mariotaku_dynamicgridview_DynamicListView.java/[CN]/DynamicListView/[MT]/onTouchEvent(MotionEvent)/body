@@ -1,0 +1,42 @@
+{
+switch (event.getAction() & MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_DOWN:
+    mDownX=(int)event.getX();
+  mDownY=(int)event.getY();
+mActivePointerId=event.getPointerId(0);
+break;
+case MotionEvent.ACTION_MOVE:
+if (mActivePointerId == INVALID_POINTER_ID) {
+break;
+}
+int pointerIndex=event.findPointerIndex(mActivePointerId);
+mLastEventY=(int)event.getY(pointerIndex);
+final int deltaY=mLastEventY - mDownY;
+if (mCellIsMobile) {
+mHoverCellCurrentBounds.offsetTo(mHoverCellOriginalBounds.left,mHoverCellOriginalBounds.top + deltaY + mTotalOffset);
+mHoverCell.setBounds(mHoverCellCurrentBounds);
+invalidate();
+handleCellSwitch();
+mIsMobileScrolling=false;
+handleMobileCellScroll();
+return false;
+}
+break;
+case MotionEvent.ACTION_UP:
+touchEventsEnded();
+break;
+case MotionEvent.ACTION_CANCEL:
+touchEventsCancelled();
+break;
+case MotionEvent.ACTION_POINTER_UP:
+pointerIndex=(event.getAction() & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+final int pointerId=event.getPointerId(pointerIndex);
+if (pointerId == mActivePointerId) {
+touchEventsEnded();
+}
+break;
+default :
+break;
+}
+return super.onTouchEvent(event);
+}

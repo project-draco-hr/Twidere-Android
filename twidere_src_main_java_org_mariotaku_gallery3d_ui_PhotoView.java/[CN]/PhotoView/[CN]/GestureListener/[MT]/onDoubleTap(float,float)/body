@@ -1,0 +1,12 @@
+{
+  final PositionController controller=mPositionController;
+  final float scale=controller.getImageScale();
+  mIgnoreUpEvent=true;
+  if (scale <= .75f || controller.isAtMinimalScale()) {
+    controller.zoomIn(x,y,Math.max(1.0f,scale * 1.5f));
+  }
+ else {
+    controller.resetToFullView();
+  }
+  return true;
+}

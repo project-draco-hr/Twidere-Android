@@ -1,0 +1,6 @@
+{
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+  super.onStop();
+}

@@ -1,0 +1,9 @@
+{
+  if (mProgressBarIds == null || !(viewParent instanceof View))   return null;
+  final View parent=(View)viewParent;
+  for (  final int id : mProgressBarIds) {
+    final View progress=parent.findViewById(id);
+    if (progress instanceof ProgressBar)     return (ProgressBar)progress;
+  }
+  return null;
+}

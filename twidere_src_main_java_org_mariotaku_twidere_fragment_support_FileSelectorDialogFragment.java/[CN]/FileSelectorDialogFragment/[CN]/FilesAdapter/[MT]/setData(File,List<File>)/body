@@ -1,0 +1,7 @@
+{
+  mCurrentPath=current;
+  clear();
+  if (data != null) {
+    addAll(data);
+  }
+}

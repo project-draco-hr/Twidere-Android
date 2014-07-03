@@ -1,0 +1,9 @@
+{
+  super.onWindowFocusChanged(hasFocus);
+  if (mSlidingMenu != null && mSlidingMenu.isMenuShowing()) {
+    updateDrawerPercentOpen(1,false);
+  }
+ else {
+    updateDrawerPercentOpen(0,false);
+  }
+}

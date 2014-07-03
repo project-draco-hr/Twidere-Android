@@ -1,0 +1,36 @@
+{
+  id=in.readLong();
+  account_id=in.readLong();
+  timestamp=in.readLong();
+  user_id=in.readLong();
+  retweet_id=in.readLong();
+  retweet_timestamp=in.readLong();
+  retweeted_by_id=in.readLong();
+  retweet_count=in.readLong();
+  favorite_count=in.readLong();
+  in_reply_to_status_id=in.readLong();
+  is_gap=in.readInt() == 1;
+  is_retweet=in.readInt() == 1;
+  is_favorite=in.readInt() == 1;
+  user_is_protected=in.readInt() == 1;
+  user_is_verified=in.readInt() == 1;
+  retweeted_by_name=in.readString();
+  retweeted_by_screen_name=in.readString();
+  text_html=in.readString();
+  text_plain=in.readString();
+  user_name=in.readString();
+  user_screen_name=in.readString();
+  in_reply_to_screen_name=in.readString();
+  source=in.readString();
+  user_profile_image_url=in.readString();
+  medias=in.createTypedArray(ParcelableMedia.CREATOR);
+  location=in.readParcelable(ParcelableLocation.class.getClassLoader());
+  my_retweet_id=in.readLong();
+  is_possibly_sensitive=in.readInt() == 1;
+  user_is_following=in.readInt() == 1;
+  text_unescaped=in.readString();
+  in_reply_to_user_id=in.readLong();
+  in_reply_to_name=in.readString();
+  mentions=in.createTypedArray(ParcelableUserMention.CREATOR);
+  first_media=medias != null && medias.length > 0 ? medias[0].url : null;
+}

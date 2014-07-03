@@ -1,0 +1,9 @@
+{
+  final Cursor old=super.swapCursor(c);
+  if (c != null) {
+    mUserIdIdx=c.getColumnIndex(Filters.Users.USER_ID);
+    mNameIdx=c.getColumnIndex(Filters.Users.NAME);
+    mScreenNameIdx=c.getColumnIndex(Filters.Users.SCREEN_NAME);
+  }
+  return old;
+}

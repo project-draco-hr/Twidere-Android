@@ -1,0 +1,4 @@
+{
+  oauthToken=requestToken;
+  return getOAuthAccessToken();
+}

@@ -1,0 +1,13 @@
+{
+  targetScale=clampScale(targetScale);
+  if (mCurrentY == targetY && mCurrentScale == targetScale)   return false;
+  mAnimationKind=kind;
+  mFromY=mCurrentY;
+  mFromScale=mCurrentScale;
+  mToY=targetY;
+  mToScale=targetScale;
+  mAnimationStartTime=AnimationTime.startTime();
+  mAnimationDuration=ANIM_TIME[kind];
+  advanceAnimation();
+  return true;
+}

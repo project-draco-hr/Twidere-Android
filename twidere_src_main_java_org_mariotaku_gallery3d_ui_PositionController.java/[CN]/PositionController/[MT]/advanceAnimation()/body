@@ -1,0 +1,8 @@
+{
+  boolean changed=false;
+  changed|=mPlatform.advanceAnimation();
+  changed|=mBox.advanceAnimation();
+  if (changed) {
+    redraw();
+  }
+}

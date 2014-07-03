@@ -1,0 +1,4 @@
+{
+  getMethodStatistics(method).increment(time,success);
+  API_STATS_CALCULATOR.increment(time,success);
+}

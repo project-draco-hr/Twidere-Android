@@ -1,0 +1,7 @@
+{
+  final StatusTranslateDialogFragment df=new StatusTranslateDialogFragment();
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_STATUS,status);
+  df.setArguments(args);
+  df.show(fm,"translate_status");
+}

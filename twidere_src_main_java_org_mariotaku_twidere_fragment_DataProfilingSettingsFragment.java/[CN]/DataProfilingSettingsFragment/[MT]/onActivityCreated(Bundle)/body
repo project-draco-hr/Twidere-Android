@@ -1,0 +1,9 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (mPreferences.contains(KEY_UCD_DATA_PROFILING)) {
+    mCheckBox.setChecked(mPreferences.getBoolean(KEY_UCD_DATA_PROFILING,false));
+  }
+  mSaveButton.setOnClickListener(this);
+  mPreviewButton.setOnClickListener(this);
+}

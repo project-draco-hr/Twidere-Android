@@ -1,0 +1,18 @@
+{
+  if (context == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  ParcelableStatus status=null;
+  final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.STATUS_ID+ " = "+ status_id;
+  for (  final Uri uri : STATUSES_URIS) {
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,Statuses.COLUMNS,where,null,null);
+    if (cur == null) {
+      continue;
+    }
+    if (cur.getCount() > 0) {
+      cur.moveToFirst();
+      status=new ParcelableStatus(cur,new ParcelableStatus.CursorIndices(cur));
+    }
+    cur.close();
+  }
+  return status;
+}

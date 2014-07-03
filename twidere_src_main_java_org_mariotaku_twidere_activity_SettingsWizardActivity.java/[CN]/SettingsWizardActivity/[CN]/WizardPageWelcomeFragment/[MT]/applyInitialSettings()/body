@@ -1,0 +1,6 @@
+{
+  final Activity a=getActivity();
+  if (a instanceof SettingsWizardActivity) {
+    ((SettingsWizardActivity)a).applyInitialSettings();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (packageName == null)   return false;
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.remove(packageName);
+  return editor.commit();
+}

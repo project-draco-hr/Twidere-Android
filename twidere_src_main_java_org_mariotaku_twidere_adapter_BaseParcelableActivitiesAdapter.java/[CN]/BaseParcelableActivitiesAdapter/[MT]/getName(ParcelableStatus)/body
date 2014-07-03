@@ -1,0 +1,4 @@
+{
+  if (status == null)   return null;
+  return getDisplayName(getContext(),status.user_id,status.user_name,status.user_screen_name,isDisplayNameFirst(),isNicknameOnly());
+}

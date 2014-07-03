@@ -1,0 +1,4 @@
+{
+  if (mResolver != null)   return mResolver;
+  return mResolver=new TwidereHostAddressResolver(this);
+}

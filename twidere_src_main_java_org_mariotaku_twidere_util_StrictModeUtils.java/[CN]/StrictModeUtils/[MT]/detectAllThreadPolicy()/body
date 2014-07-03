@@ -1,0 +1,6 @@
+{
+  final ThreadPolicy.Builder threadPolicyBuilder=new ThreadPolicy.Builder();
+  threadPolicyBuilder.detectAll();
+  threadPolicyBuilder.penaltyLog();
+  StrictMode.setThreadPolicy(threadPolicyBuilder.build());
+}

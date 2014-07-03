@@ -1,0 +1,6 @@
+{
+  super.onSurfaceCreated(holder);
+  holder.addCallback(mHelper);
+  updateSurface();
+  updateHelperState();
+}

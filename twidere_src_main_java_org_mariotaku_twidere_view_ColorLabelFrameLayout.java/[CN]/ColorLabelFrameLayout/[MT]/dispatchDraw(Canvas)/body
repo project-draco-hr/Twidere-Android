@@ -1,0 +1,5 @@
+{
+  mHelper.dispatchDrawBackground(canvas);
+  super.dispatchDraw(canvas);
+  mHelper.dispatchDrawLabels(canvas);
+}

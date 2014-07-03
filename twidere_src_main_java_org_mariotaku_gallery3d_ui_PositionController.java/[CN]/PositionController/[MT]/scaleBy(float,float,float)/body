@@ -1,0 +1,11 @@
+{
+  focusX-=mViewW / 2;
+  focusY-=mViewH / 2;
+  s=mBox.clampScale(s * getTargetScale(mBox));
+  final int x=(int)(focusX - s * mFocusX + 0.5f);
+  final int y=(int)(focusY - s * mFocusY + 0.5f);
+  startAnimation(x,y,s,ANIM_KIND_SCALE);
+  if (s < mBox.mScaleMin)   return -1;
+  if (s > mBox.mScaleMax)   return 1;
+  return 0;
+}

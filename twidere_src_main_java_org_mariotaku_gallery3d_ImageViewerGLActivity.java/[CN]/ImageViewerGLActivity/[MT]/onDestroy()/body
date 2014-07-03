@@ -1,0 +1,11 @@
+{
+  mActionBar.removeOnMenuVisibilityListener(this);
+  super.onDestroy();
+  mGLRootView.lockRenderThread();
+  try {
+    mHandler.removeCallbacksAndMessages(null);
+  }
+  finally {
+    mGLRootView.unlockRenderThread();
+  }
+}

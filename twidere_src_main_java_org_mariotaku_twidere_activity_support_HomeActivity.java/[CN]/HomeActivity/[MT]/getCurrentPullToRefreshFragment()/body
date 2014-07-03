@@ -1,0 +1,8 @@
+{
+  if (mCurrentVisibleFragment instanceof IBasePullToRefreshFragment)   return (IBasePullToRefreshFragment)mCurrentVisibleFragment;
+ else   if (mCurrentVisibleFragment instanceof SupportFragmentCallback) {
+    final Fragment curr=((SupportFragmentCallback)mCurrentVisibleFragment).getCurrentVisibleFragment();
+    if (curr instanceof IBasePullToRefreshFragment)     return (IBasePullToRefreshFragment)curr;
+  }
+  return null;
+}

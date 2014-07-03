@@ -1,0 +1,6 @@
+{
+  if (data != null) {
+    mPage++;
+  }
+  super.onLoadFinished(loader,data);
+}

@@ -1,0 +1,3 @@
+ParcelableStatus status
+int position
+boolean selected

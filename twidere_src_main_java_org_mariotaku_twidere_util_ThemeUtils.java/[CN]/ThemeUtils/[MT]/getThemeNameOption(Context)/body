@@ -1,0 +1,5 @@
+{
+  if (context == null)   return VALUE_THEME_NAME_TWIDERE;
+  final SharedPreferences pref=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return pref != null ? pref.getString(KEY_THEME,VALUE_THEME_NAME_TWIDERE) : VALUE_THEME_NAME_TWIDERE;
+}

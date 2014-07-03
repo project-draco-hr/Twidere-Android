@@ -1,0 +1,3 @@
+{
+  return factory.createRateLimitStatus(get(conf.getRestBaseURL() + ENDPOINT_RATE_LIMIT_STATUS,conf.getSigningRestBaseURL() + ENDPOINT_RATE_LIMIT_STATUS));
+}

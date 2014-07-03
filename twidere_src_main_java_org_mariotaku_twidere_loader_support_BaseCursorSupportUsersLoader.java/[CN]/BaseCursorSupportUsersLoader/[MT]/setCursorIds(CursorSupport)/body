@@ -1,0 +1,5 @@
+{
+  if (cursor == null)   return;
+  mNextCursor=cursor.getNextCursor();
+  mPrevCursor=cursor.getPreviousCursor();
+}

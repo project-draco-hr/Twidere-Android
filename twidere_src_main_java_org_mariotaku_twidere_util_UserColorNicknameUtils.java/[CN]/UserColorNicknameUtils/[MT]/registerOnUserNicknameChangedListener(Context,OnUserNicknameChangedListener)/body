@@ -1,0 +1,4 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  prefs.registerOnSharedPreferenceChangeListener(new OnNickPreferenceChangeListener(listener));
+}

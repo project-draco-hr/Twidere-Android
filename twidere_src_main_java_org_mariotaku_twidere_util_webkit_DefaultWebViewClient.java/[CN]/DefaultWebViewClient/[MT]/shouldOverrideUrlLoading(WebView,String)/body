@@ -1,0 +1,9 @@
+{
+  try {
+    mActivity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));
+  }
+ catch (  final ActivityNotFoundException e) {
+    showErrorMessage(mActivity,null,e,false);
+  }
+  return true;
+}

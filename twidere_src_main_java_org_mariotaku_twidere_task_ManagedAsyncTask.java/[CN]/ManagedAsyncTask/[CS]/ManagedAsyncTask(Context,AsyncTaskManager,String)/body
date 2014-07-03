@@ -1,0 +1,6 @@
+{
+  super(manager.getHandler());
+  this.manager=manager;
+  this.context=context;
+  this.tag=tag;
+}

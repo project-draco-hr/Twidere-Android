@@ -1,0 +1,8 @@
+{
+  super(context,account_id,max_id,since_id,data,saved_statuses_args,tab_position);
+  mListId=list_id;
+  mUserId=user_id;
+  mScreenName=screen_name;
+  mListName=list_name;
+  mFiltersForRts=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getBoolean(KEY_FILTERS_FOR_RTS,true);
+}

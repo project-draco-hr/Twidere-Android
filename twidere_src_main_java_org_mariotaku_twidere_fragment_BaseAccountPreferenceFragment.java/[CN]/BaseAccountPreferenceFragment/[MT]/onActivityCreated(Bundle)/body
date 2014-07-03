@@ -1,0 +1,18 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  final PreferenceManager pm=getPreferenceManager();
+  final Account account=getArguments().getParcelable(EXTRA_ACCOUNT);
+  final String preferenceName=ACCOUNT_PREFERENCES_NAME_PREFIX + (account != null ? account.account_id : "unknown");
+  pm.setSharedPreferencesName(preferenceName);
+  addPreferencesFromResource(getPreferencesResource());
+  final SharedPreferences prefs=pm.getSharedPreferences();
+  prefs.registerOnSharedPreferenceChangeListener(this);
+  final Activity activity=getActivity();
+  final Intent intent=activity.getIntent();
+  if (account != null && intent.hasExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT)) {
+    final String name=getDisplayName(getActivity(),account.account_id,account.name,account.screen_name);
+    activity.setTitle(name);
+  }
+  updatePreferenceScreen();
+}

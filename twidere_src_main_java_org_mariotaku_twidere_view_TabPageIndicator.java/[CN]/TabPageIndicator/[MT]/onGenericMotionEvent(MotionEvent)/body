@@ -1,0 +1,23 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB_MR1)   return false;
+  if (mTabProvider == null)   return false;
+  if ((event.getSource() & InputDevice.SOURCE_CLASS_POINTER) != 0) {
+switch (event.getAction()) {
+case MotionEvent.ACTION_SCROLL:
+{
+        final float vscroll=event.getAxisValue(MotionEvent.AXIS_VSCROLL);
+        if (vscroll < 0) {
+          if (mCurrentItem + 1 < mTabProvider.getCount()) {
+            setCurrentItem(mCurrentItem + 1);
+          }
+        }
+ else         if (vscroll > 0) {
+          if (mCurrentItem - 1 >= 0) {
+            setCurrentItem(mCurrentItem - 1);
+          }
+        }
+      }
+  }
+}
+return true;
+}

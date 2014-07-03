@@ -1,0 +1,4 @@
+{
+  mAdapter.setData(data);
+  setListShown(true);
+}

@@ -1,0 +1,4 @@
+{
+  if (sourceIsEscaped == shouldReEscape)   return source;
+  return shouldReEscape ? escape(source) : unescape(source);
+}

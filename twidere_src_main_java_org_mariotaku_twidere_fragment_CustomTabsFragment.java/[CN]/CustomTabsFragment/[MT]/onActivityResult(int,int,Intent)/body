@@ -1,0 +1,31 @@
+{
+switch (requestCode) {
+case REQUEST_ADD_TAB:
+{
+      if (resultCode == Activity.RESULT_OK) {
+        final ContentValues values=new ContentValues();
+        values.put(Tabs.NAME,data.getStringExtra(EXTRA_NAME));
+        values.put(Tabs.ICON,data.getStringExtra(EXTRA_ICON));
+        values.put(Tabs.TYPE,data.getStringExtra(EXTRA_TYPE));
+        values.put(Tabs.ARGUMENTS,data.getStringExtra(EXTRA_ARGUMENTS));
+        values.put(Tabs.EXTRAS,data.getStringExtra(EXTRA_EXTRAS));
+        values.put(Tabs.POSITION,mAdapter.getCount());
+        mResolver.insert(Tabs.CONTENT_URI,values);
+      }
+      break;
+    }
+case REQUEST_EDIT_TAB:
+{
+    if (resultCode == Activity.RESULT_OK && data.hasExtra(EXTRA_ID)) {
+      final ContentValues values=new ContentValues();
+      values.put(Tabs.NAME,data.getStringExtra(EXTRA_NAME));
+      values.put(Tabs.ICON,data.getStringExtra(EXTRA_ICON));
+      values.put(Tabs.EXTRAS,data.getStringExtra(EXTRA_EXTRAS));
+      final String where=Where.equals(Tabs._ID,data.getLongExtra(EXTRA_ID,-1)).getSQL();
+      mResolver.update(Tabs.CONTENT_URI,values,where,null);
+    }
+    break;
+  }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

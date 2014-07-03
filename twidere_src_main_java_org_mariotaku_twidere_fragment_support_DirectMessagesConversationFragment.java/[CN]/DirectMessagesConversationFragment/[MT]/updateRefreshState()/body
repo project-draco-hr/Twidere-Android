@@ -1,0 +1,7 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (twitter == null || !getUserVisibleHint())   return;
+  final boolean refreshing=twitter.isReceivedDirectMessagesRefreshing() || twitter.isSentDirectMessagesRefreshing();
+  setProgressBarIndeterminateVisibility(refreshing);
+  setRefreshing(refreshing);
+}

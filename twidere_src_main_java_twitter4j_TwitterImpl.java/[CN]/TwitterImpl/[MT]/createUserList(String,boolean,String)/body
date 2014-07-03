@@ -1,0 +1,8 @@
+{
+  ensureAuthorizationEnabled();
+  final List<HttpParameter> params=new ArrayList<HttpParameter>();
+  addParameterToList(params,"name",listName);
+  addParameterToList(params,"mode",isPublicList ? "public" : "private");
+  addParameterToList(params,"description",description);
+  return factory.createAUserList(post(conf.getRestBaseURL() + ENDPOINT_LISTS_CREATE,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_CREATE,params.toArray(new HttpParameter[params.size()])));
+}

@@ -1,0 +1,4 @@
+{
+  if (mDiskCache != null)   return mDiskCache;
+  return mDiskCache=getDiskCache(DIR_NAME_IMAGE_CACHE);
+}

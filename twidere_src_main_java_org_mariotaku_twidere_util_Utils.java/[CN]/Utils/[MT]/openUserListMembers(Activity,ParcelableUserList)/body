@@ -1,0 +1,4 @@
+{
+  if (activity == null || list == null)   return;
+  openUserListMembers(activity,list.account_id,list.id,list.user_id,list.user_screen_name,list.name);
+}

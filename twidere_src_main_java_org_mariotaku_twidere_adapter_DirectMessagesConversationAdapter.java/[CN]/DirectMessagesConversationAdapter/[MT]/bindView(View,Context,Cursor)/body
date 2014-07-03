@@ -1,0 +1,68 @@
+{
+  final int position=cursor.getPosition();
+  final DirectMessageConversationViewHolder holder=(DirectMessageConversationViewHolder)view.getTag();
+  final String firstMedia=cursor.getString(mIndices.first_media);
+  final boolean displayProfileImage=isDisplayProfileImage();
+  final long accountId=cursor.getLong(mIndices.account_id);
+  final long timestamp=cursor.getLong(mIndices.message_timestamp);
+  final boolean is_outgoing=cursor.getInt(mIndices.is_outgoing) == 1;
+  holder.incoming_profile_image.setImageDrawable(null);
+  holder.outgoing_profile_image.setImageDrawable(null);
+  holder.incoming_message_container.setVisibility(is_outgoing ? View.GONE : View.VISIBLE);
+  holder.outgoing_message_container.setVisibility(is_outgoing ? View.VISIBLE : View.GONE);
+  holder.setTextSize(getTextSize());
+  holder.incoming_text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
+  holder.outgoing_text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
+  getLinkify().applyAllLinks(holder.incoming_text,accountId,false);
+  getLinkify().applyAllLinks(holder.outgoing_text,accountId,false);
+  holder.incoming_text.setMovementMethod(null);
+  holder.outgoing_text.setMovementMethod(null);
+  holder.incoming_time.setText(formatToLongTimeString(mContext,timestamp));
+  holder.outgoing_time.setText(formatToLongTimeString(mContext,timestamp));
+  holder.incoming_profile_image_container.setVisibility(displayProfileImage ? View.VISIBLE : View.GONE);
+  holder.outgoing_profile_image_container.setVisibility(displayProfileImage ? View.VISIBLE : View.GONE);
+  if (displayProfileImage) {
+    final String profile_image_url_string=cursor.getString(mIndices.sender_profile_image_url);
+    mImageLoader.displayProfileImage(holder.incoming_profile_image,profile_image_url_string);
+    mImageLoader.displayProfileImage(holder.outgoing_profile_image,profile_image_url_string);
+    holder.incoming_profile_image.setTag(position);
+    holder.outgoing_profile_image.setTag(position);
+  }
+  if (position > mMaxAnimationPosition) {
+    if (mAnimationEnabled) {
+      view.startAnimation(holder.item_animation);
+    }
+    mMaxAnimationPosition=position;
+  }
+  holder.incoming_item_menu.setTag(position);
+  holder.outgoing_item_menu.setTag(position);
+  if (firstMedia == null) {
+    holder.outgoing_image_preview_container.setVisibility(View.GONE);
+    holder.incoming_image_preview_container.setVisibility(View.GONE);
+  }
+ else   if (is_outgoing) {
+    holder.outgoing_image_preview_container.setVisibility(View.VISIBLE);
+    holder.incoming_image_preview_container.setVisibility(View.GONE);
+    if (mImagePreviewScaleType != null) {
+      holder.outgoing_image_preview.setScaleType(mImagePreviewScaleType);
+    }
+    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.outgoing_image_preview))) {
+      holder.outgoing_image_preview.setBackgroundResource(0);
+      mImageLoader.displayPreviewImageWithCredentials(holder.outgoing_image_preview,firstMedia,accountId,mImageLoadingHandler);
+    }
+    holder.outgoing_image_preview.setTag(position);
+  }
+ else {
+    holder.outgoing_image_preview_container.setVisibility(View.GONE);
+    holder.incoming_image_preview_container.setVisibility(View.VISIBLE);
+    if (mImagePreviewScaleType != null) {
+      holder.incoming_image_preview.setScaleType(mImagePreviewScaleType);
+    }
+    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.incoming_image_preview))) {
+      holder.incoming_image_preview.setBackgroundResource(0);
+      mImageLoader.displayPreviewImageWithCredentials(holder.incoming_image_preview,firstMedia,accountId,mImageLoadingHandler);
+    }
+    holder.incoming_image_preview.setTag(position);
+  }
+  super.bindView(view,context,cursor);
+}

@@ -1,0 +1,4 @@
+{
+  mMediaPreviewAdapter.add(media);
+  updateMediasPreview();
+}

@@ -1,0 +1,11 @@
+NotificationCompat.Builder builder
+AccountPreferences accountPrefs
+int notificationType
+String ticker
+String title
+String message
+long when
+int icon
+Bitmap largeIcon
+Intent contentIntent
+Intent deleteIntent

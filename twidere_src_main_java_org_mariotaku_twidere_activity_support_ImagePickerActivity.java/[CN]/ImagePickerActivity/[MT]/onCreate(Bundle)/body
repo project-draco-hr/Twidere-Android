@@ -1,0 +1,14 @@
+{
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  final String action=intent.getAction();
+  if (INTENT_ACTION_TAKE_PHOTO.equals(action)) {
+    takePhoto();
+  }
+ else   if (INTENT_ACTION_PICK_FILE.equals(action)) {
+    pickImage();
+  }
+ else {
+    new ImageSourceDialogFragment().show(getSupportFragmentManager(),"image_source");
+  }
+}

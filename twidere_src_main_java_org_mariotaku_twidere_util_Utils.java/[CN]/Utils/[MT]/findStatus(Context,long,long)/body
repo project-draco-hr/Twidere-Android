@@ -1,0 +1,14 @@
+{
+  if (context == null || account_id <= 0 || status_id <= 0)   return null;
+  final ParcelableStatus p_status=findStatusInDatabases(context,account_id,status_id);
+  if (p_status != null)   return p_status;
+  final Twitter twitter=getTwitterInstance(context,account_id,true);
+  if (twitter == null)   return null;
+  final Status status=twitter.showStatus(status_id);
+  if (status == null || status.getId() <= 0)   return null;
+  final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.STATUS_ID+ " = "+ status.getId();
+  final ContentResolver resolver=context.getContentResolver();
+  resolver.delete(CachedStatuses.CONTENT_URI,where,null);
+  resolver.insert(CachedStatuses.CONTENT_URI,ContentValuesCreator.makeStatusContentValues(status,account_id));
+  return new ParcelableStatus(status,account_id,false);
+}

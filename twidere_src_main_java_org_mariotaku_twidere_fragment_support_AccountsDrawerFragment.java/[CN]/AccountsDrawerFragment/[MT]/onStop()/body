@@ -1,0 +1,5 @@
+{
+  final ContentResolver resolver=getContentResolver();
+  resolver.unregisterContentObserver(mReloadContentObserver);
+  super.onStop();
+}

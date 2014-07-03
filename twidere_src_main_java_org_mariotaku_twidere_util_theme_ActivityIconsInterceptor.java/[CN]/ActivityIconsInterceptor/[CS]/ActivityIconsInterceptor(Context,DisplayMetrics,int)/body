@@ -1,0 +1,15 @@
+{
+  mContext=context;
+  if (overrideThemeRes != 0) {
+    mIconColor=ThemeUtils.getActionIconColor(overrideThemeRes);
+  }
+ else   if (context instanceof TwidereContextThemeWrapper) {
+    final int resId=((TwidereContextThemeWrapper)context).getThemeResourceId();
+    mIconColor=ThemeUtils.getActionIconColor(resId);
+  }
+ else {
+    mIconColor=ThemeUtils.getActionIconColor(context);
+  }
+  mDensity=dm.density;
+  mIconSize=Math.round(mDensity * MENU_ICON_SIZE_DP);
+}

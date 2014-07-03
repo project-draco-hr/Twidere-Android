@@ -1,0 +1,4 @@
+{
+  final float dimension=TypedValue.applyDimension(unit,size,mResources.getDisplayMetrics());
+  setRawTextSize(dimension);
+}

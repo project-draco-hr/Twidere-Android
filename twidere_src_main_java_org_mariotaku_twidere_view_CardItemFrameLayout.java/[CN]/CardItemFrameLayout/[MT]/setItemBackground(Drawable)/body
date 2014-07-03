@@ -1,0 +1,3 @@
+{
+  mDrawingHelper.setItemBackground(itemBackground);
+}

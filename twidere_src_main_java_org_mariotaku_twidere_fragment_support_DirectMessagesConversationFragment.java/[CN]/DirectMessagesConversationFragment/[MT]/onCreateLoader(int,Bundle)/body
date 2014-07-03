@@ -1,0 +1,11 @@
+{
+  final long accountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+  final long recipientId=args != null ? args.getLong(EXTRA_RECIPIENT_ID,-1) : -1;
+  final String[] cols=DirectMessages.COLUMNS;
+  final boolean isValid=accountId > 0 && recipientId > 0;
+  mConversationContainer.setVisibility(isValid ? View.VISIBLE : View.GONE);
+  mRecipientSelectorContainer.setVisibility(isValid ? View.GONE : View.VISIBLE);
+  if (!isValid)   return new CursorLoader(getActivity(),TweetStore.CONTENT_URI_NULL,cols,null,null,null);
+  final Uri uri=buildDirectMessageConversationUri(accountId,recipientId,null);
+  return new CursorLoader(getActivity(),uri,cols,null,null,Conversation.DEFAULT_SORT_ORDER);
+}

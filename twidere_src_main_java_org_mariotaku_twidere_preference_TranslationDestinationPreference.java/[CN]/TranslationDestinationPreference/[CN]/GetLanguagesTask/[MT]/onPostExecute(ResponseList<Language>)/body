@@ -1,0 +1,17 @@
+{
+  if (mProgress != null && mProgress.isShowing()) {
+    mProgress.dismiss();
+  }
+  mAdapter.setData(result);
+  if (result == null)   return;
+  final AlertDialog.Builder selectorBuilder=new AlertDialog.Builder(getContext());
+  selectorBuilder.setTitle(getTitle());
+  selectorBuilder.setSingleChoiceItems(mAdapter,mAdapter.findItemPosition(mSelectedLanguageCode),TranslationDestinationPreference.this);
+  selectorBuilder.setNegativeButton(android.R.string.cancel,null);
+  mDialog=selectorBuilder.create();
+  final ListView lv=mDialog.getListView();
+  if (lv != null) {
+    lv.setFastScrollEnabled(true);
+  }
+  mDialog.show();
+}

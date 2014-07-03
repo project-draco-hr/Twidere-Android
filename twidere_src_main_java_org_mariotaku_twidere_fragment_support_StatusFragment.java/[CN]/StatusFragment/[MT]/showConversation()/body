@@ -1,0 +1,19 @@
+{
+  if (mConversationTask != null && mConversationTask.getStatus() == AsyncTask.Status.RUNNING) {
+    mConversationTask.cancel(true);
+    return;
+  }
+  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final int count=adapter.getCount();
+  final ParcelableStatus status;
+  if (count == 0) {
+    mShouldScroll=!mLoadMoreAutomatically;
+    status=mStatus;
+  }
+ else {
+    status=adapter.getStatus(adapter.getCount() - 1);
+  }
+  if (status == null || status.in_reply_to_status_id <= 0)   return;
+  mConversationTask=new LoadConversationTask(this);
+  mConversationTask.execute(status);
+}

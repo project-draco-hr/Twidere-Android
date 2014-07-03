@@ -1,0 +1,7 @@
+{
+  if (!texture.onBind(this))   return false;
+  final int target=texture.getTarget();
+  mGLState.setTextureTarget(target);
+  mGL.glBindTexture(target,texture.getId());
+  return true;
+}

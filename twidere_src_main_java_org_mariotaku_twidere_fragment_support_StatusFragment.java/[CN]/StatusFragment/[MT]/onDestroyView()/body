@@ -1,0 +1,14 @@
+{
+  if (mStatus != null) {
+    ProfilingUtil.profile(getActivity(),mStatus.account_id,"End, " + mStatus.id);
+  }
+  mStatus=null;
+  final LoaderManager lm=getLoaderManager();
+  lm.destroyLoader(LOADER_ID_STATUS);
+  lm.destroyLoader(LOADER_ID_LOCATION);
+  lm.destroyLoader(LOADER_ID_FOLLOW);
+  if (mConversationTask != null && mConversationTask.getStatus() == AsyncTask.Status.RUNNING) {
+    mConversationTask.cancel(true);
+  }
+  super.onDestroyView();
+}

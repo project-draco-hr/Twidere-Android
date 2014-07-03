@@ -1,0 +1,6 @@
+{
+  final Activity activity=getActivity();
+  if (activity instanceof HomeActivity) {
+    ((HomeActivity)activity).closeAccountsDrawer();
+  }
+}

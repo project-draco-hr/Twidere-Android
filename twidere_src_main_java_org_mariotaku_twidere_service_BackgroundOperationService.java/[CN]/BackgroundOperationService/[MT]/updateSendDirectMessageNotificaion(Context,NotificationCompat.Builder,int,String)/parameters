@@ -1,0 +1,4 @@
+Context context
+NotificationCompat.Builder builder
+int progress
+String message

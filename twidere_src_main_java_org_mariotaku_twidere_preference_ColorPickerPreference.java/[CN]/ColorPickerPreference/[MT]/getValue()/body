@@ -1,0 +1,9 @@
+{
+  try {
+    if (isPersistent())     return getPersistedInt(mDefaultValue);
+  }
+ catch (  final ClassCastException e) {
+    e.printStackTrace();
+  }
+  return mDefaultValue;
+}

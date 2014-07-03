@@ -1,0 +1,7 @@
+{
+  mIconPadding=iconPadding;
+  if (mDrawContour) {
+    mIconPadding+=mContourWidth;
+  }
+  invalidateSelf();
+}

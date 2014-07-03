@@ -1,0 +1,30 @@
+{
+  byte[] byteHMAC=null;
+  try {
+    final Mac mac=Mac.getInstance(HMAC_SHA1);
+    SecretKeySpec spec;
+    if (null == token) {
+      final String oauthSignature=HttpParameter.encode(consumerSecret) + "&";
+      spec=new SecretKeySpec(oauthSignature.getBytes(),HMAC_SHA1);
+    }
+ else {
+      spec=token.getSecretKeySpec();
+      if (null == spec) {
+        final String oauthSignature=HttpParameter.encode(consumerSecret) + "&" + HttpParameter.encode(token.getTokenSecret());
+        spec=new SecretKeySpec(oauthSignature.getBytes(),HMAC_SHA1);
+        token.setSecretKeySpec(spec);
+      }
+    }
+    mac.init(spec);
+    byteHMAC=mac.doFinal(data.getBytes());
+  }
+ catch (  final InvalidKeyException ike) {
+    logger.error("Failed initialize \"Message Authentication Code\" (MAC)",ike);
+    throw new AssertionError(ike);
+  }
+catch (  final NoSuchAlgorithmException nsae) {
+    logger.error("Failed to get HmacSHA1 \"Message Authentication Code\" (MAC)",nsae);
+    throw new AssertionError(nsae);
+  }
+  return BASE64Encoder.encode(byteHMAC);
+}

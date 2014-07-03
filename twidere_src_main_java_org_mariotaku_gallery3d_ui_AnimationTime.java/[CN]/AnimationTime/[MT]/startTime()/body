@@ -1,0 +1,4 @@
+{
+  sTime=SystemClock.uptimeMillis();
+  return sTime;
+}

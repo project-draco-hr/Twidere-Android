@@ -1,0 +1,3 @@
+{
+  return checkHeadTailValidity(file,JPEG_HEAD,JPEG_TAIL);
+}

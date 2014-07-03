@@ -1,0 +1,6 @@
+{
+  if (mResources == null) {
+    mResources=new TwidereAccentResources(c,super.getResources(c,resources),mOverrideThemeRes,mAccentColor);
+  }
+  return mResources;
+}

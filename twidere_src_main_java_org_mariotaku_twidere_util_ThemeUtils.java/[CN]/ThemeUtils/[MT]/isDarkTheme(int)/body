@@ -1,0 +1,11 @@
+{
+switch (themeRes) {
+case R.style.Theme_Twidere_Dark:
+case R.style.Theme_Twidere_Dark_SolidBackground:
+case R.style.Theme_Twidere_Dark_Dialog:
+case R.style.Theme_Twidere_Dark_Compose:
+case R.style.Theme_Twidere_Dark_Transparent:
+    return true;
+}
+return false;
+}

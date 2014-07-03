@@ -1,0 +1,14 @@
+{
+  if (mAccountId <= 0)   return;
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      mName=ParseUtils.parseString(mEditName.getText());
+      mDescription=ParseUtils.parseString(mEditDescription.getText());
+      mIsPublic=mPublicCheckBox.isChecked();
+      if (mName == null || mName.length() <= 0)       return;
+      mTwitterWrapper.updateUserListDetails(mAccountId,mListId,mIsPublic,mName,mDescription);
+      break;
+    }
+}
+}

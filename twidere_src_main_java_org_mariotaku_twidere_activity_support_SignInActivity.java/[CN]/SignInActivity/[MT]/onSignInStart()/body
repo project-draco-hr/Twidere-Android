@@ -1,0 +1,8 @@
+{
+  setProgressBarIndeterminateVisibility(true);
+  mEditPassword.setEnabled(false);
+  mEditUsername.setEnabled(false);
+  mSignInButton.setEnabled(false);
+  mSignUpButton.setEnabled(false);
+  mSetColorButton.setEnabled(false);
+}

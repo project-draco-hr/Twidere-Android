@@ -1,0 +1,2 @@
+List<Integer> read_positions
+BaseStatusesStaggeredGridFragment<T> fragment

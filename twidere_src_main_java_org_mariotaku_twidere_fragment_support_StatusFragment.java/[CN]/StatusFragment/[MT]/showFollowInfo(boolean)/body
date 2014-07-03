@@ -1,0 +1,12 @@
+{
+  if (mFollowInfoDisplayed && !force)   return;
+  final LoaderManager lm=getLoaderManager();
+  lm.destroyLoader(LOADER_ID_FOLLOW);
+  if (!mFollowInfoLoaderInitialized) {
+    lm.initLoader(LOADER_ID_FOLLOW,null,mFollowInfoLoaderCallbacks);
+    mFollowInfoLoaderInitialized=true;
+  }
+ else {
+    lm.restartLoader(LOADER_ID_FOLLOW,null,mFollowInfoLoaderCallbacks);
+  }
+}

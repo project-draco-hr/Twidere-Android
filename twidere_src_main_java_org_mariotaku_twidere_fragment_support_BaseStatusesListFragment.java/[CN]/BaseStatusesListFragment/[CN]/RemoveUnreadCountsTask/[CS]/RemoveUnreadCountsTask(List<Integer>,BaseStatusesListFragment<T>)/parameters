@@ -1,0 +1,2 @@
+List<Integer> read_positions
+BaseStatusesListFragment<T> fragment

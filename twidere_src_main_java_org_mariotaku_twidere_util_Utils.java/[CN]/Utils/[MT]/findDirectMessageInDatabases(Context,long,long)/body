@@ -1,0 +1,18 @@
+{
+  if (context == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  ParcelableDirectMessage message=null;
+  final String where=DirectMessages.ACCOUNT_ID + " = " + account_id+ " AND "+ DirectMessages.MESSAGE_ID+ " = "+ message_id;
+  for (  final Uri uri : DIRECT_MESSAGES_URIS) {
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,DirectMessages.COLUMNS,where,null,null);
+    if (cur == null) {
+      continue;
+    }
+    if (cur.getCount() > 0) {
+      cur.moveToFirst();
+      message=new ParcelableDirectMessage(cur,new ParcelableDirectMessage.CursorIndices(cur));
+    }
+    cur.close();
+  }
+  return message;
+}

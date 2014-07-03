@@ -1,0 +1,37 @@
+{
+  _id=cursor.getColumnIndex(Statuses._ID);
+  account_id=cursor.getColumnIndex(Statuses.ACCOUNT_ID);
+  status_id=cursor.getColumnIndex(Statuses.STATUS_ID);
+  status_timestamp=cursor.getColumnIndex(Statuses.STATUS_TIMESTAMP);
+  user_name=cursor.getColumnIndex(Statuses.USER_NAME);
+  user_screen_name=cursor.getColumnIndex(Statuses.USER_SCREEN_NAME);
+  text_html=cursor.getColumnIndex(Statuses.TEXT_HTML);
+  text_plain=cursor.getColumnIndex(Statuses.TEXT_PLAIN);
+  text_unescaped=cursor.getColumnIndex(Statuses.TEXT_UNESCAPED);
+  user_profile_image_url=cursor.getColumnIndex(Statuses.USER_PROFILE_IMAGE_URL);
+  is_favorite=cursor.getColumnIndex(Statuses.IS_FAVORITE);
+  is_retweet=cursor.getColumnIndex(Statuses.IS_RETWEET);
+  is_gap=cursor.getColumnIndex(Statuses.IS_GAP);
+  location=cursor.getColumnIndex(Statuses.LOCATION);
+  is_protected=cursor.getColumnIndex(Statuses.IS_PROTECTED);
+  is_verified=cursor.getColumnIndex(Statuses.IS_VERIFIED);
+  in_reply_to_status_id=cursor.getColumnIndex(Statuses.IN_REPLY_TO_STATUS_ID);
+  in_reply_to_user_id=cursor.getColumnIndex(Statuses.IN_REPLY_TO_USER_ID);
+  in_reply_to_user_name=cursor.getColumnIndex(Statuses.IN_REPLY_TO_USER_NAME);
+  in_reply_to_user_screen_name=cursor.getColumnIndex(Statuses.IN_REPLY_TO_USER_SCREEN_NAME);
+  my_retweet_id=cursor.getColumnIndex(Statuses.MY_RETWEET_ID);
+  retweet_id=cursor.getColumnIndex(Statuses.RETWEET_ID);
+  retweet_timestamp=cursor.getColumnIndex(Statuses.RETWEET_TIMESTAMP);
+  retweeted_by_user_id=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_ID);
+  retweeted_by_user_name=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_NAME);
+  retweeted_by_user_screen_name=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_SCREEN_NAME);
+  user_id=cursor.getColumnIndex(Statuses.USER_ID);
+  source=cursor.getColumnIndex(Statuses.SOURCE);
+  retweet_count=cursor.getColumnIndex(Statuses.RETWEET_COUNT);
+  favorite_count=cursor.getColumnIndex(Statuses.FAVORITE_COUNT);
+  is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
+  is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
+  medias=cursor.getColumnIndex(Statuses.MEDIAS);
+  first_media=cursor.getColumnIndex(Statuses.FIRST_MEDIA);
+  mentions=cursor.getColumnIndex(Statuses.MENTIONS);
+}

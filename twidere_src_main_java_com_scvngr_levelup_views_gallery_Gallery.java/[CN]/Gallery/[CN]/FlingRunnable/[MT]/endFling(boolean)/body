@@ -1,0 +1,6 @@
+{
+  mScroller.forceFinished(true);
+  if (scrollIntoSlots) {
+    scrollIntoSlots();
+  }
+}

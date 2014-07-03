@@ -1,0 +1,8 @@
+{
+  if (mTextPath == null) {
+    mTextLayout.draw(canvas);
+  }
+ else {
+    canvas.drawTextOnPath(mText.toString(),mTextPath,0,0,mTextPaint);
+  }
+}

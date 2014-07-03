@@ -1,0 +1,4 @@
+{
+  final boolean isTransparent=VALUE_THEME_BACKGROUND_TRANSPARENT.equals(getThemeBackgroundOption(context));
+  return isTransparent ? R.style.Theme_Twidere_Viewer_Transparent : R.style.Theme_Twidere_Viewer;
+}

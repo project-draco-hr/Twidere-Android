@@ -1,0 +1,3 @@
+{
+  return TwitterWrapper.updateProfileImage(context,account_id,image_uri,delete_image);
+}

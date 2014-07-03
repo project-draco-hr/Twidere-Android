@@ -1,0 +1,2 @@
+List<StatusListResponse> result
+boolean notify

@@ -1,0 +1,12 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + (int)(descendentReplyCount ^ descendentReplyCount >>> 32);
+  result=prime * result + (favoriters == null ? 0 : favoriters.hashCode());
+  result=prime * result + (int)(favoritersCount ^ favoritersCount >>> 32);
+  result=prime * result + (repliers == null ? 0 : repliers.hashCode());
+  result=prime * result + (int)(repliersCount ^ repliersCount >>> 32);
+  result=prime * result + (retweeters == null ? 0 : retweeters.hashCode());
+  result=prime * result + (int)(retweetersCount ^ retweetersCount >>> 32);
+  return result;
+}

@@ -1,0 +1,5 @@
+{
+  removeMessages(Messages.ADD_CROUTON_TO_VIEW,crouton);
+  removeMessages(Messages.DISPLAY_CROUTON,crouton);
+  removeMessages(Messages.REMOVE_CROUTON,crouton);
+}

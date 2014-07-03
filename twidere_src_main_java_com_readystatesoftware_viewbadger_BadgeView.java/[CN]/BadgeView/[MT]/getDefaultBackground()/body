@@ -1,0 +1,8 @@
+{
+  final int r=dipToPixels(DEFAULT_CORNER_RADIUS_DIP);
+  final float[] outerR=new float[]{r,r,r,r,r,r,r,r};
+  final RoundRectShape rr=new RoundRectShape(outerR,null,null);
+  final ShapeDrawable drawable=new ShapeDrawable(rr);
+  drawable.getPaint().setColor(badgeColor);
+  return drawable;
+}

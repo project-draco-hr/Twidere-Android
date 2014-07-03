@@ -1,0 +1,3 @@
+{
+  return getComposeThemeResource(getThemeNameOption(context),getDarkActionBarOption(context));
+}

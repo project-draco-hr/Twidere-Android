@@ -1,0 +1,6 @@
+{
+  if (text == null || my_screen_name == null)   return text;
+  final String temp="@" + my_screen_name + " ";
+  if (text.startsWith(temp))   return text.substring(temp.length());
+  return text;
+}

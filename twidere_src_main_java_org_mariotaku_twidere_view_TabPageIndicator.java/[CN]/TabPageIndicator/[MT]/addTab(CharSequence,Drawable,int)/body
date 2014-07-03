@@ -1,0 +1,12 @@
+{
+  final TabView tabView=(TabView)mInflater.inflate(R.layout.tab_item_vpi,null);
+  tabView.init(this,mDisplayLabel ? label : null,mDisplayIcon ? icon : null,index);
+  tabView.setFocusable(true);
+  tabView.setOnClickListener(mTabClickListener);
+  tabView.setOnLongClickListener(mTabLongClickListener);
+  tabView.setContentDescription(label);
+  mTabLayout.addView(tabView,new LinearLayout.LayoutParams(0,LayoutParams.MATCH_PARENT,1));
+  if (ThemeUtils.shouldApplyColorFilter(getContext())) {
+    ThemeUtils.applyBackground(tabView,mTabHighlightColor);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  for (  final int pos : read_positions) {
+    final long id=adapter.getStatusId(pos), account_id=adapter.getAccountId(pos);
+    fragment.addUnreadCountsToRemove(account_id,id);
+  }
+  return null;
+}

@@ -1,0 +1,6 @@
+{
+  for (  final Entry<String,Integer> entry : getIconMap().entrySet()) {
+    if (entry.getValue() == iconRes)     return entry.getKey();
+  }
+  return null;
+}

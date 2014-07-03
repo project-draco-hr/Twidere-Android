@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  getLoaderManager().restartLoader(0,null,this);
+  final IntentFilter filter=new IntentFilter(BROADCAST_TASK_STATE_CHANGED);
+  registerReceiver(mStatusReceiver,filter);
+}

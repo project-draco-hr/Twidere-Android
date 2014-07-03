@@ -1,0 +1,4 @@
+{
+  if (context == null || user == null)   return null;
+  return getDisplayName(context,user.id,user.name,user.screen_name);
+}

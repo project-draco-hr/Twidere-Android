@@ -1,0 +1,5 @@
+{
+  super(color,color,0);
+  mOverrideThemeRes=overrideThemeRes;
+  mAccentColor=color;
+}

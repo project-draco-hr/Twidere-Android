@@ -1,0 +1,8 @@
+{
+  final Activity activity=getActivity();
+  if (activity == null)   return;
+  activity.setProgressBarIndeterminateVisibility(visible);
+  if (activity instanceof HomeActivity) {
+    ((HomeActivity)activity).setHomeProgressBarIndeterminateVisibility(visible);
+  }
+}

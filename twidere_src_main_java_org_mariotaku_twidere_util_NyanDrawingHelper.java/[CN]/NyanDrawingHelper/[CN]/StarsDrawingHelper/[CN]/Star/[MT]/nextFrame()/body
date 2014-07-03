@@ -1,0 +1,8 @@
+{
+  final byte[][] frame=getFrames()[mCurrentFrame];
+  mCurrentFrame++;
+  if (mCurrentFrame >= length()) {
+    mCurrentFrame=0;
+  }
+  return frame;
+}

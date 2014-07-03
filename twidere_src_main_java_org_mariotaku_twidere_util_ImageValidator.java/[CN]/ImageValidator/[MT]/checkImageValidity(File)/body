@@ -1,0 +1,4 @@
+{
+  if (file == null)   return false;
+  return checkImageValidity(file.getPath());
+}

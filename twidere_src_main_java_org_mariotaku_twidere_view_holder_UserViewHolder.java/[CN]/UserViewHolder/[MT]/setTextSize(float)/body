@@ -1,0 +1,12 @@
+{
+  if (this.text_size == text_size)   return;
+  this.text_size=text_size;
+  description.setTextSize(text_size);
+  name.setTextSize(text_size);
+  screen_name.setTextSize(text_size * 0.75f);
+  location.setTextSize(text_size);
+  url.setTextSize(text_size);
+  statuses_count.setTextSize(text_size);
+  followers_count.setTextSize(text_size);
+  friends_count.setTextSize(text_size);
+}

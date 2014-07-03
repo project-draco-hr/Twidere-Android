@@ -1,0 +1,4 @@
+{
+  latitude=location != null ? location.getLatitude() : -1;
+  longitude=location != null ? location.getLongitude() : -1;
+}

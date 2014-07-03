@@ -1,0 +1,3 @@
+{
+  SupportProgressDialogFragment.show(mActivity,FRAGMENT_TAG_GET_USER_LISTS).setCancelable(false);
+}

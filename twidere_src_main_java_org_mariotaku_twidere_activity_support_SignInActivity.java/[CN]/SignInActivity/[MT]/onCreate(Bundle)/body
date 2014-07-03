@@ -1,0 +1,32 @@
+{
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  super.onCreate(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mResolver=getContentResolver();
+  mApplication=TwidereApplication.getInstance(this);
+  setContentView(R.layout.activity_sign_in);
+  setProgressBarIndeterminateVisibility(false);
+  final long[] account_ids=getActivatedAccountIds(this);
+  getActionBar().setDisplayHomeAsUpEnabled(account_ids.length > 0);
+  if (savedInstanceState != null) {
+    mAPIUrlFormat=savedInstanceState.getString(Accounts.API_URL_FORMAT);
+    mAuthType=savedInstanceState.getInt(Accounts.AUTH_TYPE);
+    mSameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL);
+    mConsumerKey=trim(savedInstanceState.getString(Accounts.CONSUMER_KEY));
+    mConsumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
+    mUsername=savedInstanceState.getString(Accounts.SCREEN_NAME);
+    mPassword=savedInstanceState.getString(Accounts.PASSWORD);
+    if (savedInstanceState.containsKey(Accounts.COLOR)) {
+      mUserColor=savedInstanceState.getInt(Accounts.COLOR,Color.TRANSPARENT);
+    }
+    mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
+  }
+  mUsernamePasswordContainer.setVisibility(mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE ? View.GONE : View.VISIBLE);
+  mSigninSignupContainer.setOrientation(mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+  mEditUsername.setText(mUsername);
+  mEditUsername.addTextChangedListener(this);
+  mEditPassword.setText(mPassword);
+  mEditPassword.addTextChangedListener(this);
+  setSignInButton();
+  setUserColorButton();
+}

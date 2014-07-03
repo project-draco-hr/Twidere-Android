@@ -1,0 +1,5 @@
+{
+  final Resources r=getResources();
+  final float px=TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dip,r.getDisplayMetrics());
+  return (int)px;
+}

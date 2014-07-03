@@ -1,0 +1,8 @@
+{
+  if (mIsDown && isClickable() && isEnabled()) {
+    setColorFilter(mHighlightColor,Mode.SRC_ATOP);
+  }
+ else {
+    clearColorFilter();
+  }
+}

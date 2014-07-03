@@ -1,0 +1,3 @@
+{
+  return getFirstSelectAccountId(mSelectedItems);
+}

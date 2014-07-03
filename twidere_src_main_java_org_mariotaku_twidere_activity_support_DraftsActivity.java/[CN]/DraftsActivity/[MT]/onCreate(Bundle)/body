@@ -1,0 +1,17 @@
+{
+  super.onCreate(savedInstanceState);
+  mResolver=getContentResolver();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(this));
+  setContentView(android.R.layout.list_content);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  mAdapter=new DraftsAdapter(this);
+  mListView=(ListView)findViewById(android.R.id.list);
+  mListView.setDivider(null);
+  mListView.setSelector(android.R.color.transparent);
+  mListView.setAdapter(mAdapter);
+  mListView.setOnItemClickListener(this);
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  mListView.setMultiChoiceModeListener(this);
+  getSupportLoaderManager().initLoader(0,null,this);
+}

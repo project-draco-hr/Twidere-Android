@@ -1,0 +1,13 @@
+{
+  out.writeLong("account_id",account_id);
+  out.writeLong("activity_timestamp",activity_timestamp);
+  out.writeLong("max_position",max_position);
+  out.writeLong("min_position",min_position);
+  out.writeInt("action",action);
+  out.writeParcelableArray("sources",sources);
+  out.writeParcelableArray("target_users",target_users);
+  out.writeParcelableArray("target_statuses",target_statuses);
+  out.writeParcelableArray("target_user_lists",target_user_lists);
+  out.writeParcelableArray("target_object_user_lists",target_object_user_lists);
+  out.writeParcelableArray("target_object_statuses",target_object_statuses);
+}

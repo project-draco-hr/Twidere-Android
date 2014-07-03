@@ -1,0 +1,32 @@
+{
+  super.onCreate(savedInstanceState);
+  mPackageManager=getPackageManager();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  if (data == null) {
+    finish();
+    return;
+  }
+  final Uri uri=data.buildUpon().authority(AUTHORITY_TWITTER_COM).build();
+  final Intent handledIntent=getHandledIntent(uri);
+  if (handledIntent != null) {
+    startActivity(handledIntent);
+  }
+ else {
+    final String packageName=mPreferences.getString(KEY_FALLBACK_TWITTER_LINK_HANDLER,null);
+    final Intent fallbackIntent=new Intent(Intent.ACTION_VIEW,uri);
+    fallbackIntent.setPackage(packageName);
+    if (TextUtils.isEmpty(packageName) || mPackageManager.queryIntentActivities(fallbackIntent,0).isEmpty()) {
+      final Intent pickIntent=new Intent(INTENT_ACTION_PICK_ACTIVITY);
+      pickIntent.putExtra(EXTRA_INTENT,new Intent(Intent.ACTION_VIEW,uri));
+      pickIntent.putExtra(EXTRA_BLACKLIST,new String[]{getPackageName()});
+      startActivityForResult(pickIntent,REQUEST_PICK_ACTIVITY);
+      return;
+    }
+ else {
+      startActivity(fallbackIntent);
+    }
+  }
+  finish();
+}

@@ -1,0 +1,3 @@
+{
+  mPositionController.setImageSize(mPicture.getSize(),null);
+}

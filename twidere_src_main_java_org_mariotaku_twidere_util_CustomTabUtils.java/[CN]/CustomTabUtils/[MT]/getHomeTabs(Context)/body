@@ -1,0 +1,25 @@
+{
+  if (context == null)   return Collections.emptyList();
+  final ContentResolver resolver=context.getContentResolver();
+  final Cursor cur=resolver.query(Tabs.CONTENT_URI,Tabs.COLUMNS,null,null,Tabs.DEFAULT_SORT_ORDER);
+  if (cur == null)   return Collections.emptyList();
+  final ArrayList<SupportTabSpec> tabs=new ArrayList<SupportTabSpec>();
+  cur.moveToFirst();
+  final int idxName=cur.getColumnIndex(Tabs.NAME), idxIcon=cur.getColumnIndex(Tabs.ICON), idxType=cur.getColumnIndex(Tabs.TYPE), idxArguments=cur.getColumnIndex(Tabs.ARGUMENTS), idxExtras=cur.getColumnIndex(Tabs.EXTRAS), idxPosition=cur.getColumnIndex(Tabs.POSITION);
+  while (!cur.isAfterLast()) {
+    final String type=cur.getString(idxType);
+    final int position=cur.getInt(idxPosition);
+    final String iconType=cur.getString(idxIcon);
+    final String name=cur.getString(idxName);
+    final Bundle args=ParseUtils.jsonToBundle(cur.getString(idxArguments));
+    args.putInt(EXTRA_TAB_POSITION,position);
+    args.putBundle(EXTRA_EXTRAS,ParseUtils.jsonToBundle(cur.getString(idxExtras)));
+    final CustomTabConfiguration conf=getTabConfiguration(type);
+    final Class<? extends Fragment> cls=conf != null ? conf.getFragmentClass() : InvalidTabFragment.class;
+    tabs.add(new SupportTabSpec(name != null ? name : getTabTypeName(context,type),getTabIconObject(iconType),type,cls,args,position));
+    cur.moveToNext();
+  }
+  cur.close();
+  Collections.sort(tabs);
+  return tabs;
+}

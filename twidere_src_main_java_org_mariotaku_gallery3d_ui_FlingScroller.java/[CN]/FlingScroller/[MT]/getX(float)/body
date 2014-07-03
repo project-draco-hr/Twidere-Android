@@ -1,0 +1,10 @@
+{
+  int r=(int)Math.round(mStartX + f * mDistance * mCosAngle);
+  if (mCosAngle > 0 && mStartX <= mMaxX) {
+    r=Math.min(r,mMaxX);
+  }
+ else   if (mCosAngle < 0 && mStartX >= mMinX) {
+    r=Math.max(r,mMinX);
+  }
+  return r;
+}

@@ -1,0 +1,11 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final GeoQuery geoQuery=(GeoQuery)o;
+  if (maxResults != geoQuery.maxResults)   return false;
+  if (accuracy != null ? !accuracy.equals(geoQuery.accuracy) : geoQuery.accuracy != null)   return false;
+  if (granularity != null ? !granularity.equals(geoQuery.granularity) : geoQuery.granularity != null)   return false;
+  if (ip != null ? !ip.equals(geoQuery.ip) : geoQuery.ip != null)   return false;
+  if (location != null ? !location.equals(geoQuery.location) : geoQuery.location != null)   return false;
+  return true;
+}

@@ -1,0 +1,7 @@
+{
+  final Uri uri=Uri.parse(url);
+  if (uri.getScheme().equals(Uri.parse(MAPVIEW_URI).getScheme()))   return false;
+  final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+  startActivity(intent);
+  return true;
+}

@@ -1,0 +1,7 @@
+{
+  final Cursor c=getCursor();
+  if (c == null || c.isClosed() || !c.moveToLast())   return null;
+  final long account_id=c.getLong(mIndices.account_id);
+  final long status_id=c.getLong(mIndices.status_id);
+  return findStatusInDatabases(mContext,account_id,status_id);
+}

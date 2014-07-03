@@ -1,0 +1,3 @@
+{
+  mPreference.setAccountsData(result);
+}

@@ -1,0 +1,4 @@
+{
+  super(context,attrs,defStyle);
+  setLayoutResource(R.layout.settings_layout_wizard_page_nav);
+}

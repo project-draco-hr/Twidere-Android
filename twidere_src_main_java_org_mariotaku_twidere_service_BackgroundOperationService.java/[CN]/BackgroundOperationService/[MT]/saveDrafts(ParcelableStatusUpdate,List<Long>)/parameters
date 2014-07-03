@@ -1,0 +1,2 @@
+ParcelableStatusUpdate status
+List<Long> account_ids

@@ -1,0 +1,17 @@
+{
+  final Field[] fields=SharedPreferenceConstants.class.getDeclaredFields();
+  final HashMap<String,Preference> supportedPrefsMap=new HashMap<String,Preference>();
+  for (  final Field field : fields) {
+    final Preference annotation=field.getAnnotation(Preference.class);
+    if (Modifier.isStatic(field.getModifiers()) && CompareUtils.classEquals(field.getType(),String.class) && annotation != null && annotation.exportable() && annotation.type() != INVALID) {
+      try {
+        supportedPrefsMap.put((String)field.get(null),annotation);
+      }
+ catch (      final IllegalAccessException e) {
+      }
+catch (      final IllegalArgumentException e) {
+      }
+    }
+  }
+  return supportedPrefsMap;
+}

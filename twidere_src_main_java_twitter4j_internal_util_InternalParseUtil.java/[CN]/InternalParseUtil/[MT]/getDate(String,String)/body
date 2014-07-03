@@ -1,0 +1,14 @@
+{
+  SimpleDateFormat sdf=formatMap.get().get(format);
+  if (null == sdf) {
+    sdf=new SimpleDateFormat(format,Locale.ENGLISH);
+    sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+    formatMap.get().put(format,sdf);
+  }
+  try {
+    return sdf.parse(date);
+  }
+ catch (  final ParseException pe) {
+    throw new TwitterException("Unexpected date format(" + date + ") returned from twitter.com",pe);
+  }
+}

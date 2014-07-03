@@ -1,0 +1,3 @@
+TabPageIndicator parent
+CharSequence text
+int index

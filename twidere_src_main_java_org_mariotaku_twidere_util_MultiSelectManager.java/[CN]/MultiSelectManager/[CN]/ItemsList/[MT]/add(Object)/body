@@ -1,0 +1,12 @@
+{
+  if (object instanceof ParcelableStatus) {
+    manager.mSelectedStatusIds.add(((ParcelableStatus)object).id);
+  }
+ else   if (object instanceof ParcelableUser) {
+    manager.mSelectedUserIds.add(((ParcelableUser)object).id);
+  }
+ else   return false;
+  final boolean ret=super.add(object);
+  manager.onItemSelected(object);
+  return ret;
+}

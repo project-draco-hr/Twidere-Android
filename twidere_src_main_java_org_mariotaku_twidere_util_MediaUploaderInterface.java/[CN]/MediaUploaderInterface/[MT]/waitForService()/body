@@ -1,0 +1,10 @@
+{
+  while (mUploader == null) {
+    try {
+      Thread.sleep(100L);
+    }
+ catch (    final InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+}

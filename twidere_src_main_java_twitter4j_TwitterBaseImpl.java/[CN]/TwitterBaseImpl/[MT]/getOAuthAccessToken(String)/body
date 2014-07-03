@@ -1,0 +1,5 @@
+{
+  final AccessToken oauthAccessToken=getOAuth().getOAuthAccessToken(oauthVerifier);
+  screenName=oauthAccessToken.getScreenName();
+  return oauthAccessToken;
+}

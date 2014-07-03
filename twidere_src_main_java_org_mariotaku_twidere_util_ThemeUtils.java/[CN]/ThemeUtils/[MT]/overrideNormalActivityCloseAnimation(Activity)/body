@@ -1,0 +1,7 @@
+{
+  final TypedArray a=activity.obtainStyledAttributes(android.R.style.Animation_Activity,ANIM_CLOSE_STYLE_ATTRS);
+  final int activityCloseEnterAnimation=a.getResourceId(0,0);
+  final int activityCloseExitAnimation=a.getResourceId(1,0);
+  a.recycle();
+  activity.overridePendingTransition(activityCloseEnterAnimation,activityCloseExitAnimation);
+}

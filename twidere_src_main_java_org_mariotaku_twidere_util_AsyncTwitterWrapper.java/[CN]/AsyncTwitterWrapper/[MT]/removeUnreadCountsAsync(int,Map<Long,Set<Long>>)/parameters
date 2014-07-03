@@ -1,0 +1,2 @@
+int position
+Map<Long,Set<Long>> counts

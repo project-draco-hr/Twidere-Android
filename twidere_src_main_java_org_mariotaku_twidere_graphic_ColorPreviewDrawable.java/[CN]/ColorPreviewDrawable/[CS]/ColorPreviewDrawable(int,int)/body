@@ -1,0 +1,8 @@
+{
+  super(alphaPatternSize);
+  mPaint=new Paint();
+  mPaint.setColor(Color.WHITE);
+  mPaint.setStrokeWidth(2.0f);
+  mColor=color;
+  mPoints=new float[16];
+}

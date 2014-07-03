@@ -1,0 +1,17 @@
+{
+switch (keyCode) {
+case KeyEvent.KEYCODE_MENU:
+{
+      if (mSlidingMenu != null) {
+        mSlidingMenu.toggle(true);
+        return true;
+      }
+      break;
+    }
+default :
+{
+    if (mHotKeyHandler.handleKey(keyCode,event))     return true;
+  }
+}
+return super.onKeyUp(keyCode,event);
+}

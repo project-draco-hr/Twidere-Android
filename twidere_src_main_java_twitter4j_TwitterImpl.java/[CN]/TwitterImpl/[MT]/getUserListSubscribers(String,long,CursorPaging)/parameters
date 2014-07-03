@@ -1,0 +1,3 @@
+String slug
+long ownerId
+CursorPaging paging

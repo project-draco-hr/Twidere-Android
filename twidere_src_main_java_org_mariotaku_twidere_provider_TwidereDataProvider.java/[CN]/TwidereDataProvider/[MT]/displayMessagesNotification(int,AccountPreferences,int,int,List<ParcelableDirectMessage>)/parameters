@@ -1,0 +1,5 @@
+int notifiedCount
+AccountPreferences accountPrefs
+int notificationType
+int icon
+List<ParcelableDirectMessage> messages

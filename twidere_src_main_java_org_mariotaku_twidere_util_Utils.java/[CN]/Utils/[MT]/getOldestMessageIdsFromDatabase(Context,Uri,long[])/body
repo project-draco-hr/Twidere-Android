@@ -1,0 +1,21 @@
+{
+  if (context == null || uri == null)   return null;
+  final String[] cols=new String[]{DirectMessages.MESSAGE_ID};
+  final ContentResolver resolver=context.getContentResolver();
+  final long[] status_ids=new long[account_ids.length];
+  int idx=0;
+  for (  final long account_id : account_ids) {
+    final String where=Statuses.ACCOUNT_ID + " = " + account_id;
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,DirectMessages.MESSAGE_ID);
+    if (cur == null) {
+      continue;
+    }
+    if (cur.getCount() > 0) {
+      cur.moveToFirst();
+      status_ids[idx]=cur.getLong(cur.getColumnIndexOrThrow(DirectMessages.MESSAGE_ID));
+    }
+    cur.close();
+    idx++;
+  }
+  return status_ids;
+}

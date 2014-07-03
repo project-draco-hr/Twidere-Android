@@ -1,0 +1,6 @@
+{
+  super(context,attrs,defStyle);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.NotificationTypePreference);
+  mDefaultValue=a.getInteger(R.styleable.NotificationTypePreference_notificationType,0);
+  a.recycle();
+}

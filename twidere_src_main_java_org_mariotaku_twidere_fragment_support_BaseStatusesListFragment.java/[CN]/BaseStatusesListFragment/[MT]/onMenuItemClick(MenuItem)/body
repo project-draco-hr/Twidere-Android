@@ -1,0 +1,103 @@
+{
+  final ParcelableStatus status=mSelectedStatus;
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (status == null || twitter == null)   return false;
+switch (item.getItemId()) {
+case MENU_VIEW:
+{
+      openStatus(getActivity(),status);
+      break;
+    }
+case MENU_SHARE:
+{
+    startStatusShareChooser(getActivity(),status);
+    break;
+  }
+case MENU_COPY:
+{
+  if (ClipboardUtils.setText(getActivity(),status.text_plain)) {
+    showOkMessage(getActivity(),R.string.text_copied,false);
+  }
+  break;
+}
+case MENU_RETWEET:
+{
+if (isMyRetweet(status)) {
+  cancelRetweet(twitter,status);
+}
+ else {
+  final long id_to_retweet=status.retweet_id > 0 ? status.retweet_id : status.id;
+  twitter.retweetStatus(status.account_id,id_to_retweet);
+}
+break;
+}
+case MENU_QUOTE:
+{
+final Intent intent=new Intent(INTENT_ACTION_QUOTE);
+final Bundle bundle=new Bundle();
+bundle.putParcelable(EXTRA_STATUS,status);
+intent.putExtras(bundle);
+startActivity(intent);
+break;
+}
+case MENU_REPLY:
+{
+final Intent intent=new Intent(INTENT_ACTION_REPLY);
+final Bundle bundle=new Bundle();
+bundle.putParcelable(EXTRA_STATUS,status);
+intent.putExtras(bundle);
+startActivity(intent);
+break;
+}
+case MENU_FAVORITE:
+{
+if (status.is_favorite) {
+twitter.destroyFavoriteAsync(status.account_id,status.id);
+}
+ else {
+twitter.createFavoriteAsync(status.account_id,status.id);
+}
+break;
+}
+case MENU_DELETE:
+{
+DestroyStatusDialogFragment.show(getFragmentManager(),status);
+break;
+}
+case MENU_ADD_TO_FILTER:
+{
+AddStatusFilterDialogFragment.show(getFragmentManager(),status);
+break;
+}
+case MENU_TRANSLATE:
+{
+final AccountWithCredentials account=Account.getAccountWithCredentials(getActivity(),status.account_id);
+if (AccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
+StatusTranslateDialogFragment.show(getFragmentManager(),status);
+}
+ else {
+}
+break;
+}
+case MENU_MULTI_SELECT:
+{
+final boolean isSelected=!mMultiSelectManager.isSelected(status);
+setItemSelected(status,mSelectedPosition,isSelected);
+break;
+}
+default :
+{
+if (item.getIntent() != null) {
+try {
+startActivity(item.getIntent());
+}
+ catch (final ActivityNotFoundException e) {
+Log.w(LOGTAG,e);
+return false;
+}
+}
+break;
+}
+}
+return true;
+}

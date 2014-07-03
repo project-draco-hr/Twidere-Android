@@ -1,0 +1,8 @@
+{
+  final SharedPreferences prefs=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  prefs.edit().putBoolean(KEY_SETTINGS_WIZARD_COMPLETED,true).apply();
+  final Intent intent=new Intent(this,HomeActivity.class);
+  intent.putExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,true);
+  startActivity(intent);
+  finish();
+}

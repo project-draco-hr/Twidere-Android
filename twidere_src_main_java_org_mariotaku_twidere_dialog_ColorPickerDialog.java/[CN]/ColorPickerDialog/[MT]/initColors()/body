@@ -1,0 +1,5 @@
+{
+  for (  final int color : COLORS) {
+    mColorsAdapter.add(color);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (context == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)   return Typeface.DEFAULT;
+  final int fontStyle=defTypeface != null ? defTypeface.getStyle() : Typeface.NORMAL;
+  final String fontFamily=getThemeFontFamily(context);
+  final Typeface tf=Typeface.create(fontFamily,fontStyle);
+  if (tf != null)   return tf;
+  return Typeface.create(Typeface.DEFAULT,fontStyle);
+}

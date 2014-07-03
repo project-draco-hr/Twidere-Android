@@ -1,0 +1,6 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_MUTES_USERS_DESTROY;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_MUTES_USERS_DESTROY;
+  return factory.createUser(post(url,signUrl,new HttpParameter("user_id",userId),INCLUDE_ENTITIES));
+}

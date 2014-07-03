@@ -1,0 +1,11 @@
+{
+  final Twitter twitter=getTwitterInstance(getContext(),mAccountId,false);
+  if (twitter == null)   return null;
+  try {
+    return twitter.getSavedSearches();
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

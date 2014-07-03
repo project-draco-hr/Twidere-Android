@@ -1,0 +1,39 @@
+{
+  if (twitter == null)   return null;
+  final RequestToken requestToken;
+  try {
+    requestToken=twitter.getOAuthRequestToken(OAUTH_CALLBACK_OOB);
+  }
+ catch (  final TwitterException e) {
+    if (e.isCausedByNetworkIssue())     throw new AuthenticationException(e);
+    throw new AuthenticityTokenException();
+  }
+  try {
+    final String oauthToken=requestToken.getToken();
+    final String authorizationUrl=requestToken.getAuthorizationURL().toString();
+    final String authenticityToken=readAuthenticityTokenFromHtml(client.get(authorizationUrl,authorizationUrl,null,null).asReader());
+    if (authenticityToken == null)     throw new AuthenticityTokenException();
+    final Configuration conf=twitter.getConfiguration();
+    final HttpParameter[] params=new HttpParameter[4];
+    params[0]=new HttpParameter("authenticity_token",authenticityToken);
+    params[1]=new HttpParameter("oauth_token",oauthToken);
+    params[2]=new HttpParameter("session[username_or_email]",username);
+    params[3]=new HttpParameter("session[password]",password);
+    final String oAuthAuthorizationUrl=conf.getOAuthAuthorizationURL().toString();
+    final String oauthPin=readOAuthPINFromHtml(client.post(oAuthAuthorizationUrl,oAuthAuthorizationUrl,params).asReader());
+    if (isEmpty(oauthPin))     throw new WrongUserPassException();
+    return twitter.getOAuthAccessToken(requestToken,oauthPin);
+  }
+ catch (  final IOException e) {
+    throw new AuthenticationException(e);
+  }
+catch (  final TwitterException e) {
+    throw new AuthenticationException(e);
+  }
+catch (  final NullPointerException e) {
+    throw new AuthenticationException(e);
+  }
+catch (  final XmlPullParserException e) {
+    throw new AuthenticationException(e);
+  }
+}

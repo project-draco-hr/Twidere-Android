@@ -1,0 +1,8 @@
+{
+  if (tile.mTileState == STATE_ACTIVATED) {
+    tile.mTileState=STATE_IN_QUEUE;
+    if (mDecodeQueue.push(tile)) {
+      notifyAll();
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  mHolding&=~HOLD_TOUCH_DOWN;
+  mEdgeView.onRelease();
+  if (mIgnoreUpEvent) {
+    mIgnoreUpEvent=false;
+    return;
+  }
+  snapback();
+}

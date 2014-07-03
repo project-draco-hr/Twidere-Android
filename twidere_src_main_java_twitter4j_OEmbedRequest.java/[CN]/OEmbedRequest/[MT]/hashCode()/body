@@ -1,0 +1,12 @@
+{
+  int result=(int)(statusId ^ statusId >>> 32);
+  result=31 * result + (url != null ? url.hashCode() : 0);
+  result=31 * result + maxWidth;
+  result=31 * result + (hideMedia ? 1 : 0);
+  result=31 * result + (hideThread ? 1 : 0);
+  result=31 * result + (omitScript ? 1 : 0);
+  result=31 * result + (align != null ? align.hashCode() : 0);
+  result=31 * result + (related != null ? Arrays.hashCode(related) : 0);
+  result=31 * result + (lang != null ? lang.hashCode() : 0);
+  return result;
+}

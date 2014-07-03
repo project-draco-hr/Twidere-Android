@@ -1,0 +1,5 @@
+{
+  if (mActive)   return;
+  mActive=true;
+  queueEvent(this);
+}

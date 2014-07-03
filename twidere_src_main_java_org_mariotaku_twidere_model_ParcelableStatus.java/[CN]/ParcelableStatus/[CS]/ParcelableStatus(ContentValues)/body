@@ -1,0 +1,36 @@
+{
+  id=getAsLong(values,Statuses.STATUS_ID,-1);
+  account_id=getAsLong(values,Statuses.ACCOUNT_ID,-1);
+  timestamp=getAsLong(values,Statuses.STATUS_TIMESTAMP,-1);
+  user_id=getAsLong(values,Statuses.USER_ID,-1);
+  retweet_id=getAsLong(values,Statuses.RETWEET_ID,-1);
+  retweet_timestamp=getAsLong(values,Statuses.RETWEET_TIMESTAMP,-1);
+  retweeted_by_id=getAsLong(values,Statuses.RETWEETED_BY_USER_ID,-1);
+  user_name=values.getAsString(Statuses.USER_NAME);
+  user_screen_name=values.getAsString(Statuses.USER_SCREEN_NAME);
+  text_html=values.getAsString(Statuses.TEXT_HTML);
+  text_plain=values.getAsString(Statuses.TEXT_PLAIN);
+  user_profile_image_url=values.getAsString(Statuses.USER_PROFILE_IMAGE_URL);
+  is_favorite=getAsBoolean(values,Statuses.IS_FAVORITE,false);
+  is_retweet=getAsBoolean(values,Statuses.IS_RETWEET,false);
+  is_gap=getAsBoolean(values,Statuses.IS_GAP,false);
+  location=ParcelableLocation.fromString(values.getAsString(Statuses.LOCATION));
+  user_is_protected=getAsBoolean(values,Statuses.IS_PROTECTED,false);
+  user_is_verified=getAsBoolean(values,Statuses.IS_VERIFIED,false);
+  in_reply_to_status_id=getAsLong(values,Statuses.IN_REPLY_TO_STATUS_ID,-1);
+  in_reply_to_user_id=getAsLong(values,Statuses.IN_REPLY_TO_USER_ID,-1);
+  in_reply_to_name=values.getAsString(Statuses.IN_REPLY_TO_USER_NAME);
+  in_reply_to_screen_name=values.getAsString(Statuses.IN_REPLY_TO_USER_SCREEN_NAME);
+  my_retweet_id=getAsLong(values,Statuses.MY_RETWEET_ID,-1);
+  retweeted_by_name=values.getAsString(Statuses.RETWEETED_BY_USER_NAME);
+  retweeted_by_screen_name=values.getAsString(Statuses.RETWEETED_BY_USER_SCREEN_NAME);
+  source=values.getAsString(Statuses.SOURCE);
+  retweet_count=getAsInteger(values,Statuses.RETWEET_COUNT,0);
+  favorite_count=getAsInteger(values,Statuses.FAVORITE_COUNT,0);
+  text_unescaped=values.getAsString(Statuses.TEXT_UNESCAPED);
+  medias=ParcelableMedia.fromJSONString(values.getAsString(Statuses.MEDIAS));
+  is_possibly_sensitive=getAsBoolean(values,Statuses.IS_POSSIBLY_SENSITIVE,false);
+  user_is_following=getAsBoolean(values,Statuses.IS_FOLLOWING,false);
+  mentions=ParcelableUserMention.fromJSONString(values.getAsString(Statuses.MENTIONS));
+  first_media=values.getAsString(Statuses.FIRST_MEDIA);
+}

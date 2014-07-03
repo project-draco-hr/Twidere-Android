@@ -1,0 +1,7 @@
+{
+  super.onPageFinished(view,url);
+  if (mActivity instanceof BaseSupportActivity) {
+    mActivity.setTitle(view.getTitle());
+    ((BaseSupportActivity)mActivity).setProgressBarIndeterminateVisibility(false);
+  }
+}

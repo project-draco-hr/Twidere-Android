@@ -1,0 +1,5 @@
+{
+  if (mImageDownloader != null) {
+    mImageDownloader.reloadConnectivitySettings();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  removeCallbacks(mInvalidateRunnable);
+  super.onDetachedFromWindow();
+}

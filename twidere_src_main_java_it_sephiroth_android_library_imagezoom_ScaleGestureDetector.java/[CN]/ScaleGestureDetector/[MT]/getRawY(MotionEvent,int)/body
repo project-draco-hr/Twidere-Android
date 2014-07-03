@@ -1,0 +1,4 @@
+{
+  final float offset=event.getY() - event.getRawY();
+  return event.getY(pointerIndex) + offset;
+}

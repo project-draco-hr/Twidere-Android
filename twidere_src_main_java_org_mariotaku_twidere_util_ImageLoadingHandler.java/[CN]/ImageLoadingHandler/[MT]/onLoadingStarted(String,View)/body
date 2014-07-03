@@ -1,0 +1,10 @@
+{
+  if (view == null || imageUri == null || imageUri.equals(mLoadingUris.get(view)))   return;
+  mLoadingUris.put(view,imageUri);
+  final ProgressBar progress=findProgressBar(view.getParent());
+  if (progress != null) {
+    progress.setVisibility(View.VISIBLE);
+    progress.setIndeterminate(true);
+    progress.setMax(100);
+  }
+}

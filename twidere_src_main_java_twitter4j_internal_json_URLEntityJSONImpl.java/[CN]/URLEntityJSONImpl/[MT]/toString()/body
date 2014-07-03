@@ -1,0 +1,3 @@
+{
+  return "URLEntityJSONImpl{" + "start=" + start + ", end="+ end+ ", url="+ url+ ", expandedURL="+ expandedURL+ ", displayURL="+ displayURL+ '}';
+}

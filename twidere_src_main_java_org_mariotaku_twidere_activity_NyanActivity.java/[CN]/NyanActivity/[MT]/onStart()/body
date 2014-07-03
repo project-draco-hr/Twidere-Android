@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  if (mHelper != null) {
+    mHelper.start();
+  }
+}

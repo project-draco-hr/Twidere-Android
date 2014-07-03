@@ -1,0 +1,8 @@
+{
+  if (requiredPermissions == null || requiredPermissions.length == 0)   return true;
+  if (Process.myUid() == uid)   return true;
+  if (checkSignature(uid))   return true;
+  final String pname=getPackageNameByUid(uid);
+  final String[] permissions=getPermissions(pname);
+  return ArrayUtils.contains(permissions,requiredPermissions);
+}

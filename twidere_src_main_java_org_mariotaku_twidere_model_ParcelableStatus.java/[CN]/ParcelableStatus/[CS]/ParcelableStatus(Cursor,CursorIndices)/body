@@ -1,0 +1,36 @@
+{
+  id=idx.status_id != -1 ? c.getLong(idx.status_id) : -1;
+  account_id=idx.account_id != -1 ? c.getLong(idx.account_id) : -1;
+  timestamp=idx.status_timestamp != -1 ? c.getLong(idx.status_timestamp) : 0;
+  user_id=idx.user_id != -1 ? c.getLong(idx.user_id) : -1;
+  retweet_id=idx.retweet_id != -1 ? c.getLong(idx.retweet_id) : -1;
+  retweet_timestamp=idx.retweet_timestamp != -1 ? c.getLong(idx.retweet_timestamp) : -1;
+  retweeted_by_id=idx.retweeted_by_user_id != -1 ? c.getLong(idx.retweeted_by_user_id) : -1;
+  retweet_count=idx.retweet_count != -1 ? c.getLong(idx.retweet_count) : -1;
+  favorite_count=idx.favorite_count != -1 ? c.getLong(idx.favorite_count) : -1;
+  in_reply_to_status_id=idx.in_reply_to_status_id != -1 ? c.getLong(idx.in_reply_to_status_id) : -1;
+  in_reply_to_user_id=idx.in_reply_to_user_id != -1 ? c.getLong(idx.in_reply_to_user_id) : -1;
+  is_gap=idx.is_gap != -1 ? c.getInt(idx.is_gap) == 1 : false;
+  is_retweet=idx.is_retweet != -1 ? c.getInt(idx.is_retweet) == 1 : false;
+  is_favorite=idx.is_favorite != -1 ? c.getInt(idx.is_favorite) == 1 : false;
+  user_is_protected=idx.is_protected != -1 ? c.getInt(idx.is_protected) == 1 : false;
+  user_is_verified=idx.is_verified != -1 ? c.getInt(idx.is_verified) == 1 : false;
+  retweeted_by_name=idx.retweeted_by_user_name != -1 ? c.getString(idx.retweeted_by_user_name) : null;
+  retweeted_by_screen_name=idx.retweeted_by_user_screen_name != -1 ? c.getString(idx.retweeted_by_user_screen_name) : null;
+  text_html=idx.text_html != -1 ? c.getString(idx.text_html) : null;
+  medias=ParcelableMedia.fromJSONString(idx.medias != -1 ? c.getString(idx.medias) : null);
+  text_plain=idx.text_plain != -1 ? c.getString(idx.text_plain) : null;
+  user_name=idx.user_name != -1 ? c.getString(idx.user_name) : null;
+  user_screen_name=idx.user_screen_name != -1 ? c.getString(idx.user_screen_name) : null;
+  in_reply_to_name=idx.in_reply_to_user_name != -1 ? c.getString(idx.in_reply_to_user_name) : null;
+  in_reply_to_screen_name=idx.in_reply_to_user_screen_name != -1 ? c.getString(idx.in_reply_to_user_screen_name) : null;
+  source=idx.source != -1 ? c.getString(idx.source) : null;
+  location=idx.location != -1 ? new ParcelableLocation(c.getString(idx.location)) : null;
+  user_profile_image_url=idx.user_profile_image_url != -1 ? c.getString(idx.user_profile_image_url) : null;
+  text_unescaped=idx.text_unescaped != -1 ? c.getString(idx.text_unescaped) : null;
+  my_retweet_id=idx.my_retweet_id != -1 ? c.getLong(idx.my_retweet_id) : -1;
+  is_possibly_sensitive=idx.is_possibly_sensitive != -1 ? c.getInt(idx.is_possibly_sensitive) == 1 : false;
+  user_is_following=idx.is_following != -1 ? c.getInt(idx.is_following) == 1 : false;
+  mentions=idx.mentions != -1 ? ParcelableUserMention.fromJSONString(c.getString(idx.mentions)) : null;
+  first_media=idx.first_media != -1 ? c.getString(idx.first_media) : null;
+}

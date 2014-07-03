@@ -1,0 +1,8 @@
+{
+  if (adapter == null) {
+    super.setListAdapter(null);
+  }
+ else {
+    super.setListAdapter(getHeaderAdapter());
+  }
+}

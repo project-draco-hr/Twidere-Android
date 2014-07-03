@@ -1,0 +1,4 @@
+{
+  mTabs.clear();
+  notifyDataSetChanged();
+}

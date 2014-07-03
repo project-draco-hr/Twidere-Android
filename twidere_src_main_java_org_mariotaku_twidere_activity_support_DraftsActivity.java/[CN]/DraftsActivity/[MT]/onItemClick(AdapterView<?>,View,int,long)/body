@@ -1,0 +1,8 @@
+{
+  final Cursor c=mAdapter.getCursor();
+  if (c == null || c.isClosed() || !c.moveToPosition(position))   return;
+  final DraftItem item=new DraftItem(c,new DraftItem.CursorIndices(c));
+  if (item.action_type == Drafts.ACTION_UPDATE_STATUS || item.action_type <= 0) {
+    editDraft(item);
+  }
+}

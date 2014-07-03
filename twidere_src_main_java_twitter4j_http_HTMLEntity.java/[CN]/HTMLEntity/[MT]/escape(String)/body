@@ -1,0 +1,5 @@
+{
+  final StringBuffer buf=new StringBuffer(original);
+  escape(buf);
+  return buf.toString();
+}

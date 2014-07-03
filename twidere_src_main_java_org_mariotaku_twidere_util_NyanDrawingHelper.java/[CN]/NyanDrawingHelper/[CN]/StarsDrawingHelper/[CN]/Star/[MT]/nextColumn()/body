@@ -1,0 +1,8 @@
+{
+  final int column=mCurrentColumn;
+  mCurrentColumn--;
+  if (mCurrentColumn < 0) {
+    mCurrentColumn=mMaxColumn - 1;
+  }
+  return column;
+}

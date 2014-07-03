@@ -1,0 +1,3 @@
+{
+  if (!(auth instanceof OAuthAuthorization))   throw new IllegalStateException("OAuth required. Authentication credentials are missing. See http://twitter4j.org/configuration.html for the detail.");
+}

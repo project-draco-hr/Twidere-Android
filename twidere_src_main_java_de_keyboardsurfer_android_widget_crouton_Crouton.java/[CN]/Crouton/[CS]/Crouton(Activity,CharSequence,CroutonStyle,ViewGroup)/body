@@ -1,0 +1,8 @@
+{
+  if (activity == null || text == null || style == null)   throw new IllegalArgumentException("Null parameters are not accepted");
+  this.activity=activity;
+  this.text=text;
+  this.style=style;
+  this.viewGroup=viewGroup;
+  customView=null;
+}

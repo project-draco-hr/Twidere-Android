@@ -1,0 +1,6 @@
+{
+  for (  final ManagedAsyncTask<?,?,?> task : getTaskSpecList()) {
+    task.cancel(true);
+  }
+  mTasks.clear();
+}

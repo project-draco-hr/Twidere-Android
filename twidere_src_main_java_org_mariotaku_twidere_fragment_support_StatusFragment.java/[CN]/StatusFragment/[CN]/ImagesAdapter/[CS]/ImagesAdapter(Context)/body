@@ -1,0 +1,4 @@
+{
+  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
+  mInflater=LayoutInflater.from(context);
+}

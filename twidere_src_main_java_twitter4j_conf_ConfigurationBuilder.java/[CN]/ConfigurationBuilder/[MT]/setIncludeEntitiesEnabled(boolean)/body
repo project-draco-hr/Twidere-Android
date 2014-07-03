@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setIncludeEntitiesEnbled(enabled);
+  return this;
+}

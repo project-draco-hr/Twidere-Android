@@ -1,0 +1,5 @@
+{
+  if (isVisibleToUser) {
+    mCurrentVisibleFragment=fragment;
+  }
+}

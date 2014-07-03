@@ -1,0 +1,4 @@
+{
+  if (mStatus == null || !ParseUtils.parseString(mStatus.user_id).equals(key))   return;
+  displayStatus(mStatus);
+}

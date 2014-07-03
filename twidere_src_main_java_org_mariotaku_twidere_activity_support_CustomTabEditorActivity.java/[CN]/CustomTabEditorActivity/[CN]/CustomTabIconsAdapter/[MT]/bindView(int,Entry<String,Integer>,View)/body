@@ -1,0 +1,10 @@
+{
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  final int value=item.getValue();
+  if (value > 0) {
+    ViewAccessor.setBackground(icon,mResources.getDrawable(value));
+  }
+ else {
+    ViewAccessor.setBackground(icon,null);
+  }
+}

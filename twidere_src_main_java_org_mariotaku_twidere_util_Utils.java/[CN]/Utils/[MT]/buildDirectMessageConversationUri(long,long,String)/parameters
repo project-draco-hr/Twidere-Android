@@ -1,0 +1,3 @@
+long account_id
+long conversation_id
+String screen_name

@@ -1,0 +1,15 @@
+{
+  if (screenNames == null || screenNames.length == 0 || accountId <= 0)   return false;
+  final String myScreenName=getAccountScreenName(this,accountId);
+  if (isEmpty(myScreenName))   return false;
+  for (  final String screenName : screenNames) {
+    if (screenName.equalsIgnoreCase(myScreenName)) {
+      continue;
+    }
+    mEditText.append("@" + screenName + " ");
+  }
+  mEditText.setSelection(mEditText.length());
+  mSendAccountIds=new long[]{accountId};
+  mInReplyToStatusId=inReplyToStatusId;
+  return true;
+}

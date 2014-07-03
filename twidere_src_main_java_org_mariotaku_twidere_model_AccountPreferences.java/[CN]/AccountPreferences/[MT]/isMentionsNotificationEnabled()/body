@@ -1,0 +1,3 @@
+{
+  return mPreferences.getBoolean(KEY_MENTIONS_NOTIFICATION,DEFAULT_MENTIONS_NOTIFICATION);
+}

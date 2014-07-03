@@ -1,0 +1,12 @@
+{
+  final Activity activity=getActivity();
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      if (activity instanceof ComposeActivity) {
+        ((ComposeActivity)activity).updateStatus();
+      }
+      break;
+    }
+}
+}

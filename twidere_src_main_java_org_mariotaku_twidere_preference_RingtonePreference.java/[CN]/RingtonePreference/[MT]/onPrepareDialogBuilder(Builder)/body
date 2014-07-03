@@ -1,0 +1,15 @@
+{
+  loadRingtones(getContext());
+  setSelectedItem(ArrayUtils.indexOf(mValues,getPersistedString(null)));
+  builder.setSingleChoiceItems(getEntries(),getSelectedItem(),new OnClickListener(){
+    @Override public void onClick(    final DialogInterface dialog,    final int which){
+      setSelectedItem(which);
+      final Ringtone ringtone=getSelectedRingtone();
+      if (ringtone.isPlaying()) {
+        ringtone.stop();
+      }
+      ringtone.play();
+    }
+  }
+);
+}

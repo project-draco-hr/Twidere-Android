@@ -1,0 +1,11 @@
+{
+  final Intent intent=new Intent(Intent.ACTION_PICK);
+  intent.setType("image/*");
+  intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+  try {
+    startActivityForResult(intent,REQUEST_PICK_IMAGE);
+  }
+ catch (  final ActivityNotFoundException e) {
+    showErrorMessage(this,null,e,false);
+  }
+}

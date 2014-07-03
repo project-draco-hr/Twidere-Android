@@ -1,0 +1,6 @@
+{
+  if (KEY_SHOW_ABSOLUTE_TIME.equals(key)) {
+    updateTimeDisplayOption();
+    invalidateTime();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  final int pos=mTabIconSpinner.getSelectedItemPosition();
+  if (mTabIconsAdapter.getCount() > pos && pos >= 0)   return mTabIconsAdapter.getItem(pos).getKey();
+  return null;
+}

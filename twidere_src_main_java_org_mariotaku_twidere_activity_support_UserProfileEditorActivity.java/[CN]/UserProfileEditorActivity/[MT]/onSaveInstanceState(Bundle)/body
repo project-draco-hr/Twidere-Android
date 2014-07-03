@@ -1,0 +1,8 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putParcelable(EXTRA_USER,mUser);
+  outState.putString(EXTRA_NAME,ParseUtils.parseString(mEditName.getText()));
+  outState.putString(EXTRA_DESCRIPTION,ParseUtils.parseString(mEditDescription.getText()));
+  outState.putString(EXTRA_LOCATION,ParseUtils.parseString(mEditLocation.getText()));
+  outState.putString(EXTRA_URL,ParseUtils.parseString(mEditUrl.getText()));
+}

@@ -1,0 +1,4 @@
+{
+  mCurrentColor=color;
+  notifyDataSetChanged();
+}

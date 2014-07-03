@@ -1,0 +1,5 @@
+{
+  super(context,R.layout.spinner_item_custom_tab_icon);
+  setDropDownViewResource(R.layout.list_item_two_line_small);
+  mResources=context.getResources();
+}

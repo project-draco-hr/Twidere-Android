@@ -1,0 +1,4 @@
+{
+  mMultiSelectManager.unregisterCallback(this);
+  super.onStop();
+}

@@ -1,0 +1,17 @@
+{
+  final Context context=getContext();
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mDatabaseWrapper=new SQLiteDatabaseWrapper(this);
+  mHostAddressResolver=app.getHostAddressResolver();
+  mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  updatePreferences();
+  mPermissionsManager=new PermissionsManager(context);
+  mImagePreloader=new ImagePreloader(context,app.getImageLoader());
+  final IntentFilter filter=new IntentFilter();
+  filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTART);
+  filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTOP);
+  context.registerReceiver(mHomeActivityStateReceiver,filter);
+  restoreUnreadItems();
+  return true;
+}

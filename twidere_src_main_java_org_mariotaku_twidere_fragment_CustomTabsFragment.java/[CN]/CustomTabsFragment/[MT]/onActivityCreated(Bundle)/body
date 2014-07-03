@@ -1,0 +1,22 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mResolver=getContentResolver();
+  final Activity activity=getActivity();
+  final int themeRes;
+  if (activity instanceof IThemedActivity) {
+    themeRes=((IThemedActivity)activity).getThemeResourceId();
+  }
+ else {
+    themeRes=ThemeUtils.getSettingsThemeResource(activity);
+  }
+  mAdapter=new CustomTabsAdapter(ThemeUtils.getThemedContextForActionIcons(activity,themeRes));
+  setListAdapter(mAdapter);
+  setEmptyText(getString(R.string.no_tab_hint));
+  mListView=(DragSortListView)getListView();
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  mListView.setMultiChoiceModeListener(this);
+  mListView.setDropListener(this);
+  getLoaderManager().initLoader(0,null,this);
+  setListShown(false);
+}

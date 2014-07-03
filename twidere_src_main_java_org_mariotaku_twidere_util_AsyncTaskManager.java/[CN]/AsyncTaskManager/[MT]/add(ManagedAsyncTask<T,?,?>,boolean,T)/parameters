@@ -1,0 +1,3 @@
+ManagedAsyncTask<T,?,?> task
+boolean exec
+T params

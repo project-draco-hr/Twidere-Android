@@ -1,0 +1,4 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  getPreferenceManager().setSharedPreferencesName(SHARED_PREFERENCES_NAME);
+}

@@ -1,0 +1,11 @@
+{
+  mCurrentThemeResource=getThemeResourceId();
+  mCurrentThemeColor=getThemeColor();
+  mCurrentThemeFontFamily=getThemeFontFamily();
+  mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
+  ThemeUtils.notifyStatusBarColorChanged(this,mCurrentThemeResource,mCurrentThemeColor,mCurrentThemeBackgroundAlpha);
+  setTheme(mCurrentThemeResource);
+  if (ThemeUtils.isTransparentBackground(mCurrentThemeResource)) {
+    getWindow().setBackgroundDrawable(ThemeUtils.getWindowBackground(this));
+  }
+}

@@ -1,0 +1,15 @@
+{
+  super.onScrollStateChanged(view,scrollState);
+switch (scrollState) {
+case SCROLL_STATE_FLING:
+case SCROLL_STATE_TOUCH_SCROLL:
+{
+      break;
+    }
+case SCROLL_STATE_IDLE:
+{
+    savePosition();
+    break;
+  }
+}
+}

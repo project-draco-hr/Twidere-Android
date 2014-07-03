@@ -1,0 +1,5 @@
+{
+  final ContentResolver cr=getContentResolver();
+  if (cr == null || c == null || uri == null)   return;
+  c.setNotificationUri(cr,uri);
+}

@@ -1,0 +1,8 @@
+{
+  mIsVisible=false;
+  final MessagesManager croutons=getMessagesManager();
+  if (croutons != null) {
+    croutons.removeMessageCallback(this);
+  }
+  super.onStop();
+}

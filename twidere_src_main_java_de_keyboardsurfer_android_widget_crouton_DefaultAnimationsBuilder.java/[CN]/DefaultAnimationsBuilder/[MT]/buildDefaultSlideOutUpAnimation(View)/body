@@ -1,0 +1,8 @@
+{
+  if (!areLastMeasuredOutAnimationHeightAndCurrentEqual(croutonView) || null == slideOutUpAnimation) {
+    slideOutUpAnimation=new TranslateAnimation(0,0,0,-croutonView.getMeasuredHeight());
+    slideOutUpAnimation.setDuration(DURATION);
+    setLastOutAnimationHeight(croutonView.getMeasuredHeight());
+  }
+  return slideOutUpAnimation;
+}

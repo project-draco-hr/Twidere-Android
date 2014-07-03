@@ -1,0 +1,6 @@
+{
+  setOnItemLongClickListener(mOnItemLongClickListener);
+  setOnScrollListener(mScrollListener);
+  final DisplayMetrics metrics=context.getResources().getDisplayMetrics();
+  mSmoothScrollAmountAtEdge=(int)(SMOOTH_SCROLL_AMOUNT_AT_EDGE / metrics.density);
+}

@@ -1,0 +1,4 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(name,Context.MODE_PRIVATE);
+  return JSONSerializer.getByteArray(new RawSharedPreferencesData(prefs));
+}

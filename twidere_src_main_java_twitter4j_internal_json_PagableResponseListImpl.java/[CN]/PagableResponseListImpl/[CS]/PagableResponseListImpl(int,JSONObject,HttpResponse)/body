@@ -1,0 +1,5 @@
+{
+  super(size,res);
+  this.previousCursor=InternalParseUtil.getLong("previous_cursor",json);
+  this.nextCursor=InternalParseUtil.getLong("next_cursor",json);
+}

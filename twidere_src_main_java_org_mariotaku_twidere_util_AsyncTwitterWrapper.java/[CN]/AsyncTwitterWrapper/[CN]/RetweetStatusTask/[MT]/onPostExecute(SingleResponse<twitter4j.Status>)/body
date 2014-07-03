@@ -1,0 +1,19 @@
+{
+  if (result.hasData() && result.getData().getId() > 0) {
+    final ContentValues values=new ContentValues();
+    values.put(Statuses.MY_RETWEET_ID,result.getData().getId());
+    final String where=Statuses.STATUS_ID + " = " + status_id+ " OR "+ Statuses.RETWEET_ID+ " = "+ status_id;
+    for (    final Uri uri : STATUSES_URIS) {
+      mResolver.update(uri,values,where,null);
+    }
+    final Intent intent=new Intent(BROADCAST_RETWEET_CHANGED);
+    intent.putExtra(EXTRA_STATUS_ID,status_id);
+    intent.putExtra(EXTRA_RETWEETED,true);
+    mContext.sendBroadcast(intent);
+    mMessagesManager.showOkMessage(R.string.status_retweeted,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_retweeting,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

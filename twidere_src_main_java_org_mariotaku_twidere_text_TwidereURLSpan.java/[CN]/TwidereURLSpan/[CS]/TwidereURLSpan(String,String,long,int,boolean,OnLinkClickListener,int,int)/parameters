@@ -1,0 +1,8 @@
+String url
+String orig
+long accountId
+int type
+boolean sensitive
+OnLinkClickListener listener
+int highlightStyle
+int highlightColor

@@ -1,0 +1,9 @@
+{
+  mPreferences=getSharedPreferences();
+  if (mPreferences == null)   return;
+  if (mGetAvailableTrendsTask != null) {
+    mGetAvailableTrendsTask.cancel(false);
+  }
+  mGetAvailableTrendsTask=new GetLanguagesTask(getContext());
+  mGetAvailableTrendsTask.execute();
+}

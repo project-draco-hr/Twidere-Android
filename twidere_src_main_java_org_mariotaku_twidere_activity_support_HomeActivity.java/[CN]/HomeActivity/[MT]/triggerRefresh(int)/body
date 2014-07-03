@@ -1,0 +1,4 @@
+{
+  final Fragment f=mAttachedFragments.get(position);
+  return f instanceof RefreshScrollTopInterface && !f.isDetached() && ((RefreshScrollTopInterface)f).triggerRefresh();
+}

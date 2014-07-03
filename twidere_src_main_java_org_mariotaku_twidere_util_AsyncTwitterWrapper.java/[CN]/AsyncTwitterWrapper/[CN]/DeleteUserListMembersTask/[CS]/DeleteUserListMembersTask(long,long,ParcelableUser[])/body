@@ -1,0 +1,6 @@
+{
+  super(mContext,mAsyncTaskManager);
+  mAccountId=accountId;
+  mUserListId=userListId;
+  this.users=users;
+}

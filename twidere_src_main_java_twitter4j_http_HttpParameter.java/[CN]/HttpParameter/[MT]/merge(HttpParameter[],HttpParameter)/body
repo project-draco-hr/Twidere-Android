@@ -1,0 +1,8 @@
+{
+  if (params == null)   return extraParams;
+  if (extraParams == null)   return params;
+  final HttpParameter[] merged=new HttpParameter[params.length + extraParams.length];
+  System.arraycopy(params,0,merged,0,params.length);
+  System.arraycopy(extraParams,0,merged,params.length,extraParams.length);
+  return merged;
+}

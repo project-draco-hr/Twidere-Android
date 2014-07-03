@@ -1,0 +1,3 @@
+{
+  mDrawable.setBounds(left + mPaddingLeft,top + mPaddingTop,right - mPaddingRight,bottom - mPaddingBottom);
+}

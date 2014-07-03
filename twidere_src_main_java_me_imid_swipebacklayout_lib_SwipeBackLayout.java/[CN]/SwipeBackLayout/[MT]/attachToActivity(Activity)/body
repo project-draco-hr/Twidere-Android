@@ -1,0 +1,18 @@
+{
+  mActivity=activity;
+  final Drawable background=ThemeUtils.getWindowBackground(activity);
+  final ViewGroup decor=(ViewGroup)activity.getWindow().getDecorView();
+  final ViewGroup decorChild=(ViewGroup)decor.getChildAt(0);
+  final ImageView backgroundChild=new ImageView(activity);
+  backgroundChild.setScaleType(ScaleType.CENTER_CROP);
+  ViewAccessor.setBackground(decorChild,background);
+  decor.removeView(decorChild);
+  setBackgroundView(backgroundChild);
+  setContentView(decorChild);
+  addView(decorChild,LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+  final FrameLayout frame=new FrameLayout(activity);
+  frame.setFitsSystemWindows(true);
+  frame.addView(backgroundChild,LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+  frame.addView(this);
+  decor.addView(frame);
+}

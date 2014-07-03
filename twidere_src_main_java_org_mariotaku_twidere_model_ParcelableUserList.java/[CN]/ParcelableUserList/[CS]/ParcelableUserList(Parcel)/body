@@ -1,0 +1,15 @@
+{
+  position=in.readLong();
+  account_id=in.readLong();
+  id=in.readLong();
+  is_public=in.readInt() == 1;
+  is_following=in.readInt() == 1;
+  name=in.readString();
+  description=in.readString();
+  user_id=in.readLong();
+  user_name=in.readString();
+  user_screen_name=in.readString();
+  user_profile_image_url=in.readString();
+  members_count=in.readInt();
+  subscribers_count=in.readInt();
+}

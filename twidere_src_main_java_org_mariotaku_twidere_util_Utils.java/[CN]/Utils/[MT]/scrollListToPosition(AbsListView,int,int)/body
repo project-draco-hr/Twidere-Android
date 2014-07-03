@@ -1,0 +1,21 @@
+{
+  if (list == null)   return;
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    if (list instanceof ListView) {
+      ((ListView)list).setSelectionFromTop(position,offset);
+    }
+ else {
+      list.setSelection(position);
+    }
+    stopListView(list);
+  }
+ else {
+    stopListView(list);
+    if (list instanceof ListView) {
+      ((ListView)list).setSelectionFromTop(position,offset);
+    }
+ else {
+      list.setSelection(position);
+    }
+  }
+}

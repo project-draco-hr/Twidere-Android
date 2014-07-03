@@ -1,0 +1,4 @@
+{
+  if (key == null)   return null;
+  return CUSTOM_TABS_CONFIGURATION_MAP.get(key);
+}

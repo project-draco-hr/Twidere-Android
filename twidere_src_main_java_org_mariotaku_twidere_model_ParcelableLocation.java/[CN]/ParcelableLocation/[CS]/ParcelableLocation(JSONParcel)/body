@@ -1,0 +1,4 @@
+{
+  latitude=in.readDouble("latitude",-1);
+  longitude=in.readDouble("longutude",-1);
+}

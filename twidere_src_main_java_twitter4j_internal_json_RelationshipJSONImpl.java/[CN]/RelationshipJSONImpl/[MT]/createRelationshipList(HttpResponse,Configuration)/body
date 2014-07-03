@@ -1,0 +1,19 @@
+{
+  try {
+    final JSONArray list=res.asJSONArray();
+    final int size=list.length();
+    final ResponseList<Relationship> relationships=new ResponseListImpl<Relationship>(size,res);
+    for (int i=0; i < size; i++) {
+      final JSONObject json=list.getJSONObject(i);
+      final Relationship relationship=new RelationshipJSONImpl(json);
+      relationships.add(relationship);
+    }
+    return relationships;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+catch (  final TwitterException te) {
+    throw te;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  super(mContext,mAsyncTaskManager,TASK_TAG_STORE_TRENDS);
+  response=result;
+  this.uri=uri;
+}

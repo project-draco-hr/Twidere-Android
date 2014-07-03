@@ -1,0 +1,9 @@
+{
+  final float x=e.getX(), marginThreshold=getTouchmodeMarginThreshold();
+  final View content=getContent();
+  final int mode=getMode(), left=content.getLeft(), right=content.getRight();
+  if (mode == SlidingMenu.LEFT)   return x >= left && x <= marginThreshold + left;
+ else   if (mode == SlidingMenu.RIGHT)   return x <= right && x >= right - marginThreshold;
+ else   if (mode == SlidingMenu.LEFT_RIGHT)   return x >= left && x <= marginThreshold + left || x <= right && x >= right - marginThreshold;
+  return false;
+}

@@ -1,0 +1,9 @@
+{
+  mDrawable=drawable;
+  if (drawable instanceof AnimationDrawable) {
+    mAnimationFrames=((AnimationDrawable)drawable).getNumberOfFrames();
+  }
+ else {
+    mAnimationFrames=-1;
+  }
+}

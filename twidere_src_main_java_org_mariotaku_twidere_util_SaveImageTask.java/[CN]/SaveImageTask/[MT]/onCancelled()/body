@@ -1,0 +1,8 @@
+{
+  final FragmentManager fm=activity.getFragmentManager();
+  final DialogFragment fragment=(DialogFragment)fm.findFragmentByTag(PROGRESS_FRAGMENT_TAG);
+  if (fragment != null && fragment.isVisible()) {
+    fragment.dismiss();
+  }
+  super.onCancelled();
+}

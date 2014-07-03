@@ -1,0 +1,14 @@
+{
+  final int w=widthOf(mBox,scale);
+  final int h=heightOf(mBox,scale);
+  mBoundLeft=(mViewW + 1) / 2 - (w + 1) / 2 - horizontalSlack;
+  mBoundRight=w / 2 - mViewW / 2 + horizontalSlack;
+  mBoundTop=(mViewH + 1) / 2 - (h + 1) / 2;
+  mBoundBottom=h / 2 - mViewH / 2;
+  if (viewTallerThanScaledImage(scale)) {
+    mBoundTop=mBoundBottom=0;
+  }
+  if (viewWiderThanScaledImage(scale)) {
+    mBoundLeft=mBoundRight=mPlatform.mDefaultX;
+  }
+}

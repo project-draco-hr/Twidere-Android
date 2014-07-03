@@ -1,0 +1,5 @@
+{
+  StrictModeUtils.checkDiskIO();
+  if (col_values == null)   return 0;
+  return bulkDelete(resolver,uri,in_column,col_values.toArray(),extra_where,values_is_string);
+}

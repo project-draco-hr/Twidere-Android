@@ -1,0 +1,20 @@
+{
+  if (context == null || account_ids == null)   return new int[0];
+  final String[] cols=new String[]{Accounts.COLOR};
+  final String where=Where.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(account_ids)).getSQL();
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,cols,where,null,null);
+  if (cur == null)   return new int[0];
+  try {
+    cur.moveToFirst();
+    final int[] colors=new int[cur.getCount()];
+    int i=0;
+    while (!cur.isAfterLast()) {
+      colors[i++]=cur.getInt(0);
+      cur.moveToNext();
+    }
+    return colors;
+  }
+  finally {
+    cur.close();
+  }
+}

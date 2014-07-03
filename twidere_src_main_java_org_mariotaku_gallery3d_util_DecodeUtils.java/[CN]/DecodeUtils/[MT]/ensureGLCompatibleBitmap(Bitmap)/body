@@ -1,0 +1,6 @@
+{
+  if (bitmap == null || bitmap.getConfig() != null)   return bitmap;
+  final Bitmap newBitmap=bitmap.copy(Config.RGB_565,false);
+  bitmap.recycle();
+  return newBitmap;
+}

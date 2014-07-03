@@ -1,0 +1,9 @@
+{
+  if (urlString == null)   return null;
+  try {
+    return new URL(urlString);
+  }
+ catch (  final MalformedURLException e) {
+  }
+  return null;
+}

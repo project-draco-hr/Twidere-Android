@@ -1,0 +1,5 @@
+{
+  final int color=mColorsAdapter.getItem(position);
+  if (mColorPicker == null)   return;
+  mColorPicker.setColor(color,true);
+}

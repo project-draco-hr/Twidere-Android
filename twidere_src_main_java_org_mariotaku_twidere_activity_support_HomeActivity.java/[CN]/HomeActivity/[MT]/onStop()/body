@@ -1,0 +1,10 @@
+{
+  mMultiSelectHandler.dispatchOnStop();
+  unregisterReceiver(mStateReceiver);
+  final ContentResolver resolver=getContentResolver();
+  resolver.unregisterContentObserver(mAccountChangeObserver);
+  mPreferences.edit().putInt(KEY_SAVED_TAB_POSITION,mViewPager.getCurrentItem()).commit();
+  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONSTOP));
+  ProfilingUtil.profile(this,ProfilingUtil.FILE_NAME_APP,"App onStop");
+  super.onStop();
+}

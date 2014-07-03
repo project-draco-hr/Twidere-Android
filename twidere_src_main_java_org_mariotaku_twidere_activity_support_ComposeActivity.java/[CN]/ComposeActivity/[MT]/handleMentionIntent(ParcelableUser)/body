@@ -1,0 +1,10 @@
+{
+  if (user == null || user.id <= 0)   return false;
+  final String my_screen_name=getAccountScreenName(this,user.account_id);
+  if (isEmpty(my_screen_name))   return false;
+  mEditText.setText("@" + user.screen_name + " ");
+  final int selection_end=mEditText.length();
+  mEditText.setSelection(selection_end);
+  mSendAccountIds=new long[]{user.account_id};
+  return true;
+}

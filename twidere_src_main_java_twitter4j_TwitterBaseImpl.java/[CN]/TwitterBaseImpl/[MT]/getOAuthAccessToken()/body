@@ -1,0 +1,29 @@
+{
+  Authorization auth=getAuthorization();
+  AccessToken oauthAccessToken;
+  if (auth instanceof BasicAuthorization) {
+    final BasicAuthorization basicAuth=(BasicAuthorization)auth;
+    auth=AuthorizationFactory.getInstance(conf);
+    if (auth instanceof OAuthAuthorization) {
+      this.auth=auth;
+      final OAuthAuthorization oauthAuth=(OAuthAuthorization)auth;
+      oauthAccessToken=oauthAuth.getOAuthAccessToken(basicAuth.getUserId(),basicAuth.getPassword());
+    }
+ else     throw new IllegalStateException("consumer key / secret combination not supplied.");
+  }
+ else {
+    if (auth instanceof XAuthAuthorization) {
+      final XAuthAuthorization xauth=(XAuthAuthorization)auth;
+      this.auth=xauth;
+      final OAuthAuthorization oauthAuth=new OAuthAuthorization(conf);
+      oauthAuth.setOAuthConsumer(xauth.getConsumerKey(),xauth.getConsumerSecret());
+      oauthAccessToken=oauthAuth.getOAuthAccessToken(xauth.getUserId(),xauth.getPassword());
+    }
+ else {
+      oauthAccessToken=getOAuth().getOAuthAccessToken();
+    }
+  }
+  screenName=oauthAccessToken.getScreenName();
+  id=oauthAccessToken.getUserId();
+  return oauthAccessToken;
+}

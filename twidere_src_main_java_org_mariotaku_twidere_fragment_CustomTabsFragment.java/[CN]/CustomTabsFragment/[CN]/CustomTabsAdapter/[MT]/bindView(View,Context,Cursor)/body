@@ -1,0 +1,27 @@
+{
+  super.bindView(view,context,cursor);
+  final TwoLineWithIconViewHolder holder=(TwoLineWithIconViewHolder)view.getTag();
+  final String type=cursor.getString(mIndices.type);
+  final String name=cursor.getString(mIndices.name);
+  final String iconKey=cursor.getString(mIndices.icon);
+  if (isTabTypeValid(type)) {
+    final String typeName=getTabTypeName(context,type);
+    holder.text1.setText(TextUtils.isEmpty(name) ? typeName : name);
+    holder.text1.setPaintFlags(holder.text1.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+    holder.text2.setVisibility(View.VISIBLE);
+    holder.text2.setText(typeName);
+  }
+ else {
+    holder.text1.setText(name);
+    holder.text1.setPaintFlags(holder.text1.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    holder.text2.setText(R.string.invalid_tab);
+  }
+  final Drawable icon=getTabIconDrawable(context,getTabIconObject(iconKey));
+  holder.icon.setVisibility(View.VISIBLE);
+  if (icon != null) {
+    ViewAccessor.setBackground(holder.icon,icon);
+  }
+ else {
+    holder.icon.setBackgroundResource(R.drawable.ic_iconic_action_list);
+  }
+}

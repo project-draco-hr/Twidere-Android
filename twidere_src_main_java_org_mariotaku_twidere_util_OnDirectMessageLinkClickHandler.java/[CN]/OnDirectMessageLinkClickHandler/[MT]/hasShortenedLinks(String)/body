@@ -1,0 +1,6 @@
+{
+  for (  final String short_link_service : SHORT_LINK_SERVICES) {
+    if (link.contains(short_link_service))     return true;
+  }
+  return false;
+}

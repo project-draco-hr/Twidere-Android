@@ -1,0 +1,12 @@
+{
+  _id=cursor.getColumnIndex(Drafts._ID);
+  account_ids=cursor.getColumnIndex(Drafts.ACCOUNT_IDS);
+  in_reply_to_status_id=cursor.getColumnIndex(Drafts.IN_REPLY_TO_STATUS_ID);
+  timestamp=cursor.getColumnIndex(Drafts.TIMESTAMP);
+  text=cursor.getColumnIndex(Drafts.TEXT);
+  medias=cursor.getColumnIndex(Drafts.MEDIAS);
+  is_possibly_sensitive=cursor.getColumnIndex(Drafts.IS_POSSIBLY_SENSITIVE);
+  location=cursor.getColumnIndex(Drafts.LOCATION);
+  action_type=cursor.getColumnIndex(Drafts.ACTION_TYPE);
+  action_extras=cursor.getColumnIndex(Drafts.ACTION_EXTRAS);
+}

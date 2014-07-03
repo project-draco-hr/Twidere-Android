@@ -1,0 +1,5 @@
+{
+  mApplication=mActivity.getTwidereApplication();
+  mTwitterWrapper=mApplication.getTwitterWrapper();
+  mMultiSelectManager=mApplication.getMultiSelectManager();
+}

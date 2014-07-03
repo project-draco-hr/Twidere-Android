@@ -1,0 +1,4 @@
+{
+  if (cls1 == null || cls2 == null)   return cls1 == cls2;
+  return cls1.getName().equals(cls2.getName());
+}

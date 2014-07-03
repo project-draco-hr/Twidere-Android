@@ -1,0 +1,21 @@
+{
+  if (activity == null)   return;
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER_LIST_SUBSCRIBERS);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  if (listId > 0) {
+    builder.appendQueryParameter(QUERY_PARAM_LIST_ID,String.valueOf(listId));
+  }
+  if (userId > 0) {
+    builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(userId));
+  }
+  if (screenName != null) {
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+  }
+  if (listName != null) {
+    builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,listName);
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+}

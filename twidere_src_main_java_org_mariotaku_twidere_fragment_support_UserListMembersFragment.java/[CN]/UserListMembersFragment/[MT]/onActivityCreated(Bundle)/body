@@ -1,0 +1,18 @@
+{
+  final Bundle args=getArguments();
+  if (savedInstanceState != null) {
+    mUserList=savedInstanceState.getParcelable(EXTRA_USER_LIST);
+  }
+ else   if (args != null) {
+    mUserList=args.getParcelable(EXTRA_USER_LIST);
+  }
+  super.onActivityCreated(savedInstanceState);
+  if (mUserList == null && args != null) {
+    final int list_id=args.getInt(EXTRA_LIST_ID,-1);
+    final long account_id=args.getLong(EXTRA_ACCOUNT_ID,-1);
+    final long user_id=args.getLong(EXTRA_USER_ID,-1);
+    final String screen_name=args.getString(EXTRA_SCREEN_NAME);
+    final String list_name=args.getString(EXTRA_LIST_NAME);
+    new GetUserListTask(account_id,list_id,list_name,user_id,screen_name).execute();
+  }
+}

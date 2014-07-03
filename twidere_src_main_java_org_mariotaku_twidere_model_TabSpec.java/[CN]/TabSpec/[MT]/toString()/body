@@ -1,0 +1,3 @@
+{
+  return "TabSpec{name=" + name + ", icon="+ icon+ ", cls="+ cls+ ", args="+ args+ ", position="+ position+ "}";
+}

@@ -1,0 +1,6 @@
+{
+  final FragmentActivity a=getActivity();
+  if (a == null)   return false;
+  a.getMenuInflater().inflate(R.menu.action_status_text_selection,menu);
+  return true;
+}

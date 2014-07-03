@@ -1,0 +1,7 @@
+{
+  pos+=byteCount;
+  if (readListener != null) {
+    readListener.onRead(length,pos);
+  }
+  return stream.read(buffer,byteOffset,byteCount);
+}

@@ -1,0 +1,3 @@
+{
+  return R.string.wizard_page_welcome_title;
+}

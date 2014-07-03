@@ -1,0 +1,34 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof StatusUpdate))   return false;
+  final StatusUpdate other=(StatusUpdate)obj;
+  if (displayCoordinates != other.displayCoordinates)   return false;
+  if (inReplyToStatusId != other.inReplyToStatusId)   return false;
+  if (location == null) {
+    if (other.location != null)     return false;
+  }
+ else   if (!location.equals(other.location))   return false;
+  if (mediaFile == null) {
+    if (other.mediaFile != null)     return false;
+  }
+ else   if (!mediaFile.equals(other.mediaFile))   return false;
+  if (mediaName == null) {
+    if (other.mediaName != null)     return false;
+  }
+ else   if (!mediaName.equals(other.mediaName))   return false;
+  if (overrideContentType == null) {
+    if (other.overrideContentType != null)     return false;
+  }
+ else   if (!overrideContentType.equals(other.overrideContentType))   return false;
+  if (placeId == null) {
+    if (other.placeId != null)     return false;
+  }
+ else   if (!placeId.equals(other.placeId))   return false;
+  if (possiblySensitive != other.possiblySensitive)   return false;
+  if (status == null) {
+    if (other.status != null)     return false;
+  }
+ else   if (!status.equals(other.status))   return false;
+  return true;
+}

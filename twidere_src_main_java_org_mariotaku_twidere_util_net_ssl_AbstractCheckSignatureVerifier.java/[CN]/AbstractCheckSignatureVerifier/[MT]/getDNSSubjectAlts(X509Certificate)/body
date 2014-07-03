@@ -1,0 +1,3 @@
+{
+  return getSubjectAlts(cert,null);
+}

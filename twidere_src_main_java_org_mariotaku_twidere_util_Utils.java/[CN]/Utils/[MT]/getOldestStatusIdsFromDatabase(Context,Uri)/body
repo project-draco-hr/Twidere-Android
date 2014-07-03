@@ -1,0 +1,4 @@
+{
+  final long[] account_ids=getActivatedAccountIds(context);
+  return getOldestStatusIdsFromDatabase(context,uri,account_ids);
+}

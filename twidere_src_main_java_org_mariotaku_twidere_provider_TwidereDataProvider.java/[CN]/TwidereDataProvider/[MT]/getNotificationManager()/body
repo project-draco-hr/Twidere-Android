@@ -1,0 +1,5 @@
+{
+  if (mNotificationManager != null)   return mNotificationManager;
+  final Context context=getContext();
+  return mNotificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+}

@@ -1,0 +1,4 @@
+{
+  mLoadImagesIndicator.setVisibility(View.VISIBLE);
+  mImagePreviewGrid.setVisibility(View.GONE);
+}

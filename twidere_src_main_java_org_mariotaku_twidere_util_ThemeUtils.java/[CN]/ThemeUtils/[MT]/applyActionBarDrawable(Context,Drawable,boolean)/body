@@ -1,0 +1,15 @@
+{
+  if (d == null)   return null;
+  d.mutate();
+  if (d instanceof LayerDrawable) {
+    final Drawable colorLayer=((LayerDrawable)d).findDrawableByLayerId(R.id.color_layer);
+    if (colorLayer != null) {
+      final int color=getUserThemeColor(context);
+      colorLayer.setColorFilter(color,PorterDuff.Mode.MULTIPLY);
+    }
+  }
+  if (applyAlpha) {
+    d.setAlpha(getThemeAlpha(context));
+  }
+  return d;
+}

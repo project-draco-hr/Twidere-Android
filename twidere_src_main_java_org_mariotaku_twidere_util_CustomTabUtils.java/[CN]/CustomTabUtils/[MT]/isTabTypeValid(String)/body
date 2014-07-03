@@ -1,0 +1,3 @@
+{
+  return type != null && CUSTOM_TABS_CONFIGURATION_MAP.containsKey(type);
+}

@@ -1,0 +1,3 @@
+{
+  mHomeActivity.updateDrawerPercentOpen(percentOpen,true);
+}

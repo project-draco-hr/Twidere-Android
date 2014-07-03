@@ -1,0 +1,4 @@
+{
+  if (table == null)   throw new NullPointerException();
+  this.table=table;
+}

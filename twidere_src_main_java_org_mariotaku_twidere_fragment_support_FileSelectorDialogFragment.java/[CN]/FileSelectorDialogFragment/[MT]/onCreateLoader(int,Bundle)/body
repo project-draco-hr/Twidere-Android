@@ -1,0 +1,10 @@
+{
+  final String[] extensions=args.getStringArray(EXTRA_FILE_EXTENSIONS);
+  final String path=args.getString(EXTRA_PATH);
+  File currentDir=path != null ? new File(path) : getExternalStorageDirectory();
+  if (currentDir == null) {
+    currentDir=new File("/");
+  }
+  getArguments().putString(EXTRA_PATH,currentDir.getAbsolutePath());
+  return new FilesLoader(getActivity(),currentDir,extensions);
+}

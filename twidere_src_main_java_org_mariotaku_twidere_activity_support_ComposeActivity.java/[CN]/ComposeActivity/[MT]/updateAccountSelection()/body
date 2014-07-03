@@ -1,0 +1,13 @@
+{
+  if (mSendAccountIds == null)   return;
+  if (mShouldSaveAccounts) {
+    final SharedPreferences.Editor editor=mPreferences.edit();
+    editor.putString(KEY_COMPOSE_ACCOUNTS,ArrayUtils.toString(mSendAccountIds,',',false));
+    editor.commit();
+  }
+  mAccountSelectorAdapter.clearAccountSelection();
+  for (  final long accountId : mSendAccountIds) {
+    mAccountSelectorAdapter.setAccountSelected(accountId,true);
+  }
+  mColorIndicator.drawEnd(getAccountColors(this,mSendAccountIds));
+}

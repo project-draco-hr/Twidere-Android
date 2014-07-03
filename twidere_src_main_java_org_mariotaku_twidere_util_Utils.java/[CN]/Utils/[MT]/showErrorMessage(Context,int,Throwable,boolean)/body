@@ -1,0 +1,4 @@
+{
+  if (context == null)   return;
+  showErrorMessage(context,context.getString(action),t,long_message);
+}

@@ -1,0 +1,8 @@
+{
+  if (mDrawingHelper.isGap())   return false;
+  if (mDrawingHelper.isOverflowIconClicked(ev)) {
+    mDrawingHelper.handleOverflowTouchEvent(ev);
+    return true;
+  }
+  return super.dispatchTouchEvent(ev);
+}

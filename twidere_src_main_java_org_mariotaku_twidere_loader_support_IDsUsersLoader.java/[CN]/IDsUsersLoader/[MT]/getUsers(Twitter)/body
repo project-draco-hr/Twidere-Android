@@ -1,0 +1,11 @@
+{
+  if (twitter == null)   return null;
+  final CursorPaging paging=new CursorPaging(getCount());
+  if (getCursor() > 0) {
+    paging.setCursor(getCursor());
+  }
+  final IDs ids=getIDs(twitter,paging);
+  if (ids == null)   return null;
+  setCursorIds(ids);
+  return twitter.lookupUsers(ids.getIDs());
+}

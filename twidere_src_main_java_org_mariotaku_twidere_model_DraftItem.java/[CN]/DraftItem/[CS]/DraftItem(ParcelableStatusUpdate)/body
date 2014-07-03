@@ -1,0 +1,12 @@
+{
+  _id=0;
+  account_ids=Account.getAccountIds(status.accounts);
+  in_reply_to_status_id=status.in_reply_to_status_id;
+  text=status.text;
+  medias=status.medias;
+  is_possibly_sensitive=status.is_possibly_sensitive;
+  location=status.location;
+  timestamp=System.currentTimeMillis();
+  action_type=Drafts.ACTION_UPDATE_STATUS;
+  action_extras=createJSONObject(null);
+}

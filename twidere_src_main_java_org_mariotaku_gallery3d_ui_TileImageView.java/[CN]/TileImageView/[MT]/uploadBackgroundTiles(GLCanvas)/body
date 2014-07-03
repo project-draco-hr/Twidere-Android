@@ -1,0 +1,10 @@
+{
+  mBackgroundTileUploaded=true;
+  final int n=mActiveTiles.size();
+  for (int i=0; i < n; i++) {
+    final Tile tile=mActiveTiles.valueAt(i);
+    if (!tile.isContentValid()) {
+      queueForDecode(tile);
+    }
+  }
+}

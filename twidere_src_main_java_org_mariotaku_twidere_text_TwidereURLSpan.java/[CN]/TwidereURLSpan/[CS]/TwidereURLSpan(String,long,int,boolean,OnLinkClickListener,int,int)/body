@@ -1,0 +1,3 @@
+{
+  this(url,null,accountId,type,sensitive,listener,highlightStyle,highlightColor);
+}

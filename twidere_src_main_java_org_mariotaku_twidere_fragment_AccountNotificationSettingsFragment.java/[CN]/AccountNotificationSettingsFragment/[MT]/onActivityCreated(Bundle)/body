@@ -1,0 +1,8 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final Preference preference=findPreference(KEY_NOTIFICATION_LIGHT_COLOR);
+  final Account account=getAccount();
+  if (preference != null && account != null) {
+    preference.setDefaultValue(account.color);
+  }
+}

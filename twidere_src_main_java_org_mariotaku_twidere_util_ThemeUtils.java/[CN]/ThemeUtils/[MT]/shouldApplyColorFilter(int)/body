@@ -1,0 +1,14 @@
+{
+switch (res) {
+case R.style.Theme_Twidere_Colored:
+case R.style.Theme_Twidere_Colored_SolidBackground:
+case R.style.Theme_Twidere_Colored_Compose:
+case R.style.Theme_Twidere_Colored_Transparent:
+case R.style.Theme_Twidere_Colored_DarkActionBar:
+case R.style.Theme_Twidere_Colored_DarkActionBar_SolidBackground:
+case R.style.Theme_Twidere_Colored_DarkActionBar_Compose:
+case R.style.Theme_Twidere_Colored_DarkActionBar_Transparent:
+    return false;
+}
+return true;
+}

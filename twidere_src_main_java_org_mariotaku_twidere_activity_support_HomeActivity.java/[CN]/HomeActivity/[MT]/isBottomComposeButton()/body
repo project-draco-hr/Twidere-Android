@@ -1,0 +1,4 @@
+{
+  final SharedPreferences preferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  return preferences != null && preferences.getBoolean(KEY_BOTTOM_COMPOSE_BUTTON,false);
+}

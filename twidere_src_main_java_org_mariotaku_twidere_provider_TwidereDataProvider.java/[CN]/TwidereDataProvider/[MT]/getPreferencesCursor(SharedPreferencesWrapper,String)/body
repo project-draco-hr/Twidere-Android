@@ -1,0 +1,17 @@
+{
+  final MatrixCursor c=new MatrixCursor(TweetStore.Preferences.MATRIX_COLUMNS);
+  final Map<String,Object> map=new HashMap<String,Object>();
+  final Map<String,?> all=preferences.getAll();
+  if (key == null) {
+    map.putAll(all);
+  }
+ else {
+    map.put(key,all.get(key));
+  }
+  for (  final Map.Entry<String,?> item : map.entrySet()) {
+    final Object value=item.getValue();
+    final int type=getPreferenceType(value);
+    c.addRow(new Object[]{item.getKey(),ParseUtils.parseString(value),type});
+  }
+  return c;
+}

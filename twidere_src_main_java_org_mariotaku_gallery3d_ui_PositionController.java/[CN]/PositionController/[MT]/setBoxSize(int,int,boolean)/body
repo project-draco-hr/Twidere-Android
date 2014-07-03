@@ -1,0 +1,14 @@
+{
+  final boolean wasViewSize=mBox.mUseViewSize;
+  if (!wasViewSize && isViewSize)   return false;
+  mBox.mUseViewSize=isViewSize;
+  if (width == mBox.mImageW && height == mBox.mImageH)   return false;
+  final float ratio=width > height ? (float)mBox.mImageW / width : (float)mBox.mImageH / height;
+  mBox.mImageW=width;
+  mBox.mImageH=height;
+  mBox.mCurrentScale=getMinimalScale(mBox);
+  mBox.mAnimationStartTime=NO_ANIMATION;
+  mFocusX/=ratio;
+  mFocusY/=ratio;
+  return true;
+}

@@ -1,0 +1,13 @@
+{
+  if (mPath == null)   return false;
+  final File file=new File(mPath);
+  if (!file.isFile())   return false;
+  try {
+    DataImportExportUtils.importData(mActivity,file,mFlags);
+    return true;
+  }
+ catch (  final IOException e) {
+    e.printStackTrace();
+  }
+  return false;
+}

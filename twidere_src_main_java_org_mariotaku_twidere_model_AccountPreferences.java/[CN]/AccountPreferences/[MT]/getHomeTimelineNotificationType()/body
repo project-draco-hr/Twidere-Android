@@ -1,0 +1,3 @@
+{
+  return mPreferences.getInt(KEY_NOTIFICATION_TYPE_HOME,DEFAULT_NOTIFICATION_TYPE_HOME);
+}

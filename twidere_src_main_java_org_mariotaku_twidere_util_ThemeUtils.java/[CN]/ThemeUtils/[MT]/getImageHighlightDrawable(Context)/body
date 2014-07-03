@@ -1,0 +1,7 @@
+{
+  final Drawable d=getSelectableItemBackgroundDrawable(context);
+  if (d != null) {
+    d.setAlpha(0x80);
+  }
+  return d;
+}

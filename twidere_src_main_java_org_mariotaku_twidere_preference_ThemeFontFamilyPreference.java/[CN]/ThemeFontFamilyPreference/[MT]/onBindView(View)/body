@@ -1,0 +1,10 @@
+{
+  super.onBindView(view);
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)   return;
+  final TextView summary=(TextView)view.findViewById(android.R.id.summary);
+  summary.setVisibility(View.VISIBLE);
+  final String defEntry=getContext().getString(R.string.font_family_regular);
+  final SpannableString str=new SpannableString(ParseUtils.parseString(getEntry(),defEntry));
+  str.setSpan(new TypefaceSpan(getValue()),0,str.length(),0);
+  summary.setText(str);
+}

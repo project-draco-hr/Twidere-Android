@@ -1,0 +1,12 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,account_id,true,true);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    if (user_id > 0)     return SingleResponse.getInstance(twitter.sendDirectMessage(user_id,message),null);
+ else     if (screen_name != null)     return SingleResponse.getInstance(twitter.sendDirectMessage(screen_name,message),null);
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(null,e);
+  }
+  return SingleResponse.getInstance();
+}

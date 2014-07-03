@@ -1,0 +1,6 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (twitter != null) {
+    twitter.clearNotificationAsync(NOTIFICATION_ID_DIRECT_MESSAGES,getAccountId());
+  }
+}

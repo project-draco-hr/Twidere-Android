@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST,mergeParameters(paging.asPostParameterArray(),new HttpParameter("user_id",userId),INCLUDE_ENTITIES)));
+}

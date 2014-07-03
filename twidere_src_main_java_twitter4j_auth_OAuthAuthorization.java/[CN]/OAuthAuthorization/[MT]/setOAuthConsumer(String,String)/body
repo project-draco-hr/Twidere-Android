@@ -1,0 +1,4 @@
+{
+  this.consumerKey=consumerKey != null ? consumerKey : "";
+  this.consumerSecret=consumerSecret != null ? consumerSecret : "";
+}

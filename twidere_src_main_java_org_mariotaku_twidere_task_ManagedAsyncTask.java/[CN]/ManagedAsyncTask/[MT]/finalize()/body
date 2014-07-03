@@ -1,0 +1,4 @@
+{
+  manager.remove(hashCode());
+  super.finalize();
+}

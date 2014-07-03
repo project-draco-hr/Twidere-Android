@@ -1,0 +1,9 @@
+{
+  if (mPackageObserver == null) {
+    mPackageObserver=new PackageIntentReceiver(this);
+  }
+  final boolean configChange=mLastConfig.applyNewConfig(getContext().getResources());
+  if (takeContentChanged() || configChange) {
+    forceLoad();
+  }
+}

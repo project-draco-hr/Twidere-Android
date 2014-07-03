@@ -1,0 +1,11 @@
+{
+  if (mOpenAnimationRect == null)   return false;
+  if (mBox.mUseViewSize)   return false;
+  final Rect r=mOpenAnimationRect;
+  mOpenAnimationRect=null;
+  mPlatform.mCurrentX=r.centerX() - mViewW / 2;
+  mBox.mCurrentY=r.centerY() - mViewH / 2;
+  mBox.mCurrentScale=Math.max(r.width() / (float)mBox.mImageW,r.height() / (float)mBox.mImageH);
+  startAnimation(mPlatform.mDefaultX,0,mBox.mScaleMin,ANIM_KIND_OPENING);
+  return true;
+}

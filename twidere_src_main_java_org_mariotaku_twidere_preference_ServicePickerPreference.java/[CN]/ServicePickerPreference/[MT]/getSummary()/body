@@ -1,0 +1,4 @@
+{
+  if (isNoneValue(getValue()))   return getNoneEntry();
+  return super.getSummary();
+}

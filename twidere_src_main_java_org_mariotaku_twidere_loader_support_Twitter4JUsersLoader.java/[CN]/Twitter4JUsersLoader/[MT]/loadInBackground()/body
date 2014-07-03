@@ -1,0 +1,22 @@
+{
+  final List<ParcelableUser> data=getData();
+  final List<User> users;
+  try {
+    users=getUsers(getTwitterInstance(mContext,mAccountId,true));
+    if (users == null)     return data;
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    return data;
+  }
+  int pos=data.size();
+  for (  final User user : users) {
+    if (hasId(user.getId())) {
+      continue;
+    }
+    data.add(new ParcelableUser(user,mAccountId,pos));
+    pos++;
+  }
+  Collections.sort(data);
+  return data;
+}

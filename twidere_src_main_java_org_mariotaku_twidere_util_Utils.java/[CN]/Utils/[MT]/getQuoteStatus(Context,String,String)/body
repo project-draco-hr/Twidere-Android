@@ -1,0 +1,8 @@
+{
+  if (context == null)   return null;
+  String quote_format=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getString(KEY_QUOTE_FORMAT,DEFAULT_QUOTE_FORMAT);
+  if (isEmpty(quote_format)) {
+    quote_format=DEFAULT_QUOTE_FORMAT;
+  }
+  return quote_format.replace(FORMAT_PATTERN_NAME,screen_name).replace(FORMAT_PATTERN_TEXT,text);
+}

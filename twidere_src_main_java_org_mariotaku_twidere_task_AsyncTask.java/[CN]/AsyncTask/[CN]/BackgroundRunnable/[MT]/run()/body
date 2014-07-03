@@ -1,0 +1,4 @@
+{
+  final Result result=doInBackground(mParams);
+  mHandler.post(new OnPostExecuteRunnable(result));
+}

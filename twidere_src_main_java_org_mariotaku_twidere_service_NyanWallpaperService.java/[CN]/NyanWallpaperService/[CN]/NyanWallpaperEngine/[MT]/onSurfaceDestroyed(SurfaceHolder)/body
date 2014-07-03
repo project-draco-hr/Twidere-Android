@@ -1,0 +1,5 @@
+{
+  mHelper.stop();
+  holder.removeCallback(mHelper);
+  super.onSurfaceDestroyed(holder);
+}

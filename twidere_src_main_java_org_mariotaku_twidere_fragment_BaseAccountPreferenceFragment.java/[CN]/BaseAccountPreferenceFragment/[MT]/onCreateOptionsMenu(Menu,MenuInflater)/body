@@ -1,0 +1,9 @@
+{
+  inflater.inflate(R.menu.menu_switch_preference,menu);
+  final View actionView=menu.findItem(MENU_TOGGLE).getActionView();
+  final Switch toggle=(Switch)actionView.findViewById(android.R.id.toggle);
+  final SharedPreferences prefs=getPreferenceManager().getSharedPreferences();
+  toggle.setOnCheckedChangeListener(this);
+  toggle.setChecked(prefs.getBoolean(getSwitchPreferenceKey(),getSwitchPreferenceDefault()));
+  super.onCreateOptionsMenu(menu,inflater);
+}

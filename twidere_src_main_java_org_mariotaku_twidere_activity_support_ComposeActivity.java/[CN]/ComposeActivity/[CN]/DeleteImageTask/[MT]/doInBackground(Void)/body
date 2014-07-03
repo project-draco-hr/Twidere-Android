@@ -1,0 +1,15 @@
+{
+  if (medias == null)   return false;
+  try {
+    for (    final ParcelableMediaUpdate media : medias) {
+      final Uri target=Uri.parse(media.uri);
+      if (ContentResolver.SCHEME_FILE.equals(target.getScheme())) {
+        new File(target.getPath()).delete();
+      }
+    }
+  }
+ catch (  final Exception e) {
+    return false;
+  }
+  return true;
+}

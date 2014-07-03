@@ -1,0 +1,3 @@
+{
+  return new ParcelableStatusUpdate(accounts,text,location,medias,in_reply_to_status_id,is_possibly_sensitive);
+}

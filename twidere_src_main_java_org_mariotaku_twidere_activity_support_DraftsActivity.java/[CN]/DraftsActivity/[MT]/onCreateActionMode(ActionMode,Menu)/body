@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.action_multi_select_drafts,menu);
+  return true;
+}

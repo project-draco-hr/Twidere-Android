@@ -1,0 +1,13 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+    final ParcelableUser[] users=getUsers();
+  final ParcelableUserList userList=getUserList();
+final AsyncTwitterWrapper twitter=getTwitterWrapper();
+if (users == null || userList == null || twitter == null) return;
+twitter.deleteUserListMembersAsync(userList.account_id,userList.id,users);
+break;
+default :
+break;
+}
+}

@@ -1,0 +1,5 @@
+{
+  final ParcelableLocation location=new ParcelableLocation(string);
+  if (ParcelableLocation.isValidLocation(location))   return location;
+  return null;
+}

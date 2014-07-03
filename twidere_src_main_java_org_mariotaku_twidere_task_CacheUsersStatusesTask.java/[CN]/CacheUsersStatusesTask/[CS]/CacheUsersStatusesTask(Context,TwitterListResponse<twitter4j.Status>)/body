@@ -1,0 +1,4 @@
+{
+  resolver=context.getContentResolver();
+  this.all_statuses=all_statuses;
+}

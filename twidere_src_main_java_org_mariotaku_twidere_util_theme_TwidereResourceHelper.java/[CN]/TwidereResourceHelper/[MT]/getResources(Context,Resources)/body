@@ -1,0 +1,4 @@
+{
+  if (mResources != null)   return mResources;
+  return mResources=new TwidereResources(c,resources,mOverrideThemeRes);
+}

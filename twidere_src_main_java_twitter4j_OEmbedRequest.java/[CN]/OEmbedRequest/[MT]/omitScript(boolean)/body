@@ -1,0 +1,4 @@
+{
+  this.omitScript=omitScript;
+  return this;
+}

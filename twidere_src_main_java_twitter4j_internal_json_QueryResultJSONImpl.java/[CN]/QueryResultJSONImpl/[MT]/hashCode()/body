@@ -1,0 +1,15 @@
+{
+  int result;
+  long temp;
+  result=(int)(sinceId ^ sinceId >>> 32);
+  result=31 * result + (int)(maxId ^ maxId >>> 32);
+  result=31 * result + (refreshUrl != null ? refreshUrl.hashCode() : 0);
+  result=31 * result + resultsPerPage;
+  result=31 * result + (warning != null ? warning.hashCode() : 0);
+  temp=completedIn != +0.0d ? Double.doubleToLongBits(completedIn) : 0L;
+  result=31 * result + (int)(temp ^ temp >>> 32);
+  result=31 * result + page;
+  result=31 * result + query.hashCode();
+  result=31 * result + (statuses != null ? Arrays.hashCode(statuses) : 0);
+  return result;
+}

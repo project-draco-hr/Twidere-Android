@@ -1,0 +1,13 @@
+{
+  final int themeRes, accentColor;
+  if (context instanceof IThemedActivity) {
+    themeRes=((IThemedActivity)context).getThemeResourceId();
+    accentColor=((IThemedActivity)context).getThemeColor();
+  }
+ else {
+    themeRes=getSettingsThemeResource(context);
+    accentColor=getUserThemeColor(context);
+  }
+  final Context theme=getThemedContextForActionIcons(context,themeRes,accentColor);
+  return LayoutInflater.from(theme);
+}

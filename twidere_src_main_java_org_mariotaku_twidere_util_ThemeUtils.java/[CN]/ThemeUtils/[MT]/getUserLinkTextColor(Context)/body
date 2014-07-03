@@ -1,0 +1,13 @@
+{
+  if (context == null)   return new TextPaint().linkColor;
+  final int themeColor=getUserThemeColor(context);
+  final float[] hsv=new float[3];
+  Color.colorToHSV(themeColor,hsv);
+  if (isDarkTheme(context)) {
+    hsv[2]=MathUtils.clamp(hsv[2],1,0.5f);
+  }
+ else {
+    hsv[2]=MathUtils.clamp(hsv[2],0.1f,0.75f);
+  }
+  return Color.HSVToColor(hsv);
+}

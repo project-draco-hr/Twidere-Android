@@ -1,0 +1,10 @@
+{
+  is_dummy=true;
+  screen_name=null;
+  name=null;
+  account_id=-1;
+  profile_image_url=null;
+  profile_banner_url=null;
+  color=0;
+  is_activated=false;
+}

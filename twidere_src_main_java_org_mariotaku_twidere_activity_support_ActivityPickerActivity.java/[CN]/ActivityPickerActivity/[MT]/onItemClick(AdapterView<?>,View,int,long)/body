@@ -1,0 +1,7 @@
+{
+  final Intent intent=getIntent(), data=new Intent();
+  data.putExtra(EXTRA_DATA,mAdapter.getItem(position));
+  data.putExtra(EXTRA_INTENT,intent.getParcelableExtra(EXTRA_INTENT));
+  setResult(RESULT_OK,data);
+  finish();
+}

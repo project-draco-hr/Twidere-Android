@@ -1,0 +1,4 @@
+Map<Integer,MediaEntity.Size> sizes
+JSONObject sizes_json
+Integer size
+String key

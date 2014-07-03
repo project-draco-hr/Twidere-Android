@@ -1,0 +1,14 @@
+{
+  if (mDrawable == null)   return;
+  if (mAnimationFrames > 0) {
+    final AnimationDrawable ad=(AnimationDrawable)mDrawable;
+    final Drawable frame=ad.getFrame(mCurrentFrame++);
+    frame.draw(canvas);
+    if (mCurrentFrame >= mAnimationFrames) {
+      mCurrentFrame=0;
+    }
+  }
+ else {
+    mDrawable.draw(canvas);
+  }
+}

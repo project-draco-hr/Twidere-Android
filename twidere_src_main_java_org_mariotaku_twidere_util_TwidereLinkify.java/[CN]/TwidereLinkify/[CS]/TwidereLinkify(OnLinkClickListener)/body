@@ -1,0 +1,3 @@
+{
+  this(listener,VALUE_LINK_HIGHLIGHT_OPTION_CODE_BOTH,0);
+}

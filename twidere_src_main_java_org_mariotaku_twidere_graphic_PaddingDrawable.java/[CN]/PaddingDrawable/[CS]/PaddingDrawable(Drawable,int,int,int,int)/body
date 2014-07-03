@@ -1,0 +1,7 @@
+{
+  mDrawable=drawable;
+  mPaddingTop=paddingTop;
+  mPaddingLeft=paddingLeft;
+  mPaddingBottom=paddingBottom;
+  mPaddingRight=paddingRight;
+}

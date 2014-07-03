@@ -1,0 +1,6 @@
+{
+  if (context == null)   return null;
+  if (t instanceof TwitterException)   return getTwitterErrorMessage(context,action,(TwitterException)t);
+ else   if (t != null)   return getErrorMessage(context,trimLineBreak(t.getMessage()));
+  return context.getString(R.string.error_unknown_error);
+}

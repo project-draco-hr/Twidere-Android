@@ -1,0 +1,12 @@
+{
+  if (mDownTouchPosition >= 0) {
+    if (mScrollToChildAfterItemClickEnabled) {
+      scrollToChild(mDownTouchPosition - mFirstPosition);
+    }
+    if (mShouldCallbackOnUnselectedItemClick || mDownTouchPosition == mSelectedPosition) {
+      performItemClick(mDownTouchView,mDownTouchPosition,mAdapter.getItemId(mDownTouchPosition));
+    }
+    return true;
+  }
+  return false;
+}

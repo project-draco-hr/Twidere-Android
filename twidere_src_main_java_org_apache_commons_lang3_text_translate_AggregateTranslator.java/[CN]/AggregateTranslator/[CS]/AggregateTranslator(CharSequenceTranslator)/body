@@ -1,0 +1,3 @@
+{
+  this.translators=clone(translators);
+}

@@ -1,0 +1,4 @@
+{
+  Utils.scrollListToTop(getListView());
+  return true;
+}

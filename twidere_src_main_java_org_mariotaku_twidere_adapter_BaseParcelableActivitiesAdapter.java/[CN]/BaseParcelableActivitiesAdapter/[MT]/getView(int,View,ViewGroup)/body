@@ -1,0 +1,28 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Object tag=view.getTag();
+  final ActivityViewHolder holder=tag instanceof ActivityViewHolder ? (ActivityViewHolder)tag : new ActivityViewHolder(view);
+  if (!(tag instanceof ActivityViewHolder)) {
+    if (mPlainList) {
+      ((View)holder.content).setPadding(0,0,0,0);
+      holder.content.setItemBackground(null);
+    }
+    view.setTag(holder);
+  }
+  final boolean showAccountColor=isShowAccountColor();
+  holder.setTextSize(getTextSize());
+  holder.my_profile_image.setVisibility(View.GONE);
+  final ParcelableActivity item=getItem(position);
+  holder.setAccountColorEnabled(showAccountColor);
+  if (showAccountColor) {
+    holder.setAccountColor(getAccountColor(getContext(),item.account_id));
+  }
+  if (mShowAbsoluteTime) {
+    holder.time.setTime(item.activity_timestamp);
+  }
+ else {
+    holder.time.setTime(item.activity_timestamp);
+  }
+  bindView(position,holder,item);
+  return view;
+}

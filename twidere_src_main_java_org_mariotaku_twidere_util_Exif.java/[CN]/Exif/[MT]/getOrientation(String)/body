@@ -1,0 +1,13 @@
+{
+  InputStream is=null;
+  try {
+    is=new FileInputStream(file);
+    return getOrientation(is);
+  }
+ catch (  final IOException e) {
+    return 0;
+  }
+ finally {
+    Utils.closeSilently(is);
+  }
+}

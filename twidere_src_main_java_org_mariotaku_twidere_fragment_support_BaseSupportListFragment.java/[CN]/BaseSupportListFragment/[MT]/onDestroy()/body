@@ -1,0 +1,4 @@
+{
+  mStoppedPreviously=false;
+  super.onDestroy();
+}

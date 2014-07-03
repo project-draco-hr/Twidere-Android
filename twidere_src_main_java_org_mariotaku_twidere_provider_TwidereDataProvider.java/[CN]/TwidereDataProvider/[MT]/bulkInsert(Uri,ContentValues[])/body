@@ -1,0 +1,37 @@
+{
+  try {
+    final int tableId=getTableId(uri);
+    final String table=getTableNameById(tableId);
+    checkWritePermission(tableId,table);
+switch (tableId) {
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+      return 0;
+  }
+  int result=0;
+  if (table != null && values != null) {
+    mDatabaseWrapper.beginTransaction();
+    final boolean replaceOnConflict=shouldReplaceOnConflict(tableId);
+    for (    final ContentValues contentValues : values) {
+      if (replaceOnConflict) {
+        mDatabaseWrapper.insertWithOnConflict(table,null,contentValues,SQLiteDatabase.CONFLICT_REPLACE);
+      }
+ else {
+        mDatabaseWrapper.insert(table,null,contentValues);
+      }
+      result++;
+    }
+    mDatabaseWrapper.setTransactionSuccessful();
+    mDatabaseWrapper.endTransaction();
+  }
+  if (result > 0) {
+    onDatabaseUpdated(tableId,uri);
+  }
+  onNewItemsInserted(uri,values);
+  return result;
+}
+ catch (final SQLException e) {
+  throw new IllegalStateException(e);
+}
+}

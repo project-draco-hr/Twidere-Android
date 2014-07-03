@@ -1,0 +1,25 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.image_viewer_gl);
+  mActionBar=getActionBar();
+  mActionBar.setDisplayHomeAsUpEnabled(true);
+  mActionBar.addOnMenuVisibilityListener(this);
+  mHandler=new MyHandler(this);
+  mPhotoView=new PhotoView(this);
+  mPhotoView.setListener(this);
+  final int bgColor=ThemeUtils.getColorBackgroundCacheHint(this);
+  final int r=Color.red(bgColor), g=Color.green(bgColor), b=Color.blue(bgColor);
+  final float[] rootBg={r / 255f,g / 255f,b / 255f,1};
+  mRootPane.setBackgroundColor(rootBg);
+  mRootPane.addComponent(mPhotoView);
+  mAdapter=new PhotoViewAdapter(mPhotoView);
+  mPhotoView.setModel(mAdapter);
+  if (savedInstanceState == null) {
+    loadImage();
+  }
+  mMenuBar.setOnMenuItemClickListener(this);
+  mMenuBar.inflate(R.menu.menu_image_viewer);
+  mMenuBar.setIsBottomBar(true);
+  mMenuBar.show();
+  setSwipeListener(this);
+}

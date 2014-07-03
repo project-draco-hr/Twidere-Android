@@ -1,0 +1,8 @@
+{
+  final SharedPreferences prefs=getPreferenceManager().getSharedPreferences();
+  final SharedPreferences.Editor editor=prefs.edit();
+  if (prefs.getBoolean(getSwitchPreferenceKey(),getSwitchPreferenceDefault()) != isChecked) {
+    editor.putBoolean(getSwitchPreferenceKey(),isChecked);
+    editor.apply();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (fm instanceof FragmentManagerImpl)   return ((FragmentManagerImpl)fm).mStateSaved;
+  return false;
+}

@@ -1,0 +1,6 @@
+{
+  final int w=MeasureSpec.getSize(widthMeasureSpec), h=MeasureSpec.getSize(heightMeasureSpec);
+  final int wSpec=MeasureSpec.makeMeasureSpec(h,MeasureSpec.EXACTLY), hSpec=MeasureSpec.makeMeasureSpec(w,MeasureSpec.EXACTLY);
+  setMeasuredDimension(h,w);
+  super.onMeasure(wSpec,hSpec);
+}

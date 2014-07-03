@@ -1,0 +1,7 @@
+{
+  final Dialog d=getDialog();
+  if (d instanceof ColorPickerDialog) {
+    outState.putInt(EXTRA_COLOR,((ColorPickerDialog)d).getColor());
+  }
+  super.onSaveInstanceState(outState);
+}

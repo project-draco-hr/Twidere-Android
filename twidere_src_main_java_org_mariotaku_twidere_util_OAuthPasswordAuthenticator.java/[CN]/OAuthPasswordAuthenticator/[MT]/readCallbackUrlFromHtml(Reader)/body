@@ -1,0 +1,23 @@
+{
+  final XmlPullParserFactory f=XmlPullParserFactory.newInstance();
+  final XmlPullParser parser=f.newPullParser();
+  parser.setFeature(Xml.FEATURE_RELAXED,true);
+  parser.setInput(in);
+  while (parser.next() != XmlPullParser.END_DOCUMENT) {
+    final String tag=parser.getName();
+switch (parser.getEventType()) {
+case XmlPullParser.START_TAG:
+{
+        if ("meta".equals(tag) && "refresh".equals(parser.getAttributeValue(null,"http-equiv"))) {
+          final String content=parser.getAttributeValue(null,"content");
+          int idx;
+          if (!TextUtils.isEmpty(content) && (idx=content.indexOf(REFRESH_URL_PREFIX)) != -1) {
+            final String url=content.substring(idx + REFRESH_URL_PREFIX.length());
+            if (!TextUtils.isEmpty(url))             return url;
+          }
+        }
+      }
+  }
+}
+return null;
+}

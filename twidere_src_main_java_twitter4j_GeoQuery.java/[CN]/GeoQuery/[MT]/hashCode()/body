@@ -1,0 +1,8 @@
+{
+  int result=location != null ? location.hashCode() : 0;
+  result=31 * result + (ip != null ? ip.hashCode() : 0);
+  result=31 * result + (accuracy != null ? accuracy.hashCode() : 0);
+  result=31 * result + (granularity != null ? granularity.hashCode() : 0);
+  result=31 * result + maxResults;
+  return result;
+}

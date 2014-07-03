@@ -1,0 +1,3 @@
+{
+  mViewPager=(ViewPager)findViewById(R.id.pager);
+}

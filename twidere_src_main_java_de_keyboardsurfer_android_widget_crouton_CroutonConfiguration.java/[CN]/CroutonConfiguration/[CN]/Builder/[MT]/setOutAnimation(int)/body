@@ -1,0 +1,4 @@
+{
+  this.outAnimationResId=outAnimationResId;
+  return this;
+}

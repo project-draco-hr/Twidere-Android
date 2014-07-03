@@ -1,0 +1,18 @@
+{
+  screen_name=cursor.getColumnIndex(Accounts.SCREEN_NAME);
+  name=cursor.getColumnIndex(Accounts.NAME);
+  account_id=cursor.getColumnIndex(Accounts.ACCOUNT_ID);
+  profile_image_url=cursor.getColumnIndex(Accounts.PROFILE_IMAGE_URL);
+  profile_banner_url=cursor.getColumnIndex(Accounts.PROFILE_BANNER_URL);
+  color=cursor.getColumnIndex(Accounts.COLOR);
+  is_activated=cursor.getColumnIndex(Accounts.IS_ACTIVATED);
+  auth_type=cursor.getColumnIndex(Accounts.AUTH_TYPE);
+  consumer_key=cursor.getColumnIndex(Accounts.CONSUMER_KEY);
+  consumer_secret=cursor.getColumnIndex(Accounts.CONSUMER_SECRET);
+  basic_auth_username=cursor.getColumnIndex(Accounts.BASIC_AUTH_USERNAME);
+  basic_auth_password=cursor.getColumnIndex(Accounts.BASIC_AUTH_PASSWORD);
+  oauth_token=cursor.getColumnIndex(Accounts.OAUTH_TOKEN);
+  oauth_token_secret=cursor.getColumnIndex(Accounts.OAUTH_TOKEN_SECRET);
+  api_url_format=cursor.getColumnIndex(Accounts.API_URL_FORMAT);
+  same_oauth_signing_url=cursor.getColumnIndex(Accounts.SAME_OAUTH_SIGNING_URL);
+}

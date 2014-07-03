@@ -1,0 +1,7 @@
+{
+  super(context,account_id,cursor,data);
+  mListId=list_id;
+  mUserId=user_id;
+  mScreenName=screen_name;
+  mListName=list_name;
+}

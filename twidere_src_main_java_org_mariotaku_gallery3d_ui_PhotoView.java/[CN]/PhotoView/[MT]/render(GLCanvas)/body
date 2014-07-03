@@ -1,0 +1,6 @@
+{
+  final Rect r=mPositionController.getPosition();
+  mPicture.draw(canvas,r);
+  renderChild(canvas,mEdgeView);
+  mPositionController.advanceAnimation();
+}

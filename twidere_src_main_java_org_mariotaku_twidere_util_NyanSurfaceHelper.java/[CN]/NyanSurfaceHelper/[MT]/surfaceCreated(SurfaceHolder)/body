@@ -1,0 +1,4 @@
+{
+  mHolder=holder;
+  start();
+}

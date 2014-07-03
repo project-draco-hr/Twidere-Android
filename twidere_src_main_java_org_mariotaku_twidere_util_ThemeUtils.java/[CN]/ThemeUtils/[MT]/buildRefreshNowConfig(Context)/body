@@ -1,0 +1,4 @@
+{
+  final RefreshNowConfig.Builder builder=new RefreshNowConfig.Builder(context);
+  return builder.build();
+}

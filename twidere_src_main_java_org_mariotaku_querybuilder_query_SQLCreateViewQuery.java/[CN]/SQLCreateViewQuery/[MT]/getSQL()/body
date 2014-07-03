@@ -1,0 +1,14 @@
+{
+  if (name == null)   throw new NullPointerException("NAME must not be null!");
+  if (selectStmt == null)   throw new NullPointerException("SELECT statement must not be null!");
+  final StringBuilder sb=new StringBuilder("CREATE ");
+  if (temporary) {
+    sb.append("TEMPORARY ");
+  }
+  sb.append("VIEW ");
+  if (createIfNotExists) {
+    sb.append("IF NOT EXISTS ");
+  }
+  sb.append(String.format("%s AS %s",name,selectStmt.getSQL()));
+  return sb.toString();
+}

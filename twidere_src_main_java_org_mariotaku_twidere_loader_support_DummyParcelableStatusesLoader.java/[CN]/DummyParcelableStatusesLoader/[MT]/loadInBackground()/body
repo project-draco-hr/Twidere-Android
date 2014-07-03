@@ -1,0 +1,5 @@
+{
+  final List<ParcelableStatus> data=getData();
+  if (data != null)   return data;
+  return Collections.emptyList();
+}

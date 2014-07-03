@@ -1,0 +1,7 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_BLOCKS_LIST;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_BLOCKS_LIST;
+  final HttpParameter[] params=mergeParameters(paging.asPostParameterArray(),INCLUDE_ENTITIES);
+  return factory.createPagableUserList(get(url,signUrl,params));
+}

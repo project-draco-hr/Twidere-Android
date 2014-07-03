@@ -1,0 +1,4 @@
+{
+  mPreference.doInBackground();
+  return null;
+}

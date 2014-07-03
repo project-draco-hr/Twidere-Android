@@ -1,0 +1,5 @@
+{
+  if (context == null || position < 0)   return 0;
+  final Uri uri=UnreadCounts.CONTENT_URI.buildUpon().appendPath(String.valueOf(position)).build();
+  return context.getContentResolver().delete(uri,null,null);
+}

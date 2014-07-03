@@ -1,0 +1,15 @@
+{
+  try {
+    final String url=conf.getOAuthAccessTokenURL();
+    if (0 == url.indexOf("http://")) {
+    }
+    final String sign_url=conf.getSigningOAuthAccessTokenURL();
+    if (0 == sign_url.indexOf("http://")) {
+    }
+    oauthToken=new AccessToken(http.post(url,sign_url,new HttpParameter[]{new HttpParameter("x_auth_username",screenName),new HttpParameter("x_auth_password",password),new HttpParameter("x_auth_mode","client_auth")},this));
+    return (AccessToken)oauthToken;
+  }
+ catch (  final TwitterException te) {
+    throw new TwitterException("The screen name / password combination seems to be invalid.",te,te.getStatusCode());
+  }
+}

@@ -1,0 +1,12 @@
+{
+  while (!mCancelled) {
+    final long startTime=System.currentTimeMillis();
+    drawFrame();
+    final long endTime=System.currentTimeMillis();
+    try {
+      Thread.sleep(Math.max(0,66 - (endTime - startTime)));
+    }
+ catch (    final InterruptedException e) {
+    }
+  }
+}

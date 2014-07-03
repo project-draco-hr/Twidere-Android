@@ -1,0 +1,10 @@
+{
+  final Context context=getContext();
+  final int themeResource=ThemeUtils.getThemeResource(context);
+  final int accentColor=ThemeUtils.getUserThemeColor(context);
+  final Context theme=new TwidereContextThemeWrapper(context,themeResource,accentColor);
+  final LayoutInflater inflater=LayoutInflater.from(theme);
+  final View view=inflater.inflate(R.layout.theme_preview,parent,false);
+  setPreviewView(theme,view.findViewById(R.id.theme_preview_content),themeResource);
+  return view;
+}

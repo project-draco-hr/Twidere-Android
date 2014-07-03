@@ -1,0 +1,10 @@
+{
+  mSelectedUser=user;
+  final FragmentActivity activity=getActivity();
+  if (activity == null || activity.isFinishing() || view == null || user == null)   return;
+  final UserMenuDialogFragment df=createMenuDialog();
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_USER,user);
+  df.setArguments(args);
+  df.show(getChildFragmentManager(),"user_menu");
+}

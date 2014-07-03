@@ -1,0 +1,11 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final ResolveInfo info=getItem(position);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final TextView text2=(TextView)view.findViewById(android.R.id.text2);
+  icon.setImageDrawable(info.loadIcon(mPackageManager));
+  text1.setText(info.loadLabel(mPackageManager));
+  text2.setVisibility(View.GONE);
+  return view;
+}

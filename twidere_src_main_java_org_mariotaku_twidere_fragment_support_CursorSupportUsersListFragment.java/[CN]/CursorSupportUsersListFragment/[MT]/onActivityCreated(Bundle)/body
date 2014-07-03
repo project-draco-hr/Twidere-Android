@@ -1,0 +1,11 @@
+{
+  if (savedInstanceState != null) {
+    mNextCursor=savedInstanceState.getLong(EXTRA_NEXT_CURSOR,-1);
+    mPrevCursor=savedInstanceState.getLong(EXTRA_PREV_CURSOR,-1);
+  }
+ else {
+    mNextCursor=-1;
+    mPrevCursor=-1;
+  }
+  super.onActivityCreated(savedInstanceState);
+}

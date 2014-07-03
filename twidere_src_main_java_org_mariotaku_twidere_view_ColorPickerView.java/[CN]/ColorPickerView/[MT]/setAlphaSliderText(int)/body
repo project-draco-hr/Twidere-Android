@@ -1,0 +1,4 @@
+{
+  final String text=getContext().getString(res);
+  setAlphaSliderText(text);
+}

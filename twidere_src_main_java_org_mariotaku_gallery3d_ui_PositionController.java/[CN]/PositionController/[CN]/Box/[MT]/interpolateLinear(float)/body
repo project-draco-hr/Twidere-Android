@@ -1,0 +1,12 @@
+{
+  if (progress >= 1) {
+    mCurrentY=mToY;
+    mCurrentScale=mToScale;
+    return true;
+  }
+ else {
+    mCurrentY=(int)(mFromY + progress * (mToY - mFromY));
+    mCurrentScale=mFromScale + progress * (mToScale - mFromScale);
+    return mCurrentY == mToY && mCurrentScale == mToScale;
+  }
+}

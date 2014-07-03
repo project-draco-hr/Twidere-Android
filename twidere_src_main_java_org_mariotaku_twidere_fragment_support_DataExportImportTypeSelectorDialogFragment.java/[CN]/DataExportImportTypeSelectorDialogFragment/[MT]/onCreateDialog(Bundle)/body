@@ -1,0 +1,24 @@
+{
+  final Context context=getActivity();
+  final int flags=getEnabledFlags();
+  mAdapter=new TypeAdapter(context,flags);
+  mListView=new ListView(context);
+  mAdapter.add(new Type(R.string.settings,FLAG_PREFERENCES));
+  mAdapter.add(new Type(R.string.nicknames,FLAG_NICKNAMES));
+  mAdapter.add(new Type(R.string.user_colors,FLAG_USER_COLORS));
+  mAdapter.add(new Type(R.string.custom_host_mapping,FLAG_HOST_MAPPING));
+  mListView.setAdapter(mAdapter);
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+  mListView.setOnItemClickListener(this);
+  for (int i=0, j=mAdapter.getCount(); i < j; i++) {
+    mListView.setItemChecked(i,mAdapter.isEnabled(i));
+  }
+  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
+  builder.setTitle(getTitle());
+  builder.setView(mListView);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,null);
+  final AlertDialog dialog=builder.create();
+  dialog.setOnShowListener(this);
+  return dialog;
+}

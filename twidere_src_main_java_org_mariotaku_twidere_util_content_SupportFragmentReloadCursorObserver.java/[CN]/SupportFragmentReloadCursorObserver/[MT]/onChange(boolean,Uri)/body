@@ -1,0 +1,4 @@
+{
+  if (mFragment == null || mFragment.getActivity() == null || mFragment.isDetached())   return;
+  mFragment.getLoaderManager().restartLoader(mLoaderId,null,mCallback);
+}

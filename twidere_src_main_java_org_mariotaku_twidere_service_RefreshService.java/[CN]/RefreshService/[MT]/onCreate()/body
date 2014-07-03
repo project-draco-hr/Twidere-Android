@@ -1,0 +1,20 @@
+{
+  super.onCreate();
+  mAlarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
+  final TwidereApplication app=TwidereApplication.getInstance(this);
+  mTwitterWrapper=app.getTwitterWrapper();
+  mPreferences=SharedPreferencesWrapper.getInstance(app,SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mPendingRefreshHomeTimelineIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_HOME_TIMELINE),0);
+  mPendingRefreshMentionsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_MENTIONS),0);
+  mPendingRefreshDirectMessagesIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_DIRECT_MESSAGES),0);
+  mPendingRefreshTrendsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_TRENDS),0);
+  final IntentFilter filter=new IntentFilter(BROADCAST_NOTIFICATION_DELETED);
+  filter.addAction(BROADCAST_REFRESH_HOME_TIMELINE);
+  filter.addAction(BROADCAST_REFRESH_MENTIONS);
+  filter.addAction(BROADCAST_REFRESH_DIRECT_MESSAGES);
+  filter.addAction(BROADCAST_RESCHEDULE_HOME_TIMELINE_REFRESHING);
+  filter.addAction(BROADCAST_RESCHEDULE_MENTIONS_REFRESHING);
+  filter.addAction(BROADCAST_RESCHEDULE_DIRECT_MESSAGES_REFRESHING);
+  registerReceiver(mStateReceiver,filter);
+  startAutoRefresh();
+}

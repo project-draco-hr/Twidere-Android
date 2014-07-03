@@ -1,0 +1,3 @@
+{
+  httpRetryCount=retryCount;
+}

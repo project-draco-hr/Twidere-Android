@@ -1,0 +1,5 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(name,mode);
+  if (prefs == null)   return null;
+  return new SharedPreferencesWrapper(prefs,keysClass);
+}

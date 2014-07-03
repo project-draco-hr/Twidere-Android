@@ -1,0 +1,4 @@
+{
+  final long[] accountIds=getActivatedAccountIds(mContext);
+  return refreshAll(accountIds);
+}

@@ -1,0 +1,5 @@
+{
+  clear();
+  if (data == null)   return;
+  addAll(data);
+}

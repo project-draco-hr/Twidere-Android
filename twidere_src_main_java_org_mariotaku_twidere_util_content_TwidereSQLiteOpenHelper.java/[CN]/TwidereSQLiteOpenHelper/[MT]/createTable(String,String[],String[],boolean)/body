@@ -1,0 +1,5 @@
+{
+  final SQLCreateTableQuery.Builder qb=SQLQueryBuilder.createTable(createIfNotExists,tableName);
+  qb.columns(NewColumn.createNewColumns(columns,types));
+  return qb.buildSQL();
+}

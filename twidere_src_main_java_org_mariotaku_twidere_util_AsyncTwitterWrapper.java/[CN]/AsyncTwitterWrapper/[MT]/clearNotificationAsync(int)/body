@@ -1,0 +1,3 @@
+{
+  clearNotificationAsync(notificationType,0);
+}

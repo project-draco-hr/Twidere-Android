@@ -1,0 +1,3 @@
+{
+  return factory.createQueryResult(get(conf.getRestBaseURL() + ENDPOINT_SEARCH_TWEETS,conf.getSigningRestBaseURL() + ENDPOINT_SEARCH_TWEETS,query.asHttpParameterArray(INCLUDE_ENTITIES,INCLUDE_RTS)),query);
+}

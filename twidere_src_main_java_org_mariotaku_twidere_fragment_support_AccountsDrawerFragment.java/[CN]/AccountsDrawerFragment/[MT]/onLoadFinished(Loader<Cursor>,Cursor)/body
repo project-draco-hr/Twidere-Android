@@ -1,0 +1,9 @@
+{
+  if (data != null && data.getCount() > 0 && mAccountsAdapter.getSelectedAccountId() <= 0) {
+    data.moveToFirst();
+    mAccountsAdapter.setSelectedAccountId(data.getLong(data.getColumnIndex(Accounts.ACCOUNT_ID)));
+  }
+  mAccountsAdapter.changeCursor(data);
+  updateAccountOptionsSeparatorLabel();
+  updateDefaultAccountState();
+}

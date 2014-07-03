@@ -1,0 +1,5 @@
+{
+  if (mAlphaPattern == alphaPattern)   return;
+  mAlphaPattern=alphaPattern;
+  invalidate();
+}

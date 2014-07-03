@@ -1,0 +1,4 @@
+{
+  if (entry instanceof BackStackRecord)   return ((BackStackRecord)entry).mHead.fragment;
+  return null;
+}

@@ -1,0 +1,27 @@
+{
+  final JSONIterable json=new JSONIterable(in.getJSON());
+  for (  final String key : json) {
+    if (!in.contains(key)) {
+      continue;
+    }
+    final Object value=in.readObject(key);
+    if (value == null) {
+      continue;
+    }
+    if (value instanceof Boolean) {
+      preferencesMap.put(key,value);
+    }
+ else     if (value instanceof Integer) {
+      preferencesMap.put(key,value);
+    }
+ else     if (value instanceof Long) {
+      preferencesMap.put(key,value);
+    }
+ else     if (value instanceof Float) {
+      preferencesMap.put(key,value);
+    }
+ else     if (value instanceof String) {
+      preferencesMap.put(key,value);
+    }
+  }
+}

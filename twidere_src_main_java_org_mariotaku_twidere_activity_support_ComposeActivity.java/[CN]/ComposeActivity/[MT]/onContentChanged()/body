@@ -1,0 +1,24 @@
+{
+  super.onContentChanged();
+  findViewById(R.id.close).setOnClickListener(this);
+  mColorIndicator=(IColorLabelView)findViewById(R.id.accounts_color);
+  mEditText=(EditText)findViewById(R.id.edit_text);
+  mTitleView=(TextView)findViewById(R.id.actionbar_title);
+  mSubtitleView=(TextView)findViewById(R.id.actionbar_subtitle);
+  mMediasPreviewGrid=(GridView)findViewById(R.id.medias_thumbnail_preview);
+  mBottomMenuBar=(MenuBar)findViewById(R.id.bottom_menu);
+  mBottomMenuContainer=findViewById(R.id.bottom_menu_container);
+  mActionMenuBar=(MenuBar)findViewById(R.id.action_menu);
+  mProgress=(ProgressBar)findViewById(R.id.actionbar_progress_indeterminate);
+  mAccountSelectorDivider=findViewById(R.id.account_selector_divider);
+  mBottomSendDivider=findViewById(R.id.bottom_send_divider);
+  mAccountSelector=(Gallery)findViewById(R.id.account_selector);
+  final View composeActionBar=findViewById(R.id.compose_actionbar);
+  final View composeBottomBar=findViewById(R.id.compose_bottombar);
+  mSendView=composeActionBar.findViewById(R.id.send);
+  mBottomSendView=composeBottomBar.findViewById(R.id.send);
+  mSendTextCountView=(StatusTextCountView)mSendView.findViewById(R.id.status_text_count);
+  mBottomSendTextCountView=(StatusTextCountView)mBottomSendView.findViewById(R.id.status_text_count);
+  ViewAccessor.setBackground(findViewById(R.id.compose_content),getWindowContentOverlayForCompose(this));
+  ViewAccessor.setBackground(composeActionBar,getActionBarBackground(this,getCurrentThemeResourceId()));
+}

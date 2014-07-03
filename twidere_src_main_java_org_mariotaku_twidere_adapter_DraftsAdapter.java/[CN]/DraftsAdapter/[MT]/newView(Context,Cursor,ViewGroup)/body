@@ -1,0 +1,8 @@
+{
+  final View view=super.newView(context,cursor,parent);
+  final Object tag=view.getTag();
+  if (!(tag instanceof DraftViewHolder)) {
+    view.setTag(new DraftViewHolder(view));
+  }
+  return view;
+}

@@ -1,0 +1,3 @@
+{
+  return FriendshipJSONImpl.createFriendshipList(res,conf);
+}

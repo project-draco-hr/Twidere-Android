@@ -1,0 +1,3 @@
+{
+  return getSettingsThemeResource(getThemeNameOption(context),getDarkActionBarOption(context));
+}

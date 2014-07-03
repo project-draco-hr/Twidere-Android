@@ -1,0 +1,43 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      final long[] account_ids=getActivatedAccountIds(this);
+      if (account_ids.length > 0) {
+        onBackPressed();
+      }
+      break;
+    }
+case MENU_SETTINGS:
+{
+    if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)     return false;
+    final Intent intent=new Intent(this,SettingsActivity.class);
+    startActivity(intent);
+    break;
+  }
+case MENU_EDIT_API:
+{
+  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return false;
+  setDefaultAPI();
+  final Intent intent=new Intent(this,APIEditorActivity.class);
+  intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
+  intent.putExtra(Accounts.AUTH_TYPE,mAuthType);
+  intent.putExtra(Accounts.SAME_OAUTH_SIGNING_URL,mSameOAuthSigningUrl);
+  intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
+  intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
+  startActivityForResult(intent,REQUEST_EDIT_API);
+  break;
+}
+case MENU_OPEN_IN_BROWSER:
+{
+if (mAuthType != Accounts.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
+saveEditedText();
+final Intent intent=new Intent(this,BrowserSignInActivity.class);
+intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
+intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
+startActivityForResult(intent,REQUEST_BROWSER_SIGN_IN);
+break;
+}
+}
+return super.onOptionsItemSelected(item);
+}

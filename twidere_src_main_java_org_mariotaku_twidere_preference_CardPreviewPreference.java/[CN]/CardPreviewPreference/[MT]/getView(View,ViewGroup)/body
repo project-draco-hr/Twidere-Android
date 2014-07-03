@@ -1,0 +1,4 @@
+{
+  if (mCompactModeChanged)   return super.getView(null,parent);
+  return super.getView(convertView,parent);
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    return URLEncoder.encode(str,"UTF-8");
+  }
+ catch (  final java.io.UnsupportedEncodingException neverHappen) {
+    throw new AssertionError("will never happen");
+  }
+}

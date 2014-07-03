@@ -1,0 +1,3 @@
+{
+  currentInternalQuery.setGroupBy(groupBy);
+}

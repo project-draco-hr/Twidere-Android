@@ -1,0 +1,7 @@
+{
+  mPositionController.skipAnimation();
+  mTileView.freeTextures();
+  for (int i=-0; i <= 0; i++) {
+    mPicture.setScreenNail(null);
+  }
+}

@@ -1,0 +1,13 @@
+{
+  final Bundle args=getArguments();
+  if (args == null || !args.containsKey(EXTRA_ACCOUNT_ID) || !args.containsKey(EXTRA_LIST_ID))   return;
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final String mText=ParseUtils.parseString(mEditText.getText());
+      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      if (mText == null || mText.length() <= 0 || twitter == null)       return;
+      break;
+    }
+}
+}

@@ -1,0 +1,15 @@
+{
+  final int rows=frame.length;
+  final int starDotSize=Math.round(mDotScale * mStarDotSize);
+  for (int row=0; row < rows; row++) {
+    final int cols=frame[row].length;
+    final float top=y + starDotSize * row - starDotSize * rows / 2;
+    for (int col=0; col < cols; col++) {
+      final byte point=frame[row][col];
+      if (point != 0) {
+        final float left=x + starDotSize * col - starDotSize * cols / 2;
+        canvas.drawRect(left,top,left + starDotSize,top + starDotSize,mPaint);
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  super.sort(comparator);
+  rebuildIdMap();
+}

@@ -1,0 +1,17 @@
+{
+  if (src == null)   throw new FileNotFoundException();
+  final ZipFile zipFile=new ZipFile(src);
+  if (hasFlag(flags,FLAG_PREFERENCES)) {
+    readSharedPreferencesData(zipFile,context,SHARED_PREFERENCES_NAME,ENTRY_PREFERENCES);
+  }
+  if (hasFlag(flags,FLAG_NICKNAMES)) {
+    readRawSharedPreferencesData(zipFile,context,USER_NICKNAME_PREFERENCES_NAME,ENTRY_NICKNAMES);
+  }
+  if (hasFlag(flags,FLAG_USER_COLORS)) {
+    readRawSharedPreferencesData(zipFile,context,USER_COLOR_PREFERENCES_NAME,ENTRY_USER_COLORS);
+  }
+  if (hasFlag(flags,FLAG_HOST_MAPPING)) {
+    readRawSharedPreferencesData(zipFile,context,HOST_MAPPING_PREFERENCES_NAME,ENTRY_HOST_MAPPING);
+  }
+  zipFile.close();
+}

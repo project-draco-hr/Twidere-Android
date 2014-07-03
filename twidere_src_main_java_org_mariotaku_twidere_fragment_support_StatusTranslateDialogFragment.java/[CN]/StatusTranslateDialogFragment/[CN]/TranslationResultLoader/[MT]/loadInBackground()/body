@@ -1,0 +1,23 @@
+{
+  final Context context=getContext();
+  final Twitter twitter=Utils.getTwitterInstance(context,mAccountId,false);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final String prefDest=prefs.getString(KEY_TRANSLATION_DESTINATION,null);
+    final String dest;
+    if (TextUtils.isEmpty(prefDest)) {
+      dest=twitter.getAccountSettings().getLanguage();
+      final Editor editor=prefs.edit();
+      editor.putString(KEY_TRANSLATION_DESTINATION,dest);
+      editor.apply();
+    }
+ else {
+      dest=prefDest;
+    }
+    return SingleResponse.getInstance(twitter.showTranslation(mStatusId,dest));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  super.writeToParcel(dest,flags);
+  dest.writeInt(minProgress);
+  dest.writeInt(maxProgress);
+  dest.writeInt(progress);
+}

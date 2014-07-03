@@ -1,0 +1,25 @@
+{
+  final int tab_count=mIndicator.getTabCount();
+  if (result == null || result.length != tab_count)   return;
+  for (int i=0, j=tab_count; i < j; i++) {
+    final BadgeView badge=(BadgeView)mIndicator.getTabItem(i).findViewById(R.id.unread_count);
+    if (!mEnabled) {
+      badge.setCount(0);
+      badge.hide();
+      continue;
+    }
+    final int count=result[i];
+    if (count > 0) {
+      badge.setCount(count);
+      badge.show();
+    }
+ else     if (count == 0) {
+      badge.setCount(0);
+      badge.hide();
+    }
+ else {
+      badge.setText("\u0387");
+      badge.show();
+    }
+  }
+}

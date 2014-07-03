@@ -1,0 +1,12 @@
+{
+  final List<T> objects=mData;
+  T previous=objects.get(position);
+  final int iterator=newPosition < position ? 1 : -1;
+  final int afterPosition=position + iterator;
+  for (int cellPosition=newPosition; cellPosition != afterPosition; cellPosition+=iterator) {
+    final T tmp=objects.get(cellPosition);
+    objects.set(cellPosition,previous);
+    previous=tmp;
+  }
+  notifyDataSetChanged();
+}

@@ -1,0 +1,3 @@
+{
+  return compactCards ? R.layout.card_item_status_compact : R.layout.card_item_status;
+}

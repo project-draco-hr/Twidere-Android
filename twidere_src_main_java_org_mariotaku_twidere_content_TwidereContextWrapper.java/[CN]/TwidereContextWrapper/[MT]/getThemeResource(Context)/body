@@ -1,0 +1,4 @@
+{
+  if (base instanceof ITwidereContextWrapper)   return ((ITwidereContextWrapper)base).getThemeResourceId();
+ else   return 0;
+}

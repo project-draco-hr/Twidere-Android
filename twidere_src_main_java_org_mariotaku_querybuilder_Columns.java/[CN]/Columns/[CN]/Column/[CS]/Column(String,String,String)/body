@@ -1,0 +1,6 @@
+{
+  if (columnName == null)   throw new IllegalArgumentException("");
+  this.table=table;
+  this.columnName=columnName;
+  this.alias=alias;
+}

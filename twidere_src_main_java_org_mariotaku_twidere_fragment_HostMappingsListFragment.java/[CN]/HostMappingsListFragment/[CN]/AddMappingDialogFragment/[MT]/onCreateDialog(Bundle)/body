@@ -1,0 +1,21 @@
+{
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final View view=LayoutInflater.from(getActivity()).inflate(R.layout.dialog_host_mapping,null);
+  builder.setView(view);
+  mEditHost=(EditText)view.findViewById(R.id.host);
+  mEditAddress=(EditText)view.findViewById(R.id.address);
+  mEditHost.addTextChangedListener(this);
+  mEditAddress.addTextChangedListener(this);
+  final Bundle args=getArguments();
+  if (savedInstanceState == null && args != null) {
+    mEditHost.setText(args.getCharSequence(EXTRA_TEXT1));
+    mEditAddress.setText(args.getCharSequence(EXTRA_TEXT2));
+  }
+  builder.setTitle(R.string.add_host_mapping);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,null);
+  final AlertDialog dialog=builder.create();
+  dialog.setOnShowListener(this);
+  return dialog;
+}

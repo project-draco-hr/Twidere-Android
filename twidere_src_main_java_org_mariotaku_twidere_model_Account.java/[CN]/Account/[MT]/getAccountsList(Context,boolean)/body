@@ -1,0 +1,3 @@
+{
+  return getAccountsList(context,activatedOnly,false);
+}

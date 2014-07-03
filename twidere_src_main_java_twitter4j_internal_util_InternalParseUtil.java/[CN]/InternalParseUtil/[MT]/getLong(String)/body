@@ -1,0 +1,26 @@
+{
+  if (null == str || "".equals(str) || "null".equals(str))   return -1;
+ else {
+    try {
+      final Number number=NumberFormat.getInstance().parse(str);
+      return number.longValue();
+    }
+ catch (    final ParseException e) {
+    }
+    if (str.endsWith("+")) {
+      str=str.substring(0,str.length() - 1);
+      try {
+        return Integer.valueOf(str) + 1;
+      }
+ catch (      final NumberFormatException nfe) {
+        return -1;
+      }
+    }
+    try {
+      return Long.valueOf(str);
+    }
+ catch (    final NumberFormatException nfe) {
+      return -1;
+    }
+  }
+}

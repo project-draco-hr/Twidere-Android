@@ -1,0 +1,7 @@
+{
+  if (requiredPermissions == null || requiredPermissions.length == 0)   return true;
+  if (mContext.getPackageName().equals(pname))   return true;
+  if (checkSignature(pname))   return true;
+  final String[] permissions=getPermissions(pname);
+  return ArrayUtils.contains(permissions,requiredPermissions);
+}

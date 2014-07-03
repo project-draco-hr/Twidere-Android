@@ -1,0 +1,6 @@
+{
+  if (twitter == null)   return null;
+  if (mUserId > 0)   return twitter.getUserListMemberships(mUserId,getCursor());
+ else   if (mScreenName != null)   return twitter.getUserListMemberships(mScreenName,getCursor());
+  return null;
+}

@@ -1,0 +1,3 @@
+{
+  return end * ((time=time / duration - 1.0) * time * time + 1.0) + start;
+}

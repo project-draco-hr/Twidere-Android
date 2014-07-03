@@ -1,0 +1,18 @@
+{
+  requestHeaders=new HashMap<String,String>();
+  if (includeTwitterClientHeader) {
+    requestHeaders.put("X-Twitter-Client-Version",getClientVersion());
+    requestHeaders.put("X-Twitter-Client-URL",getClientURL());
+    requestHeaders.put("X-Twitter-Client",getClientName());
+  }
+  requestHeaders.put("User-Agent",getHttpUserAgent());
+  if (gzipEnabled) {
+    requestHeaders.put("Accept-Encoding","gzip");
+  }
+  if (!isNullOrEmpty(httpProxyHost) && httpProxyPort > 0) {
+    requestHeaders.put("Connection","keep-alive");
+  }
+ else {
+    requestHeaders.put("Connection","close");
+  }
+}

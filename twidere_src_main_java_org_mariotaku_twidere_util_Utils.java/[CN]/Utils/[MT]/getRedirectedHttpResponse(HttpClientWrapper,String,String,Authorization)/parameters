@@ -1,0 +1,4 @@
+HttpClientWrapper client
+String url
+String signUrl
+Authorization auth

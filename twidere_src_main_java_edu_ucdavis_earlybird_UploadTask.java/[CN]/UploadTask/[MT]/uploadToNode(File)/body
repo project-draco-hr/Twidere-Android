@@ -1,0 +1,11 @@
+{
+  for (  final File file : files) {
+    if (file.isDirectory()) {
+      continue;
+    }
+    final String url=PROFILE_SERVER_URL + "/" + device_id+ "/"+ file.getName().replaceFirst("[.][^.]+$","");
+    ProfilingUtil.log(context,url);
+    uploadMultipart(url,file);
+  }
+  return false;
+}

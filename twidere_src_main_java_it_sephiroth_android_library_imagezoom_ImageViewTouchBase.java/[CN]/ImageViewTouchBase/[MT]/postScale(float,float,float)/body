@@ -1,0 +1,4 @@
+{
+  mSuppMatrix.postScale(scale,scale,centerX,centerY);
+  setImageMatrix(getImageViewMatrix());
+}

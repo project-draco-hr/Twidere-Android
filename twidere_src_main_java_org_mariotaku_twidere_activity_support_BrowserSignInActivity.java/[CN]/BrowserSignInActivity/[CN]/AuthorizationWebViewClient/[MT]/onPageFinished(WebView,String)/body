@@ -1,0 +1,5 @@
+{
+  super.onPageFinished(view,url);
+  view.loadUrl(INJECT_CONTENT);
+  mActivity.setLoadProgressShown(false);
+}

@@ -1,0 +1,6 @@
+{
+  mIdMap.clear();
+  for (int i=0, j=mData.size(); i < j; ++i) {
+    mIdMap.put(mData.get(i),i);
+  }
+}

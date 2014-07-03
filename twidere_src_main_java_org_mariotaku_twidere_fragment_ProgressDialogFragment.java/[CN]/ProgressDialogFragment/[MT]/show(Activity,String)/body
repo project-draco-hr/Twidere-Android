@@ -1,0 +1,6 @@
+{
+  if (activity == null)   return null;
+  final ProgressDialogFragment f=new ProgressDialogFragment();
+  f.show(activity.getFragmentManager(),tag);
+  return f;
+}

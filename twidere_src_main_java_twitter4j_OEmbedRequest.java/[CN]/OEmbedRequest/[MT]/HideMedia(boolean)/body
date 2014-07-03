@@ -1,0 +1,4 @@
+{
+  this.hideMedia=hideMedia;
+  return this;
+}

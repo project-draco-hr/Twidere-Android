@@ -1,0 +1,10 @@
+{
+  final ParcelableStatusUpdate.Builder builder=new ParcelableStatusUpdate.Builder();
+  builder.accounts(Account.getAccounts(mContext,accountIds));
+  builder.text(text);
+  builder.location(location);
+  builder.medias(medias);
+  builder.inReplyToStatusId(inReplyToStatusId);
+  builder.isPossiblySensitive(isPossiblySensitive);
+  return updateStatusesAsync(builder.build());
+}

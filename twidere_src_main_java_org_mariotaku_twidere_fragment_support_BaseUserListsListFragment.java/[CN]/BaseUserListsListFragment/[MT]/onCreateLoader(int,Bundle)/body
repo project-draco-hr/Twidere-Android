@@ -1,0 +1,4 @@
+{
+  setProgressBarIndeterminateVisibility(true);
+  return newLoaderInstance(mAccountId,mUserId,mScreenName);
+}

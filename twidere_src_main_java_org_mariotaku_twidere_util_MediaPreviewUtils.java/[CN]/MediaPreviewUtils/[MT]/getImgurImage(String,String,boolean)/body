@@ -1,0 +1,5 @@
+{
+  if (isEmpty(id))   return null;
+  final String preview=fullImage ? String.format("http://i.imgur.com/%s.jpg",id) : String.format("http://i.imgur.com/%sl.jpg",id);
+  return ParcelableMedia.newImage(preview,orig);
+}

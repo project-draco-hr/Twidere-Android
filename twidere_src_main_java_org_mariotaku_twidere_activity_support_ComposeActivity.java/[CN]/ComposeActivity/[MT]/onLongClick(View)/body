@@ -1,0 +1,10 @@
+{
+switch (v.getId()) {
+case R.id.send:
+{
+      showMenuItemToast(v,getString(R.string.send),mBottomSendButton);
+      return true;
+    }
+}
+return false;
+}

@@ -1,0 +1,6 @@
+{
+  if (mHelper != null) {
+    mHelper.stop();
+  }
+  super.onStop();
+}

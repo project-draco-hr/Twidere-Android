@@ -1,0 +1,15 @@
+{
+  if (resultCode != RESULT_OK)   return;
+switch (requestCode) {
+case REQUEST_SELECT_USER:
+{
+      setSecondaryFieldValue(data.getParcelableExtra(EXTRA_USER));
+      break;
+    }
+case REQUEST_SELECT_USER_LIST:
+{
+    setSecondaryFieldValue(data.getParcelableExtra(EXTRA_USER_LIST));
+    break;
+  }
+}
+}

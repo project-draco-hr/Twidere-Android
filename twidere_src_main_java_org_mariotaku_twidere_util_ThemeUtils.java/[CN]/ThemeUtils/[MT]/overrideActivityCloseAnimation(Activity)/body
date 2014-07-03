@@ -1,0 +1,10 @@
+{
+  TypedArray a=activity.obtainStyledAttributes(new int[]{android.R.attr.windowAnimationStyle});
+  final int windowAnimationStyleResId=a.getResourceId(0,0);
+  a.recycle();
+  a=activity.obtainStyledAttributes(windowAnimationStyleResId,ANIM_CLOSE_STYLE_ATTRS);
+  final int activityCloseEnterAnimation=a.getResourceId(0,0);
+  final int activityCloseExitAnimation=a.getResourceId(1,0);
+  a.recycle();
+  activity.overridePendingTransition(activityCloseEnterAnimation,activityCloseExitAnimation);
+}

@@ -1,0 +1,18 @@
+{
+  if (context == null)   return Color.TRANSPARENT;
+  final Integer cached=sAccountColors.get(account_id);
+  if (cached != null)   return cached;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{Accounts.COLOR},Accounts.ACCOUNT_ID + " = " + account_id,null,null);
+  if (cur == null)   return Color.TRANSPARENT;
+  try {
+    if (cur.getCount() > 0 && cur.moveToFirst()) {
+      final int color=cur.getInt(0);
+      sAccountColors.put(account_id,color);
+      return color;
+    }
+    return Color.TRANSPARENT;
+  }
+  finally {
+    cur.close();
+  }
+}

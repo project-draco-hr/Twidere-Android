@@ -1,0 +1,4 @@
+{
+  final String where=isOAuthOnly() ? Accounts.AUTH_TYPE + " = " + Accounts.AUTH_TYPE_OAUTH : null;
+  return new CursorLoader(this,Accounts.CONTENT_URI,Accounts.COLUMNS,where,null,null);
+}

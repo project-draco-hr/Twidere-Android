@@ -1,0 +1,35 @@
+{
+  final ContentResolver resolver=mActivity.getContentResolver();
+  final List<SupportTabSpec> tabs=CustomTabUtils.getHomeTabs(mActivity);
+  if (wasConfigured(tabs))   return true;
+  Collections.sort(tabs);
+  int i=0;
+  final List<ContentValues> values_list=new ArrayList<ContentValues>();
+  for (  final String type : DEFAULT_TAB_TYPES) {
+    final ContentValues values=new ContentValues();
+    final CustomTabConfiguration conf=CustomTabUtils.getTabConfiguration(type);
+    values.put(Tabs.TYPE,type);
+    values.put(Tabs.ICON,CustomTabUtils.findTabIconKey(conf.getDefaultIcon()));
+    values.put(Tabs.POSITION,i++);
+    values_list.add(values);
+  }
+  for (  final SupportTabSpec spec : tabs) {
+    final String type=CustomTabUtils.findTabType(spec.cls);
+    if (type != null) {
+      final ContentValues values=new ContentValues();
+      values.put(Tabs.TYPE,type);
+      values.put(Tabs.ARGUMENTS,ParseUtils.bundleToJSON(spec.args));
+      values.put(Tabs.NAME,spec.name);
+      if (spec.icon instanceof Integer) {
+        values.put(Tabs.ICON,CustomTabUtils.findTabIconKey((Integer)spec.icon));
+      }
+ else       if (spec.icon instanceof File) {
+        values.put(Tabs.ICON,((File)spec.icon).getPath());
+      }
+      values.put(Tabs.POSITION,i++);
+    }
+  }
+  resolver.delete(Tabs.CONTENT_URI,null,null);
+  resolver.bulkInsert(Tabs.CONTENT_URI,values_list.toArray(new ContentValues[values_list.size()]));
+  return true;
+}

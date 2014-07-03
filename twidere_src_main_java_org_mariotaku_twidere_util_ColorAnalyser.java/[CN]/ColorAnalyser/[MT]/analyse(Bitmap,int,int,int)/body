@@ -1,0 +1,19 @@
+{
+  if (bitmap == null)   return def;
+  final HashMap<Float,Integer> colors=new HashMap<Float,Integer>();
+  final Bitmap resized=Bitmap.createScaledBitmap(bitmap,width,height,false);
+  final int resized_height=resized.getHeight(), resized_width=resized.getWidth();
+  for (int y=0; y < resized_height; y++) {
+    for (int x=0; x < resized_width; x++) {
+      final int temp_color=resized.getPixel(x,y);
+      final int color=argb(0xFF,red(temp_color),green(temp_color),blue(temp_color));
+      final float[] hsv=new float[3];
+      colorToHSV(color,hsv);
+      final float score=(hsv[1] * hsv[1] + 0.001f) * (hsv[2] * hsv[2]);
+      colors.put(score,color);
+    }
+  }
+  resized.recycle();
+  if (colors.size() == 0)   return def;
+  return colors.get(Collections.max(colors.keySet()));
+}

@@ -1,0 +1,7 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  text1.setText(getItem(position).title);
+  view.setEnabled(isEnabled(position));
+  return view;
+}

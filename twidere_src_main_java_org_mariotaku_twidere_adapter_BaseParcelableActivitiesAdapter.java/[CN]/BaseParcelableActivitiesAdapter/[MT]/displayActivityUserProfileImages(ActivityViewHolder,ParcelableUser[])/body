@@ -1,0 +1,12 @@
+{
+  if (users == null) {
+    displayActivityUserProfileImages(holder,new String[0]);
+  }
+ else {
+    final String[] urls=new String[users.length];
+    for (int i=0, j=users.length; i < j; i++) {
+      urls[i]=users[i].profile_image_url;
+    }
+    displayActivityUserProfileImages(holder,urls);
+  }
+}

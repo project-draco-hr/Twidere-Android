@@ -1,0 +1,6 @@
+{
+  if (context == null)   return null;
+  final String defaultOption=context.getString(R.string.default_tab_display_option);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return prefs.getString(KEY_TAB_DISPLAY_OPTION,defaultOption);
+}

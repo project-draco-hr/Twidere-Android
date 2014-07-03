@@ -1,0 +1,62 @@
+{
+  final int adapterPos=position - l.getHeaderViewsCount();
+  final ParcelableActivity item=getListAdapter().getItem(adapterPos);
+  if (item == null)   return;
+  final ParcelableUser[] sources=item.sources;
+  if (sources == null || sources.length == 0)   return;
+  final ParcelableStatus[] targetStatuses=item.target_statuses;
+  final ParcelableUser[] targetUsers=item.target_users;
+  final ParcelableStatus[] target_object_statuses=item.target_object_statuses;
+switch (item.action) {
+case ParcelableActivity.ACTION_FAVORITE:
+{
+      if (targetStatuses == null || targetStatuses.length == 0)       return;
+      if (targetStatuses.length == 1) {
+        openStatus(getActivity(),targetStatuses[0]);
+      }
+ else {
+        final List<ParcelableStatus> statuses=Arrays.asList(targetStatuses);
+        openStatuses(getActivity(),statuses);
+      }
+      break;
+    }
+case ParcelableActivity.ACTION_FOLLOW:
+{
+    if (targetUsers == null || targetUsers.length == 0)     return;
+    if (targetUsers.length == 1) {
+      openUserProfile(getActivity(),targetUsers[0]);
+    }
+ else {
+      final List<ParcelableUser> users=Arrays.asList(targetUsers);
+      openUsers(getActivity(),users);
+    }
+    break;
+  }
+case ParcelableActivity.ACTION_MENTION:
+{
+  if (target_object_statuses != null && target_object_statuses.length > 0) {
+    openStatus(getActivity(),target_object_statuses[0]);
+  }
+  break;
+}
+case ParcelableActivity.ACTION_REPLY:
+{
+if (targetStatuses != null && targetStatuses.length > 0) {
+  openStatus(getActivity(),targetStatuses[0]);
+}
+break;
+}
+case ParcelableActivity.ACTION_RETWEET:
+{
+if (targetStatuses == null || targetStatuses.length == 0) return;
+if (targetStatuses.length == 1) {
+openStatus(getActivity(),targetStatuses[0]);
+}
+ else {
+final List<ParcelableStatus> statuses=Arrays.asList(targetStatuses);
+openStatuses(getActivity(),statuses);
+}
+break;
+}
+}
+}

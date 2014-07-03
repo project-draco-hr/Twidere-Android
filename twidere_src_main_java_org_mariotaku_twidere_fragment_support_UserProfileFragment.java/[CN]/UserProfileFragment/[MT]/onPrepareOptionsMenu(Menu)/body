@@ -1,0 +1,4 @@
+{
+  if (!shouldUseNativeMenu() || !menu.hasVisibleItems())   return;
+  setMenu(menu);
+}

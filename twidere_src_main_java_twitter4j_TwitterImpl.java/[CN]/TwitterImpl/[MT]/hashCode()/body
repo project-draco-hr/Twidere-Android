@@ -1,0 +1,6 @@
+{
+  int result=super.hashCode();
+  result=31 * result + INCLUDE_ENTITIES.hashCode();
+  result=31 * result + INCLUDE_RTS.hashCode();
+  return result;
+}

@@ -1,0 +1,6 @@
+{
+synchronized (mIdleListeners) {
+    mIdleListeners.addLast(listener);
+    mIdleRunner.enable();
+  }
+}

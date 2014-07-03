@@ -1,0 +1,5 @@
+{
+  super(res);
+  final JSONObject json=res.asJSONObject();
+  init(json);
+}

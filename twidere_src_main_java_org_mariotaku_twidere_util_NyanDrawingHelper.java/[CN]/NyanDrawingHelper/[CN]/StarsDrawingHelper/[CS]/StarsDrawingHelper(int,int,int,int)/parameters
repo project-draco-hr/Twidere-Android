@@ -1,0 +1,4 @@
+int starRows
+int starCols
+int starDotSize
+int starColor

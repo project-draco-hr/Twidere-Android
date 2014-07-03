@@ -1,0 +1,29 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      final FragmentManager fm=getSupportFragmentManager();
+      final int count=fm.getBackStackEntryCount();
+      if (mSlidingMenu.isMenuShowing()) {
+        mSlidingMenu.showContent();
+        return true;
+      }
+ else       if (count == 0 && !mSlidingMenu.isMenuShowing()) {
+        mSlidingMenu.showMenu();
+        return true;
+      }
+      return true;
+    }
+case MENU_SEARCH:
+{
+    openSearchView(mSelectedAccountToSearch);
+    return true;
+  }
+case MENU_ACTIONS:
+{
+  triggerActionsClick();
+  return true;
+}
+}
+return super.onOptionsItemSelected(item);
+}

@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createAUserList(post(conf.getRestBaseURL() + ENDPOINT_LISTS_SUBSCRIBERS_CREATE,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_SUBSCRIBERS_CREATE,new HttpParameter("list_id",listId)));
+}

@@ -1,0 +1,3 @@
+{
+  return hostname != null && (InetAddressUtilsHC4.isIPv4Address(hostname) || InetAddressUtilsHC4.isIPv6Address(hostname));
+}

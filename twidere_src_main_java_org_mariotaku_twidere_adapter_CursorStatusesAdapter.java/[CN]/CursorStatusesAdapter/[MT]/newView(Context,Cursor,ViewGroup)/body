@@ -1,0 +1,17 @@
+{
+  final View view=super.newView(context,cursor,parent);
+  final Object tag=view.getTag();
+  if (!(tag instanceof StatusViewHolder)) {
+    final StatusViewHolder holder=new StatusViewHolder(view);
+    holder.profile_image.setOnClickListener(this);
+    holder.my_profile_image.setOnClickListener(this);
+    holder.image_preview.setOnClickListener(this);
+    holder.content.setOnOverflowIconClickListener(this);
+    if (mPlainList) {
+      ((View)holder.content).setPadding(0,0,0,0);
+      holder.content.setItemBackground(null);
+    }
+    view.setTag(holder);
+  }
+  return view;
+}

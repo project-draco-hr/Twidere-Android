@@ -1,0 +1,11 @@
+{
+  if (hostname == null || !InetAddressUtilsHC4.isIPv6Address(hostname))   return hostname;
+  try {
+    final InetAddress inetAddress=InetAddress.getByName(hostname);
+    return inetAddress.getHostAddress();
+  }
+ catch (  final UnknownHostException uhe) {
+    Log.e(TAG,"Unexpected error converting " + hostname,uhe);
+    return hostname;
+  }
+}

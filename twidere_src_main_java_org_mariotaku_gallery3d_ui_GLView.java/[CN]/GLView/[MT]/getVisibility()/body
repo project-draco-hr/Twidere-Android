@@ -1,0 +1,3 @@
+{
+  return (mViewFlags & FLAG_INVISIBLE) == 0 ? VISIBLE : INVISIBLE;
+}

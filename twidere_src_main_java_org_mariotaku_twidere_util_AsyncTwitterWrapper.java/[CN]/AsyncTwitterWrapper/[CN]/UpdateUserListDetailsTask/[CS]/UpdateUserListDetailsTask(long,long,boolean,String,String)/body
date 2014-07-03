@@ -1,0 +1,8 @@
+{
+  super(mContext,mAsyncTaskManager);
+  this.accountId=accountId;
+  this.listId=listId;
+  this.name=name;
+  this.isPublic=isPublic;
+  this.description=description;
+}

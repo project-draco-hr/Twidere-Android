@@ -1,0 +1,8 @@
+{
+  mListener=listener;
+  mPageScroller=new FlingScroller();
+  initPlatform();
+  mBox=new Box();
+  initBox();
+  mRect=new Rect();
+}

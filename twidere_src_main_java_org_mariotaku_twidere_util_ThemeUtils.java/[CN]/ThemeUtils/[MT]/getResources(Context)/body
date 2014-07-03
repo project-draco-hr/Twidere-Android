@@ -1,0 +1,7 @@
+{
+  if (context instanceof IThemedActivity) {
+    final Resources defRes=((IThemedActivity)context).getDefaultResources();
+    return defRes;
+  }
+  return context.getResources();
+}

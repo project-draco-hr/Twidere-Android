@@ -1,0 +1,4 @@
+{
+  if (mModeChanged)   return;
+  mPositionController.endScale();
+}

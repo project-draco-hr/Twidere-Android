@@ -1,0 +1,5 @@
+{
+  mActivity=activity;
+  mAccountId=account_id;
+  mScreenName=screen_name;
+}

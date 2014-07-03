@@ -1,0 +1,23 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mResolver=getContentResolver();
+  final Context context=getView().getContext();
+  mAdapter=new MergeAdapter();
+  mAccountsAdapter=new DrawerAccountsAdapter(context);
+  mAccountOptionsAdapter=new AccountOptionsAdapter(context);
+  mAppMenuAdapter=new AppMenuAdapter(context);
+  mAccountsSectionView=newSectionView(context,R.string.accounts);
+  mAccountOptionsSectionView=newSectionView(context,0);
+  mAppMenuSectionView=newSectionView(context,R.string.more);
+  mAccountsAdapter.setOnAccountActivateStateChangeListener(this);
+  mAdapter.addView(mAccountsSectionView,false);
+  mAdapter.addAdapter(mAccountsAdapter);
+  mAdapter.addView(mAccountOptionsSectionView,false);
+  mAdapter.addAdapter(mAccountOptionsAdapter);
+  mAdapter.addView(mAppMenuSectionView,false);
+  mAdapter.addAdapter(mAppMenuAdapter);
+  setListAdapter(mAdapter);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  getLoaderManager().initLoader(0,null,this);
+}

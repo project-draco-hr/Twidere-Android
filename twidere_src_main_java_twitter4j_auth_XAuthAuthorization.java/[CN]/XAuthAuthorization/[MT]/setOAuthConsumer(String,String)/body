@@ -1,0 +1,4 @@
+{
+  this.consumerKey=consumerKey;
+  this.consumerSecret=consumerSecret;
+}

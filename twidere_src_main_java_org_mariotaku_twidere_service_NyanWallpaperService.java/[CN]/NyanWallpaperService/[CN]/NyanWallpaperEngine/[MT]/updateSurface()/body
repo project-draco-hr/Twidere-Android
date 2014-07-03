@@ -1,0 +1,7 @@
+{
+  if (mPreferences == null)   return;
+  final Resources res=getResources();
+  final int def=res.getInteger(R.integer.default_live_wallpaper_scale);
+  mHelper.setScale(mPreferences.getInt(KEY_LIVE_WALLPAPER_SCALE,def));
+  updateHelperState();
+}

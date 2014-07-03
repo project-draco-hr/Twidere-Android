@@ -1,0 +1,5 @@
+{
+  if (isErrorEnabled()) {
+    Log.e(logTag,message);
+  }
+}

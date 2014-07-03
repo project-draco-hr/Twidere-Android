@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setClientName(clientName);
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  if (view == null)   return;
+  applyBackground(view,getUserThemeColor(view.getContext()));
+}

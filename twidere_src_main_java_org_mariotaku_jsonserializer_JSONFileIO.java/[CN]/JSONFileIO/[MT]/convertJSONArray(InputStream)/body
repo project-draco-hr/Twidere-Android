@@ -1,0 +1,9 @@
+{
+  final String string=convertString(stream);
+  try {
+    return new JSONArray(string);
+  }
+ catch (  final JSONException e) {
+    throw new IOException(e);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (activity == null || accountId <= 0 || statusId <= 0)   return;
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_STATUS);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,String.valueOf(statusId));
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+}

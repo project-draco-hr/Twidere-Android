@@ -1,0 +1,4 @@
+{
+  if (context == null)   return;
+  showOkMessage(context,context.getText(resId),long_message);
+}

@@ -1,0 +1,3 @@
+{
+  return since_ids != null && since_ids.length == account_ids.length;
+}

@@ -1,0 +1,9 @@
+{
+  super(context,attrs);
+  final CharSequence[] entries=new CharSequence[VALUES.length];
+  for (int i=0, j=entries.length; i < j; i++) {
+    entries[i]=getStyledEntry(OPTIONS[i],context.getString(ENTRIES_RES[i]));
+  }
+  setEntries(entries);
+  setEntryValues(VALUES);
+}

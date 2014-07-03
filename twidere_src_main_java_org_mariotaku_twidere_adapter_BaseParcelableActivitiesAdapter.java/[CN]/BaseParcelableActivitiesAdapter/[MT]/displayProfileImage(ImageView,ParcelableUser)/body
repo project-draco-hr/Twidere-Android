@@ -1,0 +1,8 @@
+{
+  if (isDisplayProfileImage()) {
+    mImageLoader.displayProfileImage(view,user.profile_image_url);
+  }
+ else {
+    view.setImageDrawable(null);
+  }
+}

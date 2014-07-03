@@ -1,0 +1,12 @@
+{
+  setProgressBarIndeterminateVisibility(start);
+  mEditName.setEnabled(!start);
+  mEditDescription.setEnabled(!start);
+  mEditLocation.setEnabled(!start);
+  mEditUrl.setEnabled(!start);
+  mProfileImageView.setEnabled(!start);
+  mProfileImageView.setOnClickListener(start ? null : this);
+  mProfileBannerView.setEnabled(!start);
+  mProfileBannerView.setOnClickListener(start ? null : this);
+  invalidateOptionsMenu();
+}

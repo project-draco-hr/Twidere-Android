@@ -1,0 +1,3 @@
+{
+  setProgress(restore ? getPersistedInt(DEFAULT_PROGRESS) : (Integer)defaultValue);
+}

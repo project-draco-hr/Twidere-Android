@@ -1,0 +1,5 @@
+{
+  if (isPersistent() && defaultValue instanceof Integer) {
+    persistInt(restoreValue ? getValue() : (Integer)defaultValue);
+  }
+}

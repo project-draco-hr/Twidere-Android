@@ -1,0 +1,17 @@
+{
+  final View croutonView=crouton.getView();
+  final ViewGroup croutonParentView=(ViewGroup)croutonView.getParent();
+  if (croutonParentView == null)   return;
+  croutonView.startAnimation(crouton.getOutAnimation());
+  final Crouton removed=croutonQueue.poll();
+  croutonParentView.removeView(croutonView);
+  if (null != removed) {
+    removed.detachActivity();
+    removed.detachViewGroup();
+    if (null != removed.getLifecycleCallback()) {
+      removed.getLifecycleCallback().onRemoved();
+    }
+    removed.detachLifecycleCallback();
+  }
+  sendMessageDelayed(crouton,Messages.DISPLAY_CROUTON,crouton.getOutAnimation().getDuration());
+}

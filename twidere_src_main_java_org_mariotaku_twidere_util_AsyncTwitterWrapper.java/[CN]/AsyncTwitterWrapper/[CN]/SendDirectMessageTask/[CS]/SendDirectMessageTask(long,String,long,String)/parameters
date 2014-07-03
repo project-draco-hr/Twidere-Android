@@ -1,0 +1,4 @@
+long account_id
+String screen_name
+long user_id
+String message

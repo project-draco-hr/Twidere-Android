@@ -1,0 +1,5 @@
+{
+  mRenderLock.lock();
+  mFreeze=true;
+  mRenderLock.unlock();
+}

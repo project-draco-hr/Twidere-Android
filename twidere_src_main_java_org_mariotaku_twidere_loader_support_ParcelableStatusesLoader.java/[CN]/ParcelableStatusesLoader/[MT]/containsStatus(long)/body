@@ -1,0 +1,6 @@
+{
+  for (  final ParcelableStatus status : mData) {
+    if (status.id == status_id)     return true;
+  }
+  return false;
+}

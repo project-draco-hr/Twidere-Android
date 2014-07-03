@@ -1,0 +1,3 @@
+{
+  return TWITTER_ERROR_CODE_MESSAGES.get(code,-1) != -1;
+}

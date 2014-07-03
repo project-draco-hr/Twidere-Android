@@ -1,0 +1,4 @@
+{
+  activity=context instanceof Activity ? (Activity)context : null;
+  this.manager=manager;
+}

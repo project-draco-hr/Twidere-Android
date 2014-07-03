@@ -1,0 +1,8 @@
+{
+synchronized (this) {
+    mUploadQueue.push(tile);
+  }
+  if (mTileUploader.mActive.compareAndSet(false,true)) {
+    getGLRoot().addOnGLIdleListener(mTileUploader);
+  }
+}

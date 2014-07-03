@@ -1,0 +1,10 @@
+{
+  super.onStart();
+  final IntentFilter filter=new IntentFilter(BROADCAST_TASK_STATE_CHANGED);
+  filter.addAction(BROADCAST_FRIENDSHIP_CHANGED);
+  filter.addAction(BROADCAST_BLOCKSTATE_CHANGED);
+  filter.addAction(BROADCAST_PROFILE_UPDATED);
+  filter.addAction(BROADCAST_PROFILE_IMAGE_UPDATED);
+  filter.addAction(BROADCAST_PROFILE_BANNER_UPDATED);
+  registerReceiver(mStatusReceiver,filter);
+}

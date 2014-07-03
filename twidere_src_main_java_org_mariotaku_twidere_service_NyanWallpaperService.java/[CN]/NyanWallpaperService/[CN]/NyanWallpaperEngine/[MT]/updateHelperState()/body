@@ -1,0 +1,9 @@
+{
+  final PowerManager pm=(PowerManager)getSystemService(POWER_SERVICE);
+  if (pm.isScreenOn()) {
+    mHelper.start();
+  }
+ else {
+    mHelper.stop();
+  }
+}

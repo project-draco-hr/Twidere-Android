@@ -1,0 +1,8 @@
+{
+  try {
+    return checkHeadTailValidity(new RandomAccessFile(file,"r"),head,tail);
+  }
+ catch (  final FileNotFoundException e) {
+    return false;
+  }
+}

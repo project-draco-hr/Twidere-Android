@@ -1,0 +1,11 @@
+{
+  if (isNullOrEmpty(signingOAuthBaseURL)) {
+    signingOAuthBaseURL=DEFAULT_SIGNING_OAUTH_BASE_URL;
+  }
+  this.signingOAuthBaseURL=fixURLSlash(signingOAuthBaseURL);
+  signingOAuthAccessTokenURL=signingOAuthBaseURL + PATH_SEGMENT_ACCESS_TOKEN;
+  signingOAuthAuthenticationURL=signingOAuthBaseURL + PATH_SEGMENT_AUTHENTICATION;
+  signingOAuthAuthorizationURL=signingOAuthBaseURL + PATH_SEGMENT_AUTHORIZATION;
+  signingOAuthRequestTokenURL=signingOAuthBaseURL + PATH_SEGMENT_REQUEST_TOKEN;
+  fixOAuthBaseURL();
+}

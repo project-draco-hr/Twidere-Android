@@ -1,0 +1,4 @@
+{
+  if (!mHosts.isEmpty())   return;
+  reload();
+}

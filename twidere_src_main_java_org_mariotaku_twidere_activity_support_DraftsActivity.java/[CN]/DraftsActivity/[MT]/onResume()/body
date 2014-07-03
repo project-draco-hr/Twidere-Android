@@ -1,0 +1,9 @@
+{
+  super.onResume();
+  final float text_size=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(this));
+  mAdapter.setTextSize(text_size);
+  if (mTextSize != text_size) {
+    mTextSize=text_size;
+    mListView.invalidateViews();
+  }
+}

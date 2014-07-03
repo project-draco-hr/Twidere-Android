@@ -1,0 +1,16 @@
+{
+  final JSONArray json=res.asJSONArray();
+  ResponseList<SavedSearch> savedSearches;
+  try {
+    savedSearches=new ResponseListImpl<SavedSearch>(json.length(),res);
+    for (int i=0; i < json.length(); i++) {
+      final JSONObject savedSearchesJSON=json.getJSONObject(i);
+      final SavedSearch savedSearch=new SavedSearchJSONImpl(savedSearchesJSON);
+      savedSearches.add(savedSearch);
+    }
+    return savedSearches;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone.getMessage() + ":" + res.asString(),jsone);
+  }
+}

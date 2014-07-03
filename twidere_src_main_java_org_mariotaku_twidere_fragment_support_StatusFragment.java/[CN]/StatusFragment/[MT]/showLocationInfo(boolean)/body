@@ -1,0 +1,12 @@
+{
+  if (mLocationInfoDisplayed && !force)   return;
+  final LoaderManager lm=getLoaderManager();
+  lm.destroyLoader(LOADER_ID_LOCATION);
+  if (!mLocationLoaderInitialized) {
+    lm.initLoader(LOADER_ID_LOCATION,null,mLocationLoaderCallbacks);
+    mLocationLoaderInitialized=true;
+  }
+ else {
+    lm.restartLoader(LOADER_ID_LOCATION,null,mLocationLoaderCallbacks);
+  }
+}

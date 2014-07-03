@@ -1,0 +1,6 @@
+{
+  if (VALUE_THEME_NAME_TWIDERE.equals(name))   return darkActionBar ? R.style.Theme_Twidere_Colored_DarkActionBar_Compose : R.style.Theme_Twidere_Colored_Compose;
+ else   if (VALUE_THEME_NAME_LIGHT.equals(name))   return darkActionBar ? R.style.Theme_Twidere_Light_DarkActionBar_Compose : R.style.Theme_Twidere_Light_Compose;
+ else   if (VALUE_THEME_NAME_DARK.equals(name))   return R.style.Theme_Twidere_Dark_Compose;
+  return R.style.Theme_Twidere_Colored_Compose;
+}

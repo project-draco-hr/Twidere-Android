@@ -1,0 +1,12 @@
+{
+  final String action=mContext.getString(actionRes);
+  final Activity best=getBestActivity();
+  if (best != null) {
+    Utils.showErrorMessage(best,action,e,long_message);
+    return;
+  }
+  if (showToast()) {
+    Utils.showErrorMessage(mContext,action,e,long_message);
+    return;
+  }
+}

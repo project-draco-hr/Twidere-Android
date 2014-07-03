@@ -1,0 +1,3 @@
+{
+  return mData != null ? mData.get(position).getId() : -1;
+}

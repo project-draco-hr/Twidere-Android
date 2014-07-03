@@ -1,0 +1,11 @@
+{
+  super(context);
+  mContext=context;
+  mAccountIds=accountIds;
+  mIsFirstLoad=data == null;
+  if (data != null) {
+    mData.addAll(data);
+  }
+  mUseCache=useCache;
+  mSavedActivitiesFileArgs=saveFileArgs;
+}

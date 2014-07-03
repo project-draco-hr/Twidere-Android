@@ -1,0 +1,6 @@
+{
+  if (mRestoreStack.isEmpty())   throw new IllegalStateException();
+  final ConfigState config=mRestoreStack.remove(mRestoreStack.size() - 1);
+  config.restore(this);
+  freeRestoreConfig(config);
+}

@@ -1,0 +1,4 @@
+Context context
+NotificationManager manager
+NotificationCompat.Builder builder
+ParcelableStatusUpdate statusUpdate

@@ -1,0 +1,5 @@
+Resources resources
+Bitmap bitmap
+float shadowRadius
+int shadowColor
+int shadowMaskColor

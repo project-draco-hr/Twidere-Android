@@ -1,0 +1,6 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_CREATE;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_CREATE;
+  return factory.createUser(post(url,signUrl,new HttpParameter("user_id",userId)));
+}

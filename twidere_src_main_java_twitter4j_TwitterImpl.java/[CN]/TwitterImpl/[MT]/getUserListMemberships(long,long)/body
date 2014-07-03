@@ -1,0 +1,3 @@
+{
+  return getUserListMemberships(listMemberId,cursor,false);
+}

@@ -1,0 +1,3 @@
+{
+  return conf != null ? conf.hashCode() : 0;
+}

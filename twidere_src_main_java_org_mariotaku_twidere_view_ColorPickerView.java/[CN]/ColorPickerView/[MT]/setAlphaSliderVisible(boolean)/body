@@ -1,0 +1,10 @@
+{
+  if (mShowAlphaPanel != visible) {
+    mShowAlphaPanel=visible;
+    mValShader=null;
+    mSatShader=null;
+    mHueShader=null;
+    mAlphaShader=null;
+    requestLayout();
+  }
+}

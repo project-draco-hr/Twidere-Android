@@ -1,0 +1,4 @@
+Context context
+boolean includeEntities
+boolean includeRetweets
+boolean apacheHttp

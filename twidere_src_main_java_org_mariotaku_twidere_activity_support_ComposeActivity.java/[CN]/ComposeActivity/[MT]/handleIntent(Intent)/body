@@ -1,0 +1,29 @@
+{
+  final String action=intent.getAction();
+  mShouldSaveAccounts=false;
+  mMentionUser=intent.getParcelableExtra(EXTRA_USER);
+  mInReplyToStatus=intent.getParcelableExtra(EXTRA_STATUS);
+  mInReplyToStatusId=mInReplyToStatus != null ? mInReplyToStatus.id : -1;
+  if (INTENT_ACTION_REPLY.equals(action))   return handleReplyIntent(mInReplyToStatus);
+ else   if (INTENT_ACTION_QUOTE.equals(action))   return handleQuoteIntent(mInReplyToStatus);
+ else   if (INTENT_ACTION_EDIT_DRAFT.equals(action)) {
+    mDraftItem=intent.getParcelableExtra(EXTRA_DRAFT);
+    return handleEditDraftIntent(mDraftItem);
+  }
+ else   if (INTENT_ACTION_MENTION.equals(action))   return handleMentionIntent(mMentionUser);
+ else   if (INTENT_ACTION_REPLY_MULTIPLE.equals(action)) {
+    final String[] screenNames=intent.getStringArrayExtra(EXTRA_SCREEN_NAMES);
+    final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
+    final long inReplyToUserId=intent.getLongExtra(EXTRA_IN_REPLY_TO_ID,-1);
+    return handleReplyMultipleIntent(screenNames,accountId,inReplyToUserId);
+  }
+ else   if (INTENT_ACTION_COMPOSE_TAKE_PHOTO.equals(action)) {
+    takePhoto();
+    return true;
+  }
+ else   if (INTENT_ACTION_COMPOSE_PICK_IMAGE.equals(action)) {
+    pickImage();
+    return true;
+  }
+  return false;
+}

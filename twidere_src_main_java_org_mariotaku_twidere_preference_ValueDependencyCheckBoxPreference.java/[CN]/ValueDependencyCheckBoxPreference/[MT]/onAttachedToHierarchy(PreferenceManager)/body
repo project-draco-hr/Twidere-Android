@@ -1,0 +1,8 @@
+{
+  super.onAttachedToHierarchy(preferenceManager);
+  final SharedPreferences prefs=getSharedPreferences();
+  if (prefs != null) {
+    prefs.registerOnSharedPreferenceChangeListener(this);
+  }
+  updateEnableState();
+}

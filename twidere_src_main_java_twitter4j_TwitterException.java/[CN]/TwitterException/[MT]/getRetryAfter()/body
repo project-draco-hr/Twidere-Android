@@ -1,0 +1,20 @@
+{
+  int retryAfter=-1;
+  if (statusCode == 400) {
+    final RateLimitStatus rateLimitStatus=getRateLimitStatus();
+    if (rateLimitStatus != null) {
+      retryAfter=rateLimitStatus.getSecondsUntilReset();
+    }
+  }
+ else   if (statusCode == ENHANCE_YOUR_CLAIM) {
+    try {
+      final String retryAfterStr=response.getResponseHeader("Retry-After");
+      if (retryAfterStr != null) {
+        retryAfter=Integer.valueOf(retryAfterStr);
+      }
+    }
+ catch (    final NumberFormatException ignore) {
+    }
+  }
+  return retryAfter;
+}

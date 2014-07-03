@@ -1,0 +1,18 @@
+{
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS,HomeRefreshContentPreference.DEFAULT_ENABLE_MENTIONS)) {
+    final long[] sinceIds=getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
+    getMentionsAsync(accountIds,null,sinceIds);
+  }
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES,HomeRefreshContentPreference.DEFAULT_ENABLE_DIRECT_MESSAGES)) {
+    final long[] sinceIds=getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
+    getReceivedDirectMessagesAsync(accountIds,null,sinceIds);
+    getSentDirectMessagesAsync(accountIds,null,null);
+  }
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_TRENDS,HomeRefreshContentPreference.DEFAULT_ENABLE_TRENDS)) {
+    final long accountId=getDefaultAccountId(mContext);
+    final int woeId=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
+    getLocalTrendsAsync(accountId,woeId);
+  }
+  final long[] statusSinceIds=getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
+  return getHomeTimelineAsync(accountIds,null,statusSinceIds);
+}

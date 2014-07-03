@@ -1,0 +1,3 @@
+{
+  return isNetworkAvailable(this) && (isBatteryOkay(this) || !shouldStopAutoRefreshOnBatteryLow(this));
+}

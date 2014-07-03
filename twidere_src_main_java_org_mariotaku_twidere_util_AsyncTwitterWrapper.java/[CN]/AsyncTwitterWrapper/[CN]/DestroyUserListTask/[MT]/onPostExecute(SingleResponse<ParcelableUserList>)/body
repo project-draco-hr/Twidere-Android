@@ -1,0 +1,15 @@
+{
+  final boolean succeed=result.hasData();
+  if (succeed) {
+    final String message=mContext.getString(R.string.deleted_list,result.getData().name);
+    mMessagesManager.showInfoMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_deleting,result.getException(),true);
+  }
+  final Intent intent=new Intent(BROADCAST_USER_LIST_DELETED);
+  intent.putExtra(EXTRA_SUCCEED,succeed);
+  intent.putExtra(EXTRA_USER_LIST,result.getData());
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

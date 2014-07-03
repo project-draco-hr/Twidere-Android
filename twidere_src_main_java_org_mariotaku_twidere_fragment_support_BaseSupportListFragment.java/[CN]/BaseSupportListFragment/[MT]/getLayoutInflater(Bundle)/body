@@ -1,0 +1,4 @@
+{
+  if (mLayoutInflater != null)   return mLayoutInflater;
+  return mLayoutInflater=ThemeUtils.getThemedLayoutInflaterForActionIcons(getActivity());
+}

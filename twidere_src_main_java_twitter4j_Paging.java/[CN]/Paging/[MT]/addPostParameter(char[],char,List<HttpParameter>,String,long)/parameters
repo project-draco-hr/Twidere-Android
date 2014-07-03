@@ -1,0 +1,5 @@
+char[] supportedParams
+char paramKey
+List<HttpParameter> pagingParams
+String paramName
+long paramValue

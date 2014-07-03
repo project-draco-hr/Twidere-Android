@@ -1,0 +1,59 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final ParcelableUserList userList=mUserList;
+  if (twitter == null || userList == null)   return false;
+switch (item.getItemId()) {
+case MENU_ADD:
+{
+      if (userList.user_id != userList.account_id)       return false;
+      final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
+      intent.setClass(getActivity(),UserListSelectorActivity.class);
+      intent.putExtra(EXTRA_ACCOUNT_ID,userList.account_id);
+      startActivityForResult(intent,REQUEST_SELECT_USER);
+      break;
+    }
+case MENU_DELETE:
+{
+    if (userList.user_id != userList.account_id)     return false;
+    DestroyUserListDialogFragment.show(getFragmentManager(),userList);
+    break;
+  }
+case MENU_EDIT:
+{
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,userList.account_id);
+  args.putString(EXTRA_LIST_NAME,userList.name);
+  args.putString(EXTRA_DESCRIPTION,userList.description);
+  args.putBoolean(EXTRA_IS_PUBLIC,userList.is_public);
+  args.putLong(EXTRA_LIST_ID,userList.id);
+  final DialogFragment f=new EditUserListDialogFragment();
+  f.setArguments(args);
+  f.show(getFragmentManager(),"edit_user_list_details");
+  return true;
+}
+case MENU_FOLLOW:
+{
+if (userList.is_following) {
+  DestroyUserListSubscriptionDialogFragment.show(getFragmentManager(),userList);
+}
+ else {
+  twitter.createUserListSubscriptionAsync(userList.account_id,userList.id);
+}
+return true;
+}
+default :
+{
+if (item.getIntent() != null) {
+try {
+  startActivity(item.getIntent());
+}
+ catch (final ActivityNotFoundException e) {
+  Log.w(LOGTAG,e);
+  return false;
+}
+}
+break;
+}
+}
+return true;
+}

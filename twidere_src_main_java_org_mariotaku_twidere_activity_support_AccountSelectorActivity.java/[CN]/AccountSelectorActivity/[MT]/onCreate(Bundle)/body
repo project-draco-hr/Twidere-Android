@@ -1,0 +1,17 @@
+{
+  super.onCreate(savedInstanceState);
+  mFirstCreated=savedInstanceState == null;
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  setContentView(R.layout.activity_account_selector);
+  mAdapter=new AccountsAdapter(this);
+  final boolean isSingleSelection=isSingleSelection();
+  mListView.setChoiceMode(isSingleSelection ? ListView.CHOICE_MODE_NONE : ListView.CHOICE_MODE_MULTIPLE);
+  mAdapter.setChoiceMode(mListView.getChoiceMode());
+  if (isSingleSelection) {
+    mListView.setOnItemClickListener(this);
+  }
+  mSelectAccountDivider.setVisibility(isSingleSelection ? View.GONE : View.VISIBLE);
+  mSelectAccountButtons.setVisibility(isSingleSelection ? View.GONE : View.VISIBLE);
+  mListView.setAdapter(mAdapter);
+  getLoaderManager().initLoader(0,null,this);
+}

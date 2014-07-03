@@ -1,0 +1,41 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Object tag=view.getTag();
+  final UserListViewHolder holder;
+  if (tag instanceof UserListViewHolder) {
+    holder=(UserListViewHolder)tag;
+  }
+ else {
+    holder=new UserListViewHolder(view);
+    holder.profile_image.setOnClickListener(this);
+    holder.content.setOnOverflowIconClickListener(this);
+    if (mPlainList) {
+      ((View)holder.content).setPadding(0,0,0,0);
+      holder.content.setItemBackground(null);
+    }
+    view.setTag(holder);
+  }
+  holder.position=position;
+  holder.profile_image.setImageDrawable(null);
+  final ParcelableUserList user_list=getItem(position);
+  final String display_name=getDisplayName(mContext,user_list.user_id,user_list.user_name,user_list.user_screen_name,isDisplayNameFirst(),isNicknameOnly(),false);
+  holder.setTextSize(getTextSize());
+  holder.name.setText(user_list.name);
+  holder.created_by.setText(mContext.getString(R.string.created_by,display_name));
+  holder.description.setVisibility(TextUtils.isEmpty(user_list.description) ? View.GONE : View.VISIBLE);
+  holder.description.setText(user_list.description);
+  holder.members_count.setText(getLocalizedNumber(mLocale,user_list.members_count));
+  holder.subscribers_count.setText(getLocalizedNumber(mLocale,user_list.subscribers_count));
+  holder.profile_image.setVisibility(isDisplayProfileImage() ? View.VISIBLE : View.GONE);
+  if (isDisplayProfileImage()) {
+    mProfileImageLoader.displayProfileImage(holder.profile_image,user_list.user_profile_image_url);
+  }
+  holder.profile_image.setTag(position);
+  if (position > mMaxAnimationPosition) {
+    if (mAnimationEnabled) {
+      view.startAnimation(holder.item_animation);
+    }
+    mMaxAnimationPosition=position;
+  }
+  return view;
+}

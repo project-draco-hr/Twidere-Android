@@ -1,0 +1,4 @@
+{
+  mResources=res;
+  mAccentPalette=new AccentPalette(Color.WHITE);
+}

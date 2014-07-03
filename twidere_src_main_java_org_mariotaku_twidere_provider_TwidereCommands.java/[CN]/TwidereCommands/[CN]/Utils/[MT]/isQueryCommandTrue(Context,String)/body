@@ -1,0 +1,6 @@
+{
+  final Cursor cur=sendQueryCommand(context,action);
+  if (cur == null)   return false;
+  cur.close();
+  return true;
+}

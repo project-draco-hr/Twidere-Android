@@ -1,0 +1,5 @@
+LinearLayout container
+ImageLoaderWrapper loader
+List<ParcelableMedia> medias
+int maxColumnCount
+OnMediaClickListener mediaClickListener

@@ -1,0 +1,3 @@
+{
+  this(sslContext,SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+}

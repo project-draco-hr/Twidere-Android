@@ -1,0 +1,26 @@
+{
+  if (mAnimationStartTime == NO_ANIMATION)   return false;
+  if (mAnimationStartTime == LAST_ANIMATION) {
+    mAnimationStartTime=NO_ANIMATION;
+    return startSnapback();
+  }
+  float progress;
+  if (mAnimationDuration == 0) {
+    progress=1;
+  }
+ else {
+    final long now=AnimationTime.get();
+    progress=(float)(now - mAnimationStartTime) / mAnimationDuration;
+  }
+  if (progress >= 1) {
+    progress=1;
+  }
+ else {
+    progress=applyInterpolationCurve(mAnimationKind,progress);
+  }
+  final boolean done=interpolate(progress);
+  if (done) {
+    mAnimationStartTime=LAST_ANIMATION;
+  }
+  return true;
+}

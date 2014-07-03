@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyle);
+  setDialogLayoutResource(R.layout.api_editor_content);
+  setPositiveButtonText(android.R.string.ok);
+}

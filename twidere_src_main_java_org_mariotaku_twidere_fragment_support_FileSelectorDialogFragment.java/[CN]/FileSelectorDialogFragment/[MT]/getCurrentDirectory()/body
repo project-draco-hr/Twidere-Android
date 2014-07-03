@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  final String path=args.getString(EXTRA_PATH);
+  return path != null ? new File(path) : null;
+}

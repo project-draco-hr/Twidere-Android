@@ -1,0 +1,3 @@
+{
+  return !mIsMyTimeline && isFiltered(database,-1,status.text_plain,status.text_html,status.source,-1);
+}

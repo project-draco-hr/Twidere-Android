@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setHostAddressResolverFactory(factory);
+  return this;
+}

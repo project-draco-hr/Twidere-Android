@@ -1,0 +1,3 @@
+{
+  return "RelationshipJSONImpl{targetUserId=" + targetUserId + ", targetUserScreenName="+ targetUserScreenName+ ", sourceBlockingTarget="+ sourceBlockingTarget+ ", sourceNotificationsEnabled="+ sourceNotificationsEnabled+ ", sourceFollowingTarget="+ sourceFollowingTarget+ ", sourceFollowedByTarget="+ sourceFollowedByTarget+ ", sourceUserId="+ sourceUserId+ ", sourceUserScreenName="+ sourceUserScreenName+ ", sourceCanDM="+ sourceCanDM+ ", sourceCanMediaTag="+ sourceCanMediaTag+ ", sourceMutingTarget="+ sourceMutingTarget+ ", sourceMarkedTargetAsSpam="+ sourceMarkedTargetAsSpam+ "}";
+}

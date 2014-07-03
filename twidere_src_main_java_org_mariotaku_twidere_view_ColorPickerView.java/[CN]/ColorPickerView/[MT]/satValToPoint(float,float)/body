@@ -1,0 +1,9 @@
+{
+  final RectF rect=mSatValRect;
+  final float height=rect.height();
+  final float width=rect.width();
+  final Point p=new Point();
+  p.x=(int)(sat * width + rect.left);
+  p.y=(int)((1f - val) * height + rect.top);
+  return p;
+}

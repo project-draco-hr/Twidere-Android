@@ -1,0 +1,10 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final Intent profilingServiceIntent=new Intent(context,UCDService.class);
+  if (prefs.getBoolean(KEY_UCD_DATA_PROFILING,false)) {
+    context.startService(profilingServiceIntent);
+  }
+ else {
+    context.stopService(profilingServiceIntent);
+  }
+}

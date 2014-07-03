@@ -1,0 +1,13 @@
+{
+  if (mGLRoot != null) {
+    mGLRoot.lockRenderThread();
+  }
+  try {
+    super.dispatchMessage(message);
+  }
+  finally {
+    if (mGLRoot != null) {
+      mGLRoot.unlockRenderThread();
+    }
+  }
+}

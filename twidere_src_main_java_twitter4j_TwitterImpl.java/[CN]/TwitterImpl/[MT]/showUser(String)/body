@@ -1,0 +1,3 @@
+{
+  return factory.createUser(get(conf.getRestBaseURL() + ENDPOINT_USERS_SHOW,conf.getSigningRestBaseURL() + ENDPOINT_USERS_SHOW,new HttpParameter("screen_name",screenName),INCLUDE_ENTITIES));
+}

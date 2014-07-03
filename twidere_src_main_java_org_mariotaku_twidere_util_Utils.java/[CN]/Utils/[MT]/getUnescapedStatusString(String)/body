@@ -1,0 +1,4 @@
+{
+  if (string == null)   return null;
+  return string.replace("&amp;","&").replace("&lt;","<").replace("&gt;",">");
+}

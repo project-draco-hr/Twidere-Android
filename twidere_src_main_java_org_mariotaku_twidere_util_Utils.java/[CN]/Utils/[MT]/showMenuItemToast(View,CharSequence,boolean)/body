@@ -1,0 +1,17 @@
+{
+  final int[] screenPos=new int[2];
+  final Rect displayFrame=new Rect();
+  v.getLocationOnScreen(screenPos);
+  v.getWindowVisibleDisplayFrame(displayFrame);
+  final int width=v.getWidth();
+  final int height=v.getHeight();
+  final int screenWidth=v.getResources().getDisplayMetrics().widthPixels;
+  final Toast cheatSheet=Toast.makeText(v.getContext(),text,Toast.LENGTH_SHORT);
+  if (isBottomBar) {
+    cheatSheet.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL,0,height);
+  }
+ else {
+    cheatSheet.setGravity(Gravity.TOP | Gravity.RIGHT,screenWidth - screenPos[0] - width / 2,height);
+  }
+  cheatSheet.show();
+}

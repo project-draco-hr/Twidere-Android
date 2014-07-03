@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case MENU_COMPOSE:
+{
+      openDirectMessagesConversation(getActivity(),-1,-1);
+      break;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

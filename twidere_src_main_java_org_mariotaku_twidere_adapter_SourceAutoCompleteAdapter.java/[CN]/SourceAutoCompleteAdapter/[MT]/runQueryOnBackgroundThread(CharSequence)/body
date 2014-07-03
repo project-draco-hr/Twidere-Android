@@ -1,0 +1,6 @@
+{
+  final String constraint_escaped=constraint != null ? constraint.toString().replaceAll("_","^_") : null;
+  final String selection=constraint != null ? CachedStatuses.SOURCE + " LIKE '%\">'||?||'%</a>' ESCAPE '^'" : null;
+  final String[] selectionArgs=constraint != null ? new String[]{constraint_escaped} : null;
+  return mDatabase.query(true,CachedStatuses.TABLE_NAME,COLUMNS,selection,selectionArgs,CachedStatuses.SOURCE,null,null,null);
+}

@@ -1,0 +1,8 @@
+{
+  mStarRows=starRows;
+  mStarCols=starCols;
+  mStarDotSize=starDotSize;
+  mPaint=new Paint();
+  mPaint.setColor(starColor);
+  setDotScale(1.0f);
+}

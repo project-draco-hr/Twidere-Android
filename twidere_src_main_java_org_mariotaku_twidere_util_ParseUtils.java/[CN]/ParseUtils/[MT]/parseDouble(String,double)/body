@@ -1,0 +1,9 @@
+{
+  if (source == null)   return def;
+  try {
+    return Double.parseDouble(source);
+  }
+ catch (  final NumberFormatException e) {
+  }
+  return def;
+}

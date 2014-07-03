@@ -1,0 +1,8 @@
+{
+  savePosition();
+  mMultiSelectManager.unregisterCallback(this);
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+  super.onStop();
+}

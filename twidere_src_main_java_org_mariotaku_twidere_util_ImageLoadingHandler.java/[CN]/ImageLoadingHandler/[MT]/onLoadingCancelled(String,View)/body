@@ -1,0 +1,8 @@
+{
+  if (view == null || imageUri == null || imageUri.equals(mLoadingUris.get(view)))   return;
+  mLoadingUris.remove(view);
+  final ProgressBar progress=findProgressBar(view.getParent());
+  if (progress != null) {
+    progress.setVisibility(View.GONE);
+  }
+}

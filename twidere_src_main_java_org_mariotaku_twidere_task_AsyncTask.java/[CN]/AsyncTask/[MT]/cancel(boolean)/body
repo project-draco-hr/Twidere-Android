@@ -1,0 +1,8 @@
+{
+  mCancelled=true;
+  if (mExecutor == null && mThread != null) {
+    mThread.interrupt();
+  }
+  onCancelled();
+  mStatus=Status.FINISHED;
+}

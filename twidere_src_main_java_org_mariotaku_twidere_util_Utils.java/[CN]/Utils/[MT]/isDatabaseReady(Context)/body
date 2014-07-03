@@ -1,0 +1,11 @@
+{
+  final Cursor c=context.getContentResolver().query(TweetStore.CONTENT_URI_DATABASE_READY,null,null,null,null);
+  try {
+    return c != null;
+  }
+  finally {
+    if (c != null) {
+      c.close();
+    }
+  }
+}

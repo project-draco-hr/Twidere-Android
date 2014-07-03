@@ -1,0 +1,9 @@
+{
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  super.onActivityCreated(savedInstanceState);
+  mMultiSelectManager=getMultiSelectManager();
+  mAccountId=getDefaultAccountId(getActivity());
+  mTrendsAdapter=new TrendsAdapter(getActivity());
+  setListAdapter(mTrendsAdapter);
+  getLoaderManager().initLoader(0,null,this);
+}

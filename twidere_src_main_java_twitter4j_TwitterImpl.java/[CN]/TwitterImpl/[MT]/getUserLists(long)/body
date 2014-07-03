@@ -1,0 +1,3 @@
+{
+  return factory.createUserListList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_LIST,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_LIST,new HttpParameter("user_id",listOwnerUserId)));
+}

@@ -1,0 +1,4 @@
+{
+  setCursor(cursor);
+  setCount(count);
+}

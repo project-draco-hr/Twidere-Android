@@ -1,0 +1,4 @@
+{
+  mLinkify.setLinkTextColor(color);
+  mLinkHighlightColor=color;
+}

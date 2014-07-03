@@ -1,0 +1,4 @@
+{
+  this.clientURL=clientURL;
+  initRequestHeaders();
+}

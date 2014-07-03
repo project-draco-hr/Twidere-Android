@@ -1,0 +1,13 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  if (twitter != null) {
+    try {
+      final User user=twitter.reportSpam(user_id);
+      return SingleResponse.getInstance(user,null);
+    }
+ catch (    final TwitterException e) {
+      return SingleResponse.getInstance(null,e);
+    }
+  }
+  return SingleResponse.getInstance();
+}

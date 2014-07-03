@@ -1,0 +1,6 @@
+{
+  final Intent data=new Intent();
+  data.putExtra(EXTRA_ID,id);
+  setResult(RESULT_OK,data);
+  finish();
+}

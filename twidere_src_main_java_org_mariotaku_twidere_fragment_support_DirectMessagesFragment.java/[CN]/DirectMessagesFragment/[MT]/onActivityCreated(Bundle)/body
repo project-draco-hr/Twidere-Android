@@ -1,0 +1,14 @@
+{
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  super.onActivityCreated(savedInstanceState);
+  mMultiSelectManager=getMultiSelectManager();
+  mAdapter=new DirectMessageConversationEntriesAdapter(getActivity());
+  setListAdapter(mAdapter);
+  mListView=getListView();
+  if (!mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false)) {
+    mListView.setDivider(null);
+  }
+  mListView.setSelector(android.R.color.transparent);
+  getLoaderManager().initLoader(0,null,this);
+  setListShown(false);
+}

@@ -1,0 +1,16 @@
+{
+  if (result != null) {
+    final String user_id_where=ListUtils.toString(result.list,',',false);
+    for (    final Uri uri : STATUSES_URIS) {
+      final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.USER_ID+ " IN ("+ user_id_where+ ")";
+      mResolver.delete(uri,where,null);
+    }
+    mMessagesManager.showInfoMessage(R.string.reported_users_for_spam,false);
+  }
+  final Intent intent=new Intent(BROADCAST_MULTI_BLOCKSTATE_CHANGED);
+  intent.putExtra(EXTRA_USER_IDS,user_ids);
+  intent.putExtra(EXTRA_ACCOUNT_ID,account_id);
+  intent.putExtra(EXTRA_SUCCEED,result != null);
+  mContext.sendBroadcast(intent);
+  super.onPostExecute(result);
+}

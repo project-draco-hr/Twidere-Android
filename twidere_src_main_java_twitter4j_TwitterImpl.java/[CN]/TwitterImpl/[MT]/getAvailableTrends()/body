@@ -1,0 +1,3 @@
+{
+  return factory.createLocationList(get(conf.getRestBaseURL() + ENDPOINT_TRENDS_AVAILABLE,conf.getSigningRestBaseURL() + ENDPOINT_TRENDS_AVAILABLE));
+}

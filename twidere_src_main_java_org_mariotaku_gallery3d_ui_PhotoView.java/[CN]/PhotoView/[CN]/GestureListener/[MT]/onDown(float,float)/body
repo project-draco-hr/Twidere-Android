@@ -1,0 +1,5 @@
+{
+  mModeChanged=false;
+  mHolding|=HOLD_TOUCH_DOWN;
+  mScrolledAfterDown=false;
+}

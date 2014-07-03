@@ -1,0 +1,5 @@
+{
+  final String parts[]=cn.split("\\.");
+  if (parts.length != 3 || parts[2].length() != 2)   return true;
+  return Arrays.binarySearch(BAD_COUNTRY_2LDS,parts[1]) < 0;
+}

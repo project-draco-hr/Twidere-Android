@@ -1,0 +1,8 @@
+{
+  progress=Math.max(Math.min(progress,mMaxProgress),mMinProgress);
+  if (progress != mProgress) {
+    mProgress=progress;
+    persistInt(progress);
+    notifyChanged();
+  }
+}

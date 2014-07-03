@@ -1,0 +1,11 @@
+{
+  final Bundle args=getArguments();
+  if (!args.containsKey(EXTRA_USERS))   return null;
+  final Parcelable[] array=args.getParcelableArray(EXTRA_USERS);
+  if (array == null)   return null;
+  final ParcelableUser[] users=new ParcelableUser[array.length];
+  for (int i=0, j=users.length; i < j; i++) {
+    users[i]=(ParcelableUser)array[i];
+  }
+  return users;
+}

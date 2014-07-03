@@ -1,0 +1,39 @@
+{
+  if (DEBUG_FPS) {
+    outputFps();
+  }
+  mCanvas.deleteRecycledResources();
+  UploadedTexture.resetUploadLimit();
+  mRenderRequested=false;
+  if ((mFlags & FLAG_NEED_LAYOUT) != 0) {
+    layoutContentPane();
+  }
+  mCanvas.save(GLCanvas.SAVE_FLAG_ALL);
+  rotateCanvas(-mCompensation);
+  if (mContentView != null) {
+    mContentView.render(mCanvas);
+  }
+  mCanvas.restore();
+  if (!mAnimations.isEmpty()) {
+    final long now=AnimationTime.get();
+    for (int i=0, n=mAnimations.size(); i < n; i++) {
+      mAnimations.get(i).setStartTime(now);
+    }
+    mAnimations.clear();
+  }
+  if (UploadedTexture.uploadLimitReached()) {
+    requestRender();
+  }
+synchronized (mIdleListeners) {
+    if (!mIdleListeners.isEmpty()) {
+      mIdleRunner.enable();
+    }
+  }
+  if (DEBUG_INVALIDATE) {
+    mCanvas.fillRect(10,10,5,5,mInvalidateColor);
+    mInvalidateColor=~mInvalidateColor;
+  }
+  if (DEBUG_DRAWING_STAT) {
+    mCanvas.dumpStatisticsAndClear();
+  }
+}

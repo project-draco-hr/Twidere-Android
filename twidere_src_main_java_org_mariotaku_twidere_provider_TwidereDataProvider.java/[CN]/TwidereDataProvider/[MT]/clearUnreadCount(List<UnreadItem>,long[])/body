@@ -1,0 +1,10 @@
+{
+  if (accountIds == null)   return 0;
+  int count=0;
+  for (  final UnreadItem item : set.toArray(new UnreadItem[set.size()])) {
+    if (item != null && ArrayUtils.contains(accountIds,item.account_id) && set.remove(item)) {
+      count++;
+    }
+  }
+  return count;
+}

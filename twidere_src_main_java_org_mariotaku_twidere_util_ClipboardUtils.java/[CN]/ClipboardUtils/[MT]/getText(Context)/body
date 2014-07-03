@@ -1,0 +1,4 @@
+{
+  if (context == null)   return null;
+  return ((ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE)).getText();
+}

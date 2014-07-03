@@ -1,0 +1,5 @@
+{
+  if (mViewPager == null || mAdapter == null)   return;
+  final int last=mAdapter.getCount() - 2;
+  mViewPager.setCurrentItem(Math.max(last,0));
+}

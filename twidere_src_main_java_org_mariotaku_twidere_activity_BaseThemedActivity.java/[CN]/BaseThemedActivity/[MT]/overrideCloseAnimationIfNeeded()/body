@@ -1,0 +1,8 @@
+{
+  if (shouldOverrideActivityAnimation()) {
+    ThemeUtils.overrideActivityCloseAnimation(this);
+  }
+ else {
+    ThemeUtils.overrideNormalActivityCloseAnimation(this);
+  }
+}

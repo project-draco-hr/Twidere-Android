@@ -1,0 +1,4 @@
+{
+  id=in.readLong("id");
+  account_id=in.readLong("account_id");
+}

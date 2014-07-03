@@ -1,0 +1,5 @@
+{
+  if (containsHttpStatus(statusCode))   return getHttpStatusMessage(context,statusCode);
+  if (containsTwitterError(errorCode))   return getTwitterErrorMessage(context,errorCode);
+  return null;
+}

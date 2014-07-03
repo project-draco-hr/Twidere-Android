@@ -1,0 +1,4 @@
+String imageUri
+View view
+int current
+int total

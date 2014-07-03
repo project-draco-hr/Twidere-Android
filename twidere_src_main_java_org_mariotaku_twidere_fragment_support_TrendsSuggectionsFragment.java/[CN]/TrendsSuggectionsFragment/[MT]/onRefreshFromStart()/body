@@ -1,0 +1,6 @@
+{
+  if (isRefreshing())   return;
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (twitter == null)   return;
+  twitter.getLocalTrendsAsync(mAccountId,mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1));
+}

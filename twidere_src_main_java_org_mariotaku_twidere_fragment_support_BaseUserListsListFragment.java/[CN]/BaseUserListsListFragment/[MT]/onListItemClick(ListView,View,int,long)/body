@@ -1,0 +1,6 @@
+{
+  if (mMultiSelectManager.isActive())   return;
+  final ParcelableUserList userList=mAdapter.findItem(id);
+  if (userList == null)   return;
+  openUserListDetails(getActivity(),userList);
+}

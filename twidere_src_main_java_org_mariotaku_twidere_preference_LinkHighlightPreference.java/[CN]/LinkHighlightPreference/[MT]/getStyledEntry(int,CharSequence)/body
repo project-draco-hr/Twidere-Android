@@ -1,0 +1,5 @@
+{
+  final SpannableString str=new SpannableString(entry);
+  str.setSpan(new TwidereHighLightStyle(option),0,str.length(),0);
+  return str;
+}

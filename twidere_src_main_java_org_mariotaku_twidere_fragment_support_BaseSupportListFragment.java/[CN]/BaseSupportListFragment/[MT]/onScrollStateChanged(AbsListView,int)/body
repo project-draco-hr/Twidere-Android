@@ -1,0 +1,12 @@
+{
+  final FragmentActivity a=getActivity();
+  if (a instanceof HomeActivity) {
+    final HomeActivity home=(HomeActivity)a;
+    if (scrollState == OnScrollListener.SCROLL_STATE_IDLE) {
+      home.showControls();
+    }
+ else {
+      home.hideControls();
+    }
+  }
+}

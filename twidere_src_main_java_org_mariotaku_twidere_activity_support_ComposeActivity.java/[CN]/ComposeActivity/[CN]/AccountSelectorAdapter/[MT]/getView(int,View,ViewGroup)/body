@@ -1,0 +1,9 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Account account=getItem(position);
+  final ImageLoaderWrapper loader=getImageLoader();
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  loader.displayProfileImage(icon,account.profile_image_url);
+  view.setActivated(mAccountSelectStates.get(account.account_id,false));
+  return view;
+}

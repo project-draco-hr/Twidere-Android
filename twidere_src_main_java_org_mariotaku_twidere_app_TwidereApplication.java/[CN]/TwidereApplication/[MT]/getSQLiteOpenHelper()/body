@@ -1,0 +1,4 @@
+{
+  if (mSQLiteOpenHelper != null)   return mSQLiteOpenHelper;
+  return mSQLiteOpenHelper=new TwidereSQLiteOpenHelper(this,DATABASES_NAME,DATABASES_VERSION);
+}

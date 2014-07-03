@@ -1,0 +1,4 @@
+{
+  this.oAuthConsumerKey=oAuthConsumerKey;
+  fixRestBaseURL();
+}

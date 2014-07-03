@@ -1,0 +1,7 @@
+{
+  final ArrayList<Trends> trends_list=new ArrayList<Trends>();
+  if (twitter != null) {
+    trends_list.add(twitter.getLocationTrends(woeid));
+  }
+  return trends_list;
+}

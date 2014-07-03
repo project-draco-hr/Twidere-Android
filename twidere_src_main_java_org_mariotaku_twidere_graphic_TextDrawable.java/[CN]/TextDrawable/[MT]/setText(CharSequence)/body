@@ -1,0 +1,7 @@
+{
+  if (text == null) {
+    text="";
+  }
+  mText=text;
+  measureContent();
+}

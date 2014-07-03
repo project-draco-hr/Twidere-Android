@@ -1,0 +1,7 @@
+{
+  if (mConstrainedFrame.equals(cFrame))   return;
+  mConstrainedFrame.set(cFrame);
+  mPlatform.updateDefaultXY();
+  updateScaleAndGapLimit();
+  snapAndRedraw();
+}

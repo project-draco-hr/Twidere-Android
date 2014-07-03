@@ -1,0 +1,3 @@
+{
+  return getTabIconDrawable(context.getResources(),iconObj);
+}

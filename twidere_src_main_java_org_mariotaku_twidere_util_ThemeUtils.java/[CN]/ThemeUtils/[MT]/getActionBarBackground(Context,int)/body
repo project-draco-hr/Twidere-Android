@@ -1,0 +1,6 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.background},android.R.attr.actionBarStyle,themeRes);
+  final Drawable d=a.getDrawable(0);
+  a.recycle();
+  return applyActionBarDrawable(context,d,isTransparentBackground(themeRes));
+}

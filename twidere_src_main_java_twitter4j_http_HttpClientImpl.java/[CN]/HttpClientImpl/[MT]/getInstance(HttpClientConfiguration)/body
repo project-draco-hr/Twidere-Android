@@ -1,0 +1,8 @@
+{
+  HttpClient client=instanceMap.get(conf);
+  if (null == client) {
+    client=new HttpClientImpl(conf);
+    instanceMap.put(conf,client);
+  }
+  return client;
+}

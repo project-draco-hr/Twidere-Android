@@ -1,0 +1,6 @@
+{
+  if (color == mLinkHighlightColor)   return;
+  mLinkHighlightColor=color;
+  mLinkify.setLinkTextColor(color);
+  notifyDataSetChanged();
+}

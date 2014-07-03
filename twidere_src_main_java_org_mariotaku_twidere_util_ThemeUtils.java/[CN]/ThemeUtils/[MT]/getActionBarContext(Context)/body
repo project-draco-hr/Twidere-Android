@@ -1,0 +1,7 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.actionBarWidgetTheme});
+  final int resId=a.getResourceId(0,0);
+  a.recycle();
+  if (resId == 0)   return new TwidereContextWrapper(context);
+  return new TwidereContextThemeWrapper(context,resId,getUserThemeColor(context));
+}

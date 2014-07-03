@@ -1,0 +1,11 @@
+{
+  if (clear_old) {
+    clear();
+  }
+  if (data == null)   return;
+  for (  final ParcelableUser user : data) {
+    if (clear_old || findItem(user.id) == null) {
+      add(user);
+    }
+  }
+}

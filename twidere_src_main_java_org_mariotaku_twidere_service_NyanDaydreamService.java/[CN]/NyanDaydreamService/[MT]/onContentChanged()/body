@@ -1,0 +1,4 @@
+{
+  super.onContentChanged();
+  mNyanDaydreamView=(NyanDaydreamView)findViewById(R.id.nyan);
+}

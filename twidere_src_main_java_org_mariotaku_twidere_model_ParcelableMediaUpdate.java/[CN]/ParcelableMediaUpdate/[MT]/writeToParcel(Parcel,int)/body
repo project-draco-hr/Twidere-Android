@@ -1,0 +1,4 @@
+{
+  dest.writeString(uri);
+  dest.writeInt(type);
+}

@@ -1,0 +1,4 @@
+{
+  unfreeze();
+  super.onDetachedFromWindow();
+}

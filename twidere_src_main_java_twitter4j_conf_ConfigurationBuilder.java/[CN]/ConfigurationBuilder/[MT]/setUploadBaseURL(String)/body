@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setUploadBaseURL(uploadBaseURL);
+  return this;
+}

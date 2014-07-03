@@ -1,0 +1,7 @@
+{
+  final boolean succeed=response != null && response.hasData() && response.getData().getBoolean(EXTRA_SUCCEED);
+  final Bundle extras=new Bundle();
+  extras.putBoolean(EXTRA_SUCCEED,succeed);
+  mContext.sendBroadcast(new Intent(BROADCAST_MENTIONS_REFRESHED).putExtras(extras));
+  super.onPostExecute(response);
+}

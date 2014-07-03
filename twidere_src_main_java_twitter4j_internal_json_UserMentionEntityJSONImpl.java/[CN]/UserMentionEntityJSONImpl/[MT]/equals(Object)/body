@@ -1,0 +1,11 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final UserMentionEntityJSONImpl that=(UserMentionEntityJSONImpl)o;
+  if (end != that.end)   return false;
+  if (id != that.id)   return false;
+  if (start != that.start)   return false;
+  if (name != null ? !name.equals(that.name) : that.name != null)   return false;
+  if (screenName != null ? !screenName.equals(that.screenName) : that.screenName != null)   return false;
+  return true;
+}

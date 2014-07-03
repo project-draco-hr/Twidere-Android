@@ -1,0 +1,23 @@
+{
+  if (mModeChanged)   return true;
+  if (Float.isNaN(scale) || Float.isInfinite(scale))   return false;
+  final int outOfRange=mPositionController.scaleBy(scale,focusX,focusY);
+  mAccScale*=scale;
+  final boolean largeEnough=mAccScale < 0.97f || mAccScale > 1.03f;
+  if (mCanChangeMode && largeEnough) {
+    if (outOfRange < 0 || outOfRange > 0) {
+      stopExtraScalingIfNeeded();
+      mHolding&=~HOLD_TOUCH_DOWN;
+      onScaleEnd();
+      mModeChanged=true;
+      return true;
+    }
+  }
+  if (outOfRange != 0) {
+    startExtraScalingIfNeeded();
+  }
+ else {
+    stopExtraScalingIfNeeded();
+  }
+  return true;
+}

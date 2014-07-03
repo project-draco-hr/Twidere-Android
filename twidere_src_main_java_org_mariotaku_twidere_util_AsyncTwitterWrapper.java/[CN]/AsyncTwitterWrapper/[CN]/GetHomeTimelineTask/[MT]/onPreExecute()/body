@@ -1,0 +1,5 @@
+{
+  final Intent intent=new Intent(BROADCAST_RESCHEDULE_HOME_TIMELINE_REFRESHING);
+  mContext.sendBroadcast(intent);
+  super.onPreExecute();
+}

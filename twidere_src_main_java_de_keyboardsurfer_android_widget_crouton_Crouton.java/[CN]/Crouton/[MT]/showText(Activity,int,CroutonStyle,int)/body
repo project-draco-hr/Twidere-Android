@@ -1,0 +1,3 @@
+{
+  showText(activity,activity.getString(textResourceId),style,viewGroupResId);
+}

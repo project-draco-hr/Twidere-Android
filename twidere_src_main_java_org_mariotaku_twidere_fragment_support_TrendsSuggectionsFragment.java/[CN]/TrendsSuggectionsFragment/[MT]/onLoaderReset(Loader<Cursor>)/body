@@ -1,0 +1,3 @@
+{
+  mTrendsAdapter.swapCursor(null);
+}

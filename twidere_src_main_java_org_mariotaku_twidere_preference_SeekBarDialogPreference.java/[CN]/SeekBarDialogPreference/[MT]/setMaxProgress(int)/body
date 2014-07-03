@@ -1,0 +1,4 @@
+{
+  mMaxProgress=maxProgress;
+  setProgress(Math.min(mProgress,mMaxProgress));
+}

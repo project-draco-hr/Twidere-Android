@@ -1,0 +1,4 @@
+{
+  if (mActivity == null || mActivity.isFinishing())   return;
+  mActivity.getSupportLoaderManager().restartLoader(mLoaderId,null,mCallback);
+}

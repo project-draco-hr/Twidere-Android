@@ -1,0 +1,12 @@
+{
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final ParcelableUserList userList=getUserList();
+  if (userList != null) {
+    builder.setTitle(getString(R.string.delete_user_list,userList.name));
+    builder.setMessage(getString(R.string.delete_user_list_confirm_message,userList.name));
+  }
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,null);
+  return builder.create();
+}

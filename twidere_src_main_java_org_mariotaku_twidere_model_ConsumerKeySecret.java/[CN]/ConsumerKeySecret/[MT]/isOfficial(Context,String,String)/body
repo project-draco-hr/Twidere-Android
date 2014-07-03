@@ -1,0 +1,5 @@
+{
+  if (context == null || isEmpty(consumer_key) || isEmpty(consumer_secret))   return false;
+  final ConsumerKeySecret[] keys=getAllOffcialKeys(context);
+  return ArrayUtils.contains(keys,new ConsumerKeySecret(consumer_key,consumer_secret));
+}

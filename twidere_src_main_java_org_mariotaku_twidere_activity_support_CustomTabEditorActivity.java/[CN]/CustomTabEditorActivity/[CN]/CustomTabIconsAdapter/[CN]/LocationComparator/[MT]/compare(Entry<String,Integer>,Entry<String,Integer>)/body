@@ -1,0 +1,5 @@
+{
+  if (object1.getValue() <= 0)   return Integer.MAX_VALUE;
+  if (object2.getValue() <= 0)   return Integer.MIN_VALUE;
+  return mCollator.compare(object1.getKey(),object2.getKey());
+}

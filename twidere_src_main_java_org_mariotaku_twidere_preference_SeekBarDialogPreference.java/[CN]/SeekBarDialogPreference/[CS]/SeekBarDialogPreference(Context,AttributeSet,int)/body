@@ -1,0 +1,16 @@
+{
+  super(context,attrs,defStyle);
+  final TypedArray a=context.getTheme().obtainStyledAttributes(attrs,R.styleable.SeekBarDialogPreference,0,0);
+  try {
+    setMinProgress(a.getInteger(R.styleable.SeekBarDialogPreference_min,DEFAULT_MIN_PROGRESS));
+    setMaxProgress(a.getInteger(R.styleable.SeekBarDialogPreference_max,DEFAULT_MAX_PROGRESS));
+    setProgressTextSuffix(a.getString(R.styleable.SeekBarDialogPreference_progressTextSuffix));
+  }
+  finally {
+    a.recycle();
+  }
+  setDialogLayoutResource(R.layout.preference_seek_bar_dialog);
+  setPositiveButtonText(android.R.string.ok);
+  setNegativeButtonText(android.R.string.cancel);
+  setDialogIcon(null);
+}

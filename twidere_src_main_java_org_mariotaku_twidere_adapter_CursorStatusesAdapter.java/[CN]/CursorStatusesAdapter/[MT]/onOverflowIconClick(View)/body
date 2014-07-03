@@ -1,0 +1,10 @@
+{
+  if (mMultiSelectManager.isActive())   return;
+  final Object tag=view.getTag();
+  if (tag instanceof StatusViewHolder) {
+    final StatusViewHolder holder=(StatusViewHolder)tag;
+    final int position=holder.position;
+    if (position == -1 || mListener == null)     return;
+    mListener.onMenuButtonClick(view,position,getItemId(position));
+  }
+}

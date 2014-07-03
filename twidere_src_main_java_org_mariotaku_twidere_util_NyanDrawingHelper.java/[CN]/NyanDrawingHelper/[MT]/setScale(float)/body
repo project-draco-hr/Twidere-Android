@@ -1,0 +1,6 @@
+{
+  mScale=scale;
+  mRainbowHelper.setDrawable(createRainbowDrawable(scale));
+  mStarsHelper.setDotScale(scale);
+  setupSpirtes();
+}

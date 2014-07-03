@@ -1,0 +1,3 @@
+{
+  return "MediaUploadResponseJSONImpl{id=" + id + ", size="+ size+ ", image="+ image+ "}";
+}

@@ -1,0 +1,5 @@
+{
+  final int pos=mAccountSpinner.getSelectedItemPosition();
+  if (mAccountSpinner.getCount() > pos && pos >= 0)   return mAccountsAdapter.getItem(pos).account_id;
+  return -1;
+}

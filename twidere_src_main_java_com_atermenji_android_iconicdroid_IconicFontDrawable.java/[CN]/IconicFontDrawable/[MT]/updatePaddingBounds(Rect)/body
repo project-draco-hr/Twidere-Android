@@ -1,0 +1,5 @@
+{
+  if (mIconPadding >= 0 && !(mIconPadding * 2 > viewBounds.width()) && !(mIconPadding * 2 > viewBounds.height())) {
+    mPaddingBounds.set(viewBounds.left + mIconPadding,viewBounds.top + mIconPadding,viewBounds.right - mIconPadding,viewBounds.bottom - mIconPadding);
+  }
+}

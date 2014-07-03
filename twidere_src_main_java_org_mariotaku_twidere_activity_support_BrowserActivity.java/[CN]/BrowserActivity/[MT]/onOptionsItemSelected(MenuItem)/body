@@ -1,0 +1,8 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+    finish();
+  break;
+}
+return super.onOptionsItemSelected(item);
+}

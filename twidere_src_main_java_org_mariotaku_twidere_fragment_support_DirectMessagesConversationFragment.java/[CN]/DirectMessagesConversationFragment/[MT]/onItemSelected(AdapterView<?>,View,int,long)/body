@@ -1,0 +1,6 @@
+{
+  final Account account=(Account)mAccountSpinner.getSelectedItem();
+  if (account != null) {
+    mAccountId=account.account_id;
+  }
+}

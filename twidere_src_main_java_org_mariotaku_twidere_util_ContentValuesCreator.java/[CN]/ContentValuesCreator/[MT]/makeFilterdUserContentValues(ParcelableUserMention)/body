@@ -1,0 +1,8 @@
+{
+  if (user == null)   return null;
+  final ContentValues values=new ContentValues();
+  values.put(Filters.Users.USER_ID,user.id);
+  values.put(Filters.Users.NAME,user.name);
+  values.put(Filters.Users.SCREEN_NAME,user.screen_name);
+  return values;
+}

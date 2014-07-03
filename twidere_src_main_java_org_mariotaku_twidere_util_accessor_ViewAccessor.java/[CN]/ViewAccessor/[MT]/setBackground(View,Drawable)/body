@@ -1,0 +1,8 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    view.setBackgroundDrawable(background);
+  }
+ else {
+    ViewAccessorJB.setBackground(view,background);
+  }
+}

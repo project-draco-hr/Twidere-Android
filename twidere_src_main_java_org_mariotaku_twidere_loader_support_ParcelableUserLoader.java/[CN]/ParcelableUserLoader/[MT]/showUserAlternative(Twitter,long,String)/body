@@ -1,0 +1,14 @@
+{
+  final String searchScreenName;
+  if (screenName != null) {
+    searchScreenName=screenName;
+  }
+ else   if (id != -1) {
+    searchScreenName=twitter.showFriendship(twitter.getId(),id).getTargetUserScreenName();
+  }
+ else   return null;
+  for (  final User user : twitter.searchUsers(searchScreenName,1)) {
+    if (user.getId() == id || searchScreenName.equals(user.getScreenName()))     return user;
+  }
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  if (args == null)   return null;
+  return args.getParcelable(EXTRA_ACCOUNT);
+}

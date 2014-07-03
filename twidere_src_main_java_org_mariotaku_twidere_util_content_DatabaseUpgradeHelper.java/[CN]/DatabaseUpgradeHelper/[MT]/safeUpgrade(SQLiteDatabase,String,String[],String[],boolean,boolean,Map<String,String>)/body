@@ -1,0 +1,3 @@
+{
+  safeUpgrade(db,table,newColNames,newColTypes,dropDirectly,strictMode,colAliases,OnConflict.REPLACE);
+}

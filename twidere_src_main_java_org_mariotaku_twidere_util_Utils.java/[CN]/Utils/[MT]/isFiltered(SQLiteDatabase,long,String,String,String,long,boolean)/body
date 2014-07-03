@@ -1,0 +1,45 @@
+{
+  if (database == null)   return false;
+  if (text_plain == null && text_html == null && user_id <= 0 && source == null)   return false;
+  final StringBuilder builder=new StringBuilder();
+  final List<String> selection_args=new ArrayList<String>();
+  builder.append("SELECT NULL WHERE");
+  if (text_plain != null) {
+    selection_args.add(text_plain);
+    builder.append("(SELECT 1 IN (SELECT ? LIKE '%'||" + Filters.Keywords.TABLE_NAME + "."+ Filters.VALUE+ "||'%' FROM "+ Filters.Keywords.TABLE_NAME+ "))");
+  }
+  if (text_html != null) {
+    if (!selection_args.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selection_args.add(text_html);
+    builder.append("(SELECT 1 IN (SELECT ? LIKE '%<a href=\"%'||" + Filters.Links.TABLE_NAME + "."+ Filters.VALUE+ "||'%\">%' FROM "+ Filters.Links.TABLE_NAME+ "))");
+  }
+  if (user_id > 0) {
+    if (!selection_args.isEmpty()) {
+      builder.append(" OR ");
+    }
+    builder.append("(SELECT " + user_id + " IN (SELECT "+ Filters.Users.USER_ID+ " FROM "+ Filters.Users.TABLE_NAME+ "))");
+  }
+  if (retweeted_by_id > 0) {
+    if (!selection_args.isEmpty()) {
+      builder.append(" OR ");
+    }
+    builder.append("(SELECT " + retweeted_by_id + " IN (SELECT "+ Filters.Users.USER_ID+ " FROM "+ Filters.Users.TABLE_NAME+ "))");
+  }
+  if (source != null) {
+    if (!selection_args.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selection_args.add(source);
+    builder.append("(SELECT 1 IN (SELECT ? LIKE '%>'||" + Filters.Sources.TABLE_NAME + "."+ Filters.VALUE+ "||'</a>%' FROM "+ Filters.Sources.TABLE_NAME+ "))");
+  }
+  final Cursor cur=database.rawQuery(builder.toString(),selection_args.toArray(new String[selection_args.size()]));
+  if (cur == null)   return false;
+  try {
+    return cur.getCount() > 0;
+  }
+  finally {
+    cur.close();
+  }
+}

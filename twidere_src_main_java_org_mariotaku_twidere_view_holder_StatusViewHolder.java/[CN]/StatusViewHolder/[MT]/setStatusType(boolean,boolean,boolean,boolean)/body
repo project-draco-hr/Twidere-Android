@@ -1,0 +1,4 @@
+{
+  final int res=getStatusTypeIconRes(is_favorite,has_location,has_media,is_possibly_sensitive);
+  time.setCompoundDrawablesWithIntrinsicBounds(0,0,res,0);
+}

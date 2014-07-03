@@ -1,0 +1,3 @@
+{
+  mHeaders=new ArrayAdapter<String>(context,R.layout.list_item_section_header);
+}

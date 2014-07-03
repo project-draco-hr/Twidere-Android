@@ -1,0 +1,12 @@
+{
+  out.writeLongArray(account_ids);
+  out.writeLong(_id);
+  out.writeLong(in_reply_to_status_id);
+  out.writeString(text);
+  out.writeTypedArray(medias,flags);
+  out.writeInt(is_possibly_sensitive ? 1 : 0);
+  out.writeString(ParcelableLocation.toString(location));
+  out.writeLong(timestamp);
+  out.writeInt(action_type);
+  out.writeString(action_extras.toString());
+}

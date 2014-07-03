@@ -1,0 +1,4 @@
+{
+  mPreferences=preferences;
+  mKeysClass=keysClass;
+}

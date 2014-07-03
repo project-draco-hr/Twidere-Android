@@ -1,0 +1,7 @@
+{
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+  mLocationManager.removeUpdates(this);
+  super.onStop();
+}

@@ -1,0 +1,6 @@
+{
+  mBitmap=b;
+  mPaint=new Paint();
+  mPaint.setDither(true);
+  mPaint.setFilterBitmap(true);
+}

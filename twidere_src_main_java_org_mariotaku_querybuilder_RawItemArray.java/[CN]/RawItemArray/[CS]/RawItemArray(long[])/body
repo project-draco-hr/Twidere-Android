@@ -1,0 +1,7 @@
+{
+  final Long[] converted=new Long[array.length];
+  for (int i=0, j=array.length; i < j; i++) {
+    converted[i]=array[i];
+  }
+  this.array=converted;
+}

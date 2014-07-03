@@ -1,0 +1,5 @@
+{
+  super(places.size(),res);
+  this.addAll(places);
+  this.token=token;
+}

@@ -1,0 +1,6 @@
+{
+  final Account account=(Account)buttonView.getTag();
+  if (mOnAccountActivateStateChangeListener != null) {
+    mOnAccountActivateStateChangeListener.onAccountActivateStateChanged(account,isChecked);
+  }
+}

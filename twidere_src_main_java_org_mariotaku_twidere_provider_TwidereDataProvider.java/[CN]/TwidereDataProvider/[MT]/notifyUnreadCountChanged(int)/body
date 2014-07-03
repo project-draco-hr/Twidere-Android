@@ -1,0 +1,7 @@
+{
+  final Intent intent=new Intent(BROADCAST_UNREAD_COUNT_UPDATED);
+  intent.putExtra(EXTRA_TAB_POSITION,position);
+  final Context context=getContext();
+  context.sendBroadcast(intent);
+  notifyContentObserver(UnreadCounts.CONTENT_URI);
+}

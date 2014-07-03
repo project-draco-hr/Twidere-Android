@@ -1,0 +1,12 @@
+{
+  if (getChildCount() == 0 || mSelectedChild == null)   return;
+  final int selectedCenter=getLeftOfView(mSelectedChild);
+  final int targetCenter=getGalleryLockPoint();
+  final int scrollAmount=targetCenter - selectedCenter;
+  if (scrollAmount != 0) {
+    mFlingRunnable.startUsingDistance(scrollAmount);
+  }
+ else {
+    onFinishedMovement();
+  }
+}

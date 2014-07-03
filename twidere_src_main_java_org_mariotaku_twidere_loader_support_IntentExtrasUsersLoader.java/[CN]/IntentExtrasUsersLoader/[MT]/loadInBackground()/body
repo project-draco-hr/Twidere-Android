@@ -1,0 +1,11 @@
+{
+  final List<ParcelableUser> data=getData();
+  if (mExtras != null) {
+    final List<ParcelableUser> users=mExtras.getParcelableArrayList(EXTRA_USERS);
+    if (users != null) {
+      data.addAll(users);
+      Collections.sort(data);
+    }
+  }
+  return data;
+}

@@ -1,0 +1,7 @@
+{
+  if (!auth.isEnabled())   throw new IllegalStateException("Neither user ID/password combination nor OAuth consumer key/secret combination supplied");
+  if (0 == id) {
+    fillInIDAndScreenName();
+  }
+  return id;
+}

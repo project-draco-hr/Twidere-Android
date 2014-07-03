@@ -1,0 +1,23 @@
+{
+  try {
+switch (auth_type) {
+case Accounts.AUTH_TYPE_OAUTH:
+      return authOAuth();
+case Accounts.AUTH_TYPE_XAUTH:
+    return authxAuth();
+case Accounts.AUTH_TYPE_BASIC:
+  return authBasic();
+case Accounts.AUTH_TYPE_TWIP_O_MODE:
+return authTwipOMode();
+}
+return authOAuth();
+}
+ catch (final TwitterException e) {
+e.printStackTrace();
+return new SigninResponse(false,false,e);
+}
+catch (final AuthenticationException e) {
+e.printStackTrace();
+return new SigninResponse(false,false,e);
+}
+}

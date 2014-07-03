@@ -1,0 +1,7 @@
+{
+  super(context);
+  mOmitIntentExtra=omitIntentExtra;
+  mExtras=extras;
+  mAccountId=accountId;
+  mStatusId=statusId;
+}

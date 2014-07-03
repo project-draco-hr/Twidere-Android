@@ -1,0 +1,3 @@
+{
+  return factory.createOEmbed(get(conf.getRestBaseURL() + ENDPOINT_STATUSES_OEMBED,conf.getRestBaseURL() + ENDPOINT_STATUSES_OEMBED,req.asHttpParameterArray()));
+}

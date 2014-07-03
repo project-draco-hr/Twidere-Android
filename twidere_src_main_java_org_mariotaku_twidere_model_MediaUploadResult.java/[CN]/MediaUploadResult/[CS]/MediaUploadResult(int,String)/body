@@ -1,0 +1,6 @@
+{
+  if (errorCode == 0)   throw new IllegalArgumentException("Error code must not be 0");
+  media_uris=null;
+  error_code=errorCode;
+  error_message=errorMessage;
+}

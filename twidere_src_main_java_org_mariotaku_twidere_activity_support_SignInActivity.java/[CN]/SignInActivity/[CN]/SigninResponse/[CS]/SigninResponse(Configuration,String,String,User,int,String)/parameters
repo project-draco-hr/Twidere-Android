@@ -1,0 +1,6 @@
+Configuration conf
+String basic_username
+String basic_password
+User user
+int color
+String api_url_format

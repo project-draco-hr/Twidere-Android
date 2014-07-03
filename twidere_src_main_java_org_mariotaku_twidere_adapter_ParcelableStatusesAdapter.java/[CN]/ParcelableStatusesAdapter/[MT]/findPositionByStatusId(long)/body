@@ -1,0 +1,6 @@
+{
+  for (int i=0, count=getCount(); i < count; i++) {
+    if (getItem(i).id == status_id)     return i;
+  }
+  return -1;
+}

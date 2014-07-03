@@ -1,0 +1,3 @@
+{
+  return "OAuthAuthorization{" + "consumerKey='" + consumerKey + '\''+ ", consumerSecret='******************************************\'"+ ", oauthToken="+ oauthToken+ '}';
+}

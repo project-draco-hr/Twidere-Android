@@ -1,0 +1,8 @@
+{
+  if (isShown) {
+    hide(animate && animOut != null,animOut);
+  }
+ else {
+    show(animate && animIn != null,animIn);
+  }
+}

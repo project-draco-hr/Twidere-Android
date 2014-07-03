@@ -1,0 +1,20 @@
+{
+  if (logger.isDebugEnabled()) {
+    logger.debug("Request: ");
+    logger.debug(req.getMethod().name() + " ",req.getURL());
+  }
+  String authorizationHeader;
+  if (req.getAuthorization() != null && (authorizationHeader=req.getAuthorization().getAuthorizationHeader(req)) != null) {
+    if (logger.isDebugEnabled()) {
+      logger.debug("Authorization: ",InternalStringUtil.maskString(authorizationHeader));
+    }
+    connection.addRequestProperty("Authorization",authorizationHeader);
+  }
+  final Map<String,String> req_headers=req.getRequestHeaders();
+  if (req_headers != null) {
+    for (    final String key : req_headers.keySet()) {
+      connection.addRequestProperty(key,req.getRequestHeaders().get(key));
+      logger.debug(key + ": " + req.getRequestHeaders().get(key));
+    }
+  }
+}

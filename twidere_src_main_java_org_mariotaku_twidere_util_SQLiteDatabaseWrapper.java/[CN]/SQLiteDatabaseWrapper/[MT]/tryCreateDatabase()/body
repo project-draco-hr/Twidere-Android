@@ -1,0 +1,5 @@
+{
+  if (mLazyLoadCallback == null || mDatabase != null)   return;
+  mDatabase=mLazyLoadCallback.onCreateSQLiteDatabase();
+  if (mDatabase == null)   throw new IllegalStateException("Callback must not return null instance!");
+}

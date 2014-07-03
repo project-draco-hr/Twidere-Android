@@ -1,0 +1,7 @@
+{
+  if (mCustomTabs.size() != tabs.size())   return true;
+  for (int i=0, size=mCustomTabs.size(); i < size; i++) {
+    if (!mCustomTabs.get(i).equals(tabs.get(i)))     return true;
+  }
+  return false;
+}

@@ -1,0 +1,7 @@
+{
+  final Tile tile=mHead;
+  if (tile != null) {
+    mHead=tile.mNext;
+  }
+  return tile;
+}

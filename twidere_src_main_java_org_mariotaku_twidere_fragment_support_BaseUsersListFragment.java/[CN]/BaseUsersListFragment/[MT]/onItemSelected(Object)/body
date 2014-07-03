@@ -1,0 +1,3 @@
+{
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+}

@@ -1,0 +1,5 @@
+{
+  wrapperConf=ConfigurationContext.getInstance();
+  requestHeaders=wrapperConf.getRequestHeaders();
+  http=FactoryUtils.getHttpClient(wrapperConf);
+}

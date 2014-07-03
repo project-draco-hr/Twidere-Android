@@ -1,0 +1,3 @@
+{
+  return mSelectedUserIds.contains(user_id);
+}

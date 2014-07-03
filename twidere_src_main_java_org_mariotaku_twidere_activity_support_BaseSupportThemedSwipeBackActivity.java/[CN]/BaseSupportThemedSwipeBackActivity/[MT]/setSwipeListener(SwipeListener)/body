@@ -1,0 +1,5 @@
+{
+  final SwipeBackLayout swipeBackLayout=getSwipeBackLayout();
+  if (swipeBackLayout == null)   return;
+  swipeBackLayout.setSwipeListener(listener);
+}

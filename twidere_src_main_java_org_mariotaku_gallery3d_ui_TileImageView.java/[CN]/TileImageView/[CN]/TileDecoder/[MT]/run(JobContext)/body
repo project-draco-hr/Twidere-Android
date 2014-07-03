@@ -1,0 +1,20 @@
+{
+  jc.setMode(ThreadPool.MODE_NONE);
+  jc.setCancelListener(mNotifier);
+  while (!jc.isCancelled()) {
+    Tile tile=null;
+synchronized (TileImageView.this) {
+      tile=mDecodeQueue.pop();
+      if (tile == null && !jc.isCancelled()) {
+        GalleryUtils.waitWithoutInterrupt(TileImageView.this);
+      }
+    }
+    if (tile == null) {
+      continue;
+    }
+    if (decodeTile(tile)) {
+      queueForUpload(tile);
+    }
+  }
+  return null;
+}

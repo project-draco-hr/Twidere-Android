@@ -1,0 +1,9 @@
+{
+switch (item.getItemId()) {
+case MENU_ADD:
+    final DialogFragment df=new AddMappingDialogFragment();
+  df.show(getFragmentManager(),"add_mapping");
+break;
+}
+return super.onOptionsItemSelected(item);
+}

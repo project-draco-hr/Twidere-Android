@@ -1,0 +1,8 @@
+{
+  final int tab_count=mIndicator.getTabCount();
+  final int[] result=new int[tab_count];
+  for (int i=0, j=tab_count; i < j; i++) {
+    result[i]=UnreadCountUtils.getUnreadCount(mContext,i);
+  }
+  return result;
+}

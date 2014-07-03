@@ -1,0 +1,10 @@
+{
+  if (DEBUG_INVALIDATE) {
+    final StackTraceElement e=Thread.currentThread().getStackTrace()[4];
+    final String caller=e.getFileName() + ":" + e.getLineNumber()+ " ";
+    Log.d(TAG,"invalidate: " + caller);
+  }
+  if (mRenderRequested)   return;
+  mRenderRequested=true;
+  super.requestRender();
+}

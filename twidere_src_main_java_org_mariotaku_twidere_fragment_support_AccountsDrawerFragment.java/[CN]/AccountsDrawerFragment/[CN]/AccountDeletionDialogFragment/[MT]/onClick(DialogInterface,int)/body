@@ -1,0 +1,17 @@
+{
+  final Bundle args=getArguments();
+  final long account_id=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+  if (account_id < 0)   return;
+  final ContentResolver resolver=getContentResolver();
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      resolver.delete(Accounts.CONTENT_URI,Accounts.ACCOUNT_ID + " = " + account_id,null);
+      resolver.delete(Statuses.CONTENT_URI,Statuses.ACCOUNT_ID + " = " + account_id,null);
+      resolver.delete(Mentions.CONTENT_URI,Mentions.ACCOUNT_ID + " = " + account_id,null);
+      resolver.delete(Inbox.CONTENT_URI,DirectMessages.ACCOUNT_ID + " = " + account_id,null);
+      resolver.delete(Outbox.CONTENT_URI,DirectMessages.ACCOUNT_ID + " = " + account_id,null);
+      break;
+    }
+}
+}

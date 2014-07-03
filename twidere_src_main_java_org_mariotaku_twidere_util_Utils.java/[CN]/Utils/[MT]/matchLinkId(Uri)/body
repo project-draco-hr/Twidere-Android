@@ -1,0 +1,3 @@
+{
+  return LINK_HANDLER_URI_MATCHER.match(uri);
+}

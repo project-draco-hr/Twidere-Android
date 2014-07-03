@@ -1,0 +1,18 @@
+{
+  final Platform p=mPlatform;
+  calculateStableBound(mBox.mCurrentScale);
+  int edges=0;
+  if (p.mCurrentX <= mBoundLeft) {
+    edges|=IMAGE_AT_RIGHT_EDGE;
+  }
+  if (p.mCurrentX >= mBoundRight) {
+    edges|=IMAGE_AT_LEFT_EDGE;
+  }
+  if (mBox.mCurrentY <= mBoundTop) {
+    edges|=IMAGE_AT_BOTTOM_EDGE;
+  }
+  if (mBox.mCurrentY >= mBoundBottom) {
+    edges|=IMAGE_AT_TOP_EDGE;
+  }
+  return edges;
+}

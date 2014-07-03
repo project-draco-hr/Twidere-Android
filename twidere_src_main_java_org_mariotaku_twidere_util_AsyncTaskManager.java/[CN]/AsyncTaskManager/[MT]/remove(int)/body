@@ -1,0 +1,7 @@
+{
+  try {
+    mTasks.remove(findTask(hashCode));
+  }
+ catch (  final ConcurrentModificationException e) {
+  }
+}

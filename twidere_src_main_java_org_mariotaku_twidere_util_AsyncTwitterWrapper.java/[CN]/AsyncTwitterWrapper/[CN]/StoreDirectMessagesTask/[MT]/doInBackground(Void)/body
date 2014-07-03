@@ -1,0 +1,30 @@
+{
+  boolean succeed=false;
+  for (  final TwitterListResponse<DirectMessage> response : responses) {
+    final long account_id=response.account_id;
+    final List<DirectMessage> messages=response.list;
+    if (messages != null) {
+      final ContentValues[] values_array=new ContentValues[messages.size()];
+      final long[] message_ids=new long[messages.size()];
+      for (int i=0, j=messages.size(); i < j; i++) {
+        final DirectMessage message=messages.get(i);
+        message_ids[i]=message.getId();
+        values_array[i]=makeDirectMessageContentValues(message,account_id,isOutgoing());
+      }
+{
+        final StringBuilder delete_where=new StringBuilder();
+        delete_where.append(DirectMessages.ACCOUNT_ID + " = " + account_id);
+        delete_where.append(" AND ");
+        delete_where.append(Where.in(new Column(DirectMessages.MESSAGE_ID),new RawItemArray(message_ids)).getSQL());
+        final Uri delete_uri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
+        mResolver.delete(delete_uri,delete_where.toString(),null);
+      }
+      final Uri insert_uri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
+      bulkInsert(mResolver,insert_uri,values_array);
+    }
+    succeed=true;
+  }
+  final Bundle bundle=new Bundle();
+  bundle.putBoolean(EXTRA_SUCCEED,succeed);
+  return SingleResponse.getInstance(bundle,null);
+}

@@ -1,0 +1,26 @@
+{
+  out.writeLong("position",position);
+  out.writeLong("account_id",account_id);
+  out.writeLong("user_id",id);
+  out.writeLong("created_at",created_at);
+  out.writeBoolean("is_protected",is_protected);
+  out.writeBoolean("is_verified",is_verified);
+  out.writeString("name",name);
+  out.writeString("screen_name",screen_name);
+  out.writeString("description_plain",description_plain);
+  out.writeString("location",location);
+  out.writeString("profile_image_url",profile_image_url);
+  out.writeString("profile_banner_url",profile_banner_url);
+  out.writeString("url",url);
+  out.writeBoolean("is_follow_request_sent",is_follow_request_sent);
+  out.writeInt("followers_count",followers_count);
+  out.writeInt("friends_count",friends_count);
+  out.writeInt("statuses_count",statuses_count);
+  out.writeInt("favorites_count",favorites_count);
+  out.writeBoolean("is_cache",is_cache);
+  out.writeString("description_html",description_html);
+  out.writeString("description_expanded",description_expanded);
+  out.writeString("url_expanded",url_expanded);
+  out.writeBoolean("is_following",is_following);
+  out.writeString("description_unescaped",description_unescaped);
+}

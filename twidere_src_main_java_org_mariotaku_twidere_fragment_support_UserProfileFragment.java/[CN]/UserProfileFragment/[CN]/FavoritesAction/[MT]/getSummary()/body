@@ -1,0 +1,4 @@
+{
+  if (mUser == null)   return null;
+  return getLocalizedNumber(mLocale,mUser.favorites_count);
+}

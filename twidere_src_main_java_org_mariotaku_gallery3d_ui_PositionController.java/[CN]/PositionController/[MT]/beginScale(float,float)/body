@@ -1,0 +1,8 @@
+{
+  focusX-=mViewW / 2;
+  focusY-=mViewH / 2;
+  final Platform p=mPlatform;
+  mInScale=true;
+  mFocusX=(int)((focusX - p.mCurrentX) / mBox.mCurrentScale + 0.5f);
+  mFocusY=(int)((focusY - mBox.mCurrentY) / mBox.mCurrentScale + 0.5f);
+}

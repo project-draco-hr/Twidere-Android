@@ -1,0 +1,19 @@
+{
+  final float f=1 - progress;
+switch (kind) {
+case ANIM_KIND_SCROLL:
+case ANIM_KIND_FLING:
+    progress=1 - f;
+  break;
+case ANIM_KIND_OPENING:
+case ANIM_KIND_SCALE:
+progress=1 - f * f;
+break;
+case ANIM_KIND_SNAPBACK:
+case ANIM_KIND_ZOOM:
+case ANIM_KIND_SLIDE:
+progress=1 - f * f * f* f* f;
+break;
+}
+return progress;
+}

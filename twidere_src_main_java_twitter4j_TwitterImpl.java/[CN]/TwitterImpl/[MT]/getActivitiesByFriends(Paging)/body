@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createActivityList(get(conf.getRestBaseURL() + ENDPOINT_ACTIVITY_BY_FRIENDS,conf.getSigningRestBaseURL() + ENDPOINT_ACTIVITY_BY_FRIENDS,mergeParameters(paging != null ? paging.asPostParameterArray() : null,INCLUDE_ENTITIES)));
+}

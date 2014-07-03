@@ -1,0 +1,10 @@
+{
+  super.onCreate(savedInstanceState);
+  final ActionBar ab=getActionBar();
+  if (ab != null) {
+    ab.setDisplayHomeAsUpEnabled(true);
+  }
+  final FragmentManager fm=getFragmentManager();
+  fm.beginTransaction().replace(android.R.id.content,new CustomTabsFragment()).commit();
+  initTabs();
+}

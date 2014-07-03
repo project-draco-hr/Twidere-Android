@@ -1,0 +1,11 @@
+{
+switch (ev.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+{
+      final boolean isTouchingMargin=isTouchingMargin(ev);
+      setTouchModeAbove(isTouchingMargin ? TOUCHMODE_MARGIN : TOUCHMODE_FULLSCREEN);
+      break;
+    }
+}
+return super.dispatchTouchEvent(ev);
+}

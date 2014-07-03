@@ -1,0 +1,5 @@
+{
+  path=src.readString();
+  fd=src.readParcelable(ParcelFileDescriptor.class.getClassLoader());
+  size=src.readLong();
+}

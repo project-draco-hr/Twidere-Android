@@ -1,0 +1,14 @@
+{
+  if (context == null)   return false;
+  final ContentResolver resolver=context.getContentResolver();
+  final String where=Accounts.SCREEN_NAME + " = ?";
+  final Cursor cur=ContentResolverUtils.query(resolver,Accounts.CONTENT_URI,new String[0],where,new String[]{screen_name},null);
+  try {
+    return cur != null && cur.getCount() > 0;
+  }
+  finally {
+    if (cur != null) {
+      cur.close();
+    }
+  }
+}

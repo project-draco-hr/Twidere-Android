@@ -1,0 +1,8 @@
+{
+  if (frame < 0 || frame >= length()) {
+    mCurrentFrame=0;
+  }
+ else {
+    mCurrentFrame=frame;
+  }
+}

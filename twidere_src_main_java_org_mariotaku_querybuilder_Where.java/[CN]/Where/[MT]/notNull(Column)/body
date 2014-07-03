@@ -1,0 +1,3 @@
+{
+  return new Where(String.format("%s NOT NULL",column.getSQL()));
+}

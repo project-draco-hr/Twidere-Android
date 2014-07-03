@@ -1,0 +1,16 @@
+{
+switch (item.getItemId()) {
+case MENU_DELETE:
+{
+      final Where where=Where.in(new Column(Filters._ID),new RawItemArray(mListView.getCheckedItemIds()));
+      mResolver.delete(getContentUri(),where.getSQL(),null);
+      break;
+    }
+default :
+{
+    return false;
+  }
+}
+mode.finish();
+return true;
+}

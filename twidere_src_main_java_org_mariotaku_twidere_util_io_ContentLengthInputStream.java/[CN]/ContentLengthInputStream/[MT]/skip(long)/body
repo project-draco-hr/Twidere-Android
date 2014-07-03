@@ -1,0 +1,4 @@
+{
+  pos+=byteCount;
+  return stream.skip(byteCount);
+}

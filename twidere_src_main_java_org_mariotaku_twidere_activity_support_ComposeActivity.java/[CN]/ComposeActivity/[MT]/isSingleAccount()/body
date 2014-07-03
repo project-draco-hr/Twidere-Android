@@ -1,0 +1,3 @@
+{
+  return mAccountIds != null && mAccountIds.length == 1;
+}

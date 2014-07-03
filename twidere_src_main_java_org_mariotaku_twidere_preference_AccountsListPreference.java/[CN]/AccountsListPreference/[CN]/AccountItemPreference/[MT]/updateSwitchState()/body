@@ -1,0 +1,25 @@
+{
+  if (mView == null)   return;
+  final View widgetFrameView=mView.findViewById(android.R.id.widget_frame);
+  if (!(widgetFrameView instanceof ViewGroup))   return;
+  final ViewGroup widgetFrame=(ViewGroup)widgetFrameView;
+  widgetFrame.setVisibility(mSwitchKey != null ? View.VISIBLE : View.GONE);
+  widgetFrame.setPadding(widgetFrame.getPaddingLeft(),widgetFrame.getPaddingTop(),(int)(mDensity * 8),widgetFrame.getPaddingBottom());
+  widgetFrame.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+  widgetFrame.setAlpha(isEnabled() ? 1 : 0.25f);
+  final View foundView=widgetFrame.findViewById(android.R.id.toggle);
+  final Switch toggle;
+  if (foundView instanceof Switch) {
+    toggle=(Switch)foundView;
+  }
+ else {
+    widgetFrame.removeAllViews();
+    toggle=new Switch(getContext());
+    toggle.setId(android.R.id.toggle);
+    toggle.setOnCheckedChangeListener(this);
+    widgetFrame.addView(toggle);
+  }
+  if (mSwitchKey != null) {
+    toggle.setChecked(mSwitchPreference.getBoolean(mSwitchKey,mSwitchDefault));
+  }
+}

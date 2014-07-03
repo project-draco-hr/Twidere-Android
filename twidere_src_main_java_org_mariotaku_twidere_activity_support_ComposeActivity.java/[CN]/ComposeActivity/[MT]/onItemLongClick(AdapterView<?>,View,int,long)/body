@@ -1,0 +1,6 @@
+{
+  final Account account=mAccountSelectorAdapter.getItem(position);
+  final String displayName=getDisplayName(this,account.account_id,account.name,account.screen_name);
+  showMenuItemToast(view,displayName,true);
+  return true;
+}

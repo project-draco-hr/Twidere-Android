@@ -1,0 +1,3 @@
+List<HttpParameter> httpParams
+String splitter
+boolean quot

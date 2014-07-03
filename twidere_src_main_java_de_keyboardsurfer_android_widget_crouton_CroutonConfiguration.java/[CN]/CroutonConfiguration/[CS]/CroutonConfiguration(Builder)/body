@@ -1,0 +1,5 @@
+{
+  durationInMilliseconds=builder.durationInMilliseconds;
+  inAnimationResId=builder.inAnimationResId;
+  outAnimationResId=builder.outAnimationResId;
+}

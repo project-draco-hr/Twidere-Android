@@ -1,0 +1,21 @@
+{
+  if (!mGetUserInfoCalled)   return;
+  mGetUserInfoCalled=false;
+  mUser=user;
+  if (user != null && user.id > 0) {
+    mProgress.setVisibility(View.GONE);
+    mContent.setVisibility(View.VISIBLE);
+    mEditName.setText(user.name);
+    mEditDescription.setText(user.description_expanded);
+    mEditLocation.setText(user.location);
+    mEditUrl.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
+    mLazyImageLoader.displayProfileImage(mProfileImageView,user.profile_image_url);
+    final int def_width=getResources().getDisplayMetrics().widthPixels;
+    final int width=mBannerWidth > 0 ? mBannerWidth : def_width;
+    mLazyImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
+  }
+ else {
+    mProgress.setVisibility(View.GONE);
+    mContent.setVisibility(View.GONE);
+  }
+}

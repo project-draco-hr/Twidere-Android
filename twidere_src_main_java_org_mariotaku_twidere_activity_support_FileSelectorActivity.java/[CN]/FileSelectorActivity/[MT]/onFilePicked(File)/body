@@ -1,0 +1,6 @@
+{
+  final Intent intent=new Intent();
+  intent.setData(Uri.fromFile(file));
+  setResult(RESULT_OK,intent);
+  finish();
+}

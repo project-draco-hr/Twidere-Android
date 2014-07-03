@@ -1,0 +1,13 @@
+{
+  mEditAPIUrlFormat.setText(apiUrlFormat);
+  mEditSameOAuthSigningUrl.setChecked(sameOAuthSigningUrl);
+  mEditConsumerKey.setText(consumerKey);
+  mEditConsumerSecret.setText(consumerSecret);
+  mButtonOAuth.setChecked(authType == Accounts.AUTH_TYPE_OAUTH);
+  mButtonxAuth.setChecked(authType == Accounts.AUTH_TYPE_XAUTH);
+  mButtonBasic.setChecked(authType == Accounts.AUTH_TYPE_BASIC);
+  mButtonTwipOMode.setChecked(authType == Accounts.AUTH_TYPE_TWIP_O_MODE);
+  if (mEditAuthType.getCheckedRadioButtonId() == -1) {
+    mButtonOAuth.setChecked(true);
+  }
+}

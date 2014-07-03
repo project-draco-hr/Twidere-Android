@@ -1,0 +1,11 @@
+{
+  JSONObject json=null;
+  try {
+    json=res.asJSONObject();
+    final JSONObject result=json.getJSONObject("result");
+    return new SimilarPlacesImpl(PlaceJSONImpl.createPlaceList(result.getJSONArray("places"),res,conf),res,result.getString("token"));
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone.getMessage() + ":" + json.toString(),jsone);
+  }
+}

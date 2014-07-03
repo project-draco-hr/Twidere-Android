@@ -1,0 +1,8 @@
+{
+  if (danger) {
+    sb.append(String.format("<br/><b><font color='#ff8000'>%s</font></b>",HtmlEscapeHelper.escape(name)));
+  }
+ else {
+    sb.append(String.format("<br/>%s",HtmlEscapeHelper.escape(name)));
+  }
+}

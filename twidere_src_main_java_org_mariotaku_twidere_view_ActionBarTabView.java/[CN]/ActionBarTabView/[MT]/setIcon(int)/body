@@ -1,0 +1,3 @@
+{
+  setIcon(getResources().getDrawable(iconRes));
+}

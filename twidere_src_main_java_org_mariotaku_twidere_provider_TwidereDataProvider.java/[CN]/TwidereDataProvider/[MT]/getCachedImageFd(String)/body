@@ -1,0 +1,8 @@
+{
+  if (Utils.isDebugBuild()) {
+    Log.d(LOGTAG,String.format("getCachedImageFd(%s)",url));
+  }
+  final File file=mImagePreloader.getCachedImageFile(url);
+  if (file == null)   return null;
+  return ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);
+}

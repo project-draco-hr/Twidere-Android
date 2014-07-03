@@ -1,0 +1,27 @@
+{
+  if (account_id < 0)   return SingleResponse.getInstance();
+  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  if (twitter != null) {
+    try {
+      final twitter4j.Status status=twitter.destroyFavorite(status_id);
+      final ContentValues values=new ContentValues();
+      values.put(Statuses.IS_FAVORITE,0);
+      final StringBuilder where=new StringBuilder();
+      where.append(Statuses.ACCOUNT_ID + " = " + account_id);
+      where.append(" AND ");
+      where.append("(");
+      where.append(Statuses.STATUS_ID + " = " + status_id);
+      where.append(" OR ");
+      where.append(Statuses.RETWEET_ID + " = " + status_id);
+      where.append(")");
+      for (      final Uri uri : TweetStore.STATUSES_URIS) {
+        mResolver.update(uri,values,where.toString(),null);
+      }
+      return new SingleResponse<ParcelableStatus>(new ParcelableStatus(status,account_id,false),null);
+    }
+ catch (    final TwitterException e) {
+      return SingleResponse.getInstance(e);
+    }
+  }
+  return SingleResponse.getInstance();
+}

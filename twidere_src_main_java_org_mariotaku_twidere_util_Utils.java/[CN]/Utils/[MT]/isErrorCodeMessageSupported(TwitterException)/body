@@ -1,0 +1,4 @@
+{
+  if (te == null)   return false;
+  return StatusCodeMessageUtils.containsHttpStatus(te.getStatusCode()) || StatusCodeMessageUtils.containsTwitterError(te.getErrorCode());
+}

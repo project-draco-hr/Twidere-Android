@@ -1,0 +1,18 @@
+{
+  subMenu.removeGroup(MENU_GROUP);
+  for (  final Account account : mAccounts) {
+    final MenuItem item=subMenu.add(MENU_GROUP,Menu.NONE,0,account.name);
+    final Intent intent=new Intent();
+    intent.putExtra(EXTRA_ACCOUNT,account);
+    item.setIntent(intent);
+  }
+  subMenu.setGroupCheckable(MENU_GROUP,true,true);
+  for (int i=0, j=subMenu.size(); i < j; i++) {
+    final MenuItem item=subMenu.getItem(i);
+    final Intent intent=item.getIntent();
+    final Account account=intent.getParcelableExtra(EXTRA_ACCOUNT);
+    if (account.account_id == mAccountId) {
+      item.setChecked(true);
+    }
+  }
+}

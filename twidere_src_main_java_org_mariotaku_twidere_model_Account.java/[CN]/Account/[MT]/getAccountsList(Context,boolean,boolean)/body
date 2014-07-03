@@ -1,0 +1,24 @@
+{
+  if (context == null)   return Collections.emptyList();
+  final ArrayList<Account> accounts=new ArrayList<Account>();
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS_NO_CREDENTIALS,activatedOnly ? Accounts.IS_ACTIVATED + " = 1" : null,null,null);
+  if (cur != null) {
+    final Indices indices=new Indices(cur);
+    cur.moveToFirst();
+    while (!cur.isAfterLast()) {
+      if (!officialKeyOnly) {
+        accounts.add(new Account(cur,indices));
+      }
+ else {
+        final String consumerKey=cur.getString(indices.consumer_key);
+        final String consumerSecret=cur.getString(indices.consumer_secret);
+        if (shouldForceUsingPrivateAPIs(context) || isOfficialConsumerKeySecret(context,consumerKey,consumerSecret)) {
+          accounts.add(new Account(cur,indices));
+        }
+      }
+      cur.moveToNext();
+    }
+    cur.close();
+  }
+  return accounts;
+}

@@ -1,0 +1,4 @@
+{
+  if (src == null)   return null;
+  return saveImage(activity,src);
+}

@@ -1,0 +1,3 @@
+{
+  return "TwitterImpl{" + "INCLUDE_ENTITIES=" + INCLUDE_ENTITIES + ", INCLUDE_RTS="+ INCLUDE_RTS+ '}';
+}

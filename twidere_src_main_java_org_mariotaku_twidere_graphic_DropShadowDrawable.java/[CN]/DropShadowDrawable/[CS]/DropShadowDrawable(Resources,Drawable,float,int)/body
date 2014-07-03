@@ -1,0 +1,3 @@
+{
+  this(resources,drawable,shadowRadius,shadowColor,Color.TRANSPARENT);
+}

@@ -1,0 +1,4 @@
+{
+  final View view=getView();
+  return (WebView)view.findViewById(R.id.webview);
+}

@@ -1,0 +1,14 @@
+{
+  final View oldSelectedChild=mSelectedChild;
+  final View child=mSelectedChild=getChildAt(mSelectedPosition - mFirstPosition);
+  if (child == null)   return;
+  child.setSelected(true);
+  child.setFocusable(true);
+  if (hasFocus()) {
+    child.requestFocus();
+  }
+  if (oldSelectedChild != null && oldSelectedChild != child) {
+    oldSelectedChild.setSelected(false);
+    oldSelectedChild.setFocusable(false);
+  }
+}

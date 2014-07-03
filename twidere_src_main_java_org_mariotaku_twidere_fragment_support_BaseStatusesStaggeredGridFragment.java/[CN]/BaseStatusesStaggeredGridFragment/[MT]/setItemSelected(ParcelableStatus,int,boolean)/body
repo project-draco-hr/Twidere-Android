@@ -1,0 +1,11 @@
+{
+  if (selected) {
+    mMultiSelectManager.selectItem(status);
+  }
+ else {
+    mMultiSelectManager.unselectItem(status);
+  }
+  if (position >= 0) {
+    mListView.setItemChecked(position,selected);
+  }
+}

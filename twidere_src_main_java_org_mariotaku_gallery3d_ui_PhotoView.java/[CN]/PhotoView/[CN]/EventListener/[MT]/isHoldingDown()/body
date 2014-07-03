@@ -1,0 +1,3 @@
+{
+  return (mHolding & HOLD_TOUCH_DOWN) != 0;
+}

@@ -1,0 +1,4 @@
+{
+  mView.invalidate();
+  mView.postDelayed(this,66);
+}

@@ -1,0 +1,3 @@
+{
+  this(cls,title,icon,accountRequirement,secondaryFieldType,0,TwidereConstants.EXTRA_TEXT,sortPosition,singleTab,extraConfigurations);
+}

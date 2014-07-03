@@ -1,0 +1,7 @@
+{
+  fragment.setProgressBarIndeterminateVisibility(false);
+  fragment.updateConversationInfo();
+  if (data.getData() == null || !data.getData()) {
+    showErrorMessage(context,context.getString(R.string.action_getting_status),data.getException(),true);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  final Map<String,String> map=new HashMap<String,String>();
+  for (  final Map.Entry<String,?> entry : mPreferences.getAll().entrySet()) {
+    if (entry.getValue() instanceof String) {
+      map.put(entry.getKey(),(String)entry.getValue());
+    }
+  }
+  return map;
+}

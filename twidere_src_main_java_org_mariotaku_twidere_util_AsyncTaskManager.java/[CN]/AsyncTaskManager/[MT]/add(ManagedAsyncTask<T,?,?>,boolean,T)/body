@@ -1,0 +1,8 @@
+{
+  final int hashCode=task.hashCode();
+  mTasks.add(task);
+  if (exec) {
+    execute(hashCode);
+  }
+  return hashCode;
+}

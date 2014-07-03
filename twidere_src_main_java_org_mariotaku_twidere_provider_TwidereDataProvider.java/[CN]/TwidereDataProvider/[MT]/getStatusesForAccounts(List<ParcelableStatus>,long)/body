@@ -1,0 +1,10 @@
+{
+  if (items == null)   return Collections.emptyList();
+  final List<ParcelableStatus> result=new ArrayList<ParcelableStatus>();
+  for (  final ParcelableStatus item : items.toArray(new ParcelableStatus[items.size()])) {
+    if (item.account_id == accountId) {
+      result.add(item);
+    }
+  }
+  return result;
+}

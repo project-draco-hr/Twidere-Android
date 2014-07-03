@@ -1,0 +1,10 @@
+{
+  if (result.hasData()) {
+    final String message=mContext.getString(R.string.search_name_deleted,result.getData().getQuery());
+    mMessagesManager.showOkMessage(message,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_deleting_search,result.getException(),false);
+  }
+  super.onPostExecute(result);
+}

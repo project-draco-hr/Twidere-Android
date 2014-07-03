@@ -1,0 +1,17 @@
+{
+  boolean verticalStartWhite=true;
+  for (int i=0; i <= mNumRectanglesVertical; i++) {
+    boolean horizontalStartWhite=verticalStartWhite;
+    for (int j=0; j <= mNumRectanglesHorizontal; j++) {
+      mRect.setEmpty();
+      mRect.top=i * mAlphaPatternSize + mBounds.top;
+      mRect.left=j * mAlphaPatternSize + mBounds.left;
+      mRect.bottom=Math.min(mRect.top + mAlphaPatternSize,mBounds.bottom);
+      mRect.right=Math.min(mRect.left + mAlphaPatternSize,mBounds.right);
+      mPaint.setColor(horizontalStartWhite ? Color.WHITE : Color.GRAY);
+      canvas.drawRect(mRect,mPaint);
+      horizontalStartWhite=!horizontalStartWhite;
+    }
+    verticalStartWhite=!verticalStartWhite;
+  }
+}

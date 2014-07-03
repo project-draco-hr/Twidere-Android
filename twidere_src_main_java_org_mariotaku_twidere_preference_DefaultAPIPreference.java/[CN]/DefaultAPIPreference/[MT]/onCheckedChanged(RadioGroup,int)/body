@@ -1,0 +1,5 @@
+{
+  final int authType=getCheckedAuthType(checkedId);
+  final boolean isOAuth=authType == Accounts.AUTH_TYPE_OAUTH || authType == Accounts.AUTH_TYPE_XAUTH;
+  mAdvancedAPIConfigContainer.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
+}

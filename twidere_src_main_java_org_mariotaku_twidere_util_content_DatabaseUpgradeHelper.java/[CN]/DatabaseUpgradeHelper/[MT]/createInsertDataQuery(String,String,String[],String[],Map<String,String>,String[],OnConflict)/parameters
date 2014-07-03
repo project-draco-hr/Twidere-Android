@@ -1,0 +1,7 @@
+String table
+String tempTable
+String[] newCols
+String[] oldCols
+Map<String,String> colAliases
+String[] notNullCols
+OnConflict onConflict

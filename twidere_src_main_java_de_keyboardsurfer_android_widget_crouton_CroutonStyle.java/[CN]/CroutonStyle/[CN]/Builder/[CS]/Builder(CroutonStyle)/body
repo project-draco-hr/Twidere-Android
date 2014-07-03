@@ -1,0 +1,24 @@
+{
+  configuration=baseStyle.configuration;
+  backgroundColorValue=baseStyle.backgroundColorValue;
+  backgroundColorResourceId=baseStyle.backgroundColorResourceId;
+  backgroundDrawableResourceId=baseStyle.backgroundDrawableResourceId;
+  isTileEnabled=baseStyle.isTileEnabled;
+  textColorResourceId=baseStyle.textColorResourceId;
+  heightInPixels=baseStyle.heightInPixels;
+  heightDimensionResId=baseStyle.heightDimensionResId;
+  widthInPixels=baseStyle.widthInPixels;
+  widthDimensionResId=baseStyle.widthDimensionResId;
+  gravity=baseStyle.gravity;
+  imageDrawable=baseStyle.imageDrawable;
+  textSize=baseStyle.textSize;
+  textShadowColorResId=baseStyle.textShadowColorResId;
+  textShadowRadius=baseStyle.textShadowRadius;
+  textShadowDx=baseStyle.textShadowDx;
+  textShadowDy=baseStyle.textShadowDy;
+  textAppearanceResId=baseStyle.textAppearanceResId;
+  imageResId=baseStyle.imageResId;
+  imageScaleType=baseStyle.imageScaleType;
+  paddingInPixels=baseStyle.paddingInPixels;
+  paddingDimensionResId=baseStyle.paddingDimensionResId;
+}

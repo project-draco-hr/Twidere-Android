@@ -1,0 +1,11 @@
+{
+  if (mMultiSelectManager.isActive())   return;
+  final int pos=position - l.getHeaderViewsCount();
+  final long conversationId=mAdapter.getConversationId(pos);
+  final long accountId=mAdapter.getAccountId(pos);
+  mReadPositions.add(pos);
+  removeUnreadCounts();
+  if (conversationId > 0 && accountId > 0) {
+    openDirectMessagesConversation(getActivity(),accountId,conversationId);
+  }
+}

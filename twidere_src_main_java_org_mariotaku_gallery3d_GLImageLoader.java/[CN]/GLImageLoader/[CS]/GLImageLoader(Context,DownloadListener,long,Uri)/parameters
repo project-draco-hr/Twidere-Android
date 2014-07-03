@@ -1,0 +1,4 @@
+Context context
+DownloadListener listener
+long accountId
+Uri uri

@@ -1,0 +1,37 @@
+{
+switch (item.getItemId()) {
+case MENU_DELETE:
+{
+      final DeleteDraftsConfirmDialogFragment f=new DeleteDraftsConfirmDialogFragment();
+      final Bundle args=new Bundle();
+      args.putLongArray(EXTRA_IDS,mListView.getCheckedItemIds());
+      f.setArguments(args);
+      f.show(getSupportFragmentManager(),"delete_drafts_confirm");
+      break;
+    }
+case MENU_SEND:
+{
+    final Cursor c=mAdapter.getCursor();
+    if (c == null || c.isClosed())     return false;
+    final SparseBooleanArray checked=mListView.getCheckedItemPositions();
+    final List<DraftItem> list=new ArrayList<DraftItem>();
+    final DraftItem.CursorIndices indices=new DraftItem.CursorIndices(c);
+    for (int i=0, j=checked.size(); i < j; i++) {
+      if (checked.valueAt(i) && c.moveToPosition(checked.keyAt(i))) {
+        list.add(new DraftItem(c,indices));
+      }
+    }
+    if (sendDrafts(list)) {
+      final Where where=Where.in(new Column(Drafts._ID),new RawItemArray(mListView.getCheckedItemIds()));
+      mResolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
+    }
+    break;
+  }
+default :
+{
+  return false;
+}
+}
+mode.finish();
+return true;
+}

@@ -1,0 +1,3 @@
+{
+  return mPreferences.getBoolean(KEY_MY_FOLLOWING_ONLY,false);
+}

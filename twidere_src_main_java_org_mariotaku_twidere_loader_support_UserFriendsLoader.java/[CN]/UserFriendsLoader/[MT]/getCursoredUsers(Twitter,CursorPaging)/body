@@ -1,0 +1,6 @@
+{
+  if (twitter == null)   return null;
+  if (mUserId > 0)   return twitter.getFriendsList(mUserId,paging);
+ else   if (mScreenName != null)   return twitter.getFriendsList(mScreenName,paging);
+  return null;
+}

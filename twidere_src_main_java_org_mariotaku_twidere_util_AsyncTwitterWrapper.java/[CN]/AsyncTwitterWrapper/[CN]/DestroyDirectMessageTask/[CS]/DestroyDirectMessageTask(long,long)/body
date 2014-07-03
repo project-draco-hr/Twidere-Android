@@ -1,0 +1,5 @@
+{
+  super(mContext,mAsyncTaskManager);
+  this.account_id=account_id;
+  this.message_id=message_id;
+}

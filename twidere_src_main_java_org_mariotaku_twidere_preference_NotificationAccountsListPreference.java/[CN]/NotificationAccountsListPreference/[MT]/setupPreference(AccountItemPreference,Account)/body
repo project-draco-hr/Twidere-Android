@@ -1,0 +1,5 @@
+{
+  preference.setFragment(AccountNotificationSettingsFragment.class.getName());
+  final Bundle args=preference.getExtras();
+  args.putParcelable(EXTRA_ACCOUNT,account);
+}

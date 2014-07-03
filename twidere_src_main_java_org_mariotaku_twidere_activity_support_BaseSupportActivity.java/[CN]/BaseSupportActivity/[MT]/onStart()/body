@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  mIsVisible=true;
+  final MessagesManager manager=getMessagesManager();
+  if (manager != null) {
+    manager.addMessageCallback(this);
+  }
+}

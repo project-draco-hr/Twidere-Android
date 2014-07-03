@@ -1,0 +1,6 @@
+{
+  final boolean useBottomActionItems=FlymeUtils.hasSmartBar() && isBottomComposeButton();
+  if (useBottomActionItems) {
+    invalidateOptionsMenu();
+  }
+}

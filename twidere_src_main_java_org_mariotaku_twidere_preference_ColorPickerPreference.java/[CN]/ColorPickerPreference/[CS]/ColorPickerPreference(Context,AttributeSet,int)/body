@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyle);
+  mResources=context.getResources();
+  init(context,attrs);
+}

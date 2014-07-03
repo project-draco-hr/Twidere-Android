@@ -1,0 +1,18 @@
+{
+  if (BuildConfig.DEBUG) {
+    Log.i(LOG_TAG,"onDoubleTap. double tap enabled? " + mDoubleTapToZoomEnabled);
+  }
+  if (mDoubleTapToZoomEnabled) {
+    final float scale=getScale();
+    float targetScale=scale;
+    targetScale=onDoubleTapPost(scale,getMaxZoom());
+    targetScale=Math.min(getMaxZoom(),Math.max(targetScale,MIN_ZOOM));
+    mCurrentScaleFactor=targetScale;
+    zoomTo(targetScale,e.getX(),e.getY(),200);
+    invalidate();
+  }
+  if (null != doubleTapListener) {
+    doubleTapListener.onDoubleTap();
+  }
+  return super.onDoubleTap(e);
+}

@@ -1,0 +1,6 @@
+{
+  final AsyncTwitterWrapper twitter=fragment.getTwitterWrapper();
+  if (twitter != null) {
+    twitter.removeUnreadCountsAsync(fragment.getTabPosition(),fragment.getUnreadCountsToRemove());
+  }
+}

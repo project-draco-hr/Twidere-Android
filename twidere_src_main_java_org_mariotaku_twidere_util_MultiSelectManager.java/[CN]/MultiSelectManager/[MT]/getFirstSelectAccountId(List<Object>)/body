@@ -1,0 +1,6 @@
+{
+  final Object obj=selected_items.get(0);
+  if (obj instanceof ParcelableUser)   return ((ParcelableUser)obj).account_id;
+ else   if (obj instanceof ParcelableStatus)   return ((ParcelableStatus)obj).account_id;
+  return -1;
+}

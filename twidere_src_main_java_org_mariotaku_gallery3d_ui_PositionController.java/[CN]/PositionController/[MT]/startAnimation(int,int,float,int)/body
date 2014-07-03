@@ -1,0 +1,9 @@
+{
+  boolean changed=false;
+  changed|=mPlatform.doAnimation(targetX,mPlatform.mDefaultY,kind);
+  changed|=mBox.doAnimation(targetY,targetScale,kind);
+  if (changed) {
+    redraw();
+  }
+  return changed;
+}

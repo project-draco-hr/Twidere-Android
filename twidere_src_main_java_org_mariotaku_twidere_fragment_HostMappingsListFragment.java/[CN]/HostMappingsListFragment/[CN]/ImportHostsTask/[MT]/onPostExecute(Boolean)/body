@@ -1,0 +1,8 @@
+{
+  final FragmentManager fm=mActivity.getFragmentManager();
+  final Fragment f=fm.findFragmentByTag("import_hosts_progress");
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+  mActivity.reloadHostMappings();
+}

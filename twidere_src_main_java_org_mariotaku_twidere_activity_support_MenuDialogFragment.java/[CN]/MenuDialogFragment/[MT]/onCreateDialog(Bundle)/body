@@ -1,0 +1,13 @@
+{
+  final Context context=getThemedContext();
+  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
+  final MenuAdapter adapter=new MenuAdapter(context);
+  final ListView listView=new ListView(context);
+  listView.setAdapter(adapter);
+  listView.setOnItemClickListener(this);
+  builder.setView(listView);
+  final Menu menu=MenuUtils.createMenu(context);
+  onCreateMenu(new MenuInflater(context),menu);
+  adapter.setMenu(menu);
+  return builder.create();
+}

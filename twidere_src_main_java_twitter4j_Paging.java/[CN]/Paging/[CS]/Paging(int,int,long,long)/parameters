@@ -1,0 +1,4 @@
+int page
+int count
+long sinceId
+long maxId

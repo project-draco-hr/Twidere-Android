@@ -1,0 +1,6 @@
+{
+  final float textSize=viewBounds.height();
+  mIconPaint.setTextSize(textSize);
+  mIconPaint.getTextPath(mIconUtfChars,0,mIconUtfChars.length,0,0,mPath);
+  mPath.computeBounds(mPathBounds,true);
+}

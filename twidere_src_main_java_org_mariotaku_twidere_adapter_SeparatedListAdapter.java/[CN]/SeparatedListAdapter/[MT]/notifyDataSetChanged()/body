@@ -1,0 +1,8 @@
+{
+  for (  final T adapter : mSections.values()) {
+    if (adapter instanceof BaseAdapter) {
+      ((BaseAdapter)adapter).notifyDataSetChanged();
+    }
+  }
+  super.notifyDataSetChanged();
+}

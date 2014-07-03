@@ -1,0 +1,6 @@
+{
+  final PreferenceScreen screen=getPreferenceScreen();
+  final SharedPreferences sharedPreferences=getPreferenceManager().getSharedPreferences();
+  if (screen == null || sharedPreferences == null)   return;
+  screen.setEnabled(sharedPreferences.getBoolean(getSwitchPreferenceKey(),getSwitchPreferenceDefault()));
+}

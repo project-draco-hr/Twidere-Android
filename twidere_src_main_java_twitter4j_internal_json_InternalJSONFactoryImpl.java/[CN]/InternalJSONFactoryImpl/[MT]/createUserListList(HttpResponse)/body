@@ -1,0 +1,3 @@
+{
+  return UserListJSONImpl.createUserListList(res,conf);
+}

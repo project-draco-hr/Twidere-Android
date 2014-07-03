@@ -1,0 +1,9 @@
+{
+  setCurrentItem(position);
+  if (mTabListener != null) {
+    mTabListener.onPageSelected(position);
+  }
+  if (mPageListener != null) {
+    mPageListener.onPageSelected(position);
+  }
+}

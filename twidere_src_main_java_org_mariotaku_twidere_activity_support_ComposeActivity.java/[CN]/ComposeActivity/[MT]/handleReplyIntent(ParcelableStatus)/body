@@ -1,0 +1,22 @@
+{
+  if (status == null || status.id <= 0)   return false;
+  final String myScreenName=getAccountScreenName(this,status.account_id);
+  if (isEmpty(myScreenName))   return false;
+  mEditText.append("@" + status.user_screen_name + " ");
+  final int selectionStart=mEditText.length();
+  if (!isEmpty(status.retweeted_by_screen_name)) {
+    mEditText.append("@" + status.retweeted_by_screen_name + " ");
+  }
+  final Collection<String> mentions=new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+  mentions.addAll(mExtractor.extractMentionedScreennames(status.text_plain));
+  for (  final String mention : mentions) {
+    if (mention.equalsIgnoreCase(status.user_screen_name) || mention.equalsIgnoreCase(myScreenName) || mention.equalsIgnoreCase(status.retweeted_by_screen_name)) {
+      continue;
+    }
+    mEditText.append("@" + mention + " ");
+  }
+  final int selectionEnd=mEditText.length();
+  mEditText.setSelection(selectionStart,selectionEnd);
+  mSendAccountIds=new long[]{status.account_id};
+  return true;
+}

@@ -1,0 +1,15 @@
+{
+  final Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+  if (getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+    final File cache_dir=getExternalCacheDir();
+    final File file=new File(cache_dir,"tmp_photo_" + System.currentTimeMillis());
+    mTempPhotoUri=Uri.fromFile(file);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT,mTempPhotoUri);
+    try {
+      startActivityForResult(intent,REQUEST_TAKE_PHOTO);
+    }
+ catch (    final ActivityNotFoundException e) {
+      showErrorMessage(this,null,e,false);
+    }
+  }
+}

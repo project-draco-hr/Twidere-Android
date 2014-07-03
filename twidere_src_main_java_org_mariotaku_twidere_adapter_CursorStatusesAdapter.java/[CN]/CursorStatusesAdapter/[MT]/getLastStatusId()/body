@@ -1,0 +1,10 @@
+{
+  final Cursor c=getCursor();
+  try {
+    if (c == null || c.isClosed() || !c.moveToLast())     return -1;
+    return c.getLong(mIndices.status_id);
+  }
+ catch (  final IllegalStateException e) {
+    return -1;
+  }
+}

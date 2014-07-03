@@ -1,0 +1,7 @@
+{
+  if (isNullOrEmpty(restBaseURL)) {
+    restBaseURL=DEFAULT_REST_BASE_URL;
+  }
+  this.restBaseURL=fixURLSlash(restBaseURL);
+  fixRestBaseURL();
+}

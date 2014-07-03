@@ -1,0 +1,9 @@
+{
+  mAdapter.swapCursor(cursor);
+  if (cursor != null && mFirstCreated) {
+    final long[] activatedIds=getIntentExtraIds();
+    for (int i=0, j=mAdapter.getCount(); i < j; i++) {
+      mListView.setItemChecked(i,ArrayUtils.contains(activatedIds,mAdapter.getItemId(i)));
+    }
+  }
+}

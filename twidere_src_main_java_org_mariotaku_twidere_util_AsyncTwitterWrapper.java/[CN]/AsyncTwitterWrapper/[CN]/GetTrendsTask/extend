@@ -1,0 +1,1 @@
+ManagedAsyncTask<Void,Void,ListResponse<Trends>>

@@ -1,0 +1,5 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  findPreference(WIZARD_PREFERENCE_KEY_EDIT_CUSTOM_TABS).setOnPreferenceClickListener(this);
+  findPreference(WIZARD_PREFERENCE_KEY_USE_DEFAULTS).setOnPreferenceClickListener(this);
+}

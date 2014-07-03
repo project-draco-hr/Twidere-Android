@@ -1,0 +1,20 @@
+{
+  try {
+    final JSONObject json=res.asJSONObject();
+    final JSONArray list=json.getJSONArray("users");
+    final int size=list.length();
+    @SuppressWarnings("unchecked") final PagableResponseList<User> users=new PagableResponseListImpl<User>(size,json,res);
+    for (int i=0; i < size; i++) {
+      final JSONObject userJson=list.getJSONObject(i);
+      final User user=new UserJSONImpl(userJson);
+      users.add(user);
+    }
+    return users;
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone);
+  }
+catch (  final TwitterException te) {
+    throw te;
+  }
+}

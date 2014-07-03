@@ -1,0 +1,4 @@
+{
+  this.id=id;
+  this.account_id=account_id;
+}

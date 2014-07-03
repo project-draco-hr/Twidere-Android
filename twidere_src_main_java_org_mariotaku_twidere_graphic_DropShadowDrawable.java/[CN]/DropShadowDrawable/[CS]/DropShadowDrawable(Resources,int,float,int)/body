@@ -1,0 +1,3 @@
+{
+  this(resources,res,shadowRadius,shadowColor,Color.TRANSPARENT);
+}

@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  mIsVisible=true;
+  final MessagesManager croutons=getMessagesManager();
+  if (croutons != null) {
+    croutons.addMessageCallback(this);
+  }
+}

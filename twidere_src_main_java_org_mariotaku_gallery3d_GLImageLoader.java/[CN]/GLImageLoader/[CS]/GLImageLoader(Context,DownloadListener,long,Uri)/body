@@ -1,0 +1,13 @@
+{
+  super(context);
+  mHandler=new Handler();
+  mAccountId=accountId;
+  mUri=uri;
+  mListener=listener;
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mDownloader=app.getFullImageDownloader();
+  mDiskCache=app.getFullDiskCache();
+  final Resources res=context.getResources();
+  final DisplayMetrics dm=res.getDisplayMetrics();
+  mFallbackSize=Math.max(dm.heightPixels,dm.widthPixels);
+}

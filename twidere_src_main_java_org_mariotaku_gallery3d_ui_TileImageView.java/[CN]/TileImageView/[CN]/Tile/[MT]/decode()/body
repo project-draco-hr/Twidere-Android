@@ -1,0 +1,9 @@
+{
+  try {
+    mDecodedTile=DecodeUtils.ensureGLCompatibleBitmap(mModel.getTile(mTileLevel,mX,mY,TILE_SIZE,TILE_BORDER,sTilePool));
+  }
+ catch (  final Throwable t) {
+    Log.w(TAG,"fail to decode tile",t);
+  }
+  return mDecodedTile != null;
+}

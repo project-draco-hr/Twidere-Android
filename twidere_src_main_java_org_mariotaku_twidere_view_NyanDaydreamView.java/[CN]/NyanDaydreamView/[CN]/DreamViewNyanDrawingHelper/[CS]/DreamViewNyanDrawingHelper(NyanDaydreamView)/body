@@ -1,0 +1,7 @@
+{
+  super(view.getContext());
+  mView=view;
+  final Resources res=getResources();
+  final DisplayMetrics dm=res.getDisplayMetrics();
+  mDisplayHeight=dm.heightPixels;
+}

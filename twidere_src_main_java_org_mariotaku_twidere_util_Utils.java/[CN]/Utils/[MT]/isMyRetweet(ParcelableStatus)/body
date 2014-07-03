@@ -1,0 +1,4 @@
+{
+  if (status == null)   return false;
+  return status.retweeted_by_id == status.account_id || status.my_retweet_id > 0;
+}

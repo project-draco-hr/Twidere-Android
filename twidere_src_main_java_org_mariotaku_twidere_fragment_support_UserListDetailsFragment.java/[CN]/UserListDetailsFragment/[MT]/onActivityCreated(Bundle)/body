@@ -1,0 +1,26 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mTwitterWrapper=getApplication().getTwitterWrapper();
+  mLocale=getResources().getConfiguration().locale;
+  mProfileImageLoader=getApplication().getImageLoaderWrapper();
+  mAdapter=new ListActionAdapter(getActivity());
+  mAdapter.add(new ListTimelineAction(1));
+  mAdapter.add(new ListMembersAction(2));
+  mAdapter.add(new ListSubscribersAction(3));
+  mProfileImageView.setOnClickListener(this);
+  mProfileContainer.setOnClickListener(this);
+  mRetryButton.setOnClickListener(this);
+  setListAdapter(null);
+  mListView=getListView();
+  mListView.addHeaderView(mHeaderView,null,false);
+  mListView.setOnItemClickListener(this);
+  mListView.setOnItemLongClickListener(this);
+  setListAdapter(mAdapter);
+  getUserListInfo(false);
+  mMenuBar.inflate(R.menu.menu_user_list);
+  mMenuBar.setIsBottomBar(true);
+  mMenuBar.setOnMenuItemClickListener(this);
+  setMenu(mMenuBar.getMenu());
+  mMenuBar.show();
+}

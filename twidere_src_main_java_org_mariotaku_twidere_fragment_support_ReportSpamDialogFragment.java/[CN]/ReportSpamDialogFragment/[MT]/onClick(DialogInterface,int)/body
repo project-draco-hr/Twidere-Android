@@ -1,0 +1,12 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+    final ParcelableUser user=getUser();
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+if (user == null || twitter == null) return;
+twitter.reportSpamAsync(user.account_id,user.id);
+break;
+default :
+break;
+}
+}

@@ -1,0 +1,6 @@
+{
+  super(context,attrs,defStyleAttr);
+  setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+  mNyanDrawingHelper=new DreamViewNyanDrawingHelper(this);
+  mInvalidateRunnable=new InvalidateRunnable(this);
+}

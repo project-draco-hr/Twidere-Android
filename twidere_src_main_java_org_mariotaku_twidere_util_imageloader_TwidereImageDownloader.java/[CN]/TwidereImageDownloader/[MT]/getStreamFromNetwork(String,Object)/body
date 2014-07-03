@@ -1,0 +1,23 @@
+{
+  if (uriString == null)   return null;
+  final ParcelableMedia media=MediaPreviewUtils.getAllAvailableImage(uriString,mFullImage,mFullImage || !mFastImageLoading ? mClient : null);
+  try {
+    final String mediaUrl=media != null ? media.media_url : uriString;
+    if (isTwitterProfileImage(uriString)) {
+      final String replaced=getTwitterProfileImageOfSize(mediaUrl,mTwitterProfileImageSize);
+      return getStreamFromNetworkInternal(replaced,extras);
+    }
+ else     return getStreamFromNetworkInternal(mediaUrl,extras);
+  }
+ catch (  final TwitterException e) {
+    final int statusCode=e.getStatusCode();
+    if (statusCode != -1 && isTwitterProfileImage(uriString) && !uriString.contains("_normal.")) {
+      try {
+        return getStreamFromNetworkInternal(getNormalTwitterProfileImage(uriString),extras);
+      }
+ catch (      final TwitterException e2) {
+      }
+    }
+    throw new IOException(String.format(Locale.US,"Error downloading image %s, error code: %d",uriString,statusCode));
+  }
+}

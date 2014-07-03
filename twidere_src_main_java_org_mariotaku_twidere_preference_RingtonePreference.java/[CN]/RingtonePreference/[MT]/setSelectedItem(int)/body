@@ -1,0 +1,3 @@
+{
+  mSelectedItem=selected >= 0 && selected < mValues.length ? selected : 0;
+}

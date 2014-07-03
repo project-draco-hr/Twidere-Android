@@ -1,0 +1,4 @@
+{
+  this.imageScaleType=imageScaleType;
+  return this;
+}

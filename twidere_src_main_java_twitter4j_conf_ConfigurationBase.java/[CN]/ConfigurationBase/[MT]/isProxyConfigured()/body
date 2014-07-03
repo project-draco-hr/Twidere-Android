@@ -1,0 +1,3 @@
+{
+  return (getHttpProxyHost() != null || "".equals(getHttpProxyHost())) && getHttpProxyPort() > 0;
+}

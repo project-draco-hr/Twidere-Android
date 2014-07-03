@@ -1,0 +1,5 @@
+{
+  if (mode == MODE_CPU)   return mCpuCounter;
+ else   if (mode == MODE_NETWORK)   return mNetworkCounter;
+ else   return null;
+}

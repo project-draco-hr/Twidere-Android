@@ -1,0 +1,6 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.textAppearanceLarge});
+  final int textAppearance=a.getResourceId(0,android.R.style.TextAppearance_Holo_Large);
+  a.recycle();
+  return textAppearance;
+}

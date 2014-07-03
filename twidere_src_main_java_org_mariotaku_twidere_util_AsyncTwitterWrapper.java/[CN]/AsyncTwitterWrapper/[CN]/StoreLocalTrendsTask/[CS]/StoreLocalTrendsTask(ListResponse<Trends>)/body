@@ -1,0 +1,3 @@
+{
+  super(result,CachedTrends.Local.CONTENT_URI);
+}

@@ -1,0 +1,19 @@
+{
+  final int queryStart=url.indexOf("?");
+  if (-1 != queryStart) {
+    final String[] queryStrs=InternalStringUtil.split(url.substring(queryStart + 1),"&");
+    try {
+      for (      final String query : queryStrs) {
+        final String[] split=InternalStringUtil.split(query,"=");
+        if (split.length == 2) {
+          signatureBaseParams.add(new HttpParameter(URLDecoder.decode(split[0],"UTF-8"),URLDecoder.decode(split[1],"UTF-8")));
+        }
+ else {
+          signatureBaseParams.add(new HttpParameter(URLDecoder.decode(split[0],"UTF-8"),""));
+        }
+      }
+    }
+ catch (    final UnsupportedEncodingException ignore) {
+    }
+  }
+}

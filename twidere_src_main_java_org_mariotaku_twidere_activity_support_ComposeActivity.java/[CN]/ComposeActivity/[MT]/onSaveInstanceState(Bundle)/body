@@ -1,0 +1,13 @@
+{
+  outState.putLongArray(EXTRA_ACCOUNT_IDS,mSendAccountIds);
+  outState.putParcelableArrayList(EXTRA_MEDIAS,new ArrayList<Parcelable>(getMediasList()));
+  outState.putBoolean(EXTRA_IS_POSSIBLY_SENSITIVE,mIsPossiblySensitive);
+  outState.putParcelable(EXTRA_STATUS,mInReplyToStatus);
+  outState.putLong(EXTRA_STATUS_ID,mInReplyToStatusId);
+  outState.putParcelable(EXTRA_USER,mMentionUser);
+  outState.putParcelable(EXTRA_DRAFT,mDraftItem);
+  outState.putBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS,mShouldSaveAccounts);
+  outState.putString(EXTRA_ORIGINAL_TEXT,mOriginalText);
+  outState.putParcelable(EXTRA_TEMP_URI,mTempPhotoUri);
+  super.onSaveInstanceState(outState);
+}

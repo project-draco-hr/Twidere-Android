@@ -1,0 +1,3 @@
+int action_res
+String message
+boolean long_message

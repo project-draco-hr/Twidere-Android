@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      navigateUpFromSameTask();
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

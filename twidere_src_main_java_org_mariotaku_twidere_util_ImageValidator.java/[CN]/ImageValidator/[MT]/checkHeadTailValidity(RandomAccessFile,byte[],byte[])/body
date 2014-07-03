@@ -1,0 +1,21 @@
+{
+  if (raf == null)   return false;
+  try {
+    final long length=raf.length();
+    if (length == 0)     return false;
+    byte[] buffer;
+    buffer=new byte[head.length];
+    raf.seek(0);
+    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,head))     return false;
+    buffer=new byte[tail.length];
+    raf.seek(length - buffer.length);
+    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,tail))     return false;
+  }
+ catch (  final IOException e) {
+    return false;
+  }
+ finally {
+    closeSilently(raf);
+  }
+  return true;
+}

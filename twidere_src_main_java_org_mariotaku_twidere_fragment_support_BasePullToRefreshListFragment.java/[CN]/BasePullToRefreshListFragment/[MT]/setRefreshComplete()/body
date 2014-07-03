@@ -1,0 +1,4 @@
+{
+  if (getView() == null)   return;
+  getListView().setRefreshComplete();
+}

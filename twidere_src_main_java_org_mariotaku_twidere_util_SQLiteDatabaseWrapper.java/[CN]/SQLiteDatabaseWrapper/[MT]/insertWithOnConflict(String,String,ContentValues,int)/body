@@ -1,0 +1,5 @@
+{
+  tryCreateDatabase();
+  if (mDatabase == null)   return -1;
+  return mDatabase.insertWithOnConflict(table,nullColumnHack,initialValues,conflictAlgorithm);
+}

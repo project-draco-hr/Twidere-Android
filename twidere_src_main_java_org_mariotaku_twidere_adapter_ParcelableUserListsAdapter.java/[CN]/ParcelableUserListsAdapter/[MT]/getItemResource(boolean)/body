@@ -1,0 +1,3 @@
+{
+  return compactCards ? R.layout.card_item_user_list_compact : R.layout.card_item_user_list;
+}

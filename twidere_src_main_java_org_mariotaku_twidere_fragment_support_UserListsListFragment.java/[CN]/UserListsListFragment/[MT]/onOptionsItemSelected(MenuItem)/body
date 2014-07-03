@@ -1,0 +1,14 @@
+{
+switch (item.getItemId()) {
+case R.id.new_user_list:
+{
+      final DialogFragment f=new CreateUserListDialogFragment();
+      final Bundle args=new Bundle();
+      args.putLong(EXTRA_ACCOUNT_ID,getAccountId());
+      f.setArguments(args);
+      f.show(getFragmentManager(),null);
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

@@ -1,0 +1,5 @@
+String url
+String signUrl
+HttpParameter[] parameters
+Authorization authorization
+Map<String,String> requestHeaders

@@ -1,0 +1,25 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof RelationshipJSONImpl))   return false;
+  final RelationshipJSONImpl other=(RelationshipJSONImpl)obj;
+  if (sourceBlockingTarget != other.sourceBlockingTarget)   return false;
+  if (sourceCanDM != other.sourceCanDM)   return false;
+  if (sourceCanMediaTag != other.sourceCanMediaTag)   return false;
+  if (sourceFollowedByTarget != other.sourceFollowedByTarget)   return false;
+  if (sourceFollowingTarget != other.sourceFollowingTarget)   return false;
+  if (sourceMarkedTargetAsSpam != other.sourceMarkedTargetAsSpam)   return false;
+  if (sourceMutingTarget != other.sourceMutingTarget)   return false;
+  if (sourceNotificationsEnabled != other.sourceNotificationsEnabled)   return false;
+  if (sourceUserId != other.sourceUserId)   return false;
+  if (sourceUserScreenName == null) {
+    if (other.sourceUserScreenName != null)     return false;
+  }
+ else   if (!sourceUserScreenName.equals(other.sourceUserScreenName))   return false;
+  if (targetUserId != other.targetUserId)   return false;
+  if (targetUserScreenName == null) {
+    if (other.targetUserScreenName != null)     return false;
+  }
+ else   if (!targetUserScreenName.equals(other.targetUserScreenName))   return false;
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  StrictModeUtils.checkDiskIO();
+  return resolver.query(uri,projection,selection,selectionArgs,sortOrder,cancellationSignal);
+}

@@ -1,0 +1,3 @@
+{
+  return mSelectedStatusIds.contains(status_id);
+}

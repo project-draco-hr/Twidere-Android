@@ -1,0 +1,7 @@
+{
+  if (position >= 0 && position < getCount()) {
+    final ParcelableStatus status=getItem(position);
+    return status != null ? status.id : -1;
+  }
+  return -1;
+}

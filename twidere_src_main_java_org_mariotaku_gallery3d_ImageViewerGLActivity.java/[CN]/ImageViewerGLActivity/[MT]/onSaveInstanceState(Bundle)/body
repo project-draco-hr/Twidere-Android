@@ -1,0 +1,9 @@
+{
+  mGLRootView.lockRenderThread();
+  try {
+    super.onSaveInstanceState(outState);
+  }
+  finally {
+    mGLRootView.unlockRenderThread();
+  }
+}

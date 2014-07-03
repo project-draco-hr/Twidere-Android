@@ -1,0 +1,4 @@
+List<StatusListResponse> result
+Uri uri
+boolean notify
+String tag

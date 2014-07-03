@@ -1,0 +1,3 @@
+{
+  mEdgeView.onAbsorb(velocity,direction);
+}

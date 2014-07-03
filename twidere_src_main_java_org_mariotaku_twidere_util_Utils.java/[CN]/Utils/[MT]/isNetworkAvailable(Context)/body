@@ -1,0 +1,5 @@
+{
+  final ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+  final NetworkInfo info=cm.getActiveNetworkInfo();
+  return info != null && info.isConnected();
+}

@@ -1,0 +1,4 @@
+{
+  if (header == null || header.fragment == null && header.intent == null)   return;
+  super.switchToHeader(header);
+}

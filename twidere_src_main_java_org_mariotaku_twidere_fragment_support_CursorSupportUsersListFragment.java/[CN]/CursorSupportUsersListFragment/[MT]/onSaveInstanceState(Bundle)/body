@@ -1,0 +1,5 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putLong(EXTRA_NEXT_CURSOR,mNextCursor);
+  outState.putLong(EXTRA_PREV_CURSOR,mPrevCursor);
+}

@@ -1,0 +1,10 @@
+{
+  if (mCenterX == centerX && mCenterY == centerY && mScale == scale && mRotation == rotation)   return false;
+  mCenterX=centerX;
+  mCenterY=centerY;
+  mScale=scale;
+  mRotation=rotation;
+  layoutTiles(centerX,centerY,scale,rotation);
+  invalidate();
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return "MediaEntityJSONImpl{" + "id=" + id + ", start="+ start+ ", end="+ end+ ", url="+ url+ ", mediaURL="+ mediaURL+ ", mediaURLHttps="+ mediaURLHttps+ ", expandedURL="+ expandedURL+ ", displayURL='"+ displayURL+ '\''+ ", sizes="+ sizes+ ", type="+ type+ '}';
+}

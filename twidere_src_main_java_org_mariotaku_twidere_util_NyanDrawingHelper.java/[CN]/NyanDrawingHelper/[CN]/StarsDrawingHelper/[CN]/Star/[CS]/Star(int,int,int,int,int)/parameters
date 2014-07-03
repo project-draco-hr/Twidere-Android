@@ -1,0 +1,5 @@
+int initialFrame
+int initialColumn
+int initialRow
+int maxColumn
+int maxRow

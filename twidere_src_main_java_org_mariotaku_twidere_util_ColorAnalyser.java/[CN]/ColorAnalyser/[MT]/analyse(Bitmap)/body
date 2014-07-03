@@ -1,0 +1,3 @@
+{
+  return analyse(bitmap,18,28);
+}

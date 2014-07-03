@@ -1,0 +1,10 @@
+{
+  final Class<?> cls;
+  try {
+    cls=Class.forName(fragmentName);
+  }
+ catch (  final ClassNotFoundException e) {
+    return false;
+  }
+  return Fragment.class.isAssignableFrom(cls);
+}

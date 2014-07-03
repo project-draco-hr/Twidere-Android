@@ -1,0 +1,8 @@
+{
+  super();
+  this.start=start;
+  this.end=end;
+  this.name=name;
+  this.screenName=screenName;
+  this.id=id;
+}

@@ -1,0 +1,4 @@
+{
+  if (mode == MeasureSpec.AT_MOST || mode == MeasureSpec.EXACTLY)   return size;
+  return getPrefferedWidth();
+}

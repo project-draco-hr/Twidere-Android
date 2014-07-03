@@ -1,0 +1,16 @@
+{
+  final Twitter twitter=getTwitterInstance(mActivity,mAccountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final ResponseList<User> lists=twitter.searchUsers(mName,1);
+    final List<ParcelableUser> data=new ArrayList<ParcelableUser>();
+    for (    final User item : lists) {
+      data.add(new ParcelableUser(item,mAccountId));
+    }
+    return SingleResponse.getInstance(data);
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    return SingleResponse.getInstance(e);
+  }
+}

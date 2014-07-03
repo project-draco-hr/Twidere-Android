@@ -1,0 +1,10 @@
+{
+  int result=html != null ? html.hashCode() : 0;
+  result=31 * result + (authorName != null ? authorName.hashCode() : 0);
+  result=31 * result + (url != null ? url.hashCode() : 0);
+  result=31 * result + (version != null ? version.hashCode() : 0);
+  result=31 * result + (int)(cacheAge ^ cacheAge >>> 32);
+  result=31 * result + (authorURL != null ? authorURL.hashCode() : 0);
+  result=31 * result + width;
+  return result;
+}

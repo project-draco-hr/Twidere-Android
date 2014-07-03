@@ -1,0 +1,4 @@
+{
+  if (context == null)   return;
+  showErrorMessage(context,getErrorMessage(context,message),long_message);
+}

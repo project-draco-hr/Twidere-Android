@@ -1,0 +1,7 @@
+{
+  unregisterReceiver(mStateReceiver);
+  if (hasAutoRefreshAccounts(this)) {
+    startService(new Intent(this,getClass()));
+  }
+  super.onDestroy();
+}

@@ -1,0 +1,10 @@
+{
+  if (actionType <= 0)   return context.getString(R.string.update_status);
+switch (actionType) {
+case Drafts.ACTION_UPDATE_STATUS:
+    return context.getString(R.string.update_status);
+case Drafts.ACTION_SEND_DIRECT_MESSAGE:
+  return context.getString(R.string.send_direct_message);
+}
+return null;
+}

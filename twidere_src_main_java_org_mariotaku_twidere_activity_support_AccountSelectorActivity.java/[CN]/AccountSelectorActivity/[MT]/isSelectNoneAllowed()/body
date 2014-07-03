@@ -1,0 +1,4 @@
+{
+  final Intent intent=getIntent();
+  return intent.getBooleanExtra(EXTRA_ALLOW_SELECT_NONE,false);
+}

@@ -1,0 +1,8 @@
+{
+  final Context context=getContext();
+  final String[] entries=new String[3];
+  entries[0]=context.getString(R.string.ringtone);
+  entries[1]=context.getString(R.string.vibration);
+  entries[2]=context.getString(R.string.light);
+  return entries;
+}

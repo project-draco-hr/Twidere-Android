@@ -1,0 +1,55 @@
+{
+  if (isFinishing())   return;
+  final boolean hasMedia=hasMedia();
+  final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
+  final int tweetLength=mValidator.getTweetLength(text), maxLength=mValidator.getMaxTweetLength();
+  if (!mStatusShortenerUsed && tweetLength > maxLength) {
+    mEditText.setError(getString(R.string.error_message_status_too_long));
+    final int text_length=mEditText.length();
+    mEditText.setSelection(text_length - (tweetLength - maxLength),text_length);
+    return;
+  }
+ else   if (!hasMedia && (isEmpty(text) || noReplyContent(text))) {
+    mEditText.setError(getString(R.string.error_message_no_content));
+    return;
+  }
+  final boolean attach_location=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
+  if (mRecentLocation == null && attach_location) {
+    final Location location;
+    if (mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+      location=mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+    }
+ else {
+      location=null;
+    }
+    mRecentLocation=location != null ? new ParcelableLocation(location) : null;
+  }
+  final boolean isQuote=INTENT_ACTION_QUOTE.equals(getIntent().getAction());
+  final ParcelableLocation statusLocation=attach_location ? mRecentLocation : null;
+  final boolean linkToQuotedTweet=mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET,true);
+  final long inReplyToStatusId=!isQuote || linkToQuotedTweet ? mInReplyToStatusId : -1;
+  final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
+  mTwitterWrapper.updateStatusAsync(mSendAccountIds,text,statusLocation,getMedias(),inReplyToStatusId,isPossiblySensitive);
+  if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {
+    mIsPossiblySensitive=false;
+    mShouldSaveAccounts=true;
+    mTempPhotoUri=null;
+    mInReplyToStatus=null;
+    mMentionUser=null;
+    mDraftItem=null;
+    mInReplyToStatusId=-1;
+    mOriginalText=null;
+    mEditText.setText(null);
+    clearMedia();
+    final Intent intent=new Intent(INTENT_ACTION_COMPOSE);
+    setIntent(intent);
+    setComposeTitle(intent);
+    handleIntent(intent);
+    setMenu();
+    updateTextCount();
+  }
+ else {
+    setResult(Activity.RESULT_OK);
+    finish();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  final int maxLength=mValidator.getMaxTweetLength();
+  setText(getLocalizedNumber(mLocale,maxLength - count));
+  final boolean exceeded_limit=count < maxLength;
+  final boolean near_limit=count >= maxLength - 10;
+  final float hue=exceeded_limit ? near_limit ? 5 * (maxLength - count) : 50 : 0;
+  final float[] textColorHsv=new float[3];
+  Color.colorToHSV(mTextColor,textColorHsv);
+  final float[] errorColorHsv={hue,1.0f,0.75f + textColorHsv[2] / 4};
+  setTextColor(count >= maxLength - 10 ? Color.HSVToColor(errorColorHsv) : mTextColor);
+}

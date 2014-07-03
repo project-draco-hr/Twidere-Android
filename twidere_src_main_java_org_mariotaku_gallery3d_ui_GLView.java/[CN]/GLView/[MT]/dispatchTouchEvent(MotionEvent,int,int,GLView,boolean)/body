@@ -1,0 +1,14 @@
+{
+  final Rect rect=component.mBounds;
+  final int left=rect.left;
+  final int top=rect.top;
+  if (!checkBounds || rect.contains(x,y)) {
+    event.offsetLocation(-left,-top);
+    if (component.dispatchTouchEvent(event)) {
+      event.offsetLocation(left,top);
+      return true;
+    }
+    event.offsetLocation(left,top);
+  }
+  return false;
+}

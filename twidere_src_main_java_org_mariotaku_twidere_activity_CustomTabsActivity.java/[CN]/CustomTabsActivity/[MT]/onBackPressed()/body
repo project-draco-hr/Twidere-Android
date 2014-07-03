@@ -1,0 +1,5 @@
+{
+  final List<SupportTabSpec> tabs=getHomeTabs(this);
+  setResult(isTabsChanged(tabs) && !tabs.isEmpty() ? RESULT_OK : RESULT_CANCELED);
+  finish();
+}

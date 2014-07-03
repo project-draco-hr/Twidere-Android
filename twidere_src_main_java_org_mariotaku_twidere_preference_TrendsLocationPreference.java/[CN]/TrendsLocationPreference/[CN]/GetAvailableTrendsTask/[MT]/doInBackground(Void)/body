@@ -1,0 +1,11 @@
+{
+  final Twitter twitter=getDefaultTwitterInstance(getContext(),false);
+  if (twitter == null)   return null;
+  try {
+    return twitter.getAvailableTrends();
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

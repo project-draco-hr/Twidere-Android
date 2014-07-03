@@ -1,0 +1,4 @@
+{
+  removeCallbacks(mTicker);
+  super.onDetachedFromWindow();
+}

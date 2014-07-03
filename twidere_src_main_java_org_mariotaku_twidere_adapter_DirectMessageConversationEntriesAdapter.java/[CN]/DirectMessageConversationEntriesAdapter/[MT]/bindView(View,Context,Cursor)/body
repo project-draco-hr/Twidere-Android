@@ -1,0 +1,39 @@
+{
+  final DirectMessageEntryViewHolder holder=(DirectMessageEntryViewHolder)view.getTag();
+  final int position=cursor.getPosition();
+  final long accountId=cursor.getLong(ConversationEntries.IDX_ACCOUNT_ID);
+  final long conversationId=cursor.getLong(ConversationEntries.IDX_CONVERSATION_ID);
+  final long timestamp=cursor.getLong(ConversationEntries.IDX_MESSAGE_TIMESTAMP);
+  final boolean isOutgoing=cursor.getInt(ConversationEntries.IDX_IS_OUTGOING) == 1;
+  final String name=cursor.getString(IDX_NAME);
+  final String screenName=cursor.getString(IDX_SCREEN_NAME);
+  final boolean showAccountColor=isShowAccountColor();
+  holder.setAccountColorEnabled(showAccountColor);
+  if (showAccountColor) {
+    holder.setAccountColor(getAccountColor(mContext,accountId));
+  }
+  holder.profile_image.setImageDrawable(null);
+  holder.setUserColor(getUserColor(mContext,conversationId));
+  holder.setTextSize(getTextSize());
+  final String nick=getUserNickname(context,conversationId);
+  holder.name.setText(TextUtils.isEmpty(nick) ? name : isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,name,nick));
+  holder.screen_name.setText("@" + screenName);
+  holder.screen_name.setVisibility(View.VISIBLE);
+  holder.text.setText(toPlainText(cursor.getString(IDX_TEXT)));
+  holder.time.setTime(timestamp);
+  holder.setIsOutgoing(isOutgoing);
+  final boolean displayProfileImage=isDisplayProfileImage();
+  holder.profile_image.setVisibility(displayProfileImage ? View.VISIBLE : View.GONE);
+  if (displayProfileImage) {
+    holder.profile_image.setTag(position);
+    final String profile_image_url_string=cursor.getString(IDX_PROFILE_IMAGE_URL);
+    mLazyImageLoader.displayProfileImage(holder.profile_image,profile_image_url_string);
+  }
+  if (position > mMaxAnimationPosition) {
+    if (mAnimationEnabled) {
+      view.startAnimation(holder.item_animation);
+    }
+    mMaxAnimationPosition=position;
+  }
+  super.bindView(view,context,cursor);
+}

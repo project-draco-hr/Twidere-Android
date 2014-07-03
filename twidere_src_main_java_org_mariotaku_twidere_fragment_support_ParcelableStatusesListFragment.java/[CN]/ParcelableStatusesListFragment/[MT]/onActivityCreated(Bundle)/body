@@ -1,0 +1,12 @@
+{
+  mStatusesRestored=false;
+  if (savedInstanceState != null) {
+    final List<ParcelableStatus> saved=savedInstanceState.getParcelableArrayList(EXTRA_DATA);
+    if (saved != null) {
+      setData(saved);
+    }
+  }
+  super.onActivityCreated(savedInstanceState);
+  mPreferences=getSharedPreferences();
+  mIsFirstCreated=savedInstanceState == null;
+}

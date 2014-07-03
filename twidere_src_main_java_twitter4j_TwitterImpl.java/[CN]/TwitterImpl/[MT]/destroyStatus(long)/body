@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createStatus(post(conf.getRestBaseURL() + "statuses/destroy/" + statusId+ ".json",conf.getSigningRestBaseURL() + "statuses/destroy/" + statusId+ ".json",INCLUDE_ENTITIES));
+}

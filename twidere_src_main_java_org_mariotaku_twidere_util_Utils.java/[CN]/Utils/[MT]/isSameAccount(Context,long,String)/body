@@ -1,0 +1,4 @@
+{
+  if (context == null || account_id <= 0 || screen_name == null)   return false;
+  return screen_name.equalsIgnoreCase(getAccountScreenName(context,account_id));
+}

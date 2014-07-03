@@ -1,0 +1,4 @@
+{
+  httpProxyHost=proxyHost;
+  initRequestHeaders();
+}

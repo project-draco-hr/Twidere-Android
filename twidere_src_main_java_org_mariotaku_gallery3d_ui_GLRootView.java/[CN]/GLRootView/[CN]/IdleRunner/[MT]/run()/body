@@ -1,0 +1,24 @@
+{
+  OnGLIdleListener listener;
+synchronized (mIdleListeners) {
+    mActive=false;
+    if (mIdleListeners.isEmpty())     return;
+    listener=mIdleListeners.removeFirst();
+  }
+  mRenderLock.lock();
+  boolean keepInQueue;
+  try {
+    keepInQueue=listener.onGLIdle(mCanvas,mRenderRequested);
+  }
+  finally {
+    mRenderLock.unlock();
+  }
+synchronized (mIdleListeners) {
+    if (keepInQueue) {
+      mIdleListeners.addLast(listener);
+    }
+    if (!mRenderRequested && !mIdleListeners.isEmpty()) {
+      enable();
+    }
+  }
+}

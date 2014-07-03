@@ -1,0 +1,33 @@
+{
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
+  if (!isMyAccount(this,accountId)) {
+    finish();
+    return;
+  }
+  mAsyncTaskManager=TwidereApplication.getInstance(this).getAsyncTaskManager();
+  mLazyImageLoader=TwidereApplication.getInstance(this).getImageLoaderWrapper();
+  mAccountId=accountId;
+  setContentView(R.layout.edit_user_profile);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  mProfileImageBannerLayout.setOnSizeChangedListener(this);
+  mEditName.addTextChangedListener(this);
+  mEditDescription.addTextChangedListener(this);
+  mEditLocation.addTextChangedListener(this);
+  mEditUrl.addTextChangedListener(this);
+  mProfileImageView.setOnClickListener(this);
+  mProfileBannerView.setOnClickListener(this);
+  if (savedInstanceState != null && savedInstanceState.getParcelable(EXTRA_USER) != null) {
+    final ParcelableUser user=savedInstanceState.getParcelable(EXTRA_USER);
+    displayUser(user);
+    mEditName.setText(savedInstanceState.getString(EXTRA_NAME,user.name));
+    mEditLocation.setText(savedInstanceState.getString(EXTRA_LOCATION,user.location));
+    mEditDescription.setText(savedInstanceState.getString(EXTRA_DESCRIPTION,user.description_expanded));
+    mEditUrl.setText(savedInstanceState.getString(EXTRA_URL,user.url_expanded));
+  }
+ else {
+    getUserInfo();
+  }
+}

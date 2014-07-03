@@ -1,0 +1,3 @@
+{
+  return "ExtensionInfo{permission=" + permissions + ", label="+ label+ ", description="+ description+ ", pname="+ pname+ ", settings="+ settings+ ", icon="+ icon+ "}";
+}

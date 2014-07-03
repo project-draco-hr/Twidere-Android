@@ -1,0 +1,27 @@
+{
+  this.position=position;
+  this.account_id=account_id;
+  final URLEntity[] urls_url_entities=user.getURLEntities();
+  id=user.getId();
+  created_at=getTime(user.getCreatedAt());
+  is_protected=user.isProtected();
+  is_verified=user.isVerified();
+  name=user.getName();
+  screen_name=user.getScreenName();
+  description_plain=user.getDescription();
+  description_html=formatUserDescription(user);
+  description_expanded=formatExpandedUserDescription(user);
+  location=user.getLocation();
+  profile_image_url=ParseUtils.parseString(user.getProfileImageUrlHttps());
+  profile_banner_url=user.getProfileBannerImageUrl();
+  url=ParseUtils.parseString(user.getURL());
+  url_expanded=url != null && urls_url_entities != null && urls_url_entities.length > 0 ? ParseUtils.parseString(urls_url_entities[0].getExpandedURL()) : null;
+  is_follow_request_sent=user.isFollowRequestSent();
+  followers_count=user.getFollowersCount();
+  friends_count=user.getFriendsCount();
+  statuses_count=user.getStatusesCount();
+  favorites_count=user.getFavouritesCount();
+  is_cache=false;
+  is_following=user.isFollowing();
+  description_unescaped=toPlainText(description_html);
+}

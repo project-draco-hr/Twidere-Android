@@ -1,0 +1,4 @@
+{
+  textColorResourceId=textColor;
+  return this;
+}

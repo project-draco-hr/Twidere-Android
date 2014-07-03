@@ -1,0 +1,6 @@
+{
+  long croutonDuration=crouton.getConfiguration().durationInMilliseconds;
+  croutonDuration+=crouton.getInAnimation().getDuration();
+  croutonDuration+=crouton.getOutAnimation().getDuration();
+  return croutonDuration;
+}

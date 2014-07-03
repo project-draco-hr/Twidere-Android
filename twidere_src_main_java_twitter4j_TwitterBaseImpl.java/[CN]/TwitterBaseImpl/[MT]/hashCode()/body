@@ -1,0 +1,7 @@
+{
+  int result=conf.hashCode();
+  result=31 * result + (http != null ? http.hashCode() : 0);
+  result=31 * result + rateLimitStatusListeners.hashCode();
+  result=31 * result + (auth != null ? auth.hashCode() : 0);
+  return result;
+}

@@ -1,0 +1,9 @@
+{
+  final MenuItem itemBrowser=menu.findItem(MENU_OPEN_IN_BROWSER);
+  if (itemBrowser != null) {
+    final boolean is_oauth=mAuthType == Accounts.AUTH_TYPE_OAUTH;
+    itemBrowser.setVisible(is_oauth);
+    itemBrowser.setEnabled(is_oauth);
+  }
+  return super.onPrepareOptionsMenu(menu);
+}

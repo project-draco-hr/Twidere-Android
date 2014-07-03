@@ -1,0 +1,6 @@
+{
+  show_as_gap=show_gap;
+  if (content != null) {
+    content.setIsGap(show_gap);
+  }
+}

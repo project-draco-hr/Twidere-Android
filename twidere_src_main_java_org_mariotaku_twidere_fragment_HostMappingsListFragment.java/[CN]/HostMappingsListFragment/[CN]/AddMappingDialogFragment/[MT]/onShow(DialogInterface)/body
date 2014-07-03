@@ -1,0 +1,4 @@
+{
+  final boolean text_valid=!isEmpty(mEditHost.getText()) && !isEmpty(mEditAddress.getText());
+  ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(text_valid);
+}

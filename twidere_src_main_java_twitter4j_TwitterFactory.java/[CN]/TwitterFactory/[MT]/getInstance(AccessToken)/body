@@ -1,0 +1,8 @@
+{
+  final String consumerKey=conf.getOAuthConsumerKey();
+  final String consumerSecret=conf.getOAuthConsumerSecret();
+  if (null == consumerKey && null == consumerSecret)   throw new IllegalStateException("Consumer key and Consumer secret not supplied.");
+  final OAuthAuthorization oauth=new OAuthAuthorization(conf);
+  oauth.setOAuthAccessToken(accessToken);
+  return getInstance(oauth);
+}

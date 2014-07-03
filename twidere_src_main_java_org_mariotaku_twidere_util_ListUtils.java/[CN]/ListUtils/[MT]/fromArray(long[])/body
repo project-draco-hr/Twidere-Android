@@ -1,0 +1,8 @@
+{
+  if (array == null)   return null;
+  final List<Long> list=new ArrayList<Long>();
+  for (  final long item : array) {
+    list.add(item);
+  }
+  return list;
+}

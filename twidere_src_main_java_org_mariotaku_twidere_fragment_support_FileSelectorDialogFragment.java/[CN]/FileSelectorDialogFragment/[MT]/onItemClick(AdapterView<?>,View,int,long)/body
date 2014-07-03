@@ -1,0 +1,16 @@
+{
+  final File file=mAdapter.getItem(position);
+  if (file == null)   return;
+  if (file.isDirectory()) {
+    final Bundle args=getArguments();
+    args.putString(EXTRA_PATH,file.getAbsolutePath());
+    getLoaderManager().restartLoader(0,args,this);
+  }
+ else   if (file.isFile() && !isPickDirectory()) {
+    final FragmentActivity a=getActivity();
+    if (a instanceof Callback) {
+      ((Callback)a).onFilePicked(file);
+    }
+    dismiss();
+  }
+}

@@ -1,0 +1,13 @@
+{
+  if (draft == null)   return false;
+  mEditText.setText(draft.text);
+  final int selection_end=mEditText.length();
+  mEditText.setSelection(selection_end);
+  mSendAccountIds=draft.account_ids;
+  if (draft.medias != null) {
+    addMedias(Arrays.asList(draft.medias));
+  }
+  mIsPossiblySensitive=draft.is_possibly_sensitive;
+  mInReplyToStatusId=draft.in_reply_to_status_id;
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  GalleryUtils.assertTrue(mParent == null && mRoot != null);
+  onDetachFromRoot();
+}

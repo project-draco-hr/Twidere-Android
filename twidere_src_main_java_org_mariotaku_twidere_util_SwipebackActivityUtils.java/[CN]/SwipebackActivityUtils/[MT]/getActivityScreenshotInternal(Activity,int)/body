@@ -1,0 +1,17 @@
+{
+  if (activity == null)   return null;
+  final Window w=activity.getWindow();
+  final View view=w.getDecorView();
+  final int width=view.getWidth(), height=view.getHeight();
+  if (width <= 0 || height <= 0)   return null;
+  final Bitmap b=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_4444);
+  final Rect frame=new Rect();
+  view.getWindowVisibleDisplayFrame(frame);
+  final Canvas c=new Canvas(b);
+  view.draw(c);
+  final Paint paint=new Paint();
+  paint.setColor(Color.TRANSPARENT);
+  paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+  c.drawRect(frame.left,0,frame.right,frame.top,paint);
+  return b;
+}

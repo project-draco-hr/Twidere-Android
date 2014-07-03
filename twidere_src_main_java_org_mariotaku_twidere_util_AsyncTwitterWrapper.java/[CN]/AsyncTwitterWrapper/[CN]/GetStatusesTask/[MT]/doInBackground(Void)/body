@@ -1,0 +1,38 @@
+{
+  final List<StatusListResponse> result=new ArrayList<StatusListResponse>();
+  if (mAccountIds == null)   return result;
+  int idx=0;
+  final int load_item_limit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
+  for (  final long account_id : mAccountIds) {
+    final Twitter twitter=getTwitterInstance(mContext,account_id,true);
+    if (twitter != null) {
+      try {
+        final Paging paging=new Paging();
+        paging.setCount(load_item_limit);
+        final long maxId, sinceId;
+        if (isMaxIdsValid() && mMaxIds[idx] > 0) {
+          maxId=mMaxIds[idx];
+          paging.setMaxId(maxId);
+        }
+ else {
+          maxId=-1;
+        }
+        if (isSinceIdsValid() && mSinceIds[idx] > 0) {
+          sinceId=mSinceIds[idx];
+          paging.setSinceId(sinceId - 1);
+        }
+ else {
+          sinceId=-1;
+        }
+        final List<twitter4j.Status> statuses=new ArrayList<twitter4j.Status>();
+        final boolean truncated=truncateStatuses(getStatuses(twitter,paging),statuses,sinceId);
+        result.add(new StatusListResponse(account_id,maxId,sinceId,load_item_limit,statuses,truncated));
+      }
+ catch (      final TwitterException e) {
+        result.add(new StatusListResponse(account_id,e));
+      }
+    }
+    idx++;
+  }
+  return result;
+}

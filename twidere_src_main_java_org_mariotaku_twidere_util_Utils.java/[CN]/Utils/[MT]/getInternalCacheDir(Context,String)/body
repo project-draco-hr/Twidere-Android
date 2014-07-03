@@ -1,0 +1,6 @@
+{
+  if (context == null)   throw new NullPointerException();
+  final File cacheDir=new File(context.getCacheDir(),cacheDirName);
+  if (cacheDir.isDirectory() || cacheDir.mkdirs())   return cacheDir;
+  return new File(context.getCacheDir(),cacheDirName);
+}

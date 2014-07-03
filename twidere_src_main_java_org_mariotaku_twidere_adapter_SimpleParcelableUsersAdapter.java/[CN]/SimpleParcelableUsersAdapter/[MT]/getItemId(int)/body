@@ -1,0 +1,3 @@
+{
+  return getItem(position) != null ? getItem(position).id : -1;
+}

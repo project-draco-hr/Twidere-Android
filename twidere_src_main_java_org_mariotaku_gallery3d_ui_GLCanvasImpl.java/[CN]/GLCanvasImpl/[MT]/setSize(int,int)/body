@@ -1,0 +1,15 @@
+{
+  GalleryUtils.assertTrue(width >= 0 && height >= 0);
+  mAlpha=1.0f;
+  final GL11 gl=mGL;
+  gl.glViewport(0,0,width,height);
+  gl.glMatrixMode(GL11.GL_PROJECTION);
+  gl.glLoadIdentity();
+  GLU.gluOrtho2D(gl,0,width,0,height);
+  gl.glMatrixMode(GL11.GL_MODELVIEW);
+  gl.glLoadIdentity();
+  final float matrix[]=mMatrixValues;
+  Matrix.setIdentityM(matrix,0);
+  Matrix.translateM(matrix,0,0,height,0);
+  Matrix.scaleM(matrix,0,1,-1,1);
+}

@@ -1,0 +1,6 @@
+{
+  mEffect[direction].onAbsorb(velocity);
+  if (!mEffect[direction].isFinished()) {
+    invalidate();
+  }
+}

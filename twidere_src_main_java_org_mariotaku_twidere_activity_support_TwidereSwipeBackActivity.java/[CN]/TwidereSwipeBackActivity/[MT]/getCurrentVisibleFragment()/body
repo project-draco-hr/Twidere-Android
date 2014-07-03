@@ -1,0 +1,7 @@
+{
+  if (mCurrentVisibleFragment != null)   return mCurrentVisibleFragment;
+  for (  final Fragment f : mAttachedFragments) {
+    if (f.getUserVisibleHint())     return f;
+  }
+  return null;
+}

@@ -1,0 +1,2 @@
+Loader<List<ExtensionInfo>> loader
+List<ExtensionInfo> data

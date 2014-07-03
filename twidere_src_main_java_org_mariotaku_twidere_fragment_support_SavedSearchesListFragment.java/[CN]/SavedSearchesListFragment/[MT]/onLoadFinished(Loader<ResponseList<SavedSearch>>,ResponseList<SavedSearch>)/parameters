@@ -1,0 +1,2 @@
+Loader<ResponseList<SavedSearch>> loader
+ResponseList<SavedSearch> data

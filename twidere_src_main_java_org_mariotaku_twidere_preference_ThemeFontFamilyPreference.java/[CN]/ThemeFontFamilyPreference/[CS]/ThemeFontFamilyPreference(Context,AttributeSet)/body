@@ -1,0 +1,15 @@
+{
+  super(context,attrs);
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    setEnabled(false);
+    return;
+  }
+  final CharSequence[] entries=new CharSequence[VALUES.length];
+  for (int i=0, j=entries.length; i < j; i++) {
+    final SpannableString str=new SpannableString(context.getString(ENTRIES_RES[i]));
+    str.setSpan(new TypefaceSpan(VALUES[i]),0,str.length(),0);
+    entries[i]=str;
+  }
+  setEntries(entries);
+  setEntryValues(VALUES);
+}

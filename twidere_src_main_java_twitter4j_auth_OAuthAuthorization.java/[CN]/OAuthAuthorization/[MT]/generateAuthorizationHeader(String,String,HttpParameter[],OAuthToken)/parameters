@@ -1,0 +1,4 @@
+String method
+String sign_url
+HttpParameter[] params
+OAuthToken token

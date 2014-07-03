@@ -1,0 +1,7 @@
+{
+  if (position < 0)   return null;
+  if (position >= getCount())   return null;
+  final ListAdapter adapter=getAdapter();
+  final long itemId=adapter.getItemId(position);
+  return getViewForID(itemId);
+}

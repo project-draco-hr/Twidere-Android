@@ -1,0 +1,8 @@
+{
+  final TextView titleView=(TextView)findViewById(android.R.id.title);
+  final ImageView iconView=(ImageView)findViewById(android.R.id.icon);
+  if (titleView == null || iconView == null)   return;
+  titleView.setVisibility(TextUtils.isEmpty(title) ? GONE : VISIBLE);
+  titleView.setText(title);
+  iconView.setContentDescription(title);
+}

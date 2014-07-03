@@ -1,0 +1,16 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  final File external_cache_dir=context.getExternalCacheDir();
+  if (external_cache_dir != null) {
+    for (    final File file : external_cache_dir.listFiles((FileFilter)null)) {
+      deleteRecursive(file);
+    }
+  }
+  final File internal_cache_dir=context.getCacheDir();
+  if (internal_cache_dir != null) {
+    for (    final File file : internal_cache_dir.listFiles((FileFilter)null)) {
+      deleteRecursive(file);
+    }
+  }
+}

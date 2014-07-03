@@ -1,0 +1,9 @@
+{
+  final PackageManager pm=mContext.getPackageManager();
+  try {
+    return pm.getPackageInfo(mContext.getPackageName(),0).versionName;
+  }
+ catch (  final NameNotFoundException e) {
+    return "unknown";
+  }
+}

@@ -1,0 +1,4 @@
+{
+  properties=new Properties();
+  properties.load(new FileInputStream(new File(Environment.getRootDirectory(),"build.prop")));
+}

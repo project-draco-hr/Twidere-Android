@@ -1,0 +1,24 @@
+{
+  configuration=builder.configuration;
+  backgroundColorResourceId=builder.backgroundColorResourceId;
+  backgroundDrawableResourceId=builder.backgroundDrawableResourceId;
+  isTileEnabled=builder.isTileEnabled;
+  textColorResourceId=builder.textColorResourceId;
+  heightInPixels=builder.heightInPixels;
+  heightDimensionResId=builder.heightDimensionResId;
+  widthInPixels=builder.widthInPixels;
+  widthDimensionResId=builder.widthDimensionResId;
+  gravity=builder.gravity;
+  imageDrawable=builder.imageDrawable;
+  textSize=builder.textSize;
+  textShadowColorResId=builder.textShadowColorResId;
+  textShadowRadius=builder.textShadowRadius;
+  textShadowDx=builder.textShadowDx;
+  textShadowDy=builder.textShadowDy;
+  textAppearanceResId=builder.textAppearanceResId;
+  imageResId=builder.imageResId;
+  imageScaleType=builder.imageScaleType;
+  paddingInPixels=builder.paddingInPixels;
+  paddingDimensionResId=builder.paddingDimensionResId;
+  backgroundColorValue=builder.backgroundColorValue;
+}

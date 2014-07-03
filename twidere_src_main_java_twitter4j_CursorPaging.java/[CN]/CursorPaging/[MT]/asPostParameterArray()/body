@@ -1,0 +1,5 @@
+{
+  final List<HttpParameter> list=asPostParameterList();
+  if (list.size() == 0)   return NULL_PARAMETER_ARRAY;
+  return list.toArray(new HttpParameter[list.size()]);
+}

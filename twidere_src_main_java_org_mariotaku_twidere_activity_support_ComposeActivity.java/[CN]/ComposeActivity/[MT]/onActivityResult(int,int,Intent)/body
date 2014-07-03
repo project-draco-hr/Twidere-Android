@@ -1,0 +1,61 @@
+{
+switch (requestCode) {
+case REQUEST_TAKE_PHOTO:
+{
+      if (resultCode == Activity.RESULT_OK) {
+        mTask=new AddMediaTask(this,mTempPhotoUri,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,true).execute();
+        mTempPhotoUri=null;
+      }
+      break;
+    }
+case REQUEST_PICK_IMAGE:
+{
+    if (resultCode == Activity.RESULT_OK) {
+      final Uri src=intent.getData();
+      mTask=new AddMediaTask(this,src,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,false).execute();
+    }
+    break;
+  }
+case REQUEST_OPEN_DOCUMENT:
+{
+  if (resultCode == Activity.RESULT_OK) {
+    final Uri src=intent.getData();
+    mTask=new AddMediaTask(this,src,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,false).execute();
+  }
+  break;
+}
+case REQUEST_EDIT_IMAGE:
+{
+if (resultCode == Activity.RESULT_OK) {
+  final Uri uri=intent.getData();
+  if (uri != null) {
+  }
+ else {
+    break;
+  }
+  setMenu();
+  updateTextCount();
+}
+break;
+}
+case REQUEST_EXTENSION_COMPOSE:
+{
+if (resultCode == Activity.RESULT_OK) {
+final String text=intent.getStringExtra(EXTRA_TEXT);
+final String append=intent.getStringExtra(EXTRA_APPEND_TEXT);
+final Uri imageUri=intent.getParcelableExtra(EXTRA_IMAGE_URI);
+if (text != null) {
+  mEditText.setText(text);
+}
+ else if (append != null) {
+  mEditText.append(append);
+}
+if (imageUri != null) {
+}
+setMenu();
+updateTextCount();
+}
+break;
+}
+}
+}

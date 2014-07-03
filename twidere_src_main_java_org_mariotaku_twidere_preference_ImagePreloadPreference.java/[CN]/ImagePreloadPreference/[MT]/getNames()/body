@@ -1,0 +1,3 @@
+{
+  return getContext().getResources().getStringArray(R.array.entries_image_preload_option);
+}

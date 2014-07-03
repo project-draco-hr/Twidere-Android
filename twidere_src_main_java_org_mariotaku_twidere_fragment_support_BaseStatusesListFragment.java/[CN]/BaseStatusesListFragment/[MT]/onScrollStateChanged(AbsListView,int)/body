@@ -1,0 +1,13 @@
+{
+  super.onScrollStateChanged(view,scrollState);
+switch (scrollState) {
+case SCROLL_STATE_IDLE:
+    for (int i=mListView.getFirstVisiblePosition(), j=mListView.getLastVisiblePosition(); i < j; i++) {
+      mReadPositions.add(i);
+    }
+  removeUnreadCounts();
+break;
+default :
+break;
+}
+}

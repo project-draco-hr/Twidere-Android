@@ -1,0 +1,17 @@
+{
+  super.onBindView(view);
+  mView=view;
+  final View iconView=view.findViewById(android.R.id.icon);
+  if (iconView instanceof ImageView) {
+    ((ImageView)iconView).setScaleType(ScaleType.FIT_CENTER);
+  }
+  final View titleView=view.findViewById(android.R.id.title);
+  if (titleView instanceof TextView) {
+    ((TextView)titleView).setSingleLine(true);
+  }
+  final View summaryView=view.findViewById(android.R.id.summary);
+  if (summaryView instanceof TextView) {
+    ((TextView)summaryView).setSingleLine(true);
+  }
+  updateSwitchState();
+}

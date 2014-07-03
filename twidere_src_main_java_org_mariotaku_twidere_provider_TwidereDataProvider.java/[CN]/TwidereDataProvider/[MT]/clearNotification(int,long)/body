@@ -1,0 +1,41 @@
+{
+  final NotificationManager nm=getNotificationManager();
+  final boolean isAccountSpecific;
+switch (notificationType) {
+case NOTIFICATION_ID_HOME_TIMELINE:
+{
+      mNewStatuses.clear();
+      isAccountSpecific=true;
+      break;
+    }
+case NOTIFICATION_ID_MENTIONS:
+{
+    mNewMentions.clear();
+    isAccountSpecific=true;
+    break;
+  }
+case NOTIFICATION_ID_DIRECT_MESSAGES:
+{
+  mNewMessages.clear();
+  isAccountSpecific=true;
+  break;
+}
+default :
+{
+isAccountSpecific=false;
+}
+}
+if (isAccountSpecific) {
+if (accountId > 0) {
+nm.cancel(getAccountNotificationId(notificationType,accountId));
+}
+ else {
+for (final long id : getAccountIds(getContext())) {
+nm.cancel(getAccountNotificationId(notificationType,id));
+}
+}
+}
+ else {
+nm.cancel(notificationType);
+}
+}

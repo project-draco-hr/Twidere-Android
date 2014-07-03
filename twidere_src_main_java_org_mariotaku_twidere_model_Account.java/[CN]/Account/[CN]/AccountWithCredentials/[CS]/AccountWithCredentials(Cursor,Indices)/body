@@ -1,0 +1,12 @@
+{
+  super(cursor,indices);
+  auth_type=cursor.getInt(indices.auth_type);
+  consumer_key=cursor.getString(indices.consumer_key);
+  consumer_secret=cursor.getString(indices.consumer_secret);
+  basic_auth_username=cursor.getString(indices.basic_auth_username);
+  basic_auth_password=cursor.getString(indices.basic_auth_password);
+  oauth_token=cursor.getString(indices.oauth_token);
+  oauth_token_secret=cursor.getString(indices.oauth_token_secret);
+  api_url_format=cursor.getString(indices.api_url_format);
+  same_oauth_signing_url=cursor.getInt(indices.same_oauth_signing_url) == 1;
+}

@@ -1,0 +1,5 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)   return path.getUsableSpace();
+  final StatFs stats=new StatFs(path.getPath());
+  return (long)stats.getBlockSize() * (long)stats.getAvailableBlocks();
+}

@@ -1,0 +1,23 @@
+{
+  if (context == null)   return false;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,null);
+  if (cur == null)   return false;
+  final String[] keySecrets=context.getResources().getStringArray(R.array.values_official_consumer_key_secret);
+  final Account.Indices indices=new Account.Indices(cur);
+  cur.moveToFirst();
+  try {
+    while (!cur.isAfterLast()) {
+      final String consumerKey=cur.getString(indices.consumer_key);
+      final String consumerSecret=cur.getString(indices.consumer_secret);
+      for (      final String keySecret : keySecrets) {
+        final String[] pair=keySecret.split(";");
+        if (pair[0].equals(consumerKey) && pair[1].equals(consumerSecret))         return true;
+      }
+      cur.moveToNext();
+    }
+  }
+  finally {
+    cur.close();
+  }
+  return false;
+}

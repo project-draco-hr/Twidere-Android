@@ -1,0 +1,4 @@
+{
+  if (Thread.currentThread().getId() != 1)   return null;
+  return new Handler();
+}

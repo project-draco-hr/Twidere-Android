@@ -1,0 +1,5 @@
+{
+  mPreference=preference;
+  mContext=preference.getContext();
+  mProgress=new ProgressDialog(mContext);
+}

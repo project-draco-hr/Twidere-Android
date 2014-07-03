@@ -1,0 +1,28 @@
+{
+  final Crouton crouton=(Crouton)message.obj;
+switch (message.what) {
+case Messages.DISPLAY_CROUTON:
+{
+      displayCrouton();
+      break;
+    }
+case Messages.ADD_CROUTON_TO_VIEW:
+{
+    addCroutonToView(crouton);
+    break;
+  }
+case Messages.REMOVE_CROUTON:
+{
+  removeCrouton(crouton);
+  if (null != crouton.getLifecycleCallback()) {
+    crouton.getLifecycleCallback().onRemoved();
+  }
+  break;
+}
+default :
+{
+super.handleMessage(message);
+break;
+}
+}
+}

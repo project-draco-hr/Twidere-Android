@@ -1,0 +1,3 @@
+LongSparseArray<E> array
+long[] keys
+E uniqueValue

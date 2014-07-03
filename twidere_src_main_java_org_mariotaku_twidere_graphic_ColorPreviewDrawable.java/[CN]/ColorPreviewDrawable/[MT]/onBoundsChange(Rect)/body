@@ -1,0 +1,19 @@
+{
+  super.onBoundsChange(bounds);
+  mPoints[0]=bounds.top;
+  mPoints[1]=bounds.top;
+  mPoints[2]=bounds.right;
+  mPoints[3]=bounds.top;
+  mPoints[4]=bounds.top;
+  mPoints[5]=bounds.top;
+  mPoints[6]=bounds.top;
+  mPoints[7]=bounds.bottom;
+  mPoints[8]=bounds.right;
+  mPoints[9]=bounds.top;
+  mPoints[10]=bounds.right;
+  mPoints[11]=bounds.bottom;
+  mPoints[12]=bounds.top;
+  mPoints[13]=bounds.bottom;
+  mPoints[14]=bounds.right;
+  mPoints[15]=bounds.bottom;
+}

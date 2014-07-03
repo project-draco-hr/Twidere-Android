@@ -1,0 +1,18 @@
+{
+  final FragmentActivity a=getActivity();
+  final Dialog d=getDialog();
+  if (!(a instanceof Callback) || !(d instanceof ColorPickerDialog))   return;
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final int color=((ColorPickerDialog)d).getColor();
+      ((Callback)a).onColorSelected(color);
+      break;
+    }
+case DialogInterface.BUTTON_NEUTRAL:
+{
+    ((Callback)a).onColorCleared();
+    break;
+  }
+}
+}

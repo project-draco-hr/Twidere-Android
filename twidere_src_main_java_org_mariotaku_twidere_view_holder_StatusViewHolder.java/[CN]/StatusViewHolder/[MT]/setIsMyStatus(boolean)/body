@@ -1,0 +1,11 @@
+{
+  profile_image.setVisibility(my_status ? View.GONE : View.VISIBLE);
+  my_profile_image.setVisibility(my_status ? View.VISIBLE : View.GONE);
+  final MarginLayoutParams lp=(MarginLayoutParams)time.getLayoutParams();
+  if (is_rtl) {
+    lp.leftMargin=(int)(my_status ? 6 * density : 0);
+  }
+ else {
+    lp.rightMargin=(int)(my_status ? 6 * density : 0);
+  }
+}

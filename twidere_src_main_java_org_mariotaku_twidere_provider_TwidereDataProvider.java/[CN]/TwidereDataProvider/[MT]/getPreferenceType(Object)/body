@@ -1,0 +1,9 @@
+{
+  if (object == null)   return Preferences.TYPE_NULL;
+ else   if (object instanceof Boolean)   return Preferences.TYPE_BOOLEAN;
+ else   if (object instanceof Integer)   return Preferences.TYPE_INTEGER;
+ else   if (object instanceof Long)   return Preferences.TYPE_LONG;
+ else   if (object instanceof Float)   return Preferences.TYPE_FLOAT;
+ else   if (object instanceof String)   return Preferences.TYPE_STRING;
+  return Preferences.TYPE_INVALID;
+}

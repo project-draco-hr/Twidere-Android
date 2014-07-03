@@ -1,0 +1,51 @@
+{
+  final File serializationFile=getSerializationFile();
+  final List<ParcelableStatus> data=getData();
+  if (isFirstLoad() && getTabPosition() >= 0 && serializationFile != null) {
+    final List<ParcelableStatus> cached=getCachedData(serializationFile);
+    if (cached != null) {
+      data.addAll(cached);
+      Collections.sort(data);
+      return new CopyOnWriteArrayList<ParcelableStatus>(data);
+    }
+  }
+  final List<Status> statuses;
+  final boolean truncated;
+  final Context context=getContext();
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final int loadItemLimit=prefs.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
+  try {
+    final Paging paging=new Paging();
+    paging.setCount(loadItemLimit);
+    if (mMaxId > 0) {
+      paging.setMaxId(mMaxId);
+    }
+    if (mSinceId > 0) {
+      paging.setSinceId(mSinceId - 1);
+    }
+    statuses=new ArrayList<Status>();
+    truncated=truncateStatuses(getStatuses(getTwitter(),paging),statuses,mSinceId);
+  }
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    return new CopyOnWriteArrayList<ParcelableStatus>(data);
+  }
+  final long minStatusId=statuses.isEmpty() ? -1 : Collections.min(statuses).getId();
+  final boolean insertGap=minStatusId > 0 && statuses.size() > 1 && !data.isEmpty() && !truncated;
+  mHandler.post(CacheUsersStatusesTask.getRunnable(context,new StatusListResponse(mAccountId,statuses)));
+  for (  final Status status : statuses) {
+    final long id=status.getId();
+    final boolean deleted=deleteStatus(data,id);
+    data.add(new ParcelableStatus(status,mAccountId,minStatusId == id && insertGap && !deleted));
+  }
+  Collections.sort(data);
+  final ParcelableStatus[] array=data.toArray(new ParcelableStatus[data.size()]);
+  for (int i=0, size=array.length; i < size; i++) {
+    final ParcelableStatus status=array[i];
+    if (shouldFilterStatus(mDatabase,status) && !status.is_gap && i != size - 1) {
+      deleteStatus(data,status.id);
+    }
+  }
+  saveCachedData(serializationFile,data);
+  return new CopyOnWriteArrayList<ParcelableStatus>(data);
+}

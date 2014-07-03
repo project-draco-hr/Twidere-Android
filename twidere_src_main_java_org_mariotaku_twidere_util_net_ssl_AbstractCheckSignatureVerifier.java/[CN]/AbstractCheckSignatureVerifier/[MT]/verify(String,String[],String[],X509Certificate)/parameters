@@ -1,0 +1,4 @@
+String host
+String[] cns
+String[] subjectAlts
+X509Certificate cert

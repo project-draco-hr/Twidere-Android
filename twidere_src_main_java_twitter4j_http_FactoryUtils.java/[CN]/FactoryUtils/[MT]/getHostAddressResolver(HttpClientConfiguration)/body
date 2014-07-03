@@ -1,0 +1,5 @@
+{
+  final HostAddressResolverFactory factory=conf.getHostAddressResolverFactory();
+  if (factory == null)   return null;
+  return factory.getInstance(conf);
+}

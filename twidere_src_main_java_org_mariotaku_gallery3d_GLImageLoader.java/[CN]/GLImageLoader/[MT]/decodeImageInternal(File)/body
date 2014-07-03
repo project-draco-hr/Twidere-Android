@@ -1,0 +1,4 @@
+{
+  if (ImageValidator.checkImageValidity(file))   return decodeImage(file);
+  throw new InvalidImageException();
+}

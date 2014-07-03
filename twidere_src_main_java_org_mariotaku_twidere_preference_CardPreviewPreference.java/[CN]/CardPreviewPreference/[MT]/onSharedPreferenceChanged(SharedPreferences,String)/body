@@ -1,0 +1,7 @@
+{
+  if (mHolder == null)   return;
+  if (KEY_COMPACT_CARDS.equals(key)) {
+    mCompactModeChanged=true;
+  }
+  notifyChanged();
+}

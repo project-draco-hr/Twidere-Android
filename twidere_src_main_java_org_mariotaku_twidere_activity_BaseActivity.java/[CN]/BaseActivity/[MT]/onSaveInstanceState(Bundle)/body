@@ -1,0 +1,4 @@
+{
+  mInstanceStateSaved=true;
+  super.onSaveInstanceState(outState);
+}

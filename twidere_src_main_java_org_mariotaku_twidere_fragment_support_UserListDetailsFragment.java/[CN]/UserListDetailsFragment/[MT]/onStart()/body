@@ -1,0 +1,7 @@
+{
+  super.onStart();
+  final IntentFilter filter=new IntentFilter(BROADCAST_USER_LIST_DETAILS_UPDATED);
+  filter.addAction(BROADCAST_USER_LIST_SUBSCRIBED);
+  filter.addAction(BROADCAST_USER_LIST_UNSUBSCRIBED);
+  registerReceiver(mStatusReceiver,filter);
+}

@@ -1,0 +1,9 @@
+{
+  if (selected) {
+    mMultiSelectManager.selectItem(user);
+  }
+ else {
+    mMultiSelectManager.unselectItem(user);
+  }
+  mListView.setItemChecked(position,selected);
+}

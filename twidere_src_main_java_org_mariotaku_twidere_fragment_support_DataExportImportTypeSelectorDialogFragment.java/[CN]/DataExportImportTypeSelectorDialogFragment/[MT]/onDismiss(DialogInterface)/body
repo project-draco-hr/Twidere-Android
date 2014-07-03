@@ -1,0 +1,7 @@
+{
+  super.onDismiss(dialog);
+  final FragmentActivity a=getActivity();
+  if (a instanceof Callback) {
+    ((Callback)a).onDismissed(this);
+  }
+}

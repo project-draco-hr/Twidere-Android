@@ -1,0 +1,13 @@
+{
+  if (prefs == null)   return null;
+  final long[] temp=new long[prefs.length];
+  int i=0;
+  for (  final AccountPreferences pref : prefs) {
+    if (pref.isAutoRefreshEnabled() && filter.isRefreshable(pref)) {
+      temp[i++]=pref.getAccountId();
+    }
+  }
+  final long[] result=new long[i];
+  System.arraycopy(temp,0,result,0,i);
+  return result;
+}

@@ -1,0 +1,10 @@
+{
+  super.onCreate(surfaceHolder);
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  mHelper=new NyanSurfaceHelper(getContext());
+  final IntentFilter filter=new IntentFilter();
+  filter.addAction(Intent.ACTION_SCREEN_ON);
+  filter.addAction(Intent.ACTION_SCREEN_OFF);
+  registerReceiver(mScreenReceiver,filter);
+}

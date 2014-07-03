@@ -1,0 +1,3 @@
+{
+  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS;
+}

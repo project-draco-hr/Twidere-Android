@@ -1,0 +1,14 @@
+{
+  mThreadPool=context.getThreadPool();
+  mTileDecoder=mThreadPool.submit(new TileDecoder());
+  if (TILE_SIZE == 0) {
+    if (GalleryUtils.isHighResolution(context)) {
+      TILE_SIZE=510;
+    }
+ else {
+      TILE_SIZE=254;
+    }
+    BITMAP_SIZE=TILE_SIZE + TILE_BORDER * 2;
+    sTilePool=ApiHelper.HAS_REUSING_BITMAP_IN_BITMAP_REGION_DECODER ? new BitmapPool(BITMAP_SIZE,BITMAP_SIZE,128) : null;
+  }
+}

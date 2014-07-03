@@ -1,0 +1,4 @@
+{
+  mBox.mScaleMin=getMinimalScale(mBox);
+  mBox.mScaleMax=getMaximalScale(mBox);
+}

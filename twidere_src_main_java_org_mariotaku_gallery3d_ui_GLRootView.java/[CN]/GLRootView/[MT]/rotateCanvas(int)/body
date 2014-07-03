@@ -1,0 +1,15 @@
+{
+  if (degrees == 0)   return;
+  final int w=getWidth();
+  final int h=getHeight();
+  final int cx=w / 2;
+  final int cy=h / 2;
+  mCanvas.translate(cx,cy);
+  mCanvas.rotate(degrees,0,0,1);
+  if (degrees % 180 != 0) {
+    mCanvas.translate(-cy,-cx);
+  }
+ else {
+    mCanvas.translate(-cx,-cy);
+  }
+}

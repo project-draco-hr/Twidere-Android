@@ -1,0 +1,19 @@
+{
+  mHeaderView=inflater.inflate(R.layout.header_user_list_details,null);
+  mProfileContainer=(ColorLabelRelativeLayout)mHeaderView.findViewById(R.id.profile);
+  mListNameView=(TextView)mHeaderView.findViewById(R.id.list_name);
+  mCreatedByView=(TextView)mHeaderView.findViewById(R.id.created_by);
+  mDescriptionView=(TextView)mHeaderView.findViewById(R.id.description);
+  mProfileImageView=(ImageView)mHeaderView.findViewById(R.id.profile_image);
+  mDescriptionContainer=mHeaderView.findViewById(R.id.description_container);
+  mListContainer=super.onCreateView(inflater,container,savedInstanceState);
+  final View containerView=inflater.inflate(R.layout.fragment_details_page,null);
+  ((FrameLayout)containerView.findViewById(R.id.details_container)).addView(mListContainer);
+  mErrorRetryContainer=containerView.findViewById(R.id.error_retry_container);
+  mRetryButton=(Button)containerView.findViewById(R.id.retry);
+  mErrorMessageView=(TextView)containerView.findViewById(R.id.error_message);
+  mMenuBar=(MenuBar)containerView.findViewById(R.id.menu_bar);
+  final View cardView=mHeaderView.findViewById(R.id.card);
+  ThemeUtils.applyThemeAlphaToDrawable(cardView.getContext(),cardView.getBackground());
+  return containerView;
+}

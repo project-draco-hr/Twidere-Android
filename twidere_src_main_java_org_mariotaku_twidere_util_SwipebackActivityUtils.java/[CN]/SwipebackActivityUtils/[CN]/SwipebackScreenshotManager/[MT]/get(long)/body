@@ -1,0 +1,13 @@
+{
+  final File f=new File(mCacheDir,String.valueOf(id));
+  if (!f.exists())   return null;
+  try {
+    return BitmapFactory.decodeFile(f.getAbsolutePath());
+  }
+ catch (  final OutOfMemoryError e) {
+    return null;
+  }
+ finally {
+    System.gc();
+  }
+}

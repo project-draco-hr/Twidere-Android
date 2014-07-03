@@ -1,0 +1,3 @@
+{
+  this(R.id.image_preview_progress);
+}

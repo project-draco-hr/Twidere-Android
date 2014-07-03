@@ -1,0 +1,6 @@
+{
+  mListener=listener;
+  mGestureDetector=new GestureDetector(context,new MyGestureListener(),null,true);
+  mScaleDetector=new ScaleGestureDetector(context,new MyScaleListener());
+  mDownUpDetector=new DownUpDetector(new MyDownUpListener());
+}

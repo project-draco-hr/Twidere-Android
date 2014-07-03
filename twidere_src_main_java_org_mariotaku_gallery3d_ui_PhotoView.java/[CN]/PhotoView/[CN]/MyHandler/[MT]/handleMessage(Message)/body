@@ -1,0 +1,18 @@
+{
+switch (message.what) {
+case MSG_CANCEL_EXTRA_SCALING:
+{
+      mGestureRecognizer.cancelScale();
+      mPositionController.setExtraScalingRange(false);
+      mCancelExtraScalingPending=false;
+      break;
+    }
+case MSG_CAPTURE_ANIMATION_DONE:
+{
+    captureAnimationDone(message.arg1);
+    break;
+  }
+default :
+throw new AssertionError(message.what);
+}
+}

@@ -1,0 +1,4 @@
+{
+  mediaFile=file;
+  overrideContentType=type;
+}

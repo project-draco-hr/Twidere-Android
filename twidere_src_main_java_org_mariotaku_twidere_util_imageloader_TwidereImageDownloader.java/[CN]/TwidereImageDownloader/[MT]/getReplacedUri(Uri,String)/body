@@ -1,0 +1,22 @@
+{
+  if (uri == null)   return null;
+  if (apiUrlFormat == null)   return uri.toString();
+  if (isTwitterUri(uri)) {
+    final StringBuilder sb=new StringBuilder();
+    final String domain=uri.getHost().replaceAll("\\.?twitter.com","");
+    final String path=uri.getPath();
+    sb.append(Utils.getApiUrl(apiUrlFormat,domain,path));
+    final String query=uri.getQuery();
+    if (!TextUtils.isEmpty(query)) {
+      sb.append("?");
+      sb.append(query);
+    }
+    final String fragment=uri.getFragment();
+    if (!TextUtils.isEmpty(fragment)) {
+      sb.append("#");
+      sb.append(fragment);
+    }
+    return sb.toString();
+  }
+  return uri.toString();
+}

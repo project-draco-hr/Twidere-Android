@@ -1,0 +1,4 @@
+{
+  this.context=context;
+  device_id=Secure.getString(context.getContentResolver(),Secure.ANDROID_ID);
+}

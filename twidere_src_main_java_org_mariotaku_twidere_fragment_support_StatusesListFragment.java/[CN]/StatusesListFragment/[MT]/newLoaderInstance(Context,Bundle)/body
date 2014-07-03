@@ -1,0 +1,5 @@
+{
+  if (args == null)   return null;
+  if (args.containsKey(EXTRA_STATUSES))   return new IntentExtrasStatusesLoader(getActivity(),args,getData());
+  return null;
+}

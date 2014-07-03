@@ -1,0 +1,11 @@
+{
+  if (context == null)   return false;
+  final ApplicationInfo info;
+  try {
+    info=context.getPackageManager().getApplicationInfo(context.getPackageName(),0);
+  }
+ catch (  final NameNotFoundException e) {
+    return false;
+  }
+  return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+}

@@ -1,0 +1,4 @@
+BitmapRegionDecoder decoder
+Bitmap bitmap
+int orientation
+File file

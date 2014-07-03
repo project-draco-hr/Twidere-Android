@@ -1,0 +1,3 @@
+{
+  return "CustomTabConfiguration{title=" + title + ", icon="+ icon+ ", secondaryFieldType="+ secondaryFieldType+ ", secondaryFieldTitle="+ secondaryFieldTitle+ ", sortPosition="+ sortPosition+ ", accountRequirement="+ accountRequirement+ ", cls="+ cls+ ", secondaryFieldTextKey="+ secondaryFieldTextKey+ ", singleTab="+ singleTab+ "}";
+}

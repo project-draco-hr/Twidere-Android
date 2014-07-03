@@ -1,0 +1,5 @@
+{
+  if (!(that instanceof ParcelableActivity))   return false;
+  final ParcelableActivity activity=(ParcelableActivity)that;
+  return max_position == activity.max_position && min_position == activity.min_position;
+}

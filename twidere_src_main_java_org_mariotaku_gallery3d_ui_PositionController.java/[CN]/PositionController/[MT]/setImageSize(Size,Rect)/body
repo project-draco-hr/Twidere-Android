@@ -1,0 +1,13 @@
+{
+  if (s.width == 0 || s.height == 0)   return;
+  boolean needUpdate=false;
+  if (cFrame != null && !mConstrainedFrame.equals(cFrame)) {
+    mConstrainedFrame.set(cFrame);
+    mPlatform.updateDefaultXY();
+    needUpdate=true;
+  }
+  needUpdate|=setBoxSize(s.width,s.height,false);
+  if (!needUpdate)   return;
+  updateScaleAndGapLimit();
+  snapAndRedraw();
+}

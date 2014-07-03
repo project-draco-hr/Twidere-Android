@@ -1,0 +1,23 @@
+{
+  final Activity activity=getActivity();
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      if (activity instanceof ComposeActivity) {
+        ((ComposeActivity)activity).saveToDrafts();
+      }
+      activity.finish();
+      break;
+    }
+case DialogInterface.BUTTON_NEGATIVE:
+{
+    if (activity instanceof ComposeActivity) {
+      new DiscardTweetTask((ComposeActivity)activity).execute();
+    }
+ else {
+      activity.finish();
+    }
+    break;
+  }
+}
+}

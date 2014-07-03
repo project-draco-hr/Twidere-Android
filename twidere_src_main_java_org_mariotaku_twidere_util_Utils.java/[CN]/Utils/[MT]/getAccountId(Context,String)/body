@@ -1,0 +1,12 @@
+{
+  if (context == null || isEmpty(screen_name))   return -1;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_ID},Accounts.SCREEN_NAME + " = ?",new String[]{screen_name},null);
+  if (cur == null)   return -1;
+  try {
+    if (cur.getCount() > 0 && cur.moveToFirst())     return cur.getLong(0);
+    return -1;
+  }
+  finally {
+    cur.close();
+  }
+}

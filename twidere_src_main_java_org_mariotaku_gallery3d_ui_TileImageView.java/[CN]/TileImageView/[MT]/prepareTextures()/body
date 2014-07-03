@@ -1,0 +1,10 @@
+{
+  if (mTileDecoder == null) {
+    mTileDecoder=mThreadPool.submit(new TileDecoder());
+  }
+  if (mIsTextureFreed) {
+    layoutTiles(mCenterX,mCenterY,mScale,mRotation);
+    mIsTextureFreed=false;
+    setScreenNail(mModel == null ? null : mModel.getScreenNail());
+  }
+}

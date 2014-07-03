@@ -1,0 +1,9 @@
+{
+  favoriters=new IDsJSONImpl(json.optString("favoriters"));
+  repliers=new IDsJSONImpl(json.optString("repliers"));
+  retweeters=new IDsJSONImpl(json.optString("retweeters"));
+  favoritersCount=getLong("favoriters_count",json);
+  repliersCount=getLong("repliers_count",json);
+  retweetersCount=getLong("retweeters_count",json);
+  descendentReplyCount=getLong("descendent_reply_count",json);
+}

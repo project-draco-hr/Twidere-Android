@@ -1,0 +1,5 @@
+{
+  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  mTask=new InitialSettingsTask(this);
+  mTask.execute();
+}

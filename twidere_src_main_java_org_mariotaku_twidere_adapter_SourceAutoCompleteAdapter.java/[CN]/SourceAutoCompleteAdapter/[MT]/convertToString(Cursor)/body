@@ -1,0 +1,4 @@
+{
+  if (isCursorClosed() || mSourceIdx == -1)   return null;
+  return HtmlEscapeHelper.toPlainText(cursor.getString(mSourceIdx));
+}

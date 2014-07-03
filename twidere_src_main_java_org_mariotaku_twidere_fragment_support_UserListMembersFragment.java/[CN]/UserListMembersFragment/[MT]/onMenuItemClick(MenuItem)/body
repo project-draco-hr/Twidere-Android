@@ -1,0 +1,16 @@
+{
+  final ParcelableUser user=getSelectedUser();
+  if (user == null || mUserList == null)   return false;
+switch (item.getItemId()) {
+case MENU_DELETE_FROM_LIST:
+{
+      DeleteUserListMembersDialogFragment.show(getFragmentManager(),mUserList,user);
+      break;
+    }
+default :
+{
+    return super.onMenuItemClick(item);
+  }
+}
+return true;
+}

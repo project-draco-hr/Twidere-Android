@@ -1,0 +1,85 @@
+{
+  mBottomComposeButton=isBottomComposeButton();
+  setUiOptions(getWindow());
+  super.onCreate(savedInstanceState);
+  if (!isDatabaseReady(this)) {
+    Toast.makeText(this,R.string.preparing_database_toast,Toast.LENGTH_SHORT).show();
+    finish();
+    return;
+  }
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mTwitterWrapper=getTwitterWrapper();
+  mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+  mMultiSelectHandler=new MultiSelectEventHandler(this);
+  mHotKeyHandler=new HotKeyHandler(this);
+  mMultiSelectHandler.dispatchOnCreate();
+  final Resources res=getResources();
+  final boolean displayIcon=res.getBoolean(R.bool.home_display_icon);
+  final long[] accountIds=getAccountIds(this);
+  if (accountIds.length == 0) {
+    final Intent sign_in_intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
+    sign_in_intent.setClass(this,SignInActivity.class);
+    startActivity(sign_in_intent);
+    finish();
+    return;
+  }
+ else {
+    notifyAccountsChanged();
+  }
+  final Intent intent=getIntent();
+  if (openSettingsWizard()) {
+    finish();
+    return;
+  }
+  setContentView(R.layout.activity_home);
+  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
+  final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
+  mTabDisplayOption=getTabDisplayOptionInt(this);
+  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
+  mActionBar=getActionBar();
+  mActionBar.setCustomView(R.layout.home_tabs);
+  final View view=mActionBar.getCustomView();
+  mIndicator=(TabPageIndicator)view.findViewById(android.R.id.tabs);
+  mActionsButton=(HomeActionsActionView)view.findViewById(R.id.actions_button);
+  ThemeUtils.applyBackground(mIndicator);
+  mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mIndicator,1);
+  mViewPager.setAdapter(mPagerAdapter);
+  mViewPager.setOffscreenPageLimit(3);
+  mIndicator.setViewPager(mViewPager);
+  mIndicator.setOnPageChangeListener(this);
+  if (mTabDisplayOption != 0) {
+    mIndicator.setDisplayLabel((mTabDisplayOption & VALUE_TAB_DIPLAY_OPTION_CODE_LABEL) != 0);
+    mIndicator.setDisplayIcon((mTabDisplayOption & VALUE_TAB_DIPLAY_OPTION_CODE_ICON) != 0);
+  }
+ else {
+    mIndicator.setDisplayLabel(false);
+    mIndicator.setDisplayIcon(true);
+  }
+  mActionsButton.setOnClickListener(this);
+  mActionsButton.setOnLongClickListener(this);
+  mBottomActionsButton.setOnClickListener(this);
+  mBottomActionsButton.setOnLongClickListener(this);
+  initTabs();
+  final boolean tabsNotEmpty=mPagerAdapter.getCount() > 0;
+  mEmptyTabHint.setVisibility(tabsNotEmpty ? View.GONE : View.VISIBLE);
+  mViewPager.setVisibility(tabsNotEmpty ? View.VISIBLE : View.GONE);
+  mActionBar.setDisplayShowHomeEnabled(displayIcon || !tabsNotEmpty);
+  mActionBar.setHomeButtonEnabled(displayIcon || !tabsNotEmpty);
+  mActionBar.setDisplayShowTitleEnabled(!tabsNotEmpty);
+  mActionBar.setDisplayShowCustomEnabled(tabsNotEmpty);
+  setTabPosition(initialTabPosition);
+  setupSlidingMenu();
+  showDataProfilingRequest();
+  initUnreadCount();
+  updateActionsButton();
+  updateSmartBar();
+  updateSlidingMenuTouchMode();
+  if (savedInstanceState == null) {
+    if (refreshOnStart) {
+      mTwitterWrapper.refreshAll();
+    }
+    if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
+      openAccountsDrawer();
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  super(view);
+  content=(IColorLabelView)findViewById(R.id.content);
+  text=(TextView)findViewById(R.id.text);
+  time=(TextView)findViewById(R.id.time);
+  image_preview=(ImageView)findViewById(R.id.image_preview);
+  image_preview_container=findViewById(R.id.image_preview_container);
+}

@@ -1,0 +1,11 @@
+{
+  if (component.mParent != null)   throw new IllegalStateException();
+  if (mComponents == null) {
+    mComponents=new ArrayList<GLView>();
+  }
+  mComponents.add(component);
+  component.mParent=this;
+  if (mRoot != null) {
+    component.onAttachToRoot(mRoot);
+  }
+}

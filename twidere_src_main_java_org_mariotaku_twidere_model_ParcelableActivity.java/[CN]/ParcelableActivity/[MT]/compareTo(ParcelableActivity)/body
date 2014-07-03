@@ -1,0 +1,7 @@
+{
+  if (another == null)   return 0;
+  final long delta=another.activity_timestamp - activity_timestamp;
+  if (delta < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
+  if (delta > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
+  return (int)delta;
+}

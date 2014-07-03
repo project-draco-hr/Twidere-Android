@@ -1,0 +1,13 @@
+{
+  if (bitmap == null)   return;
+  if (mOneSize && (bitmap.getWidth() != mWidth || bitmap.getHeight() != mHeight)) {
+    bitmap.recycle();
+    return;
+  }
+synchronized (this) {
+    if (mPool.size() >= mPoolLimit) {
+      mPool.remove(0);
+    }
+    mPool.add(bitmap);
+  }
+}

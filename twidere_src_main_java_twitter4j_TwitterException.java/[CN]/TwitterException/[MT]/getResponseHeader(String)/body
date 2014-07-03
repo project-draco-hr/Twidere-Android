@@ -1,0 +1,10 @@
+{
+  String value=null;
+  if (response != null) {
+    final List<String> header=response.getResponseHeaderFields().get(name);
+    if (header.size() > 0) {
+      value=header.get(0);
+    }
+  }
+  return value;
+}

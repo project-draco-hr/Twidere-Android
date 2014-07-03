@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyle);
+  setLayoutResource(R.layout.header_wizard_page);
+  setSelectable(false);
+}

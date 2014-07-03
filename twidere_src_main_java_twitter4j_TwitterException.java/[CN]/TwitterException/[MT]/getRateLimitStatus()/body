@@ -1,0 +1,4 @@
+{
+  if (null == response)   return null;
+  return InternalJSONFactoryImpl.createRateLimitStatusFromResponseHeader(response);
+}

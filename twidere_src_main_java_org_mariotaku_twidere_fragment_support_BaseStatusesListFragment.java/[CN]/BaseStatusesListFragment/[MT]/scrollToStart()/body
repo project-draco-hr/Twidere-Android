@@ -1,0 +1,8 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final int tab_position=getTabPosition();
+  if (twitter != null && tab_position >= 0) {
+    twitter.clearUnreadCountAsync(tab_position);
+  }
+  return super.scrollToStart();
+}

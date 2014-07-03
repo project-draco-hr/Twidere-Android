@@ -1,0 +1,8 @@
+{
+  accounts(base.accounts);
+  text(base.text);
+  medias(base.medias);
+  location(base.location);
+  inReplyToStatusId(base.in_reply_to_status_id);
+  isPossiblySensitive(base.is_possibly_sensitive);
+}

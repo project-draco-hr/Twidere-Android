@@ -1,0 +1,59 @@
+{
+  if (context == null || menu == null || status == null)   return;
+  final int activatedColor=ThemeUtils.getUserThemeColor(context);
+  final boolean isMyRetweet=isMyRetweet(status);
+  final MenuItem delete=menu.findItem(MENU_DELETE);
+  if (delete != null) {
+    delete.setVisible(status.account_id == status.user_id && !isMyRetweet);
+  }
+  final MenuItem retweet=menu.findItem(MENU_RETWEET);
+  if (retweet != null) {
+    final Drawable icon=retweet.getIcon().mutate();
+    retweet.setVisible(!status.user_is_protected || isMyRetweet);
+    if (isMyRetweet) {
+      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
+      retweet.setTitle(R.string.cancel_retweet);
+    }
+ else {
+      icon.clearColorFilter();
+      retweet.setTitle(R.string.retweet);
+    }
+  }
+  final MenuItem itemRetweetSubmenu=menu.findItem(R.id.retweet_submenu);
+  if (itemRetweetSubmenu != null) {
+    final Drawable icon=itemRetweetSubmenu.getIcon().mutate();
+    if (isMyRetweet) {
+      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
+    }
+ else {
+      icon.clearColorFilter();
+    }
+  }
+  final MenuItem favorite=menu.findItem(MENU_FAVORITE);
+  if (favorite != null) {
+    final Drawable icon=favorite.getIcon().mutate();
+    if (status.is_favorite) {
+      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
+      favorite.setTitle(R.string.unfavorite);
+    }
+ else {
+      icon.clearColorFilter();
+      favorite.setTitle(R.string.favorite);
+    }
+  }
+  final MenuItem translate=menu.findItem(MENU_TRANSLATE);
+  if (translate != null) {
+    final AccountWithCredentials account=Account.getAccountWithCredentials(context,status.account_id);
+    final boolean isOfficialKey=AccountWithCredentials.isOfficialCredentials(context,account);
+    setMenuItemAvailability(menu,MENU_TRANSLATE,isOfficialKey);
+  }
+  menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);
+  addIntentToMenuForExtension(context,menu,MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);
+  final MenuItem shareItem=menu.findItem(R.id.share_submenu);
+  final Menu shareSubmenu=shareItem != null && shareItem.hasSubMenu() ? shareItem.getSubMenu() : null;
+  if (shareSubmenu != null) {
+    final Intent shareIntent=createStatusShareIntent(context,status);
+    shareSubmenu.removeGroup(MENU_GROUP_STATUS_SHARE);
+    addIntentToMenu(context,shareSubmenu,shareIntent,MENU_GROUP_STATUS_SHARE);
+  }
+}

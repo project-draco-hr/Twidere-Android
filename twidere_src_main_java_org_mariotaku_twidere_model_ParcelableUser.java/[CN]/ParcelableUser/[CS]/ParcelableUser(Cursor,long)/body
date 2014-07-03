@@ -1,0 +1,26 @@
+{
+  this.account_id=account_id;
+  position=-1;
+  is_follow_request_sent=false;
+  id=cursor.getLong(cursor.getColumnIndex(CachedUsers.USER_ID));
+  name=cursor.getString(cursor.getColumnIndex(CachedUsers.NAME));
+  screen_name=cursor.getString(cursor.getColumnIndex(CachedUsers.SCREEN_NAME));
+  profile_image_url=cursor.getString(cursor.getColumnIndex(CachedUsers.PROFILE_IMAGE_URL));
+  created_at=cursor.getLong(cursor.getColumnIndex(CachedUsers.CREATED_AT));
+  is_protected=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_PROTECTED)) == 1;
+  is_verified=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_VERIFIED)) == 1;
+  favorites_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FAVORITES_COUNT));
+  followers_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FOLLOWERS_COUNT));
+  friends_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FRIENDS_COUNT));
+  statuses_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.STATUSES_COUNT));
+  location=cursor.getString(cursor.getColumnIndex(CachedUsers.LOCATION));
+  description_plain=cursor.getString(cursor.getColumnIndex(CachedUsers.DESCRIPTION_PLAIN));
+  description_html=cursor.getString(cursor.getColumnIndex(CachedUsers.DESCRIPTION_HTML));
+  description_expanded=cursor.getString(cursor.getColumnIndex(CachedUsers.DESCRIPTION_EXPANDED));
+  url=cursor.getString(cursor.getColumnIndex(CachedUsers.URL));
+  url_expanded=cursor.getString(cursor.getColumnIndex(CachedUsers.URL_EXPANDED));
+  profile_banner_url=cursor.getString(cursor.getColumnIndex(CachedUsers.PROFILE_BANNER_URL));
+  is_cache=true;
+  description_unescaped=toPlainText(description_html);
+  is_following=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_FOLLOWING)) == 1;
+}

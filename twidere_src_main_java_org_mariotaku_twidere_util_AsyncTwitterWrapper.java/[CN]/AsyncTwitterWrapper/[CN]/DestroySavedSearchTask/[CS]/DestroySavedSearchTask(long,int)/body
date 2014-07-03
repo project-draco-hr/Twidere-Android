@@ -1,0 +1,5 @@
+{
+  super(mContext,mAsyncTaskManager);
+  mAccountId=accountId;
+  mSearchId=searchId;
+}

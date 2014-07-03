@@ -1,0 +1,4 @@
+{
+  if (mAnimationEnabled == anim)   return;
+  mAnimationEnabled=anim;
+}

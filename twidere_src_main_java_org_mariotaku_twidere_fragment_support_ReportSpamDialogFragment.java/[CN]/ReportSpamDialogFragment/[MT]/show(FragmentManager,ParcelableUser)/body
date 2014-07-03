@@ -1,0 +1,8 @@
+{
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_USER,user);
+  final ReportSpamDialogFragment f=new ReportSpamDialogFragment();
+  f.setArguments(args);
+  f.show(fm,FRAGMENT_TAG);
+  return f;
+}

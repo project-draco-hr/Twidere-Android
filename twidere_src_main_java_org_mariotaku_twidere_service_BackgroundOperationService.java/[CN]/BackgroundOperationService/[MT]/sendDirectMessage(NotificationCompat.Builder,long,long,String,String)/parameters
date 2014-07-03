@@ -1,0 +1,5 @@
+NotificationCompat.Builder builder
+long accountId
+long recipientId
+String text
+String imageUri

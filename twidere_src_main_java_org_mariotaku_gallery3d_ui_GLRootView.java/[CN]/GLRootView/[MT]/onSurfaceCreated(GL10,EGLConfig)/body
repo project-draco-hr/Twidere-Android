@@ -1,0 +1,21 @@
+{
+  final GL11 gl=(GL11)gl1;
+  if (mGL != null) {
+    Log.i(TAG,"GLObject has changed from " + mGL + " to "+ gl);
+  }
+  mRenderLock.lock();
+  try {
+    mGL=gl;
+    mCanvas=new GLCanvasImpl(gl);
+    BasicTexture.invalidateAllTextures();
+  }
+  finally {
+    mRenderLock.unlock();
+  }
+  if (DEBUG_FPS) {
+    setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+  }
+ else {
+    setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+  }
+}

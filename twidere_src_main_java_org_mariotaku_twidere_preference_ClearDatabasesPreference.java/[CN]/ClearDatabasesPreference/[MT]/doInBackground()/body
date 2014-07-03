@@ -1,0 +1,19 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  final ContentResolver resolver=context.getContentResolver();
+  for (  final Uri uri : STATUSES_URIS) {
+    if (CachedStatuses.CONTENT_URI.equals(uri)) {
+      continue;
+    }
+    resolver.delete(uri,null,null);
+  }
+  for (  final Uri uri : DIRECT_MESSAGES_URIS) {
+    resolver.delete(uri,null,null);
+  }
+  for (  final Uri uri : CACHE_URIS) {
+    resolver.delete(uri,null,null);
+  }
+  resolver.delete(Notifications.CONTENT_URI,null,null);
+  resolver.delete(UnreadCounts.CONTENT_URI,null,null);
+}

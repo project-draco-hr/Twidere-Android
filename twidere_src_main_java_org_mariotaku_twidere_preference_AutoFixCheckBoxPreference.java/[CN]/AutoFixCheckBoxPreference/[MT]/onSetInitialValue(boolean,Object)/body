@@ -1,0 +1,11 @@
+{
+  try {
+    super.onSetInitialValue(restoreValue,defaultValue);
+  }
+ catch (  final ClassCastException e) {
+    final SharedPreferences prefs=getSharedPreferences();
+    if (prefs != null) {
+      prefs.edit().remove(getKey()).apply();
+    }
+  }
+}

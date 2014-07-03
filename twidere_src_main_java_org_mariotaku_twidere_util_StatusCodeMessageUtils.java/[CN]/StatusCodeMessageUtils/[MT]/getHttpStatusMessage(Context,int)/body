@@ -1,0 +1,6 @@
+{
+  if (context == null)   return null;
+  final int res_id=HTTP_STATUS_CODE_MESSAGES.get(code,-1);
+  if (res_id > 0)   return context.getString(res_id);
+  return null;
+}

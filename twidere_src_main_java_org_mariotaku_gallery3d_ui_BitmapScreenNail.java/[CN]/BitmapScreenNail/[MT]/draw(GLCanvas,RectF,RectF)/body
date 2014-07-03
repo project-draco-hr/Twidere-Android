@@ -1,0 +1,3 @@
+{
+  canvas.drawTexture(mBitmapTexture,source,dest);
+}

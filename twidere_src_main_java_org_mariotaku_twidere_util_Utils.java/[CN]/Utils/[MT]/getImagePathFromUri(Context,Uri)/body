@@ -1,0 +1,22 @@
+{
+  if (context == null || uri == null)   return null;
+  final String mediaUriStart=ParseUtils.parseString(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+  if (ParseUtils.parseString(uri).startsWith(mediaUriStart)) {
+    final String[] proj={MediaStore.Images.Media.DATA};
+    final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),uri,proj,null,null,null);
+    if (cur == null)     return null;
+    final int idxData=cur.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cur.moveToFirst();
+    try {
+      return cur.getString(idxData);
+    }
+  finally {
+      cur.close();
+    }
+  }
+ else {
+    final String path=uri.getPath();
+    if (path != null && new File(path).exists())     return path;
+  }
+  return null;
+}

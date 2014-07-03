@@ -1,0 +1,6 @@
+{
+  if ((edgeFlag & EDGE_LEFT) != 0)   return mShadowLeft;
+ else   if ((edgeFlag & EDGE_RIGHT) != 0)   return mShadowRight;
+ else   if ((edgeFlag & EDGE_BOTTOM) != 0)   return mShadowBottom;
+  return null;
+}

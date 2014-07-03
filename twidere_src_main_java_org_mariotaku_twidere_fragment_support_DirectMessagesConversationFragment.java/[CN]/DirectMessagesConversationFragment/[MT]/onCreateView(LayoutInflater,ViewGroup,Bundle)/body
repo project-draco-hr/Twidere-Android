@@ -1,0 +1,19 @@
+{
+  final View view=inflater.inflate(R.layout.fragment_messages_conversation,null);
+  final FrameLayout listContainer=(FrameLayout)view.findViewById(R.id.list_container);
+  final FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+  listContainer.addView(super.onCreateView(inflater,container,savedInstanceState),lp);
+  final ViewGroup inputSendContainer=(ViewGroup)view.findViewById(R.id.input_send_container);
+  final FragmentActivity activity=getActivity();
+  final int themeRes;
+  if (activity instanceof IThemedActivity) {
+    themeRes=((IThemedActivity)activity).getThemeResourceId();
+  }
+ else {
+    themeRes=ThemeUtils.getThemeResource(activity);
+  }
+  ViewAccessor.setBackground(inputSendContainer,ThemeUtils.getActionBarSplitBackground(activity,themeRes));
+  final Context actionBarContext=ThemeUtils.getActionBarContext(activity);
+  View.inflate(actionBarContext,R.layout.fragment_messages_conversation_input_send,inputSendContainer);
+  return view;
+}

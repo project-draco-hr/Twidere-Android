@@ -1,0 +1,9 @@
+{
+  if (!mScrollEnabled)   return false;
+  if (e1 == null || e2 == null)   return false;
+  if (mScaleDetector != null && mScaleDetector.isInProgress())   return false;
+  if (getScale() == 1f)   return false;
+  scrollBy(-distanceX,-distanceY);
+  invalidate();
+  return super.onScroll(e1,e2,distanceX,distanceY);
+}

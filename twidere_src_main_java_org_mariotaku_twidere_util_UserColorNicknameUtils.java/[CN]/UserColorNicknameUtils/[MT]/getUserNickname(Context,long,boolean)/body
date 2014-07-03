@@ -1,0 +1,8 @@
+{
+  if (context == null || user_id == -1)   return null;
+  if (!ignore_cache && LongSparseArrayUtils.hasKey(sUserNicknames,user_id))   return sUserNicknames.get(user_id);
+  final SharedPreferences prefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final String nickname=prefs.getString(Long.toString(user_id),null);
+  sUserNicknames.put(user_id,nickname);
+  return nickname;
+}

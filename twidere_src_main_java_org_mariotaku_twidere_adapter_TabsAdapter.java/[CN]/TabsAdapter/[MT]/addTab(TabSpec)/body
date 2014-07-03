@@ -1,0 +1,4 @@
+{
+  mTabs.add(spec);
+  notifyDataSetChanged();
+}

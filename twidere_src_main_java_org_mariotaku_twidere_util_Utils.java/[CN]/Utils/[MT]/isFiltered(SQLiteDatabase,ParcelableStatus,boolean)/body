@@ -1,0 +1,4 @@
+{
+  if (database == null || status == null)   return false;
+  return isFiltered(database,status.user_id,status.text_plain,status.text_html,status.source,status.retweeted_by_id,filter_rts);
+}

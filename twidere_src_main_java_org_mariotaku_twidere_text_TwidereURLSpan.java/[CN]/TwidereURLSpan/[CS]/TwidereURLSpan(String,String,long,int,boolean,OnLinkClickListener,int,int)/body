@@ -1,0 +1,11 @@
+{
+  super(url);
+  this.url=url;
+  this.orig=orig;
+  this.accountId=accountId;
+  this.type=type;
+  this.sensitive=sensitive;
+  this.listener=listener;
+  this.highlightStyle=highlightStyle;
+  this.highlightColor=highlightColor;
+}

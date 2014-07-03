@@ -1,0 +1,4 @@
+{
+  if (mStatus == null)   return;
+  mProfileView.drawStart(getUserColor(getActivity(),mStatus.user_id,true));
+}

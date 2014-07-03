@@ -1,0 +1,3 @@
+{
+  return new CursorLoader(getActivity(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,null);
+}

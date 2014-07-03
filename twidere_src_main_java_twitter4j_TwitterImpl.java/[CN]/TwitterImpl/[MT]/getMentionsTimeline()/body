@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return getMentionsTimeline(null);
+}

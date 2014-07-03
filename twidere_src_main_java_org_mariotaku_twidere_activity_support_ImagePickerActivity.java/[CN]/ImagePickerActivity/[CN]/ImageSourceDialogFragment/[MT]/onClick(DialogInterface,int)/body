@@ -1,0 +1,12 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (!(activity instanceof ImagePickerActivity))   return;
+  final ImagePickerActivity addImageActivity=(ImagePickerActivity)activity;
+  final String source=getResources().getStringArray(R.array.value_image_sources)[which];
+  if ("gallery".equals(source)) {
+    addImageActivity.pickImage();
+  }
+ else   if ("camera".equals(source)) {
+    addImageActivity.takePhoto();
+  }
+}

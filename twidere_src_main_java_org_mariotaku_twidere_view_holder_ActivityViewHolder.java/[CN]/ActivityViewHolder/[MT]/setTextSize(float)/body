@@ -1,0 +1,5 @@
+{
+  if (super.setTextSize(text_size))   return false;
+  activity_profile_image_more_number.setTextSize(text_size);
+  return true;
+}

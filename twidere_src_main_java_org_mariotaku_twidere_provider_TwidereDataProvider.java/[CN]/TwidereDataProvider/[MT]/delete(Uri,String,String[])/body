@@ -1,0 +1,48 @@
+{
+  try {
+    final int tableId=getTableId(uri);
+    final String table=getTableNameById(tableId);
+    checkWritePermission(tableId,table);
+switch (tableId) {
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+      return 0;
+case VIRTUAL_TABLE_ID_NOTIFICATIONS:
+{
+      final List<String> segments=uri.getPathSegments();
+      if (segments.size() == 1) {
+        clearNotification();
+      }
+ else       if (segments.size() == 2) {
+        final int notificationType=ParseUtils.parseInt(segments.get(1));
+        clearNotification(notificationType,0);
+      }
+ else       if (segments.size() == 3) {
+        final int notificationType=ParseUtils.parseInt(segments.get(1));
+        final long accountId=ParseUtils.parseLong(segments.get(2));
+        clearNotification(notificationType,accountId);
+      }
+      return 1;
+    }
+case VIRTUAL_TABLE_ID_UNREAD_COUNTS:
+{
+    final List<String> segments=uri.getPathSegments();
+    final int segmentsSize=segments.size();
+    if (segmentsSize == 1)     return clearUnreadCount();
+ else     if (segmentsSize == 2)     return clearUnreadCount(ParseUtils.parseInt(segments.get(1)));
+ else     if (segmentsSize == 4)     return removeUnreadItems(ParseUtils.parseInt(segments.get(1)),ParseUtils.parseLong(segments.get(2)),ArrayUtils.parseLongArray(segments.get(3),','));
+    return 0;
+  }
+}
+if (table == null) return 0;
+final int result=mDatabaseWrapper.delete(table,selection,selectionArgs);
+if (result > 0) {
+onDatabaseUpdated(tableId,uri);
+}
+return result;
+}
+ catch (final SQLException e) {
+throw new IllegalStateException(e);
+}
+}

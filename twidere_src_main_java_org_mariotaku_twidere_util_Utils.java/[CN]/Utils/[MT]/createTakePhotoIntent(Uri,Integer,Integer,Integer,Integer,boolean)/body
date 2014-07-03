@@ -1,0 +1,14 @@
+{
+  final Intent intent=new Intent(CameraCropActivity.INTENT_ACTION);
+  intent.putExtra(MediaStore.EXTRA_OUTPUT,uri);
+  if (outputX != null && outputY != null) {
+    intent.putExtra(CameraCropActivity.EXTRA_OUTPUT_X,outputX);
+    intent.putExtra(CameraCropActivity.EXTRA_OUTPUT_Y,outputY);
+  }
+  if (aspectX != null && aspectY != null) {
+    intent.putExtra(CameraCropActivity.EXTRA_ASPECT_X,aspectX);
+    intent.putExtra(CameraCropActivity.EXTRA_ASPECT_Y,aspectY);
+  }
+  intent.putExtra(CameraCropActivity.EXTRA_SCALE_UP_IF_NEEDED,scaleUpIfNeeded);
+  return intent;
+}

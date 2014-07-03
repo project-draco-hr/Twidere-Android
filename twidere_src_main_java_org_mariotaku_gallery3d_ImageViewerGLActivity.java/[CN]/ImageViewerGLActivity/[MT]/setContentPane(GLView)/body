@@ -1,0 +1,5 @@
+{
+  mContentPane=content;
+  mContentPane.setBackgroundColor(GalleryUtils.intColorToFloatARGBArray(Color.BLACK));
+  mGLRootView.setContentPane(mContentPane);
+}

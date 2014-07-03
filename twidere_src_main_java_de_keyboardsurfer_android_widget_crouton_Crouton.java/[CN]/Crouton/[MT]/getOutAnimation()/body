@@ -1,0 +1,11 @@
+{
+  if (null == outAnimation && null != activity) {
+    if (getConfiguration().outAnimationResId > 0) {
+      outAnimation=AnimationUtils.loadAnimation(getActivity(),getConfiguration().outAnimationResId);
+    }
+ else {
+      outAnimation=DefaultAnimationsBuilder.buildDefaultSlideOutUpAnimation(getView());
+    }
+  }
+  return outAnimation;
+}

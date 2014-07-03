@@ -1,0 +1,10 @@
+{
+  mScrimOpacity=1 - mScrollPercent;
+  updateWindowBackground();
+  if (mDragHelper.continueSettling(true)) {
+    ViewCompat.postInvalidateOnAnimation(this);
+  }
+  if (mOnSwipeBackScrollListener != null) {
+    mOnSwipeBackScrollListener.onSwipeBackScroll(mScrollPercent);
+  }
+}

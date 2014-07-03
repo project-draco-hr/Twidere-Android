@@ -1,0 +1,3 @@
+{
+  return mediaFile != null || mediaName != null && mediaBody != null;
+}

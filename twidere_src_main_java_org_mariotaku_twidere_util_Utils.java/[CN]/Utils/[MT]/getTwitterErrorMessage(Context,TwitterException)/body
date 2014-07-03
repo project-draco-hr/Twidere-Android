@@ -1,0 +1,6 @@
+{
+  if (te == null)   return null;
+  if (StatusCodeMessageUtils.containsTwitterError(te.getErrorCode()))   return StatusCodeMessageUtils.getTwitterErrorMessage(context,te.getErrorCode());
+ else   if (StatusCodeMessageUtils.containsHttpStatus(te.getStatusCode()))   return StatusCodeMessageUtils.getHttpStatusMessage(context,te.getStatusCode());
+ else   return te.getMessage();
+}

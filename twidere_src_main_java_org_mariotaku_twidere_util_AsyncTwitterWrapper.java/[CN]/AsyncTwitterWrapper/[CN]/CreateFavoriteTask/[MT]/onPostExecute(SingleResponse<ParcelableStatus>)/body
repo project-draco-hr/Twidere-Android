@@ -1,0 +1,13 @@
+{
+  if (result.hasData()) {
+    final Intent intent=new Intent(BROADCAST_FAVORITE_CHANGED);
+    intent.putExtra(EXTRA_STATUS,result.getData());
+    intent.putExtra(EXTRA_FAVORITED,true);
+    mContext.sendBroadcast(intent);
+    mMessagesManager.showOkMessage(R.string.status_favorited,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_favoriting,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

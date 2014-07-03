@@ -1,0 +1,5 @@
+{
+  final Worker<T> w=new Worker<T>(job,listener);
+  mExecutor.execute(w);
+  return w;
+}

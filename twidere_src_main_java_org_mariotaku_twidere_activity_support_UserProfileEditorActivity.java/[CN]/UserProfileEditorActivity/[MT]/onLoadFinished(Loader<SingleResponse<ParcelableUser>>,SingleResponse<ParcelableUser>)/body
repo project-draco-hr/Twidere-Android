@@ -1,0 +1,9 @@
+{
+  if (data.getData() != null && data.getData().id > 0) {
+    displayUser(data.getData());
+  }
+ else   if (mUser == null) {
+    finish();
+  }
+  setProgressBarIndeterminateVisibility(false);
+}

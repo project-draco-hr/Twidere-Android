@@ -1,0 +1,5 @@
+{
+  drawAlphaPattern(canvas);
+  canvas.drawRect(mColorRect,mPaint);
+  mForegroundViewHelper.dispatchOnDraw(canvas);
+}

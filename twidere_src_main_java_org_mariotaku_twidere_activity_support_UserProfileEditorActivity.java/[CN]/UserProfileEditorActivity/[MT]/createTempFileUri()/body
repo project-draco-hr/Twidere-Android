@@ -1,0 +1,5 @@
+{
+  final File cache_dir=getExternalCacheDir();
+  final File file=new File(cache_dir,"tmp_image_" + System.currentTimeMillis());
+  return Uri.fromFile(file);
+}

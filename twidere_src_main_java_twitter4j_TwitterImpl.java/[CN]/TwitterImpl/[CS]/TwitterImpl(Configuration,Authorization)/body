@@ -1,0 +1,6 @@
+{
+  super(conf,auth);
+  INCLUDE_ENTITIES=new HttpParameter("include_entities",conf.isIncludeEntitiesEnabled());
+  INCLUDE_RTS=new HttpParameter("include_rts",conf.isIncludeRTsEnabled());
+  INCLUDE_MY_RETWEET=new HttpParameter("include_my_retweet",1);
+}

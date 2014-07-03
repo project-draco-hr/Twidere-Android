@@ -1,0 +1,4 @@
+{
+  final UpdateProfileTask task=new UpdateProfileTask(mContext,mAsyncTaskManager,accountId,name,url,location,description);
+  return mAsyncTaskManager.add(task,true);
+}

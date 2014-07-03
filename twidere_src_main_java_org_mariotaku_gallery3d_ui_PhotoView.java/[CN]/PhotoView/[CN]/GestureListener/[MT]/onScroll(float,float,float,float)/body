@@ -1,0 +1,9 @@
+{
+  if (!mScrolledAfterDown) {
+    mScrolledAfterDown=true;
+  }
+  final int dxi=(int)(-dx + 0.5f);
+  final int dyi=(int)(-dy + 0.5f);
+  mPositionController.scrollPage(dxi,dyi);
+  return true;
+}

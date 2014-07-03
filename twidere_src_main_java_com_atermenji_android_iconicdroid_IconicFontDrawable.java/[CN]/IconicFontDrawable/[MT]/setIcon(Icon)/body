@@ -1,0 +1,4 @@
+{
+  updateIcon(icon);
+  invalidateSelf();
+}

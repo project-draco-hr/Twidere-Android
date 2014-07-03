@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  if (!args.containsKey(EXTRA_NAME))   return null;
+  return args.getString(EXTRA_NAME);
+}

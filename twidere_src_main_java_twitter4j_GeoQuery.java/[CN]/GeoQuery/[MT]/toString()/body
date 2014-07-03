@@ -1,0 +1,3 @@
+{
+  return "GeoQuery{" + "location=" + location + ", ip='"+ ip+ '\''+ ", accuracy='"+ accuracy+ '\''+ ", granularity='"+ granularity+ '\''+ ", maxResults="+ maxResults+ '}';
+}

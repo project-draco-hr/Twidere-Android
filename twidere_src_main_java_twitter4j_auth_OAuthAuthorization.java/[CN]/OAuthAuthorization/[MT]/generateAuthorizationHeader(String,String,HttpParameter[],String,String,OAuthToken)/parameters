@@ -1,0 +1,6 @@
+String method
+String sign_url
+HttpParameter[] params
+String nonce
+String timestamp
+OAuthToken otoken

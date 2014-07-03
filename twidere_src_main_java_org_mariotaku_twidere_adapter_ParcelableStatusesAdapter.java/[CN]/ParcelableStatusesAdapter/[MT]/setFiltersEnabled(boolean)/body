@@ -1,0 +1,5 @@
+{
+  if (mFiltersEnabled == enabled)   return;
+  mFiltersEnabled=enabled;
+  rebuildFilterInfo();
+}

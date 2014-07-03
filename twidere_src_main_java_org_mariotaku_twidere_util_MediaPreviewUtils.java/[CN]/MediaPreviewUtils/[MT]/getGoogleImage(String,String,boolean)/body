@@ -1,0 +1,6 @@
+{
+  if (isEmpty(server) || isEmpty(id))   return null;
+  final String full="https://" + server + id+ "/s0/full";
+  final String preview=fullImage ? full : "https://" + server + id+ "/s480/full";
+  return ParcelableMedia.newImage(preview,full);
+}

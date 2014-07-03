@@ -1,0 +1,13 @@
+{
+  if (context == null)   return null;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final boolean enable_proxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
+  if (!enable_proxy)   return Proxy.NO_PROXY;
+  final String proxyHost=prefs.getString(KEY_PROXY_HOST,null);
+  final int proxyPort=ParseUtils.parseInt(prefs.getString(KEY_PROXY_PORT,"-1"));
+  if (!isEmpty(proxyHost) && proxyPort >= 0 && proxyPort < 65535) {
+    final SocketAddress addr=InetSocketAddress.createUnresolved(proxyHost,proxyPort);
+    return new Proxy(Proxy.Type.HTTP,addr);
+  }
+  return Proxy.NO_PROXY;
+}

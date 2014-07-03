@@ -1,0 +1,3 @@
+{
+  return "UnreadItem{id=" + id + ", account_id="+ account_id+ "}";
+}

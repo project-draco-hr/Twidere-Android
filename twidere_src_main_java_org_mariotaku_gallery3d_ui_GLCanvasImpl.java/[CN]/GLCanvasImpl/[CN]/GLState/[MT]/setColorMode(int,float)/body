@@ -1,0 +1,7 @@
+{
+  setBlendEnabled(!GalleryUtils.isOpaque(color) || alpha < OPAQUE_ALPHA);
+  mTextureAlpha=-1.0f;
+  setTextureTarget(0);
+  final float prealpha=(color >>> 24) * alpha * 65535f / 255f / 255f;
+  mGL.glColor4x(Math.round((color >> 16 & 0xFF) * prealpha),Math.round((color >> 8 & 0xFF) * prealpha),Math.round((color & 0xFF) * prealpha),Math.round(255 * prealpha));
+}

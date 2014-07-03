@@ -1,0 +1,4 @@
+{
+  setMaxResults(maxResults);
+  return this;
+}

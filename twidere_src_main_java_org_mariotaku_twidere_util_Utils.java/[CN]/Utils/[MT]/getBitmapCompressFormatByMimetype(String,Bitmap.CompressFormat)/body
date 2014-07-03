@@ -1,0 +1,7 @@
+{
+  final String extension=MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
+  if ("jpeg".equalsIgnoreCase(extension) || "jpg".equalsIgnoreCase(extension))   return Bitmap.CompressFormat.JPEG;
+ else   if ("png".equalsIgnoreCase(extension))   return Bitmap.CompressFormat.PNG;
+ else   if ("webp".equalsIgnoreCase(extension))   return Bitmap.CompressFormat.WEBP;
+  return def;
+}

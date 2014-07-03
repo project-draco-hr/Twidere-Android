@@ -1,0 +1,7 @@
+{
+  mRegionDecoder=decoder;
+  if (decoder == null)   return;
+  mImageWidth=decoder.getWidth();
+  mImageHeight=decoder.getHeight();
+  mLevelCount=calculateLevelCount();
+}

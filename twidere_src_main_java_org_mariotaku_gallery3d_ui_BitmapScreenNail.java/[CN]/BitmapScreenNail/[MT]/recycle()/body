@@ -1,0 +1,3 @@
+{
+  mBitmapTexture.recycle();
+}

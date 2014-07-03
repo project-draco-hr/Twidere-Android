@@ -1,0 +1,4 @@
+{
+  if (context == null || user == null)   return null;
+  return getDisplayName(context,user.getId(),user.getName(),user.getScreenName());
+}

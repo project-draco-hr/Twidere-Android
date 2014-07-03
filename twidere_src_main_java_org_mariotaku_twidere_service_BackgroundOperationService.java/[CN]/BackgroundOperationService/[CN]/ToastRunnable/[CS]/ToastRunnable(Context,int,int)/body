@@ -1,0 +1,5 @@
+{
+  this.context=context;
+  this.resId=resId;
+  this.duration=duration;
+}

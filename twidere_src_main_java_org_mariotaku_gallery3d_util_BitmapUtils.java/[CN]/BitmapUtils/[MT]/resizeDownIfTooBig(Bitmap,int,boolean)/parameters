@@ -1,0 +1,3 @@
+Bitmap bitmap
+int targetSize
+boolean recycle

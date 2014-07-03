@@ -1,0 +1,12 @@
+{
+  if (context == null)   return;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_ID,Accounts.COLOR},null,null,null);
+  if (cur == null)   return;
+  final int id_idx=cur.getColumnIndex(Accounts.ACCOUNT_ID), color_idx=cur.getColumnIndex(Accounts.COLOR);
+  cur.moveToFirst();
+  while (!cur.isAfterLast()) {
+    sAccountColors.put(cur.getLong(id_idx),cur.getInt(color_idx));
+    cur.moveToNext();
+  }
+  cur.close();
+}

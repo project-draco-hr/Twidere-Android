@@ -1,0 +1,10 @@
+{
+  final StringBuffer buf=new StringBuffer(11 * array.length);
+  for (  final long follow : array) {
+    if (0 != buf.length()) {
+      buf.append(",");
+    }
+    buf.append(follow);
+  }
+  return buf.toString();
+}

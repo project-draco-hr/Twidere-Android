@@ -1,0 +1,4 @@
+{
+  if (!image.exists())   throw new TwitterException(new FileNotFoundException(image + " is not found."));
+  if (!image.isFile())   throw new TwitterException(new IOException(image + " is not a file."));
+}

@@ -1,0 +1,4 @@
+{
+  super(context,R.layout.list_item_two_line_checked);
+  mPermissionsManager=new PermissionsManager(context);
+}

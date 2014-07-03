@@ -1,0 +1,5 @@
+{
+  final int newState=value ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+  mPackageManager.setComponentEnabledSetting(mComponentName,newState,PackageManager.DONT_KILL_APP);
+  return true;
+}

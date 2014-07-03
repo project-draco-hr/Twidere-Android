@@ -1,0 +1,6 @@
+{
+  mClipEnabled=clipEnabled;
+  if (!clipEnabled) {
+    setAlpha(1);
+  }
+}

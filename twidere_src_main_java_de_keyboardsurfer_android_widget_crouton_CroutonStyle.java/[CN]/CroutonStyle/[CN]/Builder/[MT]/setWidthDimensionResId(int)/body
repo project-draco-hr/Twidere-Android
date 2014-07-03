@@ -1,0 +1,4 @@
+{
+  this.widthDimensionResId=widthDimensionResId;
+  return this;
+}

@@ -1,0 +1,10 @@
+{
+  int result=photoSizeLimit;
+  result=31 * result + shortURLLength;
+  result=31 * result + shortURLLengthHttps;
+  result=31 * result + charactersReservedPerMedia;
+  result=31 * result + (photoSizes != null ? photoSizes.hashCode() : 0);
+  result=31 * result + (nonUsernamePaths != null ? Arrays.hashCode(nonUsernamePaths) : 0);
+  result=31 * result + maxMediaPerUpload;
+  return result;
+}

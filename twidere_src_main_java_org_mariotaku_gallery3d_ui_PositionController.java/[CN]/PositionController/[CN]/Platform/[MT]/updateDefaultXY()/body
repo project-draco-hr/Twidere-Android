@@ -1,0 +1,10 @@
+{
+  if (mConstrained && !mConstrainedFrame.isEmpty()) {
+    mDefaultX=mConstrainedFrame.centerX() - mViewW / 2;
+    mDefaultY=mConstrainedFrame.centerY() - mViewH / 2;
+  }
+ else {
+    mDefaultX=0;
+    mDefaultY=0;
+  }
+}

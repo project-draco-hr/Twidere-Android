@@ -1,0 +1,8 @@
+{
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_STATUS,status);
+  final AddStatusFilterDialogFragment f=new AddStatusFilterDialogFragment();
+  f.setArguments(args);
+  f.show(fm,FRAGMENT_TAG);
+  return f;
+}

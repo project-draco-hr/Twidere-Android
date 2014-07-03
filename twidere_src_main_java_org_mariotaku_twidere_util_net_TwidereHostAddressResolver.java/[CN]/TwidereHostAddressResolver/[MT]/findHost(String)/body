@@ -1,0 +1,6 @@
+{
+  for (  final String rule : mHostMapping.getAll().keySet()) {
+    if (hostMatches(host,rule))     return mHostMapping.getString(rule,null);
+  }
+  return null;
+}

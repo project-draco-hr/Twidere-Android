@@ -1,0 +1,3 @@
+{
+  return getString(R.string.twitter_muted_users);
+}

@@ -1,0 +1,5 @@
+{
+  mAdapter.drop(from,to);
+  mListView.moveCheckState(from,to);
+  saveTabPositions();
+}

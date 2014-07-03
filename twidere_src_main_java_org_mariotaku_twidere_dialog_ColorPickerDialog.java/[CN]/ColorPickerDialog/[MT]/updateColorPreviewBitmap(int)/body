@@ -1,0 +1,24 @@
+{
+  final Rect r=new Rect();
+  boolean verticalStartWhite=true;
+  for (int i=0; i <= mNumRectanglesVertical; i++) {
+    boolean isWhite=verticalStartWhite;
+    for (int j=0; j <= mNumRectanglesHorizontal; j++) {
+      r.top=i * mRectrangleSize;
+      r.left=j * mRectrangleSize;
+      r.bottom=r.top + mRectrangleSize;
+      r.right=r.left + mRectrangleSize;
+      final Paint paint=new Paint();
+      paint.setColor(isWhite ? Color.WHITE : Color.GRAY);
+      mCanvas.drawRect(r,paint);
+      isWhite=!isWhite;
+    }
+    verticalStartWhite=!verticalStartWhite;
+  }
+  mCanvas.drawColor(color);
+  final Paint paint=new Paint();
+  paint.setColor(Color.WHITE);
+  paint.setStrokeWidth(2.0f);
+  final float[] points=new float[]{0,0,mIconWidth,0,0,0,0,mIconHeight,mIconWidth,0,mIconWidth,mIconHeight,0,mIconHeight,mIconWidth,mIconHeight};
+  mCanvas.drawLines(points,paint);
+}

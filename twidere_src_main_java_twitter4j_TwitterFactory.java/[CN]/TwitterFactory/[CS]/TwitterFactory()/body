@@ -1,0 +1,3 @@
+{
+  this(ConfigurationContext.getInstance());
+}

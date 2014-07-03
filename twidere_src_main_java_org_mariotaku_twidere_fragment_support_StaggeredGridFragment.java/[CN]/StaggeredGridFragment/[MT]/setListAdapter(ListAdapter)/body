@@ -1,0 +1,10 @@
+{
+  final boolean hadAdapter=mAdapter != null;
+  mAdapter=adapter;
+  if (mList != null) {
+    mList.setAdapter(adapter);
+    if (!mListShown && !hadAdapter) {
+      setListShown(true,getView().getWindowToken() != null);
+    }
+  }
+}

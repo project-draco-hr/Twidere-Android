@@ -1,0 +1,17 @@
+{
+  final AccessibilityManager accessibilityManager=(AccessibilityManager)context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+  if (!accessibilityManager.isEnabled())   return;
+  final int eventType;
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    eventType=AccessibilityEvent.TYPE_VIEW_FOCUSED;
+  }
+ else {
+    eventType=AccessibilityEventCompat.TYPE_ANNOUNCEMENT;
+  }
+  final AccessibilityEvent event=AccessibilityEvent.obtain(eventType);
+  event.getText().add(text);
+  event.setClassName(cls.getName());
+  event.setPackageName(context.getPackageName());
+  event.setSource(view);
+  accessibilityManager.sendAccessibilityEvent(event);
+}

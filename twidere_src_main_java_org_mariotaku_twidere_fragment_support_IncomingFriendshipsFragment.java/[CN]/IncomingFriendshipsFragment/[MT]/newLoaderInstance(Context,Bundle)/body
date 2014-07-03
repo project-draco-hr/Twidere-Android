@@ -1,0 +1,5 @@
+{
+  if (args == null)   return null;
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  return new IncomingFriendshipsLoader(context,accountId,getNextCursor(),getData());
+}

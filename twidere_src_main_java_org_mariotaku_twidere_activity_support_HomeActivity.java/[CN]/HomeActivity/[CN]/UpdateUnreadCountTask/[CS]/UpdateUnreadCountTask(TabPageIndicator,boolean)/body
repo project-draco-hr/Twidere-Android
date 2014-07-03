@@ -1,0 +1,5 @@
+{
+  mIndicator=indicator;
+  mContext=indicator.getContext();
+  mEnabled=enabled;
+}

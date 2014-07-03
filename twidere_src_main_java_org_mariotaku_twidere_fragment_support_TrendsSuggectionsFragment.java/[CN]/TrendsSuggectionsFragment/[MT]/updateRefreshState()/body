@@ -1,0 +1,5 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (twitter == null || !getUserVisibleHint())   return;
+  setRefreshing(twitter.isLocalTrendsRefreshing());
+}

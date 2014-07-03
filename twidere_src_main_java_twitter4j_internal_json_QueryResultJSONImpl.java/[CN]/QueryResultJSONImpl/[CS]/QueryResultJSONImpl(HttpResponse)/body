@@ -1,0 +1,24 @@
+{
+  final JSONObject json=res.asJSONObject();
+  try {
+    final JSONObject search_metadata=json.getJSONObject("search_metadata");
+    sinceId=getLong("since_id",search_metadata);
+    maxId=getLong("max_id",search_metadata);
+    refreshUrl=getHTMLUnescapedString("refresh_url",search_metadata);
+    resultsPerPage=getInt("results_per_page",search_metadata);
+    warning=getRawString("warning",search_metadata);
+    completedIn=getDouble("completed_in",search_metadata);
+    page=getInt("page",search_metadata);
+    query=getURLDecodedString("query",search_metadata);
+    final JSONArray array=json.getJSONArray("statuses");
+    final int statuses_length=array.length();
+    statuses=new Status[statuses_length];
+    for (int i=0; i < statuses_length; i++) {
+      final JSONObject tweet=array.getJSONObject(i);
+      statuses[i]=new StatusJSONImpl(tweet);
+    }
+  }
+ catch (  final JSONException jsone) {
+    throw new TwitterException(jsone.getMessage() + ":" + json.toString(),jsone);
+  }
+}

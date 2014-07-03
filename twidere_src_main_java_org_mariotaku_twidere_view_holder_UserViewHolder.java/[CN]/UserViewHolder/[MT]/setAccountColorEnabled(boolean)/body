@@ -1,0 +1,6 @@
+{
+  account_color_enabled=enabled;
+  if (!account_color_enabled) {
+    content.drawEnd(Color.TRANSPARENT);
+  }
+}

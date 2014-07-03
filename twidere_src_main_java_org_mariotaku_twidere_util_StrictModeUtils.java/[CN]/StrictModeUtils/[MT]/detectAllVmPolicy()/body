@@ -1,0 +1,6 @@
+{
+  final VmPolicy.Builder vmPolicyBuilder=new VmPolicy.Builder();
+  vmPolicyBuilder.detectAll();
+  vmPolicyBuilder.penaltyLog();
+  StrictMode.setVmPolicy(vmPolicyBuilder.build());
+}

@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_activity_picker);
+  mAdapter=new ResolveInfoListAdapter(this);
+  mListView.setAdapter(mAdapter);
+  mListView.setOnItemClickListener(this);
+  getSupportLoaderManager().initLoader(0,null,this);
+}

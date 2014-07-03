@@ -1,0 +1,3 @@
+{
+  super(result,DirectMessages.Inbox.CONTENT_URI,notify,TASK_TAG_STORE_RECEIVED_DIRECT_MESSAGES);
+}

@@ -1,0 +1,26 @@
+{
+  final ListAdapter adapter=getListAdapter();
+  if (adapter == null)   return;
+  final boolean reachedTop=firstVisibleItem == 0;
+  final boolean reachedBottom=firstVisibleItem + visibleItemCount >= totalItemCount && totalItemCount >= visibleItemCount;
+  if (mReachedBottom != reachedBottom) {
+    mReachedBottom=reachedBottom;
+    if (mReachedBottom && mNotReachedBottomBefore) {
+      mNotReachedBottomBefore=false;
+      return;
+    }
+    if (mReachedBottom && adapter.getCount() > visibleItemCount) {
+      onReachedBottom();
+    }
+  }
+  if (mReachedTop != reachedTop) {
+    mReachedTop=reachedTop;
+    if (mReachedTop && mNotReachedTopBefore) {
+      mNotReachedTopBefore=false;
+      return;
+    }
+    if (mReachedTop && adapter.getCount() > visibleItemCount) {
+      onReachedTop();
+    }
+  }
+}

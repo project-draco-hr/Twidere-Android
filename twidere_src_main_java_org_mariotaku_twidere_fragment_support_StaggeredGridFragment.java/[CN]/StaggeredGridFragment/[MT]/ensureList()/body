@@ -1,0 +1,45 @@
+{
+  if (mList != null)   return;
+  final View root=getView();
+  if (root == null)   throw new IllegalStateException("Content view not yet created");
+  if (root instanceof StaggeredGridView) {
+    mList=(StaggeredGridView)root;
+  }
+ else {
+    mStandardEmptyView=(TextView)root.findViewById(INTERNAL_EMPTY_ID);
+    if (mStandardEmptyView == null) {
+      mEmptyView=root.findViewById(android.R.id.empty);
+    }
+ else {
+      mStandardEmptyView.setVisibility(View.GONE);
+    }
+    mProgressContainer=root.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
+    mListContainer=root.findViewById(INTERNAL_LIST_CONTAINER_ID);
+    final View rawListView=root.findViewById(android.R.id.list);
+    if (!(rawListView instanceof StaggeredGridView)) {
+      if (rawListView == null)       throw new RuntimeException("Your content must have a StaggeredGridView whose id attribute is " + "'android.R.id.list'");
+      throw new RuntimeException("Content has view with id attribute 'android.R.id.list' " + "that is not a StaggeredGridView class");
+    }
+    mList=(StaggeredGridView)rawListView;
+    if (mEmptyView != null) {
+      mList.setEmptyView(mEmptyView);
+    }
+ else     if (mEmptyText != null) {
+      mStandardEmptyView.setText(mEmptyText);
+      mList.setEmptyView(mStandardEmptyView);
+    }
+  }
+  mListShown=true;
+  mList.setOnItemClickListener(mOnClickListener);
+  if (mAdapter != null) {
+    final ListAdapter adapter=mAdapter;
+    mAdapter=null;
+    setListAdapter(adapter);
+  }
+ else {
+    if (mProgressContainer != null) {
+      setListShown(false,false);
+    }
+  }
+  mHandler.post(mRequestFocus);
+}

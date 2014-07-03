@@ -1,0 +1,3 @@
+{
+  return "CategoryJSONImpl{" + "name='" + name + '\''+ ", slug='"+ slug+ '\''+ ", size="+ size+ '}';
+}

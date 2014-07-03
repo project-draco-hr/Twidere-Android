@@ -1,0 +1,4 @@
+{
+  super(context,attrs,defStyle);
+  inflate(context,R.layout.tab_item_ab,this);
+}

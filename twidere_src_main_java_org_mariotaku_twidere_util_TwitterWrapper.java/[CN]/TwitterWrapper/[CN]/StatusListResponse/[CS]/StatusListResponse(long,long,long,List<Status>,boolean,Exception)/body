@@ -1,0 +1,4 @@
+{
+  super(account_id,max_id,since_id,list,exception);
+  this.truncated=truncated;
+}

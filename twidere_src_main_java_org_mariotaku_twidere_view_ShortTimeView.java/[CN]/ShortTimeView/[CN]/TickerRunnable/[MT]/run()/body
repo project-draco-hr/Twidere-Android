@@ -1,0 +1,8 @@
+{
+  final Handler handler=mTextView.getHandler();
+  if (handler == null)   return;
+  mTextView.invalidateTime();
+  final long now=SystemClock.uptimeMillis();
+  final long next=now + TICKER_DURATION - now % TICKER_DURATION;
+  handler.postAtTime(this,next);
+}

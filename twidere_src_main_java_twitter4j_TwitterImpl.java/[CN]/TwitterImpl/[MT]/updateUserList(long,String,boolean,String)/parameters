@@ -1,0 +1,4 @@
+long listId
+String newListName
+boolean isPublicList
+String newDescription

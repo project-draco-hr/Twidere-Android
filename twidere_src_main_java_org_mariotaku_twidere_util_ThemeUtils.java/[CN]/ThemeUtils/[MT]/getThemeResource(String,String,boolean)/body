@@ -1,0 +1,18 @@
+{
+  if (VALUE_THEME_NAME_TWIDERE.equals(name)) {
+    if (VALUE_THEME_BACKGROUND_SOLID.equals(background))     return darkActionBar ? R.style.Theme_Twidere_Colored_DarkActionBar_SolidBackground : R.style.Theme_Twidere_Colored_SolidBackground;
+ else     if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(background))     return darkActionBar ? R.style.Theme_Twidere_Colored_DarkActionBar_Transparent : R.style.Theme_Twidere_Colored_Transparent;
+    return darkActionBar ? R.style.Theme_Twidere_Colored_DarkActionBar : R.style.Theme_Twidere_Colored;
+  }
+ else   if (VALUE_THEME_NAME_LIGHT.equals(name)) {
+    if (VALUE_THEME_BACKGROUND_SOLID.equals(background))     return darkActionBar ? R.style.Theme_Twidere_Light_DarkActionBar_SolidBackground : R.style.Theme_Twidere_Light_SolidBackground;
+ else     if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(background))     return darkActionBar ? R.style.Theme_Twidere_Light_DarkActionBar_Transparent : R.style.Theme_Twidere_Light_Transparent;
+    return darkActionBar ? R.style.Theme_Twidere_Light_DarkActionBar : R.style.Theme_Twidere_Light;
+  }
+ else   if (VALUE_THEME_NAME_DARK.equals(name)) {
+    if (VALUE_THEME_BACKGROUND_SOLID.equals(background))     return R.style.Theme_Twidere_Dark_SolidBackground;
+ else     if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(background))     return R.style.Theme_Twidere_Dark_Transparent;
+    return R.style.Theme_Twidere_Dark;
+  }
+  return R.style.Theme_Twidere_Colored_DarkActionBar;
+}

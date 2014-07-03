@@ -1,0 +1,12 @@
+{
+  mResolver=getContentResolver();
+  super.onActivityCreated(savedInstanceState);
+  mAdapter=createListAdapter();
+  setListAdapter(mAdapter);
+  mListView=getListView();
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  mListView.setMultiChoiceModeListener(this);
+  setEmptyText(getString(R.string.no_rule));
+  getLoaderManager().initLoader(0,null,this);
+  setListShown(false);
+}

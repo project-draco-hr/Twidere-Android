@@ -1,0 +1,5 @@
+{
+  super.onFinishInflate();
+  setTitleView(mTitle);
+  setIconView(mIcon);
+}

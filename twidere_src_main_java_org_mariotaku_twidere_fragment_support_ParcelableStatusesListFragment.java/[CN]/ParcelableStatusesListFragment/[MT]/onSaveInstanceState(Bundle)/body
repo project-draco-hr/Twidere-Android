@@ -1,0 +1,7 @@
+{
+  final List<ParcelableStatus> data=getData();
+  if (data != null) {
+    outState.putParcelableArrayList(EXTRA_DATA,new ArrayList<ParcelableStatus>(data));
+  }
+  super.onSaveInstanceState(outState);
+}

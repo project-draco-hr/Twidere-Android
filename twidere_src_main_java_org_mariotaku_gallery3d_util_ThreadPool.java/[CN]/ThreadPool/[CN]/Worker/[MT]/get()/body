@@ -1,0 +1,11 @@
+{
+  while (!mIsDone) {
+    try {
+      wait();
+    }
+ catch (    final Exception ex) {
+      Log.w(TAG,"ingore exception",ex);
+    }
+  }
+  return mResult;
+}

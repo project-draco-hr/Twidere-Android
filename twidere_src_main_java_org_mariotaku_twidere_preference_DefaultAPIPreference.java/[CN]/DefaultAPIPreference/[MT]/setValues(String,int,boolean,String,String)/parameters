@@ -1,0 +1,5 @@
+String apiUrlFormat
+int authType
+boolean sameOAuthSigningUrl
+String consumerKey
+String consumerSecret

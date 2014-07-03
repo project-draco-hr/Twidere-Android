@@ -1,0 +1,4 @@
+{
+  setGranularity(granularity);
+  return this;
+}

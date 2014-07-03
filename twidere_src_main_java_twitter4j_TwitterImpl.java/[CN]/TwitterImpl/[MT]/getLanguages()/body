@@ -1,0 +1,3 @@
+{
+  return factory.createLanguageList(get(conf.getRestBaseURL() + ENDPOINT_HELP_LANGUAGES,conf.getSigningRestBaseURL() + ENDPOINT_HELP_LANGUAGES));
+}

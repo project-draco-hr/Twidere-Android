@@ -1,0 +1,11 @@
+{
+  final Editable text=mEditText.getText();
+  if (isEmpty(text) || mAccountId <= 0 || mRecipientId <= 0)   return;
+  final String message=text.toString();
+  if (mValidator.isValidTweet(message)) {
+    mTwitterWrapper.sendDirectMessageAsync(mAccountId,mRecipientId,message,mImageUri);
+    text.clear();
+    mImageUri=null;
+    updateAddImageButton();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (context == null)   return null;
+  final String nick=UserColorNicknameUtils.getUserNickname(context,user_id,ignore_cache);
+  final boolean nick_available=!isEmpty(nick);
+  if (nickname_only && nick_available)   return nick;
+  if (!nick_available)   return name_first && !isEmpty(name) ? name : "@" + screen_name;
+  return context.getString(R.string.name_with_nickname,name_first && !isEmpty(name) ? name : "@" + screen_name,nick);
+}

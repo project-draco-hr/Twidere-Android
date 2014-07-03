@@ -1,0 +1,6 @@
+{
+  for (  final SupportTabSpec spec : tabs) {
+    if (classEquals(spec.cls,HomeTimelineFragment.class) || classEquals(spec.cls,MentionsTimelineFragment.class) || classEquals(spec.cls,DirectMessagesFragment.class))     return true;
+  }
+  return false;
+}

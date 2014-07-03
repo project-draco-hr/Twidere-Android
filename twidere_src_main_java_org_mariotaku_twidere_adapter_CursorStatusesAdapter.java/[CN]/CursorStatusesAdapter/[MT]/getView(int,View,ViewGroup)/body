@@ -1,0 +1,11 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Object tag=view.getTag();
+  if (tag instanceof StatusViewHolder && position > mMaxAnimationPosition) {
+    if (mAnimationEnabled) {
+      view.startAnimation(((StatusViewHolder)tag).item_animation);
+    }
+    mMaxAnimationPosition=position;
+  }
+  return view;
+}

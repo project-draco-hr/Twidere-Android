@@ -1,0 +1,5 @@
+{
+  super(hasBorder);
+  GalleryUtils.assertTrue(bitmap != null && !bitmap.isRecycled());
+  mContentBitmap=bitmap;
+}

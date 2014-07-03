@@ -1,0 +1,6 @@
+{
+  mPlatform.updateDefaultXY();
+  mPlatform.mCurrentX=mPlatform.mDefaultX;
+  mPlatform.mCurrentY=mPlatform.mDefaultY;
+  mPlatform.mAnimationStartTime=NO_ANIMATION;
+}

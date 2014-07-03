@@ -1,0 +1,8 @@
+{
+  if (mShowAbsoluteTime) {
+    setText(formatSameDayTime(getContext(),mTime));
+  }
+ else {
+    setText(getRelativeTimeSpanString(mTime,System.currentTimeMillis(),DateUtils.MINUTE_IN_MILLIS,DateUtils.FORMAT_ABBREV_ALL));
+  }
+}

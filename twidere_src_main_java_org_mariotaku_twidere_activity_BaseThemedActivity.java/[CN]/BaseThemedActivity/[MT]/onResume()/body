@@ -1,0 +1,9 @@
+{
+  super.onResume();
+  if (isThemeChanged()) {
+    restart();
+  }
+ else {
+    ThemeUtils.notifyStatusBarColorChanged(this,mCurrentThemeResource,mCurrentThemeColor,mCurrentThemeBackgroundAlpha);
+  }
+}

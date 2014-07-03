@@ -1,0 +1,5 @@
+{
+  if (position < 0 || position >= mIdMap.size())   return INVALID_ID;
+  final T item=getItem(position);
+  return mIdMap.get(item);
+}

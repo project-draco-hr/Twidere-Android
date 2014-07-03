@@ -1,0 +1,10 @@
+{
+  if (in == null)   return false;
+  for (  final DirectMessage message : in) {
+    if (since_id > 0 && message.getId() <= since_id) {
+      continue;
+    }
+    out.add(message);
+  }
+  return in.size() != out.size();
+}

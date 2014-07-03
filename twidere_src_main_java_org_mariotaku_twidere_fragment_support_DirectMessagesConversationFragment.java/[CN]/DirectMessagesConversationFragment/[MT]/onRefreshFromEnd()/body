@@ -1,0 +1,17 @@
+{
+  new AsyncTask<Void,Void,long[][]>(){
+    @Override protected long[][] doInBackground(    final Void... params){
+      final long[][] result=new long[2][];
+      result[0]=getActivatedAccountIds(getActivity());
+      result[1]=getNewestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);
+      return result;
+    }
+    @Override protected void onPostExecute(    final long[][] result){
+      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      if (twitter == null)       return;
+      twitter.getReceivedDirectMessagesAsync(result[0],null,result[1]);
+      twitter.getSentDirectMessagesAsync(result[0],null,null);
+    }
+  }
+.execute();
+}

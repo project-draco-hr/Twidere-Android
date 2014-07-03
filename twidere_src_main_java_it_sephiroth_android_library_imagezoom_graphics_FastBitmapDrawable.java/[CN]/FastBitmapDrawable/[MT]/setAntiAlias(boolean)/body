@@ -1,0 +1,4 @@
+{
+  mPaint.setAntiAlias(value);
+  invalidateSelf();
+}

@@ -1,0 +1,4 @@
+{
+  layoutAndSetPosition();
+  mListener.onInvalidate();
+}

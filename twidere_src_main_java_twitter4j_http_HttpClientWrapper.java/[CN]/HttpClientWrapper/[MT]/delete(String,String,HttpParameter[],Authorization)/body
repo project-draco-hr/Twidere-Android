@@ -1,0 +1,3 @@
+{
+  return request(new HttpRequest(DELETE,url,signUrl,parameters,authorization,requestHeaders));
+}

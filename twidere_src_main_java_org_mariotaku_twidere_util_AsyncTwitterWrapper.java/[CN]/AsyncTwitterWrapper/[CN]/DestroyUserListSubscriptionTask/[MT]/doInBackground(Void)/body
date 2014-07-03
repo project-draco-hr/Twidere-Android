@@ -1,0 +1,13 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
+  if (twitter != null) {
+    try {
+      final ParcelableUserList list=new ParcelableUserList(twitter.destroyUserListSubscription(mListId),mAccountId);
+      return SingleResponse.getInstance(list,null);
+    }
+ catch (    final TwitterException e) {
+      return SingleResponse.getInstance(null,e);
+    }
+  }
+  return SingleResponse.getInstance();
+}

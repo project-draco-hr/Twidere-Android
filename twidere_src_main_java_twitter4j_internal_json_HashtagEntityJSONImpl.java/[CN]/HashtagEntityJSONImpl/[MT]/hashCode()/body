@@ -1,0 +1,6 @@
+{
+  int result=start;
+  result=31 * result + end;
+  result=31 * result + (text != null ? text.hashCode() : 0);
+  return result;
+}

@@ -1,0 +1,12 @@
+{
+  final SharedPreferences.Editor editor=getEditor();
+  if (editor == null)   return;
+  final Language item=mAdapter.getItem(which);
+  if (item != null) {
+    editor.putString(KEY_TRANSLATION_DESTINATION,item.getCode());
+    editor.commit();
+  }
+  if (mDialog != null && mDialog.isShowing()) {
+    mDialog.dismiss();
+  }
+}

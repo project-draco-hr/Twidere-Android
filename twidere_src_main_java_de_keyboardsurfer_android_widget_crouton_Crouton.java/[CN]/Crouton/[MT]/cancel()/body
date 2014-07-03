@@ -1,0 +1,4 @@
+{
+  final CroutonManager manager=CroutonManager.getInstance();
+  manager.removeCroutonImmediately(this);
+}

@@ -1,0 +1,14 @@
+{
+  final int width=MeasureSpec.getSize(widthMeasureSpec), height=width / 2;
+  setMeasuredDimension(width,height);
+  super.onMeasure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(height,MeasureSpec.EXACTLY));
+  if (width > 0) {
+    final int profile_size=(int)(width * PROFILE_IMAGE_WIDTH_FACTOR);
+    final LayoutParams profile_lp=(FrameLayout.LayoutParams)mProfileImageView.getLayoutParams();
+    profile_lp.width=profile_size + mBorderWidth * 2;
+    profile_lp.height=profile_size + mBorderWidth * 2;
+    profile_lp.gravity=Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+    profile_lp.topMargin=(int)(height * PROFILE_IMAGE_TOP_MARGIN_FACTOR) - mBorderWidth;
+    mProfileImageView.setLayoutParams(profile_lp);
+  }
+}

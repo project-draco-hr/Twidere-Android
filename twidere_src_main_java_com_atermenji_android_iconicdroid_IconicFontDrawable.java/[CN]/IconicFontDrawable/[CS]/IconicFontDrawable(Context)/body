@@ -1,0 +1,9 @@
+{
+  mContext=context.getApplicationContext();
+  mIconPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mContourPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mContourPaint.setStyle(Paint.Style.STROKE);
+  mPath=new Path();
+  mPathBounds=new RectF();
+  mPaddingBounds=new Rect();
+}

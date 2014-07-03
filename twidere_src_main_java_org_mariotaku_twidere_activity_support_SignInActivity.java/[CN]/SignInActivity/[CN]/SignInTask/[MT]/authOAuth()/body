@@ -1,0 +1,11 @@
+{
+  final Twitter twitter=new TwitterFactory(conf).getInstance();
+  final OAuthPasswordAuthenticator authenticator=new OAuthPasswordAuthenticator(twitter);
+  final AccessToken access_token=authenticator.getOAuthAccessToken(username,password);
+  final long user_id=access_token.getUserId();
+  if (user_id <= 0)   return new SigninResponse(false,false,null);
+  final User user=twitter.verifyCredentials();
+  if (isUserLoggedIn(context,user_id))   return new SigninResponse(true,false,null);
+  final int color=user_color != null ? user_color : analyseUserProfileColor(user);
+  return new SigninResponse(conf,access_token,user,Accounts.AUTH_TYPE_OAUTH,color,api_url_format,same_oauth_signing_url);
+}

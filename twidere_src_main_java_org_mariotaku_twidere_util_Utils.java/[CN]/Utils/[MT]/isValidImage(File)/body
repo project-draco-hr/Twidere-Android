@@ -1,0 +1,7 @@
+{
+  if (image == null)   return false;
+  final BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(image.getPath(),o);
+  return o.outHeight > 0 && o.outWidth > 0;
+}

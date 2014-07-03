@@ -1,0 +1,9 @@
+{
+  super.onContentChanged();
+  mIconView=(ImageView)findViewById(android.R.id.icon);
+  mNameView=(TextView)findViewById(android.R.id.text1);
+  mDescriptionView=(TextView)findViewById(android.R.id.text2);
+  mMessageView=(TextView)findViewById(R.id.message);
+  mAcceptButton=(Button)findViewById(R.id.accept);
+  mDenyButton=(Button)findViewById(R.id.deny);
+}

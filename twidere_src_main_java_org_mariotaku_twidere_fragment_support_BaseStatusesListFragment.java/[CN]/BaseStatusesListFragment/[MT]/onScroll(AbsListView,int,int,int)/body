@@ -1,0 +1,4 @@
+{
+  super.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+  addReadPosition(firstVisibleItem);
+}

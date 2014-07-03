@@ -1,0 +1,39 @@
+{
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  if (!intent.hasExtra(EXTRA_ACCOUNT_ID)) {
+    finish();
+    return;
+  }
+  setContentView(R.layout.activity_user_list_selector);
+  if (savedInstanceState == null) {
+    mScreenName=intent.getStringExtra(EXTRA_SCREEN_NAME);
+  }
+ else {
+    mScreenName=savedInstanceState.getString(EXTRA_SCREEN_NAME);
+  }
+  final boolean selecting_user=isSelectingUser();
+  setTitle(selecting_user ? R.string.select_user : R.string.select_user_list);
+  if (!isEmpty(mScreenName)) {
+    if (selecting_user) {
+      searchUser(mScreenName);
+    }
+ else {
+      getUserLists(mScreenName);
+    }
+  }
+  mEditScreenName.setAdapter(new UserHashtagAutoCompleteAdapter(this));
+  mEditScreenName.setText(mScreenName);
+  mUserListsListView.setAdapter(mUserListsAdapter=new SimpleParcelableUserListsAdapter(this));
+  mUsersListView.setAdapter(mUsersAdapter=new SimpleParcelableUsersAdapter(this));
+  mUserListsListView.setOnItemClickListener(this);
+  mUsersListView.setOnItemClickListener(this);
+  if (selecting_user) {
+    mUsersListContainer.setVisibility(View.VISIBLE);
+    mUserListsContainer.setVisibility(View.GONE);
+  }
+ else {
+    mUsersListContainer.setVisibility(isEmpty(mScreenName) ? View.VISIBLE : View.GONE);
+    mUserListsContainer.setVisibility(isEmpty(mScreenName) ? View.GONE : View.VISIBLE);
+  }
+}

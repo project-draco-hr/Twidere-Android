@@ -1,0 +1,6 @@
+{
+  for (  final Entry<String,CustomTabConfiguration> entry : getConfiguraionMap().entrySet()) {
+    if (classEquals(cls,entry.getValue().getFragmentClass()))     return entry.getKey();
+  }
+  return null;
+}

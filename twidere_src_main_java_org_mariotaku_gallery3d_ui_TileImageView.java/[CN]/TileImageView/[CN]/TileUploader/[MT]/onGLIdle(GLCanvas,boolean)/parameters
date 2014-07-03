@@ -1,0 +1,2 @@
+GLCanvas canvas
+boolean renderRequested

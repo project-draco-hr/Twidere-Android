@@ -1,0 +1,3 @@
+{
+  super(context.getString(R.string.error_message_image_upload_failed));
+}

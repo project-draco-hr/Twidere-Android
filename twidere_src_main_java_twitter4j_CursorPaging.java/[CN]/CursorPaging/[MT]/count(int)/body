@@ -1,0 +1,4 @@
+{
+  setCount(count);
+  return this;
+}

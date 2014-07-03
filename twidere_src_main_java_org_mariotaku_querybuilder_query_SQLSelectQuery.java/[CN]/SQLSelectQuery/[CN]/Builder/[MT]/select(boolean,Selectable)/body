@@ -1,0 +1,6 @@
+{
+  checkNotBuilt();
+  query.setSelect(select);
+  query.setDistinct(distinct);
+  return this;
+}

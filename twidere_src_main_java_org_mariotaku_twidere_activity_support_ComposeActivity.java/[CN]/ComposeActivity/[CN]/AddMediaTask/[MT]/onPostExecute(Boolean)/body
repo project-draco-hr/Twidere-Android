@@ -1,0 +1,9 @@
+{
+  activity.setProgressVisibility(false);
+  activity.addMedia(new ParcelableMediaUpdate(dst.toString(),media_type));
+  activity.setMenu();
+  activity.updateTextCount();
+  if (!result) {
+    Crouton.showText(activity,R.string.error_occurred,CroutonStyle.ALERT);
+  }
+}

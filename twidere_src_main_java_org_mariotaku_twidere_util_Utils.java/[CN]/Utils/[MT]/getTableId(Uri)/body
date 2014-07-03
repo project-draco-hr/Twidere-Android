@@ -1,0 +1,4 @@
+{
+  if (uri == null)   return -1;
+  return CONTENT_PROVIDER_URI_MATCHER.match(uri);
+}

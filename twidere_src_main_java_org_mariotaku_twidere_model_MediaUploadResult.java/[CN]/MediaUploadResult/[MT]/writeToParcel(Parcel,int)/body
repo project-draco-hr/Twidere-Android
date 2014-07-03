@@ -1,0 +1,5 @@
+{
+  dest.writeStringArray(media_uris);
+  dest.writeInt(error_code);
+  dest.writeString(error_message);
+}

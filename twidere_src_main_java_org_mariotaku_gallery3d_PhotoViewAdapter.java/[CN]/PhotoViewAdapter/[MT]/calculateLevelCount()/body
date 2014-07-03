@@ -1,0 +1,3 @@
+{
+  return Math.max(0,GalleryUtils.ceilLog2((float)mImageWidth / mScreenNail.getWidth()));
+}

@@ -1,0 +1,7 @@
+{
+  setVisibility(View.GONE);
+  if (animate) {
+    startAnimation(anim);
+  }
+  isShown=false;
+}

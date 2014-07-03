@@ -1,0 +1,16 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+    if (mDialog == null)     return;
+  final int color=mDialog.getColor();
+if (isPersistent()) {
+  persistInt(color);
+}
+setPreviewColor();
+final OnPreferenceChangeListener listener=getOnPreferenceChangeListener();
+if (listener != null) {
+listener.onPreferenceChange(this,color);
+}
+break;
+}
+}

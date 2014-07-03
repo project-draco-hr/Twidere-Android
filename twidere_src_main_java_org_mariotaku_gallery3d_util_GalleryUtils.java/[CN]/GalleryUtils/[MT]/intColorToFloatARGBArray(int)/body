@@ -1,0 +1,3 @@
+{
+  return new float[]{Color.alpha(from) / 255f,Color.red(from) / 255f,Color.green(from) / 255f,Color.blue(from) / 255f};
+}

@@ -1,0 +1,4 @@
+{
+  if (mLazyLoadCallback != null)   return true;
+  return mDatabase != null;
+}

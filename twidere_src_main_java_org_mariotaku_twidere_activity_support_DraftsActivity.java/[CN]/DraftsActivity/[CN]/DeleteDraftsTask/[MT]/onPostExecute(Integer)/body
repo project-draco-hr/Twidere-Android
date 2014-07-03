@@ -1,0 +1,7 @@
+{
+  super.onPostExecute(result);
+  final Fragment f=mActivity.getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG_DELETING_DRAFTS);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+}

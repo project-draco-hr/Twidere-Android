@@ -1,0 +1,5 @@
+{
+  if (mPreferences == null || mPreferences.getBoolean(KEY_SETTINGS_WIZARD_COMPLETED,false))   return false;
+  startActivity(new Intent(this,SettingsWizardActivity.class));
+  return true;
+}

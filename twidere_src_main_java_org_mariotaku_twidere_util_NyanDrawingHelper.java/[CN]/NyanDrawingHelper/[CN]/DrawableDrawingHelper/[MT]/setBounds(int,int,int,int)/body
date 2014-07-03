@@ -1,0 +1,12 @@
+{
+  if (mDrawable == null)   return;
+  if (mAnimationFrames > 0) {
+    for (int i=0; i < mAnimationFrames; i++) {
+      final Drawable frame=((AnimationDrawable)mDrawable).getFrame(i);
+      frame.setBounds(left,top,right,bottom);
+    }
+  }
+ else {
+    mDrawable.setBounds(left,top,right,bottom);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  final Configuration conf=twitter.getConfiguration();
+  this.twitter=twitter;
+  client=new HttpClientWrapper(conf);
+}

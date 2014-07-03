@@ -1,0 +1,17 @@
+{
+  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final User user=twitter.createBlock(user_id);
+    for (    final Uri uri : STATUSES_URIS) {
+      final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
+      mResolver.delete(uri,where,null);
+    }
+    final String where=CachedUsers.USER_ID + " = " + user_id;
+    mResolver.delete(CachedUsers.CONTENT_URI,where,null);
+    return SingleResponse.getInstance(user,null);
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(null,e);
+  }
+}

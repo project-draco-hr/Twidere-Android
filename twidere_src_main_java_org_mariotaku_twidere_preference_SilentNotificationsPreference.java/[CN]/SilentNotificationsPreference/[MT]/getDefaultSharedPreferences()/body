@@ -1,0 +1,3 @@
+{
+  return getContext().getSharedPreferences(SILENT_NOTIFICATIONS_PREFERENCE_NAME,Context.MODE_PRIVATE);
+}

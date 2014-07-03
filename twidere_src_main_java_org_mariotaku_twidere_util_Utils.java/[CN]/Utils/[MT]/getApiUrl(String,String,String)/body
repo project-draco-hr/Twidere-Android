@@ -1,0 +1,18 @@
+{
+  final String urlBase=getApiBaseUrl(pattern,domain);
+  if (urlBase == null || appendPath == null)   return urlBase;
+  final StringBuilder sb=new StringBuilder(urlBase);
+  if (urlBase.endsWith("/")) {
+    sb.append(appendPath.startsWith("/") ? appendPath.substring(1) : appendPath);
+  }
+ else {
+    if (appendPath.startsWith("/")) {
+      sb.append(appendPath);
+    }
+ else {
+      sb.append('/');
+      sb.append(appendPath);
+    }
+  }
+  return sb.toString();
+}

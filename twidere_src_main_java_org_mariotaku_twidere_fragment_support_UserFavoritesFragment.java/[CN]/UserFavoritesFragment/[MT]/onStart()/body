@@ -1,0 +1,5 @@
+{
+  super.onStart();
+  final IntentFilter filter=new IntentFilter(BROADCAST_FAVORITE_CHANGED);
+  registerReceiver(mStateReceiver,filter);
+}

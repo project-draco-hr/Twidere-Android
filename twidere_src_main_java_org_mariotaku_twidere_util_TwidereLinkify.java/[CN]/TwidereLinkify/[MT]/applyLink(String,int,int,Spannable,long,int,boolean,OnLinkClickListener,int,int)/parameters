@@ -1,0 +1,10 @@
+String url
+int start
+int end
+Spannable text
+long accountId
+int type
+boolean sensitive
+OnLinkClickListener listener
+int highlightOption
+int highlightColor

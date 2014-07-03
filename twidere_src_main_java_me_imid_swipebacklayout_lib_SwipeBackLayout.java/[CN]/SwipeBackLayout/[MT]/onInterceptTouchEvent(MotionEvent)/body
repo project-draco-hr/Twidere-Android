@@ -1,0 +1,9 @@
+{
+  if (!mEnable)   return false;
+  try {
+    return mDragHelper.shouldInterceptTouchEvent(event);
+  }
+ catch (  final ArrayIndexOutOfBoundsException e) {
+    return false;
+  }
+}

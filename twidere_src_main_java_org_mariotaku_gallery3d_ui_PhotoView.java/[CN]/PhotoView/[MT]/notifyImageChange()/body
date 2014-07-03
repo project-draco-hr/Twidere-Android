@@ -1,0 +1,6 @@
+{
+  mListener.onCurrentImageUpdated();
+  mPicture.reload();
+  setPictureSize();
+  invalidate();
+}

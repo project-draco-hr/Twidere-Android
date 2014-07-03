@@ -1,0 +1,4 @@
+{
+  super._setImageDrawable(drawable,reset,initial_matrix,maxZoom);
+  mScaleFactor=getMaxZoom() / 3;
+}

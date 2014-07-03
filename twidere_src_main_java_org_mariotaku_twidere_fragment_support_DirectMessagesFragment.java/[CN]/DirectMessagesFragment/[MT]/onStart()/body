@@ -1,0 +1,8 @@
+{
+  super.onStart();
+  final ContentResolver resolver=getContentResolver();
+  resolver.registerContentObserver(Accounts.CONTENT_URI,true,mReloadContentObserver);
+  final IntentFilter filter=new IntentFilter();
+  filter.addAction(BROADCAST_TASK_STATE_CHANGED);
+  registerReceiver(mStatusReceiver,filter);
+}

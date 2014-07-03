@@ -1,0 +1,7 @@
+{
+  this.activity=activity;
+  this.src=src;
+  this.dst=dst;
+  this.media_type=media_type;
+  this.delete_src=delete_src;
+}

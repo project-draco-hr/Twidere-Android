@@ -1,0 +1,26 @@
+{
+  final AnimationDrawable ad=new AnimationDrawable();
+  ad.setOneShot(false);
+  final int rainbowDotScale=Math.round(RAINBOW_DOT_SIZE * mDensity * scale);
+  for (  final int frameRes : RAINBOW_FRAMES) {
+    final Bitmap b=BitmapFactory.decodeResource(mResources,frameRes);
+    if (b == null) {
+      continue;
+    }
+    final int w=b.getWidth(), h=b.getHeight();
+    final int sw=w * rainbowDotScale, sh=h * rainbowDotScale;
+    final BitmapDrawable bd;
+    if (w != sw || h != sh) {
+      final Bitmap sb=Bitmap.createScaledBitmap(b,sw,sh,false);
+      b.recycle();
+      bd=new TileBitmapDrawable(mResources,sb);
+    }
+ else {
+      bd=new TileBitmapDrawable(mResources,b);
+    }
+    bd.setTileModeX(TileMode.REPEAT);
+    bd.setTileModeY(TileMode.REPEAT);
+    ad.addFrame(bd,70);
+  }
+  return ad;
+}

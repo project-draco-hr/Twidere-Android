@@ -1,0 +1,10 @@
+{
+  String value=null;
+  for (  final String str : responseStr) {
+    if (str.startsWith(parameter + '=')) {
+      value=InternalStringUtil.split(str,"=")[1].trim();
+      break;
+    }
+  }
+  return value;
+}

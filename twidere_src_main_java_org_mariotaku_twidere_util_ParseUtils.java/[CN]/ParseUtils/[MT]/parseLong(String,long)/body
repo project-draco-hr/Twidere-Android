@@ -1,0 +1,9 @@
+{
+  if (source == null)   return def;
+  try {
+    return Long.parseLong(source);
+  }
+ catch (  final NumberFormatException e) {
+  }
+  return def;
+}

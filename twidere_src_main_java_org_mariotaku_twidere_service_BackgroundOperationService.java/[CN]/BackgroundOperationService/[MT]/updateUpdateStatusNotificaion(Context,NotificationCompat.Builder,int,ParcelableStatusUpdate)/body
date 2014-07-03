@@ -1,0 +1,10 @@
+{
+  builder.setContentTitle(context.getString(R.string.updating_status_notification));
+  if (status != null) {
+    builder.setContentText(status.text);
+  }
+  builder.setSmallIcon(R.drawable.ic_stat_send);
+  builder.setProgress(100,progress,progress >= 100 || progress <= 0);
+  builder.setOngoing(true);
+  return builder.build();
+}

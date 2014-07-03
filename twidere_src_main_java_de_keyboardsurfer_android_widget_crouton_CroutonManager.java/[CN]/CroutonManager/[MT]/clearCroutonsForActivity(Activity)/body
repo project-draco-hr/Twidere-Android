@@ -1,0 +1,14 @@
+{
+  if (croutonQueue == null)   return;
+  final Iterator<Crouton> croutonIterator=croutonQueue.iterator();
+  while (croutonIterator.hasNext()) {
+    final Crouton crouton=croutonIterator.next();
+    if (null != crouton.getActivity() && crouton.getActivity().equals(activity)) {
+      if (crouton.isShowing()) {
+        ((ViewGroup)crouton.getView().getParent()).removeView(crouton.getView());
+      }
+      removeAllMessagesForCrouton(crouton);
+      croutonIterator.remove();
+    }
+  }
+}

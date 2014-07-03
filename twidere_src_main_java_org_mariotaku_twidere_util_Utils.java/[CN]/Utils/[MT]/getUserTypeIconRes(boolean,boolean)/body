@@ -1,0 +1,5 @@
+{
+  if (is_verified)   return R.drawable.ic_indicator_verified;
+ else   if (is_protected)   return R.drawable.ic_indicator_protected;
+  return 0;
+}

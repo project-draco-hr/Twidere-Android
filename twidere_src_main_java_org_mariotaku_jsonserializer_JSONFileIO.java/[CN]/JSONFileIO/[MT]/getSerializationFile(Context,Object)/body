@@ -1,0 +1,10 @@
+{
+  if (context == null || args == null || args.length == 0)   return null;
+  final File cache_dir=Utils.getBestCacheDir(context,JSON_CACHE_DIR);
+  if (!cache_dir.exists()) {
+    cache_dir.mkdirs();
+  }
+  final String filename=Utils.encodeQueryParams(ArrayUtils.toString(args,'.',false));
+  final File cache_file=new File(cache_dir,filename + ".json");
+  return cache_file;
+}

@@ -1,0 +1,4 @@
+{
+  if (twitter == null)   return null;
+  return twitter.getBlocksList(paging);
+}

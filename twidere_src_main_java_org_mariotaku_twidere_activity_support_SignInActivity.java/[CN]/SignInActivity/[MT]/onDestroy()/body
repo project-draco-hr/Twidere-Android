@@ -1,0 +1,4 @@
+{
+  getLoaderManager().destroyLoader(0);
+  super.onDestroy();
+}

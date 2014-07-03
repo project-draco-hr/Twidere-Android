@@ -1,0 +1,9 @@
+{
+  if (cursor != null) {
+    mNameIdx=cursor.getColumnIndex(CachedValues.NAME);
+    mScreenNameIdx=cursor.getColumnIndex(CachedUsers.SCREEN_NAME);
+    mUserIdIdx=cursor.getColumnIndex(CachedUsers.USER_ID);
+    mProfileImageUrlIdx=cursor.getColumnIndex(CachedUsers.PROFILE_IMAGE_URL);
+  }
+  return super.swapCursor(cursor);
+}

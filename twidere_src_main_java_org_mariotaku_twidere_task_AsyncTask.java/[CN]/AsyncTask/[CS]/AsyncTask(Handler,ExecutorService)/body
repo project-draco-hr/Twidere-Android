@@ -1,0 +1,6 @@
+{
+  if (handler == null)   throw new NullPointerException();
+  mHandler=handler;
+  mExecutor=executor;
+  mRunnable=new BackgroundRunnable();
+}

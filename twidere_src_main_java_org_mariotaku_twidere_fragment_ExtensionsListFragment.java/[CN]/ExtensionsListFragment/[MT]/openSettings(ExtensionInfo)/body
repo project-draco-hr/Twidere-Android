@@ -1,0 +1,13 @@
+{
+  if (info == null || info.settings == null)   return false;
+  final Intent intent=new Intent(INTENT_ACTION_EXTENSIONS);
+  intent.setClassName(info.pname,info.settings);
+  try {
+    startActivity(intent);
+  }
+ catch (  final Exception e) {
+    Log.w(LOGTAG,e);
+    return false;
+  }
+  return true;
+}

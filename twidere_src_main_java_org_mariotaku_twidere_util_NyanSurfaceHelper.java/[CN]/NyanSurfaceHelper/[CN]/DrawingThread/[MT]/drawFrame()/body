@@ -1,0 +1,10 @@
+{
+  final SurfaceHolder holder=mSurfaceHelper.getHolder();
+  if (mSkipDrawing || holder == null || holder.isCreating())   return;
+  final Canvas c=holder.lockCanvas();
+  if (c == null)   return;
+  if (mDrawingHelper != null) {
+    mDrawingHelper.dispatchDraw(c);
+  }
+  holder.unlockCanvasAndPost(c);
+}

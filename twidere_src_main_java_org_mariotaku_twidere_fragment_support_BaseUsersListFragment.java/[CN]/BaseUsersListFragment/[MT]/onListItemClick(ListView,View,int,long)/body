@@ -1,0 +1,9 @@
+{
+  final ParcelableUser user=mAdapter.findItem(id);
+  if (user == null)   return;
+  if (mMultiSelectManager.isActive()) {
+    setItemSelected(user,position,!mMultiSelectManager.isSelected(user));
+    return;
+  }
+  openUserProfile(getActivity(),user);
+}

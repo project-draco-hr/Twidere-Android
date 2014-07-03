@@ -1,0 +1,36 @@
+{
+  if (isCursorClosed())   return;
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final TextView text2=(TextView)view.findViewById(android.R.id.text2);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  icon.setImageDrawable(null);
+  if (mScreenNameIdx != -1 && mNameIdx != -1 && mUserIdIdx != -1) {
+    final String nick=getUserNickname(context,cursor.getLong(mUserIdIdx));
+    final String name=cursor.getString(mNameIdx);
+    if (TextUtils.isEmpty(nick)) {
+      text1.setText(name);
+    }
+ else {
+      text1.setText(mNicknameOnly ? nick : context.getString(R.string.name_with_nickname,name,nick));
+    }
+    text2.setText("@" + cursor.getString(mScreenNameIdx));
+  }
+ else {
+    text1.setText("#" + cursor.getString(mNameIdx));
+    text2.setText(R.string.hashtag);
+  }
+  icon.setVisibility(mDisplayProfileImage ? View.VISIBLE : View.GONE);
+  if (mProfileImageUrlIdx != -1) {
+    if (mDisplayProfileImage && mProfileImageLoader != null) {
+      final String profile_image_url_string=cursor.getString(mProfileImageUrlIdx);
+      mProfileImageLoader.displayProfileImage(icon,profile_image_url_string);
+    }
+ else {
+      icon.setImageResource(R.drawable.ic_profile_image_default);
+    }
+  }
+ else {
+    icon.setImageDrawable(mResources.getDrawable(R.drawable.ic_iconic_action_hashtag));
+  }
+  super.bindView(view,context,cursor);
+}

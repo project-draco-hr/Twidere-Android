@@ -1,0 +1,6 @@
+{
+  super(createHandler());
+  mActivity=activity;
+  mLoaderId=loaderId;
+  mCallback=callback;
+}

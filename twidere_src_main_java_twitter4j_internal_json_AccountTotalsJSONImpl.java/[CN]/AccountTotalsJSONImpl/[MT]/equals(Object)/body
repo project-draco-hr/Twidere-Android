@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final AccountTotalsJSONImpl that=(AccountTotalsJSONImpl)o;
+  if (favorites != that.favorites)   return false;
+  if (followers != that.followers)   return false;
+  if (friends != that.friends)   return false;
+  if (updates != that.updates)   return false;
+  return true;
+}

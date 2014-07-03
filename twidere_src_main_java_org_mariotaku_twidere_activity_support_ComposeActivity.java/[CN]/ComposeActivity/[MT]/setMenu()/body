@@ -1,0 +1,8 @@
+{
+  if (mBottomMenuBar == null || mActionMenuBar == null)   return;
+  final Menu bottomMenu=mBottomMenuBar.getMenu(), actionMenu=mActionMenuBar.getMenu();
+  setCommonMenu(bottomMenu);
+  setCommonMenu(actionMenu);
+  mActionMenuBar.show();
+  mBottomMenuBar.show();
+}

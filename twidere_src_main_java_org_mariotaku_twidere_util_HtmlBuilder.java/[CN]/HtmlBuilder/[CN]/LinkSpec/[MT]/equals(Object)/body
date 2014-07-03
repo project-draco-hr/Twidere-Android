@@ -1,0 +1,18 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (!(obj instanceof LinkSpec))   return false;
+  final LinkSpec other=(LinkSpec)obj;
+  if (display == null) {
+    if (other.display != null)     return false;
+  }
+ else   if (!display.equals(other.display))   return false;
+  if (display_is_html != other.display_is_html)   return false;
+  if (end != other.end)   return false;
+  if (link == null) {
+    if (other.link != null)     return false;
+  }
+ else   if (!link.equals(other.link))   return false;
+  if (start != other.start)   return false;
+  return true;
+}

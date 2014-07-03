@@ -1,0 +1,4 @@
+{
+  final String uri=getMapStaticImageUri(mLocation.latitude,mLocation.longitude,mView);
+  mLoader.displayPreviewImage(mView,uri);
+}

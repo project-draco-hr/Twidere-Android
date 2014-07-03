@@ -1,0 +1,6 @@
+{
+  super.onContentChanged();
+  mListView=(ListView)findViewById(android.R.id.list);
+  mSelectAccountDivider=findViewById(R.id.select_account_divider);
+  mSelectAccountButtons=findViewById(R.id.select_account_buttons);
+}

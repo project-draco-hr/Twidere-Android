@@ -1,0 +1,19 @@
+{
+  final double radians=Math.toRadians(-rotation);
+  final double w=getWidth();
+  final double h=getHeight();
+  final double cos=Math.cos(radians);
+  final double sin=Math.sin(radians);
+  final int width=(int)Math.ceil(Math.max(Math.abs(cos * w - sin * h),Math.abs(cos * w + sin * h)));
+  final int height=(int)Math.ceil(Math.max(Math.abs(sin * w + cos * h),Math.abs(sin * w - cos * h)));
+  int left=(int)FloatMath.floor(cX - width / (2f * scale));
+  int top=(int)FloatMath.floor(cY - height / (2f * scale));
+  int right=(int)FloatMath.ceil(left + width / scale);
+  int bottom=(int)FloatMath.ceil(top + height / scale);
+  final int size=TILE_SIZE << level;
+  left=Math.max(0,size * (left / size));
+  top=Math.max(0,size * (top / size));
+  right=Math.min(mImageWidth,right);
+  bottom=Math.min(mImageHeight,bottom);
+  out.set(left,top,right,bottom);
+}

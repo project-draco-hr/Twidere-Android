@@ -1,0 +1,4 @@
+{
+  ignoreSSLError=ignore;
+  initRequestHeaders();
+}

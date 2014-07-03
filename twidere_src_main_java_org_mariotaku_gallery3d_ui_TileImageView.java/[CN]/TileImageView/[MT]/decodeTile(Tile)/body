@@ -1,0 +1,22 @@
+{
+synchronized (this) {
+    if (tile.mTileState != STATE_IN_QUEUE)     return false;
+    tile.mTileState=STATE_DECODING;
+  }
+  final boolean decodeComplete=tile.decode();
+synchronized (this) {
+    if (tile.mTileState == STATE_RECYCLING) {
+      tile.mTileState=STATE_RECYCLED;
+      if (tile.mDecodedTile != null) {
+        if (sTilePool != null) {
+          sTilePool.recycle(tile.mDecodedTile);
+        }
+        tile.mDecodedTile=null;
+      }
+      mRecycledQueue.push(tile);
+      return false;
+    }
+    tile.mTileState=decodeComplete ? STATE_DECODED : STATE_DECODE_FAIL;
+    return decodeComplete;
+  }
+}

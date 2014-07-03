@@ -1,0 +1,5 @@
+{
+  setProgressBarIndeterminateVisibility(true);
+  final Loader<List<ParcelableUser>> loader=newLoaderInstance(getActivity(),args);
+  return loader != null ? loader : new DummyParcelableUsersLoader(getActivity());
+}

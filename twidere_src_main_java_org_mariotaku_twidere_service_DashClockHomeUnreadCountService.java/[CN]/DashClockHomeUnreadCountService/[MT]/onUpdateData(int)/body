@@ -1,0 +1,11 @@
+{
+  final ExtensionData data=new ExtensionData();
+  final int count=UnreadCountUtils.getUnreadCount(this,TAB_TYPE_HOME_TIMELINE);
+  final Resources res=getResources();
+  data.visible(count > 0);
+  data.icon(R.drawable.ic_extension_twidere);
+  data.status(Integer.toString(count));
+  data.expandedTitle(res.getQuantityString(R.plurals.N_new_statuses,count,count));
+  data.clickIntent(new Intent(this,HomeActivity.class));
+  publishUpdate(data);
+}

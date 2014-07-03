@@ -1,0 +1,7 @@
+{
+  if (mTouchInterceptor != null) {
+    final boolean ret=mTouchInterceptor.onInterceptTouchEvent(this,event);
+    if (ret)     return true;
+  }
+  return super.onInterceptTouchEvent(event);
+}

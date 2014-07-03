@@ -1,0 +1,5 @@
+{
+  if (rule == null || host == null)   return false;
+  if (rule.startsWith("."))   return host.toLowerCase().endsWith(rule.toLowerCase());
+  return host.equalsIgnoreCase(rule);
+}

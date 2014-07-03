@@ -1,0 +1,10 @@
+{
+switch (event.getKeyCode()) {
+case KeyEvent.KEYCODE_ENTER:
+{
+      sendDirectMessage();
+      return true;
+    }
+}
+return false;
+}

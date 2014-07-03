@@ -1,0 +1,36 @@
+{
+  intent.setExtrasClassLoader(getClassLoader());
+  setIntent(new Intent(this,HomeActivity.class));
+  final String action=intent.getAction();
+  if (Intent.ACTION_SEARCH.equals(action)) {
+    final String query=intent.getStringExtra(SearchManager.QUERY);
+    final Bundle appSearchData=intent.getBundleExtra(SearchManager.APP_DATA);
+    final long accountId;
+    if (appSearchData != null && appSearchData.containsKey(EXTRA_ACCOUNT_ID)) {
+      accountId=appSearchData.getLong(EXTRA_ACCOUNT_ID,-1);
+    }
+ else {
+      accountId=getDefaultAccountId(this);
+    }
+    openSearch(this,accountId,query);
+    return -1;
+  }
+  final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
+  final long[] refreshedIds=intent.getLongArrayExtra(EXTRA_IDS);
+  if (refreshedIds != null) {
+    mTwitterWrapper.refreshAll(refreshedIds);
+  }
+ else   if (firstCreate && refreshOnStart) {
+    mTwitterWrapper.refreshAll();
+  }
+  final int tab=intent.getIntExtra(EXTRA_INITIAL_TAB,-1);
+  final int initialTab=tab != -1 ? tab : getAddedTabPosition(this,intent.getStringExtra(EXTRA_TAB_TYPE));
+  if (initialTab != -1 && mViewPager != null) {
+  }
+  final Intent extraIntent=intent.getParcelableExtra(EXTRA_EXTRA_INTENT);
+  if (extraIntent != null && firstCreate) {
+    extraIntent.setExtrasClassLoader(getClassLoader());
+    SwipebackActivityUtils.startSwipebackActivity(this,extraIntent);
+  }
+  return initialTab;
+}

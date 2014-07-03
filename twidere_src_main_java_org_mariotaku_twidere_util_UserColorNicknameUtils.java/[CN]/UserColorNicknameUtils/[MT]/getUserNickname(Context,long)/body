@@ -1,0 +1,3 @@
+{
+  return getUserNickname(context,user_id,false);
+}

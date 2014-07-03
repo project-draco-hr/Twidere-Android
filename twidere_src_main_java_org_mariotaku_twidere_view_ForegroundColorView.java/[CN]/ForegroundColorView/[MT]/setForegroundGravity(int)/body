@@ -1,0 +1,3 @@
+{
+  mForegroundViewHelper.setForegroundGravity(foregroundGravity);
+}

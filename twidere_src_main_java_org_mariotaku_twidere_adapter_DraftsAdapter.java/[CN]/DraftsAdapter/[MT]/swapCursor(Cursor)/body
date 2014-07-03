@@ -1,0 +1,7 @@
+{
+  final Cursor old=super.swapCursor(c);
+  if (c != null) {
+    mIndices=new DraftItem.CursorIndices(c);
+  }
+  return old;
+}

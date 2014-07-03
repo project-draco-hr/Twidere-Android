@@ -1,0 +1,12 @@
+{
+  if (isNullOrEmpty(oAuthBaseURL)) {
+    oAuthBaseURL=DEFAULT_OAUTH_BASE_URL;
+  }
+  this.oAuthBaseURL=fixURLSlash(oAuthBaseURL);
+  oAuthAccessTokenURL=oAuthBaseURL + PATH_SEGMENT_ACCESS_TOKEN;
+  oAuthAuthenticationURL=oAuthBaseURL + PATH_SEGMENT_AUTHENTICATION;
+  oAuthAuthorizationURL=oAuthBaseURL + PATH_SEGMENT_AUTHORIZATION;
+  oAuthRequestTokenURL=oAuthBaseURL + PATH_SEGMENT_REQUEST_TOKEN;
+  setSigningOAuthBaseURL(oAuthBaseURL);
+  fixOAuthBaseURL();
+}

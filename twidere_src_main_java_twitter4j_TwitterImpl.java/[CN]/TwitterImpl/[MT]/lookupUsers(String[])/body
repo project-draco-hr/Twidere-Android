@@ -1,0 +1,4 @@
+{
+  ensureAuthorizationEnabled();
+  return factory.createUserList(get(conf.getRestBaseURL() + ENDPOINT_USERS_LOOKUP,conf.getSigningRestBaseURL() + ENDPOINT_USERS_LOOKUP,new HttpParameter("screen_name",InternalStringUtil.join(screenNames)),INCLUDE_ENTITIES));
+}

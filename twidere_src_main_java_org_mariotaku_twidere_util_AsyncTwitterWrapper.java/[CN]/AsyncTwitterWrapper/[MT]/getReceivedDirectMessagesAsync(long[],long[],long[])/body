@@ -1,0 +1,5 @@
+{
+  mAsyncTaskManager.cancel(mGetReceivedDirectMessagesTaskId);
+  final GetReceivedDirectMessagesTask task=new GetReceivedDirectMessagesTask(accountIds,max_ids,since_ids);
+  return mGetReceivedDirectMessagesTaskId=mAsyncTaskManager.add(task,true);
+}

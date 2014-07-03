@@ -1,0 +1,10 @@
+{
+  stopAutoRefresh();
+  final long refreshInterval=getRefreshInterval();
+  if (refreshInterval <= 0)   return false;
+  rescheduleHomeTimelineRefreshing();
+  rescheduleMentionsRefreshing();
+  rescheduleDirectMessagesRefreshing();
+  rescheduleTrendsRefreshing();
+  return true;
+}

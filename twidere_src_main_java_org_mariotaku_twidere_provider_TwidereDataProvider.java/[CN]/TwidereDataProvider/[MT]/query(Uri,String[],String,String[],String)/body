@@ -1,0 +1,86 @@
+{
+  try {
+    final int tableId=getTableId(uri);
+    final String table=getTableNameById(tableId);
+    checkReadPermission(tableId,table,projection);
+switch (tableId) {
+case VIRTUAL_TABLE_ID_DATABASE_READY:
+{
+        if (mDatabaseWrapper.isReady())         return new MatrixCursor(projection != null ? projection : new String[0]);
+        return null;
+      }
+case VIRTUAL_TABLE_ID_PERMISSIONS:
+{
+      final MatrixCursor c=new MatrixCursor(TweetStore.Permissions.MATRIX_COLUMNS);
+      final Map<String,String> map=mPermissionsManager.getAll();
+      for (      final Map.Entry<String,String> item : map.entrySet()) {
+        c.addRow(new Object[]{item.getKey(),item.getValue()});
+      }
+      return c;
+    }
+case VIRTUAL_TABLE_ID_ALL_PREFERENCES:
+{
+    return getPreferencesCursor(mPreferences,null);
+  }
+case VIRTUAL_TABLE_ID_PREFERENCES:
+{
+  return getPreferencesCursor(mPreferences,uri.getLastPathSegment());
+}
+case VIRTUAL_TABLE_ID_DNS:
+{
+return getDNSCursor(uri.getLastPathSegment());
+}
+case VIRTUAL_TABLE_ID_CACHED_IMAGES:
+{
+return getCachedImageCursor(uri.getQueryParameter(QUERY_PARAM_URL));
+}
+case VIRTUAL_TABLE_ID_NOTIFICATIONS:
+{
+final List<String> segments=uri.getPathSegments();
+if (segments.size() == 2) return getNotificationsCursor(ParseUtils.parseInt(segments.get(1),-1));
+ else return getNotificationsCursor();
+}
+case VIRTUAL_TABLE_ID_UNREAD_COUNTS:
+{
+final List<String> segments=uri.getPathSegments();
+if (segments.size() == 2) return getUnreadCountsCursor(ParseUtils.parseInt(segments.get(1),-1));
+ else return getUnreadCountsCursor();
+}
+case VIRTUAL_TABLE_ID_UNREAD_COUNTS_BY_TYPE:
+{
+final List<String> segments=uri.getPathSegments();
+if (segments.size() != 3) return null;
+return getUnreadCountsCursorByType(segments.get(2));
+}
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+{
+final List<String> segments=uri.getPathSegments();
+if (segments.size() != 4) return null;
+final long accountId=ParseUtils.parseLong(segments.get(2));
+final long conversationId=ParseUtils.parseLong(segments.get(3));
+final String query=TwidereQueryBuilder.ConversationQueryBuilder.buildByConversationId(projection,accountId,conversationId,selection,sortOrder);
+final Cursor c=mDatabaseWrapper.rawQuery(query,selectionArgs);
+setNotificationUri(c,DirectMessages.CONTENT_URI);
+return c;
+}
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION_SCREEN_NAME:
+{
+final List<String> segments=uri.getPathSegments();
+if (segments.size() != 4) return null;
+final long accountId=ParseUtils.parseLong(segments.get(2));
+final String screenName=segments.get(3);
+final String query=TwidereQueryBuilder.ConversationQueryBuilder.buildByScreenName(projection,accountId,screenName,selection,sortOrder);
+final Cursor c=mDatabaseWrapper.rawQuery(query,selectionArgs);
+setNotificationUri(c,DirectMessages.CONTENT_URI);
+return c;
+}
+}
+if (table == null) return null;
+final Cursor c=mDatabaseWrapper.query(table,projection,selection,selectionArgs,null,null,sortOrder);
+setNotificationUri(c,getNotificationUri(tableId,uri));
+return c;
+}
+ catch (final SQLException e) {
+throw new IllegalStateException(e);
+}
+}

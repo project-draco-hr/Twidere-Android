@@ -1,0 +1,6 @@
+{
+  final int count=mMediaPreviewAdapter.getCount();
+  final Resources res=getResources();
+  final int maxColumns=res.getInteger(R.integer.grid_column_image_preview);
+  mMediasPreviewGrid.setNumColumns(MathUtils.clamp(count,maxColumns,1));
+}

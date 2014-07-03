@@ -1,0 +1,16 @@
+{
+  if (keywords == null || keywords.length == 0 || orig == null)   return orig;
+  final SpannableStringBuilder sb=SpannableStringBuilder.valueOf(orig);
+  final StringBuilder patternBuilder=new StringBuilder();
+  for (int i=0, j=keywords.length; i < j; i++) {
+    if (i != 0) {
+      patternBuilder.append('|');
+    }
+    patternBuilder.append(Pattern.quote(keywords[i]));
+  }
+  final Matcher m=Pattern.compile(patternBuilder.toString(),Pattern.CASE_INSENSITIVE).matcher(orig);
+  while (m.find()) {
+    sb.setSpan(style,m.start(),m.end(),SpannableStringBuilder.SPAN_INCLUSIVE_INCLUSIVE);
+  }
+  return sb;
+}

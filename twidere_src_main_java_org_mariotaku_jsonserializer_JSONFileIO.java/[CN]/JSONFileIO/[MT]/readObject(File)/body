@@ -1,0 +1,4 @@
+{
+  if (file == null)   throw new FileNotFoundException();
+  return readObject(new FileInputStream(file));
+}

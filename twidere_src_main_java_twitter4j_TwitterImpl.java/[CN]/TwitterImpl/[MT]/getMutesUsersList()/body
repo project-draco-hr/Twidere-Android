@@ -1,0 +1,6 @@
+{
+  ensureAuthorizationEnabled();
+  final String url=conf.getRestBaseURL() + ENDPOINT_MUTES_USERS_LIST;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_MUTES_USERS_LIST;
+  return factory.createPagableUserList(get(url,signUrl,INCLUDE_ENTITIES));
+}

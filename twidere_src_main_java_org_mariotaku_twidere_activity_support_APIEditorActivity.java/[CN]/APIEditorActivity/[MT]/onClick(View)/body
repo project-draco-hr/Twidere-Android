@@ -1,0 +1,24 @@
+{
+switch (v.getId()) {
+case R.id.save:
+{
+      if (checkUrlErrors())       return;
+      final String apiUrlFormat=parseString(mEditAPIUrlFormat.getText());
+      final int authType=getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
+      if (authType == Accounts.AUTH_TYPE_TWIP_O_MODE && !apiUrlFormat.endsWith("/1.1/")) {
+        new TWIPNoticeDialogFragment().show(getFragmentManager(),"twip_o_mode_bug_notice");
+        return;
+      }
+      saveAndFinish();
+      break;
+    }
+case R.id.advanced_api_config_label:
+{
+    final boolean isVisible=mAdvancedAPIConfigView.isShown();
+    final int compoundRes=isVisible ? R.drawable.expander_close_holo : R.drawable.expander_open_holo;
+    mAdvancedAPIConfigLabel.setCompoundDrawablesWithIntrinsicBounds(compoundRes,0,0,0);
+    mAdvancedAPIConfigView.setVisibility(isVisible ? View.GONE : View.VISIBLE);
+    break;
+  }
+}
+}

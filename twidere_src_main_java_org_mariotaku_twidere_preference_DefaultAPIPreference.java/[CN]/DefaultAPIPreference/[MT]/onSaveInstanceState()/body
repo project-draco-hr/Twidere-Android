@@ -1,0 +1,10 @@
+{
+  final Bundle outState=new Bundle();
+  outState.putParcelable(EXTRA_DATA,super.onSaveInstanceState());
+  outState.putString(Accounts.API_URL_FORMAT,parseString(mEditAPIUrlFormat.getText()));
+  outState.putInt(Accounts.AUTH_TYPE,getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId()));
+  outState.putBoolean(Accounts.SAME_OAUTH_SIGNING_URL,mEditSameOAuthSigningUrl.isChecked());
+  outState.putString(Accounts.CONSUMER_KEY,parseString(mEditConsumerKey.getText()));
+  outState.putString(Accounts.CONSUMER_SECRET,parseString(mEditConsumerSecret.getText()));
+  return outState;
+}

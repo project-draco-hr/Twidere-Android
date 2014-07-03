@@ -1,0 +1,12 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mPreferences=getSharedPreferences(HOST_MAPPING_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  mAdapter=new HostMappingAdapter(getActivity());
+  setListAdapter(mAdapter);
+  mListView=getListView();
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  mListView.setMultiChoiceModeListener(this);
+  reloadHostMappings();
+}

@@ -1,0 +1,4 @@
+{
+  uri=in.readString("uri");
+  type=in.readInt("type");
+}

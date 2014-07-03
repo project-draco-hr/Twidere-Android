@@ -1,0 +1,3 @@
+{
+  return "GeoLocation{" + "latitude=" + latitude + ", longitude="+ longitude+ '}';
+}

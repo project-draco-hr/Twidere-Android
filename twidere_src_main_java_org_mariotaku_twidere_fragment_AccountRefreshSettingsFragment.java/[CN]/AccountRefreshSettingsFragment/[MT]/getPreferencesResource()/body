@@ -1,0 +1,3 @@
+{
+  return R.xml.settings_account_refresh;
+}
