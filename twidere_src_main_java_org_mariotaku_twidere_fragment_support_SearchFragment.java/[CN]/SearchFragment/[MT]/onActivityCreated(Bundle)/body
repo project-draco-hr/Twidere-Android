@@ -9,11 +9,7 @@
   mViewPager.setAdapter(mAdapter);
   mViewPager.setOnPageChangeListener(this);
   mViewPager.setOffscreenPageLimit(2);
-  final TypedArray a=activity.obtainStyledAttributes(new int[]{android.R.attr.colorForeground});
-  final int foregroundColor=a.getColor(0,Color.GRAY);
-  a.recycle();
-  mPagerIndicator.setFillColor(foregroundColor);
-  mPagerIndicator.setStrokeColor(foregroundColor);
+  mPagerIndicator.setSelectedColor(ThemeUtils.getThemeColor(activity));
   mPagerIndicator.setViewPager(mViewPager);
   if (savedInstanceState == null && args != null && args.containsKey(EXTRA_QUERY)) {
     final String query=args.getString(EXTRA_QUERY);
