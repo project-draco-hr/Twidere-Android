@@ -1,5 +1,5 @@
 SpannableString string
-long account_id
+long accountId
 int type
 boolean sensitive
 OnLinkClickListener listener

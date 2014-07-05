@@ -1,3 +1,0 @@
-{
-  setImageDrawable(drawable,true,null,-1);
-}

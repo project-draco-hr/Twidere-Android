@@ -23,7 +23,7 @@ case MENU_ADD:
     args.putParcelable(EXTRA_URI,((BaseFiltersFragment)f).getContentUri());
     final AddItemFragment dialog=new AddItemFragment();
     dialog.setArguments(args);
-    dialog.show(getFragmentManager(),"add_rule");
+    dialog.show(getSupportFragmentManager(),"add_rule");
     return true;
   }
 case R.id.enable_in_home_timeline:

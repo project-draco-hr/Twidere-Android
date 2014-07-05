@@ -1,6 +1,0 @@
-{
-  if (value != mFitToScreen) {
-    mFitToScreen=value;
-    requestLayout();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  setScaleType(ImageView.ScaleType.MATRIX);
-}

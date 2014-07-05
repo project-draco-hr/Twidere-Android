@@ -1,4 +1,0 @@
-Drawable drawable
-boolean reset
-Matrix initial_matrix
-float maxZoom

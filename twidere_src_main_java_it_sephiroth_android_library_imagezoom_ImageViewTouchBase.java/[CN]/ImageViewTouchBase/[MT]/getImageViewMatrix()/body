@@ -1,5 +1,0 @@
-{
-  mDisplayMatrix.set(mBaseMatrix);
-  mDisplayMatrix.postConcat(mSuppMatrix);
-  return mDisplayMatrix;
-}
