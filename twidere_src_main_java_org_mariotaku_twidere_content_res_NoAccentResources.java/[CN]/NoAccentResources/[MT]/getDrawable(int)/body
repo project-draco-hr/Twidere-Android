@@ -1,0 +1,9 @@
+{
+  checkInitialized();
+  Drawable result;
+  for (  AccentResources.Interceptor interceptor : mInterceptors) {
+    result=interceptor.getDrawable(this,mPalette,resId);
+    if (result != null)     return result;
+  }
+  return super.getDrawable(resId);
+}

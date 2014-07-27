@@ -1,6 +1,0 @@
-{
-  if (mAccentHelper == null) {
-    mAccentHelper=new TwidereAccentHelper(getThemeResourceId(),getThemeColor());
-  }
-  return mAccentHelper.getResources(this,super.getResources());
-}

@@ -1,0 +1,4 @@
+{
+  if (mInitialized)   return;
+  initialize(mContext);
+}

@@ -1,4 +1,6 @@
 {
   if (mResources != null)   return mResources;
-  return mResources=new TwidereResources(c,resources,mOverrideThemeRes);
+  mResources=new NoAccentResources(c,resources);
+  if (mInitListener != null)   mInitListener.onInitResources(mResources);
+  return mResources;
 }

@@ -1,0 +1,6 @@
+{
+  checkInitialized();
+  Bitmap bitmap=getBitmapFromResource(id,value);
+  bitmap=BitmapUtils.applyColor(bitmap,color);
+  return getStreamFromBitmap(bitmap);
+}

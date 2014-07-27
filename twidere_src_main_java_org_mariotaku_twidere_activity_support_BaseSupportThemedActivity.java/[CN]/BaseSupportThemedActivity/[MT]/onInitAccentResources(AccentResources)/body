@@ -1,0 +1,4 @@
+{
+  super.onInitAccentResources(resources);
+  ThemeUtils.initResourceInterceptors(this,resources);
+}

@@ -1,0 +1,4 @@
+{
+  if (mCustomTransformationDrawableIds == null)   mCustomTransformationDrawableIds=new ArrayList<Integer>();
+  mCustomTransformationDrawableIds.add(resId);
+}

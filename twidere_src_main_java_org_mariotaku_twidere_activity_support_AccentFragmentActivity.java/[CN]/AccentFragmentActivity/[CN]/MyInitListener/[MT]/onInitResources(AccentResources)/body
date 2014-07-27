@@ -1,0 +1,3 @@
+{
+  onInitAccentResources(resources);
+}

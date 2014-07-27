@@ -1,0 +1,5 @@
+{
+  resources.addInterceptor(new ActionIconsInterceptor(context,resources.getDisplayMetrics(),0));
+  resources.addInterceptor(new ActivityIconsInterceptor(context,resources.getDisplayMetrics(),0));
+  resources.addInterceptor(new WhiteDrawableInterceptor(resources));
+}

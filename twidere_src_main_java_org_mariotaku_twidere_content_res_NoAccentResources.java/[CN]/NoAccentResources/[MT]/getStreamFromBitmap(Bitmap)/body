@@ -1,0 +1,11 @@
+{
+  ByteArrayOutputStream bos=new ByteArrayOutputStream();
+  bitmap.compress(CompressFormat.PNG,100,bos);
+  byte[] bitmapData=bos.toByteArray();
+  try {
+    bos.close();
+  }
+ catch (  IOException e) {
+  }
+  return new ByteArrayInputStream(bitmapData);
+}

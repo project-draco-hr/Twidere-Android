@@ -1,0 +1,4 @@
+{
+  mOverrideThemeRes=overrideThemeRes;
+  mInitListener=listener;
+}

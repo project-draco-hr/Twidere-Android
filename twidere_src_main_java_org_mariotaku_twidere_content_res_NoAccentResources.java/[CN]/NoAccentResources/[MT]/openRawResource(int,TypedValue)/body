@@ -1,0 +1,10 @@
+{
+  checkInitialized();
+  for (  int id : mTintDrawableIds) {
+    if (resId == id)     return getTintendResourceStream(resId,value,mPalette.accentColor);
+  }
+  for (  int id : mTransformationDrawableIds) {
+    if (resId == id)     return getTintTransformationResourceStream(resId,value,mPalette.accentColor);
+  }
+  return super.openRawResource(resId,value);
+}
