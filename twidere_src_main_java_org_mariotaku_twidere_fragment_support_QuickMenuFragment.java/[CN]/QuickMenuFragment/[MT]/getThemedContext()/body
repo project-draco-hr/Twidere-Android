@@ -1,8 +1,17 @@
 {
   if (mThemedContext != null)   return mThemedContext;
   final Context context=getActivity();
-  if (!ThemeUtils.isDarkDrawerEnabled(context))   return mThemedContext=context;
-  final int themeResource=ThemeUtils.getDrawerThemeResource(context);
+  final int currentThemeResource=ThemeUtils.getThemeResource(context);
+  final int themeResource;
+  if (!ThemeUtils.isDarkDrawerEnabled(context)) {
+    if (ThemeUtils.isDarkTheme(currentThemeResource)) {
+      return mThemedContext=context;
+    }
+    themeResource=ThemeUtils.getLightDrawerThemeResource(currentThemeResource);
+  }
+ else {
+    themeResource=ThemeUtils.getDrawerThemeResource(currentThemeResource);
+  }
   final int accentColor=ThemeUtils.getUserThemeColor(context);
   return mThemedContext=new TwidereContextThemeWrapper(context,themeResource,accentColor);
 }

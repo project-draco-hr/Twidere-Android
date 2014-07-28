@@ -1,4 +1,0 @@
-{
-  super(res.getAssets(),res.getDisplayMetrics(),res.getConfiguration());
-  mHelper=new Helper(this,context,overrideThemeRes);
-}

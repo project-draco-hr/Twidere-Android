@@ -1,0 +1,4 @@
+{
+  inflater.inflate(R.menu.menu_map_viewer,menu);
+  return true;
+}

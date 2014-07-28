@@ -1,0 +1,11 @@
+{
+  super(context,attrs,defStyle);
+  if (!isInEditMode()) {
+    final TypedArray array=context.obtainStyledAttributes(attrs,R.styleable.ResourceImageView,defStyle,0);
+    final int resId=array.getResourceId(R.styleable.ResourceImageView_image,-1);
+    if (resId > 0) {
+      setImageResource(resId);
+    }
+    array.recycle();
+  }
+}

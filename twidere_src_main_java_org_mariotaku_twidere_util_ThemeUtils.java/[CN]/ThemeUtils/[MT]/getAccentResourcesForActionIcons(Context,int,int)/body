@@ -1,3 +1,0 @@
-{
-  return new TwidereAccentResources(baseContext,baseContext.getResources(),themeRes,accentColor);
-}

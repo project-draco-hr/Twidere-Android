@@ -1,0 +1,3 @@
+{
+  return getThemedContextForActionIcons(context,themeRes,accentColor).getResources();
+}

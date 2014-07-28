@@ -1,0 +1,8 @@
+{
+  if (mMenuInflater != null)   return mMenuInflater;
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    return mMenuInflater=new TwidereMenuInflater(actionBar.getThemedContext());
+  }
+  return mMenuInflater=new TwidereMenuInflater(this);
+}

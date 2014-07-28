@@ -1,3 +1,0 @@
-{
-  return new TwidereResources(baseContext,baseContext.getResources(),themeRes);
-}

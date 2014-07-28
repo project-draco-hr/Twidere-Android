@@ -11,6 +11,8 @@ case R.style.Theme_Twidere_Colored_Transparent:
 case R.style.Theme_Twidere_Colored_Compose:
 case R.style.Theme_Twidere_ActionBar_Colored_Light:
 case R.style.Theme_Twidere_Settings_Light:
+case R.style.Theme_Twidere_Drawer_Light:
+case R.style.Theme_Twidere_Drawer_Light_Transparent:
 case R.style.Theme_Twidere_Light_DarkActionBar_DarkIcon:
 case R.style.Theme_Twidere_Light_DarkActionBar_SolidBackground_DarkIcon:
 case R.style.Theme_Twidere_Light_DarkActionBar_Transparent_DarkIcon:

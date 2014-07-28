@@ -1,0 +1,10 @@
+{
+  TypedArray a=mContext.obtainStyledAttributes(attrs,Styleable.MenuGroup);
+  groupId=a.getResourceId(Styleable.MenuGroup_id,defaultGroupId);
+  groupCategory=a.getInt(Styleable.MenuGroup_menuCategory,defaultItemCategory);
+  groupOrder=a.getInt(Styleable.MenuGroup_orderInCategory,defaultItemOrder);
+  groupCheckable=a.getInt(Styleable.MenuGroup_checkableBehavior,defaultItemCheckable);
+  groupVisible=a.getBoolean(Styleable.MenuGroup_visible,defaultItemVisible);
+  groupEnabled=a.getBoolean(Styleable.MenuGroup_enabled,defaultItemEnabled);
+  a.recycle();
+}

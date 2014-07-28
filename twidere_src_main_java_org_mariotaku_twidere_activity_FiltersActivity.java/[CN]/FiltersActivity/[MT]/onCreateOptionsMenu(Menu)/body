@@ -1,4 +1,0 @@
-{
-  getMenuInflater().inflate(R.menu.menu_filters,menu);
-  return true;
-}
