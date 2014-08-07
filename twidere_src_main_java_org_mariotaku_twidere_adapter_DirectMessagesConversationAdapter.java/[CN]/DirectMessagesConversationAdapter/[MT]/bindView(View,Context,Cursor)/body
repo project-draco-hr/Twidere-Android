@@ -6,8 +6,6 @@
   final long accountId=cursor.getLong(mIndices.account_id);
   final long timestamp=cursor.getLong(mIndices.message_timestamp);
   final boolean is_outgoing=cursor.getInt(mIndices.is_outgoing) == 1;
-  holder.incoming_profile_image.setImageDrawable(null);
-  holder.outgoing_profile_image.setImageDrawable(null);
   holder.incoming_message_container.setVisibility(is_outgoing ? View.GONE : View.VISIBLE);
   holder.outgoing_message_container.setVisibility(is_outgoing ? View.VISIBLE : View.GONE);
   holder.setTextSize(getTextSize());
@@ -28,6 +26,10 @@
     holder.incoming_profile_image.setTag(position);
     holder.outgoing_profile_image.setTag(position);
   }
+ else {
+    mImageLoader.cancelDisplayTask(holder.incoming_profile_image);
+    mImageLoader.cancelDisplayTask(holder.outgoing_profile_image);
+  }
   if (position > mMaxAnimationPosition) {
     if (mAnimationEnabled) {
       view.startAnimation(holder.item_animation);
@@ -37,10 +39,13 @@
   holder.incoming_item_menu.setTag(position);
   holder.outgoing_item_menu.setTag(position);
   if (firstMedia == null) {
+    mImageLoader.cancelDisplayTask(holder.incoming_image_preview);
+    mImageLoader.cancelDisplayTask(holder.outgoing_image_preview);
     holder.outgoing_image_preview_container.setVisibility(View.GONE);
     holder.incoming_image_preview_container.setVisibility(View.GONE);
   }
  else   if (is_outgoing) {
+    mImageLoader.cancelDisplayTask(holder.incoming_image_preview);
     holder.outgoing_image_preview_container.setVisibility(View.VISIBLE);
     holder.incoming_image_preview_container.setVisibility(View.GONE);
     if (mImagePreviewScaleType != null) {
@@ -53,6 +58,7 @@
     holder.outgoing_image_preview.setTag(position);
   }
  else {
+    mImageLoader.cancelDisplayTask(holder.outgoing_image_preview);
     holder.outgoing_image_preview_container.setVisibility(View.GONE);
     holder.incoming_image_preview_container.setVisibility(View.VISIBLE);
     if (mImagePreviewScaleType != null) {

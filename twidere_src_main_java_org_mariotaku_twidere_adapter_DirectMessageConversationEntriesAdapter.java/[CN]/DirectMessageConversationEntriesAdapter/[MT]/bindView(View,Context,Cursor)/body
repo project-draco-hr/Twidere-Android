@@ -12,7 +12,6 @@
   if (showAccountColor) {
     holder.setAccountColor(getAccountColor(mContext,accountId));
   }
-  holder.profile_image.setImageDrawable(null);
   holder.setUserColor(getUserColor(mContext,conversationId));
   holder.setTextSize(getTextSize());
   final String nick=getUserNickname(context,conversationId);
@@ -27,7 +26,10 @@
   if (displayProfileImage) {
     holder.profile_image.setTag(position);
     final String profile_image_url_string=cursor.getString(IDX_PROFILE_IMAGE_URL);
-    mLazyImageLoader.displayProfileImage(holder.profile_image,profile_image_url_string);
+    mImageLoader.displayProfileImage(holder.profile_image,profile_image_url_string);
+  }
+ else {
+    mImageLoader.cancelDisplayTask(holder.profile_image);
   }
   if (position > mMaxAnimationPosition) {
     if (mAnimationEnabled) {

@@ -11,6 +11,7 @@
       mImageLoader.displayProfileImage(view,urls[i]);
     }
  else {
+      mImageLoader.cancelDisplayTask(view);
       view.setVisibility(View.GONE);
     }
   }

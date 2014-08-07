@@ -21,7 +21,7 @@ case MENU_ADD_LOCATION:
  else {
     mLocationManager.removeUpdates(this);
   }
-  mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,!attachLocation).commit();
+  mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,!attachLocation).apply();
   setMenu();
   updateTextCount();
   break;

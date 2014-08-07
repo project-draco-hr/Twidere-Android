@@ -1,0 +1,6 @@
+{
+  if (context == null)   return Color.TRANSPARENT;
+  final int defThemeColor=getThemeColor(context,themeRes);
+  final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
+  return pref.getInt(KEY_THEME_COLOR,defThemeColor);
+}

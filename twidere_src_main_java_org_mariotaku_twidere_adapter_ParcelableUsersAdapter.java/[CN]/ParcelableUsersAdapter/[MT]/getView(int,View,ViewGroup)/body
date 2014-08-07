@@ -1,7 +1,7 @@
 {
   final View view=super.getView(position,convertView,parent);
   final Object tag=view.getTag();
-  UserViewHolder holder=null;
+  final UserViewHolder holder;
   if (tag instanceof UserViewHolder) {
     holder=(UserViewHolder)tag;
   }
@@ -14,7 +14,6 @@
     }
     view.setTag(holder);
   }
-  holder.profile_image.setImageDrawable(null);
   holder.position=position;
   final ParcelableUser user=getItem(position);
   final boolean showAccountColor=isShowAccountColor();

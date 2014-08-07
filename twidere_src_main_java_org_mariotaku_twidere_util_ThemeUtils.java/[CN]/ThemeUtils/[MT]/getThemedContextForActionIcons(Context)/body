@@ -2,11 +2,11 @@
   final int themeRes, accentColor;
   if (context instanceof IThemedActivity) {
     themeRes=((IThemedActivity)context).getThemeResourceId();
-    accentColor=((IThemedActivity)context).getThemeColor();
+    accentColor=((IThemedActivity)context).getOverrideAccentColor();
   }
  else {
     themeRes=getSettingsThemeResource(context);
-    accentColor=getUserThemeColor(context);
+    accentColor=getUserThemeColor(context,themeRes);
   }
   return new TwidereContextThemeWrapper(context,getThemeResActionIcons(themeRes),accentColor);
 }

@@ -2,7 +2,7 @@
   final int themeRes, accentColor;
   if (context instanceof IThemedActivity) {
     themeRes=((IThemedActivity)context).getThemeResourceId();
-    accentColor=((IThemedActivity)context).getThemeColor();
+    accentColor=((IThemedActivity)context).getOverrideAccentColor();
   }
  else {
     themeRes=getSettingsThemeResource(context);

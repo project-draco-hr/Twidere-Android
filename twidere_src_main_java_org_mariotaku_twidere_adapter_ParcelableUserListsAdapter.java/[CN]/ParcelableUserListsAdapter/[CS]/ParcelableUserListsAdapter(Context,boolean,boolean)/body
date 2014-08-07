@@ -4,7 +4,7 @@
   mContext=context;
   mLocale=context.getResources().getConfiguration().locale;
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mProfileImageLoader=app.getImageLoaderWrapper();
+  mImageLoader=app.getImageLoaderWrapper();
   mMultiSelectManager=app.getMultiSelectManager();
   configBaseCardAdapter(context,this);
 }

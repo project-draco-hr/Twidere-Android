@@ -1,0 +1,4 @@
+{
+  final Context appContext=context.getApplicationContext();
+  return SharedPreferencesWrapper.getInstance(appContext,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+}

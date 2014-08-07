@@ -1,4 +1,5 @@
 {
+  super(context);
   mContext=context;
   mResources=context.getResources();
   mRealOwner=realOwner;

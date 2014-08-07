@@ -1,6 +1,5 @@
 {
   if (context == null)   return VALUE_THEME_BACKGROUND_DEFAULT;
-  final SharedPreferences pref=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  if (pref == null)   return VALUE_THEME_BACKGROUND_DEFAULT;
+  final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
   return pref.getString(KEY_THEME_BACKGROUND,VALUE_THEME_BACKGROUND_DEFAULT);
 }

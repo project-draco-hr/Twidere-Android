@@ -3,6 +3,6 @@
   mPlainList=plainList;
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mMultiSelectManager=app.getMultiSelectManager();
-  mLazyImageLoader=app.getImageLoaderWrapper();
+  mImageLoader=app.getImageLoaderWrapper();
   configBaseCardAdapter(context,this);
 }

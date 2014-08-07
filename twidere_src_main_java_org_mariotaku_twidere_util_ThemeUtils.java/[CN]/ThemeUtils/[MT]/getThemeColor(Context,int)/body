@@ -1,0 +1,11 @@
+{
+  final Context appContext=context.getApplicationContext();
+  final Resources res=appContext.getResources();
+  final TypedArray a=appContext.obtainStyledAttributes(null,new int[]{android.R.attr.colorActivatedHighlight},0,themeResourceId);
+  try {
+    return a.getColor(0,res.getColor(android.R.color.holo_blue_light));
+  }
+  finally {
+    a.recycle();
+  }
+}

@@ -16,7 +16,10 @@
   holder.text2.setText(mContext.getString(R.string.created_by,display_name));
   holder.icon.setVisibility(isDisplayProfileImage() ? View.VISIBLE : View.GONE);
   if (isDisplayProfileImage()) {
-    mProfileImageLoader.displayProfileImage(holder.icon,user_list.user_profile_image_url);
+    mImageLoader.displayProfileImage(holder.icon,user_list.user_profile_image_url);
+  }
+ else {
+    mImageLoader.cancelDisplayTask(holder.icon);
   }
   return view;
 }

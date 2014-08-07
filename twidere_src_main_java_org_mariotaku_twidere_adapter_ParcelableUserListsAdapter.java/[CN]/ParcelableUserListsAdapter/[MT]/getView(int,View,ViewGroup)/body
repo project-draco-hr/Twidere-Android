@@ -16,7 +16,6 @@
     view.setTag(holder);
   }
   holder.position=position;
-  holder.profile_image.setImageDrawable(null);
   final ParcelableUserList user_list=getItem(position);
   final String display_name=getDisplayName(mContext,user_list.user_id,user_list.user_name,user_list.user_screen_name,isDisplayNameFirst(),isNicknameOnly(),false);
   holder.setTextSize(getTextSize());
@@ -28,7 +27,10 @@
   holder.subscribers_count.setText(getLocalizedNumber(mLocale,user_list.subscribers_count));
   holder.profile_image.setVisibility(isDisplayProfileImage() ? View.VISIBLE : View.GONE);
   if (isDisplayProfileImage()) {
-    mProfileImageLoader.displayProfileImage(holder.profile_image,user_list.user_profile_image_url);
+    mImageLoader.displayProfileImage(holder.profile_image,user_list.user_profile_image_url);
+  }
+ else {
+    mImageLoader.cancelDisplayTask(holder.profile_image);
   }
   holder.profile_image.setTag(position);
   if (position > mMaxAnimationPosition) {

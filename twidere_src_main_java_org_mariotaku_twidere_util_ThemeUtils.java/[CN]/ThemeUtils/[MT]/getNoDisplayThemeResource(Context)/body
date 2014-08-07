@@ -1,6 +1,6 @@
 {
   if (context == null)   return R.style.Theme_Twidere_Dark_NoDisplay;
-  final SharedPreferences pref=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
   final String theme=pref.getString(KEY_THEME,VALUE_THEME_NAME_TWIDERE);
   if (VALUE_THEME_NAME_DARK.equals(theme))   return R.style.Theme_Twidere_Dark_NoDisplay;
   return R.style.Theme_Twidere_Light_NoDisplay;

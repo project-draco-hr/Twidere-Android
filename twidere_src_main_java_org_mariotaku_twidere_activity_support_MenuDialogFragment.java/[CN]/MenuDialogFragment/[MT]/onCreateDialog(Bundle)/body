@@ -7,7 +7,7 @@
   listView.setOnItemClickListener(this);
   builder.setView(listView);
   final Menu menu=MenuUtils.createMenu(context);
-  onCreateMenu(new MenuInflater(context),menu);
+  onCreateMenu(new TwidereMenuInflater(context),menu);
   adapter.setMenu(menu);
   return builder.create();
 }

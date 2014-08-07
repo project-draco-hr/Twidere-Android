@@ -1,6 +1,6 @@
 {
   if (context == null)   return VALUE_THEME_FONT_FAMILY_REGULAR;
-  final SharedPreferences pref=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
   final String fontFamily=pref.getString(KEY_THEME_FONT_FAMILY,VALUE_THEME_FONT_FAMILY_REGULAR);
   if (!TextUtils.isEmpty(fontFamily))   return fontFamily;
   return VALUE_THEME_FONT_FAMILY_REGULAR;

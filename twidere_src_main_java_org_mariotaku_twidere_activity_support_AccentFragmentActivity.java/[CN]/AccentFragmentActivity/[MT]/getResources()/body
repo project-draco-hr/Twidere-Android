@@ -1,3 +1,6 @@
 {
+  if (mAccentHelper == null) {
+    return super.getResources();
+  }
   return mAccentHelper.getResources(this,super.getResources());
 }
