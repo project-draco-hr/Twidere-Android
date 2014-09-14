@@ -4,5 +4,5 @@ int notificationType
 int notificationId
 List<ParcelableStatus> statuses
 int titleSingle
-int titleMutiple
+int titleMultiple
 int icon

@@ -1,6 +1,5 @@
 {
   super(context,attrs);
-  setFitsSystemWindows(true);
   mDragHelper=ViewDragHelper.create(this,new ViewDragCallback());
   final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.SwipeBackLayout,defStyle,R.style.SwipeBackLayout);
   final int edgeSize=a.getDimensionPixelSize(R.styleable.SwipeBackLayout_edgeSize,-1);

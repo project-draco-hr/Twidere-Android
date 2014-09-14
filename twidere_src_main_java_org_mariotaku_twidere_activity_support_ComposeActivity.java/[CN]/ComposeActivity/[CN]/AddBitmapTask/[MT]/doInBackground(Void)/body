@@ -1,0 +1,16 @@
+{
+  if (mBitmap == null || mBitmap.isRecycled())   return false;
+  FileOutputStream os=null;
+  try {
+    os=new FileOutputStream(getSrc().getPath());
+    mBitmap.compress(Bitmap.CompressFormat.PNG,0,os);
+    mBitmap.recycle();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+ finally {
+    IoUtils.closeSilently(os);
+  }
+  return super.doInBackground(params);
+}

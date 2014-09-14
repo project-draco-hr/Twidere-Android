@@ -33,7 +33,7 @@
   }
   final String displayName=getDisplayName(context,firstItem.user_id,firstItem.user_name,firstItem.user_screen_name,mNameFirst,mNickOnly);
   if (usersCount > 1) {
-    title=resources.getString(titleMutiple,displayName,usersCount - 1);
+    title=resources.getString(titleMultiple,displayName,usersCount - 1);
   }
  else {
     title=resources.getString(titleSingle,displayName);

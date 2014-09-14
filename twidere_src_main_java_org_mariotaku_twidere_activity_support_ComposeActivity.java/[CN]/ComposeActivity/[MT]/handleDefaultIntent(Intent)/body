@@ -12,6 +12,17 @@
  else   if (data != null) {
     new AddMediaTask(this,data,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,false).execute();
   }
+ else   if (intent.hasExtra(EXTRA_SHARE_SCREENSHOT)) {
+    final Bitmap bitmap=intent.getParcelableExtra(EXTRA_SHARE_SCREENSHOT);
+    if (bitmap != null) {
+      try {
+        new AddBitmapTask(this,bitmap,createTempImageUri(),ParcelableMedia.TYPE_IMAGE).execute();
+      }
+ catch (      IOException e) {
+        bitmap.recycle();
+      }
+    }
+  }
   mEditText.setText(getShareStatus(this,extraSubject,extraText));
   final int selection_end=mEditText.length();
   mEditText.setSelection(selection_end);

@@ -1,0 +1,4 @@
+ComposeActivity activity
+Bitmap bitmap
+Uri dst
+int media_type

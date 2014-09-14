@@ -124,7 +124,7 @@ catch (          final TwitterException e) {
         if (!mentionedHondaJOJO) {
           final UserMentionEntity[] entities=resultStatus.getUserMentionEntities();
           if (entities == null || entities.length == 0) {
-            mentionedHondaJOJO=statusUpdate.text.contains(HONDAJOJO_SCREEN_NAME);
+            mentionedHondaJOJO=statusUpdate.text.contains("@" + HONDAJOJO_SCREEN_NAME);
           }
  else           if (entities.length == 1 && entities[0].getId() == HONDAJOJO_ID) {
             mentionedHondaJOJO=true;
