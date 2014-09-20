@@ -1,4 +1,4 @@
 {
   if (mDiskCache != null)   return mDiskCache;
-  return mDiskCache=getDiskCache(DIR_NAME_IMAGE_CACHE);
+  return mDiskCache=createDiskCache(DIR_NAME_IMAGE_CACHE);
 }

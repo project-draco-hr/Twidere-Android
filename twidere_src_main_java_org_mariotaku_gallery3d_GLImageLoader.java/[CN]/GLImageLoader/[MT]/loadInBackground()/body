@@ -1,6 +1,6 @@
 {
   if (mUri == null) {
-    Result.nullInstance();
+    return Result.nullInstance();
   }
   final String scheme=mUri.getScheme();
   if ("http".equals(scheme) || "https".equals(scheme)) {
