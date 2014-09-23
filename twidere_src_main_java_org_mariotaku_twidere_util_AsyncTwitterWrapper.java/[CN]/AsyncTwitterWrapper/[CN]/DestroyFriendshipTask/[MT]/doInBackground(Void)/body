@@ -3,7 +3,7 @@
   if (twitter != null) {
     try {
       final User user=twitter.destroyFriendship(user_id);
-      final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
+      final String where=Statuses.ACCOUNT_ID + " = " + account_id+ " AND ("+ Statuses.USER_ID+ " = "+ user_id+ " OR "+ Statuses.RETWEETED_BY_USER_ID+ " = "+ user_id+ ")";
       mResolver.delete(Statuses.CONTENT_URI,where,null);
       return SingleResponse.getInstance(user,null);
     }
