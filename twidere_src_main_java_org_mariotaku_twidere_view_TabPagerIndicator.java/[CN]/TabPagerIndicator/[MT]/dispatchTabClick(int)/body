@@ -1,3 +1,12 @@
 {
+  final int currentItem=getCurrentItem();
   setCurrentItem(position);
+  if (mPagerProvider instanceof TabListener) {
+    if (currentItem != position) {
+      ((TabListener)mPagerProvider).onPageSelected(position);
+    }
+ else {
+      ((TabListener)mPagerProvider).onPageReselected(position);
+    }
+  }
 }

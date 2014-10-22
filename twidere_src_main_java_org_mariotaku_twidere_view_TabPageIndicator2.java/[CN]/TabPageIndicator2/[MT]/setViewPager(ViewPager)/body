@@ -1,8 +1,0 @@
-{
-  final PagerAdapter adapter=pager.getAdapter();
-  if (adapter == null)   return;
-  if (!(adapter instanceof TabProvider))   throw new IllegalStateException("ViewPager adapter must implement TitleProvider to be used with TitlePageIndicator.");
-  mViewPager=pager;
-  pager.setOnPageChangeListener(this);
-  notifyDataSetChanged();
-}

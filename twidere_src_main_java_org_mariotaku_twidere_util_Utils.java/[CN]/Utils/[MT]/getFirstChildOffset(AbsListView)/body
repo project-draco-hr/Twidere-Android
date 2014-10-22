@@ -1,4 +1,8 @@
 {
   if (list == null || list.getChildCount() == 0)   return 0;
-  return list.getChildAt(0).getTop();
+  final View child=list.getChildAt(0);
+  final int[] location=new int[2];
+  child.getLocationOnScreen(location);
+  Log.d(LOGTAG,String.format("getFirstChildOffset %d vs %d",child.getTop(),location[1]));
+  return child.getTop();
 }

@@ -1,4 +1,0 @@
-{
-  super.setEnabled(enabled);
-  setAlpha(enabled ? 1 : 0.5f);
-}

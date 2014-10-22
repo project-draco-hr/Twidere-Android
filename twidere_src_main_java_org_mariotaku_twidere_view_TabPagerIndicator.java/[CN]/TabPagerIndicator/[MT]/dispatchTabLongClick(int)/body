@@ -1,3 +1,6 @@
 {
+  if (mPagerProvider instanceof TabListener) {
+    return ((TabListener)mPagerProvider).onTabLongClick(position);
+  }
   return false;
 }

@@ -1,5 +1,0 @@
-{
-  if (mPageListener != null) {
-    mPageListener.onPageScrollStateChanged(state);
-  }
-}

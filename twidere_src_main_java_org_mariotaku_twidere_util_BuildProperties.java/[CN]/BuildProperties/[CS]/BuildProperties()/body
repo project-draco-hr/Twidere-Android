@@ -1,4 +1,10 @@
 {
   properties=new Properties();
-  properties.load(new FileInputStream(new File(Environment.getRootDirectory(),"build.prop")));
+  final InputStream is=new FileInputStream(new File(Environment.getRootDirectory(),"build.prop"));
+  try {
+    properties.load(is);
+  }
+  finally {
+    Utils.closeSilently(is);
+  }
 }

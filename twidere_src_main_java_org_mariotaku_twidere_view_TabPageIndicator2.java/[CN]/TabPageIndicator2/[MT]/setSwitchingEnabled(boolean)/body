@@ -1,4 +1,0 @@
-{
-  if (!(mViewPager instanceof ViewPager))   throw new IllegalStateException("This method should only called when your ViewPager instance is ExtendedViewPager");
-  mSwitchingEnabled=enabled;
-}

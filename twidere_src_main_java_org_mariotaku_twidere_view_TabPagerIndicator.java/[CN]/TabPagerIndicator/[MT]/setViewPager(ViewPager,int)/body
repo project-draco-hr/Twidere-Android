@@ -4,6 +4,7 @@
     throw new IllegalArgumentException();
   }
   mViewPager=view;
+  mPagerProvider=adapter;
   view.setOnPageChangeListener(this);
-  mAdapter.setTabProvider((TabProvider)adapter);
+  mIndicatorAdapter.setTabProvider((TabProvider)adapter);
 }

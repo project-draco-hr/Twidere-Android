@@ -1,5 +1,5 @@
 {
-  mAdapter.notifyDataSetChanged();
+  mIndicatorAdapter.notifyDataSetChanged();
   if (mPageChangeListener == null)   return;
   mPageChangeListener.onPageSelected(position);
 }

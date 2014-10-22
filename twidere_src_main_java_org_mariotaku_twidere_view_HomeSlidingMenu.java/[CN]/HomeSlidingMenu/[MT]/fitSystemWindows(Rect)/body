@@ -1,4 +1,3 @@
 {
-  setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  return super.fitSystemWindows(insets);
+  return false;
 }
