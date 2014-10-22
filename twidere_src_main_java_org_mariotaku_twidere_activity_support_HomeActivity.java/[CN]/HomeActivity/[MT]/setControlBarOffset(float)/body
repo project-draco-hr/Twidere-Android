@@ -1,3 +1,4 @@
 {
   mIndicator.setTranslationY(getControlBarHeight() * (offset - 1));
+  mActionsButton.setTranslationY(mActionsButton.getHeight() * (1 - offset));
 }

@@ -1,2 +1,4 @@
+int position
 Drawable icon
 CharSequence title
+boolean activated

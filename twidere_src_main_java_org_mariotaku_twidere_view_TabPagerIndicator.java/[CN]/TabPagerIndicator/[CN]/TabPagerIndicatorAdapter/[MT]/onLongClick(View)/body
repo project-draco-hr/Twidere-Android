@@ -1,0 +1,5 @@
+{
+  final Object tag=v.getTag();
+  if (!(tag instanceof Integer))   return false;
+  return mIndicator.dispatchTabLongClick((Integer)tag);
+}

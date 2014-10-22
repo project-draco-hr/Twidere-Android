@@ -1,4 +1,3 @@
 {
-  final int height=mIndicator.getHeight();
-  return Math.round(0.8f * (height != 0 ? height : Utils.getActionBarHeight(this)));
+  return mIndicator.getHeight() - mIndicator.getStripHeight();
 }

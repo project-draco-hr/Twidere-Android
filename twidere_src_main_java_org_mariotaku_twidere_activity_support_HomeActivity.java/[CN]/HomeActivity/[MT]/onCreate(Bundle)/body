@@ -53,8 +53,8 @@
     mIndicator.setDisplayLabel(false);
     mIndicator.setDisplayIcon(true);
   }
-  mBottomActionsButton.setOnClickListener(this);
-  mBottomActionsButton.setOnLongClickListener(this);
+  mActionsButton.setOnClickListener(this);
+  mActionsButton.setOnLongClickListener(this);
   initTabs();
   final boolean tabsNotEmpty=mPagerAdapter.getCount() > 0;
   mEmptyTabHint.setVisibility(tabsNotEmpty ? View.GONE : View.VISIBLE);

@@ -1,6 +1,7 @@
 {
   super(context,attrs,defStyle);
-  setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+  setLayoutManager(new TabLayoutManager(this));
   mAdapter=new TabPagerIndicatorAdapter(this);
   setAdapter(mAdapter);
+  mStripHeight=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
 }

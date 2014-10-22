@@ -1,3 +1,5 @@
 {
-  holder.setTabData(mTabProvider.getPageIcon(position),mTabProvider.getPageTitle(position));
+  final Drawable icon=mTabProvider.getPageIcon(position);
+  final CharSequence title=mTabProvider.getPageTitle(position);
+  holder.setTabData(position,icon,title,mIndicator.getCurrentItem() == position);
 }

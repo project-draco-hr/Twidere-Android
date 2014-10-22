@@ -22,10 +22,10 @@
     }
   }
   final boolean hasActivatedTask=hasActivatedTask();
-  if (mBottomActionsButton != null) {
-    mBottomActionsButton.setIcon(icon);
-    mBottomActionsButton.setTitle(title);
-    mBottomActionsButton.setShowProgress(hasActivatedTask);
+  if (mActionsButton != null) {
+    mActionsButton.setIcon(icon);
+    mActionsButton.setTitle(title);
+    mActionsButton.setShowProgress(hasActivatedTask);
   }
   if (mSmartBarProgress != null) {
     mSmartBarProgress.setVisibility(hasActivatedTask ? View.VISIBLE : View.INVISIBLE);

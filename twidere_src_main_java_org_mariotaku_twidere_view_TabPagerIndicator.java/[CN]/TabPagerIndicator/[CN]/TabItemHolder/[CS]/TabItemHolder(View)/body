@@ -1,4 +1,6 @@
 {
   super(itemView);
-  iconView=(ImageView)itemView.findViewById(android.R.id.icon);
+  this.itemView=itemView;
+  selectedIndicator=itemView.findViewById(R.id.selected_indicator);
+  iconView=(ImageView)itemView.findViewById(R.id.tab_icon);
 }

@@ -1,4 +1,0 @@
-{
-  iconView.setImageDrawable(icon);
-  iconView.setContentDescription(title);
-}
