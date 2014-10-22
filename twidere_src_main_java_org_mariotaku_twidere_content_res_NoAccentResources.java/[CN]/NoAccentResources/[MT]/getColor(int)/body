@@ -1,9 +1,0 @@
-{
-  checkInitialized();
-  int result;
-  for (  AccentResources.ColorInterceptor interceptor : mColorInterceptors) {
-    result=interceptor.getColor(this,mPalette,resId);
-    if (result != 0)     return result;
-  }
-  return super.getColor(resId);
-}

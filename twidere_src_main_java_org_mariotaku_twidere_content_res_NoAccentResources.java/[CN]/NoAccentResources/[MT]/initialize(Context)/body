@@ -1,8 +1,0 @@
-{
-  if (mInitialized)   return;
-  mPalette=initPalette(c);
-  mTintDrawableIds=appendDrawableIds(TINT_DRAWABLE_IDS,mCustomTintDrawableIds);
-  mTransformationDrawableIds=appendDrawableIds(TINT_TRANSFORMATION_DRAWABLE_IDS,mCustomTransformationDrawableIds);
-  addInterceptors(c);
-  mInitialized=true;
-}

@@ -1,4 +1,5 @@
 {
+  mListScrollCounter.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
   final ListAdapter adapter=getListAdapter();
   if (adapter == null)   return;
   final boolean reachedTop=firstVisibleItem == 0;

@@ -1,3 +1,0 @@
-{
-  return mAccentHelper.getResources(this,super.getResources());
-}

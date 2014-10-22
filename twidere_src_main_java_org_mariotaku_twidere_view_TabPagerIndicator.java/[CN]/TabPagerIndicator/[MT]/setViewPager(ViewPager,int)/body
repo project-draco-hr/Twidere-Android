@@ -1,0 +1,9 @@
+{
+  final PagerAdapter adapter=view.getAdapter();
+  if (!(adapter instanceof TabProvider)) {
+    throw new IllegalArgumentException();
+  }
+  mViewPager=view;
+  view.setOnPageChangeListener(this);
+  mAdapter.setTabProvider((TabProvider)adapter);
+}

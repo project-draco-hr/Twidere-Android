@@ -1,4 +1,0 @@
-{
-  final int color=0;
-  return new AccentPalette(color,color,color);
-}

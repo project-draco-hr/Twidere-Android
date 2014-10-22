@@ -1,9 +1,8 @@
 {
   super.onContentChanged();
+  mSlidingMenu=(HomeSlidingMenu)findViewById(R.id.home_menu);
   mViewPager=(ExtendedViewPager)findViewById(R.id.main_pager);
   mEmptyTabHint=findViewById(R.id.empty_tab_hint);
   mBottomActionsButton=(HomeActionsActionView)findViewById(R.id.actions_button_bottom);
-  if (mSlidingMenu == null) {
-    mSlidingMenu=new HomeSlidingMenu(this);
-  }
+  mIndicator=(TabPagerIndicator)findViewById(android.R.id.tabs);
 }

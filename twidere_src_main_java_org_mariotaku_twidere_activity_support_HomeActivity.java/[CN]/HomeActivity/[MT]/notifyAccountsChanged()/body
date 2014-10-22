@@ -6,6 +6,6 @@
     finish();
   }
  else   if (account_ids.length > 0 && !ArrayUtils.contains(account_ids,default_id)) {
-    mPreferences.edit().putLong(KEY_DEFAULT_ACCOUNT_ID,account_ids[0]).commit();
+    mPreferences.edit().putLong(KEY_DEFAULT_ACCOUNT_ID,account_ids[0]).apply();
   }
 }

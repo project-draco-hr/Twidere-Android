@@ -1,0 +1,3 @@
+{
+  return new TabItemHolder(mInflater.inflate(R.layout.tab_item_home,parent,false));
+}

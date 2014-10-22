@@ -7,7 +7,6 @@
   setUiOptions(getWindow(),data);
   super.onCreate(savedInstanceState);
   mActionBar=getActionBar();
-  mActionBar.setDisplayHomeAsUpEnabled(true);
   mActionBar.setDisplayShowTitleEnabled(true);
   mActionBar.setDisplayShowCustomEnabled(false);
   mActionBar.setCustomView(R.layout.link_handler_actionbar);

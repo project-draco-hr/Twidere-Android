@@ -13,4 +13,5 @@
   mEditConsumerKey=(EditText)findViewById(R.id.consumer_key);
   mEditConsumerSecret=(EditText)findViewById(R.id.consumer_secret);
   mSaveButton=(Button)findViewById(R.id.save);
+  mAPIFormatHelpButton=findViewById(R.id.api_url_format_help);
 }

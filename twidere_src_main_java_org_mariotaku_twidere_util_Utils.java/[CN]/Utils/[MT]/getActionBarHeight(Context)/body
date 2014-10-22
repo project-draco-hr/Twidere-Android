@@ -1,0 +1,9 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.actionBarSize});
+  try {
+    return a.getDimensionPixelSize(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}

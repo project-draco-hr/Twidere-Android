@@ -1,6 +1,0 @@
-{
-  if (mResourceHelper == null) {
-    mResourceHelper=new TwidereResourceHelper(ThemeUtils.getSettingsWizardThemeResource(this),this);
-  }
-  return mResourceHelper.getResources(this,super.getResources());
-}

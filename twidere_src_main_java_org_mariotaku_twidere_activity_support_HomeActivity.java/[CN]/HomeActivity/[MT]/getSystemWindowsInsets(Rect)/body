@@ -1,0 +1,5 @@
+{
+  final int height=mIndicator.getHeight();
+  insets.top=height != 0 ? height : Utils.getActionBarHeight(this);
+  return true;
+}

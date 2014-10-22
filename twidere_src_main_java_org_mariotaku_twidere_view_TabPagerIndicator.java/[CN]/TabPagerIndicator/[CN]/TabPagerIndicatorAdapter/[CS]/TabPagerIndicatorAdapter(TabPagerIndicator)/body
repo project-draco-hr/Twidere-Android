@@ -1,0 +1,4 @@
+{
+  mIndicator=indicator;
+  mInflater=LayoutInflater.from(indicator.getContext());
+}

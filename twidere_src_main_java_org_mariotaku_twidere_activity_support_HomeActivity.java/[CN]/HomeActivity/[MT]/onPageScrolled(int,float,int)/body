@@ -1,2 +1,7 @@
 {
+  final float pagerPosition=position + positionOffset;
+  if (!Float.isNaN(mPagerPosition)) {
+    setControlBarOffset(MathUtils.clamp(getControlBarOffset() + Math.abs(pagerPosition - mPagerPosition),1,0));
+  }
+  mPagerPosition=pagerPosition;
 }

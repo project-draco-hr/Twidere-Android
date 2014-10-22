@@ -13,5 +13,5 @@
     final Bitmap b=getTabIconFromFile((File)iconObj,res);
     if (b != null)     return new BitmapDrawable(res,b);
   }
-  return res.getDrawable(R.drawable.ic_iconic_action_list);
+  return res.getDrawable(R.drawable.ic_action_list);
 }

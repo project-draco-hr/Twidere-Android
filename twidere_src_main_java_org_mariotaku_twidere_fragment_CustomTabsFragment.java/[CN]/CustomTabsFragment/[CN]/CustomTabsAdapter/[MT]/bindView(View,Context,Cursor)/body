@@ -22,6 +22,6 @@
     ViewAccessor.setBackground(holder.icon,icon);
   }
  else {
-    holder.icon.setBackgroundResource(R.drawable.ic_iconic_action_list);
+    holder.icon.setBackgroundResource(R.drawable.ic_action_list);
   }
 }

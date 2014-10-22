@@ -1,7 +1,6 @@
 {
   if (mIndicator != null && mViewPager != null) {
     mViewPager.setEnabled(!mPreferences.getBoolean(KEY_DISABLE_TAB_SWIPE,false));
-    mIndicator.setSwitchingEnabled(enabled);
     mIndicator.setEnabled(enabled);
   }
 }

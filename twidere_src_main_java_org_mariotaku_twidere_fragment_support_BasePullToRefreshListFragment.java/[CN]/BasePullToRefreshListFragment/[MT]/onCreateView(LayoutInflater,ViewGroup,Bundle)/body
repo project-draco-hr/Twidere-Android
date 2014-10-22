@@ -21,7 +21,6 @@
   lv.setDrawSelectorOnTop(false);
   lv.setOnRefreshListener(this);
   lv.setConfig(ThemeUtils.buildRefreshNowConfig(context));
-  lv.setOnTouchListener(this);
   lframe.addView(lv,new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
   final RefreshNowProgressIndicator indicator=new RefreshNowProgressIndicator(context);
   indicator.setConfig(ThemeUtils.buildRefreshIndicatorConfig(context));

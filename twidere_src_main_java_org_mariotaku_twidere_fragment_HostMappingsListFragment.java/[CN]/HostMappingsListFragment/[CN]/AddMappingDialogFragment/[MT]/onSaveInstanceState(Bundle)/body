@@ -1,5 +1,6 @@
 {
-  outState.putCharSequence(EXTRA_TEXT1,mEditHost.getText());
-  outState.putCharSequence(EXTRA_TEXT2,mEditAddress.getText());
+  outState.putCharSequence(EXTRA_HOST,mEditHost.getText());
+  outState.putCharSequence(EXTRA_ADDRESS,mEditAddress.getText());
+  outState.putCharSequence(EXTRA_EXCLUDED,mEditAddress.getText());
   super.onSaveInstanceState(outState);
 }

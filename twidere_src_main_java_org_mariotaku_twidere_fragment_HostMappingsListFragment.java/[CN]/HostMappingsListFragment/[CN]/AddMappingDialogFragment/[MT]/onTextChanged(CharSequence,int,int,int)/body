@@ -1,6 +1,3 @@
 {
-  final AlertDialog dialog=(AlertDialog)getDialog();
-  if (dialog == null)   return;
-  final boolean text_valid=!isEmpty(mEditHost.getText()) && !isEmpty(mEditAddress.getText());
-  dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(text_valid);
+  updateButton();
 }

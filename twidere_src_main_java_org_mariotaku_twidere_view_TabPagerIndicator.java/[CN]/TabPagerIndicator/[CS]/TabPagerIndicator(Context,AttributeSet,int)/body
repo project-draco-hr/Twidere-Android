@@ -1,0 +1,6 @@
+{
+  super(context,attrs,defStyle);
+  setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+  mAdapter=new TabPagerIndicatorAdapter(this);
+  setAdapter(mAdapter);
+}

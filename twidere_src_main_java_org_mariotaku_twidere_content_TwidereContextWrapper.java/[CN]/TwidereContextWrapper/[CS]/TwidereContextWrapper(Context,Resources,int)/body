@@ -2,5 +2,4 @@
   super(base);
   mResources=res;
   mThemeResourceId=theme;
-  mResourceHelper=new TwidereResourceHelper(theme,this);
 }

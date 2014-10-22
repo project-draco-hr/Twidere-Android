@@ -12,7 +12,9 @@
   mEditSameOAuthSigningUrl=(CheckBox)view.findViewById(R.id.same_oauth_signing_url);
   mEditConsumerKey=(EditText)view.findViewById(R.id.consumer_key);
   mEditConsumerSecret=(EditText)view.findViewById(R.id.consumer_secret);
+  mAPIFormatHelpButton=view.findViewById(R.id.api_url_format_help);
   mEditAuthType.setOnCheckedChangeListener(this);
   mAdvancedAPIConfigLabel.setOnClickListener(this);
+  mAPIFormatHelpButton.setOnClickListener(this);
   return view;
 }

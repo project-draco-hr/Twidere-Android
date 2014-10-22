@@ -1,9 +1,0 @@
-{
-  InputStream original=super.openRawResource(resId,value);
-  value.density=getDisplayMetrics().densityDpi;
-  final BitmapFactory.Options options=new BitmapFactory.Options();
-  options.inDither=false;
-  options.inScaled=false;
-  options.inScreenDensity=getDisplayMetrics().densityDpi;
-  return BitmapFactory.decodeResourceStream(this,value,original,new Rect(),options);
-}

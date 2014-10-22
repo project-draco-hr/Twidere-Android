@@ -1,0 +1,3 @@
+{
+  holder.setTabData(mTabProvider.getPageIcon(position),mTabProvider.getPageTitle(position));
+}

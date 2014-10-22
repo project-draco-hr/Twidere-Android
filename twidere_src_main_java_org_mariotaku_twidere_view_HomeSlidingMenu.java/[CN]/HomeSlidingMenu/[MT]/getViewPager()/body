@@ -1,0 +1,4 @@
+{
+  if (mActivity == null)   return null;
+  return mActivity.getViewPager();
+}

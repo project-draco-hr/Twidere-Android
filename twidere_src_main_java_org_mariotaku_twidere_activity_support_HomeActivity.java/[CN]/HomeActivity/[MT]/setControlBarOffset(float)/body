@@ -1,0 +1,3 @@
+{
+  mIndicator.setTranslationY(getControlBarHeight() * (offset - 1));
+}

@@ -8,7 +8,7 @@ case MENU_HOME:
         mSlidingMenu.showContent();
         return true;
       }
- else       if (count == 0 && !mSlidingMenu.isMenuShowing()) {
+ else       if (count == 0) {
         mSlidingMenu.showMenu();
         return true;
       }

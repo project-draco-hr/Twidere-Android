@@ -1,0 +1,4 @@
+{
+  if (mTabProvider == null)   return 0;
+  return mTabProvider.getCount();
+}

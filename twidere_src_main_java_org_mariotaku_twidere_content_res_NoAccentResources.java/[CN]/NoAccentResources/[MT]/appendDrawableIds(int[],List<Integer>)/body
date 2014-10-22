@@ -1,8 +1,0 @@
-{
-  if (custom == null)   return defaults;
-  int customSize=custom.size();
-  int[] result=new int[defaults.length + customSize];
-  for (int i=0; i < customSize; i++)   result[i]=custom.get(i);
-  for (int i=0; i < defaults.length; i++)   result[customSize + i]=defaults[i];
-  return result;
-}

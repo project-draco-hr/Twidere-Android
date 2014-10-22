@@ -1,5 +1,4 @@
 {
-  mBottomComposeButton=isBottomComposeButton();
   setUiOptions(getWindow());
   super.onCreate(savedInstanceState);
   if (!isDatabaseReady(this)) {
@@ -36,11 +35,10 @@
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   mTabDisplayOption=getTabDisplayOptionInt(this);
   final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
-  mActionBar=getActionBar();
-  mActionBar.setCustomView(R.layout.home_tabs);
-  final View view=mActionBar.getCustomView();
-  mIndicator=(TabPageIndicator)view.findViewById(android.R.id.tabs);
-  mActionsButton=(HomeActionsActionView)view.findViewById(R.id.actions_button);
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.hide();
+  }
   ThemeUtils.applyBackground(mIndicator);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mIndicator,1);
   mViewPager.setAdapter(mPagerAdapter);
@@ -55,18 +53,12 @@
     mIndicator.setDisplayLabel(false);
     mIndicator.setDisplayIcon(true);
   }
-  mActionsButton.setOnClickListener(this);
-  mActionsButton.setOnLongClickListener(this);
   mBottomActionsButton.setOnClickListener(this);
   mBottomActionsButton.setOnLongClickListener(this);
   initTabs();
   final boolean tabsNotEmpty=mPagerAdapter.getCount() > 0;
   mEmptyTabHint.setVisibility(tabsNotEmpty ? View.GONE : View.VISIBLE);
   mViewPager.setVisibility(tabsNotEmpty ? View.VISIBLE : View.GONE);
-  mActionBar.setDisplayShowHomeEnabled(displayIcon || !tabsNotEmpty);
-  mActionBar.setHomeButtonEnabled(displayIcon || !tabsNotEmpty);
-  mActionBar.setDisplayShowTitleEnabled(!tabsNotEmpty);
-  mActionBar.setDisplayShowCustomEnabled(tabsNotEmpty);
   setTabPosition(initialTabPosition);
   setupSlidingMenu();
   showDataProfilingRequest();
@@ -82,4 +74,5 @@
       openAccountsDrawer();
     }
   }
+  mPagerPosition=Float.NaN;
 }

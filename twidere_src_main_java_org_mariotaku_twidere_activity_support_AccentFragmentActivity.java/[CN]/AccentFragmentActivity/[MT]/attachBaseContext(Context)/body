@@ -1,4 +1,0 @@
-{
-  super.attachBaseContext(newBase);
-  mAccentHelper=new AccentHelper(getOverrideAccentColor(),getOverrideAccentColorDark(),getOverrideAccentColorActionBar(),new MyInitListener());
-}

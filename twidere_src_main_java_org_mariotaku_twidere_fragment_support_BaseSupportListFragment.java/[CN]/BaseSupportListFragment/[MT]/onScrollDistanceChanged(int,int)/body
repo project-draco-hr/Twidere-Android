@@ -1,0 +1,7 @@
+{
+  final FragmentActivity a=getActivity();
+  if (a instanceof HomeActivity) {
+    final HomeActivity home=(HomeActivity)a;
+    home.moveControlBarBy(delta);
+  }
+}

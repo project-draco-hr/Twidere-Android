@@ -1,5 +1,0 @@
-{
-  this.icon=icon;
-  this.size=size;
-  this.color=color;
-}

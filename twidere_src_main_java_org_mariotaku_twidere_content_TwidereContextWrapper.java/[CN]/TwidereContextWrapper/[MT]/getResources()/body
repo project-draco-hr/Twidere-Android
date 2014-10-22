@@ -1,4 +1,0 @@
-{
-  if (mResources == null)   return mResourceHelper.getResources(this,super.getResources());
-  return mResourceHelper.getResources(this,mResources);
-}

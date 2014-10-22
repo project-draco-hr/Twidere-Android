@@ -1,0 +1,4 @@
+{
+  if (mPageChangeListener == null)   return;
+  mPageChangeListener.onPageSelected(position);
+}

@@ -1,0 +1,21 @@
+{
+  if (view.getCount() == 0)   return;
+switch (scrollState) {
+case SCROLL_STATE_IDLE:
+{
+      mListScrollStarted=false;
+      break;
+    }
+case SCROLL_STATE_TOUCH_SCROLL:
+{
+    final View firstChild=view.getChildAt(0);
+    mFirstVisibleItem=view.getFirstVisiblePosition();
+    mFirstVisibleTop=firstChild.getTop();
+    mFirstVisibleBottom=firstChild.getBottom();
+    mFirstVisibleHeight=firstChild.getHeight();
+    mListScrollStarted=true;
+    mTotalScrollDistance=0;
+    break;
+  }
+}
+}

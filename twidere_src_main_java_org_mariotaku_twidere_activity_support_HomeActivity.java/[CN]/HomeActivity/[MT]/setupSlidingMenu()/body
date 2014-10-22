@@ -8,7 +8,6 @@
   mSlidingMenu.setBehindWidthRes(R.dimen.drawer_width_home);
   mSlidingMenu.setTouchmodeMarginThreshold(marginThreshold);
   mSlidingMenu.setFadeDegree(0.5f);
-  mSlidingMenu.attachToActivity(this,SlidingMenu.SLIDING_WINDOW);
   mSlidingMenu.setMenu(R.layout.drawer_home_accounts);
   mSlidingMenu.setSecondaryMenu(R.layout.drawer_home_quick_menu);
   mSlidingMenu.setOnOpenedListener(this);
@@ -22,9 +21,9 @@
   mRightDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
   mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
   final Window window=getWindow();
+  final Drawable windowBackground=ThemeUtils.getWindowBackground(this,getCurrentThemeResourceId());
+  ViewAccessor.setBackground(mSlidingMenu.getContent(),windowBackground);
   if (isTransparentBackground) {
-    final Drawable windowBackground=ThemeUtils.getWindowBackground(this,getCurrentThemeResourceId());
-    ViewAccessor.setBackground(mSlidingMenu.getContent(),windowBackground);
     window.setBackgroundDrawable(new EmptyDrawable());
   }
  else {

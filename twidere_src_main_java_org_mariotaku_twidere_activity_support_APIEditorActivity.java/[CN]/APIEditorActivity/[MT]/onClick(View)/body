@@ -20,5 +20,10 @@ case R.id.advanced_api_config_label:
     mAdvancedAPIConfigView.setVisibility(isVisible ? View.GONE : View.VISIBLE);
     break;
   }
+case R.id.api_url_format_help:
+{
+  Toast.makeText(this,R.string.api_url_format_help,Toast.LENGTH_LONG).show();
+  break;
+}
 }
 }

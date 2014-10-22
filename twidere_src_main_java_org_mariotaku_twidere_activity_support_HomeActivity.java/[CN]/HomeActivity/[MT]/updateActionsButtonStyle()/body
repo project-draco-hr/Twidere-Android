@@ -1,10 +1,8 @@
 {
-  if (mActionsButton == null || mBottomActionsButton == null)   return;
-  final boolean isBottomActionsButton=isBottomComposeButton();
-  final boolean showBottomActionsButton=!FlymeUtils.hasSmartBar() && isBottomActionsButton;
+  if (mBottomActionsButton == null)   return;
+  final boolean showBottomActionsButton=!FlymeUtils.hasSmartBar();
   final boolean leftsideComposeButton=mPreferences.getBoolean(KEY_LEFTSIDE_COMPOSE_BUTTON,false);
-  mActionsButton.setVisibility(isBottomActionsButton ? View.GONE : View.VISIBLE);
-  mBottomActionsButton.setVisibility(showBottomActionsButton ? View.VISIBLE : View.GONE);
+  mBottomActionsButton.setVisibility(View.VISIBLE);
   final FrameLayout.LayoutParams compose_lp=(LayoutParams)mBottomActionsButton.getLayoutParams();
   compose_lp.gravity=Gravity.BOTTOM | (leftsideComposeButton ? Gravity.LEFT : Gravity.RIGHT);
   mBottomActionsButton.setLayoutParams(compose_lp);

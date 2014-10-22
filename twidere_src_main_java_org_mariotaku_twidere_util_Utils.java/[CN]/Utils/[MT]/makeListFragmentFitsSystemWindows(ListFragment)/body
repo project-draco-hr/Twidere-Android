@@ -1,0 +1,19 @@
+{
+  final FragmentActivity activity=fragment.getActivity();
+  if (!(activity instanceof SystemWindowsInsetsCallback))   return;
+  final SystemWindowsInsetsCallback callback=(SystemWindowsInsetsCallback)activity;
+  final Rect insets=new Rect();
+  if (callback.getSystemWindowsInsets(insets)) {
+    final ListView listView=fragment.getListView();
+    listView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+    listView.setClipToPadding(false);
+    if (listView instanceof RefreshNowListView) {
+      final View indicatorView=((RefreshNowListView)listView).getRefreshIndicatorView();
+      final LayoutParams lp=indicatorView.getLayoutParams();
+      if (lp instanceof MarginLayoutParams) {
+        ((MarginLayoutParams)lp).topMargin=insets.top;
+        indicatorView.setLayoutParams(lp);
+      }
+    }
+  }
+}

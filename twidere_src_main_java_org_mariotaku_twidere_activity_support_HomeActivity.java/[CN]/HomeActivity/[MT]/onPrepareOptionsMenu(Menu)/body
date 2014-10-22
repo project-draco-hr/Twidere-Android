@@ -1,6 +1,6 @@
 {
   if (mViewPager == null || mPagerAdapter == null)   return false;
-  final boolean useBottomActionItems=FlymeUtils.hasSmartBar() && isBottomComposeButton();
+  final boolean useBottomActionItems=FlymeUtils.hasSmartBar();
   setMenuItemAvailability(menu,MENU_ACTIONS,useBottomActionItems);
   setMenuItemAvailability(menu,MENU_PROGRESS,useBottomActionItems);
   if (useBottomActionItems) {
@@ -9,19 +9,19 @@
     final SupportTabSpec tab=mPagerAdapter.getTab(position);
     if (tab == null) {
       title=R.string.compose;
-      icon=R.drawable.ic_iconic_action_compose;
+      icon=R.drawable.ic_action_status_compose;
     }
  else {
       if (classEquals(DirectMessagesFragment.class,tab.cls)) {
-        icon=R.drawable.ic_iconic_action_new_message;
+        icon=R.drawable.ic_action_new_message;
         title=R.string.new_direct_message;
       }
  else       if (classEquals(TrendsSuggectionsFragment.class,tab.cls)) {
-        icon=R.drawable.ic_iconic_action_search;
+        icon=R.drawable.ic_action_search;
         title=android.R.string.search_go;
       }
  else {
-        icon=R.drawable.ic_iconic_action_compose;
+        icon=R.drawable.ic_action_status_compose;
         title=R.string.compose;
       }
     }

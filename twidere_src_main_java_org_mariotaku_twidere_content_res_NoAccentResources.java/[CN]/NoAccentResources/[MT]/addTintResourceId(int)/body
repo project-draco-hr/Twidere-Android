@@ -1,4 +1,0 @@
-{
-  if (mCustomTintDrawableIds == null)   mCustomTintDrawableIds=new ArrayList<Integer>();
-  mCustomTintDrawableIds.add(resId);
-}

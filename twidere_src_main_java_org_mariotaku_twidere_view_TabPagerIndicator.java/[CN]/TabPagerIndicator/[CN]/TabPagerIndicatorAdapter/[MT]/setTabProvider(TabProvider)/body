@@ -1,0 +1,4 @@
+{
+  mTabProvider=tabProvider;
+  notifyDataSetChanged();
+}

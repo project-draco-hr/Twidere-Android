@@ -1,0 +1,4 @@
+{
+  final int min=-getControlBarHeight(), max=0;
+  mIndicator.setTranslationY(MathUtils.clamp(mIndicator.getTranslationY() + delta,max,min));
+}

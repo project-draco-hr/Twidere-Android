@@ -1,4 +1,3 @@
 {
   super(resources.getAssets(),resources.getDisplayMetrics(),resources.getConfiguration());
-  mContext=c;
 }

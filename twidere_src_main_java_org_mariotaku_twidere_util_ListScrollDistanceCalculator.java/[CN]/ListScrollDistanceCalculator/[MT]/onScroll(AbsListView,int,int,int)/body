@@ -1,0 +1,26 @@
+{
+  if (totalItemCount == 0 || !mListScrollStarted)   return;
+  final View firstChild=view.getChildAt(0);
+  final int firstVisibleTop=firstChild.getTop(), firstVisibleBottom=firstChild.getBottom();
+  final int firstVisibleHeight=firstChild.getHeight();
+  final int delta;
+  if (firstVisibleItem > mFirstVisibleItem) {
+    mFirstVisibleTop+=mFirstVisibleHeight;
+    delta=firstVisibleTop - mFirstVisibleTop;
+  }
+ else   if (firstVisibleItem < mFirstVisibleItem) {
+    mFirstVisibleBottom-=mFirstVisibleHeight;
+    delta=firstVisibleBottom - mFirstVisibleBottom;
+  }
+ else {
+    delta=firstVisibleBottom - mFirstVisibleBottom;
+  }
+  mTotalScrollDistance+=delta;
+  if (mScrollDistanceListener != null) {
+    mScrollDistanceListener.onScrollDistanceChanged(delta,mTotalScrollDistance);
+  }
+  mFirstVisibleTop=firstVisibleTop;
+  mFirstVisibleBottom=firstVisibleBottom;
+  mFirstVisibleHeight=firstVisibleHeight;
+  mFirstVisibleItem=firstVisibleItem;
+}

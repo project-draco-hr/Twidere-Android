@@ -2,5 +2,4 @@
   super(base,themeResource);
   mThemeResourceId=themeResource;
   mAccentColor=accentColor;
-  mAccentHelper=new AccentHelper(accentColor,accentColor,accentColor,this);
 }

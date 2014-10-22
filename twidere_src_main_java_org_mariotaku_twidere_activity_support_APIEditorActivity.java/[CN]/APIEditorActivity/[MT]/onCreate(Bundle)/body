@@ -30,6 +30,7 @@
   mEditAuthType.setOnCheckedChangeListener(this);
   mAdvancedAPIConfigLabel.setOnClickListener(this);
   mSaveButton.setOnClickListener(this);
+  mAPIFormatHelpButton.setOnClickListener(this);
   mEditAPIUrlFormat.setText(apiUrlFormat);
   mEditSameOAuthSigningUrl.setChecked(sameOAuthSigningUrl);
   mEditConsumerKey.setText(consumerKey);

@@ -1,0 +1,4 @@
+{
+  if (mPageChangeListener == null)   return;
+  mPageChangeListener.onPageScrollStateChanged(state);
+}
