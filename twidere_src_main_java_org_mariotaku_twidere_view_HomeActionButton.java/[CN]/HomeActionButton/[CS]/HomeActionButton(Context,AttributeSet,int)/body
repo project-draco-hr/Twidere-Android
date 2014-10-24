@@ -1,0 +1,8 @@
+{
+  super(context,attrs,defStyle);
+  inflate(context,R.layout.action_item_home_actions,this);
+  mIconView=(ImageView)findViewById(android.R.id.icon);
+  mProgressBar=(ProgressBar)findViewById(android.R.id.progress);
+  setOutlineProvider(new HomeActionButtonOutlineProvider());
+  setClipToOutline(true);
+}

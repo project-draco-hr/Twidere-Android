@@ -1,0 +1,13 @@
+{
+  final ListView listView=fragment.getListView();
+  listView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  listView.setClipToPadding(false);
+  if (listView instanceof RefreshNowListView) {
+    final View indicatorView=((RefreshNowListView)listView).getRefreshIndicatorView();
+    final LayoutParams lp=indicatorView.getLayoutParams();
+    if (lp instanceof MarginLayoutParams) {
+      ((MarginLayoutParams)lp).topMargin=insets.top;
+      indicatorView.setLayoutParams(lp);
+    }
+  }
+}

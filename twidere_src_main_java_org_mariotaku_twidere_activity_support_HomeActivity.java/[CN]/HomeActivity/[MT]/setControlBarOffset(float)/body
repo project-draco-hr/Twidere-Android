@@ -1,4 +1,5 @@
 {
-  mTabIndicator.setTranslationY(getControlBarHeight() * (offset - 1));
+  mTabsContainer.setTranslationY(getControlBarHeight() * (offset - 1));
   mActionsButton.setTranslationY(mActionsButton.getHeight() * (1 - offset));
+  notifyControlBarOffsetChanged();
 }

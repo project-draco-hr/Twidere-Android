@@ -2,7 +2,7 @@
 switch (v.getId()) {
 case R.id.go_top:
 {
-      final Fragment fragment=getSupportFragmentManager().findFragmentById(android.R.id.content);
+      final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.content_fragment);
       if (fragment instanceof RefreshScrollTopInterface) {
         ((RefreshScrollTopInterface)fragment).triggerRefresh();
       }

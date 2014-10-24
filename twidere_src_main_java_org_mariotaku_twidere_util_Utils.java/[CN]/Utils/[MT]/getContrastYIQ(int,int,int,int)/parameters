@@ -1,0 +1,4 @@
+int color
+int threshold
+int colorDark
+int colorLight

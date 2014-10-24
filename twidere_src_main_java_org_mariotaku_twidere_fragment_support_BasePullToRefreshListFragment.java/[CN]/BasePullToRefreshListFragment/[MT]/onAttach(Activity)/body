@@ -1,0 +1,6 @@
+{
+  super.onAttach(activity);
+  if (activity instanceof IControlBarActivity) {
+    ((IControlBarActivity)activity).registerControlBarOffsetListener(this);
+  }
+}

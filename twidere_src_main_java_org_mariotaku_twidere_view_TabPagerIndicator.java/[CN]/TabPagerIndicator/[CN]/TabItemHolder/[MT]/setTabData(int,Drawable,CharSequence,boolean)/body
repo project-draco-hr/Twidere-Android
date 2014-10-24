@@ -3,5 +3,5 @@
   itemView.setContentDescription(title);
   iconView.setImageDrawable(icon);
   iconView.setContentDescription(title);
-  selectedIndicator.setActivated(activated);
+  selectedIndicator.setVisibility(activated ? VISIBLE : INVISIBLE);
 }

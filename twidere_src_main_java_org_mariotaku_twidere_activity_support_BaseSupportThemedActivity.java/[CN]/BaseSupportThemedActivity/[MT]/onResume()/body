@@ -1,4 +1,3 @@
 {
   super.onResume();
-  ThemeUtils.notifyStatusBarColorChanged(this,mCurrentThemeResource,mCurrentThemeColor,mCurrentThemeBackgroundAlpha);
 }

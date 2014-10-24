@@ -75,4 +75,20 @@
     }
   }
   mPagerPosition=Float.NaN;
+  final int themeColor=getThemeColor(), contrastColor=Utils.getContrastYIQ(themeColor,192);
+  final int themeResId=getCurrentThemeResourceId();
+  if (ThemeUtils.isColoredActionBar(themeResId)) {
+    mTabIndicator.setBackgroundColor(themeColor);
+    mTabIndicator.setStripColor(contrastColor);
+    mTabIndicator.setIconColor(contrastColor);
+  }
+ else {
+    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,themeResId));
+    mTabIndicator.setStripColor(themeColor);
+    mTabIndicator.setIconColor(ThemeUtils.isLightActionBar(themeResId) ? Color.BLACK : Color.WHITE);
+  }
+  if (mActionsButton instanceof IHomeActionButton) {
+    ((IHomeActionButton)mActionsButton).setColor(themeColor);
+  }
+  ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
 }

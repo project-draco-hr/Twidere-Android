@@ -1,0 +1,4 @@
+{
+  final ActionBar actionBar=getActionBar();
+  return actionBar != null ? actionBar.getHeight() : 0;
+}

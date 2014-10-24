@@ -1,0 +1,3 @@
+{
+  iconView.setColorFilter(color);
+}

@@ -1,0 +1,4 @@
+{
+  mIconColor=color;
+  notifyDataSetChanged();
+}

@@ -1,0 +1,7 @@
+{
+  super.fitSystemWindows(insets);
+  final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.content_fragment);
+  if (fragment instanceof IBaseFragment) {
+    ((IBaseFragment)fragment).requestFitSystemWindows();
+  }
+}

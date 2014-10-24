@@ -1,0 +1,4 @@
+{
+  mStripColor=color;
+  notifyDataSetChanged();
+}

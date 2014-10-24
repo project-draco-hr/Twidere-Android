@@ -1,0 +1,3 @@
+{
+  mIndicatorAdapter.setStripColor(color);
+}

@@ -1,5 +1,0 @@
-{
-  final int min=-getControlBarHeight(), max=0;
-  mTabIndicator.setTranslationY(MathUtils.clamp(mTabIndicator.getTranslationY() + delta,max,min));
-  mActionsButton.setTranslationY(MathUtils.clamp(mActionsButton.getTranslationY() - delta,mActionsButton.getHeight(),0));
-}

@@ -122,7 +122,6 @@ break;
 case LINK_ID_SEARCH:
 {
 setTitle(android.R.string.search_go);
-setSubtitle(uri.getQueryParameter(QUERY_PARAM_QUERY));
 break;
 }
 default :
@@ -132,7 +131,7 @@ return false;
 }
 mFinishOnly=Boolean.parseBoolean(uri.getQueryParameter(QUERY_PARAM_FINISH_ONLY));
 final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-ft.replace(android.R.id.content,fragment);
+ft.replace(R.id.content_fragment,fragment);
 ft.commit();
 return true;
 }

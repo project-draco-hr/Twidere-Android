@@ -1,0 +1,9 @@
+{
+  final Drawable drawable=getBackground();
+  if (drawable != null) {
+    drawable.setColorFilter(color,Mode.MULTIPLY);
+  }
+  final int contrastColor=Utils.getContrastYIQ(color,192);
+  mIconView.setColorFilter(contrastColor,Mode.SRC_ATOP);
+  mProgressBar.setIndeterminateTintList(ColorStateList.valueOf(contrastColor));
+}

@@ -1,0 +1,3 @@
+{
+  selectedIndicator.setBackgroundColor(color);
+}

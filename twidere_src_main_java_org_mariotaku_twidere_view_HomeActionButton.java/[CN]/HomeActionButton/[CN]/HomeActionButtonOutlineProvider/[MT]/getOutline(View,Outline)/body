@@ -1,0 +1,6 @@
+{
+  final int width=view.getWidth(), height=view.getHeight();
+  final int size=Math.min(width,height);
+  final int left=(width - size) / 2, top=(height - size) / 2;
+  outline.setOval(left,top,left + size,top + size);
+}

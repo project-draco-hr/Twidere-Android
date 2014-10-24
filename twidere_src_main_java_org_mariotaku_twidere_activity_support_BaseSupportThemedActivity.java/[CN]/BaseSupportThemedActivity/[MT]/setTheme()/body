@@ -1,6 +1,6 @@
 {
   mCurrentThemeResource=getThemeResourceId();
-  mCurrentThemeColor=getOverrideAccentColor();
+  mCurrentThemeColor=getThemeColor();
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
   ThemeUtils.notifyStatusBarColorChanged(this,mCurrentThemeResource,mCurrentThemeColor,mCurrentThemeBackgroundAlpha);
   setTheme(mCurrentThemeResource);

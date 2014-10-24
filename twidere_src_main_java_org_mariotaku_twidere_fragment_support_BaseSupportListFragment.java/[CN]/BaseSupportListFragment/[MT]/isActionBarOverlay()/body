@@ -1,3 +1,0 @@
-{
-  return getTabPosition() >= 0;
-}

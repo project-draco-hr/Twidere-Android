@@ -2,4 +2,6 @@
   final Drawable icon=mTabProvider.getPageIcon(position);
   final CharSequence title=mTabProvider.getPageTitle(position);
   holder.setTabData(position,icon,title,mIndicator.getCurrentItem() == position);
+  holder.setStripColor(mStripColor);
+  holder.setIconColor(mIconColor);
 }

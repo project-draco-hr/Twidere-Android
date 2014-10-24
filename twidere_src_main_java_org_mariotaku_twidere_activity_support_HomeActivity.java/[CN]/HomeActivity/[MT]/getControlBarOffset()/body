@@ -1,4 +1,4 @@
 {
   final float totalHeight=getControlBarHeight();
-  return 1 + mTabIndicator.getTranslationY() / totalHeight;
+  return 1 + mTabsContainer.getTranslationY() / totalHeight;
 }
