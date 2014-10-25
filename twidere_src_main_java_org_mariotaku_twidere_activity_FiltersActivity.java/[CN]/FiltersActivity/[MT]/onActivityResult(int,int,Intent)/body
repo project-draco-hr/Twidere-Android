@@ -5,7 +5,7 @@ case REQUEST_SELECT_USER:
       final Fragment filter=mAdapter.getItem(mViewPager.getCurrentItem());
       if (resultCode != RESULT_OK || !(filter instanceof FilteredUsersFragment) || !data.hasExtra(EXTRA_USER))       return;
       final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
-      final ContentValues values=makeFilterdUserContentValues(user);
+      final ContentValues values=ContentValuesCreator.makeFilteredUserContentValues(user);
       final ContentResolver resolver=getContentResolver();
       resolver.delete(Filters.Users.CONTENT_URI,Where.equals(Filters.Users.USER_ID,user.id).getSQL(),null);
       resolver.insert(Filters.Users.CONTENT_URI,values);

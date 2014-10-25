@@ -1,9 +1,8 @@
 {
-  if (info == null || info.activityInfo == null)   return true;
+  if (info == null || info.activityInfo == null)   return false;
   final ActivityInfo activityInfo=info.activityInfo;
   if (activityInfo.metaData != null && activityInfo.metaData.containsKey(METADATA_KEY_EXTENSION_USE_JSON))   return activityInfo.metaData.getBoolean(METADATA_KEY_EXTENSION_USE_JSON);
   final ApplicationInfo appInfo=activityInfo.applicationInfo;
-  if (appInfo == null)   return true;
-  if (appInfo.metaData != null && appInfo.metaData.containsKey(METADATA_KEY_EXTENSION_USE_JSON))   return appInfo.metaData.getBoolean(METADATA_KEY_EXTENSION_USE_JSON);
-  return true;
+  if (appInfo == null)   return false;
+  return appInfo.metaData != null && appInfo.metaData.getBoolean(METADATA_KEY_EXTENSION_USE_JSON,false);
 }

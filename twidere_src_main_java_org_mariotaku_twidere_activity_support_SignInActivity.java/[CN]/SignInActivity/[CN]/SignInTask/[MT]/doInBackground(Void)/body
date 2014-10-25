@@ -14,10 +14,10 @@ return authOAuth();
 }
  catch (final TwitterException e) {
 e.printStackTrace();
-return new SigninResponse(false,false,e);
+return new SignInResponse(false,false,e);
 }
 catch (final AuthenticationException e) {
 e.printStackTrace();
-return new SigninResponse(false,false,e);
+return new SignInResponse(false,false,e);
 }
 }

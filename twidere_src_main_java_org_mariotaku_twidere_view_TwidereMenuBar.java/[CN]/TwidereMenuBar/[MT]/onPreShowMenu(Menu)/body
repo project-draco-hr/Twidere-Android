@@ -1,0 +1,5 @@
+{
+  final int color=ThemeUtils.getTextColorPrimary(getItemViewContext());
+  final int popupColor=ThemeUtils.getTextColorPrimary(getPopupContext());
+  ThemeUtils.applyColorFilterToMenuIcon(menu,color,popupColor,Mode.SRC_ATOP,MENU_GROUP_STATUS_SHARE,MENU_GROUP_STATUS_EXTENSION);
+}

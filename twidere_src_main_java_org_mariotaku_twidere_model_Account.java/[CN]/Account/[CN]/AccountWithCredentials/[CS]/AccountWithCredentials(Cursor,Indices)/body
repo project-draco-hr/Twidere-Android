@@ -9,4 +9,5 @@
   oauth_token_secret=cursor.getString(indices.oauth_token_secret);
   api_url_format=cursor.getString(indices.api_url_format);
   same_oauth_signing_url=cursor.getInt(indices.same_oauth_signing_url) == 1;
+  no_version_suffix=cursor.getInt(indices.no_version_suffix) == 1;
 }

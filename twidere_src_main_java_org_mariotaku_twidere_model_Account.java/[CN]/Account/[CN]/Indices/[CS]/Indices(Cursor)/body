@@ -15,4 +15,5 @@
   oauth_token_secret=cursor.getColumnIndex(Accounts.OAUTH_TOKEN_SECRET);
   api_url_format=cursor.getColumnIndex(Accounts.API_URL_FORMAT);
   same_oauth_signing_url=cursor.getColumnIndex(Accounts.SAME_OAUTH_SIGNING_URL);
+  no_version_suffix=cursor.getColumnIndex(Accounts.NO_VERSION_SUFFIX);
 }

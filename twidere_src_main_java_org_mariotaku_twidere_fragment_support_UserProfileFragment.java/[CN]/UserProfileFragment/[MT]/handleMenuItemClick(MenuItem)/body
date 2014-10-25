@@ -25,7 +25,7 @@ case MENU_ADD_TO_FILTER:
 {
   final ContentResolver resolver=getContentResolver();
   resolver.delete(Filters.Users.CONTENT_URI,Where.equals(Filters.Users.USER_ID,user.id).getSQL(),null);
-  resolver.insert(Filters.Users.CONTENT_URI,makeFilterdUserContentValues(user));
+  resolver.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.makeFilteredUserContentValues(user));
   showInfoMessage(getActivity(),R.string.message_user_muted,false);
   break;
 }

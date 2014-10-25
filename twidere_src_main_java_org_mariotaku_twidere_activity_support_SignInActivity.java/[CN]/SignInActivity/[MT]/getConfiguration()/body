@@ -7,9 +7,10 @@
   cb.setHttpClientFactory(new TwidereHttpClientFactory(mApplication));
   setUserAgent(this,cb);
   if (!isEmpty(mAPIUrlFormat)) {
-    cb.setRestBaseURL(Utils.getApiUrl(mAPIUrlFormat,"api","/1.1/"));
+    final String versionSuffix=mNoVersionSuffix ? null : "/1.1/";
+    cb.setRestBaseURL(Utils.getApiUrl(mAPIUrlFormat,"api",versionSuffix));
     cb.setOAuthBaseURL(Utils.getApiUrl(mAPIUrlFormat,"api","/oauth/"));
-    cb.setUploadBaseURL(Utils.getApiUrl(mAPIUrlFormat,"upload","/1.1/"));
+    cb.setUploadBaseURL(Utils.getApiUrl(mAPIUrlFormat,"upload",versionSuffix));
     if (!mSameOAuthSigningUrl) {
       cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
       cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);

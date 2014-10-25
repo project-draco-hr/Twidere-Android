@@ -3,18 +3,20 @@
   setContentView(R.layout.activity_api_editor);
   String apiUrlFormat;
   int authType;
-  boolean sameOAuthSigningUrl;
+  boolean sameOAuthSigningUrl, noVersionSuffix;
   String consumerKey, consumerSecret;
   final SharedPreferences pref=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final String prefApiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_REST_BASE_URL);
   final int prefAuthType=pref.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
   final boolean prefSameOAuthSigningUrl=pref.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
+  final boolean prefNoVersionSuffix=pref.getBoolean(KEY_NO_VERSION_SUFFIX,false);
   final String prefConsumerKey=getNonEmptyString(pref,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
   final String prefConsumerSecret=getNonEmptyString(pref,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
   if (savedInstanceState != null) {
     apiUrlFormat=trim(savedInstanceState.getString(Accounts.API_URL_FORMAT,prefApiUrlFormat));
     authType=savedInstanceState.getInt(Accounts.AUTH_TYPE,prefAuthType);
     sameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL,prefSameOAuthSigningUrl);
+    noVersionSuffix=savedInstanceState.getBoolean(Accounts.NO_VERSION_SUFFIX,prefNoVersionSuffix);
     consumerKey=trim(savedInstanceState.getString(Accounts.CONSUMER_KEY,prefConsumerKey));
     consumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET,prefConsumerSecret));
   }
@@ -24,6 +26,7 @@
     apiUrlFormat=trim(extras.getString(Accounts.API_URL_FORMAT,prefApiUrlFormat));
     authType=extras.getInt(Accounts.AUTH_TYPE,prefAuthType);
     sameOAuthSigningUrl=extras.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL,prefSameOAuthSigningUrl);
+    noVersionSuffix=extras.getBoolean(Accounts.NO_VERSION_SUFFIX,prefNoVersionSuffix);
     consumerKey=trim(extras.getString(Accounts.CONSUMER_KEY,prefConsumerKey));
     consumerSecret=trim(extras.getString(Accounts.CONSUMER_SECRET,prefConsumerSecret));
   }
@@ -33,6 +36,7 @@
   mAPIFormatHelpButton.setOnClickListener(this);
   mEditAPIUrlFormat.setText(apiUrlFormat);
   mEditSameOAuthSigningUrl.setChecked(sameOAuthSigningUrl);
+  mEditNoVersionSuffix.setChecked(noVersionSuffix);
   mEditConsumerKey.setText(consumerKey);
   mEditConsumerSecret.setText(consumerSecret);
   mButtonOAuth.setChecked(authType == Accounts.AUTH_TYPE_OAUTH);

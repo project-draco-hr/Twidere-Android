@@ -3,7 +3,7 @@
   final long[] ids=getAccountIds(context);
   if (ids == null)   return false;
   for (  final long id : ids) {
-    if (id == account_id)     return true;
+    if (id == accountId)     return true;
   }
   return false;
 }

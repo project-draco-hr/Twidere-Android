@@ -1,4 +1,4 @@
 {
-  if (context == null || account_id <= 0 || user_id <= 0)   return false;
-  return account_id == user_id;
+  if (context == null || accountId <= 0 || userId <= 0)   return false;
+  return accountId == userId;
 }

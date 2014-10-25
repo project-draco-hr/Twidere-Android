@@ -9,9 +9,10 @@ case Accounts.AUTH_TYPE_XAUTH:
       final String prefConsumerSecret=prefs.getString(KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET);
       final ConfigurationBuilder cb=new ConfigurationBuilder();
       if (!isEmpty(account.api_url_format)) {
-        cb.setRestBaseURL(getApiUrl(account.api_url_format,"api","/1.1/"));
+        final String versionSuffix=account.no_version_suffix ? null : "/1.1/";
+        cb.setRestBaseURL(getApiUrl(account.api_url_format,"api",versionSuffix));
         cb.setOAuthBaseURL(getApiUrl(account.api_url_format,"api","/oauth/"));
-        cb.setUploadBaseURL(getApiUrl(account.api_url_format,"upload","/1.1/"));
+        cb.setUploadBaseURL(getApiUrl(account.api_url_format,"upload",versionSuffix));
         if (!account.same_oauth_signing_url) {
           cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
           cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);

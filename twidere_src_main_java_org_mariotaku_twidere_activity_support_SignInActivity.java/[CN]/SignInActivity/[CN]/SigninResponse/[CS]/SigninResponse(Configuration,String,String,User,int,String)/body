@@ -1,3 +1,0 @@
-{
-  this(false,true,null,conf,basic_username,basic_password,null,user,Accounts.AUTH_TYPE_BASIC,color,api_url_format,false);
-}

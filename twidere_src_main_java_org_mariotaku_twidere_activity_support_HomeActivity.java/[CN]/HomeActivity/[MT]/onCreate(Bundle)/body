@@ -78,7 +78,7 @@
   final int themeColor=getThemeColor(), contrastColor=Utils.getContrastYIQ(themeColor,192);
   final int themeResId=getCurrentThemeResourceId();
   if (ThemeUtils.isColoredActionBar(themeResId)) {
-    mTabIndicator.setBackgroundColor(themeColor);
+    ViewAccessor.setBackground(mTabIndicator,new ColorDrawable(themeColor));
     mTabIndicator.setStripColor(contrastColor);
     mTabIndicator.setIconColor(contrastColor);
   }

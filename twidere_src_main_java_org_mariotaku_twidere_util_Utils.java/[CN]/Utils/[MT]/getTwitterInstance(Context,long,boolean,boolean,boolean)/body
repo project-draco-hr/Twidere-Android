@@ -7,7 +7,7 @@
   final boolean ignoreSslError=prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false);
   final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
   final String where=Where.equals(new Column(Accounts.ACCOUNT_ID),accountId).getSQL();
-  final Cursor c=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,where.toString(),null,null);
+  final Cursor c=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,where,null,null);
   if (c == null)   return null;
   try {
     if (!c.moveToFirst())     return null;

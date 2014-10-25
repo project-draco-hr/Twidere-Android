@@ -3,7 +3,7 @@
   mSlidingMenu=(HomeSlidingMenu)findViewById(R.id.home_menu);
   mViewPager=(ExtendedViewPager)findViewById(R.id.main_pager);
   mEmptyTabHint=findViewById(R.id.empty_tab_hint);
-  mActionsButton=findViewById(R.id.actions_button_bottom);
+  mActionsButton=findViewById(R.id.actions_button);
   mTabsContainer=findViewById(R.id.tabs_container);
   mTabIndicator=(TabPagerIndicator)findViewById(R.id.main_tabs);
   mActionBarOverlay=findViewById(R.id.actionbar_overlay);

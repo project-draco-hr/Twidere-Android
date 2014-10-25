@@ -3,7 +3,7 @@
   super.onViewCreated(view,savedInstanceState);
   mMainContent=view.findViewById(R.id.content);
   mDetailsLoadProgress=(ProgressBar)view.findViewById(R.id.details_load_progress);
-  mMenuBar=(MenuBar)view.findViewById(R.id.menu_bar);
+  mMenuBar=(TwidereMenuBar)view.findViewById(R.id.menu_bar);
   mErrorRetryContainer=view.findViewById(R.id.error_retry_container);
   mRetryButton=(Button)view.findViewById(R.id.retry);
   mErrorMessageView=(TextView)view.findViewById(R.id.error_message);

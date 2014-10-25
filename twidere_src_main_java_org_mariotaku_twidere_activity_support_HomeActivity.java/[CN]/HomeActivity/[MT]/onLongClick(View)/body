@@ -1,16 +1,10 @@
 {
 switch (v.getId()) {
-case R.id.actions:
 case R.id.actions_button:
 {
-      showMenuItemToast(v,v.getContentDescription());
+      showMenuItemToast(v,v.getContentDescription(),true);
       return true;
     }
-case R.id.actions_button_bottom:
-{
-    showMenuItemToast(v,v.getContentDescription(),true);
-    return true;
-  }
 }
 return false;
 }

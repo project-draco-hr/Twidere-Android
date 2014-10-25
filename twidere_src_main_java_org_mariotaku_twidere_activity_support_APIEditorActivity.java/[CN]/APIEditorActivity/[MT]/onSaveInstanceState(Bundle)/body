@@ -2,11 +2,13 @@
   final String apiUrlFormat=parseString(mEditAPIUrlFormat.getText());
   final int authType=getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
   final boolean sameOAuthSigningUrl=mEditSameOAuthSigningUrl.isChecked();
+  final boolean noVersionSuffix=mEditNoVersionSuffix.isChecked();
   final String consumerKey=parseString(mEditConsumerKey.getText());
   final String consumerSecret=parseString(mEditConsumerSecret.getText());
   outState.putString(Accounts.API_URL_FORMAT,apiUrlFormat);
   outState.putInt(Accounts.AUTH_TYPE,authType);
   outState.putBoolean(Accounts.SAME_OAUTH_SIGNING_URL,sameOAuthSigningUrl);
+  outState.putBoolean(Accounts.NO_VERSION_SUFFIX,noVersionSuffix);
   outState.putString(Accounts.CONSUMER_KEY,consumerKey);
   outState.putString(Accounts.CONSUMER_SECRET,consumerSecret);
   super.onSaveInstanceState(outState);

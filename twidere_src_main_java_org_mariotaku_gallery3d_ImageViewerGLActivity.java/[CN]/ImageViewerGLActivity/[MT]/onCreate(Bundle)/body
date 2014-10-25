@@ -17,7 +17,7 @@
   if (savedInstanceState == null) {
     loadImage();
   }
-  mMenuBar.setOnMenuItemClickListener(this);
+  mMenuBar.setMenuBarListener(this);
   mMenuBar.inflate(R.menu.menu_image_viewer);
   mMenuBar.setIsBottomBar(true);
   mMenuBar.show();

@@ -6,6 +6,10 @@
   requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
   setUiOptions(getWindow(),data);
   super.onCreate(savedInstanceState);
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
   setContentView(R.layout.layout_link_handler);
   setProgressBarIndeterminateVisibility(false);
   if (data == null || !showFragment(data)) {

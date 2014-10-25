@@ -18,8 +18,8 @@
     return;
   }
   mBottomMenuBar.setIsBottomBar(true);
-  mBottomMenuBar.setOnMenuItemClickListener(this);
-  mActionMenuBar.setOnMenuItemClickListener(this);
+  mBottomMenuBar.setMenuBarListener(this);
+  mActionMenuBar.setMenuBarListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   mAccountSelectorAdapter=new AccountSelectorAdapter(this);

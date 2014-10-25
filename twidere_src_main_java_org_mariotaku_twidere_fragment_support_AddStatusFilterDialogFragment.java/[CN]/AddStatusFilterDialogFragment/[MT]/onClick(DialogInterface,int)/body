@@ -10,12 +10,12 @@
     if (value instanceof ParcelableUserMention) {
       final ParcelableUserMention mention=(ParcelableUserMention)value;
       user_ids.add(mention.id);
-      user_values.add(makeFilterdUserContentValues(mention));
+      user_values.add(makeFilteredUserContentValues(mention));
     }
  else     if (value instanceof ParcelableStatus) {
       final ParcelableStatus status=(ParcelableStatus)value;
       user_ids.add(status.user_id);
-      user_values.add(makeFilterdUserContentValues(status));
+      user_values.add(ContentValuesCreator.makeFilteredUserContentValues(status));
     }
  else     if (info.type == FilterItemInfo.FILTER_TYPE_KEYWORD) {
       if (value != null) {

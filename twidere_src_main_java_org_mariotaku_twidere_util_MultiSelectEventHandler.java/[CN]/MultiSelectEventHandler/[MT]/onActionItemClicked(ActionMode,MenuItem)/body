@@ -43,12 +43,12 @@ case MENU_MUTE_USER:
       if (object instanceof ParcelableStatus) {
         final ParcelableStatus status=(ParcelableStatus)object;
         userIds.add(status.user_id);
-        valuesList.add(makeFilterdUserContentValues(status));
+        valuesList.add(ContentValuesCreator.makeFilteredUserContentValues(status));
       }
  else       if (object instanceof ParcelableUser) {
         final ParcelableUser user=(ParcelableUser)object;
         userIds.add(user.id);
-        valuesList.add(makeFilterdUserContentValues(user));
+        valuesList.add(ContentValuesCreator.makeFilteredUserContentValues(user));
       }
  else {
         continue;

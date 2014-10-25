@@ -12,7 +12,7 @@
   mErrorRetryContainer=containerView.findViewById(R.id.error_retry_container);
   mRetryButton=(Button)containerView.findViewById(R.id.retry);
   mErrorMessageView=(TextView)containerView.findViewById(R.id.error_message);
-  mMenuBar=(MenuBar)containerView.findViewById(R.id.menu_bar);
+  mMenuBar=(TwidereMenuBar)containerView.findViewById(R.id.menu_bar);
   final View cardView=mHeaderView.findViewById(R.id.card);
   ThemeUtils.applyThemeAlphaToDrawable(cardView.getContext(),cardView.getBackground());
   return containerView;

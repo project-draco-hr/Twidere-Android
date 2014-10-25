@@ -1,7 +1,7 @@
 {
   final StatusTextCountView textCountView=mBottomSendButton ? mBottomSendTextCountView : mSendTextCountView;
   if (textCountView != null && mEditText != null) {
-    final String textOrig=mEditText != null ? parseString(mEditText.getText()) : null;
+    final String textOrig=parseString(mEditText.getText());
     final String text=hasMedia() && textOrig != null ? mImageUploaderUsed ? getImageUploadStatus(this,new String[]{FAKE_IMAGE_LINK},textOrig) : textOrig + " " + FAKE_IMAGE_LINK : textOrig;
     final int validatedCount=text != null ? mValidator.getTweetLength(text) : 0;
     textCountView.setTextCount(validatedCount);

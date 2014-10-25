@@ -1,0 +1,13 @@
+boolean already_logged_in
+boolean succeed
+Exception exception
+Configuration conf
+String basic_username
+String basic_password
+AccessToken access_token
+User user
+int auth_type
+int color
+String api_url_format
+boolean same_oauth_signing_url
+boolean no_version_suffix

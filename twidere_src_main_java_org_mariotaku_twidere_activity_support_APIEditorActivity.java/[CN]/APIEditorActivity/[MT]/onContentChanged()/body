@@ -10,6 +10,7 @@
   mAdvancedAPIConfigLabel=(TextView)findViewById(R.id.advanced_api_config_label);
   mAdvancedAPIConfigView=findViewById(R.id.advanced_api_config);
   mEditSameOAuthSigningUrl=(CheckBox)findViewById(R.id.same_oauth_signing_url);
+  mEditNoVersionSuffix=(CheckBox)findViewById(R.id.no_version_suffix);
   mEditConsumerKey=(EditText)findViewById(R.id.consumer_key);
   mEditConsumerSecret=(EditText)findViewById(R.id.consumer_secret);
   mSaveButton=(Button)findViewById(R.id.save);

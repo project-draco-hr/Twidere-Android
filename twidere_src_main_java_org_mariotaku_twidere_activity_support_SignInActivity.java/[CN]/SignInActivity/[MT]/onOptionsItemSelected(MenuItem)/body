@@ -23,6 +23,7 @@ case MENU_EDIT_API:
   intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
   intent.putExtra(Accounts.AUTH_TYPE,mAuthType);
   intent.putExtra(Accounts.SAME_OAUTH_SIGNING_URL,mSameOAuthSigningUrl);
+  intent.putExtra(Accounts.NO_VERSION_SUFFIX,mNoVersionSuffix);
   intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
   intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
   startActivityForResult(intent,REQUEST_EDIT_API);

@@ -1,0 +1,12 @@
+{
+  super(context,conf);
+  this.context=context;
+  this.conf=conf;
+  this.username=username;
+  this.password=password;
+  this.auth_type=auth_type;
+  this.user_color=user_color;
+  this.api_url_format=api_url_format;
+  this.same_oauth_signing_url=same_oauth_signing_url;
+  this.no_version_suffix=no_version_suffix;
+}
