@@ -1,6 +1,7 @@
 {
   mEditAPIUrlFormat.setText(apiUrlFormat);
   mEditSameOAuthSigningUrl.setChecked(sameOAuthSigningUrl);
+  mEditNoVersionSuffix.setChecked(noVersionSuffix);
   mEditConsumerKey.setText(consumerKey);
   mEditConsumerSecret.setText(consumerSecret);
   mButtonOAuth.setChecked(authType == Accounts.AUTH_TYPE_OAUTH);

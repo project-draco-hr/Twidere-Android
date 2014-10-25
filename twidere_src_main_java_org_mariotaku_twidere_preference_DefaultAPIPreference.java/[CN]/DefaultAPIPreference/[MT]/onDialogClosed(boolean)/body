@@ -3,6 +3,7 @@
   final String apiUrlFormat=parseString(mEditAPIUrlFormat.getText());
   final int authType=getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
   final boolean sameOAuthSigningUrl=mEditSameOAuthSigningUrl.isChecked();
+  final boolean noVersionSuffix=mEditNoVersionSuffix.isChecked();
   final String consumerKey=parseString(mEditConsumerKey.getText());
   final String consumerSecret=parseString(mEditConsumerSecret.getText());
   final SharedPreferences.Editor editor=getSharedPreferences().edit();
@@ -17,5 +18,6 @@
   editor.putString(KEY_API_URL_FORMAT,apiUrlFormat);
   editor.putInt(KEY_AUTH_TYPE,authType);
   editor.putBoolean(KEY_SAME_OAUTH_SIGNING_URL,sameOAuthSigningUrl);
+  editor.putBoolean(KEY_NO_VERSION_SUFFIX,noVersionSuffix);
   editor.apply();
 }

@@ -3,7 +3,8 @@
   final String apiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_REST_BASE_URL);
   final int authType=pref.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
   final boolean sameOAuthSigningUrl=pref.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
+  final boolean noVersionSuffix=pref.getBoolean(KEY_NO_VERSION_SUFFIX,false);
   final String consumerKey=getNonEmptyString(pref,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
   final String consumerSecret=getNonEmptyString(pref,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
-  setValues(apiUrlFormat,authType,sameOAuthSigningUrl,consumerKey,consumerSecret);
+  setValues(apiUrlFormat,authType,noVersionSuffix,sameOAuthSigningUrl,consumerKey,consumerSecret);
 }

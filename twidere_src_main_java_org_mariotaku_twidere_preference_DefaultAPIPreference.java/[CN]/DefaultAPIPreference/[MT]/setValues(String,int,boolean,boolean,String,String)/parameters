@@ -1,5 +1,6 @@
 String apiUrlFormat
 int authType
 boolean sameOAuthSigningUrl
+boolean noVersionSuffix
 String consumerKey
 String consumerSecret

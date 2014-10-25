@@ -10,7 +10,8 @@
   final String apiUrlFormat=trim(savedInstanceState.getString(Accounts.API_URL_FORMAT,prefApiUrlFormat));
   final int authType=savedInstanceState.getInt(Accounts.AUTH_TYPE,prefAuthType);
   final boolean sameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL,prefSameOAuthSigningUrl);
+  final boolean noVersionSuffix=savedInstanceState.getBoolean(Accounts.NO_VERSION_SUFFIX,prefSameOAuthSigningUrl);
   final String consumerKey=trim(savedInstanceState.getString(Accounts.CONSUMER_KEY,prefConsumerKey));
   final String consumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET,prefConsumerSecret));
-  setValues(apiUrlFormat,authType,sameOAuthSigningUrl,consumerKey,consumerSecret);
+  setValues(apiUrlFormat,authType,sameOAuthSigningUrl,noVersionSuffix,consumerKey,consumerSecret);
 }
