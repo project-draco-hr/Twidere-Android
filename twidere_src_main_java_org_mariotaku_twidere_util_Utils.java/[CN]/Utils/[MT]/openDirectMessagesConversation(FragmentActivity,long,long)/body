@@ -8,5 +8,5 @@
     builder.appendQueryParameter(QUERY_PARAM_RECIPIENT_ID,String.valueOf(recipientId));
   }
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+  activity.startActivity(intent);
 }

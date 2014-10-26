@@ -12,13 +12,11 @@
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mHotKeyHandler=new HotKeyHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
-  final Resources res=getResources();
-  final boolean displayIcon=res.getBoolean(R.bool.home_display_icon);
   final long[] accountIds=getAccountIds(this);
   if (accountIds.length == 0) {
-    final Intent sign_in_intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
-    sign_in_intent.setClass(this,SignInActivity.class);
-    startActivity(sign_in_intent);
+    final Intent signInIntent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
+    signInIntent.setClass(this,SignInActivity.class);
+    startActivity(signInIntent);
     finish();
     return;
   }
@@ -30,15 +28,15 @@
     finish();
     return;
   }
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.hide();
+  }
   setContentView(R.layout.activity_home);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   mTabDisplayOption=getTabDisplayOptionInt(this);
   final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
-  final ActionBar actionBar=getActionBar();
-  if (actionBar != null) {
-    actionBar.hide();
-  }
   ThemeUtils.applyBackground(mTabIndicator);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,1);
   mViewPager.setAdapter(mPagerAdapter);
@@ -77,18 +75,22 @@
   mPagerPosition=Float.NaN;
   final int themeColor=getThemeColor(), contrastColor=Utils.getContrastYIQ(themeColor,192);
   final int themeResId=getCurrentThemeResourceId();
+  final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
+  final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
   if (ThemeUtils.isColoredActionBar(themeResId)) {
     ViewAccessor.setBackground(mTabIndicator,new ColorDrawable(themeColor));
     mTabIndicator.setStripColor(contrastColor);
     mTabIndicator.setIconColor(contrastColor);
   }
  else {
-    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,themeResId));
+    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,false));
     mTabIndicator.setStripColor(themeColor);
     mTabIndicator.setIconColor(ThemeUtils.isLightActionBar(themeResId) ? Color.BLACK : Color.WHITE);
   }
+  mTabIndicator.setAlpha(actionBarAlpha / 255f);
   if (mActionsButton instanceof IHomeActionButton) {
     ((IHomeActionButton)mActionsButton).setColor(themeColor);
+    mActionsButton.setAlpha(actionBarAlpha / 255f);
   }
   ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
 }

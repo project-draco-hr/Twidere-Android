@@ -9,7 +9,7 @@ case TwidereLinkify.LINK_TYPE_MENTION:
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
 {
-    openTweetSearch(getActivity(),user.account_id,link);
+    openTweetSearch(getActivity(),user.account_id,"#" + link);
     break;
   }
 case TwidereLinkify.LINK_TYPE_LINK:

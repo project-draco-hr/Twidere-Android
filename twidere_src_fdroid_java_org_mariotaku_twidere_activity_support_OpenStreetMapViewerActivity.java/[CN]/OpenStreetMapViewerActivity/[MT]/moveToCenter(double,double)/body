@@ -1,0 +1,5 @@
+{
+  final GeoPoint gp=new GeoPoint((int)(lat * 1E6),(int)(lng * 1E6));
+  final IMapController mc=mMapView.getController();
+  mc.animateTo(gp);
+}

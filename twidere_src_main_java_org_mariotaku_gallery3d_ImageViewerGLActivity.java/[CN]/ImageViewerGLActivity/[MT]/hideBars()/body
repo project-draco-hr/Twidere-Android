@@ -1,5 +1,5 @@
 {
-  if (!mShowBars || isSwiping())   return;
+  if (!mShowBars)   return;
   mShowBars=false;
   mActionBar.hide();
   final TranslateAnimation anim=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,1);

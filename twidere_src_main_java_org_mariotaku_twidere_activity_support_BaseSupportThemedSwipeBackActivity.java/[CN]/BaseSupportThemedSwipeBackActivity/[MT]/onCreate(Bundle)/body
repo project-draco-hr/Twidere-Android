@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  mSwipebackHelper=new SwipeBackActivityHelper(this);
-  mSwipebackHelper.onActivtyCreate();
-}

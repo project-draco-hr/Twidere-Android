@@ -21,5 +21,4 @@
   mMenuBar.inflate(R.menu.menu_image_viewer);
   mMenuBar.setIsBottomBar(true);
   mMenuBar.show();
-  setSwipeListener(this);
 }

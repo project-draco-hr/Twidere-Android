@@ -1,0 +1,33 @@
+{
+  super.onCreate(savedInstanceState);
+  final Uri uri=getIntent().getData();
+  if (uri == null || !AUTHORITY_MAP.equals(uri.getAuthority())) {
+    finish();
+    return;
+  }
+  final double latitude=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LAT),Double.NaN);
+  final double longitude=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LNG),Double.NaN);
+  if (Double.isNaN(latitude) || Double.isNaN(longitude)) {
+    finish();
+    return;
+  }
+  mLatitude=latitude;
+  mLongitude=longitude;
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
+  setContentView(R.layout.activity_osm_viewer);
+  mMapView.setMultiTouchControls(true);
+  mMapView.setBuiltInZoomControls(true);
+  final List<Overlay> overlays=mMapView.getOverlays();
+  final GeoPoint gp=new GeoPoint((int)(latitude * 1E6),(int)(longitude * 1E6));
+  final Drawable d=getResources().getDrawable(R.drawable.ic_map_marker);
+  final Itemization markers=new Itemization(d,mMapView.getResourceProxy());
+  final OverlayItem overlayitem=new OverlayItem("","",gp);
+  markers.addOverlay(overlayitem);
+  overlays.add(markers);
+  final IMapController mc=mMapView.getController();
+  mc.setZoom(12);
+  mc.setCenter(gp);
+}

@@ -1,3 +1,0 @@
-{
-  mCacheDir=Utils.getBestCacheDir(context,DIR_NAME_SWIPEBACK_CACHE);
-}

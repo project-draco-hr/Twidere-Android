@@ -1,4 +1,0 @@
-{
-  mEdgeFlags=edgeFlags;
-  mDragHelper.setEdgeTrackingEnabled(mEdgeFlags);
-}

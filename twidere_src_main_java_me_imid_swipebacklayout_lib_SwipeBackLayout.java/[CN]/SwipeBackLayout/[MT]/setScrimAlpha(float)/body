@@ -1,4 +1,0 @@
-{
-  mScrimAlpha=scrimAlpha;
-  invalidate();
-}

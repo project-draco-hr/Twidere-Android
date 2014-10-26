@@ -1,4 +1,0 @@
-{
-  setActivityScreenshot(activity,intent);
-  activity.startActivityForResult(intent,REQUEST_SWIPEBACK_ACTIVITY);
-}

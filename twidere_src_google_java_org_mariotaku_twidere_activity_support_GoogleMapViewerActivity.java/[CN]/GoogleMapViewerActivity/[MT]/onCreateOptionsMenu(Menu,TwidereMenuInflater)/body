@@ -1,0 +1,4 @@
+{
+  inflater.inflate(R.menu.menu_google_maps_viewer,menu);
+  return true;
+}

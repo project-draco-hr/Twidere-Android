@@ -1,4 +1,0 @@
-{
-  super.onAttachFragment(fragment);
-  mAttachedFragments.add(fragment);
-}

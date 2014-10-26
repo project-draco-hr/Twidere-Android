@@ -1,5 +1,8 @@
 {
   super(context,attrs,defStyle);
+  ViewCompat.setOverScrollMode(this,ViewCompat.OVER_SCROLL_NEVER);
+  setHorizontalScrollBarEnabled(false);
+  setVerticalScrollBarEnabled(false);
   setLayoutManager(new TabLayoutManager(this));
   mIndicatorAdapter=new TabPagerIndicatorAdapter(this);
   setAdapter(mIndicatorAdapter);

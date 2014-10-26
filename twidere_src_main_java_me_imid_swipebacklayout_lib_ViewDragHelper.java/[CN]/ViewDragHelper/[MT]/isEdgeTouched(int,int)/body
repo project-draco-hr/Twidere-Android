@@ -1,3 +1,0 @@
-{
-  return isPointerDown(pointerId) && (mInitialEdgesTouched[pointerId] & edges) != 0;
-}

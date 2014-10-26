@@ -1,0 +1,15 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      onBackPressed();
+      break;
+    }
+case MENU_CENTER:
+{
+    moveToCenter(mLatitude,mLongitude);
+    break;
+  }
+}
+return true;
+}

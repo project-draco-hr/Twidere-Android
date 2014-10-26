@@ -3,8 +3,11 @@
   mResolver=getContentResolver();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(this));
-  setContentView(android.R.layout.list_content);
-  getActionBar().setDisplayHomeAsUpEnabled(true);
+  setContentView(R.layout.activity_drafts);
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
   mAdapter=new DraftsAdapter(this);
   mListView=(ListView)findViewById(android.R.id.list);
   mListView.setDivider(null);

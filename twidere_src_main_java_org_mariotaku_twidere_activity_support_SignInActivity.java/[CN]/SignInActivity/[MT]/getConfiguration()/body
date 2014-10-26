@@ -18,8 +18,8 @@
     }
   }
   if (isEmpty(mConsumerKey) || isEmpty(mConsumerSecret)) {
-    cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY_2);
-    cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET_2);
+    cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY_3);
+    cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET_3);
   }
  else {
     cb.setOAuthConsumerKey(mConsumerKey);

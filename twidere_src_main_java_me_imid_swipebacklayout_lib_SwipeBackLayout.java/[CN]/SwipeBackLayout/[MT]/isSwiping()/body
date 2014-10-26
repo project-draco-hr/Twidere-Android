@@ -1,3 +1,0 @@
-{
-  return mDragHelper != null && mDragHelper.getViewDragState() != ViewDragHelper.STATE_IDLE;
-}

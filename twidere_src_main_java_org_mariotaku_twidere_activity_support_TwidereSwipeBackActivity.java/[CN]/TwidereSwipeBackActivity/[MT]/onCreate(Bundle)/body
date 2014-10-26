@@ -1,6 +1,0 @@
-{
-  ThemeUtils.overrideActivityOpenAnimation(this);
-  super.onCreate(savedInstanceState);
-  final SwipeBackLayout swipeBack=getSwipeBackLayout();
-  swipeBack.setOnSwipeBackScrollListener(this);
-}

@@ -1,4 +1,0 @@
-{
-  if (mSwipebackHelper == null)   return null;
-  return mSwipebackHelper.getSwipeBackLayout();
-}

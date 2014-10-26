@@ -30,7 +30,7 @@
   final Intent extraIntent=intent.getParcelableExtra(EXTRA_EXTRA_INTENT);
   if (extraIntent != null && firstCreate) {
     extraIntent.setExtrasClassLoader(getClassLoader());
-    SwipebackActivityUtils.startSwipebackActivity(this,extraIntent);
+    startActivity(extraIntent);
   }
   return initialTab;
 }

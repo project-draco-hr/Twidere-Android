@@ -1,4 +1,0 @@
-{
-  if (isInEditMode())   return super.newCustomViewAbove(context);
-  return new MyCustomViewAbove(context,this);
-}

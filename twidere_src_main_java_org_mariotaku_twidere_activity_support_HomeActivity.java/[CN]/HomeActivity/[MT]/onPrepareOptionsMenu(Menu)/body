@@ -25,11 +25,8 @@
         title=R.string.compose;
       }
     }
-    final ActionBar actionBar=getActionBar();
     final MenuItem actionsItem=menu.findItem(MENU_ACTIONS);
-    if (actionBar != null) {
-      actionsItem.setIcon(actionBar.getThemedContext().getResources().getDrawable(icon));
-    }
+    actionsItem.setIcon(icon);
     actionsItem.setTitle(title);
   }
   return true;

@@ -7,5 +7,5 @@
   builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,String.valueOf(statusId));
   builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+  activity.startActivity(intent);
 }

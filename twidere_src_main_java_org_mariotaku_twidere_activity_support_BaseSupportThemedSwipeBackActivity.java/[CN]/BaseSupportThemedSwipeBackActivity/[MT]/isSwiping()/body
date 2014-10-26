@@ -1,4 +1,0 @@
-{
-  final SwipeBackLayout swipeBackLayout=getSwipeBackLayout();
-  return swipeBackLayout != null && swipeBackLayout.isSwiping();
-}

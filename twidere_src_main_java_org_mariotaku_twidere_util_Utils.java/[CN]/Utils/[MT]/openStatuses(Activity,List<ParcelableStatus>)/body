@@ -7,5 +7,5 @@
   builder.authority(AUTHORITY_STATUSES);
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   intent.putExtras(extras);
-  SwipebackActivityUtils.startSwipebackActivity(activity,intent);
+  activity.startActivity(intent);
 }

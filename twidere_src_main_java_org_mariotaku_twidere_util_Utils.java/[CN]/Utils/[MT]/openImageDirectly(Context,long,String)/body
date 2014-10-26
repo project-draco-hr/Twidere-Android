@@ -4,10 +4,5 @@
   intent.setData(Uri.parse(uri));
   intent.putExtra(EXTRA_ACCOUNT_ID,accountId);
   intent.setClass(context,ImageViewerGLActivity.class);
-  if (context instanceof Activity) {
-    SwipebackActivityUtils.startSwipebackActivity((Activity)context,intent);
-  }
- else {
-    context.startActivity(intent);
-  }
+  context.startActivity(intent);
 }
