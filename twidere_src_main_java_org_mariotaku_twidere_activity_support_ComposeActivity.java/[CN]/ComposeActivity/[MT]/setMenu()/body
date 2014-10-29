@@ -1,6 +1,35 @@
 {
   if (mMenuBar == null)   return;
-  final Menu bottomMenu=mMenuBar.getMenu();
-  setCommonMenu(bottomMenu);
+  final Menu menu=mMenuBar.getMenu();
+  final MenuItem itemAttachLocation=menu.findItem(MENU_ADD_LOCATION);
+  if (itemAttachLocation != null) {
+    final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
+    if (attachLocation && getLocation()) {
+      itemAttachLocation.setChecked(true);
+    }
+ else {
+      setProgressVisibility(false);
+      mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,false).apply();
+      itemAttachLocation.setChecked(false);
+    }
+  }
+  final MenuItem viewItem=menu.findItem(MENU_VIEW);
+  if (viewItem != null) {
+    viewItem.setVisible(mInReplyToStatus != null);
+  }
+  final boolean hasMedia=hasMedia(), hasInReplyTo=mInReplyToStatus != null;
+  Utils.setMenuItemAvailability(menu,MENU_TAKE_PHOTO,!hasInReplyTo);
+  Utils.setMenuItemAvailability(menu,R.id.take_photo_sub_item,hasInReplyTo);
+  Utils.setMenuItemAvailability(menu,MENU_ADD_IMAGE,!hasMedia && !hasInReplyTo);
+  Utils.setMenuItemAvailability(menu,MENU_VIEW,hasInReplyTo);
+  Utils.setMenuItemAvailability(menu,R.id.medias_menu,hasMedia || hasInReplyTo);
+  Utils.setMenuItemAvailability(menu,MENU_TOGGLE_SENSITIVE,hasMedia);
+  Utils.setMenuItemAvailability(menu,MENU_EDIT_MEDIAS,hasMedia);
+  menu.setGroupEnabled(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
+  menu.setGroupVisible(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
+  final MenuItem itemToggleSensitive=menu.findItem(MENU_TOGGLE_SENSITIVE);
+  if (itemToggleSensitive != null) {
+    itemToggleSensitive.setChecked(hasMedia && mIsPossiblySensitive);
+  }
   mMenuBar.show();
 }

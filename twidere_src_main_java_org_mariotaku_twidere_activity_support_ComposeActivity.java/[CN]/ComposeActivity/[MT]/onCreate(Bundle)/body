@@ -70,7 +70,10 @@
   final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
   addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
   final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
-  addIntentToMenu(this,menu,imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
+  final MenuItem mediasMenuItem=menu.findItem(R.id.medias_menu);
+  if (mediasMenuItem != null && mediasMenuItem.hasSubMenu()) {
+    addIntentToMenu(this,mediasMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
+  }
   setMenu();
   updateAccountSelection();
   updateMediasPreview();
