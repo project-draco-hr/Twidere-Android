@@ -8,7 +8,7 @@
     }
  else {
       setProgressVisibility(false);
-      mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,false).commit();
+      mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,false).apply();
       itemAttachLocation.setChecked(false);
     }
   }

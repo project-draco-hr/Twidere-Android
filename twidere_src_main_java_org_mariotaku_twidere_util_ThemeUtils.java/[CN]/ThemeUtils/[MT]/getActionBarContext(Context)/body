@@ -8,5 +8,5 @@
     a.recycle();
   }
   if (resId == 0)   return new TwidereContextWrapper(context);
-  return new TwidereContextThemeWrapper(context,resId,getUserThemeColor(context));
+  return new TwidereContextThemeWrapper(context,resId,getUserAccentColor(context));
 }

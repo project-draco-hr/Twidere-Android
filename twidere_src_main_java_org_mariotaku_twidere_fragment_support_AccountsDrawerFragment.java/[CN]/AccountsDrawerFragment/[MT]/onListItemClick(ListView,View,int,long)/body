@@ -95,10 +95,8 @@ if (!(item instanceof OptionItem)) return;
 final OptionItem option=(OptionItem)item;
 switch (option.id) {
 case MENU_ACCOUNTS:
-case MENU_ADD_ACCOUNT:
 {
-final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
-intent.setClass(getActivity(),SignInActivity.class);
+final Intent intent=new Intent(getActivity(),AccountsManagerActivity.class);
 startActivity(intent);
 break;
 }

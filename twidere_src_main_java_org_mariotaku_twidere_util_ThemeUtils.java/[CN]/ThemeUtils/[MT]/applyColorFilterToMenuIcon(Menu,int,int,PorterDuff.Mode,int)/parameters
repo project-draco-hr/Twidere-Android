@@ -1,5 +1,0 @@
-Menu menu
-int color
-int popupColor
-PorterDuff.Mode mode
-int excludedGroups

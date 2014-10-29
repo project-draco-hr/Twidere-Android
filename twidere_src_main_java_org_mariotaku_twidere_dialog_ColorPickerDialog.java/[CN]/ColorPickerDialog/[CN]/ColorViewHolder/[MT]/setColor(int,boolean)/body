@@ -1,0 +1,4 @@
+{
+  colorView.setColor(color);
+  colorView.setActivated(activated);
+}

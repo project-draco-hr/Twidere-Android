@@ -6,7 +6,7 @@
   }
  else {
     themeRes=getSettingsThemeResource(context);
-    accentColor=getUserThemeColor(context);
+    accentColor=getUserAccentColor(context);
   }
   final Context theme=getThemedContextForActionIcons(context,themeRes,accentColor);
   return LayoutInflater.from(theme);

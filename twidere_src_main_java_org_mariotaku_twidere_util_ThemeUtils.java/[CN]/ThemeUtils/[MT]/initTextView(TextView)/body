@@ -1,0 +1,7 @@
+{
+  if (view.isInEditMode())   return;
+  final Context context=view.getContext();
+  view.setLinkTextColor(ThemeUtils.getUserLinkTextColor(context));
+  view.setHighlightColor(ThemeUtils.getUserHighlightColor(context));
+  view.setTypeface(ThemeUtils.getUserTypeface(context,view.getTypeface()));
+}

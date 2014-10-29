@@ -8,6 +8,9 @@
   builder.setView(listView);
   final Menu menu=MenuUtils.createMenu(context);
   onCreateMenu(new TwidereMenuInflater(context),menu);
+  final int itemColor=ThemeUtils.getThemeForegroundColor(context);
+  final int highlightColor=ThemeUtils.getUserAccentColor(context);
+  ThemeUtils.applyColorFilterToMenuIcon(menu,itemColor,highlightColor,Mode.SRC_ATOP);
   adapter.setMenu(menu);
   return builder.create();
 }

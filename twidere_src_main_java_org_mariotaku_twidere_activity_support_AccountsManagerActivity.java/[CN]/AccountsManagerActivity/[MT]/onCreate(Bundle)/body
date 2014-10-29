@@ -1,0 +1,12 @@
+{
+  super.onCreate(savedInstanceState);
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
+  setContentView(R.layout.activity_content_fragment);
+  final FragmentManager fm=getSupportFragmentManager();
+  final FragmentTransaction ft=fm.beginTransaction();
+  ft.replace(R.id.content_fragment,new AccountsManagerFragment());
+  ft.commit();
+}

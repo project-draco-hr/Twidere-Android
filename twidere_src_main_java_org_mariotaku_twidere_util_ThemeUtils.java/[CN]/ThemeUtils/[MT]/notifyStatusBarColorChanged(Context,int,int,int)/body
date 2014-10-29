@@ -1,22 +1,5 @@
 {
   final Intent intent=new Intent("com.mohammadag.colouredstatusbar.ChangeStatusBarColor");
-  if (isColoredActionBar(themeResource)) {
-    intent.putExtra("status_bar_color",backgroundAlpha << 24 | accentColor);
-  }
- else {
-    if (isLightActionBar(themeResource)) {
-      intent.putExtra("status_bar_color",backgroundAlpha << 24 | 0xFFDDDDDD);
-    }
- else {
-      intent.putExtra("status_bar_color",backgroundAlpha << 24 | 0xFF222222);
-    }
-  }
-  if (isLightActionBar(themeResource)) {
-    intent.putExtra("status_bar_icons_color",Color.DKGRAY);
-  }
- else {
-    intent.putExtra("status_bar_icons_color",Color.WHITE);
-  }
   intent.putExtra("navigation_bar_color",Color.BLACK);
   intent.putExtra("navigation_bar_icon_color",Color.WHITE);
   context.sendOrderedBroadcast(intent,null);

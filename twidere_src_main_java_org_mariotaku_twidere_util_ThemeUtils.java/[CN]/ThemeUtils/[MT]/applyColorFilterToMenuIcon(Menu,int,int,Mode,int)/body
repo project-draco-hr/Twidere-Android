@@ -1,0 +1,3 @@
+{
+  applyColorFilterToMenuIcon(menu,color,color,highlightColor,mode,excludedGroups);
+}

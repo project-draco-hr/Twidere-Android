@@ -1,3 +1,0 @@
-{
-  return isLightActionBar(getThemeResource(context));
-}

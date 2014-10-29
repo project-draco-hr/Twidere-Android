@@ -3,7 +3,7 @@
   if (mShouldSaveAccounts) {
     final SharedPreferences.Editor editor=mPreferences.edit();
     editor.putString(KEY_COMPOSE_ACCOUNTS,ArrayUtils.toString(mSendAccountIds,',',false));
-    editor.commit();
+    editor.apply();
   }
   mAccountSelectorAdapter.clearAccountSelection();
   for (  final long accountId : mSendAccountIds) {

@@ -1,3 +1,4 @@
 {
-  super(context,R.layout.gallery_item_compose_account,Account.getAccountsList(context,false));
+  mInflater=LayoutInflater.from(context);
+  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
 }

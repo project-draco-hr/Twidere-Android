@@ -1,0 +1,3 @@
+{
+  ViewAccessor.setBackground(this,new ColorDrawable(color));
+}

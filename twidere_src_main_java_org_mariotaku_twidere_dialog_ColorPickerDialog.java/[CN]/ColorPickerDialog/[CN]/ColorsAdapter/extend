@@ -1,1 +1,1 @@
-ArrayAdapter<Integer>
+ArrayRecyclerAdapter<Integer,ColorViewHolder>

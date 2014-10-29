@@ -1,0 +1,12 @@
+{
+switch (item.getItemId()) {
+case MENU_ADD_ACCOUNT:
+{
+      final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
+      intent.setClass(getActivity(),SignInActivity.class);
+      startActivity(intent);
+      break;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

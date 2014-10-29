@@ -1,6 +1,6 @@
 {
   final ArrayList<Long> list=new ArrayList<Long>();
-  for (int i=0, j=getCount(); i < j; i++) {
+  for (int i=0, j=getItemCount(); i < j; i++) {
     final Account account=getItem(i);
     if (mAccountSelectStates.get(account.account_id,false)) {
       list.add(account.account_id);

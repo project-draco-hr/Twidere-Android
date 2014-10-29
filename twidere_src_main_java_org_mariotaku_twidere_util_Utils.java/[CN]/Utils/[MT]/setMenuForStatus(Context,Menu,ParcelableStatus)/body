@@ -1,6 +1,6 @@
 {
   if (context == null || menu == null || status == null)   return;
-  final int activatedColor=ThemeUtils.getUserThemeColor(context);
+  final int activatedColor=ThemeUtils.getUserAccentColor(context);
   final boolean isMyRetweet=isMyRetweet(status);
   final MenuItem delete=menu.findItem(MENU_DELETE);
   if (delete != null) {
@@ -8,38 +8,18 @@
   }
   final MenuItem retweet=menu.findItem(MENU_RETWEET);
   if (retweet != null) {
-    final Drawable icon=retweet.getIcon().mutate();
     retweet.setVisible(!status.user_is_protected || isMyRetweet);
-    if (isMyRetweet) {
-      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
-      retweet.setTitle(R.string.cancel_retweet);
-    }
- else {
-      icon.clearColorFilter();
-      retweet.setTitle(R.string.retweet);
-    }
+    MenuUtils.setMenuInfo(retweet,new StatusMenuInfo(isMyRetweet));
+    retweet.setTitle(isMyRetweet ? R.string.cancel_retweet : R.string.retweet);
   }
-  final MenuItem itemRetweetSubmenu=menu.findItem(R.id.retweet_submenu);
-  if (itemRetweetSubmenu != null) {
-    final Drawable icon=itemRetweetSubmenu.getIcon().mutate();
-    if (isMyRetweet) {
-      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
-    }
- else {
-      icon.clearColorFilter();
-    }
+  final MenuItem retweetSubItem=menu.findItem(R.id.retweet_submenu);
+  if (retweetSubItem != null) {
+    MenuUtils.setMenuInfo(retweetSubItem,new StatusMenuInfo(isMyRetweet));
   }
   final MenuItem favorite=menu.findItem(MENU_FAVORITE);
   if (favorite != null) {
-    final Drawable icon=favorite.getIcon().mutate();
-    if (status.is_favorite) {
-      icon.setColorFilter(activatedColor,Mode.SRC_ATOP);
-      favorite.setTitle(R.string.unfavorite);
-    }
- else {
-      icon.clearColorFilter();
-      favorite.setTitle(R.string.favorite);
-    }
+    MenuUtils.setMenuInfo(favorite,new StatusMenuInfo(status.is_favorite));
+    favorite.setTitle(status.is_favorite ? R.string.unfavorite : R.string.favorite);
   }
   final MenuItem translate=menu.findItem(MENU_TRANSLATE);
   if (translate != null) {

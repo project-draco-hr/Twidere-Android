@@ -53,12 +53,9 @@
   }
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
-  initTabs();
-  final boolean tabsNotEmpty=mPagerAdapter.getCount() > 0;
-  mEmptyTabHint.setVisibility(tabsNotEmpty ? View.GONE : View.VISIBLE);
-  mViewPager.setVisibility(tabsNotEmpty ? View.VISIBLE : View.GONE);
   setTabPosition(initialTabPosition);
   setupSlidingMenu();
+  setupBars();
   showDataProfilingRequest();
   initUnreadCount();
   updateActionsButton();
@@ -73,24 +70,5 @@
     }
   }
   mPagerPosition=Float.NaN;
-  final int themeColor=getThemeColor(), contrastColor=Utils.getContrastYIQ(themeColor,192);
-  final int themeResId=getCurrentThemeResourceId();
-  final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
-  final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
-  if (ThemeUtils.isColoredActionBar(themeResId)) {
-    ViewAccessor.setBackground(mTabIndicator,new ColorDrawable(themeColor));
-    mTabIndicator.setStripColor(contrastColor);
-    mTabIndicator.setIconColor(contrastColor);
-  }
- else {
-    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,false));
-    mTabIndicator.setStripColor(themeColor);
-    mTabIndicator.setIconColor(ThemeUtils.isLightActionBar(themeResId) ? Color.BLACK : Color.WHITE);
-  }
-  mTabIndicator.setAlpha(actionBarAlpha / 255f);
-  if (mActionsButton instanceof IHomeActionButton) {
-    ((IHomeActionButton)mActionsButton).setColor(themeColor);
-    mActionsButton.setAlpha(actionBarAlpha / 255f);
-  }
-  ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
+  setupHomeTabs();
 }

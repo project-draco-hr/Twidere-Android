@@ -1,3 +1,3 @@
 {
-  return ThemeUtils.getUserThemeColor(this,getThemeResourceId());
+  return ThemeUtils.getUserAccentColor(this,getThemeResourceId());
 }

@@ -1,8 +1,0 @@
-{
-  if (mIsRtl) {
-    fillToGalleryRightRtl();
-  }
- else {
-    fillToGalleryRightLtr();
-  }
-}

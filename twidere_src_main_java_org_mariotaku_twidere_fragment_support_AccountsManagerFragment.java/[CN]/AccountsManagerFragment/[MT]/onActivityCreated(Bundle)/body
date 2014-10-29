@@ -1,0 +1,7 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mAdapter=new AccountsAdapter(getActivity());
+  setListAdapter(mAdapter);
+  getLoaderManager().initLoader(0,null,this);
+}

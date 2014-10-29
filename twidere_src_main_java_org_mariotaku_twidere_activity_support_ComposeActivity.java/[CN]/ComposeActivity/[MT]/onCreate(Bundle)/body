@@ -17,17 +17,11 @@
     finish();
     return;
   }
-  mBottomMenuBar.setIsBottomBar(true);
-  mBottomMenuBar.setMenuBarListener(this);
-  mActionMenuBar.setMenuBarListener(this);
+  mMenuBar.setIsBottomBar(true);
+  mMenuBar.setMenuBarListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   mAccountSelectorAdapter=new AccountSelectorAdapter(this);
-  mAccountSelector.setAdapter(mAccountSelectorAdapter);
-  mAccountSelector.setOnItemClickListener(this);
-  mAccountSelector.setOnItemLongClickListener(this);
-  mAccountSelector.setScrollAfterItemClickEnabled(false);
-  mAccountSelector.setScrollRightSpacingEnabled(false);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediasPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();
@@ -56,8 +50,8 @@
       handleDefaultIntent(intent);
     }
     if (mSendAccountIds == null || mSendAccountIds.length == 0) {
-      final long[] ids_in_prefs=ArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
-      final long[] intersection=ArrayUtils.intersection(ids_in_prefs,mAccountIds);
+      final long[] idsInPrefs=ArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
+      final long[] intersection=ArrayUtils.intersection(idsInPrefs,mAccountIds);
       mSendAccountIds=intersection.length > 0 ? intersection : mAccountIds;
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());
@@ -65,52 +59,18 @@
   if (!setComposeTitle(intent)) {
     setTitle(R.string.compose);
   }
-  final boolean useBottomMenu=isSingleAccount() || !mBottomSendButton;
-  if (useBottomMenu) {
-    mBottomMenuBar.inflate(R.menu.menu_compose);
-  }
- else {
-    mActionMenuBar.inflate(R.menu.menu_compose);
-  }
-  mBottomMenuBar.setVisibility(useBottomMenu ? View.VISIBLE : View.GONE);
-  mActionMenuBar.setVisibility(useBottomMenu ? View.GONE : View.VISIBLE);
+  mMenuBar.inflate(R.menu.menu_compose);
   mSendView.setVisibility(mBottomSendButton ? View.GONE : View.VISIBLE);
-  mBottomSendDivider.setVisibility(mBottomSendButton ? View.VISIBLE : View.GONE);
   mBottomSendView.setVisibility(mBottomSendButton ? View.VISIBLE : View.GONE);
   mSendView.setOnClickListener(this);
   mBottomSendView.setOnClickListener(this);
   mSendView.setOnLongClickListener(this);
   mBottomSendView.setOnLongClickListener(this);
-  final Menu menu=mBottomMenuBar.getMenu(), actionBarMenu=mActionMenuBar.getMenu();
-  final Menu showingMenu=mBottomSendButton ? actionBarMenu : menu;
-  if (showingMenu != null) {
-    final Intent compose_extensions_intent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
-    addIntentToMenu(this,showingMenu,compose_extensions_intent,MENU_GROUP_COMPOSE_EXTENSION);
-    final Intent image_extensions_intent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
-    addIntentToMenu(this,showingMenu,image_extensions_intent,MENU_GROUP_IMAGE_EXTENSION);
-  }
-  final LinearLayout.LayoutParams bottomMenuContainerParams=(LinearLayout.LayoutParams)mBottomMenuContainer.getLayoutParams();
-  final LinearLayout.LayoutParams accountSelectorParams=(LinearLayout.LayoutParams)mAccountSelector.getLayoutParams();
-  final int maxItemsShown;
-  final Resources res=getResources();
-  if (isSingleAccount()) {
-    accountSelectorParams.weight=0;
-    accountSelectorParams.width=ViewGroup.LayoutParams.WRAP_CONTENT;
-    bottomMenuContainerParams.weight=1;
-    bottomMenuContainerParams.width=ViewGroup.LayoutParams.MATCH_PARENT;
-    maxItemsShown=res.getInteger(R.integer.max_compose_menu_buttons_bottom_singleaccount);
-    mAccountSelectorDivider.setVisibility(View.VISIBLE);
-  }
- else {
-    accountSelectorParams.weight=1;
-    accountSelectorParams.width=ViewGroup.LayoutParams.MATCH_PARENT;
-    bottomMenuContainerParams.weight=0;
-    bottomMenuContainerParams.width=ViewGroup.LayoutParams.WRAP_CONTENT;
-    maxItemsShown=res.getInteger(R.integer.max_compose_menu_buttons_bottom);
-    mAccountSelectorDivider.setVisibility(mBottomSendButton ? View.GONE : View.VISIBLE);
-  }
-  mBottomMenuContainer.setLayoutParams(bottomMenuContainerParams);
-  mBottomMenuBar.setMaxItemsShown(maxItemsShown);
+  final Menu menu=mMenuBar.getMenu();
+  final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
+  addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
+  final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
+  addIntentToMenu(this,menu,imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
   setMenu();
   updateAccountSelection();
   updateMediasPreview();

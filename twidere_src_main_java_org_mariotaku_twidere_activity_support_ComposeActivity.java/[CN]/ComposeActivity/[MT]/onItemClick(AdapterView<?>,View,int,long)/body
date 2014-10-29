@@ -1,8 +1,0 @@
-{
-  if (isSingleAccount())   return;
-  final boolean selected=!view.isActivated();
-  final Account account=mAccountSelectorAdapter.getItem(position);
-  mAccountSelectorAdapter.setAccountSelected(account.account_id,selected);
-  mSendAccountIds=mAccountSelectorAdapter.getSelectedAccountIds();
-  updateAccountSelection();
-}

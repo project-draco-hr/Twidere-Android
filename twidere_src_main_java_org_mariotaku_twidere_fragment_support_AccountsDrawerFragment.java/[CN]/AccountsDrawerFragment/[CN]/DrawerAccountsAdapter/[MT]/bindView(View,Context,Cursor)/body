@@ -2,17 +2,19 @@
   super.bindView(view,context,cursor);
   final CompoundButton toggle=(CompoundButton)view.findViewById(R.id.toggle);
   final TextView name=(TextView)view.findViewById(R.id.name);
-  final TextView screen_name=(TextView)view.findViewById(R.id.screen_name);
-  final TextView default_indicator=(TextView)view.findViewById(R.id.default_indicator);
-  final ImageView profile_image=(ImageView)view.findViewById(R.id.profile_image);
+  final TextView screenNameView=(TextView)view.findViewById(R.id.screen_name);
+  final TextView defaultIndicatorView=(TextView)view.findViewById(R.id.default_indicator);
+  final ImageView profileImageView=(ImageView)view.findViewById(R.id.profile_image);
   final Account account=new Account(cursor,mIndices);
   name.setText(account.name);
-  screen_name.setText(String.format("@%s",account.screen_name));
-  default_indicator.setVisibility(account.account_id == mDefaultAccountId ? View.VISIBLE : View.GONE);
-  mImageLoader.displayProfileImage(profile_image,account.profile_image_url);
+  screenNameView.setText(String.format("@%s",account.screen_name));
+  defaultIndicatorView.setVisibility(account.account_id == mDefaultAccountId ? View.VISIBLE : View.GONE);
+  mImageLoader.displayProfileImage(profileImageView,account.profile_image_url);
   toggle.setChecked(account.is_activated);
   toggle.setTag(account);
   toggle.setOnCheckedChangeListener(this);
   view.setActivated(account.account_id == mSelectedAccountId);
-  ((IColorLabelView)view).drawEnd(account.color);
+  final IColorLabelView colorLabelView=(IColorLabelView)view;
+  colorLabelView.drawStart(account.account_id == mSelectedAccountId ? mActivatedColor : 0);
+  colorLabelView.drawEnd(account.color);
 }

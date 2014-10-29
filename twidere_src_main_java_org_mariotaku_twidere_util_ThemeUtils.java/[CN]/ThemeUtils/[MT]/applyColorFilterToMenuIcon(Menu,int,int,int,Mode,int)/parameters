@@ -1,0 +1,6 @@
+Menu menu
+int color
+int popupColor
+int highlightColor
+Mode mode
+int excludedGroups

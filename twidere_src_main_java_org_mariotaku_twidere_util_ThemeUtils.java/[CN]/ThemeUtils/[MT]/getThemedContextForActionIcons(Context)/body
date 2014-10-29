@@ -6,7 +6,7 @@
   }
  else {
     themeRes=getSettingsThemeResource(context);
-    accentColor=getUserThemeColor(context,themeRes);
+    accentColor=getUserAccentColor(context,themeRes);
   }
   return new TwidereContextThemeWrapper(context,getThemeResActionIcons(themeRes),accentColor);
 }

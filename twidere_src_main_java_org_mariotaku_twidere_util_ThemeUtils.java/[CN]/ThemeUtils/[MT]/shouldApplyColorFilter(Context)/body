@@ -1,3 +1,0 @@
-{
-  return shouldApplyColorFilter(getThemeResource(context));
-}

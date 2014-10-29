@@ -1,0 +1,4 @@
+{
+  mIconView.setColorFilter(color,mode);
+  mProgressBar.setIndeterminateTintList(ColorStateList.valueOf(color));
+}

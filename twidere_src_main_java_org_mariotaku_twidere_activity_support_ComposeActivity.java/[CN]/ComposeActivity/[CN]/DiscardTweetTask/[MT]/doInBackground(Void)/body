@@ -1,14 +1,13 @@
 {
-  try {
-    for (    final ParcelableMediaUpdate media : activity.getMediasList()) {
-      final Uri uri=Uri.parse(media.uri);
-      if (uri == null)       return null;
-      if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
-        new File(uri.getPath()).delete();
+  for (  final ParcelableMediaUpdate media : activity.getMediasList()) {
+    if (media.uri == null)     continue;
+    final Uri uri=Uri.parse(media.uri);
+    if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
+      final File file=new File(uri.getPath());
+      if (!file.delete()) {
+        Log.d(LOGTAG,String.format("Unable to delete %s",file));
       }
     }
-  }
- catch (  final Exception e) {
   }
   return null;
 }

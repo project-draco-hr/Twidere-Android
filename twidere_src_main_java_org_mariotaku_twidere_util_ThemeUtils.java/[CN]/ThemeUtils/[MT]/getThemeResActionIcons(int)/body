@@ -1,41 +1,9 @@
 {
 switch (baseThemeRes) {
-case R.style.Theme_Twidere_Light_DarkActionBar:
-{
-      return R.style.Theme_Twidere_Light_DarkActionBar_DarkIcon;
-    }
-case R.style.Theme_Twidere_Light_DarkActionBar_SolidBackground:
-{
-    return R.style.Theme_Twidere_Light_DarkActionBar_SolidBackground_DarkIcon;
-  }
-case R.style.Theme_Twidere_Light_DarkActionBar_Transparent:
-{
-  return R.style.Theme_Twidere_Light_DarkActionBar_Transparent_DarkIcon;
-}
-case R.style.Theme_Twidere_Light_DarkActionBar_Compose:
-{
-return R.style.Theme_Twidere_Light_DarkActionBar_Compose_DarkIcon;
-}
-case R.style.Theme_Twidere_Colored_DarkActionBar:
-{
-return R.style.Theme_Twidere_Colored_DarkActionBar_DarkIcon;
-}
-case R.style.Theme_Twidere_Colored_DarkActionBar_SolidBackground:
-{
-return R.style.Theme_Twidere_Colored_DarkActionBar_SolidBackground_DarkIcon;
-}
-case R.style.Theme_Twidere_Colored_DarkActionBar_Transparent:
-{
-return R.style.Theme_Twidere_Colored_DarkActionBar_Transparent_DarkIcon;
-}
-case R.style.Theme_Twidere_Colored_DarkActionBar_Compose:
-{
-return R.style.Theme_Twidere_Colored_DarkActionBar_Compose_DarkIcon;
-}
 case R.style.Theme_Twidere_Settings_Light_DarkActionBar:
 {
-return R.style.Theme_Twidere_Settings_Light_DarkActionBar_DarkIcon;
-}
+      return R.style.Theme_Twidere_Settings_Light_DarkActionBar_DarkIcon;
+    }
 }
 return baseThemeRes;
 }

@@ -1,6 +1,6 @@
 {
   if (context == null)   return new TextPaint().linkColor;
-  final int themeColor=getUserThemeColor(context);
+  final int themeColor=getUserAccentColor(context);
   final float[] hsv=new float[3];
   Color.colorToHSV(themeColor,hsv);
   if (isDarkTheme(context)) {

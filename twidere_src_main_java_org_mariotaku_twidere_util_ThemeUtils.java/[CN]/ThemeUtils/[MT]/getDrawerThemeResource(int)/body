@@ -2,9 +2,6 @@
 switch (themeRes) {
 case R.style.Theme_Twidere_Dark_Transparent:
 case R.style.Theme_Twidere_Light_Transparent:
-case R.style.Theme_Twidere_Light_DarkActionBar_Transparent:
-case R.style.Theme_Twidere_Colored_DarkActionBar_Transparent:
-case R.style.Theme_Twidere_Colored_Transparent:
     return R.style.Theme_Twidere_Drawer_Dark_Transparent;
 }
 return R.style.Theme_Twidere_Drawer_Dark;

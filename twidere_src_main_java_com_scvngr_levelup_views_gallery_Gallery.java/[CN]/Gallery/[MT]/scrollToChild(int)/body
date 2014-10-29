@@ -1,9 +1,0 @@
-{
-  final View child=getChildAt(childPosition);
-  if (child != null) {
-    final int distance=getGalleryLockPoint() - getLeftOfView(child);
-    mFlingRunnable.startUsingDistance(distance);
-    return true;
-  }
-  return false;
-}

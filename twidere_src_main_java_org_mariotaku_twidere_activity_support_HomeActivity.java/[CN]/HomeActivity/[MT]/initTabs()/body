@@ -1,7 +1,0 @@
-{
-  final List<SupportTabSpec> tabs=getHomeTabs(this);
-  mCustomTabs.clear();
-  mCustomTabs.addAll(tabs);
-  mPagerAdapter.clear();
-  mPagerAdapter.addTabs(tabs);
-}

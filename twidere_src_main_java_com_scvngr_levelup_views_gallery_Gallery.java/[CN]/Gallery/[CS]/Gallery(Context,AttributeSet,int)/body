@@ -1,7 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  mGestureDetector=new GestureDetector(context,this);
-  mGestureDetector.setIsLongpressEnabled(true);
-  setScrollAfterItemClickEnabled(true);
-  setScrollRightSpacingEnabled(true);
-}

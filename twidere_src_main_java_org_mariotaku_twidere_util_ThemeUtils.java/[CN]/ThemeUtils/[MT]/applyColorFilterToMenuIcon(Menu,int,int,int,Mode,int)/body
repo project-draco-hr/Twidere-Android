@@ -1,0 +1,31 @@
+{
+  for (int i=0, j=menu.size(); i < j; i++) {
+    final MenuItem item=menu.getItem(i);
+    final Drawable icon=item.getIcon();
+    final ContextMenuInfo info=item.getMenuInfo();
+    if (icon != null && !ArrayUtils.contains(excludedGroups,item.getGroupId())) {
+      icon.mutate();
+      if (info instanceof MenuBarMenuInfo) {
+        final MenuBarMenuInfo mbInfo=(MenuBarMenuInfo)info;
+        final boolean inPopup=mbInfo.isInPopup();
+        if (mbInfo.getMenuInfo() instanceof StatusMenuInfo) {
+          final StatusMenuInfo sInfo=(StatusMenuInfo)mbInfo.getMenuInfo();
+          icon.setColorFilter(sInfo.isHighlight() ? highlightColor : (inPopup ? popupColor : color),mode);
+        }
+ else {
+          icon.setColorFilter(inPopup ? popupColor : color,mode);
+        }
+      }
+ else       if (info instanceof StatusMenuInfo) {
+        final StatusMenuInfo sInfo=(StatusMenuInfo)info;
+        icon.setColorFilter(sInfo.isHighlight() ? highlightColor : color,mode);
+      }
+ else {
+        icon.setColorFilter(color,mode);
+      }
+    }
+    if (item.hasSubMenu()) {
+      applyColorFilterToMenuIcon(item.getSubMenu(),color,popupColor,highlightColor,mode,excludedGroups);
+    }
+  }
+}

@@ -7,5 +7,7 @@
   }
  catch (  final ActivityNotFoundException e) {
     showErrorMessage(this,null,e,false);
+    return false;
   }
+  return true;
 }

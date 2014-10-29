@@ -1,8 +1,0 @@
-{
-  final View view=super.getView(position,convertView,parent);
-  final ForegroundColorView colorView=(ForegroundColorView)view.findViewById(R.id.color);
-  final int color=getItem(position);
-  colorView.setColor(color);
-  colorView.setActivated(mCurrentColor == color);
-  return view;
-}

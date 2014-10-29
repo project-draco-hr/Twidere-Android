@@ -1,0 +1,3 @@
+ColorViewHolder holder
+int position
+Integer item

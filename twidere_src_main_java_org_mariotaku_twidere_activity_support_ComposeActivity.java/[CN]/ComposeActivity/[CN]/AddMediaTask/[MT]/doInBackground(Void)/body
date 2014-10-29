@@ -6,10 +6,14 @@
     copyStream(is,os);
     os.close();
     if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && delete_src) {
-      new File(src.getPath()).delete();
+      final File file=new File(src.getPath());
+      if (!file.delete()) {
+        Log.d(LOGTAG,String.format("Unable to delete %s",file));
+      }
     }
   }
- catch (  final Exception e) {
+ catch (  final IOException e) {
+    Log.w(LOGTAG,e);
     return false;
   }
   return true;

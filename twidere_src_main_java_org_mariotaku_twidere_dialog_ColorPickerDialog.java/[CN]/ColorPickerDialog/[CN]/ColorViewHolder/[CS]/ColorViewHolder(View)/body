@@ -1,0 +1,4 @@
+{
+  super(itemView);
+  colorView=(ForegroundColorView)itemView.findViewById(R.id.color);
+}

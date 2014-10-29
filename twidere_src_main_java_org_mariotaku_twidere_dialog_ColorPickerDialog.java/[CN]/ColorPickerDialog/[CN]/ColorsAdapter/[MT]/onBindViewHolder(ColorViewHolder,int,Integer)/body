@@ -1,0 +1,3 @@
+{
+  holder.setColor(item,mCurrentColor == item);
+}

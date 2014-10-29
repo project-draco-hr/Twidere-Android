@@ -1,0 +1,28 @@
+{
+  final int themeColor=getThemeColor();
+  final int themeResId=getCurrentThemeResourceId();
+  final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
+  final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
+  final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
+  mTabIndicator.setItemContext(ThemeUtils.getActionBarContext(this));
+  if (ThemeUtils.isColoredActionBar(themeResId)) {
+    final int contrastColor=Utils.getContrastYIQ(themeColor,192);
+    ViewAccessor.setBackground(mTabIndicator,new ColorDrawable(themeColor));
+    homeActionButton.setButtonColor(themeColor);
+    homeActionButton.setIconColor(contrastColor,Mode.SRC_ATOP);
+    mTabIndicator.setStripColor(contrastColor);
+    mTabIndicator.setIconColor(contrastColor);
+  }
+ else {
+    final int backgroundColor=ThemeUtils.getThemeBackgroundColor(mTabIndicator.getItemContext());
+    final int foregroundColor=ThemeUtils.getThemeForegroundColor(mTabIndicator.getItemContext());
+    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,themeResId));
+    homeActionButton.setButtonColor(backgroundColor);
+    homeActionButton.setIconColor(foregroundColor,Mode.SRC_ATOP);
+    mTabIndicator.setStripColor(themeColor);
+    mTabIndicator.setIconColor(foregroundColor);
+  }
+  mTabIndicator.setAlpha(actionBarAlpha / 255f);
+  mActionsButton.setAlpha(actionBarAlpha / 255f);
+  ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
+}

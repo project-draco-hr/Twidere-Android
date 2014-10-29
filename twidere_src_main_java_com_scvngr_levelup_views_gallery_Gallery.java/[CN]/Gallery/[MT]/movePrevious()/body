@@ -1,7 +1,0 @@
-{
-  if (mItemCount > 0 && mSelectedPosition > 0) {
-    setSelection(mSelectedPosition - 1);
-    return true;
-  }
- else   return false;
-}
