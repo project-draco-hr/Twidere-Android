@@ -6,10 +6,18 @@ case MENU_DELETE:
       mResolver.delete(getContentUri(),where.getSQL(),null);
       break;
     }
+case MENU_INVERSE_SELECTION:
+{
+    final SparseBooleanArray positions=mListView.getCheckedItemPositions();
+    for (int i=0, j=mListView.getCount(); i < j; i++) {
+      mListView.setItemChecked(i,!positions.get(i));
+    }
+    return true;
+  }
 default :
 {
-    return false;
-  }
+  return false;
+}
 }
 mode.finish();
 return true;

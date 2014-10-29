@@ -2,6 +2,7 @@
   final Fragment parentFragment=getParentFragment();
   final MenuItem item=(MenuItem)parent.getItemAtPosition(position);
   if (item.hasSubMenu()) {
+    mAdapter.setMenu(item.getSubMenu());
   }
  else   if (parentFragment instanceof OnMenuItemClickListener) {
     ((OnMenuItemClickListener)parentFragment).onMenuItemClick(item);

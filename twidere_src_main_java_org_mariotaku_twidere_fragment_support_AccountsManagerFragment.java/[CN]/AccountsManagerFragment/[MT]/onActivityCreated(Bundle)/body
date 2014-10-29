@@ -1,7 +1,11 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
-  mAdapter=new AccountsAdapter(getActivity());
+  final FragmentActivity activity=getActivity();
+  mAdapter=new AccountsAdapter(activity);
+  Utils.configBaseAdapter(activity,mAdapter);
   setListAdapter(mAdapter);
+  final DragSortListView listView=(DragSortListView)getListView();
+  listView.setDropListener(this);
   getLoaderManager().initLoader(0,null,this);
 }
