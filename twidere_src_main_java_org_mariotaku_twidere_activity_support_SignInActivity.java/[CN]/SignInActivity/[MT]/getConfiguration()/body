@@ -5,7 +5,12 @@
   final boolean enable_proxy=mPreferences.getBoolean(KEY_ENABLE_PROXY,false);
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(mApplication));
   cb.setHttpClientFactory(new TwidereHttpClientFactory(mApplication));
-  setUserAgent(this,cb);
+  if (Utils.isOfficialConsumerKeySecret(this,mConsumerKey,mConsumerSecret)) {
+    Utils.setMockOfficialUserAgent(this,cb);
+  }
+ else {
+    Utils.setUserAgent(this,cb);
+  }
   if (!isEmpty(mAPIUrlFormat)) {
     final String versionSuffix=mNoVersionSuffix ? null : "/1.1/";
     cb.setRestBaseURL(Utils.getApiUrl(mAPIUrlFormat,"api",versionSuffix));

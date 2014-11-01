@@ -19,17 +19,10 @@
     final MenuItem item=menu.add(groupId,Menu.NONE,Menu.NONE,info.loadLabel(pm));
     item.setIntent(intent);
     final Drawable metaDataDrawable=getMetadataDrawable(pm,info.activityInfo,METADATA_KEY_EXTENSION_ICON);
-    int actionIconColor;
-    if (context instanceof ITwidereContextWrapper) {
-      final int themeResId=((ITwidereContextWrapper)context).getThemeResourceId();
-      actionIconColor=ThemeUtils.getActionIconColor(themeResId);
-    }
- else {
-      actionIconColor=ThemeUtils.getActionIconColor(context);
-    }
+    final int actionIconColor=ThemeUtils.getThemeForegroundColor(context);
     if (metaDataDrawable != null) {
       metaDataDrawable.mutate();
-      metaDataDrawable.setColorFilter(actionIconColor,PorterDuff.Mode.MULTIPLY);
+      metaDataDrawable.setColorFilter(actionIconColor,Mode.SRC_ATOP);
       item.setIcon(metaDataDrawable);
     }
  else {

@@ -1,0 +1,7 @@
+{
+  cb.setClientVersion("5.32.0");
+  cb.setClientName("TwitterAndroid");
+  cb.setClientURL(null);
+  final String deviceInfo=String.format(Locale.ROOT,"%s/%s (%s;%s;%s;%s;)",Build.MODEL,Build.VERSION.RELEASE,Build.MANUFACTURER,Build.MODEL,Build.BRAND,Build.PRODUCT);
+  cb.setHttpUserAgent(String.format(Locale.ROOT,"TwitterAndroid/%s (%d-%c-%d) %s","5.32.0",3030745,'r',692,deviceInfo));
+}

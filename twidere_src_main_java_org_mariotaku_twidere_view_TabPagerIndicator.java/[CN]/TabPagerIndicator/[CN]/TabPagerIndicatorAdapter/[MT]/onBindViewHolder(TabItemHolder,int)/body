@@ -4,4 +4,5 @@
   holder.setTabData(position,icon,title,mIndicator.getCurrentItem() == position);
   holder.setStripColor(mStripColor);
   holder.setIconColor(mIconColor);
+  holder.setBadge(mUnreadCounts.get(position,0),mDisplayBadge);
 }

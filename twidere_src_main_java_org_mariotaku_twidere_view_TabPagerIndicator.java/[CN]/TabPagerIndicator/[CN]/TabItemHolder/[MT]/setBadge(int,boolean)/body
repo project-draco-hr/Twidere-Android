@@ -1,0 +1,4 @@
+{
+  badgeView.setText(String.valueOf(count));
+  badgeView.setVisibility(display && count > 0 ? VISIBLE : GONE);
+}

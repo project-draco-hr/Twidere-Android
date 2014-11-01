@@ -1,8 +1,0 @@
-{
-  super(context);
-  mContext=context;
-  mResources=context.getResources();
-  mRealOwner=realOwner;
-  mActionViewConstructorArguments=new Object[]{context};
-  mActionProviderConstructorArguments=mActionViewConstructorArguments;
-}

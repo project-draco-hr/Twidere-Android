@@ -1,0 +1,5 @@
+{
+  final Object tag=v.getTag();
+  if (!(tag instanceof Integer))   return;
+  mDialog.mColorPicker.setColor(getItem((Integer)tag),true);
+}

@@ -33,11 +33,12 @@ default :
       holder.summary.setVisibility(View.GONE);
     }
     if (header.iconRes != 0) {
-      holder.icon.setImageDrawable(mResources.getDrawable(header.iconRes));
+      holder.icon.setImageResource(header.iconRes);
     }
  else {
       holder.icon.setImageDrawable(null);
     }
+    holder.icon.setColorFilter(mActionIconColor,Mode.SRC_ATOP);
     break;
   }
 }

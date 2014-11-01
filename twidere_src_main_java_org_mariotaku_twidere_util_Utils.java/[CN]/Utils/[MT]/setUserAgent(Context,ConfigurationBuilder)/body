@@ -1,6 +1,6 @@
 {
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final boolean gzip_compressing=prefs.getBoolean(KEY_GZIP_COMPRESSING,true);
+  final boolean gzipCompressing=prefs.getBoolean(KEY_GZIP_COMPRESSING,true);
   final PackageManager pm=context.getPackageManager();
   try {
     final PackageInfo pi=pm.getPackageInfo(context.getPackageName(),0);
@@ -8,7 +8,7 @@
     cb.setClientVersion(pi.versionName);
     cb.setClientName(APP_NAME);
     cb.setClientURL(APP_PROJECT_URL);
-    cb.setHttpUserAgent(APP_NAME + " " + APP_PROJECT_URL+ " / "+ version_name+ (gzip_compressing ? " (gzip)" : ""));
+    cb.setHttpUserAgent(APP_NAME + " " + APP_PROJECT_URL+ " / "+ version_name+ (gzipCompressing ? " (gzip)" : ""));
   }
  catch (  final PackageManager.NameNotFoundException e) {
   }

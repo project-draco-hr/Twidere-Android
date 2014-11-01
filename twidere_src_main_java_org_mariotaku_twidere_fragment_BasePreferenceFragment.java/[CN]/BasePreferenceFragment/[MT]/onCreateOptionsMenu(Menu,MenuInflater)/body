@@ -1,9 +1,0 @@
-{
-  final Activity activity=getActivity();
-  if (activity instanceof IThemedActivity) {
-    onCreateOptionsMenu(menu,((IThemedActivity)activity).getTwidereMenuInflater());
-  }
- else {
-    super.onCreateOptionsMenu(menu,inflater);
-  }
-}

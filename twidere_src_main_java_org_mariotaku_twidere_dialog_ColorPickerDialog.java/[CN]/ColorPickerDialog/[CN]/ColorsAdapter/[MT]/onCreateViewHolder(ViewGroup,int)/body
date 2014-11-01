@@ -1,3 +1,5 @@
 {
-  return new ColorViewHolder(mInflater.inflate(R.layout.gallery_item_color_picker_preset,parent,false));
+  final View view=mInflater.inflate(R.layout.gallery_item_color_picker_preset,parent,false);
+  view.setOnClickListener(this);
+  return new ColorViewHolder(view);
 }

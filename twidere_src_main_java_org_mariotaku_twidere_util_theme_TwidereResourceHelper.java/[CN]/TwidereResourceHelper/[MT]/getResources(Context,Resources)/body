@@ -1,6 +1,0 @@
-{
-  if (mResources != null)   return mResources;
-  mResources=new NoAccentResources(c,resources);
-  if (mInitListener != null)   mInitListener.onInitResources(mResources);
-  return mResources;
-}

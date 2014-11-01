@@ -1,0 +1,10 @@
+{
+  final Context wrapped=theme != 0 ? new ContextThemeWrapper(context,theme) : context;
+  final TypedArray a=wrapped.obtainStyledAttributes(new int[]{android.R.attr.colorForeground});
+  try {
+    return a.getColor(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}

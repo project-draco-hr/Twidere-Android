@@ -1,7 +1,7 @@
 {
   if (in == null)   return false;
   for (  final twitter4j.Status status : in) {
-    if (since_id > 0 && status.getId() <= since_id) {
+    if (sinceId > 0 && status.getId() <= sinceId) {
       continue;
     }
     out.add(status);

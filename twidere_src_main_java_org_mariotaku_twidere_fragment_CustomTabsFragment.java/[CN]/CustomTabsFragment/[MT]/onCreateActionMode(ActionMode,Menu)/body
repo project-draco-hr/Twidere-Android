@@ -1,4 +1,4 @@
 {
-  new TwidereMenuInflater(getActivity()).inflate(R.menu.action_multi_select_items,menu);
+  mode.getMenuInflater().inflate(R.menu.action_multi_select_items,menu);
   return true;
 }

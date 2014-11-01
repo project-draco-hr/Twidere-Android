@@ -1,3 +1,0 @@
-{
-  return new TwidereContextThemeWrapper(baseContext,getThemeResActionIcons(baseThemeRes),accentColor);
-}

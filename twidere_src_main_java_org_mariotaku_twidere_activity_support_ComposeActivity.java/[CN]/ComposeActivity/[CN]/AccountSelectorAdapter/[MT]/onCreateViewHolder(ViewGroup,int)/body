@@ -1,3 +1,0 @@
-{
-  return new AccountAvatarHolder(mInflater.inflate(R.layout.gallery_item_compose_account,parent,false));
-}

@@ -1,1 +1,1 @@
-ArrayRecyclerAdapter<Account,AccountAvatarHolder>
+BaseArrayAdapter<Account>

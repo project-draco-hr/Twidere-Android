@@ -1,4 +1,2 @@
 {
-  loader.displayProfileImage(icon,account.profile_image_url);
-  states.get(account.account_id,false);
 }

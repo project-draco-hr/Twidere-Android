@@ -1,0 +1,4 @@
+{
+  mDialog=dialog;
+  mInflater=LayoutInflater.from(context);
+}

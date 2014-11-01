@@ -10,14 +10,4 @@
   mDisplayProfileImage=mPreferences != null && mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mNicknameOnly=mPreferences != null && mPreferences.getBoolean(KEY_NICKNAME_ONLY,false);
   mLocale=context.getResources().getConfiguration().locale;
-  final int themeRes, accentColor;
-  if (context instanceof IThemedActivity) {
-    themeRes=((IThemedActivity)context).getThemeResourceId();
-    accentColor=((IThemedActivity)context).getThemeColor();
-  }
- else {
-    themeRes=ThemeUtils.getThemeResource(context);
-    accentColor=ThemeUtils.getUserAccentColor(context);
-  }
-  mResources=ThemeUtils.getThemedResourcesForActionIcons(context,themeRes,accentColor);
 }

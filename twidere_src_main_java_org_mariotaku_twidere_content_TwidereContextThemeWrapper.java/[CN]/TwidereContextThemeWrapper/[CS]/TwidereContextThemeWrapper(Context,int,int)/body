@@ -1,5 +1,0 @@
-{
-  super(base,themeResource);
-  mThemeResourceId=themeResource;
-  mAccentColor=accentColor;
-}

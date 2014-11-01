@@ -12,6 +12,5 @@
  else {
     themeResource=ThemeUtils.getDrawerThemeResource(currentThemeResource);
   }
-  final int accentColor=ThemeUtils.getUserAccentColor(context);
-  return mThemedContext=new TwidereContextThemeWrapper(context,themeResource,accentColor);
+  return mThemedContext=new ContextThemeWrapper(context,themeResource);
 }

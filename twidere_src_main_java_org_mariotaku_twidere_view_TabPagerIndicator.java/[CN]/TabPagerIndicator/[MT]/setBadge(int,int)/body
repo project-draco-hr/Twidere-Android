@@ -1,2 +1,3 @@
 {
+  mIndicatorAdapter.setBadge(position,count);
 }

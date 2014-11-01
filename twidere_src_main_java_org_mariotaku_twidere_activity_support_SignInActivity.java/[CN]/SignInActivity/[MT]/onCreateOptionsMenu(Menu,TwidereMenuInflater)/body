@@ -1,4 +1,0 @@
-{
-  inflater.inflate(R.menu.menu_sign_in,menu);
-  return true;
-}

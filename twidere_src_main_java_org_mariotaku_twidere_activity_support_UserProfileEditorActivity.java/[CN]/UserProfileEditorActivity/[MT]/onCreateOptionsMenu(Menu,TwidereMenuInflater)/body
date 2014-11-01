@@ -1,4 +1,0 @@
-{
-  inflater.inflate(R.menu.menu_edit_user_profile,menu);
-  return true;
-}

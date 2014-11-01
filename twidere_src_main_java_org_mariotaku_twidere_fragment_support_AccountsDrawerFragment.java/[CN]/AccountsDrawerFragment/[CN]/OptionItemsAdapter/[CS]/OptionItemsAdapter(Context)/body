@@ -1,4 +1,4 @@
 {
   super(context,R.layout.list_item_menu);
-  mMenuIconColor=ThemeUtils.getThemeForegroundColor(context);
+  mActionIconColor=ThemeUtils.getThemeForegroundColor(context);
 }

@@ -27,4 +27,5 @@
       subItem.setIntent(intent);
     }
   }
+  ThemeUtils.applyColorFilterToMenuIcon(getActivity(),menu);
 }

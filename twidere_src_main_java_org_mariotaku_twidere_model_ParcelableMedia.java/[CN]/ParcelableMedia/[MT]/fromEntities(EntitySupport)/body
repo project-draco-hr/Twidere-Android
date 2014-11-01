@@ -1,6 +1,14 @@
 {
-  final List<ParcelableMedia> list=new ArrayList<ParcelableMedia>();
-  final MediaEntity[] medias=entities.getMediaEntities();
+  final List<ParcelableMedia> list=new ArrayList<>();
+  final MediaEntity[] medias;
+  if (entities instanceof ExtendedEntitySupport) {
+    final ExtendedEntitySupport extendedEntities=(ExtendedEntitySupport)entities;
+    final MediaEntity[] extendedMedias=extendedEntities.getExtendedMediaEntities();
+    medias=extendedMedias != null ? extendedMedias : entities.getMediaEntities();
+  }
+ else {
+    medias=entities.getMediaEntities();
+  }
   if (medias != null) {
     for (    final MediaEntity media : medias) {
       final URL media_url=media.getMediaURL();

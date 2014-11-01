@@ -17,7 +17,6 @@
       cb.setHttpClientFactory(new TwidereHttpClientFactory(app));
     }
     cb.setHttpConnectionTimeout(connection_timeout);
-    setUserAgent(context,cb);
     cb.setGZIPEnabled(enableGzip);
     cb.setIgnoreSSLError(ignoreSslError);
     if (enableProxy) {
@@ -43,6 +42,12 @@
         cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);
         cb.setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
       }
+    }
+    if (isOfficialConsumerKeySecret(context,consumerKey,consumerSecret)) {
+      setMockOfficialUserAgent(context,cb);
+    }
+ else {
+      setUserAgent(context,cb);
     }
     cb.setIncludeEntitiesEnabled(includeEntities);
     cb.setIncludeRTsEnabled(includeRetweets);

@@ -22,6 +22,9 @@
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   mAccountSelectorAdapter=new AccountSelectorAdapter(this);
+  mAccountStack.setAdapter(mAccountSelectorAdapter);
+  mAccountSelectorAdapter.addAll(Account.getAccountsList(this,false));
+  mSelectAccount.setOnClickListener(this);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediasPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();

@@ -2,4 +2,5 @@
   super(context,R.layout.list_item_preference_header);
   mContext=context;
   mResources=context.getResources();
+  mActionIconColor=ThemeUtils.getThemeForegroundColor(context);
 }

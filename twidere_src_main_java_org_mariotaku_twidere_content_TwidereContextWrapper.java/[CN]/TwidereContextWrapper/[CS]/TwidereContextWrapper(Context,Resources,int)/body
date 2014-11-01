@@ -1,5 +1,0 @@
-{
-  super(base);
-  mResources=res;
-  mThemeResourceId=theme;
-}

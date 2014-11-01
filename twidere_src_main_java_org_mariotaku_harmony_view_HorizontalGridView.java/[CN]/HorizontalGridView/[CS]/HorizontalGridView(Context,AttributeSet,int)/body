@@ -1,7 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  setPivotX(0);
-  setPivotY(0);
-  setRotation(90);
-  setRotationY(180);
-}

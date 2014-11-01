@@ -1,4 +1,4 @@
 {
   if (mAdapter != null)   return mAdapter;
-  return mAdapter=new HeaderAdapter(ThemeUtils.getThemedContextForActionIcons(this,getThemeResourceId()));
+  return mAdapter=new HeaderAdapter(this);
 }

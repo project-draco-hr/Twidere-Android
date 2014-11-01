@@ -8,12 +8,14 @@
   mMediasPreviewGrid=(GridView)findViewById(R.id.medias_thumbnail_preview);
   mMenuBar=(MenuBar)findViewById(R.id.menu_bar);
   mProgress=(ProgressBar)findViewById(R.id.actionbar_progress_indeterminate);
+  mAccountStack=(StackView)findViewById(R.id.accounts_stack);
   final View composeActionBar=findViewById(R.id.compose_actionbar);
   final View composeBottomBar=findViewById(R.id.compose_bottombar);
   mSendView=composeActionBar.findViewById(R.id.send);
   mBottomSendView=composeBottomBar.findViewById(R.id.send);
   mSendTextCountView=(StatusTextCountView)mSendView.findViewById(R.id.status_text_count);
   mBottomSendTextCountView=(StatusTextCountView)mBottomSendView.findViewById(R.id.status_text_count);
+  mSelectAccount=composeActionBar.findViewById(R.id.select_account);
   ViewAccessor.setBackground(findViewById(R.id.compose_content),getWindowContentOverlayForCompose(this));
   ViewAccessor.setBackground(composeActionBar,getActionBarBackground(this,getCurrentThemeResourceId()));
 }

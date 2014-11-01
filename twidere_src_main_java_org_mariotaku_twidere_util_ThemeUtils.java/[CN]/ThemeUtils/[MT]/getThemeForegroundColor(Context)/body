@@ -1,11 +1,3 @@
 {
-  final Resources res=getResources(context);
-  final Context wrapped=getThemedContext(context,res);
-  final TypedArray a=wrapped.obtainStyledAttributes(new int[]{android.R.attr.colorForeground});
-  try {
-    return a.getColor(0,Color.GRAY);
-  }
-  finally {
-    a.recycle();
-  }
+  return getThemeForegroundColor(context,0);
 }

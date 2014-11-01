@@ -2,7 +2,7 @@
   if (mPopupMenu != null && mPopupMenu.isShowing()) {
     mPopupMenu.dismiss();
   }
-  final Context context=ThemeUtils.getThemedContextForActionIcons(getActivity());
+  final Context context=getActivity();
   mPopupMenu=PopupMenu.getInstance(context,view);
   mPopupMenu.inflate(R.menu.action_direct_message);
   final Menu menu=mPopupMenu.getMenu();

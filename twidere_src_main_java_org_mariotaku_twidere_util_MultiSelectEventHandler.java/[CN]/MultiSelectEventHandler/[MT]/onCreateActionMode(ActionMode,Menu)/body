@@ -1,5 +1,5 @@
 {
-  new TwidereMenuInflater(mActivity).inflate(R.menu.action_multi_select_contents,menu);
+  mode.getMenuInflater().inflate(R.menu.action_multi_select_contents,menu);
   mAccountActionProvider=(AccountActionProvider)menu.findItem(MENU_SELECT_ACCOUNT).getActionProvider();
   mAccountActionProvider.setAccountId(mMultiSelectManager.getFirstSelectAccountId());
   return true;

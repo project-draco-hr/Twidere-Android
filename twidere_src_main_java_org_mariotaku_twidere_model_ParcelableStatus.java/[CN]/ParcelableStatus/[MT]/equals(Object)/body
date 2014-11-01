@@ -3,7 +3,5 @@
   if (obj == null)   return false;
   if (!(obj instanceof ParcelableStatus))   return false;
   final ParcelableStatus other=(ParcelableStatus)obj;
-  if (account_id != other.account_id)   return false;
-  if (id != other.id)   return false;
-  return true;
+  return account_id == other.account_id && id == other.id;
 }

@@ -1,9 +1,0 @@
-{
-switch (baseThemeRes) {
-case R.style.Theme_Twidere_Settings_Light_DarkActionBar:
-{
-      return R.style.Theme_Twidere_Settings_Light_DarkActionBar_DarkIcon;
-    }
-}
-return baseThemeRes;
-}

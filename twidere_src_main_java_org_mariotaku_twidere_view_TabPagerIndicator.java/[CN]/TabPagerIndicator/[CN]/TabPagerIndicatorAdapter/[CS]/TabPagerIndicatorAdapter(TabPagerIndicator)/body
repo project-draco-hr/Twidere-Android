@@ -1,3 +1,4 @@
 {
   mIndicator=indicator;
+  mUnreadCounts=new SparseIntArray();
 }

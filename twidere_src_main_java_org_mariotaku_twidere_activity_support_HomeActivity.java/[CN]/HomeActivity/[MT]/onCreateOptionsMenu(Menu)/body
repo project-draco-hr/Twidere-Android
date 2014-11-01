@@ -1,0 +1,7 @@
+{
+  getMenuInflater().inflate(R.menu.menu_home,menu);
+  final MenuItem itemProgress=menu.findItem(MENU_PROGRESS);
+  mSmartBarProgress=(ProgressBar)itemProgress.getActionView().findViewById(android.R.id.progress);
+  updateActionsButton();
+  return true;
+}

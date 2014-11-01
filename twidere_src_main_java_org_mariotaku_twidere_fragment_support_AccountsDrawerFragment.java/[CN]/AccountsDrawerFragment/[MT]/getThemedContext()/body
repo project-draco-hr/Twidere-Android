@@ -1,8 +1,7 @@
 {
   if (mThemedContext != null)   return mThemedContext;
   final Context context=getActivity();
-  if (!ThemeUtils.isDarkDrawerEnabled(context))   return mThemedContext=ThemeUtils.getThemedContextForActionIcons(context);
+  if (!ThemeUtils.isDarkDrawerEnabled(context))   return mThemedContext=context;
   final int themeResource=ThemeUtils.getDrawerThemeResource(context);
-  final int accentColor=ThemeUtils.getUserAccentColor(context);
-  return mThemedContext=new TwidereContextThemeWrapper(context,themeResource,accentColor);
+  return mThemedContext=new ContextThemeWrapper(context,themeResource);
 }

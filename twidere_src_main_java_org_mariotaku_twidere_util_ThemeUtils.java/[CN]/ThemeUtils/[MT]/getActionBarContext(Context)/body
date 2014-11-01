@@ -7,6 +7,6 @@
   finally {
     a.recycle();
   }
-  if (resId == 0)   return new TwidereContextWrapper(context);
-  return new TwidereContextThemeWrapper(context,resId,getUserAccentColor(context));
+  if (resId == 0)   return context;
+  return new ContextThemeWrapper(context,resId);
 }

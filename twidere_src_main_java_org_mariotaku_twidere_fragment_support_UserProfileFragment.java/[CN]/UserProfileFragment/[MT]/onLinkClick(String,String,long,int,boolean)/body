@@ -27,8 +27,9 @@ case TwidereLinkify.LINK_TYPE_LINK:
 }
 case TwidereLinkify.LINK_TYPE_LIST:
 {
-final String[] mention_list=link.split("\\/");
-if (mention_list == null || mention_list.length != 2) {
+if (link == null) break;
+final String[] mentionList=link.split("/");
+if (mentionList.length != 2) {
   break;
 }
 break;

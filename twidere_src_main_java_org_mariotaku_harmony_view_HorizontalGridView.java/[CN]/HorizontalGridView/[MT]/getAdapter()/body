@@ -1,4 +1,0 @@
-{
-  final ListAdapter adapter=super.getAdapter();
-  return adapter instanceof HorizontalWrapperAdapter ? ((HorizontalWrapperAdapter)adapter).getWrapped() : adapter;
-}

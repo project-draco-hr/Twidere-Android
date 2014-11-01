@@ -1,5 +1,5 @@
 {
-  super(context,R.layout.list_item_drawer_accounts,null,new String[0],new int[0],0);
+  super(context,R.layout.list_item_drawer_account,null,new String[0],new int[0],0);
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mImageLoader=app.getImageLoaderWrapper();
   mActivatedColor=ThemeUtils.getUserAccentColor(context);
