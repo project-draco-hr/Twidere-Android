@@ -1,0 +1,6 @@
+{
+  if (Boolean.TRUE.equals(response.getData())) {
+    mContext.sendBroadcast(new Intent(BROADCAST_HOME_TIMELINE_REFRESHED));
+  }
+  super.onPostExecute(response);
+}

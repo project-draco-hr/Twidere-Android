@@ -9,16 +9,16 @@
   final MenuItem retweet=menu.findItem(MENU_RETWEET);
   if (retweet != null) {
     retweet.setVisible(!status.user_is_protected || isMyRetweet);
-    MenuUtils.setMenuInfo(retweet,new StatusMenuInfo(isMyRetweet));
+    MenuUtils.setMenuInfo(retweet,new TwidereMenuInfo(isMyRetweet));
     retweet.setTitle(isMyRetweet ? R.string.cancel_retweet : R.string.retweet);
   }
   final MenuItem retweetSubItem=menu.findItem(R.id.retweet_submenu);
   if (retweetSubItem != null) {
-    MenuUtils.setMenuInfo(retweetSubItem,new StatusMenuInfo(isMyRetweet));
+    MenuUtils.setMenuInfo(retweetSubItem,new TwidereMenuInfo(isMyRetweet));
   }
   final MenuItem favorite=menu.findItem(MENU_FAVORITE);
   if (favorite != null) {
-    MenuUtils.setMenuInfo(favorite,new StatusMenuInfo(status.is_favorite));
+    MenuUtils.setMenuInfo(favorite,new TwidereMenuInfo(status.is_favorite));
     favorite.setTitle(status.is_favorite ? R.string.unfavorite : R.string.favorite);
   }
   final MenuItem translate=menu.findItem(MENU_TRANSLATE);

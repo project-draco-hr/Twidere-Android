@@ -4,7 +4,7 @@
     try {
       if (mListId > 0) {
         final ParcelableUserList list=new ParcelableUserList(twitter.destroyUserList(mListId),mAccountId);
-        return new SingleResponse<ParcelableUserList>(list,null);
+        return SingleResponse.getInstance(list);
       }
     }
  catch (    final TwitterException e) {

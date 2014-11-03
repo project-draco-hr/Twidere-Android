@@ -4,11 +4,11 @@
   extras.putLong(EXTRA_ACCOUNT_ID,account_id);
   if (twitter != null) {
     try {
-      return new ListResponse<Trends>(getTrends(twitter),null,extras);
+      return new ListResponse<>(getTrends(twitter),null,extras);
     }
  catch (    final TwitterException e) {
-      return new ListResponse<Trends>(null,e,extras);
+      return new ListResponse<>(null,e,extras);
     }
   }
-  return new ListResponse<Trends>(null,null,extras);
+  return new ListResponse<>(null,null,extras);
 }

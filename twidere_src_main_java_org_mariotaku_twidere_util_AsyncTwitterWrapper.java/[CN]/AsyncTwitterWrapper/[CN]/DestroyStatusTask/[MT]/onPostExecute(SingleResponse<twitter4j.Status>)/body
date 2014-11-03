@@ -1,18 +1,17 @@
 {
-  final Intent intent=new Intent(BROADCAST_STATUS_DESTROYED);
   if (result.hasData() && result.getData().getId() > 0) {
-    intent.putExtra(EXTRA_STATUS_ID,status_id);
-    intent.putExtra(EXTRA_SUCCEED,true);
     if (result.getData().getRetweetedStatus() != null) {
       mMessagesManager.showInfoMessage(R.string.retweet_cancelled,false);
     }
  else {
       mMessagesManager.showInfoMessage(R.string.status_deleted,false);
     }
+    final Intent intent=new Intent(BROADCAST_STATUS_DESTROYED);
+    intent.putExtra(EXTRA_STATUS_ID,status_id);
+    mContext.sendBroadcast(intent);
   }
  else {
     mMessagesManager.showErrorMessage(R.string.action_deleting,result.getException(),true);
   }
-  mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

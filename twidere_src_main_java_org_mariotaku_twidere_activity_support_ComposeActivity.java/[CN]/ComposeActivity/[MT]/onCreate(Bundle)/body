@@ -2,7 +2,6 @@
   super.onCreate(savedInstanceState);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
   mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mBottomSendButton=mPreferences.getBoolean(KEY_BOTTOM_SEND_BUTTON,false);
   mTwitterWrapper=getTwidereApplication().getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
@@ -22,7 +21,6 @@
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   mAccountSelectorAdapter=new AccountSelectorAdapter(this);
-  mAccountStack.setAdapter(mAccountSelectorAdapter);
   mAccountSelectorAdapter.addAll(Account.getAccountsList(this,false));
   mSelectAccount.setOnClickListener(this);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
@@ -63,12 +61,8 @@
     setTitle(R.string.compose);
   }
   mMenuBar.inflate(R.menu.menu_compose);
-  mSendView.setVisibility(mBottomSendButton ? View.GONE : View.VISIBLE);
-  mBottomSendView.setVisibility(mBottomSendButton ? View.VISIBLE : View.GONE);
   mSendView.setOnClickListener(this);
-  mBottomSendView.setOnClickListener(this);
   mSendView.setOnLongClickListener(this);
-  mBottomSendView.setOnLongClickListener(this);
   final Menu menu=mMenuBar.getMenu();
   final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
   addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);

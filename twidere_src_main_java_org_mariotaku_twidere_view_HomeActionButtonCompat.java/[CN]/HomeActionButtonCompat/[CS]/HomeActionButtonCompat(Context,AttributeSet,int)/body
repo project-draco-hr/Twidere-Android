@@ -1,6 +1,8 @@
 {
   super(context,attrs,defStyle);
+  ViewAccessor.setBackground(this,null);
   inflate(ThemeUtils.getActionBarContext(context),R.layout.action_item_home_actions_compat,this);
+  mBackgroundView=(ImageView)findViewById(R.id.background);
   mIconView=(ImageView)findViewById(android.R.id.icon);
   mProgressBar=(ProgressBar)findViewById(android.R.id.progress);
 }

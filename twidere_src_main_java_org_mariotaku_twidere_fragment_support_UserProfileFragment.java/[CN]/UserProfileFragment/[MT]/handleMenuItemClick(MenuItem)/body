@@ -23,11 +23,31 @@ case MENU_REPORT_SPAM:
   }
 case MENU_ADD_TO_FILTER:
 {
-  final ContentResolver resolver=getContentResolver();
-  resolver.delete(Filters.Users.CONTENT_URI,Where.equals(Filters.Users.USER_ID,user.id).getSQL(),null);
-  resolver.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.makeFilteredUserContentValues(user));
-  showInfoMessage(getActivity(),R.string.message_user_muted,false);
+  final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
+  final ContentResolver cr=getContentResolver();
+  if (filtering) {
+    final Where where=Where.equals(Filters.Users.USER_ID,user.id);
+    cr.delete(Filters.Users.CONTENT_URI,where.getSQL(),null);
+    showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
+  }
+ else {
+    cr.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.makeFilteredUserContentValues(user));
+    showInfoMessage(getActivity(),R.string.message_user_muted,false);
+  }
+  setMenu(mMenuBar.getMenu());
   break;
+}
+case MENU_MUTE_USER:
+{
+if (mRelationship != null) {
+  if (mRelationship.isSourceMutingTarget()) {
+    twitter.destroyMuteAsync(user.account_id,user.id);
+  }
+ else {
+    CreateUserMuteDialogFragment.show(getFragmentManager(),user);
+  }
+}
+break;
 }
 case MENU_MENTION:
 {

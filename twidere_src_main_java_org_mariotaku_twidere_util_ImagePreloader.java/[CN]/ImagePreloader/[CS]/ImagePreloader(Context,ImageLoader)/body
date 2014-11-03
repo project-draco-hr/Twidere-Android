@@ -3,5 +3,4 @@
   mPreferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mImageLoader=loader;
   mDiskCache=loader.getDiskCache();
-  mHandler=new Handler();
 }

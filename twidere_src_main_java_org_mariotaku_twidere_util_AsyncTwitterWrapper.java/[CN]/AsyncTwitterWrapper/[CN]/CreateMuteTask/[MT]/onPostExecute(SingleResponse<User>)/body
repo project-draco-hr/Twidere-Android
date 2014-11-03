@@ -1,0 +1,13 @@
+{
+  if (result.hasData() && result.getData().getId() > 0) {
+    final String message=mContext.getString(R.string.muted_user,getUserName(mContext,result.getData()));
+    mMessagesManager.showInfoMessage(message,false);
+    final Intent intent=new Intent(BROADCAST_FRIENDSHIP_CHANGED);
+    intent.putExtra(EXTRA_USER_ID,mUserId);
+    mContext.sendBroadcast(intent);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_muting,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

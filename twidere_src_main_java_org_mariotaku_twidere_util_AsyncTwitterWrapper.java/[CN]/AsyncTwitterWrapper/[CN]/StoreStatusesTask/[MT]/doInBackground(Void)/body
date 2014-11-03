@@ -1,46 +1,41 @@
 {
   boolean succeed=false;
   for (  final StatusListResponse response : responses) {
-    final long account_id=response.account_id;
+    final long accountId=response.account_id;
     final List<twitter4j.Status> statuses=response.list;
     if (statuses == null || statuses.isEmpty()) {
       continue;
     }
-    final ArrayList<Long> ids_in_db=getStatusIdsInDatabase(mContext,uri,account_id);
+    final ArrayList<Long> ids_in_db=getStatusIdsInDatabase(mContext,uri,accountId);
     final boolean noItemsBefore=ids_in_db.isEmpty();
     final ContentValues[] values=new ContentValues[statuses.size()];
     final long[] statusIds=new long[statuses.size()];
     for (int i=0, j=statuses.size(); i < j; i++) {
       final twitter4j.Status status=statuses.get(i);
-      values[i]=makeStatusContentValues(status,account_id);
+      values[i]=makeStatusContentValues(status,accountId);
       statusIds[i]=status.getId();
     }
-    final Where accountWhere=Where.equals(Statuses.ACCOUNT_ID,account_id);
+    final Where accountWhere=Where.equals(Statuses.ACCOUNT_ID,accountId);
     final Where statusWhere=Where.in(new Column(Statuses.STATUS_ID),new RawItemArray(statusIds));
     final String deleteWhere=Where.and(accountWhere,statusWhere).getSQL();
     final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
     final int rowsDeleted=mResolver.delete(deleteUri,deleteWhere,null);
-    ProfilingUtil.profile(mContext,account_id,"Download tweets, " + ArrayUtils.toString(statusIds,',',true));
+    ProfilingUtil.profile(mContext,accountId,"Download tweets, " + ArrayUtils.toString(statusIds,',',true));
     all_statuses.addAll(Arrays.asList(values));
     final Uri insertUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
     bulkInsert(mResolver,insertUri,values);
-    final long min_id=statusIds.length != 0 ? ArrayUtils.min(statusIds) : -1;
+    final long minId=statusIds.length != 0 ? ArrayUtils.min(statusIds) : -1;
     final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,response.max_id);
     final boolean noRowsDeleted=rowsDeleted == 0;
-    final boolean insertGap=min_id > 0 && (noRowsDeleted || deletedOldGap) && !response.truncated && !noItemsBefore && statuses.size() > 1;
+    final boolean insertGap=minId > 0 && (noRowsDeleted || deletedOldGap) && !response.truncated && !noItemsBefore && statuses.size() > 1;
     if (insertGap) {
-      final ContentValues gap_value=new ContentValues();
-      gap_value.put(Statuses.IS_GAP,1);
-      final StringBuilder where=new StringBuilder();
-      where.append(Statuses.ACCOUNT_ID + " = " + account_id);
-      where.append(" AND " + Statuses.STATUS_ID + " = "+ min_id);
-      final Uri update_uri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,true));
-      mResolver.update(update_uri,gap_value,where.toString(),null);
+      final ContentValues gapValue=new ContentValues();
+      gapValue.put(Statuses.IS_GAP,1);
+      final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,accountId),Where.equals(Statuses.STATUS_ID,minId));
+      final Uri updateUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,true));
+      mResolver.update(updateUri,gapValue,where.getSQL(),null);
     }
     succeed=true;
   }
-  final Bundle bundle=new Bundle();
-  bundle.putBoolean(EXTRA_SUCCEED,succeed);
-  getAllStatusesIds(mContext,uri);
-  return SingleResponse.getInstance(bundle,null);
+  return SingleResponse.getInstance(succeed,null);
 }

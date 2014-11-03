@@ -3,7 +3,6 @@
   final ParcelableUser user=mUser;
   final Relationship relationship=mRelationship;
   if (twitter == null || user == null)   return;
-  final int activatedColor=ThemeUtils.getUserAccentColor(getActivity());
   final boolean isMyself=user.account_id == user.id;
   final boolean isFollowing=relationship != null && relationship.isSourceFollowingTarget();
   final boolean isProtected=user.is_protected;
@@ -25,18 +24,24 @@
   if (user.id != user.account_id && relationship != null) {
     setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
     setMenuItemAvailability(menu,MENU_BLOCK,true);
+    setMenuItemAvailability(menu,MENU_MUTE_USER,true);
     final MenuItem blockItem=menu.findItem(MENU_BLOCK);
     if (blockItem != null) {
-      final Drawable blockIcon=blockItem.getIcon();
-      if (relationship.isSourceBlockingTarget()) {
-        blockItem.setTitle(R.string.unblock);
-        blockIcon.mutate();
-        blockIcon.setColorFilter(activatedColor,PorterDuff.Mode.SRC_ATOP);
-      }
- else {
-        blockItem.setTitle(R.string.block);
-        blockIcon.clearColorFilter();
-      }
+      final boolean blocking=relationship.isSourceBlockingTarget();
+      MenuUtils.setMenuInfo(blockItem,new TwidereMenuInfo(blocking));
+      blockItem.setTitle(blocking ? R.string.unblock : R.string.block);
+    }
+    final MenuItem muteItem=menu.findItem(MENU_MUTE_USER);
+    if (muteItem != null) {
+      final boolean muting=relationship.isSourceMutingTarget();
+      MenuUtils.setMenuInfo(muteItem,new TwidereMenuInfo(muting));
+      muteItem.setTitle(muting ? R.string.unmute : R.string.mute);
+    }
+    final MenuItem filterItem=menu.findItem(MENU_ADD_TO_FILTER);
+    if (filterItem != null) {
+      final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
+      MenuUtils.setMenuInfo(filterItem,new TwidereMenuInfo(filtering));
+      filterItem.setTitle(filtering ? R.string.remove_from_filter : R.string.add_to_filter);
     }
   }
  else {

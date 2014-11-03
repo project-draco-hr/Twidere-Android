@@ -1,14 +1,13 @@
 {
-  final Intent intent=new Intent(BROADCAST_USER_LIST_DETAILS_UPDATED);
-  intent.putExtra(EXTRA_LIST_ID,listId);
   if (result.hasData() && result.getData().id > 0) {
     final String message=mContext.getString(R.string.updated_list_details,result.getData().name);
     mMessagesManager.showOkMessage(message,false);
-    intent.putExtra(EXTRA_SUCCEED,true);
+    final Intent intent=new Intent(BROADCAST_USER_LIST_DETAILS_UPDATED);
+    intent.putExtra(EXTRA_LIST_ID,listId);
+    mContext.sendBroadcast(intent);
   }
  else {
     mMessagesManager.showErrorMessage(R.string.action_updating_details,result.getException(),true);
   }
-  mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

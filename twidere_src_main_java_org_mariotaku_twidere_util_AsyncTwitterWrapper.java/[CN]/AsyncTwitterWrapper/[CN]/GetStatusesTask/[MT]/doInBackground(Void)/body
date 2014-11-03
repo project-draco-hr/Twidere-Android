@@ -1,5 +1,5 @@
 {
-  final List<StatusListResponse> result=new ArrayList<StatusListResponse>();
+  final List<StatusListResponse> result=new ArrayList<>();
   if (mAccountIds == null)   return result;
   int idx=0;
   final int load_item_limit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
@@ -24,7 +24,7 @@
  else {
           sinceId=-1;
         }
-        final List<twitter4j.Status> statuses=new ArrayList<twitter4j.Status>();
+        final List<twitter4j.Status> statuses=new ArrayList<>();
         final boolean truncated=truncateStatuses(getStatuses(twitter,paging),statuses,sinceId);
         result.add(new StatusListResponse(account_id,maxId,sinceId,load_item_limit,statuses,truncated));
       }

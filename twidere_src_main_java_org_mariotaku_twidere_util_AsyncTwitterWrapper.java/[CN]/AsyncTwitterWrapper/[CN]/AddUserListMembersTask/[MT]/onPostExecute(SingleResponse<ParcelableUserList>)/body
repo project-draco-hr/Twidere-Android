@@ -19,7 +19,6 @@
   final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_ADDED);
   intent.putExtra(EXTRA_USER_LIST,result.getData());
   intent.putExtra(EXTRA_USERS,users);
-  intent.putExtra(EXTRA_SUCCEED,succeed);
   mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

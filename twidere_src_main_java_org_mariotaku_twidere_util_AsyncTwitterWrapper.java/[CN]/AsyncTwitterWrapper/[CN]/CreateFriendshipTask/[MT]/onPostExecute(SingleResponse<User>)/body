@@ -15,7 +15,6 @@
   }
   final Intent intent=new Intent(BROADCAST_FRIENDSHIP_CHANGED);
   intent.putExtra(EXTRA_USER_ID,user_id);
-  intent.putExtra(EXTRA_SUCCEED,result.hasData());
   mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

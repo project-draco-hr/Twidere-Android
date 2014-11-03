@@ -1,9 +1,3 @@
 {
-  final Drawable drawable=getBackground();
-  if (drawable instanceof LayerDrawable) {
-    final Drawable layer=((LayerDrawable)drawable).findDrawableByLayerId(R.id.color_layer);
-    if (layer != null) {
-      layer.setColorFilter(color,Mode.SRC_ATOP);
-    }
-  }
+  mBackgroundView.setImageDrawable(new MyColorDrawable(color));
 }

@@ -18,7 +18,7 @@
           since_id=since_ids[idx];
           paging.setSinceId(since_id - 1);
         }
-        final List<DirectMessage> messages=new ArrayList<DirectMessage>();
+        final List<DirectMessage> messages=new ArrayList<>();
         final boolean truncated=truncateMessages(getDirectMessages(twitter,paging),messages,since_id);
         result.add(new MessageListResponse(account_id,max_id,since_id,load_item_limit,messages,truncated));
       }

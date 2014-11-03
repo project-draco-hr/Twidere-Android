@@ -1,3 +1,3 @@
 {
-  return new CursorLoader(getActivity(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,null);
+  return new CursorLoader(getActivity(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,Accounts.SORT_POSITION);
 }

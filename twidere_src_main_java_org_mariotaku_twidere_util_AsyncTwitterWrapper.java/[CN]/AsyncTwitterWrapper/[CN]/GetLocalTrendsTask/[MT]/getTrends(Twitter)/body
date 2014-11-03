@@ -1,5 +1,5 @@
 {
-  final ArrayList<Trends> trends_list=new ArrayList<Trends>();
+  final ArrayList<Trends> trends_list=new ArrayList<>();
   if (twitter != null) {
     trends_list.add(twitter.getLocationTrends(woeid));
   }

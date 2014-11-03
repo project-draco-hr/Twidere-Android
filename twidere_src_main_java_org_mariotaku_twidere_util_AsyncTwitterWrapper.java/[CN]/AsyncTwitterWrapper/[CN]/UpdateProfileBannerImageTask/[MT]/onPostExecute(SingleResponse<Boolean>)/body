@@ -1,5 +1,5 @@
 {
-  if (result.hasData() && result.getData()) {
+  if (Boolean.TRUE.equals(result.getData())) {
     Utils.showOkMessage(mContext,R.string.profile_banner_image_updated,false);
   }
  else {
@@ -7,7 +7,6 @@
   }
   final Intent intent=new Intent(BROADCAST_PROFILE_BANNER_UPDATED);
   intent.putExtra(EXTRA_USER_ID,mAccountId);
-  intent.putExtra(EXTRA_SUCCEED,result.hasData());
   mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ParcelableUserList list=new ParcelableUserList(twitter.createUserListSubscription(listId),accountId);
-    return new SingleResponse<ParcelableUserList>(list,null);
+    return SingleResponse.getInstance(list);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

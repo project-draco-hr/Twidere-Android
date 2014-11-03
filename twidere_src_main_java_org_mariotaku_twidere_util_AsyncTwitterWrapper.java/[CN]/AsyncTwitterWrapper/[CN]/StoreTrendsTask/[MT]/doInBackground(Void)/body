@@ -1,27 +1,24 @@
 {
-  final Bundle bundle=new Bundle();
-  if (response != null) {
-    final List<Trends> messages=response.list;
-    final ArrayList<String> hashtags=new ArrayList<String>();
-    final ArrayList<ContentValues> hashtag_values=new ArrayList<ContentValues>();
-    if (messages != null && messages.size() > 0) {
-      final ContentValues[] values_array=makeTrendsContentValues(messages);
-      for (      final ContentValues values : values_array) {
-        final String hashtag=values.getAsString(CachedTrends.NAME).replaceFirst("#","");
-        if (hashtags.contains(hashtag)) {
-          continue;
-        }
-        hashtags.add(hashtag);
-        final ContentValues hashtag_value=new ContentValues();
-        hashtag_value.put(CachedHashtags.NAME,hashtag);
-        hashtag_values.add(hashtag_value);
+  if (response == null)   return SingleResponse.getInstance(false);
+  final List<Trends> messages=response.list;
+  final ArrayList<String> hashtags=new ArrayList<>();
+  final ArrayList<ContentValues> hashtagValues=new ArrayList<>();
+  if (messages != null && messages.size() > 0) {
+    final ContentValues[] valuesArray=makeTrendsContentValues(messages);
+    for (    final ContentValues values : valuesArray) {
+      final String hashtag=values.getAsString(CachedTrends.NAME).replaceFirst("#","");
+      if (hashtags.contains(hashtag)) {
+        continue;
       }
-      mResolver.delete(uri,null,null);
-      bulkInsert(mResolver,uri,values_array);
-      bulkDelete(mResolver,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
-      bulkInsert(mResolver,CachedHashtags.CONTENT_URI,hashtag_values.toArray(new ContentValues[hashtag_values.size()]));
-      bundle.putBoolean(EXTRA_SUCCEED,true);
+      hashtags.add(hashtag);
+      final ContentValues hashtagValue=new ContentValues();
+      hashtagValue.put(CachedHashtags.NAME,hashtag);
+      hashtagValues.add(hashtagValue);
     }
+    mResolver.delete(uri,null,null);
+    bulkInsert(mResolver,uri,valuesArray);
+    bulkDelete(mResolver,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
+    bulkInsert(mResolver,CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
   }
-  return new SingleResponse<Bundle>(bundle,null);
+  return SingleResponse.getInstance(true);
 }

@@ -1,14 +1,14 @@
 {
-  final boolean succeed=result.hasData() && result.getData().getId() > 0;
-  if (succeed) {
-    final String message=mContext.getString(R.string.created_list,result.getData().getName());
+  if (result.hasData()) {
+    final UserList userList=result.getData();
+    final String message=mContext.getString(R.string.created_list,userList.getName());
     mMessagesManager.showOkMessage(message,false);
+    final Intent intent=new Intent(BROADCAST_USER_LIST_CREATED);
+    intent.putExtra(EXTRA_USER_LIST,new ParcelableUserList(userList,account_id));
+    mContext.sendBroadcast(intent);
   }
  else {
     mMessagesManager.showErrorMessage(R.string.action_creating_list,result.getException(),true);
   }
-  final Intent intent=new Intent(BROADCAST_USER_LIST_CREATED);
-  intent.putExtra(EXTRA_SUCCEED,succeed);
-  mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

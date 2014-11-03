@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<Bundle>>
+ManagedAsyncTask<Void,Void,SingleResponse<Boolean>>
