@@ -5,9 +5,5 @@
     editor.putString(KEY_COMPOSE_ACCOUNTS,ArrayUtils.toString(mSendAccountIds,',',false));
     editor.apply();
   }
-  mAccountSelectorAdapter.clearAccountSelection();
-  for (  final long accountId : mSendAccountIds) {
-    mAccountSelectorAdapter.setAccountSelected(accountId,true);
-  }
-  mSelectAccount.drawEnd(getAccountColors(this,mSendAccountIds));
+  mSelectAccountButton.drawEnd(getAccountColors(this,mSendAccountIds));
 }

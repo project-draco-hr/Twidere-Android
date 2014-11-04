@@ -1,6 +1,6 @@
 {
-  if (mPopupMenu != null) {
-    mPopupMenu.dismiss();
+  if (mAccountSelectorPopup != null && mAccountSelectorPopup.isShowing()) {
+    mAccountSelectorPopup.dismiss();
   }
   mLocationManager.removeUpdates(this);
   super.onStop();

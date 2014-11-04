@@ -1,5 +1,7 @@
 {
   mAdapter.drop(from,to);
-  mListView.moveCheckState(from,to);
+  if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
+    mListView.moveCheckState(from,to);
+  }
   saveTabPositions();
 }

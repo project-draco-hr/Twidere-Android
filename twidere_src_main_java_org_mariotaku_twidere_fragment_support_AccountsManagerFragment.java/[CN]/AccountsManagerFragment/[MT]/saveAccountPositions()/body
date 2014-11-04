@@ -1,0 +1,16 @@
+{
+  final ContentResolver cr=getContentResolver();
+  final ArrayList<Integer> positions=mAdapter.getCursorPositions();
+  final Cursor c=mAdapter.getCursor();
+  if (positions != null && c != null && !c.isClosed()) {
+    final int idIdx=c.getColumnIndex(Accounts._ID);
+    for (int i=0, j=positions.size(); i < j; i++) {
+      c.moveToPosition(positions.get(i));
+      final long id=c.getLong(idIdx);
+      final ContentValues values=new ContentValues();
+      values.put(Accounts.SORT_POSITION,i);
+      final Where where=Where.equals(Accounts._ID,id);
+      cr.update(Accounts.CONTENT_URI,values,where.getSQL(),null);
+    }
+  }
+}

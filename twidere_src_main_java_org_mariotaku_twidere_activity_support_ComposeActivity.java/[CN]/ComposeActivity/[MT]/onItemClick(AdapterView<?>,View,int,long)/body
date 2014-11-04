@@ -1,0 +1,11 @@
+{
+  final ListView listView=(ListView)parent;
+  final SparseBooleanArray checkedPositions=listView.getCheckedItemPositions();
+  mSendAccountIds=new long[listView.getCheckedItemCount()];
+  for (int i=0, j=listView.getCount(), k=0; i < j; i++) {
+    if (checkedPositions.get(i)) {
+      mSendAccountIds[k++]=listView.getItemIdAtPosition(i);
+    }
+  }
+  updateAccountSelection();
+}

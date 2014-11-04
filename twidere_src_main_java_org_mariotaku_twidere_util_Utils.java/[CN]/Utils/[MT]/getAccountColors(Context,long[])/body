@@ -1,16 +1,14 @@
 {
-  if (context == null || account_ids == null)   return new int[0];
-  final String[] cols=new String[]{Accounts.COLOR};
-  final String where=Where.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(account_ids)).getSQL();
+  if (context == null || accountIds == null)   return new int[0];
+  final String[] cols=new String[]{Accounts.ACCOUNT_ID,Accounts.COLOR};
+  final String where=Where.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL();
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,cols,where,null,null);
   if (cur == null)   return new int[0];
   try {
-    cur.moveToFirst();
     final int[] colors=new int[cur.getCount()];
-    int i=0;
-    while (!cur.isAfterLast()) {
-      colors[i++]=cur.getInt(0);
-      cur.moveToNext();
+    for (int i=0, j=cur.getCount(); i < j; i++) {
+      cur.moveToPosition(i);
+      colors[ArrayUtils.indexOf(accountIds,cur.getLong(0))]=cur.getInt(1);
     }
     return colors;
   }

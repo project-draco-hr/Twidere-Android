@@ -19,9 +19,10 @@
   final Drawable icon=getTabIconDrawable(context,getTabIconObject(iconKey));
   holder.icon.setVisibility(View.VISIBLE);
   if (icon != null) {
-    ViewAccessor.setBackground(holder.icon,icon);
+    holder.icon.setImageDrawable(icon);
   }
  else {
-    holder.icon.setBackgroundResource(R.drawable.ic_action_list);
+    holder.icon.setImageResource(R.drawable.ic_action_list);
   }
+  holder.icon.setColorFilter(mIconColor,Mode.SRC_ATOP);
 }

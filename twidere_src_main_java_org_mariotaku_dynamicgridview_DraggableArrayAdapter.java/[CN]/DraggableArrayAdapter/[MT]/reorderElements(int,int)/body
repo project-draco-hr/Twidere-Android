@@ -1,5 +1,5 @@
 {
-  final List<T> objects=mData;
+  final List<T> objects=getObjects();
   T previous=objects.get(position);
   final int iterator=newPosition < position ? 1 : -1;
   final int afterPosition=position + iterator;

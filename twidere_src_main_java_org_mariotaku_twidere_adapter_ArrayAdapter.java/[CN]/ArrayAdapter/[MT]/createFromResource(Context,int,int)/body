@@ -1,0 +1,4 @@
+{
+  CharSequence[] strings=context.getResources().getTextArray(textArrayResId);
+  return new ArrayAdapter<>(context,textViewResId,strings);
+}

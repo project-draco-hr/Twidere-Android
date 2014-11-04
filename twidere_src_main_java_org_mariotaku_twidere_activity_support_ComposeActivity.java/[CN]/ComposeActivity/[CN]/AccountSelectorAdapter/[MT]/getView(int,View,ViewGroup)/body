@@ -1,8 +1,7 @@
 {
   final View view=super.getView(position,convertView,parent);
-  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   final Account account=getItem(position);
-  final ImageLoaderWrapper loader=getImageLoader();
-  loader.displayProfileImage(icon,account.profile_image_url);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  text1.setText(Utils.getAccountDisplayName(getContext(),account.account_id,isDisplayNameFirst()));
   return view;
 }

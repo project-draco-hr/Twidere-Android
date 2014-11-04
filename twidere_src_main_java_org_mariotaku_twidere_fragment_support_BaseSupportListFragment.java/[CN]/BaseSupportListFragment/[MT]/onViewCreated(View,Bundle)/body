@@ -1,6 +1,4 @@
 {
   super.onViewCreated(view,savedInstanceState);
-  final ListView listView=getListView();
-  listView.setOnTouchListener(mInternalOnTouchListener);
   requestFitSystemWindows();
 }

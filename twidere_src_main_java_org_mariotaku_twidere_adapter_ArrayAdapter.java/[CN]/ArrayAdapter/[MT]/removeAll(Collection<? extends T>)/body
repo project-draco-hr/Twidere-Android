@@ -1,0 +1,11 @@
+{
+synchronized (mLock) {
+    if (mOriginalValues != null) {
+      mOriginalValues.removeAll(collection);
+    }
+ else {
+      mObjects.removeAll(collection);
+    }
+  }
+  if (mNotifyOnChange)   notifyDataSetChanged();
+}

@@ -1,4 +1,0 @@
-{
-  mData.removeAll(collection);
-  notifyDataSetChanged();
-}

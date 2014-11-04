@@ -1,5 +1,11 @@
 {
-  if (item == null)   return;
-  mData.add(item);
-  notifyDataSetChanged();
+synchronized (mLock) {
+    if (mOriginalValues != null) {
+      mOriginalValues.add(object);
+    }
+ else {
+      mObjects.add(object);
+    }
+  }
+  if (mNotifyOnChange)   notifyDataSetChanged();
 }

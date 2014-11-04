@@ -1,2 +1,8 @@
 {
+  final DragSortListView listView=(DragSortListView)getListView();
+  mAdapter.drop(from,to);
+  if (listView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
+    listView.moveCheckState(from,to);
+  }
+  saveAccountPositions();
 }

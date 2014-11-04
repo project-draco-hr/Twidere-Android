@@ -1,6 +1,7 @@
 {
   mIdMap.clear();
-  for (int i=0, j=mData.size(); i < j; ++i) {
-    mIdMap.put(mData.get(i),i);
+  final List<T> objects=getObjects();
+  for (int i=0, j=objects.size(); i < j; ++i) {
+    mIdMap.put(objects.get(i),i);
   }
 }

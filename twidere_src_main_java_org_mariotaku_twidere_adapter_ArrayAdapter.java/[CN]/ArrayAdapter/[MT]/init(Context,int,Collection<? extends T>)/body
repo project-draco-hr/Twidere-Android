@@ -1,0 +1,11 @@
+{
+  mContext=context;
+  mInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  mResource=mDropDownResource=resource;
+  if (objects != null) {
+    mObjects=new ArrayList<>(objects);
+  }
+ else {
+    mObjects=new ArrayList<>();
+  }
+}

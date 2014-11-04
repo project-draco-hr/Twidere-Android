@@ -3,7 +3,8 @@
   setHasOptionsMenu(true);
   mResolver=getContentResolver();
   final Activity activity=getActivity();
-  mAdapter=new CustomTabsAdapter(activity);
+  final Context context=getView().getContext();
+  mAdapter=new CustomTabsAdapter(context);
   setListAdapter(mAdapter);
   setEmptyText(getString(R.string.no_tab_hint));
   mListView=(DragSortListView)getListView();

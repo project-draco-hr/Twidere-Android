@@ -1,6 +1,8 @@
 {
-  final ParcelableUser user=mAdapter.findItem(id);
-  if (user == null)   return;
+  final ParcelableUsersAdapter adapter=getListAdapter();
+  final int userPosition=adapter.findItemPosition(id);
+  if (userPosition < 0)   return;
+  final ParcelableUser user=adapter.getItem(userPosition);
   if (mMultiSelectManager.isActive()) {
     setItemSelected(user,position,!mMultiSelectManager.isSelected(user));
     return;

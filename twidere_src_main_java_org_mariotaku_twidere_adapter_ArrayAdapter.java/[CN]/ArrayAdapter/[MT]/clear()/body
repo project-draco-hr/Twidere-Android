@@ -1,4 +1,11 @@
 {
-  mData.clear();
-  notifyDataSetChanged();
+synchronized (mLock) {
+    if (mOriginalValues != null) {
+      mOriginalValues.clear();
+    }
+ else {
+      mObjects.clear();
+    }
+  }
+  if (mNotifyOnChange)   notifyDataSetChanged();
 }

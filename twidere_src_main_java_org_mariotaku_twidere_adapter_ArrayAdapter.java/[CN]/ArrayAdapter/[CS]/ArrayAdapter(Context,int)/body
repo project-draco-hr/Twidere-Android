@@ -1,3 +1,3 @@
 {
-  this(context,layoutRes,null);
+  init(context,resource,new ArrayList<T>());
 }

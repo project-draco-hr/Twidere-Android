@@ -6,6 +6,7 @@
   Utils.configBaseAdapter(activity,mAdapter);
   setListAdapter(mAdapter);
   final DragSortListView listView=(DragSortListView)getListView();
+  listView.setDragEnabled(true);
   listView.setDropListener(this);
   getLoaderManager().initLoader(0,null,this);
 }

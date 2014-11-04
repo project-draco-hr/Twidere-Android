@@ -5,7 +5,7 @@
   mTwitterWrapper=getTwidereApplication().getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
-  setContentView(getLayoutInflater().inflate(R.layout.activity_compose,null));
+  setContentView(R.layout.activity_compose);
   setProgressBarIndeterminateVisibility(false);
   setFinishOnTouchOutside(false);
   mAccountIds=getAccountIds(this);
@@ -20,9 +20,15 @@
   mMenuBar.setMenuBarListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
-  mAccountSelectorAdapter=new AccountSelectorAdapter(this);
-  mAccountSelectorAdapter.addAll(Account.getAccountsList(this,false));
-  mSelectAccount.setOnClickListener(this);
+  final AccountSelectorAdapter accountAdapter=new AccountSelectorAdapter(this);
+  accountAdapter.addAll(Account.getAccountsList(this,false));
+  mAccountSelectorPopup=IListPopupWindow.InstanceHelper.getInstance(mMenuBar.getPopupContext());
+  mAccountSelectorPopup.setModal(true);
+  mAccountSelectorPopup.setContentWidth(getResources().getDimensionPixelSize(R.dimen.mc__popup_window_width));
+  mAccountSelectorPopup.setAdapter(accountAdapter);
+  mAccountSelectorPopup.setAnchorView(mSelectAccountButton);
+  mSelectAccountButton.setOnClickListener(this);
+  mSelectAccountButton.setOnLongClickListener(this);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediasPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();

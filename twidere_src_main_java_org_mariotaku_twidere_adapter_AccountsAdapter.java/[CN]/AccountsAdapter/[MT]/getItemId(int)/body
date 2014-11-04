@@ -1,6 +1,0 @@
-{
-  final Cursor c=getCursor();
-  if (c == null || c.isClosed())   return -1;
-  c.moveToPosition(position);
-  return c.getLong(mAccountIdIdx);
-}

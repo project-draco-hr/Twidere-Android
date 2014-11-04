@@ -1,4 +1,3 @@
 {
-  final int layoutRes=mDropDownLayoutRes > 0 ? mDropDownLayoutRes : mLayoutRes;
-  return convertView != null ? convertView : mInflater.inflate(layoutRes,parent,false);
+  return createViewFromResource(position,convertView,parent,mDropDownResource);
 }

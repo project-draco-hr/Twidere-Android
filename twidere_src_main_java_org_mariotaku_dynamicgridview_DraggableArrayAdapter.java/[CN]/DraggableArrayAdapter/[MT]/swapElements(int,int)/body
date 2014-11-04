@@ -1,5 +1,5 @@
 {
-  final List<T> objects=mData;
+  final List<T> objects=getObjects();
   final T temp=objects.get(position);
   objects.set(position,objects.get(newPosition));
   objects.set(newPosition,temp);

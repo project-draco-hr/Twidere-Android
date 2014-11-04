@@ -1,7 +1,7 @@
 {
-  if (user_ids == null || user_ids.length == 0)   return;
-  for (  final long user_id : user_ids) {
-    mData.remove(mAdapter.findItem(user_id));
+  if (userIds == null || userIds.length == 0)   return;
+  for (  final long userId : userIds) {
+    mData.remove(mAdapter.findItemPosition(userId));
   }
   mAdapter.setData(mData,true);
 }
