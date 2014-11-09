@@ -4,4 +4,6 @@
   dest.writeInt(start);
   dest.writeInt(end);
   dest.writeInt(type);
+  dest.writeInt(width);
+  dest.writeInt(height);
 }

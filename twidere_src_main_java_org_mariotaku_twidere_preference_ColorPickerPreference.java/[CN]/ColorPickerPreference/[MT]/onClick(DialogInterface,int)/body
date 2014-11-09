@@ -6,7 +6,6 @@ case DialogInterface.BUTTON_POSITIVE:
 if (isPersistent()) {
   persistInt(color);
 }
-setPreviewColor();
 final OnPreferenceChangeListener listener=getOnPreferenceChangeListener();
 if (listener != null) {
 listener.onPreferenceChange(this,color);

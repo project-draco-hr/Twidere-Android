@@ -1,18 +1,6 @@
 {
   if (twitter == null)   return null;
-  final ResponseList<Status> statuses;
-  if (mUserId != -1) {
-    statuses=twitter.getUserTimeline(mUserId,paging);
-  }
- else   if (mUserScreenName != null) {
-    statuses=twitter.getUserTimeline(mUserScreenName,paging);
-  }
+  if (mUserId != -1)   return twitter.getUserTimeline(mUserId,paging);
+ else   if (mUserScreenName != null)   return twitter.getUserTimeline(mUserScreenName,paging);
  else   return null;
-  if (mTotalItemsCount == -1 && !statuses.isEmpty()) {
-    final User user=statuses.get(0).getUser();
-    if (user != null) {
-      mTotalItemsCount=user.getStatusesCount();
-    }
-  }
-  return statuses;
 }

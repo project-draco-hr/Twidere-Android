@@ -1,0 +1,11 @@
+{
+  super.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+  final View headerView=mHeaderView, profileBannerView=mProfileBannerView;
+  if (headerView == null || profileBannerView == null)   return;
+  final float factor=-headerView.getTop() / (float)headerView.getHeight();
+  profileBannerView.setAlpha(1.0f - factor);
+  profileBannerView.setTranslationY(headerView.getTop() / 2);
+  if (mActionBarBackground != null) {
+    mActionBarBackground.setAlpha(Math.round(0xFF * factor));
+  }
+}

@@ -4,4 +4,6 @@
   out.writeInt("start",start);
   out.writeInt("end",end);
   out.writeInt("type",type);
+  out.writeInt("width",width);
+  out.writeInt("height",height);
 }

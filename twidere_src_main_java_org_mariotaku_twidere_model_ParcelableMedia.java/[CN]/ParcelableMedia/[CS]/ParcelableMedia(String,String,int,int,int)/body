@@ -4,4 +4,6 @@
   this.start=start;
   this.end=end;
   this.type=type;
+  this.width=0;
+  this.height=0;
 }

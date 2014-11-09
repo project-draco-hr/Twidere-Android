@@ -1,0 +1,4 @@
+{
+  final int valueIndex=getValueIndex();
+  setSummary(valueIndex != -1 ? mBackgroundEntries[valueIndex] : null);
+}

@@ -1,0 +1,7 @@
+{
+  super(context,attrs);
+  setKey(KEY_THEME_BACKGROUND);
+  final Resources resources=context.getResources();
+  mBackgroundEntries=resources.getStringArray(R.array.entries_theme_background);
+  mBackgroundValues=resources.getStringArray(R.array.values_theme_background);
+}

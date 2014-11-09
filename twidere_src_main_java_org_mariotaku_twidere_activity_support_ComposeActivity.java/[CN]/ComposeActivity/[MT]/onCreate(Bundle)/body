@@ -17,14 +17,16 @@
     return;
   }
   mMenuBar.setIsBottomBar(true);
-  mMenuBar.setMenuBarListener(this);
+  mMenuBar.setOnMenuItemClickListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   final AccountSelectorAdapter accountAdapter=new AccountSelectorAdapter(this);
   accountAdapter.addAll(Account.getAccountsList(this,false));
   mAccountSelectorPopup=IListPopupWindow.InstanceHelper.getInstance(mMenuBar.getPopupContext());
+  mAccountSelectorPopup.setInputMethodMode(IListPopupWindow.INPUT_METHOD_NOT_NEEDED);
+  mAccountSelectorPopup.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
   mAccountSelectorPopup.setModal(true);
-  mAccountSelectorPopup.setContentWidth(getResources().getDimensionPixelSize(R.dimen.mc__popup_window_width));
+  mAccountSelectorPopup.setContentWidth(getResources().getDimensionPixelSize(R.dimen.account_selector_popup_width));
   mAccountSelectorPopup.setAdapter(accountAdapter);
   mAccountSelectorPopup.setAnchorView(mSelectAccountButton);
   mSelectAccountButton.setOnClickListener(this);

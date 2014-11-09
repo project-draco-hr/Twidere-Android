@@ -1,5 +1,5 @@
 Context context
-long user_id
+long userId
 String name
-String screen_name
-boolean ignore_cache
+String screenName
+boolean ignoreCache

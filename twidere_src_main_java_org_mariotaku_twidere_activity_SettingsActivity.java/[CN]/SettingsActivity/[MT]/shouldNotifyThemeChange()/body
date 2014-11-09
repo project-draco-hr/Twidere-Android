@@ -1,3 +1,3 @@
 {
-  return mCompactCards != mPreferences.getBoolean(KEY_COMPACT_CARDS,false) || mPlainListStyle != mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false) || getThemeResourceId() != getCurrentThemeResourceId() || ThemeUtils.getUserAccentColor(this) != mCurrentThemeColor || !CompareUtils.objectEquals(getThemeFontFamily(),mCurrentThemeFontFamily) || getThemeBackgroundAlpha() != mCurrentThemeBackgroundAlpha || isDarkDrawerEnabled() != mCurrentIsDarkDrawerEnabled;
+  return mCompactCards != mPreferences.getBoolean(KEY_COMPACT_CARDS,false) || mPlainListStyle != mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false) || getThemeResourceId() != getCurrentThemeResourceId() || ThemeUtils.getUserAccentColor(this) != mCurrentThemeColor || !CompareUtils.objectEquals(getThemeFontFamily(),mCurrentThemeFontFamily) || getThemeBackgroundAlpha() != mCurrentThemeBackgroundAlpha;
 }

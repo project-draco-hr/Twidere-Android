@@ -4,4 +4,6 @@
   start=in.readInt("start");
   end=in.readInt("end");
   type=in.readInt("type");
+  width=in.readInt("width");
+  height=in.readInt("height");
 }

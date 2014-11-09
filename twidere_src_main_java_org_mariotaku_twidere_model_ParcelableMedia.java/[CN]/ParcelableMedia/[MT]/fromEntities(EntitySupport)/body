@@ -11,8 +11,8 @@
   }
   if (medias != null) {
     for (    final MediaEntity media : medias) {
-      final URL media_url=media.getMediaURL();
-      if (media_url != null) {
+      final URL mediaURL=media.getMediaURL();
+      if (mediaURL != null) {
         list.add(new ParcelableMedia(media));
       }
     }

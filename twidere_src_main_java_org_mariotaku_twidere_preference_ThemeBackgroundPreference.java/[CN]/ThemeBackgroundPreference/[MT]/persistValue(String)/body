@@ -1,0 +1,8 @@
+{
+  if (!TextUtils.equals(getPersistedString(mValue),value)) {
+    persistString(value);
+    notifyChanged();
+  }
+  updateAlphaVisibility();
+  updateSummary();
+}

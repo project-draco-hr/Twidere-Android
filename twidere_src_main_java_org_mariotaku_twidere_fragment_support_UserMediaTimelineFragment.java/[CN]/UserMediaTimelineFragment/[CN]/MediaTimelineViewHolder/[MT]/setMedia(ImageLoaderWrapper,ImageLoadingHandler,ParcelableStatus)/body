@@ -1,0 +1,14 @@
+{
+  final ParcelableMedia[] medias=status.medias;
+  if (medias == null || medias.length < 1)   return;
+  final ParcelableMedia firstMedia=medias[0];
+  if (status.text_plain.codePointCount(0,status.text_plain.length()) == firstMedia.end) {
+    mediaTextView.setText(status.text_unescaped.substring(0,firstMedia.start));
+  }
+ else {
+    mediaTextView.setText(status.text_unescaped);
+  }
+  loader.displayProfileImage(mediaProfileImageView,status.user_profile_image_url);
+  mediaImageView.setMediaSize(firstMedia.width,firstMedia.height);
+  loader.displayPreviewImageWithCredentials(mediaImageView,firstMedia.media_url,status.account_id,loadingHandler);
+}

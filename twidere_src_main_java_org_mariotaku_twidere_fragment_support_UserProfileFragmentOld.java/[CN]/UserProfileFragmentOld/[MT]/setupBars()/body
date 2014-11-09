@@ -1,0 +1,17 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (!(activity instanceof LinkHandlerActivity))   return;
+  final LinkHandlerActivity linkHandler=(LinkHandlerActivity)activity;
+  final ActionBar actionBar=linkHandler.getActionBar();
+  if (actionBar == null)   return;
+  final int themeColor=linkHandler.getThemeColor();
+  final int themeResId=linkHandler.getCurrentThemeResourceId();
+  final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
+  final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(linkHandler) : 0xFF;
+  if (ThemeUtils.isColoredActionBar(themeResId)) {
+    actionBar.setBackgroundDrawable(mActionBarBackground=new ColorDrawable(themeColor));
+  }
+ else {
+    actionBar.setBackgroundDrawable(mActionBarBackground=ThemeUtils.getActionBarBackground(activity,themeResId));
+  }
+}

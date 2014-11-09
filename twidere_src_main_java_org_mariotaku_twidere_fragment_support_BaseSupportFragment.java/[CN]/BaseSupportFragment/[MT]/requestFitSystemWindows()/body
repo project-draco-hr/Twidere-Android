@@ -1,0 +1,9 @@
+{
+  final Activity activity=getActivity();
+  if (!(activity instanceof SystemWindowsInsetsCallback))   return;
+  final SystemWindowsInsetsCallback callback=(SystemWindowsInsetsCallback)activity;
+  final Rect insets=new Rect();
+  if (callback.getSystemWindowsInsets(insets)) {
+    fitSystemWindows(insets);
+  }
+}

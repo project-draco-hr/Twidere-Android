@@ -6,7 +6,6 @@
   mCurrentThemeColor=ThemeUtils.getUserAccentColor(this);
   mCurrentThemeFontFamily=getThemeFontFamily();
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
-  mCurrentIsDarkDrawerEnabled=isDarkDrawerEnabled();
   super.onCreate(savedInstanceState);
   setIntent(getIntent().addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
   final ActionBar actionBar=getActionBar();

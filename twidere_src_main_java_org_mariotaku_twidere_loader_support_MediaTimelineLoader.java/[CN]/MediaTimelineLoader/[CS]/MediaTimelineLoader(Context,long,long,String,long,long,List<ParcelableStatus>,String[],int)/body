@@ -1,0 +1,6 @@
+{
+  super(context,accountId,maxId,sinceId,data,savedStatusesArgs,tabPosition);
+  mUserId=userId;
+  mUserScreenName=screenName;
+  mIsMyTimeline=userId > 0 ? accountId == userId : accountId == getAccountId(context,screenName);
+}

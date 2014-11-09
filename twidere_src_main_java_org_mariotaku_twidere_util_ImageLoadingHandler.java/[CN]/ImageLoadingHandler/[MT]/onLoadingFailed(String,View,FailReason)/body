@@ -5,8 +5,7 @@
     view.setBackgroundResource(R.drawable.image_preview_refresh);
   }
   mLoadingUris.remove(view);
-  final View parent=(View)view.getParent();
-  final View progress=parent.findViewById(R.id.image_preview_progress);
+  final ProgressBar progress=findProgressBar(view.getParent());
   if (progress != null) {
     progress.setVisibility(View.GONE);
   }

@@ -1,0 +1,6 @@
+{
+  if (twitter == null)   return null;
+  if (mUserId != -1)   return twitter.getMediaTimeline(mUserId,paging);
+ else   if (mUserScreenName != null)   return twitter.getMediaTimeline(mUserScreenName,paging);
+ else   return null;
+}

@@ -4,4 +4,7 @@
   start=entity.getStart();
   end=entity.getEnd();
   type=TYPE_IMAGE;
+  final Size size=entity.getSizes().get(Size.LARGE);
+  width=size != null ? size.getWidth() : 0;
+  height=size != null ? size.getHeight() : 0;
 }

@@ -1,5 +1,6 @@
 {
   super(context,attrs,defStyle);
   mResources=context.getResources();
+  setWidgetLayoutResource(R.layout.preference_widget_color_picker);
   init(context,attrs);
 }

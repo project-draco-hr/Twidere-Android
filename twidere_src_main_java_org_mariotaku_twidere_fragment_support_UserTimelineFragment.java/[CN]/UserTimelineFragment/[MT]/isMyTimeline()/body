@@ -1,10 +1,10 @@
 {
   final Bundle args=getArguments();
   if (args != null) {
-    final long account_id=args.getLong(EXTRA_ACCOUNT_ID,-1);
-    final long user_id=args.getLong(EXTRA_USER_ID,-1);
-    final String screen_name=args.getString(EXTRA_SCREEN_NAME);
-    if (account_id == user_id || screen_name != null && screen_name.equals(getAccountScreenName(getActivity(),account_id)))     return true;
+    final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+    final long userId=args.getLong(EXTRA_USER_ID,-1);
+    final String screenName=args.getString(EXTRA_SCREEN_NAME);
+    if (accountId == userId || screenName != null && screenName.equals(getAccountScreenName(getActivity(),accountId)))     return true;
   }
   return false;
 }

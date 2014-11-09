@@ -1,0 +1,24 @@
+{
+  super.showDialog(state);
+  final Dialog dialog=getDialog();
+  final SharedPreferences preferences=getSharedPreferences();
+  if (dialog instanceof AlertDialog && preferences != null) {
+    final Resources res=dialog.getContext().getResources();
+    final LayoutInflater inflater=dialog.getLayoutInflater();
+    final ListView listView=((AlertDialog)dialog).getListView();
+    final ViewGroup listViewParent=(ViewGroup)listView.getParent();
+    listViewParent.removeView(listView);
+    final View view=inflater.inflate(R.layout.dialog_theme_background_preference,listViewParent);
+    ((ViewGroup)view.findViewById(R.id.list_container)).addView(listView);
+    mAlphaContainer=view.findViewById(R.id.alpha_container);
+    mAlphaSlider=(SeekBar)view.findViewById(R.id.alpha_slider);
+    mAlphaPreview=(ImageView)view.findViewById(R.id.alpha_preview);
+    mAlphaSlider.setMax(0xFF);
+    mAlphaSlider.setOnSeekBarChangeListener(mAlphaSliderChangedListener);
+    mAlphaSlider.setProgress(preferences.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA));
+    final int patternSize=res.getDimensionPixelSize(R.dimen.element_spacing_msmall);
+    ViewAccessor.setBackground(mAlphaPreview,new AlphaPatternDrawable(patternSize));
+    updateAlphaVisibility();
+    updateAlphaPreview();
+  }
+}
