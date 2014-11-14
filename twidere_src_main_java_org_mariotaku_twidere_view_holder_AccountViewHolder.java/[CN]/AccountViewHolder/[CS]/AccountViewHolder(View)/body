@@ -5,4 +5,5 @@
   profile_image=(ImageView)view.findViewById(android.R.id.icon);
   default_indicator=view.findViewById(R.id.default_indicator);
   checkbox=(CheckBox)view.findViewById(android.R.id.checkbox);
+  drag_handle=view.findViewById(R.id.drag_handle);
 }

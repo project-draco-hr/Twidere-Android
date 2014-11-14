@@ -1,8 +1,9 @@
 {
   super(context);
+  setWidgetLayoutResource(R.layout.preference_widget_account_preference_item);
+  setOnPreferenceClickListener(this);
   final String switchPreferenceName=ACCOUNT_PREFERENCES_NAME_PREFIX + account.account_id;
   mAccount=account;
-  mDensity=context.getResources().getDisplayMetrics().density;
   mSwitchPreference=context.getSharedPreferences(switchPreferenceName,Context.MODE_PRIVATE);
   mSwitchKey=switchKey;
   mSwitchDefault=switchDefault;

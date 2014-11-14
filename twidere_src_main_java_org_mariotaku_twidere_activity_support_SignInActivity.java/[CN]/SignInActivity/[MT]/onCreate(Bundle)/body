@@ -16,9 +16,6 @@
     mConsumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
     mUsername=savedInstanceState.getString(Accounts.SCREEN_NAME);
     mPassword=savedInstanceState.getString(Accounts.PASSWORD);
-    if (savedInstanceState.containsKey(Accounts.COLOR)) {
-      mUserColor=savedInstanceState.getInt(Accounts.COLOR,Color.TRANSPARENT);
-    }
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
   }
   mUsernamePasswordContainer.setVisibility(mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE ? View.GONE : View.VISIBLE);
@@ -28,5 +25,4 @@
   mEditPassword.setText(mPassword);
   mEditPassword.addTextChangedListener(this);
   setSignInButton();
-  setUserColorButton();
 }

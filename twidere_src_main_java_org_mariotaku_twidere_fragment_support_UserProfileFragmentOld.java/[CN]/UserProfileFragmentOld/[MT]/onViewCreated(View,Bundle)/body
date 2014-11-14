@@ -2,12 +2,13 @@
   final Context context=view.getContext();
   super.onViewCreated(view,savedInstanceState);
   mMainContent=view.findViewById(R.id.content);
+  mListView=(ListView)view.findViewById(android.R.id.list);
   mDetailsLoadProgress=(ProgressBar)view.findViewById(R.id.details_load_progress);
   mMenuBar=(TwidereMenuBar)view.findViewById(R.id.menu_bar);
   mErrorRetryContainer=view.findViewById(R.id.error_retry_container);
   mRetryButton=(Button)view.findViewById(R.id.retry);
   mErrorMessageView=(TextView)view.findViewById(R.id.error_message);
-  mProfileBannerView=(ImageView)view.findViewById(R.id.profile_banner);
+  mProfileBannerView=(ProfileBannerImageView)view.findViewById(R.id.profile_banner);
   mNameView=(TextView)mHeaderView.findViewById(R.id.name);
   mScreenNameView=(TextView)mHeaderView.findViewById(R.id.screen_name);
   mDescriptionView=(TextView)mHeaderView.findViewById(R.id.description);

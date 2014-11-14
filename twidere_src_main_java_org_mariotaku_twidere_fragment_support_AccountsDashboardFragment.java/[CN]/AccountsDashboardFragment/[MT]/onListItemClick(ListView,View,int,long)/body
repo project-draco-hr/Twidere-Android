@@ -1,0 +1,105 @@
+{
+  final ListAdapter adapter=mAdapter.getAdapter(position);
+  final Object item=mAdapter.getItem(position);
+  if (adapter instanceof DrawerAccountsAdapter) {
+    if (!(item instanceof Account))     return;
+    final Account account=(Account)item;
+    mAccountsAdapter.setSelectedAccountId(account.account_id);
+    updateAccountOptionsSeparatorLabel();
+    updateDefaultAccountState();
+  }
+ else   if (adapter instanceof AccountOptionsAdapter) {
+    final Account account=mAccountsAdapter.getSelectedAccount();
+    if (account == null || !(item instanceof OptionItem))     return;
+    final OptionItem option=(OptionItem)item;
+switch (option.id) {
+case MENU_VIEW_PROFILE:
+{
+        openUserProfile(getActivity(),account.account_id,account.account_id,account.screen_name);
+        closeAccountsDrawer();
+        break;
+      }
+case MENU_SEARCH:
+{
+      final FragmentActivity a=getActivity();
+      if (a instanceof HomeActivity) {
+        ((HomeActivity)a).openSearchView(account);
+      }
+ else {
+        getActivity().onSearchRequested();
+      }
+      closeAccountsDrawer();
+      break;
+    }
+case MENU_STATUSES:
+{
+    openUserTimeline(getActivity(),account.account_id,account.account_id,account.screen_name);
+    closeAccountsDrawer();
+    break;
+  }
+case MENU_FAVORITES:
+{
+  openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
+  closeAccountsDrawer();
+  break;
+}
+case MENU_LISTS:
+{
+openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
+closeAccountsDrawer();
+break;
+}
+case MENU_LIST_MEMBERSHIPS:
+{
+openUserListMemberships(getActivity(),account.account_id,account.account_id,account.screen_name);
+closeAccountsDrawer();
+break;
+}
+case MENU_EDIT:
+{
+final Bundle bundle=new Bundle();
+bundle.putLong(EXTRA_ACCOUNT_ID,account.account_id);
+final Intent intent=new Intent(INTENT_ACTION_EDIT_USER_PROFILE);
+intent.setClass(getActivity(),UserProfileEditorActivity.class);
+intent.putExtras(bundle);
+startActivity(intent);
+closeAccountsDrawer();
+break;
+}
+}
+}
+ else if (adapter instanceof AppMenuAdapter) {
+if (!(item instanceof OptionItem)) return;
+final OptionItem option=(OptionItem)item;
+switch (option.id) {
+case MENU_ACCOUNTS:
+{
+final Intent intent=new Intent(getActivity(),AccountsManagerActivity.class);
+startActivity(intent);
+break;
+}
+case MENU_DRAFTS:
+{
+final Intent intent=new Intent(INTENT_ACTION_DRAFTS);
+intent.setClass(getActivity(),DraftsActivity.class);
+startActivity(intent);
+break;
+}
+case MENU_FILTERS:
+{
+final Intent intent=new Intent(getActivity(),FiltersActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+startActivity(intent);
+break;
+}
+case MENU_SETTINGS:
+{
+final Intent intent=new Intent(getActivity(),SettingsActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+startActivityForResult(intent,REQUEST_SETTINGS);
+break;
+}
+}
+closeAccountsDrawer();
+}
+}

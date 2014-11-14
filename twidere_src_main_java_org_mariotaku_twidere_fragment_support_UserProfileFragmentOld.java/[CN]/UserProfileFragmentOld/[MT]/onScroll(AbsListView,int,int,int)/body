@@ -1,11 +1,16 @@
 {
   super.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
-  final View headerView=mHeaderView, profileBannerView=mProfileBannerView;
-  if (headerView == null || profileBannerView == null)   return;
+  final View headerView=mHeaderView;
+  final ProfileBannerImageView profileBannerView=mProfileBannerView;
+  final ListView listView=mListView;
+  if (headerView == null || profileBannerView == null || listView == null)   return;
   final float factor=-headerView.getTop() / (float)headerView.getHeight();
+  final int headerScroll=listView.getListPaddingTop() - headerView.getTop();
   profileBannerView.setAlpha(1.0f - factor);
-  profileBannerView.setTranslationY(headerView.getTop() / 2);
+  profileBannerView.setTranslationY((headerView.getTop() - listView.getListPaddingTop()) / 2);
+  profileBannerView.setBottomClip(headerScroll);
   if (mActionBarBackground != null) {
-    mActionBarBackground.setAlpha(Math.round(0xFF * factor));
+    final float f=headerScroll / (float)mProfileBannerSpace.getHeight();
+    mActionBarBackground.setAlpha(Math.round(0xFF * MathUtils.clamp(f,0,1)));
   }
 }

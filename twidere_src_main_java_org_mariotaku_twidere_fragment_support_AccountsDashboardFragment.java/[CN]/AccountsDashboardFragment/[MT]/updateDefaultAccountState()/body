@@ -1,0 +1,4 @@
+{
+  final long defaultAccountId=mAccountsAdapter.getDefaultAccountId();
+  final long selectedAccountId=mAccountsAdapter.getSelectedAccountId();
+}

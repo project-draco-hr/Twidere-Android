@@ -1,0 +1,6 @@
+{
+  super.dispatchDraw(canvas);
+  if (mBottomClip != 0) {
+    canvas.drawRect(getLeft(),getBottom() - mBottomClip - getTranslationY(),getRight(),getBottom(),mClipPaint);
+  }
+}

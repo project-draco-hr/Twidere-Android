@@ -6,6 +6,6 @@
   if (user_id <= 0)   return new SignInResponse(false,false,null);
   final User user=twitter.verifyCredentials();
   if (isUserLoggedIn(context,user_id))   return new SignInResponse(true,false,null);
-  final int color=user_color != null ? user_color : analyseUserProfileColor(user);
+  final int color=analyseUserProfileColor(user);
   return new SignInResponse(conf,access_token,user,Accounts.AUTH_TYPE_OAUTH,color,api_url_format,same_oauth_signing_url,no_version_suffix);
 }

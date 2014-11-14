@@ -4,6 +4,7 @@
   try {
     setMinProgress(a.getInteger(R.styleable.SeekBarDialogPreference_min,DEFAULT_MIN_PROGRESS));
     setMaxProgress(a.getInteger(R.styleable.SeekBarDialogPreference_max,DEFAULT_MAX_PROGRESS));
+    setStep(a.getInteger(R.styleable.SeekBarDialogPreference_step,DEFAULT_STEP));
     setProgressTextSuffix(a.getString(R.styleable.SeekBarDialogPreference_progressTextSuffix));
   }
   finally {

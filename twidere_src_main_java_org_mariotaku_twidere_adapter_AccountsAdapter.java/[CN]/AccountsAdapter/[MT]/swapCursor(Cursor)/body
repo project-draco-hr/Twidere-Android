@@ -1,9 +1,6 @@
 {
   if (cursor != null) {
-    mAccountIdIdx=cursor.getColumnIndex(Accounts.ACCOUNT_ID);
-    mUserColorIdx=cursor.getColumnIndex(Accounts.COLOR);
-    mProfileImageIdx=cursor.getColumnIndex(Accounts.PROFILE_IMAGE_URL);
-    mScreenNameIdx=cursor.getColumnIndex(Accounts.SCREEN_NAME);
+    mIndices=new Indices(cursor);
   }
   return super.swapCursor(cursor);
 }

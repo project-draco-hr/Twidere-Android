@@ -1,6 +1,5 @@
 {
   super.onBindView(view);
-  mView=view;
   final View iconView=view.findViewById(android.R.id.icon);
   if (iconView instanceof ImageView) {
     ((ImageView)iconView).setScaleType(ScaleType.FIT_CENTER);
@@ -13,5 +12,8 @@
   if (summaryView instanceof TextView) {
     ((TextView)summaryView).setSingleLine(true);
   }
-  updateSwitchState();
+  final Switch toggle=(Switch)view.findViewById(android.R.id.toggle);
+  if (mSwitchKey != null) {
+    toggle.setChecked(mSwitchPreference.getBoolean(mSwitchKey,mSwitchDefault));
+  }
 }

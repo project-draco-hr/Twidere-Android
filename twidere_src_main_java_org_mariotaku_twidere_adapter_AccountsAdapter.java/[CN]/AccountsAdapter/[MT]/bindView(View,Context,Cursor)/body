@@ -1,11 +1,11 @@
 {
-  final int color=cursor.getInt(mUserColorIdx);
+  final int color=cursor.getInt(mIndices.color);
   final AccountViewHolder holder=(AccountViewHolder)view.getTag();
-  holder.screen_name.setText("@" + cursor.getString(mScreenNameIdx));
+  holder.screen_name.setText("@" + cursor.getString(mIndices.screen_name));
   holder.setAccountColor(color);
-  holder.setIsDefault(mDefaultAccountId != -1 && mDefaultAccountId == cursor.getLong(mAccountIdIdx));
+  holder.setIsDefault(mDefaultAccountId != -1 && mDefaultAccountId == cursor.getLong(mIndices.account_id));
   if (mDisplayProfileImage) {
-    mImageLoader.displayProfileImage(holder.profile_image,cursor.getString(mProfileImageIdx));
+    mImageLoader.displayProfileImage(holder.profile_image,cursor.getString(mIndices.profile_image_url));
   }
  else {
     mImageLoader.cancelDisplayTask(holder.profile_image);
@@ -13,5 +13,6 @@
   }
   final boolean isMultipleChoice=mChoiceMode == ListView.CHOICE_MODE_MULTIPLE || mChoiceMode == ListView.CHOICE_MODE_MULTIPLE_MODAL;
   holder.checkbox.setVisibility(isMultipleChoice ? View.VISIBLE : View.GONE);
+  holder.setSortEnabled(mSortEnabled);
   super.bindView(view,context,cursor);
 }

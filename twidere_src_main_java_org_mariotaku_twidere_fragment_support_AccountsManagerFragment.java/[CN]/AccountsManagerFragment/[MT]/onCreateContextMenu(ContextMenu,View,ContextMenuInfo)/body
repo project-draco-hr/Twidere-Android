@@ -1,0 +1,10 @@
+{
+  if (!(menuInfo instanceof AdapterContextMenuInfo))   return;
+  final AdapterContextMenuInfo info=(AdapterContextMenuInfo)menuInfo;
+  final Account account=mAdapter.getAccount(info.position);
+  menu.setHeaderTitle(account.name);
+  final MenuInflater inflater=new MenuInflater(v.getContext());
+  inflater.inflate(R.menu.action_manager_account,menu);
+  final boolean isDefault=Utils.getDefaultAccountId(getActivity()) == account.account_id;
+  Utils.setMenuItemAvailability(menu,MENU_SET_AS_DEFAULT,!isDefault);
+}

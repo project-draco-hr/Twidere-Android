@@ -15,6 +15,7 @@
   bannerOptsBuilder.cacheInMemory(true);
   bannerOptsBuilder.cacheOnDisk(true);
   bannerOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
+  bannerOptsBuilder.displayer(new FadeInBitmapDisplayer(200,true,true,false));
   mProfileImageDisplayOptions=profileOptsBuilder.build();
   mImageDisplayOptions=imageOptsBuilder.build();
   mBannerDisplayOptions=bannerOptsBuilder.build();

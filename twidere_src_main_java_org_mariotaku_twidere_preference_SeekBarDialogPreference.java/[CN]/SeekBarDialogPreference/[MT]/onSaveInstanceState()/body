@@ -4,5 +4,6 @@
   myState.minProgress=getMinProgress();
   myState.maxProgress=getMaxProgress();
   myState.progress=getProgress();
+  myState.step=getStep();
   return myState;
 }

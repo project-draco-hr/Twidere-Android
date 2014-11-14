@@ -8,7 +8,7 @@
   mSeekBar=(SeekBar)view.findViewById(R.id.seek_bar);
   mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
     @Override public void onProgressChanged(    final SeekBar seekBar,    final int progress,    final boolean fromUser){
-      final String progressStr=String.valueOf(progress + mMinProgress);
+      final String progressStr=String.valueOf(progress * mStep + mMinProgress);
       mProgressText.setText(mProgressTextSuffix == null ? progressStr : progressStr.concat(mProgressTextSuffix.toString()));
     }
     @Override public void onStartTrackingTouch(    final SeekBar seekBar){
@@ -17,6 +17,6 @@
     }
   }
 );
-  mSeekBar.setMax(mMaxProgress - mMinProgress);
-  mSeekBar.setProgress(mProgress - mMinProgress);
+  mSeekBar.setMax((int)Math.ceil((mMaxProgress - mMinProgress) / (double)mStep));
+  mSeekBar.setProgress((int)Math.ceil((mProgress - mMinProgress) / (double)mStep));
 }

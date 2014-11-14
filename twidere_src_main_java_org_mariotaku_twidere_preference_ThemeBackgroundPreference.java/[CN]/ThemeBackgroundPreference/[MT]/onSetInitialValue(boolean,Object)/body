@@ -1,3 +1,4 @@
 {
   setValue(restorePersistedValue ? getPersistedString(mValue) : (String)defaultValue);
+  updateSummary();
 }

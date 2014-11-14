@@ -1,3 +1,0 @@
-{
-  return analyse(bitmap,width,height,WHITE);
-}

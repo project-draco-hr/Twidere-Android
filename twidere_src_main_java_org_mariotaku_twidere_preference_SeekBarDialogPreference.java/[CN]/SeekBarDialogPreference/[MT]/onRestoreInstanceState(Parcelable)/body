@@ -7,5 +7,6 @@
   setMinProgress(myState.minProgress);
   setMaxProgress(myState.maxProgress);
   setProgress(myState.progress);
+  setStep(myState.step);
   super.onRestoreInstanceState(myState.getSuperState());
 }

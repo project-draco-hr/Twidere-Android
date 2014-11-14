@@ -3,4 +3,5 @@
   minProgress=source.readInt();
   maxProgress=source.readInt();
   progress=source.readInt();
+  step=source.readInt();
 }

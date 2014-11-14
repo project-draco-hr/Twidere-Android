@@ -1,5 +1,0 @@
-{
-  final long defaultAccountId=mAccountsAdapter.getDefaultAccountId();
-  final long selectedAccountId=mAccountsAdapter.getSelectedAccountId();
-  mAccountOptionsAdapter.setDefault(defaultAccountId == selectedAccountId);
-}

@@ -1,0 +1,6 @@
+{
+  super(context,attrs,defStyleAttr);
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.colorForeground});
+  setColorFilter(a.getColor(0,0),Mode.SRC_ATOP);
+  a.recycle();
+}

@@ -8,7 +8,7 @@
   final int themeResId=linkHandler.getCurrentThemeResourceId();
   final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
   final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(linkHandler) : 0xFF;
-  if (ThemeUtils.isColoredActionBar(themeResId)) {
+  if (ThemeUtils.isColoredActionBar(themeResId) && useUserActionBar()) {
     actionBar.setBackgroundDrawable(mActionBarBackground=new ColorDrawable(themeColor));
   }
  else {

@@ -1,0 +1,8 @@
+SignInActivity context
+Configuration conf
+String username
+String password
+int auth_type
+String api_url_format
+boolean same_oauth_signing_url
+boolean no_version_suffix

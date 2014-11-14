@@ -4,18 +4,10 @@
   final String profileImageUrl=ParseUtils.parseString(user.getProfileImageURL());
   final HttpResponse conn=profileImageUrl != null ? client.get(profileImageUrl,null) : null;
   final Bitmap bm=conn != null ? BitmapFactory.decodeStream(conn.asStream()) : null;
-  if (bm == null) {
-    try {
-      final String profileBackgroundColor=user.getProfileBackgroundColor();
-      if (isEmpty(profileBackgroundColor))       throw new TwitterException("Can't get profile image");
-      return Color.parseColor(profileBackgroundColor);
-    }
- catch (    final IllegalArgumentException e) {
-      throw new TwitterException("Can't get profile image");
-    }
-  }
+  final int profileBackgroundColor=getProfileBackgroundColor(user.getProfileBackgroundColor());
+  if (bm == null)   return profileBackgroundColor;
   try {
-    return ColorAnalyser.analyse(bm);
+    return Palette.generate(bm).getVibrantColor(profileBackgroundColor);
   }
   finally {
     bm.recycle();

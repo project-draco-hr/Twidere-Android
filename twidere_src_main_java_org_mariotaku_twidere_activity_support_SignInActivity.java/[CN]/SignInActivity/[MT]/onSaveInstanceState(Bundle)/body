@@ -10,8 +10,5 @@
   outState.putString(Accounts.SCREEN_NAME,mUsername);
   outState.putString(Accounts.PASSWORD,mPassword);
   outState.putLong(EXTRA_API_LAST_CHANGE,mAPIChangeTimestamp);
-  if (mUserColor != null) {
-    outState.putInt(Accounts.COLOR,mUserColor);
-  }
   super.onSaveInstanceState(outState);
 }

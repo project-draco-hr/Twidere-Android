@@ -1,0 +1,7 @@
+{
+  final View view=super.onCreateView(parent);
+  view.findViewById(R.id.settings).setOnClickListener(this);
+  final Switch toggle=(Switch)view.findViewById(android.R.id.toggle);
+  toggle.setOnCheckedChangeListener(this);
+  return view;
+}

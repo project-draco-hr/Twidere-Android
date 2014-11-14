@@ -3,4 +3,5 @@
   dest.writeInt(minProgress);
   dest.writeInt(maxProgress);
   dest.writeInt(progress);
+  dest.writeInt(step);
 }

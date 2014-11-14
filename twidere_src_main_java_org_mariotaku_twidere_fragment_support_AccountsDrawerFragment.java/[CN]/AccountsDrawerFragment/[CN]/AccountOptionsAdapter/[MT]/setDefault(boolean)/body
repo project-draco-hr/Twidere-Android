@@ -1,4 +1,0 @@
-{
-  clear();
-  addAll(isDefault ? sOptionsDefault : sOptions);
-}

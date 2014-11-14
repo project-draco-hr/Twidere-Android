@@ -1,0 +1,6 @@
+{
+  super.fitSystemWindows(insets);
+  final ViewGroup.LayoutParams params=mProfileBannerSpace.getLayoutParams();
+  params.height=Math.max(insets.top,mProfileBannerView.getHeight() - insets.top);
+  mProfileBannerSpace.setLayoutParams(params);
+}

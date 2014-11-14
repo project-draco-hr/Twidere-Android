@@ -17,24 +17,13 @@ case REQUEST_EDIT_API:
       invalidateOptionsMenu();
       break;
     }
-case REQUEST_SET_COLOR:
-{
-    if (resultCode == BaseSupportActivity.RESULT_OK) {
-      mUserColor=data != null ? data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT) : null;
-    }
- else     if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
-      mUserColor=null;
-    }
-    setUserColorButton();
-    break;
-  }
 case REQUEST_BROWSER_SIGN_IN:
 {
-  if (resultCode == BaseSupportActivity.RESULT_OK && data != null) {
-    doLogin(data);
+    if (resultCode == BaseSupportActivity.RESULT_OK && data != null) {
+      doLogin(data);
+    }
+    break;
   }
-  break;
-}
 }
 super.onActivityResult(requestCode,resultCode,data);
 }

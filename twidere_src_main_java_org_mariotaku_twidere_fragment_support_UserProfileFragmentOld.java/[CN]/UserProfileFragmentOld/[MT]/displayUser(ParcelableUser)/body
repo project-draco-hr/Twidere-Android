@@ -55,7 +55,9 @@
     final String where=Accounts.ACCOUNT_ID + " = " + user.id;
     resolver.update(Accounts.CONTENT_URI,values,where,null);
   }
-  mAdapter.add(new MediaTimelineAction(1));
+  if (Utils.isOfficialKeyAccount(getActivity(),user.account_id)) {
+    mAdapter.add(new MediaTimelineAction(1));
+  }
   mAdapter.add(new FavoritesAction(2));
   mAdapter.add(new UserMentionsAction(3));
   mAdapter.add(new UserListsAction(4));

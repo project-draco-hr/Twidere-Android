@@ -1,0 +1,4 @@
+{
+  mBottomClip=bottom;
+  invalidate();
+}

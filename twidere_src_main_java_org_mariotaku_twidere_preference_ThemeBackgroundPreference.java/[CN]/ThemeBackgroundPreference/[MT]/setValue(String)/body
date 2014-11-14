@@ -1,5 +1,4 @@
 {
   mValue=value;
-  updateSummary();
   updateAlphaVisibility();
 }

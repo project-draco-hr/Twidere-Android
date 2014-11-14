@@ -15,7 +15,6 @@ case R.id.profile_image:
     break;
   }
 case R.id.profile_banner:
-case R.id.profile_banner_space:
 {
   final String profile_banner_url=mUser.profile_banner_url;
   if (profile_banner_url == null)   return;
@@ -24,19 +23,16 @@ case R.id.profile_banner_space:
 }
 case R.id.tweets_container:
 {
-if (mUser == null) return;
 openUserTimeline(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }
 case R.id.followers_container:
 {
-if (mUser == null) return;
 openUserFollowers(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }
 case R.id.friends_container:
 {
-if (mUser == null) return;
 openUserFriends(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }

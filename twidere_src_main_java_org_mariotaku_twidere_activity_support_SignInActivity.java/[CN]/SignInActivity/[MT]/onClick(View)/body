@@ -11,21 +11,10 @@ case R.id.sign_in:
     doLogin();
     break;
   }
-case R.id.set_color:
-{
-  final Intent intent=new Intent(this,ColorPickerDialogActivity.class);
-  if (mUserColor != null) {
-    intent.putExtra(EXTRA_COLOR,mUserColor);
-  }
-  intent.putExtra(EXTRA_ALPHA_SLIDER,false);
-  intent.putExtra(EXTRA_CLEAR_BUTTON,true);
-  startActivityForResult(intent,REQUEST_SET_COLOR);
-  break;
-}
 case R.id.sign_in_method_introduction:
 {
-new SignInMethodIntroductionDialogFragment().show(getSupportFragmentManager(),"sign_in_method_introduction");
-break;
+  new SignInMethodIntroductionDialogFragment().show(getSupportFragmentManager(),"sign_in_method_introduction");
+  break;
 }
 }
 }

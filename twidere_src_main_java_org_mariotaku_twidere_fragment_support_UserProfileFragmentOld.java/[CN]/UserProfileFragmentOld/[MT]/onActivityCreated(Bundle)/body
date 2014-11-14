@@ -25,8 +25,9 @@
   mFollowersContainer.setOnClickListener(this);
   mFriendsContainer.setOnClickListener(this);
   mRetryButton.setOnClickListener(this);
+  mProfileBannerView.setOnSizeChangedListener(this);
+  mProfileBannerSpace.setOnTouchListener(this);
   setListAdapter(null);
-  mListView=getListView();
   mListView.addHeaderView(mHeaderView,null,false);
   if (isUucky(userId,screenName,args.getParcelable(EXTRA_USER))) {
     final View uuckyFooter=View.inflate(activity,R.layout.list_footer_user_profile_uucky,null);
@@ -38,7 +39,6 @@
   mMenuBar.inflate(R.menu.menu_user_profile);
   mMenuBar.setIsBottomBar(true);
   mMenuBar.setOnMenuItemClickListener(this);
-  mProfileBannerSpace.setOnTouchListener(this);
   setListAdapter(mAdapter);
   getUserInfo(accountId,userId,screenName,false);
   setupBars();
