@@ -68,7 +68,7 @@
  else {
     mProfileImageView.setImageResource(R.drawable.ic_profile_image_default);
   }
-  mImagePreviewContainer.setVisibility(status.medias == null || status.medias.length == 0 ? View.GONE : View.VISIBLE);
+  mImagePreviewContainer.setVisibility(status.media == null || status.media.length == 0 ? View.GONE : View.VISIBLE);
   if (display_image_preview) {
     loadPreviewImages();
   }

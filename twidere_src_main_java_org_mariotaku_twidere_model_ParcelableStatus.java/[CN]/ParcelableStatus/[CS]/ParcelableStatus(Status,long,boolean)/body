@@ -21,7 +21,7 @@
   user_is_verified=user.isVerified();
   user_is_following=user.isFollowing();
   text_html=formatStatusText(status);
-  medias=ParcelableMedia.fromEntities(status);
+  media=ParcelableMedia.fromEntities(status);
   text_plain=status.getText();
   retweet_count=status.getRetweetCount();
   favorite_count=status.getFavoriteCount();
@@ -36,5 +36,5 @@
   my_retweet_id=retweeted_by_id == account_id ? id : -1;
   is_possibly_sensitive=status.isPossiblySensitive();
   mentions=ParcelableUserMention.fromUserMentionEntities(status.getUserMentionEntities());
-  first_media=medias != null && medias.length > 0 ? medias[0].url : null;
+  first_media=media != null && media.length > 0 ? media[0].url : null;
 }

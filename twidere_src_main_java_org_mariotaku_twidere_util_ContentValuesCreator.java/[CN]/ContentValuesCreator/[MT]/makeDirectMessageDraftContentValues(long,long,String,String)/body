@@ -5,8 +5,8 @@
   values.put(Drafts.ACCOUNT_IDS,ArrayUtils.toString(new long[]{accountId},',',false));
   values.put(Drafts.TIMESTAMP,System.currentTimeMillis());
   if (imageUri != null) {
-    final ParcelableMediaUpdate[] medias={new ParcelableMediaUpdate(imageUri,0)};
-    values.put(Drafts.MEDIAS,JSONSerializer.toJSONArrayString(medias));
+    final ParcelableMediaUpdate[] mediaArray={new ParcelableMediaUpdate(imageUri,0)};
+    values.put(Drafts.MEDIA,JSONSerializer.toJSONArrayString(mediaArray));
   }
   final JSONObject extras=new JSONObject();
   try {

@@ -47,8 +47,8 @@
     }
  else {
       showOkMessage(R.string.status_updated,false);
-      if (item.medias != null) {
-        for (        final ParcelableMediaUpdate media : item.medias) {
+      if (item.media != null) {
+        for (        final ParcelableMediaUpdate media : item.media) {
           final String path=getImagePathFromUri(this,Uri.parse(media.uri));
           if (path != null) {
             new File(path).delete();

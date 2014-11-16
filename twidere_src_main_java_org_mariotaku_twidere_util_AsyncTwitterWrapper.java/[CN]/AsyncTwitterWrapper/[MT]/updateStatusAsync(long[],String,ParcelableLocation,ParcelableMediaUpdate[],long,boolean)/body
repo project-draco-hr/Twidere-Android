@@ -3,7 +3,7 @@
   builder.accounts(Account.getAccounts(mContext,accountIds));
   builder.text(text);
   builder.location(location);
-  builder.medias(medias);
+  builder.media(media);
   builder.inReplyToStatusId(inReplyToStatusId);
   builder.isPossiblySensitive(isPossiblySensitive);
   return updateStatusesAsync(builder.build());

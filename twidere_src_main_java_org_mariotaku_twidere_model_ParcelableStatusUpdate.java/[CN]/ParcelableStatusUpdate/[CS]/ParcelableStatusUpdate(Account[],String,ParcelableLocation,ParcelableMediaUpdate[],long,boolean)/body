@@ -2,7 +2,7 @@
   this.accounts=accounts;
   this.text=text;
   this.location=location;
-  this.medias=medias;
+  this.media=media;
   this.in_reply_to_status_id=in_reply_to_status_id;
   this.is_possibly_sensitive=is_possibly_sensitive;
 }

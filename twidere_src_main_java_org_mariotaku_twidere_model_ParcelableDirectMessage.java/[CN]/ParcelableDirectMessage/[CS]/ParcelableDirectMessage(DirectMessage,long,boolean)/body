@@ -17,6 +17,6 @@
   sender_profile_image_url=sender_profile_image_url_string;
   recipient_profile_image_url=recipient_profile_image_url_string;
   text_unescaped=toPlainText(text_html);
-  medias=ParcelableMedia.fromEntities(message);
-  first_media=medias != null && medias.length > 0 ? medias[0].url : null;
+  media=ParcelableMedia.fromEntities(message);
+  first_media=media != null && media.length > 0 ? media[0].url : null;
 }

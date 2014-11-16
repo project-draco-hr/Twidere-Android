@@ -1,7 +1,7 @@
 {
-  if (medias == null)   return false;
+  if (mMedia == null)   return false;
   try {
-    for (    final ParcelableMediaUpdate media : medias) {
+    for (    final ParcelableMediaUpdate media : mMedia) {
       if (media.uri == null)       continue;
       final Uri uri=Uri.parse(media.uri);
       if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {

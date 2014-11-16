@@ -7,7 +7,7 @@
   builder.location(mRecentLocation);
   builder.isPossiblySensitive(mIsPossiblySensitive);
   if (hasMedia()) {
-    builder.medias(getMedias());
+    builder.media(getMedia());
   }
   final ContentValues values=ContentValuesCreator.makeStatusDraftContentValues(builder.build());
   mResolver.insert(Drafts.CONTENT_URI,values);

@@ -1,5 +1,5 @@
 LinearLayout container
 ImageLoaderWrapper loader
-List<ParcelableMedia> medias
+List<ParcelableMedia> mediaList
 int maxColumnCount
 OnMediaClickListener mediaClickListener

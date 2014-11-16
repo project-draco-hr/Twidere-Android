@@ -3,8 +3,8 @@
   final Context context=container.getContext();
   final ImageLoadingHandler loadingHandler=new ImageLoadingHandler();
   final LayoutInflater inflater=LayoutInflater.from(context);
-  final ListIterator<ParcelableMedia> iterator=medias.listIterator();
-  final int imageCount=medias.size();
+  final ListIterator<ParcelableMedia> iterator=mediaList.listIterator();
+  final int imageCount=mediaList.size();
   final double imageCountSqrt=Math.sqrt(imageCount);
   final int bestColumnCount=imageCountSqrt % 1 == 0 ? (int)imageCountSqrt : maxColumnCount;
   final int firstColumn=imageCount % bestColumnCount, fullRowCount=imageCount / bestColumnCount;

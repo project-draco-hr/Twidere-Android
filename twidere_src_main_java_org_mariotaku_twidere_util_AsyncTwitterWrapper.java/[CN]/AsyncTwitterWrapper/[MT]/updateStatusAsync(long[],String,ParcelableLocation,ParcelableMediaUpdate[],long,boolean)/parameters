@@ -1,6 +1,6 @@
 long[] accountIds
 String text
 ParcelableLocation location
-ParcelableMediaUpdate[] medias
+ParcelableMediaUpdate[] media
 long inReplyToStatusId
 boolean isPossiblySensitive

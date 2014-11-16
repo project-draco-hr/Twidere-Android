@@ -1,7 +1,7 @@
 {
   _id=cursor.getLong(indices._id);
   text=cursor.getString(indices.text);
-  medias=ParcelableMediaUpdate.fromJSONString(cursor.getString(indices.medias));
+  media=ParcelableMediaUpdate.fromJSONString(cursor.getString(indices.media));
   account_ids=ArrayUtils.parseLongArray(cursor.getString(indices.account_ids),',');
   in_reply_to_status_id=cursor.getLong(indices.in_reply_to_status_id);
   is_possibly_sensitive=cursor.getShort(indices.is_possibly_sensitive) == 1;

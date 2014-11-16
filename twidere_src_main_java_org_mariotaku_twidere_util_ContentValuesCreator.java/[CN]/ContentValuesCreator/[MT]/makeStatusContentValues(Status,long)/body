@@ -50,10 +50,10 @@
   }
   values.put(Statuses.IS_RETWEET,isRetweet);
   values.put(Statuses.IS_FAVORITE,status.isFavorited());
-  final ParcelableMedia[] medias=ParcelableMedia.fromEntities(status);
-  if (medias != null) {
-    values.put(Statuses.MEDIAS,JSONSerializer.toJSONArrayString(medias));
-    values.put(Statuses.FIRST_MEDIA,medias[0].url);
+  final ParcelableMedia[] media=ParcelableMedia.fromEntities(status);
+  if (media != null) {
+    values.put(Statuses.MEDIA,JSONSerializer.toJSONArrayString(media));
+    values.put(Statuses.FIRST_MEDIA,media[0].url);
   }
   final ParcelableUserMention[] mentions=ParcelableUserMention.fromStatus(status);
   if (mentions != null) {

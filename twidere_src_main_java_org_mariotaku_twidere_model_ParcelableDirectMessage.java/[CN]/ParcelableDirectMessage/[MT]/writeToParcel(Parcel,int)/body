@@ -14,5 +14,5 @@
   out.writeString(sender_profile_image_url);
   out.writeString(recipient_profile_image_url);
   out.writeString(text_unescaped);
-  out.writeTypedArray(medias,flags);
+  out.writeTypedArray(media,flags);
 }

@@ -1,0 +1,6 @@
+{
+  super.onDraw(canvas);
+  if (!mTextBounds.isEmpty()) {
+    canvas.drawText(mText,mTextX,mTextY,mTextPaint);
+  }
+}

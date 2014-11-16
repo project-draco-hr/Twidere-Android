@@ -1,4 +1,0 @@
-{
-  mMediaPreviewAdapter.addAll(medias);
-  updateMediasPreview();
-}

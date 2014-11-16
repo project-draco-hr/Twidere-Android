@@ -1,8 +1,8 @@
 {
-  activity.setProgressVisibility(false);
-  activity.removeAllMedia(Arrays.asList(medias));
-  activity.setMenu();
+  mActivity.setProgressVisibility(false);
+  mActivity.removeAllMedia(Arrays.asList(mMedia));
+  mActivity.setMenu();
   if (!result) {
-    Crouton.showText(activity,R.string.error_occurred,CroutonStyle.ALERT);
+    Crouton.showText(mActivity,R.string.error_occurred,CroutonStyle.ALERT);
   }
 }

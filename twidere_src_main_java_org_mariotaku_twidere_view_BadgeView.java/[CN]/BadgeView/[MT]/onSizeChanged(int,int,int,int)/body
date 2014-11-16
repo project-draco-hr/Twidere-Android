@@ -1,0 +1,8 @@
+{
+  super.onSizeChanged(w,h,oldw,oldh);
+  final int hPadding=(int)(Math.round(w * (Math.pow(2,0.5f) - 1)) / 2);
+  final int vPadding=(int)(Math.round(h * (Math.pow(2,0.5f) - 1)) / 2);
+  setPadding(hPadding,vPadding,hPadding,vPadding);
+  updateTextPosition();
+  invalidate();
+}

@@ -11,7 +11,7 @@
         continue;
       }
       final long accountId=item.account_ids[0];
-      final String imageUri=item.medias != null && item.medias.length > 0 ? item.medias[0].uri : null;
+      final String imageUri=item.media != null && item.media.length > 0 ? item.media[0].uri : null;
       twitter.sendDirectMessageAsync(accountId,recipientId,item.text,imageUri);
     }
   }

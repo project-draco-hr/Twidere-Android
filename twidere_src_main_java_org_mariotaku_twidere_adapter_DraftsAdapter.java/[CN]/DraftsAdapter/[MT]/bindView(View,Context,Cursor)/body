@@ -2,12 +2,12 @@
   final DraftViewHolder holder=(DraftViewHolder)view.getTag();
   final long[] accountIds=ArrayUtils.parseLongArray(cursor.getString(mIndices.account_ids),',');
   final String text=cursor.getString(mIndices.text);
-  final ParcelableMediaUpdate[] medias=ParcelableMediaUpdate.fromJSONString(cursor.getString(mIndices.medias));
+  final ParcelableMediaUpdate[] media=ParcelableMediaUpdate.fromJSONString(cursor.getString(mIndices.media));
   final long timestamp=cursor.getLong(mIndices.timestamp);
   final int actionType=cursor.getInt(mIndices.action_type);
   final String actionName=getActionName(context,actionType);
   if (actionType == Drafts.ACTION_UPDATE_STATUS) {
-    final String mediaUri=medias != null && medias.length > 0 ? medias[0].uri : null;
+    final String mediaUri=media != null && media.length > 0 ? media[0].uri : null;
     holder.image_preview_container.setVisibility(TextUtils.isEmpty(mediaUri) ? View.GONE : View.VISIBLE);
     if (mediaUri != null && !mediaUri.equals(mImageLoadingHandler.getLoadingUri(holder.image_preview))) {
       mImageLoader.displayPreviewImage(holder.image_preview,mediaUri,mImageLoadingHandler);

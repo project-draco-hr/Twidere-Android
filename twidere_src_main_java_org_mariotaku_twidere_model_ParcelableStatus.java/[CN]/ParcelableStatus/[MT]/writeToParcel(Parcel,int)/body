@@ -23,7 +23,7 @@
   out.writeString(in_reply_to_screen_name);
   out.writeString(source);
   out.writeString(user_profile_image_url);
-  out.writeTypedArray(medias,flags);
+  out.writeTypedArray(media,flags);
   out.writeParcelable(location,flags);
   out.writeLong(my_retweet_id);
   out.writeInt(is_possibly_sensitive ? 1 : 0);

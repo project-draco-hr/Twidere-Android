@@ -1,7 +1,7 @@
 {
   if (mUploader == null)   return null;
   try {
-    return mUploader.upload(status,medias);
+    return mUploader.upload(status,media);
   }
  catch (  final RemoteException e) {
     e.printStackTrace();

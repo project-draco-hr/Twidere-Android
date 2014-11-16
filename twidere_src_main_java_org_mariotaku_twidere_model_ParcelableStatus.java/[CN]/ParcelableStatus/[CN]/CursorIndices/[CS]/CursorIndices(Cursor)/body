@@ -31,7 +31,7 @@
   favorite_count=cursor.getColumnIndex(Statuses.FAVORITE_COUNT);
   is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
   is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
-  medias=cursor.getColumnIndex(Statuses.MEDIAS);
+  media=cursor.getColumnIndex(Statuses.MEDIA);
   first_media=cursor.getColumnIndex(Statuses.FIRST_MEDIA);
   mentions=cursor.getColumnIndex(Statuses.MENTIONS);
 }

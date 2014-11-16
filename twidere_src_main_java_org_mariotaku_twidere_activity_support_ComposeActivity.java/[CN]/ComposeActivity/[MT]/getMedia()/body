@@ -1,4 +1,4 @@
 {
-  final List<ParcelableMediaUpdate> list=getMediasList();
+  final List<ParcelableMediaUpdate> list=getMediaList();
   return list.toArray(new ParcelableMediaUpdate[list.size()]);
 }

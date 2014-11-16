@@ -23,7 +23,7 @@
   in_reply_to_screen_name=in.readString();
   source=in.readString();
   user_profile_image_url=in.readString();
-  medias=in.createTypedArray(ParcelableMedia.CREATOR);
+  media=in.createTypedArray(ParcelableMedia.CREATOR);
   location=in.readParcelable(ParcelableLocation.class.getClassLoader());
   my_retweet_id=in.readLong();
   is_possibly_sensitive=in.readInt() == 1;
@@ -32,5 +32,5 @@
   in_reply_to_user_id=in.readLong();
   in_reply_to_name=in.readString();
   mentions=in.createTypedArray(ParcelableUserMention.CREATOR);
-  first_media=medias != null && medias.length > 0 ? medias[0].url : null;
+  first_media=media != null && media.length > 0 ? media[0].url : null;
 }

@@ -14,6 +14,6 @@
   id=getAsLong(values,DirectMessages.MESSAGE_ID,-1);
   is_outgoing=getAsBoolean(values,DirectMessages.IS_OUTGOING,false);
   account_id=getAsLong(values,DirectMessages.ACCOUNT_ID,-1);
-  medias=ParcelableMedia.fromJSONString(values.getAsString(DirectMessages.MEDIAS));
+  media=ParcelableMedia.fromJSONString(values.getAsString(DirectMessages.MEDIA));
   first_media=values.getAsString(DirectMessages.FIRST_MEDIA);
 }

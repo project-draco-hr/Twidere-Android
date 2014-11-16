@@ -1,0 +1,17 @@
+{
+  final int width=getWidth(), height=getHeight();
+  if (width == 0 || height == 0)   return;
+  final float contentWidth=width - getPaddingLeft() - getPaddingRight();
+  final float contentHeight=height - getPaddingTop() - getPaddingBottom();
+  if (mText != null) {
+    mTextPaint.getTextBounds(mText,0,mText.length(),mTextBounds);
+    final float scale=Math.min(contentWidth / mTextBounds.width(),contentHeight / mTextBounds.height());
+    mTextPaint.setTextSize(Math.min(height / 2,mTextPaint.getTextSize() * scale));
+    mTextPaint.getTextBounds(mText,0,mText.length(),mTextBounds);
+    mTextX=contentWidth / 2 + getPaddingLeft();
+    mTextY=contentHeight / 2 + getPaddingTop() + mTextBounds.height() / 2;
+  }
+ else {
+    mTextBounds.setEmpty();
+  }
+}

@@ -3,7 +3,7 @@
   account_ids=Account.getAccountIds(status.accounts);
   in_reply_to_status_id=status.in_reply_to_status_id;
   text=status.text;
-  medias=status.medias;
+  media=status.media;
   is_possibly_sensitive=status.is_possibly_sensitive;
   location=status.location;
   timestamp=System.currentTimeMillis();

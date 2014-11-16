@@ -32,14 +32,14 @@
   mSelectAccountButton.setOnClickListener(this);
   mSelectAccountButton.setOnLongClickListener(this);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
-  mMediasPreviewGrid.setAdapter(mMediaPreviewAdapter);
+  mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();
   if (savedInstanceState != null) {
     mSendAccountIds=savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS);
     mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
-    final ArrayList<ParcelableMediaUpdate> mediasList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIAS);
-    if (mediasList != null) {
-      addMedias(mediasList);
+    final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
+    if (mediaList != null) {
+      addMedia(mediaList);
     }
     mInReplyToStatus=savedInstanceState.getParcelable(EXTRA_STATUS);
     mInReplyToStatusId=savedInstanceState.getLong(EXTRA_STATUS_ID);
@@ -75,11 +75,11 @@
   final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
   addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
   final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
-  final MenuItem mediasMenuItem=menu.findItem(R.id.medias_menu);
-  if (mediasMenuItem != null && mediasMenuItem.hasSubMenu()) {
-    addIntentToMenu(this,mediasMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
+  final MenuItem mediaMenuItem=menu.findItem(R.id.media_menu);
+  if (mediaMenuItem != null && mediaMenuItem.hasSubMenu()) {
+    addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
   }
   setMenu();
   updateAccountSelection();
-  updateMediasPreview();
+  updateMediaPreview();
 }

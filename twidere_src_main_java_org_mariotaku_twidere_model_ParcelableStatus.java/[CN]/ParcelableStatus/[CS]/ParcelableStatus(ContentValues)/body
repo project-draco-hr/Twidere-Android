@@ -28,7 +28,7 @@
   retweet_count=getAsInteger(values,Statuses.RETWEET_COUNT,0);
   favorite_count=getAsInteger(values,Statuses.FAVORITE_COUNT,0);
   text_unescaped=values.getAsString(Statuses.TEXT_UNESCAPED);
-  medias=ParcelableMedia.fromJSONString(values.getAsString(Statuses.MEDIAS));
+  media=ParcelableMedia.fromJSONString(values.getAsString(Statuses.MEDIA));
   is_possibly_sensitive=getAsBoolean(values,Statuses.IS_POSSIBLY_SENSITIVE,false);
   user_is_following=getAsBoolean(values,Statuses.IS_FOLLOWING,false);
   mentions=ParcelableUserMention.fromJSONString(values.getAsString(Statuses.MENTIONS));

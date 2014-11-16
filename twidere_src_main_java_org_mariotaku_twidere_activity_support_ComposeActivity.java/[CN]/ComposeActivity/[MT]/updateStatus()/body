@@ -29,7 +29,7 @@
   final boolean linkToQuotedTweet=mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET,true);
   final long inReplyToStatusId=!isQuote || linkToQuotedTweet ? mInReplyToStatusId : -1;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
-  mTwitterWrapper.updateStatusAsync(mSendAccountIds,text,statusLocation,getMedias(),inReplyToStatusId,isPossiblySensitive);
+  mTwitterWrapper.updateStatusAsync(mSendAccountIds,text,statusLocation,getMedia(),inReplyToStatusId,isPossiblySensitive);
   if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {
     mIsPossiblySensitive=false;
     mShouldSaveAccounts=true;

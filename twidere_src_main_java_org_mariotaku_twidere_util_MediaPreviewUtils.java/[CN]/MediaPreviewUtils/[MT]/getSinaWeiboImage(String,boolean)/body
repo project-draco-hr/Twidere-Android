@@ -1,6 +1,6 @@
 {
   if (isEmpty(url))   return null;
-  final String full=url.replaceAll("\\/" + SINA_WEIBO_IMAGES_AVAILABLE_SIZES + "\\/","/woriginal/");
-  final String preview=fullImage ? full : url.replaceAll("\\/" + SINA_WEIBO_IMAGES_AVAILABLE_SIZES + "\\/","/bmiddle/");
+  final String full=url.replaceAll("/" + SINA_WEIBO_IMAGES_AVAILABLE_SIZES + "/","/woriginal/");
+  final String preview=fullImage ? full : url.replaceAll("/" + SINA_WEIBO_IMAGES_AVAILABLE_SIZES + "/","/bmiddle/");
   return ParcelableMedia.newImage(preview,full);
 }

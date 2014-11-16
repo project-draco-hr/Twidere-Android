@@ -21,10 +21,10 @@
   values.put(DirectMessages.RECIPIENT_SCREEN_NAME,recipient.getScreenName());
   values.put(DirectMessages.SENDER_PROFILE_IMAGE_URL,sender_profile_image_url);
   values.put(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL,recipient_profile_image_url);
-  final ParcelableMedia[] medias=ParcelableMedia.fromEntities(message);
-  if (medias != null) {
-    values.put(DirectMessages.MEDIAS,JSONSerializer.toJSONArrayString(medias));
-    values.put(DirectMessages.FIRST_MEDIA,medias[0].url);
+  final ParcelableMedia[] mediaArray=ParcelableMedia.fromEntities(message);
+  if (mediaArray != null) {
+    values.put(DirectMessages.MEDIA,JSONSerializer.toJSONArrayString(mediaArray));
+    values.put(DirectMessages.FIRST_MEDIA,mediaArray[0].url);
   }
   return values;
 }

@@ -1,6 +1,6 @@
 {
   if (status_string == null)   return new ParcelableMedia[0];
-  final List<ParcelableMedia> images=new ArrayList<ParcelableMedia>();
+  final List<ParcelableMedia> images=new ArrayList<>();
   final HtmlLinkExtractor extractor=new HtmlLinkExtractor();
   for (  final HtmlLink link : extractor.grabLinks(status_string)) {
     final ParcelableMedia spec=getAllAvailableImage(link.getLink(),fullImage);
