@@ -1,4 +1,0 @@
-{
-  if (TextUtils.isEmpty(text))   return false;
-  return URLUtil.isValidUrl(text.toString());
-}

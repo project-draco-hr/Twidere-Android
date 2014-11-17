@@ -12,6 +12,8 @@
   isPossiblySensitive=getBoolean("possibly_sensitive",json);
   retweetCount=getLong("retweet_count",json);
   favoriteCount=getLong("favorite_count",json);
+  replyCount=getLong("reply_count",json);
+  descendentReplyCount=getLong("descendent_reply_count",json);
   try {
     if (!json.isNull("user")) {
       user=new UserJSONImpl(json.getJSONObject("user"));

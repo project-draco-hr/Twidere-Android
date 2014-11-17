@@ -73,6 +73,8 @@
     loadPreviewImages();
   }
   mRetweetsContainer.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
+  mRepliesContainer.setVisibility(status.reply_count < 0 ? View.GONE : View.VISIBLE);
+  mRepliesCountView.setText(getLocalizedNumber(mLocale,status.reply_count));
   mRetweetsCountView.setText(getLocalizedNumber(mLocale,status.retweet_count));
   mFavoritesCountView.setText(getLocalizedNumber(mLocale,status.favorite_count));
   final ParcelableLocation location=status.location;

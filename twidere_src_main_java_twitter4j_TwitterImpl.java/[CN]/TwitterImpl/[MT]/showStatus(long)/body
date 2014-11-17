@@ -2,5 +2,5 @@
   final String url=conf.getRestBaseURL() + ENDPOINT_STATUSES_SHOW;
   final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_SHOW;
   final HttpParameter paramStatus=new HttpParameter("id",statusId);
-  return factory.createStatus(get(url,signUrl,paramStatus,INCLUDE_ENTITIES,INCLUDE_MY_RETWEET));
+  return factory.createStatus(get(url,signUrl,paramStatus,INCLUDE_ENTITIES,INCLUDE_MY_RETWEET,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT));
 }

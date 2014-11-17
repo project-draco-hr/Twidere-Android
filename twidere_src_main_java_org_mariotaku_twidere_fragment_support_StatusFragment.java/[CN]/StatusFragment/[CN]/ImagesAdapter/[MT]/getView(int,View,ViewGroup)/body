@@ -1,7 +1,0 @@
-{
-  final View view=convertView != null ? convertView : mInflater.inflate(R.layout.gallery_item_image_preview,null);
-  final ImageView image=(ImageView)view.findViewById(R.id.image);
-  final ParcelableMedia spec=getItem(position);
-  mImageLoader.displayPreviewImage(image,spec != null ? spec.media_url : null);
-  return view;
-}

@@ -8,6 +8,8 @@
   retweeted_by_id=in.readLong();
   retweet_count=in.readLong();
   favorite_count=in.readLong();
+  reply_count=in.readLong();
+  descendent_reply_count=in.readLong();
   in_reply_to_status_id=in.readLong();
   is_gap=in.readInt() == 1;
   is_retweet=in.readInt() == 1;

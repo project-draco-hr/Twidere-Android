@@ -17,7 +17,7 @@ case R.id.in_reply_to:
   showConversation();
   break;
 }
-case R.id.replies_view:
+case R.id.replies_container:
 {
 openStatusReplies(getActivity(),status.account_id,status.id,status.user_screen_name);
 break;

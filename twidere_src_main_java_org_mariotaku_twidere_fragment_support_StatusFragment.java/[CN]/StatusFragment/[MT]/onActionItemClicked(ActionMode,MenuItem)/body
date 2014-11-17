@@ -5,7 +5,7 @@ case android.R.id.copyUrl:
       final int start=mTextView.getSelectionStart(), end=mTextView.getSelectionEnd();
       final SpannableString string=SpannableString.valueOf(mTextView.getText());
       final URLSpan[] spans=string.getSpans(start,end,URLSpan.class);
-      if (spans == null || spans.length != 1)       return true;
+      if (spans.length != 1)       return true;
       ClipboardUtils.setText(getActivity(),spans[0].getURL());
       mode.finish();
       return true;

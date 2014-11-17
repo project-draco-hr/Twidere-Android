@@ -1,5 +1,5 @@
 {
-  if (params == null || params.length != 1)   return new SingleResponse<Boolean>(false,null);
+  if (params == null || params.length != 1)   return new SingleResponse<>(false,null);
   try {
     final long account_id=params[0].account_id;
     ParcelableStatus status=params[0];
@@ -12,7 +12,7 @@
     }
   }
  catch (  final TwitterException e) {
-    return new SingleResponse<Boolean>(false,e);
+    return new SingleResponse<>(false,e);
   }
-  return new SingleResponse<Boolean>(true,null);
+  return new SingleResponse<>(true,null);
 }

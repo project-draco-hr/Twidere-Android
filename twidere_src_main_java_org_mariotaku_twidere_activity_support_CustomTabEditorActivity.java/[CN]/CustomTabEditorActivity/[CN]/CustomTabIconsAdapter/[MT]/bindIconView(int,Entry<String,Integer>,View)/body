@@ -1,0 +1,11 @@
+{
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  icon.setColorFilter(mIconColor,Mode.SRC_ATOP);
+  final int value=item.getValue();
+  if (value > 0) {
+    icon.setImageResource(item.getValue());
+  }
+ else {
+    icon.setImageDrawable(null);
+  }
+}

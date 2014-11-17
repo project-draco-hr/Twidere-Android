@@ -13,5 +13,4 @@
   mTimeSourceView.setTextSize(text_size * 0.85f);
   mInReplyToView.setTextSize(text_size * 0.85f);
   mLocationView.setTextSize(text_size * 0.85f);
-  mRepliesView.setTextSize(text_size * 0.85f);
 }

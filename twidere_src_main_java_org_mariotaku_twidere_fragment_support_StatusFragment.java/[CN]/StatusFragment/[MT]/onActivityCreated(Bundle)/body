@@ -16,10 +16,10 @@
   mLoadMoreAutomatically=mPreferences.getBoolean(KEY_LOAD_MORE_AUTOMATICALLY,false);
   mLoadImagesIndicator.setOnClickListener(this);
   mInReplyToView.setOnClickListener(this);
-  mRepliesView.setOnClickListener(this);
   mFollowButton.setOnClickListener(this);
   mProfileView.setOnClickListener(this);
   mLocationContainer.setOnClickListener(this);
+  mRepliesContainer.setOnClickListener(this);
   mRetweetsContainer.setOnClickListener(this);
   mFavoritesContainer.setOnClickListener(this);
   mMenuBar.setVisibility(shouldUseNativeMenu() ? View.GONE : View.VISIBLE);

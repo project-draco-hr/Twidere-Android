@@ -27,6 +27,8 @@
   source=values.getAsString(Statuses.SOURCE);
   retweet_count=getAsInteger(values,Statuses.RETWEET_COUNT,0);
   favorite_count=getAsInteger(values,Statuses.FAVORITE_COUNT,0);
+  reply_count=getAsInteger(values,Statuses.REPLY_COUNT,0);
+  descendent_reply_count=getAsInteger(values,Statuses.DESCENDENT_REPLY_COUNT,0);
   text_unescaped=values.getAsString(Statuses.TEXT_UNESCAPED);
   media=ParcelableMedia.fromJSONString(values.getAsString(Statuses.MEDIA));
   is_possibly_sensitive=getAsBoolean(values,Statuses.IS_POSSIBLY_SENSITIVE,false);

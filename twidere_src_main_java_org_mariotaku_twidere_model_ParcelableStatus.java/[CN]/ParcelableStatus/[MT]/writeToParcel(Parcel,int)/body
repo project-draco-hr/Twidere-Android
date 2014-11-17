@@ -8,6 +8,8 @@
   out.writeLong(retweeted_by_id);
   out.writeLong(retweet_count);
   out.writeLong(favorite_count);
+  out.writeLong(reply_count);
+  out.writeLong(descendent_reply_count);
   out.writeLong(in_reply_to_status_id);
   out.writeInt(is_gap ? 1 : 0);
   out.writeInt(is_retweet ? 1 : 0);

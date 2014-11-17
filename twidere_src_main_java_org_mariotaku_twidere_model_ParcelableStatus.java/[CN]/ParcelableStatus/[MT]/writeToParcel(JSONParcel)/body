@@ -8,6 +8,8 @@
   out.writeLong("retweeted_by_id",retweeted_by_id);
   out.writeLong("retweet_count",retweet_count);
   out.writeLong("favorite_count",favorite_count);
+  out.writeLong("reply_count",reply_count);
+  out.writeLong("descendent_reply_count",descendent_reply_count);
   out.writeLong("in_reply_to_status_id",in_reply_to_status_id);
   out.writeLong("in_reply_to_user_id",in_reply_to_user_id);
   out.writeBoolean("is_gap",is_gap);

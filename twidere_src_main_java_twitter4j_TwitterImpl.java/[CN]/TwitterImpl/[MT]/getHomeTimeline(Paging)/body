@@ -2,9 +2,11 @@
   ensureAuthorizationEnabled();
   final String url=conf.getRestBaseURL() + ENDPOINT_STATUSES_HOME_TIMELINE;
   final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_HOME_TIMELINE;
-  final List<HttpParameter> paramsList=new ArrayList<HttpParameter>();
+  final List<HttpParameter> paramsList=new ArrayList<>();
   paramsList.add(INCLUDE_ENTITIES);
   paramsList.add(INCLUDE_MY_RETWEET);
+  paramsList.add(INCLUDE_REPLY_COUNT);
+  paramsList.add(INCLUDE_DESCENDENT_REPLY_COUNT);
   if (paging != null) {
     paramsList.addAll(paging.asPostParameterList());
   }

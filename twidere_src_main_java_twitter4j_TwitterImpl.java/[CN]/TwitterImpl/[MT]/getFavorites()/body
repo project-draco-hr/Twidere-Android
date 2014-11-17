@@ -1,4 +1,4 @@
 {
   ensureAuthorizationEnabled();
-  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST,INCLUDE_ENTITIES));
+  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT));
 }

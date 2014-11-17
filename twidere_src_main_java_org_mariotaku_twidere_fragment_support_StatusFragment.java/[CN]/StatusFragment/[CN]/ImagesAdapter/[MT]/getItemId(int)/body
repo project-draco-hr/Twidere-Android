@@ -1,4 +1,0 @@
-{
-  final ParcelableMedia spec=getItem(position);
-  return spec != null ? spec.hashCode() : 0;
-}

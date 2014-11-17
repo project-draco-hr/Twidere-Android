@@ -1,4 +1,7 @@
 {
   mBottomClip=bottom;
   invalidate();
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    invalidateOutline();
+  }
 }

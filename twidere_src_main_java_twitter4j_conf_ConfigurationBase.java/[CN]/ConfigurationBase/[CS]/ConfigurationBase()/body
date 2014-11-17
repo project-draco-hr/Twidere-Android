@@ -24,13 +24,13 @@
   setClientVersion(Version.getVersion());
   setClientURL("http://twitter4j.org/en/twitter4j-" + Version.getVersion() + ".xml");
   setHttpUserAgent("twitter4j http://twitter4j.org/ /" + Version.getVersion());
-  setIncludeRTsEnbled(true);
-  setIncludeEntitiesEnbled(true);
+  setIncludeRTsEnabled(true);
+  setIncludeEntitiesEnabled(true);
   setOAuthBaseURL(DEFAULT_OAUTH_BASE_URL);
   setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);
   setRestBaseURL(DEFAULT_REST_BASE_URL);
   setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
   setUploadBaseURL(DEFAULT_UPLOAD_BASE_URL);
   setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
-  setIncludeRTsEnbled(true);
+  setIncludeRTsEnabled(true);
 }

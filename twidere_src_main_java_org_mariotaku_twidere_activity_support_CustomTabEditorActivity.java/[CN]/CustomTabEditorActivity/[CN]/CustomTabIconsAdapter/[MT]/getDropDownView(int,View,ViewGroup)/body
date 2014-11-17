@@ -11,6 +11,6 @@
  else {
     text1.setText(R.string.customize);
   }
-  bindView(position,item,view);
+  bindIconView(position,item,view);
   return view;
 }

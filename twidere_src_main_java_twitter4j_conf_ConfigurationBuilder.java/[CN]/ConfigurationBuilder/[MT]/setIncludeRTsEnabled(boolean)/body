@@ -1,5 +1,5 @@
 {
   checkNotBuilt();
-  configuration.setIncludeRTsEnbled(enabled);
+  configuration.setIncludeRTsEnabled(enabled);
   return this;
 }

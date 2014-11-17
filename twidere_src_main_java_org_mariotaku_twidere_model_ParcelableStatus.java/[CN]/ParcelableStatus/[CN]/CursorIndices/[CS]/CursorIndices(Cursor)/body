@@ -29,6 +29,8 @@
   source=cursor.getColumnIndex(Statuses.SOURCE);
   retweet_count=cursor.getColumnIndex(Statuses.RETWEET_COUNT);
   favorite_count=cursor.getColumnIndex(Statuses.FAVORITE_COUNT);
+  reply_count=cursor.getColumnIndex(Statuses.REPLY_COUNT);
+  descendent_reply_count=cursor.getColumnIndex(Statuses.DESCENDENT_REPLY_COUNT);
   is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
   is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
   media=cursor.getColumnIndex(Statuses.MEDIA);

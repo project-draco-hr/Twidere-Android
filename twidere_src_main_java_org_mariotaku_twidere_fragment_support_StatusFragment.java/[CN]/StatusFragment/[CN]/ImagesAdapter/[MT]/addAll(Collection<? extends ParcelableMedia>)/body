@@ -1,5 +1,0 @@
-{
-  final boolean ret=images != null && mImages.addAll(images);
-  notifyDataSetChanged();
-  return ret;
-}
