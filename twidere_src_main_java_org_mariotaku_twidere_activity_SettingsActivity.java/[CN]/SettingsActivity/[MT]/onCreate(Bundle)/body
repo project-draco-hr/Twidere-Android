@@ -3,9 +3,11 @@
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mCompactCards=mPreferences.getBoolean(KEY_COMPACT_CARDS,false);
   mPlainListStyle=mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false);
+  mTheme=mPreferences.getString(KEY_THEME,DEFAULT_THEME);
+  mThemeBackground=mPreferences.getString(KEY_THEME_BACKGROUND,DEFAULT_THEME_BACKGROUND);
+  mThemeBackgroundAlpha=mPreferences.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA);
+  mThemeFontFamily=mPreferences.getString(KEY_THEME_FONT_FAMILY,DEFAULT_THEME_FONT_FAMILY);
   mCurrentThemeColor=ThemeUtils.getUserAccentColor(this);
-  mCurrentThemeFontFamily=getThemeFontFamily();
-  mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
   super.onCreate(savedInstanceState);
   setIntent(getIntent().addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
   final ActionBar actionBar=getActionBar();

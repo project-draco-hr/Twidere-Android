@@ -1,0 +1,3 @@
+{
+  mImageLoader.displayImage(url,view,mOvalProfileImageDisplayOptions);
+}

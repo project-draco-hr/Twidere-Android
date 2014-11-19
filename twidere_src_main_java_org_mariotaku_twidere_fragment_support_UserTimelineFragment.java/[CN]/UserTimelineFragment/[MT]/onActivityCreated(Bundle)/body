@@ -5,7 +5,7 @@
   final long userId=args != null ? args.getLong(EXTRA_USER_ID,-1) : -1;
   final String screenName=args != null ? args.getString(EXTRA_SCREEN_NAME) : null;
   final boolean isMyTimeline=userId > 0 ? accountId == userId : accountId == getAccountId(getActivity(),screenName);
-  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final IStatusesListAdapter<List<ParcelableStatus>> adapter=getListAdapter();
   adapter.setIndicateMyStatusDisabled(isMyTimeline);
   adapter.setFiltersEnabled(!isMyTimeline);
   adapter.setIgnoredFilterFields(true,false,false,false,false);

@@ -1,3 +1,3 @@
 {
-  return mPreferences.getBoolean(KEY_BACKGROUND_TOAST_NOTIFICATION,false);
+  return true;
 }

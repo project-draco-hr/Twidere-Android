@@ -1,0 +1,32 @@
+{
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final Context context=adapter.getContext();
+  final ParcelableMedia[] media=status.media;
+  nameView.setText(status.user_name);
+  timeView.setTime(status.timestamp);
+  loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+  if (media != null && media.length > 0) {
+    final ParcelableMedia firstMedia=media[0];
+    if (status.text_plain.codePointCount(0,status.text_plain.length()) == firstMedia.end) {
+      textView.setText(status.text_unescaped.substring(0,firstMedia.start));
+    }
+ else {
+      textView.setText(status.text_unescaped);
+    }
+    loader.displayPreviewImageWithCredentials(mediaPreviewView,firstMedia.media_url,status.account_id,adapter.getImageLoadingHandler());
+    mediaPreviewContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    loader.cancelDisplayTask(mediaPreviewView);
+    textView.setText(status.text_unescaped);
+    mediaPreviewContainer.setVisibility(View.GONE);
+  }
+  retweetIndicator.setActivated(status.is_retweet);
+  favoriteIndicator.setActivated(status.is_favorite);
+  replyCountView.setVisibility(status.reply_count > 0 ? View.VISIBLE : View.INVISIBLE);
+  retweetCountView.setVisibility(status.retweet_count > 0 ? View.VISIBLE : View.INVISIBLE);
+  favoriteCountView.setVisibility(status.favorite_count > 0 ? View.VISIBLE : View.INVISIBLE);
+  replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.reply_count));
+  retweetCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.retweet_count));
+  favoriteCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.favorite_count));
+}

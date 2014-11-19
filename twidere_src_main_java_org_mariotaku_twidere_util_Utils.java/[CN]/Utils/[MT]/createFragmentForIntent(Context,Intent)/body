@@ -47,7 +47,7 @@ case LINK_ID_USER_LIST_MEMBERSHIPS:
 }
 case LINK_ID_USER_TIMELINE:
 {
-fragment=new UserTimelineFragment();
+fragment=new UserTimelineFragment2();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {

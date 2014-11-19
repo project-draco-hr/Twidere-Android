@@ -1,0 +1,15 @@
+{
+  if (context == null || status == null)   return;
+  final long account_id=status.account_id, status_id=status.id;
+  final Bundle extras=new Bundle();
+  extras.putParcelable(EXTRA_STATUS,status);
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_STATUS);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(account_id));
+  builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,String.valueOf(status_id));
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  intent.setExtrasClassLoader(context.getClassLoader());
+  intent.putExtras(extras);
+  context.startActivity(intent);
+}

@@ -1,0 +1,12 @@
+{
+  mContext=context;
+  mInflater=LayoutInflater.from(context);
+  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
+  mLoadingHandler=new ImageLoadingHandler(R.id.media_preview_progress);
+  if (compact) {
+    mCardLayoutResource=R.layout.card_item_list_status_compat;
+  }
+ else {
+    mCardLayoutResource=R.layout.card_item_list_status;
+  }
+}

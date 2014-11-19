@@ -5,6 +5,8 @@
   final String switchPreferenceName=ACCOUNT_PREFERENCES_NAME_PREFIX + account.account_id;
   mAccount=account;
   mSwitchPreference=context.getSharedPreferences(switchPreferenceName,Context.MODE_PRIVATE);
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mImageLoader=app.getImageLoaderWrapper();
   mSwitchKey=switchKey;
   mSwitchDefault=switchDefault;
   mSwitchPreference.registerOnSharedPreferenceChangeListener(this);

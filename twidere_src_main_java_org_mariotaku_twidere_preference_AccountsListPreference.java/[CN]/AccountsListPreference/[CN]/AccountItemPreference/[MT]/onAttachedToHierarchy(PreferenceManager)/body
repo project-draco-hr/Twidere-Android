@@ -3,7 +3,5 @@
   setTitle(mAccount.name);
   setSummary(String.format("@%s",mAccount.screen_name));
   setIcon(R.drawable.ic_profile_image_default);
-  final TwidereApplication app=TwidereApplication.getInstance(getContext());
-  final ImageLoaderWrapper loader=app.getImageLoaderWrapper();
-  loader.loadProfileImage(mAccount.profile_image_url,this);
+  mImageLoader.loadProfileImage(mAccount.profile_image_url,this);
 }

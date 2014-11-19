@@ -1,16 +1,3 @@
 {
-  for (  final Activity activity : mMessageCallbacks) {
-    if (activity instanceof BaseSupportActivity) {
-      final BaseSupportActivity base=(BaseSupportActivity)activity;
-      if (base.isOnTop())       return base;
-    }
-  }
-  for (  final Activity activity : mMessageCallbacks) {
-    if (activity instanceof HomeActivity) {
-      final HomeActivity home=(HomeActivity)activity;
-      if (home.isVisible())       return home;
-    }
-  }
-  for (  final Activity activity : mMessageCallbacks)   if (ThemeUtils.isFloatingWindow(activity))   return activity;
   return null;
 }

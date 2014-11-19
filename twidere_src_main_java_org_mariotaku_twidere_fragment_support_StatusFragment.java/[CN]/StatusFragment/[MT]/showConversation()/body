@@ -3,7 +3,7 @@
     mConversationTask.cancel(true);
     return;
   }
-  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final IStatusesListAdapter<List<ParcelableStatus>> adapter=getListAdapter();
   final int count=adapter.getCount();
   final ParcelableStatus status;
   if (count == 0) {

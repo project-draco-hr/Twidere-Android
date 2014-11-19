@@ -1,0 +1,4 @@
+{
+  if (mData == null || (mHasMoreItem && position == mData.size() - 1))   return null;
+  return mData.get(position);
+}

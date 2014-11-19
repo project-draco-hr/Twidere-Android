@@ -1,0 +1,4 @@
+{
+  if (mData == null)   return mHasMoreItem ? 1 : 0;
+  return mData.size() + (mHasMoreItem ? 1 : 0);
+}

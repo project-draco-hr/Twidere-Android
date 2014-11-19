@@ -8,6 +8,15 @@
   profileOptsBuilder.showImageOnLoading(R.drawable.ic_profile_image_default);
   profileOptsBuilder.bitmapConfig(Bitmap.Config.ARGB_8888);
   profileOptsBuilder.resetViewBeforeLoading(true);
+  final DisplayImageOptions.Builder ovalProfileOptsBuilder=new DisplayImageOptions.Builder();
+  ovalProfileOptsBuilder.cacheInMemory(true);
+  ovalProfileOptsBuilder.cacheOnDisk(true);
+  ovalProfileOptsBuilder.showImageForEmptyUri(R.drawable.ic_profile_image_default);
+  ovalProfileOptsBuilder.showImageOnFail(R.drawable.ic_profile_image_default);
+  ovalProfileOptsBuilder.showImageOnLoading(R.drawable.ic_profile_image_default);
+  ovalProfileOptsBuilder.bitmapConfig(Bitmap.Config.ARGB_8888);
+  ovalProfileOptsBuilder.displayer(new OvalBitmapDisplayer());
+  ovalProfileOptsBuilder.resetViewBeforeLoading(true);
   final DisplayImageOptions.Builder imageOptsBuilder=new DisplayImageOptions.Builder();
   imageOptsBuilder.cacheInMemory(true);
   imageOptsBuilder.cacheOnDisk(true);
@@ -19,6 +28,7 @@
   bannerOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
   bannerOptsBuilder.displayer(new FadeInBitmapDisplayer(200,true,true,false));
   mProfileImageDisplayOptions=profileOptsBuilder.build();
+  mOvalProfileImageDisplayOptions=ovalProfileOptsBuilder.build();
   mImageDisplayOptions=imageOptsBuilder.build();
   mBannerDisplayOptions=bannerOptsBuilder.build();
 }

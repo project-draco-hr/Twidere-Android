@@ -1,4 +1,4 @@
 {
   if (activity == null)   return false;
-  return mMessageCallbacks.add(activity);
+  return true;
 }

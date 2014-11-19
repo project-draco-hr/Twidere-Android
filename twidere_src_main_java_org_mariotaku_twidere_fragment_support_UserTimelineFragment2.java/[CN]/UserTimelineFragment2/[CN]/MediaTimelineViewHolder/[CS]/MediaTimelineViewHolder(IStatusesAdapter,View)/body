@@ -1,0 +1,24 @@
+{
+  super(itemView);
+  this.adapter=adapter;
+  itemView.findViewById(R.id.item_content).setOnClickListener(this);
+  profileImageView=(CircularImageView)itemView.findViewById(R.id.profile_image);
+  textView=(TextView)itemView.findViewById(R.id.text);
+  nameView=(TextView)itemView.findViewById(R.id.name);
+  timeView=(ShortTimeView)itemView.findViewById(R.id.time);
+  mediaPreviewContainer=itemView.findViewById(R.id.media_preview_container);
+  mediaPreviewView=(ImageView)itemView.findViewById(R.id.media_preview);
+  replyIndicator=itemView.findViewById(R.id.reply_indicator);
+  retweetIndicator=itemView.findViewById(R.id.retweet_indicator);
+  favoriteIndicator=itemView.findViewById(R.id.favorite_indicator);
+  replyCountView=(TextView)itemView.findViewById(R.id.reply_count);
+  retweetCountView=(TextView)itemView.findViewById(R.id.retweet_count);
+  favoriteCountView=(TextView)itemView.findViewById(R.id.favorite_count);
+  profileImageView.setSelectorColor(ThemeUtils.getUserHighlightColor(itemView.getContext()));
+  itemView.setOnClickListener(this);
+  profileImageView.setOnClickListener(this);
+  mediaPreviewContainer.setOnClickListener(this);
+  replyIndicator.setOnClickListener(this);
+  retweetIndicator.setOnClickListener(this);
+  favoriteIndicator.setOnClickListener(this);
+}

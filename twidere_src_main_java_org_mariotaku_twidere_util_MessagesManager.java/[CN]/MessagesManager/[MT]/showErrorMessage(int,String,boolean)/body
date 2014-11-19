@@ -2,11 +2,11 @@
   final String action=mContext.getString(action_res);
   final Activity best=getBestActivity();
   if (best != null) {
-    Utils.showErrorMessage(best,action,message,long_message);
+    Utils.showErrorMessage(best,action,message,longMessage);
     return;
   }
   if (showToast()) {
-    Utils.showErrorMessage(mContext,action,message,long_message);
+    Utils.showErrorMessage(mContext,action,message,longMessage);
     return;
   }
 }

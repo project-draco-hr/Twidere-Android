@@ -1,6 +1,6 @@
 {
   if (isRefreshing())   return;
-  final IStatusesAdapter<List<ParcelableStatus>> adapter=getListAdapter();
+  final IStatusesListAdapter<List<ParcelableStatus>> adapter=getListAdapter();
   final int count=adapter.getCount();
   final ParcelableStatus status=count > 0 ? adapter.getStatus(0) : null;
   if (status != null) {

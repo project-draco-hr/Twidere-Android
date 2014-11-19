@@ -1,11 +1,11 @@
 {
   final Activity best=getBestActivity();
   if (best != null) {
-    Utils.showInfoMessage(best,message_res,long_message);
+    Utils.showInfoMessage(best,messageRes,longMessage);
     return;
   }
   if (showToast()) {
-    Utils.showInfoMessage(mContext,message_res,long_message);
+    Utils.showInfoMessage(mContext,messageRes,longMessage);
     return;
   }
 }

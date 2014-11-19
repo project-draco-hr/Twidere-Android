@@ -1,0 +1,7 @@
+{
+  super.onBoundsChange(bounds);
+  mRect.set(margin,margin,bounds.width() - margin,bounds.height() - margin);
+  Matrix shaderMatrix=new Matrix();
+  shaderMatrix.setRectToRect(mBitmapRect,mRect,Matrix.ScaleToFit.FILL);
+  bitmapShader.setLocalMatrix(shaderMatrix);
+}

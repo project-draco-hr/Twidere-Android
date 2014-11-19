@@ -1,0 +1,24 @@
+{
+  final Context context=itemView.getContext();
+  final ParcelableStatus status=adapter.getStatus(getPosition());
+switch (v.getId()) {
+case R.id.item_content:
+{
+      Utils.openStatus(context,status);
+      break;
+    }
+case R.id.profile_image:
+{
+    Utils.openUserProfile(context,status.account_id,status.user_id,status.user_screen_name);
+    break;
+  }
+case R.id.reply_indicator:
+{
+  final Intent intent=new Intent(INTENT_ACTION_REPLY);
+  intent.setPackage(context.getPackageName());
+  intent.putExtra(EXTRA_STATUS,status);
+  context.startActivity(intent);
+  break;
+}
+}
+}
