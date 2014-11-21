@@ -9,8 +9,9 @@
   profileBannerView.setAlpha(1.0f - factor);
   profileBannerView.setTranslationY((headerView.getTop() - listView.getListPaddingTop()) / 2);
   profileBannerView.setBottomClip(headerScroll);
-  if (mActionBarBackground != null) {
+  if (mActionBarShadow != null && mActionBarBackground != null) {
     final float f=headerScroll / (float)mProfileBannerSpace.getHeight();
+    mActionBarShadow.setAlpha(Math.round(0xFF * MathUtils.clamp(1 - f,0,1)));
     mActionBarBackground.setAlpha(Math.round(0xFF * MathUtils.clamp(f,0,1)));
   }
 }

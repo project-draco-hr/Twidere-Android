@@ -19,6 +19,7 @@
   out.writeBoolean("is_verified",user_is_verified);
   out.writeString("retweeted_by_name",retweeted_by_name);
   out.writeString("retweeted_by_screen_name",retweeted_by_screen_name);
+  out.writeString("retweeted_by_profile_image",retweeted_by_profile_image);
   out.writeString("text_html",text_html);
   out.writeString("text_plain",text_plain);
   out.writeString("text_unescaped",text_unescaped);

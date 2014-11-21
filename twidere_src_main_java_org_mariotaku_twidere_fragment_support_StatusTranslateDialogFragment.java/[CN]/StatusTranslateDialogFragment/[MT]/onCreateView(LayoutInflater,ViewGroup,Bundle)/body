@@ -4,7 +4,7 @@
   mProgressBar=(ProgressBar)mProgressContainer.findViewById(android.R.id.progress);
   mMessageView=(TextView)mProgressContainer.findViewById(android.R.id.message);
   mStatusContainer=view.findViewById(R.id.status_container);
-  mHolder=new StatusViewHolder(mStatusContainer);
+  mHolder=new StatusListViewHolder(mStatusContainer);
   mHolder.setShowAsGap(false);
   mHolder.setAccountColorEnabled(true);
   ((View)mHolder.content).setPadding(0,0,0,0);

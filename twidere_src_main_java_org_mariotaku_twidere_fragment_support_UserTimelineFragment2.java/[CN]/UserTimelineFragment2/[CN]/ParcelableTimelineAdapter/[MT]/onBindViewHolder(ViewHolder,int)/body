@@ -1,6 +1,0 @@
-{
-  if (mData == null)   return;
-  if (holder instanceof MediaTimelineViewHolder) {
-    ((MediaTimelineViewHolder)holder).displayStatus(this,getStatus(position));
-  }
-}

@@ -47,5 +47,5 @@
     }
   }
   saveCachedData(serializationFile,data);
-  return new CopyOnWriteArrayList<ParcelableStatus>(data);
+  return new CopyOnWriteArrayList<>(data);
 }

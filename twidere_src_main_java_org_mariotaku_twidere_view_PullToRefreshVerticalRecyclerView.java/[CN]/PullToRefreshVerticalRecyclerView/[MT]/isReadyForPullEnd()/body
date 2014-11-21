@@ -1,0 +1,8 @@
+{
+  final RecyclerView recyclerView=getRefreshableView();
+  int lastVisiblePosition=recyclerView.getChildPosition(recyclerView.getChildAt(recyclerView.getChildCount() - 1));
+  if (lastVisiblePosition >= recyclerView.getAdapter().getItemCount() - 1) {
+    return recyclerView.getChildAt(recyclerView.getChildCount() - 1).getBottom() <= recyclerView.getBottom();
+  }
+  return false;
+}

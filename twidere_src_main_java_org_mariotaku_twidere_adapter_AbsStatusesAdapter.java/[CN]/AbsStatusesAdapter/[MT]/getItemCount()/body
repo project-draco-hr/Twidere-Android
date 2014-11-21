@@ -1,0 +1,3 @@
+{
+  return getStatusCount() + (mLoadMoreIndicatorEnabled ? 1 : 0);
+}

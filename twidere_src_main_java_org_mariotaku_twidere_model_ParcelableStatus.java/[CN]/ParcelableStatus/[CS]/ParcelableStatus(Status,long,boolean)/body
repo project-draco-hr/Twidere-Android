@@ -11,6 +11,7 @@
   retweeted_by_id=retweet_user != null ? retweet_user.getId() : -1;
   retweeted_by_name=retweet_user != null ? retweet_user.getName() : null;
   retweeted_by_screen_name=retweet_user != null ? retweet_user.getScreenName() : null;
+  retweeted_by_profile_image=retweet_user != null ? ParseUtils.parseString(retweet_user.getProfileImageUrlHttps()) : null;
   final Status status=retweeted != null ? retweeted : orig;
   final User user=status.getUser();
   user_id=user.getId();

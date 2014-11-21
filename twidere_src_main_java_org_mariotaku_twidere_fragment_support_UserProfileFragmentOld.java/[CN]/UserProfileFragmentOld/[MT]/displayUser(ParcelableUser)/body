@@ -14,7 +14,6 @@
   mProfileNameContainer.drawEnd(getAccountColor(getActivity(),user.account_id));
   final String nick=getUserNickname(getActivity(),user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
-  mProfileImageView.setUserType(user.is_verified,user.is_protected);
   mScreenNameView.setText("@" + user.screen_name);
   mDescriptionContainer.setVisibility(userIsMe || !isEmpty(user.description_html) ? View.VISIBLE : View.GONE);
   mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : null);

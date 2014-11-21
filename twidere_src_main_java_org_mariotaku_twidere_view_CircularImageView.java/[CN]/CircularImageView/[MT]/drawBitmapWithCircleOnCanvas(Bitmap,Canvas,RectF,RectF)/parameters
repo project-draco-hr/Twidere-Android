@@ -1,0 +1,4 @@
+Bitmap bitmap
+Canvas canvas
+RectF source
+RectF dest

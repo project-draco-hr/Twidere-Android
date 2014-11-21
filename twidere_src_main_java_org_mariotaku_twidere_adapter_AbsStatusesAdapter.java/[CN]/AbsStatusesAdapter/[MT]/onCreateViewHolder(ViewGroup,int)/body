@@ -1,0 +1,15 @@
+{
+switch (viewType) {
+case ITEM_VIEW_TYPE_STATUS:
+{
+      final View view=mInflater.inflate(mCardLayoutResource,parent,false);
+      return new StatusViewHolder(this,view);
+    }
+case ITEM_VIEW_TYPE_LOAD_INDICATOR:
+{
+    final View view=mInflater.inflate(R.layout.card_item_load_indicator,parent,false);
+    return new LoadIndicatorViewHolder(view);
+  }
+}
+throw new IllegalStateException("Unknown view type " + viewType);
+}

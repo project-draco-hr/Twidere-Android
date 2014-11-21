@@ -1,4 +1,0 @@
-{
-  mRecyclerView.setVisibility(shown ? View.VISIBLE : View.GONE);
-  mProgress.setVisibility(shown ? View.GONE : View.VISIBLE);
-}

@@ -18,6 +18,7 @@
   user_is_verified=in.readInt() == 1;
   retweeted_by_name=in.readString();
   retweeted_by_screen_name=in.readString();
+  retweeted_by_profile_image=in.readString();
   text_html=in.readString();
   text_plain=in.readString();
   user_name=in.readString();

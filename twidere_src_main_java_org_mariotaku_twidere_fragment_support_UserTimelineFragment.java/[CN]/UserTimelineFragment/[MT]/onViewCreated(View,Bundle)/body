@@ -1,0 +1,5 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mSwipeRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipe_layout);
+  mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
+}

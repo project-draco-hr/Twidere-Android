@@ -1,8 +1,8 @@
 {
   final View view=super.getView(position,convertView,parent);
   final Object tag=view.getTag();
-  final ActivityViewHolder holder=tag instanceof ActivityViewHolder ? (ActivityViewHolder)tag : new ActivityViewHolder(view);
-  if (!(tag instanceof ActivityViewHolder)) {
+  final ActivityListViewHolder holder=tag instanceof ActivityListViewHolder ? (ActivityListViewHolder)tag : new ActivityListViewHolder(view);
+  if (!(tag instanceof ActivityListViewHolder)) {
     if (mPlainList) {
       ((View)holder.content).setPadding(0,0,0,0);
       holder.content.setItemBackground(null);

@@ -1,0 +1,9 @@
+{
+switch (holder.getItemViewType()) {
+case ITEM_VIEW_TYPE_STATUS:
+{
+      bindStatus(((StatusViewHolder)holder),position);
+      break;
+    }
+}
+}

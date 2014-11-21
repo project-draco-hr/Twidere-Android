@@ -1,5 +1,0 @@
-{
-  if (mHasMoreItem == hasMoreItem)   return;
-  mHasMoreItem=hasMoreItem;
-  notifyDataSetChanged();
-}

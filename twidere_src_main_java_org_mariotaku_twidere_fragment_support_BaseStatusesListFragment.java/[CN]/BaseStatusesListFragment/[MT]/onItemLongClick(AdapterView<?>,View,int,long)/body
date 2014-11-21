@@ -1,7 +1,7 @@
 {
   final Object tag=view.getTag();
-  if (tag instanceof StatusViewHolder) {
-    final StatusViewHolder holder=(StatusViewHolder)tag;
+  if (tag instanceof StatusListViewHolder) {
+    final StatusListViewHolder holder=(StatusListViewHolder)tag;
     final ParcelableStatus status=mAdapter.getStatus(position - mListView.getHeaderViewsCount());
     final AsyncTwitterWrapper twitter=getTwitterWrapper();
     if (twitter != null) {

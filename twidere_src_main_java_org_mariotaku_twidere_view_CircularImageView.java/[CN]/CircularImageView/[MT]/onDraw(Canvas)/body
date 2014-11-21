@@ -1,0 +1,36 @@
+{
+  mDestination.set(getPaddingLeft(),getPaddingTop(),getWidth() - getPaddingRight(),getHeight() - getPaddingBottom());
+  if (USE_OUTLINE) {
+    super.onDraw(canvas);
+  }
+ else {
+    final int contentLeft=getPaddingLeft(), contentTop=getPaddingTop(), contentRight=getWidth() - getPaddingRight(), contentBottom=getHeight() - getPaddingBottom();
+    final int contentWidth=contentRight - contentLeft, contentHeight=contentBottom - contentTop;
+    final int size=Math.min(contentWidth,contentHeight);
+    if (mShadowBitmap != null) {
+      canvas.drawBitmap(mShadowBitmap,contentLeft + (contentWidth - size) / 2 - mShadowRadius,contentTop + (contentHeight - size) / 2 - mShadowRadius,null);
+    }
+    Drawable drawable=getDrawable();
+    BitmapDrawable bitmapDrawable=null;
+    if (drawable instanceof StateListDrawable) {
+      if (drawable.getCurrent() != null) {
+        bitmapDrawable=(BitmapDrawable)drawable.getCurrent();
+      }
+    }
+ else {
+      bitmapDrawable=(BitmapDrawable)drawable;
+    }
+    if (bitmapDrawable == null) {
+      return;
+    }
+    Bitmap bitmap=bitmapDrawable.getBitmap();
+    if (bitmap == null) {
+      return;
+    }
+    mSource.set(0,0,bitmap.getWidth(),bitmap.getHeight());
+    drawBitmapWithCircleOnCanvas(bitmap,canvas,mSource,mDestination);
+  }
+  if (mBorderEnabled) {
+    canvas.drawCircle(mDestination.centerX(),mDestination.centerY(),mDestination.width() / 2f - mBorderPaint.getStrokeWidth() / 2,mBorderPaint);
+  }
+}

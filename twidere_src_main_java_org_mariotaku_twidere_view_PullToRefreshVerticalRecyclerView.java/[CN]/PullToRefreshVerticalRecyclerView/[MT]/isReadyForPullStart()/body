@@ -1,0 +1,7 @@
+{
+  final RecyclerView recyclerView=getRefreshableView();
+  if (recyclerView.getChildCount() <= 0)   return true;
+  int firstVisiblePosition=recyclerView.getChildPosition(recyclerView.getChildAt(0));
+  if (firstVisiblePosition == 0)   return recyclerView.getChildAt(0).getTop() == 0;
+ else   return false;
+}

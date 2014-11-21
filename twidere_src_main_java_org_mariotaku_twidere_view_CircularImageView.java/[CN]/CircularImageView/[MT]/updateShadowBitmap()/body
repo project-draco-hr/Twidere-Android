@@ -1,0 +1,20 @@
+{
+  if (USE_OUTLINE)   return;
+  final int width=getWidth(), height=getHeight();
+  if (width <= 0 || height <= 0)   return;
+  final int contentLeft=getPaddingLeft(), contentTop=getPaddingTop(), contentRight=width - getPaddingRight(), contentBottom=height - getPaddingBottom();
+  final int contentWidth=contentRight - contentLeft, contentHeight=contentBottom - contentTop;
+  final float radius=mShadowRadius, dy=radius * 1.5f / 2;
+  final int size=Math.round(Math.min(contentWidth,contentHeight) + radius * 2);
+  mShadowBitmap=Bitmap.createBitmap(size,Math.round(size + dy),Config.ARGB_8888);
+  Canvas canvas=new Canvas(mShadowBitmap);
+  final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  paint.setColor(Color.WHITE);
+  paint.setShadowLayer(radius,0,radius * 1.5f / 2,SHADOW_START_COLOR);
+  final RectF rect=new RectF(radius,radius,size - radius,size - radius);
+  canvas.drawOval(rect,paint);
+  paint.setShadowLayer(0,0,0,0);
+  paint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+  canvas.drawOval(rect,paint);
+  invalidate();
+}

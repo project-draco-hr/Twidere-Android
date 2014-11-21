@@ -1,0 +1,5 @@
+{
+  final RecyclerView recyclerView=new RecyclerView(context,attrs);
+  recyclerView.setId(REFRESHABLE_VIEW_ID);
+  return recyclerView;
+}

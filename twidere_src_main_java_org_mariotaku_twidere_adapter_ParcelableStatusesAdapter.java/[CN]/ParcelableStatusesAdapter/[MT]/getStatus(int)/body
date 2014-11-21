@@ -1,3 +1,4 @@
 {
-  return getItem(position);
+  if (hasLoadMoreIndicator() && position == getStatusCount() - 1)   return null;
+  return mData.get(position);
 }

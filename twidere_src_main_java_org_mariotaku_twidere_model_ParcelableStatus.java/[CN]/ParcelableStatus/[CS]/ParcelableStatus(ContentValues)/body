@@ -24,6 +24,7 @@
   my_retweet_id=getAsLong(values,Statuses.MY_RETWEET_ID,-1);
   retweeted_by_name=values.getAsString(Statuses.RETWEETED_BY_USER_NAME);
   retweeted_by_screen_name=values.getAsString(Statuses.RETWEETED_BY_USER_SCREEN_NAME);
+  retweeted_by_profile_image=values.getAsString(Statuses.RETWEETED_BY_USER_PROFILE_IMAGE);
   source=values.getAsString(Statuses.SOURCE);
   retweet_count=getAsInteger(values,Statuses.RETWEET_COUNT,0);
   favorite_count=getAsInteger(values,Statuses.FAVORITE_COUNT,0);

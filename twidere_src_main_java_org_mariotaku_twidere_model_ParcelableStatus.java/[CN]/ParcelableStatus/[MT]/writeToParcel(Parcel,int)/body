@@ -18,6 +18,7 @@
   out.writeInt(user_is_verified ? 1 : 0);
   out.writeString(retweeted_by_name);
   out.writeString(retweeted_by_screen_name);
+  out.writeString(retweeted_by_profile_image);
   out.writeString(text_html);
   out.writeString(text_plain);
   out.writeString(user_name);

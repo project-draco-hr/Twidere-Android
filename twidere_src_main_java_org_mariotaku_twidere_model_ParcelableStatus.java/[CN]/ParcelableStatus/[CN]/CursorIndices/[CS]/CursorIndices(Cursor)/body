@@ -25,6 +25,7 @@
   retweeted_by_user_id=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_ID);
   retweeted_by_user_name=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_NAME);
   retweeted_by_user_screen_name=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_SCREEN_NAME);
+  retweeted_by_user_profile_image=cursor.getColumnIndex(Statuses.RETWEETED_BY_USER_PROFILE_IMAGE);
   user_id=cursor.getColumnIndex(Statuses.USER_ID);
   source=cursor.getColumnIndex(Statuses.SOURCE);
   retweet_count=cursor.getColumnIndex(Statuses.RETWEET_COUNT);

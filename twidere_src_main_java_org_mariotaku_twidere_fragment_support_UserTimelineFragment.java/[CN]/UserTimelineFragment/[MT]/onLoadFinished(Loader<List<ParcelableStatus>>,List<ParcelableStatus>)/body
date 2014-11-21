@@ -1,0 +1,4 @@
+{
+  mSwipeRefreshLayout.setRefreshing(false);
+  mAdapter.setData(data);
+}

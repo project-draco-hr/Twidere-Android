@@ -1,0 +1,35 @@
+{
+  final Context context=itemView.getContext();
+  final ParcelableStatus status=adapter.getStatus(getPosition());
+switch (v.getId()) {
+case R.id.item_content:
+{
+      Utils.openStatus(context,status);
+      break;
+    }
+case R.id.menu:
+{
+    if (context instanceof FragmentActivity) {
+      final Bundle args=new Bundle();
+      args.putParcelable(IntentConstants.EXTRA_STATUS,status);
+      final StatusMenuDialogFragment f=new StatusMenuDialogFragment();
+      f.setArguments(args);
+      f.show(((FragmentActivity)context).getSupportFragmentManager(),"status_menu");
+    }
+    break;
+  }
+case R.id.profile_image:
+{
+  Utils.openUserProfile(context,status.account_id,status.user_id,status.user_screen_name);
+  break;
+}
+case R.id.reply_count:
+{
+final Intent intent=new Intent(IntentConstants.INTENT_ACTION_REPLY);
+intent.setPackage(context.getPackageName());
+intent.putExtra(IntentConstants.EXTRA_STATUS,status);
+context.startActivity(intent);
+break;
+}
+}
+}

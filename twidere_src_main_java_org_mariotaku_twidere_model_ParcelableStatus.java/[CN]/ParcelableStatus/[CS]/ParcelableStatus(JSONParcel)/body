@@ -19,6 +19,7 @@
   user_is_verified=in.readBoolean("is_verified");
   retweeted_by_name=in.readString("retweeted_by_name");
   retweeted_by_screen_name=in.readString("retweeted_by_screen_name");
+  retweeted_by_profile_image=in.readString("retweeted_by_profile_image");
   text_html=in.readString("text_html");
   text_plain=in.readString("text_plain");
   user_name=in.readString("name");

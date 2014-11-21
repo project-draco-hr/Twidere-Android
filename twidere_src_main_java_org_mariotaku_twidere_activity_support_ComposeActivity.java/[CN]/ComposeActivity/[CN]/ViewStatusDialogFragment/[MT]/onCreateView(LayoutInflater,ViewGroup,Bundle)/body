@@ -1,5 +1,5 @@
 {
   final ScrollView view=(ScrollView)inflater.inflate(R.layout.dialog_scrollable_status,parent,false);
-  mHolder=new StatusViewHolder(view.getChildAt(0));
+  mHolder=new StatusListViewHolder(view.getChildAt(0));
   return view;
 }

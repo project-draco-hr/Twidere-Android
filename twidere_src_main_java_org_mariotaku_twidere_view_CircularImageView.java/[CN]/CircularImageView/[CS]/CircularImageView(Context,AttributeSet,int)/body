@@ -1,0 +1,32 @@
+{
+  super(context,attrs,defStyle);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.CircularImageView,defStyle,0);
+  mMatrix=new Matrix();
+  mSource=new RectF();
+  mDestination=new RectF();
+  mBitmapPaint=new Paint(Paint.LINEAR_TEXT_FLAG);
+  mBitmapPaint.setFilterBitmap(true);
+  mBitmapPaint.setDither(true);
+  mBorderPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBorderPaint.setStyle(Paint.Style.STROKE);
+  if (a.hasValue(R.styleable.CircularImageView_border)) {
+    setBorderEnabled(a.getBoolean(R.styleable.CircularImageView_border,false));
+  }
+ else   if (a.hasValue(R.styleable.CircularImageView_borderColor) || a.hasValue(R.styleable.CircularImageView_borderWidth)) {
+    setBorderEnabled(true);
+  }
+  setBorderColor(a.getColor(R.styleable.CircularImageView_borderColor,Color.TRANSPARENT));
+  setBorderWidth(a.getDimensionPixelSize(R.styleable.CircularImageView_borderWidth,0));
+  if (USE_OUTLINE) {
+    if (a.hasValue(R.styleable.CircularImageView_elevation)) {
+      ViewCompat.setElevation(this,a.getDimensionPixelSize(R.styleable.CircularImageView_elevation,0));
+    }
+  }
+ else {
+    mShadowRadius=a.getDimensionPixelSize(R.styleable.CircularImageView_elevation,0);
+  }
+  a.recycle();
+  if (USE_OUTLINE) {
+    initOutlineProvider();
+  }
+}

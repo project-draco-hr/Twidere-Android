@@ -1,0 +1,8 @@
+{
+  BitmapShader shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  mMatrix.reset();
+  mMatrix.setRectToRect(source,dest,Matrix.ScaleToFit.FILL);
+  shader.setLocalMatrix(mMatrix);
+  mBitmapPaint.setShader(shader);
+  canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mBitmapPaint);
+}

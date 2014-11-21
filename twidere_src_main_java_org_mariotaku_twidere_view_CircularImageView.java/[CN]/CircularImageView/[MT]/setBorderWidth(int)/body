@@ -1,0 +1,4 @@
+{
+  mBorderPaint.setStrokeWidth(width);
+  invalidate();
+}

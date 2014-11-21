@@ -1,0 +1,6 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    setClipToOutline(true);
+    setOutlineProvider(new CircularOutlineProvider());
+  }
+}

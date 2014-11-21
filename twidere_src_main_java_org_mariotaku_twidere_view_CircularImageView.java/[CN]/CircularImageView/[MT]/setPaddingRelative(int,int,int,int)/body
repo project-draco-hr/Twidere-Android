@@ -1,0 +1,5 @@
+{
+  super.setPaddingRelative(start,top,end,bottom);
+  updateShadowBitmap();
+  updateBackgroundPadding();
+}

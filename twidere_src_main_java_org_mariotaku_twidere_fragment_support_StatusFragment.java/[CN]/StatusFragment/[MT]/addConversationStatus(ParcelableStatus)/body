@@ -3,7 +3,7 @@
   final List<ParcelableStatus> data=getData();
   if (data == null)   return;
   data.add(status);
-  final ParcelableStatusesAdapter adapter=(ParcelableStatusesAdapter)getListAdapter();
+  final ParcelableStatusesListAdapter adapter=(ParcelableStatusesListAdapter)getListAdapter();
   adapter.setData(data);
   if (!mLoadMoreAutomatically && mShouldScroll) {
     setSelection(0);

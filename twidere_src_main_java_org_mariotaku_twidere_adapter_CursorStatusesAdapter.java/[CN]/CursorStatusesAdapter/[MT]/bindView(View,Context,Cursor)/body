@@ -1,6 +1,6 @@
 {
   final int position=cursor.getPosition();
-  final StatusViewHolder holder=(StatusViewHolder)view.getTag();
+  final StatusListViewHolder holder=(StatusListViewHolder)view.getTag();
   final boolean isGap=cursor.getShort(mIndices.is_gap) == 1;
   final boolean showGap=isGap && !mGapDisallowed && position != getCount() - 1;
   holder.setShowAsGap(showGap);

@@ -19,6 +19,7 @@
   user_is_verified=idx.is_verified != -1 && c.getInt(idx.is_verified) == 1;
   retweeted_by_name=idx.retweeted_by_user_name != -1 ? c.getString(idx.retweeted_by_user_name) : null;
   retweeted_by_screen_name=idx.retweeted_by_user_screen_name != -1 ? c.getString(idx.retweeted_by_user_screen_name) : null;
+  retweeted_by_profile_image=idx.retweeted_by_user_profile_image != -1 ? c.getString(idx.retweeted_by_user_profile_image) : null;
   text_html=idx.text_html != -1 ? c.getString(idx.text_html) : null;
   media=ParcelableMedia.fromJSONString(idx.media != -1 ? c.getString(idx.media) : null);
   text_plain=idx.text_plain != -1 ? c.getString(idx.text_plain) : null;

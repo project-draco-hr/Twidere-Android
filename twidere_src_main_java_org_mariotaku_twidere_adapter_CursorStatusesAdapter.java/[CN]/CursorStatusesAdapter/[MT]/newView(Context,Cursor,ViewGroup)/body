@@ -1,8 +1,8 @@
 {
   final View view=super.newView(context,cursor,parent);
   final Object tag=view.getTag();
-  if (!(tag instanceof StatusViewHolder)) {
-    final StatusViewHolder holder=new StatusViewHolder(view);
+  if (!(tag instanceof StatusListViewHolder)) {
+    final StatusListViewHolder holder=new StatusListViewHolder(view);
     holder.profile_image.setOnClickListener(this);
     holder.my_profile_image.setOnClickListener(this);
     holder.image_preview.setOnClickListener(this);

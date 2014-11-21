@@ -1,0 +1,3 @@
+{
+  mBackgroundDrawable.getOutline(outline);
+}
