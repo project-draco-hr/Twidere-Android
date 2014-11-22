@@ -1,6 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mImageLoader=TwidereApplication.getInstance(getActivity()).getImageLoaderWrapper();
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(getActivity());
   mLocale=getResources().getConfiguration().locale;

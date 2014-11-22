@@ -1,8 +1,0 @@
-{
-  super.onSizeChanged(w,h,oldw,oldh);
-  final int vw=mVerifiedDrawable.getIntrinsicWidth(), vh=mVerifiedDrawable.getIntrinsicHeight();
-  final int pw=mProtectedDrawable.getIntrinsicWidth(), ph=mProtectedDrawable.getIntrinsicHeight();
-  final int bottom=h, right=w;
-  mVerifiedDrawable.setBounds(right - vw,bottom - vh,right,bottom);
-  mProtectedDrawable.setBounds(right - pw,bottom - ph,right,bottom);
-}

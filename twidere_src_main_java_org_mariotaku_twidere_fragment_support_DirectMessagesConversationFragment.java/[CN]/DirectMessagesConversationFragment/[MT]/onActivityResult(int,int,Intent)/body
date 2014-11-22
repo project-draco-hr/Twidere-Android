@@ -8,7 +8,9 @@ case REQUEST_SELECT_USER:
       final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
       if (user != null && mAccountId > 0) {
         mRecipientId=user.id;
+        mRecipient=user;
         showConversation(mAccountId,mRecipientId);
+        updateProfileImage();
       }
       break;
     }

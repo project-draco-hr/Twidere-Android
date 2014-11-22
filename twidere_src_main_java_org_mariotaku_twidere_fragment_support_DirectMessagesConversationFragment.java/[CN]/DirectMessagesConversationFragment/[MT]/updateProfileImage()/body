@@ -1,0 +1,14 @@
+{
+  if (mProfileImageContainer == null || mRecipientProfileImageView == null || mSenderProfileImageView == null) {
+    return;
+  }
+  if (mSender != null && mRecipient != null) {
+    mImageLoader.displayProfileImage(mSenderProfileImageView,mSender.profile_image_url);
+    mImageLoader.displayProfileImage(mRecipientProfileImageView,mRecipient.profile_image_url);
+    mProfileImageContainer.drawEnd(mSender.color);
+  }
+ else {
+    mImageLoader.cancelDisplayTask(mSenderProfileImageView);
+    mImageLoader.cancelDisplayTask(mRecipientProfileImageView);
+  }
+}

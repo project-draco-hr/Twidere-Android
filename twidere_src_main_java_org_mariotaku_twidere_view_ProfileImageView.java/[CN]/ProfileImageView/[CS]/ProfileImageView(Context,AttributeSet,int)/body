@@ -1,6 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  final Resources res=context.getResources();
-  mVerifiedDrawable=new DropShadowDrawable(res,R.drawable.ic_user_type_verified,4,0xa0000000);
-  mProtectedDrawable=new DropShadowDrawable(res,R.drawable.ic_user_type_protected,4,0xa0000000);
-}

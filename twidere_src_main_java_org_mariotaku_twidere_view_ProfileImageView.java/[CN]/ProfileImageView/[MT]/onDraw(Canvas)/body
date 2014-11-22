@@ -1,9 +1,0 @@
-{
-  super.onDraw(canvas);
-  if (mIsVerified) {
-    mVerifiedDrawable.draw(canvas);
-  }
-  if (mIsProtected) {
-    mProtectedDrawable.draw(canvas);
-  }
-}

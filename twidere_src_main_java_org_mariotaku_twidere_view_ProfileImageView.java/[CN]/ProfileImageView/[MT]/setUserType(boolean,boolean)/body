@@ -1,5 +1,0 @@
-{
-  mIsVerified=isVerified;
-  mIsProtected=isProtected;
-  invalidate();
-}
