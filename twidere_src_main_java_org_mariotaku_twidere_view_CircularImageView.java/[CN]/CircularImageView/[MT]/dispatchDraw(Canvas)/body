@@ -1,6 +1,3 @@
 {
-  if (mBackground != null) {
-    mBackground.draw(canvas);
-  }
   super.dispatchDraw(canvas);
 }

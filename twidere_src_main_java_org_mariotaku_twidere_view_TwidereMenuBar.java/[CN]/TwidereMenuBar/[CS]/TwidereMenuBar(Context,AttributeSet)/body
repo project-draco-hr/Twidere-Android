@@ -1,4 +1,12 @@
 {
   super(context,attrs);
+  final int itemBackgroundColor=ThemeUtils.getThemeBackgroundColor(getItemViewContext());
+  final int popupItemBackgroundColor=ThemeUtils.getThemeBackgroundColor(getPopupContext());
+  final Resources resources=getResources();
+  final int colorDark=resources.getColor(R.color.action_icon_dark);
+  final int colorLight=resources.getColor(R.color.action_icon_light);
+  mItemColor=Utils.getContrastYIQ(itemBackgroundColor,colorDark,colorLight);
+  mPopupItemColor=Utils.getContrastYIQ(popupItemBackgroundColor,colorDark,colorLight);
+  mHighlightColor=ThemeUtils.getUserAccentColor(getContext());
   setMenuBarListener(this);
 }

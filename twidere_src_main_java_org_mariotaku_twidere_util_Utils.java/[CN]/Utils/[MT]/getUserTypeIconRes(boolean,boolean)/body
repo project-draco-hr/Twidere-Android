@@ -1,5 +1,5 @@
 {
-  if (is_verified)   return R.drawable.ic_indicator_verified;
- else   if (is_protected)   return R.drawable.ic_indicator_protected;
+  if (isVerified)   return R.drawable.ic_user_type_verified;
+ else   if (isProtected)   return R.drawable.ic_user_type_protected;
   return 0;
 }

@@ -1,0 +1,7 @@
+{
+  if (USE_OUTLINE) {
+    super.setColorFilter(cf);
+    return;
+  }
+  mBitmapPaint.setColorFilter(cf);
+}

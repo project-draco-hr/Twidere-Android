@@ -1,0 +1,9 @@
+{
+  Spanned spanned=(Spanned)text;
+  int en=spanned.getSpanEnd(this);
+  if (end - 1 == en) {
+    final int extra=Math.round((fm.bottom - fm.top) * (spacingMultiplier - 1));
+    fm.descent+=extra;
+    fm.bottom+=extra;
+  }
+}

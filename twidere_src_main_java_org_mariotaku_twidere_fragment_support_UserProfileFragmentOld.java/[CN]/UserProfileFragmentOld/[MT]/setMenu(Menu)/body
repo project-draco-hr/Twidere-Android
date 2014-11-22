@@ -13,18 +13,7 @@
   if (mentionItem != null) {
     mentionItem.setTitle(getString(R.string.mention_user_name,getDisplayName(getActivity(),user)));
   }
-  final MenuItem followItem=menu.findItem(MENU_FOLLOW);
-  followItem.setVisible(!isMyself);
-  final boolean shouldShowFollowItem=!creatingFriendship && !destroyingFriendship && !isMyself&& relationship != null;
-  followItem.setEnabled(shouldShowFollowItem);
-  if (shouldShowFollowItem) {
-    followItem.setTitle(isFollowing ? R.string.unfollow : isProtected ? R.string.send_follow_request : R.string.follow);
-    followItem.setIcon(isFollowing ? R.drawable.ic_action_cancel : R.drawable.ic_action_add);
-  }
- else {
-    followItem.setTitle(null);
-    followItem.setIcon(null);
-  }
+  Utils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
   if (user.id != user.account_id && relationship != null) {
     setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
     setMenuItemAvailability(menu,MENU_BLOCK,true);

@@ -1,3 +1,10 @@
 {
-  mBackgroundView.setImageDrawable(new MyColorDrawable(color));
+  mBackground.setColor(color);
+  final View child=getChildAt(0);
+  if (child instanceof FrameLayout) {
+    final Drawable foreground=((FrameLayout)child).getForeground();
+    if (foreground != null) {
+      foreground.setColorFilter(Utils.getContrastYIQ(color,192),Mode.MULTIPLY);
+    }
+  }
 }

@@ -1,11 +1,12 @@
 {
   final View view=inflater.inflate(R.layout.fragment_details_page,container,false);
+  view.findViewById(R.id.menu_bar).setVisibility(View.GONE);
   mMainContent=view.findViewById(R.id.content);
   mDetailsLoadProgress=(ProgressBar)view.findViewById(R.id.details_load_progress);
-  mMenuBar=(TwidereMenuBar)view.findViewById(R.id.menu_bar);
   mDetailsContainer=(ExtendedFrameLayout)view.findViewById(R.id.details_container);
   mDetailsContainer.addView(super.onCreateView(inflater,mDetailsContainer,savedInstanceState));
   mHeaderView=inflater.inflate(R.layout.header_status,null,false);
+  mMenuBar=(TwidereMenuBar)mHeaderView.findViewById(R.id.menu_bar);
   mImagePreviewContainer=mHeaderView.findViewById(R.id.image_preview);
   mLocationContainer=mHeaderView.findViewById(R.id.location_container);
   mLocationView=(TextView)mHeaderView.findViewById(R.id.location_view);
@@ -14,7 +15,8 @@
   mNameView=(TextView)mHeaderView.findViewById(R.id.name);
   mScreenNameView=(TextView)mHeaderView.findViewById(R.id.screen_name);
   mTextView=(StatusTextView)mHeaderView.findViewById(R.id.text);
-  mProfileImageView=(ImageView)mHeaderView.findViewById(R.id.profile_image);
+  mProfileImageView=(CircularImageView)mHeaderView.findViewById(R.id.profile_image);
+  mProfileTypeView=(ImageView)mHeaderView.findViewById(R.id.profile_type);
   mTimeSourceView=(TextView)mHeaderView.findViewById(R.id.time_source);
   mInReplyToView=(TextView)mHeaderView.findViewById(R.id.in_reply_to);
   mFollowButton=(Button)mHeaderView.findViewById(R.id.follow);

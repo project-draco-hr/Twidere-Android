@@ -1,0 +1,6 @@
+{
+  mView=view;
+  mRadius=radius;
+  mColorPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBounds=new Rect();
+}

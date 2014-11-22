@@ -23,6 +23,7 @@
   mFriendsCount=(TextView)mHeaderView.findViewById(R.id.friends_count);
   mProfileNameContainer=(ColorLabelLinearLayout)mHeaderView.findViewById(R.id.profile_name_container);
   mProfileImageView=(CircularImageView)mHeaderView.findViewById(R.id.profile_image);
+  mProfileTypeView=(ImageView)mHeaderView.findViewById(R.id.profile_type);
   mDescriptionContainer=mHeaderView.findViewById(R.id.description_container);
   mLocationContainer=mHeaderView.findViewById(R.id.location_container);
   mURLContainer=mHeaderView.findViewById(R.id.url_container);

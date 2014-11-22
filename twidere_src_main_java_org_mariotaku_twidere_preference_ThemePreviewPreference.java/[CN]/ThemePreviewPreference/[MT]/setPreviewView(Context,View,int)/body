@@ -21,14 +21,12 @@
   actionBarSplitView.show();
   if (statusContentView != null) {
     ViewAccessor.setBackground(statusContentView,ThemeUtils.getWindowBackground(context));
-    final ICardItemView cardView=(ICardItemView)statusContentView.findViewById(R.id.card);
     final View profileView=statusContentView.findViewById(R.id.profile);
     final ImageView profileImageView=(ImageView)statusContentView.findViewById(R.id.profile_image);
     final TextView nameView=(TextView)statusContentView.findViewById(R.id.name);
     final TextView screenNameView=(TextView)statusContentView.findViewById(R.id.screen_name);
     final TextView textView=(TextView)statusContentView.findViewById(R.id.text);
     final TextView timeSourceView=(TextView)statusContentView.findViewById(R.id.time_source);
-    cardView.setItemSelector(null);
     nameView.setTextSize(defaultTextSize * 1.25f);
     textView.setTextSize(defaultTextSize * 1.25f);
     screenNameView.setTextSize(defaultTextSize * 0.85f);

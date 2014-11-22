@@ -39,12 +39,21 @@
   final boolean display_image_preview=mPreferences.getBoolean(KEY_DISPLAY_IMAGE_PREVIEW,false);
   final String nick=getUserNickname(getActivity(),status.user_id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? status.user_name : nickname_only ? nick : getString(R.string.name_with_nickname,status.user_name,nick));
-  mNameView.setCompoundDrawablesWithIntrinsicBounds(0,0,getUserTypeIconRes(status.user_is_verified,status.user_is_protected),0);
+  final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
+  if (typeIconRes != 0) {
+    mProfileTypeView.setImageResource(typeIconRes);
+    mProfileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    mProfileTypeView.setImageDrawable(null);
+    mProfileTypeView.setVisibility(View.GONE);
+  }
   mScreenNameView.setText("@" + status.user_screen_name);
   mTextView.setText(Html.fromHtml(status.text_html));
   final TwidereLinkify linkify=new TwidereLinkify(new OnLinkClickHandler(getActivity(),getMultiSelectManager()));
   linkify.setLinkTextColor(ThemeUtils.getUserLinkTextColor(getActivity()));
   linkify.applyAllLinks(mTextView,status.account_id,status.is_possibly_sensitive);
+  ThemeUtils.applyParagraphSpacing(mTextView,1.1f);
   mTextView.setMovementMethod(StatusContentMovementMethod.getInstance());
   mTextView.setCustomSelectionActionModeCallback(this);
   long timestamp=status.retweet_timestamp > 0 ? status.retweet_timestamp : status.timestamp;

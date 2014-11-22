@@ -10,10 +10,19 @@
   final boolean userIsMe=user.account_id == user.id;
   mErrorRetryContainer.setVisibility(View.GONE);
   mUser=user;
-  mProfileNameContainer.drawStart(getUserColor(getActivity(),user.id,true));
+  mProfileImageView.setBorderColor(getUserColor(getActivity(),user.id,true));
   mProfileNameContainer.drawEnd(getAccountColor(getActivity(),user.account_id));
   final String nick=getUserNickname(getActivity(),user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
+  final int typeIconRes=getUserTypeIconRes(user.is_verified,user.is_protected);
+  if (typeIconRes != 0) {
+    mProfileTypeView.setImageResource(typeIconRes);
+    mProfileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    mProfileTypeView.setImageDrawable(null);
+    mProfileTypeView.setVisibility(View.GONE);
+  }
   mScreenNameView.setText("@" + user.screen_name);
   mDescriptionContainer.setVisibility(userIsMe || !isEmpty(user.description_html) ? View.VISIBLE : View.GONE);
   mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : null);

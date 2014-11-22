@@ -1,0 +1,10 @@
+{
+  if (mBitmap != null) {
+    canvas.drawBitmap(mBitmap,0,0,null);
+  }
+  final Rect bounds=mBounds;
+  if (!bounds.isEmpty()) {
+    final RectF rect=new RectF(mView.getPaddingLeft(),mView.getPaddingTop(),bounds.width() - mView.getPaddingRight(),bounds.height() - mView.getPaddingBottom());
+    canvas.drawOval(rect,mColorPaint);
+  }
+}

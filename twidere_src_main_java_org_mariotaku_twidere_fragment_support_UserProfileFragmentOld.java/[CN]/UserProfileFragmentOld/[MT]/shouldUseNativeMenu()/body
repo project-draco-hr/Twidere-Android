@@ -1,4 +1,3 @@
 {
-  final boolean isInLinkHandler=getActivity() instanceof LinkHandlerActivity;
-  return isInLinkHandler && FlymeUtils.hasSmartBar();
+  return getActivity() instanceof LinkHandlerActivity;
 }

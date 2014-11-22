@@ -1,7 +1,7 @@
 {
   super(view);
   final Context context=getContext();
-  profile_image=(ProfileImageView)findViewById(R.id.profile_image);
+  profile_image=(ImageView)findViewById(R.id.profile_image);
   my_profile_image=(ProfileImageView)findViewById(R.id.my_profile_image);
   image_preview=(ImageView)findViewById(R.id.image_preview);
   image_preview_progress=(ProgressBar)findViewById(R.id.image_preview_progress);

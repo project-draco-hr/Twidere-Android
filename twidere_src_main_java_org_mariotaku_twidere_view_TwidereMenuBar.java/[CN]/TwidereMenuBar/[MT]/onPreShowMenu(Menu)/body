@@ -1,6 +1,3 @@
 {
-  final int color=ThemeUtils.getThemeForegroundColor(getItemViewContext());
-  final int popupColor=ThemeUtils.getThemeForegroundColor(getPopupContext());
-  final int highlightColor=ThemeUtils.getUserAccentColor(getContext());
-  ThemeUtils.applyColorFilterToMenuIcon(menu,color,popupColor,highlightColor,Mode.SRC_ATOP,MENU_GROUP_STATUS_SHARE,MENU_GROUP_STATUS_EXTENSION);
+  ThemeUtils.applyColorFilterToMenuIcon(menu,mItemColor,mPopupItemColor,mHighlightColor,Mode.SRC_ATOP,MENU_GROUP_STATUS_SHARE,MENU_GROUP_STATUS_EXTENSION);
 }

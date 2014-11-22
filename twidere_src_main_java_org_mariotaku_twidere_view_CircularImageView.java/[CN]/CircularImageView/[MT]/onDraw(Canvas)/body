@@ -28,6 +28,9 @@
       return;
     }
     mSource.set(0,0,bitmap.getWidth(),bitmap.getHeight());
+    if (mBackground != null) {
+      mBackground.draw(canvas);
+    }
     drawBitmapWithCircleOnCanvas(bitmap,canvas,mSource,mDestination);
   }
   if (mBorderEnabled) {
