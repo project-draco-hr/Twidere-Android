@@ -4,8 +4,7 @@
   final int position=tag instanceof Integer ? (Integer)tag : -1;
   if (position == -1)   return;
 switch (view.getId()) {
-case R.id.incoming_image_preview:
-case R.id.outgoing_image_preview:
+case R.id.media_preview:
 {
       final ParcelableDirectMessage message=getDirectMessage(position);
       if (message == null || message.first_media == null)       return;

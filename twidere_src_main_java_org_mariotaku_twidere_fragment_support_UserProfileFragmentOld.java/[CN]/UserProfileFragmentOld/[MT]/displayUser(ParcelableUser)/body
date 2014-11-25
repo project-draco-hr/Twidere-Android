@@ -10,7 +10,8 @@
   final boolean userIsMe=user.account_id == user.id;
   mErrorRetryContainer.setVisibility(View.GONE);
   mUser=user;
-  mProfileImageView.setBorderColor(getUserColor(getActivity(),user.id,true));
+  final int userColor=getUserColor(getActivity(),user.id,true);
+  mProfileImageView.setBorderColor(userColor);
   mProfileNameContainer.drawEnd(getAccountColor(getActivity(),user.account_id));
   final String nick=getUserNickname(getActivity(),user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
@@ -42,17 +43,16 @@
   mTweetCount.setText(getLocalizedNumber(mLocale,user.statuses_count));
   mFollowersCount.setText(getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(getLocalizedNumber(mLocale,user.friends_count));
-  if (mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true)) {
+  if (userColor != 0) {
     mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
-    final int def_width=res.getDisplayMetrics().widthPixels;
-    final int width=mBannerWidth > 0 ? mBannerWidth : def_width;
-    mProfileBannerView.setImageBitmap(null);
-    mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
+    setupUserColorActionBar(userColor);
   }
  else {
-    mProfileImageView.setImageResource(R.drawable.ic_profile_image_default);
-    mProfileBannerView.setImageResource(android.R.color.transparent);
+    mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url),this);
   }
+  final int defWidth=res.getDisplayMetrics().widthPixels;
+  final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
+  mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
   if (isMyAccount(getActivity(),user.id)) {
     final ContentResolver resolver=getContentResolver();
     final ContentValues values=new ContentValues();

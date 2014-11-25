@@ -5,17 +5,12 @@
   final long accountId=cursor.getLong(mIndices.account_id);
   final long timestamp=cursor.getLong(mIndices.message_timestamp);
   final boolean is_outgoing=cursor.getInt(mIndices.is_outgoing) == 1;
-  holder.incoming_message_container.setVisibility(is_outgoing ? View.GONE : View.VISIBLE);
-  holder.outgoing_message_container.setVisibility(is_outgoing ? View.VISIBLE : View.GONE);
+  holder.setOutgoing(is_outgoing);
   holder.setTextSize(getTextSize());
-  holder.incoming_text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
-  holder.outgoing_text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
-  getLinkify().applyAllLinks(holder.incoming_text,accountId,false);
-  getLinkify().applyAllLinks(holder.outgoing_text,accountId,false);
-  holder.incoming_text.setMovementMethod(null);
-  holder.outgoing_text.setMovementMethod(null);
-  holder.incoming_time.setText(formatToLongTimeString(mContext,timestamp));
-  holder.outgoing_time.setText(formatToLongTimeString(mContext,timestamp));
+  holder.text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
+  getLinkify().applyAllLinks(holder.text,accountId,false);
+  holder.text.setMovementMethod(null);
+  holder.time.setText(formatToLongTimeString(mContext,timestamp));
   if (position > mMaxAnimationPosition) {
     if (mAnimationEnabled) {
       view.startAnimation(holder.item_animation);
@@ -23,36 +18,20 @@
     mMaxAnimationPosition=position;
   }
   if (firstMedia == null) {
-    mImageLoader.cancelDisplayTask(holder.incoming_image_preview);
-    mImageLoader.cancelDisplayTask(holder.outgoing_image_preview);
-    holder.outgoing_image_preview_container.setVisibility(View.GONE);
-    holder.incoming_image_preview_container.setVisibility(View.GONE);
-  }
- else   if (is_outgoing) {
-    mImageLoader.cancelDisplayTask(holder.incoming_image_preview);
-    holder.outgoing_image_preview_container.setVisibility(View.VISIBLE);
-    holder.incoming_image_preview_container.setVisibility(View.GONE);
-    if (mImagePreviewScaleType != null) {
-      holder.outgoing_image_preview.setScaleType(mImagePreviewScaleType);
-    }
-    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.outgoing_image_preview))) {
-      holder.outgoing_image_preview.setBackgroundResource(0);
-      mImageLoader.displayPreviewImageWithCredentials(holder.outgoing_image_preview,firstMedia,accountId,mImageLoadingHandler);
-    }
-    holder.outgoing_image_preview.setTag(position);
+    mImageLoader.cancelDisplayTask(holder.media_preview);
+    holder.media_preview_container.setVisibility(View.GONE);
   }
  else {
-    mImageLoader.cancelDisplayTask(holder.outgoing_image_preview);
-    holder.outgoing_image_preview_container.setVisibility(View.GONE);
-    holder.incoming_image_preview_container.setVisibility(View.VISIBLE);
+    mImageLoader.cancelDisplayTask(holder.media_preview);
+    holder.media_preview_container.setVisibility(View.VISIBLE);
     if (mImagePreviewScaleType != null) {
-      holder.incoming_image_preview.setScaleType(mImagePreviewScaleType);
+      holder.media_preview.setScaleType(mImagePreviewScaleType);
     }
-    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.incoming_image_preview))) {
-      holder.incoming_image_preview.setBackgroundResource(0);
-      mImageLoader.displayPreviewImageWithCredentials(holder.incoming_image_preview,firstMedia,accountId,mImageLoadingHandler);
+    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.media_preview))) {
+      holder.media_preview.setBackgroundResource(0);
+      mImageLoader.displayPreviewImageWithCredentials(holder.media_preview,firstMedia,accountId,mImageLoadingHandler);
     }
-    holder.incoming_image_preview.setTag(position);
+    holder.media_preview.setTag(position);
   }
   super.bindView(view,context,cursor);
 }

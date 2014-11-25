@@ -1,5 +1,0 @@
-{
-  mediaName=name;
-  mediaBody=body;
-  overrideContentType=type;
-}

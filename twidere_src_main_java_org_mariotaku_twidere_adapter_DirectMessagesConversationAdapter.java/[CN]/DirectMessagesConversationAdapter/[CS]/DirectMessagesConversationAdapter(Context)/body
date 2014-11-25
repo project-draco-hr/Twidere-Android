@@ -4,6 +4,6 @@
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mMultiSelectManager=app.getMultiSelectManager();
   mImageLoader=app.getImageLoaderWrapper();
-  mImageLoadingHandler=new ImageLoadingHandler(R.id.incoming_image_preview_progress,R.id.outgoing_image_preview_progress);
+  mImageLoadingHandler=new ImageLoadingHandler(R.id.media_preview_progress);
   configBaseCardAdapter(context,this);
 }

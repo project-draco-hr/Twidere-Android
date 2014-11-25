@@ -1,34 +1,13 @@
 {
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (!(obj instanceof StatusUpdate))   return false;
-  final StatusUpdate other=(StatusUpdate)obj;
-  if (displayCoordinates != other.displayCoordinates)   return false;
-  if (inReplyToStatusId != other.inReplyToStatusId)   return false;
-  if (location == null) {
-    if (other.location != null)     return false;
-  }
- else   if (!location.equals(other.location))   return false;
-  if (mediaFile == null) {
-    if (other.mediaFile != null)     return false;
-  }
- else   if (!mediaFile.equals(other.mediaFile))   return false;
-  if (mediaName == null) {
-    if (other.mediaName != null)     return false;
-  }
- else   if (!mediaName.equals(other.mediaName))   return false;
-  if (overrideContentType == null) {
-    if (other.overrideContentType != null)     return false;
-  }
- else   if (!overrideContentType.equals(other.overrideContentType))   return false;
-  if (placeId == null) {
-    if (other.placeId != null)     return false;
-  }
- else   if (!placeId.equals(other.placeId))   return false;
-  if (possiblySensitive != other.possiblySensitive)   return false;
-  if (status == null) {
-    if (other.status != null)     return false;
-  }
- else   if (!status.equals(other.status))   return false;
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  StatusUpdate that=(StatusUpdate)o;
+  if (displayCoordinates != that.displayCoordinates)   return false;
+  if (inReplyToStatusId != that.inReplyToStatusId)   return false;
+  if (possiblySensitive != that.possiblySensitive)   return false;
+  if (location != null ? !location.equals(that.location) : that.location != null)   return false;
+  if (!Arrays.equals(mediaIds,that.mediaIds))   return false;
+  if (placeId != null ? !placeId.equals(that.placeId) : that.placeId != null)   return false;
+  if (status != null ? !status.equals(that.status) : that.status != null)   return false;
   return true;
 }

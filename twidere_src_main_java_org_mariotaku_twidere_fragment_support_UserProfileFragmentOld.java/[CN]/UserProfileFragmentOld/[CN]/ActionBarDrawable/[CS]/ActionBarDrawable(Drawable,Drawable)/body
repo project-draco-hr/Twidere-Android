@@ -1,4 +1,0 @@
-{
-  super(new Drawable[]{shadow,background});
-  mBackgroundDrawable=background;
-}

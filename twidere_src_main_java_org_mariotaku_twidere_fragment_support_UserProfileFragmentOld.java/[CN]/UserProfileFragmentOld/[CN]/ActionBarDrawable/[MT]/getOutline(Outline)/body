@@ -1,3 +1,9 @@
 {
-  mBackgroundDrawable.getOutline(outline);
+  final boolean showColor=!mColorLineOnly && mColor != 0;
+  if (showColor) {
+    mColorDrawable.getOutline(outline);
+  }
+ else {
+    mBackgroundDrawable.getOutline(outline);
+  }
 }

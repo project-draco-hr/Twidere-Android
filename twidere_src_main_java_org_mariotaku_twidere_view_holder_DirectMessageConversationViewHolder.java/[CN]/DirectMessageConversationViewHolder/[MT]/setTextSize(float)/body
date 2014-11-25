@@ -1,9 +1,7 @@
 {
   if (this.text_size != text_size) {
     this.text_size=text_size;
-    incoming_text.setTextSize(text_size);
-    incoming_time.setTextSize(text_size * 0.75f);
-    outgoing_text.setTextSize(text_size);
-    outgoing_time.setTextSize(text_size * 0.75f);
+    text.setTextSize(text_size);
+    time.setTextSize(text_size * 0.75f);
   }
 }

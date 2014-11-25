@@ -1,7 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
   getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
   mLocale=getResources().getConfiguration().locale;
@@ -41,5 +40,5 @@
   mMenuBar.setOnMenuItemClickListener(this);
   setListAdapter(mAdapter);
   getUserInfo(accountId,userId,screenName,false);
-  setupBars();
+  setupBaseActionBar();
 }

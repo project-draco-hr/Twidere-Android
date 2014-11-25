@@ -1,0 +1,12 @@
+{
+  message_content.setCaretPosition(isOutgoing ? MessageBubbleView.BOTTOM_RIGHT : MessageBubbleView.TOP_LEFT);
+  final FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams)message_content.getLayoutParams();
+  lp.gravity=isOutgoing ? Gravity.RIGHT : Gravity.LEFT;
+  message_content.setLayoutParams(lp);
+  if (isOutgoing) {
+    message_content.setBubbleColorFilter(new LightingColorFilter(0xFFC0FFC4,0x00102015));
+  }
+ else {
+    message_content.clearBubbleColorFilter();
+  }
+}

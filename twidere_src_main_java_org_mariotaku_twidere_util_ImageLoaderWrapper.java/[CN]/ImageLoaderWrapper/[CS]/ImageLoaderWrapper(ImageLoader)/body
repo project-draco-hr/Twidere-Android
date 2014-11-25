@@ -23,10 +23,12 @@
   imageOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
   imageOptsBuilder.resetViewBeforeLoading(true);
   final DisplayImageOptions.Builder bannerOptsBuilder=new DisplayImageOptions.Builder();
+  bannerOptsBuilder.resetViewBeforeLoading(true);
+  bannerOptsBuilder.showImageOnLoading(android.R.color.transparent);
   bannerOptsBuilder.cacheInMemory(true);
   bannerOptsBuilder.cacheOnDisk(true);
   bannerOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
-  bannerOptsBuilder.displayer(new FadeInBitmapDisplayer(200,true,true,false));
+  bannerOptsBuilder.displayer(new FadeInBitmapDisplayer(200,true,true,true));
   mProfileImageDisplayOptions=profileOptsBuilder.build();
   mOvalProfileImageDisplayOptions=ovalProfileOptsBuilder.build();
   mImageDisplayOptions=imageOptsBuilder.build();

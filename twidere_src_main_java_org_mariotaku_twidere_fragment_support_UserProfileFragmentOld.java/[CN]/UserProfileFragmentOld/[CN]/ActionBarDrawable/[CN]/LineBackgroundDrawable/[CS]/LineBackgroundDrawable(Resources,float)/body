@@ -1,0 +1,6 @@
+{
+  mBounds=new Rect();
+  mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mLineSize=resources.getDisplayMetrics().density * lineSizeDp;
+  setColor(Color.TRANSPARENT);
+}

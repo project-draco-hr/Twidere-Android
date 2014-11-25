@@ -1,0 +1,6 @@
+{
+  if (mActionBarBackground == null) {
+    setupBaseActionBar();
+  }
+  mActionBarBackground.setColor(color);
+}

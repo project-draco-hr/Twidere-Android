@@ -1,0 +1,4 @@
+{
+  this.isHighlight=isHighlight;
+  this.highlightColor=highlightColor;
+}

@@ -1,9 +1,0 @@
-{
-  if (isEmpty(color))   return Color.TRANSPARENT;
-  try {
-    return Color.parseColor(color);
-  }
- catch (  IllegalArgumentException e) {
-    return Color.TRANSPARENT;
-  }
-}

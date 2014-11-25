@@ -1,0 +1,11 @@
+{
+  Palette.generateAsync(loadedImage,new PaletteAsyncListener(){
+    @Override public void onGenerated(    Palette palette){
+      final ParcelableUser user=mUser;
+      if (user == null)       return;
+      final int color=palette.getVibrantColor(0);
+      setupUserColorActionBar(color);
+    }
+  }
+);
+}

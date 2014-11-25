@@ -1,14 +1,10 @@
 {
-  final int prime=31;
-  int result=1;
-  result=prime * result + (displayCoordinates ? 1231 : 1237);
-  result=prime * result + (int)(inReplyToStatusId ^ inReplyToStatusId >>> 32);
-  result=prime * result + (location == null ? 0 : location.hashCode());
-  result=prime * result + (mediaFile == null ? 0 : mediaFile.hashCode());
-  result=prime * result + (mediaName == null ? 0 : mediaName.hashCode());
-  result=prime * result + (overrideContentType == null ? 0 : overrideContentType.hashCode());
-  result=prime * result + (placeId == null ? 0 : placeId.hashCode());
-  result=prime * result + (possiblySensitive ? 1231 : 1237);
-  result=prime * result + (status == null ? 0 : status.hashCode());
+  int result=status != null ? status.hashCode() : 0;
+  result=31 * result + (int)(inReplyToStatusId ^ (inReplyToStatusId >>> 32));
+  result=31 * result + (location != null ? location.hashCode() : 0);
+  result=31 * result + (placeId != null ? placeId.hashCode() : 0);
+  result=31 * result + (displayCoordinates ? 1 : 0);
+  result=31 * result + (possiblySensitive ? 1 : 0);
+  result=31 * result + (mediaIds != null ? Arrays.hashCode(mediaIds) : 0);
   return result;
 }

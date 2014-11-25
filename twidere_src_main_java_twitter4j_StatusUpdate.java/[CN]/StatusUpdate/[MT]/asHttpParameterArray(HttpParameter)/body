@@ -13,15 +13,7 @@
     appendParameter("display_coordinates","false",params);
   }
   params.add(includeEntities);
-  if (null != mediaFile) {
-    params.add(new HttpParameter("media[]",mediaFile,overrideContentType));
-    params.add(new HttpParameter("possibly_sensitive",possiblySensitive));
-  }
- else   if (mediaName != null && mediaBody != null) {
-    params.add(new HttpParameter("media[]",mediaName,mediaBody,overrideContentType));
-    params.add(new HttpParameter("possibly_sensitive",possiblySensitive));
-  }
- else   if (mediaIds != null) {
+  if (mediaIds != null) {
     params.add(new HttpParameter("media_ids",InternalStringUtil.join(mediaIds)));
   }
   final HttpParameter[] paramArray=new HttpParameter[params.size()];

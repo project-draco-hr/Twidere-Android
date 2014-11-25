@@ -1,0 +1,9 @@
+{
+  if (isEmpty(str))   return def;
+  try {
+    return Color.parseColor(str);
+  }
+ catch (  IllegalArgumentException e) {
+    return def;
+  }
+}
