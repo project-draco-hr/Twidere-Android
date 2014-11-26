@@ -69,7 +69,6 @@
   mAdapter.add(new FavoritesAction(2));
   mAdapter.add(new UserMentionsAction(3));
   mAdapter.add(new UserListsAction(4));
-  mAdapter.add(new UserListMembershipsAction(5));
   if (userIsMe) {
     mAdapter.add(new SavedSearchesAction(11));
     if (user.is_protected) {

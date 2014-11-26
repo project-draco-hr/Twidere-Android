@@ -1,0 +1,11 @@
+{
+  final Cursor c=mCursor;
+  final Indices i=mIndices;
+  if (c != null && i != null && c.moveToFirst()) {
+    while (!c.isAfterLast()) {
+      if (c.getLong(mIndices.account_id) == mSelectedAccountId)       return new Account(c,mIndices);
+      c.moveToNext();
+    }
+  }
+  return null;
+}

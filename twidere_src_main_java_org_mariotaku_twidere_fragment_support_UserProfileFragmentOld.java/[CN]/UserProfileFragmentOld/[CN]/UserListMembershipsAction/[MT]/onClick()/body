@@ -1,5 +1,0 @@
-{
-  final ParcelableUser user=mUser;
-  if (user == null)   return;
-  openUserListMemberships(getActivity(),user.account_id,user.id,user.screen_name);
-}

@@ -1,5 +1,3 @@
 {
-  if (mUser == null)   return getString(R.string.users_lists);
-  final String display_name=getDisplayName(getActivity(),mUser.id,mUser.name,mUser.screen_name);
-  return getString(R.string.users_lists_with_name,display_name);
+  return getString(R.string.lists);
 }

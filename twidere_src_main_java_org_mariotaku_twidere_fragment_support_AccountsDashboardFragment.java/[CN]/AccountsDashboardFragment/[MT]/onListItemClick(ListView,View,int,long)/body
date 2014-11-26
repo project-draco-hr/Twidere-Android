@@ -1,14 +1,7 @@
 {
   final ListAdapter adapter=mAdapter.getAdapter(position);
   final Object item=mAdapter.getItem(position);
-  if (adapter instanceof DrawerAccountsAdapter) {
-    if (!(item instanceof Account))     return;
-    final Account account=(Account)item;
-    mAccountsAdapter.setSelectedAccountId(account.account_id);
-    updateAccountOptionsSeparatorLabel();
-    updateDefaultAccountState();
-  }
- else   if (adapter instanceof AccountOptionsAdapter) {
+  if (adapter instanceof AccountOptionsAdapter) {
     final Account account=mAccountsAdapter.getSelectedAccount();
     if (account == null || !(item instanceof OptionItem))     return;
     final OptionItem option=(OptionItem)item;

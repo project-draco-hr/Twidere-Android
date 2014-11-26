@@ -1,0 +1,8 @@
+{
+  final Cursor c=mCursor;
+  c.moveToPosition(position);
+  if (c.getLong(mIndices.account_id) == mSelectedAccountId) {
+    c.moveToNext();
+  }
+  mImageLoader.displayProfileImage(holder.icon,c.getString(mIndices.profile_image_url));
+}

@@ -1,0 +1,7 @@
+{
+  final Cursor c=mCursor;
+  c.moveToPosition(position);
+  if (c.getLong(mIndices.account_id) != mSelectedAccountId || c.moveToNext()) {
+    mFragment.onAccountSelected(new Account(c,mIndices));
+  }
+}

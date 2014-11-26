@@ -1,6 +1,0 @@
-{
-  final ContentValues values=new ContentValues();
-  values.put(Accounts.IS_ACTIVATED,activated);
-  final String where=Accounts.ACCOUNT_ID + " = " + account.account_id;
-  mResolver.update(Accounts.CONTENT_URI,values,where,null);
-}

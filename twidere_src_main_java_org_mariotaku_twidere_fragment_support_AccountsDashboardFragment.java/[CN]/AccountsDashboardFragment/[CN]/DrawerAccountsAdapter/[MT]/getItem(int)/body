@@ -1,5 +1,0 @@
-{
-  final Cursor c=getCursor();
-  if (c == null || c.isClosed() || !c.moveToPosition(position))   return null;
-  return new Account(c,mIndices);
-}

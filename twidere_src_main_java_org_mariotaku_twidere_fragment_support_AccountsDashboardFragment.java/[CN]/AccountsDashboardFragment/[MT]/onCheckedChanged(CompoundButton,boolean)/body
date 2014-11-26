@@ -1,0 +1,8 @@
+{
+  final Account account=mAccountsAdapter.getSelectedAccount();
+  if (account == null)   return;
+  final ContentValues values=new ContentValues();
+  values.put(Accounts.IS_ACTIVATED,isChecked);
+  final String where=Accounts.ACCOUNT_ID + " = " + account.account_id;
+  mResolver.update(Accounts.CONTENT_URI,values,where,null);
+}
