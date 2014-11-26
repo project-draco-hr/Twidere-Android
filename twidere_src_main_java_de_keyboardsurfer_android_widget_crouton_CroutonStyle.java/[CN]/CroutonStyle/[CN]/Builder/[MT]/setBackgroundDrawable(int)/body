@@ -1,4 +1,0 @@
-{
-  this.backgroundDrawableResourceId=backgroundDrawableResourceId;
-  return this;
-}

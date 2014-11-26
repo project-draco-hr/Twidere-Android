@@ -1,4 +1,0 @@
-{
-  croutonQueue.add(crouton);
-  displayCrouton();
-}

@@ -1,7 +1,0 @@
-{
-  if (null != customView)   return customView;
-  if (null == croutonView) {
-    initializeCroutonView();
-  }
-  return croutonView;
-}

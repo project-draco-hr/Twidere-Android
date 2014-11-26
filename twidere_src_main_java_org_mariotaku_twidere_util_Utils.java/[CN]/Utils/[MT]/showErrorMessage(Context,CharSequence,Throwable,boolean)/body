@@ -1,8 +1,8 @@
 {
   if (context == null)   return;
   if (t instanceof TwitterException) {
-    showTwitterErrorMessage(context,action,(TwitterException)t,long_message);
+    showTwitterErrorMessage(context,action,(TwitterException)t,longMessage);
     return;
   }
-  showErrorMessage(context,getErrorMessage(context,action,t),long_message);
+  showErrorMessage(context,getErrorMessage(context,action,t),longMessage);
 }

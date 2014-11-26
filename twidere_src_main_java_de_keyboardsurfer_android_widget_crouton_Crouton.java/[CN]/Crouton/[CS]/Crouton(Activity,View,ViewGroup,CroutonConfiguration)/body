@@ -1,9 +1,0 @@
-{
-  if (activity == null || customView == null)   throw new IllegalArgumentException("Null parameters are not accepted");
-  this.activity=activity;
-  this.customView=customView;
-  this.viewGroup=viewGroup;
-  style=new CroutonStyle.Builder().build();
-  text=null;
-  this.configuration=configuration;
-}

@@ -1,4 +1,4 @@
 Context context
 CharSequence action
 CharSequence message
-boolean long_message
+boolean longMessage

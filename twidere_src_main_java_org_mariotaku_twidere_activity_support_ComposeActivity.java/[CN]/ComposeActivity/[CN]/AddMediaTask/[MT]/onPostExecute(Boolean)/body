@@ -4,6 +4,6 @@
   activity.setMenu();
   activity.updateTextCount();
   if (!result) {
-    Crouton.showText(activity,R.string.error_occurred,CroutonStyle.ALERT);
+    Toast.makeText(activity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
   }
 }

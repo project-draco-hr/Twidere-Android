@@ -1,6 +1,0 @@
-{
-  final Resources resources=activity.getResources();
-  croutonView=initializeCroutonViewGroup(resources);
-  final RelativeLayout contentView=initializeContentView(resources);
-  croutonView.addView(contentView);
-}

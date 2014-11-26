@@ -1,6 +1,0 @@
-{
-  if (null == configuration) {
-    configuration=getStyle().configuration;
-  }
-  return configuration;
-}

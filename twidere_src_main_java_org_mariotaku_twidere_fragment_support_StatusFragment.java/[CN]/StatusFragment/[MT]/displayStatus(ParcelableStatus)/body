@@ -25,13 +25,8 @@
   args.putLong(EXTRA_ACCOUNT_ID,status.account_id);
   args.putLong(EXTRA_STATUS_ID,status.id);
   args.putParcelable(EXTRA_STATUS,status);
-  if (shouldUseNativeMenu()) {
-    getActivity().supportInvalidateOptionsMenu();
-  }
- else {
-    setMenuForStatus(getActivity(),mMenuBar.getMenu(),status);
-    mMenuBar.show();
-  }
+  setMenuForStatus(getActivity(),mMenuBar.getMenu(),status);
+  mMenuBar.show();
   updateUserColor();
   mProfileView.drawEnd(getAccountColor(getActivity(),status.account_id));
   final boolean nickname_only=mPreferences.getBoolean(KEY_NICKNAME_ONLY,false);

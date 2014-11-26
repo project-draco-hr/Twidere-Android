@@ -1,4 +1,0 @@
-{
-  this.onClickListener=onClickListener;
-  return this;
-}

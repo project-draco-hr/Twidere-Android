@@ -37,14 +37,14 @@ startActivity(intent);
 finish();
 }
  else if (result.already_logged_in) {
-Crouton.makeText(this,R.string.error_already_logged_in,CroutonStyle.ALERT).show();
+Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
 }
  else {
 if (result.exception instanceof AuthenticityTokenException) {
-Crouton.makeText(this,R.string.wrong_api_key,CroutonStyle.ALERT).show();
+Toast.makeText(this,R.string.wrong_api_key,Toast.LENGTH_SHORT).show();
 }
  else if (result.exception instanceof WrongUserPassException) {
-Crouton.makeText(this,R.string.wrong_username_password,CroutonStyle.ALERT).show();
+Toast.makeText(this,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
 }
  else if (result.exception instanceof AuthenticationException) {
 showErrorMessage(this,getString(R.string.action_signing_in),result.exception.getCause(),true);

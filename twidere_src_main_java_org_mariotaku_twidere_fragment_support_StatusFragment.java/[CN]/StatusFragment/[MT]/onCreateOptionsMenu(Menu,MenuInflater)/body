@@ -1,4 +1,0 @@
-{
-  if (!shouldUseNativeMenu())   return;
-  inflater.inflate(R.menu.menu_status,menu);
-}

@@ -1,3 +1,0 @@
-{
-  return "Configuration{" + "durationInMilliseconds=" + durationInMilliseconds + ", inAnimationResId="+ inAnimationResId+ ", outAnimationResId="+ outAnimationResId+ '}';
-}

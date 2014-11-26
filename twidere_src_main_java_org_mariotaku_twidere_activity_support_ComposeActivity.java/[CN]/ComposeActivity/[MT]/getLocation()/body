@@ -17,7 +17,7 @@
     mRecentLocation=location != null ? new ParcelableLocation(location) : null;
   }
  else {
-    Crouton.showText(this,R.string.cannot_get_location,CroutonStyle.ALERT);
+    Toast.makeText(this,R.string.cannot_get_location,Toast.LENGTH_SHORT).show();
   }
   return provider != null;
 }

@@ -4,5 +4,6 @@
   if (c.getLong(mIndices.account_id) == mSelectedAccountId) {
     c.moveToNext();
   }
+  holder.itemView.setAlpha(c.getInt(mIndices.is_activated) == 1 ? 1 : 0.5f);
   mImageLoader.displayProfileImage(holder.icon,c.getString(mIndices.profile_image_url));
 }

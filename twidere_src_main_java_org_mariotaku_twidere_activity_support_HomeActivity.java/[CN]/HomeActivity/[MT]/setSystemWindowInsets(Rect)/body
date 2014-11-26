@@ -1,0 +1,7 @@
+{
+  mHomeContentFrameLayout.setStatusBarHeight(insets.top);
+  final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.left_drawer);
+  if (fragment instanceof AccountsDashboardFragment) {
+    ((AccountsDashboardFragment)fragment).setStatusBarHeight(insets.top);
+  }
+}

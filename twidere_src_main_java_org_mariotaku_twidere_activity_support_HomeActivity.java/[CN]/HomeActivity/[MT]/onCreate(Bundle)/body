@@ -1,5 +1,8 @@
 {
   setUiOptions(getWindow());
+  final Window window=getWindow();
+  window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  window.requestFeature(Window.FEATURE_NO_TITLE);
   super.onCreate(savedInstanceState);
   if (!isDatabaseReady(this)) {
     Toast.makeText(this,R.string.preparing_database_toast,Toast.LENGTH_SHORT).show();

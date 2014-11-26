@@ -1,0 +1,5 @@
+{
+  mPaint.setColor(color);
+  mPaint.setAlpha(alpha);
+  invalidate();
+}

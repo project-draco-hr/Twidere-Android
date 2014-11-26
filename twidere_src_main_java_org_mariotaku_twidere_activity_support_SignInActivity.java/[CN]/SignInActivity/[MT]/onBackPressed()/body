@@ -1,9 +1,7 @@
 {
   if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING && !mBackPressed) {
-    final CroutonStyle.Builder builder=new CroutonStyle.Builder(CroutonStyle.INFO);
-    final Crouton crouton=Crouton.makeText(this,R.string.signing_in_please_wait,builder.build());
-    crouton.setLifecycleCallback(this);
-    crouton.show();
+    final Toast toast=Toast.makeText(this,R.string.signing_in_please_wait,Toast.LENGTH_SHORT);
+    toast.show();
     return;
   }
   if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) {

@@ -1,4 +1,0 @@
-{
-  this.backgroundColorResourceId=backgroundColorResourceId;
-  return this;
-}

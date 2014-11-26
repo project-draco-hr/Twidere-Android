@@ -1,4 +1,0 @@
-{
-  textColorResourceId=textColor;
-  return this;
-}

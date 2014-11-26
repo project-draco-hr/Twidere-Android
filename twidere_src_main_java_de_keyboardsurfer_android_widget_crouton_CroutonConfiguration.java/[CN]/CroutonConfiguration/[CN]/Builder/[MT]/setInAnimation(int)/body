@@ -1,4 +1,0 @@
-{
-  this.inAnimationResId=inAnimationResId;
-  return this;
-}

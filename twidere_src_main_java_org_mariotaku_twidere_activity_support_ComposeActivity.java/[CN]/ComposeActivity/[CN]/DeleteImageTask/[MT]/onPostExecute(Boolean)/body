@@ -3,6 +3,6 @@
   mActivity.removeAllMedia(Arrays.asList(mMedia));
   mActivity.setMenu();
   if (!result) {
-    Crouton.showText(mActivity,R.string.error_occurred,CroutonStyle.ALERT);
+    Toast.makeText(mActivity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
   }
 }

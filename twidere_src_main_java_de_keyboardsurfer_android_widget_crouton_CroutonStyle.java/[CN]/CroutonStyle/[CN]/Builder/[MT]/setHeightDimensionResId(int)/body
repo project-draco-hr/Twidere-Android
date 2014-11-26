@@ -1,4 +1,0 @@
-{
-  this.heightDimensionResId=heightDimensionResId;
-  return this;
-}

@@ -1,14 +1,5 @@
 {
   if (context == null)   return;
-  if (context instanceof Activity) {
-    final Crouton crouton=Crouton.makeText((Activity)context,message,CroutonStyle.ALERT);
-    final CroutonConfiguration.Builder cb=new CroutonConfiguration.Builder();
-    cb.setDuration(long_message ? CroutonConfiguration.DURATION_LONG : CroutonConfiguration.DURATION_SHORT);
-    crouton.setConfiguration(cb.build());
-    crouton.show();
-  }
- else {
-    final Toast toast=Toast.makeText(context,message,long_message ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
-    toast.show();
-  }
+  final Toast toast=Toast.makeText(context,message,longMessage ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
+  toast.show();
 }

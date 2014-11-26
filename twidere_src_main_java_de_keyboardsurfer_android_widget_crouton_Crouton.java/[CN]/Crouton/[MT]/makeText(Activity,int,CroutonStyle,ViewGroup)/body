@@ -1,3 +1,0 @@
-{
-  return makeText(activity,activity.getString(textResourceId),style,viewGroup);
-}

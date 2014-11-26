@@ -1,4 +1,0 @@
-{
-  this.textShadowRadius=textShadowRadius;
-  return this;
-}

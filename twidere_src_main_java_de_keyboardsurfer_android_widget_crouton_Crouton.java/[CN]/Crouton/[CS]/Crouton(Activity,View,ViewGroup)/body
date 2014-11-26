@@ -1,3 +1,0 @@
-{
-  this(activity,customView,viewGroup,CroutonConfiguration.DEFAULT);
-}

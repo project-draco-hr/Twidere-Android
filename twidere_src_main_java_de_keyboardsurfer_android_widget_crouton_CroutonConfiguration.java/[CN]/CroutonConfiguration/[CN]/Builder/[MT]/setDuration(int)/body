@@ -1,4 +1,0 @@
-{
-  durationInMilliseconds=duration;
-  return this;
-}

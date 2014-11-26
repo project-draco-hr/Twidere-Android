@@ -1,4 +1,0 @@
-{
-  heightInPixels=height;
-  return this;
-}

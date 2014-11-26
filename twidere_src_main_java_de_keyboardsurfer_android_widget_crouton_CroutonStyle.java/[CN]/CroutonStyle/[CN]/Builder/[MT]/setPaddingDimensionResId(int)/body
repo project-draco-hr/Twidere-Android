@@ -1,4 +1,0 @@
-{
-  paddingDimensionResId=paddingResId;
-  return this;
-}

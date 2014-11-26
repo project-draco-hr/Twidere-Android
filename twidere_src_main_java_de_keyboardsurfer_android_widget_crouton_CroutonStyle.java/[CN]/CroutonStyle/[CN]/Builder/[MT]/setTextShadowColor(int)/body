@@ -1,4 +1,0 @@
-{
-  this.textShadowColorResId=textShadowColorResId;
-  return this;
-}

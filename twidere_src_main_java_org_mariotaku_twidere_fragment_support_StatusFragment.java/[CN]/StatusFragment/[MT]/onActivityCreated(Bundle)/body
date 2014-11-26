@@ -2,7 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   mLocale=getResources().getConfiguration().locale;
   setRefreshMode(shouldEnablePullToRefresh() ? RefreshMode.BOTH : RefreshMode.NONE);
-  setHasOptionsMenu(shouldUseNativeMenu());
   setListShownNoAnimation(true);
   mHandler=new Handler();
   mListView=getListView();
@@ -22,7 +21,6 @@
   mRepliesContainer.setOnClickListener(this);
   mRetweetsContainer.setOnClickListener(this);
   mFavoritesContainer.setOnClickListener(this);
-  mMenuBar.setVisibility(shouldUseNativeMenu() ? View.GONE : View.VISIBLE);
   mMenuBar.inflate(R.menu.menu_status);
   mMenuBar.setIsBottomBar(true);
   mMenuBar.setOnMenuItemClickListener(mMenuItemClickListener);

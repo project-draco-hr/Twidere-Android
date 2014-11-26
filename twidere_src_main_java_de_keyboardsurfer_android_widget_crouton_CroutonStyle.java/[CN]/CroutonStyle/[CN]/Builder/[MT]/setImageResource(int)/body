@@ -1,4 +1,0 @@
-{
-  this.imageResId=imageResId;
-  return this;
-}

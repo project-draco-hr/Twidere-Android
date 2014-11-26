@@ -1,5 +1,6 @@
 {
-  for (  final int color : COLORS) {
-    mColorsAdapter.add(color);
+  final Resources resources=getContext().getResources();
+  for (  final int colorRes : COLORS) {
+    mColorsAdapter.add(resources.getColor(colorRes));
   }
 }

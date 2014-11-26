@@ -1,4 +1,0 @@
-{
-  this.textAppearanceResId=textAppearanceResId;
-  return this;
-}

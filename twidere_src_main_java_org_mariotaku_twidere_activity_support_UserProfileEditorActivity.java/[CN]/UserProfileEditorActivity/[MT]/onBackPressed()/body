@@ -1,9 +1,7 @@
 {
   if (mHasUnsavedChanges() && !mBackPressed) {
-    final CroutonStyle.Builder builder=new CroutonStyle.Builder(CroutonStyle.INFO);
-    final Crouton crouton=Crouton.makeText(this,R.string.unsaved_change_back_pressed,builder.build());
-    crouton.setLifecycleCallback(this);
-    crouton.show();
+    final Toast toast=Toast.makeText(this,R.string.unsaved_change_back_pressed,Toast.LENGTH_SHORT);
+    toast.show();
     return;
   }
   super.onBackPressed();

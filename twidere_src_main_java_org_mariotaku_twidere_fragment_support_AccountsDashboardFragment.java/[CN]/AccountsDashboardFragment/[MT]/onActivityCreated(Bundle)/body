@@ -17,6 +17,7 @@
   layoutManager.setStackFromEnd(true);
   mAccountsSelector.setLayoutManager(layoutManager);
   mAccountsSelector.setAdapter(mAccountsAdapter);
+  mAccountProfileContainer=mAccountSelectorView.findViewById(R.id.profile_container);
   mAccountProfileImageView=(ImageView)mAccountSelectorView.findViewById(R.id.profile_image);
   mAccountProfileBannerView=(ImageView)mAccountSelectorView.findViewById(R.id.profile_banner);
   mAccountProfileNameView=(TextView)mAccountSelectorView.findViewById(R.id.name);

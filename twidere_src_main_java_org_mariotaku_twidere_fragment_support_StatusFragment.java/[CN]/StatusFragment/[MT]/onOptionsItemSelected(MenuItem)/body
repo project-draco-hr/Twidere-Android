@@ -1,4 +1,0 @@
-{
-  if (!shouldUseNativeMenu() || mStatus == null)   return false;
-  return handleMenuItemClick(item);
-}
