@@ -1,5 +1,0 @@
-{
-  mColorPaint.setColor(color);
-  mColorAlpha=Color.alpha(color);
-  updateAlpha();
-}

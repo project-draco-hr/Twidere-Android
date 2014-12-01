@@ -1,16 +1,12 @@
 {
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  }
 switch (linkId) {
 case LINK_ID_USER:
 {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
-      }
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
-        final TransitionInflater inflater=TransitionInflater.from(this);
-        final Transition transition=inflater.inflateTransition(R.transition.transition_user_profile);
-        window.setSharedElementEnterTransition(transition);
-        window.setSharedElementExitTransition(transition);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !ThemeUtils.isTransparentBackground(this)) {
+        Utils.setSharedElementTransition(this,window,R.transition.transition_user_profile);
       }
       break;
     }

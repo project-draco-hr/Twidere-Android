@@ -9,8 +9,8 @@ switch (option.id) {
 case MENU_VIEW_PROFILE:
 {
         final FragmentActivity activity=getActivity();
-        final ActivityOptionsCompat options=ActivityOptionsCompat.makeSceneTransitionAnimation(activity,new Pair<View,String>(mAccountProfileImageView,UserProfileFragment.TRANSITION_NAME_PROFILE_IMAGE));
-        openUserProfile(activity,account.account_id,account.account_id,account.screen_name,options.toBundle());
+        final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(mAccountProfileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE));
+        openUserProfile(activity,account.account_id,account.account_id,account.screen_name,activityOption);
         break;
       }
 case MENU_SEARCH:

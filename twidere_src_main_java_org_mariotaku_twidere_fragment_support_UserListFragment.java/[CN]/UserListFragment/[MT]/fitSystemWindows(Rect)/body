@@ -1,0 +1,12 @@
+{
+  super.fitSystemWindows(insets);
+  final View progress=mProgressContainer, error=mErrorRetryContainer;
+  final HeaderDrawerLayout content=mHeaderDrawerLayout;
+  if (progress == null || error == null || content == null) {
+    return;
+  }
+  progress.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  error.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  content.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  content.setClipToPadding(false);
+}

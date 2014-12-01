@@ -1,0 +1,14 @@
+{
+  final View space=mProfileBannerSpace;
+  if (space == null)   return;
+  final int spaceHeight=space.getHeight();
+  final float factor=MathUtils.clamp(offset / (float)spaceHeight,0,1);
+  final ProfileBannerImageView profileBannerView=mProfileBannerView;
+  profileBannerView.setAlpha(1.0f - factor / 8f);
+  profileBannerView.setTranslationY(Math.min(offset,spaceHeight) / -2);
+  profileBannerView.setBottomClip(Math.min(offset,spaceHeight));
+  if (mActionBarBackground != null && mTintedStatusContent != null) {
+    mActionBarBackground.setFactor(factor);
+    mTintedStatusContent.setFactor(factor);
+  }
+}

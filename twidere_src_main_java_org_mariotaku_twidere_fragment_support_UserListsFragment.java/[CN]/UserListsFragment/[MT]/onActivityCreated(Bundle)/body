@@ -3,11 +3,9 @@
   final Bundle args=getArguments();
   final FragmentActivity activity=getActivity();
   mAdapter=new SupportTabsAdapter(activity,getChildFragmentManager(),null,1);
-  mAdapter.addTab(UserListsListFragment.class,args,getString(R.string.lists),R.drawable.ic_action_twitter,0);
-  mAdapter.addTab(UserListMembershipsListFragment.class,args,getString(R.string.lists_following_user),R.drawable.ic_action_user,1);
+  mAdapter.addTab(UserListsListFragment.class,args,getString(R.string.lists),null,0);
+  mAdapter.addTab(UserListMembershipsListFragment.class,args,getString(R.string.lists_following_user),0,1);
   mViewPager.setAdapter(mAdapter);
-  mViewPager.setOnPageChangeListener(this);
   mViewPager.setOffscreenPageLimit(2);
-  mPagerIndicator.setSelectedColor(ThemeUtils.getThemeColor(activity));
   mPagerIndicator.setViewPager(mViewPager);
 }

@@ -1,0 +1,8 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return;
+  window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+  final TransitionInflater inflater=TransitionInflater.from(context);
+  final Transition transition=inflater.inflateTransition(transitionRes);
+  window.setSharedElementEnterTransition(transition);
+  window.setSharedElementExitTransition(transition);
+}

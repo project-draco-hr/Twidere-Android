@@ -1,6 +1,0 @@
-{
-  final ListAction action=mAdapter.findItem(id);
-  if (action != null) {
-    action.onClick();
-  }
-}

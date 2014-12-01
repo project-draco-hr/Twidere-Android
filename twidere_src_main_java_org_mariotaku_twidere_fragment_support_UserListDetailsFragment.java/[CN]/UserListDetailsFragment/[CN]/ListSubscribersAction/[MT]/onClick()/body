@@ -1,3 +1,0 @@
-{
-  openUserListSubscribers(getActivity(),mUserList);
-}

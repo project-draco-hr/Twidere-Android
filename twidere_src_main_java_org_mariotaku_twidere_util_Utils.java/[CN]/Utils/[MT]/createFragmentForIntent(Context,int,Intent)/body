@@ -21,7 +21,7 @@ case LINK_ID_STATUS:
     }
 case LINK_ID_USER:
 {
-    fragment=new UserProfileFragment();
+    fragment=new UserFragment();
     final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
     final String param_user_id=uri.getQueryParameter(QUERY_PARAM_USER_ID);
     if (!args.containsKey(EXTRA_SCREEN_NAME)) {
@@ -141,7 +141,7 @@ break;
 }
 case LINK_ID_USER_LIST:
 {
-fragment=new UserListDetailsFragment();
+fragment=new UserListFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final String param_user_id=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 final String param_list_id=uri.getQueryParameter(QUERY_PARAM_LIST_ID);

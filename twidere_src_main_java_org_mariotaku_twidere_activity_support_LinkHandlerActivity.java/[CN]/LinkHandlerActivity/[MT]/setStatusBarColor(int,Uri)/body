@@ -1,0 +1,21 @@
+{
+switch (linkId) {
+case LINK_ID_USER:
+{
+      mMainContent.setShadowColor(0xA0000000);
+      mMainContent.setDrawShadow(false);
+      mMainContent.setDrawColor(!ThemeUtils.isDarkTheme(getCurrentThemeResourceId()));
+      break;
+    }
+default :
+{
+    mMainContent.setDrawShadow(false);
+    mMainContent.setDrawColor(true);
+    mMainContent.setFactor(1);
+    final int color=ThemeUtils.getUserAccentColor(this);
+    final int alpha=ThemeUtils.getThemeAlpha(this);
+    mMainContent.setColor(color,alpha);
+    break;
+  }
+}
+}

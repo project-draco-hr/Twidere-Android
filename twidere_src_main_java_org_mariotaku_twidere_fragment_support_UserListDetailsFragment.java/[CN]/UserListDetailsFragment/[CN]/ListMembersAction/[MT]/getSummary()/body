@@ -1,4 +1,0 @@
-{
-  if (mUserList == null)   return null;
-  return getLocalizedNumber(mLocale,mUserList.members_count);
-}

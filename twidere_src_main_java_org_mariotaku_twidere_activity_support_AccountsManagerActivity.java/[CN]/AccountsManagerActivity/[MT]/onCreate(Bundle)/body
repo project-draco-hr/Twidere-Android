@@ -7,6 +7,6 @@
   setContentView(R.layout.activity_content_fragment);
   final FragmentManager fm=getSupportFragmentManager();
   final FragmentTransaction ft=fm.beginTransaction();
-  ft.replace(R.id.content_fragment,new AccountsManagerFragment());
+  ft.replace(R.id.main_content,new AccountsManagerFragment());
   ft.commit();
 }

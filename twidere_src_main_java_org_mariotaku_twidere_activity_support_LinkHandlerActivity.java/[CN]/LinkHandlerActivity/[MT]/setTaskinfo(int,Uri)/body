@@ -1,0 +1,15 @@
+{
+switch (linkId) {
+case LINK_ID_USER:
+{
+      break;
+    }
+default :
+{
+    if (ThemeUtils.isColoredActionBar(getCurrentThemeResourceId())) {
+      ActivityAccessor.setTaskDescription(this,new TaskDescriptionCompat(null,null,getCurrentThemeColor()));
+    }
+    break;
+  }
+}
+}

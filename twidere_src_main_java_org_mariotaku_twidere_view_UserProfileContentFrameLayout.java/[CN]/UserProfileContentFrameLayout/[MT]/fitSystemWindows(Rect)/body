@@ -1,4 +1,0 @@
-{
-  setStatusBarHeight(Utils.getInsetsTopWithoutActionBarHeight(getContext(),insets.top));
-  return false;
-}

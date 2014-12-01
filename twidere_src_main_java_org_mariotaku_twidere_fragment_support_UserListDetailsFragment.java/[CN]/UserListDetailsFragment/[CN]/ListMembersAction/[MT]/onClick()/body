@@ -1,3 +1,0 @@
-{
-  openUserListMembers(getActivity(),mUserList);
-}

@@ -5,5 +5,4 @@
   }
   setTheme();
   super.onCreate(savedInstanceState);
-  setActionBarBackground();
 }

@@ -7,9 +7,7 @@
   mAdapter.addTab(SearchStatusesFragment.class,args,getString(R.string.statuses),R.drawable.ic_action_twitter,0);
   mAdapter.addTab(SearchUsersFragment.class,args,getString(R.string.users),R.drawable.ic_action_user,1);
   mViewPager.setAdapter(mAdapter);
-  mViewPager.setOnPageChangeListener(this);
   mViewPager.setOffscreenPageLimit(2);
-  mPagerIndicator.setSelectedColor(ThemeUtils.getThemeColor(activity));
   mPagerIndicator.setViewPager(mViewPager);
   if (savedInstanceState == null && args != null && args.containsKey(EXTRA_QUERY)) {
     final String query=args.getString(EXTRA_QUERY);

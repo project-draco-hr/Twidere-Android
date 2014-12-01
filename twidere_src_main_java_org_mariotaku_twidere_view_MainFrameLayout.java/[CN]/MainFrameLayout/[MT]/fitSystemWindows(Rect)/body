@@ -1,7 +1,0 @@
-{
-  final Context context=getContext();
-  if (context instanceof FitSystemWindowsCallback) {
-    ((FitSystemWindowsCallback)context).fitSystemWindows(insets);
-  }
-  return super.fitSystemWindows(insets);
-}

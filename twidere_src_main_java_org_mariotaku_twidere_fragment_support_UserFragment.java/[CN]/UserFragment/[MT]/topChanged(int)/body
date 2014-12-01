@@ -1,0 +1,10 @@
+{
+  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
+  if (drawer == null)   return;
+  final int offset=drawer.getPaddingTop() - top;
+  updateScrollOffset(offset);
+  final Fragment fragment=mCurrentVisibleFragment;
+  if (fragment instanceof DrawerCallback) {
+    ((DrawerCallback)fragment).topChanged(top);
+  }
+}

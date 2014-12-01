@@ -1,5 +1,5 @@
 {
-  final View view=inflater.inflate(R.layout.fragment_details_page,container,false);
+  final View view=inflater.inflate(R.layout.fragment_details_page_with_menubar,container,false);
   view.findViewById(R.id.menu_bar).setVisibility(View.GONE);
   mMainContent=view.findViewById(R.id.content);
   mDetailsLoadProgress=(ProgressBar)view.findViewById(R.id.details_load_progress);

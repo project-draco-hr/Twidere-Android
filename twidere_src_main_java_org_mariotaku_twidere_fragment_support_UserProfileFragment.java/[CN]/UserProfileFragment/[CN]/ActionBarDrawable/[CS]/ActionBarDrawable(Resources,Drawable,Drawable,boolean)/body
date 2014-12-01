@@ -1,8 +1,0 @@
-{
-  super(new Drawable[]{shadow,background,new LineBackgroundDrawable(resources,2.0f),new ColorDrawable()});
-  mShadowDrawable=shadow;
-  mBackgroundDrawable=getDrawable(1);
-  mLineDrawable=(LineBackgroundDrawable)getDrawable(2);
-  mColorDrawable=(ColorDrawable)getDrawable(3);
-  mColorLineOnly=colorLineOnly;
-}

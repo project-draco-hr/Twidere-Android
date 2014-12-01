@@ -1,4 +1,0 @@
-{
-  super.onDraw(canvas);
-  canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mPaint);
-}

@@ -1,0 +1,5 @@
+{
+  super.setAlpha(alpha);
+  mAlpha=alpha;
+  setFactor(mFactor);
+}

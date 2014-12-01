@@ -7,5 +7,5 @@
   mTabsContainer=findViewById(R.id.tabs_container);
   mTabIndicator=(TabPagerIndicator)findViewById(R.id.main_tabs);
   mActionBarOverlay=findViewById(R.id.actionbar_overlay);
-  mHomeContentFrameLayout=(HomeContentFrameLayout)findViewById(R.id.home_content);
+  mColorStatusFrameLayout=(TintedStatusFrameLayout)findViewById(R.id.home_content);
 }

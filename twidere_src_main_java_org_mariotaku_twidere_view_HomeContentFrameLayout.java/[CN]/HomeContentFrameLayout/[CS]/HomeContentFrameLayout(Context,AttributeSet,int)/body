@@ -1,5 +1,0 @@
-{
-  super(context,attrs,defStyleAttr);
-  mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  setWillNotDraw(false);
-}

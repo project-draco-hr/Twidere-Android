@@ -1,0 +1,4 @@
+HeaderDrawerLayout parent
+Context context
+int headerLayoutId
+int contentLayoutId

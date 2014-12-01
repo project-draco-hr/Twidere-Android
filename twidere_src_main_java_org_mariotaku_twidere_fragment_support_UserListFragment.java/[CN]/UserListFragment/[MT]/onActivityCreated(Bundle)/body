@@ -1,0 +1,16 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  final FragmentActivity activity=getActivity();
+  mHeaderDrawerLayout.setDrawerCallback(this);
+  mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
+  mViewPager.setAdapter(mPagerAdapter);
+  mPagerIndicator.setViewPager(mViewPager);
+  mTwitterWrapper=getApplication().getTwitterWrapper();
+  mProfileImageLoader=getApplication().getImageLoaderWrapper();
+  mProfileImageView.setOnClickListener(this);
+  mProfileContainer.setOnClickListener(this);
+  mRetryButton.setOnClickListener(this);
+  getUserListInfo(false);
+  setupUserPages();
+}

@@ -1,0 +1,13 @@
+{
+switch (linkId) {
+case LINK_ID_USER:
+{
+      break;
+    }
+default :
+{
+    ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),getCurrentThemeColor());
+    break;
+  }
+}
+}

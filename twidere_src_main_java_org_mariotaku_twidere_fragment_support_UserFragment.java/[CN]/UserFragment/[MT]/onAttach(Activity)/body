@@ -1,0 +1,4 @@
+{
+  super.onAttach(activity);
+  mTintedStatusContent=(TintedStatusFrameLayout)activity.findViewById(R.id.main_content);
+}

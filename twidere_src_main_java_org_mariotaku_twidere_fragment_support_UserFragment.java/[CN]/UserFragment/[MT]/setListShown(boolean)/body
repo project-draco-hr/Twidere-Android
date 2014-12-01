@@ -1,0 +1,9 @@
+{
+  final TintedStatusFrameLayout tintedStatus=mTintedStatusContent;
+  if (tintedStatus == null)   return;
+  final FragmentActivity activity=getActivity();
+  final LinkHandlerActivity linkHandler=(LinkHandlerActivity)activity;
+  final boolean drawColor=!ThemeUtils.isDarkTheme(linkHandler.getCurrentThemeResourceId());
+  tintedStatus.setDrawShadow(shown);
+  tintedStatus.setDrawColor(drawColor);
+}

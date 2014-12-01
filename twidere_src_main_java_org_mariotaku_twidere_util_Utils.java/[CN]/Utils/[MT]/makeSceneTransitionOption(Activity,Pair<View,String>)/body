@@ -1,0 +1,4 @@
+{
+  if (ThemeUtils.isTransparentBackground(activity))   return null;
+  return ActivityOptionsCompat.makeSceneTransitionAnimation(activity,sharedElements).toBundle();
+}

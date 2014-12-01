@@ -1,0 +1,27 @@
+{
+  mTwitterWrapper=getApplication().getTwitterWrapper();
+  final Bundle bundle=savedInstanceState == null ? getArguments() : savedInstanceState;
+  mAccountId=bundle != null ? bundle.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+  mListId=bundle != null ? bundle.getLong(EXTRA_LIST_ID,-1) : -1;
+  mName=bundle != null ? bundle.getString(EXTRA_LIST_NAME) : null;
+  mDescription=bundle != null ? bundle.getString(EXTRA_DESCRIPTION) : null;
+  mIsPublic=bundle == null || bundle.getBoolean(EXTRA_IS_PUBLIC,true);
+  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final View view=LayoutInflater.from(wrapped).inflate(R.layout.edit_user_list_detail,null);
+  builder.setView(view);
+  mEditName=(EditText)view.findViewById(R.id.name);
+  mEditDescription=(EditText)view.findViewById(R.id.description);
+  mPublicCheckBox=(CheckBox)view.findViewById(R.id.is_public);
+  if (mName != null) {
+    mEditName.setText(mName);
+  }
+  if (mDescription != null) {
+    mEditDescription.setText(mDescription);
+  }
+  mPublicCheckBox.setChecked(mIsPublic);
+  builder.setTitle(R.string.user_list);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

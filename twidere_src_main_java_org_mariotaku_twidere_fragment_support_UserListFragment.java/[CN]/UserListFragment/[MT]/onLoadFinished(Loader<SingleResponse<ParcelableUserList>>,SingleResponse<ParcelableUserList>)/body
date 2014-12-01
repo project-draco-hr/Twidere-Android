@@ -1,0 +1,21 @@
+{
+  if (data == null)   return;
+  if (getActivity() == null)   return;
+  if (data.getData() != null) {
+    final ParcelableUserList list=data.getData();
+    displayUserList(list);
+    mHeaderDrawerLayout.setVisibility(View.VISIBLE);
+    mErrorRetryContainer.setVisibility(View.GONE);
+    mProgressContainer.setVisibility(View.GONE);
+  }
+ else {
+    if (data.hasException()) {
+      mErrorMessageView.setText(data.getException().getMessage());
+      mErrorMessageView.setVisibility(View.VISIBLE);
+    }
+    mHeaderDrawerLayout.setVisibility(View.GONE);
+    mErrorRetryContainer.setVisibility(View.VISIBLE);
+    mProgressContainer.setVisibility(View.GONE);
+  }
+  setProgressBarIndeterminateVisibility(false);
+}
