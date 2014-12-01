@@ -1,6 +1,6 @@
 {
   final Intent data=new Intent();
-  data.putExtra(EXTRA_ID,id);
+  data.putExtra(EXTRA_ID,mAdapter.getAccount(position).account_id);
   setResult(RESULT_OK,data);
   finish();
 }

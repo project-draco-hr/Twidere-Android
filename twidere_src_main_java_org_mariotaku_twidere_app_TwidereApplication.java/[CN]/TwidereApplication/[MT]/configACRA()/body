@@ -1,4 +1,2 @@
 {
-  ACRA.init(this);
-  ACRA.getErrorReporter().setReportSender(new EmailIntentSender(this));
 }

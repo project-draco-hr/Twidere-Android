@@ -31,7 +31,7 @@ case REQUEST_SELECT_ACCOUNT:
   if (resultCode == Activity.RESULT_OK) {
     if (data == null || !data.hasExtra(EXTRA_ID))     return;
     final long accountId=data.getLongExtra(EXTRA_ID,-1);
-    openUserProfile(getActivity(),accountId,user.id,null,null);
+    openUserProfile(getActivity(),accountId,user.id,user.screen_name,null);
   }
   break;
 }

@@ -19,6 +19,7 @@
   final FragmentActivity activity=getActivity();
   ViewCompat.setTransitionName(mProfileImageView,TRANSITION_NAME_PROFILE_IMAGE);
   ViewCompat.setTransitionName(mProfileTypeView,TRANSITION_NAME_PROFILE_TYPE);
+  ViewCompat.setTransitionName(mCardView,TRANSITION_NAME_CARD);
   mHeaderDrawerLayout.setDrawerCallback(this);
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
   mViewPager.setAdapter(mPagerAdapter);
