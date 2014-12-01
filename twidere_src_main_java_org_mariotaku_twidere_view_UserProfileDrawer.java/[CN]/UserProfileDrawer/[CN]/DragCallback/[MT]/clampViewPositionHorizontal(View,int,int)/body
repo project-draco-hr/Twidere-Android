@@ -1,0 +1,4 @@
+{
+  mDx=dx;
+  return mDrawer.getPaddingLeft();
+}

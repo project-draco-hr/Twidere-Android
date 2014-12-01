@@ -1,0 +1,4 @@
+{
+  mDrawer.mDragHelper.flingCapturedView(mDrawer.getPaddingLeft(),mDrawer.getHeaderTopMinimum(),mDrawer.getPaddingLeft(),mDrawer.getHeaderTopMaximum());
+  ViewCompat.postInvalidateOnAnimation(mDrawer);
+}

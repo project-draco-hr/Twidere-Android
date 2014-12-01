@@ -2,6 +2,7 @@
   final View view=super.getView(position,convertView,parent);
   final Object tag=view.getTag();
   final StatusListViewHolder holder;
+  final Resources res=mContext.getResources();
   if (tag instanceof StatusListViewHolder) {
     holder=(StatusListViewHolder)tag;
   }
@@ -54,7 +55,7 @@
  else {
       holder.setUserColor(getUserColor(mContext,status.user_id));
     }
-    holder.setHighlightColor(getCardHighlightColor(!mMentionsHighlightDisabled && isMention,!mFavoritesHighlightDisabled && status.is_favorite,status.is_retweet));
+    holder.setHighlightColor(getCardHighlightColor(res,!mMentionsHighlightDisabled && isMention,!mFavoritesHighlightDisabled && status.is_favorite,status.is_retweet));
     holder.setTextSize(getTextSize());
     holder.setIsMyStatus(isMyStatus && !mIndicateMyStatusDisabled);
     holder.setUserType(status.user_is_verified,status.user_is_protected);
@@ -105,7 +106,6 @@
         holder.image_preview.setBackgroundResource(0);
         loader.displayPreviewImage(holder.image_preview,status.first_media,mImageLoadingHandler);
       }
-      final Resources res=mContext.getResources();
       final int count=status.media.length;
       holder.image_preview_count.setText(res.getQuantityString(R.plurals.N_media,count,count));
       holder.image_preview.setTag(position);

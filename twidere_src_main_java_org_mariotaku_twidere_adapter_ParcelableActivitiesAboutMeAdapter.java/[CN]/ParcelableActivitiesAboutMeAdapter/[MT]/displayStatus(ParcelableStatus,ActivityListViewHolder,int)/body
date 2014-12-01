@@ -32,7 +32,7 @@
     final boolean isMyStatus=status.account_id == status.user_id;
     final boolean hasMedia=status.first_media != null;
     holder.setUserColor(getUserColor(context,status.user_id));
-    holder.setHighlightColor(getCardHighlightColor(false,!mFavoritesHighlightDisabled && status.is_favorite,status.is_retweet));
+    holder.setHighlightColor(getCardHighlightColor(context.getResources(),false,!mFavoritesHighlightDisabled && status.is_favorite,status.is_retweet));
     holder.setTextSize(getTextSize());
     holder.setIsMyStatus(isMyStatus && !mIndicateMyStatusDisabled);
     holder.setUserType(status.user_is_verified,status.user_is_protected);

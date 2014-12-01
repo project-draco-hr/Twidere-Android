@@ -1,0 +1,13 @@
+{
+  if (velocityY > 0 && !mDrawer.canScrollCallback(-1)) {
+    if (Math.abs(velocityY) > Math.abs(velocityX)) {
+      mDrawer.flingHeader(velocityY);
+    }
+  }
+ else   if (velocityY < 0 && mDrawer.getHeaderTop() <= mDrawer.getHeaderTopMinimum()) {
+    if (Math.abs(velocityY) > Math.abs(velocityX)) {
+      mDrawer.flingCallback(-velocityY);
+    }
+  }
+  return true;
+}

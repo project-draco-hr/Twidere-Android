@@ -1,0 +1,8 @@
+{
+  super.onViewPositionChanged(changedView,left,top,dx,dy);
+  final long time=SystemClock.uptimeMillis();
+  final float timeDelta=time - mTime;
+  mVelocity=mDy / timeDelta * 1000;
+  mTime=time;
+  mDy=dy;
+}

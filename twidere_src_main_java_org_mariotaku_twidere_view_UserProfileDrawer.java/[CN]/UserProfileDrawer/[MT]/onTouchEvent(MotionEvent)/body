@@ -1,0 +1,4 @@
+{
+  mDragHelper.processTouchEvent(event);
+  return true;
+}

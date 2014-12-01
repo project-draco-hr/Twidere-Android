@@ -1,0 +1,10 @@
+{
+  if (!FlymeUtils.hasSmartBar())   return;
+switch (linkId) {
+case LINK_ID_USER:
+{
+      window.setUiOptions(ActivityInfo.UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW);
+      break;
+    }
+}
+}

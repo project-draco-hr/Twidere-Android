@@ -2,6 +2,6 @@
   if (context == null)   return Color.TRANSPARENT;
   final Resources res=getResources(context);
   final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
-  final int def=res.getColor(android.R.color.holo_blue_light);
+  final int def=res.getColor(R.color.material_light_blue);
   return pref.getInt(KEY_THEME_COLOR,def);
 }

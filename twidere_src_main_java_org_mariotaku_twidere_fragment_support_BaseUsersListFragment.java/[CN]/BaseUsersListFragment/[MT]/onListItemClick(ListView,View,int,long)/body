@@ -7,5 +7,5 @@
     setItemSelected(user,position,!mMultiSelectManager.isSelected(user));
     return;
   }
-  openUserProfile(getActivity(),user);
+  openUserProfile(getActivity(),user,null);
 }

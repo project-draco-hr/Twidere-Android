@@ -1,0 +1,6 @@
+{
+  if (isMention)   return res.getColor(R.color.highlight_reply);
+ else   if (isFavorite)   return res.getColor(R.color.highlight_favorite);
+ else   if (isRetweet)   res.getColor(R.color.highlight_retweet);
+  return Color.TRANSPARENT;
+}

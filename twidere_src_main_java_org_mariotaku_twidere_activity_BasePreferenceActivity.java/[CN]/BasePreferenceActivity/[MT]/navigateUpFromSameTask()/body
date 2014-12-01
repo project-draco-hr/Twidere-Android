@@ -1,4 +1,3 @@
 {
   NavUtils.navigateUpFromSameTask(this);
-  overrideCloseAnimationIfNeeded();
 }

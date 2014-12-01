@@ -1,0 +1,8 @@
+{
+  if (mTouchDown) {
+    mScroller.abortAnimation();
+    return;
+  }
+  mScroller.fling(0,getHeaderTop(),0,(int)velocity,0,0,mContainer.getHeaderTopMinimum(),mContainer.getHeaderTopMaximum());
+  ViewCompat.postInvalidateOnAnimation(this);
+}

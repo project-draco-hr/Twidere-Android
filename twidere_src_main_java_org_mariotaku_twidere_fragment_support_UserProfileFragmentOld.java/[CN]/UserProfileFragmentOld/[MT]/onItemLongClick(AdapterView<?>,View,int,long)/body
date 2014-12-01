@@ -1,4 +1,0 @@
-{
-  final ListAction action=mAdapter.findItem(id);
-  return action != null && action.onLongClick();
-}

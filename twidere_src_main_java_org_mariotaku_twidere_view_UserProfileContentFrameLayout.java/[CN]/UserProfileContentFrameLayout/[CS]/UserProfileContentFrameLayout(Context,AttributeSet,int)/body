@@ -1,0 +1,8 @@
+{
+  super(context,attrs,defStyleAttr);
+  mBlackPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBlackPaint.setColor(Color.BLACK);
+  mShadowPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mColorPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  setWillNotDraw(false);
+}

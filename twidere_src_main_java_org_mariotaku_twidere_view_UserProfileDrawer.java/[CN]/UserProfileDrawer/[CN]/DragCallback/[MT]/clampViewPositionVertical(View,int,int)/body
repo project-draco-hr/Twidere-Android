@@ -1,0 +1,22 @@
+{
+  final int current=mDrawer.getHeaderTop();
+  if (!Float.isNaN(mDx) && mDrawer.isValidScroll(mDx,dy)) {
+    mScrollingByHelper=false;
+    return current;
+  }
+  if (dy > 0 && mDrawer.canScrollCallback(-dy) && !mDrawer.isUsingDragHelper()) {
+    mScrollingByHelper=false;
+    return current;
+  }
+ else   if (dy > 0 && mDrawer.canScrollCallback(-dy) && mDrawer.isTouchingScrollableContent()) {
+    mDrawer.scrollByCallback(-dy);
+    mScrollingByHelper=false;
+    return current;
+  }
+  final int min=mDrawer.getHeaderTopMinimum(), max=mDrawer.getHeaderTopMaximum();
+  if (top < min && mDrawer.isTouchingScrollableContent()) {
+    mDrawer.scrollByCallback(-dy);
+  }
+  mScrollingByHelper=true;
+  return MathUtils.clamp(top,min,max);
+}

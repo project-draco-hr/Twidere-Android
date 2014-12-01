@@ -4,7 +4,9 @@
 switch (view.getId()) {
 case R.id.profile:
 {
-      openUserProfile(getActivity(),status.account_id,status.user_id,null);
+      final FragmentActivity activity=getActivity();
+      final ActivityOptionsCompat options=ActivityOptionsCompat.makeSceneTransitionAnimation(activity,new Pair<View,String>(mProfileImageView,UserProfileFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<View,String>(mProfileTypeView,UserProfileFragment.TRANSITION_NAME_PROFILE_TYPE));
+      openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,options.toBundle());
       break;
     }
 case R.id.follow:

@@ -1,0 +1,5 @@
+{
+  final int prevTop=mContainer.getTop();
+  final int clampedDy=MathUtils.clamp(prevTop + dy,getHeaderTopMinimum(),getHeaderTopMaximum()) - prevTop;
+  mContainer.offsetTopAndBottom(clampedDy);
+}

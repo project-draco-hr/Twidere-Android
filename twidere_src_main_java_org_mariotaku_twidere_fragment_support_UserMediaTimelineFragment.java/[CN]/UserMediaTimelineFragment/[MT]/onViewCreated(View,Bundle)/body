@@ -1,5 +1,5 @@
 {
   super.onViewCreated(view,savedInstanceState);
-  mRecyclerView=(RecyclerView)view.findViewById(android.R.id.list);
-  mProgress=(ProgressBar)view.findViewById(android.R.id.progress);
+  mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
+  mProgress=(ProgressBar)view.findViewById(R.id.progress);
 }

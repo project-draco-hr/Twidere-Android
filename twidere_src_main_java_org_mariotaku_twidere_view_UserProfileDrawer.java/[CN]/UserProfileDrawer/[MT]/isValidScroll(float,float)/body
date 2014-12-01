@@ -1,0 +1,3 @@
+{
+  return Math.abs(direction) > getDragTouchSlop() && Math.abs(direction) > Math.abs(other);
+}

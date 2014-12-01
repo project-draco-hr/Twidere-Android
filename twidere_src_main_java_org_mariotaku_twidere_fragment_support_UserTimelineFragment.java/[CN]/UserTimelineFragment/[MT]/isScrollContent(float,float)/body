@@ -1,0 +1,5 @@
+{
+  final int[] location=new int[2];
+  mRecyclerView.getLocationOnScreen(location);
+  return x >= location[0] && x <= location[0] && y >= location[1] && y <= location[1];
+}

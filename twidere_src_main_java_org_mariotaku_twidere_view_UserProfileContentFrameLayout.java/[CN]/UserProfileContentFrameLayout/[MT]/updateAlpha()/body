@@ -1,0 +1,6 @@
+{
+  final float f=mFactor;
+  mShadowPaint.setAlpha(Math.round(mShadowAlpha * MathUtils.clamp(1 - f,0,1)));
+  mColorPaint.setAlpha(Math.round(0xFF * MathUtils.clamp(f,0,1)));
+  invalidate();
+}

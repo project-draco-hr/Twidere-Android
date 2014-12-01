@@ -1,0 +1,7 @@
+{
+  super(context);
+  mParent=parent;
+  final LayoutInflater inflater=LayoutInflater.from(context);
+  addView(mHeaderView=inflater.inflate(headerLayoutId,this,false));
+  addView(mContentView=inflater.inflate(contentLayoutId,this,false));
+}

@@ -16,9 +16,9 @@ case R.id.profile_image:
 {
     final ParcelableStatus status=getStatus(position);
     if (status == null)     return;
-    if (mContext instanceof Activity) {
-      openUserProfile((Activity)mContext,status.account_id,status.user_id,status.user_screen_name);
-    }
+    final Activity activity=(Activity)getContext();
+    final ActivityOptionsCompat options=ActivityOptionsCompat.makeSceneTransitionAnimation(activity,view,"profile_image");
+    openUserProfile(mContext,status.account_id,status.user_id,status.user_screen_name,options.toBundle());
     break;
   }
 }

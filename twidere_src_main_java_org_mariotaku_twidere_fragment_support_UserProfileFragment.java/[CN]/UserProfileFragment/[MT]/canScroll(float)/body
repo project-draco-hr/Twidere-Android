@@ -1,0 +1,4 @@
+{
+  final Fragment fragment=mCurrentVisibleFragment;
+  return fragment instanceof DrawerCallback && ((DrawerCallback)fragment).canScroll(dy);
+}

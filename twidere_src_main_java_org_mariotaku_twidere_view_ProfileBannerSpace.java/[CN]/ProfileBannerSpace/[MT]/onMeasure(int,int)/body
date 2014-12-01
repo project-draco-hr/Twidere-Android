@@ -1,0 +1,5 @@
+{
+  final int width=MeasureSpec.getSize(widthMeasureSpec), height=width / 2 - mSystemWindowsInsets.top;
+  setMeasuredDimension(width,height);
+  super.onMeasure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(height,MeasureSpec.EXACTLY));
+}

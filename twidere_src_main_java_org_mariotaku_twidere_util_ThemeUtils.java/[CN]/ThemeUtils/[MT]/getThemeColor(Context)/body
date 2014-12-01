@@ -3,7 +3,7 @@
   final Context wrapped=getThemedContext(context,res);
   final TypedArray a=wrapped.obtainStyledAttributes(new int[]{android.R.attr.colorActivatedHighlight});
   try {
-    return a.getColor(0,res.getColor(android.R.color.holo_blue_light));
+    return a.getColor(0,res.getColor(R.color.material_light_blue));
   }
   finally {
     a.recycle();

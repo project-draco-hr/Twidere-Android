@@ -8,6 +8,7 @@
   holder.setDisplayProfileImage(isDisplayProfileImage());
   holder.setCardHighlightOption(mCardHighlightOption);
   if (!showGap) {
+    final Resources res=mContext.getResources();
     final TwidereLinkify linkify=getLinkify();
     final boolean showAccountColor=isShowAccountColor();
     final long accountId=cursor.getLong(mIndices.account_id);
@@ -43,7 +44,7 @@
  else {
       holder.setUserColor(getUserColor(mContext,userId));
     }
-    holder.setHighlightColor(getCardHighlightColor(!mMentionsHighlightDisabled && isMention,!mFavoritesHighlightDisabled && isFavorite,isRetweet));
+    holder.setHighlightColor(getCardHighlightColor(res,!mMentionsHighlightDisabled && isMention,!mFavoritesHighlightDisabled && isFavorite,isRetweet));
     holder.setAccountColorEnabled(showAccountColor);
     if (showAccountColor) {
       holder.setAccountColor(getAccountColor(mContext,accountId));
@@ -108,7 +109,6 @@
         holder.image_preview.setBackgroundResource(0);
         mImageLoader.displayPreviewImage(holder.image_preview,firstMedia,mImageLoadingHandler);
       }
-      final Resources res=mContext.getResources();
       final int count=media.length;
       holder.image_preview_count.setText(res.getQuantityString(R.plurals.N_media,count,count));
       holder.image_preview.setTag(position);

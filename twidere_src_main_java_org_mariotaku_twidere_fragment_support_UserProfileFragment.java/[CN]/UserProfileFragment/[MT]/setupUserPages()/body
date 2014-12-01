@@ -1,0 +1,22 @@
+{
+  final Context context=getActivity();
+  final Bundle args=getArguments(), tabArgs=new Bundle();
+  final long accountId;
+  if (args.containsKey(EXTRA_USER)) {
+    final ParcelableUser user=args.getParcelable(EXTRA_USER);
+    tabArgs.putLong(EXTRA_ACCOUNT_ID,accountId=user.account_id);
+    tabArgs.putLong(EXTRA_USER_ID,user.id);
+    tabArgs.putString(EXTRA_SCREEN_NAME,user.screen_name);
+  }
+ else {
+    accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+    tabArgs.putLong(EXTRA_ACCOUNT_ID,accountId);
+    tabArgs.putLong(EXTRA_USER_ID,args.getLong(EXTRA_USER_ID,-1));
+    tabArgs.putString(EXTRA_SCREEN_NAME,args.getString(EXTRA_SCREEN_NAME));
+  }
+  mPagerAdapter.addTab(UserTimelineFragment.class,tabArgs,getString(R.string.statuses),null,0);
+  if (Utils.isOfficialKeyAccount(context,accountId)) {
+    mPagerAdapter.addTab(UserMediaTimelineFragment.class,tabArgs,getString(R.string.media),null,0);
+  }
+  mPagerIndicator.notifyDataSetChanged();
+}

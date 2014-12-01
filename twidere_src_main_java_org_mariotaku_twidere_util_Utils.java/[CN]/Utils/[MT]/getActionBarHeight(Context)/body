@@ -1,9 +1,7 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.actionBarSize});
-  try {
-    return a.getDimensionPixelSize(0,0);
+  final TypedValue tv=new TypedValue();
+  if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize,tv,true)) {
+    return TypedValue.complexToDimensionPixelSize(tv.data,context.getResources().getDisplayMetrics());
   }
-  finally {
-    a.recycle();
-  }
+  return 0;
 }

@@ -1,0 +1,3 @@
+{
+  mRecyclerView.fling(0,(int)velocity);
+}

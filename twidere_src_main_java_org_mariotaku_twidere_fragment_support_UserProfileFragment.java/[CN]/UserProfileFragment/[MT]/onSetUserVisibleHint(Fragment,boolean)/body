@@ -1,0 +1,3 @@
+{
+  mCurrentVisibleFragment=isVisibleToUser ? fragment : null;
+}

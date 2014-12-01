@@ -1,8 +1,0 @@
-{
-  final View view=inflater.inflate(R.layout.fragment_details_page,null,false);
-  final ExtendedFrameLayout detailsContainer=(ExtendedFrameLayout)view.findViewById(R.id.details_container);
-  inflater.inflate(R.layout.header_user_profile_banner,detailsContainer,true);
-  detailsContainer.addView(super.onCreateView(inflater,container,savedInstanceState));
-  mHeaderView=inflater.inflate(R.layout.header_user_profile,null,false);
-  return view;
-}

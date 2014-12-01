@@ -24,7 +24,7 @@ case R.id.item_profile_image:
 {
 final ParcelableUser recipient=mRecipient;
 if (recipient == null) return;
-Utils.openUserProfile(getActivity(),recipient.account_id,recipient.id,recipient.screen_name);
+Utils.openUserProfile(getActivity(),recipient.account_id,recipient.id,recipient.screen_name,null);
 break;
 }
 }

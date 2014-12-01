@@ -1,0 +1,7 @@
+{
+  if (mDragHelper.shouldInterceptTouchEvent(ev) || mScrollingHeaderByGesture) {
+    mUsingDragHelper=true;
+    return true;
+  }
+  return false;
+}

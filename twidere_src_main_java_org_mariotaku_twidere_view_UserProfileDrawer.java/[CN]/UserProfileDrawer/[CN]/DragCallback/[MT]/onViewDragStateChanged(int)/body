@@ -1,0 +1,26 @@
+{
+switch (state) {
+case ViewDragHelper.STATE_SETTLING:
+case ViewDragHelper.STATE_DRAGGING:
+{
+      mScrollingByHelper=false;
+      break;
+    }
+case ViewDragHelper.STATE_IDLE:
+{
+    if (mTime > 0 && !Float.isNaN(mVelocity)) {
+      final float velocity=mVelocity;
+      if (velocity < 0 && mDrawer.getHeaderTop() <= mDrawer.getHeaderTopMinimum()) {
+        mDrawer.flingCallback(-velocity);
+      }
+    }
+    mTime=-1;
+    mDx=Float.NaN;
+    mDy=Float.NaN;
+    mVelocity=Float.NaN;
+    mScrollingByHelper=false;
+    break;
+  }
+}
+super.onViewDragStateChanged(state);
+}

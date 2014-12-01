@@ -1,7 +1,7 @@
 {
   setUiOptions(getWindow());
   final Window window=getWindow();
-  window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
   window.requestFeature(Window.FEATURE_NO_TITLE);
   super.onCreate(savedInstanceState);
   if (!isDatabaseReady(this)) {

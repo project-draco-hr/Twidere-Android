@@ -1,8 +1,8 @@
 {
   if (context == null || menu == null || status == null)   return;
   final Resources resources=context.getResources();
-  final int retweetHighlight=resources.getColor(android.R.color.holo_green_light);
-  final int favoriteHighlight=resources.getColor(android.R.color.holo_orange_light);
+  final int retweetHighlight=resources.getColor(R.color.highlight_retweet);
+  final int favoriteHighlight=resources.getColor(R.color.highlight_favorite);
   final boolean isMyRetweet=isMyRetweet(status);
   final MenuItem delete=menu.findItem(MENU_DELETE);
   if (delete != null) {

@@ -1,6 +1,6 @@
 {
   mDestination.set(getPaddingLeft(),getPaddingTop(),getWidth() - getPaddingRight(),getHeight() - getPaddingBottom());
-  if (USE_OUTLINE) {
+  if (OUTLINE_DRAW) {
     super.onDraw(canvas);
   }
  else {

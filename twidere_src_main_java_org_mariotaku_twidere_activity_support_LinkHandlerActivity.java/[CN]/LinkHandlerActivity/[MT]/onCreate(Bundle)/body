@@ -3,8 +3,9 @@
   mMultiSelectHandler.dispatchOnCreate();
   final Intent intent=getIntent();
   final Uri data=intent.getData();
-  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-  setUiOptions(getWindow(),data);
+  final int linkId=matchLinkId(data);
+  requestWindowFeatures(getWindow(),linkId,data);
+  setUiOptions(getWindow(),linkId,data);
   super.onCreate(savedInstanceState);
   final ActionBar actionBar=getActionBar();
   if (actionBar != null) {
@@ -12,7 +13,7 @@
   }
   setContentView(R.layout.activity_content_fragment);
   setProgressBarIndeterminateVisibility(false);
-  if (data == null || !showFragment(data)) {
+  if (data == null || !showFragment(linkId,data)) {
     finish();
   }
 }

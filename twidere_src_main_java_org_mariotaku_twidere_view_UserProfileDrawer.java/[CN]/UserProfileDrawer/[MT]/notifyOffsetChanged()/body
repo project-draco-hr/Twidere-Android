@@ -1,0 +1,5 @@
+{
+  final int top=getHeaderTop();
+  mHeaderOffset=top - getPaddingTop();
+  mDrawerCallback.topChanged(top);
+}

@@ -10,7 +10,7 @@ case R.id.profile_image:
         final long account_id=getAccountId(position);
         final long user_id=getConversationId(position);
         final String screen_name=getScreenName(position);
-        openUserProfile((Activity)mContext,account_id,user_id,screen_name);
+        openUserProfile(mContext,account_id,user_id,screen_name,null);
       }
       break;
     }

@@ -1,0 +1,7 @@
+{
+  if (mActionBarBackground == null) {
+    setupBaseActionBar();
+  }
+  mActionBarBackground.setColor(color);
+  mUserProfileContent.setColor(color);
+}

@@ -1,0 +1,4 @@
+{
+  final int size=MeasureSpec.getSize(spec), mode=MeasureSpec.getMode(spec);
+  return MeasureSpec.makeMeasureSpec(size - padding,mode);
+}

@@ -1,0 +1,9 @@
+{
+  for (int i=0, j=getChildCount(); i < j; i++) {
+    final View child=getChildAt(i);
+    final int left=getPaddingLeft(), right=left + child.getMeasuredWidth();
+    final int top=i == 0 ? getPaddingTop() : getChildAt(i - 1).getBottom();
+    final int bottom=top + child.getMeasuredHeight();
+    child.layout(left,top,right,bottom);
+  }
+}

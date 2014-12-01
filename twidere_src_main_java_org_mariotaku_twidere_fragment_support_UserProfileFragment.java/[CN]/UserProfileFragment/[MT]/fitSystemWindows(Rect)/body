@@ -1,0 +1,18 @@
+{
+  super.fitSystemWindows(insets);
+  final View view=getView();
+  if (view != null) {
+    final View progress=view.findViewById(R.id.progress_container);
+    progress.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  }
+  mErrorRetryContainer.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mUserProfileDrawer.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mUserProfileDrawer.setClipToPadding(false);
+  final int bannerHeight=mProfileBannerView.getHeight();
+  if (bannerHeight != 0) {
+    final ViewGroup.LayoutParams params=mProfileBannerSpace.getLayoutParams();
+    params.height=bannerHeight - insets.top;
+    mProfileBannerSpace.setLayoutParams(params);
+    mProfileBannerSpace.requestLayout();
+  }
+}

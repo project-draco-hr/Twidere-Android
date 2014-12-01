@@ -1,0 +1,7 @@
+{
+  mDrawer=drawer;
+  mTime=-1;
+  mDx=Float.NaN;
+  mDy=Float.NaN;
+  mVelocity=Float.NaN;
+}

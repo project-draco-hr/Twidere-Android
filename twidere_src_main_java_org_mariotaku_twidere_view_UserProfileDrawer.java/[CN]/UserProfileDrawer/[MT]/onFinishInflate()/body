@@ -1,0 +1,5 @@
+{
+  if (getChildCount() != 1) {
+    throw new IllegalArgumentException("Add subview by XML is not allowed.");
+  }
+}

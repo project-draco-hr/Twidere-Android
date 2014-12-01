@@ -1,5 +1,5 @@
 {
-  if (USE_OUTLINE) {
+  if (OUTLINE_DRAW) {
     super.setColorFilter(cf);
     return;
   }

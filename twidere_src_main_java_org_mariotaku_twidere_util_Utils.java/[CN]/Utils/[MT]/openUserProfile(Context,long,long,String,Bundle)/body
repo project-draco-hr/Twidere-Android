@@ -1,0 +1,20 @@
+{
+  if (context == null || accountId <= 0 || userId <= 0 && isEmpty(screenName))   return;
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  if (userId > 0) {
+    builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(userId));
+  }
+  if (screenName != null) {
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  if (context instanceof Activity) {
+    ActivityCompat.startActivity((Activity)context,intent,activityOptions);
+  }
+ else {
+    context.startActivity(intent);
+  }
+}

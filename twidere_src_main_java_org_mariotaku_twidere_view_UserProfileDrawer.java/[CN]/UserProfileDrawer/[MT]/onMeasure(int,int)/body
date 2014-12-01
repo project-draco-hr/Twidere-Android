@@ -1,0 +1,7 @@
+{
+  final View child=getChildAt(0);
+  final int childWidthMeasureSpec=makeChildMeasureSpec(widthMeasureSpec,getPaddingLeft() + getPaddingRight());
+  final int childHeightMeasureSpec=makeChildMeasureSpec(heightMeasureSpec,getPaddingTop() + getPaddingBottom());
+  child.measure(childWidthMeasureSpec,childHeightMeasureSpec);
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+}

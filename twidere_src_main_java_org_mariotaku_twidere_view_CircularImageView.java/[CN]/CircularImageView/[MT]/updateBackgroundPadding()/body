@@ -1,5 +1,4 @@
 {
-  if (USE_OUTLINE)   return;
   final Drawable drawable=mBackground;
   if (drawable == null)   return;
   final int width=getWidth(), height=getHeight();

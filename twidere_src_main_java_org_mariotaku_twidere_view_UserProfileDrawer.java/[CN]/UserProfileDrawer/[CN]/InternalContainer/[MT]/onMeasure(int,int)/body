@@ -1,0 +1,22 @@
+{
+  final int measureHeight=MeasureSpec.getSize(heightMeasureSpec);
+  int heightSum=0;
+  for (int i=0, j=getChildCount(); i < j; i++) {
+    final View child=getChildAt(i);
+    final LayoutParams lp=child.getLayoutParams();
+    final int childHeightSpec;
+    if (lp.height == LayoutParams.MATCH_PARENT) {
+      childHeightSpec=heightMeasureSpec;
+    }
+ else     if (lp.height == LayoutParams.WRAP_CONTENT) {
+      childHeightSpec=MeasureSpec.makeMeasureSpec(measureHeight,MeasureSpec.UNSPECIFIED);
+    }
+ else {
+      childHeightSpec=MeasureSpec.makeMeasureSpec(measureHeight,MeasureSpec.EXACTLY);
+    }
+    child.measure(widthMeasureSpec,childHeightSpec);
+    heightSum+=child.getMeasuredHeight();
+  }
+  final int hSpec=MeasureSpec.makeMeasureSpec(heightSum,MeasureSpec.EXACTLY);
+  super.onMeasure(widthMeasureSpec,hSpec);
+}

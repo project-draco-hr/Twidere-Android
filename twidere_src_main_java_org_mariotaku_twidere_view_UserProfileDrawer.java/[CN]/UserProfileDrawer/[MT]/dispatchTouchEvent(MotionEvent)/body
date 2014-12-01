@@ -1,0 +1,23 @@
+{
+switch (ev.getAction()) {
+case MotionEvent.ACTION_DOWN:
+{
+      mScroller.abortAnimation();
+      mTouchDown=true;
+      mTouchingScrollableContent=isScrollContentCallback(ev.getX(),ev.getY());
+      mUsingDragHelper=false;
+      mScrollingHeaderByGesture=false;
+      break;
+    }
+case MotionEvent.ACTION_CANCEL:
+case MotionEvent.ACTION_UP:
+{
+    mTouchDown=false;
+    mTouchingScrollableContent=false;
+    mUsingDragHelper=false;
+    mScrollingHeaderByGesture=false;
+  }
+}
+mGestureDetector.onTouchEvent(ev);
+return super.dispatchTouchEvent(ev);
+}

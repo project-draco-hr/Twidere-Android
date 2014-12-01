@@ -1,0 +1,4 @@
+{
+  super.offsetTopAndBottom(offset);
+  mParent.notifyOffsetChanged();
+}

@@ -1,0 +1,3 @@
+{
+  return getHeaderTopMaximum() - getHeaderTopMinimum();
+}
