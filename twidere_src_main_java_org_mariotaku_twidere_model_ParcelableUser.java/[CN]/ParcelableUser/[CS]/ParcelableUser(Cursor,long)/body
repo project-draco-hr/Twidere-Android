@@ -10,6 +10,7 @@
   is_protected=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_PROTECTED)) == 1;
   is_verified=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_VERIFIED)) == 1;
   favorites_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FAVORITES_COUNT));
+  listed_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.LISTED_COUNT));
   followers_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FOLLOWERS_COUNT));
   friends_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.FRIENDS_COUNT));
   statuses_count=cursor.getInt(cursor.getColumnIndex(CachedUsers.STATUSES_COUNT));

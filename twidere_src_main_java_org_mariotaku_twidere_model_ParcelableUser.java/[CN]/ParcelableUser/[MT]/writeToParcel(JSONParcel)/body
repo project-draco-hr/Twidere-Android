@@ -17,6 +17,7 @@
   out.writeInt("friends_count",friends_count);
   out.writeInt("statuses_count",statuses_count);
   out.writeInt("favorites_count",favorites_count);
+  out.writeInt("listed_count",listed_count);
   out.writeBoolean("is_cache",is_cache);
   out.writeString("description_html",description_html);
   out.writeString("description_expanded",description_expanded);

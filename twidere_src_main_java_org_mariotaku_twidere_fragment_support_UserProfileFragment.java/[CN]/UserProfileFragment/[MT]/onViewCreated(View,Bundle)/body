@@ -17,8 +17,8 @@
   mLocationView=(TextView)headerView.findViewById(R.id.location);
   mURLView=(TextView)headerView.findViewById(R.id.url);
   mCreatedAtView=(TextView)headerView.findViewById(R.id.created_at);
-  mTweetsContainer=headerView.findViewById(R.id.tweets_container);
-  mTweetCount=(TextView)headerView.findViewById(R.id.statuses_count);
+  mListedContainer=headerView.findViewById(R.id.listed_container);
+  mListedCount=(TextView)headerView.findViewById(R.id.listed_count);
   mFollowersContainer=headerView.findViewById(R.id.followers_container);
   mFollowersCount=(TextView)headerView.findViewById(R.id.followers_count);
   mFriendsContainer=headerView.findViewById(R.id.friends_container);

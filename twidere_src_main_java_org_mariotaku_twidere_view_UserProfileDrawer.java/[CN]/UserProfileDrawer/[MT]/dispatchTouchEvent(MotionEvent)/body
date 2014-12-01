@@ -6,7 +6,6 @@ case MotionEvent.ACTION_DOWN:
       mTouchDown=true;
       mTouchingScrollableContent=isScrollContentCallback(ev.getX(),ev.getY());
       mUsingDragHelper=false;
-      mScrollingHeaderByGesture=false;
       break;
     }
 case MotionEvent.ACTION_CANCEL:
@@ -15,7 +14,6 @@ case MotionEvent.ACTION_UP:
     mTouchDown=false;
     mTouchingScrollableContent=false;
     mUsingDragHelper=false;
-    mScrollingHeaderByGesture=false;
   }
 }
 mGestureDetector.onTouchEvent(ev);

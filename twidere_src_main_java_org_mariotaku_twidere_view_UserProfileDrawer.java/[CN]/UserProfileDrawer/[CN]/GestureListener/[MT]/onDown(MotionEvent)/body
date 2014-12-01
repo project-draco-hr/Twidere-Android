@@ -1,3 +1,5 @@
 {
+  mDrawer.setScrollingHeaderByGesture(false);
+  mDrawer.setScrollingContentCallback(false);
   return true;
 }

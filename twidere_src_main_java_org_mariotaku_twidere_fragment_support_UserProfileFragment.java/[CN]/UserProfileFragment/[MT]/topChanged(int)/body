@@ -1,17 +1,8 @@
 {
   final UserProfileDrawer drawer=mUserProfileDrawer;
-  final View space=mProfileBannerSpace;
-  if (drawer == null || space == null)   return;
+  if (drawer == null)   return;
   final int offset=drawer.getPaddingTop() - top;
-  final float factor=offset / (float)space.getHeight();
-  final ProfileBannerImageView profileBannerView=mProfileBannerView;
-  profileBannerView.setAlpha(1.0f - factor / 8f);
-  profileBannerView.setTranslationY(offset / -2f);
-  profileBannerView.setBottomClip(offset);
-  if (mActionBarBackground != null) {
-    mActionBarBackground.setFactor(factor);
-    mUserProfileContent.setFactor(factor);
-  }
+  updateScrollOffset(offset);
   final Fragment fragment=mCurrentVisibleFragment;
   if (fragment instanceof DrawerCallback) {
     ((DrawerCallback)fragment).topChanged(top);

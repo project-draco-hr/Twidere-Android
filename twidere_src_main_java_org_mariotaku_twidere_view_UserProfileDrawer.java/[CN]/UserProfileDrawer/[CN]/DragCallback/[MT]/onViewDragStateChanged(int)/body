@@ -3,7 +3,7 @@ switch (state) {
 case ViewDragHelper.STATE_SETTLING:
 case ViewDragHelper.STATE_DRAGGING:
 {
-      mScrollingByHelper=false;
+      mScrollingHeaderByHelper=false;
       break;
     }
 case ViewDragHelper.STATE_IDLE:
@@ -18,7 +18,7 @@ case ViewDragHelper.STATE_IDLE:
     mDx=Float.NaN;
     mDy=Float.NaN;
     mVelocity=Float.NaN;
-    mScrollingByHelper=false;
+    mScrollingHeaderByHelper=false;
     break;
   }
 }

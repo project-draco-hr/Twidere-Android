@@ -25,7 +25,7 @@
   mPagerIndicator.setViewPager(mViewPager);
   mProfileImageView.setOnClickListener(this);
   mProfileBannerView.setOnClickListener(this);
-  mTweetsContainer.setOnClickListener(this);
+  mListedContainer.setOnClickListener(this);
   mFollowersContainer.setOnClickListener(this);
   mFriendsContainer.setOnClickListener(this);
   mRetryButton.setOnClickListener(this);

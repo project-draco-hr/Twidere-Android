@@ -8,6 +8,7 @@
   values.put(CachedUsers.CREATED_AT,user.created_at);
   values.put(CachedUsers.IS_PROTECTED,user.is_protected);
   values.put(CachedUsers.IS_VERIFIED,user.is_verified);
+  values.put(CachedUsers.LISTED_COUNT,user.listed_count);
   values.put(CachedUsers.FAVORITES_COUNT,user.favorites_count);
   values.put(CachedUsers.FOLLOWERS_COUNT,user.followers_count);
   values.put(CachedUsers.FRIENDS_COUNT,user.friends_count);

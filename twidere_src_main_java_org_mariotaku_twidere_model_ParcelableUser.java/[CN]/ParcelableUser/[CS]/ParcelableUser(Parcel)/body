@@ -17,6 +17,7 @@
   friends_count=in.readInt();
   statuses_count=in.readInt();
   favorites_count=in.readInt();
+  listed_count=in.readInt();
   is_cache=in.readInt() == 1;
   description_html=in.readString();
   description_expanded=in.readString();

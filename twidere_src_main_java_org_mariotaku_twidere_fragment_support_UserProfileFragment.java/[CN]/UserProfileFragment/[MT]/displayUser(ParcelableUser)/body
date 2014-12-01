@@ -40,7 +40,7 @@
   final float daysSinceCreated=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
   final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreated));
   mCreatedAtView.setText(res.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
-  mTweetCount.setText(getLocalizedNumber(mLocale,user.statuses_count));
+  mListedCount.setText(getLocalizedNumber(mLocale,user.listed_count));
   mFollowersCount.setText(getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(getLocalizedNumber(mLocale,user.friends_count));
   if (userColor != 0) {

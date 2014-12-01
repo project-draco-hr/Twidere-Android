@@ -1,10 +1,11 @@
 {
+  final int top=mDrawer.getHeaderTop(), min=mDrawer.getHeaderTopMinimum();
   if (velocityY > 0 && !mDrawer.canScrollCallback(-1)) {
     if (Math.abs(velocityY) > Math.abs(velocityX)) {
       mDrawer.flingHeader(velocityY);
     }
   }
- else   if (velocityY < 0 && mDrawer.getHeaderTop() <= mDrawer.getHeaderTopMinimum()) {
+ else   if (velocityY < 0 && top <= min && mDrawer.isScrollingContentCallback()) {
     if (Math.abs(velocityY) > Math.abs(velocityX)) {
       mDrawer.flingCallback(-velocityY);
     }

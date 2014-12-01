@@ -16,7 +16,8 @@
   }
   mPagerAdapter.addTab(UserTimelineFragment.class,tabArgs,getString(R.string.statuses),null,0);
   if (Utils.isOfficialKeyAccount(context,accountId)) {
-    mPagerAdapter.addTab(UserMediaTimelineFragment.class,tabArgs,getString(R.string.media),null,0);
+    mPagerAdapter.addTab(UserMediaTimelineFragment.class,tabArgs,getString(R.string.media),null,1);
   }
+  mPagerAdapter.addTab(UserFavoritesFragment.class,tabArgs,getString(R.string.favorites),null,2);
   mPagerIndicator.notifyDataSetChanged();
 }

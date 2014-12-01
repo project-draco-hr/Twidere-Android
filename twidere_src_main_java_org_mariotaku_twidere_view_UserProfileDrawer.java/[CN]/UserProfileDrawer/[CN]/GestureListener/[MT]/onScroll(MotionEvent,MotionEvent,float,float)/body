@@ -3,14 +3,14 @@
     final int offset=mDrawer.getHeaderTop(), min=mDrawer.getHeaderTopMinimum();
     if (!mDrawer.canScrollCallback(-1)) {
       if (distanceY < 0) {
-        if (!mDrawer.mDragCallback.isScrollingByHelper()) {
+        if (!mDrawer.isScrollingHeaderByHelper()) {
           mDrawer.offsetHeaderBy(Math.round(-distanceY));
         }
         mDrawer.setScrollingHeaderByGesture(true);
       }
  else       if (distanceY > 0 && offset > min) {
         mDrawer.cancelTouchCallback();
-        if (!mDrawer.mDragCallback.isScrollingByHelper()) {
+        if (!mDrawer.isScrollingHeaderByHelper()) {
           mDrawer.offsetHeaderBy(Math.round(-distanceY));
         }
       }

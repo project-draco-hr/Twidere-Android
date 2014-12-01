@@ -5,5 +5,6 @@
     final int top=i == 0 ? mHeaderOffset + getPaddingTop() : getChildAt(i - 1).getBottom();
     final int bottom=top + child.getMeasuredHeight();
     child.layout(left,top,right,bottom);
+    notifyOffsetChanged();
   }
 }

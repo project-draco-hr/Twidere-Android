@@ -21,6 +21,7 @@
   friends_count=user.getFriendsCount();
   statuses_count=user.getStatusesCount();
   favorites_count=user.getFavouritesCount();
+  listed_count=user.getListedCount();
   is_cache=false;
   is_following=user.isFollowing();
   description_unescaped=toPlainText(description_html);

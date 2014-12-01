@@ -4,4 +4,5 @@
   }
   mActionBarBackground.setColor(color);
   mUserProfileContent.setColor(color);
+  mPagerIndicator.setIndicatorColor(color);
 }

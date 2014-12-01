@@ -1,3 +1,4 @@
 {
+  setScrollingContentCallback(true);
   mDrawerCallback.scrollBy(dy);
 }
