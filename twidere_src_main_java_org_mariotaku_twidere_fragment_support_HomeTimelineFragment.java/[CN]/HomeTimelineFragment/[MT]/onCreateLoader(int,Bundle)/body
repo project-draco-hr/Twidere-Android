@@ -1,0 +1,8 @@
+{
+  final Context context=getActivity();
+  final Uri uri=Statuses.CONTENT_URI;
+  final SharedPreferences preferences=getSharedPreferences();
+  final boolean sortById=preferences.getBoolean(KEY_SORT_TIMELINE_BY_ID,false);
+  final String sortOrder=sortById ? Statuses.SORT_ORDER_STATUS_ID_DESC : Statuses.SORT_ORDER_TIMESTAMP_DESC;
+  return new CursorLoader(context,uri,CursorStatusesListAdapter.CURSOR_COLS,null,null,sortOrder);
+}

@@ -1,3 +1,0 @@
-{
-  return new ParcelableActivitiesAboutMeAdapter(context,compactCards,plainListStyle);
-}

@@ -3,7 +3,7 @@
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
   if (!isMyAccount(getActivity(),accountId)) {
-    mMainContent.setVisibility(View.GONE);
+    mCardContent.setVisibility(View.GONE);
     mErrorRetryContainer.setVisibility(View.GONE);
     return;
   }
@@ -20,7 +20,7 @@
     lm.restartLoader(LOADER_ID_USER,args,mUserInfoLoaderCallbacks);
   }
   if (accountId == -1 || userId == -1 && screenName == null) {
-    mMainContent.setVisibility(View.GONE);
+    mCardContent.setVisibility(View.GONE);
     mErrorRetryContainer.setVisibility(View.GONE);
     return;
   }

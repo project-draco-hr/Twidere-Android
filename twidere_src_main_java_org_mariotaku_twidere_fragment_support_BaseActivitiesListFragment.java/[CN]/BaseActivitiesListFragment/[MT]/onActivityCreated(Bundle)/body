@@ -1,12 +1,11 @@
 {
   super.onActivityCreated(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final boolean plainListStyle=mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false);
   final boolean compactCards=mPreferences.getBoolean(KEY_COMPACT_CARDS,false);
-  mAdapter=createListAdapter(getActivity(),compactCards,plainListStyle);
+  mAdapter=createListAdapter(getActivity(),compactCards);
   setListAdapter(mAdapter);
   final ListView lv=getListView();
-  if (!plainListStyle) {
+  if (!compactCards) {
     lv.setDivider(null);
   }
   lv.setSelector(android.R.color.transparent);

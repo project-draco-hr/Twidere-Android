@@ -1,0 +1,4 @@
+{
+  final Cursor c=mCursor;
+  return c != null && c.moveToPosition(position) && c.getInt(mIndices.is_gap) == 1;
+}

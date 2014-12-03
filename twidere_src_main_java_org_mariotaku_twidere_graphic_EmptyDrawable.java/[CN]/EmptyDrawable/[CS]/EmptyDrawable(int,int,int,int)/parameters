@@ -1,0 +1,4 @@
+int minimumWidth
+int minimumHeight
+int intrinsicWidth
+int intrinsicHeight

@@ -2,5 +2,8 @@
   if (position == getItemCount() - 1) {
     return ITEM_VIEW_TYPE_LOAD_INDICATOR;
   }
+ else   if (isGapItem(position)) {
+    return ITEM_VIEW_TYPE_GAP;
+  }
   return ITEM_VIEW_TYPE_STATUS;
 }

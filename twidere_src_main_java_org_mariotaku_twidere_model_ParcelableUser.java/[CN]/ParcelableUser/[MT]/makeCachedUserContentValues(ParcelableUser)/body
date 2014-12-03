@@ -21,5 +21,8 @@
   values.put(CachedUsers.URL_EXPANDED,user.url_expanded);
   values.put(CachedUsers.PROFILE_BANNER_URL,user.profile_banner_url);
   values.put(CachedUsers.IS_FOLLOWING,user.is_following);
+  values.put(CachedUsers.BACKGROUND_COLOR,user.background_color);
+  values.put(CachedUsers.LINK_COLOR,user.link_color);
+  values.put(CachedUsers.TEXT_COLOR,user.text_color);
   return values;
 }

@@ -1,0 +1,3 @@
+{
+  return mHeaders.size() + mCategoriesCount + (mFirstItemIsCategory ? 0 : 1);
+}

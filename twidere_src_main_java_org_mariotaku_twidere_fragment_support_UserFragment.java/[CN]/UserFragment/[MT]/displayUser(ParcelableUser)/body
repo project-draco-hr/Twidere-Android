@@ -7,6 +7,7 @@
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
   final boolean userIsMe=user.account_id == user.id;
+  mCardContent.setVisibility(View.VISIBLE);
   mErrorRetryContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;

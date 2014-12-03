@@ -1,4 +1,0 @@
-{
-  mProgressBar.setVisibility(shown ? View.GONE : View.VISIBLE);
-  mSwipeRefreshLayout.setVisibility(shown ? View.VISIBLE : View.GONE);
-}

@@ -1,7 +1,0 @@
-{
-  final int left=view.getLeft();
-  final int top=view.getTop();
-  final int right=view.getRight();
-  final int bottom=Math.round(view.getBottom() - mImageView.mBottomClip - view.getTranslationY());
-  outline.setRect(left,top,right,bottom);
-}

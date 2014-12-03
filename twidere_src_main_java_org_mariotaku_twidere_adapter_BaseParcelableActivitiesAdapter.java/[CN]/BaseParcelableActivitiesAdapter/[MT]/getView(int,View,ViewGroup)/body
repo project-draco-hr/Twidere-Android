@@ -3,10 +3,6 @@
   final Object tag=view.getTag();
   final ActivityListViewHolder holder=tag instanceof ActivityListViewHolder ? (ActivityListViewHolder)tag : new ActivityListViewHolder(view);
   if (!(tag instanceof ActivityListViewHolder)) {
-    if (mPlainList) {
-      ((View)holder.content).setPadding(0,0,0,0);
-      holder.content.setItemBackground(null);
-    }
     view.setTag(holder);
   }
   final boolean showAccountColor=isShowAccountColor();

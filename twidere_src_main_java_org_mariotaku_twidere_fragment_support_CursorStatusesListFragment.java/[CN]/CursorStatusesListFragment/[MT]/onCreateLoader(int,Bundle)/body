@@ -22,5 +22,5 @@
     where=accountWhere;
   }
   final String selection=processWhere(where).getSQL();
-  return new CursorLoader(context,uri,CursorStatusesAdapter.CURSOR_COLS,selection,null,sortOrder);
+  return new CursorLoader(context,uri,CursorStatusesListAdapter.CURSOR_COLS,selection,null,sortOrder);
 }

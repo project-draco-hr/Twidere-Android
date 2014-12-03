@@ -9,10 +9,6 @@
     holder=new UserListViewHolder(view);
     holder.profile_image.setOnClickListener(this);
     holder.content.setOnOverflowIconClickListener(this);
-    if (mPlainList) {
-      ((View)holder.content).setPadding(0,0,0,0);
-      holder.content.setItemBackground(null);
-    }
     view.setTag(holder);
   }
   holder.position=position;

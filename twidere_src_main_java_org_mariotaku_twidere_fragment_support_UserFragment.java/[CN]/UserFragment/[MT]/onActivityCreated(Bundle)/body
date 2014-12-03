@@ -22,6 +22,7 @@
   ViewCompat.setTransitionName(mCardView,TRANSITION_NAME_CARD);
   mHeaderDrawerLayout.setDrawerCallback(this);
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
+  mViewPager.setOffscreenPageLimit(3);
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
   mProfileImageView.setOnClickListener(this);

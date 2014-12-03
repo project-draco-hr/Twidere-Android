@@ -18,7 +18,7 @@
         setItemSelected(status,position,!mMultiSelectManager.isSelected(status));
         return;
       }
-      openStatus(getActivity(),status);
+      openStatus(getActivity(),status,null);
     }
   }
 }

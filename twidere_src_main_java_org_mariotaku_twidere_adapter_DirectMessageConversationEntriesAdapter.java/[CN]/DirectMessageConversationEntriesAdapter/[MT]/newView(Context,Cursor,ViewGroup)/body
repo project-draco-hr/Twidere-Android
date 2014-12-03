@@ -4,10 +4,6 @@
   if (!(tag instanceof DirectMessageEntryViewHolder)) {
     final DirectMessageEntryViewHolder holder=new DirectMessageEntryViewHolder(view);
     holder.profile_image.setOnClickListener(this);
-    if (mPlainList) {
-      ((View)holder.content).setPadding(0,0,0,0);
-      holder.content.setItemBackground(null);
-    }
     view.setTag(holder);
   }
   return view;

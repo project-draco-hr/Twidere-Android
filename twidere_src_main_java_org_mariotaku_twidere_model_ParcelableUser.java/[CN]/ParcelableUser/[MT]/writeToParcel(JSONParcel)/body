@@ -8,6 +8,9 @@
   out.writeString("name",name);
   out.writeString("screen_name",screen_name);
   out.writeString("description_plain",description_plain);
+  out.writeString("description_html",description_html);
+  out.writeString("description_expanded",description_expanded);
+  out.writeString("description_unescaped",description_unescaped);
   out.writeString("location",location);
   out.writeString("profile_image_url",profile_image_url);
   out.writeString("profile_banner_url",profile_banner_url);
@@ -19,9 +22,9 @@
   out.writeInt("favorites_count",favorites_count);
   out.writeInt("listed_count",listed_count);
   out.writeBoolean("is_cache",is_cache);
-  out.writeString("description_html",description_html);
-  out.writeString("description_expanded",description_expanded);
   out.writeString("url_expanded",url_expanded);
   out.writeBoolean("is_following",is_following);
-  out.writeString("description_unescaped",description_unescaped);
+  out.writeInt("background_color",background_color);
+  out.writeInt("link_color",link_color);
+  out.writeInt("text_color",text_color);
 }

@@ -1,3 +1,5 @@
 {
-  swapCursor(data);
+  mCursor=data;
+  mIndices=data != null ? new CursorIndices(data) : null;
+  notifyDataSetChanged();
 }

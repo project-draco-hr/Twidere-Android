@@ -3,7 +3,7 @@
   this.account_id=account_id;
   final URLEntity[] urls_url_entities=user.getURLEntities();
   id=user.getId();
-  created_at=getTime(user.getCreatedAt());
+  created_at=user.getCreatedAt().getTime();
   is_protected=user.isProtected();
   is_verified=user.isVerified();
   name=user.getName();
@@ -11,6 +11,7 @@
   description_plain=user.getDescription();
   description_html=formatUserDescription(user);
   description_expanded=formatExpandedUserDescription(user);
+  description_unescaped=toPlainText(description_html);
   location=user.getLocation();
   profile_image_url=ParseUtils.parseString(user.getProfileImageUrlHttps());
   profile_banner_url=user.getProfileBannerImageUrl();
@@ -24,5 +25,7 @@
   listed_count=user.getListedCount();
   is_cache=false;
   is_following=user.isFollowing();
-  description_unescaped=toPlainText(description_html);
+  background_color=ParseUtils.parseColor(user.getProfileBackgroundColor(),0);
+  link_color=ParseUtils.parseColor(user.getProfileLinkColor(),0);
+  text_color=ParseUtils.parseColor(user.getProfileTextColor(),0);
 }

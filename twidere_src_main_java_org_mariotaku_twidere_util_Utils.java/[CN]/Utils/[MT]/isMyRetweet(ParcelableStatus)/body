@@ -1,4 +1,3 @@
 {
-  if (status == null)   return false;
-  return status.retweeted_by_id == status.account_id || status.my_retweet_id > 0;
+  return status != null && isMyRetweet(status.account_id,status.retweeted_by_id,status.my_retweet_id);
 }

@@ -18,5 +18,5 @@
  else {
     where=accountWhere;
   }
-  return new CursorLoader(getActivity(),uri,CursorStatusesAdapter.CURSOR_COLS,where.getSQL(),null,sort_by);
+  return new CursorLoader(getActivity(),uri,CursorStatusesListAdapter.CURSOR_COLS,where.getSQL(),null,sort_by);
 }

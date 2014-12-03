@@ -1,8 +1,0 @@
-{
-  if (mAdapter.getStatusCount() > 0) {
-    getStatuses(0,mAdapter.getStatus(0).id);
-  }
- else {
-    getStatuses(0,0);
-  }
-}

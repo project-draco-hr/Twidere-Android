@@ -1,0 +1,6 @@
+{
+  mMinimumWidth=drawableToCopySize.getMinimumWidth();
+  mMinimumHeight=drawableToCopySize.getMinimumHeight();
+  mIntrinsicWidth=drawableToCopySize.getIntrinsicWidth();
+  mIntrinsicHeight=drawableToCopySize.getIntrinsicHeight();
+}

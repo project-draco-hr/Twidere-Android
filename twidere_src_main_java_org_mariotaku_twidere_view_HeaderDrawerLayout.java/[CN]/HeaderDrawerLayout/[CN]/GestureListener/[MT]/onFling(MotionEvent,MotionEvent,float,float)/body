@@ -1,14 +1,21 @@
 {
   final int top=mDrawer.getHeaderTop(), min=mDrawer.getHeaderTopMinimum();
-  if (velocityY > 0 && !mDrawer.canScrollCallback(-1)) {
-    if (Math.abs(velocityY) > Math.abs(velocityX)) {
-      mDrawer.flingHeader(velocityY);
+  final boolean showingFullContent=top <= min, flingUp=velocityY < 0;
+  final boolean verticalFling=Math.abs(velocityY) > Math.abs(velocityX);
+  if (!verticalFling)   return true;
+  if (showingFullContent) {
+    if (flingUp) {
+      if (mDrawer.isScrollingContentCallback()) {
+        mDrawer.flingCallback(-velocityY);
+      }
+    }
+ else {
+      if (!mDrawer.canScrollCallback(1) && !mDrawer.isUsingDragHelper()) {
+        mDrawer.flingHeader(velocityY);
+      }
     }
   }
- else   if (velocityY < 0 && top <= min && mDrawer.isScrollingContentCallback()) {
-    if (Math.abs(velocityY) > Math.abs(velocityX)) {
-      mDrawer.flingCallback(-velocityY);
-    }
+ else {
   }
   return true;
 }

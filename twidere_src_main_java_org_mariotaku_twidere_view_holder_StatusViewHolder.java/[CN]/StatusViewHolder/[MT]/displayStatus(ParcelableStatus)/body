@@ -38,6 +38,8 @@
   nameView.setText(status.user_name);
   screenNameView.setText("@" + status.user_screen_name);
   timeView.setTime(status.timestamp);
+  final int userColor=UserColorNicknameUtils.getUserColor(context,status.user_id);
+  profileImageView.setBorderColor(userColor);
   loader.displayProfileImage(profileImageView,status.user_profile_image_url);
   if (media != null && media.length > 0) {
     final ParcelableMedia firstMedia=media[0];

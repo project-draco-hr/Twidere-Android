@@ -1,0 +1,3 @@
+long account_id
+long retweeted_by_id
+long my_retweet_id

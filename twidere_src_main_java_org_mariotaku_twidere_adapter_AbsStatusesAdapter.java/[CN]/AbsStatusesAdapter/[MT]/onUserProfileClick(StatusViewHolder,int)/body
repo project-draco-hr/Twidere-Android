@@ -1,0 +1,12 @@
+{
+  final Context context=getContext();
+  final ParcelableStatus status=getStatus(position);
+  final View profileImageView=holder.getProfileImageView();
+  if (context instanceof FragmentActivity) {
+    final Bundle options=Utils.makeSceneTransitionOption((FragmentActivity)context,new Pair<>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE));
+    Utils.openUserProfile(context,status.account_id,status.user_id,status.user_screen_name,options);
+  }
+ else {
+    Utils.openUserProfile(context,status.account_id,status.user_id,status.user_screen_name,null);
+  }
+}

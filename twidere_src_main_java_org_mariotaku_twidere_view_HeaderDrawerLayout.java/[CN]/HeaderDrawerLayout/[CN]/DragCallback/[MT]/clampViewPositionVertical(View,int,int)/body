@@ -4,12 +4,12 @@
     mScrollingHeaderByHelper=false;
     return current;
   }
-  if (dy > 0 && mDrawer.canScrollCallback(-dy)) {
+  if (dy > 0 && mDrawer.canScrollCallback(-dy) && mDrawer.isTouchingScrollableContent()) {
     if (!mDrawer.isUsingDragHelper()) {
       mScrollingHeaderByHelper=false;
       return current;
     }
- else     if (mDrawer.isTouchingScrollableContent()) {
+ else {
       mDrawer.scrollByCallback(-dy);
       mScrollingHeaderByHelper=false;
       return current;

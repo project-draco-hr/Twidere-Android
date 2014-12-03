@@ -1,0 +1,5 @@
+{
+  super(itemView);
+  this.adapter=adapter;
+  itemView.setOnClickListener(this);
+}

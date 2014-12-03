@@ -1,0 +1,4 @@
+{
+  mHeaders.addAll(headers);
+  notifyDataSetChanged();
+}

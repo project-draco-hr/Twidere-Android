@@ -1,6 +1,0 @@
-{
-  super.dispatchDraw(canvas);
-  if (mBottomClip != 0 && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-    canvas.drawRect(getLeft(),getBottom() - mBottomClip - getTranslationY(),getRight(),getBottom(),mClipPaint);
-  }
-}

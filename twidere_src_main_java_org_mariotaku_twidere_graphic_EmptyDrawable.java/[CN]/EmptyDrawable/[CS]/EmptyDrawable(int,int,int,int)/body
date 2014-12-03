@@ -1,0 +1,6 @@
+{
+  mMinimumWidth=minimumWidth;
+  mMinimumHeight=minimumHeight;
+  mIntrinsicWidth=intrinsicWidth;
+  mIntrinsicHeight=intrinsicHeight;
+}

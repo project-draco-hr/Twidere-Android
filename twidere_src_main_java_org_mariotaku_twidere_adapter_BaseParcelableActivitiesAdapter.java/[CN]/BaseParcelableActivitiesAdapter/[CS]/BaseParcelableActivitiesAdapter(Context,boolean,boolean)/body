@@ -1,8 +1,0 @@
-{
-  super(context,getItemResource(compactCards));
-  mPlainList=plainList;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mMultiSelectManager=app.getMultiSelectManager();
-  mImageLoader=app.getImageLoaderWrapper();
-  configBaseCardAdapter(context,this);
-}

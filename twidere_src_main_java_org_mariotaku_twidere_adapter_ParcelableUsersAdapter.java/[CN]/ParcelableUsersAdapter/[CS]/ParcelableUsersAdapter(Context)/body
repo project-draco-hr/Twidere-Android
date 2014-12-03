@@ -1,3 +1,3 @@
 {
-  this(context,Utils.isCompactCards(context),Utils.isPlainListStyle(context));
+  this(context,Utils.isCompactCards(context));
 }

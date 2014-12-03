@@ -1,0 +1,9 @@
+{
+  final Context context=getContext();
+  if (!(context instanceof FragmentActivity))   return;
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_STATUS,getStatus(position));
+  final StatusMenuDialogFragment f=new StatusMenuDialogFragment();
+  f.setArguments(args);
+  f.show(((FragmentActivity)context).getSupportFragmentManager(),"status_menu");
+}

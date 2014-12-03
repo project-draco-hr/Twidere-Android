@@ -5,7 +5,7 @@
 switch (item.getItemId()) {
 case MENU_VIEW:
 {
-      openStatus(getActivity(),status);
+      openStatus(getActivity(),status,null);
       break;
     }
 case MENU_SHARE:

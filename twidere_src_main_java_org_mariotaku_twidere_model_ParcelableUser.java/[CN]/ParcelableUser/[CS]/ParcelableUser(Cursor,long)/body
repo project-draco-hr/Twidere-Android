@@ -24,4 +24,7 @@
   is_cache=true;
   description_unescaped=toPlainText(description_html);
   is_following=cursor.getInt(cursor.getColumnIndex(CachedUsers.IS_FOLLOWING)) == 1;
+  background_color=cursor.getInt(cursor.getColumnIndex(CachedUsers.BACKGROUND_COLOR));
+  link_color=cursor.getInt(cursor.getColumnIndex(CachedUsers.LINK_COLOR));
+  text_color=cursor.getInt(cursor.getColumnIndex(CachedUsers.TEXT_COLOR));
 }

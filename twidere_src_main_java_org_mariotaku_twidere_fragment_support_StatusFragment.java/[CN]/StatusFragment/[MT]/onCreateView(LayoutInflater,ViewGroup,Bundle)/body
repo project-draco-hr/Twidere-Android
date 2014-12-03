@@ -33,6 +33,6 @@
   mLoadImagesIndicator=mHeaderView.findViewById(R.id.load_images);
   mRetryButton=(Button)view.findViewById(R.id.retry);
   final View cardView=mHeaderView.findViewById(R.id.card);
-  ThemeUtils.applyThemeAlphaToDrawable(cardView.getContext(),cardView.getBackground());
+  ViewCompat.setTransitionName(cardView,TRANSITION_NAME_CARD);
   return view;
 }

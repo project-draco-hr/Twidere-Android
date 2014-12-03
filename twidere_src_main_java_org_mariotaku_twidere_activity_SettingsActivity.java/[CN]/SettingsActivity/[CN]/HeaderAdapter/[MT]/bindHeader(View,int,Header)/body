@@ -1,0 +1,28 @@
+{
+  final HeaderViewHolder holder;
+  final Object tag=view.getTag();
+  if (tag instanceof HeaderViewHolder) {
+    holder=(HeaderViewHolder)tag;
+  }
+ else {
+    holder=new HeaderViewHolder(view);
+    view.setTag(holder);
+  }
+  final CharSequence title=header.getTitle(mResources);
+  holder.title.setText(title);
+  final CharSequence summary=header.getSummary(mResources);
+  if (!TextUtils.isEmpty(summary)) {
+    holder.summary.setVisibility(View.VISIBLE);
+    holder.summary.setText(summary);
+  }
+ else {
+    holder.summary.setVisibility(View.GONE);
+  }
+  if (header.iconRes != 0) {
+    holder.icon.setImageResource(header.iconRes);
+  }
+ else {
+    holder.icon.setImageDrawable(null);
+  }
+  holder.icon.setColorFilter(mActionIconColor,Mode.SRC_ATOP);
+}

@@ -8,6 +8,9 @@
   name=in.readString("name");
   screen_name=in.readString("screen_name");
   description_plain=in.readString("description_plain");
+  description_html=in.readString("description_html");
+  description_expanded=in.readString("description_expanded");
+  description_unescaped=in.readString("description_unescaped");
   location=in.readString("location");
   profile_image_url=in.readString("profile_image_url");
   profile_banner_url=in.readString("profile_banner_url");
@@ -19,9 +22,9 @@
   favorites_count=in.readInt("favorites_count");
   listed_count=in.readInt("listed_count");
   is_cache=in.readBoolean("is_cache");
-  description_html=in.readString("description_html");
-  description_expanded=in.readString("description_expanded");
   url_expanded=in.readString("url_expanded");
   is_following=in.readBoolean("is_following");
-  description_unescaped=in.readString("description_unescaped");
+  background_color=in.readInt("background_color");
+  link_color=in.readInt("link_color");
+  text_color=in.readInt("text_color");
 }

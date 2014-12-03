@@ -4,5 +4,5 @@
   if (context instanceof FitSystemWindowsCallback) {
     ((FitSystemWindowsCallback)context).fitSystemWindows(insets);
   }
-  return false;
+  return super.fitSystemWindows(insets);
 }

@@ -2,7 +2,6 @@
   mPackageManager=getPackageManager();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mCompactCards=mPreferences.getBoolean(KEY_COMPACT_CARDS,false);
-  mPlainListStyle=mPreferences.getBoolean(KEY_PLAIN_LIST_STYLE,false);
   mTheme=mPreferences.getString(KEY_THEME,DEFAULT_THEME);
   mThemeBackground=mPreferences.getString(KEY_THEME_BACKGROUND,DEFAULT_THEME_BACKGROUND);
   mThemeBackgroundAlpha=mPreferences.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA);
@@ -16,5 +15,23 @@
   }
   if (savedInstanceState != null) {
     invalidateHeaders();
+  }
+  final ListView listView=getListView();
+  if (listView != null) {
+    listView.setDivider(new EmptyDrawable());
+    listView.setDividerHeight(0);
+    final LayoutParams lp=listView.getLayoutParams();
+    if (lp instanceof MarginLayoutParams) {
+      final MarginLayoutParams mlp=(MarginLayoutParams)lp;
+      mlp.leftMargin=0;
+      mlp.topMargin=0;
+      mlp.rightMargin=0;
+      mlp.bottomMargin=0;
+      listView.setLayoutParams(mlp);
+    }
+    final ViewParent listParent=listView.getParent();
+    if (listParent instanceof ViewGroup) {
+      ((ViewGroup)listParent).setPadding(0,0,0,0);
+    }
   }
 }

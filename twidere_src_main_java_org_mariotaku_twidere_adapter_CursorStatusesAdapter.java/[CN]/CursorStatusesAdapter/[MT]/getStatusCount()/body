@@ -1,3 +1,4 @@
 {
-  return super.getCount();
+  if (mCursor == null)   return 0;
+  return mCursor.getCount();
 }

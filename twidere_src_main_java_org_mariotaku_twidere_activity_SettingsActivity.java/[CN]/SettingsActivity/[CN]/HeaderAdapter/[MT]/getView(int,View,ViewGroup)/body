@@ -1,46 +1,22 @@
 {
   final Header header=getItem(position);
   final int viewType=getHeaderType(header);
-  final View view;
+  final View view=convertView != null ? convertView : inflateItemView(viewType,parent);
 switch (viewType) {
 case HEADER_TYPE_CATEGORY:
 {
-      view=new TextView(mContext,null,android.R.attr.listSeparatorTextViewStyle);
-      ((TextView)view).setText(header.getTitle(mResources));
+      bindCategoryHeader(view,position,header);
       break;
     }
-default :
+case HEADER_TYPE_SPACE:
 {
-    final boolean viewChanged=convertView != null && !(convertView.getTag() instanceof HeaderViewHolder);
-    view=super.getView(position,viewChanged ? null : convertView,parent);
-    final HeaderViewHolder holder;
-    final Object tag=view.getTag();
-    if (tag instanceof HeaderViewHolder) {
-      holder=(HeaderViewHolder)tag;
-    }
- else {
-      holder=new HeaderViewHolder(view);
-      view.setTag(holder);
-    }
-    final CharSequence title=header.getTitle(mResources);
-    holder.title.setText(title);
-    final CharSequence summary=header.getSummary(mResources);
-    if (!TextUtils.isEmpty(summary)) {
-      holder.summary.setVisibility(View.VISIBLE);
-      holder.summary.setText(summary);
-    }
- else {
-      holder.summary.setVisibility(View.GONE);
-    }
-    if (header.iconRes != 0) {
-      holder.icon.setImageResource(header.iconRes);
-    }
- else {
-      holder.icon.setImageDrawable(null);
-    }
-    holder.icon.setColorFilter(mActionIconColor,Mode.SRC_ATOP);
     break;
   }
+default :
+{
+  bindHeader(view,position,header);
+  break;
+}
 }
 return view;
 }

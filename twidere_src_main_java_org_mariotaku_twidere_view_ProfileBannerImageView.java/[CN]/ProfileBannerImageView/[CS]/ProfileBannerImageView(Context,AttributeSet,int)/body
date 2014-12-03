@@ -2,12 +2,4 @@
   super(context,attrs,defStyle);
   if (isInEditMode())   return;
   setScaleType(ScaleType.CENTER_CROP);
-  mClipPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-    ViewCompat.setLayerType(this,ViewCompat.LAYER_TYPE_SOFTWARE,null);
-  }
- else {
-    setOutlineProvider(new CropOutlineProvider(this));
-    setClipToOutline(true);
-  }
 }

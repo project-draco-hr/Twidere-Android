@@ -1,0 +1,9 @@
+{
+  int categoriesCount=0;
+  for (int i=start; i < end; i++) {
+    if (getHeaderType(mHeaders.get(i)) == HEADER_TYPE_CATEGORY) {
+      categoriesCount++;
+    }
+  }
+  return categoriesCount;
+}

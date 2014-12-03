@@ -1,6 +1,3 @@
 {
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  if (twitter == null)   return 0;
-  if (maxIds == null)   return twitter.refreshAll(accountIds);
-  return twitter.getHomeTimelineAsync(accountIds,maxIds,sinceIds);
+  return 0;
 }

@@ -1,0 +1,4 @@
+{
+  updateCategoriesInfo();
+  super.notifyDataSetChanged();
+}
