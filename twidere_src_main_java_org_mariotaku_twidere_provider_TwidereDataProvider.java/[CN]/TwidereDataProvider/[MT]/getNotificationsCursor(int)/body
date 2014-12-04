@@ -3,7 +3,7 @@
   if (id == NOTIFICATION_ID_HOME_TIMELINE) {
     c.addRow(new Integer[]{id,mNewStatuses.size()});
   }
- else   if (id == NOTIFICATION_ID_MENTIONS) {
+ else   if (id == NOTIFICATION_ID_MENTIONS_TIMELINE) {
     c.addRow(new Integer[]{id,mNewMentions.size()});
   }
  else   if (id == NOTIFICATION_ID_DIRECT_MESSAGES) {

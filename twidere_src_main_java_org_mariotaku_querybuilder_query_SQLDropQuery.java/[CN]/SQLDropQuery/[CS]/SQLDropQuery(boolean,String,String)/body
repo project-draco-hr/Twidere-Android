@@ -1,0 +1,6 @@
+{
+  if (target == null)   throw new NullPointerException();
+  this.dropIfExists=dropIfExists;
+  this.type=type;
+  this.target=target;
+}

@@ -1,4 +1,0 @@
-{
-  super.onScrollChanged(l,t,oldl,oldt);
-  mHelper.dispatchOnScrollChanged(l,t,oldl,oldt);
-}

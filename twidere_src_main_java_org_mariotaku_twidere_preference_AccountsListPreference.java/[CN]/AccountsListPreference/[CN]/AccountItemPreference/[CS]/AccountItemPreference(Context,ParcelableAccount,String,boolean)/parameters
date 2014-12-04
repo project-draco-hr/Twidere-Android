@@ -1,0 +1,4 @@
+Context context
+ParcelableAccount account
+String switchKey
+boolean switchDefault

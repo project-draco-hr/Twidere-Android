@@ -1,0 +1,4 @@
+{
+  final String type=getBestBannerType(width);
+  return TextUtils.isEmpty(baseUrl) ? null : baseUrl + "/" + type;
+}

@@ -2,6 +2,5 @@
   if (account_color_enabled == enabled)   return;
   account_color_enabled=enabled;
   if (!account_color_enabled) {
-    content.drawEnd(Color.TRANSPARENT);
   }
 }

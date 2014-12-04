@@ -1,3 +1,0 @@
-{
-  return getApplication() != null ? getApplication().getMultiSelectManager() : null;
-}

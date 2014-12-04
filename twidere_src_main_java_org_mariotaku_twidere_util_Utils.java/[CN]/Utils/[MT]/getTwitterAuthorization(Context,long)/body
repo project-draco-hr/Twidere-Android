@@ -1,5 +1,5 @@
 {
-  final String where=Where.equals(new Column(Accounts.ACCOUNT_ID),accountId).getSQL();
+  final String where=Expression.equals(new Column(Accounts.ACCOUNT_ID),accountId).getSQL();
   final Cursor c=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,where,null,null);
   if (c == null)   return null;
   try {

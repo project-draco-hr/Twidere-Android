@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.createMute(mUserId);
-    final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,mAccountId),Where.equals(Statuses.USER_ID,mUserId));
+    final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,mAccountId),Expression.equals(Statuses.USER_ID,mUserId));
     mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),null);
     return SingleResponse.getInstance(user,null);
   }

@@ -1,1 +1,1 @@
-ArrayAdapter<Account>
+ArrayAdapter<ParcelableAccount>

@@ -1,10 +1,10 @@
 {
   if (context == null)   return null;
   final long[] account_ids=getActivatedAccountIds(context);
-  final Where accountWhere=Where.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(account_ids));
-  final Where where;
+  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(account_ids));
+  final Expression where;
   if (selection != null) {
-    where=Where.and(accountWhere,new Where(selection));
+    where=Expression.and(accountWhere,new Expression(selection));
   }
  else {
     where=accountWhere;

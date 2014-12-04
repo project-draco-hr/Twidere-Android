@@ -25,4 +25,11 @@
     holder.icon.setImageDrawable(null);
   }
   holder.icon.setColorFilter(mActionIconColor,Mode.SRC_ATOP);
+  if (position > 0 && position <= getCount() - 1) {
+    final boolean prevCategory=getItemViewType(position - 1) == HEADER_TYPE_CATEGORY;
+    holder.content.setShowDividers(prevCategory ? LinearLayout.SHOW_DIVIDER_NONE : LinearLayout.SHOW_DIVIDER_END);
+  }
+ else {
+    holder.content.setShowDividers(LinearLayout.SHOW_DIVIDER_NONE);
+  }
 }

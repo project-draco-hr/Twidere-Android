@@ -8,7 +8,7 @@ case NOTIFICATION_ID_HOME_TIMELINE:
       isAccountSpecific=true;
       break;
     }
-case NOTIFICATION_ID_MENTIONS:
+case NOTIFICATION_ID_MENTIONS_TIMELINE:
 {
     mNewMentions.clear();
     isAccountSpecific=true;

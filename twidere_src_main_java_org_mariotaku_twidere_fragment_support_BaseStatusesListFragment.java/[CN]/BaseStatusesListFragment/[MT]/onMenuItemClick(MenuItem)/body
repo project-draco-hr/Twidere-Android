@@ -71,8 +71,8 @@ break;
 }
 case MENU_TRANSLATE:
 {
-final AccountWithCredentials account=Account.getAccountWithCredentials(getActivity(),status.account_id);
-if (AccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
+final ParcelableAccountWithCredentials account=ParcelableAccount.getAccountWithCredentials(getActivity(),status.account_id);
+if (ParcelableAccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
 StatusTranslateDialogFragment.show(getFragmentManager(),status);
 }
  else {

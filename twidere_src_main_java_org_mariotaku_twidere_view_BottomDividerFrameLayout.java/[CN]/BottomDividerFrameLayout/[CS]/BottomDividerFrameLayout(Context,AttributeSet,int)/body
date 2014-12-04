@@ -1,0 +1,7 @@
+{
+  super(context,attrs,defStyleAttr);
+  setWillNotDraw(false);
+  TypedArray a=context.obtainStyledAttributes(attrs,new int[]{android.R.attr.divider});
+  mDividerDrawable=a.getDrawable(0);
+  a.recycle();
+}

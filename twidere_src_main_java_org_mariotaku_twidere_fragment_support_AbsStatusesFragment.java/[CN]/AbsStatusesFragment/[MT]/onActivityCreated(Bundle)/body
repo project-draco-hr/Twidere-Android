@@ -16,6 +16,7 @@
   }
   mRecyclerView.setAdapter(mAdapter);
   mRecyclerView.setOnScrollListener(mOnScrollListener);
+  mAdapter.setEventListener(this);
   getLoaderManager().initLoader(0,getArguments(),this);
   setListShown(false);
 }

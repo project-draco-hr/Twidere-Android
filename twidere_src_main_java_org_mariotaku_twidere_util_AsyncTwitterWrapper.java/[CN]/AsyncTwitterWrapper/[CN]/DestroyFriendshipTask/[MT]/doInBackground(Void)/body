@@ -3,7 +3,7 @@
   if (twitter != null) {
     try {
       final User user=twitter.destroyFriendship(user_id);
-      final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,account_id),Where.or(Where.equals(Statuses.USER_ID,user_id),Where.equals(Statuses.RETWEETED_BY_USER_ID,user_id)));
+      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,account_id),Expression.or(Expression.equals(Statuses.USER_ID,user_id),Expression.equals(Statuses.RETWEETED_BY_USER_ID,user_id)));
       mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),null);
       return SingleResponse.getInstance(user,null);
     }

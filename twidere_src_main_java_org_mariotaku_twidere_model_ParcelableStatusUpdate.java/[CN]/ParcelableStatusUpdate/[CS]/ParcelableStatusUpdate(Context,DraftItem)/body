@@ -1,5 +1,5 @@
 {
-  accounts=Account.getAccounts(context,draft.account_ids);
+  accounts=ParcelableAccount.getAccounts(context,draft.account_ids);
   text=draft.text;
   location=draft.location;
   media=draft.media;

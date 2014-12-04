@@ -1,5 +1,0 @@
-{
-  if (!isAdded() || getActivity() == null)   return false;
-  Utils.scrollListToTop(getListView());
-  return true;
-}

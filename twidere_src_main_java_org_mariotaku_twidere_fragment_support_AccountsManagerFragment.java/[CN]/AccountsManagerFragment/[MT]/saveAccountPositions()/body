@@ -9,7 +9,7 @@
       final long id=c.getLong(idIdx);
       final ContentValues values=new ContentValues();
       values.put(Accounts.SORT_POSITION,i);
-      final Where where=Where.equals(Accounts._ID,id);
+      final Expression where=Expression.equals(Accounts._ID,id);
       cr.update(Accounts.CONTENT_URI,values,where.getSQL(),null);
     }
   }

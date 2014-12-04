@@ -20,7 +20,7 @@
     mEditText.setOnEditorActionListener(this);
   }
   mEditText.addTextChangedListener(this);
-  final List<Account> accounts=Account.getAccountsList(getActivity(),false);
+  final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(getActivity(),false);
   mAccountSpinner.setAdapter(new AccountsSpinnerAdapter(getActivity(),accounts));
   mAccountSpinner.setOnItemSelectedListener(this);
   mSendButton.setOnClickListener(this);

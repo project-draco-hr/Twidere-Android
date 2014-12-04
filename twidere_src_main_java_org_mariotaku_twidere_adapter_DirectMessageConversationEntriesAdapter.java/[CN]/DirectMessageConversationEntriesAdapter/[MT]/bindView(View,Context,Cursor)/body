@@ -16,8 +16,6 @@
   holder.setTextSize(getTextSize());
   final String nick=getUserNickname(context,conversationId);
   holder.name.setText(TextUtils.isEmpty(nick) ? name : isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,name,nick));
-  holder.screen_name.setText("@" + screenName);
-  holder.screen_name.setVisibility(View.VISIBLE);
   holder.text.setText(toPlainText(cursor.getString(IDX_TEXT)));
   holder.time.setTime(timestamp);
   holder.setIsOutgoing(isOutgoing);
@@ -30,12 +28,6 @@
   }
  else {
     mImageLoader.cancelDisplayTask(holder.profile_image);
-  }
-  if (position > mMaxAnimationPosition) {
-    if (mAnimationEnabled) {
-      view.startAnimation(holder.item_animation);
-    }
-    mMaxAnimationPosition=position;
   }
   super.bindView(view,context,cursor);
 }

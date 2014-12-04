@@ -1,4 +1,0 @@
-{
-  ensureList();
-  mList.setSelection(position);
-}

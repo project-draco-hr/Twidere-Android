@@ -1,4 +1,5 @@
 {
-  final Context context=getContext();
-  Utils.openStatus(context,getStatus(position),null);
+  if (mEventListener != null) {
+    mEventListener.onStatusClick(holder,position);
+  }
 }

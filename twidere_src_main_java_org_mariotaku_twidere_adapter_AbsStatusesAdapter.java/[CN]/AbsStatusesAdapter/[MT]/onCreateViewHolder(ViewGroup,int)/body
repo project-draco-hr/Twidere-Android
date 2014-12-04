@@ -3,7 +3,7 @@ switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
       final View view=mInflater.inflate(mCardLayoutResource,parent,false);
-      return new StatusViewHolder<>(this,view);
+      return new StatusViewHolder(this,view);
     }
 case ITEM_VIEW_TYPE_GAP:
 {

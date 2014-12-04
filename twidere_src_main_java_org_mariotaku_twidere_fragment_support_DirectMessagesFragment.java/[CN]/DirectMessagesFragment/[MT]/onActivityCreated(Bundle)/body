@@ -5,10 +5,7 @@
   mAdapter=new DirectMessageConversationEntriesAdapter(getActivity());
   setListAdapter(mAdapter);
   mListView=getListView();
-  if (!mPreferences.getBoolean(KEY_COMPACT_CARDS,false)) {
-    mListView.setDivider(null);
-  }
-  mListView.setSelector(android.R.color.transparent);
+  mListView.setDivider(null);
   getLoaderManager().initLoader(0,null,this);
   setListShown(false);
 }

@@ -1,0 +1,14 @@
+{
+  if (table == null)   throw new NullPointerException("table must not be null!");
+  final StringBuilder sb=new StringBuilder();
+  sb.append("UPDATE ");
+  if (onConflict != null) {
+    sb.append(String.format(Locale.ROOT,"OR %s ",onConflict.getAction()));
+  }
+  sb.append(String.format(Locale.ROOT,"%s ",table));
+  sb.append(String.format(Locale.ROOT,"SET %s ",Utils.toString(values,',',false)));
+  if (where != null) {
+    sb.append(String.format(Locale.ROOT,"WHERE %s ",where.getSQL()));
+  }
+  return sb.toString();
+}

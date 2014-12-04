@@ -1,0 +1,3 @@
+{
+  return getNewestStatusIdsFromDatabase(getActivity(),getContentUri(),accountIds);
+}

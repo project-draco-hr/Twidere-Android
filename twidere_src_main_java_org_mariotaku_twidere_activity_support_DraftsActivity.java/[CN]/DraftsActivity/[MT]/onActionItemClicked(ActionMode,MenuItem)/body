@@ -22,7 +22,7 @@ case MENU_SEND:
       }
     }
     if (sendDrafts(list)) {
-      final Where where=Where.in(new Column(Drafts._ID),new RawItemArray(mListView.getCheckedItemIds()));
+      final Expression where=Expression.in(new Column(Drafts._ID),new RawItemArray(mListView.getCheckedItemIds()));
       mResolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
     }
     break;

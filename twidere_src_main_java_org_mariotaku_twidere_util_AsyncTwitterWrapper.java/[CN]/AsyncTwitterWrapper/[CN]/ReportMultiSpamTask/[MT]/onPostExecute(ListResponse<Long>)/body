@@ -2,7 +2,7 @@
   if (result != null) {
     final String user_id_where=ListUtils.toString(result.list,',',false);
     for (    final Uri uri : STATUSES_URIS) {
-      final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,account_id),new Where(String.format(Locale.ROOT,"%s IN (%s)",Statuses.USER_ID,user_id_where)));
+      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,account_id),new Expression(String.format(Locale.ROOT,"%s IN (%s)",Statuses.USER_ID,user_id_where)));
       mResolver.delete(uri,where.getSQL(),null);
     }
     mMessagesManager.showInfoMessage(R.string.reported_users_for_spam,false);

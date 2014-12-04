@@ -1,9 +1,3 @@
 {
-  if (mAdapter.getStatusCount() > 0) {
-    final long[] sinceIds=new long[]{mAdapter.getStatus(0).id};
-    getStatuses(null,null,sinceIds);
-  }
- else {
-    getStatuses(null,null,null);
-  }
+  triggerRefresh();
 }

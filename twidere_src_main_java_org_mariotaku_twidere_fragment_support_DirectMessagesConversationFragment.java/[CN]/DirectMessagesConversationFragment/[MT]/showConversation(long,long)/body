@@ -2,7 +2,7 @@
   mAccountId=accountId;
   mRecipientId=recipientId;
   final Context context=getActivity();
-  mSender=Account.getAccount(context,accountId);
+  mSender=ParcelableAccount.getAccount(context,accountId);
   mRecipient=Utils.getUserForConversation(context,accountId,recipientId);
   final LoaderManager lm=getLoaderManager();
   final Bundle args=new Bundle();

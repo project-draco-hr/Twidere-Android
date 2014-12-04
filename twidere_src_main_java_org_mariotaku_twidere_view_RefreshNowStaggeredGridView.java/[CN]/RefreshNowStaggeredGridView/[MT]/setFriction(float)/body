@@ -1,4 +1,0 @@
-{
-  super.setFriction(friction);
-  mHelper.setFriction(friction);
-}

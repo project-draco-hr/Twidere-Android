@@ -1,5 +1,5 @@
 {
-  final SQLInsertIntoQuery.Builder qb=insertInto(onConflict,table);
+  final SQLInsertQuery.Builder qb=insertInto(onConflict,table);
   final List<String> newInsertColsList=new ArrayList<String>();
   for (  final String newCol : newCols) {
     final String oldAliasedCol=colAliases != null ? colAliases.get(newCol) : null;

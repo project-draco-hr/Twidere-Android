@@ -1,7 +1,7 @@
 {
   if (values == null || values.length == 0)   return 0;
   int result=0;
-  final boolean enabled=mPreferences.getBoolean(KEY_FILTERS_IN_MENTIONS,true);
+  final boolean enabled=mPreferences.getBoolean(KEY_FILTERS_IN_MENTIONS_TIMELINE,true);
   final boolean filtersForRts=mPreferences.getBoolean(KEY_FILTERS_FOR_RTS,true);
   for (  final ContentValues value : values) {
     final ParcelableStatus status=new ParcelableStatus(value);

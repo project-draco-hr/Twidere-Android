@@ -1,6 +1,6 @@
 {
   final ContentResolver cr=context.getContentResolver();
-  final Where where=Where.and(Where.equals(ConversationEntries.ACCOUNT_ID,accountId),Where.equals(ConversationEntries.CONVERSATION_ID,conversationId));
+  final Expression where=Expression.and(Expression.equals(ConversationEntries.ACCOUNT_ID,accountId),Expression.equals(ConversationEntries.CONVERSATION_ID,conversationId));
   final Cursor c=cr.query(ConversationEntries.CONTENT_URI,null,where.getSQL(),null,null);
   try {
     if (c.moveToFirst())     return ParcelableUser.fromDirectMessageConversationEntry(c);

@@ -1,2 +1,6 @@
 {
+  final Fragment fragment=mCurrentVisibleFragment;
+  if (fragment instanceof DrawerCallback) {
+    ((DrawerCallback)fragment).scrollBy(dy);
+  }
 }

@@ -1,0 +1,14 @@
+{
+  new AsyncTask<Void,Void,long[][]>(){
+    @Override protected long[][] doInBackground(    final Void... params){
+      final long[][] result=new long[3][];
+      result[0]=getAccountIds();
+      result[1]=getOldestStatusIds(result[0]);
+      return result;
+    }
+    @Override protected void onPostExecute(    final long[][] result){
+      getStatuses(result[0],result[1],result[2]);
+    }
+  }
+.execute();
+}

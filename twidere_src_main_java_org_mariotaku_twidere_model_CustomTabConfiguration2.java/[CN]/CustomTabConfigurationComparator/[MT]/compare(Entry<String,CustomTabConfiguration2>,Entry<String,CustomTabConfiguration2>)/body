@@ -1,3 +1,0 @@
-{
-  return lhs.getValue().getSortPosition() - rhs.getValue().getSortPosition();
-}

@@ -2,48 +2,39 @@
   final ListAdapter adapter=mAdapter.getAdapter(position);
   final Object item=mAdapter.getItem(position);
   if (adapter instanceof AccountOptionsAdapter) {
-    final Account account=mAccountsAdapter.getSelectedAccount();
+    final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
     if (account == null || !(item instanceof OptionItem))     return;
     final OptionItem option=(OptionItem)item;
 switch (option.id) {
-case MENU_VIEW_PROFILE:
-{
-        final FragmentActivity activity=getActivity();
-        final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(mAccountProfileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE));
-        openUserProfile(activity,account.account_id,account.account_id,account.screen_name,activityOption);
-        break;
-      }
 case MENU_SEARCH:
 {
-      final FragmentActivity a=getActivity();
-      if (a instanceof HomeActivity) {
-        ((HomeActivity)a).openSearchView(account);
-      }
+        final FragmentActivity a=getActivity();
+        if (a instanceof HomeActivity) {
+          ((HomeActivity)a).openSearchView(account);
+        }
  else {
-        getActivity().onSearchRequested();
+          getActivity().onSearchRequested();
+        }
+        closeAccountsDrawer();
+        break;
       }
-      closeAccountsDrawer();
+case MENU_COMPOSE:
+{
+      final Intent composeIntent=new Intent(INTENT_ACTION_COMPOSE);
+      composeIntent.setClass(getActivity(),ComposeActivity.class);
+      composeIntent.putExtra(EXTRA_ACCOUNT_IDS,new long[]{account.account_id});
+      startActivity(composeIntent);
       break;
     }
-case MENU_STATUSES:
-{
-    openUserTimeline(getActivity(),account.account_id,account.account_id,account.screen_name);
-    break;
-  }
 case MENU_FAVORITES:
 {
-  openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
-  break;
-}
+    openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
+    break;
+  }
 case MENU_LISTS:
 {
-openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
-break;
-}
-case MENU_LIST_MEMBERSHIPS:
-{
-openUserListMemberships(getActivity(),account.account_id,account.account_id,account.screen_name);
-break;
+  openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
+  break;
 }
 case MENU_EDIT:
 {

@@ -1,4 +1,0 @@
-{
-  if (dropIfExists)   return String.format("DROP VIEW IF EXISTS %s",table);
-  return String.format("DROP VIEW %s",table);
-}

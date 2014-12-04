@@ -1,7 +1,19 @@
 {
   if (intent == null)   return false;
   final String action=intent.getAction();
-  mShouldSaveAccounts=!Intent.ACTION_SEND.equals(action) && !Intent.ACTION_SEND_MULTIPLE.equals(action);
+  final boolean hasAccountIds;
+  if (intent.hasExtra(EXTRA_ACCOUNT_IDS)) {
+    mSendAccountIds=intent.getLongArrayExtra(EXTRA_ACCOUNT_IDS);
+    hasAccountIds=true;
+  }
+ else   if (intent.hasExtra(EXTRA_ACCOUNT_ID)) {
+    mSendAccountIds=new long[]{intent.getLongExtra(EXTRA_ACCOUNT_ID,-1)};
+    hasAccountIds=true;
+  }
+ else {
+    hasAccountIds=false;
+  }
+  mShouldSaveAccounts=!Intent.ACTION_SEND.equals(action) && !Intent.ACTION_SEND_MULTIPLE.equals(action) && !hasAccountIds;
   final Uri data=intent.getData();
   final CharSequence extraSubject=intent.getCharSequenceExtra(Intent.EXTRA_SUBJECT);
   final CharSequence extraText=intent.getCharSequenceExtra(Intent.EXTRA_TEXT);

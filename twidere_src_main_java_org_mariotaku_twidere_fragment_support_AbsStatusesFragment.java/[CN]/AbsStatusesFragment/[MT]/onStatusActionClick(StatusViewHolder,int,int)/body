@@ -1,0 +1,13 @@
+{
+switch (id) {
+case R.id.reply_count:
+{
+      final Context context=getActivity();
+      final Intent intent=new Intent(IntentConstants.INTENT_ACTION_REPLY);
+      intent.setPackage(context.getPackageName());
+      intent.putExtra(IntentConstants.EXTRA_STATUS,mAdapter.getStatus(position));
+      context.startActivity(intent);
+      break;
+    }
+}
+}

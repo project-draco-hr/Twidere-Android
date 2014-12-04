@@ -1,4 +1,0 @@
-{
-  if (dropIfExists)   return String.format("DROP TABLE IF EXISTS %s",table);
-  return String.format("DROP TABLE %s",table);
-}

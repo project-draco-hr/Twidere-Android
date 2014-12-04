@@ -1,3 +1,0 @@
-{
-  return "mentions_timeline" + getTabPosition();
-}

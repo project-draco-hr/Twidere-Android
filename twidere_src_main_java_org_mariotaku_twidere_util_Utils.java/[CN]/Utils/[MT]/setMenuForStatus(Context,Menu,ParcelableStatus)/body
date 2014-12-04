@@ -25,8 +25,8 @@
   }
   final MenuItem translate=menu.findItem(MENU_TRANSLATE);
   if (translate != null) {
-    final AccountWithCredentials account=Account.getAccountWithCredentials(context,status.account_id);
-    final boolean isOfficialKey=AccountWithCredentials.isOfficialCredentials(context,account);
+    final ParcelableAccountWithCredentials account=ParcelableAccount.getAccountWithCredentials(context,status.account_id);
+    final boolean isOfficialKey=ParcelableAccountWithCredentials.isOfficialCredentials(context,account);
     setMenuItemAvailability(menu,MENU_TRANSLATE,isOfficialKey);
   }
   menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);

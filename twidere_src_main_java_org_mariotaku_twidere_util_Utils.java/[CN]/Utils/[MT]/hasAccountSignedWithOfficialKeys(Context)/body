@@ -3,7 +3,7 @@
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,null);
   if (cur == null)   return false;
   final String[] keySecrets=context.getResources().getStringArray(R.array.values_official_consumer_key_secret);
-  final Account.Indices indices=new Account.Indices(cur);
+  final ParcelableAccount.Indices indices=new ParcelableAccount.Indices(cur);
   cur.moveToFirst();
   try {
     while (!cur.isAfterLast()) {

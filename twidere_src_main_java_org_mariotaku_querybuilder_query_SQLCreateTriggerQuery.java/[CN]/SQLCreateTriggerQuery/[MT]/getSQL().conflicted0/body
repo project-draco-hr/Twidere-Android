@@ -1,0 +1,34 @@
+{
+  if (name == null)   throw new NullPointerException("NAME must not be null!");
+  if (event == null)   throw new NullPointerException("EVENT must not be null!");
+  if (on == null)   throw new NullPointerException("ON must not be null!");
+  if (actions == null)   throw new NullPointerException("ACTIONS must not be null!");
+  final StringBuilder sb=new StringBuilder("CREATE ");
+  if (temporary) {
+    sb.append("TEMPORARY ");
+  }
+  sb.append("TRIGGER ");
+  if (createIfNotExists) {
+    sb.append("IF NOT EXISTS ");
+  }
+  sb.append(name);
+  sb.append(' ');
+  if (type != null) {
+    sb.append(type.getSQL());
+    sb.append(' ');
+  }
+  sb.append(event.getSQL());
+  sb.append(' ');
+  if (event == Event.UPDATE) {
+    sb.append(String.format(Locale.ROOT,"%s ",updateOf.getSQL()));
+  }
+  sb.append(String.format(Locale.ROOT,"ON %s ",on.getSQL()));
+  if (forEachRow) {
+    sb.append("FOR EACH ROW ");
+  }
+  if (when != null) {
+    sb.append(String.format(Locale.ROOT,"WHEN %s ",when.getSQL()));
+  }
+  sb.append(String.format(Locale.ROOT,"BEGIN %s; END",Utils.toString(actions,';',true)));
+  return sb.toString();
+}

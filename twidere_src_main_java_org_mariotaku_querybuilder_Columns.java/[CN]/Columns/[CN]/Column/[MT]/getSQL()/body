@@ -1,4 +1,4 @@
 {
-  final String col=table != null ? table + "." + columnName : columnName;
+  final String col=table != null ? table.getSQL() + "." + columnName : columnName;
   return alias != null ? col + " AS " + alias : col;
 }

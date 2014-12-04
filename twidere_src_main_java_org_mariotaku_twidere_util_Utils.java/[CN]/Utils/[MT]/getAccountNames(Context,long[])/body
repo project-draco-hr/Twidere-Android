@@ -1,7 +1,7 @@
 {
   if (context == null)   return new String[0];
   final String[] cols=new String[]{Accounts.NAME};
-  final String where=accountIds != null ? Where.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL() : null;
+  final String where=accountIds != null ? Expression.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL() : null;
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,cols,where,null,null);
   if (cur == null)   return new String[0];
   try {

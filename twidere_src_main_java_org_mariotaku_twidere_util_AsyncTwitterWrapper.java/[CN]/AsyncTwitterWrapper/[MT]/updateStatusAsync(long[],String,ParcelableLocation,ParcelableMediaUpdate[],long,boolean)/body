@@ -1,6 +1,6 @@
 {
   final ParcelableStatusUpdate.Builder builder=new ParcelableStatusUpdate.Builder();
-  builder.accounts(Account.getAccounts(mContext,accountIds));
+  builder.accounts(ParcelableAccount.getAccounts(mContext,accountIds));
   builder.text(text);
   builder.location(location);
   builder.media(media);

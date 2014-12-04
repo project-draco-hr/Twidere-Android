@@ -1,0 +1,17 @@
+{
+  if (context == null)   return null;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Accounts.ACCOUNT_ID + " = " + account_id,null,null);
+  if (cur != null) {
+    try {
+      if (cur.getCount() > 0 && cur.moveToFirst()) {
+        final Indices indices=new Indices(cur);
+        cur.moveToFirst();
+        return new ParcelableAccount(cur,indices);
+      }
+    }
+  finally {
+      cur.close();
+    }
+  }
+  return null;
+}

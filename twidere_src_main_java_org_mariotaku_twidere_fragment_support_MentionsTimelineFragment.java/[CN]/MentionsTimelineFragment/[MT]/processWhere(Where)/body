@@ -1,5 +1,0 @@
-{
-  final Bundle extras=getExtraConfiguration();
-  if (extras.getBoolean(EXTRA_MY_FOLLOWING_ONLY))   return Where.and(where,Where.equals(Mentions.IS_FOLLOWING,1));
-  return where;
-}

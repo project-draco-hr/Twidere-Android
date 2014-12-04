@@ -1,0 +1,3 @@
+{
+  return new SQLDropTriggerQuery(dropIfExists,table);
+}

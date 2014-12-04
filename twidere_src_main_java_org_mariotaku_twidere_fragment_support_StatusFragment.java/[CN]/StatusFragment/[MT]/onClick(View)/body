@@ -50,8 +50,8 @@ break;
 }
 case R.id.favorites_container:
 {
-final AccountWithCredentials account=Account.getAccountWithCredentials(getActivity(),status.account_id);
-if (AccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
+final ParcelableAccountWithCredentials account=ParcelableAccount.getAccountWithCredentials(getActivity(),status.account_id);
+if (ParcelableAccountWithCredentials.isOfficialCredentials(getActivity(),account)) {
 openStatusFavoriters(getActivity(),status.account_id,status.retweet_id > 0 ? status.retweet_id : status.id);
 }
 break;

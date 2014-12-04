@@ -1,5 +1,5 @@
 {
-  final Account account=mAccountsAdapter.getSelectedAccount();
+  final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
   if (account == null)   return;
   final ContentValues values=new ContentValues();
   values.put(Accounts.IS_ACTIVATED,isChecked);

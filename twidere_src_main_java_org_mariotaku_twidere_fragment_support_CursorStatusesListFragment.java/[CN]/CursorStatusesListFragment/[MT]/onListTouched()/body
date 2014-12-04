@@ -1,6 +1,0 @@
-{
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  if (twitter != null) {
-    twitter.clearNotificationAsync(getNotificationType(),getAccountId());
-  }
-}

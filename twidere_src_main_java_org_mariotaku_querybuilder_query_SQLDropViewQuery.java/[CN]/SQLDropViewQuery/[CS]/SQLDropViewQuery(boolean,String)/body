@@ -1,5 +1,3 @@
 {
-  if (table == null)   throw new NullPointerException();
-  this.dropIfExists=dropIfExists;
-  this.table=table;
+  super(dropIfExists,"VIEW",table);
 }

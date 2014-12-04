@@ -1,0 +1,7 @@
+{
+  super.onDraw(canvas);
+  final Drawable divider=mDividerDrawable;
+  if (divider != null) {
+    divider.draw(canvas);
+  }
+}

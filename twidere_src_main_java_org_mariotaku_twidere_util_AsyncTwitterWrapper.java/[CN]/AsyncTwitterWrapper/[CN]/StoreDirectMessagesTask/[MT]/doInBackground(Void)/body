@@ -12,7 +12,7 @@
         values_array[i]=makeDirectMessageContentValues(message,accountId,isOutgoing());
       }
 {
-        final Where deleteWhere=Where.and(Where.equals(DirectMessages.ACCOUNT_ID,accountId),Where.in(new Column(DirectMessages.MESSAGE_ID),new RawItemArray(messageIds)));
+        final Expression deleteWhere=Expression.and(Expression.equals(DirectMessages.ACCOUNT_ID,accountId),Expression.in(new Column(DirectMessages.MESSAGE_ID),new RawItemArray(messageIds)));
         final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
         mResolver.delete(deleteUri,deleteWhere.getSQL(),null);
       }

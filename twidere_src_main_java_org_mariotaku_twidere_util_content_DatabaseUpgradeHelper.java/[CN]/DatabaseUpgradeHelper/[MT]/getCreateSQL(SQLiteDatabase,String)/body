@@ -1,7 +1,7 @@
 {
   final SQLSelectQuery.Builder qb=select(new Column("sql"));
   qb.from(new Tables("sqlite_master"));
-  qb.where(new Where("type = ? AND name = ?"));
+  qb.where(new Expression("type = ? AND name = ?"));
   final Cursor c=db.rawQuery(qb.buildSQL(),new String[]{"table",table});
   if (c == null)   return null;
   try {

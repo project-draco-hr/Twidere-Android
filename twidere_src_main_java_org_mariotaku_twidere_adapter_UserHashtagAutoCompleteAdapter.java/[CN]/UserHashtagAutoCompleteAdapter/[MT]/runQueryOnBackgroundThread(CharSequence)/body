@@ -16,7 +16,7 @@
     builder.append(" OR ");
     builder.append(CachedUsers.NAME + " LIKE ?||'%' ESCAPE '^'");
     builder.append(" OR ");
-    builder.append(Where.in(new Column(CachedUsers.USER_ID),new RawItemArray(getMatchedNicknameIds(ParseUtils.parseString(constraint)))).getSQL());
+    builder.append(Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(getMatchedNicknameIds(ParseUtils.parseString(constraint)))).getSQL());
     final String selection=constraint_escaped != null ? builder.toString() : null;
     final String[] selectionArgs=constraint_escaped != null ? new String[]{constraint_escaped,constraint_escaped} : null;
     final String orderBy=CachedUsers.SCREEN_NAME + ", " + CachedUsers.NAME;

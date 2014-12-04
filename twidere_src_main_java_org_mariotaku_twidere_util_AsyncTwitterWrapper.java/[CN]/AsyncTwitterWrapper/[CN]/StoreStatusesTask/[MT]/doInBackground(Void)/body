@@ -15,9 +15,9 @@
       values[i]=makeStatusContentValues(status,accountId);
       statusIds[i]=status.getId();
     }
-    final Where accountWhere=Where.equals(Statuses.ACCOUNT_ID,accountId);
-    final Where statusWhere=Where.in(new Column(Statuses.STATUS_ID),new RawItemArray(statusIds));
-    final String deleteWhere=Where.and(accountWhere,statusWhere).getSQL();
+    final Expression accountWhere=Expression.equals(Statuses.ACCOUNT_ID,accountId);
+    final Expression statusWhere=Expression.in(new Column(Statuses.STATUS_ID),new RawItemArray(statusIds));
+    final String deleteWhere=Expression.and(accountWhere,statusWhere).getSQL();
     final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
     final int rowsDeleted=mResolver.delete(deleteUri,deleteWhere,null);
     ProfilingUtil.profile(mContext,accountId,"Download tweets, " + ArrayUtils.toString(statusIds,',',true));
@@ -31,7 +31,7 @@
     if (insertGap) {
       final ContentValues gapValue=new ContentValues();
       gapValue.put(Statuses.IS_GAP,1);
-      final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,accountId),Where.equals(Statuses.STATUS_ID,minId));
+      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,minId));
       final Uri updateUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,true));
       mResolver.update(updateUri,gapValue,where.getSQL(),null);
     }

@@ -1,0 +1,4 @@
+{
+  if (o instanceof SQLLang)   return ((SQLLang)o).getSQL();
+  return o != null ? o.toString() : null;
+}

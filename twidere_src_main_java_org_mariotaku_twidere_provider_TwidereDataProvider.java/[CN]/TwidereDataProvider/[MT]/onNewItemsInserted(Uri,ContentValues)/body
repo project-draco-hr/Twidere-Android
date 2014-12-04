@@ -27,10 +27,10 @@ case TABLE_ID_MENTIONS:
     for (    final AccountPreferences pref : prefs) {
       if (pref.isMentionsNotificationEnabled()) {
         final long accountId=pref.getAccountId();
-        displayStatusesNotification(notifiedCount,pref,pref.getMentionsNotificationType(),NOTIFICATION_ID_MENTIONS,getStatusesForAccounts(items,accountId),R.string.notification_mention,R.string.notification_mention_multiple,R.drawable.ic_stat_mention);
+        displayStatusesNotification(notifiedCount,pref,pref.getMentionsNotificationType(),NOTIFICATION_ID_MENTIONS_TIMELINE,getStatusesForAccounts(items,accountId),R.string.notification_mention,R.string.notification_mention_multiple,R.drawable.ic_stat_mention);
       }
     }
-    notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS);
+    notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS_TIMELINE);
     break;
   }
 case TABLE_ID_DIRECT_MESSAGES_INBOX:

@@ -8,8 +8,8 @@
   setContentView(R.layout.activity_compose);
   setProgressBarIndeterminateVisibility(false);
   setFinishOnTouchOutside(false);
-  mAccountIds=getAccountIds(this);
-  if (mAccountIds.length <= 0) {
+  final long[] defaultAccountIds=getAccountIds(this);
+  if (defaultAccountIds.length <= 0) {
     final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
     intent.setClass(this,SignInActivity.class);
     startActivity(intent);
@@ -21,7 +21,7 @@
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   final AccountSelectorAdapter accountAdapter=new AccountSelectorAdapter(mMenuBar.getPopupContext());
-  accountAdapter.addAll(Account.getAccountsList(this,false));
+  accountAdapter.addAll(ParcelableAccount.getAccountsList(this,false));
   mAccountSelectorPopup=IListPopupWindow.InstanceHelper.getInstance(mMenuBar.getPopupContext());
   mAccountSelectorPopup.setInputMethodMode(IListPopupWindow.INPUT_METHOD_NOT_NEEDED);
   mAccountSelectorPopup.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
@@ -60,8 +60,8 @@
     }
     if (mSendAccountIds == null || mSendAccountIds.length == 0) {
       final long[] idsInPrefs=ArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
-      final long[] intersection=ArrayUtils.intersection(idsInPrefs,mAccountIds);
-      mSendAccountIds=intersection.length > 0 ? intersection : mAccountIds;
+      final long[] intersection=ArrayUtils.intersection(idsInPrefs,defaultAccountIds);
+      mSendAccountIds=intersection.length > 0 ? intersection : defaultAccountIds;
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());
   }

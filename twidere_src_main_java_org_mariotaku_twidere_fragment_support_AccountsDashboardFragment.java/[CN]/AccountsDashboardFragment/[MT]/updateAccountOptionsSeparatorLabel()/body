@@ -1,5 +1,5 @@
 {
-  final Account account=mAccountsAdapter.getSelectedAccount();
+  final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
   if (account == null) {
     return;
   }
@@ -11,5 +11,9 @@
   final Resources res=getResources();
   final int defWidth=res.getDisplayMetrics().widthPixels;
   final int width=bannerWidth > 0 ? bannerWidth : defWidth;
-  mImageLoader.displayProfileBanner(mAccountProfileBannerView,account.profile_banner_url,width);
+  final String bannerUrl=Utils.getBestBannerUrl(account.profile_banner_url,width);
+  final ImageView bannerView=mAccountProfileBannerView;
+  if (bannerView.getDrawable() == null || !CompareUtils.objectEquals(bannerUrl,bannerView.getTag())) {
+    mImageLoader.displayProfileBanner(mAccountProfileBannerView,bannerUrl,this);
+  }
 }

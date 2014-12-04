@@ -1,3 +1,6 @@
 {
-  return false;
+  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
+  final CardView card=mCardView;
+  if (drawer == null || card == null)   return false;
+  return card.getTop() + drawer.getHeaderTop() - drawer.getPaddingTop() <= 0;
 }

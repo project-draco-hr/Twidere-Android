@@ -1,5 +1,5 @@
 {
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
   if (twitter == null)   return -1;
-  return twitter.getMentionsAsync(account_ids,max_ids,since_ids);
+  return twitter.getMentionsTimelineAsync(accountIds,maxIds,sinceIds);
 }

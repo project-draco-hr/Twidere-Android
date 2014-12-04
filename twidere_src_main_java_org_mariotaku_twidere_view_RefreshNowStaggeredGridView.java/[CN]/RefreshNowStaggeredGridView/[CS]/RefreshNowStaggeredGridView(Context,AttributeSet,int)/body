@@ -1,4 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  mHelper=new Helper(this,context,attrs,defStyle);
-}

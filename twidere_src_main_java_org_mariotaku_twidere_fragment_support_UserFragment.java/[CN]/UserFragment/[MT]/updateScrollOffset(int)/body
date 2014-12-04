@@ -4,8 +4,7 @@
   final View profileBannerContainer=mProfileBannerContainer;
   final int spaceHeight=space.getHeight();
   final float factor=MathUtils.clamp(offset / (float)spaceHeight,0,1);
-  profileBannerView.setAlpha(1.0f - factor / 8f);
-  profileBannerContainer.setTranslationY(-offset);
+  profileBannerContainer.setTranslationY(Math.max(-offset,-spaceHeight));
   profileBannerView.setTranslationY(Math.min(offset,spaceHeight) / 2);
   if (mActionBarBackground != null && mTintedStatusContent != null) {
     mActionBarBackground.setFactor(factor);

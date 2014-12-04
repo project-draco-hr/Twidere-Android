@@ -1,4 +1,0 @@
-{
-  if (getView() == null)   return false;
-  return getListView().isRefreshing();
-}

@@ -6,7 +6,7 @@
     final twitter4j.Status status=twitter.createFavorite(status_id);
     final ContentValues values=new ContentValues();
     values.put(Statuses.IS_FAVORITE,true);
-    final Where where=Where.and(Where.equals(Statuses.ACCOUNT_ID,account_id),Where.or(Where.equals(Statuses.STATUS_ID,status_id),Where.equals(Statuses.RETWEET_ID,status_id)));
+    final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,account_id),Expression.or(Expression.equals(Statuses.STATUS_ID,status_id),Expression.equals(Statuses.RETWEET_ID,status_id)));
     for (    final Uri uri : TweetStore.STATUSES_URIS) {
       mResolver.update(uri,values,where.getSQL(),null);
     }

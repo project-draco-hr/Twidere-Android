@@ -1,3 +1,0 @@
-{
-  return new Where(String.format(Locale.ROOT,"%s = %s",l.getSQL(),r.getSQL()));
-}

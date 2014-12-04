@@ -36,7 +36,7 @@ case R.id.enable_in_home_timeline:
 case R.id.enable_in_mentions:
 {
 final SharedPreferences.Editor editor=mPreferences.edit();
-editor.putBoolean(KEY_FILTERS_IN_MENTIONS,!item.isChecked());
+editor.putBoolean(KEY_FILTERS_IN_MENTIONS_TIMELINE,!item.isChecked());
 editor.apply();
 break;
 }

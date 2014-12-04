@@ -1,0 +1,3 @@
+{
+  Utils.openStatus(getActivity(),mAdapter.getStatus(position),null);
+}

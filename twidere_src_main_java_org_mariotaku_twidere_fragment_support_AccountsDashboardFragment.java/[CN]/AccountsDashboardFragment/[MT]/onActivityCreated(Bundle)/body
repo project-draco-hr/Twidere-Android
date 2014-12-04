@@ -23,6 +23,7 @@
   mAccountProfileNameView=(TextView)mAccountSelectorView.findViewById(R.id.name);
   mAccountProfileScreenNameView=(TextView)mAccountSelectorView.findViewById(R.id.screen_name);
   mAccountsToggle=(Switch)mAccountSelectorView.findViewById(R.id.toggle);
+  mAccountProfileContainer.setOnClickListener(this);
   mAccountsToggle.setOnCheckedChangeListener(this);
   mAdapter.addView(mAccountSelectorView,false);
   mAdapter.addAdapter(mAccountOptionsAdapter);

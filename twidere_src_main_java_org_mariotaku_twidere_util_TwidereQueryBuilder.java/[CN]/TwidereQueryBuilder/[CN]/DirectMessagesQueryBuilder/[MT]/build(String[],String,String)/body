@@ -3,12 +3,12 @@
   final Selectable select=Utils.getColumnsFromProjection(projection);
   qb.select(select).from(new Tables(DirectMessages.Inbox.TABLE_NAME));
   if (selection != null) {
-    qb.where(new Where(selection));
+    qb.where(new Expression(selection));
   }
   qb.union();
   qb.select(select).from(new Tables(DirectMessages.Outbox.TABLE_NAME));
   if (selection != null) {
-    qb.where(new Where(selection));
+    qb.where(new Expression(selection));
   }
   qb.orderBy(new OrderBy(sortOrder != null ? sortOrder : DirectMessages.DEFAULT_SORT_ORDER));
   return qb.build();

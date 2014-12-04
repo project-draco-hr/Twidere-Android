@@ -1,5 +1,5 @@
 {
-  accounts=in.createTypedArray(Account.CREATOR);
+  accounts=in.createTypedArray(ParcelableAccount.CREATOR);
   text=in.readString();
   location=in.readParcelable(ParcelableLocation.class.getClassLoader());
   media=in.createTypedArray(ParcelableMediaUpdate.CREATOR);

@@ -1,0 +1,8 @@
+{
+  final ParcelableStatus status=mAdapter.getStatus(position);
+  final long sinceId=position + 1 < mAdapter.getStatusCount() ? mAdapter.getStatus(position + 1).id : -1;
+  final long[] accountIds={status.account_id};
+  final long[] maxIds={status.id};
+  final long[] sinceIds={sinceId};
+  getStatuses(accountIds,maxIds,sinceIds);
+}

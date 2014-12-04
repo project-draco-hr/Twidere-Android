@@ -11,7 +11,7 @@
   }
   sb.append(String.format("%s ",table));
   if (newColumns != null && newColumns.length > 0) {
-    sb.append(String.format("(%s)",Utils.toString(newColumns)));
+    sb.append(String.format("(%s)",Utils.toString(newColumns,',',true)));
   }
  else {
     sb.append(String.format("AS %s",selectStmt.getSQL()));

@@ -1,7 +1,7 @@
 {
   if (context == null)   return 0;
   final ContentResolver resolver=context.getContentResolver();
-  final Cursor cur=ContentResolverUtils.query(resolver,uri,new String[]{Statuses.STATUS_ID},buildStatusFilterWhereClause(getTableNameByUri(uri),null,shouldEnableFiltersForRTs(context)),null,null);
+  final Cursor cur=ContentResolverUtils.query(resolver,uri,new String[]{Statuses.STATUS_ID},buildStatusFilterWhereClause(getTableNameByUri(uri),null,shouldEnableFiltersForRTs(context)).getSQL(),null,null);
   if (cur == null)   return 0;
   try {
     return cur.getCount();

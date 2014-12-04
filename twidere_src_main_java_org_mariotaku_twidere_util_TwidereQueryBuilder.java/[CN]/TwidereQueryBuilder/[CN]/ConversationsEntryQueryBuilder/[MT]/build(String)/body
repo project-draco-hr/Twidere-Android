@@ -13,19 +13,19 @@
   final SQLSelectQuery.Builder conversationIds=new SQLSelectQuery.Builder();
   conversationIds.select(new Columns(new Column(DirectMessages.MESSAGE_ID),new Column(DirectMessages.SENDER_ID,ConversationEntries.CONVERSATION_ID)));
   conversationIds.from(new Tables(Inbox.TABLE_NAME));
-  conversationIds.where(Where.in(new Column(DirectMessages.MESSAGE_ID),recent_inbox_msg_ids.build()));
+  conversationIds.where(Expression.in(new Column(DirectMessages.MESSAGE_ID),recent_inbox_msg_ids.build()));
   conversationIds.union();
   conversationIds.select(new Columns(new Column(DirectMessages.MESSAGE_ID),new Column(DirectMessages.RECIPIENT_ID,ConversationEntries.CONVERSATION_ID)));
   conversationIds.from(new Tables(Outbox.TABLE_NAME));
-  conversationIds.where(Where.in(new Column(DirectMessages.MESSAGE_ID),recent_outbox_msg_ids.build()));
+  conversationIds.where(Expression.in(new Column(DirectMessages.MESSAGE_ID),recent_outbox_msg_ids.build()));
   final SQLSelectQuery.Builder groupedConversationIds=new SQLSelectQuery.Builder();
   groupedConversationIds.select(new Column(DirectMessages.MESSAGE_ID));
   groupedConversationIds.from(conversationIds.build());
   groupedConversationIds.groupBy(new Column(ConversationEntries.CONVERSATION_ID));
-  final Where groupedWhere=Where.in(new Column(DirectMessages.MESSAGE_ID),groupedConversationIds.build());
-  final Where where;
+  final Expression groupedWhere=Expression.in(new Column(DirectMessages.MESSAGE_ID),groupedConversationIds.build());
+  final Expression where;
   if (selection != null) {
-    where=Where.and(groupedWhere,new Where(selection));
+    where=Expression.and(groupedWhere,new Expression(selection));
   }
  else {
     where=groupedWhere;

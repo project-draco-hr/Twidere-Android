@@ -20,7 +20,7 @@
     final List<SingleResponse<ParcelableStatus>> result=updateStatus(builder,item);
     boolean failed=false;
     Exception exception=null;
-    final List<Long> failed_account_ids=ListUtils.fromArray(Account.getAccountIds(item.accounts));
+    final List<Long> failed_account_ids=ListUtils.fromArray(ParcelableAccount.getAccountIds(item.accounts));
     for (    final SingleResponse<ParcelableStatus> response : result) {
       if (response.getData() == null) {
         failed=true;

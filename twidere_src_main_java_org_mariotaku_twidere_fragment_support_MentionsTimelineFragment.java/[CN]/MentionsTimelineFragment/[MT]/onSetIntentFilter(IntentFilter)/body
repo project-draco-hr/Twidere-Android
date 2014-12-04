@@ -1,0 +1,3 @@
+{
+  filter.addAction(BROADCAST_TASK_STATE_CHANGED);
+}

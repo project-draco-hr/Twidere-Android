@@ -1,7 +1,7 @@
 {
   if (mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS,HomeRefreshContentPreference.DEFAULT_ENABLE_MENTIONS)) {
     final long[] sinceIds=getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
-    getMentionsAsync(accountIds,null,sinceIds);
+    getMentionsTimelineAsync(accountIds,null,sinceIds);
   }
   if (mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES,HomeRefreshContentPreference.DEFAULT_ENABLE_DIRECT_MESSAGES)) {
     final long[] sinceIds=getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);

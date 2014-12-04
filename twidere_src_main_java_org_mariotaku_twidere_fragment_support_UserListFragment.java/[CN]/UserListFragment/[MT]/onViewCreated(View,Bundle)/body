@@ -5,6 +5,7 @@
   mProgressContainer=view.findViewById(R.id.progress_container);
   final View headerView=mHeaderDrawerLayout.getHeader();
   final View contentView=mHeaderDrawerLayout.getContent();
+  mCardView=(CardView)headerView.findViewById(R.id.card);
   mProfileContainer=(ColorLabelRelativeLayout)headerView.findViewById(R.id.profile);
   mListNameView=(TextView)headerView.findViewById(R.id.list_name);
   mCreatedByView=(TextView)headerView.findViewById(R.id.created_by);

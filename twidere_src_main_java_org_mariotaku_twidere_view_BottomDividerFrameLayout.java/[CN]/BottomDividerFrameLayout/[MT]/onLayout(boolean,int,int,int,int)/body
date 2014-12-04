@@ -1,0 +1,9 @@
+{
+  super.onLayout(changed,left,top,right,bottom);
+  final Drawable divider=mDividerDrawable;
+  if (divider != null) {
+    final int drawableLeft=0, drawableRight=drawableLeft + getMeasuredWidth();
+    final int drawableBottom=getMeasuredHeight(), drawableTop=drawableBottom - divider.getIntrinsicHeight();
+    divider.setBounds(drawableLeft,drawableTop,drawableRight,drawableBottom);
+  }
+}

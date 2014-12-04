@@ -1,5 +1,4 @@
 {
-  mContext=context;
   mInflater=LayoutInflater.from(context);
   mHeaders=new ArrayList<>();
   mResources=context.getResources();

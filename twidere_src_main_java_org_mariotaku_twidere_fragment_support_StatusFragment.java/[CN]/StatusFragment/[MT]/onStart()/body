@@ -3,7 +3,7 @@
   final IntentFilter filter=new IntentFilter();
   filter.addAction(BROADCAST_FRIENDSHIP_CHANGED);
   filter.addAction(BROADCAST_FAVORITE_CHANGED);
-  filter.addAction(BROADCAST_RETWEET_CHANGED);
+  filter.addAction(BROADCAST_STATUS_RETWEETED);
   registerReceiver(mStatusReceiver,filter);
   updateUserColor();
   final int text_size=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));

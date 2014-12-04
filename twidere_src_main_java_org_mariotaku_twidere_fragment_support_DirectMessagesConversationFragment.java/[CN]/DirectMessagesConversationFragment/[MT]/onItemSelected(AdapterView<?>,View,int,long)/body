@@ -1,5 +1,5 @@
 {
-  final Account account=(Account)mAccountSpinner.getSelectedItem();
+  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
   if (account != null) {
     mAccountId=account.account_id;
     mSender=account;

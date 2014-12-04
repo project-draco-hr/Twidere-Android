@@ -1,5 +1,0 @@
-{
-  onRefreshFromStart();
-  setRefreshing(true);
-  return true;
-}

@@ -1,5 +1,0 @@
-{
-  final long account_id=getAccountId();
-  final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(getActivity());
-  return getOldestStatusIdsFromDatabase(getActivity(),getContentUri(),account_ids);
-}
