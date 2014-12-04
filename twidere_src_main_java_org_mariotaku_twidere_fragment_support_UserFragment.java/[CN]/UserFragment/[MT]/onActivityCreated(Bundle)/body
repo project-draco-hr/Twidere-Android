@@ -25,6 +25,7 @@
   mViewPager.setOffscreenPageLimit(3);
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
+  mFollowButton.setOnClickListener(this);
   mProfileImageView.setOnClickListener(this);
   mProfileBannerView.setOnClickListener(this);
   mListedContainer.setOnClickListener(this);
