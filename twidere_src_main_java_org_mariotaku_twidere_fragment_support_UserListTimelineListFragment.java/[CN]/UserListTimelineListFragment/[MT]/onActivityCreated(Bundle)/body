@@ -1,6 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  final IStatusesListAdapter<List<ParcelableStatus>> adapter=getListAdapter();
-  adapter.setFiltersEnabled(true);
-  adapter.setIgnoredFilterFields(false,false,false,false,false);
-}

@@ -2,7 +2,7 @@
   for (  final ManagedAsyncTask<?,?,?> task : mAsyncTaskManager.getTaskSpecList()) {
     if (task instanceof DestroyFriendshipTask) {
       final DestroyFriendshipTask create_friendship=(DestroyFriendshipTask)task;
-      if (create_friendship.getStatus() == AsyncTask.Status.RUNNING && create_friendship.getAccountId() == accountId && create_friendship.getUserId() == user_id)       return true;
+      if (create_friendship.getStatus() == TwidereAsyncTask.Status.RUNNING && create_friendship.getAccountId() == accountId && create_friendship.getUserId() == user_id)       return true;
     }
   }
   return false;

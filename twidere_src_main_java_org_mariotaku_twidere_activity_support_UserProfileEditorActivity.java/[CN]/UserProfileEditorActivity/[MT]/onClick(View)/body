@@ -1,32 +1,59 @@
 {
-  if (mUser == null)   return;
-  if (mPopupMenu != null) {
-    mPopupMenu.dismiss();
-  }
+  final ParcelableUser user=mUser;
+  if (user == null || (mTask != null && mTask.getStatus() == Status.RUNNING))   return;
 switch (view.getId()) {
-case ProfileImageBannerLayout.VIEW_ID_PROFILE_IMAGE:
+case R.id.profile_image:
 {
-      mPopupMenu=PopupMenu.getInstance(this,view);
-      mPopupMenu.inflate(R.menu.action_profile_image);
-      mPopupMenu.setOnMenuItemClickListener(mProfileImageMenuListener);
       break;
     }
-case ProfileImageBannerLayout.VIEW_ID_PROFILE_BANNER:
+case R.id.profile_banner:
 {
-    mPopupMenu=PopupMenu.getInstance(this,view);
-    mPopupMenu.inflate(R.menu.action_profile_banner_image);
-    final Menu menu=mPopupMenu.getMenu();
-    final MenuItem delete_submenu=menu.findItem(MENU_DELETE_SUBMENU);
-    final boolean has_profile_banner=!isEmpty(mUser.profile_banner_url);
-    delete_submenu.setVisible(has_profile_banner);
-    delete_submenu.setEnabled(has_profile_banner);
-    mPopupMenu.setOnMenuItemClickListener(mProfileBannerImageMenuListener);
     break;
   }
-default :
+case R.id.profile_image_camera:
 {
-  return;
+  final Uri uri=createTempFileUri();
+  final Intent intent=createTakePhotoIntent(uri,null,null,1,1,true);
+  mTask=new UpdateProfileImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+  startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
+  break;
+}
+case R.id.profile_image_gallery:
+{
+final Uri uri=createTempFileUri();
+final Intent intent=createPickImageIntent(uri,null,null,1,1,true);
+mTask=new UpdateProfileImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
+break;
+}
+case R.id.profile_banner_gallery:
+{
+final Uri uri=createTempFileUri();
+final Intent intent=createPickImageIntent(uri,null,null,2,1,true);
+mTask=new UpdateProfileBannerImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_BANNER_IMAGE);
+break;
+}
+case R.id.profile_banner_remove:
+{
+mTask=new RemoveProfileBannerTaskInternal(user.account_id);
+mTask.executeTask();
+break;
+}
+case R.id.actionbar_cancel:
+{
+finish();
+break;
+}
+case R.id.actionbar_done:
+{
+final String name=ParseUtils.parseString(mEditName.getText());
+final String url=ParseUtils.parseString(mEditUrl.getText());
+final String location=ParseUtils.parseString(mEditLocation.getText());
+final String description=ParseUtils.parseString(mEditDescription.getText());
+mTask=new UpdateProfileTaskInternal(this,mAsyncTaskManager,mAccountId,name,url,location,description);
+mTask.executeTask();
+break;
 }
 }
-mPopupMenu.show();
 }

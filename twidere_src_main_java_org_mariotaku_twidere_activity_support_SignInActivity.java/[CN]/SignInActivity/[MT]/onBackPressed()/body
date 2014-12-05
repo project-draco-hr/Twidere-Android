@@ -1,10 +1,10 @@
 {
-  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING && !mBackPressed) {
+  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING && !mBackPressed) {
     final Toast toast=Toast.makeText(this,R.string.signing_in_please_wait,Toast.LENGTH_SHORT);
     toast.show();
     return;
   }
-  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) {
+  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING) {
     mTask.cancel(false);
   }
   super.onBackPressed();

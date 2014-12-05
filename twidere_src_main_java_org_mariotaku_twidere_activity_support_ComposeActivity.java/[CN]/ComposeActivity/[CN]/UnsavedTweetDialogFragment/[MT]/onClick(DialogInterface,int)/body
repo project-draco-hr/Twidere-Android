@@ -12,7 +12,7 @@ case DialogInterface.BUTTON_POSITIVE:
 case DialogInterface.BUTTON_NEGATIVE:
 {
     if (activity instanceof ComposeActivity) {
-      new DiscardTweetTask((ComposeActivity)activity).execute();
+      new DiscardTweetTask((ComposeActivity)activity).executeTask();
     }
  else {
       activity.finish();

@@ -1,9 +1,0 @@
-{
-  canvas.drawColor(Color.WHITE);
-  final int width=getWidth(), height=getHeight();
-  if (width > 0 && height > 0) {
-    canvas.drawRect(mPaddings,mPaddings,width - mPaddings,height - mPaddings,mBlackPaint);
-    canvas.drawRect(mPaddings / 2,mPaddings / 2,width - mPaddings / 2,height - mPaddings / 2,mWhitePaint);
-  }
-  super.onDraw(canvas);
-}

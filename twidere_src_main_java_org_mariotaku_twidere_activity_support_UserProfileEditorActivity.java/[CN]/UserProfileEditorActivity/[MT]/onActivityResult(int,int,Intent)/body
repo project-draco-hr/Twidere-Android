@@ -4,12 +4,12 @@
 switch (requestCode) {
 case REQUEST_UPLOAD_PROFILE_BANNER_IMAGE:
 {
-      mTask.execute();
+      mTask.executeTask();
       break;
     }
 case REQUEST_UPLOAD_PROFILE_IMAGE:
 {
-    mTask.execute();
+    mTask.executeTask();
     break;
   }
 }

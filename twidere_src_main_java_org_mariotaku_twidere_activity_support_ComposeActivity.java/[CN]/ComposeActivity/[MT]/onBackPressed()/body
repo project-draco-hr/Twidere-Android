@@ -1,5 +1,5 @@
 {
-  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING)   return;
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
   final boolean textChanged=text != null && !text.isEmpty() && !text.equals(mOriginalText);
   final boolean isEditingDraft=INTENT_ACTION_EDIT_DRAFT.equals(getIntent().getAction());
@@ -9,6 +9,6 @@
     finish();
   }
  else {
-    mTask=new DiscardTweetTask(this).execute();
+    mTask=new DiscardTweetTask(this).executeTask();
   }
 }

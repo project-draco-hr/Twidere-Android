@@ -13,6 +13,6 @@
     final long user_id=args.getLong(EXTRA_USER_ID,-1);
     final String screen_name=args.getString(EXTRA_SCREEN_NAME);
     final String list_name=args.getString(EXTRA_LIST_NAME);
-    new GetUserListTask(account_id,list_id,list_name,user_id,screen_name).execute();
+    new GetUserListTask(account_id,list_id,list_name,user_id,screen_name).executeTask();
   }
 }

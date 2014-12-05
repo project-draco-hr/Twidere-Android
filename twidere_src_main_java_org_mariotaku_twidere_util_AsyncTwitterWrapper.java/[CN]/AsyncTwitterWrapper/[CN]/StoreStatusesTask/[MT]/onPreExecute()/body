@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
   final StatusListResponse[] array=new StatusListResponse[responses.size()];
-  new CacheUsersStatusesTask(mContext,responses.toArray(array)).execute();
+  new CacheUsersStatusesTask(mContext,responses.toArray(array)).executeTask();
 }

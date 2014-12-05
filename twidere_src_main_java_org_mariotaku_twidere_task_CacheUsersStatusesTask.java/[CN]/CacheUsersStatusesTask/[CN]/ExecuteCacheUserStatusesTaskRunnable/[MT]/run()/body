@@ -1,3 +1,3 @@
 {
-  new CacheUsersStatusesTask(context,all_statuses).execute();
+  new CacheUsersStatusesTask(context,all_statuses).executeTask();
 }

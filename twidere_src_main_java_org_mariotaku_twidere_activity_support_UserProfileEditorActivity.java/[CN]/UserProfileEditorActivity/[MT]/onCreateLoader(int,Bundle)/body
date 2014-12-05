@@ -1,5 +1,5 @@
 {
-  mProgress.setVisibility(View.VISIBLE);
+  mProgressContainer.setVisibility(View.VISIBLE);
   mContent.setVisibility(View.GONE);
   setProgressBarIndeterminateVisibility(true);
   return new ParcelableUserLoader(UserProfileEditorActivity.this,mAccountId,mAccountId,null,getIntent().getExtras(),false,false);

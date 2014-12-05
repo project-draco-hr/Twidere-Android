@@ -1,1 +1,1 @@
-AsyncTask<Void,Void,SignInResponse>
+TwidereAsyncTask<Void,Void,SignInResponse>

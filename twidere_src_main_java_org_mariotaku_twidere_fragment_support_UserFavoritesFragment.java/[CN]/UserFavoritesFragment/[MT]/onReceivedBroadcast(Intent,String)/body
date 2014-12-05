@@ -1,0 +1,18 @@
+{
+switch (action) {
+case BROADCAST_STATUS_FAVORITE_DESTROYED:
+{
+      final Context context=getActivity();
+      final ParcelableStatus status=intent.getParcelableExtra(EXTRA_STATUS);
+      final Bundle args=getArguments();
+      if (context == null || status == null || args == null)       return;
+      final long userId=args.getLong(EXTRA_USER_ID,-1);
+      final String screenName=args.getString(EXTRA_SCREEN_NAME);
+      if (isSameAccount(context,status.account_id,userId) || isSameAccount(context,status.account_id,screenName)) {
+        deleteStatus(status.id);
+      }
+      return;
+    }
+}
+super.onReceivedBroadcast(intent,action);
+}

@@ -2,5 +2,5 @@
   if (screen_name == null)   return;
   mScreenName=screen_name;
   final GetUserListsTask task=new GetUserListsTask(this,getAccountId(),screen_name);
-  task.execute();
+  task.executeTask();
 }

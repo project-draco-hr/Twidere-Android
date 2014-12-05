@@ -1,8 +1,7 @@
 {
   if (result.hasData()) {
-    final Intent intent=new Intent(BROADCAST_FAVORITE_CHANGED);
+    final Intent intent=new Intent(BROADCAST_STATUS_FAVORITE_CREATED);
     intent.putExtra(EXTRA_STATUS,result.getData());
-    intent.putExtra(EXTRA_FAVORITED,true);
     mContext.sendBroadcast(intent);
     mMessagesManager.showOkMessage(R.string.status_favorited,false);
   }

@@ -1,3 +1,4 @@
 {
   mHandler=handler;
+  mExecutor=Executors.newCachedThreadPool();
 }

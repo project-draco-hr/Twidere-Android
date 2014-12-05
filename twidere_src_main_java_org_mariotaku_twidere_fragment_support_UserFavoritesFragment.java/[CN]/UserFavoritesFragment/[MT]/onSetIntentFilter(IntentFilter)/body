@@ -1,0 +1,4 @@
+{
+  super.onSetIntentFilter(filter);
+  filter.addAction(BROADCAST_STATUS_FAVORITE_DESTROYED);
+}

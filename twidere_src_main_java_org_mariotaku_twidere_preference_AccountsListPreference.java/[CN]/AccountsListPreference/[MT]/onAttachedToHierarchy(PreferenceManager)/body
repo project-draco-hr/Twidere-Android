@@ -1,4 +1,4 @@
 {
   super.onAttachedToHierarchy(preferenceManager);
-  new LoadAccountsTask(this).execute();
+  new LoadAccountsTask(this).executeTask();
 }

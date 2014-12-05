@@ -1,5 +1,5 @@
 {
-  if (mConversationTask != null && mConversationTask.getStatus() == AsyncTask.Status.RUNNING) {
+  if (mConversationTask != null && mConversationTask.getStatus() == TwidereAsyncTask.Status.RUNNING) {
     mConversationTask.cancel(true);
     return;
   }
@@ -15,5 +15,5 @@
   }
   if (status == null || status.in_reply_to_status_id <= 0)   return;
   mConversationTask=new LoadConversationTask(this);
-  mConversationTask.execute(status);
+  mConversationTask.executeTask(status);
 }

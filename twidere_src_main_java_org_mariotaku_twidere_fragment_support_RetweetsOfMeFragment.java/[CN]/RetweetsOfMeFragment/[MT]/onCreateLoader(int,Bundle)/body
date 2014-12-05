@@ -1,0 +1,7 @@
+{
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  final long maxId=args.getLong(EXTRA_MAX_ID,-1);
+  final long sinceId=args.getLong(EXTRA_SINCE_ID,-1);
+  final int tabPosition=args.getInt(EXTRA_TAB_POSITION,-1);
+  return new RetweetsOfMeLoader(getActivity(),accountId,maxId,sinceId,getAdapterData(),getSavedStatusesFileArgs(),tabPosition);
+}

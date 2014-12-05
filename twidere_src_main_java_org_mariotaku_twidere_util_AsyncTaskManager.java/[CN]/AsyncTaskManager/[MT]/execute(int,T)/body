@@ -1,7 +1,7 @@
 {
   final ManagedAsyncTask<T,?,?> task=(ManagedAsyncTask<T,?,?>)findTask(hashCode);
   if (task != null) {
-    task.execute(params);
+    task.executeTask(params);
     return true;
   }
   return false;

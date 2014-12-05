@@ -1,0 +1,6 @@
+{
+  if (mColor != 0)   return mColor;
+  final ColorStateList colors=getTextColors();
+  if (colors != null)   return colors.getDefaultColor();
+  return getCurrentTextColor();
+}

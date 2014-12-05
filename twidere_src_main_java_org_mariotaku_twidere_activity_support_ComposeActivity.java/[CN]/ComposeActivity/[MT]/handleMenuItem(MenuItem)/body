@@ -35,7 +35,7 @@ break;
 }
 case MENU_DELETE:
 {
-new DeleteImageTask(this).execute();
+new DeleteImageTask(this).executeTask();
 break;
 }
 case MENU_TOGGLE_SENSITIVE:

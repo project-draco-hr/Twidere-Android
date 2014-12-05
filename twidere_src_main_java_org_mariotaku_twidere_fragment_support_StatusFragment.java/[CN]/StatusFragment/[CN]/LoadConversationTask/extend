@@ -1,1 +1,1 @@
-AsyncTask<ParcelableStatus,Void,SingleResponse<Boolean>>
+TwidereAsyncTask<ParcelableStatus,Void,SingleResponse<Boolean>>

@@ -1,8 +1,0 @@
-{
-  if (mHasUnsavedChanges() && !mBackPressed) {
-    final Toast toast=Toast.makeText(this,R.string.unsaved_change_back_pressed,Toast.LENGTH_SHORT);
-    toast.show();
-    return;
-  }
-  super.onBackPressed();
-}

@@ -1,9 +1,0 @@
-{
-  super.onScrollStateChanged(view,scrollState);
-  if (scrollState == OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-    final Fragment parent=getParentFragment();
-    if (parent instanceof SearchFragment) {
-      ((SearchFragment)parent).hideIndicator();
-    }
-  }
-}

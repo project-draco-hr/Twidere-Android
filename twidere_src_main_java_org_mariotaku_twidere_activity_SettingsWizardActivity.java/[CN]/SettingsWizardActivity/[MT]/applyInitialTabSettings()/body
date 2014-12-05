@@ -1,5 +1,5 @@
 {
-  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING)   return;
   mTask=new InitialTabSettingsTask(this);
-  mTask.execute();
+  mTask.executeTask();
 }
