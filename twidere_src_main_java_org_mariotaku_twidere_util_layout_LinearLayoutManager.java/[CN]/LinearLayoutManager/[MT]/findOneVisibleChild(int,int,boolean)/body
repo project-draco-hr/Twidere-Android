@@ -1,0 +1,22 @@
+{
+  ensureLayoutState();
+  final int start=mOrientationHelper.getStartAfterPadding();
+  final int end=mOrientationHelper.getEndAfterPadding();
+  final int next=toIndex > fromIndex ? 1 : -1;
+  for (int i=fromIndex; i != toIndex; i+=next) {
+    final View child=getChildAt(i);
+    final int childStart=mOrientationHelper.getDecoratedStart(child);
+    final int childEnd=mOrientationHelper.getDecoratedEnd(child);
+    if (childStart < end && childEnd > start) {
+      if (completelyVisible) {
+        if (childStart >= start && childEnd <= end) {
+          return child;
+        }
+      }
+ else {
+        return child;
+      }
+    }
+  }
+  return null;
+}

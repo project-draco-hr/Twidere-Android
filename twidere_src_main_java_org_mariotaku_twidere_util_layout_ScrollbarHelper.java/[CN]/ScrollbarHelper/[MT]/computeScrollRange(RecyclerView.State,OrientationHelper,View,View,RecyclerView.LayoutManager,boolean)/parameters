@@ -1,0 +1,6 @@
+RecyclerView.State state
+OrientationHelper orientation
+View startChild
+View endChild
+RecyclerView.LayoutManager lm
+boolean smoothScrollbarEnabled

@@ -1,0 +1,4 @@
+{
+  mDetailMediaExpanded=expanded;
+  notifyDataSetChanged();
+}

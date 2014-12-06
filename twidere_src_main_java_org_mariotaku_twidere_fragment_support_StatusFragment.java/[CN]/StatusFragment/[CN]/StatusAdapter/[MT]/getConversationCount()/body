@@ -1,0 +1,3 @@
+{
+  return mConversation != null ? mConversation.size() : 1;
+}

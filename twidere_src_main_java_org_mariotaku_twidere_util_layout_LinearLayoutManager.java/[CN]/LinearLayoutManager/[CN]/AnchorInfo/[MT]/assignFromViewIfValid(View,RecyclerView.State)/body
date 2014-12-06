@@ -1,0 +1,8 @@
+{
+  RecyclerView.LayoutParams lp=(RecyclerView.LayoutParams)child.getLayoutParams();
+  if (!lp.isItemRemoved() && lp.getViewPosition() >= 0 && lp.getViewPosition() < state.getItemCount()) {
+    assignFromView(child);
+    return true;
+  }
+  return false;
+}

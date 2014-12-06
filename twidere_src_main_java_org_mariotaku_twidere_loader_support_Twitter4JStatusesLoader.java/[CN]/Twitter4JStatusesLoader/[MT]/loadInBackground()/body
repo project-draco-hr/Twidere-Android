@@ -5,7 +5,12 @@
     final List<ParcelableStatus> cached=getCachedData(serializationFile);
     if (cached != null) {
       data.addAll(cached);
-      Collections.sort(data);
+      if (mComparator != null) {
+        Collections.sort(data,mComparator);
+      }
+ else {
+        Collections.sort(data);
+      }
       return new CopyOnWriteArrayList<>(data);
     }
   }
@@ -38,13 +43,18 @@
     final boolean deleted=deleteStatus(data,id);
     data.add(new ParcelableStatus(status,mAccountId,minStatusId == id && insertGap && !deleted));
   }
-  Collections.sort(data);
   final ParcelableStatus[] array=data.toArray(new ParcelableStatus[data.size()]);
   for (int i=0, size=array.length; i < size; i++) {
     final ParcelableStatus status=array[i];
     if (shouldFilterStatus(mDatabase,status) && !status.is_gap && i != size - 1) {
       deleteStatus(data,status.id);
     }
+  }
+  if (mComparator != null) {
+    Collections.sort(data,mComparator);
+  }
+ else {
+    Collections.sort(data);
   }
   saveCachedData(serializationFile,data);
   return new CopyOnWriteArrayList<>(data);

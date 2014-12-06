@@ -1,0 +1,27 @@
+{
+  if (getChildCount() == 0) {
+    return false;
+  }
+  View focused=getFocusedChild();
+  if (focused != null && anchorInfo.assignFromViewIfValid(focused,state)) {
+    if (DEBUG) {
+      Log.d(TAG,"decided anchor child from focused view");
+    }
+    return true;
+  }
+  if (mLastStackFromEnd != mStackFromEnd) {
+    return false;
+  }
+  View referenceChild=anchorInfo.mLayoutFromEnd ? findReferenceChildClosestToEnd(state) : findReferenceChildClosestToStart(state);
+  if (referenceChild != null) {
+    anchorInfo.assignFromView(referenceChild);
+    if (!state.isPreLayout() && supportsPredictiveItemAnimations()) {
+      final boolean notVisible=mOrientationHelper.getDecoratedStart(referenceChild) >= mOrientationHelper.getEndAfterPadding() || mOrientationHelper.getDecoratedEnd(referenceChild) < mOrientationHelper.getStartAfterPadding();
+      if (notVisible) {
+        anchorInfo.mCoordinate=anchorInfo.mLayoutFromEnd ? mOrientationHelper.getEndAfterPadding() : mOrientationHelper.getStartAfterPadding();
+      }
+    }
+    return true;
+  }
+  return false;
+}

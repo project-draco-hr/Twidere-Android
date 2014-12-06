@@ -1,0 +1,15 @@
+{
+  final int conversationCount=getConversationCount();
+  if (position == getItemCount() - 1) {
+    return null;
+  }
+ else   if (position < conversationCount) {
+    return mConversation.get(position);
+  }
+ else   if (position > conversationCount) {
+    return mReplies.get(position - conversationCount - 1);
+  }
+ else {
+    return mStatus;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  final Context context=fragment.getActivity();
+  final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mFragment=fragment;
+  mContext=context;
+  mInflater=LayoutInflater.from(context);
+  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
+  mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
+  mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,true);
+  if (compact) {
+    mCardLayoutResource=R.layout.card_item_status_compat;
+  }
+ else {
+    mCardLayoutResource=R.layout.card_item_status;
+  }
+}

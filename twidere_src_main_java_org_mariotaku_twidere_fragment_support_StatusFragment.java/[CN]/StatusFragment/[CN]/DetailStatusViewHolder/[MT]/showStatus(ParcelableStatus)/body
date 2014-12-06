@@ -1,0 +1,69 @@
+{
+  if (status == null)   return;
+  progressContainer.setVisibility(View.GONE);
+  final Context context=adapter.getContext();
+  final Resources resources=context.getResources();
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final boolean nameFirst=adapter.isNameFirst();
+  final boolean nicknameOnly=adapter.isNicknameOnly();
+  final String nickname=getUserNickname(context,status.user_id,true);
+  if (TextUtils.isEmpty(nickname)) {
+    nameView.setText(status.user_name);
+  }
+ else   if (nicknameOnly) {
+    nameView.setText(nickname);
+  }
+ else {
+    nameView.setText(context.getString(R.string.name_with_nickname,status.user_name,nickname));
+  }
+  screenNameView.setText("@" + status.user_screen_name);
+  textView.setText(Html.fromHtml(status.text_html));
+  final TwidereLinkify linkify=new TwidereLinkify(new OnLinkClickHandler(context,null));
+  linkify.setLinkTextColor(ThemeUtils.getUserLinkTextColor(context));
+  linkify.applyAllLinks(textView,status.account_id,status.is_possibly_sensitive);
+  ThemeUtils.applyParagraphSpacing(textView,1.1f);
+  textView.setMovementMethod(StatusContentMovementMethod.getInstance());
+  final String timeString=formatToLongTimeString(context,status.timestamp);
+  final String sourceHtml=status.source;
+  if (!isEmpty(timeString) && !isEmpty(sourceHtml)) {
+    timeSourceView.setText(Html.fromHtml(context.getString(R.string.time_source,timeString,sourceHtml)));
+  }
+ else   if (isEmpty(timeString) && !isEmpty(sourceHtml)) {
+    timeSourceView.setText(Html.fromHtml(context.getString(R.string.source,sourceHtml)));
+  }
+ else   if (!isEmpty(timeString) && isEmpty(sourceHtml)) {
+    timeSourceView.setText(timeString);
+  }
+  timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
+  retweetsContainer.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
+  repliesContainer.setVisibility(status.reply_count < 0 ? View.GONE : View.VISIBLE);
+  final Locale locale=context.getResources().getConfiguration().locale;
+  repliesCountView.setText(getLocalizedNumber(locale,status.reply_count));
+  retweetsCountView.setText(getLocalizedNumber(locale,status.retweet_count));
+  favoritesCountView.setText(getLocalizedNumber(locale,status.favorite_count));
+  loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+  final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
+  if (typeIconRes != 0) {
+    profileTypeView.setImageResource(typeIconRes);
+    profileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    profileTypeView.setImageDrawable(null);
+    profileTypeView.setVisibility(View.GONE);
+  }
+  if (adapter.isDetailMediaExpanded()) {
+    loadMedia.setVisibility(View.GONE);
+    mediaPreviewGrid.setVisibility(View.VISIBLE);
+    mediaPreviewGrid.removeAllViews();
+    if (status.media != null) {
+      final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
+      MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,maxColumns,this);
+    }
+  }
+ else {
+    loadMedia.setVisibility(View.VISIBLE);
+    mediaPreviewGrid.setVisibility(View.GONE);
+    mediaPreviewGrid.removeAllViews();
+  }
+  menuBar.show();
+}

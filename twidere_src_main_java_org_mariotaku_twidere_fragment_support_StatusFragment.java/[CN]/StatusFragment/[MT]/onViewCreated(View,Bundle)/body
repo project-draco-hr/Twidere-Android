@@ -1,0 +1,4 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
+}

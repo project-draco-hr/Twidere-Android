@@ -1,0 +1,58 @@
+{
+  return new OrientationHelper(layoutManager){
+    int diff;
+    @Override public int getEndAfterPadding(){
+      int heightSum=0;
+      for (int i=0, j=mLayoutManager.getChildCount(); i < j; i++) {
+        final View child=mLayoutManager.getChildAt(i);
+        if (mLayoutManager.getItemViewType(child) == 0 || heightSum != 0) {
+          final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)child.getLayoutParams();
+          heightSum+=mLayoutManager.getDecoratedMeasuredHeight(child) + params.topMargin + params.bottomMargin;
+        }
+      }
+      final int normalEnd=mLayoutManager.getHeight() - mLayoutManager.getPaddingBottom();
+      if (heightSum == 0) {
+        diff=0;
+        return normalEnd;
+      }
+      diff=(mLayoutManager.getPaddingTop() + heightSum) - normalEnd;
+      return Math.min(mLayoutManager.getPaddingTop() + heightSum,normalEnd);
+    }
+    @Override public int getEnd(){
+      return mLayoutManager.getHeight() + Math.max(0,diff);
+    }
+    @Override public void offsetChildren(    int amount){
+      mLayoutManager.offsetChildrenVertical(amount);
+    }
+    @Override public int getStartAfterPadding(){
+      return mLayoutManager.getPaddingTop();
+    }
+    @Override public int getDecoratedMeasurement(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedMeasuredHeight(view) + params.topMargin + params.bottomMargin;
+    }
+    @Override public int getDecoratedMeasurementInOther(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedMeasuredWidth(view) + params.leftMargin + params.rightMargin;
+    }
+    @Override public int getDecoratedEnd(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedBottom(view) + params.bottomMargin;
+    }
+    @Override public int getDecoratedStart(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedTop(view) - params.topMargin;
+    }
+    @Override public int getTotalSpace(){
+      return mLayoutManager.getHeight() - mLayoutManager.getPaddingTop() - mLayoutManager.getPaddingBottom();
+    }
+    @Override public void offsetChild(    View view,    int offset){
+      view.offsetTopAndBottom(offset);
+      mLayoutManager.requestLayout();
+    }
+    @Override public int getEndPadding(){
+      return mLayoutManager.getPaddingBottom();
+    }
+  }
+;
+}

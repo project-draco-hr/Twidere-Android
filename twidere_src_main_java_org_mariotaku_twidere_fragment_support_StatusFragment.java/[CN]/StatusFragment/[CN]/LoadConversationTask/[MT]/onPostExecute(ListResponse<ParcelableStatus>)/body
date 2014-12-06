@@ -1,0 +1,8 @@
+{
+  if (data.hasData()) {
+    fragment.setConversation(data.getData());
+  }
+ else {
+    showErrorMessage(context,context.getString(R.string.action_getting_status),data.getException(),true);
+  }
+}

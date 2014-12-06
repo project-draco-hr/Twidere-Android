@@ -1,0 +1,4 @@
+{
+  menuBar.inflate(R.menu.menu_status);
+  loadMedia.setOnClickListener(this);
+}

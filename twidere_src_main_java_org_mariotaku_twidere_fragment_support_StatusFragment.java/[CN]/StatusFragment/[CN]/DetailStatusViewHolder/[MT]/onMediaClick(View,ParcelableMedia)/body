@@ -1,0 +1,3 @@
+{
+  adapter.mFragment.onMediaClick(view,media);
+}

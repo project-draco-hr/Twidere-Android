@@ -1,0 +1,13 @@
+{
+  if (data.hasData()) {
+    final ParcelableStatus status=data.getData();
+    mStatusAdapter.setConversation(null);
+    mStatusAdapter.setReplies(null);
+    mStatusAdapter.setStatus(status);
+    mLayoutManager.scrollToPositionWithOffset(1,0);
+    loadReplies(status);
+    loadConversation(status);
+  }
+ else {
+  }
+}

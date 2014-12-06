@@ -1,0 +1,3 @@
+{
+  return getConversationCount() + 1 + getRepliesCount()+ 1;
+}

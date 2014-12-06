@@ -1,0 +1,18 @@
+{
+switch (getItemViewType(position)) {
+case VIEW_TYPE_DETAIL_STATUS:
+{
+      final ParcelableStatus status=getStatus(position);
+      final DetailStatusViewHolder detailHolder=(DetailStatusViewHolder)holder;
+      detailHolder.showStatus(status);
+      break;
+    }
+case VIEW_TYPE_LIST_STATUS:
+{
+    final ParcelableStatus status=getStatus(position);
+    final StatusViewHolder statusHolder=(StatusViewHolder)holder;
+    statusHolder.displayStatus(status);
+    break;
+  }
+}
+}

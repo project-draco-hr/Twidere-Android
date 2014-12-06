@@ -1,18 +1,16 @@
 {
-  if (params == null || params.length != 1)   return new SingleResponse<>(false,null);
+  final ArrayList<ParcelableStatus> list=new ArrayList<>();
   try {
-    final long account_id=params[0].account_id;
     ParcelableStatus status=params[0];
-    while (status != null && status.in_reply_to_status_id > 0 && !isCancelled()) {
+    final long account_id=status.account_id;
+    while (status.in_reply_to_status_id > 0 && !isCancelled()) {
       status=findStatus(context,account_id,status.in_reply_to_status_id);
-      if (status == null) {
-        break;
-      }
-      handler.post(new AddStatusRunnable(status));
+      publishProgress(status);
+      list.add(0,status);
     }
   }
  catch (  final TwitterException e) {
-    return new SingleResponse<>(false,e);
+    return ListResponse.getListInstance(e);
   }
-  return new SingleResponse<>(true,null);
+  return ListResponse.getListInstance(list);
 }

@@ -1,0 +1,22 @@
+{
+  final int height=super.getDecoratedMeasuredHeight(child);
+  int heightBeforeSpace=0;
+  if (getItemViewType(child) == StatusAdapter.VIEW_TYPE_SPACE) {
+    for (int i=0, j=getChildCount(); i < j; i++) {
+      final View childToMeasure=getChildAt(i);
+      final LayoutParams paramsToMeasure=(LayoutParams)childToMeasure.getLayoutParams();
+      final int typeToMeasure=getItemViewType(childToMeasure);
+      if (typeToMeasure == StatusAdapter.VIEW_TYPE_DETAIL_STATUS || heightBeforeSpace != 0) {
+        heightBeforeSpace+=super.getDecoratedMeasuredHeight(childToMeasure) + paramsToMeasure.topMargin + paramsToMeasure.bottomMargin;
+      }
+      if (typeToMeasure == StatusAdapter.VIEW_TYPE_REPLIES_LOAD_INDICATOR) {
+        break;
+      }
+    }
+    if (heightBeforeSpace != 0) {
+      final int spaceHeight=mRecyclerView.getMeasuredHeight() - heightBeforeSpace;
+      return Math.max(0,spaceHeight);
+    }
+  }
+  return height;
+}

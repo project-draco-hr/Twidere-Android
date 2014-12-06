@@ -1,0 +1,7 @@
+{
+  if (mLoadConversationTask != null && mLoadConversationTask.getStatus() == Status.RUNNING) {
+    mLoadConversationTask.cancel(true);
+  }
+  mLoadConversationTask=new LoadConversationTask(this);
+  mLoadConversationTask.executeTask(status);
+}

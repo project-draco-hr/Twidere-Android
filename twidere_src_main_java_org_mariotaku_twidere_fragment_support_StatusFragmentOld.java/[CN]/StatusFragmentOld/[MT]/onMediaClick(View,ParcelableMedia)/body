@@ -1,0 +1,6 @@
+{
+  final ParcelableStatus status=mStatus;
+  if (status == null)   return;
+  ProfilingUtil.profile(getActivity(),mStatus.account_id,"Large image click, " + mStatus.id + ", "+ media.url);
+  openImageDirectly(getActivity(),status.account_id,media.url);
+}

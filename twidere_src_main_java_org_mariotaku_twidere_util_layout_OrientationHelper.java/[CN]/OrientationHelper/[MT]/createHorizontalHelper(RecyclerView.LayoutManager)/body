@@ -1,0 +1,42 @@
+{
+  return new OrientationHelper(layoutManager){
+    @Override public int getEndAfterPadding(){
+      return mLayoutManager.getWidth() - mLayoutManager.getPaddingRight();
+    }
+    @Override public int getEnd(){
+      return mLayoutManager.getWidth();
+    }
+    @Override public void offsetChildren(    int amount){
+      mLayoutManager.offsetChildrenHorizontal(amount);
+    }
+    @Override public int getStartAfterPadding(){
+      return mLayoutManager.getPaddingLeft();
+    }
+    @Override public int getDecoratedMeasurement(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedMeasuredWidth(view) + params.leftMargin + params.rightMargin;
+    }
+    @Override public int getDecoratedMeasurementInOther(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedMeasuredHeight(view) + params.topMargin + params.bottomMargin;
+    }
+    @Override public int getDecoratedEnd(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedRight(view) + params.rightMargin;
+    }
+    @Override public int getDecoratedStart(    View view){
+      final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)view.getLayoutParams();
+      return mLayoutManager.getDecoratedLeft(view) - params.leftMargin;
+    }
+    @Override public int getTotalSpace(){
+      return mLayoutManager.getWidth() - mLayoutManager.getPaddingLeft() - mLayoutManager.getPaddingRight();
+    }
+    @Override public void offsetChild(    View view,    int offset){
+      view.offsetLeftAndRight(offset);
+    }
+    @Override public int getEndPadding(){
+      return mLayoutManager.getPaddingRight();
+    }
+  }
+;
+}

@@ -1,0 +1,4 @@
+{
+  super.fitSystemWindows(insets);
+  getView().setPadding(insets.left,insets.top,insets.right,insets.bottom);
+}

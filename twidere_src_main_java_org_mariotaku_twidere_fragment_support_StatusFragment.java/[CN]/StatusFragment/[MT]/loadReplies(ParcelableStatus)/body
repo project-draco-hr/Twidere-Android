@@ -1,0 +1,13 @@
+{
+  if (status == null)   return;
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,status.account_id);
+  args.putLong(EXTRA_STATUS_ID,status.id);
+  args.putString(EXTRA_SCREEN_NAME,status.user_screen_name);
+  if (mRepliesLoaderInitialized) {
+    getLoaderManager().restartLoader(LOADER_ID_STATUS_REPLIES,args,mRepliesLoaderCallback);
+    return;
+  }
+  getLoaderManager().initLoader(LOADER_ID_STATUS_REPLIES,args,mRepliesLoaderCallback);
+  mRepliesLoaderInitialized=true;
+}

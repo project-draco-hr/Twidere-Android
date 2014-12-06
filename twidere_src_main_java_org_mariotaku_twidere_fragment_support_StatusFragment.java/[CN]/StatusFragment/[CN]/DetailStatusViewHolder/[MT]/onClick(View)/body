@@ -1,0 +1,10 @@
+{
+switch (v.getId()) {
+case R.id.load_media:
+{
+      final ParcelableStatus status=adapter.getStatus(getPosition());
+      adapter.onLoadMediaClick(this,status,getPosition());
+      break;
+    }
+}
+}

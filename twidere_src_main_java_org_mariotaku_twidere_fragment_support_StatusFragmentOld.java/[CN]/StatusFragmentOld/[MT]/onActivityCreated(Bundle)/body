@@ -1,0 +1,28 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mLocale=getResources().getConfiguration().locale;
+  setRefreshMode(shouldEnablePullToRefresh() ? RefreshMode.BOTH : RefreshMode.NONE);
+  setListShownNoAnimation(true);
+  mHandler=new Handler();
+  mListView=getListView();
+  getListAdapter().setGapDisallowed(true);
+  final TwidereApplication application=getApplication();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
+  getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
+  mImageLoader=application.getImageLoaderWrapper();
+  mTwitterWrapper=getTwitterWrapper();
+  mLoadMoreAutomatically=mPreferences.getBoolean(KEY_LOAD_MORE_AUTOMATICALLY,false);
+  mLoadImagesIndicator.setOnClickListener(this);
+  mInReplyToView.setOnClickListener(this);
+  mFollowButton.setOnClickListener(this);
+  mProfileView.setOnClickListener(this);
+  mLocationContainer.setOnClickListener(this);
+  mRepliesContainer.setOnClickListener(this);
+  mRetweetsContainer.setOnClickListener(this);
+  mFavoritesContainer.setOnClickListener(this);
+  mMenuBar.inflate(R.menu.menu_status);
+  mMenuBar.setIsBottomBar(true);
+  mMenuBar.setOnMenuItemClickListener(mMenuItemClickListener);
+  getStatus(false);
+}

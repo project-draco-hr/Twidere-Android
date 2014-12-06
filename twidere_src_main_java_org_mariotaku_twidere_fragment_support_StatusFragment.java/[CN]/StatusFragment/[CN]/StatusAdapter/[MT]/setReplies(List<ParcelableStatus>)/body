@@ -1,0 +1,4 @@
+{
+  mReplies=replies;
+  notifyDataSetChanged();
+}

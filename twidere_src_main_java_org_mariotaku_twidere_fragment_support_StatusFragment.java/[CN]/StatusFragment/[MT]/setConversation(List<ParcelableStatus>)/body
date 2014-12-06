@@ -1,0 +1,12 @@
+{
+  if (mLayoutManager.getChildCount() != 0) {
+    final long itemId=mStatusAdapter.getItemId(mLayoutManager.findFirstVisibleItemPosition());
+    final int top=mLayoutManager.getChildAt(0).getTop();
+    mStatusAdapter.setConversation(data);
+    final int position=mStatusAdapter.findPositionById(itemId);
+    mLayoutManager.scrollToPositionWithOffset(position,top);
+  }
+ else {
+    mStatusAdapter.setConversation(data);
+  }
+}
