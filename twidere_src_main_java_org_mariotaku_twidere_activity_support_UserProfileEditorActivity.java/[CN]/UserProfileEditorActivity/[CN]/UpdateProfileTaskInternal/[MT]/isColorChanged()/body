@@ -1,0 +1,7 @@
+{
+  final ParcelableUser orig=mOriginal;
+  if (orig == null)   return true;
+  if (mLinkColor != orig.link_color)   return true;
+  if (mBackgroundColor != orig.background_color)   return true;
+  return false;
+}

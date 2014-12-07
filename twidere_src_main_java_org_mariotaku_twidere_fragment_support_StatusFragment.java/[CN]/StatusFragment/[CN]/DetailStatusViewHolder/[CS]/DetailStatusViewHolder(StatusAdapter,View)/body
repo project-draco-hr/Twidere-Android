@@ -4,7 +4,7 @@
   cardView=(CardView)itemView.findViewById(R.id.card);
   cardContent=itemView.findViewById(R.id.card_content);
   progressContainer=itemView.findViewById(R.id.progress_container);
-  menuBar=(MenuBar)itemView.findViewById(R.id.menu_bar);
+  menuBar=(TwidereMenuBar)itemView.findViewById(R.id.menu_bar);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
   textView=(StatusTextView)itemView.findViewById(R.id.text);
@@ -18,8 +18,11 @@
   repliesCountView=(TextView)itemView.findViewById(R.id.replies_count);
   retweetsCountView=(TextView)itemView.findViewById(R.id.retweets_count);
   favoritesCountView=(TextView)itemView.findViewById(R.id.favorites_count);
-  loadMedia=itemView.findViewById(R.id.load_media);
-  mediaPreviewGrid=(LinearLayout)itemView.findViewById(R.id.media_grid);
+  mediaPreviewContainer=itemView.findViewById(R.id.media_preview);
+  mediaPreviewLoad=itemView.findViewById(R.id.media_preview_load);
+  mediaPreviewGrid=(LinearLayout)itemView.findViewById(R.id.media_preview_grid);
+  locationContainer=itemView.findViewById(R.id.location_container);
+  profileContainer=itemView.findViewById(R.id.profile_container);
   setIsRecyclable(false);
   initViews();
 }

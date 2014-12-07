@@ -1,14 +1,21 @@
 {
-  final SingleResponse<ParcelableUser> result=super.doInBackground(params);
-  if (result.getData() != null && isMyAccount(getContext(),result.getData().id)) {
-    final ContentResolver resolver=getContentResolver();
-    final ContentValues values=new ContentValues();
-    values.put(Accounts.NAME,result.getData().name);
-    values.put(Accounts.SCREEN_NAME,result.getData().screen_name);
-    values.put(Accounts.PROFILE_IMAGE_URL,result.getData().profile_image_url);
-    values.put(Accounts.PROFILE_BANNER_URL,result.getData().profile_banner_url);
-    final String where=Accounts.ACCOUNT_ID + " = " + result.getData().id;
-    resolver.update(Accounts.CONTENT_URI,values,where,null);
+  final Twitter twitter=getTwitterInstance(mActivity,mAccountId,true);
+  try {
+    User user=null;
+    if (isColorChanged()) {
+      final String linkColor=String.format("%08x",mLinkColor).substring(2);
+      final String backgroundColor=String.format("%08x",mBackgroundColor).substring(2);
+      user=twitter.updateProfileColors(backgroundColor,null,linkColor,null,null);
+    }
+    if (isProfileChanged()) {
+      user=twitter.updateProfile(mName,mUrl,mLocation,mDescription);
+    }
+    if (user == null) {
+      return SingleResponse.getInstance();
+    }
+    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId));
   }
-  return result;
+ catch (  TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
 }

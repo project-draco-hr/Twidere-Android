@@ -1,1 +1,1 @@
-UpdateProfileTask
+TwidereAsyncTask<Void,Void,SingleResponse<ParcelableUser>>

@@ -1,4 +1,5 @@
 {
-  unregisterReceiver(mStatusReceiver);
+  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
+  bus.unregister(this);
   super.onStop();
 }

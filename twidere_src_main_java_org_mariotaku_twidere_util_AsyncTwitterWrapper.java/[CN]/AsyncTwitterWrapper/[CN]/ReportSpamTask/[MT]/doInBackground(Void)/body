@@ -1,9 +1,9 @@
 {
-  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=getTwitterInstance(mContext,mAccountId,false);
   if (twitter != null) {
     try {
       final User user=twitter.reportSpam(user_id);
-      return SingleResponse.getInstance(user,null);
+      return SingleResponse.getInstance(new ParcelableUser(user,mAccountId),null);
     }
  catch (    final TwitterException e) {
       return SingleResponse.getInstance(null,e);

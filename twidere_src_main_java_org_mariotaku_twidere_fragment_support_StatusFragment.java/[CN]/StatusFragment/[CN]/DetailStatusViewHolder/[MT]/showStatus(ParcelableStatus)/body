@@ -51,19 +51,23 @@
     profileTypeView.setImageDrawable(null);
     profileTypeView.setVisibility(View.GONE);
   }
-  if (adapter.isDetailMediaExpanded()) {
-    loadMedia.setVisibility(View.GONE);
+  if (status.media == null) {
+    mediaPreviewContainer.setVisibility(View.GONE);
+  }
+ else   if (adapter.isDetailMediaExpanded()) {
+    mediaPreviewContainer.setVisibility(View.VISIBLE);
+    mediaPreviewLoad.setVisibility(View.GONE);
     mediaPreviewGrid.setVisibility(View.VISIBLE);
     mediaPreviewGrid.removeAllViews();
-    if (status.media != null) {
-      final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
-      MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,maxColumns,this);
-    }
+    final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
+    MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,maxColumns,this);
   }
  else {
-    loadMedia.setVisibility(View.VISIBLE);
+    mediaPreviewContainer.setVisibility(View.VISIBLE);
+    mediaPreviewLoad.setVisibility(View.VISIBLE);
     mediaPreviewGrid.setVisibility(View.GONE);
     mediaPreviewGrid.removeAllViews();
   }
+  setMenuForStatus(context,menuBar.getMenu(),status);
   menuBar.show();
 }

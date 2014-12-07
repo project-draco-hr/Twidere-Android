@@ -14,7 +14,7 @@
       }
     }
     if (heightBeforeSpace != 0) {
-      final int spaceHeight=mRecyclerView.getMeasuredHeight() - heightBeforeSpace;
+      final int spaceHeight=recyclerView.getMeasuredHeight() - heightBeforeSpace;
       return Math.max(0,spaceHeight);
     }
   }

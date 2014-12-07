@@ -10,7 +10,7 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
       return 0;
   }
   int result=0;
-  if (table != null && values != null) {
+  if (table != null) {
     mDatabaseWrapper.beginTransaction();
     final boolean replaceOnConflict=shouldReplaceOnConflict(tableId);
     for (    final ContentValues contentValues : values) {

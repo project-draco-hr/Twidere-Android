@@ -1,3 +1,17 @@
 {
-  return TwitterWrapper.updateProfileImage(context,account_id,image_uri,delete_image);
+  try {
+    final Twitter twitter=getTwitterInstance(mContext,mAccountId,true);
+    TwitterWrapper.updateProfileImage(mContext,twitter,mImageUri,mDeleteImage);
+    try {
+      Thread.sleep(5000L);
+    }
+ catch (    InterruptedException e) {
+      Log.w(LOGTAG,e);
+    }
+    final User user=TwitterWrapper.tryShowUser(twitter,mAccountId,null);
+    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId));
+  }
+ catch (  TwitterException|FileNotFoundException e) {
+    return SingleResponse.getInstance(e);
+  }
 }

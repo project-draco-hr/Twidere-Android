@@ -1,9 +1,0 @@
-{
-  final PackageManager pm=mContext.getPackageManager();
-  try {
-    return pm.getApplicationLabel(pm.getApplicationInfo(mContext.getPackageName(),0));
-  }
- catch (  final NameNotFoundException e) {
-    return APP_NAME;
-  }
-}

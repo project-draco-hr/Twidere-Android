@@ -1,6 +1,7 @@
 {
   mMultiSelectHandler.dispatchOnStop();
-  unregisterReceiver(mStateReceiver);
+  final Bus bus=TwidereApplication.getInstance(this).getMessageBus();
+  bus.unregister(this);
   final ContentResolver resolver=getContentResolver();
   resolver.unregisterContentObserver(mAccountChangeObserver);
   mPreferences.edit().putInt(KEY_SAVED_TAB_POSITION,mViewPager.getCurrentItem()).apply();

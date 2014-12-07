@@ -1,0 +1,13 @@
+{
+  if (context == null)   return;
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_SEARCH);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  builder.appendQueryParameter(QUERY_PARAM_TYPE,QUERY_PARAM_VALUE_TWEETS);
+  if (query != null) {
+    builder.appendQueryParameter(QUERY_PARAM_QUERY,query);
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  context.startActivity(intent);
+}

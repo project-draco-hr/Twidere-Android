@@ -1,3 +1,5 @@
 {
-  Utils.openStatus(getActivity(),mAdapter.getStatus(position),null);
+  final FragmentActivity activity=getActivity();
+  final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(holder.getProfileImageView(),StatusFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<View,String>(holder.getProfileTypeView(),StatusFragment.TRANSITION_NAME_PROFILE_TYPE));
+  Utils.openStatus(getActivity(),mAdapter.getStatus(position),activityOption);
 }

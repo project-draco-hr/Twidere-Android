@@ -1,0 +1,5 @@
+{
+  if (id != -1)   return twitter.showUser(id);
+ else   if (screenName != null)   return twitter.showUser(screenName);
+  throw new IllegalArgumentException();
+}

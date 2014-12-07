@@ -1,10 +1,18 @@
 {
 switch (v.getId()) {
-case R.id.load_media:
+case R.id.media_preview_load:
 {
-      final ParcelableStatus status=adapter.getStatus(getPosition());
-      adapter.onLoadMediaClick(this,status,getPosition());
+      adapter.setDetailMediaExpanded(true);
       break;
     }
+case R.id.profile_container:
+{
+    final ParcelableStatus status=adapter.getStatus(getPosition());
+    final Fragment fragment=adapter.getFragment();
+    final FragmentActivity activity=fragment.getActivity();
+    final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<View,String>(profileTypeView,UserFragment.TRANSITION_NAME_PROFILE_TYPE));
+    openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,activityOption);
+    break;
+  }
 }
 }

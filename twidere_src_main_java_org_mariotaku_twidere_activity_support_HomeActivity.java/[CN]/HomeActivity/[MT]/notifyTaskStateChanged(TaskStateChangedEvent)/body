@@ -1,0 +1,4 @@
+{
+  updateActionsButton();
+  updateSmartBar();
+}

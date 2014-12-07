@@ -1,0 +1,27 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final ParcelableUser user=mUser;
+  if (twitter == null || user == null) {
+    mFollowButton.setVisibility(View.GONE);
+    mFollowProgress.setVisibility(View.GONE);
+    return;
+  }
+  final LoaderManager lm=getLoaderManager();
+  final boolean loadingRelationship=lm.getLoader(LOADER_ID_FRIENDSHIP) != null;
+  final boolean creatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
+  final boolean destroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
+  final boolean creatingBlock=twitter.isCreatingFriendship(user.account_id,user.id);
+  final boolean destroyingBlock=twitter.isDestroyingFriendship(user.account_id,user.id);
+  if (loadingRelationship || creatingFriendship || destroyingFriendship|| creatingBlock|| destroyingBlock) {
+    mFollowButton.setVisibility(View.GONE);
+    mFollowProgress.setVisibility(View.VISIBLE);
+  }
+ else   if (mRelationship != null) {
+    mFollowButton.setVisibility(View.VISIBLE);
+    mFollowProgress.setVisibility(View.GONE);
+  }
+ else {
+    mFollowButton.setVisibility(View.GONE);
+    mFollowProgress.setVisibility(View.GONE);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  if (result.hasData()) {
+    for (    final Uri uri : STATUSES_URIS) {
+      final String where=Statuses.ACCOUNT_ID + " = " + mAccountId+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
+      mResolver.delete(uri,where,null);
+    }
+    mMessagesManager.showInfoMessage(R.string.reported_user_for_spam,false);
+    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    bus.post(new FriendshipUpdatedEvent(result.getData()));
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_reporting_for_spam,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

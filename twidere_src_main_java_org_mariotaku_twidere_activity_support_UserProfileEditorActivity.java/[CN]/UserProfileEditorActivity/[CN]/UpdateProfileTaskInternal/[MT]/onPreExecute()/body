@@ -1,4 +1,5 @@
 {
+  final DialogFragment df=SupportProgressDialogFragment.show(mActivity,DIALOG_FRAGMENT_TAG);
+  df.setCancelable(false);
   super.onPreExecute();
-  setUpdateState(true);
 }

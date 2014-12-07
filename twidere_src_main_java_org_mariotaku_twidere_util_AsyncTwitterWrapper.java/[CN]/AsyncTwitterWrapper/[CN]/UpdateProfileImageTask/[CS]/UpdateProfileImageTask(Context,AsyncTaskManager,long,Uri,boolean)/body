@@ -1,7 +1,7 @@
 {
   super(context,manager);
-  this.context=context;
-  this.account_id=account_id;
-  this.image_uri=image_uri;
-  this.delete_image=delete_image;
+  this.mContext=context;
+  this.mAccountId=account_id;
+  this.mImageUri=image_uri;
+  this.mDeleteImage=delete_image;
 }

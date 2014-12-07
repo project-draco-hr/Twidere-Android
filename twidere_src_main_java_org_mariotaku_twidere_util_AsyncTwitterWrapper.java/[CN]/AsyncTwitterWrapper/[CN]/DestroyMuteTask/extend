@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<User>>
+ManagedAsyncTask<Void,Void,SingleResponse<ParcelableUser>>

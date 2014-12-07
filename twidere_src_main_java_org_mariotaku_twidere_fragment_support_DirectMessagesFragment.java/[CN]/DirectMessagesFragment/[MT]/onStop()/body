@@ -1,5 +1,6 @@
 {
-  unregisterReceiver(mStatusReceiver);
+  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
+  bus.unregister(this);
   final ContentResolver resolver=getContentResolver();
   resolver.unregisterContentObserver(mReloadContentObserver);
   super.onStop();

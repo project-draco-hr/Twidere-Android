@@ -1,3 +1,0 @@
-{
-  super(context,manager,account_id,name,url,location,description);
-}

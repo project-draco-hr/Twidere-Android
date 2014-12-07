@@ -31,7 +31,7 @@ if (!ParcelableLocation.isValidLocation(location)) return;
 openMap(getActivity(),location.latitude,location.longitude);
 break;
 }
-case R.id.load_media:
+case R.id.media_preview_load:
 {
 if (status.is_possibly_sensitive) {
 final LoadSensitiveImageConfirmDialogFragment f=new LoadSensitiveImageConfirmDialogFragment();

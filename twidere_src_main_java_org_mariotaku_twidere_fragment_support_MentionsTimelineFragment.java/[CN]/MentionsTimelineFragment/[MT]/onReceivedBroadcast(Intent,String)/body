@@ -1,9 +1,2 @@
 {
-switch (action) {
-case BROADCAST_TASK_STATE_CHANGED:
-{
-      updateRefreshState();
-      break;
-    }
-}
 }

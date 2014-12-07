@@ -13,7 +13,7 @@
     }
  else {
       if (classEquals(DirectMessagesFragment.class,tab.cls)) {
-        icon=R.drawable.ic_action_new_message;
+        icon=R.drawable.ic_action_add;
         title=R.string.new_direct_message;
       }
  else       if (classEquals(TrendsSuggectionsFragment.class,tab.cls)) {

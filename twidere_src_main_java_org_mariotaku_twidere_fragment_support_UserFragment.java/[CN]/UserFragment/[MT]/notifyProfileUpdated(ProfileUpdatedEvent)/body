@@ -1,0 +1,5 @@
+{
+  final ParcelableUser user=mUser;
+  if (user == null || !user.equals(event.user))   return;
+  displayUser(event.user);
+}

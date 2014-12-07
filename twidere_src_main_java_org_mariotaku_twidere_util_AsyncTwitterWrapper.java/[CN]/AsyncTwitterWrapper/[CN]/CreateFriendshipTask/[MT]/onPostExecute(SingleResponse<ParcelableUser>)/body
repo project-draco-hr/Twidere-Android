@@ -1,0 +1,19 @@
+{
+  if (result.hasData()) {
+    final ParcelableUser user=result.getData();
+    final String message;
+    if (user.is_protected) {
+      message=mContext.getString(R.string.sent_follow_request_to_user,getUserName(mContext,user));
+    }
+ else {
+      message=mContext.getString(R.string.followed_user,getUserName(mContext,user));
+    }
+    mMessagesManager.showOkMessage(message,false);
+    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    bus.post(new FriendshipUpdatedEvent(result.getData()));
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_following,result.getException(),false);
+  }
+  super.onPostExecute(result);
+}

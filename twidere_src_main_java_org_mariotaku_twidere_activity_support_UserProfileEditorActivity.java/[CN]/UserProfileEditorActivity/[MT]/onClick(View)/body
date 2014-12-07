@@ -51,8 +51,26 @@ final String name=ParseUtils.parseString(mEditName.getText());
 final String url=ParseUtils.parseString(mEditUrl.getText());
 final String location=ParseUtils.parseString(mEditLocation.getText());
 final String description=ParseUtils.parseString(mEditDescription.getText());
-mTask=new UpdateProfileTaskInternal(this,mAsyncTaskManager,mAccountId,name,url,location,description);
+final int linkColor=mLinkColor.getColor();
+final int backgroundColor=mBackgroundColor.getColor();
+mTask=new UpdateProfileTaskInternal(this,mAccountId,mUser,name,url,location,description,linkColor,backgroundColor);
 mTask.executeTask();
+break;
+}
+case R.id.set_link_color:
+{
+final Intent intent=new Intent(this,ColorPickerDialogActivity.class);
+intent.putExtra(EXTRA_COLOR,user.link_color);
+intent.putExtra(EXTRA_ALPHA_SLIDER,false);
+startActivityForResult(intent,REQUEST_PICK_LINK_COLOR);
+break;
+}
+case R.id.set_background_color:
+{
+final Intent intent=new Intent(this,ColorPickerDialogActivity.class);
+intent.putExtra(EXTRA_COLOR,user.background_color);
+intent.putExtra(EXTRA_ALPHA_SLIDER,false);
+startActivityForResult(intent,REQUEST_PICK_BACKGROUND_COLOR);
 break;
 }
 }

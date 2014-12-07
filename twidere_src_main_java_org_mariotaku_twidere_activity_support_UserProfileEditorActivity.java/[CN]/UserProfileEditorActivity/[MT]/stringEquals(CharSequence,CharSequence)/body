@@ -1,4 +1,8 @@
 {
   if (str1 == null || str2 == null)   return str1 == str2;
-  return str1.toString().equals(str2.toString());
+  if (str1.length() != str2.length())   return false;
+  for (int i=0, j=str1.length(); i < j; i++) {
+    if (str1.charAt(i) != str2.charAt(i))     return false;
+  }
+  return true;
 }

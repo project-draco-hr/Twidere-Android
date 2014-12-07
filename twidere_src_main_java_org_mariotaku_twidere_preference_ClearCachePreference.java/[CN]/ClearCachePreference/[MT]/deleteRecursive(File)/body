@@ -4,5 +4,7 @@
       deleteRecursive(c);
     }
   }
-  f.delete();
+  if (!f.delete()) {
+    Log.w(LOGTAG,String.format("Unable to delete %s",f));
+  }
 }

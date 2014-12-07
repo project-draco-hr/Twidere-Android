@@ -1,0 +1,15 @@
+{
+  InputStream is;
+  try {
+    is=context.getContentResolver().openInputStream(imageUri);
+    return twitter.updateProfileImage(is);
+  }
+  finally {
+    if (deleteImage && "file".equals(imageUri.getScheme())) {
+      final File file=new File(imageUri.getPath());
+      if (!file.delete()) {
+        Log.w(LOGTAG,String.format("Unable to delete %s",file));
+      }
+    }
+  }
+}

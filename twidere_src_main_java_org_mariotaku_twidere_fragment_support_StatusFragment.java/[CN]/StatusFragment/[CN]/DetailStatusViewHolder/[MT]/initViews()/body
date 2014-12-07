@@ -1,4 +1,8 @@
 {
+  menuBar.setOnMenuItemClickListener(this);
   menuBar.inflate(R.menu.menu_status);
-  loadMedia.setOnClickListener(this);
+  mediaPreviewLoad.setOnClickListener(this);
+  profileContainer.setOnClickListener(this);
+  ViewCompat.setTransitionName(profileImageView,TRANSITION_NAME_PROFILE_IMAGE);
+  ViewCompat.setTransitionName(profileTypeView,TRANSITION_NAME_PROFILE_TYPE);
 }

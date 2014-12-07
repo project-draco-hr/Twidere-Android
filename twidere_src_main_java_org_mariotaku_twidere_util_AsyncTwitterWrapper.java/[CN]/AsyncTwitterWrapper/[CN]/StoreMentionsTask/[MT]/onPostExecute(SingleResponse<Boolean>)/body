@@ -1,6 +1,5 @@
 {
   if (Boolean.TRUE.equals(response.getData())) {
-    mContext.sendBroadcast(new Intent(BROADCAST_MENTIONS_REFRESHED));
   }
   super.onPostExecute(response);
 }

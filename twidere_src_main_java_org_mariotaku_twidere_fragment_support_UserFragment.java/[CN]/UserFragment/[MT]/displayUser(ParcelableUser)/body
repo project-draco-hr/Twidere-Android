@@ -49,7 +49,8 @@
     setupUserColorActionBar(userColor);
   }
  else {
-    mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url),this);
+    mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
+    setupUserColorActionBar(user.link_color);
   }
   final int defWidth=res.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
@@ -65,7 +66,8 @@
     resolver.update(Accounts.CONTENT_URI,values,where,null);
   }
   mUuckyFooter.setVisibility(isUucky(user.id,user.screen_name,user) ? View.VISIBLE : View.GONE);
-  if (!user.is_cache) {
+  final Relationship relationship=mRelationship;
+  if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();
   }
   invalidateOptionsMenu();

@@ -24,6 +24,8 @@
   mProfileBannerRemove.setOnClickListener(this);
   mCancelButton.setOnClickListener(this);
   mDoneButton.setOnClickListener(this);
+  mSetLinkColor.setOnClickListener(this);
+  mSetBackgroundColor.setOnClickListener(this);
   if (savedInstanceState != null && savedInstanceState.getParcelable(EXTRA_USER) != null) {
     final ParcelableUser user=savedInstanceState.getParcelable(EXTRA_USER);
     displayUser(user);

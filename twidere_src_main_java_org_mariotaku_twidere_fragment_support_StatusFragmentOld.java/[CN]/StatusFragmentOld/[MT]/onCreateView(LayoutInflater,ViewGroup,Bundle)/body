@@ -23,14 +23,14 @@
   mFollowIndicator=mHeaderView.findViewById(R.id.follow_indicator);
   mFollowInfoProgress=(ProgressBar)mHeaderView.findViewById(R.id.follow_info_progress);
   mProfileView=(ColorLabelRelativeLayout)mHeaderView.findViewById(R.id.profile);
-  mImagePreviewGrid=(LinearLayout)mHeaderView.findViewById(R.id.media_grid);
+  mImagePreviewGrid=(LinearLayout)mHeaderView.findViewById(R.id.media_preview_grid);
   mRepliesContainer=mHeaderView.findViewById(R.id.replies_container);
   mRetweetsContainer=mHeaderView.findViewById(R.id.retweets_container);
   mFavoritesContainer=mHeaderView.findViewById(R.id.favorites_container);
   mRepliesCountView=(TextView)mHeaderView.findViewById(R.id.replies_count);
   mRetweetsCountView=(TextView)mHeaderView.findViewById(R.id.retweets_count);
   mFavoritesCountView=(TextView)mHeaderView.findViewById(R.id.favorites_count);
-  mLoadImagesIndicator=mHeaderView.findViewById(R.id.load_media);
+  mLoadImagesIndicator=mHeaderView.findViewById(R.id.media_preview_load);
   mRetryButton=(Button)view.findViewById(R.id.retry);
   final View cardView=mHeaderView.findViewById(R.id.card);
   ViewCompat.setTransitionName(cardView,TRANSITION_NAME_CARD);

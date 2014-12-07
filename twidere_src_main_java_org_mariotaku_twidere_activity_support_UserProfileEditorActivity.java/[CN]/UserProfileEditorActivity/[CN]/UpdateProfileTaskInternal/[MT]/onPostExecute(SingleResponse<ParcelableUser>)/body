@@ -1,8 +1,7 @@
 {
   super.onPostExecute(result);
-  if (result != null && result.getData() != null) {
-    mGetUserInfoCalled=true;
-    displayUser(result.getData());
+  final Fragment f=mActivity.getSupportFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_TAG);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismissAllowingStateLoss();
   }
-  setUpdateState(false);
 }

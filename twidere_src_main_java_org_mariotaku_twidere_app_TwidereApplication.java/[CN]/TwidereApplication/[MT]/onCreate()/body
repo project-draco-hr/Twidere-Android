@@ -4,10 +4,10 @@
   }
   setTheme(ThemeUtils.getThemeResource(this));
   super.onCreate();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mHandler=new Handler();
+  mMessageBus=new Bus();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
-  configACRA();
   initializeAsyncTask();
   GalleryUtils.initialize(this);
   initAccountColor(this);

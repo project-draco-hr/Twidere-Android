@@ -1,0 +1,5 @@
+{
+  if (event.user != null && event.user.equals(mUser)) {
+    getFriendship();
+  }
+}

@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.destroyMute(mUserId);
-    return SingleResponse.getInstance(user,null);
+    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId),null);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(null,e);

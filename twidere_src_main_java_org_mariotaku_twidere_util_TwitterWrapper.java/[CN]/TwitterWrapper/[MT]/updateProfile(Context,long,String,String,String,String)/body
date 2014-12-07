@@ -3,10 +3,10 @@
   if (twitter != null) {
     try {
       final User user=twitter.updateProfile(name,url,location,description);
-      return new SingleResponse<ParcelableUser>(new ParcelableUser(user,account_id),null);
+      return new SingleResponse<>(new ParcelableUser(user,account_id),null);
     }
  catch (    final TwitterException e) {
-      return new SingleResponse<ParcelableUser>(null,e);
+      return new SingleResponse<>(null,e);
     }
   }
   return SingleResponse.getInstance();

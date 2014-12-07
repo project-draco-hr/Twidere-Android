@@ -4,17 +4,13 @@
   final Relationship relationship=mRelationship;
   if (twitter == null || user == null)   return;
   final boolean isMyself=user.account_id == user.id;
-  final boolean isFollowing=relationship != null && relationship.isSourceFollowingTarget();
-  final boolean isProtected=user.is_protected;
-  final boolean creatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
-  final boolean destroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
   setMenuItemAvailability(menu,MENU_EDIT,isMyself);
   final MenuItem mentionItem=menu.findItem(MENU_MENTION);
   if (mentionItem != null) {
     mentionItem.setTitle(getString(R.string.mention_user_name,getDisplayName(getActivity(),user)));
   }
   Utils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
-  if (user.id != user.account_id && relationship != null) {
+  if (!isMyself && relationship != null) {
     setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
     setMenuItemAvailability(menu,MENU_BLOCK,true);
     setMenuItemAvailability(menu,MENU_MUTE_USER,true);
@@ -40,6 +36,7 @@
  else {
     setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
     setMenuItemAvailability(menu,MENU_BLOCK,false);
+    setMenuItemAvailability(menu,MENU_MUTE_USER,false);
     setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
   }
   final Intent intent=new Intent(INTENT_ACTION_EXTENSION_OPEN_USER);

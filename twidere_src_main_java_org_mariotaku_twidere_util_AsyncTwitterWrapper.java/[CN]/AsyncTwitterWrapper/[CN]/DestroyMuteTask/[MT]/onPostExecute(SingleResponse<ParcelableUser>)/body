@@ -1,0 +1,12 @@
+{
+  if (result.hasData()) {
+    final String message=mContext.getString(R.string.unmuted_user,getUserName(mContext,result.getData()));
+    mMessagesManager.showInfoMessage(message,false);
+    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    bus.post(new FriendshipUpdatedEvent(result.getData()));
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_unmuting,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

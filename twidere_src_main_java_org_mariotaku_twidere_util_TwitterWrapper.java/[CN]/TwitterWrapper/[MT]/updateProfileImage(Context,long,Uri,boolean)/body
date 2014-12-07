@@ -1,17 +1,4 @@
 {
-  final Twitter twitter=getTwitterInstance(context,account_id,false);
-  if (twitter != null && image_uri != null && "file".equals(image_uri.getScheme())) {
-    try {
-      final User user=twitter.updateProfileImage(new File(image_uri.getPath()));
-      Thread.sleep(5000L);
-      return new SingleResponse<ParcelableUser>(new ParcelableUser(user,account_id),null);
-    }
- catch (    final TwitterException e) {
-      return new SingleResponse<ParcelableUser>(null,e);
-    }
-catch (    final InterruptedException e) {
-      return new SingleResponse<ParcelableUser>(null,e);
-    }
-  }
-  return SingleResponse.getInstance();
+  final Twitter twitter=getTwitterInstance(context,accountId,true);
+  return updateProfileImage(context,twitter,imageUri,deleteImage);
 }

@@ -2,7 +2,7 @@
   if (!mGetUserInfoCalled)   return;
   mGetUserInfoCalled=false;
   mUser=user;
-  if (user != null && user.id > 0) {
+  if (user != null) {
     mProgressContainer.setVisibility(View.GONE);
     mContent.setVisibility(View.VISIBLE);
     mEditName.setText(user.name);
@@ -12,9 +12,12 @@
     mLazyImageLoader.displayProfileImage(mProfileImageView,user.profile_image_url);
     final int def_width=getResources().getDisplayMetrics().widthPixels;
     mLazyImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,def_width);
+    mLinkColor.setColor(user.link_color);
+    mBackgroundColor.setColor(user.background_color);
   }
  else {
     mProgressContainer.setVisibility(View.GONE);
     mContent.setVisibility(View.GONE);
   }
+  updateDoneButton();
 }

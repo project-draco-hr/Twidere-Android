@@ -1,0 +1,11 @@
+{
+  mActivity=activity;
+  mAccountId=accountId;
+  mOriginal=original;
+  mName=name;
+  mUrl=url;
+  mLocation=location;
+  mDescription=description;
+  mLinkColor=linkColor;
+  mBackgroundColor=backgroundColor;
+}

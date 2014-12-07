@@ -5,11 +5,11 @@
       final ContentValues values=ParcelableUser.makeCachedUserContentValues(user);
       resolver.delete(CachedUsers.CONTENT_URI,CachedUsers.USER_ID + " = " + user.id,null);
       resolver.insert(CachedUsers.CONTENT_URI,values);
-      return new SingleResponse<ParcelableUser>(user,null);
+      return SingleResponse.getInstance(user);
     }
   }
   final Twitter twitter=getTwitterInstance(getContext(),account_id,true);
-  if (twitter == null)   return new SingleResponse<ParcelableUser>(null,null);
+  if (twitter == null)   return SingleResponse.getInstance();
   if (load_from_cache) {
     final String where=CachedUsers.USER_ID + " = " + user_id+ " OR "+ CachedUsers.SCREEN_NAME+ " = '"+ screen_name+ "'";
     final Cursor cur=resolver.query(CachedUsers.CONTENT_URI,CachedUsers.COLUMNS,where,null,null);
@@ -17,7 +17,7 @@
     try {
       if (count > 0) {
         cur.moveToFirst();
-        return new SingleResponse<ParcelableUser>(new ParcelableUser(cur,account_id),null);
+        return new SingleResponse<>(new ParcelableUser(cur,account_id),null);
       }
     }
   finally {
@@ -25,15 +25,15 @@
     }
   }
   try {
-    final User user=tryShowUser(twitter,user_id,screen_name);
-    if (user == null)     return new SingleResponse<ParcelableUser>(null,null);
+    final User user=TwitterWrapper.tryShowUser(twitter,user_id,screen_name);
+    if (user == null)     return SingleResponse.getInstance();
     final ContentValues values=makeCachedUserContentValues(user);
-    final String where=CachedUsers.USER_ID + " = " + user.getId()+ " OR "+ CachedUsers.SCREEN_NAME+ " = ?";
-    resolver.delete(CachedUsers.CONTENT_URI,where,new String[]{user.getScreenName()});
+    final String where=Expression.equals(CachedUsers.USER_ID,user.getId()).getSQL();
+    resolver.delete(CachedUsers.CONTENT_URI,where,null);
     resolver.insert(CachedUsers.CONTENT_URI,values);
-    return new SingleResponse<ParcelableUser>(new ParcelableUser(user,account_id),null);
+    return SingleResponse.getInstance(new ParcelableUser(user,account_id));
   }
  catch (  final TwitterException e) {
-    return new SingleResponse<ParcelableUser>(null,e);
+    return SingleResponse.getInstance(e);
   }
 }

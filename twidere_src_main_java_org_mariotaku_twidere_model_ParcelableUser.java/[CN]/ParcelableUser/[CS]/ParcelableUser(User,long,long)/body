@@ -25,7 +25,7 @@
   listed_count=user.getListedCount();
   is_cache=false;
   is_following=user.isFollowing();
-  background_color=ParseUtils.parseColor(user.getProfileBackgroundColor(),0);
-  link_color=ParseUtils.parseColor(user.getProfileLinkColor(),0);
-  text_color=ParseUtils.parseColor(user.getProfileTextColor(),0);
+  background_color=ParseUtils.parseColor("#" + user.getProfileBackgroundColor(),0);
+  link_color=ParseUtils.parseColor("#" + user.getProfileLinkColor(),0);
+  text_color=ParseUtils.parseColor("#" + user.getProfileTextColor(),0);
 }

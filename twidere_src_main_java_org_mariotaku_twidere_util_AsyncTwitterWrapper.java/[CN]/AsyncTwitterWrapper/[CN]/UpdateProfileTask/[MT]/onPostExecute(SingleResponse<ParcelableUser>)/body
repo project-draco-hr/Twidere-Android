@@ -1,12 +1,11 @@
 {
   if (result.hasData()) {
     Utils.showOkMessage(context,R.string.profile_updated,false);
+    final Bus bus=TwidereApplication.getInstance(context).getMessageBus();
+    bus.post(new ProfileUpdatedEvent(result.getData()));
   }
  else {
     Utils.showErrorMessage(context,context.getString(R.string.action_updating_profile),result.getException(),true);
   }
-  final Intent intent=new Intent(BROADCAST_PROFILE_IMAGE_UPDATED);
-  intent.putExtra(EXTRA_USER_ID,account_id);
-  context.sendBroadcast(intent);
   super.onPostExecute(result);
 }

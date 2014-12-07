@@ -1,6 +1,7 @@
 {
   final Context context=getContext();
   final TwidereApplication app=TwidereApplication.getInstance(context);
+  mHandler=new Handler(Looper.getMainLooper());
   mDatabaseWrapper=new SQLiteDatabaseWrapper(this);
   mHostAddressResolver=app.getHostAddressResolver();
   mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);

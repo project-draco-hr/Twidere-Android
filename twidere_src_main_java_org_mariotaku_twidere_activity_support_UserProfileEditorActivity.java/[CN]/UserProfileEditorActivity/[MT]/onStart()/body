@@ -1,5 +1,3 @@
 {
   super.onStart();
-  final IntentFilter filter=new IntentFilter(BROADCAST_PROFILE_UPDATED);
-  registerReceiver(mStatusReceiver,filter);
 }

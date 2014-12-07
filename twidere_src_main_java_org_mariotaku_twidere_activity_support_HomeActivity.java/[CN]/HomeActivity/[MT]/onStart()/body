@@ -4,9 +4,8 @@
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONSTART));
   final ContentResolver resolver=getContentResolver();
   resolver.registerContentObserver(Accounts.CONTENT_URI,true,mAccountChangeObserver);
-  final IntentFilter filter=new IntentFilter(BROADCAST_TASK_STATE_CHANGED);
-  filter.addAction(BROADCAST_UNREAD_COUNT_UPDATED);
-  registerReceiver(mStateReceiver,filter);
+  final Bus bus=TwidereApplication.getInstance(this).getMessageBus();
+  bus.register(this);
   if (isTabsChanged(getHomeTabs(this)) || getTabDisplayOptionInt(this) != mTabDisplayOption) {
     restart();
   }

@@ -33,5 +33,6 @@
   mViewPager=(ViewPager)contentView.findViewById(R.id.view_pager);
   mPagerIndicator=(PagerSlidingTabStrip)contentView.findViewById(R.id.view_pager_tabs);
   mFollowButton=(Button)headerView.findViewById(R.id.follow);
+  mFollowProgress=(ProgressBar)headerView.findViewById(R.id.follow_progress);
   mUuckyFooter=headerView.findViewById(R.id.uucky_footer);
 }

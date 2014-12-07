@@ -1,4 +1,5 @@
 {
   super.onPreExecute();
-  context.sendBroadcast(new Intent(BROADCAST_TASK_STATE_CHANGED));
+  final Bus bus=TwidereApplication.getInstance(context).getMessageBus();
+  bus.post(new TaskStateChangedEvent());
 }

@@ -1,7 +1,6 @@
 {
   super.onStart();
   final IntentFilter filter=new IntentFilter();
-  filter.addAction(BROADCAST_FRIENDSHIP_CHANGED);
   filter.addAction(BROADCAST_STATUS_FAVORITE_CREATED);
   filter.addAction(BROADCAST_STATUS_RETWEETED);
   registerReceiver(mStatusReceiver,filter);
