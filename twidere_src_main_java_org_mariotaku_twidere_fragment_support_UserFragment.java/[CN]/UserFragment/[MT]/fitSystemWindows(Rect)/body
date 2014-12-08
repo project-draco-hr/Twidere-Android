@@ -1,5 +1,14 @@
 {
   super.fitSystemWindows(insets);
   mHeaderDrawerLayout.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  mHeaderDrawerLayout.setClipToPadding(ThemeUtils.isTransparentBackground(getActivity()));
+  final FragmentActivity activity=getActivity();
+  final boolean isTransparentBackground;
+  if (activity instanceof IThemedActivity) {
+    final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
+    isTransparentBackground=ThemeUtils.isTransparentBackground(themeRes);
+  }
+ else {
+    isTransparentBackground=ThemeUtils.isTransparentBackground(getActivity());
+  }
+  mHeaderDrawerLayout.setClipToPadding(isTransparentBackground);
 }

@@ -6,4 +6,5 @@
  else {
     mBackgroundDrawable.getOutline(outline);
   }
+  outline.setAlpha(mFactor * 0.99f);
 }

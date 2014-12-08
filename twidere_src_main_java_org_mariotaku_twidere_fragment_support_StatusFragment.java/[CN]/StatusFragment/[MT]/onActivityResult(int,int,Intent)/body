@@ -1,0 +1,29 @@
+{
+switch (requestCode) {
+case REQUEST_SET_COLOR:
+{
+      final ParcelableStatus status=mStatusAdapter.getStatus();
+      if (status == null)       return;
+      if (resultCode == Activity.RESULT_OK) {
+        if (data == null)         return;
+        final int color=data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT);
+        setUserColor(getActivity(),status.user_id,color);
+      }
+ else       if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
+        clearUserColor(getActivity(),status.user_id);
+      }
+      break;
+    }
+case REQUEST_SELECT_ACCOUNT:
+{
+    final ParcelableStatus status=mStatusAdapter.getStatus();
+    if (status == null)     return;
+    if (resultCode == Activity.RESULT_OK) {
+      if (data == null || !data.hasExtra(EXTRA_ID))       return;
+      final long accountId=data.getLongExtra(EXTRA_ID,-1);
+      openStatus(getActivity(),accountId,status.id);
+    }
+    break;
+  }
+}
+}

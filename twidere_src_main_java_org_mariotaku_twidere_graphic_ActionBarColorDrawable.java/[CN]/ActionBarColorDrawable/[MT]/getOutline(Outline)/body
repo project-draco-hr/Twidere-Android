@@ -1,0 +1,5 @@
+{
+  final Rect bounds=getBounds();
+  outline.setRect(bounds.left - bounds.width() / 2,-bounds.height(),bounds.right + bounds.width() / 2,bounds.bottom);
+  outline.setAlpha(getAlpha() / 255f);
+}

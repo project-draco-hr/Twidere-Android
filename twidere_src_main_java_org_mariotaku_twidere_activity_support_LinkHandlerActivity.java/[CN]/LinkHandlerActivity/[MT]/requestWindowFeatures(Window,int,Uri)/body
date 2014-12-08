@@ -11,16 +11,11 @@ case LINK_ID_USER:
       transitionRes=R.transition.transition_user;
       break;
     }
-case LINK_ID_STATUS:
-{
-    transitionRes=R.transition.transition_status;
-    break;
-  }
 default :
 {
-  transitionRes=0;
-  break;
-}
+    transitionRes=0;
+    break;
+  }
 }
 if (transitionRes != 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !ThemeUtils.isTransparentBackground(this)) {
 Utils.setSharedElementTransition(this,window,transitionRes);

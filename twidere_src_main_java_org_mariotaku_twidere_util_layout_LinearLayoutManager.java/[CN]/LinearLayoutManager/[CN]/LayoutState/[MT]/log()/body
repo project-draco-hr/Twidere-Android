@@ -1,3 +1,0 @@
-{
-  Log.d(TAG,"avail:" + mAvailable + ", ind:"+ mCurrentPosition+ ", dir:"+ mItemDirection+ ", offset:"+ mOffset+ ", layoutDir:"+ mLayoutDirection);
-}

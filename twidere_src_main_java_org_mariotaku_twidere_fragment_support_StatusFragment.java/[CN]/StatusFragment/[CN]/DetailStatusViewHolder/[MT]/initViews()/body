@@ -3,6 +3,4 @@
   menuBar.inflate(R.menu.menu_status);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);
-  ViewCompat.setTransitionName(profileImageView,TRANSITION_NAME_PROFILE_IMAGE);
-  ViewCompat.setTransitionName(profileTypeView,TRANSITION_NAME_PROFILE_TYPE);
 }

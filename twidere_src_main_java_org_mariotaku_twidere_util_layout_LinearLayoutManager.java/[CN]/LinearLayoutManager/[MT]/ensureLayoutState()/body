@@ -1,8 +1,0 @@
-{
-  if (mLayoutState == null) {
-    mLayoutState=new LayoutState();
-  }
-  if (mOrientationHelper == null) {
-    mOrientationHelper=OrientationHelper.createOrientationHelper(this,mOrientation);
-  }
-}

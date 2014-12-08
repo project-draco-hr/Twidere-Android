@@ -1,0 +1,15 @@
+{
+  final RecyclerView.LayoutParams layoutParams=(RecyclerView.LayoutParams)child.getLayoutParams();
+  final int contentWidth=mWidth - getPaddingLeft() - getPaddingRight();
+  final int contentHeight=mHeight - getPaddingTop() - getPaddingBottom();
+  final int itemCount=getItemCount();
+  final int firstVisibleItem=findFirstVisibleItemPosition();
+  final int idx=findChildIndex(child);
+  if (firstVisibleItem < 1 && idx == 0) {
+    layoutParams.leftMargin=0;
+  }
+ else {
+    layoutParams.leftMargin=-Math.min((contentHeight * itemCount - contentWidth) / (itemCount - 1) + child.getPaddingLeft() + child.getPaddingRight(),contentHeight);
+  }
+  super.measureChildWithMargins(child,widthUsed,heightUsed);
+}

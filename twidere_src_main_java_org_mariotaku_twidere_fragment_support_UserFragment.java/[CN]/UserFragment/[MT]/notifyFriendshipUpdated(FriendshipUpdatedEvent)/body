@@ -1,5 +1,4 @@
 {
-  if (event.user != null && event.user.equals(mUser)) {
-    getFriendship();
-  }
+  if (!event.user.equals(mUser))   return;
+  getFriendship();
 }

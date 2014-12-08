@@ -1,0 +1,14 @@
+{
+  measureChildren(widthMeasureSpec,heightMeasureSpec);
+  int maxWidth=0;
+  for (int i=0, j=getChildCount(); i < j; i++) {
+    final View child=getChildAt(i);
+    maxWidth=Math.max(maxWidth,child.getMeasuredWidth());
+  }
+  if (maxWidth == 0) {
+    super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  }
+ else {
+    setMeasuredDimension(resolveSize(maxWidth,widthMeasureSpec),heightMeasureSpec);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  final int height=MeasureSpec.getSize(heightSpec), width=Math.round(height * 1.5f);
+  mWidth=width;
+  mHeight=height;
+  super.onMeasure(recycler,state,MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),heightSpec);
+}

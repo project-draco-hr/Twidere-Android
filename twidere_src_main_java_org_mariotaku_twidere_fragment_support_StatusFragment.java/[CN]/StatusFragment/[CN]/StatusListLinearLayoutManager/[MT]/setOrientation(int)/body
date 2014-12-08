@@ -1,0 +1,4 @@
+{
+  if (orientation != VERTICAL)   throw new IllegalArgumentException("Only VERTICAL orientation supported");
+  super.setOrientation(orientation);
+}

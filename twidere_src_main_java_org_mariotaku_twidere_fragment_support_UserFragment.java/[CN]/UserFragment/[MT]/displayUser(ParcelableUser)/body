@@ -1,5 +1,4 @@
 {
-  mRelationship=null;
   mUser=null;
   if (user == null || user.id <= 0 || getActivity() == null)   return;
   final Resources res=getResources();

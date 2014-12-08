@@ -1,12 +1,20 @@
 {
   if (data.hasData()) {
+    final long itemId=mStatusAdapter.getItemId(mLayoutManager.findFirstVisibleItemPosition());
+    final View firstChild=mLayoutManager.getChildAt(0);
+    final int top=firstChild != null ? firstChild.getTop() : 0;
     final ParcelableStatus status=data.getData();
-    mStatusAdapter.setConversation(null);
-    mStatusAdapter.setReplies(null);
-    mStatusAdapter.setStatus(status);
-    mLayoutManager.scrollToPositionWithOffset(1,0);
-    loadReplies(status);
-    loadConversation(status);
+    if (mStatusAdapter.setStatus(status)) {
+      mLayoutManager.scrollToPositionWithOffset(1,0);
+      mStatusAdapter.setConversation(null);
+      mStatusAdapter.setReplies(null);
+      loadReplies(status);
+      loadConversation(status);
+    }
+ else {
+      final int position=mStatusAdapter.findPositionById(itemId);
+      mLayoutManager.scrollToPositionWithOffset(position,top);
+    }
   }
  else {
   }

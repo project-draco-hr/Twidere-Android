@@ -32,14 +32,14 @@ case MENU_QUOTE:
 {
 final Intent intent=new Intent(INTENT_ACTION_QUOTE);
 intent.putExtra(EXTRA_STATUS,status);
-activity.startActivity(intent);
+fragment.startActivity(intent);
 break;
 }
 case MENU_REPLY:
 {
 final Intent intent=new Intent(INTENT_ACTION_REPLY);
 intent.putExtra(EXTRA_STATUS,status);
-activity.startActivity(intent);
+fragment.startActivity(intent);
 break;
 }
 case MENU_FAVORITE:
@@ -101,14 +101,14 @@ case MENU_OPEN_WITH_ACCOUNT:
 final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
 intent.setClass(activity,AccountSelectorActivity.class);
 intent.putExtra(EXTRA_SINGLE_SELECTION,true);
-activity.startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
+fragment.startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 break;
 }
 default :
 {
 if (item.getIntent() != null) {
 try {
-activity.startActivity(item.getIntent());
+fragment.startActivity(item.getIntent());
 }
  catch (final ActivityNotFoundException e) {
 Log.w(LOGTAG,e);

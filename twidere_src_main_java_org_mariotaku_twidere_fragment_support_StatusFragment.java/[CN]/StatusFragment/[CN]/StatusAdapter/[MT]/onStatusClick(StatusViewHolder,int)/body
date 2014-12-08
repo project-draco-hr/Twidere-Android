@@ -1,2 +1,3 @@
 {
+  openStatus(mFragment.getActivity(),getStatus(position),null);
 }

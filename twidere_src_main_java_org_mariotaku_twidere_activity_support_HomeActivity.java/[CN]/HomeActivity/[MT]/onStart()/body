@@ -6,7 +6,7 @@
   resolver.registerContentObserver(Accounts.CONTENT_URI,true,mAccountChangeObserver);
   final Bus bus=TwidereApplication.getInstance(this).getMessageBus();
   bus.register(this);
-  if (isTabsChanged(getHomeTabs(this)) || getTabDisplayOptionInt(this) != mTabDisplayOption) {
+  if (getTabDisplayOptionInt(this) != mTabDisplayOption) {
     restart();
   }
   ProfilingUtil.profile(this,ProfilingUtil.FILE_NAME_APP,"App onStart");

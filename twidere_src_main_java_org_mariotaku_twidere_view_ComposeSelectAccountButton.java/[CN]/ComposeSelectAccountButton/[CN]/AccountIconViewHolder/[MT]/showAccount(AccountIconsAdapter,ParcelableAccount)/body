@@ -1,0 +1,4 @@
+{
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  loader.displayProfileImage(iconView,account.profile_image_url);
+}

@@ -1,0 +1,13 @@
+{
+  super(context,attrs,defStyle);
+  mColorLabelHelper=new Helper(this,context,attrs,defStyle);
+  mColorLabelHelper.setIgnorePaddings(true);
+  mAccountIconsAdapter=new AccountIconsAdapter(context);
+  final RecyclerView recyclerView=new InternalRecyclerView(context);
+  final LinearLayoutManager linearLayoutManager=new MyLinearLayoutManager(context);
+  linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+  recyclerView.setLayoutManager(linearLayoutManager);
+  recyclerView.setAdapter(mAccountIconsAdapter);
+  ViewCompat.setOverScrollMode(recyclerView,ViewCompat.OVER_SCROLL_NEVER);
+  addView(recyclerView);
+}

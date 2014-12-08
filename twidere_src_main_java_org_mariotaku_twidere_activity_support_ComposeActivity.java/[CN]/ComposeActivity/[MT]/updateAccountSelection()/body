@@ -5,5 +5,5 @@
     editor.putString(KEY_COMPOSE_ACCOUNTS,ArrayUtils.toString(mSendAccountIds,',',false));
     editor.apply();
   }
-  mSelectAccountButton.drawEnd(getAccountColors(this,mSendAccountIds));
+  mSelectAccountAccounts.setSelectedAccounts(mSendAccountIds);
 }

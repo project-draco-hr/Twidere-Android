@@ -28,9 +28,9 @@
   mAccountSelectorPopup.setModal(true);
   mAccountSelectorPopup.setContentWidth(getResources().getDimensionPixelSize(R.dimen.account_selector_popup_width));
   mAccountSelectorPopup.setAdapter(accountAdapter);
-  mAccountSelectorPopup.setAnchorView(mSelectAccountButton);
-  mSelectAccountButton.setOnClickListener(this);
-  mSelectAccountButton.setOnLongClickListener(this);
+  mAccountSelectorPopup.setAnchorView(mSelectAccountAccounts);
+  mSelectAccountAccounts.setOnClickListener(this);
+  mSelectAccountAccounts.setOnLongClickListener(this);
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();

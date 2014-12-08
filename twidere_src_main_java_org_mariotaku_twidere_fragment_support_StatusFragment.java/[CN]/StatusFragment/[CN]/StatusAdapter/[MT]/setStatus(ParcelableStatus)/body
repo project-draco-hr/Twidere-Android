@@ -1,4 +1,6 @@
 {
+  final ParcelableStatus old=mStatus;
   mStatus=status;
   notifyDataSetChanged();
+  return !CompareUtils.objectEquals(old,status);
 }
