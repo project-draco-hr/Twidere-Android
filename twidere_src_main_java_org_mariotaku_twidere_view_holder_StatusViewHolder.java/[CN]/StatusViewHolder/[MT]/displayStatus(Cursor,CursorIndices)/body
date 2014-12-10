@@ -59,15 +59,9 @@
   profileImageView.setBorderColor(userColor);
   loader.displayProfileImage(profileImageView,user_profile_image_url);
   if (media != null && media.length > 0) {
-    final String text_plain=cursor.getString(indices.text_plain);
-    final String text_unescaped=cursor.getString(indices.text_unescaped);
+    final String textUnescaped=cursor.getString(indices.text_unescaped);
     final ParcelableMedia firstMedia=media[0];
-    if (text_plain.codePointCount(0,text_plain.length()) == firstMedia.end) {
-      textView.setText(text_unescaped.substring(0,firstMedia.start));
-    }
- else {
-      textView.setText(text_unescaped);
-    }
+    textView.setText(textUnescaped);
     loader.displayPreviewImageWithCredentials(mediaPreviewView,firstMedia.media_url,account_id,adapter.getImageLoadingHandler());
     mediaPreviewContainer.setVisibility(View.VISIBLE);
   }

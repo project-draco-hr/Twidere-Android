@@ -1,3 +1,6 @@
 {
-  return mActivatedColor;
+  if (mActivatedColor != 0)   return mActivatedColor;
+  final ColorStateList colors=getLinkTextColors();
+  if (colors != null)   return colors.getDefaultColor();
+  return getCurrentTextColor();
 }

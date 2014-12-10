@@ -1,8 +1,0 @@
-{
-  for (  Drawable d : getCompoundDrawables()) {
-    if (d != null) {
-      d.mutate();
-      d.setColorFilter(isActivated() ? getActivatedColor() : getColor(),Mode.SRC_ATOP);
-    }
-  }
-}

@@ -2,6 +2,7 @@
   if (mProfileImageContainer == null || mRecipientProfileImageView == null || mSenderProfileImageView == null) {
     return;
   }
+  mProfileImageContainer.setVisibility(mRecipient != null ? View.VISIBLE : View.GONE);
   if (mSender != null && mRecipient != null) {
     mImageLoader.displayProfileImage(mSenderProfileImageView,mSender.profile_image_url);
     mImageLoader.displayProfileImage(mRecipientProfileImageView,mRecipient.profile_image_url);

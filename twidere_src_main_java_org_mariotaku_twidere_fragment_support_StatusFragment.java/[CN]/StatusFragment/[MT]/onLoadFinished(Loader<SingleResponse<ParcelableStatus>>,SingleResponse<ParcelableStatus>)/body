@@ -15,7 +15,9 @@
       final int position=mStatusAdapter.findPositionById(itemId);
       mLayoutManager.scrollToPositionWithOffset(position,top);
     }
+    setState(STATE_LOADED);
   }
  else {
+    setState(STATE_ERROR);
   }
 }

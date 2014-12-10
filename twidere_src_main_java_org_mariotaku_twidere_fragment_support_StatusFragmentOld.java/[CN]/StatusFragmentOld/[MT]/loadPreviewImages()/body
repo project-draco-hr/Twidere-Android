@@ -1,10 +1,11 @@
 {
-  if (mStatus == null)   return;
+  final ParcelableStatus status=mStatus;
+  if (status == null)   return;
   mLoadImagesIndicator.setVisibility(View.GONE);
   mImagePreviewGrid.setVisibility(View.VISIBLE);
   mImagePreviewGrid.removeAllViews();
   if (mStatus.media != null) {
     final int maxColumns=getResources().getInteger(R.integer.grid_column_image_preview);
-    MediaPreviewUtils.addToLinearLayout(mImagePreviewGrid,mImageLoader,mStatus.media,maxColumns,this);
+    MediaPreviewUtils.addToLinearLayout(mImagePreviewGrid,mImageLoader,status.media,status.account_id,maxColumns,this);
   }
 }

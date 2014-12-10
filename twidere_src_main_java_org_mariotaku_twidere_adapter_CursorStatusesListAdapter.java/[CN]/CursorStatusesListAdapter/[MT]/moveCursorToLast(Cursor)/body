@@ -1,9 +1,0 @@
-{
-  if (c == null || c.isClosed())   return false;
-  try {
-    return c.moveToNext();
-  }
- catch (  final Exception e) {
-    return false;
-  }
-}

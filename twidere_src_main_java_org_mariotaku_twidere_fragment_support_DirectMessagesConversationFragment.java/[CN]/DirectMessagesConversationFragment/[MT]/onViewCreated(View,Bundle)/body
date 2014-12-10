@@ -1,13 +1,14 @@
 {
   super.onViewCreated(view,savedInstanceState);
+  mUsersSearchProgress=view.findViewById(R.id.users_search_progress);
+  mUsersSearchList=(ListView)view.findViewById(R.id.users_search_list);
+  mMessagesListView=(ListView)view.findViewById(android.R.id.list);
   final View inputSendContainer=view.findViewById(R.id.input_send_container);
   mConversationContainer=view.findViewById(R.id.conversation_container);
   mRecipientSelectorContainer=view.findViewById(R.id.recipient_selector_container);
-  mRecipientSelector=view.findViewById(R.id.recipient_selector);
-  mAccountSpinner=(Spinner)view.findViewById(R.id.account_selector);
   mEditText=(EditText)inputSendContainer.findViewById(R.id.edit_text);
   mTextCountView=(StatusTextCountView)inputSendContainer.findViewById(R.id.text_count);
   mSendButton=inputSendContainer.findViewById(R.id.send);
   mAddImageButton=(ImageView)inputSendContainer.findViewById(R.id.add_image);
-  mRecipientSelector=view.findViewById(R.id.recipient_selector);
+  mUsersSearchList=(ListView)view.findViewById(R.id.users_search_list);
 }

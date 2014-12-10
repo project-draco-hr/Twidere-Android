@@ -10,6 +10,15 @@ case R.id.retry:
     }
 case R.id.follow:
 {
+    if (user.id == user.account_id) {
+      final Bundle extras=new Bundle();
+      extras.putLong(EXTRA_ACCOUNT_ID,user.account_id);
+      final Intent intent=new Intent(INTENT_ACTION_EDIT_USER_PROFILE);
+      intent.setClass(getActivity(),UserProfileEditorActivity.class);
+      intent.putExtras(extras);
+      startActivity(intent);
+      break;
+    }
     final Relationship relationship=mRelationship;
     final AsyncTwitterWrapper twitter=getTwitterWrapper();
     if (relationship == null || twitter == null)     return;

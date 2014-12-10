@@ -1,0 +1,5 @@
+{
+  mStatusContent.setVisibility(state == STATE_LOADED ? View.VISIBLE : View.GONE);
+  mProgressContainer.setVisibility(state == STATE_LOADING ? View.VISIBLE : View.GONE);
+  mErrorContainer.setVisibility(state == STATE_ERROR ? View.VISIBLE : View.GONE);
+}

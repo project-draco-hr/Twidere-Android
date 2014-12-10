@@ -4,7 +4,6 @@
   final Relationship relationship=mRelationship;
   if (twitter == null || user == null)   return;
   final boolean isMyself=user.account_id == user.id;
-  setMenuItemAvailability(menu,MENU_EDIT,isMyself);
   final MenuItem mentionItem=menu.findItem(MENU_MENTION);
   if (mentionItem != null) {
     mentionItem.setTitle(getString(R.string.mention_user_name,getDisplayName(getActivity(),user)));

@@ -1,0 +1,74 @@
+{
+  final ParcelableMedia[] media=status.media;
+  if (status.retweet_id > 0) {
+    if (status.retweet_count == 2) {
+      replyRetweetView.setText(context.getString(R.string.name_and_another_retweeted,status.retweeted_by_name));
+    }
+ else     if (status.retweet_count > 2) {
+      replyRetweetView.setText(context.getString(R.string.name_and_count_retweeted,status.retweeted_by_name,status.retweet_count - 1));
+    }
+ else {
+      replyRetweetView.setText(context.getString(R.string.name_retweeted,status.retweeted_by_name));
+    }
+    replyRetweetView.setVisibility(View.VISIBLE);
+    retweetProfileImageView.setVisibility(View.GONE);
+  }
+ else   if (status.in_reply_to_status_id > 0 && status.in_reply_to_user_id > 0) {
+    replyRetweetView.setText(context.getString(R.string.in_reply_to_name,status.in_reply_to_name));
+    replyRetweetView.setVisibility(View.VISIBLE);
+    retweetProfileImageView.setVisibility(View.GONE);
+  }
+ else {
+    replyRetweetView.setText(null);
+    replyRetweetView.setVisibility(View.GONE);
+    replyRetweetView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+    retweetProfileImageView.setVisibility(View.GONE);
+  }
+  final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
+  if (typeIconRes != 0) {
+    profileTypeView.setImageResource(typeIconRes);
+    profileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    profileTypeView.setImageDrawable(null);
+    profileTypeView.setVisibility(View.GONE);
+  }
+  nameView.setText(status.user_name);
+  screenNameView.setText("@" + status.user_screen_name);
+  timeView.setTime(status.timestamp);
+  final int userColor=UserColorNicknameUtils.getUserColor(context,status.user_id);
+  profileImageView.setBorderColor(userColor);
+  loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+  if (media != null && media.length > 0) {
+    final ParcelableMedia firstMedia=media[0];
+    textView.setText(status.text_unescaped);
+    loader.displayPreviewImageWithCredentials(mediaPreviewView,firstMedia.media_url,status.account_id,handler);
+    mediaPreviewContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    loader.cancelDisplayTask(mediaPreviewView);
+    textView.setText(status.text_unescaped);
+    mediaPreviewContainer.setVisibility(View.GONE);
+  }
+  if (status.reply_count > 0) {
+    replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.reply_count));
+  }
+ else {
+    replyCountView.setText(null);
+  }
+  if (status.retweet_count > 0) {
+    retweetCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.retweet_count));
+  }
+ else {
+    retweetCountView.setText(null);
+  }
+  if (status.favorite_count > 0) {
+    favoriteCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.favorite_count));
+  }
+ else {
+    favoriteCountView.setText(null);
+  }
+  retweetCountView.setEnabled(!status.user_is_protected);
+  retweetCountView.setActivated(Utils.isMyRetweet(status));
+  favoriteCountView.setActivated(status.is_favorite);
+}

@@ -1,0 +1,10 @@
+{
+  if (mUsers instanceof Cursor) {
+    final Cursor c=(Cursor)mUsers;
+    return new ParcelableUser(c,mAccountId);
+  }
+ else   if (mUsers instanceof List) {
+    return (ParcelableUser)((List)mUsers).get(position);
+  }
+  throw new IllegalStateException();
+}

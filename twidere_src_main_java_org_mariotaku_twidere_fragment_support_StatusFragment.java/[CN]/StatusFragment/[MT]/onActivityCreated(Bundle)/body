@@ -13,5 +13,6 @@
   mRecyclerView.setClipToPadding(false);
   mStatusAdapter=new StatusAdapter(this,compact);
   mRecyclerView.setAdapter(mStatusAdapter);
+  setState(STATE_LOADING);
   getLoaderManager().initLoader(LOADER_ID_DETAIL_STATUS,getArguments(),this);
 }

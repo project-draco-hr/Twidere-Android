@@ -1,4 +1,3 @@
 {
   super.setCompoundDrawables(left,top,right,bottom);
-  updateColorFilter();
 }

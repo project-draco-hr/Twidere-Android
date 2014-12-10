@@ -11,7 +11,7 @@
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
   final int userColor=getUserColor(getActivity(),user.id,true);
-  mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
+  mProfileImageView.setBorderColor(userColor);
   mProfileNameContainer.drawEnd(getAccountColor(getActivity(),user.account_id));
   final String nick=getUserNickname(getActivity(),user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
@@ -28,13 +28,14 @@
   mDescriptionContainer.setVisibility(userIsMe || !isEmpty(user.description_html) ? View.VISIBLE : View.GONE);
   mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : null);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  linkify.setLinkTextColor(ThemeUtils.getUserLinkTextColor(getActivity()));
+  linkify.setLinkTextColor(user.link_color);
   linkify.applyAllLinks(mDescriptionView,user.account_id,false);
   mDescriptionView.setMovementMethod(null);
   mLocationContainer.setVisibility(userIsMe || !isEmpty(user.location) ? View.VISIBLE : View.GONE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(userIsMe || !isEmpty(user.url) || !isEmpty(user.url_expanded) ? View.VISIBLE : View.GONE);
   mURLView.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
+  mURLView.setLinkTextColor(user.link_color);
   mURLView.setMovementMethod(null);
   final String createdAt=formatToLongTimeString(getActivity(),user.created_at);
   final float daysSinceCreated=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;

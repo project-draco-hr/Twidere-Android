@@ -15,5 +15,6 @@
     mLoaderInitialized=true;
     lm.initLoader(0,args,this);
   }
+  updateActionBar();
   updateProfileImage();
 }

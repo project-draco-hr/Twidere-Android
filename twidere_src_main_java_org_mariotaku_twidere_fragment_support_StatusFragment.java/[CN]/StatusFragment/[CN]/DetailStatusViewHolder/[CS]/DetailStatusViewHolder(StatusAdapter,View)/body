@@ -2,8 +2,6 @@
   super(itemView);
   this.adapter=adapter;
   cardView=(CardView)itemView.findViewById(R.id.card);
-  cardContent=itemView.findViewById(R.id.card_content);
-  progressContainer=itemView.findViewById(R.id.progress_container);
   menuBar=(TwidereMenuBar)itemView.findViewById(R.id.menu_bar);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);

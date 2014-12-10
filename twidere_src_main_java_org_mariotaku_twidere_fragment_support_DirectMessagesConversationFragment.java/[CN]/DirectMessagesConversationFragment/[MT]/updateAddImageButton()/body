@@ -1,9 +1,3 @@
 {
-  final int color=ThemeUtils.getThemeColor(getActivity());
-  if (mImageUri != null) {
-    mAddImageButton.setColorFilter(color,PorterDuff.Mode.SRC_ATOP);
-  }
- else {
-    mAddImageButton.clearColorFilter();
-  }
+  mAddImageButton.setActivated(mImageUri != null);
 }

@@ -1,6 +1,5 @@
 {
   if (status == null)   return;
-  progressContainer.setVisibility(View.GONE);
   final Context context=adapter.getContext();
   final Resources resources=context.getResources();
   final ImageLoaderWrapper loader=adapter.getImageLoader();
@@ -60,7 +59,7 @@
     mediaPreviewGrid.setVisibility(View.VISIBLE);
     mediaPreviewGrid.removeAllViews();
     final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
-    MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,maxColumns,this);
+    MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,status.account_id,maxColumns,adapter.getFragment());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);

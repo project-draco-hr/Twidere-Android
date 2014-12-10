@@ -1,5 +1,0 @@
-{
-  if (mFiltersEnabled == enabled)   return;
-  mFiltersEnabled=enabled;
-  rebuildFilterInfo(getCursor(),mIndices);
-}

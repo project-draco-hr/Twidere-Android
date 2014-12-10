@@ -1,8 +1,6 @@
 {
   super(itemView);
   this.adapter=adapter;
-  itemView.findViewById(R.id.item_content).setOnClickListener(this);
-  itemView.findViewById(R.id.menu).setOnClickListener(this);
   profileImageView=(CircularImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   textView=(TextView)itemView.findViewById(R.id.text);
@@ -16,10 +14,4 @@
   replyCountView=(TextView)itemView.findViewById(R.id.reply_count);
   retweetCountView=(TextView)itemView.findViewById(R.id.retweet_count);
   favoriteCountView=(TextView)itemView.findViewById(R.id.favorite_count);
-  itemView.setOnClickListener(this);
-  profileImageView.setOnClickListener(this);
-  mediaPreviewContainer.setOnClickListener(this);
-  replyCountView.setOnClickListener(this);
-  retweetCountView.setOnClickListener(this);
-  favoriteCountView.setOnClickListener(this);
 }

@@ -1,5 +1,6 @@
 {
   final Context context=fragment.getActivity();
+  final Resources res=context.getResources();
   final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mFragment=fragment;
   mContext=context;
@@ -7,6 +8,7 @@
   mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
   mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,true);
+  mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compat;
   }

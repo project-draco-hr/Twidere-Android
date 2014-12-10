@@ -1,32 +1,45 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
+  final FragmentActivity activity=getActivity();
+  final ActionBar actionBar=activity.getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+    actionBar.setCustomView(R.layout.actionbar_custom_view_message_user_picker);
+    final View actionBarView=actionBar.getCustomView();
+    mAccountSpinner=(Spinner)actionBarView.findViewById(R.id.account_spinner);
+    mUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
+    mQueryButton=actionBarView.findViewById(R.id.query_button);
+    final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(activity,false);
+    final AccountsSpinnerAdapter adapter=new AccountsSpinnerAdapter(actionBar.getThemedContext(),R.layout.spinner_item_account_icon);
+    adapter.setDropDownViewResource(R.layout.list_item_user);
+    adapter.addAll(accounts);
+    mAccountSpinner.setAdapter(adapter);
+    mAccountSpinner.setOnItemSelectedListener(this);
+    mQueryButton.setOnClickListener(this);
+  }
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mImageLoader=TwidereApplication.getInstance(getActivity()).getImageLoaderWrapper();
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(getActivity());
   mLocale=getResources().getConfiguration().locale;
   mAdapter=new DirectMessagesConversationAdapter(getActivity());
-  setListAdapter(mAdapter);
+  mMessagesListView.setAdapter(mAdapter);
   mAdapter.setMenuButtonClickListener(this);
-  mListView=getListView();
-  mListView.setDivider(null);
-  mListView.setSelector(android.R.color.transparent);
-  mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
-  mListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
-  mListView.setStackFromBottom(true);
-  setListShownNoAnimation(false);
+  mMessagesListView.setDivider(null);
+  mMessagesListView.setSelector(android.R.color.transparent);
+  mMessagesListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
+  mMessagesListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
+  mMessagesListView.setStackFromBottom(true);
+  mUsersSearchAdapter=new SimpleParcelableUsersAdapter(activity);
+  mUsersSearchList.setAdapter(mUsersSearchAdapter);
   if (mPreferences.getBoolean(KEY_QUICK_SEND,false)) {
     mEditText.setOnEditorActionListener(this);
   }
   mEditText.addTextChangedListener(this);
-  final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(getActivity(),false);
-  mAccountSpinner.setAdapter(new AccountsSpinnerAdapter(getActivity(),accounts));
-  mAccountSpinner.setOnItemSelectedListener(this);
   mSendButton.setOnClickListener(this);
   mAddImageButton.setOnClickListener(this);
   mSendButton.setEnabled(false);
-  mRecipientSelector.setOnClickListener(this);
   if (savedInstanceState != null) {
     final long accountId=savedInstanceState.getLong(EXTRA_ACCOUNT_ID,-1);
     final long recipientId=savedInstanceState.getLong(EXTRA_RECIPIENT_ID,-1);
@@ -43,4 +56,6 @@
   final boolean isValid=mAccountId > 0 && mRecipientId > 0;
   mConversationContainer.setVisibility(isValid ? View.VISIBLE : View.GONE);
   mRecipientSelectorContainer.setVisibility(isValid ? View.GONE : View.VISIBLE);
+  mUsersSearchList.setVisibility(View.GONE);
+  mUsersSearchProgress.setVisibility(View.GONE);
 }

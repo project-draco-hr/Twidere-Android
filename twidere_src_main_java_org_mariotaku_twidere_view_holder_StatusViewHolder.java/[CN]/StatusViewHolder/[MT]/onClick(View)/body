@@ -6,7 +6,7 @@ case R.id.item_content:
       adapter.onStatusClick(this,position);
       break;
     }
-case R.id.menu:
+case R.id.item_menu:
 {
     adapter.onItemMenuClick(this,position);
     break;
@@ -17,6 +17,8 @@ case R.id.profile_image:
   break;
 }
 case R.id.reply_count:
+case R.id.retweet_count:
+case R.id.favorite_count:
 {
 adapter.onItemActionClick(this,v.getId(),position);
 break;

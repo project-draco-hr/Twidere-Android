@@ -104,16 +104,6 @@ intent.putExtra(EXTRA_SINGLE_SELECTION,true);
 startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 break;
 }
-case MENU_EDIT:
-{
-final Bundle extras=new Bundle();
-extras.putLong(EXTRA_ACCOUNT_ID,user.account_id);
-final Intent intent=new Intent(INTENT_ACTION_EDIT_USER_PROFILE);
-intent.setClass(getActivity(),UserProfileEditorActivity.class);
-intent.putExtras(extras);
-startActivity(intent);
-return true;
-}
 case MENU_FOLLOW:
 {
 if (relationship == null) return false;

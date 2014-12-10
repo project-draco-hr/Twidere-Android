@@ -1,4 +1,0 @@
-{
-  final StatusViewHolder holder=(StatusViewHolder)view.getTag();
-  holder.displayStatus(cursor,mIndices);
-}

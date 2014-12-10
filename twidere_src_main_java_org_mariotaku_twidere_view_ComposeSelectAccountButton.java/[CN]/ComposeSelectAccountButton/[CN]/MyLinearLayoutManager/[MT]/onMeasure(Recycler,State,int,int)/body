@@ -1,5 +1,15 @@
 {
-  final int height=MeasureSpec.getSize(heightSpec), width=Math.round(height * 1.5f);
+  final int height=MeasureSpec.getSize(heightSpec), width;
+  if (getItemCount() > 1) {
+    width=Math.round(height * 1.5f);
+  }
+ else   if (getChildCount() > 0) {
+    final View firstChild=getChildAt(0);
+    width=height + firstChild.getPaddingLeft() + firstChild.getPaddingRight();
+  }
+ else {
+    width=height;
+  }
   mWidth=width;
   mHeight=height;
   super.onMeasure(recycler,state,MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),heightSpec);
