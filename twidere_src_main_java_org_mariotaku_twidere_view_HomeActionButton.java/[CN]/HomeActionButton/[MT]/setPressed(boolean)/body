@@ -1,0 +1,7 @@
+{
+  final boolean oldState=mHelper.getState();
+  super.setPressed(pressed);
+  final boolean state=mHelper.getState();
+  if (oldState == state)   return;
+  mHelper.updateButtonState();
+}

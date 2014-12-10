@@ -1,5 +1,6 @@
 {
   super(context,attrs,defStyle);
+  mHelper=new PressElevateViewHelper(this);
   inflate(ThemeUtils.getActionBarContext(context),R.layout.action_item_home_actions,this);
   mIconView=(ImageView)findViewById(android.R.id.icon);
   mProgressBar=(ProgressBar)findViewById(android.R.id.progress);

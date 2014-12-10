@@ -1,3 +1,0 @@
-{
-  filter.addAction(BROADCAST_STATUS_DESTROYED);
-}

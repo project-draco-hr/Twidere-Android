@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<twitter4j.Status>>
+ManagedAsyncTask<Void,Void,SingleResponse<ParcelableStatus>>

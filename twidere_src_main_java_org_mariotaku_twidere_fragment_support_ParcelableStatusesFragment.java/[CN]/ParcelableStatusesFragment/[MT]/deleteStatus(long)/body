@@ -1,7 +1,7 @@
 {
   final List<ParcelableStatus> data=getAdapterData();
   if (statusId <= 0 || data == null)   return;
-  final ArrayList<ParcelableStatus> dataToRemove=new ArrayList<>();
+  final Set<ParcelableStatus> dataToRemove=new HashSet<>();
   for (  final ParcelableStatus status : data) {
     if (status.id == statusId || status.retweet_id > 0 && status.retweet_id == statusId) {
       dataToRemove.add(status);

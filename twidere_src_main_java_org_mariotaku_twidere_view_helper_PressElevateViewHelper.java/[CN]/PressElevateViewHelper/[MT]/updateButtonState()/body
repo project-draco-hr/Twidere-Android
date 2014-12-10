@@ -1,0 +1,12 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return;
+  final boolean state=getState();
+  final AnimatorRunnable runnable=new AnimatorRunnable(this,state);
+  if (mCurrentAnimator != null) {
+    mAnimatorRunnable=runnable;
+    mCurrentAnimator=null;
+    return;
+  }
+  runnable.run();
+  mAnimatorRunnable=null;
+}

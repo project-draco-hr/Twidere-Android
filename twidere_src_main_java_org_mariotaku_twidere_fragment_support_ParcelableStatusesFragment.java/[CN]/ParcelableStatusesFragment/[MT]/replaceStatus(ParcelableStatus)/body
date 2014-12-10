@@ -1,0 +1,10 @@
+{
+  final List<ParcelableStatus> data=getAdapterData();
+  if (status == null || data == null)   return;
+  for (int i=0, j=data.size(); i < j; i++) {
+    if (status.equals(data.get(i))) {
+      data.set(i,status);
+    }
+  }
+  setAdapterData(data);
+}

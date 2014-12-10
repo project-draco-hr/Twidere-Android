@@ -1,6 +1,8 @@
 {
   super.onStart();
-  final IntentFilter filter=new IntentFilter();
-  onSetIntentFilter(filter);
-  registerReceiver(mStateReceiver,filter);
+  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
+  final Object callback=getMessageBusCallback();
+  if (callback != null) {
+    bus.register(callback);
+  }
 }

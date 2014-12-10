@@ -1,8 +1,7 @@
 {
   if (result.hasData()) {
-    final Intent intent=new Intent(BROADCAST_STATUS_FAVORITE_CREATED);
-    intent.putExtra(EXTRA_STATUS,result.getData());
-    mContext.sendBroadcast(intent);
+    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    bus.post(new FavoriteCreatedEvent(result.getData()));
     mMessagesManager.showOkMessage(R.string.status_favorited,false);
   }
  else {

@@ -1,4 +1,8 @@
 {
-  unregisterReceiver(mStateReceiver);
+  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
+  final Object callback=getMessageBusCallback();
+  if (callback != null) {
+    bus.unregister(callback);
+  }
   super.onStop();
 }

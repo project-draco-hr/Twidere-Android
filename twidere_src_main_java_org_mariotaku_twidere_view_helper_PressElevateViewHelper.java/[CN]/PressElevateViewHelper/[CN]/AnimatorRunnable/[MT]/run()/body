@@ -1,0 +1,8 @@
+{
+  final float from=state ? 0 : elevation;
+  final float to=state ? elevation : 0;
+  final ObjectAnimator translationZ=ObjectAnimator.ofFloat(view,View.TRANSLATION_Z,from,to);
+  translationZ.setDuration(200);
+  translationZ.addListener(helper);
+  translationZ.start();
+}

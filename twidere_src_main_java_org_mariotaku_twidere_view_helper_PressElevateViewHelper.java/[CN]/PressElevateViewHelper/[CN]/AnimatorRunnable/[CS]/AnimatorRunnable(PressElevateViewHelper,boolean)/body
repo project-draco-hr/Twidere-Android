@@ -1,0 +1,6 @@
+{
+  this.helper=helper;
+  this.state=state;
+  this.view=helper.getView();
+  this.elevation=view.getResources().getDisplayMetrics().density * ELEVATION;
+}

@@ -1,4 +1,3 @@
 {
-  unregisterReceiver(mStateReceiver);
   super.onStop();
 }
