@@ -1,3 +1,3 @@
 {
-  return getTwitterInstance(context,account_id,include_entities,true,!MIUIUtils.isMIUI());
+  return getTwitterInstance(context,accountId,includeEntities,true,!MIUIUtils.isMIUI());
 }

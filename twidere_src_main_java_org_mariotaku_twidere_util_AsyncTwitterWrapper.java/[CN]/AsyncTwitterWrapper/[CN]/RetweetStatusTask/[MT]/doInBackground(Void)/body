@@ -1,14 +1,14 @@
 {
   if (account_id < 0)   return SingleResponse.getInstance();
-  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
-  if (twitter != null) {
-    try {
-      final twitter4j.Status status=twitter.retweetStatus(status_id);
-      return SingleResponse.getInstance(status,null);
-    }
- catch (    final TwitterException e) {
-      return SingleResponse.getInstance(null,e);
-    }
+  final Twitter twitter=getTwitterInstance(mContext,account_id,true);
+  if (twitter == null) {
+    return SingleResponse.getInstance();
   }
-  return SingleResponse.getInstance();
+  try {
+    final ParcelableStatus status=new ParcelableStatus(twitter.retweetStatus(status_id),account_id,false);
+    return SingleResponse.getInstance(status);
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
 }

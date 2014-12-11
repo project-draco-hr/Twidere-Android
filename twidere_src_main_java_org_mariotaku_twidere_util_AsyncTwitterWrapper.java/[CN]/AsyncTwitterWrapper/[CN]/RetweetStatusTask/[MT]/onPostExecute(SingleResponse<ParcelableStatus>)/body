@@ -1,0 +1,18 @@
+{
+  if (result.hasData()) {
+    final ContentValues values=new ContentValues();
+    final ParcelableStatus status=result.getData();
+    values.put(Statuses.MY_RETWEET_ID,status.id);
+    final Expression where=Expression.or(Expression.equals(Statuses.STATUS_ID,status_id),Expression.equals(Statuses.RETWEET_ID,status_id));
+    for (    final Uri uri : STATUSES_URIS) {
+      mResolver.update(uri,values,where.getSQL(),null);
+    }
+    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    bus.post(new StatusRetweetedEvent(status));
+    mMessagesManager.showOkMessage(R.string.status_retweeted,false);
+  }
+ else {
+    mMessagesManager.showErrorMessage(R.string.action_retweeting,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

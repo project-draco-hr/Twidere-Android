@@ -1,6 +1,6 @@
 {
   if (account_id < 0)   return SingleResponse.getInstance();
-  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=getTwitterInstance(mContext,account_id,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final twitter4j.Status status=twitter.createFavorite(status_id);

@@ -1,6 +1,0 @@
-{
-  if (wrapper == null || status == null)   return -1;
-  if (status.my_retweet_id > 0)   return wrapper.destroyStatusAsync(status.account_id,status.my_retweet_id);
- else   if (status.retweeted_by_id == status.account_id)   return wrapper.destroyStatusAsync(status.account_id,status.retweet_id);
-  return -1;
-}

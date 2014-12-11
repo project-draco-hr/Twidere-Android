@@ -8,7 +8,9 @@ case VIEW_TYPE_DETAIL_STATUS:
 case VIEW_TYPE_LIST_STATUS:
 {
     final View view=mInflater.inflate(mCardLayoutResource,parent,false);
-    return new StatusViewHolder(this,view);
+    final StatusViewHolder holder=new StatusViewHolder(this,view);
+    holder.setupViews();
+    return holder;
   }
 case VIEW_TYPE_CONVERSATION_LOAD_INDICATOR:
 case VIEW_TYPE_REPLIES_LOAD_INDICATOR:

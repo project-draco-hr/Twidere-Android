@@ -1,8 +1,5 @@
 {
   super.onStart();
-  final IntentFilter filter=new IntentFilter();
-  filter.addAction(BROADCAST_STATUS_RETWEETED);
-  registerReceiver(mStatusReceiver,filter);
   updateUserColor();
   final int text_size=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));
   mTextView.setTextSize(text_size * 1.25f);
