@@ -1,6 +1,12 @@
 {
   final ParcelableStatus old=mStatus;
   mStatus=status;
+  if (status != null) {
+    mStatusAccount=ParcelableAccount.getAccountWithCredentials(mContext,status.account_id);
+  }
+ else {
+    mStatusAccount=null;
+  }
   notifyDataSetChanged();
   return !CompareUtils.objectEquals(old,status);
 }

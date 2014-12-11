@@ -67,6 +67,6 @@
     mediaPreviewGrid.setVisibility(View.GONE);
     mediaPreviewGrid.removeAllViews();
   }
-  setMenuForStatus(context,menuBar.getMenu(),status);
+  setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
   menuBar.show();
 }
