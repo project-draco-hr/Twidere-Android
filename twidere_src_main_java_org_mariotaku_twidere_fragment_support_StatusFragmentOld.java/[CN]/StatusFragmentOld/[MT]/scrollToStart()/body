@@ -1,6 +1,0 @@
-{
-  if (mListView == null)   return false;
-  final IStatusesListAdapter<List<ParcelableStatus>> adapter=getListAdapter();
-  scrollListToPosition(mListView,adapter.getCount() + mListView.getFooterViewsCount() - 1,0);
-  return true;
-}

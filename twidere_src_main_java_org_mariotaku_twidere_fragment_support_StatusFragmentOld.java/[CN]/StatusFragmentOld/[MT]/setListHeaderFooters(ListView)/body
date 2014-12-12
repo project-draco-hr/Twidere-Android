@@ -1,4 +1,0 @@
-{
-  if (getActivity() == null || isDetached())   return;
-  list.addHeaderView(mHeaderView,null,true);
-}

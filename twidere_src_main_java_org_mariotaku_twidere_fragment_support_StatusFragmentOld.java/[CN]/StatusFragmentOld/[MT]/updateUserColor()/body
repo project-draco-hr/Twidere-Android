@@ -1,4 +1,0 @@
-{
-  if (mStatus == null)   return;
-  mProfileImageView.setBorderColor(getUserColor(getActivity(),mStatus.user_id,true));
-}

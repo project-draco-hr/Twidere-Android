@@ -1,0 +1,3 @@
+{
+  return (mOption & ICON) != 0;
+}

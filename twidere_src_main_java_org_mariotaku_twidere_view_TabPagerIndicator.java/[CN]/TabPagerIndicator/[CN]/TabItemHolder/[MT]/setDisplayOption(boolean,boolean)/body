@@ -1,0 +1,4 @@
+{
+  iconView.setVisibility(iconDisplayed ? VISIBLE : GONE);
+  labelView.setVisibility(labelDisplayed ? VISIBLE : GONE);
+}

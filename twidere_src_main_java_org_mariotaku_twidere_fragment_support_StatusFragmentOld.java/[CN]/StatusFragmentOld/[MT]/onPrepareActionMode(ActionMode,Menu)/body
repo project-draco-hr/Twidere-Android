@@ -1,8 +1,0 @@
-{
-  final int start=mTextView.getSelectionStart(), end=mTextView.getSelectionEnd();
-  final SpannableString string=SpannableString.valueOf(mTextView.getText());
-  final URLSpan[] spans=string.getSpans(start,end,URLSpan.class);
-  final boolean avail=spans.length == 1 && URLUtil.isValidUrl(spans[0].getURL());
-  Utils.setMenuItemAvailability(menu,android.R.id.copyUrl,avail);
-  return false;
-}

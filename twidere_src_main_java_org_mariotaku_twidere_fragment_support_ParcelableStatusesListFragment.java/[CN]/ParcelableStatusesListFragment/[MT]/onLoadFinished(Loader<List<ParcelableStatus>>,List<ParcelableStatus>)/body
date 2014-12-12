@@ -1,6 +1,0 @@
-{
-  super.onLoadFinished(loader,data);
-  if (mIsFirstCreated && mPreferences.getBoolean(KEY_REFRESH_ON_START,false)) {
-    onRefreshFromStart();
-  }
-}

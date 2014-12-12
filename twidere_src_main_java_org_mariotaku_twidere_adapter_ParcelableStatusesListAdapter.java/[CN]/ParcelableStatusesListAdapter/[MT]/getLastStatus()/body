@@ -1,4 +1,0 @@
-{
-  if (super.getCount() == 0)   return null;
-  return getItem(super.getCount() - 1);
-}

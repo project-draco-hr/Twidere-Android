@@ -1,0 +1,6 @@
+{
+  itemView.setContentDescription(title);
+  iconView.setImageDrawable(icon);
+  labelView.setText(title);
+  itemView.setIsCurrent(activated);
+}

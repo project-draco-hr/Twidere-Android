@@ -1,8 +1,5 @@
 {
   super.onStart();
   final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
-  final Object callback=getMessageBusCallback();
-  if (callback != null) {
-    bus.register(callback);
-  }
+  bus.register(mStatusesBusCallback);
 }

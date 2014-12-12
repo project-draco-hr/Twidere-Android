@@ -1,10 +1,21 @@
 {
   super(context,attrs,defStyle);
+  final Resources res=getResources();
+  mIndicatorAdapter=new TabPagerIndicatorAdapter(this);
+  mStripHeight=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
   ViewCompat.setOverScrollMode(this,ViewCompat.OVER_SCROLL_NEVER);
   setHorizontalScrollBarEnabled(false);
   setVerticalScrollBarEnabled(false);
   setLayoutManager(new TabLayoutManager(this));
-  mIndicatorAdapter=new TabPagerIndicatorAdapter(this);
+  setItemContext(context);
   setAdapter(mIndicatorAdapter);
-  mStripHeight=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
+  setTabDisplayOption(ICON);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TabPagerIndicator);
+  setTabExpandEnabled(a.getBoolean(R.styleable.TabPagerIndicator_tabExpandEnabled,false));
+  setHorizontalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabHorizontalPadding,0));
+  setVerticalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabHorizontalPadding,0));
+  setStripColor(a.getColor(R.styleable.TabPagerIndicator_tabStripColor,0));
+  setIconColor(a.getColor(R.styleable.TabPagerIndicator_tabIconColor,0));
+  setTabDisplayOption(a.getInt(R.styleable.TabPagerIndicator_tabDisplayOption,ICON));
+  a.recycle();
 }

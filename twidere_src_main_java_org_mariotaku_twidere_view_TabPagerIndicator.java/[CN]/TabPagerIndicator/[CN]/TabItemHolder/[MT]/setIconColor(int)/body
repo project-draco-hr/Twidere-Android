@@ -1,3 +1,8 @@
 {
-  iconView.setColorFilter(color);
+  if (color != 0) {
+    iconView.setColorFilter(color);
+  }
+ else {
+    iconView.clearColorFilter();
+  }
 }

@@ -1,8 +1,10 @@
 {
   mContext=context;
+  final TwidereApplication app=TwidereApplication.getInstance(context);
   mInflater=LayoutInflater.from(context);
-  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
+  mImageLoader=app.getImageLoaderWrapper();
   mLoadingHandler=new ImageLoadingHandler(R.id.media_preview_progress);
+  mTwitterWrapper=app.getTwitterWrapper();
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compat;
   }

@@ -1,7 +1,0 @@
-{
-  itemView.setTag(position);
-  itemView.setContentDescription(title);
-  iconView.setImageDrawable(icon);
-  iconView.setContentDescription(title);
-  selectedIndicator.setVisibility(activated ? VISIBLE : INVISIBLE);
-}

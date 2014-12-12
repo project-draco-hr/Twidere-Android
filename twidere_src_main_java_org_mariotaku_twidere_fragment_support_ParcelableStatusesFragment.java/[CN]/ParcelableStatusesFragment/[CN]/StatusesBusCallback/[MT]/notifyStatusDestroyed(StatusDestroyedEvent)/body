@@ -1,3 +1,0 @@
-{
-  fragment.deleteStatus(event.status.id);
-}

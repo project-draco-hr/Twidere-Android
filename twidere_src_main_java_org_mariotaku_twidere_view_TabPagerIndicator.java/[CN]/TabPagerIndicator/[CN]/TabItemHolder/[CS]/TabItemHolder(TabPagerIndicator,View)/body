@@ -1,0 +1,10 @@
+{
+  super(itemView);
+  this.indicator=indicator;
+  this.itemView=(ItemLayout)itemView;
+  itemView.setOnClickListener(this);
+  itemView.setOnLongClickListener(this);
+  iconView=(ImageView)itemView.findViewById(R.id.tab_icon);
+  labelView=(TextView)itemView.findViewById(R.id.tab_label);
+  badgeView=(BadgeView)itemView.findViewById(R.id.unread_indicator);
+}

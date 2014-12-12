@@ -1,5 +1,0 @@
-{
-  mHeaders.add(section);
-  mSections.put(section,adapter);
-  notifyDataSetChanged();
-}

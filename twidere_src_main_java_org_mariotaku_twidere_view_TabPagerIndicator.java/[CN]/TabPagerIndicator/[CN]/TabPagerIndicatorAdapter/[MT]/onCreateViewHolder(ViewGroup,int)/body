@@ -1,10 +1,5 @@
 {
-  final View view=mInflater.inflate(R.layout.tab_item_home,parent,false);
-  view.setOnClickListener(this);
-  view.setOnLongClickListener(this);
-  final View selectedIndicator=view.findViewById(R.id.selected_indicator);
-  final ViewGroup.LayoutParams lp=selectedIndicator.getLayoutParams();
-  lp.height=mIndicator.getStripHeight();
-  selectedIndicator.setLayoutParams(lp);
-  return new TabItemHolder(view);
+  if (mIndicator == null)   throw new IllegalStateException("item context not set");
+  final View view=mInflater.inflate(R.layout.layout_tab_item,parent,false);
+  return new TabItemHolder(mIndicator,view);
 }

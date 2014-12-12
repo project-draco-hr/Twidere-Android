@@ -1,4 +1,0 @@
-{
-  fragment.setProgressBarIndeterminateVisibility(false);
-  fragment.updateConversationInfo();
-}

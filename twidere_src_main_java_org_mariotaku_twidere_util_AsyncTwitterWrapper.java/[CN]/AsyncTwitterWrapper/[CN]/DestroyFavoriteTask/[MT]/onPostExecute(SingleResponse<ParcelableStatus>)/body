@@ -1,4 +1,5 @@
 {
+  mDestroyingFavoriteIds.remove(account_id,status_id);
   if (result.hasData()) {
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
     bus.post(new FavoriteDestroyedEvent(result.getData()));

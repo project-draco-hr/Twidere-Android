@@ -1,0 +1,5 @@
+{
+  if (mIsCurrent == isCurrent)   return;
+  mIsCurrent=isCurrent;
+  invalidate();
+}

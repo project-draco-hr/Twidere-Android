@@ -1,7 +1,0 @@
-{
-  int total=0;
-  for (  final T adapter : mSections.values()) {
-    total+=adapter.getCount() + 1;
-  }
-  return total;
-}

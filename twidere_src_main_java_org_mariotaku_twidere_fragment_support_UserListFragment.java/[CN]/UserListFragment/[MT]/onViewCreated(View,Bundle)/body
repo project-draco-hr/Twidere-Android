@@ -15,5 +15,5 @@
   mRetryButton=(Button)mErrorRetryContainer.findViewById(R.id.retry);
   mErrorMessageView=(TextView)mErrorRetryContainer.findViewById(R.id.error_message);
   mViewPager=(ViewPager)contentView.findViewById(R.id.view_pager);
-  mPagerIndicator=(PagerSlidingTabStrip)contentView.findViewById(R.id.view_pager_tabs);
+  mPagerIndicator=(TabPagerIndicator)contentView.findViewById(R.id.view_pager_tabs);
 }

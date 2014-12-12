@@ -1,0 +1,12 @@
+{
+  final int idx=internalArray.indexOfKey(key);
+  final HashSet<T> set;
+  if (idx < 0) {
+    set=new HashSet<>();
+    internalArray.put(key,set);
+  }
+ else {
+    set=internalArray.valueAt(idx);
+  }
+  return set.add(value);
+}

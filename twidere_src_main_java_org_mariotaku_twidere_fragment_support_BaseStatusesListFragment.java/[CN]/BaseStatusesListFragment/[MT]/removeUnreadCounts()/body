@@ -1,5 +1,0 @@
-{
-  if (mRemoveUnreadCountsTask != null && mRemoveUnreadCountsTask.getStatus() == TwidereAsyncTask.Status.RUNNING)   return;
-  mRemoveUnreadCountsTask=new RemoveUnreadCountsTask<Data>(mReadPositions,this);
-  mRemoveUnreadCountsTask.executeTask();
-}

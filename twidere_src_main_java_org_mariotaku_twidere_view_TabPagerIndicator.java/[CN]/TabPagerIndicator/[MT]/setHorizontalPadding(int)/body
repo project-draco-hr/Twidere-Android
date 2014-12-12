@@ -1,0 +1,4 @@
+{
+  mHorizontalPadding=padding;
+  notifyDataSetChanged();
+}

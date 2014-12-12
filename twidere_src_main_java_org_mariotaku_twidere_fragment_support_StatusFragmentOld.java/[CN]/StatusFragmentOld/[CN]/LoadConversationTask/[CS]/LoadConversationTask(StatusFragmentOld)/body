@@ -1,5 +1,0 @@
-{
-  context=fragment.getActivity();
-  this.fragment=fragment;
-  handler=new Handler();
-}

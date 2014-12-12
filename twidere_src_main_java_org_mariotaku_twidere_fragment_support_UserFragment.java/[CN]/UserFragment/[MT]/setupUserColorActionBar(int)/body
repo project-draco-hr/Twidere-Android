@@ -4,5 +4,5 @@
   }
   mActionBarBackground.setColor(color);
   mTintedStatusContent.setColor(color,ThemeUtils.getThemeAlpha(getActivity()));
-  mPagerIndicator.setIndicatorColor(color);
+  mPagerIndicator.setStripColor(color);
 }

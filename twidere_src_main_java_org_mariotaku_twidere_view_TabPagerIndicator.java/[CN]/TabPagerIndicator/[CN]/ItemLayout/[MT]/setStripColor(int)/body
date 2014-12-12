@@ -1,0 +1,6 @@
+{
+  if (mStripColor == stripColor)   return;
+  mStripColor=stripColor;
+  mStripPaint.setColor(stripColor);
+  invalidate();
+}

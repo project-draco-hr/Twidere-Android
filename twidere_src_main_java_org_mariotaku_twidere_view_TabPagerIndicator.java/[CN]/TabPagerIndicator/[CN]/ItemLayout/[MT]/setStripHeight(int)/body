@@ -1,0 +1,5 @@
+{
+  if (mStripHeight == stripHeight)   return;
+  mStripHeight=stripHeight;
+  invalidate();
+}

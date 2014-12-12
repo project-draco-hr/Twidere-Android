@@ -1,4 +1,0 @@
-{
-  super.onScrollStateChanged(view,scrollState);
-  mShouldScroll=false;
-}

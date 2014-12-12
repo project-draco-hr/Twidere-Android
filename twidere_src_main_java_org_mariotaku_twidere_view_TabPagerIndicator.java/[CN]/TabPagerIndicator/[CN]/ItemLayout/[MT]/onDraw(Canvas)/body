@@ -1,0 +1,7 @@
+{
+  if (mIsCurrent) {
+    final int width=canvas.getWidth(), height=canvas.getHeight();
+    canvas.drawRect(0,height - mStripHeight,width,height,mStripPaint);
+  }
+  super.onDraw(canvas);
+}

@@ -1,0 +1,3 @@
+{
+  return (mOption & LABEL) != 0;
+}

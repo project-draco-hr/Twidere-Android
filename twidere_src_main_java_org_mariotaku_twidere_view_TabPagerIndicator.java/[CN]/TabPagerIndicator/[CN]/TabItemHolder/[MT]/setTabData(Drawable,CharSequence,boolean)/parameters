@@ -1,0 +1,3 @@
+Drawable icon
+CharSequence title
+boolean activated

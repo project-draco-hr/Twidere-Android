@@ -1,7 +1,0 @@
-{
-  super(itemView);
-  this.itemView=itemView;
-  selectedIndicator=itemView.findViewById(R.id.selected_indicator);
-  iconView=(ImageView)itemView.findViewById(R.id.tab_icon);
-  badgeView=(BadgeView)itemView.findViewById(R.id.unread_indicator);
-}

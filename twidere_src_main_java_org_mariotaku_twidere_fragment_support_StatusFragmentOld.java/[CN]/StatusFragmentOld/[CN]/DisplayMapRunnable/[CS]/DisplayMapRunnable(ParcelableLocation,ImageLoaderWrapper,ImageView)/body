@@ -1,5 +1,0 @@
-{
-  mLocation=location;
-  mLoader=loader;
-  mView=view;
-}

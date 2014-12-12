@@ -1,0 +1,4 @@
+{
+  final int idx=internalArray.indexOfKey(key);
+  return idx >= 0 && internalArray.valueAt(idx).contains(value);
+}

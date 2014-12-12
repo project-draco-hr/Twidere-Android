@@ -1,0 +1,3 @@
+{
+  itemView.setPadding(horizontalPadding,verticalPadding,horizontalPadding,verticalPadding);
+}

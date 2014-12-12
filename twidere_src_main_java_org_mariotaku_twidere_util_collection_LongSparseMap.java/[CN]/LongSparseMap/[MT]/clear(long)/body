@@ -1,0 +1,6 @@
+{
+  final int idx=internalArray.indexOfKey(key);
+  if (idx < 0)   return false;
+  internalArray.valueAt(idx).clear();
+  return true;
+}

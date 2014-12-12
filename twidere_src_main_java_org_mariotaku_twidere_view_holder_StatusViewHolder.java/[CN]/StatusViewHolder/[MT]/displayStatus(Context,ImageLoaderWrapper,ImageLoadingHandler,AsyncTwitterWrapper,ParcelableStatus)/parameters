@@ -1,0 +1,5 @@
+Context context
+ImageLoaderWrapper loader
+ImageLoadingHandler handler
+AsyncTwitterWrapper twitter
+ParcelableStatus status
