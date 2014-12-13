@@ -1,5 +1,6 @@
 {
   mIndicatorAdapter.notifyDataSetChanged();
   if (mPageChangeListener == null)   return;
+  smoothScrollToPosition(position);
   mPageChangeListener.onPageSelected(position);
 }

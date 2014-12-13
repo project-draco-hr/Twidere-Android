@@ -3,13 +3,20 @@
     return;
   }
   mProfileImageContainer.setVisibility(mRecipient != null ? View.VISIBLE : View.GONE);
-  if (mSender != null && mRecipient != null) {
-    mImageLoader.displayProfileImage(mSenderProfileImageView,mSender.profile_image_url);
+  if (mAccount != null && mRecipient != null) {
+    mImageLoader.displayProfileImage(mSenderProfileImageView,mAccount.profile_image_url);
     mImageLoader.displayProfileImage(mRecipientProfileImageView,mRecipient.profile_image_url);
-    mProfileImageContainer.drawEnd(mSender.color);
+    mProfileImageContainer.drawEnd(mAccount.color);
   }
  else {
     mImageLoader.cancelDisplayTask(mSenderProfileImageView);
     mImageLoader.cancelDisplayTask(mRecipientProfileImageView);
+  }
+  final FragmentActivity activity=getActivity();
+  if (mRecipient != null) {
+    activity.setTitle(Utils.getDisplayName(activity,mRecipient));
+  }
+ else {
+    activity.setTitle(R.string.direct_messages);
   }
 }

@@ -1,6 +1,7 @@
 {
-  mUser=null;
-  if (user == null || user.id <= 0 || getActivity() == null)   return;
+  mUser=user;
+  final FragmentActivity activity=getActivity();
+  if (user == null || user.id <= 0 || activity == null)   return;
   final Resources res=getResources();
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
@@ -10,10 +11,10 @@
   mErrorRetryContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=getUserColor(getActivity(),user.id,true);
+  final int userColor=getUserColor(activity,user.id,true);
   mProfileImageView.setBorderColor(userColor);
-  mProfileNameContainer.drawEnd(getAccountColor(getActivity(),user.account_id));
-  final String nick=getUserNickname(getActivity(),user.id,true);
+  mProfileNameContainer.drawEnd(getAccountColor(activity,user.account_id));
+  final String nick=getUserNickname(activity,user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
   final int typeIconRes=getUserTypeIconRes(user.is_verified,user.is_protected);
   if (typeIconRes != 0) {
@@ -37,7 +38,7 @@
   mURLView.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
   mURLView.setLinkTextColor(user.link_color);
   mURLView.setMovementMethod(null);
-  final String createdAt=formatToLongTimeString(getActivity(),user.created_at);
+  final String createdAt=formatToLongTimeString(activity,user.created_at);
   final float daysSinceCreated=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
   final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreated));
   mCreatedAtView.setText(res.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
@@ -55,7 +56,7 @@
   final int defWidth=res.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
   mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
-  if (isMyAccount(getActivity(),user.id)) {
+  if (isMyAccount(activity,user.id)) {
     final ContentResolver resolver=getContentResolver();
     final ContentValues values=new ContentValues();
     values.put(Accounts.NAME,user.name);
@@ -70,5 +71,7 @@
   if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();
   }
+  activity.setTitle(getDisplayName(activity,user,true));
+  updateTitleColor();
   invalidateOptionsMenu();
 }

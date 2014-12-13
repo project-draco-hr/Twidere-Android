@@ -6,7 +6,15 @@
   final int starDotSize=Math.round(STARS_DOT_SIZE * mDensity);
   mStarsHelper=new StarsDrawingHelper(starRows,starCols,starDotSize,Color.WHITE);
   mRainbowHelper=new DrawableDrawingHelper();
-  mSakamotoHelper=new DrawableDrawingHelper(mResources.getDrawable(R.drawable.nyan_sakamoto));
+  final Calendar cal=Calendar.getInstance();
+  final int sakamotoRes;
+  if (cal.get(Calendar.MONTH) == Calendar.DECEMBER) {
+    sakamotoRes=R.drawable.nyan_sakamoto_santa;
+  }
+ else {
+    sakamotoRes=R.drawable.nyan_sakamoto;
+  }
+  mSakamotoHelper=new DrawableDrawingHelper(mResources.getDrawable(sakamotoRes));
   mDrawingHelpers=new IDrawingHelper[]{mStarsHelper,mRainbowHelper,mSakamotoHelper};
   mBackgroundColor=mResources.getColor(R.color.nyan_background);
 }

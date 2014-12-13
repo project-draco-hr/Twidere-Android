@@ -1,4 +1,0 @@
-{
-  super(context,attrs,defStyleAttr);
-  mDrawingHelper=new DrawingHelper(this,context,attrs,defStyleAttr);
-}

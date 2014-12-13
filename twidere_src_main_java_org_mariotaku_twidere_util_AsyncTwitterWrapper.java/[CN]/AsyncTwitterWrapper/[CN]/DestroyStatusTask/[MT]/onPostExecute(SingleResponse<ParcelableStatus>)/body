@@ -1,4 +1,5 @@
 {
+  mDestroyingStatusIds.remove(account_id,status_id);
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
     if (status.retweet_id > 0) {

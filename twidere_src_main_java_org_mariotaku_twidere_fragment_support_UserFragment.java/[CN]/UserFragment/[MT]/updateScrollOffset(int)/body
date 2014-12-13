@@ -10,4 +10,5 @@
     mActionBarBackground.setFactor(factor);
     mTintedStatusContent.setFactor(factor);
   }
+  updateTitleColor();
 }

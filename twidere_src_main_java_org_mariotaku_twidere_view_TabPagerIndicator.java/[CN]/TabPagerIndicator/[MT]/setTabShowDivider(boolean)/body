@@ -1,0 +1,8 @@
+{
+  if (showDivider) {
+    addItemDecoration(mItemDecoration);
+  }
+ else {
+    removeItemDecoration(mItemDecoration);
+  }
+}

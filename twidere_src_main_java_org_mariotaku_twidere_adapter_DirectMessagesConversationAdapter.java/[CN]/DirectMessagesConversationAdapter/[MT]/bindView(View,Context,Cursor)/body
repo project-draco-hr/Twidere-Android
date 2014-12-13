@@ -11,12 +11,6 @@
   getLinkify().applyAllLinks(holder.text,accountId,false);
   holder.text.setMovementMethod(null);
   holder.time.setText(formatToLongTimeString(mContext,timestamp));
-  if (position > mMaxAnimationPosition) {
-    if (mAnimationEnabled) {
-      view.startAnimation(holder.item_animation);
-    }
-    mMaxAnimationPosition=position;
-  }
   if (firstMedia == null) {
     mImageLoader.cancelDisplayTask(holder.media_preview);
     holder.media_preview_container.setVisibility(View.GONE);

@@ -1,0 +1,3 @@
+{
+  return getCredentialsList(context,activatedOnly,false);
+}

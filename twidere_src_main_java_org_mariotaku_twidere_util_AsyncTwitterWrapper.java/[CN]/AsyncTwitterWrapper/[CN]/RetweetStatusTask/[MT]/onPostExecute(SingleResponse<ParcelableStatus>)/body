@@ -1,4 +1,5 @@
 {
+  mCreatingRetweetIds.remove(account_id,status_id);
   if (result.hasData()) {
     final ContentValues values=new ContentValues();
     final ParcelableStatus status=result.getData();

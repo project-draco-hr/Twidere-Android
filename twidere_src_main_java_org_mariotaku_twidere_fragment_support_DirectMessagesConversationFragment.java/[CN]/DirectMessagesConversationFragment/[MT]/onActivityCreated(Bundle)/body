@@ -3,29 +3,28 @@
   setHasOptionsMenu(true);
   final FragmentActivity activity=getActivity();
   final ActionBar actionBar=activity.getActionBar();
-  if (actionBar != null) {
-    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
-    actionBar.setCustomView(R.layout.actionbar_custom_view_message_user_picker);
-    final View actionBarView=actionBar.getCustomView();
-    mAccountSpinner=(Spinner)actionBarView.findViewById(R.id.account_spinner);
-    mUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
-    mQueryButton=actionBarView.findViewById(R.id.query_button);
-    final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(activity,false);
-    final AccountsSpinnerAdapter adapter=new AccountsSpinnerAdapter(actionBar.getThemedContext(),R.layout.spinner_item_account_icon);
-    adapter.setDropDownViewResource(R.layout.list_item_user);
-    adapter.addAll(accounts);
-    mAccountSpinner.setAdapter(adapter);
-    mAccountSpinner.setOnItemSelectedListener(this);
-    mQueryButton.setOnClickListener(this);
-  }
+  if (actionBar == null)   throw new NullPointerException();
+  actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
+  actionBar.setCustomView(R.layout.actionbar_custom_view_message_user_picker);
+  final View actionBarView=actionBar.getCustomView();
+  mAccountSpinner=(Spinner)actionBarView.findViewById(R.id.account_spinner);
+  mUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
+  mQueryButton=actionBarView.findViewById(R.id.query_button);
+  final List<ParcelableCredentials> accounts=ParcelableCredentials.getCredentialsList(activity,false);
+  final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(actionBar.getThemedContext(),R.layout.spinner_item_account_icon);
+  accountsSpinnerAdapter.setDropDownViewResource(R.layout.list_item_user);
+  accountsSpinnerAdapter.addAll(accounts);
+  mAccountSpinner.setAdapter(accountsSpinnerAdapter);
+  mAccountSpinner.setOnItemSelectedListener(this);
+  mQueryButton.setOnClickListener(this);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mImageLoader=TwidereApplication.getInstance(getActivity()).getImageLoaderWrapper();
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(getActivity());
   mLocale=getResources().getConfiguration().locale;
   mAdapter=new DirectMessagesConversationAdapter(getActivity());
   mMessagesListView.setAdapter(mAdapter);
-  mAdapter.setMenuButtonClickListener(this);
   mMessagesListView.setDivider(null);
   mMessagesListView.setSelector(android.R.color.transparent);
   mMessagesListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
@@ -33,6 +32,14 @@
   mMessagesListView.setStackFromBottom(true);
   mUsersSearchAdapter=new SimpleParcelableUsersAdapter(activity);
   mUsersSearchList.setAdapter(mUsersSearchAdapter);
+  mUsersSearchList.setOnItemClickListener(new OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
+      showConversation(account,mUsersSearchAdapter.getItem(position));
+      updateProfileImage();
+    }
+  }
+);
   if (mPreferences.getBoolean(KEY_QUICK_SEND,false)) {
     mEditText.setOnEditorActionListener(this);
   }
@@ -41,19 +48,40 @@
   mAddImageButton.setOnClickListener(this);
   mSendButton.setEnabled(false);
   if (savedInstanceState != null) {
-    final long accountId=savedInstanceState.getLong(EXTRA_ACCOUNT_ID,-1);
-    final long recipientId=savedInstanceState.getLong(EXTRA_RECIPIENT_ID,-1);
-    showConversation(accountId,recipientId);
+    final ParcelableCredentials account=savedInstanceState.getParcelable(EXTRA_ACCOUNT);
+    final ParcelableUser recipient=savedInstanceState.getParcelable(EXTRA_USER);
+    showConversation(account,recipient);
     mEditText.setText(savedInstanceState.getString(EXTRA_TEXT));
     mImageUri=savedInstanceState.getString(EXTRA_IMAGE_URI);
   }
  else {
     final Bundle args=getArguments();
-    final long accountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
-    final long recipientId=args != null ? args.getLong(EXTRA_RECIPIENT_ID,-1) : -1;
-    showConversation(accountId,recipientId);
+    final ParcelableCredentials account;
+    final ParcelableUser recipient;
+    if (args != null) {
+      if (args.containsKey(EXTRA_ACCOUNT)) {
+        account=args.getParcelable(EXTRA_ACCOUNT);
+        recipient=args.getParcelable(EXTRA_USER);
+      }
+ else       if (args.containsKey(EXTRA_ACCOUNT_ID)) {
+        final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+        final long userId=args.getLong(EXTRA_RECIPIENT_ID,-1);
+        final int accountPos=accountsSpinnerAdapter.findItemPosition(accountId);
+        account=accountPos < 0 ? ParcelableAccount.getCredentials(activity,accountId) : (ParcelableCredentials)accountsSpinnerAdapter.getItem(accountPos);
+        recipient=Utils.getUserForConversation(activity,accountId,userId);
+      }
+ else {
+        account=null;
+        recipient=null;
+      }
+      showConversation(account,recipient);
+      if (account != null && recipient != null) {
+        final String key=getDraftsTextKey(account.account_id,recipient.id);
+        mEditText.setText(mMessageDrafts.getString(key,null));
+      }
+    }
   }
-  final boolean isValid=mAccountId > 0 && mRecipientId > 0;
+  final boolean isValid=mAccount != null && mRecipient != null;
   mConversationContainer.setVisibility(isValid ? View.VISIBLE : View.GONE);
   mRecipientSelectorContainer.setVisibility(isValid ? View.GONE : View.VISIBLE);
   mUsersSearchList.setVisibility(View.GONE);

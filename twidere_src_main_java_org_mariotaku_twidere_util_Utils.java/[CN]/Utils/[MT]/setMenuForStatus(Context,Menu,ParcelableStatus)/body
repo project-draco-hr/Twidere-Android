@@ -1,4 +1,4 @@
 {
-  final ParcelableAccountWithCredentials account=ParcelableAccount.getAccountWithCredentials(context,status.account_id);
+  final ParcelableCredentials account=ParcelableAccount.getCredentials(context,status.account_id);
   setMenuForStatus(context,menu,status,account);
 }

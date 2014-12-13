@@ -11,8 +11,7 @@
   text=(TextView)findViewById(R.id.text);
   time=(ShortTimeView)findViewById(R.id.time);
   reply_retweet_status=(TextView)findViewById(R.id.reply_retweet_status);
-  image_preview_count=(TextView)findViewById(R.id.image_preview_count);
-  show_as_gap=content.isGap();
+  show_as_gap=false;
   is_rtl=Utils.isRTL(context);
   density=context.getResources().getDisplayMetrics().density;
 }

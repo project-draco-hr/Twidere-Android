@@ -3,7 +3,7 @@
   if (mEditText != null) {
     outState.putCharSequence(EXTRA_TEXT,mEditText.getText());
   }
-  outState.putLong(EXTRA_ACCOUNT_ID,mAccountId);
-  outState.putLong(EXTRA_RECIPIENT_ID,mRecipientId);
+  outState.putParcelable(EXTRA_ACCOUNT,mAccount);
+  outState.putParcelable(EXTRA_USER,mRecipient);
   outState.putString(EXTRA_IMAGE_URI,mImageUri);
 }

@@ -1,0 +1,18 @@
+{
+  mAccount=account;
+  mRecipient=recipient;
+  if (account == null || recipient == null)   return;
+  final LoaderManager lm=getLoaderManager();
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,account.account_id);
+  args.putLong(EXTRA_RECIPIENT_ID,recipient.id);
+  if (mLoaderInitialized) {
+    lm.restartLoader(0,args,this);
+  }
+ else {
+    mLoaderInitialized=true;
+    lm.initLoader(0,args,this);
+  }
+  updateActionBar();
+  updateProfileImage();
+}

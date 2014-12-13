@@ -15,7 +15,6 @@
   mListView.setSelector(android.R.color.transparent);
   mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
   setListAdapter(mAdapter);
-  mAdapter.setMenuButtonClickListener(this);
   getLoaderManager().initLoader(0,getArguments(),this);
   setListShown(false);
   setRefreshMode(RefreshMode.NONE);

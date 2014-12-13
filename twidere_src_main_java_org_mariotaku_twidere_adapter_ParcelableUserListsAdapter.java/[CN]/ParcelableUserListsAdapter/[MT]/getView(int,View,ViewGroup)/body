@@ -1,14 +1,13 @@
 {
   final View view=super.getView(position,convertView,parent);
   final Object tag=view.getTag();
-  final UserListViewHolder holder;
-  if (tag instanceof UserListViewHolder) {
-    holder=(UserListViewHolder)tag;
+  final UserListListViewHolder holder;
+  if (tag instanceof UserListListViewHolder) {
+    holder=(UserListListViewHolder)tag;
   }
  else {
-    holder=new UserListViewHolder(view);
+    holder=new UserListListViewHolder(view);
     holder.profile_image.setOnClickListener(this);
-    holder.content.setOnOverflowIconClickListener(this);
     view.setTag(holder);
   }
   holder.position=position;
@@ -29,11 +28,5 @@
     mImageLoader.cancelDisplayTask(holder.profile_image);
   }
   holder.profile_image.setTag(position);
-  if (position > mMaxAnimationPosition) {
-    if (mAnimationEnabled) {
-      view.startAnimation(holder.item_animation);
-    }
-    mMaxAnimationPosition=position;
-  }
   return view;
 }

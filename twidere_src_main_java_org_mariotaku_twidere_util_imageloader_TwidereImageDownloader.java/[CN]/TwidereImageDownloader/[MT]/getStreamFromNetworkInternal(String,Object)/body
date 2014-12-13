@@ -1,10 +1,10 @@
 {
   final Uri uri=Uri.parse(uriString);
   final Authorization auth;
-  final ParcelableAccountWithCredentials account;
+  final ParcelableCredentials account;
   if (isTwitterAuthRequired(uri) && extras instanceof AccountExtra) {
     final AccountExtra accountExtra=(AccountExtra)extras;
-    account=ParcelableAccount.getAccountWithCredentials(mContext,accountExtra.account_id);
+    account=ParcelableAccount.getCredentials(mContext,accountExtra.account_id);
     auth=getTwitterAuthorization(mContext,accountExtra.account_id);
   }
  else {

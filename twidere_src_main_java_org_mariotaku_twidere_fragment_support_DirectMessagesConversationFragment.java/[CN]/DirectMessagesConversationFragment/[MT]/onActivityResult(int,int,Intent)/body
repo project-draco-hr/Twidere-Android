@@ -1,28 +1,14 @@
 {
 switch (requestCode) {
-case REQUEST_SELECT_USER:
-{
-      if (resultCode != Activity.RESULT_OK || !data.hasExtra(EXTRA_USER)) {
-        break;
-      }
-      final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
-      if (user != null && mAccountId > 0) {
-        mRecipientId=user.id;
-        mRecipient=user;
-        showConversation(mAccountId,mRecipientId);
-        updateProfileImage();
-      }
-      break;
-    }
 case REQUEST_PICK_IMAGE:
 {
-    if (resultCode != Activity.RESULT_OK || data.getDataString() == null) {
+      if (resultCode != Activity.RESULT_OK || data.getDataString() == null) {
+        break;
+      }
+      mImageUri=data.getDataString();
+      updateAddImageButton();
       break;
     }
-    mImageUri=data.getDataString();
-    updateAddImageButton();
-    break;
-  }
 }
 super.onActivityResult(requestCode,resultCode,data);
 }

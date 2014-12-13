@@ -1,5 +1,4 @@
 {
   super(view);
-  content=(ICardItemView)view.findViewById(R.id.content);
-  item_animation=new CardItemAnimation();
+  content=(IColorLabelView)view.findViewById(R.id.content);
 }

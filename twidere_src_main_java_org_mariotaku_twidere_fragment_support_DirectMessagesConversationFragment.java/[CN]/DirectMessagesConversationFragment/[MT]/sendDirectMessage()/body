@@ -1,10 +1,11 @@
 {
-  final Editable text=mEditText.getText();
-  if (isEmpty(text) || mAccountId <= 0 || mRecipientId <= 0)   return;
-  final String message=text.toString();
+  final ParcelableCredentials account=mAccount;
+  final ParcelableUser recipient=mRecipient;
+  if (mAccount == null || mRecipient == null)   return;
+  final String message=mEditText.getText().toString();
   if (mValidator.isValidTweet(message)) {
-    mTwitterWrapper.sendDirectMessageAsync(mAccountId,mRecipientId,message,mImageUri);
-    text.clear();
+    mTwitterWrapper.sendDirectMessageAsync(account.account_id,recipient.id,message,mImageUri);
+    mEditText.setText(null);
     mImageUri=null;
     updateAddImageButton();
   }
