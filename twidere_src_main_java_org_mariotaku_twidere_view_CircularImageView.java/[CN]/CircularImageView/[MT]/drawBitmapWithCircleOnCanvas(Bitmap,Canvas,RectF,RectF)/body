@@ -1,8 +1,38 @@
 {
   BitmapShader shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
   mMatrix.reset();
-  mMatrix.setRectToRect(source,dest,Matrix.ScaleToFit.FILL);
-  shader.setLocalMatrix(mMatrix);
-  mBitmapPaint.setShader(shader);
-  canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mBitmapPaint);
+switch (getScaleType()) {
+case CENTER_CROP:
+{
+      final float srcRatio=source.width() / source.height();
+      final float dstRatio=dest.width() / dest.height();
+      if (srcRatio > dstRatio) {
+        tempDest.top=dest.top;
+        tempDest.bottom=dest.bottom;
+        final float dstWidth=dest.height() * srcRatio;
+        tempDest.left=dest.centerX() - dstWidth / 2;
+        tempDest.right=dest.centerX() + dstWidth / 2;
+      }
+ else       if (srcRatio < dstRatio) {
+        tempDest.left=dest.left;
+        tempDest.right=dest.right;
+        final float dstHeight=dest.width() / srcRatio;
+        tempDest.top=dest.centerY() - dstHeight / 2;
+        tempDest.bottom=dest.centerY() + dstHeight / 2;
+      }
+ else {
+        tempDest.set(dest);
+      }
+      break;
+    }
+default :
+{
+    tempDest.set(dest);
+    break;
+  }
+}
+mMatrix.setRectToRect(source,tempDest,ScaleToFit.CENTER);
+shader.setLocalMatrix(mMatrix);
+mBitmapPaint.setShader(shader);
+canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mBitmapPaint);
 }
