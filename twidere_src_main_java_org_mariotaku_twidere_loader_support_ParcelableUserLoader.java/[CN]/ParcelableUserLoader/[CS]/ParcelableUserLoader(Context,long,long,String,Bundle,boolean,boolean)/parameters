@@ -1,7 +1,7 @@
 Context context
-long account_id
-long user_id
-String screen_name
+long accountId
+long userId
+String screenName
 Bundle extras
-boolean omit_intent_extra
-boolean load_from_cache
+boolean omitIntentExtra
+boolean loadFromCache

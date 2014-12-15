@@ -1,3 +1,0 @@
-{
-  this("API",consumer_key,consumer_secret);
-}

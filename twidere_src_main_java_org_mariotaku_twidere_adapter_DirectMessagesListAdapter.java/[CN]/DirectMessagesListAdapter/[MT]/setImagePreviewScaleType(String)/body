@@ -1,0 +1,4 @@
+{
+  final ScaleType scaleType=ScaleType.valueOf(scaleTypeString.toUpperCase(Locale.US));
+  mImagePreviewScaleType=scaleType;
+}

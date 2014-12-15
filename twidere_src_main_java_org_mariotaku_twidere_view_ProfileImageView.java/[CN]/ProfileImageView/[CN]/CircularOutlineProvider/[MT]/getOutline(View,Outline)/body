@@ -1,0 +1,13 @@
+{
+  final int contentLeft=view.getPaddingLeft(), contentTop=view.getPaddingTop(), contentRight=view.getWidth() - view.getPaddingRight(), contentBottom=view.getHeight() - view.getPaddingBottom();
+  final ProfileImageView imageView=(ProfileImageView)view;
+  if (imageView.getStyle() == STYLE_CIRCLE) {
+    final int contentWidth=contentRight - contentLeft, contentHeight=contentBottom - contentTop;
+    final int size=Math.min(contentWidth,contentHeight);
+    outline.setOval(contentLeft + (contentWidth - size) / 2,contentTop + (contentHeight - size) / 2,contentRight - (contentWidth - size) / 2,contentBottom - (contentHeight - size) / 2);
+  }
+ else {
+    final float radius=imageView.getCalculatedCornerRadius();
+    outline.setRoundRect(contentLeft,contentTop,contentRight,contentBottom,radius);
+  }
+}

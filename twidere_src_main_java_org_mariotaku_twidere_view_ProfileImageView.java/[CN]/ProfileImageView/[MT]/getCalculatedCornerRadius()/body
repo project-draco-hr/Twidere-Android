@@ -1,0 +1,9 @@
+{
+  if (mCornerRadiusRatio > 0) {
+    return Math.min(getWidth(),getHeight()) * mCornerRadiusRatio;
+  }
+ else   if (mCornerRadius > 0) {
+    return mCornerRadius;
+  }
+  return 0;
+}

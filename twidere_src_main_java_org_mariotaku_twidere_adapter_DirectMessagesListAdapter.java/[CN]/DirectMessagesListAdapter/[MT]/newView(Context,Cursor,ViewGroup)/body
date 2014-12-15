@@ -1,0 +1,10 @@
+{
+  final View view=super.newView(context,cursor,parent);
+  final Object tag=view.getTag();
+  if (!(tag instanceof DirectMessageConversationViewHolder)) {
+    final DirectMessageConversationViewHolder holder=new DirectMessageConversationViewHolder(view);
+    holder.media_preview.setOnClickListener(this);
+    view.setTag(holder);
+  }
+  return view;
+}

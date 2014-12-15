@@ -1,0 +1,44 @@
+{
+  BitmapShader shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  mMatrix.reset();
+switch (getScaleType()) {
+case CENTER_CROP:
+{
+      final float srcRatio=source.width() / source.height();
+      final float dstRatio=dest.width() / dest.height();
+      if (srcRatio > dstRatio) {
+        mTempDestination.top=dest.top;
+        mTempDestination.bottom=dest.bottom;
+        final float dstWidth=dest.height() * srcRatio;
+        mTempDestination.left=dest.centerX() - dstWidth / 2;
+        mTempDestination.right=dest.centerX() + dstWidth / 2;
+      }
+ else       if (srcRatio < dstRatio) {
+        mTempDestination.left=dest.left;
+        mTempDestination.right=dest.right;
+        final float dstHeight=dest.width() / srcRatio;
+        mTempDestination.top=dest.centerY() - dstHeight / 2;
+        mTempDestination.bottom=dest.centerY() + dstHeight / 2;
+      }
+ else {
+        mTempDestination.set(dest);
+      }
+      break;
+    }
+default :
+{
+    mTempDestination.set(dest);
+    break;
+  }
+}
+mMatrix.setRectToRect(source,mTempDestination,ScaleToFit.CENTER);
+shader.setLocalMatrix(mMatrix);
+mBitmapPaint.setShader(shader);
+if (getStyle() == STYLE_CIRCLE) {
+canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mBitmapPaint);
+}
+ else {
+final float cornerRadius=getCalculatedCornerRadius();
+canvas.drawRoundRect(dest,cornerRadius,cornerRadius,mBitmapPaint);
+}
+}

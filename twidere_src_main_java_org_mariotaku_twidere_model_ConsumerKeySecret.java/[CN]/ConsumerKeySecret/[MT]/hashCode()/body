@@ -1,7 +1,0 @@
-{
-  final int prime=31;
-  int result=1;
-  result=prime * result + (consumer_key == null ? 0 : consumer_key.hashCode());
-  result=prime * result + (consumer_secret == null ? 0 : consumer_secret.hashCode());
-  return result;
-}

@@ -1,0 +1,36 @@
+{
+  super(context,attrs,defStyle);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.ProfileImageView,defStyle,0);
+  mMatrix=new Matrix();
+  mSource=new RectF();
+  mDestination=new RectF();
+  mTempDestination=new RectF();
+  mBitmapPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBitmapPaint.setFilterBitmap(true);
+  mBitmapPaint.setDither(true);
+  mBorderPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBorderPaint.setStyle(Paint.Style.STROKE);
+  if (a.hasValue(R.styleable.ProfileImageView_pivBorder)) {
+    setBorderEnabled(a.getBoolean(R.styleable.ProfileImageView_pivBorder,false));
+  }
+ else   if (a.hasValue(R.styleable.ProfileImageView_pivBorderColor) || a.hasValue(R.styleable.ProfileImageView_pivBorderWidth)) {
+    setBorderEnabled(true);
+  }
+  setBorderColor(a.getColor(R.styleable.ProfileImageView_pivBorderColor,Color.TRANSPARENT));
+  setBorderWidth(a.getDimensionPixelSize(R.styleable.ProfileImageView_pivBorderWidth,0));
+  setStyle(a.getInt(R.styleable.ProfileImageView_pivStyle,STYLE_RECTANGLE));
+  setCornerRadius(a.getDimension(R.styleable.ProfileImageView_pivCornerRadius,0));
+  setCornerRadiusRatio(a.getFraction(R.styleable.ProfileImageView_pivCornerRadiusRatio,1,1,-1));
+  if (USE_OUTLINE) {
+    if (a.hasValue(R.styleable.ProfileImageView_pivElevation)) {
+      ViewCompat.setElevation(this,a.getDimensionPixelSize(R.styleable.ProfileImageView_pivElevation,0));
+    }
+  }
+ else {
+    mShadowRadius=a.getDimensionPixelSize(R.styleable.ProfileImageView_pivElevation,0);
+  }
+  a.recycle();
+  if (USE_OUTLINE) {
+    initOutlineProvider();
+  }
+}

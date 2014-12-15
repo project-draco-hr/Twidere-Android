@@ -1,10 +1,9 @@
 {
   super(context);
-  resolver=context.getContentResolver();
-  this.omit_intent_extra=omit_intent_extra;
-  this.load_from_cache=load_from_cache;
-  this.extras=extras;
-  this.account_id=account_id;
-  this.user_id=user_id;
-  this.screen_name=screen_name;
+  this.mOmitIntentExtra=omitIntentExtra;
+  this.mLoadFromCache=loadFromCache;
+  this.mExtras=extras;
+  this.mAccountId=accountId;
+  this.mUserId=userId;
+  this.mScreenName=screenName;
 }

@@ -2,11 +2,6 @@
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
-  if (!isMyAccount(getActivity(),accountId)) {
-    mCardContent.setVisibility(View.GONE);
-    mErrorRetryContainer.setVisibility(View.GONE);
-    return;
-  }
   final Bundle args=new Bundle();
   args.putLong(EXTRA_ACCOUNT_ID,accountId);
   args.putLong(EXTRA_USER_ID,userId);
@@ -22,6 +17,5 @@
   if (accountId == -1 || userId == -1 && screenName == null) {
     mCardContent.setVisibility(View.GONE);
     mErrorRetryContainer.setVisibility(View.GONE);
-    return;
   }
 }

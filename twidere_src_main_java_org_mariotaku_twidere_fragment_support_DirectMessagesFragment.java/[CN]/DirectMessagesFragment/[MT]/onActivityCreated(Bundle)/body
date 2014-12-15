@@ -2,7 +2,7 @@
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   super.onActivityCreated(savedInstanceState);
   mMultiSelectManager=getMultiSelectManager();
-  mAdapter=new DirectMessageConversationEntriesAdapter(getActivity());
+  mAdapter=new DirectMessageEntriesAdapter(getActivity());
   setListAdapter(mAdapter);
   mListView=getListView();
   mListView.setDivider(null);

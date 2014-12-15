@@ -1,0 +1,9 @@
+{
+  if (cursor != null) {
+    mIndices=new ParcelableDirectMessage.CursorIndices(cursor);
+  }
+ else {
+    mIndices=null;
+  }
+  return super.swapCursor(cursor);
+}

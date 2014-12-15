@@ -1,0 +1,31 @@
+{
+  final int position=cursor.getPosition();
+  final DirectMessageConversationViewHolder holder=(DirectMessageConversationViewHolder)view.getTag();
+  final String firstMedia=cursor.getString(mIndices.first_media);
+  final long accountId=cursor.getLong(mIndices.account_id);
+  final long timestamp=cursor.getLong(mIndices.message_timestamp);
+  final boolean is_outgoing=cursor.getInt(mIndices.is_outgoing) == 1;
+  holder.setOutgoing(is_outgoing);
+  holder.setTextSize(getTextSize());
+  holder.text.setText(Html.fromHtml(cursor.getString(mIndices.text)));
+  getLinkify().applyAllLinks(holder.text,accountId,false);
+  holder.text.setMovementMethod(null);
+  holder.time.setText(formatToLongTimeString(mContext,timestamp));
+  if (firstMedia == null) {
+    mImageLoader.cancelDisplayTask(holder.media_preview);
+    holder.media_preview_container.setVisibility(View.GONE);
+  }
+ else {
+    mImageLoader.cancelDisplayTask(holder.media_preview);
+    holder.media_preview_container.setVisibility(View.VISIBLE);
+    if (mImagePreviewScaleType != null) {
+      holder.media_preview.setScaleType(mImagePreviewScaleType);
+    }
+    if (!firstMedia.equals(mImageLoadingHandler.getLoadingUri(holder.media_preview))) {
+      holder.media_preview.setBackgroundResource(0);
+      mImageLoader.displayPreviewImageWithCredentials(holder.media_preview,firstMedia,accountId,mImageLoadingHandler);
+    }
+    holder.media_preview.setTag(position);
+  }
+  super.bindView(view,context,cursor);
+}

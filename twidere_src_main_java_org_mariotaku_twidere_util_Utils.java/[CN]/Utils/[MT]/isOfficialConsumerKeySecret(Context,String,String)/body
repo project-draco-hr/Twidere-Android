@@ -1,9 +1,13 @@
 {
   if (context == null || consumerKey == null || consumerSecret == null)   return false;
-  final String[] keySecrets=context.getResources().getStringArray(R.array.values_official_consumer_key_secret);
+  final String[] keySecrets=context.getResources().getStringArray(R.array.values_official_consumer_secret_crc32);
+  final CRC32 crc32=new CRC32();
+  final byte[] consumerSecretBytes=consumerSecret.getBytes(Charset.forName("UTF-8"));
+  crc32.update(consumerSecretBytes,0,consumerSecretBytes.length);
+  final long value=crc32.getValue();
+  crc32.reset();
   for (  final String keySecret : keySecrets) {
-    final String[] pair=keySecret.split(";");
-    if (pair[0].equals(consumerKey) && pair[1].equals(consumerSecret))     return true;
+    if (Long.parseLong(keySecret,16) == value)     return true;
   }
   return false;
 }

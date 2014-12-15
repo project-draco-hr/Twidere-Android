@@ -1,5 +1,0 @@
-{
-  this.name=name;
-  this.consumer_key=consumer_secret;
-  this.consumer_secret=consumer_secret;
-}
