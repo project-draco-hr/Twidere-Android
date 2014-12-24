@@ -7,7 +7,7 @@ case REQUEST_SET_COLOR:
       if (resultCode == Activity.RESULT_OK) {
         if (data == null)         return;
         final int color=data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT);
-        setUserColor(getActivity(),mUser.id,color);
+        UserColorNicknameUtils.setUserColor(getActivity(),mUser.id,color);
       }
  else       if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
         clearUserColor(getActivity(),mUser.id);

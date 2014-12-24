@@ -1,5 +1,5 @@
 {
-  onRefreshFromStart();
+  onRefresh();
   setRefreshing(true);
   return true;
 }

@@ -1,4 +1,50 @@
 {
   if (!shouldUseNativeMenu() || !menu.hasVisibleItems())   return;
-  setMenu(menu);
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final ParcelableUser user=mUser;
+  final Relationship relationship=mRelationship;
+  if (twitter == null || user == null)   return;
+  final boolean isMyself=user.account_id == user.id;
+  final MenuItem mentionItem=menu.findItem(MENU_MENTION);
+  if (mentionItem != null) {
+    mentionItem.setTitle(getString(R.string.mention_user_name,getDisplayName(getActivity(),user)));
+  }
+  Utils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
+  if (!isMyself && relationship != null) {
+    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
+    setMenuItemAvailability(menu,MENU_BLOCK,true);
+    setMenuItemAvailability(menu,MENU_MUTE_USER,true);
+    final MenuItem blockItem=menu.findItem(MENU_BLOCK);
+    if (blockItem != null) {
+      final boolean blocking=relationship.isSourceBlockingTarget();
+      MenuUtils.setMenuInfo(blockItem,new TwidereMenuInfo(blocking));
+      blockItem.setTitle(blocking ? R.string.unblock : R.string.block);
+    }
+    final MenuItem muteItem=menu.findItem(MENU_MUTE_USER);
+    if (muteItem != null) {
+      final boolean muting=relationship.isSourceMutingTarget();
+      MenuUtils.setMenuInfo(muteItem,new TwidereMenuInfo(muting));
+      muteItem.setTitle(muting ? R.string.unmute : R.string.mute);
+    }
+    final MenuItem filterItem=menu.findItem(MENU_ADD_TO_FILTER);
+    if (filterItem != null) {
+      final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
+      MenuUtils.setMenuInfo(filterItem,new TwidereMenuInfo(filtering));
+      filterItem.setTitle(filtering ? R.string.remove_from_filter : R.string.add_to_filter);
+    }
+  }
+ else {
+    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
+    setMenuItemAvailability(menu,MENU_BLOCK,false);
+    setMenuItemAvailability(menu,MENU_MUTE_USER,false);
+    setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
+  }
+  setMenuItemAvailability(menu,R.id.muted_users,isMyself);
+  setMenuItemAvailability(menu,R.id.blocked_users,isMyself);
+  final Intent intent=new Intent(INTENT_ACTION_EXTENSION_OPEN_USER);
+  final Bundle extras=new Bundle();
+  extras.putParcelable(EXTRA_USER,user);
+  intent.putExtras(extras);
+  menu.removeGroup(MENU_GROUP_USER_EXTENSION);
+  addIntentToMenu(getActivity(),menu,intent,MENU_GROUP_USER_EXTENSION);
 }

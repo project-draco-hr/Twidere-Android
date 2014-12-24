@@ -1,4 +1,4 @@
 {
   ensureAuthorizationEnabled();
-  return factory.createStatus(post(conf.getRestBaseURL() + ENDPOINT_FAVORITES_DESTROY,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_DESTROY,new HttpParameter("id",id),INCLUDE_ENTITIES));
+  return factory.createStatus(post(conf.getRestBaseURL() + ENDPOINT_FAVORITES_DESTROY,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_DESTROY,new HttpParameter("id",id),INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT));
 }

@@ -17,5 +17,4 @@
   setListAdapter(mAdapter);
   getLoaderManager().initLoader(0,getArguments(),this);
   setListShown(false);
-  setRefreshMode(RefreshMode.NONE);
 }

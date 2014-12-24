@@ -1,8 +1,0 @@
-{
-  mWidth=width;
-  mHeight=height;
-  mStarsHelper.dispatchSizeChanged(width,height);
-  mRainbowHelper.dispatchSizeChanged(width,height);
-  mSakamotoHelper.dispatchSizeChanged(width,height);
-  setupSpirtes();
-}

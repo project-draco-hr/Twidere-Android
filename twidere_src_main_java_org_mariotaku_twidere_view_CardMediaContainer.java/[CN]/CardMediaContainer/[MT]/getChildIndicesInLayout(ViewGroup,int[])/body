@@ -1,0 +1,10 @@
+{
+  final int childCount=viewGroup.getChildCount();
+  int indicesCount=0;
+  for (int i=0; i < childCount; i++) {
+    if (viewGroup.getChildAt(i).getVisibility() != GONE) {
+      indices[indicesCount++]=i;
+    }
+  }
+  return indicesCount;
+}

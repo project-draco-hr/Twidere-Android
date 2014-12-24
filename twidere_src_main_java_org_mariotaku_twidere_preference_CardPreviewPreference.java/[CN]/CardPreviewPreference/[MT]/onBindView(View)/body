@@ -3,11 +3,8 @@
   mCompactModeChanged=false;
   final Context context=getContext();
   final int highlightOption=getLinkHighlightOptionInt(context);
-  final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST,true);
-  final boolean display_image_preview=mPreferences.getBoolean(KEY_DISPLAY_IMAGE_PREVIEW,false);
-  final boolean display_profile_image=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
-  final boolean nickname_only=mPreferences.getBoolean(KEY_NICKNAME_ONLY,false);
   mHolder=new StatusViewHolder(view);
+  mHolder.displaySampleStatus();
   mLinkify.setHighlightOption(highlightOption);
   super.onBindView(view);
 }

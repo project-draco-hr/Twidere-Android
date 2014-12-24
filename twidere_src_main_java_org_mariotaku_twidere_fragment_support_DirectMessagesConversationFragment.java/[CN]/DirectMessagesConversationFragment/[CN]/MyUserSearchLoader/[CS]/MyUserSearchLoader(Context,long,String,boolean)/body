@@ -1,0 +1,4 @@
+{
+  super(context,accountId,query,0,null);
+  mFromCache=fromCache;
+}

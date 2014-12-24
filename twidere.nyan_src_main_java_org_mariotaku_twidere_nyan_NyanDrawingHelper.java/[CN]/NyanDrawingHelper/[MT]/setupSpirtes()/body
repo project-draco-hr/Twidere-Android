@@ -1,0 +1,13 @@
+{
+  final int width=mWidth, height=mHeight;
+  if (width == 0 || height == 0)   return;
+  final int centerX=width / 2, centerY=height / 2;
+  final int sakamotoDotScale=Math.round(SAKAMOTO_DOT_SIZE * mDensity * mScale);
+  final int sakamotoW=mSakamotoHelper.getIntrinsicWidth() * sakamotoDotScale;
+  final int sakamotoH=mSakamotoHelper.getIntrinsicHeight() * sakamotoDotScale;
+  final int sakamotoLeft=centerX - sakamotoW / 2, sakamotoTop=centerY - sakamotoH / 2;
+  mSakamotoHelper.setBounds(sakamotoLeft,sakamotoTop,sakamotoLeft + sakamotoW,sakamotoTop + sakamotoH);
+  final int rainbowH=mRainbowHelper.getIntrinsicHeight();
+  final int rainbowTop=sakamotoTop + sakamotoH / 2 + getRainbowYOffset();
+  mRainbowHelper.setBounds(0,rainbowTop,centerX - sakamotoW / 4,rainbowTop + rainbowH);
+}

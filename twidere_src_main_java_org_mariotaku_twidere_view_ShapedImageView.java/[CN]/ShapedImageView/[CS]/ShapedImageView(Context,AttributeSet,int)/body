@@ -1,0 +1,38 @@
+{
+  super(context,attrs,defStyle);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.ShapedImageView,defStyle,0);
+  mMatrix=new Matrix();
+  mSource=new RectF();
+  mDestination=new RectF();
+  mTempDestination=new RectF();
+  mBitmapPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBitmapPaint.setFilterBitmap(true);
+  mBitmapPaint.setDither(true);
+  mBorderPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mBorderPaint.setStyle(Paint.Style.STROKE);
+  mBackgroundPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  if (a.hasValue(R.styleable.ShapedImageView_sivBorder)) {
+    setBorderEnabled(a.getBoolean(R.styleable.ShapedImageView_sivBorder,false));
+  }
+ else   if (a.hasValue(R.styleable.ShapedImageView_sivBorderColor) || a.hasValue(R.styleable.ShapedImageView_sivBorderWidth)) {
+    setBorderEnabled(true);
+  }
+  setBorderColor(a.getColor(R.styleable.ShapedImageView_sivBorderColor,Color.TRANSPARENT));
+  setBorderWidth(a.getDimensionPixelSize(R.styleable.ShapedImageView_sivBorderWidth,0));
+  setStyle(a.getInt(R.styleable.ShapedImageView_sivShape,SHAPE_RECTANGLE));
+  setCornerRadius(a.getDimension(R.styleable.ShapedImageView_sivCornerRadius,0));
+  setCornerRadiusRatio(a.getFraction(R.styleable.ShapedImageView_sivCornerRadiusRatio,1,1,-1));
+  if (USE_OUTLINE) {
+    if (a.hasValue(R.styleable.ShapedImageView_sivElevation)) {
+      ViewCompat.setElevation(this,a.getDimensionPixelSize(R.styleable.ShapedImageView_sivElevation,0));
+    }
+  }
+ else {
+    mShadowRadius=a.getDimensionPixelSize(R.styleable.ShapedImageView_sivElevation,0);
+  }
+  setBackgroundColor(a.getColor(R.styleable.ShapedImageView_sivBackgroundColor,0));
+  a.recycle();
+  if (USE_OUTLINE) {
+    initOutlineProvider();
+  }
+}

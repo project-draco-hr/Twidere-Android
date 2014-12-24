@@ -7,6 +7,6 @@
       mCursor=cursor;
     }
   }
-  setRefreshComplete();
+  setRefreshing(false);
   setListShown(true);
 }

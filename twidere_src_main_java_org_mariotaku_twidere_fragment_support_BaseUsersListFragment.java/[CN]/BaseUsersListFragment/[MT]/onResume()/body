@@ -1,5 +1,4 @@
 {
   super.onResume();
-  mLoadMoreAutomatically=mPreferences.getBoolean(KEY_LOAD_MORE_AUTOMATICALLY,false);
   configBaseCardAdapter(getActivity(),mAdapter);
 }

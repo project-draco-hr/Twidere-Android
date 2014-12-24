@@ -1,5 +1,5 @@
 {
-  final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
+  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
   if (account != null) {
     mAccount=account;
     updateProfileImage();

@@ -1,8 +1,0 @@
-{
-  if (mode.hasStart()) {
-    onRefreshFromStart();
-  }
- else   if (mode.hasEnd()) {
-    onRefreshFromEnd();
-  }
-}

@@ -1,7 +1,0 @@
-{
-  final Window w=activity.getWindow();
-  final View decorView=w.getDecorView();
-  final Rect rect=new Rect();
-  decorView.getWindowVisibleDisplayFrame(rect);
-  return rect.top;
-}

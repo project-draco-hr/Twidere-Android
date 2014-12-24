@@ -1,7 +1,0 @@
-TextView view
-long account_id
-long user_id
-String screen_name
-OnLinkClickListener listener
-int highlightOption
-int highlightColor

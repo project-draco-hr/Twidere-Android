@@ -29,14 +29,12 @@
   mDescriptionContainer.setVisibility(userIsMe || !isEmpty(user.description_html) ? View.VISIBLE : View.GONE);
   mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : null);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  linkify.setLinkTextColor(user.link_color);
   linkify.applyAllLinks(mDescriptionView,user.account_id,false);
   mDescriptionView.setMovementMethod(null);
   mLocationContainer.setVisibility(userIsMe || !isEmpty(user.location) ? View.VISIBLE : View.GONE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(userIsMe || !isEmpty(user.url) || !isEmpty(user.url_expanded) ? View.VISIBLE : View.GONE);
   mURLView.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
-  mURLView.setLinkTextColor(user.link_color);
   mURLView.setMovementMethod(null);
   final String createdAt=formatToLongTimeString(activity,user.created_at);
   final float daysSinceCreated=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
@@ -47,11 +45,11 @@
   mFriendsCount.setText(getLocalizedNumber(mLocale,user.friends_count));
   if (userColor != 0) {
     mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
-    setupUserColorActionBar(userColor);
+    setUserColor(userColor);
   }
  else {
     mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
-    setupUserColorActionBar(user.link_color);
+    setUserColor(user.link_color);
   }
   final int defWidth=res.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;

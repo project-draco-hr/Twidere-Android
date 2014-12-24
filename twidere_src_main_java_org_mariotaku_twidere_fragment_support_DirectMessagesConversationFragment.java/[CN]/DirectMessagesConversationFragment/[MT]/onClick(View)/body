@@ -21,7 +21,7 @@ case R.id.item_profile_image:
 case R.id.query_button:
 {
 final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
-searchUsers(account.account_id,ParseUtils.parseString(mUserQuery.getText()));
+searchUsers(account.account_id,ParseUtils.parseString(mUserQuery.getText()),false);
 break;
 }
 }

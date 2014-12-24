@@ -31,15 +31,7 @@
   final int userColor=UserColorNicknameUtils.getUserColor(context,status.user_id);
   profileImageView.setBorderColor(userColor);
   loader.displayProfileImage(profileImageView,status.user_profile_image_url);
-  if (media != null && media.length > 0) {
-    final ParcelableMedia firstMedia=media[0];
-    loader.displayPreviewImageWithCredentials(mediaPreviewView,firstMedia.media_url,status.account_id,handler);
-    mediaPreviewContainer.setVisibility(View.VISIBLE);
-  }
- else {
-    loader.cancelDisplayTask(mediaPreviewView);
-    mediaPreviewContainer.setVisibility(View.GONE);
-  }
+  mediaPreviewContainer.displayMedia(media,loader,status.account_id,null,handler);
   if (translation != null) {
     textView.setText(translation.getText());
   }

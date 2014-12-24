@@ -1,3 +1,0 @@
-{
-  applyUserProfileLink(view,account_id,user_id,screen_name,mOnLinkClickListener,VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE,mHighlightColor);
-}

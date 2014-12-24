@@ -1,0 +1,3 @@
+{
+  return startsWithIgnoreCase(string,prefix,0);
+}

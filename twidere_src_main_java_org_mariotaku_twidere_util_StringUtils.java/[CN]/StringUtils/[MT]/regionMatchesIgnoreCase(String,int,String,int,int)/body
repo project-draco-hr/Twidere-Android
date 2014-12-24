@@ -1,0 +1,3 @@
+{
+  return string.substring(thisStart,thisStart + length).equalsIgnoreCase(match.substring(start,start + length));
+}

@@ -1,12 +1,11 @@
 {
   setProgressBarIndeterminateVisibility(false);
-  setRefreshComplete();
   mData=data;
   mAdapter.setData(data);
   if (loader instanceof Twitter4JActivitiesLoader) {
     final boolean multipleAccounts=((Twitter4JActivitiesLoader)loader).getAccountIds().length > 1;
     mAdapter.setShowAccountColor(multipleAccounts);
   }
-  setRefreshComplete();
+  setRefreshing(false);
   setListShown(true);
 }

@@ -1,0 +1,8 @@
+{
+  mWidth=width;
+  mHeight=height;
+  for (  final IDrawingHelper h : mDrawingHelpers) {
+    h.dispatchSizeChanged(width,height);
+  }
+  setupSpirtes();
+}

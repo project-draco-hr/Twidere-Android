@@ -35,6 +35,7 @@
   mRetryButton.setOnClickListener(this);
   mProfileBannerView.setOnSizeChangedListener(this);
   mProfileBannerSpace.setOnTouchListener(this);
+  mCardView.setCardBackgroundColor(ThemeUtils.getCardBackgroundColor(getActivity()));
   getUserInfo(accountId,userId,screenName,false);
   setupBaseActionBar();
   setupUserPages();

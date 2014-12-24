@@ -1,3 +1,0 @@
-{
-  return handleMenuItemClick(item);
-}

@@ -18,7 +18,6 @@
   screenNameView.setText("@" + status.user_screen_name);
   textView.setText(Html.fromHtml(status.text_html));
   final TwidereLinkify linkify=new TwidereLinkify(new OnLinkClickHandler(context,null));
-  linkify.setLinkTextColor(ThemeUtils.getUserLinkTextColor(context));
   linkify.applyAllLinks(textView,status.account_id,status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
   textView.setMovementMethod(StatusContentMovementMethod.getInstance());

@@ -1,5 +1,0 @@
-{
-  mOnLinkClickListener=listener;
-  setHighlightOption(highlightOption);
-  setLinkTextColor(highlightColor);
-}

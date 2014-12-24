@@ -1,7 +1,0 @@
-{
-  final RefreshNowConfig.Builder builder=new RefreshNowConfig.Builder(context);
-  builder.minPullDivisor(2);
-  builder.extraPullDivisor(1);
-  builder.maxOverScrollDistance(72);
-  return builder.build();
-}

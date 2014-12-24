@@ -1,0 +1,3 @@
+{
+  ViewAccessor.setBackgroundTintList(this,color);
+}

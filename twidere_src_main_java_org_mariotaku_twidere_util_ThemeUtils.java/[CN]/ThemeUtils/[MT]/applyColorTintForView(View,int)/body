@@ -1,0 +1,29 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return;
+  if (view instanceof IThemedView) {
+    final ColorStateList tintList=ColorStateList.valueOf(tintColor);
+    ((IThemedView)view).setThemeTintColor(tintList);
+  }
+ else   if (view instanceof ProgressBar) {
+    final ColorStateList tintList=ColorStateList.valueOf(tintColor);
+    final ProgressBar progressBar=(ProgressBar)view;
+    ViewAccessor.setProgressTintList(progressBar,tintList);
+    ViewAccessor.setProgressBackgroundTintList(progressBar,tintList);
+    ViewAccessor.setIndeterminateTintList(progressBar,tintList);
+  }
+ else   if (view instanceof Switch) {
+    final ColorStateList tintList=ColorStateList.valueOf(tintColor);
+    final Switch switchView=(Switch)view;
+    DrawableCompat.setTintList(switchView.getThumbDrawable(),tintList);
+    DrawableCompat.setTintList(switchView.getTrackDrawable(),tintList);
+  }
+ else   if (view instanceof CompoundButton) {
+    final ColorStateList tintList=ColorStateList.valueOf(tintColor);
+    final CompoundButton compoundButton=(CompoundButton)view;
+    ViewAccessor.setButtonTintList(compoundButton,tintList);
+  }
+ else   if (view instanceof TextView) {
+    final TextView textView=(TextView)view;
+    textView.setLinkTextColor(tintColor);
+  }
+}

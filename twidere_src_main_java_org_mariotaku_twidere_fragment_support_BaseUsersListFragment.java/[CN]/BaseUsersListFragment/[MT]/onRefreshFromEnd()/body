@@ -1,4 +1,0 @@
-{
-  if (mLoadMoreAutomatically)   return;
-  loadMoreUsers();
-}

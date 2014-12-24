@@ -1,0 +1,25 @@
+{
+  id=cursor.getColumnIndex(CachedUsers.USER_ID);
+  name=cursor.getColumnIndex(CachedUsers.NAME);
+  screen_name=cursor.getColumnIndex(CachedUsers.SCREEN_NAME);
+  profile_image_url=cursor.getColumnIndex(CachedUsers.PROFILE_IMAGE_URL);
+  created_at=cursor.getColumnIndex(CachedUsers.CREATED_AT);
+  is_protected=cursor.getColumnIndex(CachedUsers.IS_PROTECTED);
+  is_verified=cursor.getColumnIndex(CachedUsers.IS_VERIFIED);
+  favorites_count=cursor.getColumnIndex(CachedUsers.FAVORITES_COUNT);
+  listed_count=cursor.getColumnIndex(CachedUsers.LISTED_COUNT);
+  followers_count=cursor.getColumnIndex(CachedUsers.FOLLOWERS_COUNT);
+  friends_count=cursor.getColumnIndex(CachedUsers.FRIENDS_COUNT);
+  statuses_count=cursor.getColumnIndex(CachedUsers.STATUSES_COUNT);
+  location=cursor.getColumnIndex(CachedUsers.LOCATION);
+  description_plain=cursor.getColumnIndex(CachedUsers.DESCRIPTION_PLAIN);
+  description_html=cursor.getColumnIndex(CachedUsers.DESCRIPTION_HTML);
+  description_expanded=cursor.getColumnIndex(CachedUsers.DESCRIPTION_EXPANDED);
+  url=cursor.getColumnIndex(CachedUsers.URL);
+  url_expanded=cursor.getColumnIndex(CachedUsers.URL_EXPANDED);
+  profile_banner_url=cursor.getColumnIndex(CachedUsers.PROFILE_BANNER_URL);
+  is_following=cursor.getColumnIndex(CachedUsers.IS_FOLLOWING);
+  background_color=cursor.getColumnIndex(CachedUsers.BACKGROUND_COLOR);
+  link_color=cursor.getColumnIndex(CachedUsers.LINK_COLOR);
+  text_color=cursor.getColumnIndex(CachedUsers.TEXT_COLOR);
+}

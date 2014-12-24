@@ -1,0 +1,14 @@
+{
+  final Bitmap bitmap=getBitmap();
+  if (bitmap == null)   return;
+  if (mRebuildShader) {
+    mPaint.setShader(new BitmapShader(bitmap,getTileMode(getTileModeX()),getTileMode(getTileModeY())));
+    mRebuildShader=false;
+  }
+  final Rect bounds=getBounds();
+  mMatrix.setTranslate(bounds.left,bounds.top);
+  canvas.save();
+  canvas.setMatrix(mMatrix);
+  canvas.drawRect(0,0,bounds.width(),bounds.height(),mPaint);
+  canvas.restore();
+}

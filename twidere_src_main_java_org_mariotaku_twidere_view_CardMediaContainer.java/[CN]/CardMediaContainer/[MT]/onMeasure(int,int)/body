@@ -1,0 +1,26 @@
+{
+  final int measuredWidth=resolveSize(getSuggestedMinimumWidth(),widthMeasureSpec);
+  final int contentWidth=measuredWidth - getPaddingLeft() - getPaddingRight();
+  final int[] childIndices=createChildIndices();
+  final int childCount=getChildIndicesInLayout(this,childIndices);
+  int heightSum=0;
+  if (childCount > 0) {
+    final double childSqrt=Math.sqrt(childCount);
+    final int columnCount=(int)(childSqrt % 1 == 0 ? Math.ceil(childSqrt) : Math.min(childCount,mMaxColumns));
+    final int rowCount=(int)Math.ceil(childCount / (double)columnCount);
+    final int firstRowColumnCount=childCount - (columnCount * (rowCount - 1));
+    for (int i=0; i < rowCount; i++) {
+      final int currColumnCount=i == 0 ? firstRowColumnCount : columnCount;
+      final int columnWidth=(contentWidth - (mHorizontalSpacing * (currColumnCount - 1))) / currColumnCount;
+      heightSum=heightSum + columnWidth;
+      final int childMeasureSpec=MeasureSpec.makeMeasureSpec(columnWidth,MeasureSpec.EXACTLY);
+      for (int j=0; j < currColumnCount; j++) {
+        final int childIdx=i == 0 ? j : firstRowColumnCount + columnCount * (i - 1) + j;
+        getChildAt(childIndices[childIdx]).measure(childMeasureSpec,childMeasureSpec);
+      }
+    }
+    heightSum=heightSum + (mVerticalSpacing * rowCount - 1);
+  }
+  heightSum=heightSum + getPaddingTop() + getPaddingBottom();
+  setMeasuredDimension(widthMeasureSpec,MeasureSpec.makeMeasureSpec(heightSum,MeasureSpec.EXACTLY));
+}

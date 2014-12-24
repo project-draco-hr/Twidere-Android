@@ -1,7 +1,0 @@
-String url
-long accountId
-int type
-boolean sensitive
-OnLinkClickListener listener
-int highlightStyle
-int highlightColor

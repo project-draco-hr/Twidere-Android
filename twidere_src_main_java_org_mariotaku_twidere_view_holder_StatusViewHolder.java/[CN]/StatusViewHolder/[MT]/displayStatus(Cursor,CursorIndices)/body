@@ -52,19 +52,9 @@
   final int userColor=UserColorNicknameUtils.getUserColor(context,user_id);
   profileImageView.setBorderColor(userColor);
   loader.displayProfileImage(profileImageView,user_profile_image_url);
-  if (media != null && media.length > 0) {
-    final String textUnescaped=cursor.getString(indices.text_unescaped);
-    final ParcelableMedia firstMedia=media[0];
-    textView.setText(textUnescaped);
-    loader.displayPreviewImageWithCredentials(mediaPreviewView,firstMedia.media_url,account_id,adapter.getImageLoadingHandler());
-    mediaPreviewContainer.setVisibility(View.VISIBLE);
-  }
- else {
-    final String text_unescaped=cursor.getString(indices.text_unescaped);
-    loader.cancelDisplayTask(mediaPreviewView);
-    textView.setText(text_unescaped);
-    mediaPreviewContainer.setVisibility(View.GONE);
-  }
+  final String text_unescaped=cursor.getString(indices.text_unescaped);
+  mediaPreviewContainer.displayMedia(media,loader,account_id,null,adapter.getImageLoadingHandler());
+  textView.setText(text_unescaped);
   if (reply_count > 0) {
     replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));
   }

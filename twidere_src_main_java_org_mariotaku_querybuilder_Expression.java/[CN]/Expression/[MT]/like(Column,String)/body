@@ -1,3 +1,0 @@
-{
-  return new Expression(String.format(Locale.US,"%s LIKE '%s'",l.getSQL(),r));
-}

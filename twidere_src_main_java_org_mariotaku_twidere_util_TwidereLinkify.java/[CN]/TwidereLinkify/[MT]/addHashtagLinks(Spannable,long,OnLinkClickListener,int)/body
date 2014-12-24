@@ -1,0 +1,10 @@
+{
+  boolean hasMatches=false;
+  for (  final Entity entity : mExtractor.extractHashtagsWithIndices(spannable.toString())) {
+    final int start=entity.getStart();
+    final int end=entity.getEnd();
+    applyLink(entity.getValue(),start,end,spannable,account_id,LINK_TYPE_HASHTAG,false,listener);
+    hasMatches=true;
+  }
+  return hasMatches;
+}

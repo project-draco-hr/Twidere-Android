@@ -1,9 +1,0 @@
-{
-  if (OUTLINE_DRAW) {
-    super.setBackgroundDrawable(background);
-    return;
-  }
-  super.setBackgroundDrawable(null);
-  mBackground=background;
-  updateBackgroundPadding();
-}

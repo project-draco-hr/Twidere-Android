@@ -1,4 +1,0 @@
-{
-  final TwidereURLSpan span=new TwidereURLSpan(url,orig,accountId,type,sensitive,listener,highlightOption,highlightColor);
-  text.setSpan(span,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-}

@@ -1,0 +1,19 @@
+{
+  View view=null;
+  try {
+    view=newViewInstance(name,context,attrs);
+  }
+ catch (  final Exception e) {
+  }
+  for (  final String prefix : sClassPrefixList) {
+    try {
+      view=newViewInstance(prefix + name,context,attrs);
+    }
+ catch (    final Exception e) {
+    }
+  }
+  if (view != null) {
+    applyColorTintForView(view,tintColor);
+  }
+  return view;
+}

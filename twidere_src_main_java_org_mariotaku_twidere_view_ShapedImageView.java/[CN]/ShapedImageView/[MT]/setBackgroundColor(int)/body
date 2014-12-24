@@ -1,0 +1,5 @@
+{
+  mBackgroundPaint.setColor(0xFF000000 | color);
+  mBackgroundPaint.setAlpha(Color.alpha(color));
+  invalidate();
+}

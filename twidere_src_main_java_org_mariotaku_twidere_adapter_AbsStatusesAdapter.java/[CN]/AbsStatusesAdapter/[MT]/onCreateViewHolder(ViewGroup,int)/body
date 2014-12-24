@@ -3,8 +3,13 @@ switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
       final View view=mInflater.inflate(mCardLayoutResource,parent,false);
+      final CardView cardView=(CardView)view.findViewById(R.id.card);
+      if (cardView != null) {
+        cardView.setCardBackgroundColor(mCardBackgroundColor);
+      }
       final StatusViewHolder holder=new StatusViewHolder(this,view);
-      holder.setupViews();
+      holder.setupViewListeners();
+      holder.setupViewOptions();
       return holder;
     }
 case ITEM_VIEW_TYPE_GAP:

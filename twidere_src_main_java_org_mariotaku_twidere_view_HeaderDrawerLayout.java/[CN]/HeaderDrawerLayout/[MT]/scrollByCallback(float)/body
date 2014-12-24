@@ -1,4 +1,5 @@
 {
-  setScrollingContentCallback(true);
+  final int top=getHeaderTop();
+  setScrollingContentCallback(top > getHeaderTopMinimum() && top < getHeaderTopMaximum());
   mDrawerCallback.scrollBy(dy);
 }

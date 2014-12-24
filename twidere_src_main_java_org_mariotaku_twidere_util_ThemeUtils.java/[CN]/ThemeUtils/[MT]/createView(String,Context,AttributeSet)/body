@@ -1,15 +1,3 @@
 {
-  try {
-    return newViewInstance(name,context,attrs);
-  }
- catch (  final Exception e) {
-  }
-  for (  final String prefix : sClassPrefixList) {
-    try {
-      return newViewInstance(prefix + name,context,attrs);
-    }
- catch (    final Exception e) {
-    }
-  }
-  return null;
+  return createView(name,context,attrs,0);
 }

@@ -1,0 +1,14 @@
+{
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,accountId);
+  args.putString(EXTRA_QUERY,query);
+  args.putBoolean(EXTRA_FROM_CACHE,fromCache);
+  final LoaderManager lm=getLoaderManager();
+  if (mSearchUsersLoaderInitialized) {
+    lm.restartLoader(LOADER_ID_SEARCH_USERS,args,mSearchLoadersCallback);
+  }
+ else {
+    mSearchUsersLoaderInitialized=true;
+    lm.initLoader(LOADER_ID_SEARCH_USERS,args,mSearchLoadersCallback);
+  }
+}

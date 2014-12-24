@@ -1,0 +1,6 @@
+{
+  if (mTempIndices == null || mTempIndices.length < getChildCount()) {
+    return mTempIndices=new int[getChildCount()];
+  }
+  return mTempIndices;
+}

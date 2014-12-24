@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_nyan);
+  final WatchViewStub stub=(WatchViewStub)findViewById(R.id.watch_view_stub);
+  stub.setOnLayoutInflatedListener(this);
+}

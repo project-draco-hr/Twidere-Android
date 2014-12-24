@@ -1,0 +1,11 @@
+{
+  final float textSize=adapter.getTextSize();
+  nameView.setTextSize(textSize);
+  textView.setTextSize(textSize);
+  screenNameView.setTextSize(textSize * 0.85f);
+  timeView.setTextSize(textSize * 0.85f);
+  replyRetweetView.setTextSize(textSize * 0.75f);
+  replyCountView.setTextSize(textSize);
+  replyCountView.setTextSize(textSize);
+  favoriteCountView.setTextSize(textSize);
+}

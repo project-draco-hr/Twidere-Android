@@ -4,5 +4,5 @@
   }
   mAdapter.setData(data);
   setListShown(true);
-  setRefreshComplete();
+  setRefreshing(false);
 }

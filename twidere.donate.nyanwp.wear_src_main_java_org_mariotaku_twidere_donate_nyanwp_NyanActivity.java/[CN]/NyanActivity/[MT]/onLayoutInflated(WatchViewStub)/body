@@ -1,0 +1,4 @@
+{
+  final NyanDaydreamView nyanView=(NyanDaydreamView)watchViewStub.findViewById(R.id.nyan_view);
+  nyanView.setScale(getResources().getInteger(R.integer.default_live_wallpaper_scale));
+}

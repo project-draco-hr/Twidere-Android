@@ -1,0 +1,11 @@
+{
+  if (mActionBarBackground == null) {
+    setupBaseActionBar();
+  }
+  mActionBarBackground.setColor(color);
+  mTintedStatusContent.setColor(color,ThemeUtils.getThemeAlpha(getActivity()));
+  mPagerIndicator.setStripColor(color);
+  mDescriptionView.setLinkTextColor(color);
+  mLocationView.setLinkTextColor(color);
+  mURLView.setLinkTextColor(color);
+}

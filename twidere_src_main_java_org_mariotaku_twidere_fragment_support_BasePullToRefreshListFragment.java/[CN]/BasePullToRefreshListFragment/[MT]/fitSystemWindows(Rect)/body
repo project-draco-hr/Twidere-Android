@@ -1,9 +1,3 @@
 {
   super.fitSystemWindows(insets);
-  final View indicator=getRefreshIndicatorView();
-  final LayoutParams lp=indicator.getLayoutParams();
-  if (lp instanceof MarginLayoutParams) {
-    ((MarginLayoutParams)lp).topMargin=insets.top;
-    indicator.setLayoutParams(lp);
-  }
 }

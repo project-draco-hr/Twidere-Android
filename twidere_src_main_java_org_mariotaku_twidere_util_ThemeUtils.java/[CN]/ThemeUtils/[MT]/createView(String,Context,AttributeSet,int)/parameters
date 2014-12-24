@@ -1,0 +1,4 @@
+String name
+Context context
+AttributeSet attrs
+int tintColor
