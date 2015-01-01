@@ -1,0 +1,5 @@
+{
+  dest.writeInt(width);
+  dest.writeInt(height);
+  dest.writeString(url);
+}

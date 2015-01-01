@@ -1,3 +1,0 @@
-{
-  displayStatus(context,loader,handler,twitter,status,null);
-}

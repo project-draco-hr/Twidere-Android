@@ -8,5 +8,5 @@
   final long userId=args.getLong(EXTRA_USER_ID,-1);
   final String screenName=args.getString(EXTRA_SCREEN_NAME);
   final int tabPosition=args.getInt(EXTRA_TAB_POSITION,-1);
-  return new UserTimelineLoader(context,accountId,userId,screenName,maxId,sinceId,data,null,tabPosition);
+  return new UserTimelineLoader(context,accountId,userId,screenName,maxId,sinceId,data,getSavedStatusesFileArgs(),tabPosition);
 }

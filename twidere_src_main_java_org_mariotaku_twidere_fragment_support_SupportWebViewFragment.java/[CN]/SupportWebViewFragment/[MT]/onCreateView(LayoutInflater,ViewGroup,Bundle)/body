@@ -1,3 +1,8 @@
 {
-  return inflater.inflate(R.layout.fragment_webview,container,false);
+  if (mWebView != null) {
+    mWebView.destroy();
+  }
+  mWebView=new WebView(getActivity());
+  mIsWebViewAvailable=true;
+  return mWebView;
 }

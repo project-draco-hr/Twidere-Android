@@ -1,0 +1,16 @@
+{
+  name=bindingValue.getName();
+  type=bindingValue.getType();
+  if ("STRING".equals(type)) {
+    value=((StringValue)bindingValue).getValue();
+  }
+ else   if ("IMAGE".equals(type)) {
+    value=new ParcelableImageValue((ImageValue)bindingValue);
+  }
+ else   if ("USER".equals(type)) {
+    value=new ParcelableUserValue((UserValue)bindingValue);
+  }
+ else {
+    value=null;
+  }
+}

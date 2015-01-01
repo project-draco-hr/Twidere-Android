@@ -36,4 +36,5 @@
   user_is_following=in.readBoolean("is_following");
   mentions=in.readParcelableArray("mentions",ParcelableUserMention.JSON_CREATOR);
   first_media=media != null && media.length > 0 ? media[0].url : null;
+  card=in.readParcelable("card",ParcelableCardEntity.JSON_CREATOR);
 }

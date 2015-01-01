@@ -1,0 +1,8 @@
+{
+  if (users == null)   return null;
+  final ParcelableUser[] result=new ParcelableUser[users.length];
+  for (int i=0, j=users.length; i < j; i++) {
+    result[i]=new ParcelableUser(users[i],account_id);
+  }
+  return result;
+}

@@ -51,8 +51,10 @@
   timeView.setTime(timestamp);
   final int userColor=UserColorNicknameUtils.getUserColor(context,user_id);
   profileImageView.setBorderColor(userColor);
+  profileImageView.setStyle(adapter.getProfileImageStyle());
   loader.displayProfileImage(profileImageView,user_profile_image_url);
   final String text_unescaped=cursor.getString(indices.text_unescaped);
+  mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
   mediaPreviewContainer.displayMedia(media,loader,account_id,null,adapter.getImageLoadingHandler());
   textView.setText(text_unescaped);
   if (reply_count > 0) {

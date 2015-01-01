@@ -1,0 +1,14 @@
+{
+  name=card.getName();
+  users=ParcelableUser.fromUsersArray(card.gerUsers(),account_id);
+  final BindingValue[] bindingValues=card.getBindingValues();
+  if (bindingValues != null) {
+    values=new ParcelableValueItem[bindingValues.length];
+    for (int i=0, j=bindingValues.length; i < j; i++) {
+      values[i]=new ParcelableValueItem(bindingValues[i]);
+    }
+  }
+ else {
+    values=null;
+  }
+}

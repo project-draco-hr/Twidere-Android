@@ -1,0 +1,9 @@
+{
+  if (VALUE_MEDIA_PREVIEW_STYLE_CROP.equalsIgnoreCase(style)) {
+    return VALUE_MEDIA_PREVIEW_STYLE_CODE_CROP;
+  }
+ else   if (VALUE_MEDIA_PREVIEW_STYLE_SCALE.equalsIgnoreCase(style)) {
+    return VALUE_MEDIA_PREVIEW_STYLE_CODE_SCALE;
+  }
+  return VALUE_MEDIA_PREVIEW_STYLE_CODE_NONE;
+}

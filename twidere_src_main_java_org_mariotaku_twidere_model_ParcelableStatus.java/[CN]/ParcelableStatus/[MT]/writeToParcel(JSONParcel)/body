@@ -35,4 +35,5 @@
   out.writeBoolean("is_possibly_sensitive",is_possibly_sensitive);
   out.writeBoolean("is_following",user_is_following);
   out.writeParcelableArray("mentions",mentions);
+  out.writeParcelable("card",card);
 }

@@ -28,7 +28,7 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
   if (result > 0) {
     onDatabaseUpdated(tableId,uri);
   }
-  onNewItemsInserted(uri,values);
+  onNewItemsInserted(uri,tableId,values);
   return result;
 }
  catch (final SQLException e) {

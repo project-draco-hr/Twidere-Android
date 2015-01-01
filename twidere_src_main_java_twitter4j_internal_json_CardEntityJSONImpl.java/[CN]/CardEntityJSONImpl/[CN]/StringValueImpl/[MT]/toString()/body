@@ -1,0 +1,3 @@
+{
+  return "StringValueImpl{" + "name='" + name + '\''+ "value='"+ value+ '\''+ '}';
+}

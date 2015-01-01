@@ -1,0 +1,5 @@
+{
+  dest.writeString("name",name);
+  dest.writeString("type",type);
+  dest.writeObject("value",value);
+}

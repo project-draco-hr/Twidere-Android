@@ -1,0 +1,18 @@
+{
+  if ("player".equals(card.name)) {
+    final ParcelableValueItem player_url=ParcelableCardEntity.getValue(card,"player_url");
+    final YouTubePlayerSupportFragment fragment=YouTubePlayerSupportFragment.newInstance();
+    fragment.initialize("AIzaSyCVdCIMFFxdNqHnCPrJ9yKUzoTfs8jhYGc",new OnInitializedListener(){
+      @Override public void onInitializationSuccess(      Provider provider,      YouTubePlayer player,      boolean b){
+        final String url=(String)player_url.value;
+        final String id=url.substring(url.lastIndexOf('/') + 1);
+        player.cueVideo(id);
+      }
+      @Override public void onInitializationFailure(      Provider provider,      YouTubeInitializationResult youTubeInitializationResult){
+      }
+    }
+);
+    return fragment;
+  }
+  return null;
+}

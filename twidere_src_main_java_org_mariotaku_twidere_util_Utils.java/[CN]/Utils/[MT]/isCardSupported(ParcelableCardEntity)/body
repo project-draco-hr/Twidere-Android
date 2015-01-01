@@ -1,0 +1,3 @@
+{
+  return card != null && "player".equals(card.name);
+}

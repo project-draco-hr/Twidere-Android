@@ -1,4 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT));
+  final String url=conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST;
+  return factory.createStatusList(get(url,signUrl,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT,INCLUDE_CARDS,CARDS_PLATFORM));
 }

@@ -129,4 +129,12 @@ catch (    final JSONException ignore) {
       logger.warn("failed to parse current_user_retweet:" + json);
     }
   }
+  if (!json.isNull("card")) {
+    try {
+      cardEntity=new CardEntityJSONImpl(json.getJSONObject("card"));
+    }
+ catch (    JSONException jsone) {
+      throw new TwitterException(jsone);
+    }
+  }
 }

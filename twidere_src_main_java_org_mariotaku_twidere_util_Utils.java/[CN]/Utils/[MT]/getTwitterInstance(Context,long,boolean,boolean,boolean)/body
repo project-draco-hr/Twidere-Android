@@ -19,6 +19,8 @@
     cb.setHttpConnectionTimeout(connection_timeout);
     cb.setGZIPEnabled(enableGzip);
     cb.setIgnoreSSLError(ignoreSslError);
+    cb.setIncludeCards(true);
+    cb.setCardsPlatform("Android-5");
     if (enableProxy) {
       final String proxy_host=prefs.getString(KEY_PROXY_HOST,null);
       final int proxy_port=ParseUtils.parseInt(prefs.getString(KEY_PROXY_PORT,"-1"));

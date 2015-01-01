@@ -1,2 +1,5 @@
 {
+  if (mStatusAdapterListener != null) {
+    mStatusAdapterListener.onStatusActionClick((StatusViewHolder)holder,id,position);
+  }
 }

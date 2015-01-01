@@ -2,5 +2,5 @@
   ensureAuthorizationEnabled();
   final String url=conf.getRestBaseURL() + ENDPOINT_FAVORITES_LIST;
   final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FAVORITES_LIST;
-  return factory.createStatusList(get(url,signUrl,mergeParameters(paging != null ? paging.asPostParameterArray() : null,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT)));
+  return factory.createStatusList(get(url,signUrl,mergeParameters(paging,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT,INCLUDE_CARDS,CARDS_PLATFORM)));
 }

@@ -1,0 +1,15 @@
+{
+  final Context context=getContext();
+  final NotificationManager nm=getNotificationManager();
+  final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+  builder.setTicker(context.getString(R.string.draft_saved));
+  builder.setContentTitle(context.getString(R.string.draft_saved));
+  builder.setContentText(values.getAsString(Drafts.TEXT));
+  builder.setSmallIcon(R.drawable.ic_stat_info);
+  final Intent service=new Intent(context,BackgroundOperationService.class);
+  service.setAction(INTENT_ACTION_DISCARD_DRAFT);
+  final PendingIntent discardIntent=PendingIntent.getService(context,0,service,0);
+  final Action.Builder actionBuilder=new Action.Builder(R.drawable.ic_action_delete,context.getString(R.string.discard),discardIntent);
+  builder.addAction(actionBuilder.build());
+  nm.notify(16,builder.build());
+}

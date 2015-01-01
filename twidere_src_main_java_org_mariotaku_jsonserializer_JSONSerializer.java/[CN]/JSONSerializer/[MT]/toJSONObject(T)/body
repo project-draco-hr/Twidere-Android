@@ -1,0 +1,6 @@
+{
+  if (parcelable == null)   return null;
+  final JSONObject json=new JSONObject();
+  parcelable.writeToParcel(new JSONParcel(json));
+  return json;
+}

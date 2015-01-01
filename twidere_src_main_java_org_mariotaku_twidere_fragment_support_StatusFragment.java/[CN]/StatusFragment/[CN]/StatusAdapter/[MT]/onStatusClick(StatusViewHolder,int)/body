@@ -1,3 +1,5 @@
 {
-  openStatus(mFragment.getActivity(),getStatus(position),null);
+  if (mStatusAdapterListener != null) {
+    mStatusAdapterListener.onStatusClick(holder,position);
+  }
 }

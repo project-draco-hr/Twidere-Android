@@ -36,4 +36,5 @@
   in_reply_to_name=in.readString();
   mentions=in.createTypedArray(ParcelableUserMention.CREATOR);
   first_media=media != null && media.length > 0 ? media[0].url : null;
+  card=in.readParcelable(ParcelableCardEntity.class.getClassLoader());
 }

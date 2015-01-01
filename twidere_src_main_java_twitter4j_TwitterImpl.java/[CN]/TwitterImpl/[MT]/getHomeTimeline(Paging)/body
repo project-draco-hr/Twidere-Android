@@ -7,6 +7,8 @@
   paramsList.add(INCLUDE_MY_RETWEET);
   paramsList.add(INCLUDE_REPLY_COUNT);
   paramsList.add(INCLUDE_DESCENDENT_REPLY_COUNT);
+  paramsList.add(INCLUDE_CARDS);
+  paramsList.add(CARDS_PLATFORM);
   if (paging != null) {
     paramsList.addAll(paging.asPostParameterList());
   }

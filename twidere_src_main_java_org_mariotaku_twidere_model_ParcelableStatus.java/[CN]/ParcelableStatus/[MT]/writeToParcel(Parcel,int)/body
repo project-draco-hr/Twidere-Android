@@ -35,4 +35,5 @@
   out.writeLong(in_reply_to_user_id);
   out.writeString(in_reply_to_name);
   out.writeTypedArray(mentions,flags);
+  out.writeParcelable(card,flags);
 }

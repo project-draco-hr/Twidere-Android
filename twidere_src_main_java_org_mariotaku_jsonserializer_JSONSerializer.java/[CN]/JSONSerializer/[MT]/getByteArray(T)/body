@@ -1,0 +1,6 @@
+{
+  final JSONObject json=toJSONObject(parcelable);
+  final String string=jsonToString(json);
+  if (string == null)   return null;
+  return string.getBytes(Charset.defaultCharset());
+}

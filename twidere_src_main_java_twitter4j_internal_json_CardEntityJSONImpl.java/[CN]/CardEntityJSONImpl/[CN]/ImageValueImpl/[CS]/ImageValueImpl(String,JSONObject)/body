@@ -1,0 +1,7 @@
+{
+  super(name,json);
+  final JSONObject imageValue=json.getJSONObject("image_value");
+  this.width=imageValue.getInt("width");
+  this.height=imageValue.getInt("height");
+  this.url=imageValue.getString("url");
+}

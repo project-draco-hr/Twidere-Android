@@ -5,9 +5,9 @@ switch (id) {
 case R.id.reply_count:
 {
       final Context context=getActivity();
-      final Intent intent=new Intent(IntentConstants.INTENT_ACTION_REPLY);
+      final Intent intent=new Intent(INTENT_ACTION_REPLY);
       intent.setPackage(context.getPackageName());
-      intent.putExtra(IntentConstants.EXTRA_STATUS,status);
+      intent.putExtra(EXTRA_STATUS,status);
       context.startActivity(intent);
       break;
     }

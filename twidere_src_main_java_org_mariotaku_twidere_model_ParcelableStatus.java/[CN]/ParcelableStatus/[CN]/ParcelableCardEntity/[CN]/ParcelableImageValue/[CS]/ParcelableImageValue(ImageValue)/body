@@ -1,0 +1,5 @@
+{
+  this.width=value.getWidth();
+  this.height=value.getHeight();
+  this.url=value.getUrl();
+}

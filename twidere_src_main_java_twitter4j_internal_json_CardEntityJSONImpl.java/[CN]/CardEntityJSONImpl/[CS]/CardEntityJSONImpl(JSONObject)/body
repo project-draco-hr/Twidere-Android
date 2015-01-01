@@ -1,0 +1,16 @@
+{
+  this.name=json.getString("name");
+  this.bindingValues=BindingValueImpl.valuesOf(json.getJSONObject("binding_values"));
+  if (!json.isNull("users")) {
+    final JSONObject usersJSON=json.getJSONObject("users");
+    final Iterator<String> keys=usersJSON.keys();
+    this.users=new UserJSONImpl[usersJSON.length()];
+    int idx=0;
+    while (keys.hasNext()) {
+      users[idx++]=new UserJSONImpl(usersJSON.getJSONObject(keys.next()));
+    }
+  }
+ else {
+    users=null;
+  }
+}

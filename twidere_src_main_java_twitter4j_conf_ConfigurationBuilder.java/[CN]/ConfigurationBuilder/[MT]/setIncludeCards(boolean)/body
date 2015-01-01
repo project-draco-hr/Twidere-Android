@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setIncludeCards(includeCards);
+  return this;
+}

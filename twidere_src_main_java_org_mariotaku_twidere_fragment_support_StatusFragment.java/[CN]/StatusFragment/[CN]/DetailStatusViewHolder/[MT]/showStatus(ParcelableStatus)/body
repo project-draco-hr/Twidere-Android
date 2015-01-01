@@ -1,5 +1,6 @@
 {
   if (status == null)   return;
+  final StatusFragment fragment=adapter.getFragment();
   final Context context=adapter.getContext();
   final Resources resources=context.getResources();
   final ImageLoaderWrapper loader=adapter.getImageLoader();
@@ -65,6 +66,18 @@
     mediaPreviewLoad.setVisibility(View.VISIBLE);
     mediaPreviewGrid.setVisibility(View.GONE);
     mediaPreviewGrid.removeAllViews();
+  }
+  if (Utils.isCardSupported(status.card)) {
+    twitterCard.setVisibility(View.VISIBLE);
+    final Fragment cardFragment=Utils.createTwitterCardFragment(status.card);
+    final FragmentManager fm=fragment.getChildFragmentManager();
+    final FragmentTransaction ft=fm.beginTransaction();
+    ft.replace(R.id.twitter_card,cardFragment);
+    ft.commit();
+  }
+ else {
+    twitterCard.setVisibility(View.GONE);
+    final FragmentManager fm=fragment.getChildFragmentManager();
   }
   setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
   menuBar.show();

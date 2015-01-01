@@ -37,4 +37,5 @@
   media=cursor.getColumnIndex(Statuses.MEDIA);
   first_media=cursor.getColumnIndex(Statuses.FIRST_MEDIA);
   mentions=cursor.getColumnIndex(Statuses.MENTIONS);
+  card=cursor.getColumnIndex(Statuses.MENTIONS);
 }

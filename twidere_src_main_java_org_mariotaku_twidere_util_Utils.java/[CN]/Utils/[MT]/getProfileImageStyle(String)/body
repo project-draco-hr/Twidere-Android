@@ -1,0 +1,6 @@
+{
+  if (VALUE_PROFILE_IMAGE_STYLE_SQUARE.equalsIgnoreCase(style)) {
+    return ShapedImageView.SHAPE_RECTANGLE;
+  }
+  return ShapedImageView.SHAPE_CIRCLE;
+}

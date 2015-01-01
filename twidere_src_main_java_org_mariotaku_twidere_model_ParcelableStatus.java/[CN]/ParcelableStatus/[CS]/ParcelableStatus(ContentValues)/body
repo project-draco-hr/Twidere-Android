@@ -36,4 +36,5 @@
   user_is_following=getAsBoolean(values,Statuses.IS_FOLLOWING,false);
   mentions=ParcelableUserMention.fromJSONString(values.getAsString(Statuses.MENTIONS));
   first_media=values.getAsString(Statuses.FIRST_MEDIA);
+  card=ParcelableCardEntity.fromJSONString(values.getAsString(Statuses.CARD));
 }

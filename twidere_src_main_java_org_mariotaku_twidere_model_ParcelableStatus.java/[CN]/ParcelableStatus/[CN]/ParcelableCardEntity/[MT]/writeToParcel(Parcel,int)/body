@@ -1,0 +1,5 @@
+{
+  dest.writeString(name);
+  dest.writeTypedArray(values,flags);
+  dest.writeTypedArray(users,flags);
+}

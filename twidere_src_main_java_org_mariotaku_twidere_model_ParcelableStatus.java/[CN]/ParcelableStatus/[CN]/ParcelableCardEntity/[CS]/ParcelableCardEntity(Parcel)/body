@@ -1,0 +1,5 @@
+{
+  name=src.readString();
+  values=src.createTypedArray(ParcelableValueItem.CREATOR);
+  users=src.createTypedArray(ParcelableUser.CREATOR);
+}

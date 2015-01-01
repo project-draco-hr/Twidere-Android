@@ -38,4 +38,6 @@
   configuration.setSigningUploadBaseURL(conf.getSigningUploadBaseURL());
   configuration.setUser(conf.getUser());
   configuration.setUseSSL(conf.isSSLEnabled());
+  configuration.setIncludeCards(conf.isIncludeCardsEnabled());
+  configuration.setCardsPlatform(conf.getCardsPlatform());
 }

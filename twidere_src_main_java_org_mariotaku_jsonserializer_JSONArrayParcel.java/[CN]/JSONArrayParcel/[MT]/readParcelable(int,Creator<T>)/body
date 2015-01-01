@@ -1,0 +1,4 @@
+{
+  final JSONParcel parcel=new JSONParcel(jsonArray.optJSONObject(index));
+  return creator.createFromParcel(parcel);
+}

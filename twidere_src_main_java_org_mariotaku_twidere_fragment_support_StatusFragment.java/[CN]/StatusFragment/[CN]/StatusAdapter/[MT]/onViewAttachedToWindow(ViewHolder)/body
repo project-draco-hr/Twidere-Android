@@ -1,0 +1,6 @@
+{
+  super.onViewAttachedToWindow(holder);
+  if (mCachedHolder == holder) {
+    mCachedHolder=null;
+  }
+}
