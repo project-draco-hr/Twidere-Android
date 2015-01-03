@@ -1,0 +1,10 @@
+{
+  if (mSavedActivitiesFileArgs == null)   return null;
+  try {
+    return JSONFileIO.getSerializationFile(mContext,mSavedActivitiesFileArgs);
+  }
+ catch (  final IOException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

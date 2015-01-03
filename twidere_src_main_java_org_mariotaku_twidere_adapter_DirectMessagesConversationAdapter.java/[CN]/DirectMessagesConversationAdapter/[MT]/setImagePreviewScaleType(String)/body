@@ -1,4 +1,20 @@
 {
-  final ScaleType scaleType=ScaleType.valueOf(scaleTypeString.toUpperCase(Locale.US));
-  mImagePreviewScaleType=scaleType;
+  final ScaleType scaleType;
+switch (Utils.getMediaPreviewStyle(scaleTypeString)) {
+case VALUE_MEDIA_PREVIEW_STYLE_CODE_CROP:
+{
+      scaleType=ScaleType.CENTER_CROP;
+      break;
+    }
+case VALUE_MEDIA_PREVIEW_STYLE_CODE_SCALE:
+{
+    scaleType=ScaleType.CENTER_INSIDE;
+    break;
+  }
+default :
+{
+  return;
+}
+}
+mImagePreviewScaleType=scaleType;
 }

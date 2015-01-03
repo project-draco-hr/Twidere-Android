@@ -1,0 +1,8 @@
+{
+  final Bundle args=new Bundle(getArguments());
+  args.putLongArray(EXTRA_ACCOUNT_IDS,accountIds);
+  args.putLongArray(EXTRA_MAX_IDS,maxIds);
+  args.putLongArray(EXTRA_SINCE_IDS,sinceIds);
+  getLoaderManager().restartLoader(0,args,this);
+  return -1;
+}

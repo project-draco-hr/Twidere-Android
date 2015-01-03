@@ -49,7 +49,7 @@
   nameView.setText(user_name);
   screenNameView.setText("@" + user_screen_name);
   timeView.setTime(timestamp);
-  final int userColor=UserColorNicknameUtils.getUserColor(context,user_id);
+  final int userColor=UserColorNameUtils.getUserColor(context,user_id);
   profileImageView.setBorderColor(userColor);
   profileImageView.setStyle(adapter.getProfileImageStyle());
   loader.displayProfileImage(profileImageView,user_profile_image_url);

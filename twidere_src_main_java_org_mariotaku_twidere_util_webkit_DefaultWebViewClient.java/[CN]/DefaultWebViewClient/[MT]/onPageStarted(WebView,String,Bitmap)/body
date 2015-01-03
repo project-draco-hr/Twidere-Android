@@ -1,6 +1,3 @@
 {
   super.onPageStarted(view,url,favicon);
-  if (mActivity instanceof BaseSupportActivity) {
-    ((BaseSupportActivity)mActivity).setProgressBarIndeterminateVisibility(true);
-  }
 }

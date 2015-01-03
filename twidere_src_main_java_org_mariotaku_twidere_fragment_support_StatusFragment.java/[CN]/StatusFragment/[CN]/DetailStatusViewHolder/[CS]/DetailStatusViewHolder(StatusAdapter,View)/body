@@ -21,7 +21,7 @@
   mediaPreviewGrid=(LinearLayout)itemView.findViewById(R.id.media_preview_grid);
   locationContainer=itemView.findViewById(R.id.location_container);
   profileContainer=itemView.findViewById(R.id.profile_container);
-  twitterCard=(FrameLayout)itemView.findViewById(R.id.twitter_card);
+  twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
   setIsRecyclable(false);
   initViews();
 }

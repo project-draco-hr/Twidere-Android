@@ -1,35 +1,52 @@
 {
-  if (mAccountIds == null)   return Collections.emptyList();
   final File serializationFile=getSerializationFile();
-  if (mIsFirstLoad && mUseCache && serializationFile != null) {
+  final List<ParcelableActivity> data=getData();
+  if (isFirstLoad() && getTabPosition() >= 0 && serializationFile != null) {
     final List<ParcelableActivity> cached=getCachedData(serializationFile);
     if (cached != null) {
-      Collections.sort(cached);
-      return new CopyOnWriteArrayList<ParcelableActivity>(cached);
+      data.addAll(cached);
+      if (mComparator != null) {
+        Collections.sort(data,mComparator);
+      }
+ else {
+        Collections.sort(data);
+      }
+      return new CopyOnWriteArrayList<>(data);
     }
   }
-  final SharedPreferences prefs=mContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final List<Activity> activities;
+  final boolean truncated;
+  final Context context=getContext();
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final int loadItemLimit=prefs.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
-  final List<ParcelableActivity> result=new ArrayList<ParcelableActivity>();
-  for (  final long accountId : mAccountIds) {
-    final List<Activity> activities;
-    try {
-      final Paging paging=new Paging();
-      paging.setCount(Math.min(100,loadItemLimit));
-      activities=getActivities(getTwitter(accountId),paging);
+  try {
+    final Paging paging=new Paging();
+    paging.setCount(loadItemLimit);
+    if (mMaxId > 0) {
+      paging.setMaxId(mMaxId);
     }
- catch (    final TwitterException e) {
-      e.printStackTrace();
-      final List<ParcelableActivity> cached=getCachedData(serializationFile);
-      if (cached == null)       return Collections.emptyList();
-      return new CopyOnWriteArrayList<ParcelableActivity>(cached);
+    if (mSinceId > 0) {
+      paging.setSinceId(mSinceId);
     }
-    if (activities == null)     return new CopyOnWriteArrayList<ParcelableActivity>(mData);
-    for (    final Activity activity : activities) {
-      result.add(new ParcelableActivity(activity,accountId));
-    }
+    activities=new ArrayList<>();
+    truncated=truncateActivities(getActivities(getTwitter(),paging),activities,mSinceId);
   }
-  Collections.sort(result);
-  saveCachedData(serializationFile,result);
-  return new CopyOnWriteArrayList<ParcelableActivity>(result);
+ catch (  final TwitterException e) {
+    e.printStackTrace();
+    return new CopyOnWriteArrayList<>(data);
+  }
+  for (  final Activity activity : activities) {
+    final long id=activity.getMaxPosition();
+    deleteStatus(data,id);
+    data.add(new ParcelableActivity(activity,mAccountIds));
+  }
+  final ParcelableActivity[] array=data.toArray(new ParcelableActivity[data.size()]);
+  if (mComparator != null) {
+    Collections.sort(data,mComparator);
+  }
+ else {
+    Collections.sort(data);
+  }
+  saveCachedData(serializationFile,data);
+  return new CopyOnWriteArrayList<>(data);
 }

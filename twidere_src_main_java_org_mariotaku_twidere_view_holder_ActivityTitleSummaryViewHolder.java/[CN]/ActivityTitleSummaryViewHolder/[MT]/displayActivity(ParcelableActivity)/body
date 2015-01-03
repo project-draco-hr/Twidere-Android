@@ -1,0 +1,49 @@
+{
+  final Context context=adapter.getContext();
+switch (activity.action) {
+case ParcelableActivity.ACTION_FOLLOW:
+{
+      activityTypeView.setImageResource(R.drawable.ic_indicator_followers);
+      final String firstDisplayName=UserColorNameUtils.getDisplayName(context,activity.sources[0]);
+      if (activity.sources.length > 1) {
+        titleView.setText(context.getString(R.string.activity_about_me_follow_multi,firstDisplayName,activity.sources.length - 1));
+      }
+ else {
+        titleView.setText(context.getString(R.string.activity_about_me_follow,firstDisplayName));
+      }
+      displayUserProfileImages(activity.sources);
+      summaryView.setVisibility(View.GONE);
+      break;
+    }
+case ParcelableActivity.ACTION_FAVORITE:
+{
+    activityTypeView.setImageResource(R.drawable.ic_indicator_starred);
+    final String firstDisplayName=UserColorNameUtils.getDisplayName(context,activity.sources[0]);
+    if (activity.sources.length > 1) {
+      titleView.setText(context.getString(R.string.activity_about_me_favorite_multi,firstDisplayName,activity.sources.length - 1));
+    }
+ else {
+      titleView.setText(context.getString(R.string.activity_about_me_favorite,firstDisplayName));
+    }
+    displayUserProfileImages(activity.sources);
+    summaryView.setText(activity.target_statuses[0].text_unescaped);
+    summaryView.setVisibility(View.VISIBLE);
+    break;
+  }
+case ParcelableActivity.ACTION_RETWEET:
+{
+  activityTypeView.setImageResource(R.drawable.ic_indicator_retweet);
+  final String firstDisplayName=UserColorNameUtils.getDisplayName(context,activity.sources[0]);
+  if (activity.sources.length > 1) {
+    titleView.setText(context.getString(R.string.activity_about_me_retweet_multi,firstDisplayName,activity.sources.length - 1));
+  }
+ else {
+    titleView.setText(context.getString(R.string.activity_about_me_retweet,firstDisplayName));
+  }
+  displayUserProfileImages(activity.sources);
+  summaryView.setText(activity.target_statuses[0].text_unescaped);
+  summaryView.setVisibility(View.VISIBLE);
+  break;
+}
+}
+}

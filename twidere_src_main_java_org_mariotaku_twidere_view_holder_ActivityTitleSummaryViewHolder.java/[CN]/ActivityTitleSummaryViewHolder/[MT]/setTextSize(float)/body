@@ -1,0 +1,4 @@
+{
+  titleView.setTextSize(textSize);
+  summaryView.setTextSize(textSize * 0.85f);
+}

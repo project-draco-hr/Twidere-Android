@@ -1,0 +1,4 @@
+{
+  text1.setText(String.valueOf(activity.action));
+  text2.setText(activity.toString());
+}

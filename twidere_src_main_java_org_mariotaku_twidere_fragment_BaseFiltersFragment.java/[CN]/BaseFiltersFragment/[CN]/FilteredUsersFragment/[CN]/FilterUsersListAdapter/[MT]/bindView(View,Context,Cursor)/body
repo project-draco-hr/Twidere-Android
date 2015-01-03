@@ -4,6 +4,6 @@
   final long user_id=cursor.getLong(mUserIdIdx);
   final String name=cursor.getString(mNameIdx);
   final String screen_name=cursor.getString(mScreenNameIdx);
-  final String display_name=getDisplayName(context,user_id,name,screen_name,mNameFirst,mNicknameOnly);
+  final String display_name=UserColorNameUtils.getDisplayName(context,user_id,name,screen_name,mNameFirst,mNicknameOnly);
   text1.setText(display_name);
 }

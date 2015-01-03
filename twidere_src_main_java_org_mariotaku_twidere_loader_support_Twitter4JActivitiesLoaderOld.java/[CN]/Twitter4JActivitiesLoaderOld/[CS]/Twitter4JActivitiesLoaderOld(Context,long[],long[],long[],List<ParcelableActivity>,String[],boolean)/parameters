@@ -1,0 +1,7 @@
+Context context
+long[] accountIds
+long[] sinceIds
+long[] maxIds
+List<ParcelableActivity> data
+String[] saveFileArgs
+boolean useCache

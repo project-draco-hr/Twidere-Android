@@ -1,0 +1,5 @@
+{
+  final IActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
+  final long[] maxIds=new long[]{adapter.getActivity(adapter.getActivityCount() - 1).min_position};
+  getStatuses(getAccountIds(),maxIds,null);
+}

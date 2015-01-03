@@ -1,0 +1,8 @@
+{
+  if (context == null)   return null;
+  final String nick=getUserNickname(context,userId,ignoreCache);
+  final boolean nick_available=!isEmpty(nick);
+  if (nicknameOnly && nick_available)   return nick;
+  if (!nick_available)   return nameFirst && !isEmpty(name) ? name : "@" + screenName;
+  return context.getString(R.string.name_with_nickname,nameFirst && !isEmpty(name) ? name : "@" + screenName,nick);
+}

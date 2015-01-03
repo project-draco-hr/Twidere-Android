@@ -1,0 +1,8 @@
+{
+  super(context);
+  mFirstLoad=data == null;
+  if (data != null) {
+    mData.addAll(data);
+  }
+  mTabPosition=tab_position;
+}

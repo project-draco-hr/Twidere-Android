@@ -59,7 +59,7 @@
   if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();
   }
-  activity.setTitle(getDisplayName(activity,user,true));
+  activity.setTitle(UserColorNameUtils.getDisplayName(activity,user,true));
   updateTitleColor();
   invalidateOptionsMenu();
 }

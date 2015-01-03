@@ -14,10 +14,10 @@
     holder.setAccountColor(getAccountColor(getContext(),item.account_id));
   }
   if (mShowAbsoluteTime) {
-    holder.time.setTime(item.activity_timestamp);
+    holder.time.setTime(item.timestamp);
   }
  else {
-    holder.time.setTime(item.activity_timestamp);
+    holder.time.setTime(item.timestamp);
   }
   bindView(position,holder,item);
   return view;

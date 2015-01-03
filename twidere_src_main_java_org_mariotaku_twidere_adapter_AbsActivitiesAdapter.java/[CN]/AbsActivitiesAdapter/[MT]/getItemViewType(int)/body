@@ -1,0 +1,22 @@
+{
+  if (position == getItemCount() - 1) {
+    return ITEM_VIEW_TYPE_LOAD_INDICATOR;
+  }
+ else   if (isGapItem(position)) {
+    return ITEM_VIEW_TYPE_GAP;
+  }
+switch (getActivityAction(position)) {
+case ParcelableActivity.ACTION_MENTION:
+case ParcelableActivity.ACTION_REPLY:
+{
+      return ITEM_VIEW_TYPE_STATUS;
+    }
+case ParcelableActivity.ACTION_FOLLOW:
+case ParcelableActivity.ACTION_FAVORITE:
+case ParcelableActivity.ACTION_RETWEET:
+{
+    return ITEM_VIEW_TYPE_TITLE_SUMMARY;
+  }
+}
+return ITEM_VIEW_TYPE_STUB;
+}

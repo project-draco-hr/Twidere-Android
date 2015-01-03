@@ -28,7 +28,7 @@
   nameView.setText(status.user_name);
   screenNameView.setText("@" + status.user_screen_name);
   timeView.setTime(status.timestamp);
-  final int userColor=UserColorNicknameUtils.getUserColor(context,status.user_id);
+  final int userColor=UserColorNameUtils.getUserColor(context,status.user_id);
   profileImageView.setBorderColor(userColor);
   profileImageView.setStyle(profileImageStyle);
   loader.displayProfileImage(profileImageView,status.user_profile_image_url);

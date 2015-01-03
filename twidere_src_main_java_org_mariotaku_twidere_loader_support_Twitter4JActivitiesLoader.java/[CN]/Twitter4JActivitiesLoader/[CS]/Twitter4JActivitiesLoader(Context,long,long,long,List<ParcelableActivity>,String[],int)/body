@@ -1,0 +1,10 @@
+{
+  super(context,data,tabPosition);
+  mContext=context;
+  mAccountIds=accountId;
+  mSinceId=sinceId;
+  mMaxId=maxId;
+  mDatabase=TwidereApplication.getInstance(context).getSQLiteDatabase();
+  mHandler=new Handler();
+  mSavedStatusesFileArgs=savedStatusesArgs;
+}

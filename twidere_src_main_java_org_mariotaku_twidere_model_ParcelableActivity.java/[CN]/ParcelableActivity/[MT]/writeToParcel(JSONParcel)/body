@@ -1,6 +1,6 @@
 {
   out.writeLong("account_id",account_id);
-  out.writeLong("activity_timestamp",activity_timestamp);
+  out.writeLong("timestamp",timestamp);
   out.writeLong("max_position",max_position);
   out.writeLong("min_position",min_position);
   out.writeInt("action",action);

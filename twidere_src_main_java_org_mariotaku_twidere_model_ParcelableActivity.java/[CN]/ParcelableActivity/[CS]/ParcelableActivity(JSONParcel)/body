@@ -1,6 +1,6 @@
 {
   account_id=in.readLong("account_id");
-  activity_timestamp=in.readLong("activity_timestamp");
+  timestamp=in.readLong("timestamp");
   max_position=in.readLong("max_position");
   min_position=in.readLong("min_position");
   action=in.readInt("action");

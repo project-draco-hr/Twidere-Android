@@ -67,9 +67,16 @@
     mediaPreviewGrid.setVisibility(View.GONE);
     mediaPreviewGrid.removeAllViews();
   }
-  if (Utils.isCardSupported(status.card)) {
+  if (TwitterCardUtils.isCardSupported(status.card)) {
+    final Point size=TwitterCardUtils.getCardSize(status.card);
     twitterCard.setVisibility(View.VISIBLE);
-    final Fragment cardFragment=Utils.createTwitterCardFragment(status.card);
+    if (size != null) {
+      twitterCard.setCardSize(size.x,size.y);
+    }
+ else {
+      twitterCard.setCardSize(0,0);
+    }
+    final Fragment cardFragment=TwitterCardUtils.createCardFragment(status.card);
     final FragmentManager fm=fragment.getChildFragmentManager();
     final FragmentTransaction ft=fm.beginTransaction();
     ft.replace(R.id.twitter_card,cardFragment);

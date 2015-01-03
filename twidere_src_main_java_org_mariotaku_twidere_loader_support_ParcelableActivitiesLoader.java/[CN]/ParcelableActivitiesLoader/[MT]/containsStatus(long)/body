@@ -1,0 +1,6 @@
+{
+  for (  final ParcelableActivity activity : mData) {
+    if (activity.max_position <= id && activity.min_position >= id)     return true;
+  }
+  return false;
+}

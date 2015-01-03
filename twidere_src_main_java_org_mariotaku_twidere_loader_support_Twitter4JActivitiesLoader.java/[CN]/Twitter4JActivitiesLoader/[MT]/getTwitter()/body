@@ -1,0 +1,3 @@
+{
+  return getTwitterInstance(mContext,mAccountIds,true,true);
+}

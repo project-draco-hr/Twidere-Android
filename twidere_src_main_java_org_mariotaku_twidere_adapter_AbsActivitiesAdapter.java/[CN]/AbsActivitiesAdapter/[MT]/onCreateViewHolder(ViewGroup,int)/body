@@ -1,0 +1,28 @@
+{
+switch (viewType) {
+case ITEM_VIEW_TYPE_STATUS:
+{
+      final View view=mInflater.inflate(R.layout.card_item_status_compat,parent,false);
+      final StatusViewHolder holder=new StatusViewHolder(view);
+      holder.setTextSize(getTextSize());
+      return holder;
+    }
+case ITEM_VIEW_TYPE_TITLE_SUMMARY:
+{
+    final View view=mInflater.inflate(R.layout.list_item_activity_about_me_status,parent,false);
+    final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view);
+    holder.setTextSize(getTextSize());
+    return holder;
+  }
+case ITEM_VIEW_TYPE_GAP:
+{
+  final View view=mInflater.inflate(R.layout.card_item_gap,parent,false);
+  return new GapViewHolder(this,view);
+}
+default :
+{
+final View view=mInflater.inflate(R.layout.list_item_two_line,parent,false);
+return new StubViewHolder(view);
+}
+}
+}

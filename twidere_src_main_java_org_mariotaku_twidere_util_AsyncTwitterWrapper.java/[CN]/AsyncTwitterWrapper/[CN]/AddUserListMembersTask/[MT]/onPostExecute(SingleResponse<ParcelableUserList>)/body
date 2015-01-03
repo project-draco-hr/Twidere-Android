@@ -4,7 +4,7 @@
     final String message;
     if (users.length == 1) {
       final ParcelableUser user=users[0];
-      final String displayName=Utils.getDisplayName(mContext,user.id,user.name,user.screen_name);
+      final String displayName=UserColorNameUtils.getDisplayName(mContext,user.id,user.name,user.screen_name);
       message=mContext.getString(R.string.added_user_to_list,displayName,result.getData().name);
     }
  else {

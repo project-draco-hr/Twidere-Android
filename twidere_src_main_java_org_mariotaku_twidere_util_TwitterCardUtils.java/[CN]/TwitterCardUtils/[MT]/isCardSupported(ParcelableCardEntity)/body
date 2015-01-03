@@ -1,0 +1,4 @@
+{
+  if (card == null)   return false;
+  return "player".equals(card.name) || "audio".equals(card.name) || "animated_gif".equals(card.name);
+}

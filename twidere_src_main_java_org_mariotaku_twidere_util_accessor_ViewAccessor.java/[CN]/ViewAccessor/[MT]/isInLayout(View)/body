@@ -1,0 +1,8 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+    return false;
+  }
+ else {
+    return ViewAccessorJBMR2.isInLayout(view);
+  }
+}

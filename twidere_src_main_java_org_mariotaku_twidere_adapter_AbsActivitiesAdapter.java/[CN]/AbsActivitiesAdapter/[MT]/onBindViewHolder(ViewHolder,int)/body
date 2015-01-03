@@ -1,0 +1,28 @@
+{
+switch (getItemViewType(position)) {
+case ITEM_VIEW_TYPE_STATUS:
+{
+      final ParcelableActivity activity=getActivity(position);
+      final ParcelableStatus status;
+      if (activity.action == ParcelableActivity.ACTION_MENTION) {
+        status=activity.target_object_statuses[0];
+      }
+ else {
+        status=activity.target_statuses[0];
+      }
+      final StatusViewHolder statusViewHolder=(StatusViewHolder)holder;
+      statusViewHolder.displayStatus(getContext(),getImageLoader(),getImageLoadingHandler(),getTwitterWrapper(),getProfileImageStyle(),getMediaPreviewStyle(),status,null);
+      break;
+    }
+case ITEM_VIEW_TYPE_TITLE_SUMMARY:
+{
+    ((ActivityTitleSummaryViewHolder)holder).displayActivity(getActivity(position));
+    break;
+  }
+case ITEM_VIEW_TYPE_STUB:
+{
+  ((StubViewHolder)holder).displayActivity(getActivity(position));
+  break;
+}
+}
+}

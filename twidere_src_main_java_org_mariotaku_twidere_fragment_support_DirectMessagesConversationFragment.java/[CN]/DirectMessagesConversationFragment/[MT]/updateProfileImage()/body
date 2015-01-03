@@ -14,7 +14,7 @@
   }
   final FragmentActivity activity=getActivity();
   if (mRecipient != null) {
-    activity.setTitle(Utils.getDisplayName(activity,mRecipient));
+    activity.setTitle(UserColorNameUtils.getDisplayName(activity,mRecipient));
   }
  else {
     activity.setTitle(R.string.direct_messages);

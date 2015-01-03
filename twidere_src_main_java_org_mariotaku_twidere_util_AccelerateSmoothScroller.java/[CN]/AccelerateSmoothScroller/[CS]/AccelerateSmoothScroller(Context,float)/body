@@ -1,0 +1,3 @@
+{
+  MILLISECONDS_PER_PX=calculateSpeedPerPixel(context.getResources().getDisplayMetrics()) * factor;
+}

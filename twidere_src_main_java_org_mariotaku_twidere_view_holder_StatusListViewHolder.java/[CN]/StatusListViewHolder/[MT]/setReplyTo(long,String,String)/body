@@ -1,5 +1,5 @@
 {
-  final String display_name=getDisplayName(getContext(),user_id,name,screen_name,name_first,nickname_only,false);
+  final String display_name=UserColorNameUtils.getDisplayName(getContext(),user_id,name,screen_name,name_first,nickname_only,false);
   reply_retweet_status.setText(getString(R.string.in_reply_to_name,display_name));
   reply_retweet_status.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_indicator_conversation,0,0,0);
 }

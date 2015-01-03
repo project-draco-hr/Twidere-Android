@@ -1,0 +1,12 @@
+{
+  final ParcelableValueItem player_width=ParcelableCardEntity.getValue(card,"player_width");
+  final ParcelableValueItem player_height=ParcelableCardEntity.getValue(card,"player_height");
+  if (player_width != null && player_height != null) {
+    final int width=ParseUtils.parseInt(String.valueOf(player_width.value));
+    final int height=ParseUtils.parseInt(String.valueOf(player_height.value));
+    if (width > 0 && height > 0) {
+      return new Point(width,height);
+    }
+  }
+  return null;
+}

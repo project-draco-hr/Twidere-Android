@@ -1,0 +1,12 @@
+{
+  final IActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
+  final long[] accountIds=getAccountIds();
+  if (adapter.getActivityCount() > 0) {
+    final long[] sinceIds=new long[]{adapter.getActivity(0).max_position};
+    getStatuses(accountIds,null,sinceIds);
+  }
+ else {
+    getStatuses(accountIds,null,null);
+  }
+  return true;
+}

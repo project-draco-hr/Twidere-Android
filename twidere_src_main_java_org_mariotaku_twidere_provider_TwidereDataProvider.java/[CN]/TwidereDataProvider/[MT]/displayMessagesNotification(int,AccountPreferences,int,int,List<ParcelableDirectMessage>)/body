@@ -31,7 +31,7 @@
     statusIntent.setExtrasClassLoader(context.getClassLoader());
     contentIntent.putExtra(EXTRA_EXTRA_INTENT,statusIntent);
   }
-  final String displayName=getDisplayName(context,firstItem.sender_id,firstItem.sender_name,firstItem.sender_screen_name,mNameFirst,mNickOnly);
+  final String displayName=UserColorNameUtils.getDisplayName(context,firstItem.sender_id,firstItem.sender_name,firstItem.sender_screen_name,mNameFirst,mNickOnly);
   if (usersCount > 1) {
     title=resources.getString(R.string.notification_direct_message_multiple_users,displayName,usersCount - 1,messagesCount);
   }
@@ -50,7 +50,7 @@
     for (int i=0; i < max; i++) {
       final ParcelableDirectMessage item=messages.get(i);
       if (item == null)       return;
-      final String nameEscaped=HtmlEscapeHelper.escape(getDisplayName(context,item.sender_id,item.sender_name,item.sender_name,mNameFirst,mNickOnly));
+      final String nameEscaped=HtmlEscapeHelper.escape(UserColorNameUtils.getDisplayName(context,item.sender_id,item.sender_name,item.sender_name,mNameFirst,mNickOnly));
       final String textEscaped=HtmlEscapeHelper.escape(stripMentionText(item.text_unescaped,getAccountScreenName(context,item.account_id)));
       inboxStyle.addLine(Html.fromHtml(String.format("<b>%s</b>: %s",nameEscaped,textEscaped)));
     }

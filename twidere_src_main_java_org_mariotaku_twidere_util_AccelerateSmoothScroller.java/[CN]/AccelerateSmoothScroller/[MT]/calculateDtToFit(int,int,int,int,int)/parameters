@@ -1,0 +1,5 @@
+int viewStart
+int viewEnd
+int boxStart
+int boxEnd
+int snapPreference

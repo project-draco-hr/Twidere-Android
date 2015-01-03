@@ -1,5 +1,0 @@
-Context context
-long[] accountIds
-List<ParcelableActivity> data
-String[] saveFileArgs
-boolean useCache

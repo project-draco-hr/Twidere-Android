@@ -12,7 +12,7 @@
   }
   holder.position=position;
   final ParcelableUserList user_list=getItem(position);
-  final String display_name=getDisplayName(mContext,user_list.user_id,user_list.user_name,user_list.user_screen_name,isDisplayNameFirst(),isNicknameOnly(),false);
+  final String display_name=UserColorNameUtils.getDisplayName(mContext,user_list.user_id,user_list.user_name,user_list.user_screen_name,isDisplayNameFirst(),isNicknameOnly(),false);
   holder.setTextSize(getTextSize());
   holder.name.setText(user_list.name);
   holder.created_by.setText(mContext.getString(R.string.created_by,display_name));

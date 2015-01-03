@@ -1,0 +1,3 @@
+List<twitter4j.Activity> in
+List<twitter4j.Activity> out
+long sinceId

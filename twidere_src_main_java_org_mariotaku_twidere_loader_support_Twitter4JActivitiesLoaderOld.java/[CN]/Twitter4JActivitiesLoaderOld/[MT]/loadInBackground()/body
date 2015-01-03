@@ -1,0 +1,42 @@
+{
+  if (mAccountIds == null)   return Collections.emptyList();
+  final File serializationFile=getSerializationFile();
+  if (mIsFirstLoad && mUseCache && serializationFile != null) {
+    final List<ParcelableActivity> cached=getCachedData(serializationFile);
+    if (cached != null) {
+      Collections.sort(cached);
+      return new CopyOnWriteArrayList<>(cached);
+    }
+  }
+  final SharedPreferences prefs=mContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final int loadItemLimit=prefs.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
+  final List<ParcelableActivity> result=new ArrayList<>();
+  for (int i=0, j=mAccountIds.length; i < j; i++) {
+    final long accountId=mAccountIds[i];
+    final List<Activity> activities;
+    final Paging paging=new Paging();
+    paging.setCount(Math.min(100,loadItemLimit));
+    if (mSinceIds != null && mSinceIds.length == j) {
+      paging.setSinceId(mSinceIds[i]);
+    }
+    if (mMaxIds != null && mMaxIds.length == j) {
+      paging.setMaxId(mMaxIds[i]);
+    }
+    try {
+      activities=getActivities(getTwitter(accountId),paging);
+    }
+ catch (    final TwitterException e) {
+      e.printStackTrace();
+      final List<ParcelableActivity> cached=getCachedData(serializationFile);
+      if (cached == null)       return Collections.emptyList();
+      return new CopyOnWriteArrayList<>(cached);
+    }
+    if (activities == null)     return new CopyOnWriteArrayList<>(mData);
+    for (    final Activity activity : activities) {
+      result.add(new ParcelableActivity(activity,accountId));
+    }
+  }
+  Collections.sort(result);
+  saveCachedData(serializationFile,result);
+  return new CopyOnWriteArrayList<>(result);
+}

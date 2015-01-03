@@ -31,7 +31,7 @@
     statusIntent.putExtra(EXTRA_STATUS,firstItem);
     contentIntent.putExtra(EXTRA_EXTRA_INTENT,statusIntent);
   }
-  final String displayName=getDisplayName(context,firstItem.user_id,firstItem.user_name,firstItem.user_screen_name,mNameFirst,mNickOnly);
+  final String displayName=UserColorNameUtils.getDisplayName(context,firstItem.user_id,firstItem.user_name,firstItem.user_screen_name,mNameFirst,mNickOnly);
   if (usersCount > 1) {
     title=resources.getString(titleMultiple,displayName,usersCount - 1);
   }
@@ -47,7 +47,7 @@
     for (int i=0; i < max; i++) {
       final ParcelableStatus s=safeGet(statuses,i);
       if (s == null)       return;
-      final String nameEscaped=HtmlEscapeHelper.escape(getDisplayName(context,s.user_id,s.user_name,s.user_screen_name,mNameFirst,mNickOnly));
+      final String nameEscaped=HtmlEscapeHelper.escape(UserColorNameUtils.getDisplayName(context,s.user_id,s.user_name,s.user_screen_name,mNameFirst,mNickOnly));
       final String textEscaped=HtmlEscapeHelper.escape(stripMentionText(s.text_unescaped,getAccountScreenName(context,s.account_id)));
       inboxStyle.addLine(Html.fromHtml(String.format("<b>%s</b>: %s",nameEscaped,textEscaped)));
     }

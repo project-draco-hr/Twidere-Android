@@ -1,0 +1,4 @@
+{
+  mInterimTargetDx=mInterimTargetDy=0;
+  mTargetVector=null;
+}

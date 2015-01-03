@@ -1,0 +1,35 @@
+{
+  final ImageLoaderWrapper imageLoader=adapter.getImageLoader();
+  if (statuses == null) {
+    for (    final ImageView view : profileImageViews) {
+      imageLoader.cancelDisplayTask(view);
+      view.setVisibility(View.GONE);
+    }
+    return;
+  }
+  final int length=Math.min(profileImageViews.length,statuses.length);
+  final boolean shouldDisplayImages=true;
+  profileImagesContainer.setVisibility(shouldDisplayImages ? View.VISIBLE : View.GONE);
+  if (!shouldDisplayImages)   return;
+  for (int i=0, j=profileImageViews.length; i < j; i++) {
+    final ImageView view=profileImageViews[i];
+    view.setImageDrawable(null);
+    if (i < length) {
+      view.setVisibility(View.VISIBLE);
+      imageLoader.displayProfileImage(view,statuses[i].profile_image_url);
+    }
+ else {
+      imageLoader.cancelDisplayTask(view);
+      view.setVisibility(View.GONE);
+    }
+  }
+  if (statuses.length > profileImageViews.length) {
+    final Context context=adapter.getContext();
+    final int moreNumber=statuses.length - profileImageViews.length;
+    profileImageMoreNumber.setVisibility(View.VISIBLE);
+    profileImageMoreNumber.setText(context.getString(R.string.and_more,moreNumber));
+  }
+ else {
+    profileImageMoreNumber.setVisibility(View.GONE);
+  }
+}

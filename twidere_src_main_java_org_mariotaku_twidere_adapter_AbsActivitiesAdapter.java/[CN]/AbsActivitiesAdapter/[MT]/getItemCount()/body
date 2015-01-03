@@ -1,0 +1,3 @@
+{
+  return getActivityCount() + (mLoadMoreIndicatorEnabled ? 1 : 0);
+}

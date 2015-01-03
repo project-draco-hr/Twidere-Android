@@ -1,4 +1,9 @@
 {
+  final Adapter adapter=parent.getAdapter();
+  if (adapter != null && parent.getChildPosition(view) == adapter.getItemCount() - 1) {
+    outRect.setEmpty();
+    return;
+  }
   if (mOrientation == VERTICAL_LIST) {
     outRect.set(0,0,0,mDivider.getIntrinsicHeight());
   }
