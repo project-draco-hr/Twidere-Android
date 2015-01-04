@@ -1,4 +1,0 @@
-{
-  mAdapter.setData(null);
-  mData=null;
-}

@@ -1,7 +1,7 @@
 {
   super(itemView);
   this.adapter=adapter;
-  activityTypeView=(ImageView)itemView.findViewById(R.id.activity_type);
+  activityTypeView=(ActionIconView)itemView.findViewById(R.id.activity_type);
   titleView=(TextView)itemView.findViewById(R.id.title);
   summaryView=(TextView)itemView.findViewById(R.id.summary);
   profileImagesContainer=(ViewGroup)itemView.findViewById(R.id.profile_images_container);

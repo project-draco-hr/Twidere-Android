@@ -16,7 +16,7 @@ case ITEM_VIEW_TYPE_STATUS:
     }
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:
 {
-    ((ActivityTitleSummaryViewHolder)holder).displayActivity(getActivity(position));
+    bindTitleSummaryViewHolder((ActivityTitleSummaryViewHolder)holder,position);
     break;
   }
 case ITEM_VIEW_TYPE_STUB:

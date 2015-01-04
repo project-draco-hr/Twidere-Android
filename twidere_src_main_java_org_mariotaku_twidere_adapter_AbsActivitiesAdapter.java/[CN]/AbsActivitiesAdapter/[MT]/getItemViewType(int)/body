@@ -14,6 +14,9 @@ case ParcelableActivity.ACTION_REPLY:
 case ParcelableActivity.ACTION_FOLLOW:
 case ParcelableActivity.ACTION_FAVORITE:
 case ParcelableActivity.ACTION_RETWEET:
+case ParcelableActivity.ACTION_FAVORITED_RETWEET:
+case ParcelableActivity.ACTION_RETWEETED_RETWEET:
+case ParcelableActivity.ACTION_LIST_MEMBER_ADDED:
 {
     return ITEM_VIEW_TYPE_TITLE_SUMMARY;
   }

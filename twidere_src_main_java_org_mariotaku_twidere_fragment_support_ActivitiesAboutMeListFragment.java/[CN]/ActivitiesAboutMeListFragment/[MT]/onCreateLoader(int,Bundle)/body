@@ -1,4 +1,0 @@
-{
-  setProgressBarIndeterminateVisibility(true);
-  return new ActivitiesAboutMeLoader(getActivity(),getAccountIds()[0],-1,-1,getData(),getSavedActivitiesFileArgs(),getTabPosition());
-}

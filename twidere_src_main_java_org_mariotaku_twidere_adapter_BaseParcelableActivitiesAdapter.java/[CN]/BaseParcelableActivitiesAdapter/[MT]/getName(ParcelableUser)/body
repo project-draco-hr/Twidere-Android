@@ -1,4 +1,0 @@
-{
-  if (user == null)   return null;
-  return UserColorNameUtils.getDisplayName(getContext(),user.id,user.name,user.screen_name,isDisplayNameFirst(),isNicknameOnly());
-}

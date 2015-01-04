@@ -1,6 +1,0 @@
-{
-  if (show != mShowAbsoluteTime) {
-    mShowAbsoluteTime=show;
-    notifyDataSetChanged();
-  }
-}

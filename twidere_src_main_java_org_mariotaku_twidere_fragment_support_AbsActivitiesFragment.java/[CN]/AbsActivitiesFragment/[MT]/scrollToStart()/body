@@ -4,24 +4,6 @@
   if (twitter != null && tabPosition != -1) {
     twitter.clearUnreadCountAsync(tabPosition);
   }
-  final LinearLayoutManager layoutManager=(LinearLayoutManager)mRecyclerView.getLayoutManager();
-  final AccelerateSmoothScroller smoothScroller=new AccelerateSmoothScroller(getActivity(),2){
-    @Override public PointF computeScrollVectorForPosition(    int targetPosition){
-      if (getChildCount() == 0) {
-        return null;
-      }
-      final int firstChildPos=layoutManager.getPosition(layoutManager.getChildAt(0));
-      final int direction=targetPosition < firstChildPos != layoutManager.getReverseLayout() ? -1 : 1;
-      if (layoutManager.getOrientation() == LinearLayoutManager.HORIZONTAL) {
-        return new PointF(direction,0);
-      }
- else {
-        return new PointF(0,direction);
-      }
-    }
-  }
-;
-  smoothScroller.setTargetPosition(0);
-  layoutManager.startSmoothScroll(smoothScroller);
+  mRecyclerView.smoothScrollToPosition(0);
   return true;
 }

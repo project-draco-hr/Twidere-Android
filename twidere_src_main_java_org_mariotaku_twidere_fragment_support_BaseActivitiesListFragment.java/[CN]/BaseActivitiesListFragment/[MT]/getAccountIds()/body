@@ -1,5 +1,0 @@
-{
-  final Bundle args=getArguments();
-  if (args != null && args.containsKey(EXTRA_ACCOUNT_ID))   return new long[]{args.getLong(EXTRA_ACCOUNT_ID)};
-  return Utils.getActivatedAccountIds(getActivity());
-}

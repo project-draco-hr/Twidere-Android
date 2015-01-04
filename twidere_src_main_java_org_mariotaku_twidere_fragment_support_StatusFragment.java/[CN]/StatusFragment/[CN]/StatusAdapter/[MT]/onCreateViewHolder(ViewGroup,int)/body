@@ -3,7 +3,13 @@ switch (viewType) {
 case VIEW_TYPE_DETAIL_STATUS:
 {
       if (mCachedHolder != null)       return mCachedHolder;
-      final View view=mInflater.inflate(R.layout.header_status,parent,false);
+      final View view;
+      if (mIsCompact) {
+        view=mInflater.inflate(R.layout.header_status_common,parent,false);
+      }
+ else {
+        view=mInflater.inflate(R.layout.header_status,parent,false);
+      }
       final CardView cardView=(CardView)view.findViewById(R.id.card);
       if (cardView != null) {
         cardView.setCardBackgroundColor(mCardBackgroundColor);
@@ -18,7 +24,7 @@ case VIEW_TYPE_LIST_STATUS:
       cardView.setCardBackgroundColor(mCardBackgroundColor);
     }
     final StatusViewHolder holder=new StatusViewHolder(this,view);
-    holder.setupViewListeners();
+    holder.setOnClickListeners();
     return holder;
   }
 case VIEW_TYPE_CONVERSATION_LOAD_INDICATOR:

@@ -11,6 +11,7 @@
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
   mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,true);
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
+  mIsCompact=compact;
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compat;
   }
