@@ -1,0 +1,3 @@
+{
+  mTileView.setScaleToFit(shouldScaleToFit);
+}

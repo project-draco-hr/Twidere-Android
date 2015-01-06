@@ -43,6 +43,7 @@
   mMessagesListView.setStackFromBottom(true);
   mUsersSearchAdapter=new SimpleParcelableUsersAdapter(activity);
   mUsersSearchList.setAdapter(mUsersSearchAdapter);
+  mUsersSearchList.setEmptyView(mUsersSearchEmpty);
   mUsersSearchList.setOnItemClickListener(new OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
       final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();

@@ -1,3 +1,3 @@
 {
-  return new UserListMembershipsLoader(getActivity(),account_id,user_id,screen_name,getCursor(),getData());
+  return new UserListMembershipsLoader(getActivity(),accountId,userId,screenName,getCursor(),getData());
 }

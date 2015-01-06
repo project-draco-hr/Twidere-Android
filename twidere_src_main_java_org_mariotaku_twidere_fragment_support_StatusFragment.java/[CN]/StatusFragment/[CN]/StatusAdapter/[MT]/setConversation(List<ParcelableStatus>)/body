@@ -1,4 +1,5 @@
 {
   mConversation=conversation;
   notifyDataSetChanged();
+  updateItemDecoration();
 }

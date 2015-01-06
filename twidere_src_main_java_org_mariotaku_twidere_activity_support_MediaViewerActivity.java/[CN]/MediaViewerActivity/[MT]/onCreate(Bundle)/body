@@ -1,0 +1,15 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.image_viewer);
+  mActionBar=getActionBar();
+  mActionBar.setDisplayHomeAsUpEnabled(true);
+  mActionBar.addOnMenuVisibilityListener(this);
+  if (savedInstanceState == null) {
+    loadImage();
+  }
+  mImageView.addOnLayoutChangeListener(new TileImageViewLayoutListener());
+  mMenuBar.setMenuBarListener(this);
+  mMenuBar.inflate(R.menu.menu_image_viewer);
+  mMenuBar.setIsBottomBar(true);
+  mMenuBar.show();
+}

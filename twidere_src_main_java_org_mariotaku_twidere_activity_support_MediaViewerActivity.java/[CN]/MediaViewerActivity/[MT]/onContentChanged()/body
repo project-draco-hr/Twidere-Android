@@ -1,0 +1,6 @@
+{
+  super.onContentChanged();
+  mImageView=(ImageView)findViewById(R.id.image_viewer);
+  mProgress=(ProgressBar)findViewById(R.id.progress);
+  mMenuBar=(MenuBar)findViewById(R.id.menu_bar);
+}

@@ -1,4 +1,5 @@
 {
   mReplies=replies;
   notifyDataSetChanged();
+  updateItemDecoration();
 }

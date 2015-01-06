@@ -1,0 +1,3 @@
+{
+  this(BitmapRegionDecoder.newInstance(fd,isShareable));
+}

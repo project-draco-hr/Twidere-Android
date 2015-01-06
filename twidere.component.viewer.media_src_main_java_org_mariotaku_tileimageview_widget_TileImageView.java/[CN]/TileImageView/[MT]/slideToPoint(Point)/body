@@ -1,0 +1,3 @@
+{
+  mTileView.slideToPoint(point);
+}

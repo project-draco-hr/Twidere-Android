@@ -1,0 +1,4 @@
+{
+  mDecoder=decoder;
+  mInSampleSize=inSampleSize;
+}

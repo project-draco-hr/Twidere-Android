@@ -1,0 +1,5 @@
+{
+  final String url=conf.getRestBaseURL() + String.format(Locale.ROOT,TEMPLATE_DM_CONVERSATION_DELETE,id,userId);
+  final String signUrl=conf.getSigningRestBaseURL() + String.format(Locale.ROOT,TEMPLATE_DM_CONVERSATION_DELETE,id,userId);
+  post(url,signUrl);
+}

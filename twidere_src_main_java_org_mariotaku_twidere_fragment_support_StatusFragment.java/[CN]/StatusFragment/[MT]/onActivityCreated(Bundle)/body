@@ -5,8 +5,9 @@
   final Context context=view.getContext();
   final boolean compact=Utils.isCompactCards(context);
   mLayoutManager=new StatusListLinearLayoutManager(context,mRecyclerView);
+  mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
   if (compact) {
-    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
+    mRecyclerView.addItemDecoration(mItemDecoration);
   }
   mLayoutManager.setRecycleChildrenOnDetach(true);
   mRecyclerView.setLayoutManager(mLayoutManager);

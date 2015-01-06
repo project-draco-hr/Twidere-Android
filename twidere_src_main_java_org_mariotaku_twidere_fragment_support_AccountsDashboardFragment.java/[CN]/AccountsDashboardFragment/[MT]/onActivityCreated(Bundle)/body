@@ -2,7 +2,9 @@
   super.onActivityCreated(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mResolver=getContentResolver();
-  final Context context=getView().getContext();
+  final View view=getView();
+  if (view == null)   throw new AssertionError();
+  final Context context=view.getContext();
   mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
   final LayoutInflater inflater=LayoutInflater.from(context);
   final ListView listView=getListView();

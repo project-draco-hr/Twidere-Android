@@ -19,7 +19,8 @@
   }
   setBorderColor(a.getColor(R.styleable.ShapedImageView_sivBorderColor,Color.TRANSPARENT));
   setBorderWidth(a.getDimensionPixelSize(R.styleable.ShapedImageView_sivBorderWidth,0));
-  setStyle(a.getInt(R.styleable.ShapedImageView_sivShape,SHAPE_RECTANGLE));
+  @ShapeStyle final int shapeStyle=a.getInt(R.styleable.ShapedImageView_sivShape,SHAPE_RECTANGLE);
+  setStyle(shapeStyle);
   setCornerRadius(a.getDimension(R.styleable.ShapedImageView_sivCornerRadius,0));
   setCornerRadiusRatio(a.getFraction(R.styleable.ShapedImageView_sivCornerRadiusRatio,1,1,-1));
   if (USE_OUTLINE) {

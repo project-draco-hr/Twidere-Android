@@ -9,6 +9,7 @@
     sourceUserScreenName=getHTMLUnescapedString("screen_name",sourceJson);
     targetUserScreenName=getHTMLUnescapedString("screen_name",targetJson);
     sourceBlockingTarget=getBoolean("blocking",sourceJson);
+    sourceBlockedByTarget=getBoolean("blocked_by",sourceJson);
     sourceFollowingTarget=getBoolean("following",sourceJson);
     sourceFollowedByTarget=getBoolean("followed_by",sourceJson);
     sourceNotificationsEnabled=getBoolean("notifications_enabled",sourceJson);

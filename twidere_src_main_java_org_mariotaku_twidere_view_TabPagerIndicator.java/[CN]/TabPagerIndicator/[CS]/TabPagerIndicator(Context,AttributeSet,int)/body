@@ -22,5 +22,7 @@
   final int dividerVerticalPadding=a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabDividerVerticalPadding,0);
   final int dividerHorizontalPadding=a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabDividerHorizontalPadding,0);
   mItemDecoration.setPadding(dividerHorizontalPadding,dividerVerticalPadding,dividerHorizontalPadding,dividerVerticalPadding);
+  mItemDecoration.setDecorationStart(0);
+  mItemDecoration.setDecorationEndOffset(1);
   a.recycle();
 }

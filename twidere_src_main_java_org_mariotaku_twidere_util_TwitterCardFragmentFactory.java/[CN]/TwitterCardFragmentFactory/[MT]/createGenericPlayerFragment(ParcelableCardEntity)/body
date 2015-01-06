@@ -1,4 +1,4 @@
 {
   final ParcelableValueItem player_url=ParcelableCardEntity.getValue(card,"player_url");
-  return SupportBrowserFragment.show((String)player_url.value);
+  return CardBrowserFragment.show((String)player_url.value);
 }

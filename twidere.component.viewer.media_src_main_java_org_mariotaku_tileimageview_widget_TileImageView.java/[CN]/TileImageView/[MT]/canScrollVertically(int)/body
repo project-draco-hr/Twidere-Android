@@ -1,0 +1,5 @@
+{
+  final double scaledBoundaryY=mTileView.getScaledHeight();
+  final int scrollY=mTileView.getScrollY();
+  return scrollY + direction > 0 && scrollY + mTileView.getHeight() + direction < scaledBoundaryY;
+}

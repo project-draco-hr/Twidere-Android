@@ -1,5 +1,6 @@
 {
   setRefreshing(false);
   mAdapter.setData(data);
+  mAdapter.setLoadMoreIndicatorEnabled(hasMoreData(data));
   setListShown(true);
 }

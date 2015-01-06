@@ -1,0 +1,3 @@
+BitmapRegionDecoder decoder
+int tileSize
+int maxDownSampleSize

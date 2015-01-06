@@ -9,7 +9,7 @@
     mUserId=args.getLong(EXTRA_USER_ID,-1);
     mScreenName=args.getString(EXTRA_SCREEN_NAME);
   }
-  mAdapter=new ParcelableUserListsAdapter(getActivity());
+  mAdapter=new ParcelableUserListsListAdapter(getActivity());
   mListView=getListView();
   mListView.setDivider(null);
   mListView.setSelector(android.R.color.transparent);

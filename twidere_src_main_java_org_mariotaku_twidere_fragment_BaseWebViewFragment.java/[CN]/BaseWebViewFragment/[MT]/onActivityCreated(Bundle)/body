@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   final WebView view=getWebView();
-  view.setWebViewClient(new DefaultWebViewClient(getActivity()));
+  view.setWebViewClient(createWebViewClient());
   final WebSettings settings=view.getSettings();
   settings.setBuiltInZoomControls(true);
   settings.setJavaScriptEnabled(true);

@@ -1,0 +1,7 @@
+{
+  if (decoder == null)   throw new NullPointerException();
+  mDecoder=decoder;
+  mTileSize=tileSize;
+  final int downsampleInSampleSize=nextPowerOfTwo(Math.max(1,Math.max(getWidth(),getHeight()) / maxDownSampleSize));
+  mDownSampleDecoder=new DownSampleDecoder(decoder,downsampleInSampleSize);
+}

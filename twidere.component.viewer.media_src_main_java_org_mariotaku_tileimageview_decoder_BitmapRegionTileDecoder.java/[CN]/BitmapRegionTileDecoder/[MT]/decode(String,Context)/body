@@ -1,0 +1,14 @@
+{
+  final Matcher m=PATTERN_TILE_FORMAT.matcher(fileName);
+  if (!m.matches())   return null;
+  final int inSampleSize=Integer.parseInt(m.group(1));
+  final int col=Integer.parseInt(m.group(2)), row=Integer.parseInt(m.group(3));
+  final int tileSize=inSampleSize * mTileSize;
+  final int left=col * tileSize, top=row * tileSize;
+  final int right=Math.min(left + tileSize,getWidth());
+  final int bottom=Math.min(top + tileSize,getHeight());
+  final Rect rect=new Rect(left,top,right,bottom);
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inSampleSize=inSampleSize;
+  return mDecoder.decodeRegion(rect,options);
+}

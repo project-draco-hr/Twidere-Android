@@ -1,0 +1,16 @@
+{
+  if (data.hasData()) {
+    mImageView.setVisibility(View.VISIBLE);
+    mImageView.setImageBitmap(data.bitmap);
+    mImageFile=data.file;
+  }
+ else {
+    mImageView.setVisibility(View.GONE);
+    mImageFile=null;
+    Utils.showErrorMessage(this,null,data.exception,true);
+  }
+  mProgress.setVisibility(View.GONE);
+  mProgress.setProgress(0);
+  invalidateOptionsMenu();
+  updateShareIntent();
+}

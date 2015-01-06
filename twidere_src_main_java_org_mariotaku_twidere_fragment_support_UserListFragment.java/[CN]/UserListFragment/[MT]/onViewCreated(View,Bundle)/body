@@ -11,7 +11,6 @@
   mCreatedByView=(TextView)headerView.findViewById(R.id.created_by);
   mDescriptionView=(TextView)headerView.findViewById(R.id.description);
   mProfileImageView=(ImageView)headerView.findViewById(R.id.profile_image);
-  mDescriptionContainer=headerView.findViewById(R.id.description_container);
   mRetryButton=(Button)mErrorRetryContainer.findViewById(R.id.retry);
   mErrorMessageView=(TextView)mErrorRetryContainer.findViewById(R.id.error_message);
   mViewPager=(ViewPager)contentView.findViewById(R.id.view_pager);

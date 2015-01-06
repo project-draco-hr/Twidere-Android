@@ -1,0 +1,3 @@
+{
+  set("sleep_time_enabled",enabled);
+}

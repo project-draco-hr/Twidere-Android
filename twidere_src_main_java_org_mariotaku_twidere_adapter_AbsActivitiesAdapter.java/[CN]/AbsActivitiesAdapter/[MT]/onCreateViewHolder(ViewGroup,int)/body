@@ -2,15 +2,31 @@
 switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
-      final View view=mInflater.inflate(R.layout.card_item_status_compat,parent,false);
+      final View view;
+      if (mCompactCards) {
+        view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
+      }
+ else {
+        view=mInflater.inflate(R.layout.card_item_status,parent,false);
+        final CardView cardView=(CardView)view.findViewById(R.id.card);
+        cardView.setCardBackgroundColor(mCardBackgroundColor);
+      }
       final StatusViewHolder holder=new StatusViewHolder(view);
       holder.setTextSize(getTextSize());
-      holder.setOnClickListeners(this);
+      holder.setStatusClickListener(this);
       return holder;
     }
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:
 {
-    final View view=mInflater.inflate(R.layout.list_item_activity_title_summary,parent,false);
+    final View view;
+    if (mCompactCards) {
+      view=mInflater.inflate(R.layout.card_item_activity_summary_compact,parent,false);
+    }
+ else {
+      view=mInflater.inflate(R.layout.card_item_activity_summary,parent,false);
+      final CardView cardView=(CardView)view.findViewById(R.id.card);
+      cardView.setCardBackgroundColor(mCardBackgroundColor);
+    }
     final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view);
     holder.setTextSize(getTextSize());
     return holder;

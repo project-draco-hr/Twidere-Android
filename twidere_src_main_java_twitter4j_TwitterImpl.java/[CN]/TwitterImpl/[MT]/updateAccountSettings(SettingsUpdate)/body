@@ -1,0 +1,9 @@
+{
+  ensureAuthorizationEnabled();
+  final List<HttpParameter> params=new ArrayList<>();
+  settingsUpdate.addToHttpParameterList(params);
+  params.add(INCLUDE_ENTITIES);
+  final String url=conf.getRestBaseURL() + ENDPOINT_ACCOUNT_SETTINGS;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_SETTINGS;
+  return factory.createAccountSettings(post(url,signUrl,params.toArray(new HttpParameter[params.size()])));
+}

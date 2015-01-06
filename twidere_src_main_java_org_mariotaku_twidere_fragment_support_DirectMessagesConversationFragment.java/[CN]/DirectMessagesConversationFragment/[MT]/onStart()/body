@@ -3,4 +3,5 @@
   final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
   bus.register(this);
   updateTextCount();
+  updateEmptyText();
 }

@@ -1,7 +1,0 @@
-{
-  final Bundle args=new Bundle();
-  args.putString(EXTRA_URI,uri);
-  final SupportBrowserFragment fragment=new SupportBrowserFragment();
-  fragment.setArguments(args);
-  return fragment;
-}

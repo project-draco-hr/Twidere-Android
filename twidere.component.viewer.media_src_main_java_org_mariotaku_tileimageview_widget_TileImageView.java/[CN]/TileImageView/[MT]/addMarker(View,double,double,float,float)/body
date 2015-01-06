@@ -1,0 +1,3 @@
+{
+  return mTileView.addMarker(view,x,y,anchorX,anchorY);
+}

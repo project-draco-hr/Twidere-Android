@@ -8,5 +8,6 @@
     mStatusAccount=null;
   }
   notifyDataSetChanged();
+  updateItemDecoration();
   return !CompareUtils.objectEquals(old,status);
 }

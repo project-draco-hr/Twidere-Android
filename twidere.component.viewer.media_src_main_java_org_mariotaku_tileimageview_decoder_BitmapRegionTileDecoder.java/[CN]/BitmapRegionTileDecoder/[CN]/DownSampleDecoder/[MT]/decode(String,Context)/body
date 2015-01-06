@@ -1,0 +1,6 @@
+{
+  final Rect rect=new Rect(0,0,mDecoder.getWidth(),mDecoder.getHeight());
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inSampleSize=mInSampleSize;
+  return mDecoder.decodeRegion(rect,options);
+}

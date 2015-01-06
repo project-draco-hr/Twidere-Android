@@ -6,6 +6,7 @@
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
+  mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
   mTwitterWrapper=getApplication().getTwitterWrapper();
   mProfileImageLoader=getApplication().getImageLoaderWrapper();
   mProfileImageView.setOnClickListener(this);

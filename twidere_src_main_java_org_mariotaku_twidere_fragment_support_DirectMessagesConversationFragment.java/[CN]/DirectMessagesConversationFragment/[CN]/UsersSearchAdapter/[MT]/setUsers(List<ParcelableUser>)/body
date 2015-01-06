@@ -1,4 +1,0 @@
-{
-  mUsers=users;
-  notifyDataSetChanged();
-}

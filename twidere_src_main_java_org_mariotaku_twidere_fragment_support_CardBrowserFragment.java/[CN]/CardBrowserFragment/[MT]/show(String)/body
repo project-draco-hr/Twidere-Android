@@ -1,0 +1,7 @@
+{
+  final Bundle args=new Bundle();
+  args.putString(EXTRA_URI,uri);
+  final CardBrowserFragment fragment=new CardBrowserFragment();
+  fragment.setArguments(args);
+  return fragment;
+}

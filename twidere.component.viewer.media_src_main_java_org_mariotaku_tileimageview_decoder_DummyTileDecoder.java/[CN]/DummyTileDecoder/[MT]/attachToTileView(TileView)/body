@@ -1,0 +1,13 @@
+{
+  tileView.setTileDecoder(this);
+  tileView.setDownsampleDecoder(this);
+  tileView.resetDetailLevels();
+  if (mFallback != null) {
+    final int width=mFallback.getWidth(), height=mFallback.getHeight();
+    tileView.setSize(width,height);
+    tileView.addDetailLevel(1,"","sample",width,height);
+  }
+ else {
+    tileView.setSize(0,0);
+  }
+}

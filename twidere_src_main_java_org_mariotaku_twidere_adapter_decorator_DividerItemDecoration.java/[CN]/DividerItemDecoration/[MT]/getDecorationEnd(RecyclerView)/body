@@ -1,0 +1,8 @@
+{
+  if (mDecorationEnd != -1)   return mDecorationEnd;
+  if (mDecorationEndOffset != -1) {
+    final Adapter adapter=parent.getAdapter();
+    return adapter.getItemCount() - 1 - mDecorationEndOffset;
+  }
+  return -1;
+}

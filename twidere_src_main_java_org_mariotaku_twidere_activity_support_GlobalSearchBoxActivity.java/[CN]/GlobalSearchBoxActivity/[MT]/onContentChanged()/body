@@ -1,0 +1,4 @@
+{
+  super.onContentChanged();
+  mAccountSpinner=(Spinner)findViewById(R.id.account_spinner);
+}

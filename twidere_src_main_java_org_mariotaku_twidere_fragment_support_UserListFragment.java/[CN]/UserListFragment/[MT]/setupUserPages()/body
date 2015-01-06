@@ -17,7 +17,7 @@
     tabArgs.putString(EXTRA_LIST_NAME,args.getString(EXTRA_LIST_NAME));
   }
   mPagerAdapter.addTab(UserListTimelineFragment.class,tabArgs,getString(R.string.statuses),null,0);
-  mPagerAdapter.addTab(UserListMembersFragment.class,tabArgs,getString(R.string.list_members),null,1);
-  mPagerAdapter.addTab(UserListSubscribersFragment.class,tabArgs,getString(R.string.list_subscribers),null,2);
+  mPagerAdapter.addTab(UserListMembersFragment.class,tabArgs,getString(R.string.members),null,1);
+  mPagerAdapter.addTab(UserListSubscribersFragment.class,tabArgs,getString(R.string.subscribers),null,2);
   mPagerIndicator.notifyDataSetChanged();
 }

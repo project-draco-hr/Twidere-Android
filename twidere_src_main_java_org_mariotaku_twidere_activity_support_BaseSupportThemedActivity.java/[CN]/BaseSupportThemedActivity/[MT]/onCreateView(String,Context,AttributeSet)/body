@@ -1,5 +1,0 @@
-{
-  final View view=ThemeUtils.createView(name,context,attrs,mCurrentThemeColor);
-  if (view != null)   return view;
-  return super.onCreateView(name,context,attrs);
-}

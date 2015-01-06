@@ -1,12 +1,12 @@
 {
   final View view=super.getView(position,convertView,parent);
   final Object tag=view.getTag();
-  final UserListViewHolder holder;
-  if (tag instanceof UserListViewHolder) {
-    holder=(UserListViewHolder)tag;
+  final UserViewListHolder holder;
+  if (tag instanceof UserViewListHolder) {
+    holder=(UserViewListHolder)tag;
   }
  else {
-    holder=new UserListViewHolder(view);
+    holder=new UserViewListHolder(view);
     view.setTag(holder);
   }
   holder.position=position;

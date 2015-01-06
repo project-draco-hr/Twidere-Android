@@ -1,0 +1,3 @@
+TileImageLoader loader
+DownloadListener listener
+Throwable t

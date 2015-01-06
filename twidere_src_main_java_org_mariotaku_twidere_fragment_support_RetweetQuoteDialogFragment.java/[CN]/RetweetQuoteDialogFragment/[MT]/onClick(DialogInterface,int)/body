@@ -1,16 +1,26 @@
 {
+  final ParcelableStatus status=getStatus();
+  if (status == null)   return;
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
-    final ParcelableStatus status=getStatus();
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
-if (status == null || twitter == null) return;
-if (isMyRetweet(status)) {
-twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
-}
+{
+      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      if (twitter == null)       return;
+      if (isMyRetweet(status)) {
+        twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
+      }
  else {
-twitter.retweetStatusAsync(status.account_id,status.id);
-}
-break;
+        twitter.retweetStatusAsync(status.account_id,status.id);
+      }
+      break;
+    }
+case DialogInterface.BUTTON_NEUTRAL:
+{
+    final Intent intent=new Intent(INTENT_ACTION_QUOTE);
+    intent.putExtra(EXTRA_STATUS,status);
+    startActivity(intent);
+    break;
+  }
 default :
 break;
 }

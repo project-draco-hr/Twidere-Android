@@ -1,0 +1,6 @@
+{
+  super(context,accountId,0,data);
+  mUserId=userId;
+  mScreenName=screenName;
+  mReverse=reverse;
+}

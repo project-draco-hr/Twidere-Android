@@ -1,0 +1,3 @@
+{
+  return mTileView.addCallout(view,x,y,anchorX,anchorY);
+}

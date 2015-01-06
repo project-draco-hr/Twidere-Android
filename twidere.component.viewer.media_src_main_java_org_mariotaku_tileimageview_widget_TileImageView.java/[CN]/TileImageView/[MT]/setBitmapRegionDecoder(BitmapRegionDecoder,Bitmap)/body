@@ -1,0 +1,14 @@
+{
+  if (mTileDecoder != null && mTileDecoder.isSameDecoder(decoder))   return;
+  if (mTileDecoder != null) {
+    mTileDecoder.recycle();
+    mTileDecoder=null;
+  }
+  if (decoder == null) {
+    mTileDecoder=new DummyTileDecoder(fallback);
+  }
+ else {
+    mTileDecoder=new BitmapRegionTileDecoder(decoder);
+  }
+  mTileDecoder.attachToTileView(mTileView);
+}

@@ -5,7 +5,7 @@ case VIEW_TYPE_DETAIL_STATUS:
       if (mCachedHolder != null)       return mCachedHolder;
       final View view;
       if (mIsCompact) {
-        view=mInflater.inflate(R.layout.header_status_common,parent,false);
+        view=mInflater.inflate(R.layout.header_status_compact,parent,false);
       }
  else {
         view=mInflater.inflate(R.layout.header_status,parent,false);

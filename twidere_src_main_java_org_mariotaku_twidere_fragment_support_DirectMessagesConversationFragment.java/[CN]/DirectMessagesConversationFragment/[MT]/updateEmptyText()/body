@@ -1,0 +1,9 @@
+{
+  final boolean noQuery=mUserQuery.length() <= 0;
+  if (noQuery) {
+    mUsersSearchEmptyText.setText(R.string.type_name_to_search);
+  }
+ else {
+    mUsersSearchEmptyText.setText(R.string.no_user_found);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  final LoaderManager lm=getSupportLoaderManager();
+  Utils.setMenuItemAvailability(menu,MENU_REFRESH,!lm.hasRunningLoaders());
+  return super.onPrepareOptionsMenu(menu);
+}

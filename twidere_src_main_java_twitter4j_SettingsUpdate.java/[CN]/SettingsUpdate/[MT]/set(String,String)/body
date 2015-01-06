@@ -1,0 +1,3 @@
+{
+  settingsMap.put(key,new HttpParameter(key,value));
+}
