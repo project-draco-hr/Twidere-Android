@@ -34,19 +34,15 @@
   }
   initDns();
   if (mDns != null && mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false)) {
-    final Name name=new Name(host);
-    final Record query=Record.newRecord(name,Type.A,DClass.IN);
-    if (query == null)     return host;
-    final Message response;
-    try {
-      response=mDns.send(Message.newQuery(query));
+    final Lookup lookup=new Lookup(new Name(host),Type.A,DClass.IN);
+    final Record[] records;
+    lookup.setResolver(mDns);
+    lookup.run();
+    final int result=lookup.getResult();
+    if (result != Lookup.SUCCESSFUL) {
+      throw new IOException("Could not find " + host);
     }
- catch (    final IOException e) {
-      return host;
-    }
-    if (response == null)     return host;
-    final Record[] records=response.getSectionArray(Section.ANSWER);
-    if (records == null || records.length < 1)     throw new IOException("Could not find " + host);
+    records=lookup.getAnswers();
     String hostAddr=null;
     for (    final Record record : records) {
       if (record instanceof ARecord) {

@@ -1,4 +1,4 @@
 {
-  if (value == null)   return value;
+  if (value == null)   return null;
   return super.put(key,value);
 }

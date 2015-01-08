@@ -1,3 +1,0 @@
-{
-  return makeStatusDraftContentValues(status,ParcelableAccount.getAccountIds(status.accounts));
-}

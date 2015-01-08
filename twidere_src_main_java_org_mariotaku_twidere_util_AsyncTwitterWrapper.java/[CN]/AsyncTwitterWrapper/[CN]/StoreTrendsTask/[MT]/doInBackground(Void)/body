@@ -4,7 +4,7 @@
   final ArrayList<String> hashtags=new ArrayList<>();
   final ArrayList<ContentValues> hashtagValues=new ArrayList<>();
   if (messages != null && messages.size() > 0) {
-    final ContentValues[] valuesArray=makeTrendsContentValues(messages);
+    final ContentValues[] valuesArray=createTrends(messages);
     for (    final ContentValues values : valuesArray) {
       final String hashtag=values.getAsString(CachedTrends.NAME).replaceFirst("#","");
       if (hashtags.contains(hashtag)) {

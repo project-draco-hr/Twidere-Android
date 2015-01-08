@@ -3,6 +3,7 @@
   menuBar.inflate(R.menu.menu_status);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);
+  retweetsContainer.setOnClickListener(this);
   final float defaultTextSize=adapter.getTextSize();
   nameView.setTextSize(defaultTextSize * 1.25f);
   textView.setTextSize(defaultTextSize * 1.25f);

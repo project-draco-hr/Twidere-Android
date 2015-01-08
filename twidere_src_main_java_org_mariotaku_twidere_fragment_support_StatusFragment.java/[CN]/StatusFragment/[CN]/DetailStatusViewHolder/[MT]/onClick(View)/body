@@ -14,5 +14,13 @@ case R.id.profile_container:
     openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,activityOption);
     break;
   }
+case R.id.retweets_container:
+{
+  final ParcelableStatus status=adapter.getStatus(getPosition());
+  final Fragment fragment=adapter.getFragment();
+  final FragmentActivity activity=fragment.getActivity();
+  Utils.openStatusRetweeters(activity,status.account_id,status.id);
+  break;
+}
 }
 }

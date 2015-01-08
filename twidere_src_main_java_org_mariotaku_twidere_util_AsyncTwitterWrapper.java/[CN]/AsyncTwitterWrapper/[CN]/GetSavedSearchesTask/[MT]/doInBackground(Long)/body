@@ -1,0 +1,17 @@
+{
+  final ContentResolver cr=mContext.getContentResolver();
+  for (  long accountId : params) {
+    final Twitter twitter=Utils.getTwitterInstance(mContext,accountId,true);
+    try {
+      final ResponseList<SavedSearch> searches=twitter.getSavedSearches();
+      final ContentValues[] values=ContentValuesCreator.createSavedSearches(searches,accountId);
+      final Expression where=Expression.equals(SavedSearches.ACCOUNT_ID,accountId);
+      cr.delete(SavedSearches.CONTENT_URI,where.getSQL(),null);
+      ContentResolverUtils.bulkInsert(cr,SavedSearches.CONTENT_URI,values);
+    }
+ catch (    TwitterException e) {
+      e.printStackTrace();
+    }
+  }
+  return SingleResponse.getInstance();
+}

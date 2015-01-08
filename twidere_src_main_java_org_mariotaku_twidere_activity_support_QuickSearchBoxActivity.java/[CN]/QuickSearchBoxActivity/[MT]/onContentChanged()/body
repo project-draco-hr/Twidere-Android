@@ -1,0 +1,6 @@
+{
+  super.onContentChanged();
+  mAccountSpinner=(Spinner)findViewById(R.id.account_spinner);
+  mSearchQuery=(EditText)findViewById(R.id.search_query);
+  mSearchSubmit=findViewById(R.id.search_submit);
+}

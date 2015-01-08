@@ -8,6 +8,6 @@
   final String where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,statusId)).getSQL();
   final ContentResolver resolver=context.getContentResolver();
   resolver.delete(CachedStatuses.CONTENT_URI,where,null);
-  resolver.insert(CachedStatuses.CONTENT_URI,ContentValuesCreator.makeStatusContentValues(status,accountId));
+  resolver.insert(CachedStatuses.CONTENT_URI,ContentValuesCreator.createStatus(status,accountId));
   return new ParcelableStatus(status,accountId,false);
 }

@@ -1,3 +1,3 @@
 {
-  setLinkTextColor(color);
+  setLinkTextColor(ThemeUtils.getOptimalLinkColor(color.getDefaultColor(),getCurrentTextColor()));
 }

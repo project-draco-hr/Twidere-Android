@@ -18,8 +18,4 @@
     final CompoundButton compoundButton=(CompoundButton)view;
     ViewAccessor.setButtonTintList(compoundButton,tintList);
   }
- else   if (view instanceof TextView) {
-    final TextView textView=(TextView)view;
-    textView.setLinkTextColor(tintColor);
-  }
 }

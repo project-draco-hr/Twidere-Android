@@ -15,6 +15,7 @@
   db.execSQL(createTable(DirectMessages.Outbox.TABLE_NAME,DirectMessages.Outbox.COLUMNS,DirectMessages.Outbox.TYPES,true));
   db.execSQL(createTable(CachedTrends.Local.TABLE_NAME,CachedTrends.Local.COLUMNS,CachedTrends.Local.TYPES,true));
   db.execSQL(createTable(Tabs.TABLE_NAME,Tabs.COLUMNS,Tabs.TYPES,true));
+  db.execSQL(createTable(SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true));
   db.execSQL(createDirectMessagesView().getSQL());
   db.execSQL(createDirectMessageConversationEntriesView().getSQL());
   db.setTransactionSuccessful();

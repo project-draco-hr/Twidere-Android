@@ -31,7 +31,7 @@ case MENU_ADD_TO_FILTER:
     showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
   }
  else {
-    cr.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.makeFilteredUserContentValues(user));
+    cr.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.createFilteredUser(user));
     showInfoMessage(getActivity(),R.string.message_user_muted,false);
   }
   break;

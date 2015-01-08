@@ -26,7 +26,6 @@
     final IHomeActionButton hab=(IHomeActionButton)mActionsButton;
     hab.setIcon(icon);
     hab.setTitle(title);
-    hab.setShowProgress(hasActivatedTask);
   }
   if (mSmartBarProgress != null) {
     mSmartBarProgress.setVisibility(hasActivatedTask ? View.VISIBLE : View.INVISIBLE);

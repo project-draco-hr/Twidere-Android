@@ -13,6 +13,7 @@
     final int woeId=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
     getLocalTrendsAsync(accountId,woeId);
   }
+  getSavedSearchesAsync(accountIds);
   final long[] statusSinceIds=getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
   return getHomeTimelineAsync(accountIds,null,statusSinceIds);
 }

@@ -28,7 +28,7 @@
   }
   try {
     final User user=TwitterWrapper.tryShowUser(twitter,mUserId,mScreenName);
-    final ContentValues cachedUserValues=makeCachedUserContentValues(user);
+    final ContentValues cachedUserValues=createCachedUser(user);
     final long userId=user.getId();
     final String cachedUserWhere=Expression.equals(CachedUsers.USER_ID,userId).getSQL();
     resolver.delete(CachedUsers.CONTENT_URI,cachedUserWhere,null);

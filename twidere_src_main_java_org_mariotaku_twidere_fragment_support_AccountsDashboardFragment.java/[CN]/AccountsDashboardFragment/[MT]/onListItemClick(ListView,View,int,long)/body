@@ -8,7 +8,7 @@
 switch (option.id) {
 case MENU_SEARCH:
 {
-        final Intent intent=new Intent(getActivity(),GlobalSearchBoxActivity.class);
+        final Intent intent=new Intent(getActivity(),QuickSearchBoxActivity.class);
         intent.putExtra(EXTRA_ACCOUNT_ID,account.account_id);
         startActivity(intent);
         closeAccountsDrawer();

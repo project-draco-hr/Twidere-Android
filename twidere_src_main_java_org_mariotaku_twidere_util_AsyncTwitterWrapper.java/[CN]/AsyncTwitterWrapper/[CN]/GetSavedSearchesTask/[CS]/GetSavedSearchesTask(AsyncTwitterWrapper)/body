@@ -1,0 +1,4 @@
+{
+  super(twitter.getContext(),twitter.getTaskManager());
+  this.mContext=twitter.getContext();
+}

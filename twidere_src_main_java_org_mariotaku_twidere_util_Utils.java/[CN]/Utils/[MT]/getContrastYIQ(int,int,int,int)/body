@@ -1,5 +1,5 @@
 {
   final int r=Color.red(color), g=Color.green(color), b=Color.blue(color);
-  int yiq=((r * 299) + (g * 587) + (b * 114)) / 1000;
+  final int yiq=((r * 299) + (g * 587) + (b * 114)) / 1000;
   return (yiq >= threshold) ? colorDark : colorLight;
 }
