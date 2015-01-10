@@ -1,8 +1,0 @@
-Context context
-long accountId
-String query
-long maxId
-long sinceId
-List<ParcelableStatus> data
-String[] savedStatusesArgs
-int tabPosition

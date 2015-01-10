@@ -1,0 +1,10 @@
+{
+  final String action=intent.getAction();
+  final Intent service_intent=new Intent(context,StreamingService.class);
+  if (Twidere.BROADCAST_HOME_ACTIVITY_ONCREATE.equals(action)) {
+    context.startService(service_intent);
+  }
+ else   if (Twidere.BROADCAST_HOME_ACTIVITY_ONDESTROY.equals(action)) {
+    context.stopService(service_intent);
+  }
+}

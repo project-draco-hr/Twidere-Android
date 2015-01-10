@@ -1,0 +1,7 @@
+{
+  if (array == null)   return false;
+  for (  final long item : array) {
+    if (item == value)     return true;
+  }
+  return false;
+}

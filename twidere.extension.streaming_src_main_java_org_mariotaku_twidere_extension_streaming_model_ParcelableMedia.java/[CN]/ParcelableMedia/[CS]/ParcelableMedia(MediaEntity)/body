@@ -1,0 +1,6 @@
+{
+  url=ParseUtils.parseString(entity.getMediaURL());
+  media_url=ParseUtils.parseString(entity.getMediaURL());
+  start=entity.getStart();
+  end=entity.getEnd();
+}

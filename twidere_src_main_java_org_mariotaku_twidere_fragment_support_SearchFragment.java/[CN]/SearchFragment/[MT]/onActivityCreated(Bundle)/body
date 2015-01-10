@@ -19,6 +19,10 @@
     final String query=args.getString(EXTRA_QUERY);
     final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(getActivity(),RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);
     suggestions.saveRecentQuery(query,null);
+    final ContentResolver cr=getContentResolver();
+    final ContentValues values=new ContentValues();
+    values.put(SearchHistory.QUERY,query);
+    cr.insert(SearchHistory.CONTENT_URI,values);
     if (activity instanceof LinkHandlerActivity) {
       final ActionBar ab=activity.getActionBar();
       if (ab != null) {

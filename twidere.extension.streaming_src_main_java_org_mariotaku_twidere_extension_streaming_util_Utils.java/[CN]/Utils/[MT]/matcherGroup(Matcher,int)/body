@@ -1,0 +1,8 @@
+{
+  try {
+    return matcher.group(group);
+  }
+ catch (  final IllegalStateException e) {
+  }
+  return null;
+}

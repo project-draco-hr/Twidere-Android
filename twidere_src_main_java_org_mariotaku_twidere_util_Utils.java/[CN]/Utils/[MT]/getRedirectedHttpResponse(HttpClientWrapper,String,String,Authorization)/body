@@ -1,6 +1,6 @@
 {
   if (url == null)   return null;
-  final ArrayList<String> urls=new ArrayList<String>();
+  final ArrayList<String> urls=new ArrayList<>();
   urls.add(url);
   HttpResponse resp;
   try {

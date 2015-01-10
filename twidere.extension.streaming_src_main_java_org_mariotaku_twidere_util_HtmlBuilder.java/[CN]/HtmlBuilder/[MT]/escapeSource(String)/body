@@ -1,0 +1,4 @@
+{
+  final String escaped=source_is_escaped ? string : escape(string);
+  return should_re_escape ? escape(unescape(escaped)) : escaped;
+}

@@ -1,0 +1,6 @@
+{
+  url=in.readString("url");
+  media_url=in.readString("media_url");
+  start=in.readInt("start");
+  end=in.readInt("end");
+}

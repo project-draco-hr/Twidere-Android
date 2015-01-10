@@ -1,3 +1,0 @@
-{
-  super(context,accountId,maxId,sinceId,data,savedStatusesArgs,tabPosition);
-}

@@ -1,0 +1,6 @@
+{
+  for (  final LinkSpec spec : links) {
+    if (start >= spec.start && start <= spec.end || end >= spec.start && end <= spec.end)     return true;
+  }
+  return false;
+}

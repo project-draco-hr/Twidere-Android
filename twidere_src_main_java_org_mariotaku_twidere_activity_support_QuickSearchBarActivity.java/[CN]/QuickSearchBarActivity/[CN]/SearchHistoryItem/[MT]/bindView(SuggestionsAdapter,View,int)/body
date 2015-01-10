@@ -1,0 +1,7 @@
+{
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  text1.setText(mQuery);
+  icon.setImageResource(R.drawable.ic_action_history);
+  icon.setColorFilter(text1.getCurrentTextColor(),Mode.SRC_ATOP);
+}

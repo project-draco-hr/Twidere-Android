@@ -1,0 +1,5 @@
+{
+  final String jsonString=jsonToString(toJSONArray(array));
+  if (jsonString == null)   return null;
+  return jsonString.getBytes(Charset.defaultCharset());
+}

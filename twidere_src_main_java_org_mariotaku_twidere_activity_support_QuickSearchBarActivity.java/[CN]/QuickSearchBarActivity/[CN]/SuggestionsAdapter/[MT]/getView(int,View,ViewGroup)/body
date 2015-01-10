@@ -1,0 +1,12 @@
+{
+  final View view;
+  final SuggestionItem item=getItem(position);
+  if (convertView == null) {
+    view=mInflater.inflate(item.getItemLayoutResource(),parent,false);
+  }
+ else {
+    view=convertView;
+  }
+  item.bindView(this,view,position);
+  return view;
+}

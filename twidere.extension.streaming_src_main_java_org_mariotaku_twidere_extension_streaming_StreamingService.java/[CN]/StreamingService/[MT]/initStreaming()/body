@@ -1,0 +1,41 @@
+{
+  if (!mPreferences.getBoolean(PREFERENCE_KEY_ENABLE_STREAMING,true))   return;
+  final boolean granted;
+  try {
+    granted=Twidere.isPermissionGranted(this);
+  }
+ catch (  final SecurityException e) {
+    stopSelf();
+    return;
+  }
+  if (granted) {
+    final TwidereSharedPreferences prefs=Twidere.getSharedPreferences(this);
+    if (setTwitterInstances(prefs)) {
+      final Intent intent=new Intent(this,SettingsActivity.class);
+      final PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+      final CharSequence contentTitle=getString(R.string.app_name);
+      final CharSequence contentText=getString(R.string.streaming_service_running);
+      final Notification notification=new Notification();
+      notification.flags=Notification.FLAG_ONGOING_EVENT;
+      notification.icon=R.drawable.ic_stat_twidere;
+      notification.tickerText=getString(R.string.streaming_service_running);
+      notification.setLatestEventInfo(this,contentTitle,contentText,contentIntent);
+      mNotificationManager.notify(NOTIFITION_SERVICE_STARTED,notification);
+    }
+ else {
+      mNotificationManager.cancel(NOTIFITION_SERVICE_STARTED);
+    }
+  }
+ else {
+    final Intent intent=new Intent(this,SettingsActivity.class);
+    final PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+    final CharSequence contentTitle=getString(R.string.app_name);
+    final CharSequence contentText=getString(R.string.request_permission);
+    final Notification notification=new Notification();
+    notification.flags=Notification.FLAG_AUTO_CANCEL;
+    notification.icon=R.drawable.ic_stat_login;
+    notification.tickerText=getString(R.string.request_permission);
+    notification.setLatestEventInfo(this,contentTitle,contentText,contentIntent);
+    mNotificationManager.notify(NOTIFITION_REQUEST_PERMISSION,notification);
+  }
+}

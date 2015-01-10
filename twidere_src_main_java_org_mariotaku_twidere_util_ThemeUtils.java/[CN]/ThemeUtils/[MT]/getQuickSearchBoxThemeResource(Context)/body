@@ -1,3 +1,0 @@
-{
-  return getGlobalSearchThemeResource(getThemeNameOption(context));
-}

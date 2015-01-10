@@ -1,0 +1,5 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)   return;
+  final ActionBar action_bar=activity.getActionBar();
+  action_bar.setHomeButtonEnabled(enabled);
+}

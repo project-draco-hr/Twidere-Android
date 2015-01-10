@@ -1,0 +1,12 @@
+{
+switch (requestCode) {
+case REQUEST_REQUEST_PERMISSIONS:
+{
+      if (resultCode != RESULT_OK) {
+        finish();
+        return;
+      }
+    }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

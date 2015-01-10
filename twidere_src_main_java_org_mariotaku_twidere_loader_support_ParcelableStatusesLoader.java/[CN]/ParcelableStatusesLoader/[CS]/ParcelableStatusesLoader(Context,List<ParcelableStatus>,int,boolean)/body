@@ -1,0 +1,9 @@
+{
+  super(context);
+  mFirstLoad=data == null;
+  if (data != null) {
+    mData.addAll(data);
+  }
+  mTabPosition=tabPosition;
+  mFromUser=fromUser;
+}

@@ -1,4 +1,0 @@
-{
-  super(context,data,-1);
-  mExtras=extras;
-}

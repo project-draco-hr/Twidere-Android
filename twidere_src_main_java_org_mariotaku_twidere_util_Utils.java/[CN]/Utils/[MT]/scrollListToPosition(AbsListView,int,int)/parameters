@@ -1,3 +1,3 @@
-AbsListView list
+AbsListView absListView
 int position
 int offset

@@ -1,6 +1,41 @@
 {
   setRefreshing(false);
+  final SharedPreferences preferences=getSharedPreferences();
+  final boolean readFromBottom=preferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
+  final long lastReadId;
+  final int lastVisiblePos, lastVisibleTop;
+  if (readFromBottom) {
+    lastVisiblePos=mLayoutManager.findLastVisibleItemPosition();
+  }
+ else {
+    lastVisiblePos=mLayoutManager.findFirstVisibleItemPosition();
+  }
+  if (lastVisiblePos != -1) {
+    lastReadId=mAdapter.getItemId(lastVisiblePos);
+    if (readFromBottom) {
+      lastVisibleTop=mLayoutManager.getChildAt(mLayoutManager.getChildCount() - 1).getTop();
+    }
+ else {
+      lastVisibleTop=mLayoutManager.getChildAt(0).getTop();
+    }
+  }
+ else {
+    lastReadId=-1;
+    lastVisibleTop=0;
+  }
   mAdapter.setData(data);
-  mAdapter.setLoadMoreIndicatorEnabled(hasMoreData(data));
+  if (!(data instanceof IExtendedLoader) || ((IExtendedLoader)data).isFromUser()) {
+    mAdapter.setLoadMoreIndicatorEnabled(hasMoreData(data));
+    int pos=-1;
+    for (int i=0; i < mAdapter.getItemCount(); i++) {
+      if (lastReadId == mAdapter.getItemId(i)) {
+        pos=i;
+        break;
+      }
+    }
+    if (pos != -1 && mAdapter.isStatus(pos) && (readFromBottom || lastVisiblePos == 0)) {
+      mLayoutManager.scrollToPositionWithOffset(pos,lastVisibleTop);
+    }
+  }
   setListShown(true);
 }

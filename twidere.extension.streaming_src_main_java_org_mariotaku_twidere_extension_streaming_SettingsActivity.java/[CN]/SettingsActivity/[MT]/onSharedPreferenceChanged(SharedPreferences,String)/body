@@ -1,0 +1,11 @@
+{
+  if (PREFERENCE_KEY_ENABLE_STREAMING.equals(key)) {
+    final Intent intent=new Intent(this,StreamingService.class);
+    if (preferences.getBoolean(key,true)) {
+      startService(intent);
+    }
+ else {
+      stopService(intent);
+    }
+  }
+}

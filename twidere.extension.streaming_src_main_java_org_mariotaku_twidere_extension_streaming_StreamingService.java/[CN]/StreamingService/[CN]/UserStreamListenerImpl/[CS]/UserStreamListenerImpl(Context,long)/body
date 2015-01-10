@@ -1,0 +1,6 @@
+{
+  this.context=context;
+  this.account_id=account_id;
+  resolver=context.getContentResolver();
+  screen_name=Utils.getAccountScreenName(context,account_id);
+}

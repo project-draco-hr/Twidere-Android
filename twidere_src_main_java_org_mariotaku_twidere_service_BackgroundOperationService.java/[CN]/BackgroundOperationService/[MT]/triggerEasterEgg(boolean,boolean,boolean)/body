@@ -1,0 +1,15 @@
+{
+  final PackageManager pm=getPackageManager();
+  final ComponentName main=new ComponentName(this,MainActivity.class);
+  final ComponentName main2=new ComponentName(this,MainHondaJOJOActivity.class);
+  if (hasEasterEggTriggerText && notReplyToOther) {
+    pm.setComponentEnabledSetting(main,PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP);
+    pm.setComponentEnabledSetting(main2,PackageManager.COMPONENT_ENABLED_STATE_ENABLED,PackageManager.DONT_KILL_APP);
+    showToast(R.string.easter_egg_triggered_message,Toast.LENGTH_SHORT);
+  }
+ else   if (hasEasterEggRestoreText) {
+    pm.setComponentEnabledSetting(main,PackageManager.COMPONENT_ENABLED_STATE_ENABLED,PackageManager.DONT_KILL_APP);
+    pm.setComponentEnabledSetting(main2,PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP);
+    showToast(R.string.icon_restored_message,Toast.LENGTH_SHORT);
+  }
+}

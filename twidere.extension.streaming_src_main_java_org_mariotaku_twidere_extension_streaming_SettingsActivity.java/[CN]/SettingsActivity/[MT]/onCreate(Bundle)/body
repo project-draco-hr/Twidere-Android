@@ -1,0 +1,23 @@
+{
+  super.onCreate(savedInstanceState);
+  final boolean granted;
+  try {
+    granted=Twidere.isPermissionGranted(this);
+  }
+ catch (  final SecurityException e) {
+    finish();
+    return;
+  }
+  if (!granted) {
+    final Intent intent=new Intent(Twidere.INTENT_ACTION_REQUEST_PERMISSIONS);
+    intent.setPackage("org.mariotaku.twidere");
+    try {
+      startActivityForResult(intent,REQUEST_REQUEST_PERMISSIONS);
+    }
+ catch (    final ActivityNotFoundException e) {
+    }
+  }
+  mPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+  addPreferencesFromResource(R.xml.settings);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+}

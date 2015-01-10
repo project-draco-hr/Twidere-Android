@@ -1,7 +1,7 @@
 {
   if (activity == null || statuses == null)   return;
   final Bundle extras=new Bundle();
-  extras.putParcelableArrayList(EXTRA_STATUSES,new ArrayList<ParcelableStatus>(statuses));
+  extras.putParcelableArrayList(EXTRA_STATUSES,new ArrayList<>(statuses));
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_STATUSES);

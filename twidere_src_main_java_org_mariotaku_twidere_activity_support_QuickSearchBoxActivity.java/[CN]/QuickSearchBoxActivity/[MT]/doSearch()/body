@@ -1,7 +1,0 @@
-{
-  final String query=ParseUtils.parseString(mSearchQuery.getText());
-  if (TextUtils.isEmpty(query))   return;
-  final long accountId=mAccountSpinner.getSelectedItemId();
-  Utils.openSearch(this,accountId,query);
-  finish();
-}

@@ -14,11 +14,14 @@
       is.setReadListener(new MessageMediaUploadListener(this,mNotificationManager,builder,text));
       final MediaUploadResponse uploadResp=twitter.uploadMedia(file.getName(),is,o.outMimeType);
       directMessage=new ParcelableDirectMessage(twitter.sendDirectMessage(recipientId,text,uploadResp.getId()),accountId,true);
-      file.delete();
+      if (!file.delete()) {
+        Log.d(LOGTAG,String.format("unable to delete %s",path));
+      }
     }
  else {
       directMessage=new ParcelableDirectMessage(twitter.sendDirectMessage(recipientId,text),accountId,true);
     }
+    Utils.setLastSeen(this,recipientId,System.currentTimeMillis());
     return SingleResponse.getInstance(directMessage);
   }
  catch (  final IOException e) {

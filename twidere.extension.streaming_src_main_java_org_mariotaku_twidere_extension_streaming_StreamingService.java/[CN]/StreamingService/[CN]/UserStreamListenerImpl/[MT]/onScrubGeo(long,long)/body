@@ -1,0 +1,8 @@
+{
+  final String where=Statuses.USER_ID + " = " + userId+ " AND "+ Statuses.STATUS_ID+ " >= "+ upToStatusId;
+  final ContentValues values=new ContentValues();
+  values.putNull(Statuses.LOCATION);
+  for (  final Uri uri : STATUSES_URIS) {
+    resolver.update(uri,values,where,null);
+  }
+}

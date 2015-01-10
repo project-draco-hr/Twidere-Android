@@ -1,0 +1,14 @@
+{
+  if (position == getStatusCount())   return -1;
+  final Cursor c=mCursor;
+  if (c != null && !c.isClosed() && c.moveToPosition(position)) {
+    final long account_id=c.getLong(mIndices.account_id);
+    final long id=c.getLong(mIndices.status_id);
+    final int prime=31;
+    int result=1;
+    result=prime * result + (int)(account_id ^ account_id >>> 32);
+    result=prime * result + (int)(id ^ id >>> 32);
+    return result;
+  }
+  return -1;
+}

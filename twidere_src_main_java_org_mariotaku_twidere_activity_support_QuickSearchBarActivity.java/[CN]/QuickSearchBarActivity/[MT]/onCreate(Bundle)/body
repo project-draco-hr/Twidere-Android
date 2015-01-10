@@ -1,0 +1,24 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_quick_search_bar);
+  final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(this,false);
+  final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(this,R.layout.spinner_item_account_icon);
+  accountsSpinnerAdapter.setDropDownViewResource(R.layout.list_item_user);
+  accountsSpinnerAdapter.addAll(accounts);
+  mAccountSpinner.setAdapter(accountsSpinnerAdapter);
+  mAccountSpinner.setOnItemSelectedListener(this);
+  if (savedInstanceState == null) {
+    final Intent intent=getIntent();
+    final int index=accountsSpinnerAdapter.findItemPosition(intent.getLongExtra(EXTRA_ACCOUNT_ID,-1));
+    if (index != -1) {
+      mAccountSpinner.setSelection(index);
+    }
+  }
+  mUsersSearchAdapter=new SuggestionsAdapter(this);
+  mSuggestionsList.setAdapter(mUsersSearchAdapter);
+  mSuggestionsList.setOnItemClickListener(this);
+  mSearchSubmit.setOnClickListener(this);
+  mSearchQuery.setOnEditorActionListener(this);
+  mSearchQuery.addTextChangedListener(this);
+  getSupportLoaderManager().initLoader(0,null,this);
+}

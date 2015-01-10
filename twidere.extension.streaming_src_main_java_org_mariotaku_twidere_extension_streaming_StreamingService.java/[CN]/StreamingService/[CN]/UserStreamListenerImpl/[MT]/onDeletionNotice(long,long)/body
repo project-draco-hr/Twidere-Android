@@ -1,0 +1,6 @@
+{
+  final String where=DirectMessages.MESSAGE_ID + " = " + directMessageId;
+  for (  final Uri uri : MESSAGES_URIS) {
+    resolver.delete(uri,where,null);
+  }
+}

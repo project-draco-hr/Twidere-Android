@@ -1,0 +1,8 @@
+{
+  if (entities == null)   return false;
+  boolean result=false;
+  for (  UserMentionEntity entity : entities) {
+    result|=setLastSeen(context,entity.getId(),time);
+  }
+  return result;
+}

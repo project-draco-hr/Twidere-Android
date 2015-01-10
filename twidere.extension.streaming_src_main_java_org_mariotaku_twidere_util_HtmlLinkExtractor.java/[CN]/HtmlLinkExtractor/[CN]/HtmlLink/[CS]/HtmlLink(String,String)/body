@@ -1,0 +1,4 @@
+{
+  this.link=replaceInvalidChar(link);
+  this.text=text;
+}

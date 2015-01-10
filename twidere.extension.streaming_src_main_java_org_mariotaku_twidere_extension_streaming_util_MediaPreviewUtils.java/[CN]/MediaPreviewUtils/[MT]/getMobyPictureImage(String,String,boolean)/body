@@ -1,0 +1,5 @@
+{
+  if (isEmpty(id))   return null;
+  final String preview=String.format("http://moby.to/%s:%s",id,fullImage ? "full" : "thumb");
+  return PreviewMedia.newImage(preview,orig);
+}

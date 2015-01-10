@@ -1,21 +1,23 @@
 {
-  if (list == null)   return;
+  if (absListView == null)   return;
   if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-    if (list instanceof ListView) {
-      ((ListView)list).setSelectionFromTop(position,offset);
+    if (absListView instanceof ListView) {
+      final ListView listView=((ListView)absListView);
+      listView.setSelectionFromTop(position,offset);
     }
  else {
-      list.setSelection(position);
+      absListView.setSelection(position);
     }
-    stopListView(list);
+    stopListView(absListView);
   }
  else {
-    stopListView(list);
-    if (list instanceof ListView) {
-      ((ListView)list).setSelectionFromTop(position,offset);
+    stopListView(absListView);
+    if (absListView instanceof ListView) {
+      final ListView listView=((ListView)absListView);
+      listView.setSelectionFromTop(position,offset);
     }
  else {
-      list.setSelection(position);
+      absListView.setSelection(position);
     }
   }
 }

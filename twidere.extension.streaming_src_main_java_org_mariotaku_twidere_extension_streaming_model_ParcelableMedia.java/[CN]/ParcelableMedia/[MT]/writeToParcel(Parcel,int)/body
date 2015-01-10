@@ -1,0 +1,6 @@
+{
+  dest.writeString(url);
+  dest.writeString(media_url);
+  dest.writeInt(start);
+  dest.writeInt(end);
+}

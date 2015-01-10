@@ -2,7 +2,7 @@
   if (database == null)   return false;
   if (text_plain == null && text_html == null && user_id <= 0 && source == null)   return false;
   final StringBuilder builder=new StringBuilder();
-  final List<String> selection_args=new ArrayList<String>();
+  final List<String> selection_args=new ArrayList<>();
   builder.append("SELECT NULL WHERE");
   if (text_plain != null) {
     selection_args.add(text_plain);

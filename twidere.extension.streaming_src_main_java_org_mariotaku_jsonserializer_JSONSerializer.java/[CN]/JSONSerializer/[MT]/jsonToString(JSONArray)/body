@@ -1,0 +1,13 @@
+{
+  if (json == null)   return null;
+  if (JSONSerializerUtils.isDebugBuild()) {
+    try {
+      return json.toString(4);
+    }
+ catch (    final JSONException e) {
+      e.printStackTrace();
+    }
+    return json.toString();
+  }
+ else   return json.toString();
+}

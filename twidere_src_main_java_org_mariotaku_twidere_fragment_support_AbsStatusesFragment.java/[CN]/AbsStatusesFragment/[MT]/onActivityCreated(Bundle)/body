@@ -8,11 +8,11 @@
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
   mAdapter=onCreateAdapter(context,compact);
-  final LinearLayoutManager layoutManager=new LinearLayoutManager(context);
-  layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-  mRecyclerView.setLayoutManager(layoutManager);
+  mLayoutManager=new LinearLayoutManager(context);
+  mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  mRecyclerView.setLayoutManager(mLayoutManager);
   if (compact) {
-    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,layoutManager.getOrientation()));
+    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
   }
   mRecyclerView.setAdapter(mAdapter);
   mRecyclerView.setOnScrollListener(mOnScrollListener);

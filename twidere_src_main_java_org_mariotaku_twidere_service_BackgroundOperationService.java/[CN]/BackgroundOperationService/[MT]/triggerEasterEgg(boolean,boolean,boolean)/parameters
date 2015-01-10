@@ -1,0 +1,3 @@
+boolean notReplyToOther
+boolean hasEasterEggTriggerText
+boolean hasEasterEggRestoreText

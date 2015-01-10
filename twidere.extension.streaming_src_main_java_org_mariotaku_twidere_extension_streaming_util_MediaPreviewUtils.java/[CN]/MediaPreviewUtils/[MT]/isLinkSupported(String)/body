@@ -1,0 +1,7 @@
+{
+  if (link == null)   return false;
+  for (  final Pattern pattern : SUPPORTED_PATTERNS) {
+    if (pattern.matcher(link).matches())     return true;
+  }
+  return false;
+}

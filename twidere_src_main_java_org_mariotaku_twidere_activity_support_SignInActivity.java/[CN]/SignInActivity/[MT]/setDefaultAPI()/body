@@ -10,7 +10,7 @@
   if (isEmpty(mAPIUrlFormat) || defaultApiChanged) {
     mAPIUrlFormat=apiUrlFormat;
   }
-  if (mAuthType == 0 || defaultApiChanged) {
+  if (defaultApiChanged) {
     mAuthType=authType;
   }
   if (defaultApiChanged) {

@@ -1,0 +1,4 @@
+{
+  final SuggestionItem item=mUsersSearchAdapter.getItem(position);
+  item.onItemClick(this,position);
+}

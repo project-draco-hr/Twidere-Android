@@ -1,0 +1,20 @@
+{
+  final URLEntity[] urls=entities.getURLEntities();
+  final MediaEntity[] medias=entities.getMediaEntities();
+  if (medias != null) {
+    for (    final MediaEntity media : medias) {
+      final URL media_url=media.getMediaURL();
+      if (media_url != null) {
+        builder.addLink(parseString(media_url),media.getDisplayURL(),media.getStart(),media.getEnd());
+      }
+    }
+  }
+  if (urls != null) {
+    for (    final URLEntity url : urls) {
+      final URL expanded_url=url.getExpandedURL();
+      if (expanded_url != null) {
+        builder.addLink(parseString(expanded_url),url.getDisplayURL(),url.getStart(),url.getEnd());
+      }
+    }
+  }
+}

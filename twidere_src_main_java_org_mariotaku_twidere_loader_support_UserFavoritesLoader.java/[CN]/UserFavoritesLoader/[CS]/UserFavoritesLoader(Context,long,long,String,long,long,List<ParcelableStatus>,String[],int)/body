@@ -1,5 +1,0 @@
-{
-  super(context,account_id,max_id,since_id,data,saved_statuses_args,tab_position);
-  mUserId=user_id;
-  mUserScreenName=screen_name;
-}

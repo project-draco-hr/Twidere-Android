@@ -2,6 +2,7 @@
   try {
     final int tableId=getTableId(uri);
     final String table=getTableNameById(tableId);
+    checkWritePermission(tableId,table);
     int result=0;
     if (table != null) {
 switch (tableId) {

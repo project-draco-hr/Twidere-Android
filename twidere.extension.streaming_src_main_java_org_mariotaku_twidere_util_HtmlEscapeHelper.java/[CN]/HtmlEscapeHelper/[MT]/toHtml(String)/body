@@ -1,0 +1,4 @@
+{
+  if (string == null)   return null;
+  return escape(string).replace("\n","<br/>");
+}

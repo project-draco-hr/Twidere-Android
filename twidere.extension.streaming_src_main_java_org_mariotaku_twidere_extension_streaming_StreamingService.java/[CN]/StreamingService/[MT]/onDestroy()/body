@@ -1,0 +1,8 @@
+{
+  clearTwitterInstances();
+  mResolver.unregisterContentObserver(mAccountChangeObserver);
+  if (BuildConfig.DEBUG) {
+    Log.d(LOGTAG,"Stream service stopped.");
+  }
+  super.onDestroy();
+}

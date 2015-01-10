@@ -1,0 +1,7 @@
+{
+  this.link=link;
+  this.display=display;
+  this.start=start;
+  this.end=end;
+  this.display_is_html=display_is_html;
+}

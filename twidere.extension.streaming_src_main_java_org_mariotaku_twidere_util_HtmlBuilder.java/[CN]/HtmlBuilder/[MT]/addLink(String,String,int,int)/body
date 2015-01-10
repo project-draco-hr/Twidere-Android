@@ -1,0 +1,3 @@
+{
+  return addLink(link,display,start,end,false);
+}

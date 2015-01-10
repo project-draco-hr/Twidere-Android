@@ -1,0 +1,9 @@
+{
+  if (source == null)   throw new NullPointerException();
+  orig=source;
+  array=ArrayUtils.toStringArray(source);
+  throw_exceptions=strict;
+  source_is_escaped=is_escaped;
+  should_re_escape=re_escape;
+  string_length=array.length;
+}

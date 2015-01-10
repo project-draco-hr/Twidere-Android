@@ -1,0 +1,8 @@
+{
+  return new Object(){
+    @Subscribe public void notifyTaskStateChanged(    TaskStateChangedEvent event){
+      updateRefreshState();
+    }
+  }
+;
+}

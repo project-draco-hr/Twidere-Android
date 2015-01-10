@@ -1,0 +1,4 @@
+{
+  if (mData == null)   return null;
+  return mData.get(position);
+}

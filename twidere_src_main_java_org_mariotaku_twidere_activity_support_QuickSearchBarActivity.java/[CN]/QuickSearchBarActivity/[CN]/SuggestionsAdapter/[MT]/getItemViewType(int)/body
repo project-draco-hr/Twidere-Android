@@ -1,0 +1,4 @@
+{
+  if (mData == null)   return IGNORE_ITEM_VIEW_TYPE;
+  return mData.get(position).getItemViewType();
+}

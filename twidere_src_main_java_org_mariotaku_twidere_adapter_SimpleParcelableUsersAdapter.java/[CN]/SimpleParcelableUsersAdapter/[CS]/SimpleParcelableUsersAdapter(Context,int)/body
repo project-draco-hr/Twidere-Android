@@ -1,0 +1,7 @@
+{
+  super(context,layoutRes);
+  mContext=context;
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mImageLoader=app.getImageLoaderWrapper();
+  configBaseAdapter(context,this);
+}

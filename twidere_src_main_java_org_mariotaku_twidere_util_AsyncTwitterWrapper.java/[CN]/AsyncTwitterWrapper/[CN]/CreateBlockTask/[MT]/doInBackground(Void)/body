@@ -3,12 +3,11 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.createBlock(user_id);
+    Utils.setLastSeen(mContext,user.getId(),-1);
     for (    final Uri uri : STATUSES_URIS) {
       final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,account_id),Expression.equals(Statuses.USER_ID,user_id));
       mResolver.delete(uri,where.getSQL(),null);
     }
-    final Expression where=Expression.equals(CachedUsers.USER_ID,user_id);
-    mResolver.delete(CachedUsers.CONTENT_URI,where.getSQL(),null);
     return SingleResponse.getInstance(new ParcelableUser(user,account_id),null);
   }
  catch (  final TwitterException e) {

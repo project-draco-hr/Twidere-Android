@@ -1,0 +1,4 @@
+{
+  Utils.openUserProfile(activity,mUser,null);
+  activity.finish();
+}

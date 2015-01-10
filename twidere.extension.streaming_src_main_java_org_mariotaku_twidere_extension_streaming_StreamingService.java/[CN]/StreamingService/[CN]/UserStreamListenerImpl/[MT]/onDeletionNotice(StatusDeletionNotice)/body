@@ -1,0 +1,7 @@
+{
+  final long status_id=statusDeletionNotice.getStatusId();
+  final String where=Statuses.STATUS_ID + " = " + status_id;
+  for (  final Uri uri : STATUSES_URIS) {
+    resolver.delete(uri,where,null);
+  }
+}

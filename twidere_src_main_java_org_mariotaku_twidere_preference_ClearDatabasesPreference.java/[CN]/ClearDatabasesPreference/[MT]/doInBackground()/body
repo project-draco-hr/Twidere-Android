@@ -16,4 +16,5 @@
   }
   resolver.delete(Notifications.CONTENT_URI,null,null);
   resolver.delete(UnreadCounts.CONTENT_URI,null,null);
+  resolver.delete(SavedSearches.CONTENT_URI,null,null);
 }

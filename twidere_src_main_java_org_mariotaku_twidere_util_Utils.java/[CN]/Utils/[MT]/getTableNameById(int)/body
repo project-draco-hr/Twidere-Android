@@ -34,8 +34,12 @@ case TABLE_ID_CACHED_USERS:
 return CachedUsers.TABLE_NAME;
 case TABLE_ID_CACHED_HASHTAGS:
 return CachedHashtags.TABLE_NAME;
+case TABLE_ID_CACHED_RELATIONSHIPS:
+return CachedRelationships.TABLE_NAME;
 case TABLE_ID_SAVED_SEARCHES:
 return SavedSearches.TABLE_NAME;
+case TABLE_ID_SEARCH_HISTORY:
+return SearchHistory.TABLE_NAME;
 default :
 return null;
 }

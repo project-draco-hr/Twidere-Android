@@ -1,2 +1,2 @@
 List<ParcelableUser> data
-boolean clear_old
+boolean clearOld

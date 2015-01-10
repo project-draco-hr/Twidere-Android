@@ -1,0 +1,7 @@
+{
+  if (mentions == null)   return false;
+  for (  final ParcelableUserMention mention : mentions) {
+    if (mention.id == id)     return true;
+  }
+  return false;
+}

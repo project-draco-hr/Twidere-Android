@@ -1,0 +1,16 @@
+{
+  final Uri uri=getContentUri();
+  final String table=getTableNameByUri(uri);
+  final String sortOrder=getSortOrder();
+  final long[] accountIds=getAccountIds();
+  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountIds));
+  final Expression filterWhere=getFiltersWhere(table), where;
+  if (filterWhere != null) {
+    where=Expression.and(accountWhere,filterWhere);
+  }
+ else {
+    where=accountWhere;
+  }
+  final String selection=processWhere(where).getSQL();
+  return new ExtendedCursorLoader(context,uri,Statuses.COLUMNS,selection,null,sortOrder,fromUser);
+}

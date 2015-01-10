@@ -10,9 +10,20 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
       return null;
   }
   if (table == null)   return null;
-  final boolean replaceOnConflict=shouldReplaceOnConflict(tableId);
   final long rowId;
-  if (replaceOnConflict) {
+  if (tableId == TABLE_ID_CACHED_USERS) {
+    final Expression where=Expression.equals(CachedUsers.USER_ID,values.getAsLong(CachedUsers.USER_ID));
+    mDatabaseWrapper.update(table,values,where.getSQL(),null);
+    rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+  }
+ else   if (tableId == TABLE_ID_SEARCH_HISTORY) {
+    values.put(SearchHistory.RECENT_QUERY,System.currentTimeMillis());
+    final Expression where=Expression.equalsArgs(SearchHistory.QUERY);
+    final String[] args={values.getAsString(SearchHistory.QUERY)};
+    mDatabaseWrapper.update(table,values,where.getSQL(),args);
+    rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+  }
+ else   if (shouldReplaceOnConflict(tableId)) {
     rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
   }
  else {

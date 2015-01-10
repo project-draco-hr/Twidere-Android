@@ -1,3 +1,0 @@
-{
-  return ThemeUtils.getQuickSearchBoxThemeResource(this);
-}

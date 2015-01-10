@@ -1,0 +1,33 @@
+{
+  if (links.size() == 0)   return escapeSource(ArrayUtils.mergeArrayToString(array));
+  Collections.sort(links);
+  final StringBuilder builder=new StringBuilder();
+  final int links_size=links.size();
+  for (int i=0; i < links_size; i++) {
+    final LinkSpec spec=links.get(i);
+    if (spec == null) {
+      continue;
+    }
+    final int start=spec.start, end=spec.end;
+    if (i == 0) {
+      if (start >= 0 && start <= string_length) {
+        builder.append(escapeSource(ArrayUtils.mergeArrayToString(ArrayUtils.subArray(array,0,start))));
+      }
+    }
+ else     if (i > 0) {
+      final int last_end=links.get(i - 1).end;
+      if (last_end >= 0 && last_end <= start && start <= string_length) {
+        builder.append(escapeSource(ArrayUtils.mergeArrayToString(ArrayUtils.subArray(array,last_end,start))));
+      }
+    }
+    builder.append("<a href=\"" + spec.link + "\">");
+    if (start >= 0 && start <= end && end <= string_length) {
+      builder.append(!isEmpty(spec.display) ? spec.display_is_html ? spec.display : toHtml(spec.display) : spec.link);
+    }
+    builder.append("</a>");
+    if (i == links.size() - 1 && end >= 0 && end <= string_length) {
+      builder.append(escapeSource(ArrayUtils.mergeArrayToString(ArrayUtils.subArray(array,end,string_length))));
+    }
+  }
+  return builder.toString();
+}

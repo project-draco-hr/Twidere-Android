@@ -1,5 +1,15 @@
 {
-  if (pattern == null)   return null;
-  if (TextUtils.isEmpty(domain))   return pattern.replaceAll("\\[\\.?DOMAIN\\.?\\]","");
-  return pattern.replaceAll("\\[(\\.?)DOMAIN(\\.?)\\]",String.format("$1%s$2",domain));
+  if (format == null)   return null;
+  final Matcher matcher=Pattern.compile("\\[(\\.?)DOMAIN(\\.?)\\]").matcher(format);
+  if (!matcher.find()) {
+    if (!format.endsWith("/1.1") && !format.endsWith("/1.1/")) {
+      return format;
+    }
+    final String versionSuffix="/1.1";
+    final int suffixLength=versionSuffix.length();
+    final int lastIndex=format.lastIndexOf(versionSuffix);
+    return format.substring(0,lastIndex) + format.substring(lastIndex + suffixLength);
+  }
+  if (TextUtils.isEmpty(domain))   return matcher.replaceAll("");
+  return matcher.replaceAll(String.format("$1%s$2",domain));
 }

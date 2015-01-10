@@ -1,0 +1,54 @@
+{
+  if (prefs == null)   return false;
+  final String[] cols=new String[]{Accounts.OAUTH_TOKEN,Accounts.OAUTH_TOKEN_SECRET,Accounts.ACCOUNT_ID,Accounts.CONSUMER_KEY,Accounts.CONSUMER_SECRET};
+  final String where=Accounts.IS_ACTIVATED + " = 1" + " AND "+ Accounts.AUTH_TYPE+ " = "+ Accounts.AUTH_TYPE_OAUTH;
+  final Cursor cur=mResolver.query(Accounts.CONTENT_URI,cols,where,null,null);
+  if (cur == null)   return false;
+  if (BuildConfig.DEBUG) {
+    Log.d(LOGTAG,"Setting up twitter stream instances");
+  }
+  final int count=cur.getCount();
+  mAccountIds=new long[count];
+  if (count == 0) {
+    cur.close();
+    return false;
+  }
+  cur.moveToFirst();
+  clearTwitterInstances();
+  final int token_idx=cur.getColumnIndex(Accounts.OAUTH_TOKEN);
+  final int secret_idx=cur.getColumnIndex(Accounts.OAUTH_TOKEN_SECRET);
+  final int account_id_idx=cur.getColumnIndex(Accounts.ACCOUNT_ID);
+  final int consumer_key_idx=cur.getColumnIndex(Accounts.CONSUMER_KEY);
+  final int consumer_secret_idx=cur.getColumnIndex(Accounts.CONSUMER_SECRET);
+  while (!cur.isAfterLast()) {
+    final String token=cur.getString(token_idx);
+    final String secret=cur.getString(secret_idx);
+    final long account_id=cur.getLong(account_id_idx);
+    mAccountIds[cur.getPosition()]=account_id;
+    final StreamConfigurationBuilder cb=new StreamConfigurationBuilder();
+    cb.setGZIPEnabled(prefs.getBoolean(KEY_GZIP_COMPRESSING,true));
+    cb.setIncludeEntitiesEnabled(true);
+    if (prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false)) {
+      cb.setIgnoreSSLError(true);
+      cb.setHostAddressResolver(new TwidereHostAddressResolver(this));
+    }
+    final String default_consumer_key=Utils.getNonEmptyString(prefs,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
+    final String default_consumer_secret=Utils.getNonEmptyString(prefs,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
+    final String consumer_key=cur.getString(consumer_key_idx), consumer_secret=cur.getString(consumer_secret_idx);
+    if (!isEmpty(consumer_key) && !isEmpty(consumer_secret)) {
+      cb.setOAuthConsumerKey(consumer_key);
+      cb.setOAuthConsumerSecret(consumer_secret);
+    }
+ else {
+      cb.setOAuthConsumerKey(default_consumer_key);
+      cb.setOAuthConsumerSecret(default_consumer_secret);
+    }
+    final TwitterStream twitter=new TwitterStreamFactory(cb.build()).getInstance(new AccessToken(token,secret));
+    twitter.addListener(new UserStreamListenerImpl(this,account_id));
+    twitter.user();
+    mTwitterInstances.add(new WeakReference<TwitterStream>(twitter));
+    cur.moveToNext();
+  }
+  cur.close();
+  return true;
+}

@@ -1,0 +1,5 @@
+{
+  link=link.replaceAll("'","");
+  link=link.replaceAll("\"","");
+  return link;
+}

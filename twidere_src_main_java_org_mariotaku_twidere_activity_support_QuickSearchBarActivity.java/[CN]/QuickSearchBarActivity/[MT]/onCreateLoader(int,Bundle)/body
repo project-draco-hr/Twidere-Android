@@ -1,0 +1,3 @@
+{
+  return new SuggestionsLoader(this,mAccountSpinner.getSelectedItemId(),mSearchQuery.getText().toString());
+}

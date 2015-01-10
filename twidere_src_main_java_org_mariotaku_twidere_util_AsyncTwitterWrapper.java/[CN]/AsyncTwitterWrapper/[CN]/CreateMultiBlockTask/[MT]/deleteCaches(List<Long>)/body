@@ -2,5 +2,4 @@
   for (  final Uri uri : STATUSES_URIS) {
     bulkDelete(mResolver,uri,Statuses.USER_ID,list,Statuses.ACCOUNT_ID + " = " + account_id,false);
   }
-  bulkDelete(mResolver,CachedUsers.CONTENT_URI,CachedUsers.USER_ID,list,null,false);
 }
