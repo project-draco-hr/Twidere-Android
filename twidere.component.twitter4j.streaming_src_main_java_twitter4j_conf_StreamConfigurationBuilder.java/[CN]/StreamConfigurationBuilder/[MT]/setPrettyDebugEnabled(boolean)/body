@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setPrettyDebugEnabled(prettyDebugEnabled);
+  return this;
+}

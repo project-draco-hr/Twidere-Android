@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((UserStreamListener)listener).onUserListMemberDeletion(asUser(deletedMember),asUser(owner),asUserList(target));
+  }
+}

@@ -1,8 +1,0 @@
-{
-  if (array == null)   return null;
-  final JSONArray json=new JSONArray();
-  for (  final T parcelable : array) {
-    json.put(toJSONObject(parcelable));
-  }
-  return json;
-}

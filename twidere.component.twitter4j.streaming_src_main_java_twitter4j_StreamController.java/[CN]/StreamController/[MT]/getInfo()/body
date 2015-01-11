@@ -1,0 +1,5 @@
+{
+  ensureControlURISet();
+  final HttpResponse res=HTTP.get(controlURI + "/info.json",controlURI + "/info.json",AUTH);
+  return new ControlStreamInfo(this,res.asJSONObject());
+}

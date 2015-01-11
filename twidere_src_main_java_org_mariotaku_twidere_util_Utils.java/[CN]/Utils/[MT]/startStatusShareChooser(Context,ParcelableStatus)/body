@@ -3,7 +3,7 @@
   intent.setType("text/plain");
   final String name=status.user_name, screenName=status.user_screen_name;
   final String timeString=formatToLongTimeString(context,status.timestamp);
-  final String subject=context.getString(R.string.share_subject_format,name,screenName,timeString);
+  final String subject=context.getString(R.string.status_share_subject_format_with_time,name,screenName,timeString);
   intent.putExtra(Intent.EXTRA_SUBJECT,subject);
   intent.putExtra(Intent.EXTRA_TEXT,status.text_plain);
   intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

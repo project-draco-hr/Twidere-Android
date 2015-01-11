@@ -1,0 +1,12 @@
+{
+  final StringBuilder builder=new StringBuilder();
+  final int length=array.length;
+  for (int i=0; i < length; i++) {
+    final String idString=String.valueOf(array[i]);
+    if (i > 0) {
+      builder.append(include_space ? token + " " : token);
+    }
+    builder.append(idString);
+  }
+  return builder.toString();
+}

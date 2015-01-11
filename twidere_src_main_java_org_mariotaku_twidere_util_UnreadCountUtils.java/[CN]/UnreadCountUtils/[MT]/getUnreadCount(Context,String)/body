@@ -1,7 +1,7 @@
 {
   if (context == null || type == null)   return 0;
   final ContentResolver resolver=context.getContentResolver();
-  final Uri.Builder builder=TweetStore.UnreadCounts.ByType.CONTENT_URI.buildUpon();
+  final Uri.Builder builder=TwidereDataStore.UnreadCounts.ByType.CONTENT_URI.buildUpon();
   builder.appendPath(type);
   final Uri uri=builder.build();
   final Cursor c=resolver.query(uri,new String[]{UnreadCounts.COUNT},null,null,null);

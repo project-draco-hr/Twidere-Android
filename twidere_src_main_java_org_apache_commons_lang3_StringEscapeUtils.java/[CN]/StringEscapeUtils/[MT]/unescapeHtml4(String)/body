@@ -1,3 +1,0 @@
-{
-  return UNESCAPE_HTML4.translate(input);
-}

@@ -3,5 +3,5 @@
   if (mContext.getPackageName().equals(pname))   return true;
   if (checkSignature(pname))   return true;
   final String[] permissions=getPermissions(pname);
-  return ArrayUtils.contains(permissions,requiredPermissions);
+  return TwidereArrayUtils.contains(permissions,requiredPermissions);
 }

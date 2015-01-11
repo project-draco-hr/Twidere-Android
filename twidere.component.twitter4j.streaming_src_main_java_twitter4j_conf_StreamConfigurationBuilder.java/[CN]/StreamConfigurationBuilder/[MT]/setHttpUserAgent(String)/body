@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setHttpUserAgent(userAgent);
+  return this;
+}

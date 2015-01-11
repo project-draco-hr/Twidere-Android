@@ -30,7 +30,7 @@
     cb.setIncludeEntitiesEnabled(true);
     if (prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false)) {
       cb.setIgnoreSSLError(true);
-      cb.setHostAddressResolver(new TwidereHostAddressResolver(this));
+      cb.setHostAddressResolverFactory(new TwidereHostAddressResolverFactory(this));
     }
     final String default_consumer_key=Utils.getNonEmptyString(prefs,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
     final String default_consumer_secret=Utils.getNonEmptyString(prefs,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
@@ -46,7 +46,7 @@
     final TwitterStream twitter=new TwitterStreamFactory(cb.build()).getInstance(new AccessToken(token,secret));
     twitter.addListener(new UserStreamListenerImpl(this,account_id));
     twitter.user();
-    mTwitterInstances.add(new WeakReference<TwitterStream>(twitter));
+    mTwitterInstances.add(new WeakReference<>(twitter));
     cur.moveToNext();
   }
   cur.close();

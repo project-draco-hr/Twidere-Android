@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final FriendsIDs that=(FriendsIDs)o;
+  if (nextCursor != that.nextCursor)   return false;
+  if (previousCursor != that.previousCursor)   return false;
+  if (!Arrays.equals(ids,that.ids))   return false;
+  if (user != null ? !user.equals(that.user) : that.user != null)   return false;
+  return true;
+}

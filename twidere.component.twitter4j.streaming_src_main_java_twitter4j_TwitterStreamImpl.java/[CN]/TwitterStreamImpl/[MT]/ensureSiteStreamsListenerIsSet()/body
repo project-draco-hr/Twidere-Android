@@ -1,0 +1,3 @@
+{
+  if (siteStreamsListeners.size() == 0 && rawStreamListeners.size() == 0)   throw new IllegalStateException("SiteStreamsListener is not set.");
+}

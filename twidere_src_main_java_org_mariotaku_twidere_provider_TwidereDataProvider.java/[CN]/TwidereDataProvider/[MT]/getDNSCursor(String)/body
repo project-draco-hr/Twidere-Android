@@ -1,5 +1,5 @@
 {
-  final MatrixCursor c=new MatrixCursor(TweetStore.DNS.MATRIX_COLUMNS);
+  final MatrixCursor c=new MatrixCursor(TwidereDataStore.DNS.MATRIX_COLUMNS);
   try {
     final String address=mHostAddressResolver.resolve(host);
     if (host != null && address != null) {

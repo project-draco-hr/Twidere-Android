@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setAsyncNumThreads(asyncNumThreads);
+  return this;
+}

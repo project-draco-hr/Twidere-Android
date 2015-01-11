@@ -1,0 +1,4 @@
+{
+  this(dispatcher,response.asStream(),conf);
+  this.response=response;
+}

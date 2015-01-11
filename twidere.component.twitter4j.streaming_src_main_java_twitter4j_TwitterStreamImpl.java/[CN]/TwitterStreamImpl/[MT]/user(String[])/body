@@ -1,0 +1,10 @@
+{
+  ensureAuthorizationEnabled();
+  ensureUserStreamListenerIsSet();
+  startHandler(new TwitterStreamConsumer(statusListeners,rawStreamListeners){
+    @Override public StatusStream getStream() throws TwitterException {
+      return getUserStream(track);
+    }
+  }
+);
+}

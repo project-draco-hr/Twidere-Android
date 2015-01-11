@@ -1,0 +1,9 @@
+{
+  ensureAuthorizationEnabled();
+  try {
+    return new StatusStreamImpl(getDispatcher(),http.post(conf.getStreamBaseURL() + "statuses/retweet.json",conf.getStreamBaseURL() + "statuses/retweet.json",new HttpParameter[]{STALL_WARNINGS},auth),conf);
+  }
+ catch (  final IOException e) {
+    throw new TwitterException(e);
+  }
+}

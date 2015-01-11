@@ -6,7 +6,7 @@ switch (tableId) {
 case TABLE_ID_STATUSES:
 {
       final int notifiedCount=notifyStatusesInserted(valuesArray);
-      final List<ParcelableStatus> items=new ArrayList<ParcelableStatus>(mNewStatuses);
+      final List<ParcelableStatus> items=new ArrayList<>(mNewStatuses);
       Collections.sort(items);
       final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
       for (      final AccountPreferences pref : prefs) {
@@ -22,7 +22,7 @@ case TABLE_ID_MENTIONS:
 {
     final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
     final int notifiedCount=notifyMentionsInserted(prefs,valuesArray);
-    final List<ParcelableStatus> items=new ArrayList<ParcelableStatus>(mNewMentions);
+    final List<ParcelableStatus> items=new ArrayList<>(mNewMentions);
     Collections.sort(items);
     for (    final AccountPreferences pref : prefs) {
       if (pref.isMentionsNotificationEnabled()) {

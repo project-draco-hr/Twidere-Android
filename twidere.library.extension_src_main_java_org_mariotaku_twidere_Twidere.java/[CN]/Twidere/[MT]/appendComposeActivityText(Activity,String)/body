@@ -1,0 +1,9 @@
+{
+  if (activity == null)   return;
+  final Intent intent=new Intent();
+  final Bundle extras=new Bundle();
+  extras.putString(EXTRA_APPEND_TEXT,text);
+  intent.putExtras(extras);
+  activity.setResult(Activity.RESULT_OK,intent);
+  activity.finish();
+}

@@ -1,6 +1,6 @@
 {
   final ContentValues values=new ContentValues();
-  values.put(Constants.EXTRA_ACCOUNT_IDS,ArrayUtils.toString(account_ids,',',false));
+  values.put(Constants.EXTRA_ACCOUNT_IDS,TwidereArrayUtils.toString(account_ids,',',false));
   values.put(Constants.EXTRA_TEXT,content);
   values.put(Constants.EXTRA_LOCATION,ParcelableLocation.toString(location));
   values.put(Constants.EXTRA_URI,ParseUtils.parseString(image_uri));

@@ -1,0 +1,5 @@
+{
+  id=getLong("id",json);
+  name=getRawString("name",json);
+  dm=getBoolean("dm",json);
+}

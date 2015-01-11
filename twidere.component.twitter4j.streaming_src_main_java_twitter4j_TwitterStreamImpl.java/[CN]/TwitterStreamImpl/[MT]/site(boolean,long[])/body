@@ -1,0 +1,17 @@
+{
+  ensureOAuthEnabled();
+  ensureSiteStreamsListenerIsSet();
+  final StreamController cs=new StreamController(http,auth);
+  startHandler(new TwitterStreamConsumer(siteStreamsListeners,rawStreamListeners){
+    @Override public StatusStream getStream() throws TwitterException {
+      try {
+        return new SiteStreamsImpl(getDispatcher(),getSiteStream(withFollowings,follow),conf,cs);
+      }
+ catch (      final IOException e) {
+        throw new TwitterException(e);
+      }
+    }
+  }
+);
+  return cs;
+}

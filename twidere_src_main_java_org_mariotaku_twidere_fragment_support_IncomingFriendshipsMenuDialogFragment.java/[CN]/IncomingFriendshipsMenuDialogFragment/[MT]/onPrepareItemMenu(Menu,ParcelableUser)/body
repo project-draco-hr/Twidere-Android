@@ -1,7 +1,7 @@
 {
   final Context context=getThemedContext();
   final ParcelableCredentials account=ParcelableAccount.getCredentials(context,user.account_id);
-  if (ParcelableCredentials.isOfficialCredentials(context,account)) {
+  if (Utils.isOfficialCredentials(context,account)) {
     final MenuInflater inflater=new MenuInflater(context);
     inflater.inflate(R.menu.action_incoming_friendship,menu);
   }

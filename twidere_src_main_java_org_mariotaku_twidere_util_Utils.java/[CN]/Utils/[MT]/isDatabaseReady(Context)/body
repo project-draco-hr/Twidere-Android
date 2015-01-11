@@ -1,5 +1,5 @@
 {
-  final Cursor c=context.getContentResolver().query(TweetStore.CONTENT_URI_DATABASE_READY,null,null,null,null);
+  final Cursor c=context.getContentResolver().query(TwidereDataStore.CONTENT_URI_DATABASE_READY,null,null,null,null);
   try {
     return c != null;
   }

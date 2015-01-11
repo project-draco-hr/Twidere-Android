@@ -1,0 +1,10 @@
+{
+  checkNotBuilt();
+  configuration.cacheInstance();
+  try {
+    return configuration;
+  }
+  finally {
+    configuration=null;
+  }
+}

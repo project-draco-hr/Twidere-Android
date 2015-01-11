@@ -1,0 +1,15 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  if (!super.equals(o))   return false;
+  final TwitterStreamImpl that=(TwitterStreamImpl)o;
+  if (handler != null ? !handler.equals(that.handler) : that.handler != null)   return false;
+  if (http != null ? !http.equals(that.http) : that.http != null)   return false;
+  if (lifeCycleListeners != null ? !lifeCycleListeners.equals(that.lifeCycleListeners) : that.lifeCycleListeners != null)   return false;
+  if (rawStreamListeners != null ? !rawStreamListeners.equals(that.rawStreamListeners) : that.rawStreamListeners != null)   return false;
+  if (siteStreamsListeners != null ? !siteStreamsListeners.equals(that.siteStreamsListeners) : that.siteStreamsListeners != null)   return false;
+  if (STALL_WARNINGS != null ? !STALL_WARNINGS.equals(that.STALL_WARNINGS) : that.STALL_WARNINGS != null)   return false;
+  if (statusListeners != null ? !statusListeners.equals(that.statusListeners) : that.statusListeners != null)   return false;
+  if (userStreamListeners != null ? !userStreamListeners.equals(that.userStreamListeners) : that.userStreamListeners != null)   return false;
+  return true;
+}

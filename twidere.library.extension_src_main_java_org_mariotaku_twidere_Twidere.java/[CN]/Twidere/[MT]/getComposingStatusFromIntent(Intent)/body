@@ -1,0 +1,4 @@
+{
+  if (intent == null)   return null;
+  return new ComposingStatus(intent);
+}

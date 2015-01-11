@@ -9,14 +9,13 @@
     final Expression selection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
     final String[] selectionArgs=new String[]{queryEscaped,queryEscaped};
     final OrderBy orderBy=new OrderBy(CachedUsers.LAST_SEEN + " DESC",CachedUsers.SCREEN_NAME,CachedUsers.NAME);
-    final Cursor c=context.getContentResolver().query(CachedUsers.CONTENT_URI,CachedUsers.BASIC_COLUMNS,selection != null ? selection.getSQL() : null,selectionArgs,orderBy.getSQL());
-    final CachedIndices i=new CachedIndices(c);
-    c.moveToFirst();
-    while (!c.isAfterLast()) {
-      result.add(new UserSuggestionItem(c,i));
-      c.moveToNext();
+    final Cursor usersCursor=context.getContentResolver().query(CachedUsers.CONTENT_URI,CachedUsers.BASIC_COLUMNS,selection != null ? selection.getSQL() : null,selectionArgs,orderBy.getSQL());
+    final CachedIndices usersIndices=new CachedIndices(usersCursor);
+    for (int i=0, j=Math.min(5,usersCursor.getCount()); i < j; i++) {
+      usersCursor.moveToPosition(i);
+      result.add(new UserSuggestionItem(usersCursor,usersIndices));
     }
-    c.close();
+    usersCursor.close();
     return result;
   }
   final String[] historyProjection={SearchHistory.QUERY};
@@ -25,6 +24,7 @@
     historyCursor.moveToPosition(i);
     result.add(new SearchHistoryItem(historyCursor.getString(0)));
   }
+  historyCursor.close();
   final String[] savedSearchesProjection={SavedSearches.QUERY};
   final Expression savedSearchesWhere=Expression.equals(SavedSearches.ACCOUNT_ID,mAccountId);
   final Cursor savedSearchesCursor=resolver.query(SavedSearches.CONTENT_URI,savedSearchesProjection,savedSearchesWhere.getSQL(),null,SavedSearches.DEFAULT_SORT_ORDER);

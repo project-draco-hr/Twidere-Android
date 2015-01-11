@@ -1,0 +1,9 @@
+{
+  if (key == null)   throw new NullPointerException();
+  try {
+    return (Float)getPreferenceObject(key);
+  }
+ catch (  final NullPointerException e) {
+    return defValue;
+  }
+}

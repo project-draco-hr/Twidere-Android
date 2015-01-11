@@ -1,0 +1,11 @@
+{
+  try {
+    CLEAR_THREAD_LOCAL_MAP.invoke(null);
+  }
+ catch (  final IllegalAccessException e) {
+    throw new AssertionError(e);
+  }
+catch (  final InvocationTargetException e) {
+    throw new AssertionError(e);
+  }
+}

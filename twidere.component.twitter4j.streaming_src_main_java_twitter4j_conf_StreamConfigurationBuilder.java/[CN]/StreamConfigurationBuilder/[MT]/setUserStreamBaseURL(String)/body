@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setUserStreamBaseURL(siteStreamBaseURL);
+  return this;
+}

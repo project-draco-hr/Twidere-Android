@@ -4,7 +4,7 @@
   final Uri.Builder builder=UnreadCounts.CONTENT_URI.buildUpon();
   builder.appendPath(String.valueOf(position));
   builder.appendPath(String.valueOf(account_id));
-  builder.appendPath(ArrayUtils.toString(status_ids,',',false));
+  builder.appendPath(TwidereArrayUtils.toString(status_ids,',',false));
   result+=context.getContentResolver().delete(builder.build(),null,null);
   return result;
 }

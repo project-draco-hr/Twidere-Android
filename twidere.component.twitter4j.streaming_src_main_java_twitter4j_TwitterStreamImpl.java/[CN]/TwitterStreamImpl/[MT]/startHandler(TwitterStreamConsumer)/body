@@ -1,0 +1,6 @@
+{
+  cleanUp();
+  this.handler=handler;
+  this.handler.start();
+  numberOfHandlers++;
+}

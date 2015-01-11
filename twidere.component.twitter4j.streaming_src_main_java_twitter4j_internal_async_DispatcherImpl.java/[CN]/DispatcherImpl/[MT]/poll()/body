@@ -1,0 +1,18 @@
+{
+  while (active) {
+synchronized (q) {
+      if (q.size() > 0) {
+        final Runnable task=q.remove(0);
+        if (task != null)         return task;
+      }
+    }
+synchronized (ticket) {
+      try {
+        ticket.wait();
+      }
+ catch (      final InterruptedException ignore) {
+      }
+    }
+  }
+  return null;
+}

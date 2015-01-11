@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((UserStreamListener)listener).onUserListMemberAddition(asUser(addedMember),asUser(owner),asUserList(target));
+  }
+}

@@ -1,4 +1,0 @@
-{
-  if (key == null)   return;
-  writeObjectArray(key,value.toArray());
-}

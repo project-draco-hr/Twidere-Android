@@ -59,7 +59,7 @@
     mediaPreviewGrid.setVisibility(View.VISIBLE);
     mediaPreviewGrid.removeAllViews();
     final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
-    MediaPreviewUtils.addToLinearLayout(mediaPreviewGrid,loader,status.media,status.account_id,maxColumns,adapter.getFragment());
+    Utils.addToLinearLayout(mediaPreviewGrid,loader,status.media,status.account_id,maxColumns,adapter.getFragment());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);

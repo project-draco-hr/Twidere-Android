@@ -1,9 +1,0 @@
-{
-  if (source == null)   return def;
-  try {
-    return Integer.valueOf(source);
-  }
- catch (  final NumberFormatException e) {
-  }
-  return def;
-}

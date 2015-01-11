@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final StatusDeletionNoticeImpl that=(StatusDeletionNoticeImpl)o;
+  if (statusId != that.statusId)   return false;
+  if (userId != that.userId)   return false;
+  return true;
+}

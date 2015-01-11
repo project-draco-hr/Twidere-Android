@@ -1,4 +1,0 @@
-{
-  patternTag=Pattern.compile(HTML_A_TAG_PATTERN);
-  patternLink=Pattern.compile(HTML_A_HREF_TAG_PATTERN);
-}

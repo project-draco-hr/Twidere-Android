@@ -1,0 +1,12 @@
+{
+  if (key == null)   throw new NullPointerException();
+  final Uri uri=Uri.withAppendedPath(TwidereDataStore.Preferences.CONTENT_URI,key);
+  final Cursor cur=mResolver.query(uri,TwidereDataStore.Preferences.MATRIX_COLUMNS,null,null,null);
+  if (cur == null)   return false;
+  try {
+    return cur.getCount() > 0;
+  }
+  finally {
+    cur.close();
+  }
+}

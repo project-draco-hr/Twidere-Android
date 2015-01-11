@@ -1,7 +1,0 @@
-{
-  final int length=end - start;
-  if (length < 0)   throw new IllegalArgumentException();
-  final Object[] result=new Object[length];
-  System.arraycopy(array,start,result,0,length);
-  return result;
-}

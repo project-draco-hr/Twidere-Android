@@ -1,3 +1,0 @@
-{
-  return HTML40_EXTENDED_ESCAPE.clone();
-}

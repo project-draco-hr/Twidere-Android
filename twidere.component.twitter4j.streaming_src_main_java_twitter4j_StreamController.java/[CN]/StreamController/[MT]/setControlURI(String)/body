@@ -1,0 +1,6 @@
+{
+  this.controlURI=controlURI.replace("/1.1//1.1/","/1.1/");
+synchronized (lock) {
+    lock.notifyAll();
+  }
+}

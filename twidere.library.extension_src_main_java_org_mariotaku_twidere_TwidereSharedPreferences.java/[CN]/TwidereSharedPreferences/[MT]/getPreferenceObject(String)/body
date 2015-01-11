@@ -1,0 +1,45 @@
+{
+  final Uri uri=Uri.withAppendedPath(TwidereDataStore.Preferences.CONTENT_URI,key);
+  final Cursor cur=mResolver.query(uri,TwidereDataStore.Preferences.MATRIX_COLUMNS,null,null,null);
+  if (cur == null)   throw new NullPointerException();
+  try {
+    final int key_idx=cur.getColumnIndex(TwidereDataStore.Preferences.KEY);
+    final int value_idx=cur.getColumnIndex(TwidereDataStore.Preferences.VALUE);
+    final int type_idx=cur.getColumnIndex(TwidereDataStore.Preferences.TYPE);
+    cur.moveToFirst();
+    while (!cur.isAfterLast()) {
+      if (!key.equals(cur.getString(key_idx))) {
+        cur.moveToNext();
+        continue;
+      }
+      final Object value;
+switch (cur.getInt(type_idx)) {
+case TwidereDataStore.Preferences.TYPE_BOOLEAN:
+        value=Boolean.valueOf(cur.getString(value_idx));
+      break;
+case TwidereDataStore.Preferences.TYPE_INTEGER:
+    value=cur.getInt(value_idx);
+  break;
+case TwidereDataStore.Preferences.TYPE_LONG:
+value=cur.getLong(value_idx);
+break;
+case TwidereDataStore.Preferences.TYPE_FLOAT:
+value=cur.getFloat(value_idx);
+break;
+case TwidereDataStore.Preferences.TYPE_STRING:
+value=cur.getString(value_idx);
+break;
+case TwidereDataStore.Preferences.TYPE_NULL:
+value=null;
+break;
+default :
+continue;
+}
+return value;
+}
+throw new NullPointerException();
+}
+  finally {
+cur.close();
+}
+}

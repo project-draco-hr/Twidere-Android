@@ -1,0 +1,5 @@
+{
+  ensureControlURISet();
+  final HttpResponse res=HTTP.post(controlURI + "/friends/ids.json",controlURI + "/friends/ids.json",new HttpParameter[]{new HttpParameter("user_id",userId),new HttpParameter("cursor",cursor)},AUTH);
+  return new FriendsIDs(res);
+}

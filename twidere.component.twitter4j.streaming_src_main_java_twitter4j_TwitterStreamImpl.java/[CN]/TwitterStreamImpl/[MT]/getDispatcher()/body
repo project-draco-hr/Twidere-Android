@@ -1,0 +1,10 @@
+{
+  if (null == TwitterStreamImpl.dispatcher) {
+synchronized (TwitterStreamImpl.class) {
+      if (null == TwitterStreamImpl.dispatcher) {
+        TwitterStreamImpl.dispatcher=new DispatcherFactory(conf).getInstance();
+      }
+    }
+  }
+  return TwitterStreamImpl.dispatcher;
+}

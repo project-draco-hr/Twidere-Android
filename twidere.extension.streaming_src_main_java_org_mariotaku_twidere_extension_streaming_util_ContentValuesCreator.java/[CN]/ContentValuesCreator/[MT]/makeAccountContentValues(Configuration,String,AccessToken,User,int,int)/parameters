@@ -1,6 +1,0 @@
-Configuration conf
-String basic_password
-AccessToken access_token
-User user
-int auth_type
-int color

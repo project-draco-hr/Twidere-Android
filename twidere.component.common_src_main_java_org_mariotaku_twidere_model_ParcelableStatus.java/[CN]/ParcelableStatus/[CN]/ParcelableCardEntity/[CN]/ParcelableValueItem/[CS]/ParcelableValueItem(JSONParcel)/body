@@ -1,0 +1,17 @@
+{
+  this.name=in.readString("name");
+  this.type=in.readString("type");
+switch (type) {
+case "STRING":
+    value=in.readString("value");
+  break;
+case "IMAGE":
+value=in.readParcelable("value",ParcelableImageValue.JSON_CREATOR);
+break;
+case "USER":
+value=in.readParcelable("value",ParcelableUserValue.JSON_CREATOR);
+break;
+default :
+throw new UnsupportedOperationException();
+}
+}

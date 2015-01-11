@@ -1,3 +1,0 @@
-{
-  return Integer.toHexString(codepoint).toUpperCase(Locale.ENGLISH);
-}

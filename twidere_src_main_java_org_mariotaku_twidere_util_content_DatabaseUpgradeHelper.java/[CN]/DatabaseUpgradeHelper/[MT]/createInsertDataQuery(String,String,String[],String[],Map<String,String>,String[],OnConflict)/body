@@ -1,6 +1,6 @@
 {
   final SQLInsertQuery.Builder qb=insertInto(onConflict,table);
-  final List<String> newInsertColsList=new ArrayList<String>();
+  final List<String> newInsertColsList=new ArrayList<>();
   for (  final String newCol : newCols) {
     final String oldAliasedCol=colAliases != null ? colAliases.get(newCol) : null;
     if (ArrayUtils.contains(oldCols,newCol) || oldAliasedCol != null && ArrayUtils.contains(oldCols,oldAliasedCol)) {
@@ -8,7 +8,7 @@
     }
   }
   final String[] newInsertCols=newInsertColsList.toArray(new String[newInsertColsList.size()]);
-  if (!ArrayUtils.contains(newInsertCols,notNullCols))   return null;
+  if (!TwidereArrayUtils.contains(newInsertCols,notNullCols))   return null;
   qb.columns(newInsertCols);
   final Columns.Column[] oldDataCols=new Columns.Column[newInsertCols.length];
   for (int i=0, j=oldDataCols.length; i < j; i++) {

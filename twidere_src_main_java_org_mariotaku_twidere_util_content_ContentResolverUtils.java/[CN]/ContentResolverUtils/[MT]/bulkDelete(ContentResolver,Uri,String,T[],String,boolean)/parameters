@@ -1,6 +1,0 @@
-ContentResolver resolver
-Uri uri
-String in_column
-T[] col_values
-String extra_where
-boolean values_is_string

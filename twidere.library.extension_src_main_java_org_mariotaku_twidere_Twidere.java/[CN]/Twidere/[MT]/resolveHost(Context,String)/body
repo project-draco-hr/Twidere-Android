@@ -1,0 +1,16 @@
+{
+  if (context == null || host == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  final Uri uri=Uri.withAppendedPath(TwidereDataStore.DNS.CONTENT_URI,host);
+  final Cursor cur=resolver.query(uri,TwidereDataStore.DNS.MATRIX_COLUMNS,null,null,null);
+  if (cur == null)   return null;
+  try {
+    if (cur.getCount() == 0)     return null;
+    final int addr_idx=cur.getColumnIndex(TwidereDataStore.DNS.ADDRESS);
+    cur.moveToFirst();
+    return cur.getString(addr_idx);
+  }
+  finally {
+    cur.close();
+  }
+}

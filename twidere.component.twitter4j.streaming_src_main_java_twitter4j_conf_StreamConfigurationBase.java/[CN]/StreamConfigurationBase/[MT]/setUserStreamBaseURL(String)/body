@@ -1,0 +1,7 @@
+{
+  if (isNullOrEmpty(userStreamBaseURL)) {
+    userStreamBaseURL=DEFAULT_USER_STREAM_BASE_URL;
+  }
+  this.userStreamBaseURL=fixURLSlash(userStreamBaseURL);
+  fixUserStreamBaseURL();
+}

@@ -1,5 +1,5 @@
 {
-  final ContentValues values=ContentValuesCreator.makeStatusContentValues(status,account_id);
+  final ContentValues values=ContentValuesCreator.createStatus(status,account_id);
   if (values == null)   return;
   if (!statusStreamStarted) {
     statusStreamStarted=true;
@@ -10,7 +10,7 @@
   resolver.delete(Mentions.CONTENT_URI,where,null);
   resolver.insert(Statuses.CONTENT_URI,values);
   final Status rt=status.getRetweetedStatus();
-  if (rt != null && rt.getText().contains("@" + screen_name) || rt == null && status.getText().contains("@" + screen_name)) {
+  if (rt != null && rt.getText().contains("@" + account.screen_name) || rt == null && status.getText().contains("@" + account.screen_name)) {
     resolver.insert(Mentions.CONTENT_URI,values);
   }
 }

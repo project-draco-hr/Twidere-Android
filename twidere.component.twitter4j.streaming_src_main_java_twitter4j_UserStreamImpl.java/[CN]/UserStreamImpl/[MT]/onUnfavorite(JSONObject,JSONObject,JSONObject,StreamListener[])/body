@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((UserStreamListener)listener).onUnfavorite(asUser(source),asUser(target),asStatus(targetObject));
+  }
+}

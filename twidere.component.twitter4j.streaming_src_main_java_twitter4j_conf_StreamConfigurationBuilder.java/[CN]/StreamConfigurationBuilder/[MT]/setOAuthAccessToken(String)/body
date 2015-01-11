@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setOAuthAccessToken(oAuthAccessToken);
+  return this;
+}

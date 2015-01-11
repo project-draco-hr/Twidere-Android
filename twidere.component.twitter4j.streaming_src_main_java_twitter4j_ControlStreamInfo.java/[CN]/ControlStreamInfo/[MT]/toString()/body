@@ -1,0 +1,3 @@
+{
+  return "ControlStreamInfo{" + "users=" + (users == null ? null : Arrays.asList(users)) + ", includeFollowingsActivity="+ includeFollowingsActivity+ ", includeUserChanges="+ includeUserChanges+ ", replies='"+ replies+ '\''+ ", with='"+ with+ '\''+ '}';
+}

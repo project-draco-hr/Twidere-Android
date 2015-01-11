@@ -1,0 +1,8 @@
+{
+synchronized (q) {
+    q.add(task);
+  }
+synchronized (ticket) {
+    ticket.notify();
+  }
+}

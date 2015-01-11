@@ -1,0 +1,18 @@
+{
+  name=bindingValue.getName();
+  type=bindingValue.getType();
+switch (type) {
+case "STRING":
+    value=((StringValue)bindingValue).getValue();
+  break;
+case "IMAGE":
+value=new ParcelableImageValue((ImageValue)bindingValue);
+break;
+case "USER":
+value=new ParcelableUserValue((UserValue)bindingValue);
+break;
+default :
+value=null;
+break;
+}
+}

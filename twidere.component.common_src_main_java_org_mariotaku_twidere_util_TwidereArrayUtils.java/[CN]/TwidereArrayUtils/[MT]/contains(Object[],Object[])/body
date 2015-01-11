@@ -1,0 +1,7 @@
+{
+  if (array == null || values == null)   return false;
+  for (  final Object value : values) {
+    if (!ArrayUtils.contains(array,value))     return false;
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  ensureOAuthEnabled();
+  return http.post(conf.getSiteStreamBaseURL() + "site.json",conf.getSiteStreamBaseURL() + "site.json",new HttpParameter[]{new HttpParameter("with",withFollowings ? "followings" : "user"),new HttpParameter("follow",InternalStringUtil.join(follow)),STALL_WARNINGS},auth).asStream();
+}

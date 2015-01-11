@@ -1,5 +1,0 @@
-{
-  if (isEmpty(id))   return null;
-  final String preview=String.format("http://img.ly/show/%s/%s",fullImage ? "full" : "medium",id);
-  return PreviewMedia.newImage(preview,orig);
-}

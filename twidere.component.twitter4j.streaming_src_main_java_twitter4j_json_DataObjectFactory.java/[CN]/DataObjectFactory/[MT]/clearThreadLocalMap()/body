@@ -1,0 +1,3 @@
+{
+  rawJsonMap.get().clear();
+}

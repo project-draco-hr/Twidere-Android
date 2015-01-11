@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setHttpRetryCount(httpRetryCount);
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  super(conf,auth);
+  this.conf=conf;
+  STALL_WARNINGS=new HttpParameter("stall_warnings",conf.isStallWarningsEnabled());
+}

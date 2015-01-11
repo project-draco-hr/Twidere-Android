@@ -1,0 +1,7 @@
+{
+  int result=ids != null ? Arrays.hashCode(ids) : 0;
+  result=31 * result + (int)(previousCursor ^ previousCursor >>> 32);
+  result=31 * result + (int)(nextCursor ^ nextCursor >>> 32);
+  result=31 * result + (user != null ? user.hashCode() : 0);
+  return result;
+}

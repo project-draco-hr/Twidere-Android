@@ -1,0 +1,23 @@
+{
+  try {
+    return (Dispatcher)Class.forName(dispatcherImpl).getConstructor(StreamConfiguration.class).newInstance(conf);
+  }
+ catch (  final InstantiationException e) {
+    throw new AssertionError(e);
+  }
+catch (  final IllegalAccessException e) {
+    throw new AssertionError(e);
+  }
+catch (  final ClassNotFoundException e) {
+    throw new AssertionError(e);
+  }
+catch (  final ClassCastException e) {
+    throw new AssertionError(e);
+  }
+catch (  final NoSuchMethodException e) {
+    throw new AssertionError(e);
+  }
+catch (  final InvocationTargetException e) {
+    throw new AssertionError(e);
+  }
+}

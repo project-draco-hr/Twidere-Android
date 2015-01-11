@@ -5,7 +5,7 @@
   final boolean enable_proxy=mPreferences.getBoolean(KEY_ENABLE_PROXY,false);
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(mApplication));
   cb.setHttpClientFactory(new TwidereHttpClientFactory(mApplication));
-  if (Utils.isOfficialConsumerKeySecret(this,mConsumerKey,mConsumerSecret)) {
+  if (TwitterContentUtils.isOfficialKey(this,mConsumerKey,mConsumerSecret)) {
     Utils.setMockOfficialUserAgent(this,cb);
   }
  else {

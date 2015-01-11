@@ -1,0 +1,12 @@
+{
+synchronized (lock) {
+    try {
+      while (controlURI == null) {
+        lock.wait(30000);
+        throw new TwitterException("timed out for control uri to be ready");
+      }
+    }
+ catch (    final InterruptedException e) {
+    }
+  }
+}

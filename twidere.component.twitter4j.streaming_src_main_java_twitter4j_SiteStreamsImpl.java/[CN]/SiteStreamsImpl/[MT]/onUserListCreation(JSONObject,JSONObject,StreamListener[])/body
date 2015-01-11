@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((SiteStreamsListener)listener).onUserListCreation(forUser.get(),asUser(source),asUserList(userList));
+  }
+}

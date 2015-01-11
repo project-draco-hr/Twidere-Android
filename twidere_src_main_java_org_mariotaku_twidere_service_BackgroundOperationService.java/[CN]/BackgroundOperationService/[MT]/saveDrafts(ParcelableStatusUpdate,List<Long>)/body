@@ -1,5 +1,5 @@
 {
-  final ContentValues values=ContentValuesCreator.createStatusDraft(status,ArrayUtils.fromList(account_ids));
+  final ContentValues values=ContentValuesCreator.createStatusDraft(status,TwidereArrayUtils.fromList(account_ids));
   mResolver.insert(Drafts.CONTENT_URI,values);
   final String title=getString(R.string.status_not_updated);
   final String message=getString(R.string.status_not_updated_summary);

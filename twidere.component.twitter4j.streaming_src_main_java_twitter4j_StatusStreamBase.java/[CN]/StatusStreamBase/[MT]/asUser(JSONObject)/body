@@ -1,0 +1,7 @@
+{
+  final User user=factory.createUser(json);
+  if (CONF.isJSONStoreEnabled()) {
+    DataObjectFactoryUtil.registerJSONObject(user,json);
+  }
+  return user;
+}

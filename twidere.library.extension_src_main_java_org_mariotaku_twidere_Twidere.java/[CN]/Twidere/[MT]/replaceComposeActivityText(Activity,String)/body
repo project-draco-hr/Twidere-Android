@@ -1,0 +1,7 @@
+{
+  if (activity == null)   return;
+  final Intent intent=new Intent();
+  intent.putExtra(EXTRA_TEXT,text);
+  activity.setResult(Activity.RESULT_OK,intent);
+  activity.finish();
+}

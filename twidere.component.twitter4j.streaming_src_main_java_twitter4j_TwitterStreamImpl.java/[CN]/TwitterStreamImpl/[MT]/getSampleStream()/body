@@ -1,0 +1,9 @@
+{
+  ensureAuthorizationEnabled();
+  try {
+    return new StatusStreamImpl(getDispatcher(),get(conf.getStreamBaseURL() + "statuses/sample.json",conf.getStreamBaseURL() + "statuses/sample.json",STALL_WARNINGS),conf);
+  }
+ catch (  final IOException e) {
+    throw new TwitterException(e);
+  }
+}

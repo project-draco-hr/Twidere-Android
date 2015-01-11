@@ -1,0 +1,3 @@
+{
+  siteStreamsListeners.add(listener);
+}

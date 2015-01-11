@@ -1,0 +1,5 @@
+{
+  checkNotBuilt();
+  configuration.setOAuthConsumerSecret(oAuthConsumerSecret);
+  return this;
+}

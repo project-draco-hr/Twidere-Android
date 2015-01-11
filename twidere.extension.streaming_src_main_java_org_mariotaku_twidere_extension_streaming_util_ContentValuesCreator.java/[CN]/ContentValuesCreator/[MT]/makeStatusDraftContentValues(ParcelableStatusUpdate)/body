@@ -1,3 +1,0 @@
-{
-  return makeStatusDraftContentValues(status,Account.getAccountIds(status.accounts));
-}

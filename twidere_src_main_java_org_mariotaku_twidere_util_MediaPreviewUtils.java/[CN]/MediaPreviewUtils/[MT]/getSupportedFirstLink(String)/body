@@ -1,8 +1,0 @@
-{
-  if (html == null)   return null;
-  final HtmlLinkExtractor extractor=new HtmlLinkExtractor();
-  for (  final HtmlLink link : extractor.grabLinks(html)) {
-    if (getSupportedLink(link.getLink()) != null)     return link.getLink();
-  }
-  return null;
-}

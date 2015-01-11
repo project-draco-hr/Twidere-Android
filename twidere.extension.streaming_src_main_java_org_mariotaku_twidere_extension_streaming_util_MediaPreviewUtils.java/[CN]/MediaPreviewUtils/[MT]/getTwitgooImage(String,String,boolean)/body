@@ -1,5 +1,0 @@
-{
-  if (isEmpty(id))   return null;
-  final String preview=String.format("http://twitgoo.com/show/%s/%s",fullImage ? "img" : "thumb",id);
-  return PreviewMedia.newImage(preview,orig);
-}

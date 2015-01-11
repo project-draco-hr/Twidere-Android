@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final FilterQuery that=(FilterQuery)o;
+  if (count != that.count)   return false;
+  if (!Arrays.equals(follow,that.follow))   return false;
+  if (!Arrays.equals(track,that.track))   return false;
+  return true;
+}

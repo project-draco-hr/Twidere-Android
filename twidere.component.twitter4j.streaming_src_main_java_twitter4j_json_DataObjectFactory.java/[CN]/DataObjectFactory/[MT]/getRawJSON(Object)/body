@@ -1,0 +1,6 @@
+{
+  final Object json=rawJsonMap.get().get(obj);
+  if (json instanceof String)   return (String)json;
+ else   if (json != null)   return json.toString();
+ else   return null;
+}

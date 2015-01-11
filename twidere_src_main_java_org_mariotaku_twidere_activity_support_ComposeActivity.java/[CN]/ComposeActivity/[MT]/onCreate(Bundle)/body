@@ -59,8 +59,8 @@
       handleDefaultIntent(intent);
     }
     if (mSendAccountIds == null || mSendAccountIds.length == 0) {
-      final long[] idsInPrefs=ArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
-      final long[] intersection=ArrayUtils.intersection(idsInPrefs,defaultAccountIds);
+      final long[] idsInPrefs=TwidereArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
+      final long[] intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
       mSendAccountIds=intersection.length > 0 ? intersection : defaultAccountIds;
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());

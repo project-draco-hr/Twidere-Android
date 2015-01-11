@@ -1,0 +1,11 @@
+{
+  if (active) {
+    active=false;
+    for (    final ExecuteThread thread : threads) {
+      thread.shutdown();
+    }
+synchronized (ticket) {
+      ticket.notify();
+    }
+  }
+}

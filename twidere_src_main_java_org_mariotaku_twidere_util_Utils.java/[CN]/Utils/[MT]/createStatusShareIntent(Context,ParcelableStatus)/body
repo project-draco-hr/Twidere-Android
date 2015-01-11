@@ -1,11 +1,12 @@
 {
   final Intent intent=new Intent(Intent.ACTION_SEND);
   intent.setType("text/plain");
-  final String name=status.user_name, screenName=status.user_screen_name;
   final String timeString=formatToLongTimeString(context,status.timestamp);
-  final String subject=context.getString(R.string.share_subject_format,name,screenName,timeString);
+  final String link=String.format(Locale.ROOT,"https://twitter.com/%s/status/%d",status.user_screen_name,status.id);
+  final String text=context.getString(R.string.status_share_text_format_with_link,status.text_plain,link);
+  final String subject=context.getString(R.string.status_share_subject_format_with_time,status.user_name,status.user_screen_name,timeString);
   intent.putExtra(Intent.EXTRA_SUBJECT,subject);
-  intent.putExtra(Intent.EXTRA_TEXT,status.text_plain);
+  intent.putExtra(Intent.EXTRA_TEXT,text);
   intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
   return intent;
 }

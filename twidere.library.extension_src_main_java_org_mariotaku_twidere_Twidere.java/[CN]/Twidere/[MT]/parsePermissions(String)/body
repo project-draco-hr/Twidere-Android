@@ -1,0 +1,4 @@
+{
+  if (isEmpty(permissionsString))   return new String[0];
+  return permissionsString.split(SEPARATOR_PERMISSION_REGEX);
+}

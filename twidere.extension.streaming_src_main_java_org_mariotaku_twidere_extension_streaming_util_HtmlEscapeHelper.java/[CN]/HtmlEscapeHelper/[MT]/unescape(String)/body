@@ -1,4 +1,0 @@
-{
-  if (string == null)   return null;
-  return StringEscapeUtils.unescapeHtml4(string);
-}

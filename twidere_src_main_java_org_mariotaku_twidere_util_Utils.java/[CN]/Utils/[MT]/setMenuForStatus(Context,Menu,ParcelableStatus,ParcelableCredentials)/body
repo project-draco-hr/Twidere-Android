@@ -25,7 +25,7 @@
   }
   final MenuItem translate=menu.findItem(MENU_TRANSLATE);
   if (translate != null) {
-    final boolean isOfficialKey=ParcelableCredentials.isOfficialCredentials(context,account);
+    final boolean isOfficialKey=isOfficialCredentials(context,account);
     setMenuItemAvailability(menu,MENU_TRANSLATE,isOfficialKey);
   }
   menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);

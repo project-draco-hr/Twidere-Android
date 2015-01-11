@@ -1,4 +1,0 @@
-{
-  if (array == null || value == null)   return false;
-  return contains(array,new Object[]{value});
-}

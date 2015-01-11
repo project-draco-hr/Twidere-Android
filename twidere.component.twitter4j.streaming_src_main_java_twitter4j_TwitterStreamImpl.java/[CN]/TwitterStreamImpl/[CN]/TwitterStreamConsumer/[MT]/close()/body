@@ -1,0 +1,19 @@
+{
+  setStatus("[Disposing thread]");
+  try {
+    if (stream != null) {
+      try {
+        stream.close();
+      }
+ catch (      final IOException ignore) {
+      }
+catch (      final Exception e) {
+        e.printStackTrace();
+        logger.warn(e.getMessage());
+      }
+    }
+  }
+  finally {
+    closed=true;
+  }
+}

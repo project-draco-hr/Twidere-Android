@@ -4,5 +4,5 @@
   if (checkSignature(uid))   return true;
   final String pname=getPackageNameByUid(uid);
   final String[] permissions=getPermissions(pname);
-  return ArrayUtils.contains(permissions,requiredPermissions);
+  return TwidereArrayUtils.contains(permissions,requiredPermissions);
 }

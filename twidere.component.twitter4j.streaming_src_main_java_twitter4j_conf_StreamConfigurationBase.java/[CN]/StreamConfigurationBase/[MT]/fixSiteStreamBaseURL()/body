@@ -1,0 +1,9 @@
+{
+  if (DEFAULT_SITE_STREAM_BASE_URL.equals(fixURL(DEFAULT_USE_SSL,siteStreamBaseURL))) {
+    siteStreamBaseURL=fixURL(isSSLEnabled(),siteStreamBaseURL);
+  }
+  if (siteStreamBaseURL != null && siteStreamBaseURL.equals(fixURL(DEFAULT_USE_SSL,siteStreamBaseURL))) {
+    siteStreamBaseURL=fixURL(isSSLEnabled(),siteStreamBaseURL);
+  }
+  initRequestHeaders();
+}

@@ -1,0 +1,8 @@
+{
+  for (  final StreamListener listener : listeners) {
+    listener.onException(e);
+  }
+  for (  final RawStreamListener listener : rawStreamListeners) {
+    listener.onException(e);
+  }
+}

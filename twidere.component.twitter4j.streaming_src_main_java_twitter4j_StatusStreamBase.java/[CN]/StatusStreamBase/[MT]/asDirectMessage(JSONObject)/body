@@ -1,0 +1,13 @@
+{
+  DirectMessage directMessage;
+  try {
+    directMessage=factory.createDirectMessage(json.getJSONObject("direct_message"));
+  }
+ catch (  final JSONException e) {
+    throw new TwitterException(e);
+  }
+  if (CONF.isJSONStoreEnabled()) {
+    DataObjectFactoryUtil.registerJSONObject(directMessage,json);
+  }
+  return directMessage;
+}

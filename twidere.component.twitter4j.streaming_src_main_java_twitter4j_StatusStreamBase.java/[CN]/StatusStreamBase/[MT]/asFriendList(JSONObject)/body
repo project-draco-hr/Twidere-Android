@@ -1,0 +1,14 @@
+{
+  JSONArray friends;
+  try {
+    friends=json.getJSONArray("friends");
+    final long[] friendIds=new long[friends.length()];
+    for (int i=0; i < friendIds.length; ++i) {
+      friendIds[i]=Long.parseLong(friends.getString(i));
+    }
+    return friendIds;
+  }
+ catch (  final JSONException e) {
+    throw new TwitterException(e);
+  }
+}

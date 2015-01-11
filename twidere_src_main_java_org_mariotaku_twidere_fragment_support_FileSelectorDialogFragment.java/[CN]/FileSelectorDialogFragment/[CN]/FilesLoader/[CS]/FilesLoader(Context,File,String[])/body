@@ -2,5 +2,5 @@
   super(context);
   this.path=path;
   this.extensions=extensions;
-  extensions_regex=extensions != null ? Pattern.compile(ArrayUtils.toString(extensions,'|',false),Pattern.CASE_INSENSITIVE) : null;
+  extensions_regex=extensions != null ? Pattern.compile(TwidereArrayUtils.toString(extensions,'|',false),Pattern.CASE_INSENSITIVE) : null;
 }

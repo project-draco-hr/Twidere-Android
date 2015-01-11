@@ -1,0 +1,4 @@
+Dispatcher dispatcher
+InputStream stream
+StreamConfiguration conf
+StreamController cs

@@ -1,0 +1,5 @@
+{
+  this();
+  count=0;
+  this.follow=follow;
+}

@@ -47,7 +47,7 @@
         cb.setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
       }
     }
-    if (isOfficialConsumerKeySecret(context,consumerKey,consumerSecret)) {
+    if (TwitterContentUtils.isOfficialKey(context,consumerKey,consumerSecret)) {
       setMockOfficialUserAgent(context,cb);
     }
  else {

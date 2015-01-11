@@ -1,0 +1,18 @@
+{
+  try {
+    final JSONObject json=new JSONObject(rawJSON);
+    return placeConstructor.newInstance(json);
+  }
+ catch (  final InstantiationException e) {
+    throw new TwitterException(e);
+  }
+catch (  final IllegalAccessException e) {
+    throw new AssertionError(e);
+  }
+catch (  final InvocationTargetException e) {
+    throw new TwitterException(e);
+  }
+catch (  final JSONException e) {
+    throw new TwitterException(e);
+  }
+}

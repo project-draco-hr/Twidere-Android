@@ -1,0 +1,12 @@
+{
+  if (resolver == null || uri == null || values == null || values.length == 0)   return 0;
+  final int colValuesLength=values.length, blocksCount=colValuesLength / MAX_DELETE_COUNT + 1;
+  int rowsInserted=0;
+  for (int i=0; i < blocksCount; i++) {
+    final int start=i * MAX_DELETE_COUNT, end=Math.min(start + MAX_DELETE_COUNT,colValuesLength);
+    final ContentValues[] block=new ContentValues[end - start];
+    System.arraycopy(values,start,block,0,end - start);
+    rowsInserted+=resolver.bulkInsert(uri,block);
+  }
+  return rowsInserted;
+}

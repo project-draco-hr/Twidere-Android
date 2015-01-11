@@ -1,0 +1,20 @@
+{
+  final ContentValues values=new ContentValues();
+  values.put(Drafts.ACTION_TYPE,Drafts.ACTION_SEND_DIRECT_MESSAGE);
+  values.put(Drafts.TEXT,text);
+  values.put(Drafts.ACCOUNT_IDS,TwidereArrayUtils.toString(new long[]{accountId},',',false));
+  values.put(Drafts.TIMESTAMP,System.currentTimeMillis());
+  if (imageUri != null) {
+    final ParcelableMediaUpdate[] mediaArray={new ParcelableMediaUpdate(imageUri,0)};
+    values.put(Drafts.MEDIA,JSONSerializer.toJSONArrayString(mediaArray));
+  }
+  final JSONObject extras=new JSONObject();
+  try {
+    extras.put(EXTRA_RECIPIENT_ID,recipientId);
+  }
+ catch (  final JSONException e) {
+    e.printStackTrace();
+  }
+  values.put(Drafts.ACTION_EXTRAS,extras.toString());
+  return values;
+}

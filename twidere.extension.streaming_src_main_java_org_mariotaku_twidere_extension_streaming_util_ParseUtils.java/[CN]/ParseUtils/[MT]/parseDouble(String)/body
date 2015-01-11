@@ -1,9 +1,0 @@
-{
-  if (source == null)   return -1;
-  try {
-    return Double.parseDouble(source);
-  }
- catch (  final NumberFormatException e) {
-  }
-  return -1;
-}

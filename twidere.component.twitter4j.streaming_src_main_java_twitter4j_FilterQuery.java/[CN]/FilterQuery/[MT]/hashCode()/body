@@ -1,0 +1,6 @@
+{
+  int result=count;
+  result=31 * result + (follow != null ? Arrays.hashCode(follow) : 0);
+  result=31 * result + (track != null ? Arrays.hashCode(track) : 0);
+  return result;
+}

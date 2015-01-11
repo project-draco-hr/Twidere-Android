@@ -1,4 +1,0 @@
-String source
-boolean strict
-boolean is_escaped
-boolean re_escape

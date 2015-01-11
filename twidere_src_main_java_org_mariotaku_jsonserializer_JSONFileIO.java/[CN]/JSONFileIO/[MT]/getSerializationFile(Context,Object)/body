@@ -4,7 +4,7 @@
   if (!cache_dir.exists()) {
     cache_dir.mkdirs();
   }
-  final String filename=Utils.encodeQueryParams(ArrayUtils.toString(args,'.',false));
+  final String filename=Utils.encodeQueryParams(TwidereArrayUtils.toString(args,'.',false));
   final File cache_file=new File(cache_dir,filename + ".json");
   return cache_file;
 }

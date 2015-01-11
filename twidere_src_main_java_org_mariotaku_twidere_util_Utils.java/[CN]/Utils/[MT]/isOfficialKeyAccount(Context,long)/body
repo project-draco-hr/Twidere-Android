@@ -4,7 +4,7 @@
   final String selection=Expression.equals(Accounts.ACCOUNT_ID,accountId).getSQL();
   final Cursor c=context.getContentResolver().query(Accounts.CONTENT_URI,projection,selection,null,null);
   try {
-    if (c.moveToPosition(0))     return isOfficialConsumerKeySecret(context,c.getString(0),c.getString(1));
+    if (c.moveToPosition(0))     return TwitterContentUtils.isOfficialKey(context,c.getString(0),c.getString(1));
   }
   finally {
     c.close();

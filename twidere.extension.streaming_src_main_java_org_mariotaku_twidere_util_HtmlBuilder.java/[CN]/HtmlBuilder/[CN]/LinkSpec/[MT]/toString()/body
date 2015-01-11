@@ -1,3 +1,0 @@
-{
-  return "LinkSpec{link=" + link + ", display="+ display+ ", start="+ start+ ", end="+ end+ ", display_is_html="+ display_is_html+ "}";
-}

@@ -1,0 +1,4 @@
+{
+  if (intent == null)   return null;
+  return intent.getParcelableExtra(EXTRA_USER);
+}

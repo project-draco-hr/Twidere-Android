@@ -7,7 +7,7 @@
   final String consumerSecret=getNonEmptyString(mPreferences,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_3);
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(mApplication));
   cb.setHttpClientFactory(new TwidereHttpClientFactory(mApplication));
-  if (Utils.isOfficialConsumerKeySecret(mActivity,consumerKey,consumerSecret)) {
+  if (TwitterContentUtils.isOfficialKey(mActivity,consumerKey,consumerSecret)) {
     Utils.setMockOfficialUserAgent(mActivity,cb);
   }
  else {

@@ -1,0 +1,4 @@
+JSONObject addedMember
+JSONObject owner
+JSONObject target
+StreamListener[] listeners

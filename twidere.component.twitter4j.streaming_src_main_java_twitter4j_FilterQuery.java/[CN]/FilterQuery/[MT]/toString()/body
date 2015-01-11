@@ -1,0 +1,3 @@
+{
+  return "FilterQuery{" + "count=" + count + ", follow="+ Arrays.toString(follow)+ ", track="+ (track == null ? null : Arrays.asList(track))+ ", locations="+ (locations == null ? null : Arrays.asList(locations))+ '}';
+}

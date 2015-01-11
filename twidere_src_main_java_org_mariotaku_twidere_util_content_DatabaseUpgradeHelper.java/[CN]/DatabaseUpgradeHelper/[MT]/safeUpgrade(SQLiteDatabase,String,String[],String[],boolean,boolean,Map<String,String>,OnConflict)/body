@@ -15,7 +15,7 @@
     }
     if (!differenct)     return;
   }
- else   if (oldCols == null || ArrayUtils.contentMatch(newColNames,oldCols))   return;
+ else   if (oldCols == null || TwidereArrayUtils.contentMatch(newColNames,oldCols))   return;
   if (dropDirectly) {
     db.beginTransaction();
     db.execSQL(dropTable(true,table).getSQL());

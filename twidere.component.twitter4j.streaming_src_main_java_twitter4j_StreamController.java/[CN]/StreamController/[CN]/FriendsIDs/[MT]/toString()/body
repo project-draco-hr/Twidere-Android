@@ -1,0 +1,3 @@
+{
+  return "FriendsIDs{" + "ids=" + ids + ", previousCursor="+ previousCursor+ ", nextCursor="+ nextCursor+ ", user="+ user+ '}';
+}

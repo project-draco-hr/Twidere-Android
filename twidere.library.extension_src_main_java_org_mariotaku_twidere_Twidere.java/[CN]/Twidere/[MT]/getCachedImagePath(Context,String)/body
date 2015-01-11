@@ -1,0 +1,17 @@
+{
+  if (context == null || url == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  final Uri.Builder builder=TwidereDataStore.CachedImages.CONTENT_URI.buildUpon();
+  builder.appendQueryParameter(QUERY_PARAM_URL,url);
+  final Cursor cur=resolver.query(builder.build(),TwidereDataStore.CachedImages.MATRIX_COLUMNS,null,null,null);
+  if (cur == null)   return null;
+  try {
+    if (cur.getCount() == 0)     return null;
+    final int path_idx=cur.getColumnIndex(TwidereDataStore.CachedImages.PATH);
+    cur.moveToFirst();
+    return cur.getString(path_idx);
+  }
+  finally {
+    cur.close();
+  }
+}

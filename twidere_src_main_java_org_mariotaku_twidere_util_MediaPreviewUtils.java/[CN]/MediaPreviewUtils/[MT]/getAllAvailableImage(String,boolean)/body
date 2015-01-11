@@ -1,8 +1,0 @@
-{
-  try {
-    return getAllAvailableImage(link,fullImage,null);
-  }
- catch (  final IOException e) {
-    throw new AssertionError("This should never happen");
-  }
-}

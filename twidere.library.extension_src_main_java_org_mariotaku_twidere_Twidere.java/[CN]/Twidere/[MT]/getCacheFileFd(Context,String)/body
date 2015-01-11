@@ -1,0 +1,12 @@
+{
+  if (context == null || name == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  final Uri.Builder builder=TwidereDataStore.CacheFiles.CONTENT_URI.buildUpon();
+  builder.appendQueryParameter(QUERY_PARAM_NAME,name);
+  try {
+    return resolver.openFileDescriptor(builder.build(),"r");
+  }
+ catch (  final Exception e) {
+    return null;
+  }
+}

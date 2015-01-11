@@ -1,0 +1,6 @@
+ContentResolver resolver
+Uri uri
+String inColumn
+Collection<T> colValues
+String extraWhere
+boolean valuesIsString

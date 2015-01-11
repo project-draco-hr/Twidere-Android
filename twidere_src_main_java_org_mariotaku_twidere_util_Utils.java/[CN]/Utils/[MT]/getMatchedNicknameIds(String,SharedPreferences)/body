@@ -11,5 +11,5 @@
       list.add(key);
     }
   }
-  return ArrayUtils.fromList(list);
+  return TwidereArrayUtils.fromList(list);
 }

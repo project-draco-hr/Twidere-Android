@@ -1,3 +1,0 @@
-{
-  throw new AssertionError("You are trying to create an instance for this utility class!");
-}

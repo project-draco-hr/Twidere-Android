@@ -1,6 +1,6 @@
 {
   final DraftViewHolder holder=(DraftViewHolder)view.getTag();
-  final long[] accountIds=ArrayUtils.parseLongArray(cursor.getString(mIndices.account_ids),',');
+  final long[] accountIds=TwidereArrayUtils.parseLongArray(cursor.getString(mIndices.account_ids),',');
   final String text=cursor.getString(mIndices.text);
   final ParcelableMediaUpdate[] media=ParcelableMediaUpdate.fromJSONString(cursor.getString(mIndices.media));
   final long timestamp=cursor.getLong(mIndices.timestamp);

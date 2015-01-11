@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((UserStreamListener)listener).onUserListCreation(asUser(source),asUserList(target));
+  }
+}

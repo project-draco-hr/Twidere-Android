@@ -1,0 +1,5 @@
+{
+  for (  final StreamListener listener : listeners) {
+    ((SiteStreamsListener)listener).onFavorite(forUser.get(),asUser(source),asUser(target),asStatus(targetObject));
+  }
+}

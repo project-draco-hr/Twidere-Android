@@ -1,0 +1,4 @@
+{
+  statusListeners.add(listener);
+  userStreamListeners.add(listener);
+}

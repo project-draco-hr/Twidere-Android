@@ -1,0 +1,8 @@
+{
+  streamAlive=false;
+  is.close();
+  br.close();
+  if (response != null) {
+    response.disconnect();
+  }
+}

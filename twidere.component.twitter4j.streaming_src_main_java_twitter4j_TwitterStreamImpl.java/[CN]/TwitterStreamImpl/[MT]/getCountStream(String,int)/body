@@ -1,0 +1,9 @@
+{
+  ensureAuthorizationEnabled();
+  try {
+    return new StatusStreamImpl(getDispatcher(),http.post(conf.getStreamBaseURL() + relativeUrl,conf.getStreamBaseURL() + relativeUrl,new HttpParameter[]{new HttpParameter("count",String.valueOf(count)),STALL_WARNINGS},auth),conf);
+  }
+ catch (  final IOException e) {
+    throw new TwitterException(e);
+  }
+}
