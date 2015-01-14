@@ -49,7 +49,7 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
     rowId=mDatabaseWrapper.insert(table,null,values);
   }
   onDatabaseUpdated(tableId,uri);
-  onNewItemsInserted(uri,tableId,values);
+  onNewItemsInserted(uri,tableId,values,rowId);
   return Uri.withAppendedPath(uri,String.valueOf(rowId));
 }
  catch (final SQLException e) {

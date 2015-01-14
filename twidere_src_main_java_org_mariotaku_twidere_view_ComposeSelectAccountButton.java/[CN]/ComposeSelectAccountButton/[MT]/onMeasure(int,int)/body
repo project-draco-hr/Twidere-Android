@@ -9,6 +9,6 @@
     super.onMeasure(widthMeasureSpec,heightMeasureSpec);
   }
  else {
-    setMeasuredDimension(resolveSize(maxWidth,widthMeasureSpec),heightMeasureSpec);
+    setMeasuredDimension(maxWidth,heightMeasureSpec);
   }
 }

@@ -1,17 +1,4 @@
 {
-  final int height=MeasureSpec.getSize(heightSpec), width;
-  final int itemCount=getItemCount();
-  if (itemCount > 1) {
-    width=Math.round(height * 1.5f);
-  }
- else   if (itemCount > 0 && state.getItemCount() > 0) {
-    final View firstChild=recycler.getViewForPosition(0);
-    width=height + firstChild.getPaddingLeft() + firstChild.getPaddingRight();
-  }
- else {
-    width=height;
-  }
-  mWidth=width;
-  mHeight=height;
-  super.onMeasure(recycler,state,MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),heightSpec);
+  final int height=MeasureSpec.getSize(heightSpec), width=Math.round(height * 1.25f);
+  setMeasuredDimension(width,height);
 }

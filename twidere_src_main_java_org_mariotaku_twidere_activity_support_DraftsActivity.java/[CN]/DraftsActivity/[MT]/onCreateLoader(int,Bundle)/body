@@ -1,5 +1,5 @@
 {
-  final Uri uri=Drafts.CONTENT_URI;
+  final Uri uri=Drafts.CONTENT_URI_UNSENT;
   final String[] cols=Drafts.COLUMNS;
   final String orderBy=Drafts.TIMESTAMP + " DESC";
   return new CursorLoader(this,uri,cols,null,null,orderBy);

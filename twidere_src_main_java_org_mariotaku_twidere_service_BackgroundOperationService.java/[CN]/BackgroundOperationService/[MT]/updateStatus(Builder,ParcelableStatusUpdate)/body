@@ -13,6 +13,9 @@
   final List<SingleResponse<ParcelableStatus>> results=new ArrayList<>();
   if (statusUpdate.accounts.length == 0)   return Collections.emptyList();
   try {
+    if (true) {
+      throw new UpdateStatusException("Test");
+    }
     if (mUseUploader && mUploader == null)     throw new UploaderNotFoundException(this);
     if (mUseShortener && mShortener == null)     throw new ShortenerNotFoundException(this);
     final boolean hasMedia=statusUpdate.media != null && statusUpdate.media.length > 0;

@@ -7,4 +7,7 @@
  else   if (INTENT_ACTION_SEND_DIRECT_MESSAGE.equals(action)) {
     handleSendDirectMessageIntent(intent);
   }
+ else   if (INTENT_ACTION_DISCARD_DRAFT.equals(action)) {
+    handleDiscardDraftIntent(intent);
+  }
 }

@@ -2,8 +2,26 @@
   super(context,attrs,defStyle);
   mColorLabelHelper=new Helper(this,context,attrs,defStyle);
   mColorLabelHelper.setIgnorePaddings(true);
-  mAccountIconsAdapter=new AccountIconsStackAdapter(context);
-  final StackView stackView=new InternalStackView(context);
-  stackView.setAdapter(mAccountIconsAdapter);
-  addView(stackView);
+  mAccountIconsAdapter=new AccountIconsAdapter(context);
+  recyclerView=new InternalRecyclerView(context);
+  final LinearLayoutManager linearLayoutManager=new MyLinearLayoutManager(context);
+  linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+  recyclerView.setLayoutManager(linearLayoutManager);
+  recyclerView.setAdapter(mAccountIconsAdapter);
+  recyclerView.addItemDecoration(new ItemDecoration(){
+    @Override public void getItemOffsets(    Rect outRect,    View view,    RecyclerView parent,    State state){
+      final int pos=parent.getChildPosition(view);
+      if (pos == 0) {
+        outRect.left=0;
+      }
+ else {
+        final int count=state.getItemCount();
+        outRect.left=-(parent.getHeight() - (parent.getWidth() - parent.getHeight()) / (count - 1));
+      }
+    }
+  }
+);
+  ViewCompat.setOverScrollMode(recyclerView,ViewCompat.OVER_SCROLL_NEVER);
+  addView(recyclerView);
+  mAccountIconsAdapter.setSelectedAccounts(ParcelableAccount.getAccounts(context,false,false));
 }

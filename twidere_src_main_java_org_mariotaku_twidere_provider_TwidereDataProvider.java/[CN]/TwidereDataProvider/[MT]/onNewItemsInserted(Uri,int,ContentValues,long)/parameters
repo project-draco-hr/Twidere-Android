@@ -1,0 +1,4 @@
+Uri uri
+int tableId
+ContentValues values
+long newId

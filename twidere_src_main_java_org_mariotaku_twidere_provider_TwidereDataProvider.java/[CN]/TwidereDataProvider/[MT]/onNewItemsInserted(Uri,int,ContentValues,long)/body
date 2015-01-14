@@ -1,0 +1,3 @@
+{
+  onNewItemsInserted(uri,tableId,new ContentValues[]{values},new long[]{newId});
+}

@@ -1,0 +1,3 @@
+{
+  return ArrayUtils.toPrimitive(mSendingDraftIds.toArray(new Long[mSendingDraftIds.size()]));
+}
