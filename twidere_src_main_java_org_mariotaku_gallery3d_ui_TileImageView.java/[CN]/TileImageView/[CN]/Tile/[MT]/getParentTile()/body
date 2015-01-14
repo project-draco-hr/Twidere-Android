@@ -1,7 +1,0 @@
-{
-  if (mTileLevel + 1 == mLevelCount)   return null;
-  final int size=TILE_SIZE << mTileLevel + 1;
-  final int x=size * (mX / size);
-  final int y=size * (mY / size);
-  return getTile(x,y,mTileLevel + 1);
-}

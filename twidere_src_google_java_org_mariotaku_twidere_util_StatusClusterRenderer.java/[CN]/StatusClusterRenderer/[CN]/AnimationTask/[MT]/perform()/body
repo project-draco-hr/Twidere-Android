@@ -1,0 +1,7 @@
+{
+  ValueAnimator valueAnimator=ValueAnimator.ofFloat(0,1);
+  valueAnimator.setInterpolator(ANIMATION_INTERP);
+  valueAnimator.addUpdateListener(this);
+  valueAnimator.addListener(this);
+  valueAnimator.start();
+}

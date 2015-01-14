@@ -1,3 +1,6 @@
 {
-  setLinkTextColor(ThemeUtils.getOptimalLinkColor(color.getDefaultColor(),getCurrentTextColor()));
+  final int linkTextColor=ThemeUtils.getOptimalLinkColor(color.getDefaultColor(),getCurrentTextColor());
+  final int red=Color.red(linkTextColor), green=Color.green(linkTextColor), blue=Color.blue(linkTextColor);
+  setLinkTextColor(linkTextColor);
+  setHighlightColor(Color.argb(0x66,red,green,blue));
 }

@@ -1,3 +1,0 @@
-{
-  return mStartTime != NO_ANIMATION;
-}

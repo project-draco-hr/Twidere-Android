@@ -21,10 +21,11 @@
   url=indices.url != -1 ? cursor.getString(indices.url) : null;
   url_expanded=indices.url_expanded != -1 ? cursor.getString(indices.url_expanded) : null;
   profile_banner_url=indices.profile_banner_url != -1 ? cursor.getString(indices.profile_banner_url) : null;
-  is_cache=true;
   description_unescaped=HtmlEscapeHelper.toPlainText(description_html);
   is_following=indices.is_following != -1 && cursor.getInt(indices.is_following) == 1;
   background_color=indices.background_color != -1 ? cursor.getInt(indices.background_color) : 0;
   link_color=indices.link_color != -1 ? cursor.getInt(indices.link_color) : 0;
   text_color=indices.text_color != -1 ? cursor.getInt(indices.text_color) : 0;
+  is_cache=true;
+  is_basic=indices.description_plain == -1 || indices.url == -1 || indices.location == -1;
 }

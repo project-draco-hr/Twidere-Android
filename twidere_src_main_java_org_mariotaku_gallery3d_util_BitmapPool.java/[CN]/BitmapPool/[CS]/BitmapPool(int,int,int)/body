@@ -1,7 +1,0 @@
-{
-  mWidth=width;
-  mHeight=height;
-  mPoolLimit=poolLimit;
-  mPool=new ArrayList<Bitmap>(poolLimit);
-  mOneSize=true;
-}

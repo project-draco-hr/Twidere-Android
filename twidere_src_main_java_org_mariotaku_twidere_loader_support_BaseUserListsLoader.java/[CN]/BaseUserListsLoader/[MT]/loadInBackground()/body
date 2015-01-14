@@ -9,7 +9,7 @@
   }
   if (list_loaded != null) {
     final int list_size=list_loaded.size();
-    if (list_loaded instanceof PagableResponseList) {
+    if (list_loaded instanceof PageableResponseList) {
       mNextCursor=((CursorSupport)list_loaded).getNextCursor();
       mPrevCursor=((CursorSupport)list_loaded).getPreviousCursor();
       for (int i=0; i < list_size; i++) {

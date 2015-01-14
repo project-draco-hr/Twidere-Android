@@ -1,4 +1,0 @@
-{
-  mGestureRecognizer.onTouchEvent(event);
-  return true;
-}

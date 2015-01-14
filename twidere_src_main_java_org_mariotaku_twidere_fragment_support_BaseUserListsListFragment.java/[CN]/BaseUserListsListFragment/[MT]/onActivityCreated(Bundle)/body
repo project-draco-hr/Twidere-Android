@@ -11,8 +11,6 @@
   }
   mAdapter=new ParcelableUserListsListAdapter(getActivity());
   mListView=getListView();
-  mListView.setDivider(null);
-  mListView.setSelector(android.R.color.transparent);
   mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
   setListAdapter(mAdapter);
   getLoaderManager().initLoader(0,getArguments(),this);

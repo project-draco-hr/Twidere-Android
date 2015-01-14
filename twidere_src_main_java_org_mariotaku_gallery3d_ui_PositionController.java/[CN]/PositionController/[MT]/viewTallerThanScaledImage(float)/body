@@ -1,3 +1,0 @@
-{
-  return mViewH >= heightOf(mBox,scale);
-}

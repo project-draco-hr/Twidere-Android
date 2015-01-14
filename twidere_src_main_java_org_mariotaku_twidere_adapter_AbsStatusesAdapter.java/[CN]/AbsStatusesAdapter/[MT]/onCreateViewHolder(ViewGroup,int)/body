@@ -2,9 +2,15 @@
 switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
-      final View view=mInflater.inflate(mCardLayoutResource,parent,false);
-      final CardView cardView=(CardView)view.findViewById(R.id.card);
-      if (cardView != null) {
+      final View view;
+      if (mCompactCards) {
+        view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
+        final View itemContent=view.findViewById(R.id.item_content);
+        itemContent.setBackgroundColor(mCardBackgroundColor);
+      }
+ else {
+        view=mInflater.inflate(R.layout.card_item_status,parent,false);
+        final CardView cardView=(CardView)view.findViewById(R.id.card);
         cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
       final StatusViewHolder holder=new StatusViewHolder(this,view);

@@ -1,5 +1,0 @@
-{
-  mGestureDetector.onTouchEvent(event);
-  mScaleDetector.onTouchEvent(event);
-  mDownUpDetector.onTouchEvent(event);
-}

@@ -28,9 +28,7 @@ case REQUEST_EDIT_IMAGE:
 {
 if (resultCode == Activity.RESULT_OK) {
   final Uri uri=intent.getData();
-  if (uri != null) {
-  }
- else {
+  if (uri == null) {
     break;
   }
   setMenu();

@@ -1,0 +1,6 @@
+{
+synchronized (this) {
+    mNextClusters=new RenderTask(clusters);
+  }
+  sendEmptyMessage(RUN_TASK);
+}

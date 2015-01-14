@@ -1,3 +1,0 @@
-{
-  displayStatus(adapter.getContext(),adapter.getImageLoader(),adapter.getImageLoadingHandler(),adapter.getTwitterWrapper(),adapter.getProfileImageStyle(),adapter.getMediaPreviewStyle(),status,null);
-}

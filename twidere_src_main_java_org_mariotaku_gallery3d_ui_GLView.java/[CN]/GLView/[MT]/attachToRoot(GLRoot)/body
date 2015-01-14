@@ -1,4 +1,0 @@
-{
-  GalleryUtils.assertTrue(mParent == null && mRoot == null);
-  onAttachToRoot(root);
-}

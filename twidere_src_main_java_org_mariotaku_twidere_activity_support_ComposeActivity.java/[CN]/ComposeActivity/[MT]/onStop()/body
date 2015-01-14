@@ -1,7 +1,5 @@
 {
-  if (mAccountSelectorPopup != null && mAccountSelectorPopup.isShowing()) {
-    mAccountSelectorPopup.dismiss();
-  }
+  saveAccountSelection();
   mLocationManager.removeUpdates(this);
   super.onStop();
 }

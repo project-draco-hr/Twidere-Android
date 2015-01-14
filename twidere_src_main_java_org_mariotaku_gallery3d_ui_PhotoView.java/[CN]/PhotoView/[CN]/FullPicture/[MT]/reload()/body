@@ -1,5 +1,0 @@
-{
-  mTileView.notifyModelInvalidated();
-  setScreenNail(mModel.getScreenNail());
-  updateSize();
-}

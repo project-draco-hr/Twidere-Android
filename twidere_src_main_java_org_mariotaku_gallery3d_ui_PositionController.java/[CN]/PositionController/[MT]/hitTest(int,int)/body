@@ -1,5 +1,0 @@
-{
-  final Rect r=mRect;
-  if (r.contains(x,y))   return 0;
-  return Integer.MAX_VALUE;
-}

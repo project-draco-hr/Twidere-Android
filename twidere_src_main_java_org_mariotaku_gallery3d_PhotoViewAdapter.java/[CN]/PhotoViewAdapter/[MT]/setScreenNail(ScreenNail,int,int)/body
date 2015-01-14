@@ -1,7 +1,0 @@
-{
-  mScreenNail=GalleryUtils.checkNotNull(screenNail);
-  mImageWidth=width;
-  mImageHeight=height;
-  mRegionDecoder=null;
-  mLevelCount=0;
-}

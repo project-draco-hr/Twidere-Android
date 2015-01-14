@@ -1,0 +1,13 @@
+{
+  if (mAccounts == null)   return new long[0];
+  final long[] temp=new long[mAccounts.length];
+  int selectedCount=0;
+  for (  ParcelableAccount account : mAccounts) {
+    if (mSelection.get(account.account_id,false)) {
+      temp[selectedCount++]=account.account_id;
+    }
+  }
+  final long[] result=new long[selectedCount];
+  System.arraycopy(temp,0,result,0,result.length);
+  return result;
+}

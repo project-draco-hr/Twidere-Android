@@ -1,3 +1,0 @@
-{
-  return mListener.onSingleTapUp(e.getX(),e.getY());
-}

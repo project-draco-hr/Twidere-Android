@@ -1,0 +1,3 @@
+{
+  return new LatLng(status.location.latitude,status.location.longitude);
+}

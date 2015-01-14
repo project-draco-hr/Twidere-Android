@@ -1,7 +1,0 @@
-{
-  Log.i(TAG,"onSurfaceChanged: " + width + "x"+ height+ ", gl10: "+ gl1.toString());
-  Process.setThreadPriority(Process.THREAD_PRIORITY_DISPLAY);
-  final GL11 gl=(GL11)gl1;
-  GalleryUtils.assertTrue(mGL == gl);
-  mCanvas.setSize(width,height);
-}

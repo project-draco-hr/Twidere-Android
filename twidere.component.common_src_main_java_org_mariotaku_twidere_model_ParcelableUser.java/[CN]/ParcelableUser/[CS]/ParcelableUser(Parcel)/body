@@ -21,10 +21,11 @@
   statuses_count=in.readInt();
   favorites_count=in.readInt();
   listed_count=in.readInt();
-  is_cache=in.readInt() == 1;
   url_expanded=in.readString();
   is_following=in.readInt() == 1;
   background_color=in.readInt();
   link_color=in.readInt();
   text_color=in.readInt();
+  is_cache=in.readInt() == 1;
+  is_basic=in.readInt() == 1;
 }

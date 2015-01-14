@@ -20,22 +20,18 @@
   mMenuBar.setOnMenuItemClickListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
-  final AccountSelectorAdapter accountAdapter=new AccountSelectorAdapter(mMenuBar.getPopupContext());
-  accountAdapter.addAll(ParcelableAccount.getAccountsList(this,false));
-  mAccountSelectorPopup=IListPopupWindow.InstanceHelper.getInstance(mMenuBar.getPopupContext());
-  mAccountSelectorPopup.setInputMethodMode(IListPopupWindow.INPUT_METHOD_NOT_NEEDED);
-  mAccountSelectorPopup.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-  mAccountSelectorPopup.setModal(true);
-  mAccountSelectorPopup.setContentWidth(getResources().getDimensionPixelSize(R.dimen.account_selector_popup_width));
-  mAccountSelectorPopup.setAdapter(accountAdapter);
-  mAccountSelectorPopup.setAnchorView(mSelectAccountAccounts);
-  mSelectAccountAccounts.setOnClickListener(this);
-  mSelectAccountAccounts.setOnLongClickListener(this);
+  final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+  linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  mAccountSelector.setLayoutManager(linearLayoutManager);
+  mAccountSelector.addItemDecoration(new SpacingItemDecoration(this));
+  mAccountsAdapter=new AccountIconsAdapter(this);
+  mAccountSelector.setAdapter(mAccountsAdapter);
+  mAccountsAdapter.setAccounts(ParcelableAccount.getAccounts(this,false,false));
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();
   if (savedInstanceState != null) {
-    mSendAccountIds=savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS);
+    mAccountsAdapter.setSelectedAccounts(savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS));
     mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
     final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
     if (mediaList != null) {
@@ -58,10 +54,11 @@
     if (!handleIntent(intent)) {
       handleDefaultIntent(intent);
     }
-    if (mSendAccountIds == null || mSendAccountIds.length == 0) {
+    final long[] accountIds=mAccountsAdapter.getSelectedAccounts();
+    if (accountIds.length == 0) {
       final long[] idsInPrefs=TwidereArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
       final long[] intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
-      mSendAccountIds=intersection.length > 0 ? intersection : defaultAccountIds;
+      mAccountsAdapter.setSelectedAccounts(intersection.length > 0 ? intersection : defaultAccountIds);
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());
   }
@@ -80,6 +77,5 @@
     addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
   }
   setMenu();
-  updateAccountSelection();
   updateMediaPreview();
 }

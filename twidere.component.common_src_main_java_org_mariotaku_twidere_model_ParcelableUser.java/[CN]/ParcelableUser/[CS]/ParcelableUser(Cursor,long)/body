@@ -1,3 +1,0 @@
-{
-  this(cursor,new CachedIndices(cursor),account_id);
-}

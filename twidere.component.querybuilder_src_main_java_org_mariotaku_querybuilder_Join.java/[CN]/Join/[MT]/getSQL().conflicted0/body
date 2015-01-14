@@ -1,0 +1,16 @@
+{
+  if (operation == null)   throw new IllegalArgumentException("operation can't be null!");
+  if (source == null)   throw new IllegalArgumentException("source can't be null!");
+  final StringBuilder builder=new StringBuilder();
+  if (natural) {
+    builder.append("NATURAL ");
+  }
+  builder.append(operation.getSQL());
+  builder.append(" JOIN ");
+  builder.append(source.getSQL());
+  if (on != null) {
+    builder.append(" ON ");
+    builder.append(on.getSQL());
+  }
+  return builder.toString();
+}

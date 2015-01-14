@@ -1,9 +1,0 @@
-{
-  if (mBox.mAnimationStartTime == NO_ANIMATION)   return true;
-switch (mBox.mAnimationKind) {
-case ANIM_KIND_SCROLL:
-case ANIM_KIND_FLING:
-    return true;
-}
-return false;
-}

@@ -1,4 +1,0 @@
-{
-  state.getItemCount();
-  super.onLayoutChildren(recycler,state);
-}

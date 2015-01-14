@@ -1,5 +1,5 @@
 {
-  if (!TextUtils.equals(getPersistedString(mValue),value)) {
+  if (!TextUtils.equals(getPersistedString(null),value)) {
     persistString(value);
     notifyChanged();
   }

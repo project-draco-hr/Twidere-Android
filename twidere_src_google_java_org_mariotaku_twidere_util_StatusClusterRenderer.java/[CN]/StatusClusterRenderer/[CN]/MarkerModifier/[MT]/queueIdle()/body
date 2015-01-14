@@ -1,0 +1,4 @@
+{
+  sendEmptyMessage(BLANK);
+  return true;
+}

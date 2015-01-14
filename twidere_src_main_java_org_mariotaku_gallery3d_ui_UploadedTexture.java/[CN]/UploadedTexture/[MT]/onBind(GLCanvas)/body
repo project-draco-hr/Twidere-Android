@@ -1,4 +1,0 @@
-{
-  updateContent(canvas);
-  return isContentValid();
-}

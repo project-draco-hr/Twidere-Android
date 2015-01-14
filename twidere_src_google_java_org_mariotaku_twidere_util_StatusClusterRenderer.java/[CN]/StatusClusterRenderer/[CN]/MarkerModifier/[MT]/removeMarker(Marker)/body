@@ -1,0 +1,7 @@
+{
+  Cluster<ClusterStatus> cluster=mMarkerToCluster.get(m);
+  mClusterToMarker.remove(cluster);
+  mMarkerCache.remove(m);
+  mMarkerToCluster.remove(m);
+  mClusterManager.getMarkerManager().remove(m);
+}

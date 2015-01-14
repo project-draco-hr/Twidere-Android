@@ -1,5 +1,0 @@
-{
-  mPlatform.startSnapback();
-  mBox.startSnapback();
-  redraw();
-}

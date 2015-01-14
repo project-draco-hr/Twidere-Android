@@ -1,0 +1,7 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final Context context=getActivity();
+  final GoogleMap googleMap=getMap();
+  mClusterManager=new ClusterManager<>(context,googleMap);
+  mClusterManager.setRenderer(new StatusClusterRenderer(context,googleMap,mClusterManager));
+}

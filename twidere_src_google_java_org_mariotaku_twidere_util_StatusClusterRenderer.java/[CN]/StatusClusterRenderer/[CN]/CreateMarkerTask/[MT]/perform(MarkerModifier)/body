@@ -1,0 +1,41 @@
+{
+  if (!shouldRenderAsCluster(cluster)) {
+    for (    ClusterStatus item : cluster.getItems()) {
+      Marker marker=mMarkerCache.get(item);
+      MarkerWithPosition markerWithPosition;
+      if (marker == null) {
+        MarkerOptions markerOptions=new MarkerOptions();
+        if (animateFrom != null) {
+          markerOptions.position(animateFrom);
+        }
+ else {
+          markerOptions.position(item.getPosition());
+        }
+        onBeforeClusterItemRendered(item,markerOptions);
+        marker=mClusterManager.getMarkerCollection().addMarker(markerOptions);
+        markerWithPosition=new MarkerWithPosition(marker);
+        mMarkerCache.put(item,marker);
+        if (animateFrom != null) {
+          markerModifier.animate(markerWithPosition,animateFrom,item.getPosition());
+        }
+      }
+ else {
+        markerWithPosition=new MarkerWithPosition(marker);
+      }
+      onClusterItemRendered(item,marker);
+      newMarkers.add(markerWithPosition);
+    }
+    return;
+  }
+  MarkerOptions markerOptions=new MarkerOptions().position(animateFrom == null ? cluster.getPosition() : animateFrom);
+  onBeforeClusterRendered(cluster,markerOptions);
+  Marker marker=mClusterManager.getClusterMarkerCollection().addMarker(markerOptions);
+  mMarkerToCluster.put(marker,cluster);
+  mClusterToMarker.put(cluster,marker);
+  MarkerWithPosition markerWithPosition=new MarkerWithPosition(marker);
+  if (animateFrom != null) {
+    markerModifier.animate(markerWithPosition,animateFrom,cluster.getPosition());
+  }
+  onClusterRendered(cluster,marker);
+  newMarkers.add(markerWithPosition);
+}

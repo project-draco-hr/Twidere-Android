@@ -1,0 +1,11 @@
+{
+  lock.lock();
+  sendEmptyMessage(BLANK);
+  if (priority) {
+    mOnScreenCreateMarkerTasks.add(c);
+  }
+ else {
+    mCreateMarkerTasks.add(c);
+  }
+  lock.unlock();
+}

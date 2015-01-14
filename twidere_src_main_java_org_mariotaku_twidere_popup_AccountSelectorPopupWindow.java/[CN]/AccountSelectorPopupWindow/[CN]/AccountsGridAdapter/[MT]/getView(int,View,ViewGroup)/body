@@ -1,0 +1,7 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final ParcelableAccount account=getItem(position);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  mImageLoader.displayProfileImage(icon,account.profile_image_url);
+  return view;
+}

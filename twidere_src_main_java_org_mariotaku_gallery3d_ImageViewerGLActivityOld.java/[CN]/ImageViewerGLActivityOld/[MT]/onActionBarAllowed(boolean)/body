@@ -1,4 +1,0 @@
-{
-  mActionBarAllowed=allowed;
-  mHandler.sendEmptyMessage(MSG_UPDATE_ACTION_BAR);
-}

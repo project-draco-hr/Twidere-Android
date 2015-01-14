@@ -1,6 +1,0 @@
-{
-  final DisplayMetrics metrics=new DisplayMetrics();
-  final WindowManager wm=(WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
-  wm.getDefaultDisplay().getMetrics(metrics);
-  return metrics.heightPixels > 2048 || metrics.widthPixels > 2048;
-}

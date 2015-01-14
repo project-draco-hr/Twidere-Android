@@ -7,7 +7,10 @@
   setContentView(R.layout.activity_sign_in);
   setProgressBarIndeterminateVisibility(false);
   final long[] account_ids=getActivatedAccountIds(this);
-  getActionBar().setDisplayHomeAsUpEnabled(account_ids.length > 0);
+  final ActionBar actionBar=getActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(account_ids.length > 0);
+  }
   if (savedInstanceState != null) {
     mAPIUrlFormat=savedInstanceState.getString(Accounts.API_URL_FORMAT);
     mAuthType=savedInstanceState.getInt(Accounts.AUTH_TYPE);
@@ -24,5 +27,8 @@
   mEditUsername.addTextChangedListener(this);
   mEditPassword.setText(mPassword);
   mEditPassword.addTextChangedListener(this);
+  final Resources resources=getResources();
+  final ColorStateList color=ColorStateList.valueOf(resources.getColor(R.color.material_light_green));
+  ViewAccessor.setBackgroundTintList(mSignInButton,color);
   setSignInButton();
 }

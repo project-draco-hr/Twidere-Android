@@ -1,0 +1,31 @@
+{
+  if (msg.what == TASK_FINISHED) {
+    mViewModificationInProgress=false;
+    if (mNextClusters != null) {
+      sendEmptyMessage(RUN_TASK);
+    }
+    return;
+  }
+  removeMessages(RUN_TASK);
+  if (mViewModificationInProgress) {
+    return;
+  }
+  if (mNextClusters == null) {
+    return;
+  }
+  RenderTask renderTask;
+synchronized (this) {
+    renderTask=mNextClusters;
+    mNextClusters=null;
+    mViewModificationInProgress=true;
+  }
+  renderTask.setCallback(new Runnable(){
+    @Override public void run(){
+      sendEmptyMessage(TASK_FINISHED);
+    }
+  }
+);
+  renderTask.setProjection(mMap.getProjection());
+  renderTask.setMapZoom(mMap.getCameraPosition().zoom);
+  new Thread(renderTask).start();
+}

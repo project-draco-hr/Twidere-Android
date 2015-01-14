@@ -1,3 +1,0 @@
-{
-  getRange(out,cX,cY,level,1f / (1 << level + 1),rotation);
-}

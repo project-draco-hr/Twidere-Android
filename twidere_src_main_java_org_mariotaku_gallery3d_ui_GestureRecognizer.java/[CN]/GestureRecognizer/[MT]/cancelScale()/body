@@ -1,6 +1,0 @@
-{
-  final long now=SystemClock.uptimeMillis();
-  final MotionEvent cancelEvent=MotionEvent.obtain(now,now,MotionEvent.ACTION_CANCEL,0,0,0);
-  mScaleDetector.onTouchEvent(cancelEvent);
-  cancelEvent.recycle();
-}

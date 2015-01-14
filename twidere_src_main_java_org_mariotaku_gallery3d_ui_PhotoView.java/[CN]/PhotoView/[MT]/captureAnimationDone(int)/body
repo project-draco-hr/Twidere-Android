@@ -1,8 +1,0 @@
-{
-  mHolding&=~HOLD_CAPTURE_ANIMATION;
-  if (offset == 1) {
-    mListener.onActionBarAllowed(true);
-    mListener.onActionBarWanted();
-  }
-  snapback();
-}

@@ -4,7 +4,7 @@
   if (getCursor() > 0) {
     paging.setCursor(getCursor());
   }
-  final PagableResponseList<User> users=getCursoredUsers(twitter,paging);
+  final PageableResponseList<User> users=getCursoredUsers(twitter,paging);
   if (users == null)   return null;
   setCursorIds(users);
   return users;

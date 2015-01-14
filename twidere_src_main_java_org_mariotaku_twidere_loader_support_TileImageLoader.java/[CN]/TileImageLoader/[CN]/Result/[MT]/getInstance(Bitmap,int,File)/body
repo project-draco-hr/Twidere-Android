@@ -1,3 +1,3 @@
 {
-  return new Result(null,bitmap,orientation,file,null);
+  return new Result(false,bitmap,orientation,file,null);
 }

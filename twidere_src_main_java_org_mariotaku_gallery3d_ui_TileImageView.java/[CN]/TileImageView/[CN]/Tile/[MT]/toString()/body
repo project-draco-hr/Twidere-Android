@@ -1,3 +1,0 @@
-{
-  return String.format("tile(%s, %s, %s / %s)",mX / TILE_SIZE,mY / TILE_SIZE,mLevel,mLevelCount);
-}

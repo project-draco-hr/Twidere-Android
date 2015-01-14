@@ -1,4 +1,0 @@
-{
-  mModel=model;
-  mTileView.setModel(mModel);
-}

@@ -9,7 +9,7 @@ case R.id.item_content:
     }
 case R.id.item_menu:
 {
-    statusClickListener.onItemMenuClick(this,position);
+    statusClickListener.onItemMenuClick(this,v,position);
     break;
   }
 case R.id.profile_image:

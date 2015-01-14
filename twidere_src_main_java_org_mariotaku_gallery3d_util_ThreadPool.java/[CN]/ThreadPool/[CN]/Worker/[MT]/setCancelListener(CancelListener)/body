@@ -1,6 +1,0 @@
-{
-  mCancelListener=listener;
-  if (mIsCancelled && mCancelListener != null) {
-    mCancelListener.onCancel();
-  }
-}

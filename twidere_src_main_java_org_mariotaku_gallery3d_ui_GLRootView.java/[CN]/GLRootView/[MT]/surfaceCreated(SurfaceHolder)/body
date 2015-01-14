@@ -1,4 +1,0 @@
-{
-  unfreeze();
-  super.surfaceCreated(holder);
-}

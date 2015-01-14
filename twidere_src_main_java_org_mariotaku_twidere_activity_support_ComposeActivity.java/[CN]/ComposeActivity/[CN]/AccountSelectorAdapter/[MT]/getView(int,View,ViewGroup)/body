@@ -1,7 +1,0 @@
-{
-  final View view=super.getView(position,convertView,parent);
-  final ParcelableAccount account=getItem(position);
-  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
-  text1.setText(Utils.getAccountDisplayName(getContext(),account.account_id,isDisplayNameFirst()));
-  return view;
-}

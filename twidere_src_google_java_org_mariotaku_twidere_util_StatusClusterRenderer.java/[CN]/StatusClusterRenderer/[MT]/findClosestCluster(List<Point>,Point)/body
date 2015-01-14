@@ -1,0 +1,13 @@
+{
+  if (markers == null || markers.isEmpty())   return null;
+  double minDistSquared=MAX_DISTANCE_AT_ZOOM * MAX_DISTANCE_AT_ZOOM;
+  Point closest=null;
+  for (  Point candidate : markers) {
+    double dist=distanceSquared(candidate,point);
+    if (dist < minDistSquared) {
+      closest=candidate;
+      minDistSquared=dist;
+    }
+  }
+  return closest;
+}

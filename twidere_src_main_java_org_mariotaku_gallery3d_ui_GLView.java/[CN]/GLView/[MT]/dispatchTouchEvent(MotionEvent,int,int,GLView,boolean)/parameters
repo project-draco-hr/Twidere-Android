@@ -1,5 +1,0 @@
-MotionEvent event
-int x
-int y
-GLView component
-boolean checkBounds

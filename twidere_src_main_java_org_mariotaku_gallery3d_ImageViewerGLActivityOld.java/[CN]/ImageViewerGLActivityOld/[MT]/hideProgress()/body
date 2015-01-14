@@ -1,4 +1,0 @@
-{
-  mProgress.setVisibility(View.GONE);
-  mProgress.setProgress(0);
-}

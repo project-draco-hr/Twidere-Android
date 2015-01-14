@@ -1,0 +1,3 @@
+{
+  return cluster.getSize() > MIN_CLUSTER_SIZE;
+}

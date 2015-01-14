@@ -1,0 +1,12 @@
+{
+  int size=cluster.getSize();
+  if (size <= BUCKETS[0]) {
+    return size;
+  }
+  for (int i=0; i < BUCKETS.length - 1; i++) {
+    if (size < BUCKETS[i + 1]) {
+      return BUCKETS[i];
+    }
+  }
+  return BUCKETS[BUCKETS.length - 1];
+}

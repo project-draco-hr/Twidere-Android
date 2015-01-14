@@ -1,3 +1,0 @@
-{
-  return GalleryUtils.clamp(s,SCALE_MIN_EXTRA * mScaleMin,SCALE_MAX_EXTRA * mScaleMax);
-}

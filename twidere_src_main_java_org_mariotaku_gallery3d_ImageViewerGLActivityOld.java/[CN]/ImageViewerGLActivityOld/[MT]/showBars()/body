@@ -1,9 +1,0 @@
-{
-  if (mShowBars)   return;
-  mShowBars=true;
-  mActionBar.show();
-  mMenuBar.setVisibility(View.VISIBLE);
-  final TranslateAnimation anim=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,1,Animation.RELATIVE_TO_SELF,0);
-  anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
-  mMenuBar.startAnimation(anim);
-}

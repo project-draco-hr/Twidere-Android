@@ -1,3 +1,0 @@
-{
-  startAnimation(mPlatform.mDefaultX,0,mBox.mScaleMin,ANIM_KIND_ZOOM);
-}

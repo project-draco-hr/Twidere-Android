@@ -1,6 +1,0 @@
-{
-  super.recycle();
-  if (mBitmap != null) {
-    freeBitmap();
-  }
-}

@@ -1,7 +1,0 @@
-{
-synchronized (mUnboundTextures) {
-    if (!t.isLoaded())     return false;
-    mUnboundTextures.add(t.mId);
-    return true;
-  }
-}

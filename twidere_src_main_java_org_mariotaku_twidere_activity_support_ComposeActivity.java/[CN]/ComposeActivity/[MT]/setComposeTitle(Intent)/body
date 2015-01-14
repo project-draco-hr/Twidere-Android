@@ -9,7 +9,6 @@
     if (mInReplyToStatus == null)     return false;
     final String display_name=UserColorNameUtils.getDisplayName(this,mInReplyToStatus.user_id,mInReplyToStatus.user_name,mInReplyToStatus.user_screen_name);
     setTitle(getString(R.string.quote_user,display_name));
-    mSubtitleView.setVisibility(mInReplyToStatus.user_is_protected && mInReplyToStatus.account_id != mInReplyToStatus.user_id ? View.VISIBLE : View.GONE);
   }
  else   if (INTENT_ACTION_EDIT_DRAFT.equals(action)) {
     if (mDraftItem == null)     return false;

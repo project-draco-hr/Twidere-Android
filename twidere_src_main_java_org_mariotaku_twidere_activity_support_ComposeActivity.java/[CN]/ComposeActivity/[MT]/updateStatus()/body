@@ -24,12 +24,13 @@
     }
     mRecentLocation=location != null ? new ParcelableLocation(location) : null;
   }
+  final long[] accountIds=mAccountsAdapter.getSelectedAccounts();
   final boolean isQuote=INTENT_ACTION_QUOTE.equals(getIntent().getAction());
   final ParcelableLocation statusLocation=attach_location ? mRecentLocation : null;
   final boolean linkToQuotedTweet=mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET,true);
   final long inReplyToStatusId=!isQuote || linkToQuotedTweet ? mInReplyToStatusId : -1;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
-  mTwitterWrapper.updateStatusAsync(mSendAccountIds,text,statusLocation,getMedia(),inReplyToStatusId,isPossiblySensitive);
+  mTwitterWrapper.updateStatusAsync(accountIds,text,statusLocation,getMedia(),inReplyToStatusId,isPossiblySensitive);
   if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {
     mIsPossiblySensitive=false;
     mShouldSaveAccounts=true;

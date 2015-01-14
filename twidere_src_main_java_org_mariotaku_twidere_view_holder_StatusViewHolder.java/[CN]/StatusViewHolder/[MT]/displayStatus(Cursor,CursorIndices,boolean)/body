@@ -1,0 +1,102 @@
+{
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
+  final Context context=adapter.getContext();
+  final Resources resources=context.getResources();
+  final long reply_count=cursor.getLong(indices.reply_count);
+  final long retweet_count;
+  final long favorite_count;
+  final long account_id=cursor.getLong(indices.account_id);
+  final long timestamp=cursor.getLong(indices.status_timestamp);
+  final long user_id=cursor.getLong(indices.user_id);
+  final long status_id=cursor.getLong(indices.status_id);
+  final long retweet_id=cursor.getLong(indices.retweet_id);
+  final long my_retweet_id=cursor.getLong(indices.my_retweet_id);
+  final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);
+  final long in_reply_to_status_id=cursor.getLong(indices.in_reply_to_status_id);
+  final long in_reply_to_user_id=cursor.getLong(indices.in_reply_to_user_id);
+  final boolean user_is_protected=cursor.getInt(indices.is_protected) == 1;
+  final String user_name=cursor.getString(indices.user_name);
+  final String user_screen_name=cursor.getString(indices.user_screen_name);
+  final String user_profile_image_url=cursor.getString(indices.user_profile_image_url);
+  final String retweeted_by_name=cursor.getString(indices.retweeted_by_user_name);
+  final String in_reply_to_name=cursor.getString(indices.in_reply_to_user_name);
+  final ParcelableMedia[] media=ParcelableMedia.fromJSONString(cursor.getString(indices.media));
+  replyRetweetIcon.setColorFilter(replyRetweetView.getCurrentTextColor(),Mode.SRC_ATOP);
+  if (retweet_id > 0) {
+    replyRetweetView.setText(context.getString(R.string.name_retweeted,retweeted_by_name));
+    replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_retweet);
+    replyRetweetView.setVisibility(View.VISIBLE);
+    replyRetweetIcon.setVisibility(View.VISIBLE);
+  }
+ else   if (in_reply_to_status_id > 0 && in_reply_to_user_id > 0 && displayInReplyTo) {
+    replyRetweetView.setText(context.getString(R.string.in_reply_to_name,in_reply_to_name));
+    replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_reply);
+    replyRetweetView.setVisibility(View.VISIBLE);
+    replyRetweetIcon.setVisibility(View.VISIBLE);
+  }
+ else {
+    replyRetweetView.setText(null);
+    replyRetweetView.setVisibility(View.GONE);
+    replyRetweetIcon.setVisibility(View.GONE);
+  }
+  final int typeIconRes=getUserTypeIconRes(cursor.getInt(indices.is_verified) == 1,user_is_protected);
+  if (typeIconRes != 0) {
+    profileTypeView.setImageResource(typeIconRes);
+    profileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    profileTypeView.setImageDrawable(null);
+    profileTypeView.setVisibility(View.GONE);
+  }
+  nameView.setText(user_name);
+  screenNameView.setText("@" + user_screen_name);
+  timeView.setTime(timestamp);
+  final int userColor=UserColorNameUtils.getUserColor(context,user_id);
+  itemContent.drawStart(userColor);
+  profileImageView.setStyle(adapter.getProfileImageStyle());
+  loader.displayProfileImage(profileImageView,user_profile_image_url);
+  final String text_unescaped=cursor.getString(indices.text_unescaped);
+  mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
+  mediaPreviewContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
+  mediaPreviewContainer.displayMedia(media,loader,account_id,null,adapter.getImageLoadingHandler());
+  textView.setText(text_unescaped);
+  if (reply_count > 0) {
+    replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));
+  }
+ else {
+    replyCountView.setText(null);
+  }
+  if (twitter.isDestroyingStatus(account_id,my_retweet_id)) {
+    retweetCountView.setActivated(false);
+    retweet_count=Math.max(0,cursor.getLong(indices.retweet_count) - 1);
+  }
+ else {
+    final boolean creatingRetweet=twitter.isCreatingRetweet(account_id,status_id);
+    retweetCountView.setActivated(creatingRetweet || Utils.isMyRetweet(account_id,retweeted_by_id,my_retweet_id));
+    retweet_count=cursor.getLong(indices.retweet_count) + (creatingRetweet ? 1 : 0);
+  }
+  if (retweet_count > 0) {
+    retweetCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),retweet_count));
+  }
+ else {
+    retweetCountView.setText(null);
+  }
+  retweetCountView.setEnabled(!user_is_protected);
+  favoriteCountView.setActivated(cursor.getInt(indices.is_favorite) == 1);
+  if (twitter.isDestroyingFavorite(account_id,status_id)) {
+    favoriteCountView.setActivated(false);
+    favorite_count=Math.max(0,cursor.getLong(indices.favorite_count) - 1);
+  }
+ else {
+    final boolean creatingFavorite=twitter.isCreatingFavorite(account_id,status_id);
+    favoriteCountView.setActivated(creatingFavorite || cursor.getInt(indices.is_favorite) == 1);
+    favorite_count=cursor.getLong(indices.favorite_count) + (creatingFavorite ? 1 : 0);
+  }
+  if (favorite_count > 0) {
+    favoriteCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),favorite_count));
+  }
+ else {
+    favoriteCountView.setText(null);
+  }
+}

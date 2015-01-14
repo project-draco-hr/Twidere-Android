@@ -3,7 +3,7 @@
   mEditText.setText(draft.text);
   final int selection_end=mEditText.length();
   mEditText.setSelection(selection_end);
-  mSendAccountIds=draft.account_ids;
+  mAccountsAdapter.setSelectedAccounts(draft.account_ids);
   if (draft.media != null) {
     addMedia(Arrays.asList(draft.media));
   }

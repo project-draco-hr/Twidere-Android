@@ -1,3 +1,0 @@
-{
-  System.arraycopy(mTempMatrix,0,mMatrixValues,0,16);
-}

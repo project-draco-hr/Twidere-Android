@@ -1,5 +1,0 @@
-{
-  mContentLength=total;
-  mProgress.setIndeterminate(total <= 0);
-  mProgress.setMax(total > 0 ? (int)(total / 1024) : 0);
-}

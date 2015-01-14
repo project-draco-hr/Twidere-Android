@@ -1,3 +1,0 @@
-{
-  mBitmapTexture.draw(canvas,x,y,width,height);
-}

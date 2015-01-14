@@ -1,7 +1,0 @@
-{
-  if (angle == 0)   return;
-  final float[] temp=mTempMatrix;
-  Matrix.setRotateM(temp,0,angle,x,y,z);
-  Matrix.multiplyMM(temp,16,mMatrixValues,0,temp,0);
-  System.arraycopy(temp,16,mMatrixValues,0,16);
-}

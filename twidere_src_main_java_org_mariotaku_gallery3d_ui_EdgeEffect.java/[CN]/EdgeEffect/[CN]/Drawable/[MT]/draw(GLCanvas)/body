@@ -1,7 +1,0 @@
-{
-  canvas.save(GLCanvas.SAVE_FLAG_ALPHA);
-  canvas.multiplyAlpha(mAlpha / 255.0f);
-  final Rect b=mBounds;
-  draw(canvas,b.left,b.top,b.width(),b.height());
-  canvas.restore();
-}

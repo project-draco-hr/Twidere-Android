@@ -1,0 +1,10 @@
+{
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+  final PopupMenu popupMenu=PopupMenu.getInstance(mAdapter.getContext(),menuView);
+  popupMenu.inflate(R.menu.action_status);
+  setMenuForStatus(mAdapter.getContext(),popupMenu.getMenu(),mAdapter.getStatus(position));
+  popupMenu.show();
+  mPopupMenu=popupMenu;
+}

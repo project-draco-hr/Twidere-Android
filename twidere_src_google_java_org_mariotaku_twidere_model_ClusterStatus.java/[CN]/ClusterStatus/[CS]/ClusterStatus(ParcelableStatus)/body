@@ -1,0 +1,6 @@
+{
+  if (!ParcelableLocation.isValidLocation(status.location)) {
+    throw new IllegalArgumentException();
+  }
+  this.status=status;
+}

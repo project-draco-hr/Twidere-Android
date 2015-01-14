@@ -1,4 +1,0 @@
-{
-  mTileView.prepareTextures();
-  mPositionController.skipToFinalPosition();
-}

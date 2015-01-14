@@ -1,4 +1,0 @@
-{
-  mBitmapScreenNail=new BitmapScreenNail(bitmap);
-  setScreenNail(mBitmapScreenNail,width,height);
-}

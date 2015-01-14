@@ -21,10 +21,11 @@
   out.writeInt("statuses_count",statuses_count);
   out.writeInt("favorites_count",favorites_count);
   out.writeInt("listed_count",listed_count);
-  out.writeBoolean("is_cache",is_cache);
   out.writeString("url_expanded",url_expanded);
   out.writeBoolean("is_following",is_following);
   out.writeInt("background_color",background_color);
   out.writeInt("link_color",link_color);
   out.writeInt("text_color",text_color);
+  out.writeBoolean("is_cache",is_cache);
+  out.writeBoolean("is_basic",is_basic);
 }

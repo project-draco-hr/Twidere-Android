@@ -1,6 +1,0 @@
-{
-  final GLRoot root=getGLRoot();
-  if (root != null) {
-    root.requestRender();
-  }
-}

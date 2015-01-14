@@ -1,8 +1,0 @@
-{
-  progress=Math.min(progress,1);
-  float f=1 - progress;
-  f=1 - (float)Math.pow(f,DECELERATED_FACTOR);
-  mCurrX=getX(f);
-  mCurrY=getY(f);
-  mCurrV=getV(progress);
-}

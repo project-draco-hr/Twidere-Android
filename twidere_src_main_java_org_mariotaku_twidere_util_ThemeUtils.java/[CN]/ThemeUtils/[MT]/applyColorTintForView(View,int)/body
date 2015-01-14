@@ -11,8 +11,6 @@
     ViewAccessor.setProgressBackgroundTintList(progressBar,tintList);
     ViewAccessor.setIndeterminateTintList(progressBar,tintList);
   }
- else   if (view instanceof Switch) {
-  }
  else   if (view instanceof CompoundButton) {
     final ColorStateList tintList=ColorStateList.valueOf(tintColor);
     final CompoundButton compoundButton=(CompoundButton)view;

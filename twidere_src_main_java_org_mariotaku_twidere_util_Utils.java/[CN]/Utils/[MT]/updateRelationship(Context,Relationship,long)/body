@@ -1,0 +1,5 @@
+{
+  final ContentResolver resolver=context.getContentResolver();
+  final ContentValues values=ContentValuesCreator.createCachedRelationship(relationship,accountId);
+  resolver.insert(CachedRelationships.CONTENT_URI,values);
+}

@@ -1,3 +1,0 @@
-{
-  return mActiveTiles.get(makeTileKey(x,y,level));
-}

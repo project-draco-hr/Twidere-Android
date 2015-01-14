@@ -1,5 +1,0 @@
-{
-  GalleryUtils.assertTrue(mOneSize);
-  final int size=mPool.size();
-  return size > 0 ? mPool.remove(size - 1) : null;
-}

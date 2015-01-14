@@ -1,3 +1,0 @@
-{
-  return TILE_SIZE + TILE_BORDER * 2;
-}

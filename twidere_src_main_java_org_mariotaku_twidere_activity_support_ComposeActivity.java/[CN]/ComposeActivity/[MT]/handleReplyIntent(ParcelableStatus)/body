@@ -17,6 +17,6 @@
   }
   final int selectionEnd=mEditText.length();
   mEditText.setSelection(selectionStart,selectionEnd);
-  mSendAccountIds=new long[]{status.account_id};
+  mAccountsAdapter.setSelectedAccounts(status.account_id);
   return true;
 }

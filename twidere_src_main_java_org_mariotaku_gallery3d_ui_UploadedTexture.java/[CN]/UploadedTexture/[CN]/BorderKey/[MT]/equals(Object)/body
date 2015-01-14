@@ -1,5 +1,0 @@
-{
-  if (!(object instanceof BorderKey))   return false;
-  final BorderKey o=(BorderKey)object;
-  return vertical == o.vertical && config == o.config && length == o.length;
-}

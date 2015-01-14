@@ -1,4 +1,0 @@
-GL11 gl
-int n
-int[] textures
-int offset

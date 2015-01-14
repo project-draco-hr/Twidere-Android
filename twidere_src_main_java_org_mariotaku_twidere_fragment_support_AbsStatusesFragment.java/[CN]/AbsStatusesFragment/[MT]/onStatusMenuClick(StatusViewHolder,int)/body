@@ -1,7 +1,0 @@
-{
-  final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_STATUS,mAdapter.getStatus(position));
-  final StatusMenuDialogFragment f=new StatusMenuDialogFragment();
-  f.setArguments(args);
-  f.show(getActivity().getSupportFragmentManager(),"status_menu");
-}

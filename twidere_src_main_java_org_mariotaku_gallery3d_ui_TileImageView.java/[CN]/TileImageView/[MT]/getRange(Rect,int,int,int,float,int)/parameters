@@ -1,6 +1,0 @@
-Rect out
-int cX
-int cY
-int level
-float scale
-int rotation

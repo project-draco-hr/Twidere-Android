@@ -1,5 +1,0 @@
-{
-  final int vx=(int)(velocityX + 0.5f);
-  final int vy=(int)(velocityY + 0.5f);
-  return mPositionController.flingPage(vx,vy);
-}

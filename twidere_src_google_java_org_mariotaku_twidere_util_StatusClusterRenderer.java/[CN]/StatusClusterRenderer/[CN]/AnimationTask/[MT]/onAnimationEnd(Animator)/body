@@ -1,0 +1,10 @@
+{
+  if (mRemoveOnComplete) {
+    Cluster<ClusterStatus> cluster=mMarkerToCluster.get(marker);
+    mClusterToMarker.remove(cluster);
+    mMarkerCache.remove(marker);
+    mMarkerToCluster.remove(marker);
+    mMarkerManager.remove(marker);
+  }
+  markerWithPosition.position=to;
+}

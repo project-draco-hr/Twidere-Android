@@ -1,4 +1,0 @@
-{
-  if (mConstrained && !mConstrainedFrame.isEmpty())   return getMinimalScale(b);
-  return SCALE_LIMIT;
-}

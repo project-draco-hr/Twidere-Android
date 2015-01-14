@@ -1,8 +1,0 @@
-{
-  try {
-    return (BorderKey)super.clone();
-  }
- catch (  final CloneNotSupportedException e) {
-    throw new AssertionError(e);
-  }
-}

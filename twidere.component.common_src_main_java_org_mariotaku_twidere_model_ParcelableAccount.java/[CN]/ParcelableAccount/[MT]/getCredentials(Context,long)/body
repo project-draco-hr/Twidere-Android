@@ -1,6 +1,6 @@
 {
   if (context == null)   return null;
-  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Accounts.ACCOUNT_ID + " = " + account_id,null,null);
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Accounts.ACCOUNT_ID + " = " + accountId,null,null);
   if (cur != null) {
     try {
       if (cur.getCount() > 0 && cur.moveToFirst()) {

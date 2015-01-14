@@ -1,33 +1,14 @@
 {
 switch (view.getId()) {
-case R.id.close:
-{
-      onBackPressed();
-      break;
-    }
 case R.id.send:
 {
-    if (isQuotingProtectedStatus()) {
-      new RetweetProtectedStatusWarnFragment().show(getSupportFragmentManager(),"retweet_protected_status_warning_message");
-    }
+      if (isQuotingProtectedStatus()) {
+        new RetweetProtectedStatusWarnFragment().show(getSupportFragmentManager(),"retweet_protected_status_warning_message");
+      }
  else {
-      updateStatus();
+        updateStatus();
+      }
+      break;
     }
-    break;
-  }
-case R.id.select_account:
-{
-  if (!mAccountSelectorPopup.isShowing()) {
-    mAccountSelectorPopup.show();
-  }
-  final ListView listView=mAccountSelectorPopup.getListView();
-  listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-  listView.setOnItemClickListener(this);
-  for (int i=0, j=listView.getCount(); i < j; i++) {
-    final long itemId=listView.getItemIdAtPosition(i);
-    listView.setItemChecked(i,ArrayUtils.contains(mSendAccountIds,itemId));
-  }
-  break;
-}
 }
 }

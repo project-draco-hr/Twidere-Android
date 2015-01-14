@@ -1,7 +1,0 @@
-{
-  super(null,0,STATE_UNLOADED);
-  if (hasBorder) {
-    setBorder(true);
-    mBorder=1;
-  }
-}

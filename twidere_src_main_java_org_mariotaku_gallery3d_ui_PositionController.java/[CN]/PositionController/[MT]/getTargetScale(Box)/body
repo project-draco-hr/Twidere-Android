@@ -1,3 +1,0 @@
-{
-  return b.mAnimationStartTime == NO_ANIMATION ? b.mCurrentScale : b.mToScale;
-}

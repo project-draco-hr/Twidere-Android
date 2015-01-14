@@ -1,7 +1,0 @@
-{
-  if (!mCancelExtraScalingPending) {
-    mHandler.sendEmptyMessageDelayed(MSG_CANCEL_EXTRA_SCALING,700);
-    mPositionController.setExtraScalingRange(true);
-    mCancelExtraScalingPending=true;
-  }
-}

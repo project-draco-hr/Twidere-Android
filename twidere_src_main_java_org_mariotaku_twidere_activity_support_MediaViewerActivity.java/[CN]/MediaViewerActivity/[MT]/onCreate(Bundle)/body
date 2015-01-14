@@ -7,7 +7,7 @@
   if (savedInstanceState == null) {
     loadImage();
   }
-  mImageView.addOnLayoutChangeListener(new TileImageViewLayoutListener());
+  mImageView.setMaxScale(2);
   mMenuBar.setMenuBarListener(this);
   mMenuBar.inflate(R.menu.menu_image_viewer);
   mMenuBar.setIsBottomBar(true);

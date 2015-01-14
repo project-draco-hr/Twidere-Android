@@ -1,0 +1,5 @@
+{
+  final Resources resources=context.getResources();
+  mSpacingSmall=resources.getDimensionPixelSize(R.dimen.element_spacing_small);
+  mSpacingExtraSmall=resources.getDimensionPixelSize(R.dimen.element_spacing_xsmall);
+}

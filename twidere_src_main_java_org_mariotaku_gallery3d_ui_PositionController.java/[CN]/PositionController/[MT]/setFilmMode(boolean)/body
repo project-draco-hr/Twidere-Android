@@ -1,6 +1,0 @@
-{
-  mPlatform.updateDefaultXY();
-  updateScaleAndGapLimit();
-  stopAnimation();
-  snapAndRedraw();
-}

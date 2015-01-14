@@ -1,5 +1,0 @@
-{
-  GalleryUtils.assertTrue(mBitmap != null);
-  onFreeBitmap(mBitmap);
-  mBitmap=null;
-}

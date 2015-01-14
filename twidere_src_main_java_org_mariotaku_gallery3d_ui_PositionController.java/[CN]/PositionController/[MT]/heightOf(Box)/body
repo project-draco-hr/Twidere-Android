@@ -1,3 +1,0 @@
-{
-  return (int)(b.mImageH * b.mCurrentScale + 0.5f);
-}

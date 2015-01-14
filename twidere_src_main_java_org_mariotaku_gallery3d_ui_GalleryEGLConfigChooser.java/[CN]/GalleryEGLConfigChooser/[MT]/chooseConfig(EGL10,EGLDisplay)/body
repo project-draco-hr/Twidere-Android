@@ -1,9 +1,0 @@
-{
-  final int[] numConfig=new int[1];
-  final int mConfigSpec[]=ApiHelper.USE_888_PIXEL_FORMAT ? mConfigSpec888 : mConfigSpec565;
-  if (!egl.eglChooseConfig(display,mConfigSpec,null,0,numConfig))   throw new RuntimeException("eglChooseConfig failed");
-  if (numConfig[0] <= 0)   throw new RuntimeException("No configs match configSpec");
-  final EGLConfig[] configs=new EGLConfig[numConfig[0]];
-  if (!egl.eglChooseConfig(display,mConfigSpec,configs,configs.length,numConfig))   throw new RuntimeException();
-  return chooseConfig(egl,display,configs);
-}

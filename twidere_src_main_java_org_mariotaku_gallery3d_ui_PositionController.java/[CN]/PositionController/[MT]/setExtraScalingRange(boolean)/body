@@ -1,7 +1,0 @@
-{
-  if (mExtraScalingRange == enabled)   return;
-  mExtraScalingRange=enabled;
-  if (!enabled) {
-    snapAndRedraw();
-  }
-}

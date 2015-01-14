@@ -1,7 +1,0 @@
-{
-  if (width <= 0 || height <= 0)   return;
-  mGLState.setBlendEnabled(mBlendEnabled && (!texture.isOpaque() || alpha < OPAQUE_ALPHA));
-  if (!bindTexture(texture))   return;
-  mGLState.setTextureAlpha(alpha);
-  drawBoundTexture(texture,x,y,width,height);
-}

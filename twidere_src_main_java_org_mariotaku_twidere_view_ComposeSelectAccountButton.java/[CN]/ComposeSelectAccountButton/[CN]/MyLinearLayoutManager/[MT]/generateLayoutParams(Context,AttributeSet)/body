@@ -1,4 +1,0 @@
-{
-  final RecyclerView.LayoutParams layoutParams=super.generateLayoutParams(c,attrs);
-  return layoutParams;
-}

@@ -6,12 +6,12 @@ case VIEW_TYPE_DETAIL_STATUS:
       final View view;
       if (mIsCompact) {
         view=mInflater.inflate(R.layout.header_status_compact,parent,false);
+        final View cardView=view.findViewById(R.id.compact_card);
+        cardView.setBackgroundColor(mCardBackgroundColor);
       }
  else {
         view=mInflater.inflate(R.layout.header_status,parent,false);
-      }
-      final CardView cardView=(CardView)view.findViewById(R.id.card);
-      if (cardView != null) {
+        final CardView cardView=(CardView)view.findViewById(R.id.card);
         cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
       return new DetailStatusViewHolder(this,view);

@@ -1,4 +1,0 @@
-{
-  updateSize();
-  mPositionController.forceImageSize(mSize);
-}

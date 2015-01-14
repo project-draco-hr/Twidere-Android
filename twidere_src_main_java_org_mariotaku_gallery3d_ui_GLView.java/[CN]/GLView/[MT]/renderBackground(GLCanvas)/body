@@ -1,5 +1,0 @@
-{
-  if (mBackgroundColor != null) {
-    view.clearBuffer(mBackgroundColor);
-  }
-}

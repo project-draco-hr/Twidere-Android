@@ -1,6 +1,0 @@
-{
-  final double viewWidth=right - left, viewHeight=bottom - top;
-  if (viewWidth <= 0 || viewHeight <= 0)   return 0;
-  final double widthScale=Math.min(1,baseWidth / viewWidth), heightScale=Math.min(1,baseHeight / viewHeight);
-  return Math.min(widthScale,heightScale);
-}

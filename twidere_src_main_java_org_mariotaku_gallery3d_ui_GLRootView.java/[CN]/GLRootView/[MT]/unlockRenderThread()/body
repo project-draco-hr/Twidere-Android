@@ -1,3 +1,0 @@
-{
-  mRenderLock.unlock();
-}

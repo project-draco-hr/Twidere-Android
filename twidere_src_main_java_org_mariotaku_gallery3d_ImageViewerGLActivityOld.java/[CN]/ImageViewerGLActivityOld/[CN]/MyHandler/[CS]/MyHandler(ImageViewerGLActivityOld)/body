@@ -1,4 +1,0 @@
-{
-  super(activity.getGLRoot());
-  this.activity=activity;
-}

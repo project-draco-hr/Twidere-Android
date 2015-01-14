@@ -1,3 +1,0 @@
-{
-  mHandler.sendEmptyMessage(MSG_WANT_BARS);
-}

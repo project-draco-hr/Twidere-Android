@@ -1,0 +1,17 @@
+{
+  if (!mOnScreenRemoveMarkerTasks.isEmpty()) {
+    removeMarker(mOnScreenRemoveMarkerTasks.poll());
+  }
+ else   if (!mAnimationTasks.isEmpty()) {
+    mAnimationTasks.poll().perform();
+  }
+ else   if (!mOnScreenCreateMarkerTasks.isEmpty()) {
+    mOnScreenCreateMarkerTasks.poll().perform(this);
+  }
+ else   if (!mCreateMarkerTasks.isEmpty()) {
+    mCreateMarkerTasks.poll().perform(this);
+  }
+ else   if (!mRemoveMarkerTasks.isEmpty()) {
+    removeMarker(mRemoveMarkerTasks.poll());
+  }
+}

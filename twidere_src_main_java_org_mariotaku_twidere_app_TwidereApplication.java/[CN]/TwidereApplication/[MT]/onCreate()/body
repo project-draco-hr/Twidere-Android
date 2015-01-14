@@ -9,7 +9,6 @@
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   initializeAsyncTask();
-  GalleryUtils.initialize(this);
   initAccountColor(this);
   initUserColor(this);
   final PackageManager pm=getPackageManager();

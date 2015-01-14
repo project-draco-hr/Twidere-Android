@@ -1,5 +1,0 @@
-{
-  if (!inFinalizer()) {
-    bitmap.recycle();
-  }
-}

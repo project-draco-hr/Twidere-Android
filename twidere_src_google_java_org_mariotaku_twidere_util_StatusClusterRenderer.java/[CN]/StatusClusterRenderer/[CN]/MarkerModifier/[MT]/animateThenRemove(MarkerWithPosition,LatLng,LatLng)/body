@@ -1,0 +1,7 @@
+{
+  lock.lock();
+  AnimationTask animationTask=new AnimationTask(marker,from,to);
+  animationTask.removeOnAnimationComplete(mClusterManager.getMarkerManager());
+  mAnimationTasks.add(animationTask);
+  lock.unlock();
+}

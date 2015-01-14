@@ -1,0 +1,3 @@
+AccountIconsAdapter adapter
+ParcelableAccount account
+boolean isSelected

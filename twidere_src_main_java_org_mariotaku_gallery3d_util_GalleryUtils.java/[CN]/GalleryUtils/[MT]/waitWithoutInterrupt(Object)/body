@@ -1,8 +1,0 @@
-{
-  try {
-    object.wait();
-  }
- catch (  final InterruptedException e) {
-    Log.w(TAG,"unexpected interrupt: " + object);
-  }
-}

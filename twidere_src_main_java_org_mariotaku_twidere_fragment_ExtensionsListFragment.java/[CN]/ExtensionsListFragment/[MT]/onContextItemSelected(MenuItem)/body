@@ -1,0 +1,27 @@
+{
+  final AdapterContextMenuInfo adapterMenuInfo=(AdapterContextMenuInfo)item.getMenuInfo();
+  final ExtensionInfo extensionInfo=mAdapter.getItem(adapterMenuInfo.position);
+switch (item.getItemId()) {
+case MENU_SETTINGS:
+{
+      openSettings(extensionInfo);
+      break;
+    }
+case MENU_DELETE:
+{
+    uninstallExtension(extensionInfo);
+    break;
+  }
+case MENU_REVOKE:
+{
+  mPermissionsManager.revoke(extensionInfo.pname);
+  mAdapter.notifyDataSetChanged();
+  break;
+}
+default :
+{
+return false;
+}
+}
+return true;
+}

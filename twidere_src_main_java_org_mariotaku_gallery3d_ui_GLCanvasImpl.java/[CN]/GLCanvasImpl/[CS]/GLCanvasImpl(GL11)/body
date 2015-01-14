@@ -1,5 +1,0 @@
-{
-  mGL=gl;
-  mGLState=new GLState(gl);
-  initialize();
-}

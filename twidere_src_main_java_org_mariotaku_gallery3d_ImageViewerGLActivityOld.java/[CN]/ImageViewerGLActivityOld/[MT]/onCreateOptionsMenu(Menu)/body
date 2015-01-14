@@ -1,4 +1,0 @@
-{
-  getMenuInflater().inflate(R.menu.menu_image_viewer_action_bar,menu);
-  return true;
-}

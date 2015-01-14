@@ -1,0 +1,6 @@
+{
+  if (!mShouldSaveAccounts)   return;
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putString(KEY_COMPOSE_ACCOUNTS,TwidereArrayUtils.toString(mAccountsAdapter.getSelectedAccounts(),',',false));
+  editor.apply();
+}

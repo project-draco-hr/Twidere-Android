@@ -1,5 +1,0 @@
-{
-  stopAnimation();
-  snapAndRedraw();
-  skipAnimation();
-}

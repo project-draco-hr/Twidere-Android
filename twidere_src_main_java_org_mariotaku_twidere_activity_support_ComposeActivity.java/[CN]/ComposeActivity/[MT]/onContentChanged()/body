@@ -1,17 +1,11 @@
 {
   super.onContentChanged();
-  findViewById(R.id.close).setOnClickListener(this);
   mEditText=(EditText)findViewById(R.id.edit_text);
-  mTitleView=(TextView)findViewById(R.id.actionbar_title);
-  mSubtitleView=(TextView)findViewById(R.id.actionbar_subtitle);
   mMediaPreviewGrid=(GridView)findViewById(R.id.media_thumbnail_preview);
   mMenuBar=(TwidereMenuBar)findViewById(R.id.menu_bar);
-  mProgress=(ProgressBar)findViewById(R.id.actionbar_progress_indeterminate);
-  final View composeActionBar=findViewById(R.id.compose_actionbar);
   final View composeBottomBar=findViewById(R.id.compose_bottombar);
   mSendView=composeBottomBar.findViewById(R.id.send);
   mSendTextCountView=(StatusTextCountView)mSendView.findViewById(R.id.status_text_count);
-  mSelectAccountAccounts=(ComposeSelectAccountButton)composeActionBar.findViewById(R.id.select_account);
+  mAccountSelector=(RecyclerView)findViewById(R.id.account_selector);
   ViewAccessor.setBackground(findViewById(R.id.compose_content),getWindowContentOverlayForCompose(this));
-  ViewAccessor.setBackground(composeActionBar,getActionBarBackground(this,getCurrentThemeResourceId()));
 }

@@ -1,7 +1,0 @@
-{
-  drawTileView(canvas,r);
-  if ((mHolding & ~HOLD_TOUCH_DOWN) != 0)   return;
-  if (mWantPictureCenterCallbacks && mPositionController.isCenter()) {
-    mListener.onPictureCenter();
-  }
-}

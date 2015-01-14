@@ -2,6 +2,6 @@
   if (status == null || status.id <= 0)   return false;
   mEditText.setText(getQuoteStatus(this,status.user_screen_name,status.text_plain));
   mEditText.setSelection(0);
-  mSendAccountIds=new long[]{status.account_id};
+  mAccountsAdapter.setSelectedAccounts(status.account_id);
   return true;
 }

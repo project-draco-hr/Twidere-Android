@@ -1,0 +1,9 @@
+{
+  mMap=map;
+  mDensity=context.getResources().getDisplayMetrics().density;
+  mIconGenerator=new IconGenerator(context);
+  mIconGenerator.setContentView(makeSquareTextView(context));
+  mIconGenerator.setTextAppearance(R.style.ClusterIcon_TextAppearance);
+  mIconGenerator.setBackground(makeClusterBackground());
+  mClusterManager=clusterManager;
+}

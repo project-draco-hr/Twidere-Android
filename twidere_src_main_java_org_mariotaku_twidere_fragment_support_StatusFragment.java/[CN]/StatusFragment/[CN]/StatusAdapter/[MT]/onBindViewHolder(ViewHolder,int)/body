@@ -11,7 +11,7 @@ case VIEW_TYPE_LIST_STATUS:
 {
     final ParcelableStatus status=getStatus(position);
     final StatusViewHolder statusHolder=(StatusViewHolder)holder;
-    statusHolder.displayStatus(status);
+    statusHolder.displayStatus(status,position == 0);
     break;
   }
 }

@@ -5,6 +5,8 @@ case ITEM_VIEW_TYPE_STATUS:
       final View view;
       if (mCompactCards) {
         view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
+        final View itemContent=view.findViewById(R.id.item_content);
+        itemContent.setBackgroundColor(mCardBackgroundColor);
       }
  else {
         view=mInflater.inflate(R.layout.card_item_status,parent,false);

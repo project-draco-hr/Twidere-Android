@@ -1,12 +1,13 @@
 {
   super(itemView);
   this.adapter=adapter;
+  itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
   profileImageView=(ShapedImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   textView=(TextView)itemView.findViewById(R.id.text);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
-  retweetProfileImageView=(ImageView)itemView.findViewById(R.id.retweet_profile_image);
+  replyRetweetIcon=(ImageView)itemView.findViewById(R.id.reply_retweet_icon);
   replyRetweetView=(TextView)itemView.findViewById(R.id.reply_retweet_status);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   mediaPreviewContainer=(CardMediaContainer)itemView.findViewById(R.id.media_preview_container);

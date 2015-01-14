@@ -1,0 +1,10 @@
+{
+  final long[] accountIds=new long[mGridView.getCheckedItemCount()];
+  final SparseBooleanArray positions=mGridView.getCheckedItemPositions();
+  for (int i=0, j=positions.size(), k=0; i < j; i++) {
+    if (positions.valueAt(i)) {
+      accountIds[k++]=mAdapter.getItem(positions.keyAt(i)).account_id;
+    }
+  }
+  return accountIds;
+}

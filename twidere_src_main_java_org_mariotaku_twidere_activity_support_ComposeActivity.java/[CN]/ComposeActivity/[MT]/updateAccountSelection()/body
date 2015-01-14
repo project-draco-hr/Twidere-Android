@@ -1,9 +1,0 @@
-{
-  if (mSendAccountIds == null)   return;
-  if (mShouldSaveAccounts) {
-    final SharedPreferences.Editor editor=mPreferences.edit();
-    editor.putString(KEY_COMPOSE_ACCOUNTS,TwidereArrayUtils.toString(mSendAccountIds,',',false));
-    editor.apply();
-  }
-  mSelectAccountAccounts.setSelectedAccounts(mSendAccountIds);
-}

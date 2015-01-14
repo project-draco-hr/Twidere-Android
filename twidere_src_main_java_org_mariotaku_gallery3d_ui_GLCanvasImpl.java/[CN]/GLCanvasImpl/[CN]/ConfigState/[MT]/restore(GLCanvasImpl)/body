@@ -1,8 +1,0 @@
-{
-  if (mAlpha >= 0) {
-    canvas.setAlpha(mAlpha);
-  }
-  if (mMatrix[0] != Float.NEGATIVE_INFINITY) {
-    System.arraycopy(mMatrix,0,canvas.mMatrixValues,0,16);
-  }
-}

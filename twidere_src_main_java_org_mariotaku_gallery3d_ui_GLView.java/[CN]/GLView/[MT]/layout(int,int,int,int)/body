@@ -1,5 +1,0 @@
-{
-  final boolean sizeChanged=setBounds(left,top,right,bottom);
-  mViewFlags&=~FLAG_LAYOUT_REQUESTED;
-  onLayout(sizeChanged,left,top,right,bottom);
-}

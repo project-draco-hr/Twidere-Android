@@ -1,7 +1,0 @@
-GLCanvas canvas
-int tx
-int ty
-int level
-float x
-float y
-float length

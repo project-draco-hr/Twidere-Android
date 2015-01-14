@@ -1,6 +1,0 @@
-{
-synchronized (counter) {
-    counter.value++;
-    counter.notifyAll();
-  }
-}

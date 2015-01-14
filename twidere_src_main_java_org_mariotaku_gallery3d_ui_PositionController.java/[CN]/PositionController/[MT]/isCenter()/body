@@ -1,3 +1,0 @@
-{
-  return mPlatform.mCurrentX == mPlatform.mDefaultX && mBox.mCurrentY == 0;
-}

@@ -1,5 +1,0 @@
-{
-  if (mStatusAdapterListener != null) {
-    mStatusAdapterListener.onStatusMenuClick((StatusViewHolder)holder,position);
-  }
-}

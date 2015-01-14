@@ -1,4 +1,0 @@
-{
-  if (mComponents == null)   throw new ArrayIndexOutOfBoundsException(index);
-  return mComponents.get(index);
-}

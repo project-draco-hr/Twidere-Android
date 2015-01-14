@@ -1,4 +1,4 @@
 {
-  setValue(restorePersistedValue ? getPersistedString(mValue) : (String)defaultValue);
+  setValue(restorePersistedValue ? getPersistedString(null) : (String)defaultValue);
   updateSummary();
 }

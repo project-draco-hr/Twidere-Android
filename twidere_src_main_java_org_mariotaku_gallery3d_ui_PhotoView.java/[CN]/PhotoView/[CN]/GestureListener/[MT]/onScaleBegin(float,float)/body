@@ -1,6 +1,0 @@
-{
-  mPositionController.beginScale(focusX,focusY);
-  mCanChangeMode=mPositionController.isAtMinimalScale();
-  mAccScale=1f;
-  return true;
-}

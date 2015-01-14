@@ -1,3 +1,0 @@
-{
-  return mComponents == null ? 0 : mComponents.size();
-}

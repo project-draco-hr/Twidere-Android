@@ -1,7 +1,0 @@
-{
-  mRotation=mModel.getImageRotation();
-  final int w=mTileView.mImageWidth;
-  final int h=mTileView.mImageHeight;
-  mSize.width=getRotated(mRotation,w,h);
-  mSize.height=getRotated(mRotation,h,w);
-}

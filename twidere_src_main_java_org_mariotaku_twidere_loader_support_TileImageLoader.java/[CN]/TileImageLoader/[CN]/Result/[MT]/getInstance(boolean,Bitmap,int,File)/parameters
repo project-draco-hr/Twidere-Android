@@ -1,0 +1,4 @@
+boolean useDecoder
+Bitmap bitmap
+int orientation
+File file

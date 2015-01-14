@@ -1,0 +1,5 @@
+{
+  this.cluster=c;
+  this.newMarkers=markersAdded;
+  this.animateFrom=animateFrom;
+}

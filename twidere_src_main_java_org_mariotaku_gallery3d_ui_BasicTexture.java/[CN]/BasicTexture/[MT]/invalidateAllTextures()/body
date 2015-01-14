@@ -1,8 +1,0 @@
-{
-synchronized (sAllTextures) {
-    for (    final BasicTexture t : sAllTextures.keySet()) {
-      t.mState=STATE_UNLOADED;
-      t.setAssociatedCanvas(null);
-    }
-  }
-}

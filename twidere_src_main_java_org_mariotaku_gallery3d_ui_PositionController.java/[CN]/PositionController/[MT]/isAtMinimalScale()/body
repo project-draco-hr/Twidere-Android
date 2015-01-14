@@ -1,3 +1,0 @@
-{
-  return isAlmostEqual(mBox.mCurrentScale,mBox.mScaleMin);
-}

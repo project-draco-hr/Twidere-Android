@@ -1,3 +1,0 @@
-{
-  mBitmapTexture=new BitmapTexture(bitmap);
-}

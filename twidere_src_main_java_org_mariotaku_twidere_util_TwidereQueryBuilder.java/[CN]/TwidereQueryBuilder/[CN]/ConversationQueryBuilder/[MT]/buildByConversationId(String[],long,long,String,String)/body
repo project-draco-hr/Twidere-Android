@@ -13,5 +13,5 @@
     qb.where(Expression.and(accountIdWhere,conversationWhere));
   }
   qb.orderBy(new OrderBy(sortOrder != null ? sortOrder : Conversation.DEFAULT_SORT_ORDER));
-  return qb.build().getSQL();
+  return qb.build();
 }

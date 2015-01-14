@@ -1,9 +1,0 @@
-{
-  return new Thread(r,mName + '-' + mNumber.getAndIncrement()){
-    @Override public void run(){
-      Process.setThreadPriority(mPriority);
-      super.run();
-    }
-  }
-;
-}

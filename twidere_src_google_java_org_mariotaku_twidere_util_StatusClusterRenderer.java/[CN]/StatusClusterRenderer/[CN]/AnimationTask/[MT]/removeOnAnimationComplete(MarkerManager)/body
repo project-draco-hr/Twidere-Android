@@ -1,0 +1,4 @@
+{
+  mMarkerManager=markerManager;
+  mRemoveOnComplete=true;
+}

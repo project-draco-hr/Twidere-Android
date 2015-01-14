@@ -1,0 +1,6 @@
+{
+  mAdapter.clear();
+  if (accounts != null) {
+    mAdapter.addAll(accounts);
+  }
+}

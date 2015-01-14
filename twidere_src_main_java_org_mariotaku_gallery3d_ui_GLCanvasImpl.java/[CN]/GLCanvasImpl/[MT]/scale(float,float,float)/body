@@ -1,3 +1,0 @@
-{
-  Matrix.scaleM(mMatrixValues,0,sx,sy,sz);
-}

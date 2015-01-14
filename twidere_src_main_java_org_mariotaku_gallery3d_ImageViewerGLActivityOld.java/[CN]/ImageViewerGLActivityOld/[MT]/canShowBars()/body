@@ -1,4 +1,0 @@
-{
-  if (!mActionBarAllowed)   return false;
-  return true;
-}

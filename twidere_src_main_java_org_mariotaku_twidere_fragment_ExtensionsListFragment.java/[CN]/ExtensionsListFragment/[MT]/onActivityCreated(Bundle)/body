@@ -4,9 +4,8 @@
   mPermissionsManager=new PermissionsManager(getActivity());
   mAdapter=new ExtensionsAdapter(getActivity());
   setListAdapter(mAdapter);
-  mListView=getListView();
-  mListView.setOnItemClickListener(this);
-  mListView.setOnItemLongClickListener(this);
+  final ListView listView=getListView();
+  listView.setOnCreateContextMenuListener(this);
   getLoaderManager().initLoader(0,null,this);
   setListShown(false);
 }

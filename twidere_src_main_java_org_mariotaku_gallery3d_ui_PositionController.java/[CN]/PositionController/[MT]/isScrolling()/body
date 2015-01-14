@@ -1,3 +1,0 @@
-{
-  return mPlatform.mAnimationStartTime != NO_ANIMATION && mPlatform.mCurrentX != mPlatform.mToX;
-}

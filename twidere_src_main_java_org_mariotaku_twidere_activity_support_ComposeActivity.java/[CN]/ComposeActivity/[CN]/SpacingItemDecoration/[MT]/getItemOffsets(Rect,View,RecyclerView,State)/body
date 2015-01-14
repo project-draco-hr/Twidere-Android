@@ -1,0 +1,12 @@
+{
+  final int pos=parent.getChildPosition(view);
+  if (pos == 0) {
+    outRect.set(mSpacingSmall,mSpacingSmall,mSpacingSmall,mSpacingExtraSmall);
+  }
+ else   if (pos == parent.getAdapter().getItemCount() - 1) {
+    outRect.set(mSpacingSmall,mSpacingExtraSmall,mSpacingSmall,mSpacingSmall);
+  }
+ else {
+    outRect.set(mSpacingSmall,mSpacingExtraSmall,mSpacingSmall,mSpacingExtraSmall);
+  }
+}

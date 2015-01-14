@@ -1,0 +1,13 @@
+{
+  if (info == null)   return false;
+  final Uri packageUri=Uri.parse("package:" + info.pname);
+  final Intent uninstallIntent=new Intent(Intent.ACTION_UNINSTALL_PACKAGE,packageUri);
+  try {
+    startActivity(uninstallIntent);
+  }
+ catch (  final Exception e) {
+    Log.w(LOGTAG,e);
+    return false;
+  }
+  return true;
+}

@@ -27,4 +27,5 @@
   link_color=0;
   text_color=0;
   is_cache=true;
+  is_basic=true;
 }

@@ -1,6 +1,0 @@
-{
-  super.onLayout(changeSize,left,top,right,bottom);
-  if (changeSize) {
-    layoutTiles(mCenterX,mCenterY,mScale,mRotation);
-  }
-}

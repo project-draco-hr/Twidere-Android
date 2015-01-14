@@ -58,8 +58,8 @@ final List<String> segments=uri.getPathSegments();
 if (segments.size() != 4) return null;
 final long accountId=ParseUtils.parseLong(segments.get(2));
 final long conversationId=ParseUtils.parseLong(segments.get(3));
-final String query=TwidereQueryBuilder.ConversationQueryBuilder.buildByConversationId(projection,accountId,conversationId,selection,sortOrder);
-final Cursor c=mDatabaseWrapper.rawQuery(query,selectionArgs);
+final SQLSelectQuery query=ConversationQueryBuilder.buildByConversationId(projection,accountId,conversationId,selection,sortOrder);
+final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
 setNotificationUri(c,DirectMessages.CONTENT_URI);
 return c;
 }
@@ -69,9 +69,25 @@ final List<String> segments=uri.getPathSegments();
 if (segments.size() != 4) return null;
 final long accountId=ParseUtils.parseLong(segments.get(2));
 final String screenName=segments.get(3);
-final String query=TwidereQueryBuilder.ConversationQueryBuilder.buildByScreenName(projection,accountId,screenName,selection,sortOrder);
-final Cursor c=mDatabaseWrapper.rawQuery(query,selectionArgs);
+final SQLSelectQuery query=ConversationQueryBuilder.buildByScreenName(projection,accountId,screenName,selection,sortOrder);
+final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
 setNotificationUri(c,DirectMessages.CONTENT_URI);
+return c;
+}
+case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_RELATIONSHIP:
+{
+final long accountId=ParseUtils.parseLong(uri.getLastPathSegment(),-1);
+final SQLSelectQuery query=CachedUsersQueryBuilder.buildWithRelationship(projection,selection,sortOrder,accountId);
+final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
+setNotificationUri(c,CachedUsers.CONTENT_URI);
+return c;
+}
+case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_SCORE:
+{
+final long accountId=ParseUtils.parseLong(uri.getLastPathSegment(),-1);
+final SQLSelectQuery query=CachedUsersQueryBuilder.buildWithScore(projection,selection,sortOrder,accountId);
+final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
+setNotificationUri(c,CachedUsers.CONTENT_URI);
 return c;
 }
 }

@@ -1,0 +1,6 @@
+{
+  clear();
+  if (accounts != null) {
+    addAll(accounts);
+  }
+}

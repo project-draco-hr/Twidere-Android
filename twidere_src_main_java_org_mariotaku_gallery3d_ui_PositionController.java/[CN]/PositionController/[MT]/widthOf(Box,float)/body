@@ -1,3 +1,0 @@
-{
-  return (int)(b.mImageW * scale + 0.5f);
-}

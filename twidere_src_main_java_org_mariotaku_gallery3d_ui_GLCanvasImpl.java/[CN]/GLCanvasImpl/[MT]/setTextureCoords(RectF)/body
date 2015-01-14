@@ -1,3 +1,0 @@
-{
-  setTextureCoords(source.left,source.top,source.right,source.bottom);
-}

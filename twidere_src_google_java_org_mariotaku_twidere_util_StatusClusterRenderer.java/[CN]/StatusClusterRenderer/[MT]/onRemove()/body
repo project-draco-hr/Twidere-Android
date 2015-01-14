@@ -1,0 +1,4 @@
+{
+  mClusterManager.getMarkerCollection().setOnMarkerClickListener(null);
+  mClusterManager.getClusterMarkerCollection().setOnMarkerClickListener(null);
+}

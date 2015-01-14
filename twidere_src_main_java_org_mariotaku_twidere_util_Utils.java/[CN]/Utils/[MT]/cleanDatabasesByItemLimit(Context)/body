@@ -31,6 +31,7 @@
   }
   for (  final Uri uri : CACHE_URIS) {
     final String table=getTableNameByUri(uri);
+    if (table == null)     continue;
     final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
     qb.select(new Column(BaseColumns._ID));
     qb.from(new Tables(table));

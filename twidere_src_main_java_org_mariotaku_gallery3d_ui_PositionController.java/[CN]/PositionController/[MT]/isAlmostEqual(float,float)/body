@@ -1,4 +1,0 @@
-{
-  final float diff=a - b;
-  return (diff < 0 ? -diff : diff) < 0.02f;
-}

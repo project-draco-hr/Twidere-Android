@@ -1,5 +1,0 @@
-{
-  sInFinalizer.set(BasicTexture.class);
-  recycle();
-  sInFinalizer.set(null);
-}

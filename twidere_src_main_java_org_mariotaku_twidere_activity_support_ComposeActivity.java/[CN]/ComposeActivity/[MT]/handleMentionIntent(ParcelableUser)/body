@@ -5,6 +5,6 @@
   mEditText.setText("@" + user.screen_name + " ");
   final int selection_end=mEditText.length();
   mEditText.setSelection(selection_end);
-  mSendAccountIds=new long[]{user.account_id};
+  mAccountsAdapter.setSelectedAccounts(user.account_id);
   return true;
 }
