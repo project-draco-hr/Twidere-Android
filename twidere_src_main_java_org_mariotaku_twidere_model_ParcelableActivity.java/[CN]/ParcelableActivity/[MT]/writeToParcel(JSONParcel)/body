@@ -10,4 +10,5 @@
   out.writeParcelableArray("target_user_lists",target_user_lists);
   out.writeParcelableArray("target_object_user_lists",target_object_user_lists);
   out.writeParcelableArray("target_object_statuses",target_object_statuses);
+  out.writeBoolean("is_gap",is_gap);
 }

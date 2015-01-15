@@ -1,5 +1,6 @@
 {
   final boolean fromUser=args.getBoolean(EXTRA_FROM_USER);
   args.remove(EXTRA_FROM_USER);
+  Log.d(LOGTAG,String.format("Creating loader for %s, fromUser: %b",getClass(),fromUser));
   return onCreateStatusesLoader(getActivity(),args,fromUser);
 }

@@ -50,10 +50,7 @@
     }
     targetObjectsSize=getInt("target_objects_size",json);
   }
- catch (  final TwitterException te) {
-    throw te;
-  }
-catch (  final JSONException jsone) {
+ catch (  final JSONException jsone) {
     throw new TwitterException(jsone);
   }
 }

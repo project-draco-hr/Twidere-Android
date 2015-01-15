@@ -35,12 +35,21 @@
     e.printStackTrace();
     return new CopyOnWriteArrayList<>(data);
   }
-  for (  final Activity activity : activities) {
-    final long id=activity.getMaxPosition();
-    deleteStatus(data,id);
-    data.add(new ParcelableActivity(activity,mAccountIds));
+  final Pair<Long,Long> minId;
+  if (activities.isEmpty()) {
+    minId=new Pair<>(-1L,-1L);
   }
-  final ParcelableActivity[] array=data.toArray(new ParcelableActivity[data.size()]);
+ else {
+    final Activity minActivity=Collections.min(activities);
+    minId=new Pair<>(minActivity.getMinPosition(),minActivity.getMaxPosition());
+  }
+  final boolean insertGap=minId.first > 0 && minId.second > 0 && activities.size() > 1 && !data.isEmpty() && !truncated;
+  for (  final Activity activity : activities) {
+    final long min=activity.getMinPosition(), max=activity.getMaxPosition();
+    final boolean deleted=deleteStatus(data,max);
+    final boolean isGap=minId.first == min && minId.second == max && insertGap && !deleted;
+    data.add(new ParcelableActivity(activity,mAccountIds,isGap));
+  }
   if (mComparator != null) {
     Collections.sort(data,mComparator);
   }
