@@ -3,7 +3,7 @@
     return new QueryResultJSONImpl(res);
   }
  catch (  final TwitterException te) {
-    if (404 == te.getStatusCode())     return new QueryResultJSONImpl(query);
+    if (404 == te.getStatusCode())     return new QueryResultJSONImpl(res,query);
  else     throw te;
   }
 }

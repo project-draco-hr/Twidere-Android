@@ -1,4 +1,4 @@
 {
-  super.onContentChanged();
+  super.onSupportContentChanged();
   mMainContent=(TintedStatusFrameLayout)findViewById(R.id.main_content);
 }

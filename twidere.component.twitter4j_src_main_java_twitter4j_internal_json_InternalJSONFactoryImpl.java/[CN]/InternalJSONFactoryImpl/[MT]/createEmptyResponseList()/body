@@ -1,3 +1,3 @@
 {
-  return new ResponseListImpl<T>(0,null);
+  return new ResponseListImpl<>(0,null);
 }
