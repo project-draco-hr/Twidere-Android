@@ -10,5 +10,10 @@ case R.id.send:
       }
       break;
     }
+case R.id.account_selector_container:
+{
+    setAccountSelectorVisible(false);
+    break;
+  }
 }
 }

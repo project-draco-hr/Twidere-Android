@@ -8,7 +8,7 @@
  else {
     mCountView.setText(String.valueOf(accounts.length));
     mImageLoader.cancelDisplayTask(mProfileImageView);
-    mProfileImageView.setImageDrawable(new ColorDrawable(Color.WHITE));
+    mProfileImageView.setImageDrawable(null);
     mProfileImageView.setBorderColors(Utils.getAccountColors(accounts));
   }
 }

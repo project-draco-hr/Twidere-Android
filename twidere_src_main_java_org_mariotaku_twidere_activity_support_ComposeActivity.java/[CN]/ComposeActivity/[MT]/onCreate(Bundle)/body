@@ -19,6 +19,7 @@
   mMenuBar.setOnMenuItemClickListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
+  mAccountSelectorContainer.setOnClickListener(this);
   final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   linearLayoutManager.setStackFromEnd(true);

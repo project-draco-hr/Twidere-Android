@@ -30,6 +30,9 @@
  else     if (drawable instanceof ColorDrawable) {
       mSolidColorPaint.setColor(((ColorDrawable)drawable).getColor());
     }
+ else {
+      mSolidColorPaint.setColor(0);
+    }
     Bitmap bitmap=null;
     if (bitmapDrawable != null) {
       bitmap=bitmapDrawable.getBitmap();

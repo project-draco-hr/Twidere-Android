@@ -1,5 +1,4 @@
 {
-  updateBorderShader();
   if (USE_OUTLINE)   return;
   final int width=getWidth(), height=getHeight();
   if (width <= 0 || height <= 0)   return;
