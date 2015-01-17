@@ -1,0 +1,4 @@
+{
+  final boolean isVisible=mAccountSelectorContainer.getVisibility() == View.VISIBLE;
+  mAccountSelectorContainer.setVisibility(isVisible ? View.GONE : View.VISIBLE);
+}

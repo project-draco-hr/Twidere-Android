@@ -1,7 +1,16 @@
 {
-  if (context instanceof Activity) {
-    final ActionBar actionBar=((Activity)context).getActionBar();
-    if (actionBar != null)     return top - getActionBarHeight(actionBar);
+  final int actionBarHeight;
+  if (context instanceof ActionBarActivity) {
+    actionBarHeight=getActionBarHeight(((ActionBarActivity)context).getSupportActionBar());
+  }
+ else   if (context instanceof Activity) {
+    actionBarHeight=getActionBarHeight(((Activity)context).getActionBar());
+  }
+ else {
+    return top;
+  }
+  if (actionBarHeight < top) {
+    return top - actionBarHeight;
   }
   return top;
 }

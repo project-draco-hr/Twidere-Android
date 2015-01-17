@@ -26,29 +26,28 @@
     mProfileTypeView.setVisibility(View.GONE);
   }
   mScreenNameView.setText("@" + user.screen_name);
-  mDescriptionContainer.setVisibility(userIsMe || !isEmpty(user.description_html) ? View.VISIBLE : View.GONE);
-  mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : null);
+  mDescriptionContainer.setVisibility(isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
+  mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : user.description_plain);
   final TwidereLinkify linkify=new TwidereLinkify(this);
   linkify.applyAllLinks(mDescriptionView,user.account_id,false);
   mDescriptionView.setMovementMethod(null);
-  mLocationContainer.setVisibility(userIsMe || !isEmpty(user.location) ? View.VISIBLE : View.GONE);
+  mLocationContainer.setVisibility(isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
-  mURLContainer.setVisibility(userIsMe || !isEmpty(user.url) || !isEmpty(user.url_expanded) ? View.VISIBLE : View.GONE);
+  mURLContainer.setVisibility(isEmpty(user.url) && isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
   mURLView.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
   mURLView.setMovementMethod(null);
   final String createdAt=formatToLongTimeString(activity,user.created_at);
-  final float daysSinceCreated=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
-  final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreated));
+  final float daysSinceCreation=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
+  final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreation));
   mCreatedAtView.setText(res.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
   mListedCount.setText(getLocalizedNumber(mLocale,user.listed_count));
   mFollowersCount.setText(getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(getLocalizedNumber(mLocale,user.friends_count));
+  mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
   if (userColor != 0) {
-    mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
     setUserColor(userColor);
   }
  else {
-    mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
     setUserColor(user.link_color);
   }
   final int defWidth=res.getDisplayMetrics().widthPixels;

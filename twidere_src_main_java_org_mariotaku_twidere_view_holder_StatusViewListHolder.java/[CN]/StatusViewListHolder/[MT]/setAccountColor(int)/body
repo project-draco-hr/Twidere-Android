@@ -1,3 +1,0 @@
-{
-  content.drawEnd(account_color_enabled && !show_as_gap ? color : Color.TRANSPARENT);
-}

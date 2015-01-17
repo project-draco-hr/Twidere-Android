@@ -1,3 +1,0 @@
-{
-  ThemeUtils.applyColorFilterToMenuIcon(menu,mItemColor,mPopupItemColor,Mode.SRC_ATOP,MENU_GROUP_STATUS_SHARE,MENU_GROUP_STATUS_EXTENSION);
-}

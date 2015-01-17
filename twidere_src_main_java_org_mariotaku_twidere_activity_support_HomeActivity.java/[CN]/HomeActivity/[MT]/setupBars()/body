@@ -6,8 +6,8 @@
   final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
   mTabIndicator.setItemContext(ThemeUtils.getActionBarContext(this));
   if (ThemeUtils.isColoredActionBar(themeResId)) {
-    final int contrastColor=Utils.getContrastYIQ(themeColor,192);
-    ViewAccessor.setBackground(mTabIndicator,new ColorDrawable(themeColor));
+    final int contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
+    ViewAccessor.setBackground(mActionBar,new ColorDrawable(themeColor));
     homeActionButton.setButtonColor(themeColor);
     homeActionButton.setIconColor(contrastColor,Mode.SRC_ATOP);
     mTabIndicator.setStripColor(contrastColor);
@@ -21,7 +21,7 @@
  else {
     final int backgroundColor=ThemeUtils.getThemeBackgroundColor(mTabIndicator.getItemContext());
     final int foregroundColor=ThemeUtils.getThemeForegroundColor(mTabIndicator.getItemContext());
-    ViewAccessor.setBackground(mTabIndicator,ThemeUtils.getActionBarBackground(this,themeResId));
+    ViewAccessor.setBackground(mActionBar,ThemeUtils.getActionBarBackground(this,themeResId));
     homeActionButton.setButtonColor(backgroundColor);
     homeActionButton.setIconColor(foregroundColor,Mode.SRC_ATOP);
     mTabIndicator.setStripColor(themeColor);

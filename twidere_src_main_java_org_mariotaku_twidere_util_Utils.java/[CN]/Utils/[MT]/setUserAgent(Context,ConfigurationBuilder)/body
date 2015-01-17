@@ -11,5 +11,6 @@
     cb.setHttpUserAgent(APP_NAME + " " + APP_PROJECT_URL+ " / "+ version_name+ (gzipCompressing ? " (gzip)" : ""));
   }
  catch (  final PackageManager.NameNotFoundException e) {
+    throw new AssertionError(e);
   }
 }

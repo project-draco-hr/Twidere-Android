@@ -1,5 +1,4 @@
 {
-  final long start=System.currentTimeMillis();
   intent.setExtrasClassLoader(context.getClassLoader());
   final Bundle extras=intent.getExtras();
   final Uri uri=intent.getData();
@@ -300,8 +299,5 @@ args.putLong(EXTRA_ACCOUNT_ID,accountId);
 }
 }
 fragment.setArguments(args);
-if (isDebugBuild()) {
-Log.d(LOGTAG,String.format("createFragmentForIntent used %d ms",System.currentTimeMillis() - start));
-}
 return fragment;
 }

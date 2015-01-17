@@ -1,0 +1,6 @@
+{
+  final Drawable icon=item.getIcon();
+  if (icon instanceof ActionIconDrawable) {
+    ((ActionIconDrawable)icon).setHighlightColor(info.isHighlight() ? info.getHighlightColor(0) : 0);
+  }
+}

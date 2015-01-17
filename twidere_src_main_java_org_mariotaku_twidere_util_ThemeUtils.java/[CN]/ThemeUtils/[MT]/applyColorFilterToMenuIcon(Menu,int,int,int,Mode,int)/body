@@ -5,18 +5,7 @@
     final ContextMenuInfo info=item.getMenuInfo();
     if (icon != null && !ArrayUtils.contains(excludedGroups,item.getGroupId())) {
       icon.mutate();
-      if (info instanceof MenuBarMenuInfo) {
-        final MenuBarMenuInfo mbInfo=(MenuBarMenuInfo)info;
-        final boolean inPopup=mbInfo.isInPopup();
-        if (mbInfo.getMenuInfo() instanceof TwidereMenuInfo) {
-          final TwidereMenuInfo sInfo=(TwidereMenuInfo)mbInfo.getMenuInfo();
-          icon.setColorFilter(sInfo.isHighlight() ? sInfo.getHighlightColor(highlightColor) : (inPopup ? popupColor : color),mode);
-        }
- else {
-          icon.setColorFilter(inPopup ? popupColor : color,mode);
-        }
-      }
- else       if (info instanceof TwidereMenuInfo) {
+      if (info instanceof TwidereMenuInfo) {
         final TwidereMenuInfo sInfo=(TwidereMenuInfo)info;
         icon.setColorFilter(sInfo.isHighlight() ? sInfo.getHighlightColor(highlightColor) : color,mode);
       }

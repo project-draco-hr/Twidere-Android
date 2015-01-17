@@ -4,9 +4,6 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
     window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
   }
-  window.requestFeature(Window.FEATURE_NO_TITLE);
-  window.requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-  window.requestFeature(Window.FEATURE_ACTION_MODE_OVERLAY);
   super.onCreate(savedInstanceState);
   if (!isDatabaseReady(this)) {
     Toast.makeText(this,R.string.preparing_database_toast,Toast.LENGTH_SHORT).show();
@@ -35,11 +32,8 @@
     finish();
     return;
   }
-  final ActionBar actionBar=getActionBar();
-  if (actionBar != null) {
-    actionBar.hide();
-  }
   setContentView(R.layout.activity_home);
+  setSupportActionBar(mActionBar);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   mTabDisplayOption=getTabDisplayOptionInt(this);

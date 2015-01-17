@@ -1,5 +1,5 @@
 {
-  itemView.setAlpha(isSelected ? 1 : 0.7f);
+  itemView.setAlpha(isSelected ? 1 : 0.33f);
   final ImageLoaderWrapper loader=adapter.getImageLoader();
   loader.displayProfileImage(iconView,account.profile_image_url);
   iconView.setBorderColor(account.color);

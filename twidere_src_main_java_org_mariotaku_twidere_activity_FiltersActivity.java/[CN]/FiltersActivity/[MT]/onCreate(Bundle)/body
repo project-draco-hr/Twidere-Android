@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   setContentView(R.layout.activity_filters);
-  mActionBar=getActionBar();
+  mActionBar=getSupportActionBar();
   mAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),null);
   mActionBar.setDisplayHomeAsUpEnabled(true);
   mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

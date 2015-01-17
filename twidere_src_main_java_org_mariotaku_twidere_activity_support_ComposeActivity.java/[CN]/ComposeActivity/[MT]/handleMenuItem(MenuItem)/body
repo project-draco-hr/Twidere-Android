@@ -63,7 +63,7 @@ if (intent != null) {
 try {
 final String action=intent.getAction();
 if (INTENT_ACTION_EXTENSION_COMPOSE.equals(action)) {
-final long[] accountIds=mAccountsAdapter.getSelectedAccounts();
+final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
 intent.putExtra(EXTRA_TEXT,ParseUtils.parseString(mEditText.getText()));
 intent.putExtra(EXTRA_ACCOUNT_IDS,accountIds);
 if (accountIds.length > 0) {

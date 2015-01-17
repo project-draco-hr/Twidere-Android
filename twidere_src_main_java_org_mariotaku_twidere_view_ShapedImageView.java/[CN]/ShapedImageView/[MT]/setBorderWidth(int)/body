@@ -1,4 +1,5 @@
 {
   mBorderPaint.setStrokeWidth(width);
+  mStrokeWidth=width;
   invalidate();
 }

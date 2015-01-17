@@ -2,5 +2,6 @@
   if (mAccounts == null)   return;
   final long accountId=mAccounts[position].account_id;
   mSelection.put(accountId,!mSelection.get(accountId,false));
+  mActivity.notifyAccountSelectionChanged();
   notifyDataSetChanged();
 }

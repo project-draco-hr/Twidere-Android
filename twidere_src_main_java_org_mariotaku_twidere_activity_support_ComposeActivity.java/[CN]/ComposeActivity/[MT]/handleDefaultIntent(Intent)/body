@@ -3,11 +3,11 @@
   final String action=intent.getAction();
   final boolean hasAccountIds;
   if (intent.hasExtra(EXTRA_ACCOUNT_IDS)) {
-    mAccountsAdapter.setSelectedAccounts(intent.getLongArrayExtra(EXTRA_ACCOUNT_IDS));
+    mAccountsAdapter.setSelectedAccountIds(intent.getLongArrayExtra(EXTRA_ACCOUNT_IDS));
     hasAccountIds=true;
   }
  else   if (intent.hasExtra(EXTRA_ACCOUNT_ID)) {
-    mAccountsAdapter.setSelectedAccounts(intent.getLongExtra(EXTRA_ACCOUNT_ID,-1));
+    mAccountsAdapter.setSelectedAccountIds(intent.getLongExtra(EXTRA_ACCOUNT_ID,-1));
     hasAccountIds=true;
   }
  else {

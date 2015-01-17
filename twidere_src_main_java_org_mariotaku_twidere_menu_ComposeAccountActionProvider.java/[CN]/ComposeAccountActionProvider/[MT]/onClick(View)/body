@@ -1,0 +1,4 @@
+{
+  if (mInvokedListener == null)   return;
+  mInvokedListener.onInvoked();
+}

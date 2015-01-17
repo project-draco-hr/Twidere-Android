@@ -1,6 +1,0 @@
-{
-  if (userList == null)   return;
-  final boolean isMyList=userList.user_id == userList.account_id;
-  Utils.setMenuItemAvailability(menu,MENU_ADD,isMyList);
-  Utils.setMenuItemAvailability(menu,MENU_DELETE,isMyList);
-}

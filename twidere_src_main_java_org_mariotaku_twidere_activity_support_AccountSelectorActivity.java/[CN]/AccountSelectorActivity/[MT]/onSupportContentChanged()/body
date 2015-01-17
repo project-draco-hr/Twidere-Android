@@ -1,0 +1,5 @@
+{
+  super.onSupportContentChanged();
+  mListView=(ListView)findViewById(android.R.id.list);
+  mSelectAccountButtons=findViewById(R.id.select_account_buttons);
+}

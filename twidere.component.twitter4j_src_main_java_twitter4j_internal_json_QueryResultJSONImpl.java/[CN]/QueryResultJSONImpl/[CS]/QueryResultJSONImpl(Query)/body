@@ -1,7 +1,0 @@
-{
-  super();
-  sinceId=query.getSinceId();
-  resultsPerPage=query.getRpp();
-  page=query.getPage();
-  statuses=new Status[0];
-}

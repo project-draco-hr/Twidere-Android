@@ -1,0 +1,18 @@
+{
+  super.onSupportContentChanged();
+  mEditAPIUrlFormat=(EditText)findViewById(R.id.api_url_format);
+  mEditAuthType=(RadioGroup)findViewById(R.id.auth_type);
+  mButtonOAuth=(RadioButton)findViewById(R.id.oauth);
+  mButtonxAuth=(RadioButton)findViewById(R.id.xauth);
+  mButtonBasic=(RadioButton)findViewById(R.id.basic);
+  mButtonTwipOMode=(RadioButton)findViewById(R.id.twip_o);
+  mAdvancedAPIConfigContainer=findViewById(R.id.advanced_api_config_container);
+  mAdvancedAPIConfigLabel=(TextView)findViewById(R.id.advanced_api_config_label);
+  mAdvancedAPIConfigView=findViewById(R.id.advanced_api_config);
+  mEditSameOAuthSigningUrl=(CheckBox)findViewById(R.id.same_oauth_signing_url);
+  mEditNoVersionSuffix=(CheckBox)findViewById(R.id.no_version_suffix);
+  mEditConsumerKey=(EditText)findViewById(R.id.consumer_key);
+  mEditConsumerSecret=(EditText)findViewById(R.id.consumer_secret);
+  mSaveButton=(Button)findViewById(R.id.save);
+  mAPIFormatHelpButton=findViewById(R.id.api_url_format_help);
+}

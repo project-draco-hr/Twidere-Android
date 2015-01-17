@@ -1,0 +1,4 @@
+{
+  setFrame(getLeft(),getTop(),getRight(),getBottom());
+  super.onDraw(canvas);
+}

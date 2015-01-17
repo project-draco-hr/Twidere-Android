@@ -1,0 +1,19 @@
+{
+  final OnLongClickListener listener=new OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      if (((ActionMenuItemView)v).hasText())       return false;
+      final MenuItem menuItem=((ActionMenuItemView)v).getItemData();
+      Utils.showMenuItemToast(v,menuItem.getTitle(),true);
+      return true;
+    }
+  }
+;
+  for (int i=0, j=menuView.getChildCount(); i < j; i++) {
+    final View child=menuView.getChildAt(i);
+    if (!(child instanceof ActionMenuItemView))     continue;
+    final ActionMenuItemView itemView=(ActionMenuItemView)child;
+    final MenuItem menuItem=itemView.getItemData();
+    if (menuItem.hasSubMenu())     continue;
+    itemView.setOnLongClickListener(listener);
+  }
+}

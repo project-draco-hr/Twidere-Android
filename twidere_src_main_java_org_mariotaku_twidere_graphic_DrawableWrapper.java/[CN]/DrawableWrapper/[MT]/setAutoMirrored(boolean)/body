@@ -1,0 +1,3 @@
+{
+  DrawableCompat.setAutoMirrored(mDrawable,mirrored);
+}

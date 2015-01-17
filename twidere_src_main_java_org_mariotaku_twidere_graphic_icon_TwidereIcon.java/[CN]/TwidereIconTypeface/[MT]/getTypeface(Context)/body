@@ -1,6 +1,0 @@
-{
-  if (mTypeface == null) {
-    mTypeface=Typeface.createFromAsset(context.getAssets(),"fonts/TwidereIconic.ttf");
-  }
-  return mTypeface;
-}

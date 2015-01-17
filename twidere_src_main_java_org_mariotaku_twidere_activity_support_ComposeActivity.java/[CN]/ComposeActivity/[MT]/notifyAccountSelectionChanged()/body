@@ -1,0 +1,3 @@
+{
+  mAccountActionProvider.setSelectedAccounts(mAccountsAdapter.getSelectedAccounts());
+}

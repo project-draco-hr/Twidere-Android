@@ -1,8 +1,5 @@
 {
-  final Bundle appSearchData=new Bundle();
-  if (mSelectedAccountToSearch != null) {
-    appSearchData.putLong(EXTRA_ACCOUNT_ID,mSelectedAccountToSearch.account_id);
-  }
-  startSearch(null,false,appSearchData,false);
+  final Intent intent=new Intent(this,QuickSearchBarActivity.class);
+  startActivity(intent);
   return true;
 }

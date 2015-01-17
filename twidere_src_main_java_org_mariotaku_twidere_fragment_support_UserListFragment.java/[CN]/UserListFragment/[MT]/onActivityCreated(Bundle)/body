@@ -7,10 +7,15 @@
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
+  if (activity instanceof IThemedActivity) {
+    mPagerIndicator.setStripColor(((IThemedActivity)activity).getCurrentThemeColor());
+  }
+ else {
+  }
   mTwitterWrapper=getApplication().getTwitterWrapper();
   mProfileImageLoader=getApplication().getImageLoaderWrapper();
   mProfileImageView.setOnClickListener(this);
-  mProfileContainer.setOnClickListener(this);
+  mUserListDetails.setOnClickListener(this);
   mRetryButton.setOnClickListener(this);
   getUserListInfo(false);
   setupUserPages();

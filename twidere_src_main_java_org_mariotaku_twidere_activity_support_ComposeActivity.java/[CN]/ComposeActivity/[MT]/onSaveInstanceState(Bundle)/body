@@ -1,5 +1,5 @@
 {
-  outState.putLongArray(EXTRA_ACCOUNT_IDS,mAccountsAdapter.getSelectedAccounts());
+  outState.putLongArray(EXTRA_ACCOUNT_IDS,mAccountsAdapter.getSelectedAccountIds());
   outState.putParcelableArrayList(EXTRA_MEDIA,new ArrayList<Parcelable>(getMediaList()));
   outState.putBoolean(EXTRA_IS_POSSIBLY_SENSITIVE,mIsPossiblySensitive);
   outState.putParcelable(EXTRA_STATUS,mInReplyToStatus);

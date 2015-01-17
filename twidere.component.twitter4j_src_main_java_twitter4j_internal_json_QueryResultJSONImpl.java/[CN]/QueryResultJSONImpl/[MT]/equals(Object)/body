@@ -9,7 +9,6 @@
   if (sinceId != that.getSinceId())   return false;
   if (!query.equals(that.getQuery()))   return false;
   if (refreshUrl != null ? !refreshUrl.equals(that.getRefreshUrl()) : that.getRefreshUrl() != null)   return false;
-  if (statuses != null ? !Arrays.equals(statuses,that.getStatuses()) : that.getStatuses() != null)   return false;
   if (warning != null ? !warning.equals(that.getWarning()) : that.getWarning() != null)   return false;
   return true;
 }

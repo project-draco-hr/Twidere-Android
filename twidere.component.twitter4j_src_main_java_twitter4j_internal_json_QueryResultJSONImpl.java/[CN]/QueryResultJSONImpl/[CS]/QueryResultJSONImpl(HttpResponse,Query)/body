@@ -1,0 +1,6 @@
+{
+  super(res);
+  sinceId=query.getSinceId();
+  resultsPerPage=query.getRpp();
+  page=query.getPage();
+}

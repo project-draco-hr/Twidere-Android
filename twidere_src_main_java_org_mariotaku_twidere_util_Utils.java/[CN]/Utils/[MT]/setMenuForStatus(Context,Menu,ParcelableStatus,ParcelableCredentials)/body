@@ -11,16 +11,16 @@
   final MenuItem retweet=menu.findItem(MENU_RETWEET);
   if (retweet != null) {
     retweet.setVisible(!status.user_is_protected || isMyRetweet);
-    MenuUtils.setMenuInfo(retweet,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
+    ActionIconDrawable.setMenuHighlight(retweet,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
     retweet.setTitle(isMyRetweet ? R.string.cancel_retweet : R.string.retweet);
   }
   final MenuItem retweetSubItem=menu.findItem(R.id.retweet_submenu);
   if (retweetSubItem != null) {
-    MenuUtils.setMenuInfo(retweetSubItem,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
+    ActionIconDrawable.setMenuHighlight(retweetSubItem,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
   }
   final MenuItem favorite=menu.findItem(MENU_FAVORITE);
   if (favorite != null) {
-    MenuUtils.setMenuInfo(favorite,new TwidereMenuInfo(status.is_favorite,favoriteHighlight));
+    ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(status.is_favorite,favoriteHighlight));
     favorite.setTitle(status.is_favorite ? R.string.unfavorite : R.string.favorite);
   }
   final MenuItem translate=menu.findItem(MENU_TRANSLATE);
@@ -31,16 +31,18 @@
   menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);
   addIntentToMenuForExtension(context,menu,MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);
   final MenuItem shareItem=menu.findItem(R.id.share);
-  final ActionProvider shareProvider=shareItem.getActionProvider();
+  final ActionProvider shareProvider=MenuItemCompat.getActionProvider(shareItem);
   if (shareProvider instanceof StatusShareProvider) {
     ((StatusShareProvider)shareProvider).setStatus(status);
   }
- else {
-    if (shareItem.hasSubMenu()) {
-      final Menu shareSubMenu=shareItem.getSubMenu();
-      final Intent shareIntent=createStatusShareIntent(context,status);
-      shareSubMenu.removeGroup(MENU_GROUP_STATUS_SHARE);
-      addIntentToMenu(context,shareSubMenu,shareIntent,MENU_GROUP_STATUS_SHARE);
-    }
+ else   if (shareProvider instanceof ShareActionProvider) {
+    final Intent shareIntent=createStatusShareIntent(context,status);
+    ((ShareActionProvider)shareProvider).setShareIntent(shareIntent);
+  }
+ else   if (shareItem.hasSubMenu()) {
+    final Menu shareSubMenu=shareItem.getSubMenu();
+    final Intent shareIntent=createStatusShareIntent(context,status);
+    shareSubMenu.removeGroup(MENU_GROUP_STATUS_SHARE);
+    addIntentToMenu(context,shareSubMenu,shareIntent,MENU_GROUP_STATUS_SHARE);
   }
 }

@@ -2,7 +2,7 @@
   if (mPopupMenu != null) {
     mPopupMenu.dismiss();
   }
-  final PopupMenu popupMenu=PopupMenu.getInstance(mAdapter.getContext(),menuView);
+  final PopupMenu popupMenu=new PopupMenu(mAdapter.getContext(),menuView,Gravity.NO_GRAVITY,R.attr.actionOverflowMenuStyle,0);
   popupMenu.inflate(R.menu.action_status);
   setMenuForStatus(mAdapter.getContext(),popupMenu.getMenu(),mAdapter.getStatus(position));
   popupMenu.show();

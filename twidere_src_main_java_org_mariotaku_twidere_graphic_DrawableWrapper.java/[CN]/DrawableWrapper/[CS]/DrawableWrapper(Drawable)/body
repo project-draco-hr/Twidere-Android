@@ -1,0 +1,4 @@
+{
+  mDrawable=drawable;
+  mDrawable.setCallback(this);
+}

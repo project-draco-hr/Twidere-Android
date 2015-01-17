@@ -9,7 +9,7 @@
     mEditText.append("@" + screenName + " ");
   }
   mEditText.setSelection(mEditText.length());
-  mAccountsAdapter.setSelectedAccounts(accountId);
+  mAccountsAdapter.setSelectedAccountIds(accountId);
   mInReplyToStatusId=inReplyToStatusId;
   return true;
 }

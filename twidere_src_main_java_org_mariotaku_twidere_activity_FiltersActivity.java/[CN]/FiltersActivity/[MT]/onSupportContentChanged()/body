@@ -1,0 +1,4 @@
+{
+  super.onSupportContentChanged();
+  mViewPager=(ViewPager)findViewById(R.id.pager);
+}

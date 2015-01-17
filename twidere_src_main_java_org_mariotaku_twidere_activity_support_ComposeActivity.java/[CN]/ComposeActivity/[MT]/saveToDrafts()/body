@@ -1,7 +1,7 @@
 {
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
   final ParcelableStatusUpdate.Builder builder=new ParcelableStatusUpdate.Builder();
-  builder.accounts(ParcelableAccount.getAccounts(this,mAccountsAdapter.getSelectedAccounts()));
+  builder.accounts(ParcelableAccount.getAccounts(this,mAccountsAdapter.getSelectedAccountIds()));
   builder.text(text);
   builder.inReplyToStatusId(mInReplyToStatusId);
   builder.location(mRecentLocation);

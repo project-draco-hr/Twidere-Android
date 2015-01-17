@@ -24,26 +24,22 @@
         bitmapDrawable=(BitmapDrawable)drawable.getCurrent();
       }
     }
- else {
+ else     if (drawable instanceof BitmapDrawable) {
       bitmapDrawable=(BitmapDrawable)drawable;
     }
-    if (bitmapDrawable == null) {
-      return;
+ else     if (drawable instanceof ColorDrawable) {
+      mSolidColorPaint.setColor(((ColorDrawable)drawable).getColor());
     }
-    Bitmap bitmap=bitmapDrawable.getBitmap();
-    if (bitmap == null) {
-      return;
+    Bitmap bitmap=null;
+    if (bitmapDrawable != null) {
+      bitmap=bitmapDrawable.getBitmap();
     }
-    mSource.set(0,0,bitmap.getWidth(),bitmap.getHeight());
+    if (bitmap != null) {
+      mSource.set(0,0,bitmap.getWidth(),bitmap.getHeight());
+    }
     drawBitmapWithCircleOnCanvas(bitmap,canvas,mSource,mDestination);
   }
   if (mBorderEnabled) {
-    if (getStyle() == SHAPE_CIRCLE) {
-      canvas.drawCircle(mDestination.centerX(),mDestination.centerY(),mDestination.width() / 2f - mBorderPaint.getStrokeWidth() / 2,mBorderPaint);
-    }
- else {
-      final float radius=getCalculatedCornerRadius();
-      canvas.drawRoundRect(mDestination,radius,radius,mBorderPaint);
-    }
+    drawBorder(canvas);
   }
 }

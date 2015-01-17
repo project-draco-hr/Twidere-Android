@@ -1,5 +1,15 @@
 {
-  BitmapShader shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  if (bitmap == null) {
+    if (getStyle() == SHAPE_CIRCLE) {
+      canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mSolidColorPaint);
+    }
+ else {
+      final float cornerRadius=getCalculatedCornerRadius();
+      canvas.drawRoundRect(dest,cornerRadius,cornerRadius,mSolidColorPaint);
+    }
+    return;
+  }
+  final BitmapShader shader=new BitmapShader(bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
   mMatrix.reset();
 switch (getScaleType()) {
 case CENTER_CROP:

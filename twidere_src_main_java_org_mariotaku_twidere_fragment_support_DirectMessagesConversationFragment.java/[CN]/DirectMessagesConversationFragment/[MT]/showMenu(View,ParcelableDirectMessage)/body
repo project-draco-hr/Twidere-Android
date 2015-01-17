@@ -1,9 +1,9 @@
 {
-  if (mPopupMenu != null && mPopupMenu.isShowing()) {
+  if (mPopupMenu != null) {
     mPopupMenu.dismiss();
   }
   final Context context=getActivity();
-  mPopupMenu=PopupMenu.getInstance(context,view);
+  mPopupMenu=new PopupMenu(context,view);
   mPopupMenu.inflate(R.menu.action_direct_message);
   final Menu menu=mPopupMenu.getMenu();
   final MenuItem view_profile_item=menu.findItem(MENU_VIEW_PROFILE);

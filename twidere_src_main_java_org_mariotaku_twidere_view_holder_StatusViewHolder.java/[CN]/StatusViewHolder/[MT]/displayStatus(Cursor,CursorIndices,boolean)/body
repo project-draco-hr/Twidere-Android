@@ -54,6 +54,12 @@
   timeView.setTime(timestamp);
   final int userColor=UserColorNameUtils.getUserColor(context,user_id);
   itemContent.drawStart(userColor);
+  if (adapter.shouldShowAccountsColor()) {
+    itemContent.drawEnd(Utils.getAccountColor(context,account_id));
+  }
+ else {
+    itemContent.drawEnd();
+  }
   profileImageView.setStyle(adapter.getProfileImageStyle());
   loader.displayProfileImage(profileImageView,user_profile_image_url);
   final String text_unescaped=cursor.getString(indices.text_unescaped);

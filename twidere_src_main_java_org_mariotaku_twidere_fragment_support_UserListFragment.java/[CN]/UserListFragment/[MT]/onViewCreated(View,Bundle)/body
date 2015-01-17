@@ -6,7 +6,7 @@
   final View headerView=mHeaderDrawerLayout.getHeader();
   final View contentView=mHeaderDrawerLayout.getContent();
   mCardView=(CardView)headerView.findViewById(R.id.card);
-  mProfileContainer=(ColorLabelRelativeLayout)headerView.findViewById(R.id.profile);
+  mUserListDetails=(ColorLabelLinearLayout)headerView.findViewById(R.id.user_list_details);
   mListNameView=(TextView)headerView.findViewById(R.id.list_name);
   mCreatedByView=(TextView)headerView.findViewById(R.id.created_by);
   mDescriptionView=(TextView)headerView.findViewById(R.id.description);

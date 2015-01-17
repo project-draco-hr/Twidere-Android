@@ -1,3 +1,0 @@
-{
-  content.drawStart(show_as_gap ? null : colors);
-}

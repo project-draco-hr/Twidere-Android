@@ -1,0 +1,12 @@
+{
+  if (themeRes == 0) {
+    return getThemeBackgroundColor(context);
+  }
+  final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.colorBackground},0,themeRes);
+  try {
+    return a.getColor(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}

@@ -2,7 +2,7 @@
   final FragmentActivity activity=getActivity();
   if (!(activity instanceof LinkHandlerActivity))   return;
   final LinkHandlerActivity linkHandler=(LinkHandlerActivity)activity;
-  final ActionBar actionBar=linkHandler.getActionBar();
+  final ActionBar actionBar=linkHandler.getSupportActionBar();
   if (actionBar == null)   return;
   final int themeResId=linkHandler.getCurrentThemeResourceId();
   final Drawable shadow=activity.getResources().getDrawable(R.drawable.shadow_user_banner_action_bar);

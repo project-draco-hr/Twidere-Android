@@ -1,6 +1,9 @@
 {
   menuBar.setOnMenuItemClickListener(this);
-  menuBar.inflate(R.menu.menu_status);
+  final FragmentActivity activity=adapter.getFragment().getActivity();
+  final MenuInflater inflater=activity.getMenuInflater();
+  inflater.inflate(R.menu.menu_status,menuBar.getMenu());
+  ThemeUtils.wrapMenuIcon(menuBar,MENU_GROUP_STATUS_SHARE);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);
   retweetsContainer.setOnClickListener(this);

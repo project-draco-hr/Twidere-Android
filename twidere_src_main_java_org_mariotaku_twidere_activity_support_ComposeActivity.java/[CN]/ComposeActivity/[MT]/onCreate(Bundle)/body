@@ -16,12 +16,12 @@
     finish();
     return;
   }
-  mMenuBar.setIsBottomBar(true);
   mMenuBar.setOnMenuItemClickListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  linearLayoutManager.setStackFromEnd(true);
   mAccountSelector.setLayoutManager(linearLayoutManager);
   mAccountSelector.addItemDecoration(new SpacingItemDecoration(this));
   mAccountsAdapter=new AccountIconsAdapter(this);
@@ -31,7 +31,7 @@
   mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();
   if (savedInstanceState != null) {
-    mAccountsAdapter.setSelectedAccounts(savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS));
+    mAccountsAdapter.setSelectedAccountIds(savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS));
     mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
     final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
     if (mediaList != null) {
@@ -54,21 +54,24 @@
     if (!handleIntent(intent)) {
       handleDefaultIntent(intent);
     }
-    final long[] accountIds=mAccountsAdapter.getSelectedAccounts();
+    final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
     if (accountIds.length == 0) {
       final long[] idsInPrefs=TwidereArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
       final long[] intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
-      mAccountsAdapter.setSelectedAccounts(intersection.length > 0 ? intersection : defaultAccountIds);
+      mAccountsAdapter.setSelectedAccountIds(intersection.length > 0 ? intersection : defaultAccountIds);
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());
   }
   if (!setComposeTitle(intent)) {
     setTitle(R.string.compose);
   }
-  mMenuBar.inflate(R.menu.menu_compose);
+  final Menu menu=mMenuBar.getMenu();
+  getMenuInflater().inflate(R.menu.menu_compose,menu);
+  mAccountActionProvider=(ComposeAccountActionProvider)MenuItemCompat.getActionProvider(menu.findItem(MENU_SELECT_ACCOUNT));
+  mAccountActionProvider.setInvokedListener(this);
+  ThemeUtils.wrapMenuIcon(mMenuBar);
   mSendView.setOnClickListener(this);
   mSendView.setOnLongClickListener(this);
-  final Menu menu=mMenuBar.getMenu();
   final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
   addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
   final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
@@ -78,4 +81,5 @@
   }
   setMenu();
   updateMediaPreview();
+  notifyAccountSelectionChanged();
 }

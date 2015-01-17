@@ -1,3 +1,0 @@
-{
-  return "QueryResultJSONImpl{" + "sinceId=" + sinceId + ", maxId="+ maxId+ ", refreshUrl='"+ refreshUrl+ '\''+ ", resultsPerPage="+ resultsPerPage+ ", warning='"+ warning+ '\''+ ", completedIn="+ completedIn+ ", page="+ page+ ", query='"+ query+ '\''+ ", statuses="+ Arrays.toString(statuses)+ '}';
-}

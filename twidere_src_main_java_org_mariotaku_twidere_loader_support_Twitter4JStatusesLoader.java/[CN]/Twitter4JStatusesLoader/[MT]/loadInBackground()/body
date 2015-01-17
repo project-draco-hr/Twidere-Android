@@ -1,7 +1,6 @@
 {
   final File serializationFile=getSerializationFile();
   final List<ParcelableStatus> data=getData();
-  if (!isFromUser())   return data;
   if (isFirstLoad() && getTabPosition() >= 0 && serializationFile != null) {
     final List<ParcelableStatus> cached=getCachedData(serializationFile);
     if (cached != null) {
@@ -15,6 +14,7 @@
       return new CopyOnWriteArrayList<>(data);
     }
   }
+  if (!isFromUser())   return data;
   final List<Status> statuses;
   final boolean truncated;
   final Context context=getContext();
@@ -33,7 +33,7 @@
     truncated=truncateStatuses(getStatuses(getTwitter(),paging),statuses,mSinceId);
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
     return new CopyOnWriteArrayList<>(data);
   }
   final long minStatusId=statuses.isEmpty() ? -1 : Collections.min(statuses).getId();

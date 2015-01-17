@@ -1,7 +1,7 @@
 {
   final SpannableStringBuilder builder=new SpannableStringBuilder(title);
   final int themeResId=getCurrentThemeResourceId();
-  final int themeColor=getThemeColor(), contrastColor=Utils.getContrastYIQ(themeColor,192);
+  final int themeColor=getThemeColor(), contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
   if (!ThemeUtils.isDarkTheme(themeResId)) {
     builder.setSpan(new ForegroundColorSpan(contrastColor),0,builder.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   }

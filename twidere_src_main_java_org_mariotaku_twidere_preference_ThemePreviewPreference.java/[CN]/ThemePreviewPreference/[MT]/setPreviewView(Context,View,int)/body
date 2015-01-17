@@ -6,7 +6,7 @@
   final View windowContentOverlayView=view.findViewById(R.id.theme_preview_window_content_overlay);
   final View actionBarView=view.findViewById(R.id.actionbar);
   final TextView actionBarTitleView=(TextView)view.findViewById(R.id.actionbar_title);
-  final MenuBar actionBarSplitView=(MenuBar)view.findViewById(R.id.menu_bar);
+  final ActionMenuView actionBarSplitView=(ActionMenuView)view.findViewById(R.id.menu_bar);
   final View statusContentView=view.findViewById(R.id.theme_preview_status_content);
   final int defaultTextSize=getDefaultTextSize(context);
   final int titleTextAppearance=ThemeUtils.getTitleTextAppearance(context);
@@ -15,9 +15,8 @@
   ViewAccessor.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes));
   actionBarTitleView.setTextAppearance(context,titleTextAppearance);
   actionBarSplitView.setEnabled(false);
-  actionBarSplitView.inflate(R.menu.menu_status);
-  actionBarSplitView.setIsBottomBar(true);
-  actionBarSplitView.show();
+  final MenuInflater inflater=new SupportMenuInflater(context);
+  inflater.inflate(R.menu.menu_status,actionBarSplitView.getMenu());
   if (statusContentView != null) {
     ViewAccessor.setBackground(statusContentView,ThemeUtils.getWindowBackground(context));
     final View profileView=statusContentView.findViewById(R.id.profile_container);

@@ -1,18 +1,2 @@
 {
-  final MenuItem item=mMenuBar.getMenu().findItem(MENU_SHARE);
-  if (item == null || !item.hasSubMenu())   return;
-  final SubMenu subMenu=item.getSubMenu();
-  subMenu.clear();
-  final Intent intent=getIntent();
-  final Uri uri=intent.getData();
-  final Intent shareIntent=new Intent(Intent.ACTION_SEND);
-  if (mImageFile != null && mImageFile.exists()) {
-    shareIntent.setType("image/*");
-    shareIntent.putExtra(Intent.EXTRA_STREAM,Uri.fromFile(mImageFile));
-  }
- else {
-    shareIntent.setType("text/plain");
-    shareIntent.putExtra(Intent.EXTRA_TEXT,uri.toString());
-  }
-  Utils.addIntentToMenu(this,subMenu,shareIntent);
 }

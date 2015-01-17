@@ -5,5 +5,5 @@
   if (paging.getMaxId() > 0) {
     query.setMaxId(paging.getMaxId());
   }
-  return Arrays.asList(twitter.search(query).getStatuses());
+  return twitter.search(query);
 }

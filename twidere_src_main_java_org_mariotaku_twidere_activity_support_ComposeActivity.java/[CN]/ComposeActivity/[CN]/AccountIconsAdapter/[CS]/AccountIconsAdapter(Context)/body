@@ -1,5 +1,0 @@
-{
-  mInflater=LayoutInflater.from(context);
-  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
-  mSelection=new LongSparseArray<>();
-}

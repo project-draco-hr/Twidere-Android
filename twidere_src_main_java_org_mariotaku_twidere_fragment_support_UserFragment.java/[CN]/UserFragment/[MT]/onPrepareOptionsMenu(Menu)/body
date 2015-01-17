@@ -17,19 +17,19 @@
     final MenuItem blockItem=menu.findItem(MENU_BLOCK);
     if (blockItem != null) {
       final boolean blocking=relationship.isSourceBlockingTarget();
-      MenuUtils.setMenuInfo(blockItem,new TwidereMenuInfo(blocking));
+      ActionIconDrawable.setMenuHighlight(blockItem,new TwidereMenuInfo(blocking));
       blockItem.setTitle(blocking ? R.string.unblock : R.string.block);
     }
     final MenuItem muteItem=menu.findItem(MENU_MUTE_USER);
     if (muteItem != null) {
       final boolean muting=relationship.isSourceMutingTarget();
-      MenuUtils.setMenuInfo(muteItem,new TwidereMenuInfo(muting));
+      ActionIconDrawable.setMenuHighlight(muteItem,new TwidereMenuInfo(muting));
       muteItem.setTitle(muting ? R.string.unmute : R.string.mute);
     }
     final MenuItem filterItem=menu.findItem(MENU_ADD_TO_FILTER);
     if (filterItem != null) {
       final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
-      MenuUtils.setMenuInfo(filterItem,new TwidereMenuInfo(filtering));
+      ActionIconDrawable.setMenuHighlight(filterItem,new TwidereMenuInfo(filtering));
       filterItem.setTitle(filtering ? R.string.remove_from_filter : R.string.add_to_filter);
     }
   }

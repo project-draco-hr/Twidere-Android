@@ -1,0 +1,11 @@
+{
+  if (actionBar == null)   return 0;
+  final Context context=actionBar.getThemedContext();
+  final TypedValue tv=new TypedValue();
+  final int height=actionBar.getHeight();
+  if (height > 0)   return height;
+  if (context.getTheme().resolveAttribute(R.attr.actionBarSize,tv,true)) {
+    return TypedValue.complexToDimensionPixelSize(tv.data,context.getResources().getDisplayMetrics());
+  }
+  return 0;
+}

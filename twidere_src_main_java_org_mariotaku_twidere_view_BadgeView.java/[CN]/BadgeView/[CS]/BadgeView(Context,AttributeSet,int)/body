@@ -1,7 +1,9 @@
 {
   super(context,attrs,defStyleAttr);
   mTextPaint=new TextPaint(TextPaint.ANTI_ALIAS_FLAG);
-  mTextPaint.setColor(Color.WHITE);
+  final TypedArray a=context.obtainStyledAttributes(attrs,new int[]{android.R.attr.textColor,android.R.attr.text});
+  setColor(a.getColor(0,Color.WHITE));
+  setText(a.getString(1));
   mTextPaint.setTextAlign(Align.CENTER);
   mTextBounds=new Rect();
 }

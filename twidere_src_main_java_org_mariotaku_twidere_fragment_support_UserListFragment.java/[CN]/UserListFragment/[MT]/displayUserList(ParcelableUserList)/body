@@ -1,16 +1,15 @@
 {
   if (userList == null || getActivity() == null)   return;
   getLoaderManager().destroyLoader(0);
-  final boolean isMyself=userList.account_id == userList.user_id;
   mErrorRetryContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUserList=userList;
-  mProfileContainer.drawEnd(getAccountColor(getActivity(),userList.account_id));
+  mUserListDetails.drawEnd(getAccountColor(getActivity(),userList.account_id));
   mListNameView.setText(userList.name);
-  final String display_name=UserColorNameUtils.getDisplayName(getActivity(),userList.user_id,userList.user_name,userList.user_screen_name,false);
-  mCreatedByView.setText(getString(R.string.created_by,display_name));
+  final String displayName=UserColorNameUtils.getDisplayName(getActivity(),userList.user_id,userList.user_name,userList.user_screen_name,false);
+  mCreatedByView.setText(getString(R.string.created_by,displayName));
   final String description=userList.description;
-  mDescriptionView.setVisibility(isMyself || !isEmpty(description) ? View.VISIBLE : View.GONE);
+  mDescriptionView.setVisibility(isEmpty(description) ? View.GONE : View.VISIBLE);
   mDescriptionView.setText(description);
   final TwidereLinkify linkify=new TwidereLinkify(new OnLinkClickHandler(getActivity(),getMultiSelectManager()));
   linkify.applyAllLinks(mDescriptionView,userList.account_id,false);

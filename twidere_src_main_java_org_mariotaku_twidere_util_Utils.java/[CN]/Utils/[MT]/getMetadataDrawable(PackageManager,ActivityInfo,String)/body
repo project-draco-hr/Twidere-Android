@@ -1,5 +1,4 @@
 {
   if (pm == null || info == null || info.metaData == null || key == null || !info.metaData.containsKey(key))   return null;
-  final Drawable d=pm.getDrawable(info.packageName,info.metaData.getInt(key),info.applicationInfo);
-  return d;
+  return pm.getDrawable(info.packageName,info.metaData.getInt(key),info.applicationInfo);
 }

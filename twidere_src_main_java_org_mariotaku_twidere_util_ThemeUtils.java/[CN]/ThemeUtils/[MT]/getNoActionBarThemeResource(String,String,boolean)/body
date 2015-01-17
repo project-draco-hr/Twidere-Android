@@ -1,0 +1,13 @@
+{
+  if (VALUE_THEME_NAME_LIGHT.equals(name)) {
+    if (VALUE_THEME_BACKGROUND_SOLID.equals(background))     return R.style.Theme_Twidere_Light_SolidBackground_NoActionBar;
+ else     if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(background))     return R.style.Theme_Twidere_Light_Transparent_NoActionBar;
+    return R.style.Theme_Twidere_Light_NoActionBar;
+  }
+ else   if (VALUE_THEME_NAME_DARK.equals(name)) {
+    if (VALUE_THEME_BACKGROUND_SOLID.equals(background))     return R.style.Theme_Twidere_Dark_SolidBackground_NoActionBar;
+ else     if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(background))     return R.style.Theme_Twidere_Dark_Transparent_NoActionBar;
+    return R.style.Theme_Twidere_Dark_NoActionBar;
+  }
+  return R.style.Theme_Twidere_Light_NoActionBar;
+}

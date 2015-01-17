@@ -1,0 +1,5 @@
+{
+  super.onSupportContentChanged();
+  mWebView=(WebView)findViewById(R.id.webview);
+  mProgressContainer=findViewById(R.id.progress_container);
+}

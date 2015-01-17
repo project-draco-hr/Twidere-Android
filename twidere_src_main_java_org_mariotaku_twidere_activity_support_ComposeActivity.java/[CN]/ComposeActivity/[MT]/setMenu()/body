@@ -7,13 +7,13 @@
     final int menuHighlight=ThemeUtils.getUserAccentColor(this);
     if (attachLocation && getLocation()) {
       itemAttachLocation.setChecked(true);
-      MenuUtils.setMenuInfo(itemAttachLocation,new TwidereMenuInfo(true,menuHighlight));
+      ActionIconDrawable.setMenuHighlight(itemAttachLocation,new TwidereMenuInfo(true,menuHighlight));
     }
  else {
       setProgressVisibility(false);
       mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,false).apply();
       itemAttachLocation.setChecked(false);
-      MenuUtils.setMenuInfo(itemAttachLocation,new TwidereMenuInfo(false,menuHighlight));
+      ActionIconDrawable.setMenuHighlight(itemAttachLocation,new TwidereMenuInfo(false,menuHighlight));
     }
   }
   final MenuItem viewItem=menu.findItem(MENU_VIEW);
@@ -34,5 +34,5 @@
   if (itemToggleSensitive != null) {
     itemToggleSensitive.setChecked(hasMedia && mIsPossiblySensitive);
   }
-  mMenuBar.show();
+  ThemeUtils.resetCheatSheet(mMenuBar);
 }

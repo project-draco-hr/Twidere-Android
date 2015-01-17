@@ -1,6 +1,0 @@
-{
-  final View overflowItemView=getOverflowItemView();
-  if (overflowItemView instanceof ImageView) {
-    ((ImageView)overflowItemView).setColorFilter(mItemColor,Mode.SRC_ATOP);
-  }
-}

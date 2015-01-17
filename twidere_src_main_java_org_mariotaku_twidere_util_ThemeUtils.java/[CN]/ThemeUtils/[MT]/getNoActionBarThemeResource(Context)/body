@@ -1,0 +1,3 @@
+{
+  return getNoActionBarThemeResource(getThemeNameOption(context),getThemeBackgroundOption(context),getDarkActionBarOption(context));
+}
