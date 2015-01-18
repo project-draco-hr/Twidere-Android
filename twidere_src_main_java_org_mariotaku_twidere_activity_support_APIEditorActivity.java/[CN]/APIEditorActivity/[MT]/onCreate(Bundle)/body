@@ -31,7 +31,6 @@
     consumerSecret=trim(extras.getString(Accounts.CONSUMER_SECRET,prefConsumerSecret));
   }
   mEditAuthType.setOnCheckedChangeListener(this);
-  mAdvancedAPIConfigLabel.setOnClickListener(this);
   mSaveButton.setOnClickListener(this);
   mAPIFormatHelpButton.setOnClickListener(this);
   mEditAPIUrlFormat.setText(apiUrlFormat);

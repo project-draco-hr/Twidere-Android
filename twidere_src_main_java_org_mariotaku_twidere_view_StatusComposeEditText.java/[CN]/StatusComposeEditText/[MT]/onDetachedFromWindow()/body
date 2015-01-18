@@ -4,5 +4,4 @@
     mAdapter.closeCursor();
     mAdapter=null;
   }
-  setAdapter(mAdapter);
 }

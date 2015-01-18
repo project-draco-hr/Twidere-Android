@@ -1,5 +1,7 @@
 {
   final int authType=getCheckedAuthType(checkedId);
   final boolean isOAuth=authType == Accounts.AUTH_TYPE_OAUTH || authType == Accounts.AUTH_TYPE_XAUTH;
-  mAdvancedAPIConfigContainer.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
+  mEditSameOAuthSigningUrl.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
+  mEditConsumerKey.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
+  mEditConsumerSecret.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
 }

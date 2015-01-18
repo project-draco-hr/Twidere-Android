@@ -1,0 +1,6 @@
+{
+  mBorderAlpha=alpha;
+  mBorderColors=colors;
+  updateBorderShader();
+  invalidate();
+}

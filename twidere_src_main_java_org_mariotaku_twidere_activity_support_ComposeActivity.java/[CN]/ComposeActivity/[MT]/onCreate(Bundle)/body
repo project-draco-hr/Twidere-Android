@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
   mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mTwitterWrapper=getTwidereApplication().getTwitterWrapper();
+  mTwitterWrapper=TwidereApplication.getInstance(this).getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
   setContentView(R.layout.activity_compose);

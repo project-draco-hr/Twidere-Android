@@ -2,6 +2,7 @@
   final int[] colors=mBorderColors;
   if (colors == null || colors.length == 0) {
     mBorderPaint.setShader(null);
+    mBorderAlpha=0;
     return;
   }
   mDestination.set(getPaddingLeft(),getPaddingTop(),getWidth() - getPaddingRight(),getHeight() - getPaddingBottom());

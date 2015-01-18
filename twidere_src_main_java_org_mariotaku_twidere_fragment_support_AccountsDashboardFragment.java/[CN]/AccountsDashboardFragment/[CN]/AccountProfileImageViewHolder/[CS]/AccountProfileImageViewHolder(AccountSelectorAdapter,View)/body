@@ -2,5 +2,5 @@
   super(itemView);
   this.adapter=adapter;
   itemView.setOnClickListener(this);
-  icon=(ImageView)itemView.findViewById(android.R.id.icon);
+  icon=(ShapedImageView)itemView.findViewById(android.R.id.icon);
 }

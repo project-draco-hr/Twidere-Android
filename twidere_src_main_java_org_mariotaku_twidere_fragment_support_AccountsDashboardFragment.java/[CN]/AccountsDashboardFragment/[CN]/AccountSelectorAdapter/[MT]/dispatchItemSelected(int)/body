@@ -1,7 +1,10 @@
 {
   final Cursor c=mCursor;
-  c.moveToPosition(position);
-  if (c.getLong(mIndices.account_id) != mSelectedAccountId || c.moveToNext()) {
-    mFragment.onAccountSelected(new ParcelableAccount(c,mIndices));
+  if (mSelectedAccountIndex != -1 && position >= mSelectedAccountIndex) {
+    c.moveToPosition(position + 1);
   }
+ else {
+    c.moveToPosition(position);
+  }
+  mFragment.onAccountSelected(new ParcelableAccount(c,mIndices));
 }

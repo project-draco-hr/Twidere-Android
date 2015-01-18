@@ -1,6 +1,3 @@
 {
-  mBorderAlpha=0xff;
-  mBorderColors=colors;
-  updateBorderShader();
-  invalidate();
+  setBorderColorsInternal(0xff,colors);
 }

@@ -1,9 +1,12 @@
 {
   final Cursor c=mCursor;
-  c.moveToPosition(position);
-  if (c.getLong(mIndices.account_id) == mSelectedAccountId) {
-    c.moveToNext();
+  if (mSelectedAccountIndex != -1 && position >= mSelectedAccountIndex) {
+    c.moveToPosition(position + 1);
+  }
+ else {
+    c.moveToPosition(position);
   }
   holder.itemView.setAlpha(c.getInt(mIndices.is_activated) == 1 ? 1 : 0.5f);
   mImageLoader.displayProfileImage(holder.icon,c.getString(mIndices.profile_image_url));
+  holder.icon.setBorderColor(c.getInt(mIndices.color));
 }

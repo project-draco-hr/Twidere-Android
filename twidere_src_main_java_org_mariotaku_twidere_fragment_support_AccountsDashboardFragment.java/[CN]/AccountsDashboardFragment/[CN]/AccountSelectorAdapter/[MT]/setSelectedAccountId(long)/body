@@ -1,4 +1,5 @@
 {
   mSelectedAccountId=accountId;
+  updateSelectedAccountIndex();
   notifyDataSetChanged();
 }

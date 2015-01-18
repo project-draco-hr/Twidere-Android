@@ -1,6 +1,3 @@
 {
-  mBorderAlpha=Color.alpha(color);
-  mBorderColors=new int[]{color};
-  updateBorderShader();
-  invalidate();
+  setBorderColorsInternal(Color.alpha(color),color);
 }
