@@ -1,4 +1,0 @@
-{
-  final int height=MeasureSpec.getSize(heightSpec), width=Math.round(height * 1.25f);
-  setMeasuredDimension(width,height);
-}

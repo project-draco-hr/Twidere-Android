@@ -1,15 +1,15 @@
 {
-  if ("player".equals(card.name)) {
+  if (CARD_NAME_PLAYER.equals(card.name)) {
     final Fragment playerFragment=sFactory.createPlayerFragment(card);
     if (playerFragment != null)     return playerFragment;
     return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
   }
- else   if ("audio".equals(card.name)) {
+ else   if (CARD_NAME_AUDIO.equals(card.name)) {
     final Fragment playerFragment=sFactory.createAudioFragment(card);
     if (playerFragment != null)     return playerFragment;
     return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
   }
- else   if ("animated_gif".equals(card.name)) {
+ else   if (CARD_NAME_ANIMATED_GIF.equals(card.name)) {
     final Fragment playerFragment=sFactory.createAnimatedGifFragment(card);
     if (playerFragment != null)     return playerFragment;
     return TwitterCardFragmentFactory.createGenericPlayerFragment(card);

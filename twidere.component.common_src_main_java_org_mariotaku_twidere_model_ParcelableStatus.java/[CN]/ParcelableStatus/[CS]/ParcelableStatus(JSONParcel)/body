@@ -37,4 +37,5 @@
   mentions=in.readParcelableArray("mentions",ParcelableUserMention.JSON_CREATOR);
   first_media=media != null && media.length > 0 ? media[0].url : null;
   card=in.readParcelable("card",ParcelableCardEntity.JSON_CREATOR);
+  card_name=card != null ? card.name : null;
 }

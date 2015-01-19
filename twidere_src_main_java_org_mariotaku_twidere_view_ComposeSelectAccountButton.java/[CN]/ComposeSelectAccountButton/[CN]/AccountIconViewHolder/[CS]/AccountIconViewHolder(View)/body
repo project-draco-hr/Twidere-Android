@@ -1,4 +1,0 @@
-{
-  super(itemView);
-  iconView=(ImageView)itemView.findViewById(android.R.id.icon);
-}

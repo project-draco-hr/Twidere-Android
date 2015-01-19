@@ -1,4 +1,0 @@
-{
-  mAccounts=accounts;
-  notifyDataSetChanged();
-}

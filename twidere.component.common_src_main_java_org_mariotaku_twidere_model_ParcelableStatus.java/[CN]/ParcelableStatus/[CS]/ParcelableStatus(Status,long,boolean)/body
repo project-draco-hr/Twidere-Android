@@ -41,4 +41,5 @@
   mentions=ParcelableUserMention.fromUserMentionEntities(status.getUserMentionEntities());
   first_media=media != null && media.length > 0 ? media[0].url : null;
   card=ParcelableCardEntity.fromCardEntity(status.getCard(),account_id);
+  card_name=card != null ? card.name : null;
 }

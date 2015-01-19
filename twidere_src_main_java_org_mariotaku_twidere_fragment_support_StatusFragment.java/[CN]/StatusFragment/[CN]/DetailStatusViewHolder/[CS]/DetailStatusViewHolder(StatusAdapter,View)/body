@@ -9,7 +9,8 @@
   profileImageView=(ShapedImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   timeSourceView=(TextView)itemView.findViewById(R.id.time_source);
-  replyRetweetStatusView=(TextView)itemView.findViewById(R.id.reply_retweet_status);
+  retweetedByView=(TextView)itemView.findViewById(R.id.retweeted_by);
+  retweetedByContainer=itemView.findViewById(R.id.retweeted_by_container);
   repliesContainer=itemView.findViewById(R.id.replies_container);
   retweetsContainer=itemView.findViewById(R.id.retweets_container);
   favoritesContainer=itemView.findViewById(R.id.favorites_container);

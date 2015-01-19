@@ -1,6 +1,6 @@
 {
   inflater.inflate(R.menu.menu_direct_messages_conversation,menu);
-  final View profileImageItemView=menu.findItem(R.id.item_profile_image).getActionView();
+  final View profileImageItemView=MenuItemCompat.getActionView(menu.findItem(R.id.item_profile_image));
   profileImageItemView.setOnClickListener(this);
   mProfileImageContainer=(IColorLabelView)profileImageItemView;
   mRecipientProfileImageView=(ImageView)profileImageItemView.findViewById(R.id.recipient_profile_image);

@@ -13,6 +13,7 @@
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mIsCompact=compact;
+  mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compact;
   }

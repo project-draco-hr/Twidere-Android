@@ -1,8 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
-  final FragmentActivity activity=getActivity();
-  final ActionBar actionBar=activity.getActionBar();
+  final BaseSupportActivity activity=(BaseSupportActivity)getActivity();
+  final ActionBar actionBar=activity.getSupportActionBar();
   if (actionBar == null)   throw new NullPointerException();
   actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
   actionBar.setCustomView(R.layout.actionbar_custom_view_message_user_picker);

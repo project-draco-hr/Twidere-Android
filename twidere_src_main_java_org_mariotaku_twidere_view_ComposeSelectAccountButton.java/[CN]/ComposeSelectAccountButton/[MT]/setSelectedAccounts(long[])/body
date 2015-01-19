@@ -1,4 +1,0 @@
-{
-  final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(getContext(),accountIds);
-  mAccountIconsAdapter.setSelectedAccounts(accounts);
-}

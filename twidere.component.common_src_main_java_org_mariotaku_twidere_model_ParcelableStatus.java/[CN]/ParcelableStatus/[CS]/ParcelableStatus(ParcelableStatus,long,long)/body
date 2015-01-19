@@ -37,4 +37,5 @@
   mentions=orig.mentions;
   first_media=orig.first_media;
   card=orig.card;
+  card_name=card != null ? card.name : null;
 }

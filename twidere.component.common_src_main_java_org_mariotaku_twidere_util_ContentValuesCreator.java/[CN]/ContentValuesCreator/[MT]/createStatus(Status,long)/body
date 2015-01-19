@@ -67,5 +67,10 @@
   if (mentions != null) {
     values.put(Statuses.MENTIONS,JSONSerializer.toJSONArrayString(mentions));
   }
+  final ParcelableCardEntity card=ParcelableCardEntity.fromCardEntity(status.getCard(),accountId);
+  if (card != null) {
+    values.put(Statuses.CARD_NAME,card.name);
+    values.put(Statuses.CARD,JSONSerializer.toJSONObjectString(card));
+  }
   return values;
 }

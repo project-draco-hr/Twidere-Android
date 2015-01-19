@@ -2,6 +2,6 @@
   nameView.setText("User");
   screenNameView.setText("@user");
   timeView.setTime(System.currentTimeMillis());
-  textView.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus quis purus ac malesuada. Duis id vulputate magna, a eleifend amet.");
+  textView.setText(R.string.sample_status_text);
   mediaPreviewContainer.displayMedia(R.drawable.profile_image_nyan_sakamoto,R.drawable.profile_image_nyan_sakamoto_santa);
 }

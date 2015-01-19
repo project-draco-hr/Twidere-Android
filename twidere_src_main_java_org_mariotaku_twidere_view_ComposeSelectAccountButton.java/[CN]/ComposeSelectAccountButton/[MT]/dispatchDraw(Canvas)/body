@@ -1,5 +1,0 @@
-{
-  mColorLabelHelper.dispatchDrawBackground(canvas);
-  super.dispatchDraw(canvas);
-  mColorLabelHelper.dispatchDrawLabels(canvas);
-}

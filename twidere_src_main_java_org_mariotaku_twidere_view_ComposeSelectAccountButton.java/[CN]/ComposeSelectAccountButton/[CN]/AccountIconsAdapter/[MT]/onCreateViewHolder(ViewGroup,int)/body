@@ -1,4 +1,0 @@
-{
-  final View view=mInflater.inflate(R.layout.adapter_item_compose_account2,parent,false);
-  return new AccountIconViewHolder(view);
-}

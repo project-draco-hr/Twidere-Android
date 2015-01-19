@@ -37,4 +37,5 @@
   mentions=idx.mentions != -1 ? ParcelableUserMention.fromJSONString(c.getString(idx.mentions)) : null;
   first_media=idx.first_media != -1 ? c.getString(idx.first_media) : null;
   card=idx.card != -1 ? ParcelableCardEntity.fromJSONString(c.getString(idx.card)) : null;
+  card_name=card != null ? card.name : null;
 }

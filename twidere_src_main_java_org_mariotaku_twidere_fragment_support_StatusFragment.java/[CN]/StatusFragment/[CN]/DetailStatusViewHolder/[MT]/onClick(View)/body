@@ -22,5 +22,13 @@ case R.id.retweets_container:
   Utils.openStatusRetweeters(activity,status.account_id,status.id);
   break;
 }
+case R.id.retweeted_by_container:
+{
+final ParcelableStatus status=adapter.getStatus(getPosition());
+if (status.retweet_id > 0) {
+  Utils.openUserProfile(adapter.getContext(),status.account_id,status.user_id,status.user_screen_name,null);
+}
+break;
+}
 }
 }

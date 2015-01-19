@@ -6,6 +6,15 @@
   final ImageLoaderWrapper loader=adapter.getImageLoader();
   final boolean nameFirst=adapter.isNameFirst();
   final boolean nicknameOnly=adapter.isNicknameOnly();
+  if (status.retweet_id > 0) {
+    final String retweetedBy=UserColorNameUtils.getDisplayName(context,status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst,nicknameOnly);
+    retweetedByView.setText(context.getString(R.string.name_retweeted,retweetedBy));
+    retweetedByContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    retweetedByView.setText(null);
+    retweetedByContainer.setVisibility(View.GONE);
+  }
   final String nickname=getUserNickname(context,status.user_id,true);
   if (TextUtils.isEmpty(nickname)) {
     nameView.setText(status.user_name);

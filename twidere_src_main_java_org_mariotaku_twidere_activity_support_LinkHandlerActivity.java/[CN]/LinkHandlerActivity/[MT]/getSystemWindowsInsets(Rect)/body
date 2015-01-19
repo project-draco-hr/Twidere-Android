@@ -1,0 +1,7 @@
+{
+  final boolean result=super.getSystemWindowsInsets(insets);
+  if (result) {
+    insets.bottom=0;
+  }
+  return result;
+}
