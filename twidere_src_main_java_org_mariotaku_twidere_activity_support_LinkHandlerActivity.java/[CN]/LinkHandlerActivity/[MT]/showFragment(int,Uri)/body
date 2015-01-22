@@ -127,6 +127,7 @@ break;
 case LINK_ID_SEARCH:
 {
 setTitle(android.R.string.search_go);
+setSubtitle(uri.getQueryParameter(QUERY_PARAM_QUERY));
 break;
 }
 }

@@ -1,0 +1,5 @@
+{
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  actionBar.setSubtitle(subtitle);
+}
