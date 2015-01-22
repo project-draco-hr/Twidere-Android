@@ -1,9 +1,0 @@
-{
-  final Context context=getContext();
-  final LayoutInflater inflater=LayoutInflater.from(context);
-  @SuppressLint("InflateParams") final View view=inflater.inflate(R.layout.action_item_account_selector,null);
-  view.setOnClickListener(this);
-  mProfileImageView=(ShapedImageView)view.findViewById(R.id.account_profile_image);
-  mCountView=(BadgeView)view.findViewById(R.id.accounts_count);
-  return view;
-}

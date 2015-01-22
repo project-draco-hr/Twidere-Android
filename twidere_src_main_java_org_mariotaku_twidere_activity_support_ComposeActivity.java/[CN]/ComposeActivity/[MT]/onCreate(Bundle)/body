@@ -2,9 +2,11 @@
   super.onCreate(savedInstanceState);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
   mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mTwitterWrapper=TwidereApplication.getInstance(this).getTwitterWrapper();
+  final TwidereApplication app=TwidereApplication.getInstance(this);
+  mTwitterWrapper=app.getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
+  mImageLoader=app.getImageLoaderWrapper();
   setContentView(R.layout.activity_compose);
   setProgressBarIndeterminateVisibility(false);
   setFinishOnTouchOutside(false);
@@ -20,6 +22,7 @@
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
   mAccountSelectorContainer.setOnClickListener(this);
+  mAccountSelectorButton.setOnClickListener(this);
   final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   linearLayoutManager.setStackFromEnd(true);
@@ -68,8 +71,6 @@
   }
   final Menu menu=mMenuBar.getMenu();
   getMenuInflater().inflate(R.menu.menu_compose,menu);
-  mAccountActionProvider=(ComposeAccountActionProvider)MenuItemCompat.getActionProvider(menu.findItem(MENU_SELECT_ACCOUNT));
-  mAccountActionProvider.setInvokedListener(this);
   ThemeUtils.wrapMenuIcon(mMenuBar);
   mSendView.setOnClickListener(this);
   mSendView.setOnLongClickListener(this);

@@ -1,5 +1,0 @@
-{
-  if (mInvokedListener == null)   return false;
-  mInvokedListener.onInvoked();
-  return true;
-}

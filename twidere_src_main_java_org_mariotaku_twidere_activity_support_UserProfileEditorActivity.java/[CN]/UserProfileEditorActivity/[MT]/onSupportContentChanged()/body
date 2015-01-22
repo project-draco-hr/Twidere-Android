@@ -1,5 +1,6 @@
 {
   super.onSupportContentChanged();
+  mToolbar=(Toolbar)findViewById(R.id.done_bar);
   mProgressContainer=findViewById(R.id.progress_container);
   mContent=findViewById(R.id.content);
   mProfileBannerView=(ImageView)findViewById(R.id.profile_banner);

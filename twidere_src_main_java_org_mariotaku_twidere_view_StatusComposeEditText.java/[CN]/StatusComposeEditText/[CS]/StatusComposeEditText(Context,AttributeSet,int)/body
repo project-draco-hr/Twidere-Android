@@ -3,5 +3,5 @@
   mAdapter=new UserHashtagAutoCompleteAdapter(this);
   setTokenizer(new ScreenNameTokenizer());
   setMovementMethod(ArrowKeyMovementMethod.getInstance());
-  setRawInputType(TYPE_CLASS_TEXT | TYPE_TEXT_FLAG_CAP_SENTENCES | TYPE_TEXT_FLAG_MULTI_LINE);
+  setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 }

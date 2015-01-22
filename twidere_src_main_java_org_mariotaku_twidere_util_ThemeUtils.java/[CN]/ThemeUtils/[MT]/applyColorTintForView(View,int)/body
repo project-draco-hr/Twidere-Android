@@ -1,5 +1,4 @@
 {
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return;
   if (view instanceof IThemedView) {
     final ColorStateList tintList=ColorStateList.valueOf(tintColor);
     ((IThemedView)view).setThemeTintColor(tintList);

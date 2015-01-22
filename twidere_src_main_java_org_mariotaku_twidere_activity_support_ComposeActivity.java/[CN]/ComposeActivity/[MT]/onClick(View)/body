@@ -15,5 +15,11 @@ case R.id.account_selector_container:
     setAccountSelectorVisible(false);
     break;
   }
+case R.id.account_selector_button:
+{
+  final boolean isVisible=mAccountSelectorContainer.getVisibility() == View.VISIBLE;
+  mAccountSelectorContainer.setVisibility(isVisible ? View.GONE : View.VISIBLE);
+  break;
+}
 }
 }

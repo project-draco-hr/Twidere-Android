@@ -2,13 +2,16 @@
   name=bindingValue.getName();
   type=bindingValue.getType();
 switch (type) {
-case "STRING":
+case BindingValue.TYPE_STRING:
     value=((StringValue)bindingValue).getValue();
   break;
-case "IMAGE":
+case BindingValue.TYPE_BOOLEAN:
+value=((BooleanValue)bindingValue).getValue();
+break;
+case BindingValue.TYPE_IMAGE:
 value=new ParcelableImageValue((ImageValue)bindingValue);
 break;
-case "USER":
+case BindingValue.TYPE_USER:
 value=new ParcelableUserValue((UserValue)bindingValue);
 break;
 default :

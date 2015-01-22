@@ -1,0 +1,27 @@
+{
+  final RectF transitionSrc=mTransitionSource, transitionDst=mTransitionDestination;
+  final float strokeWidth;
+  if (transitionSrc != null && transitionDst != null) {
+    final float progress=1 - (dest.width() - transitionDst.width()) / (transitionSrc.width() - transitionDst.width());
+    strokeWidth=mStrokeWidth * progress;
+    mBorderPaint.setAlpha(Math.round(mBorderAlpha * progress));
+    ViewCompat.setTranslationZ(this,-ViewCompat.getElevation(this) * (1 - progress));
+  }
+ else {
+    strokeWidth=mStrokeWidth;
+    mBorderPaint.setAlpha(mBorderAlpha);
+    ViewCompat.setTranslationZ(this,0);
+  }
+  mBorderPaint.setStrokeWidth(strokeWidth);
+  if (getStyle() == SHAPE_CIRCLE) {
+    final float circleRadius=Math.min(dest.width(),dest.height()) / 2f - strokeWidth / 2;
+    canvas.drawCircle(dest.centerX(),dest.centerY(),circleRadius,mBorderPaint);
+  }
+ else {
+    final float radius=getCalculatedCornerRadius();
+    final float inset=mStrokeWidth / 2;
+    dest.inset(inset,inset);
+    canvas.drawRoundRect(dest,radius,radius,mBorderPaint);
+    dest.inset(-inset,-inset);
+  }
+}

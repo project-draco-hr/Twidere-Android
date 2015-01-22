@@ -1,5 +1,4 @@
 {
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
   super.onCreate(savedInstanceState);
   final Intent intent=getIntent();
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
@@ -11,7 +10,9 @@
   mLazyImageLoader=TwidereApplication.getInstance(this).getImageLoaderWrapper();
   mAccountId=accountId;
   setContentView(R.layout.activity_user_profile_editor);
+  setSupportActionBar(mToolbar);
   ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
+  ViewAccessor.setBackground(mToolbar,ThemeUtils.getActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);

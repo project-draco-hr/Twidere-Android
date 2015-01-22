@@ -1,3 +1,5 @@
 {
   ViewAccessor.setBackgroundTintList(this,color);
+  setLinkTextColor(color);
+  setHighlightColor(color.getDefaultColor());
 }

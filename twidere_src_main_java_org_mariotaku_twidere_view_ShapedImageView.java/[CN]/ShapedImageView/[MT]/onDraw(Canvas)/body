@@ -43,6 +43,6 @@
     drawBitmapWithCircleOnCanvas(bitmap,canvas,mSource,mDestination);
   }
   if (mBorderEnabled) {
-    drawBorder(canvas);
+    drawBorder(canvas,mDestination);
   }
 }

@@ -8,6 +8,5 @@
     resId=a.hasValue(2) ? a.getResourceId(2,0) : a.getResourceId(3,0);
   }
   a.recycle();
-  if (resId == 0)   return context;
-  return new ContextThemeWrapper(context,resId);
+  return resId;
 }

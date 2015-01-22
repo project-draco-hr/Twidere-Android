@@ -2,13 +2,16 @@
   this.name=in.readString("name");
   this.type=in.readString("type");
 switch (type) {
-case "STRING":
+case BindingValue.TYPE_STRING:
     value=in.readString("value");
   break;
-case "IMAGE":
+case BindingValue.TYPE_BOOLEAN:
+value=in.readBoolean("value");
+break;
+case BindingValue.TYPE_IMAGE:
 value=in.readParcelable("value",ParcelableImageValue.JSON_CREATOR);
 break;
-case "USER":
+case BindingValue.TYPE_USER:
 value=in.readParcelable("value",ParcelableUserValue.JSON_CREATOR);
 break;
 default :

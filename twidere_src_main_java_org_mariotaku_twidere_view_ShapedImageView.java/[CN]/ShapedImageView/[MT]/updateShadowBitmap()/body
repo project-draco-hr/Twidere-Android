@@ -12,9 +12,18 @@
   paint.setColor(Color.WHITE);
   paint.setShadowLayer(radius,0,radius * 1.5f / 2,SHADOW_START_COLOR);
   final RectF rect=new RectF(radius,radius,size - radius,size - radius);
-  canvas.drawOval(rect,paint);
-  paint.setShadowLayer(0,0,0,0);
-  paint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
-  canvas.drawOval(rect,paint);
+  if (getStyle() == SHAPE_CIRCLE) {
+    canvas.drawOval(rect,paint);
+    paint.setShadowLayer(0,0,0,0);
+    paint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+    canvas.drawOval(rect,paint);
+  }
+ else {
+    final float cr=getCalculatedCornerRadius();
+    canvas.drawRoundRect(rect,cr,cr,paint);
+    paint.setShadowLayer(0,0,0,0);
+    paint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+    canvas.drawRoundRect(rect,cr,cr,paint);
+  }
   invalidate();
 }

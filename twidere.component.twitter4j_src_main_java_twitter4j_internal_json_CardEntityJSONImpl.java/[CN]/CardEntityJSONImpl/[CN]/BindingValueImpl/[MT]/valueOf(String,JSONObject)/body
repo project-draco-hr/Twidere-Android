@@ -1,13 +1,16 @@
 {
   final String type=json.optString("type");
-  if ("STRING".equals(type)) {
+  if (TYPE_STRING.equals(type)) {
     return new StringValueImpl(name,json);
   }
- else   if ("IMAGE".equals(type)) {
+ else   if (TYPE_IMAGE.equals(type)) {
     return new ImageValueImpl(name,json);
   }
- else   if ("USER".equals(type)) {
+ else   if (TYPE_USER.equals(type)) {
     return new UserValueImpl(name,json);
+  }
+ else   if (TYPE_BOOLEAN.equals(type)) {
+    return new BooleanValueImpl(name,json);
   }
   throw new UnsupportedOperationException(String.format("Unsupported type %s",type));
 }

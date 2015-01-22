@@ -8,5 +8,8 @@
   mSendTextCountView=(StatusTextCountView)mSendView.findViewById(R.id.status_text_count);
   mAccountSelector=(RecyclerView)findViewById(R.id.account_selector);
   mAccountSelectorContainer=findViewById(R.id.account_selector_container);
+  mProfileImageView=(ShapedImageView)findViewById(R.id.account_profile_image);
+  mCountView=(BadgeView)findViewById(R.id.accounts_count);
+  mAccountSelectorButton=findViewById(R.id.account_selector_button);
   ViewAccessor.setBackground(findViewById(R.id.compose_content),getWindowContentOverlayForCompose(this));
 }

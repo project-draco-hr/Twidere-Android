@@ -1,5 +1,5 @@
 {
-  super(context,attrs,defStyleAttr);
-  final TypedArray a=context.obtainStyledAttributes(attrs,new int[]{R.attr.elevation},defStyleAttr,0);
+  super(getThemedContext(context,attrs,defStyleAttr),attrs,defStyleAttr);
+  final TypedArray a=getContext().obtainStyledAttributes(attrs,new int[]{R.attr.elevation},defStyleAttr,0);
   ViewCompat.setElevation(this,a.getDimension(0,0));
 }

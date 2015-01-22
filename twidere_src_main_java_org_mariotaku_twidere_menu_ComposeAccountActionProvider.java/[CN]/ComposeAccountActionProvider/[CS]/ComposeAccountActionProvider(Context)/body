@@ -1,4 +1,0 @@
-{
-  super(context);
-  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
-}

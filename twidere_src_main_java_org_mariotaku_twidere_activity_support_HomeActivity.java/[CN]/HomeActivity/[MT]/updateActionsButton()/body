@@ -27,7 +27,4 @@
     hab.setIcon(icon);
     hab.setTitle(title);
   }
-  if (mSmartBarProgress != null) {
-    mSmartBarProgress.setVisibility(hasActivatedTask ? View.VISIBLE : View.INVISIBLE);
-  }
 }

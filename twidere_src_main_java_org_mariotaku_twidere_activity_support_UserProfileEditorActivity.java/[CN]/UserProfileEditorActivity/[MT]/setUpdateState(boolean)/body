@@ -1,5 +1,4 @@
 {
-  setProgressBarIndeterminateVisibility(start);
   mEditName.setEnabled(!start);
   mEditDescription.setEnabled(!start);
   mEditLocation.setEnabled(!start);

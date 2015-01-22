@@ -44,11 +44,27 @@ default :
 mMatrix.setRectToRect(source,mTempDestination,ScaleToFit.CENTER);
 shader.setLocalMatrix(mMatrix);
 mBitmapPaint.setShader(shader);
+if (mBorderEnabled) {
+final float inset=mBorderPaint.getStrokeWidth() / 2;
 if (getStyle() == SHAPE_CIRCLE) {
-canvas.drawCircle(dest.centerX(),dest.centerY(),Math.min(dest.width(),dest.height()) / 2f,mBitmapPaint);
+  final float circleRadius=Math.min(dest.width(),dest.height()) / 2f - inset / 2;
+  canvas.drawCircle(dest.centerX(),dest.centerY(),circleRadius,mBitmapPaint);
 }
  else {
-final float cornerRadius=getCalculatedCornerRadius();
-canvas.drawRoundRect(dest,cornerRadius,cornerRadius,mBitmapPaint);
+  final float cornerRadius=getCalculatedCornerRadius();
+  dest.inset(inset,inset);
+  canvas.drawRoundRect(dest,cornerRadius,cornerRadius,mBitmapPaint);
+  dest.inset(-inset,-inset);
+}
+}
+ else {
+if (getStyle() == SHAPE_CIRCLE) {
+  final float circleRadius=Math.min(dest.width(),dest.height()) / 2f;
+  canvas.drawCircle(dest.centerX(),dest.centerY(),circleRadius,mBitmapPaint);
+}
+ else {
+  final float cornerRadius=getCalculatedCornerRadius();
+  canvas.drawRoundRect(dest,cornerRadius,cornerRadius,mBitmapPaint);
+}
 }
 }
