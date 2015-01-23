@@ -24,7 +24,7 @@
   final ParcelableMedia[] mediaArray=ParcelableMedia.fromEntities(message);
   if (mediaArray != null) {
     values.put(DirectMessages.MEDIA,JSONSerializer.toJSONArrayString(mediaArray));
-    values.put(DirectMessages.FIRST_MEDIA,mediaArray[0].url);
+    values.put(DirectMessages.FIRST_MEDIA,mediaArray[0].page_url);
   }
   return values;
 }

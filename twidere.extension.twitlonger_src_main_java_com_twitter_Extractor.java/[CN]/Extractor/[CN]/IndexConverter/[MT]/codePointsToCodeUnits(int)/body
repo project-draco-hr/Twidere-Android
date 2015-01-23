@@ -1,0 +1,5 @@
+{
+  charIndex=text.offsetByCodePoints(charIndex,codePointIndex - this.codePointIndex);
+  this.codePointIndex=codePointIndex;
+  return charIndex;
+}

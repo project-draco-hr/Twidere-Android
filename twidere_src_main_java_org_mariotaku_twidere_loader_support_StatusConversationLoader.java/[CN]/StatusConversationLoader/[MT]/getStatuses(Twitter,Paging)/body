@@ -1,9 +1,0 @@
-{
-  final Context context=getContext();
-  final Configuration conf=twitter.getConfiguration();
-  final Authorization auth=twitter.getAuthorization();
-  final boolean isOAuth=auth instanceof OAuthAuthorization || auth instanceof XAuthAuthorization;
-  final String consumerKey=conf.getOAuthConsumerKey(), consumerSecret=conf.getOAuthConsumerSecret();
-  if (shouldForceUsingPrivateAPIs(context) || isOAuth && isOfficialKey(context,consumerKey,consumerSecret))   return twitter.showConversation(mInReplyToStatusId,paging);
-  return Collections.emptyList();
-}

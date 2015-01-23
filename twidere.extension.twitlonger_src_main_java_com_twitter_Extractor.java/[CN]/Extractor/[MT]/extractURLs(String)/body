@@ -1,0 +1,8 @@
+{
+  if (text == null || text.length() == 0)   return Collections.emptyList();
+  final ArrayList<String> urls=new ArrayList<String>();
+  for (  final Entity entity : extractURLsWithIndices(text)) {
+    urls.add(entity.value);
+  }
+  return urls;
+}

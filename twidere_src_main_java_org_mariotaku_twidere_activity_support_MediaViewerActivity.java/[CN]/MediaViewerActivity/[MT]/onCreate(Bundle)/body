@@ -1,11 +1,15 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.image_viewer);
-  mActionBar=getActionBar();
-  mActionBar.setDisplayHomeAsUpEnabled(true);
-  mActionBar.addOnMenuVisibilityListener(this);
-  if (savedInstanceState == null) {
-    loadImage();
+  setContentView(R.layout.activity_media_viewer);
+  mAdapter=new MediaPagerAdapter(this);
+  mViewPager.setAdapter(mAdapter);
+  final Intent intent=getIntent();
+  final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
+  final ParcelableMedia[] media=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);
+  final ParcelableMedia currentMedia=intent.getParcelableExtra(EXTRA_CURRENT_MEDIA);
+  mAdapter.setMedia(accountId,media);
+  final int currentIndex=ArrayUtils.indexOf(media,currentMedia);
+  if (currentIndex != -1) {
+    mViewPager.setCurrentItem(currentIndex,false);
   }
-  mImageView.setMaxScale(2);
 }

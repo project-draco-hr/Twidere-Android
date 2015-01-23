@@ -1,0 +1,6 @@
+{
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,mAccountId);
+  args.putParcelable(EXTRA_MEDIA,mMedia[position]);
+  return Fragment.instantiate(mActivity,MediaPageFragment.class.getName(),args);
+}

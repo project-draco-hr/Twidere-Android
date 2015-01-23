@@ -1,3 +1,0 @@
-{
-  mTileView.addFocusables(views,direction,focusableMode);
-}

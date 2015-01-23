@@ -35,15 +35,17 @@ case R.id.follow:
   }
 case R.id.profile_image:
 {
-  final String profile_image_url_string=getOriginalTwitterProfileImage(mUser.profile_image_url);
-  openImage(activity,user.account_id,profile_image_url_string,false);
+  final String url=getOriginalTwitterProfileImage(user.profile_image_url);
+  final ParcelableMedia[] media={ParcelableMedia.newImage(url,url)};
+  Utils.openMedia(activity,user.account_id,false,null,media);
   break;
 }
 case R.id.profile_banner:
 {
-final String profile_banner_url=mUser.profile_banner_url;
-if (profile_banner_url == null) return;
-openImage(getActivity(),user.account_id,profile_banner_url + "/ipad_retina",false);
+if (user.profile_banner_url == null) return;
+final String url=user.profile_banner_url + "/ipad_retina";
+final ParcelableMedia[] media={ParcelableMedia.newImage(url,url)};
+Utils.openMedia(activity,user.account_id,false,null,media);
 break;
 }
 case R.id.listed_container:

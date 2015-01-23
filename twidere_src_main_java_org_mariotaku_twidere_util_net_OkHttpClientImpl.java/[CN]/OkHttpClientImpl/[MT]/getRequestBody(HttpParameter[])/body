@@ -1,0 +1,17 @@
+{
+  if (params == null)   return null;
+  if (!HttpParameter.containsFile(params)) {
+    return RequestBody.create(APPLICATION_FORM_URLENCODED,HttpParameter.encodeParameters(params));
+  }
+  if (params.length == 1) {
+    final HttpParameter param=params[0];
+    if (param.hasFileBody()) {
+      final ByteArrayOutputStream os=new ByteArrayOutputStream();
+      return RequestBody.create(MediaType.parse(param.getContentType()),os.toByteArray());
+    }
+ else {
+      return RequestBody.create(MediaType.parse(param.getContentType()),param.getFile());
+    }
+  }
+  return null;
+}

@@ -30,7 +30,11 @@
       paging.setSinceId(mSinceId - 1);
     }
     statuses=new ArrayList<>();
-    truncated=truncateStatuses(getStatuses(getTwitter(),paging),statuses,mSinceId);
+    final Twitter twitter=getTwitter();
+    if (twitter == null) {
+      throw new TwitterException("Account is null");
+    }
+    truncated=truncateStatuses(getStatuses(twitter,paging),statuses,mSinceId);
   }
  catch (  final TwitterException e) {
     Log.w(LOGTAG,e);

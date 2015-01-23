@@ -1,0 +1,9 @@
+{
+  if (context == null || media == null)   return;
+  final Intent intent=new Intent(INTENT_ACTION_VIEW_MEDIA);
+  intent.putExtra(EXTRA_ACCOUNT_ID,accountId);
+  intent.putExtra(EXTRA_CURRENT_MEDIA,current);
+  intent.putExtra(EXTRA_MEDIA,media);
+  intent.setClass(context,MediaViewerActivity.class);
+  context.startActivity(intent);
+}

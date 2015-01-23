@@ -1,0 +1,7 @@
+{
+  final IndexConverter convert=new IndexConverter(text);
+  for (  final Entity entity : entities) {
+    entity.start=convert.codeUnitsToCodePoints(entity.start);
+    entity.end=convert.codeUnitsToCodePoints(entity.end);
+  }
+}

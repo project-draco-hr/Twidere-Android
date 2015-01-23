@@ -1,0 +1,74 @@
+{
+  final ArrayList<NameValuePair> args=new ArrayList<>(2);
+  args.add(new BasicNameValuePair("application",app_name));
+  args.add(new BasicNameValuePair("api_key",api_key));
+  args.add(new BasicNameValuePair("message_id",twitlonger_message_id));
+  args.add(new BasicNameValuePair("twitter_id ",Long.toString(status_id)));
+  try {
+    final HttpClient httpclient=new DefaultHttpClient();
+    final HttpPost httppost=new HttpPost(TWITLONGER_API_CALLBACK);
+    httppost.setEntity(new UrlEncodedFormEntity(args,"UTF-8"));
+    final HttpResponse response=httpclient.execute(httppost);
+    final String responseStr=EntityUtils.toString(response.getEntity(),"UTF-8");
+    final XmlPullParserFactory factory=XmlPullParserFactory.newInstance();
+    factory.setNamespaceAware(true);
+    final XmlPullParser parser=factory.newPullParser();
+    parser.setInput(new StringReader(responseStr));
+    int eventType=parser.getEventType();
+    String tagName;
+    boolean lookingForEndOfUnknownTag=false;
+    String unknownTagName=null;
+    do {
+      if (eventType == XmlPullParser.START_TAG) {
+        tagName=parser.getName();
+        if (TAG_TWITLONGER.equals(tagName)) {
+          eventType=parser.next();
+          break;
+        }
+        throw new RuntimeException("Expecting " + TAG_TWITLONGER + " , got "+ tagName);
+      }
+      eventType=parser.next();
+    }
+ while (eventType != XmlPullParser.END_DOCUMENT);
+    boolean endOfDocument=false;
+    while (!endOfDocument) {
+switch (eventType) {
+case XmlPullParser.START_TAG:
+{
+          if (lookingForEndOfUnknownTag) {
+            break;
+          }
+          tagName=parser.getName();
+          if (TAG_POST.equalsIgnoreCase(tagName)) {
+          }
+ else           if (TAG_ERROR.equalsIgnoreCase(tagName))           throw new TwitLongerException("Server returned error response: " + parser.nextText());
+ else {
+            lookingForEndOfUnknownTag=true;
+            unknownTagName=tagName;
+          }
+          break;
+        }
+case XmlPullParser.END_TAG:
+{
+        tagName=parser.getName();
+        if (lookingForEndOfUnknownTag && tagName.equals(unknownTagName)) {
+          lookingForEndOfUnknownTag=false;
+          unknownTagName=null;
+        }
+        break;
+      }
+case XmlPullParser.END_DOCUMENT:
+{
+      endOfDocument=true;
+    }
+}
+eventType=parser.next();
+}
+}
+ catch (final IOException e) {
+throw new TwitLongerException(e);
+}
+catch (final XmlPullParserException e) {
+throw new TwitLongerException(e);
+}
+}

@@ -1,0 +1,7 @@
+{
+  this.start=start;
+  this.end=end;
+  this.value=value;
+  this.listSlug=listSlug;
+  this.type=type;
+}

@@ -1,5 +1,5 @@
 {
-  dest.writeString(url);
+  dest.writeString(page_url);
   dest.writeString(media_url);
   dest.writeInt(start);
   dest.writeInt(end);

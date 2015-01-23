@@ -1,0 +1,5 @@
+{
+  outState.putString(Twidere.EXTRA_TEXT,mResult);
+  outState.putString(Twidere.EXTRA_USER,mUser);
+  super.onSaveInstanceState(outState);
+}

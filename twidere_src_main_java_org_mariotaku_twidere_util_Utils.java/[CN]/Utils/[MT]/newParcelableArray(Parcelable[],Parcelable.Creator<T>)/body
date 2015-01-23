@@ -1,0 +1,6 @@
+{
+  if (array == null)   return null;
+  final T[] result=creator.newArray(array.length);
+  System.arraycopy(array,0,result,0,array.length);
+  return result;
+}

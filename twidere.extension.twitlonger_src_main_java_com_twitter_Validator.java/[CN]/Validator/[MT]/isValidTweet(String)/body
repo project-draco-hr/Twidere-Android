@@ -1,0 +1,7 @@
+{
+  if (text == null || text.length() == 0)   return false;
+  for (  final char c : text.toCharArray()) {
+    if (c == '\uFFFE' || c == '\uuFEFF' || c == '\uFFFF' || c >= '\u202A' && c <= '\u202E')     return false;
+  }
+  return getTweetLength(text) <= MAX_TWEET_LENGTH;
+}

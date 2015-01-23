@@ -1,0 +1,4 @@
+{
+  if (mMedia == null)   return 0;
+  return mMedia.length;
+}

@@ -1,0 +1,26 @@
+{
+switch (view.getId()) {
+case R.id.action:
+{
+      if (mResult == null) {
+        if (mStatus == null)         return;
+        if (mTwitLongerPostTask != null) {
+          mTwitLongerPostTask.cancel(true);
+        }
+        final Matcher m=PATTERN_TWITLONGER.matcher(mStatus.text_html);
+        if (m.find()) {
+          mTwitLongerPostTask=new TwitLongerReaderTask(m.group(GROUP_TWITLONGER_ID));
+          mTwitLongerPostTask.execute();
+        }
+      }
+ else {
+        if (mUser == null || mResult == null)         return;
+        final Intent intent=new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT,"@" + mUser + ": "+ mResult);
+        startActivity(Intent.createChooser(intent,getString(R.string.share)));
+      }
+      break;
+    }
+}
+}

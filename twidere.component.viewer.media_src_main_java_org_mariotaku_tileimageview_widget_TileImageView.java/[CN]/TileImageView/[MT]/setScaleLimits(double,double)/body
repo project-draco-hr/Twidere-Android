@@ -1,3 +1,0 @@
-{
-  mTileView.setScaleLimits(min,max);
-}

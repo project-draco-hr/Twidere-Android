@@ -1,0 +1,10 @@
+{
+  if (text == null)   return null;
+  final Matcher matcher=Regex.VALID_REPLY.matcher(text);
+  if (matcher.find()) {
+    final String after=text.substring(matcher.end());
+    if (Regex.INVALID_MENTION_MATCH_END.matcher(after).find())     return null;
+ else     return matcher.group(Regex.VALID_REPLY_GROUP_USERNAME);
+  }
+ else   return null;
+}

@@ -1,0 +1,9 @@
+{
+  final TwitLonger tl=new TwitLonger(TWITLONGER_APP_NAME,TWITLONGER_API_KEY);
+  try {
+    return tl.readPost(id);
+  }
+ catch (  final TwitLongerException e) {
+    return e;
+  }
+}

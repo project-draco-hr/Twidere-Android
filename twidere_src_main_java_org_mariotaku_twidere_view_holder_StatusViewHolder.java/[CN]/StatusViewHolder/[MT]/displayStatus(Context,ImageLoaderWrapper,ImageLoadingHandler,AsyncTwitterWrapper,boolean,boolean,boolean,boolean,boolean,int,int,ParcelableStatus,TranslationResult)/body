@@ -44,7 +44,12 @@
   loader.displayProfileImage(profileImageView,status.user_profile_image_url);
   if (displayMediaPreview) {
     mediaPreviewContainer.setStyle(mediaPreviewStyle);
-    mediaPreviewContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
+    if (media != null && media.length > 0) {
+      mediaPreviewContainer.setVisibility(View.VISIBLE);
+    }
+ else {
+      mediaPreviewContainer.setVisibility(View.GONE);
+    }
     mediaPreviewContainer.displayMedia(media,loader,status.account_id,null,handler);
   }
  else {

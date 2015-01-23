@@ -17,7 +17,7 @@
   values.put(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL,message.recipient_profile_image_url);
   if (message.media != null) {
     values.put(Statuses.MEDIA,JSONSerializer.toJSONArrayString(message.media));
-    values.put(Statuses.FIRST_MEDIA,message.media[0].url);
+    values.put(Statuses.FIRST_MEDIA,message.media[0].page_url);
   }
   return values;
 }

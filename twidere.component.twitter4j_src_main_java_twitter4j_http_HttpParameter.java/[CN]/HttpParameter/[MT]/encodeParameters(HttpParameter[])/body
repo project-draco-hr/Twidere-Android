@@ -1,6 +1,6 @@
 {
   if (null == httpParams)   return "";
-  final StringBuffer buf=new StringBuffer();
+  final StringBuilder buf=new StringBuilder();
   for (int j=0; j < httpParams.length; j++) {
     if (httpParams[j].isFile())     throw new IllegalArgumentException("parameter [" + httpParams[j].name + "]should be text");
     if (j != 0) {

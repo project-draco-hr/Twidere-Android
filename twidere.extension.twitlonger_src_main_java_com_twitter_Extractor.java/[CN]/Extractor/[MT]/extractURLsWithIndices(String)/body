@@ -1,0 +1,22 @@
+{
+  if (text == null || text.length() == 0 || (extractURLWithoutProtocol ? text.indexOf('.') : text.indexOf(':')) == -1)   return Collections.emptyList();
+  final ArrayList<Entity> urls=new ArrayList<Entity>();
+  final Matcher matcher=Regex.VALID_URL.matcher(text);
+  while (matcher.find()) {
+    if (matcher.group(Regex.VALID_URL_GROUP_PROTOCOL) == null) {
+      if (!extractURLWithoutProtocol || Regex.INVALID_URL_WITHOUT_PROTOCOL_MATCH_BEGIN.matcher(matcher.group(Regex.VALID_URL_GROUP_BEFORE)).matches()) {
+        continue;
+      }
+    }
+    String url=matcher.group(Regex.VALID_URL_GROUP_URL);
+    final int start=matcher.start(Regex.VALID_URL_GROUP_URL);
+    int end=matcher.end(Regex.VALID_URL_GROUP_URL);
+    final Matcher tco_matcher=Regex.VALID_TCO_URL.matcher(url);
+    if (tco_matcher.find()) {
+      url=tco_matcher.group();
+      end=start + url.length();
+    }
+    urls.add(new Entity(start,end,url,Entity.Type.URL));
+  }
+  return urls;
+}

@@ -1,0 +1,11 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.image_viewer_old);
+  mActionBar=getSupportActionBar();
+  mActionBar.setDisplayHomeAsUpEnabled(true);
+  mActionBar.addOnMenuVisibilityListener(this);
+  if (savedInstanceState == null) {
+    loadImage();
+  }
+  mImageView.setMaxScale(2);
+}

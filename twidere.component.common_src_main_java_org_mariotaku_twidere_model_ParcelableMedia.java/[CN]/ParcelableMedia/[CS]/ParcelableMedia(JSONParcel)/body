@@ -1,6 +1,6 @@
 {
-  url=in.readString("url");
   media_url=in.readString("media_url");
+  page_url=in.readString("page_url");
   start=in.readInt("start");
   end=in.readInt("end");
   type=in.readInt("type");

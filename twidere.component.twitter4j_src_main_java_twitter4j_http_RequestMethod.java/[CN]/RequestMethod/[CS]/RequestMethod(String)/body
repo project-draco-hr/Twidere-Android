@@ -1,4 +1,0 @@
-{
-  this.name=name;
-  instances.put(name,this);
-}

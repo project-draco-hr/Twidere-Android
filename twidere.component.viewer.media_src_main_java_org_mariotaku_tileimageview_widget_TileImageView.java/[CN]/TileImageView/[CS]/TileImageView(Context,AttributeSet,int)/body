@@ -1,5 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  mTileView=new TileView(context);
-  super.addView(mTileView,0,generateDefaultLayoutParams());
-}

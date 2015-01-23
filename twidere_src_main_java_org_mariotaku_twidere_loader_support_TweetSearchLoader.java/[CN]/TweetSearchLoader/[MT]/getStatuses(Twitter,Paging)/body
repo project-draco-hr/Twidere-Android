@@ -1,5 +1,4 @@
 {
-  if (twitter == null)   return null;
   final Query query=new Query(processQuery(mQuery));
   query.setRpp(paging.getCount());
   if (paging.getMaxId() > 0) {

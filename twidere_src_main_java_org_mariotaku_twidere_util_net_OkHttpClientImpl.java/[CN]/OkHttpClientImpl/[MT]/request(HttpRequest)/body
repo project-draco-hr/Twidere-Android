@@ -1,0 +1,59 @@
+{
+  final Builder builder=new Builder();
+  for (  Entry<String,String> headerEntry : req.getRequestHeaders().entrySet()) {
+    builder.header(headerEntry.getKey(),headerEntry.getValue());
+  }
+  final Authorization authorization=req.getAuthorization();
+  if (authorization != null) {
+    final String authHeader=authorization.getAuthorizationHeader(req);
+    if (authHeader != null) {
+      builder.header("Authorization",authHeader);
+    }
+  }
+  final String url;
+  try {
+switch (req.getMethod()) {
+case GET:
+{
+        url=getUrl(req);
+        builder.get();
+        break;
+      }
+case POST:
+{
+      url=req.getURL();
+      builder.post(getRequestBody(req.getParameters()));
+      break;
+    }
+case DELETE:
+{
+    url=getUrl(req);
+    builder.delete();
+    break;
+  }
+case HEAD:
+{
+  url=getUrl(req);
+  builder.head();
+  break;
+}
+case PUT:
+{
+url=req.getURL();
+builder.put(getRequestBody(req.getParameters()));
+break;
+}
+default :
+{
+throw new AssertionError();
+}
+}
+builder.url(url);
+final Response response=client.newCall(builder.build()).execute();
+Log.d(TwidereConstants.LOGTAG,String.format("OkHttpClient finished a request to %s with %s protocol",url,response.protocol().name()));
+return new OkHttpResponse(conf,null,response);
+}
+ catch (IOException e) {
+throw new TwitterException(e);
+}
+}

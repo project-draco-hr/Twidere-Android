@@ -1,0 +1,6 @@
+{
+  path=Uri.parse(media.uri).getPath();
+  final File file=new File(path);
+  fd=ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);
+  size=file.length();
+}

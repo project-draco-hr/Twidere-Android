@@ -1,3 +1,5 @@
 {
-  Utils.openImageDirectly(getActivity(),accountId,media.url);
+  final ParcelableStatus status=mStatusAdapter.getStatus();
+  if (status == null)   return;
+  Utils.openMediaDirectly(getActivity(),accountId,media,status.media);
 }

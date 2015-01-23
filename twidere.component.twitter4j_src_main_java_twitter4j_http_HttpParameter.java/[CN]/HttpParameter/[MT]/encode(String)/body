@@ -6,7 +6,7 @@
  catch (  final UnsupportedEncodingException ignore) {
     return null;
   }
-  final StringBuffer buf=new StringBuffer(encoded.length());
+  final StringBuilder buf=new StringBuilder(encoded.length());
   char focus;
   for (int i=0; i < encoded.length(); i++) {
     focus=encoded.charAt(i);

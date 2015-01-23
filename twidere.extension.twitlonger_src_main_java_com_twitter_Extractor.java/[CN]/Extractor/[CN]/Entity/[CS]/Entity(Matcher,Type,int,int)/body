@@ -1,0 +1,3 @@
+{
+  this(matcher.start(groupNumber) + startOffset,matcher.end(groupNumber),matcher.group(groupNumber),type);
+}

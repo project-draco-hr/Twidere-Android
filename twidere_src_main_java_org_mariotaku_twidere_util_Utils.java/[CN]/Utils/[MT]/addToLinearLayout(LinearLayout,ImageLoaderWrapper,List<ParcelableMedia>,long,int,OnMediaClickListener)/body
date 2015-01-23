@@ -28,7 +28,7 @@
       lp.weight=1.0f;
       rowContainer.addView(item,lp);
       final ImageView imageView=(ImageView)item.findViewById(R.id.media_preview_item);
-      loader.displayPreviewImage(imageView,media.url,loadingHandler);
+      loader.displayPreviewImage(imageView,media.page_url,loadingHandler);
     }
   }
 }

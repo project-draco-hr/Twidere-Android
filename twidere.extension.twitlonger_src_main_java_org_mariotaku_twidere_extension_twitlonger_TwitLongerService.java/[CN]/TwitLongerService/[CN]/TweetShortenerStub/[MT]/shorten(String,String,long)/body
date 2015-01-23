@@ -1,0 +1,3 @@
+{
+  return mService.get().shorten(text,screen_name,in_reply_to_status_id);
+}

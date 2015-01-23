@@ -1,0 +1,7 @@
+{
+  int result=media_url.hashCode();
+  result=31 * result + start;
+  result=31 * result + end;
+  result=31 * result + type;
+  return result;
+}

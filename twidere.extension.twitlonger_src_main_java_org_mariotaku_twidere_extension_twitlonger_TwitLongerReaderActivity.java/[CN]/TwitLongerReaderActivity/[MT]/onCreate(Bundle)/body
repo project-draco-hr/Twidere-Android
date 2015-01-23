@@ -1,0 +1,44 @@
+{
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  final String action=intent.getAction();
+  setContentView(R.layout.main);
+  mPreview=(TextView)findViewById(R.id.text);
+  mActionButton=(ImageButton)findViewById(R.id.action);
+  mProgress=(ProgressBar)findViewById(R.id.progress);
+  mResult=savedInstanceState != null ? savedInstanceState.getString(Twidere.EXTRA_TEXT) : null;
+  mUser=savedInstanceState != null ? savedInstanceState.getString(Twidere.EXTRA_USER) : null;
+  if (mResult == null || mUser == null) {
+    if (Twidere.INTENT_ACTION_EXTENSION_OPEN_STATUS.equals(action)) {
+      mStatus=Twidere.getStatusFromIntent(getIntent());
+      if (mStatus == null || mStatus.text_html == null) {
+        finish();
+        return;
+      }
+      mUser=mStatus.user_screen_name;
+      mPreview.setText(Html.fromHtml(mStatus.text_html));
+      final Matcher m=PATTERN_TWITLONGER.matcher(mStatus.text_html);
+      mActionButton.setEnabled(m.find());
+    }
+ else     if (Intent.ACTION_VIEW.equals(action) && data != null) {
+      mPreview.setText(data.toString());
+      final Matcher m=PATTERN_TWITLONGER.matcher(data.toString());
+      if (m.find()) {
+        if (mTwitLongerPostTask != null) {
+          mTwitLongerPostTask.cancel(true);
+        }
+        mTwitLongerPostTask=new TwitLongerReaderTask(m.group(GROUP_TWITLONGER_ID));
+        mTwitLongerPostTask.execute();
+      }
+ else {
+        finish();
+        return;
+      }
+    }
+  }
+ else {
+    mPreview.setText(mResult);
+  }
+}

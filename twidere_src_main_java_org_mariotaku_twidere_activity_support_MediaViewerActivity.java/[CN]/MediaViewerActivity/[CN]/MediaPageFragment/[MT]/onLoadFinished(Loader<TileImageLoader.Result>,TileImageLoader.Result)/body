@@ -1,0 +1,24 @@
+{
+  if (data.hasData()) {
+    mImageView.setVisibility(View.VISIBLE);
+    if (data.useDecoder) {
+      TileBitmapDrawable.attachTileBitmapDrawable(mImageView,data.file.getAbsolutePath(),null,new OnInitializeListener(){
+        @Override public void onStartInitialization(){
+        }
+        @Override public void onEndInitialization(){
+        }
+      }
+);
+    }
+ else {
+      mImageView.setImageBitmap(data.bitmap);
+    }
+  }
+ else {
+    mImageView.setVisibility(View.GONE);
+    Utils.showErrorMessage(getActivity(),null,data.exception,true);
+  }
+  mProgressBar.setVisibility(View.GONE);
+  mProgressBar.setProgress(0);
+  invalidateOptionsMenu();
+}

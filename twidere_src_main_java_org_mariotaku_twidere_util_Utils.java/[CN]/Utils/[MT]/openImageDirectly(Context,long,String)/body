@@ -1,8 +1,0 @@
-{
-  if (context == null || uri == null)   return;
-  final Intent intent=new Intent(INTENT_ACTION_VIEW_IMAGE);
-  intent.setData(Uri.parse(uri));
-  intent.putExtra(EXTRA_ACCOUNT_ID,accountId);
-  intent.setClass(context,MediaViewerActivity.class);
-  context.startActivity(intent);
-}

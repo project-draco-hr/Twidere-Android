@@ -1,0 +1,8 @@
+{
+  mProgressBar.setVisibility(View.VISIBLE);
+  mProgressBar.setIndeterminate(true);
+  invalidateOptionsMenu();
+  final ParcelableMedia media=args.getParcelable(EXTRA_MEDIA);
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  return new TileImageLoader(getActivity(),this,accountId,Uri.parse(media.media_url));
+}

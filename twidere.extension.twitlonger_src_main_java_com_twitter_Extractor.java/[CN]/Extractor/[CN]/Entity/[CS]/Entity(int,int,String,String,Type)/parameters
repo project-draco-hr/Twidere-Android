@@ -1,0 +1,5 @@
+int start
+int end
+String value
+String listSlug
+Type type

@@ -1,0 +1,7 @@
+{
+  if (link == null)   return null;
+  for (  ParcelableMedia mediaItem : media) {
+    if (link.equals(mediaItem.media_url) || link.equals(mediaItem.page_url))     return mediaItem;
+  }
+  return null;
+}

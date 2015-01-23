@@ -1,0 +1,11 @@
+{
+  try {
+    final HttpClient httpclient=new DefaultHttpClient();
+    final HttpGet httpget=new HttpGet(TWITLONGER_API_READ + id);
+    final HttpResponse response=httpclient.execute(httpget);
+    return parseTwitLongerResponse(response.getEntity().getContent());
+  }
+ catch (  final IOException e) {
+    throw new TwitLongerException(e);
+  }
+}

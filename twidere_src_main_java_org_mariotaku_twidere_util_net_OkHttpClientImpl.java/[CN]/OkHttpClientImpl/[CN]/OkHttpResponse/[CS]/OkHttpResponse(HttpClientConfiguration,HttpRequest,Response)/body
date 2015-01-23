@@ -1,0 +1,14 @@
+{
+  super(conf);
+  this.response=response;
+  statusCode=response.code();
+  if ("gzip".equals(response.header("Content-Encoding"))) {
+    is=new GZIPInputStream(response.body().byteStream());
+  }
+ else {
+    is=response.body().byteStream();
+  }
+  if (!response.isSuccessful()) {
+    throw new TwitterException(response.message(),request,this);
+  }
+}

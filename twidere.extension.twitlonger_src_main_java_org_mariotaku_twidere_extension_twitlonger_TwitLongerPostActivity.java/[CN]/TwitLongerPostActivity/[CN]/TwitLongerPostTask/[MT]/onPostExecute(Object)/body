@@ -1,0 +1,16 @@
+{
+  mProgress.setVisibility(View.GONE);
+  mActionButton.setVisibility(View.VISIBLE);
+  mActionButton.setImageResource(result instanceof TwitLongerResponse ? R.drawable.ic_menu_mark : R.drawable.ic_menu_send);
+  if (result instanceof TwitLongerResponse) {
+    mResult=((TwitLongerResponse)result).content;
+    mPreview.setText(mResult);
+  }
+ else   if (result instanceof TwitLongerException) {
+    Toast.makeText(TwitLongerPostActivity.this,getString(R.string.error_message,((TwitLongerException)result).getMessage()),Toast.LENGTH_LONG).show();
+  }
+ else {
+    Toast.makeText(TwitLongerPostActivity.this,R.string.error_unknown_error,Toast.LENGTH_LONG).show();
+  }
+  super.onPostExecute(result);
+}

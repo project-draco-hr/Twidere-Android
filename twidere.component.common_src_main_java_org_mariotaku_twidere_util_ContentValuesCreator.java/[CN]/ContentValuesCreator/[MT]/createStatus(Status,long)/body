@@ -61,7 +61,7 @@
   final ParcelableMedia[] media=ParcelableMedia.fromEntities(status);
   if (media != null) {
     values.put(Statuses.MEDIA,JSONSerializer.toJSONArrayString(media));
-    values.put(Statuses.FIRST_MEDIA,media[0].url);
+    values.put(Statuses.FIRST_MEDIA,media[0].page_url);
   }
   final ParcelableUserMention[] mentions=ParcelableUserMention.fromStatus(status);
   if (mentions != null) {

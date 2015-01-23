@@ -2,7 +2,8 @@
 switch (themeRes) {
 case R.style.Theme_Twidere_Dark_Transparent:
 case R.style.Theme_Twidere_Light_Transparent:
-case R.style.Theme_Twidere_Viewer_Transparent:
+case R.style.Theme_Twidere_Dark_Transparent_NoActionBar:
+case R.style.Theme_Twidere_Light_Transparent_NoActionBar:
     return true;
 }
 return false;

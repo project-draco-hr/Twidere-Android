@@ -1,0 +1,15 @@
+{
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.main);
+  mPreview=(TextView)findViewById(R.id.text);
+  mActionButton=(ImageButton)findViewById(R.id.action);
+  mProgress=(ProgressBar)findViewById(R.id.progress);
+  mStatus=Twidere.getComposingStatusFromIntent(getIntent());
+  if (mStatus == null) {
+    finish();
+    return;
+  }
+  mResult=savedInstanceState != null ? savedInstanceState.getString(Intent.EXTRA_TEXT) : null;
+  mPreview.setText(mResult != null ? mResult : mStatus.text);
+}

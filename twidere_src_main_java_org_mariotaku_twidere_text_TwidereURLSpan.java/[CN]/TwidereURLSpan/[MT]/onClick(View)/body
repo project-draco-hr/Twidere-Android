@@ -1,5 +1,5 @@
 {
   if (listener != null) {
-    listener.onLinkClick(url,orig,accountId,type,sensitive);
+    listener.onLinkClick(url,orig,accountId,type,sensitive,start,end);
   }
 }

@@ -1,0 +1,50 @@
+{
+  if (context == null || (manager != null && manager.isActive()))   return;
+  ProfilingUtil.profile(context,account_id,"Click, " + link + ", "+ type);
+switch (type) {
+case TwidereLinkify.LINK_TYPE_MENTION:
+{
+      openUserProfile(context,account_id,-1,link,null);
+      break;
+    }
+case TwidereLinkify.LINK_TYPE_HASHTAG:
+{
+    openTweetSearch(context,account_id,"#" + link);
+    break;
+  }
+case TwidereLinkify.LINK_TYPE_LINK:
+{
+  if (MediaPreviewUtils.isLinkSupported(link)) {
+    openMedia(account_id,sensitive,link,start,end);
+  }
+ else {
+    openLink(link);
+  }
+  break;
+}
+case TwidereLinkify.LINK_TYPE_LIST:
+{
+final String[] mentionList=link.split("/");
+if (mentionList.length != 2) {
+  break;
+}
+openUserListDetails(context,account_id,-1,-1,mentionList[0],mentionList[1]);
+break;
+}
+case TwidereLinkify.LINK_TYPE_CASHTAG:
+{
+openTweetSearch(context,account_id,link);
+break;
+}
+case TwidereLinkify.LINK_TYPE_USER_ID:
+{
+openUserProfile(context,account_id,ParseUtils.parseLong(link),null,null);
+break;
+}
+case TwidereLinkify.LINK_TYPE_STATUS:
+{
+openStatus(context,account_id,ParseUtils.parseLong(link));
+break;
+}
+}
+}

@@ -1,0 +1,26 @@
+{
+  final ArrayList<NameValuePair> args=new ArrayList<>();
+  args.add(new BasicNameValuePair("application",app_name));
+  args.add(new BasicNameValuePair("api_key",api_key));
+  args.add(new BasicNameValuePair("username",user_name));
+  args.add(new BasicNameValuePair("message",status));
+  if (in_reply_to_status_id > 0) {
+    args.add(new BasicNameValuePair("in_reply",Long.toString(in_reply_to_status_id)));
+    if (in_reply_to_screen_name != null && in_reply_to_screen_name.trim().length() != 0) {
+      args.add(new BasicNameValuePair("in_reply_user",in_reply_to_screen_name));
+    }
+  }
+  try {
+    final HttpClient httpclient=new DefaultHttpClient();
+    final HttpPost httppost=new HttpPost(TWITLONGER_API_POST);
+    httppost.setEntity(new UrlEncodedFormEntity(args,HTTP.UTF_8));
+    final HttpResponse response=httpclient.execute(httppost);
+    final StatusLine statusLine=response.getStatusLine();
+    final int statusCode=statusLine.getStatusCode();
+    if (statusCode >= 200 && statusCode <= 202)     return parseTwitLongerResponse(response.getEntity().getContent());
+    throw new TwitLongerException(statusLine.getReasonPhrase(),statusCode);
+  }
+ catch (  final IOException e) {
+    throw new TwitLongerException(e);
+  }
+}

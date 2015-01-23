@@ -23,7 +23,7 @@
       final String expanded=ParseUtils.parseString(url.getExpandedURL());
       final String media_url=MediaPreviewUtils.getSupportedLink(expanded);
       if (expanded != null && media_url != null) {
-        list.add(new ParcelableMedia(expanded,media_url,url.getStart(),url.getEnd(),TYPE_IMAGE));
+        list.add(new ParcelableMedia(media_url,expanded,url.getStart(),url.getEnd(),TYPE_IMAGE));
       }
     }
   }

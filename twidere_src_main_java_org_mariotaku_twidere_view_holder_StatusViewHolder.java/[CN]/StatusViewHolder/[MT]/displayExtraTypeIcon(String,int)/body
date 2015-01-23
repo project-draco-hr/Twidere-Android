@@ -1,10 +1,10 @@
 {
   if (TwitterCardUtils.CARD_NAME_AUDIO.equals(cardName)) {
-    extraTypeView.setImageResource(R.drawable.ic_action_play_circle);
+    extraTypeView.setImageResource(R.drawable.ic_action_music);
     extraTypeView.setVisibility(View.VISIBLE);
   }
  else   if (TwitterCardUtils.CARD_NAME_ANIMATED_GIF.equals(cardName)) {
-    extraTypeView.setImageResource(R.drawable.ic_action_play_circle);
+    extraTypeView.setImageResource(R.drawable.ic_action_movie);
     extraTypeView.setVisibility(View.VISIBLE);
   }
  else   if (TwitterCardUtils.CARD_NAME_PLAYER.equals(cardName)) {
