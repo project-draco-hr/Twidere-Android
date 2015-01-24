@@ -52,6 +52,7 @@
   mTabIndicator.setDisplayBadge(mPreferences.getBoolean(KEY_UNREAD_COUNT,true));
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
+  mEmptyTabHint.setOnClickListener(this);
   setTabPosition(initialTabPosition);
   setupSlidingMenu();
   setupBars();

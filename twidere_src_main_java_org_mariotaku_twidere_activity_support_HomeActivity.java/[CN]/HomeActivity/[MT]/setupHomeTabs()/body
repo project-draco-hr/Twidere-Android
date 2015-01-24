@@ -1,6 +1,6 @@
 {
   mPagerAdapter.clear();
-  mPagerAdapter.addTabs(getHomeTabs(this));
+  mPagerAdapter.addTabs(CustomTabUtils.getHomeTabs(this));
   final boolean hasNoTab=mPagerAdapter.getCount() == 0;
   mEmptyTabHint.setVisibility(hasNoTab ? View.VISIBLE : View.GONE);
   mViewPager.setVisibility(hasNoTab ? View.GONE : View.VISIBLE);

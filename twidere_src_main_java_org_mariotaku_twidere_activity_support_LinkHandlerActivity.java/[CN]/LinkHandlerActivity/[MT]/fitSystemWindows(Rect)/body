@@ -1,7 +1,4 @@
 {
   super.fitSystemWindows(insets);
-  final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.main_content);
-  if (fragment instanceof IBaseFragment) {
-    ((IBaseFragment)fragment).requestFitSystemWindows();
-  }
+  mMainContent.setPadding(insets.left,insets.top,insets.right,insets.bottom);
 }

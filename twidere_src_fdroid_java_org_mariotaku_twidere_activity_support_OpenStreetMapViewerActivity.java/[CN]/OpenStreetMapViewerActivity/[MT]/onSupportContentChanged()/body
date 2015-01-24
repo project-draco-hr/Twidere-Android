@@ -1,4 +1,4 @@
 {
-  super.onContentChanged();
+  super.onSupportContentChanged();
   mMapView=(MapView)findViewById(R.id.map_view);
 }

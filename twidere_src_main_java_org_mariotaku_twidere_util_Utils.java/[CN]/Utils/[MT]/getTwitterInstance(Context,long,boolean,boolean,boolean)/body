@@ -14,7 +14,7 @@
     final ConfigurationBuilder cb=new ConfigurationBuilder();
     cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(app));
     if (apacheHttp) {
-      cb.setHttpClientFactory(new OkHttpClientFactory());
+      cb.setHttpClientFactory(new ApacheHttpClientFactory(app));
     }
     cb.setHttpConnectionTimeout(connection_timeout);
     cb.setGZIPEnabled(enableGzip);

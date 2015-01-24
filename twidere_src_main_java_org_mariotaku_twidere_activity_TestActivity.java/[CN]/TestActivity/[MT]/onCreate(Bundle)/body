@@ -1,9 +1,3 @@
 {
   super.onCreate(savedInstanceState);
-  final ActionBar actionBar=getActionBar();
-  if (actionBar != null) {
-    actionBar.hide();
-  }
-  startActivity(new Intent(this,SettingsWizardActivity.class));
-  finish();
 }
