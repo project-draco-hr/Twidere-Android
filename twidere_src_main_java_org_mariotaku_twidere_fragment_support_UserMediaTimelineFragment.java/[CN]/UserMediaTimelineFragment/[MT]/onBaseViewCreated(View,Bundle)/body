@@ -1,0 +1,5 @@
+{
+  super.onBaseViewCreated(view,savedInstanceState);
+  mProgressContainer=view.findViewById(R.id.progress_container);
+  mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
+}

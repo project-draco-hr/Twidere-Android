@@ -1,6 +1,4 @@
 {
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    setClipToOutline(true);
-    setOutlineProvider(new CircularOutlineProvider());
-  }
+  ViewAccessor.setClipToOutline(this,true);
+  ViewAccessor.setOutlineProvider(this,new CircularOutlineProvider());
 }

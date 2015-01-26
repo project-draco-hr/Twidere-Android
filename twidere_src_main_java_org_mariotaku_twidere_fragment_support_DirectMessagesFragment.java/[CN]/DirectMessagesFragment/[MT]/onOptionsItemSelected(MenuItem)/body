@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case MENU_COMPOSE:
 {
-      openDirectMessagesConversation(getActivity(),-1,-1);
+      openMessageConversation(getActivity(),-1,-1);
       break;
     }
 }

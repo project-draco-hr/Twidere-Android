@@ -1,7 +1,6 @@
 {
   if (getActivity() == null)   return;
   mFirstVisibleItem=-1;
-  mAdapter.changeCursor(cursor);
-  mAdapter.setShowAccountColor(getActivatedAccountIds(getActivity()).length > 1);
+  mAdapter.setCursor(cursor);
   setListShown(true);
 }

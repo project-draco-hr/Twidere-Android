@@ -1,0 +1,18 @@
+{
+  final Context context=adapter.getContext();
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final long accountId=cursor.getLong(ConversationEntries.IDX_ACCOUNT_ID);
+  final long conversationId=cursor.getLong(ConversationEntries.IDX_CONVERSATION_ID);
+  final long timestamp=cursor.getLong(ConversationEntries.IDX_MESSAGE_TIMESTAMP);
+  final boolean isOutgoing=cursor.getInt(ConversationEntries.IDX_IS_OUTGOING) == 1;
+  final String name=cursor.getString(ConversationEntries.IDX_NAME);
+  final String screenName=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
+  final String nick=getUserNickname(context,conversationId);
+  nameView.setText(TextUtils.isEmpty(nick) ? name : adapter.isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,name,nick));
+  screenNameView.setText("@" + screenName);
+  textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
+  timeView.setTime(timestamp);
+  setIsOutgoing(isOutgoing);
+  final String profileImage=cursor.getString(ConversationEntries.IDX_PROFILE_IMAGE_URL);
+  loader.displayProfileImage(profileImageView,profileImage);
+}

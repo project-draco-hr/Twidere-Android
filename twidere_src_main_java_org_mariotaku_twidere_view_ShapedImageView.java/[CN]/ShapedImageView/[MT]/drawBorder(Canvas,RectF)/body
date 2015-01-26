@@ -1,4 +1,5 @@
 {
+  if (mBorderColors == null)   return;
   final RectF transitionSrc=mTransitionSource, transitionDst=mTransitionDestination;
   final float strokeWidth;
   if (transitionSrc != null && transitionDst != null) {

@@ -1,0 +1,10 @@
+{
+  final Cursor c=mCursor;
+  c.moveToPosition(position);
+  if (c.getInt(mIndices.is_outgoing) == 1) {
+    return ITEM_VIEW_TYPE_MESSAGE_OUTGOING;
+  }
+ else {
+    return ITEM_VIEW_TYPE_MESSAGE_INCOMING;
+  }
+}

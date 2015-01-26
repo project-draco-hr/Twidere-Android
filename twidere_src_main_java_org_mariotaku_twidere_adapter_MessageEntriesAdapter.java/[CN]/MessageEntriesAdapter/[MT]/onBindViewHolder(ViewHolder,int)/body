@@ -1,0 +1,5 @@
+{
+  final Cursor c=mCursor;
+  c.moveToPosition(position);
+  ((MessageEntryViewHolder)holder).displayMessage(c);
+}

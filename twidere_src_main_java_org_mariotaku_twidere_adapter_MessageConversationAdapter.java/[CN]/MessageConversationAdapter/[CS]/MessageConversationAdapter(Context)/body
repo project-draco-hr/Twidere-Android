@@ -1,0 +1,11 @@
+{
+  mContext=context;
+  mInflater=LayoutInflater.from(context);
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mLinkify=new TwidereLinkify(new DirectMessageOnLinkClickHandler(context,null));
+  mMultiSelectManager=app.getMultiSelectManager();
+  mImageLoader=app.getImageLoaderWrapper();
+  mImageLoadingHandler=new ImageLoadingHandler(R.id.media_preview_progress);
+  mIncomingMessageColor=ThemeUtils.getUserAccentColor(context);
+  mOutgoingMessageColor=ThemeUtils.getCardBackgroundColor(context);
+}

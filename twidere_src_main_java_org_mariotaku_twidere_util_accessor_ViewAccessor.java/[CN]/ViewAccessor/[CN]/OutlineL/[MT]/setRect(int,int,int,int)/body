@@ -1,0 +1,3 @@
+{
+  outline.setRect(left,top,right,bottom);
+}

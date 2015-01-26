@@ -1,0 +1,10 @@
+{
+  if (cursor != null) {
+    mIndices=new CursorIndices(cursor);
+  }
+ else {
+    mIndices=null;
+  }
+  mCursor=cursor;
+  notifyDataSetChanged();
+}

@@ -1,2 +1,5 @@
 {
+  final View view=getView();
+  if (view == null)   return;
+  view.setPadding(insets.left,insets.top,insets.right,insets.bottom);
 }

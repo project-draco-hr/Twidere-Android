@@ -1,0 +1,3 @@
+{
+  outline.setRoundRect(left,top,right,bottom,radius);
+}

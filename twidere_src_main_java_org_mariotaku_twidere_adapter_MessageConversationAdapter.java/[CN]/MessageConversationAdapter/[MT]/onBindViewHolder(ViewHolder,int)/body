@@ -1,0 +1,11 @@
+{
+switch (getItemViewType(position)) {
+case ITEM_VIEW_TYPE_MESSAGE_INCOMING:
+case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
+{
+      final Cursor c=mCursor;
+      c.moveToPosition(getCursorPosition(position));
+      ((MessageConversationViewHolder)holder).displayMessage(c,mIndices);
+    }
+}
+}

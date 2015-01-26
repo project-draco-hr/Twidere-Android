@@ -1,9 +1,0 @@
-{
-  super(view);
-  message_content=(MessageBubbleView)findViewById(R.id.message_content);
-  text=(TextView)findViewById(R.id.text);
-  time=(TextView)findViewById(R.id.time);
-  media_preview=(ImageView)findViewById(R.id.media_preview);
-  media_preview_progress=(ProgressBar)findViewById(R.id.media_preview_progress);
-  media_preview_container=(ViewGroup)findViewById(R.id.media_preview_container);
-}

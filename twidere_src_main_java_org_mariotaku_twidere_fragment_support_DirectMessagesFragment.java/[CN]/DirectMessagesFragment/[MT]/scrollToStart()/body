@@ -4,5 +4,6 @@
   if (twitter != null && tabPosition >= 0) {
     twitter.clearUnreadCountAsync(tabPosition);
   }
-  return super.scrollToStart();
+  mRecyclerView.smoothScrollToPosition(0);
+  return true;
 }

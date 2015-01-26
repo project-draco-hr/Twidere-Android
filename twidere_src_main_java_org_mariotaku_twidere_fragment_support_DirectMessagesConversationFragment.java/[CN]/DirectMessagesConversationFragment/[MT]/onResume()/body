@@ -1,6 +1,5 @@
 {
   super.onResume();
-  configBaseCardAdapter(getActivity(),mAdapter);
   final String previewScaleType=Utils.getNonEmptyString(mPreferences,KEY_MEDIA_PREVIEW_STYLE,ScaleType.CENTER_CROP.name());
   mAdapter.setImagePreviewScaleType(previewScaleType);
   mAdapter.notifyDataSetChanged();

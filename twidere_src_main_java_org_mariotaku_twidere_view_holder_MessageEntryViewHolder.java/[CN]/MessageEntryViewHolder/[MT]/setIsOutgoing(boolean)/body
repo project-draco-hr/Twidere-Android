@@ -1,0 +1,3 @@
+{
+  timeView.setCompoundDrawablesWithIntrinsicBounds(0,0,is_outgoing ? R.drawable.ic_indicator_sent : 0,0);
+}

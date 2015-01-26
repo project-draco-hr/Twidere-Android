@@ -1,0 +1,23 @@
+{
+  final ColorStateList colorStateList=ColorStateList.valueOf(color);
+  messageContent.setBubbleColor(colorStateList);
+  final int textLuminancePrimary=ColorUtils.getYIQLuminance(textColorPrimary);
+  final int textPrimaryDark, textPrimaryLight, textSecondaryDark, textSecondaryLight;
+  if (textLuminancePrimary < 128) {
+    textPrimaryDark=textColorPrimary;
+    textPrimaryLight=textColorPrimaryInverse;
+    textSecondaryDark=textColorSecondary;
+    textSecondaryLight=textColorSecondaryInverse;
+  }
+ else {
+    textPrimaryDark=textColorPrimaryInverse;
+    textPrimaryLight=textColorPrimary;
+    textSecondaryDark=textColorSecondaryInverse;
+    textSecondaryLight=textColorSecondary;
+  }
+  final int textContrastPrimary=ColorUtils.getContrastYIQ(color,192,textPrimaryDark,textPrimaryLight);
+  final int textContrastSecondary=ColorUtils.getContrastYIQ(color,192,textSecondaryDark,textSecondaryLight);
+  text.setTextColor(textContrastPrimary);
+  text.setLinkTextColor(textContrastSecondary);
+  time.setTextColor(textContrastSecondary);
+}

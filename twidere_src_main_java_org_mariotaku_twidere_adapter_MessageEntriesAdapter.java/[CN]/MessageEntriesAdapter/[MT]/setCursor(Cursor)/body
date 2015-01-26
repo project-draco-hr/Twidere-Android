@@ -1,0 +1,4 @@
+{
+  mCursor=cursor;
+  notifyDataSetChanged();
+}

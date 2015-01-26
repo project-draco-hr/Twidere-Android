@@ -1,0 +1,19 @@
+{
+switch (viewType) {
+case ITEM_VIEW_TYPE_MESSAGE_INCOMING:
+{
+      final View view=mInflater.inflate(R.layout.card_item_message_conversation_incoming,parent,false);
+      final MessageConversationViewHolder holder=new MessageConversationViewHolder(this,view);
+      holder.setMessageColor(mIncomingMessageColor);
+      return holder;
+    }
+case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
+{
+    final View view=mInflater.inflate(R.layout.card_item_message_conversation_outgoing,parent,false);
+    final MessageConversationViewHolder holder=new MessageConversationViewHolder(this,view);
+    holder.setMessageColor(mOutgoingMessageColor);
+    return holder;
+  }
+}
+return null;
+}

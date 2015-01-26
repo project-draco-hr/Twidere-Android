@@ -1,6 +1,7 @@
 {
   for (  final int pos : read_positions) {
-    final long id=adapter.getConversationId(pos), account_id=adapter.getAccountId(pos);
+    final DirectMessageEntry entry=adapter.getEntry(pos);
+    final long id=entry.conversation_id, account_id=entry.account_id;
     fragment.addUnreadCountsToRemove(account_id,id);
   }
   return null;

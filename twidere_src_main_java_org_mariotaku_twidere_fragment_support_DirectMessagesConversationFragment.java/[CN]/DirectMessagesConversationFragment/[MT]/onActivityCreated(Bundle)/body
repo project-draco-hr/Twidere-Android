@@ -1,5 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
+  final View view=getView();
+  if (view == null)   throw new AssertionError();
+  final Context viewContext=view.getContext();
   setHasOptionsMenu(true);
   final BaseSupportActivity activity=(BaseSupportActivity)getActivity();
   final ActionBar actionBar=activity.getSupportActionBar();
@@ -11,7 +14,7 @@
   mUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
   mQueryButton=actionBarView.findViewById(R.id.query_button);
   final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(activity,false);
-  final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(actionBar.getThemedContext(),R.layout.spinner_item_account_icon);
+  final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(mAccountSpinner.getContext(),R.layout.spinner_item_account_icon);
   accountsSpinnerAdapter.setDropDownViewResource(R.layout.list_item_user);
   accountsSpinnerAdapter.addAll(accounts);
   mAccountSpinner.setAdapter(accountsSpinnerAdapter);
@@ -33,14 +36,12 @@
   mImageLoader=TwidereApplication.getInstance(getActivity()).getImageLoaderWrapper();
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(getActivity());
-  mLocale=getResources().getConfiguration().locale;
-  mAdapter=new DirectMessagesConversationAdapter(getActivity());
+  mAdapter=new MessageConversationAdapter(getActivity());
+  final LinearLayoutManager layoutManager=new LinearLayoutManager(viewContext);
+  layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  layoutManager.setStackFromEnd(true);
+  mMessagesListView.setLayoutManager(layoutManager);
   mMessagesListView.setAdapter(mAdapter);
-  mMessagesListView.setDivider(null);
-  mMessagesListView.setSelector(android.R.color.transparent);
-  mMessagesListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
-  mMessagesListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
-  mMessagesListView.setStackFromBottom(true);
   mUsersSearchAdapter=new SimpleParcelableUsersAdapter(activity);
   mUsersSearchList.setAdapter(mUsersSearchAdapter);
   mUsersSearchList.setEmptyView(mUsersSearchEmpty);

@@ -4,7 +4,7 @@
   inflate(ThemeUtils.getActionBarContext(context),R.layout.action_item_home_actions,this);
   mIconView=(ImageView)findViewById(android.R.id.icon);
   mProgressBar=(ProgressBar)findViewById(android.R.id.progress);
-  setOutlineProvider(new HomeActionButtonOutlineProvider());
+  ViewAccessor.setOutlineProvider(this,new HomeActionButtonOutlineProvider());
   setClipToOutline(true);
   setButtonColor(Color.WHITE);
 }

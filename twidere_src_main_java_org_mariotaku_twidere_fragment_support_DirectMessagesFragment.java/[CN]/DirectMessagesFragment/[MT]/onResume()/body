@@ -1,5 +1,0 @@
-{
-  super.onResume();
-  mListView.setFastScrollEnabled(mPreferences.getBoolean(KEY_FAST_SCROLL_THUMB,false));
-  configBaseCardAdapter(getActivity(),mAdapter);
-}

@@ -1,7 +1,0 @@
-{
-  if (this.text_size != text_size) {
-    this.text_size=text_size;
-    text.setTextSize(text_size);
-    time.setTextSize(text_size * 0.75f);
-  }
-}

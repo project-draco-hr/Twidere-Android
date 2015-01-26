@@ -1,0 +1,4 @@
+{
+  final int r=Color.red(color), g=Color.green(color), b=Color.blue(color);
+  return (r * 299 + g * 587 + b * 114) / 1000;
+}

@@ -1,0 +1,6 @@
+{
+  account_id=cursor.getLong(ConversationEntries.IDX_ACCOUNT_ID);
+  conversation_id=cursor.getLong(ConversationEntries.IDX_CONVERSATION_ID);
+  screen_name=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
+  name=cursor.getString(ConversationEntries.IDX_NAME);
+}

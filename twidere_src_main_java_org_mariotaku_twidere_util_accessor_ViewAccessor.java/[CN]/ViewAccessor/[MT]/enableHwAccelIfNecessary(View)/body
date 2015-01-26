@@ -1,5 +1,0 @@
-{
-  if (ViewCompat.getLayerType(view) != ViewCompat.LAYER_TYPE_HARDWARE) {
-    ViewCompat.setLayerType(view,ViewCompat.LAYER_TYPE_HARDWARE,null);
-  }
-}

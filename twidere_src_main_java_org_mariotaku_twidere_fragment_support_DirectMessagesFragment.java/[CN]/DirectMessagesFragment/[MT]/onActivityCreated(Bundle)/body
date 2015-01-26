@@ -1,11 +1,23 @@
 {
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   super.onActivityCreated(savedInstanceState);
+  final View view=getView();
+  if (view == null)   throw new AssertionError();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final Context viewContext=view.getContext();
   mMultiSelectManager=getMultiSelectManager();
-  mAdapter=new DirectMessageEntriesAdapter(getActivity());
-  setListAdapter(mAdapter);
-  mListView=getListView();
-  mListView.setDivider(null);
+  mAdapter=new MessageEntriesAdapter(viewContext);
+  mAdapter.setListener(this);
+  mLayoutManager=new LinearLayoutManager(viewContext);
+  mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  mSwipeRefreshLayout.setOnRefreshListener(this);
+  mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(viewContext));
+  mRecyclerView.setLayoutManager(mLayoutManager);
+  mRecyclerView.setAdapter(mAdapter);
+  final DividerItemDecoration itemDecoration=new DividerItemDecoration(viewContext,mLayoutManager.getOrientation());
+  final Resources res=viewContext.getResources();
+  final int decorPaddingLeft=res.getDimensionPixelSize(R.dimen.element_spacing_normal) * 3 + res.getDimensionPixelSize(R.dimen.icon_size_status_profile_image);
+  itemDecoration.setPadding(decorPaddingLeft,0,0,0);
+  mRecyclerView.addItemDecoration(itemDecoration);
   getLoaderManager().initLoader(0,null,this);
   setListShown(false);
 }
