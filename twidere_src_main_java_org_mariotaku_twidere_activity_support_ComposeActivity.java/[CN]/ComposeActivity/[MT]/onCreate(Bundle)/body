@@ -8,7 +8,8 @@
   mValidator=new TwidereValidator(this);
   mImageLoader=app.getImageLoaderWrapper();
   setContentView(R.layout.activity_compose);
-  setProgressBarIndeterminateVisibility(false);
+  setSupportActionBar(mToolbar);
+  setSupportProgressBarIndeterminateVisibility(false);
   setFinishOnTouchOutside(false);
   final long[] defaultAccountIds=getAccountIds(this);
   if (defaultAccountIds.length <= 0) {
@@ -23,6 +24,7 @@
   mEditText.addTextChangedListener(this);
   mAccountSelectorContainer.setOnClickListener(this);
   mAccountSelectorButton.setOnClickListener(this);
+  mLocationContainer.setOnClickListener(this);
   final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   linearLayoutManager.setStackFromEnd(true);
@@ -82,6 +84,7 @@
     addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
   }
   setMenu();
+  updateLocationState();
   updateMediaPreview();
   notifyAccountSelectionChanged();
 }

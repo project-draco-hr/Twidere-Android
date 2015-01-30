@@ -1,5 +1,6 @@
 {
   super.onSupportContentChanged();
+  mToolbar=(Toolbar)findViewById(R.id.compose_actionbar);
   mEditText=(EditText)findViewById(R.id.edit_text);
   mMediaPreviewGrid=(GridView)findViewById(R.id.media_thumbnail_preview);
   mMenuBar=(ActionMenuView)findViewById(R.id.menu_bar);
@@ -11,5 +12,7 @@
   mProfileImageView=(ShapedImageView)findViewById(R.id.account_profile_image);
   mCountView=(BadgeView)findViewById(R.id.accounts_count);
   mAccountSelectorButton=findViewById(R.id.account_selector_button);
+  mLocationContainer=findViewById(R.id.location_container);
+  mLocationIcon=(ActionIconView)findViewById(R.id.location_icon);
   ViewAccessor.setBackground(findViewById(R.id.compose_content),getWindowContentOverlayForCompose(this));
 }

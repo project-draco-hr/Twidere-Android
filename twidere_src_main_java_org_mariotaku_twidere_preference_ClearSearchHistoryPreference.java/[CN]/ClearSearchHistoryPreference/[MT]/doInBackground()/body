@@ -3,4 +3,6 @@
   if (context == null)   return;
   final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(context,RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);
   suggestions.clearHistory();
+  final ContentResolver cr=context.getContentResolver();
+  cr.delete(SearchHistory.CONTENT_URI,null,null);
 }

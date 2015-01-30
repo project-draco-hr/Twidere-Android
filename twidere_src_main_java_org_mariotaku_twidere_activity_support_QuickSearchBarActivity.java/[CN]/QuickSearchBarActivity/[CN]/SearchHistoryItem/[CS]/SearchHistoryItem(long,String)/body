@@ -1,0 +1,4 @@
+{
+  mCursorId=cursorId;
+  mQuery=query;
+}

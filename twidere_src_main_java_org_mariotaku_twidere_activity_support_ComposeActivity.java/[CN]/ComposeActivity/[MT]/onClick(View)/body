@@ -21,5 +21,10 @@ case R.id.account_selector_button:
   mAccountSelectorContainer.setVisibility(isVisible ? View.GONE : View.VISIBLE);
   break;
 }
+case R.id.location_container:
+{
+toggleLocation();
+break;
+}
 }
 }

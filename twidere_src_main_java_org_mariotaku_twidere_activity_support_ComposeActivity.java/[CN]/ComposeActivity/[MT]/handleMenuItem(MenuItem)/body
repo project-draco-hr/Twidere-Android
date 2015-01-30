@@ -16,16 +16,7 @@ case R.id.add_image_sub_item:
   }
 case MENU_ADD_LOCATION:
 {
-  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
-  if (!attachLocation) {
-    getLocation();
-  }
- else {
-    mLocationManager.removeUpdates(this);
-  }
-  mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,!attachLocation).apply();
-  setMenu();
-  updateTextCount();
+  toggleLocation();
   break;
 }
 case MENU_DRAFTS:

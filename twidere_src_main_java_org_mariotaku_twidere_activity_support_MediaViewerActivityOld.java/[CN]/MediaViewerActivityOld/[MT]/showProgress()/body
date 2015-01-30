@@ -1,4 +1,0 @@
-{
-  mProgress.setVisibility(View.VISIBLE);
-  mProgress.setIndeterminate(true);
-}

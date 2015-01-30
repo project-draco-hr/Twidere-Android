@@ -1,25 +1,6 @@
 {
   if (mMenuBar == null)   return;
   final Menu menu=mMenuBar.getMenu();
-  final MenuItem itemAttachLocation=menu.findItem(MENU_ADD_LOCATION);
-  if (itemAttachLocation != null) {
-    final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
-    final int menuHighlight=ThemeUtils.getUserAccentColor(this);
-    if (attachLocation && getLocation()) {
-      itemAttachLocation.setChecked(true);
-      ActionIconDrawable.setMenuHighlight(itemAttachLocation,new TwidereMenuInfo(true,menuHighlight));
-    }
- else {
-      setProgressVisibility(false);
-      mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,false).apply();
-      itemAttachLocation.setChecked(false);
-      ActionIconDrawable.setMenuHighlight(itemAttachLocation,new TwidereMenuInfo(false,menuHighlight));
-    }
-  }
-  final MenuItem viewItem=menu.findItem(MENU_VIEW);
-  if (viewItem != null) {
-    viewItem.setVisible(mInReplyToStatus != null);
-  }
   final boolean hasMedia=hasMedia(), hasInReplyTo=mInReplyToStatus != null;
   Utils.setMenuItemAvailability(menu,MENU_TAKE_PHOTO,!hasInReplyTo);
   Utils.setMenuItemAvailability(menu,R.id.take_photo_sub_item,hasInReplyTo);

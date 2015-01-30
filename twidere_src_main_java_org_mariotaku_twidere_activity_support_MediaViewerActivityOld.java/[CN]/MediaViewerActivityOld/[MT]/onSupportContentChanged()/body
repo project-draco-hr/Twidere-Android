@@ -1,5 +1,0 @@
-{
-  super.onSupportContentChanged();
-  mImageView=(TouchImageView)findViewById(R.id.image_viewer);
-  mProgress=(ProgressBar)findViewById(R.id.progress);
-}

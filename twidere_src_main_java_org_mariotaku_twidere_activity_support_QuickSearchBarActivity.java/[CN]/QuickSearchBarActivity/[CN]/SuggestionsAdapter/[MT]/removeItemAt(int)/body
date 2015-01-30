@@ -1,0 +1,5 @@
+{
+  if (mData == null)   return;
+  mData.remove(position);
+  notifyDataSetChanged();
+}

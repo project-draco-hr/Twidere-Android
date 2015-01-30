@@ -1,4 +1,0 @@
-{
-  mActionBar.removeOnMenuVisibilityListener(this);
-  super.onDestroy();
-}

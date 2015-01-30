@@ -20,7 +20,7 @@
   mAccountsSelector.setLayoutManager(layoutManager);
   mAccountsSelector.setAdapter(mAccountsAdapter);
   mAccountProfileContainer=mAccountSelectorView.findViewById(R.id.profile_container);
-  mAccountProfileImageView=(ImageView)mAccountSelectorView.findViewById(R.id.profile_image);
+  mAccountProfileImageView=(ShapedImageView)mAccountSelectorView.findViewById(R.id.profile_image);
   mAccountProfileBannerView=(ImageView)mAccountSelectorView.findViewById(R.id.account_profile_banner);
   mAccountProfileNameView=(TextView)mAccountSelectorView.findViewById(R.id.name);
   mAccountProfileScreenNameView=(TextView)mAccountSelectorView.findViewById(R.id.screen_name);

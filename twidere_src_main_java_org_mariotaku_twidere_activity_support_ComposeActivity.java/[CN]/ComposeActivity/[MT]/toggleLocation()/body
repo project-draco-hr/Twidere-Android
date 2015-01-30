@@ -1,0 +1,13 @@
+{
+  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
+  if (!attachLocation) {
+    getLocation();
+  }
+ else {
+    mLocationManager.removeUpdates(this);
+  }
+  mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,!attachLocation).apply();
+  setMenu();
+  updateLocationState();
+  updateTextCount();
+}
