@@ -1,9 +1,0 @@
-{
-  super(conf);
-  this.res=res;
-  is=res.getEntity().getContent();
-  statusCode=res.getStatusLine().getStatusCode();
-  if (is != null && "gzip".equals(getResponseHeader("Content-Encoding"))) {
-    is=new GZIPInputStream(is);
-  }
-}

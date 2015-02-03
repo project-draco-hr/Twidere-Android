@@ -1,3 +1,0 @@
-{
-  return delegated.createLayeredSocket(socket,target,port,httpContext);
-}

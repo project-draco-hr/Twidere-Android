@@ -1,5 +1,0 @@
-{
-  if (ignoreSSLErrors)   return;
-  if (!checkCert(cert))   throw new SSLException(String.format("Untrusted cert %s",cert));
-  if (!verify(host,cns,subjectAlts,false))   throw new SSLException(String.format("Unable to verify %s",host));
-}

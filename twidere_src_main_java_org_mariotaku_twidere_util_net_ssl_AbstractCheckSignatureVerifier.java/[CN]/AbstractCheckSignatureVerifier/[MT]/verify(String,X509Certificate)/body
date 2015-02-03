@@ -1,5 +1,0 @@
-{
-  final String[] cns=getCNs(cert);
-  final String[] subjectAlts=getSubjectAlts(cert,host);
-  verify(host,cns,subjectAlts,cert);
-}

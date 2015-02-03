@@ -1,3 +1,0 @@
-{
-  return new ApacheHttpClientImpl(context,conf);
-}

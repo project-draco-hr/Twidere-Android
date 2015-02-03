@@ -1,3 +1,0 @@
-{
-  this(Args.notNull(sslContext,"SSL context").getSocketFactory(),null,null,hostnameVerifier);
-}

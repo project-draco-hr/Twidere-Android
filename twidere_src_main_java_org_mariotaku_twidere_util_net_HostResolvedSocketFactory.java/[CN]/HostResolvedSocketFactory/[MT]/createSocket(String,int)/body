@@ -1,0 +1,14 @@
+{
+  final String resolvedHost=resolver.resolve(host);
+  if (resolvedHost != null && !resolvedHost.equals(host)) {
+    if (InetAddressUtils.isIPv6Address(resolvedHost)) {
+      final byte[] resolvedAddress=Inet6Address.getByName(resolvedHost).getAddress();
+      return new Socket(InetAddress.getByAddress(host,resolvedAddress),port);
+    }
+ else     if (InetAddressUtils.isIPv4Address(resolvedHost)) {
+      final byte[] resolvedAddress=Inet4Address.getByName(resolvedHost).getAddress();
+      return new Socket(InetAddress.getByAddress(host,resolvedAddress),port);
+    }
+  }
+  return defaultFactory.createSocket(host,port);
+}

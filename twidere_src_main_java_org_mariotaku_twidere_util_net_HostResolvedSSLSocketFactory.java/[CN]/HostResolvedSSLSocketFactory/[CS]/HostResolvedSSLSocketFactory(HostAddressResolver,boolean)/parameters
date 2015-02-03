@@ -1,0 +1,2 @@
+HostAddressResolver resolver
+boolean ignoreError

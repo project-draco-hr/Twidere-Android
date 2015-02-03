@@ -1,4 +1,0 @@
-SSLContext sslContext
-String[] supportedProtocols
-String[] supportedCipherSuites
-X509HostnameVerifier hostnameVerifier

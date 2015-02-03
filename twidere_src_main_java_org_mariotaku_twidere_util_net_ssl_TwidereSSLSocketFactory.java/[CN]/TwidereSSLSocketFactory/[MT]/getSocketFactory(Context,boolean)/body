@@ -1,8 +1,0 @@
-{
-  try {
-    return new TwidereSSLSocketFactory(context,ignoreSSLErrors);
-  }
- catch (  final GeneralSecurityException e) {
-    throw new SSLInitializationException("Cannot create socket factory",e);
-  }
-}

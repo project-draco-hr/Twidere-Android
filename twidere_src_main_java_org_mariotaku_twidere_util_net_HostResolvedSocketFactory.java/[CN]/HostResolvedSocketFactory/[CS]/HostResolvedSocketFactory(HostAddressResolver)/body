@@ -1,0 +1,4 @@
+{
+  defaultFactory=SocketFactory.getDefault();
+  this.resolver=resolver;
+}

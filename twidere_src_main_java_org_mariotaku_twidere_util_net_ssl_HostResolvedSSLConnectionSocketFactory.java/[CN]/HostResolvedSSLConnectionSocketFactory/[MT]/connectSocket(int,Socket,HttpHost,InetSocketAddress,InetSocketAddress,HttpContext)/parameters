@@ -1,6 +1,0 @@
-int connectTimeout
-Socket socket
-HttpHost host
-InetSocketAddress remoteAddress
-InetSocketAddress localAddress
-HttpContext context

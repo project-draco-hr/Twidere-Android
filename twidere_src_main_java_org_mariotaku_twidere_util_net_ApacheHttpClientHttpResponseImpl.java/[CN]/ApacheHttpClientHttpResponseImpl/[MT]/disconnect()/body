@@ -1,5 +1,0 @@
-{
-  if (res != null) {
-    res.getEntity().consumeContent();
-  }
-}

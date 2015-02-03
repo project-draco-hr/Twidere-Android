@@ -1,3 +1,0 @@
-{
-  this(socketfactory,null,null,hostnameVerifier);
-}

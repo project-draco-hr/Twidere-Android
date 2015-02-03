@@ -1,3 +1,0 @@
-{
-  super(HttpParameter.encodeParameters(params),CONTENT_TYPE);
-}

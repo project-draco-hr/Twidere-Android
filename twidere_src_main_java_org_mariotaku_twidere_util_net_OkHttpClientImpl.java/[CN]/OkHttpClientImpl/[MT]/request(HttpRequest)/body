@@ -10,50 +10,12 @@
       builder.header("Authorization",authHeader);
     }
   }
-  final String url;
   try {
-switch (req.getMethod()) {
-case GET:
-{
-        url=getUrl(req);
-        builder.get();
-        break;
-      }
-case POST:
-{
-      url=req.getURL();
-      builder.post(getRequestBody(req.getParameters()));
-      break;
-    }
-case DELETE:
-{
-    url=getUrl(req);
-    builder.delete();
-    break;
+    setupRequestBuilder(builder,req);
+    final Response response=client.newCall(builder.build()).execute();
+    return new OkHttpResponse(conf,null,response);
   }
-case HEAD:
-{
-  url=getUrl(req);
-  builder.head();
-  break;
-}
-case PUT:
-{
-url=req.getURL();
-builder.put(getRequestBody(req.getParameters()));
-break;
-}
-default :
-{
-throw new AssertionError();
-}
-}
-builder.url(url);
-final Response response=client.newCall(builder.build()).execute();
-Log.d(TwidereConstants.LOGTAG,String.format("OkHttpClient finished a request to %s with %s protocol",url,response.protocol().name()));
-return new OkHttpResponse(conf,null,response);
-}
- catch (IOException e) {
-throw new TwitterException(e);
-}
+ catch (  IOException e) {
+    throw new TwitterException(e);
+  }
 }

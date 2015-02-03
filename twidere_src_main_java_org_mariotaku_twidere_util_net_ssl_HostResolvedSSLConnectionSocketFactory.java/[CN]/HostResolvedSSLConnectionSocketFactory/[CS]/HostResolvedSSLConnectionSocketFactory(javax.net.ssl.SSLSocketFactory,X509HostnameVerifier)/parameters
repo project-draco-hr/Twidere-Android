@@ -1,2 +1,0 @@
-javax.net.ssl.SSLSocketFactory socketfactory
-X509HostnameVerifier hostnameVerifier

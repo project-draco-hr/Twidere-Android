@@ -1,3 +1,0 @@
-{
-  return delegated.connectSocket(connectTimeout,socket,host,remoteAddress,localAddress,httpContext);
-}

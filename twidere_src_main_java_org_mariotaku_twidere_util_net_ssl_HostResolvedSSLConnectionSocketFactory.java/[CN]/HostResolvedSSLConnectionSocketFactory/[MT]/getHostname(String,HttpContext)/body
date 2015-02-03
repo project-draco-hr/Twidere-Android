@@ -1,6 +1,0 @@
-{
-  if (context == null)   return hostname;
-  final Object attr=context.getAttribute(HTTP_CONTEXT_KEY_ORIGINAL_HOST);
-  if (attr instanceof String)   return (String)attr;
-  return hostname;
-}

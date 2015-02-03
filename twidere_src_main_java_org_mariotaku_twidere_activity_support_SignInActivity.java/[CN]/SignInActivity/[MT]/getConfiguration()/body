@@ -4,7 +4,7 @@
   final boolean ignore_ssl_error=mPreferences.getBoolean(KEY_IGNORE_SSL_ERROR,false);
   final boolean enable_proxy=mPreferences.getBoolean(KEY_ENABLE_PROXY,false);
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(mApplication));
-  cb.setHttpClientFactory(new ApacheHttpClientFactory(mApplication));
+  cb.setHttpClientFactory(new OkHttpClientFactory(mApplication));
   if (TwitterContentUtils.isOfficialKey(this,mConsumerKey,mConsumerSecret)) {
     Utils.setMockOfficialUserAgent(this,cb);
   }

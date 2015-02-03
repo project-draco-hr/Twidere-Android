@@ -1,9 +1,0 @@
-{
-  this.context=context;
-  this.ignoreSSLErrors=ignoreSSLErrors;
-  final TrustManager[] tm={new TrustAllX509TrustManager()};
-  final SSLContext sslContext=SSLContext.getInstance("TLS");
-  sslContext.init(null,tm,null);
-  final X509HostnameVerifier hostnameVerifier=new TwidereHostnameVerifier(context,ignoreSSLErrors);
-  delegated=new HostResolvedSSLConnectionSocketFactory(sslContext,hostnameVerifier);
-}

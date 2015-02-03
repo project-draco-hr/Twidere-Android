@@ -1,0 +1,3 @@
+{
+  return defaultFactory.createSocket(s,host,port,autoClose);
+}

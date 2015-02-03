@@ -1,7 +1,0 @@
-{
-  final Uri.Builder uri=Uri.parse(req.getURL()).buildUpon();
-  for (  HttpParameter param : req.getParameters()) {
-    uri.appendQueryParameter(param.getName(),param.getValue());
-  }
-  return uri.build().toString();
-}

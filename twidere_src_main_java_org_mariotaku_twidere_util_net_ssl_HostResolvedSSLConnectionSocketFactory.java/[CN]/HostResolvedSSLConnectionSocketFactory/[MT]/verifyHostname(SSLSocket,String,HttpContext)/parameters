@@ -1,3 +1,0 @@
-SSLSocket sslsock
-String hostname
-HttpContext context

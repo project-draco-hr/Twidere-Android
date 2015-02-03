@@ -1,11 +1,11 @@
 {
-  final String oauth_verifier=mActivity.readOAuthPin(html);
-  final RequestToken request_token=mActivity.mRequestToken;
-  if (oauth_verifier != null && request_token != null) {
+  final String oauthVerifier=mActivity.readOAuthPin(html);
+  final RequestToken requestToken=mActivity.mRequestToken;
+  if (oauthVerifier != null && requestToken != null) {
     final Intent intent=new Intent();
-    intent.putExtra(EXTRA_OAUTH_VERIFIER,oauth_verifier);
-    intent.putExtra(EXTRA_REQUEST_TOKEN,request_token.getToken());
-    intent.putExtra(EXTRA_REQUEST_TOKEN_SECRET,request_token.getTokenSecret());
+    intent.putExtra(EXTRA_OAUTH_VERIFIER,oauthVerifier);
+    intent.putExtra(EXTRA_REQUEST_TOKEN,requestToken.getToken());
+    intent.putExtra(EXTRA_REQUEST_TOKEN_SECRET,requestToken.getTokenSecret());
     mActivity.setResult(RESULT_OK,intent);
     mActivity.finish();
   }
