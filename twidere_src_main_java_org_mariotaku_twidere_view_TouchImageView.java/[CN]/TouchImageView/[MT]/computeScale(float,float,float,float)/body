@@ -1,0 +1,9 @@
+{
+  if (currentScale * delta < minScale) {
+    return minScale / currentScale;
+  }
+ else   if (currentScale * delta > maxScale) {
+    return maxScale / currentScale;
+  }
+  return delta;
+}

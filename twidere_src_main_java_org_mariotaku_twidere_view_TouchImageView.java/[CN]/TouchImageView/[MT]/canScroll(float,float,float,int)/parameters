@@ -1,0 +1,4 @@
+float viewSize
+float drawableSize
+float currentTranslation
+int direction

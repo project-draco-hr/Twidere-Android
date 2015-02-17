@@ -1,0 +1,32 @@
+{
+  final float minTranslation=viewSize > drawableSize ? 0 : viewSize - drawableSize;
+  final float maxTranslation=viewSize > drawableSize ? viewSize - drawableSize : 0;
+  if (currentTranslation < minTranslation && delta > 0) {
+    if (currentTranslation + delta > maxTranslation) {
+      return maxTranslation - currentTranslation;
+    }
+ else {
+      return delta;
+    }
+  }
+ else   if (currentTranslation > maxTranslation && delta < 0) {
+    if (currentTranslation + delta < minTranslation) {
+      return minTranslation - currentTranslation;
+    }
+ else {
+      return delta;
+    }
+  }
+ else   if (currentTranslation > minTranslation && currentTranslation < maxTranslation) {
+    if (currentTranslation + delta < minTranslation) {
+      return minTranslation - currentTranslation;
+    }
+ else     if (currentTranslation + delta > maxTranslation) {
+      return maxTranslation - currentTranslation;
+    }
+ else {
+      return delta;
+    }
+  }
+  return 0;
+}

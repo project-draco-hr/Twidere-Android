@@ -1,0 +1,12 @@
+{
+  loadMatrixValues();
+  final float targetScale=getMinScale();
+  final float desiredTranslationX=getWidth() / 2;
+  final float desiredTranslationY=getHeight() / 2;
+  final float targetTranslationX=desiredTranslationX + computeTranslation(getMeasuredWidth(),mDrawableIntrinsicWidth * targetScale,desiredTranslationX,0);
+  final float targetTranslationY=desiredTranslationY + computeTranslation(getMeasuredHeight(),mDrawableIntrinsicHeight * targetScale,desiredTranslationY,0);
+  clearAnimation();
+  final Animation animation=new TouchAnimation(targetScale,targetTranslationX,targetTranslationY);
+  animation.setDuration(0);
+  startAnimation(animation);
+}

@@ -1,0 +1,9 @@
+{
+  loadMatrixValues();
+  this.initialScale=mScale;
+  this.initialTranslationX=mTranslationX;
+  this.initialTranslationY=mTranslationY;
+  this.targetScale=targetScale;
+  this.targetTranslationX=targetTranslationX;
+  this.targetTranslationY=targetTranslationY;
+}

@@ -1,0 +1,4 @@
+float minScale
+float maxScale
+float currentScale
+float delta

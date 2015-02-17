@@ -8,5 +8,5 @@
   final float widthRatio=viewWidth / (float)drawableWidth;
   final float heightRatio=viewHeight / (float)drawableHeight;
   mImageView.setMaxScale(Math.max(1,Math.max(heightRatio,widthRatio)));
-  mImageView.setScaleType(ScaleType.CENTER_INSIDE);
+  mImageView.resetScale();
 }

@@ -1,0 +1,15 @@
+{
+  super.setImageDrawable(drawable);
+  if (mDrawable != drawable) {
+    mDrawable=drawable;
+    if (drawable != null) {
+      mDrawableIntrinsicWidth=drawable.getIntrinsicWidth();
+      mDrawableIntrinsicHeight=drawable.getIntrinsicHeight();
+      resetToInitialState();
+    }
+ else {
+      mDrawableIntrinsicWidth=0;
+      mDrawableIntrinsicHeight=0;
+    }
+  }
+}

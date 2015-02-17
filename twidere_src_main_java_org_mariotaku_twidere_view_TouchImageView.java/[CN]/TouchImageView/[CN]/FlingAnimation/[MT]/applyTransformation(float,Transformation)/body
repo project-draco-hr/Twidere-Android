@@ -1,0 +1,8 @@
+{
+  mFlingScroller.computeScrollOffset(interpolatedTime);
+  loadMatrixValues();
+  final float dx=mFlingScroller.getCurrX() - mTranslationX;
+  final float dy=mFlingScroller.getCurrY() - mTranslationY;
+  mMatrix.postTranslate(dx,dy);
+  ViewCompat.postInvalidateOnAnimation(TouchImageView.this);
+}

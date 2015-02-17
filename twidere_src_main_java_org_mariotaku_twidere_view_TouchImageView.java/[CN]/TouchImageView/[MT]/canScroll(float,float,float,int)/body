@@ -1,0 +1,9 @@
+{
+  if (direction > 0) {
+    return Math.round(currentTranslation) < 0;
+  }
+ else   if (direction < 0) {
+    return Math.round(currentTranslation) > viewSize - Math.round(drawableSize);
+  }
+  return false;
+}
