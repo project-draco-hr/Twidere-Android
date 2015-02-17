@@ -1,0 +1,8 @@
+{
+  final Writer writer=newWriter();
+  for (  T item : array) {
+    writer.beginArrayElement();
+    item.write(writer);
+  }
+  return writer.toString();
+}

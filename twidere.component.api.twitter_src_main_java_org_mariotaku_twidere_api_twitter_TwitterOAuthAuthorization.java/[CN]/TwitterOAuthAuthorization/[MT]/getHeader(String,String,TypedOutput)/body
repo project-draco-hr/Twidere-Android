@@ -1,0 +1,51 @@
+{
+  final String oauthNonce=generateOAuthNonce();
+  final long timestamp=System.currentTimeMillis() / 1000;
+  final List<KeyValuePair> queryParams=new ArrayList<>();
+  parseGetParametersFromUrl(url,queryParams,DEFAULT_ENCODING);
+  if (body != null) {
+    final ContentType contentType=ContentType.parse(body.mimeType());
+    if ("application/x-www-form-urlencoded".equals(contentType.getContentType())) {
+      final ByteArrayOutputStream baos=new ByteArrayOutputStream((int)body.length());
+      try {
+        body.writeTo(baos);
+        parseGetParameters(baos.toString(DEFAULT_ENCODING),queryParams,DEFAULT_ENCODING);
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+ finally {
+        try {
+          baos.close();
+        }
+ catch (        IOException ignore) {
+        }
+      }
+    }
+  }
+  final String oauthSignature=generateOAuthSignature(method,url,oauthNonce,timestamp,queryParams);
+  final List<KeyValuePair> encodeParams=new ArrayList<>();
+  encodeParams.add(new KeyValuePair("oauth_consumer_key",consumerKey));
+  encodeParams.add(new KeyValuePair("oauth_signature_method",OAUTH_SIGNATURE_METHOD));
+  encodeParams.add(new KeyValuePair("oauth_timestamp",String.valueOf(timestamp)));
+  encodeParams.add(new KeyValuePair("oauth_nonce",oauthNonce));
+  encodeParams.add(new KeyValuePair("oauth_version",OAUTH_VERSION));
+  if (oauthToken != null) {
+    encodeParams.add(new KeyValuePair("oauth_token",oauthToken));
+  }
+  encodeParams.add(new KeyValuePair("oauth_signature",encode(oauthSignature)));
+  Collections.sort(encodeParams);
+  final StringBuilder headerBuilder=new StringBuilder();
+  headerBuilder.append("OAuth ");
+  for (int i=0, j=encodeParams.size(); i < j; i++) {
+    if (i != 0) {
+      headerBuilder.append(", ");
+    }
+    final KeyValuePair keyValuePair=encodeParams.get(i);
+    headerBuilder.append(keyValuePair.getKey());
+    headerBuilder.append("=\"");
+    headerBuilder.append(keyValuePair.getValue());
+    headerBuilder.append('\"');
+  }
+  return headerBuilder.toString();
+}

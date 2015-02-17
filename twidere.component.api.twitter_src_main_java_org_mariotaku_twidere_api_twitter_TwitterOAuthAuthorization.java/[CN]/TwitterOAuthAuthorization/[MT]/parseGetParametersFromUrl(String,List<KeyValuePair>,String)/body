@@ -1,0 +1,5 @@
+{
+  final int queryStart=url.indexOf("?");
+  if (-1 == queryStart)   return;
+  parseGetParameters(url.substring(queryStart + 1),params,encoding);
+}

@@ -1,0 +1,5 @@
+{
+  writer.write("id",id);
+  writer.write("name",name);
+  writer.write("screen_name",screen_name);
+}

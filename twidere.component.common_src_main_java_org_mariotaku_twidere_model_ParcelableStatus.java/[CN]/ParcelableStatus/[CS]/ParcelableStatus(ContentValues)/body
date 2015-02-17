@@ -31,11 +31,10 @@
   reply_count=ContentValuesUtils.getAsInteger(values,Statuses.REPLY_COUNT,0);
   descendent_reply_count=ContentValuesUtils.getAsInteger(values,Statuses.DESCENDENT_REPLY_COUNT,0);
   text_unescaped=values.getAsString(Statuses.TEXT_UNESCAPED);
-  media=ParcelableMedia.fromJSONString(values.getAsString(Statuses.MEDIA));
+  media=SimpleValueSerializer.fromSerializedString(values.getAsString(Statuses.MEDIA_LIST),ParcelableMedia.SIMPLE_CREATOR);
   is_possibly_sensitive=ContentValuesUtils.getAsBoolean(values,Statuses.IS_POSSIBLY_SENSITIVE,false);
   user_is_following=ContentValuesUtils.getAsBoolean(values,Statuses.IS_FOLLOWING,false);
-  mentions=ParcelableUserMention.fromJSONString(values.getAsString(Statuses.MENTIONS));
-  first_media=values.getAsString(Statuses.FIRST_MEDIA);
+  mentions=SimpleValueSerializer.fromSerializedString(values.getAsString(Statuses.MENTIONS_LIST),ParcelableUserMention.SIMPLE_CREATOR);
   card=ParcelableCardEntity.fromJSONString(values.getAsString(Statuses.CARD));
   card_name=card != null ? card.name : null;
 }

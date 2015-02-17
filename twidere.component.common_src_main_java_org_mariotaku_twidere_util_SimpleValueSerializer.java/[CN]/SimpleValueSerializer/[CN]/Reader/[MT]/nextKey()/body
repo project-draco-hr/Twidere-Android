@@ -1,0 +1,6 @@
+{
+  if (lastToken != '\0' && lastToken != DIVIDER_OBJECT_FIELD) {
+    throw new SerializationException();
+  }
+  return peek();
+}

@@ -1,0 +1,19 @@
+{
+  final RestAdapter.Builder adapterBuilder=new RestAdapter.Builder();
+  adapterBuilder.setClient(new OkClient(){
+    @Override public Response execute(    Request request) throws IOException {
+      final String method=request.getMethod();
+      final String url=request.getUrl();
+      final List<Header> headers=new ArrayList<>(request.getHeaders());
+      if (authorization.hasAuthorization()) {
+        headers.add(new Header("Authorization",authorization.getHeader(request)));
+      }
+      final TypedOutput body=request.getBody();
+      final Request wrapped=new Request(method,url,headers,body);
+      return super.execute(wrapped);
+    }
+  }
+);
+  final RestAdapter adapter=adapterBuilder.build();
+  return adapter.create(Twitter.class);
+}

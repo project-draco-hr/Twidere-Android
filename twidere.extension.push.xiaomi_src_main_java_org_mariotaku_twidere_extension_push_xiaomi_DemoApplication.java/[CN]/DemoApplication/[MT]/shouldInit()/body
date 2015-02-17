@@ -1,0 +1,12 @@
+{
+  ActivityManager am=((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE));
+  List<RunningAppProcessInfo> processInfos=am.getRunningAppProcesses();
+  String mainProcessName=getPackageName();
+  int myPid=Process.myPid();
+  for (  RunningAppProcessInfo info : processInfos) {
+    if (info.pid == myPid && mainProcessName.equals(info.processName)) {
+      return true;
+    }
+  }
+  return false;
+}

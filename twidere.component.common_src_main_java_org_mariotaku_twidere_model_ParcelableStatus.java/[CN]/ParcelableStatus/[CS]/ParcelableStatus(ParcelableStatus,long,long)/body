@@ -35,7 +35,6 @@
   in_reply_to_user_id=orig.in_reply_to_user_id;
   in_reply_to_name=orig.in_reply_to_name;
   mentions=orig.mentions;
-  first_media=orig.first_media;
   card=orig.card;
   card_name=card != null ? card.name : null;
 }

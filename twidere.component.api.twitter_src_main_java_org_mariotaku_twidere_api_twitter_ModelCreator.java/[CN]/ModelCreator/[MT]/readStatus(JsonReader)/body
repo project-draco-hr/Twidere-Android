@@ -1,0 +1,19 @@
+{
+  final Status status=new Status();
+  reader.beginObject();
+  while (reader.hasNext()) {
+switch (reader.nextName()) {
+case "id":
+{
+        status.setId(reader.nextLong());
+        break;
+      }
+default :
+{
+      reader.skipValue();
+    }
+}
+}
+reader.endObject();
+return status;
+}

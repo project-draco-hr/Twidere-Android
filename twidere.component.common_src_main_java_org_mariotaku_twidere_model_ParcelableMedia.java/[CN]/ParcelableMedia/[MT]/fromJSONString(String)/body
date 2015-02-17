@@ -1,9 +1,0 @@
-{
-  if (TextUtils.isEmpty(json))   return null;
-  try {
-    return JSONSerializer.createArray(JSON_CREATOR,new JSONArray(json));
-  }
- catch (  final JSONException e) {
-    return null;
-  }
-}

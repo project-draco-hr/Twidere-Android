@@ -1,6 +1,0 @@
-{
-  out.writeString("url",url);
-  out.writeString("media_url",media_url);
-  out.writeInt("start",start);
-  out.writeInt("end",end);
-}

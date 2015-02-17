@@ -41,15 +41,23 @@ if (userList.is_following) {
 }
 return true;
 }
+case MENU_OPEN_WITH_ACCOUNT:
+{
+final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
+intent.setClass(getActivity(),AccountSelectorActivity.class);
+intent.putExtra(EXTRA_SINGLE_SELECTION,true);
+startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
+break;
+}
 default :
 {
 if (item.getIntent() != null) {
 try {
-  startActivity(item.getIntent());
+startActivity(item.getIntent());
 }
  catch (final ActivityNotFoundException e) {
-  Log.w(LOGTAG,e);
-  return false;
+Log.w(LOGTAG,e);
+return false;
 }
 }
 break;

@@ -1,0 +1,6 @@
+{
+  int keyDiff=key.compareTo(o.key);
+  if (keyDiff != 0)   return keyDiff;
+  if (value == null)   return o.value == null ? 0 : Integer.MIN_VALUE;
+  return value.compareTo(o.value);
+}

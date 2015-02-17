@@ -1,0 +1,3 @@
+{
+  return (cur == 0 || (lastToken == '\0' || lastToken == DIVIDER_OBJECT_FIELD)) && cur < len;
+}

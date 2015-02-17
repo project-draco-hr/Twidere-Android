@@ -1,0 +1,4 @@
+{
+  stringBuilder=new StringBuilder();
+  keyValuesCount=0;
+}

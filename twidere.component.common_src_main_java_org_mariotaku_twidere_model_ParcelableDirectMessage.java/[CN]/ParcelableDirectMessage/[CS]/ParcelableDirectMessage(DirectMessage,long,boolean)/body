@@ -18,5 +18,4 @@
   recipient_profile_image_url=recipient_profile_image_url_string;
   text_unescaped=toPlainText(text_html);
   media=ParcelableMedia.fromEntities(message);
-  first_media=media != null && media.length > 0 ? media[0].page_url : null;
 }

@@ -1,5 +1,5 @@
 {
-  String encoded=null;
+  String encoded;
   try {
     encoded=URLEncoder.encode(value,"UTF-8");
   }

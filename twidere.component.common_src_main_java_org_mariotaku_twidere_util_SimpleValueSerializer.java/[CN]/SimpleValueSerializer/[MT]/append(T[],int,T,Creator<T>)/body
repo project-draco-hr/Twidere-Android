@@ -1,0 +1,12 @@
+{
+  T[] appended;
+  if (position < old.length) {
+    appended=old;
+  }
+ else {
+    appended=creator.newArray(old.length * 2);
+    System.arraycopy(old,0,appended,0,old.length);
+  }
+  appended[position]=item;
+  return appended;
+}

@@ -1,0 +1,11 @@
+{
+  final StringBuilder sb=new StringBuilder();
+  for (int i=0, j=str.length(); i < j; i++) {
+    final char ch=str.charAt(i);
+    if (DIVIDER_ARRAY_ELEMENT == ch || ESCAPE == ch) {
+      sb.append(ESCAPE);
+    }
+    sb.append(ch);
+  }
+  return sb.toString();
+}

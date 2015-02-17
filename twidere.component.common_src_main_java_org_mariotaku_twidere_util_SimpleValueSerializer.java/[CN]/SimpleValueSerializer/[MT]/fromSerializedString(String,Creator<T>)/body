@@ -1,0 +1,21 @@
+{
+  long start=System.nanoTime();
+  T[] temp=creator.newArray(4);
+  try {
+    if (json == null)     return null;
+    final SimpleValueSerializer.Reader reader=SimpleValueSerializer.newReader(json);
+    int count=0;
+    while (reader.hasArrayElement()) {
+      final T item=creator.create(reader);
+      reader.endArrayElement();
+      temp=append(temp,count++,item,creator);
+    }
+    final T[] result=creator.newArray(count);
+    System.arraycopy(temp,0,result,0,count);
+    return result;
+  }
+ catch (  final IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

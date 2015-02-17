@@ -1,5 +1,4 @@
 {
-  if (twitter == null)   return null;
   final RequestToken requestToken;
   try {
     requestToken=twitter.getOAuthRequestToken(OAUTH_CALLBACK_OOB);

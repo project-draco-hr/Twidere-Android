@@ -34,9 +34,8 @@
   descendent_reply_count=cursor.getColumnIndex(Statuses.DESCENDENT_REPLY_COUNT);
   is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
   is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
-  media=cursor.getColumnIndex(Statuses.MEDIA);
-  first_media=cursor.getColumnIndex(Statuses.FIRST_MEDIA);
-  mentions=cursor.getColumnIndex(Statuses.MENTIONS);
+  media=cursor.getColumnIndex(Statuses.MEDIA_LIST);
+  mentions=cursor.getColumnIndex(Statuses.MENTIONS_LIST);
   card_name=cursor.getColumnIndex(Statuses.CARD_NAME);
-  card=cursor.getColumnIndex(Statuses.MENTIONS);
+  card=cursor.getColumnIndex(Statuses.MENTIONS_LIST);
 }

@@ -1,3 +1,0 @@
-{
-  return "PreviewMedia{url=" + url + ", original="+ original+ ", type="+ type+ "}";
-}

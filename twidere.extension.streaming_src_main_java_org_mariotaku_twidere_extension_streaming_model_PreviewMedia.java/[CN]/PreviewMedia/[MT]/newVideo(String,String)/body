@@ -1,3 +1,0 @@
-{
-  return new PreviewMedia(url,original,TYPE_VIDEO);
-}

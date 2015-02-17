@@ -1,6 +1,0 @@
-{
-  this.url=url;
-  this.media_url=media_url;
-  this.start=start;
-  this.end=end;
-}

@@ -1,0 +1,6 @@
+{
+  this.s=s;
+  this.len=s.length();
+  cur=0;
+  lastToken='\0';
+}

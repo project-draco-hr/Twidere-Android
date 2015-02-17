@@ -39,7 +39,6 @@
   my_retweet_id=retweeted_by_id == account_id ? id : status.getCurrentUserRetweet();
   is_possibly_sensitive=status.isPossiblySensitive();
   mentions=ParcelableUserMention.fromUserMentionEntities(status.getUserMentionEntities());
-  first_media=media != null && media.length > 0 ? media[0].page_url : null;
   card=ParcelableCardEntity.fromCardEntity(status.getCard(),account_id);
   card_name=card != null ? card.name : null;
 }

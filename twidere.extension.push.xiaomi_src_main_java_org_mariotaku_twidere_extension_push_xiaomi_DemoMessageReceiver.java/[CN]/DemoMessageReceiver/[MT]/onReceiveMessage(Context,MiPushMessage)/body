@@ -1,0 +1,8 @@
+{
+  Log.v(DemoApplication.TAG,"onReceiveMessage is called. " + message.toString());
+  String log=context.getString(R.string.recv_message,message.getContent());
+  Message msg=Message.obtain();
+  if (message.isNotified()) {
+    msg.obj=log;
+  }
+}
