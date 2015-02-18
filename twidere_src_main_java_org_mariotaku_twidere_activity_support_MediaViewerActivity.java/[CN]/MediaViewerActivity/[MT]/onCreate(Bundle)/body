@@ -1,9 +1,12 @@
 {
   super.onCreate(savedInstanceState);
+  mActionBar=getSupportActionBar();
+  mActionBar.setDisplayHomeAsUpEnabled(true);
   setContentView(R.layout.activity_media_viewer);
   mAdapter=new MediaPagerAdapter(this);
   mViewPager.setAdapter(mAdapter);
   mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.element_spacing_normal));
+  mViewPager.setOnPageChangeListener(this);
   final Intent intent=getIntent();
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
   final ParcelableMedia[] media=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);

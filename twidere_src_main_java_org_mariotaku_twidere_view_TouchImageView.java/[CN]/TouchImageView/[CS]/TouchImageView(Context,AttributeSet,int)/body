@@ -10,7 +10,8 @@
     @Override public boolean onDoubleTap(    MotionEvent e){
       loadMatrixValues();
       final float minScale=getMinScale();
-      final float targetScale=mScale > minScale ? minScale : mMaxScale;
+      final boolean shouldZoomOut=mScale > minScale;
+      final float targetScale=shouldZoomOut ? minScale : mMaxScale;
       final float desiredTranslationX=e.getX() - (e.getX() - mTranslationX) * (targetScale / mScale);
       final float desiredTranslationY=e.getY() - (e.getY() - mTranslationY) * (targetScale / mScale);
       final float targetTranslationX=desiredTranslationX + computeTranslation(getMeasuredWidth(),mDrawableIntrinsicWidth * targetScale,desiredTranslationX,0);
@@ -19,6 +20,14 @@
       final Animation animation=new TouchAnimation(targetScale,targetTranslationX,targetTranslationY);
       animation.setDuration(DOUBLE_TAP_ANIMATION_DURATION);
       startAnimation(animation);
+      if (mZoomListener != null) {
+        if (shouldZoomOut) {
+          mZoomListener.onZoomOut();
+        }
+ else {
+          mZoomListener.onZoomIn();
+        }
+      }
       return true;
     }
     @Override public boolean onScroll(    MotionEvent e1,    MotionEvent e2,    float distanceX,    float distanceY){

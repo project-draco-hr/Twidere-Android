@@ -1,0 +1,9 @@
+{
+  if (mActionBar == null)   return;
+  if (visible) {
+    mActionBar.show();
+  }
+ else {
+    mActionBar.hide();
+  }
+}

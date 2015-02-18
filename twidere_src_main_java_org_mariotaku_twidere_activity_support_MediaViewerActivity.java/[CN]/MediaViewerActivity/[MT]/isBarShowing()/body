@@ -1,0 +1,4 @@
+{
+  if (mActionBar == null)   return false;
+  return mActionBar.isShowing();
+}

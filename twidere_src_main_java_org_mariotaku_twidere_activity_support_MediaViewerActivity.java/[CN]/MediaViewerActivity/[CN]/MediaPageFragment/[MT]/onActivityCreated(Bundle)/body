@@ -1,4 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  mImageView.setOnClickListener(this);
+  mImageView.setZoomListener(this);
   loadImage();
 }
