@@ -1,5 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
   mImageView.setOnClickListener(this);
   mImageView.setZoomListener(this);
   loadImage();
