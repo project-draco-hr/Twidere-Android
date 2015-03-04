@@ -1,0 +1,3 @@
+{
+  return file.isFile() && "spi".equalsIgnoreCase(getExtension(file));
+}

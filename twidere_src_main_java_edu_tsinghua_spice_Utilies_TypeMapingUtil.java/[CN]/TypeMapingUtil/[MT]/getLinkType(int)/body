@@ -1,0 +1,30 @@
+{
+  String linkType="";
+switch (type) {
+case TwidereLinkify.LINK_TYPE_MENTION:
+    linkType="mention";
+  break;
+case TwidereLinkify.LINK_TYPE_CASHTAG:
+linkType="cashTag";
+break;
+case TwidereLinkify.LINK_TYPE_LINK:
+linkType="urlLink";
+break;
+case TwidereLinkify.LINK_TYPE_LIST:
+linkType="userList";
+break;
+case TwidereLinkify.LINK_TYPE_STATUS:
+linkType="status";
+break;
+case TwidereLinkify.LINK_TYPE_USER_ID:
+linkType="userID";
+break;
+case TwidereLinkify.LINK_TYPE_HASHTAG:
+linkType="hashTag";
+break;
+default :
+linkType="unknown";
+break;
+}
+return linkType;
+}

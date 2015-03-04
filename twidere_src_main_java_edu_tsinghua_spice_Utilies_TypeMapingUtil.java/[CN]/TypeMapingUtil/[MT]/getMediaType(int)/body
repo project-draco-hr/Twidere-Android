@@ -1,0 +1,12 @@
+{
+  String mediaType="";
+switch (type) {
+case ParcelableMedia.TYPE_IMAGE:
+    mediaType="image";
+  break;
+default :
+mediaType="unknown";
+break;
+}
+return mediaType;
+}

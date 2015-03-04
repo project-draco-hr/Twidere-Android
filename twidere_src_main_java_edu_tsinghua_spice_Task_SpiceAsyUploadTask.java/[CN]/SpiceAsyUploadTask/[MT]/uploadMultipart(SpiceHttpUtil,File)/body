@@ -1,0 +1,31 @@
+{
+  String fileName=file.getName();
+  final String app_root=file.getParent();
+  final File tmp_dir=new File(app_root + "/spice");
+  if (!tmp_dir.exists()) {
+    if (!tmp_dir.mkdirs()) {
+      SpiceProfilingUtil.log(context,"cannot create folder spice, do nothing.");
+      return;
+    }
+  }
+  final File tmp=new File(tmp_dir,file.getName());
+  file.renameTo(tmp);
+  try {
+    client.connectForMultipart();
+    client.addFilePart("file",fileName,SpiceIOUtil.readFile(tmp));
+    client.finishMultipart();
+    String serverResponseCode=client.getResponse();
+    if (serverResponseCode.indexOf("00") > -1) {
+      SpiceProfilingUtil.log(context,"server has already received file " + tmp.getName());
+      tmp.delete();
+    }
+ else {
+      SpiceProfilingUtil.log(context,"server does not receive file " + tmp.getName());
+      putBackProfile(context,tmp,file);
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    putBackProfile(context,tmp,file);
+  }
+}

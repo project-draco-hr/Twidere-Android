@@ -22,9 +22,13 @@ case R.id.favorite_count:
   if (twitter == null)   return;
   if (status.is_favorite) {
     twitter.destroyFavoriteAsync(status.account_id,status.id);
+    SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+    SpiceProfilingUtil.log(getActivity(),status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
   }
  else {
     twitter.createFavoriteAsync(status.account_id,status.id);
+    SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+    SpiceProfilingUtil.log(getActivity(),status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
   }
   break;
 }
