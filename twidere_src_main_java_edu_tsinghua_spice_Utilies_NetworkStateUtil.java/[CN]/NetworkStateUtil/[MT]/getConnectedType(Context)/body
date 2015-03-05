@@ -1,0 +1,29 @@
+{
+  int type=-1;
+  type=getConnectedTypeValue(context);
+  String network="unknown";
+switch (type) {
+case 0:
+    network="cellular";
+  break;
+case 1:
+network="wifi";
+break;
+case 2:
+network="wimax";
+break;
+case 3:
+network="ethernet";
+break;
+case 4:
+network="bluetooth";
+break;
+case -1:
+network="ERROR";
+break;
+default :
+network="unknown";
+break;
+}
+return network;
+}

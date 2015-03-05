@@ -10,4 +10,12 @@
   }
   getLoaderManager().initLoader(LOADER_ID_STATUS_REPLIES,args,mRepliesLoaderCallback);
   mRepliesLoaderInitialized=true;
+  if (status.media != null) {
+    SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Preview," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ TypeMapingUtil.getMediaType(status.media[0].type)+ ","+ status.timestamp);
+    SpiceProfilingUtil.log(getActivity(),status.id + ",Preview," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ TypeMapingUtil.getMediaType(status.media[0].type)+ ","+ status.timestamp);
+  }
+ else {
+    SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Words," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ status.timestamp);
+    SpiceProfilingUtil.log(getActivity(),status.account_id + ",Words," + status.user_id+ ","+ status.text_plain.length()+ ","+ status.timestamp);
+  }
 }

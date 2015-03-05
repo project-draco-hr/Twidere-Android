@@ -1,5 +1,5 @@
 {
-  if (mPreferences.getBoolean(KEY_SHOW_UCD_DATA_PROFILING_REQUEST,true)) {
+  if (mPreferences.getBoolean(KEY_SHOW_UCD_DATA_PROFILING_REQUEST,true) || mPreferences.getBoolean(KEY_SHOW_SPICE_DATA_PROFILING_REQUEST,true)) {
     final Intent intent=new Intent(this,DataProfilingSettingsActivity.class);
     final PendingIntent content_intent=PendingIntent.getActivity(this,0,intent,0);
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(this);

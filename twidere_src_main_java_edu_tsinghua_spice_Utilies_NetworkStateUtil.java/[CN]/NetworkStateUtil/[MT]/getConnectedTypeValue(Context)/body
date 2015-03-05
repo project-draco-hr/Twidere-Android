@@ -1,0 +1,10 @@
+{
+  if (context != null) {
+    ConnectivityManager mConnectivityManager=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo mNetworkInfo=mConnectivityManager.getActiveNetworkInfo();
+    if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
+      return mNetworkInfo.getType();
+    }
+  }
+  return -1;
+}

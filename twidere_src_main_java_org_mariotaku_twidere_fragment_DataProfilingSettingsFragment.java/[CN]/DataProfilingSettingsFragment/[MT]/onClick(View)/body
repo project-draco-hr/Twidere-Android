@@ -5,6 +5,8 @@ case R.id.save:
       final SharedPreferences.Editor editor=mPreferences.edit();
       editor.putBoolean(KEY_UCD_DATA_PROFILING,mCheckBox.isChecked());
       editor.putBoolean(KEY_SHOW_UCD_DATA_PROFILING_REQUEST,false);
+      editor.putBoolean(KEY_SPICE_DATA_PROFILING,mCheckBox.isChecked());
+      editor.putBoolean(KEY_SHOW_SPICE_DATA_PROFILING_REQUEST,false);
       editor.commit();
       getActivity().onBackPressed();
       break;

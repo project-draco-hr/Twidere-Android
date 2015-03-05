@@ -5,4 +5,5 @@
   if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction()))   return;
   startProfilingServiceIfNeeded(context);
   startRefreshServiceIfNeeded(context);
+  SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_ONWIFI,NetworkStateUtil.getConnectedType(context));
 }

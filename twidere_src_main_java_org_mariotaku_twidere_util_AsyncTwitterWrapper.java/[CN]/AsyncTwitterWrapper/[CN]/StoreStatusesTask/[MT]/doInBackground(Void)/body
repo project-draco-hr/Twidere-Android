@@ -20,6 +20,7 @@
     final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
     final int rowsDeleted=mResolver.delete(deleteUri,deleteWhere,null);
     ProfilingUtil.profile(mContext,accountId,"Download tweets, " + TwidereArrayUtils.toString(statusIds,',',true));
+    SpiceProfilingUtil.profile(mContext,accountId,accountId + ",Refresh," + TwidereArrayUtils.toString(statusIds,',',true));
     all_statuses.addAll(Arrays.asList(values));
     final Uri insertUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
     bulkInsert(mResolver,insertUri,values);

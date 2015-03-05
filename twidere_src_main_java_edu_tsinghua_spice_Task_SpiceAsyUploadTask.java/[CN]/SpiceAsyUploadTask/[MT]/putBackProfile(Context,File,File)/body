@@ -1,0 +1,31 @@
+{
+  boolean success;
+  if (profile.exists()) {
+    try {
+      final FileOutputStream os=new FileOutputStream(tmp,true);
+      final FileInputStream is=new FileInputStream(profile);
+      copyStream(is,os);
+      is.close();
+      os.close();
+    }
+ catch (    final IOException e) {
+      e.printStackTrace();
+      success=false;
+    }
+    success=true;
+    if (success && tmp.renameTo(profile) && tmp.delete()) {
+      SpiceProfilingUtil.log(context,"put profile back success");
+    }
+ else {
+      SpiceProfilingUtil.log(context,"put profile back failed");
+    }
+  }
+ else {
+    if (tmp.renameTo(profile)) {
+      SpiceProfilingUtil.log(context,"put profile back success");
+    }
+ else {
+      SpiceProfilingUtil.log(context,"put profile back failed");
+    }
+  }
+}

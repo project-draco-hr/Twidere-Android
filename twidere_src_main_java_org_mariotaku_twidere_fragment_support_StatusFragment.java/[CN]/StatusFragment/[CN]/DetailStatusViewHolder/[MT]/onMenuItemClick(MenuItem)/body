@@ -40,9 +40,13 @@ case MENU_FAVORITE:
 {
 if (status.is_favorite) {
 twitter.destroyFavoriteAsync(status.account_id,status.id);
+SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
 }
  else {
 twitter.createFavoriteAsync(status.account_id,status.id);
+SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
 }
 break;
 }
