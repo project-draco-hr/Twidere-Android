@@ -1,6 +1,6 @@
 Context context
 long accountId
-int listId
+long listId
 long userId
 String screenName
 String listName
