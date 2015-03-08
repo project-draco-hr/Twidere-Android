@@ -6,14 +6,14 @@
     tabArgs.putLong(EXTRA_ACCOUNT_ID,userList.account_id);
     tabArgs.putLong(EXTRA_USER_ID,userList.user_id);
     tabArgs.putString(EXTRA_SCREEN_NAME,userList.user_screen_name);
-    tabArgs.putInt(EXTRA_LIST_ID,(int)userList.id);
+    tabArgs.putLong(EXTRA_LIST_ID,userList.id);
     tabArgs.putString(EXTRA_LIST_NAME,userList.name);
   }
  else {
     tabArgs.putLong(EXTRA_ACCOUNT_ID,args.getLong(EXTRA_ACCOUNT_ID,-1));
     tabArgs.putLong(EXTRA_USER_ID,args.getLong(EXTRA_USER_ID,-1));
     tabArgs.putString(EXTRA_SCREEN_NAME,args.getString(EXTRA_SCREEN_NAME));
-    tabArgs.putInt(EXTRA_LIST_ID,args.getInt(EXTRA_LIST_ID,-1));
+    tabArgs.putLong(EXTRA_LIST_ID,args.getLong(EXTRA_LIST_ID,-1));
     tabArgs.putString(EXTRA_LIST_NAME,args.getString(EXTRA_LIST_NAME));
   }
   mPagerAdapter.addTab(UserListTimelineFragment.class,tabArgs,getString(R.string.statuses),null,0);

@@ -1,0 +1,5 @@
+long accountId
+long listId
+String listName
+long userId
+String screenName

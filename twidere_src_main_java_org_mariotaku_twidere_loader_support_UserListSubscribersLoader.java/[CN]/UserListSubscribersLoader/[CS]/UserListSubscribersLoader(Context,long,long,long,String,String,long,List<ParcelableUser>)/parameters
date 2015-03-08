@@ -1,8 +1,8 @@
 Context context
 long account_id
-int list_id
-long user_id
-String screen_name
-String list_name
+long listId
+long userId
+String screenName
+String listName
 long cursor
 List<ParcelableUser> data
