@@ -1,6 +1,13 @@
 {
   if (mDialog != null && mDialog.isShowing())   return;
-  mDialog=new ColorPickerDialog(getContext(),getValue(),mAlphaSliderEnabled);
+  final Context context=getContext();
+  mDialog=new ColorPickerDialog(context);
+  final Resources res=context.getResources();
+  for (  int presetColor : PRESET_COLORS) {
+    mDialog.addColor(res.getColor(presetColor));
+  }
+  mDialog.setInitialColor(getValue());
+  mDialog.setAlphaEnabled(mAlphaSliderEnabled);
   mDialog.setButton(DialogInterface.BUTTON_POSITIVE,mResources.getString(android.R.string.ok),this);
   mDialog.setButton(DialogInterface.BUTTON_NEGATIVE,mResources.getString(android.R.string.cancel),this);
   mDialog.show();

@@ -8,7 +8,13 @@
     color=args.getInt(EXTRA_COLOR,Color.WHITE);
   }
   final boolean showAlphaSlider=args.getBoolean(EXTRA_ALPHA_SLIDER,true);
-  final ColorPickerDialog d=new ColorPickerDialog(getActivity(),color,showAlphaSlider);
+  final ColorPickerDialog d=new ColorPickerDialog(getActivity());
+  final Resources res=getResources();
+  for (  int presetColor : PRESET_COLORS) {
+    d.addColor(res.getColor(presetColor));
+  }
+  d.setInitialColor(color);
+  d.setAlphaEnabled(showAlphaSlider);
   d.setButton(DialogInterface.BUTTON_POSITIVE,getString(android.R.string.ok),this);
   if (args.getBoolean(EXTRA_CLEAR_BUTTON,false)) {
     d.setButton(DialogInterface.BUTTON_NEUTRAL,getString(R.string.clear),this);

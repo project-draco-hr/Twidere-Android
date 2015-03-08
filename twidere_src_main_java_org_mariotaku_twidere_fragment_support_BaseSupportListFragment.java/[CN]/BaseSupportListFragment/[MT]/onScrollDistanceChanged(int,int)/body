@@ -1,6 +1,2 @@
 {
-  final FragmentActivity a=getActivity();
-  if (a instanceof IControlBarActivity && getTabPosition() >= 0 && getUserVisibleHint()) {
-    ((IControlBarActivity)a).moveControlBarBy(delta);
-  }
 }

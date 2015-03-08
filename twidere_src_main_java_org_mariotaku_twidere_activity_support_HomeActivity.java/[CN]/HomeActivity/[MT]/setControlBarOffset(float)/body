@@ -1,5 +1,11 @@
 {
   mTabsContainer.setTranslationY(getControlBarHeight() * (offset - 1));
-  mActionsButton.setTranslationY(mActionsButton.getHeight() * (1 - offset));
+  final ViewGroup.LayoutParams lp=mActionsButton.getLayoutParams();
+  if (lp instanceof MarginLayoutParams) {
+    mActionsButton.setTranslationY((((MarginLayoutParams)lp).bottomMargin + mActionsButton.getHeight()) * (1 - offset));
+  }
+ else {
+    mActionsButton.setTranslationY(mActionsButton.getHeight() * (1 - offset));
+  }
   notifyControlBarOffsetChanged();
 }

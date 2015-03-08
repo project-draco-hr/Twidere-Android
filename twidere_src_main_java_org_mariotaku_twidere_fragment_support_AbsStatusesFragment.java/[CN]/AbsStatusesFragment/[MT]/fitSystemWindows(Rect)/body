@@ -1,4 +1,8 @@
 {
   super.fitSystemWindows(insets);
-  mContentView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mRecyclerView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  float density=getResources().getDisplayMetrics().density;
+  final int swipeStart=insets.top - Math.round(40 * density);
+  final int swipeDistance=Math.round(64 * density);
+  mSwipeRefreshLayout.setProgressViewOffset(false,swipeStart,swipeStart + swipeDistance);
 }

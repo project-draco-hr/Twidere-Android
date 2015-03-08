@@ -1,5 +1,0 @@
-{
-  mColorsAdapter.setCurrentColor(color);
-  updateColorPreviewBitmap(color);
-  setIcon(new BitmapDrawable(mResources,mTempBitmap));
-}

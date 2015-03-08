@@ -1,4 +1,0 @@
-{
-  if (mShowAlphaPanel)   return Color.HSVToColor(mAlpha,new float[]{mHue,mSat,mVal});
-  return Color.HSVToColor(new float[]{mHue,mSat,mVal});
-}
