@@ -1,4 +1,6 @@
 boolean useDecoder
 Bitmap bitmap
+Options options
 int orientation
 File file
+Exception exception

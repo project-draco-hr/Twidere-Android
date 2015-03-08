@@ -1,6 +1,6 @@
 {
   if (v instanceof TouchImageView) {
-    return ((TouchImageView)v).canScrollHorizontally(dx);
+    return v.canScrollHorizontally(dx);
   }
  else {
     return super.canScroll(v,checkV,dx,x,y);

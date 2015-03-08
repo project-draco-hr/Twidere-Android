@@ -1,4 +1,4 @@
 {
-  if (uri == null)   return false;
+  if (uri == null)   return INVALID;
   return checkImageValidity(uri.getPath());
 }
