@@ -15,7 +15,10 @@
     }
  else     return Result.nullInstance();
     try {
-      if (ImageValidator.checkImageValidity(cacheFile))       return decodeBitmapOnly(cacheFile,true);
+      final int cachedValidity=ImageValidator.checkImageValidity(cacheFile);
+      if (ImageValidator.isValid(cachedValidity)) {
+        return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(cachedValidity));
+      }
       final InputStream is=mDownloader.getStream(url,new AccountExtra(mAccountId));
       if (is == null)       return Result.nullInstance();
       final long length=is.available();
@@ -29,14 +32,14 @@
         IoUtils.closeSilently(is);
         IoUtils.closeSilently(os);
       }
-      if (!ImageValidator.checkImageValidity(cacheFile)) {
-        final Result result=decodeBitmapOnly(cacheFile,false);
-        if (cacheFile.isFile()) {
-          cacheFile.delete();
-        }
-        return result;
+      final int downloadedValidity=ImageValidator.checkImageValidity(cacheFile);
+      if (ImageValidator.isValid(downloadedValidity)) {
+        return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(downloadedValidity));
       }
-      return decodeBitmapOnly(cacheFile,true);
+ else {
+        cacheFile.delete();
+        throw new IOException();
+      }
     }
  catch (    final Exception e) {
       mHandler.post(new DownloadErrorRunnable(this,mListener,e));
@@ -46,7 +49,7 @@
  else   if (ContentResolver.SCHEME_FILE.equals(scheme)) {
     final File file=new File(mUri.getPath());
     try {
-      return decodeBitmapOnly(file,true);
+      return decodeBitmapOnly(file,ImageValidator.isValidForRegionDecoder(ImageValidator.checkImageValidity(file)));
     }
  catch (    final Exception e) {
       return Result.getInstance(file,e);

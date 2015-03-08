@@ -1,21 +1,21 @@
 {
-  if (raf == null)   return false;
+  if (raf == null)   return INVALID;
   try {
     final long length=raf.length();
-    if (length == 0)     return false;
+    if (length == 0)     return INVALID;
     byte[] buffer;
     buffer=new byte[head.length];
     raf.seek(0);
-    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,head))     return false;
+    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,head))     return INVALID;
     buffer=new byte[tail.length];
     raf.seek(length - buffer.length);
-    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,tail))     return false;
+    if (raf.read(buffer) != buffer.length || !Arrays.equals(buffer,tail))     return VALID_FOR_BITMAP_FACTORY;
   }
  catch (  final IOException e) {
-    return false;
+    return INVALID;
   }
  finally {
     closeSilently(raf);
   }
-  return true;
+  return VALID_FOR_ALL;
 }

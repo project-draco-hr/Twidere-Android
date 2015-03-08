@@ -1,7 +1,7 @@
 {
   if (url == null)   return null;
   final File cache=mDiskCache.get(url);
-  if (ImageValidator.checkImageValidity(cache))   return cache;
+  if (ImageValidator.isValid(ImageValidator.checkImageValidity(cache)))   return cache;
  else {
     preloadImage(url);
   }

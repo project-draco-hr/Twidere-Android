@@ -8,5 +8,5 @@
   o.inJustDecodeBounds=false;
   o.inSampleSize=BitmapUtils.computeSampleSize(mFallbackSize / Math.max(width,height));
   final Bitmap bitmap=BitmapFactory.decodeFile(path,o);
-  return Result.getInstance(useDecoder,bitmap,Exif.getOrientation(file),file);
+  return Result.getInstance(useDecoder,bitmap,o,Exif.getOrientation(file),file);
 }

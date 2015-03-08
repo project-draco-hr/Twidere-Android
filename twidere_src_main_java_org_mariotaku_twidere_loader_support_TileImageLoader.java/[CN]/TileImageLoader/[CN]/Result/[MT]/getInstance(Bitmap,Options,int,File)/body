@@ -1,0 +1,3 @@
+{
+  return new Result(false,bitmap,options,orientation,file,null);
+}

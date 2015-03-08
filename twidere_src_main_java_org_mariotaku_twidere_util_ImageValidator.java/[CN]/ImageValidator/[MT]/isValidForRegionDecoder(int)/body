@@ -1,0 +1,3 @@
+{
+  return (validity & VALID_FOR_REGION_DECODER) != 0;
+}
