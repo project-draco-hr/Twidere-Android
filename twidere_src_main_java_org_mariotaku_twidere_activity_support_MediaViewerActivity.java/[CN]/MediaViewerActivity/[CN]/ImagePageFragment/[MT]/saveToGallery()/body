@@ -1,0 +1,11 @@
+{
+  if (mSaveImageTask != null && mSaveImageTask.getStatus() == Status.RUNNING)   return;
+  final Object imageTag=mImageView.getTag();
+  final boolean hasImage=imageTag instanceof File;
+  if (hasImage) {
+    mSaveImageTask=new SaveImageTask(getActivity(),(File)imageTag);
+    mSaveImageTask.execute();
+  }
+ else {
+  }
+}
