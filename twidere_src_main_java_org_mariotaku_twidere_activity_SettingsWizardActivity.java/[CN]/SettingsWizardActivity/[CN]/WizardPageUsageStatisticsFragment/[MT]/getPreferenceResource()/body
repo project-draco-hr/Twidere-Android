@@ -1,0 +1,3 @@
+{
+  return R.xml.settings_wizard_page_usage_statistics;
+}
