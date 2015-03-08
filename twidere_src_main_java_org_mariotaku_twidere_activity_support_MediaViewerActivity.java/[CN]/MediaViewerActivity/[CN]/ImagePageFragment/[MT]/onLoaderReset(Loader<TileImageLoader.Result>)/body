@@ -1,2 +1,6 @@
 {
+  final Drawable drawable=mImageView.getDrawable();
+  if (drawable instanceof GifDrawable) {
+    ((GifDrawable)drawable).recycle();
+  }
 }
