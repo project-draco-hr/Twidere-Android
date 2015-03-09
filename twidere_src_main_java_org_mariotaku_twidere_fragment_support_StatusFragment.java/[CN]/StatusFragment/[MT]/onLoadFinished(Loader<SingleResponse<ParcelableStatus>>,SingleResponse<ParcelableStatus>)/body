@@ -15,12 +15,6 @@
       final int position=mStatusAdapter.findPositionById(itemId);
       mLayoutManager.scrollToPositionWithOffset(position,top);
     }
-    try {
-      StatisticUtils.writeStatusOpen(status,null,0);
-    }
- catch (    IOException e) {
-      e.printStackTrace();
-    }
     setState(STATE_LOADED);
   }
  else {

@@ -1,4 +1,0 @@
-{
-  if (location == null)   return "";
-  return location.getLatitude() + "," + location.getLongitude();
-}

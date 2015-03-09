@@ -1,5 +1,0 @@
-{
-  final LogWriter writer=new LogWriter("Twidere");
-  final CSVPrinter printer=CSVFormat.DEFAULT.print(writer);
-  printer.printRecord(status.account_id,status.id,status.user_id,status.user_screen_name,status.text_html,fromStringLocation(location),signalStrength);
-}
