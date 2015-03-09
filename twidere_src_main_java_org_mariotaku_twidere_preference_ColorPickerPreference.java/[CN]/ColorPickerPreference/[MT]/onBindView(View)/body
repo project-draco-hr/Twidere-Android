@@ -1,5 +1,5 @@
 {
   super.onBindView(view);
   final ImageView imageView=(ImageView)view.findViewById(R.id.color);
-  imageView.setImageBitmap(ColorPickerView.getColorPreviewBitmap(getContext(),getValue(),false));
+  imageView.setImageBitmap(ColorUtils.getColorPreviewBitmap(getContext(),getValue(),false));
 }

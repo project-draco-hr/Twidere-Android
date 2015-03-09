@@ -1,19 +1,19 @@
 {
-  final Twitter twitter=getTwitterInstance(getActivity(),account_id,true);
+  final Twitter twitter=getTwitterInstance(getActivity(),accountId,true);
   if (twitter == null)   return null;
   try {
     final UserList list;
-    if (list_id > 0) {
-      list=twitter.showUserList(list_id);
+    if (listId > 0) {
+      list=twitter.showUserList(listId);
     }
- else     if (user_id > 0) {
-      list=twitter.showUserList(list_name,user_id);
+ else     if (userId > 0) {
+      list=twitter.showUserList(listName,userId);
     }
- else     if (screen_name != null) {
-      list=twitter.showUserList(list_name,screen_name);
+ else     if (screenName != null) {
+      list=twitter.showUserList(listName,screenName);
     }
  else     return null;
-    return new ParcelableUserList(list,account_id);
+    return new ParcelableUserList(list,accountId);
   }
  catch (  final TwitterException e) {
     e.printStackTrace();

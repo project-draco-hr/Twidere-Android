@@ -1,5 +1,0 @@
-{
-  itemView.setTag(position);
-  colorView.setColor(color);
-  colorView.setActivated(activated);
-}

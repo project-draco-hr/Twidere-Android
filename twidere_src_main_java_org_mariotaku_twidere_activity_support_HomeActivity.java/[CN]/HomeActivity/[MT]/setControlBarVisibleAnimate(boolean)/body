@@ -1,0 +1,17 @@
+{
+  if (mControlAnimationDirection != 0)   return;
+  final ObjectAnimator animator;
+  final float offset=getControlBarOffset();
+  if (visible) {
+    if (offset >= 1)     return;
+    animator=ObjectAnimator.ofFloat(this,ControlBarOffsetProperty.SINGLETON,offset,1);
+  }
+ else {
+    if (offset <= 0)     return;
+    animator=ObjectAnimator.ofFloat(this,ControlBarOffsetProperty.SINGLETON,offset,0);
+  }
+  animator.addListener(this);
+  animator.setDuration(DURATION);
+  animator.start();
+  mControlAnimationDirection=visible ? 1 : -1;
+}
