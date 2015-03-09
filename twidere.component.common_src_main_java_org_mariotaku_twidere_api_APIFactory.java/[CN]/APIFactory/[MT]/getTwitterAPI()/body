@@ -1,6 +1,0 @@
-{
-  Builder builder=new RestAdapter.Builder();
-  builder.setEndpoint("https://api.twitter.com");
-  builder.setConverter(new ParcelableDataConverter());
-  return builder.build().create(TwitterAPI.class);
-}

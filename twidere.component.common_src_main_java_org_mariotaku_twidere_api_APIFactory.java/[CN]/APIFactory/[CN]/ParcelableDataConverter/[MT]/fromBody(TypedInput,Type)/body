@@ -1,6 +1,0 @@
-{
-  Class<?> typeClass=(Class<?>)type;
-  if (typeClass.isAssignableFrom(ParcelableUser.class)) {
-  }
-  return null;
-}

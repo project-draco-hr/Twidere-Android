@@ -1,3 +1,0 @@
-{
-  return "KeyValuePair{" + "key='" + key + '\''+ ", value='"+ value+ '\''+ '}';
-}
