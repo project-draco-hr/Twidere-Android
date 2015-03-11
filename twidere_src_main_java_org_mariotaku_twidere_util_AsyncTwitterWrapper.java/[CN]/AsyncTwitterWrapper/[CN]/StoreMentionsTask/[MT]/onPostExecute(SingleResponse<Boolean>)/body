@@ -1,5 +1,0 @@
-{
-  if (Boolean.TRUE.equals(response.getData())) {
-  }
-  super.onPostExecute(response);
-}

@@ -1,0 +1,3 @@
+{
+  return Mentions.CONTENT_URI;
+}

@@ -1,5 +1,4 @@
 {
   super.onPostExecute(responses);
-  mAsyncTaskManager.add(new StoreSentDirectMessagesTask(responses,!isMaxIdsValid()),true);
   mGetSentDirectMessagesTaskId=-1;
 }

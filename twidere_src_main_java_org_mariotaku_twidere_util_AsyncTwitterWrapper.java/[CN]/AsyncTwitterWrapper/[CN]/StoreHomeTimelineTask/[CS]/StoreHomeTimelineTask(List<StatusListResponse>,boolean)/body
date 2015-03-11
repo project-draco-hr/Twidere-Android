@@ -1,3 +1,0 @@
-{
-  super(result,Statuses.CONTENT_URI,notify,TASK_TAG_STORE_HOME_TIMELINE);
-}

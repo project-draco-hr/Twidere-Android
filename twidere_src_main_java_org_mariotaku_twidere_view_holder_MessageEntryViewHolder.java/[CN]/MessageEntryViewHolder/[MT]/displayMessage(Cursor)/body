@@ -13,6 +13,10 @@
   textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
   timeView.setTime(timestamp);
   setIsOutgoing(isOutgoing);
+  if (account_color_enabled) {
+    content.drawEnd(Utils.getAccountColor(context,accountId));
+  }
+  content.drawStart(UserColorNameUtils.getUserColor(context,conversationId));
   final String profileImage=cursor.getString(ConversationEntries.IDX_PROFILE_IMAGE_URL);
   loader.displayProfileImage(profileImageView,profileImage);
 }

@@ -1,30 +1,30 @@
 {
-  final List<MessageListResponse> result=new ArrayList<MessageListResponse>();
+  final List<MessageListResponse> result=new ArrayList<>();
   if (account_ids == null)   return result;
   int idx=0;
   final int load_item_limit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
-  for (  final long account_id : account_ids) {
-    final Twitter twitter=getTwitterInstance(mContext,account_id,true);
-    if (twitter != null) {
-      try {
-        final Paging paging=new Paging();
-        paging.setCount(load_item_limit);
-        long max_id=-1, since_id=-1;
-        if (isMaxIdsValid() && max_ids[idx] > 0) {
-          max_id=max_ids[idx];
-          paging.setMaxId(max_id);
-        }
-        if (isSinceIdsValid() && since_ids[idx] > 0) {
-          since_id=since_ids[idx];
-          paging.setSinceId(since_id - 1);
-        }
-        final List<DirectMessage> messages=new ArrayList<>();
-        final boolean truncated=truncateMessages(getDirectMessages(twitter,paging),messages,since_id);
-        result.add(new MessageListResponse(account_id,max_id,since_id,load_item_limit,messages,truncated));
+  for (  final long accountId : account_ids) {
+    final Twitter twitter=getTwitterInstance(mContext,accountId,true);
+    if (twitter == null)     continue;
+    try {
+      final Paging paging=new Paging();
+      paging.setCount(load_item_limit);
+      long max_id=-1, since_id=-1;
+      if (isMaxIdsValid() && max_ids[idx] > 0) {
+        max_id=max_ids[idx];
+        paging.setMaxId(max_id);
       }
- catch (      final TwitterException e) {
-        result.add(new MessageListResponse(account_id,e));
+      if (isSinceIdsValid() && since_ids[idx] > 0) {
+        since_id=since_ids[idx];
+        paging.setSinceId(since_id - 1);
       }
+      final List<DirectMessage> messages=new ArrayList<>();
+      final boolean truncated=truncateMessages(getDirectMessages(twitter,paging),messages,since_id);
+      result.add(new MessageListResponse(accountId,max_id,since_id,load_item_limit,messages,truncated));
+      storeMessages(accountId,messages,isOutgoing(),true);
+    }
+ catch (    final TwitterException e) {
+      result.add(new MessageListResponse(accountId,e));
     }
     idx++;
   }

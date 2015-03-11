@@ -1,0 +1,17 @@
+{
+  if (messages == null)   return true;
+  final Uri uri=getDatabaseUri();
+  final ContentValues[] valuesArray=new ContentValues[messages.size()];
+  final long[] messageIds=new long[messages.size()];
+  for (int i=0, j=messages.size(); i < j; i++) {
+    final DirectMessage message=messages.get(i);
+    messageIds[i]=message.getId();
+    valuesArray[i]=createDirectMessage(message,accountId,isOutgoing);
+  }
+  final Expression deleteWhere=Expression.and(Expression.equals(DirectMessages.ACCOUNT_ID,accountId),Expression.in(new Column(DirectMessages.MESSAGE_ID),new RawItemArray(messageIds)));
+  final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
+  mResolver.delete(deleteUri,deleteWhere.getSQL(),null);
+  final Uri insertUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
+  bulkInsert(mResolver,insertUri,valuesArray);
+  return false;
+}

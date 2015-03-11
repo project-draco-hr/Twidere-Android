@@ -4,6 +4,9 @@
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mMultiSelectManager=app.getMultiSelectManager();
   mImageLoader=app.getImageLoaderWrapper();
-  final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mNicknameOnly=prefs.getBoolean(KEY_NICKNAME_ONLY,false);
+  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mTextSize=preferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
+  mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,false);
 }

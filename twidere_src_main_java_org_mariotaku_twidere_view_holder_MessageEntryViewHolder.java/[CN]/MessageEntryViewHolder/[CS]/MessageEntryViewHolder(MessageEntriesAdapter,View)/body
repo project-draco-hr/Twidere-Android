@@ -1,11 +1,12 @@
 {
   super(itemView);
   this.adapter=adapter;
-  final Context context=itemView.getContext();
+  content=(IColorLabelView)itemView.findViewById(R.id.content);
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
   textView=(TextView)itemView.findViewById(R.id.text);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
+  setTextSize(adapter.getTextSize());
   itemView.setOnClickListener(this);
 }

@@ -1,3 +1,0 @@
-{
-  super(result,DirectMessages.Outbox.CONTENT_URI,notify,TASK_TAG_STORE_SENT_DIRECT_MESSAGES);
-}

@@ -1,4 +1,4 @@
 {
-  final long[] account_ids=getActivatedAccountIds(context);
-  return getNewestMessageIdsFromDatabase(context,uri,account_ids);
+  final long[] accountIds=getActivatedAccountIds(context);
+  return getNewestMessageIdsFromDatabase(context,uri,accountIds);
 }

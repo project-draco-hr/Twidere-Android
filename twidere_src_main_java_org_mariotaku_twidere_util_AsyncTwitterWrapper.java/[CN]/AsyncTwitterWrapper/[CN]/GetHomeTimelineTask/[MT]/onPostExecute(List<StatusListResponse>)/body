@@ -1,6 +1,5 @@
 {
   super.onPostExecute(responses);
-  mAsyncTaskManager.add(new StoreHomeTimelineTask(responses,!isMaxIdsValid()),true);
   mGetHomeTimelineTaskId=-1;
   for (  final StatusListResponse response : responses) {
     if (response.list == null) {
