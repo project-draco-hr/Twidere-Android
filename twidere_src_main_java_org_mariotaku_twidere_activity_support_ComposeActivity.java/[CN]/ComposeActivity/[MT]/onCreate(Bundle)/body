@@ -20,6 +20,7 @@
   mMenuBar.setOnMenuItemClickListener(this);
   mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
   mEditText.addTextChangedListener(this);
+  mEditText.setCustomSelectionActionModeCallback(this);
   mAccountSelectorContainer.setOnClickListener(this);
   mAccountSelectorButton.setOnClickListener(this);
   mLocationContainer.setOnClickListener(this);

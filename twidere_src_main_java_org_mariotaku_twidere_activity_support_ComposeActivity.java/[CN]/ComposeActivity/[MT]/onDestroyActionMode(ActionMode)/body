@@ -1,0 +1,5 @@
+{
+  final Window window=getWindow();
+  final View contentView=window.findViewById(android.R.id.content);
+  contentView.setPadding(contentView.getPaddingLeft(),0,contentView.getPaddingRight(),contentView.getPaddingBottom());
+}
