@@ -1,0 +1,4 @@
+{
+  mSystemWindowsInsets.set(insets);
+  updateWindowAttributes();
+}
