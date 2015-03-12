@@ -1,0 +1,6 @@
+Context context
+long accountId
+boolean isPossiblySensitive
+ParcelableStatus status
+ParcelableMedia current
+ParcelableMedia[] media

@@ -1,4 +1,5 @@
 Context context
 long accountId
+ParcelableDirectMessage message
 ParcelableMedia current
 ParcelableMedia[] media

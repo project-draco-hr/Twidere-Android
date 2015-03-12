@@ -16,4 +16,17 @@
   if (currentIndex != -1) {
     mViewPager.setCurrentItem(currentIndex,false);
   }
+  if (intent.hasExtra(EXTRA_STATUS)) {
+    mMediaStatusContainer.setVisibility(View.VISIBLE);
+    final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+    final Fragment f=new ViewStatusDialogFragment();
+    final Bundle args=new Bundle();
+    args.putParcelable(EXTRA_STATUS,intent.getParcelableExtra(EXTRA_STATUS));
+    f.setArguments(args);
+    ft.replace(R.id.media_status,f);
+    ft.commit();
+  }
+ else {
+    mMediaStatusContainer.setVisibility(View.GONE);
+  }
 }

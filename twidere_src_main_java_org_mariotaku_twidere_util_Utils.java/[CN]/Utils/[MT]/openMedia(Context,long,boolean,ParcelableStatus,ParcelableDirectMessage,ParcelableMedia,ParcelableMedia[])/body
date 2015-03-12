@@ -1,0 +1,20 @@
+{
+  if (context == null || media == null)   return;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (context instanceof FragmentActivity && isPossiblySensitive && !prefs.getBoolean(KEY_DISPLAY_SENSITIVE_CONTENTS,false)) {
+    final FragmentActivity activity=(FragmentActivity)context;
+    final FragmentManager fm=activity.getSupportFragmentManager();
+    final DialogFragment fragment=new SensitiveContentWarningDialogFragment();
+    final Bundle args=new Bundle();
+    args.putLong(EXTRA_ACCOUNT_ID,accountId);
+    args.putParcelable(EXTRA_CURRENT_MEDIA,current);
+    args.putParcelable(EXTRA_STATUS,status);
+    args.putParcelable(EXTRA_MESSAGE,message);
+    args.putParcelableArray(EXTRA_MEDIA,media);
+    fragment.setArguments(args);
+    fragment.show(fm,"sensitive_content_warning");
+  }
+ else {
+    openMediaDirectly(context,accountId,status,message,current,media);
+  }
+}

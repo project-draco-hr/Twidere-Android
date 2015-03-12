@@ -1,5 +1,9 @@
 {
-  if (mRecentLocation == null) {
-    mRecentLocation=location != null ? new ParcelableLocation(location) : null;
+  if (location != null) {
+    mRecentLocation=new ParcelableLocation(location);
   }
+ else {
+    mRecentLocation=null;
+  }
+  updateLocationText();
 }

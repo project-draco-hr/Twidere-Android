@@ -1,0 +1,4 @@
+{
+  final String link=String.format(Locale.ROOT,"https://twitter.com/%s/status/%d",status.user_screen_name,status.id);
+  return context.getString(R.string.status_share_text_format_with_link,status.text_plain,link);
+}
