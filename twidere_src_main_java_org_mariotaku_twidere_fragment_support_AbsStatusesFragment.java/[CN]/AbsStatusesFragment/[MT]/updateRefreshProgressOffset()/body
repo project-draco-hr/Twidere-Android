@@ -1,0 +1,7 @@
+{
+  if (mSystemWindowsInsets.top == 0 || mSwipeRefreshLayout == null || isRefreshing())   return;
+  final float density=getResources().getDisplayMetrics().density;
+  final int swipeStart=(mSystemWindowsInsets.top - mControlBarOffsetPixels) - Math.round(40 * density);
+  final int swipeDistance=Math.round(64 * density);
+  mSwipeRefreshLayout.setProgressViewOffset(true,swipeStart,swipeStart + swipeDistance);
+}

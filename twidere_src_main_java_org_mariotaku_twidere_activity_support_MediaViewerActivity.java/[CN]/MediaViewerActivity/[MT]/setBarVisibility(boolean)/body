@@ -6,4 +6,5 @@
  else {
     mActionBar.hide();
   }
+  findViewById(R.id.media_status).setVisibility(visible ? View.VISIBLE : View.GONE);
 }

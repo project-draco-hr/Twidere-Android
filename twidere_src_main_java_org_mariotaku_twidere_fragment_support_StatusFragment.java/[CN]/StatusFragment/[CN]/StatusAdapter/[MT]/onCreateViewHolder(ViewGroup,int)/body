@@ -24,6 +24,7 @@ case VIEW_TYPE_LIST_STATUS:
       cardView.setCardBackgroundColor(mCardBackgroundColor);
     }
     final StatusViewHolder holder=new StatusViewHolder(this,view);
+    holder.setupViewOptions();
     holder.setOnClickListeners();
     return holder;
   }
