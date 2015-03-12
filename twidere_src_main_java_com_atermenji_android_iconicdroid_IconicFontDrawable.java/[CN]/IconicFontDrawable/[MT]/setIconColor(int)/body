@@ -1,4 +1,0 @@
-{
-  mIconPaint.setColor(color);
-  invalidateSelf();
-}

@@ -1,5 +1,0 @@
-{
-  mIcon=icon;
-  mIconUtfChars=Character.toChars(icon.getIconUtfValue());
-  mIconPaint.setTypeface(mIcon.getIconicTypeface().getTypeface(mContext));
-}

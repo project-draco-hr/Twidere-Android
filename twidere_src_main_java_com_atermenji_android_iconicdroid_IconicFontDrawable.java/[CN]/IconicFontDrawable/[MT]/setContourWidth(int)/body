@@ -1,5 +1,0 @@
-{
-  mContourWidth=contourWidth;
-  mContourPaint.setStrokeWidth(mContourWidth);
-  invalidateSelf();
-}
