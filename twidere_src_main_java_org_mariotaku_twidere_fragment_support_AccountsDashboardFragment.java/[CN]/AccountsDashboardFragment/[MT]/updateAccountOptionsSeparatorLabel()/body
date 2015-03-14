@@ -5,7 +5,6 @@
   }
   mAccountProfileNameView.setText(account.name);
   mAccountProfileScreenNameView.setText("@" + account.screen_name);
-  mAccountsToggle.setChecked(account.is_activated);
   mImageLoader.displayProfileImage(mAccountProfileImageView,account.profile_image_url);
   mAccountProfileImageView.setBorderColors(account.color);
   final int bannerWidth=mAccountProfileBannerView.getWidth();

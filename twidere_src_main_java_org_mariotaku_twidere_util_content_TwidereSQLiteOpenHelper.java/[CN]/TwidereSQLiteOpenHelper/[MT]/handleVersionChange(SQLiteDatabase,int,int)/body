@@ -28,8 +28,8 @@
   safeUpgrade(db,SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true,null);
   safeUpgrade(db,SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true,null);
   db.beginTransaction();
-  db.execSQL(createDirectMessagesView().getSQL());
-  db.execSQL(createDirectMessageConversationEntriesView().getSQL());
+  createViews(db);
+  createIndices(db);
   db.setTransactionSuccessful();
   db.endTransaction();
 }

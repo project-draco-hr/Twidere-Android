@@ -1,6 +1,6 @@
 {
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   if (twitter == null || user == null) {
     mFollowButton.setVisibility(View.GONE);
     mFollowProgress.setVisibility(View.GONE);

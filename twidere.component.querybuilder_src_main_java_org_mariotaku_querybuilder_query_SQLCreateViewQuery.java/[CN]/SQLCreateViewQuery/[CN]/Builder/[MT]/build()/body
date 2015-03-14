@@ -1,3 +1,4 @@
 {
+  buildCalled=true;
   return query;
 }

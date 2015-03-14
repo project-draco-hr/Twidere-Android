@@ -1,0 +1,77 @@
+{
+  if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
+  if (mHostCache.containsKey(host)) {
+    final InetAddress[] hostAddr=mHostCache.get(host);
+    if (Utils.isDebugBuild()) {
+      Log.d(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(hostAddr));
+    }
+    return hostAddr;
+  }
+  if (mHostMapping.contains(host)) {
+    final String mappedAddr=mHostMapping.getString(host,null);
+    if (mappedAddr != null) {
+      final InetAddress[] hostAddr=fromAddressString(originalHost,mappedAddr);
+      mHostCache.put(originalHost,hostAddr);
+      if (Utils.isDebugBuild()) {
+        Log.d(RESOLVER_LOGTAG,"Got mapped " + Arrays.toString(hostAddr));
+      }
+      return hostAddr;
+    }
+  }
+  mSystemHosts.reloadIfNeeded();
+  if (mSystemHosts.contains(host)) {
+    final InetAddress[] hostAddr=fromAddressString(originalHost,mSystemHosts.getAddress(host));
+    mHostCache.put(originalHost,hostAddr);
+    if (Utils.isDebugBuild()) {
+      Log.d(RESOLVER_LOGTAG,"Got hosts " + Arrays.toString(hostAddr));
+    }
+    return hostAddr;
+  }
+  final String customMappedHost=findHost(host);
+  if (customMappedHost != null) {
+    final InetAddress[] hostAddr=fromAddressString(originalHost,customMappedHost);
+    mHostCache.put(originalHost,hostAddr);
+    if (Utils.isDebugBuild()) {
+      Log.d(RESOLVER_LOGTAG,"Got mapped address " + customMappedHost + " for host "+ host);
+    }
+    return hostAddr;
+  }
+  final Resolver dns=getResolver();
+  if (dns != null && mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false)) {
+    final Lookup lookup=new Lookup(new Name(host),Type.A,DClass.IN);
+    final Record[] records;
+    lookup.setResolver(dns);
+    lookup.run();
+    final int result=lookup.getResult();
+    if (result != Lookup.SUCCESSFUL) {
+      throw new IOException("Could not find " + host);
+    }
+    records=lookup.getAnswers();
+    final ArrayList<InetAddress> resolvedAddresses=new ArrayList<>();
+    for (    final Record record : records) {
+      if (record instanceof ARecord) {
+        final InetAddress ipv4Addr=((ARecord)record).getAddress();
+        resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv4Addr.getAddress()));
+      }
+ else       if (record instanceof AAAARecord) {
+        final InetAddress ipv6Addr=((AAAARecord)record).getAddress();
+        resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv6Addr.getAddress()));
+      }
+    }
+    if (!resolvedAddresses.isEmpty()) {
+      final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
+      mHostCache.put(originalHost,hostAddr);
+      if (Utils.isDebugBuild()) {
+        Log.d(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(hostAddr));
+      }
+      return hostAddr;
+    }
+    for (    final Record record : records) {
+      if (record instanceof CNAMERecord)       return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString());
+    }
+  }
+  if (Utils.isDebugBuild()) {
+    Log.w(RESOLVER_LOGTAG,"Resolve address " + host + " failed, using original host");
+  }
+  return InetAddress.getAllByName(host);
+}

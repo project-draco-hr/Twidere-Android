@@ -1,6 +1,6 @@
 {
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   final Relationship relationship=mRelationship;
   if (user == null || twitter == null)   return false;
 switch (item.getItemId()) {

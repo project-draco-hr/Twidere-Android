@@ -17,6 +17,7 @@
   }
   mProfileImageLoader=getApplication().getImageLoaderWrapper();
   final FragmentActivity activity=getActivity();
+  initNdefCallback();
   activity.setEnterSharedElementCallback(new SharedElementCallback(){
     @Override public void onSharedElementEnd(    List<String> sharedElementNames,    List<View> sharedElements,    List<View> sharedElementSnapshots){
       int idx=sharedElementNames.indexOf(TRANSITION_NAME_PROFILE_IMAGE);

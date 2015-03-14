@@ -1,14 +1,21 @@
 {
-  if (context == null || host == null)   return null;
+  if (context == null || host == null)   return InetAddress.getAllByName(host);
   final ContentResolver resolver=context.getContentResolver();
-  final Uri uri=Uri.withAppendedPath(TwidereDataStore.DNS.CONTENT_URI,host);
-  final Cursor cur=resolver.query(uri,TwidereDataStore.DNS.MATRIX_COLUMNS,null,null,null);
-  if (cur == null)   return null;
+  final Uri uri=Uri.withAppendedPath(DNS.CONTENT_URI,host);
+  final Cursor cur=resolver.query(uri,DNS.MATRIX_COLUMNS,null,null,null);
+  if (cur == null)   return InetAddress.getAllByName(host);
   try {
-    if (cur.getCount() == 0)     return null;
-    final int addr_idx=cur.getColumnIndex(TwidereDataStore.DNS.ADDRESS);
     cur.moveToFirst();
-    return cur.getString(addr_idx);
+    final ArrayList<InetAddress> addresses=new ArrayList<>();
+    final int idxHost=cur.getColumnIndex(DNS.HOST), idxAddr=cur.getColumnIndex(DNS.ADDRESS);
+    while (!cur.isAfterLast()) {
+      addresses.add(fromAddressString(cur.getString(idxHost),cur.getString(idxAddr)));
+      cur.moveToNext();
+    }
+    if (addresses.isEmpty()) {
+      throw new UnknownHostException("Unknown host " + host);
+    }
+    return addresses.toArray(new InetAddress[addresses.size()]);
   }
   finally {
     cur.close();

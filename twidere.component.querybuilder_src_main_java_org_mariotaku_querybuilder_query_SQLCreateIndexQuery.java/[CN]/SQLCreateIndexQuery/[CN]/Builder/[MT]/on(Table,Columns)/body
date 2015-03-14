@@ -1,0 +1,6 @@
+{
+  checkNotBuilt();
+  query.setTable(table);
+  query.setIndexedColumns(indexedColumns);
+  return this;
+}

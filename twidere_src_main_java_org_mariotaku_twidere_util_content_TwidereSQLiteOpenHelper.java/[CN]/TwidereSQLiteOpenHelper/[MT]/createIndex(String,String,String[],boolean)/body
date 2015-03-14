@@ -1,0 +1,6 @@
+{
+  final SQLCreateIndexQuery.Builder qb=SQLQueryBuilder.createIndex(false,createIfNotExists);
+  qb.name(indexName);
+  qb.on(new Table(tableName),new Columns(columns));
+  return qb.buildSQL();
+}

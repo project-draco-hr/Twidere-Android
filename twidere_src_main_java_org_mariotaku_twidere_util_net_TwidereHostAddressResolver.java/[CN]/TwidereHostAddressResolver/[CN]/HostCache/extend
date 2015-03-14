@@ -1,1 +1,1 @@
-LinkedHashMap<String,String>
+LinkedHashMap<String,InetAddress[]>

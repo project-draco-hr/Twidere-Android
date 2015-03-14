@@ -1,12 +1,15 @@
 {
   final MatrixCursor c=new MatrixCursor(TwidereDataStore.DNS.MATRIX_COLUMNS);
   try {
-    final String address=mHostAddressResolver.resolve(host);
-    if (host != null && address != null) {
-      c.addRow(new String[]{host,address});
+    final InetAddress[] addresses=mHostAddressResolver.resolve(host);
+    for (    InetAddress address : addresses) {
+      c.addRow(new String[]{host,address.getHostAddress()});
     }
   }
- catch (  final IOException e) {
+ catch (  final IOException ignore) {
+    if (Utils.isDebugBuild()) {
+      Log.w(LOGTAG,ignore);
+    }
   }
   return c;
 }

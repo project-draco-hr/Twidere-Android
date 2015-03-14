@@ -1,4 +1,5 @@
 {
+  if (mAccounts == null)   return;
   subMenu.removeGroup(MENU_GROUP);
   for (  final ParcelableAccount account : mAccounts) {
     final MenuItem item=subMenu.add(MENU_GROUP,Menu.NONE,0,account.name);

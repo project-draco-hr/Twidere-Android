@@ -11,8 +11,8 @@
       final Expression account_where=new Expression(Statuses.ACCOUNT_ID + " = " + account_id);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(Statuses._ID)).from(new Tables(table));
-      qb.where(new Expression(Statuses.ACCOUNT_ID + " = " + account_id));
-      qb.orderBy(new OrderBy(Statuses.STATUS_ID + " DESC"));
+      qb.where(Expression.equals(Statuses.ACCOUNT_ID,account_id));
+      qb.orderBy(new OrderBy(Statuses.STATUS_ID,false));
       qb.limit(itemLimit);
       final Expression where=Expression.and(Expression.notIn(new Column(Statuses._ID),qb.build()),account_where);
       resolver.delete(uri,where.getSQL(),null);
@@ -22,8 +22,8 @@
       final Expression account_where=new Expression(DirectMessages.ACCOUNT_ID + " = " + account_id);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(DirectMessages._ID)).from(new Tables(table));
-      qb.where(new Expression(DirectMessages.ACCOUNT_ID + " = " + account_id));
-      qb.orderBy(new OrderBy(DirectMessages.MESSAGE_ID + " DESC"));
+      qb.where(Expression.equals(DirectMessages.ACCOUNT_ID,account_id));
+      qb.orderBy(new OrderBy(DirectMessages.MESSAGE_ID,false));
       qb.limit(itemLimit);
       final Expression where=Expression.and(Expression.notIn(new Column(DirectMessages._ID),qb.build()),account_where);
       resolver.delete(uri,where.getSQL(),null);
@@ -35,7 +35,7 @@
     final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
     qb.select(new Column(BaseColumns._ID));
     qb.from(new Tables(table));
-    qb.orderBy(new OrderBy(BaseColumns._ID + " DESC"));
+    qb.orderBy(new OrderBy(BaseColumns._ID,false));
     qb.limit(itemLimit * 20);
     final Expression where=Expression.notIn(new Column(BaseColumns._ID),qb.build());
     resolver.delete(uri,where.getSQL(),null);

@@ -1,0 +1,3 @@
+String cardName
+ParcelableMedia[] media
+ParcelableLocation location

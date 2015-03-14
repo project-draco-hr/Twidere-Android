@@ -1,0 +1,6 @@
+{
+  final ListAdapter adapter=mAdapter.getAdapter(position);
+  if (adapter instanceof TrendsAdapter) {
+    openTweetSearch(getActivity(),getAccountId(),(String)adapter.getItem(position));
+  }
+}

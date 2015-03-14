@@ -1,6 +1,6 @@
 {
   final FragmentActivity activity=getActivity();
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   if (activity == null || user == null)   return;
 switch (view.getId()) {
 case R.id.retry:

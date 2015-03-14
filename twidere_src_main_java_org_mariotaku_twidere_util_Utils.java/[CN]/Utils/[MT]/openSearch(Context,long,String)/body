@@ -5,6 +5,7 @@
   builder.authority(AUTHORITY_SEARCH);
   builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(account_id));
   builder.appendQueryParameter(QUERY_PARAM_QUERY,query);
-  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  final Uri uri=builder.build();
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
   context.startActivity(intent);
 }

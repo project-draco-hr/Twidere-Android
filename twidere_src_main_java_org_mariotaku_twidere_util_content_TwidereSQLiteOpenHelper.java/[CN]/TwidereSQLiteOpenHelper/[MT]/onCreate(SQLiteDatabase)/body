@@ -18,8 +18,8 @@
   db.execSQL(createTable(Tabs.TABLE_NAME,Tabs.COLUMNS,Tabs.TYPES,true));
   db.execSQL(createTable(SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true));
   db.execSQL(createTable(SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true));
-  db.execSQL(createDirectMessagesView().getSQL());
-  db.execSQL(createDirectMessageConversationEntriesView().getSQL());
+  createViews(db);
+  createIndices(db);
   db.setTransactionSuccessful();
   db.endTransaction();
 }

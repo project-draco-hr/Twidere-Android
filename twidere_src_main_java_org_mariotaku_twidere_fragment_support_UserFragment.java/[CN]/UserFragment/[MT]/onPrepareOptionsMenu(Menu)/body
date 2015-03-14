@@ -1,7 +1,7 @@
 {
   if (!shouldUseNativeMenu() || !menu.hasVisibleItems())   return;
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   final Relationship relationship=mRelationship;
   if (twitter == null || user == null)   return;
   final boolean isMyself=user.account_id == user.id;

@@ -1,0 +1,19 @@
+{
+  if (table == null)   throw new NullPointerException("Table must not be null!");
+  if (indexName == null)   throw new NullPointerException("SELECT statement must not be null!");
+  final StringBuilder sb=new StringBuilder("CREATE");
+  if (unique) {
+    sb.append(" UNIQUE");
+  }
+  sb.append(" INDEX");
+  if (createIfNotExists) {
+    sb.append(" IF NOT EXISTS");
+  }
+  if (indexedColumns == null)   throw new NullPointerException("Indexed columns must not be null !");
+  sb.append(String.format(" %s ON %s (%s)",indexName,table.getSQL(),indexedColumns.getSQL()));
+  if (where != null) {
+    sb.append(" WHERE");
+    sb.append(where.getSQL());
+  }
+  return sb.toString();
+}

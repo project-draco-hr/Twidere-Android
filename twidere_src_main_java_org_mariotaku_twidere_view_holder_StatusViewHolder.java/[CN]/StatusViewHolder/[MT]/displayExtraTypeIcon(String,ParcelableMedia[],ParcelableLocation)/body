@@ -1,0 +1,25 @@
+{
+  if (TwitterCardUtils.CARD_NAME_AUDIO.equals(cardName)) {
+    extraTypeView.setImageResource(R.drawable.ic_action_music);
+    extraTypeView.setVisibility(View.VISIBLE);
+  }
+ else   if (TwitterCardUtils.CARD_NAME_ANIMATED_GIF.equals(cardName)) {
+    extraTypeView.setImageResource(R.drawable.ic_action_movie);
+    extraTypeView.setVisibility(View.VISIBLE);
+  }
+ else   if (TwitterCardUtils.CARD_NAME_PLAYER.equals(cardName)) {
+    extraTypeView.setImageResource(R.drawable.ic_action_play_circle);
+    extraTypeView.setVisibility(View.VISIBLE);
+  }
+ else   if (media != null && media.length > 0) {
+    extraTypeView.setImageResource(R.drawable.ic_action_gallery);
+    extraTypeView.setVisibility(View.VISIBLE);
+  }
+ else   if (location != null && location.isValid()) {
+    extraTypeView.setImageResource(R.drawable.ic_action_location);
+    extraTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    extraTypeView.setVisibility(View.GONE);
+  }
+}

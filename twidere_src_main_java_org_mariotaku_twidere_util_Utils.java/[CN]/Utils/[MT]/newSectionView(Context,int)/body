@@ -1,0 +1,3 @@
+{
+  return newSectionView(context,titleRes != 0 ? context.getString(titleRes) : null);
+}

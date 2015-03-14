@@ -100,5 +100,5 @@
  else {
     favoriteCountView.setText(null);
   }
-  displayExtraTypeIcon(status.card_name,status.media != null ? status.media.length : 0);
+  displayExtraTypeIcon(status.card_name,status.media,status.location);
 }

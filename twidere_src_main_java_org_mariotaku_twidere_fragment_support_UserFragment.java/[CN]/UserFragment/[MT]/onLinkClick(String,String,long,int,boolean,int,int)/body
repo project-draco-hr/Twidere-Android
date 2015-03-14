@@ -1,5 +1,5 @@
 {
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   if (user == null)   return;
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:

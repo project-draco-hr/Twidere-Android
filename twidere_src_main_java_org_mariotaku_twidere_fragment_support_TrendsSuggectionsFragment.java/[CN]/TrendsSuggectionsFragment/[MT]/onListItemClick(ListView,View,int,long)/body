@@ -1,6 +1,6 @@
 {
   if (mMultiSelectManager.isActive())   return;
-  final Cursor cur=(Cursor)mTrendsAdapter.getItem(position - l.getHeaderViewsCount());
-  if (cur == null)   return;
-  openTweetSearch(getActivity(),mAccountId,cur.getString(cur.getColumnIndex(CachedTrends.NAME)));
+  final String trend=mTrendsAdapter.getItem(position - l.getHeaderViewsCount());
+  if (trend == null)   return;
+  openTweetSearch(getActivity(),mAccountId,trend);
 }

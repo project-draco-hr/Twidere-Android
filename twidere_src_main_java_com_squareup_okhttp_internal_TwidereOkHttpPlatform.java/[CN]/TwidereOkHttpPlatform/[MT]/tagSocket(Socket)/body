@@ -1,0 +1,12 @@
+{
+  if (trafficStatsTagSocket == null)   return;
+  try {
+    trafficStatsTagSocket.invoke(null,socket);
+  }
+ catch (  IllegalAccessException e) {
+    throw new RuntimeException(e);
+  }
+catch (  InvocationTargetException e) {
+    throw new RuntimeException(e.getCause());
+  }
+}

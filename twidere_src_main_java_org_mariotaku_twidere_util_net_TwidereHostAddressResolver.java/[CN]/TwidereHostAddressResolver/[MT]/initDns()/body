@@ -1,5 +1,0 @@
-{
-  if (mDns != null)   return;
-  mDns=new SimpleResolver(mDnsAddress);
-  mDns.setTCP(true);
-}

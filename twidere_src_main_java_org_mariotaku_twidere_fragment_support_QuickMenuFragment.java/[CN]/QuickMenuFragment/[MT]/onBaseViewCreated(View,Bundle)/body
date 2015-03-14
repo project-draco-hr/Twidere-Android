@@ -1,5 +1,6 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
+  mQuickMenuContainer=(ExtendedFrameLayout)view.findViewById(R.id.quick_menu_fragment);
   mListView=(ListView)view.findViewById(android.R.id.list);
   mSlidingUpPanel=(SlidingUpPanelLayout)view.findViewById(R.id.activities_drawer);
   mActivitiesConfigButton=(ImageButton)view.findViewById(R.id.activities_config_button);

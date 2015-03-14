@@ -1,6 +1,6 @@
 {
   mRelationship=null;
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
   final Bundle args=new Bundle();

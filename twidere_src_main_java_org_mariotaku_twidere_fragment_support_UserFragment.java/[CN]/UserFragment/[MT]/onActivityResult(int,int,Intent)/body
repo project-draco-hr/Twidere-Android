@@ -1,5 +1,5 @@
 {
-  final ParcelableUser user=mUser;
+  final ParcelableUser user=getUser();
 switch (requestCode) {
 case REQUEST_SET_COLOR:
 {

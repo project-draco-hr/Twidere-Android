@@ -32,8 +32,8 @@
   addIntentToMenuForExtension(context,menu,MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);
   final MenuItem shareItem=menu.findItem(R.id.share);
   final ActionProvider shareProvider=MenuItemCompat.getActionProvider(shareItem);
-  if (shareProvider instanceof StatusShareProvider) {
-    ((StatusShareProvider)shareProvider).setStatus(status);
+  if (shareProvider instanceof SupportStatusShareProvider) {
+    ((SupportStatusShareProvider)shareProvider).setStatus(status);
   }
  else   if (shareProvider instanceof ShareActionProvider) {
     final Intent shareIntent=createStatusShareIntent(context,status);

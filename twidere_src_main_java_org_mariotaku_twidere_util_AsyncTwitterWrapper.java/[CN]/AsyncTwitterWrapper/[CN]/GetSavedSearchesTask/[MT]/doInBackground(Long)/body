@@ -10,7 +10,7 @@
       ContentResolverUtils.bulkInsert(cr,SavedSearches.CONTENT_URI,values);
     }
  catch (    TwitterException e) {
-      e.printStackTrace();
+      Log.w(LOGTAG,e);
     }
   }
   return SingleResponse.getInstance();

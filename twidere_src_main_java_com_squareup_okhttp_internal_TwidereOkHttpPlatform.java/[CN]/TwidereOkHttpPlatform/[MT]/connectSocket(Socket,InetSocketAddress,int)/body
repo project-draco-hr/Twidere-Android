@@ -1,0 +1,10 @@
+{
+  try {
+    socket.connect(address,connectTimeout);
+  }
+ catch (  SecurityException se) {
+    IOException ioException=new IOException("Exception in connect");
+    ioException.initCause(se);
+    throw ioException;
+  }
+}

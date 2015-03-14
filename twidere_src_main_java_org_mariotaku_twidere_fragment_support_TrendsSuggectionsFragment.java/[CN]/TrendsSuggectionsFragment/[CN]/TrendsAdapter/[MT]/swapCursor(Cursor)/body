@@ -1,0 +1,6 @@
+{
+  if (c != null) {
+    mNameIdx=c.getColumnIndex(CachedTrends.NAME);
+  }
+  return super.swapCursor(c);
+}

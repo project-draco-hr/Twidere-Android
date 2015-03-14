@@ -1,0 +1,11 @@
+{
+  final TwidereOkHttpPlatform platform=get(application);
+  try {
+    final Field field=Platform.class.getDeclaredField("PLATFORM");
+    field.setAccessible(true);
+    field.set(null,platform);
+  }
+ catch (  IllegalAccessException|NoSuchFieldException e) {
+    Log.w(LOGTAG,e);
+  }
+}

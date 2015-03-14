@@ -4,6 +4,7 @@
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
   final boolean compact=Utils.isCompactCards(context);
+  initNdefCallback();
   mLayoutManager=new StatusListLinearLayoutManager(context,mRecyclerView);
   mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
   if (compact) {

@@ -1,0 +1,4 @@
+{
+  db.execSQL(createDirectMessagesView().getSQL());
+  db.execSQL(createDirectMessageConversationEntriesView().getSQL());
+}

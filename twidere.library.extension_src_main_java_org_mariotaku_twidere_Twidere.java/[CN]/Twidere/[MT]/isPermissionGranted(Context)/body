@@ -24,7 +24,7 @@
       c.moveToNext();
     }
   }
- catch (  final SecurityException e) {
+ catch (  final SecurityException ignore) {
   }
  finally {
     c.close();

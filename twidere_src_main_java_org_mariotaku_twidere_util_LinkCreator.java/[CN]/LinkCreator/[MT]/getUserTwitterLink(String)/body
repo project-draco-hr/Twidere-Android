@@ -1,0 +1,7 @@
+{
+  Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_HTTPS);
+  builder.authority(AUTHORITY_TWITTER);
+  builder.appendPath(screenName);
+  return builder.build();
+}

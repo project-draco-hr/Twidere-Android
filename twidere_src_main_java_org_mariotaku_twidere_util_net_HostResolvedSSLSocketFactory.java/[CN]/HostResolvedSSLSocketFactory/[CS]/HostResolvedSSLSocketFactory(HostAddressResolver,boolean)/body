@@ -1,9 +1,0 @@
-{
-  if (ignoreError) {
-    defaultFactory=SSLCertificateSocketFactory.getInsecure(0,null);
-  }
- else {
-    defaultFactory=SSLCertificateSocketFactory.getDefault(0,null);
-  }
-  this.resolver=resolver;
-}
