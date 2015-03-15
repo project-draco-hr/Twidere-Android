@@ -2,5 +2,6 @@
   if (getActivity() == null)   return;
   mFirstVisibleItem=-1;
   mAdapter.setCursor(cursor);
+  mAdapter.setLoadMoreIndicatorEnabled(cursor != null && cursor.getCount() > 0);
   setListShown(true);
 }
