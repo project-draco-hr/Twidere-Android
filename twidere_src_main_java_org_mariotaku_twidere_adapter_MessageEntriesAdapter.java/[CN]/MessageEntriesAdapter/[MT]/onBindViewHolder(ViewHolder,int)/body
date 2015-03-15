@@ -1,5 +1,11 @@
 {
-  final Cursor c=mCursor;
-  c.moveToPosition(position);
-  ((MessageEntryViewHolder)holder).displayMessage(c);
+switch (getItemViewType(position)) {
+case ITEM_VIEW_TYPE_MESSAGE:
+{
+      final Cursor c=mCursor;
+      c.moveToPosition(position);
+      ((MessageEntryViewHolder)holder).displayMessage(c);
+      break;
+    }
+}
 }

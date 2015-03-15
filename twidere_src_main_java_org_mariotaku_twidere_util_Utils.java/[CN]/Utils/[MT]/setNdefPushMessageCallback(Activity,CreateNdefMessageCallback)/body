@@ -1,0 +1,12 @@
+{
+  try {
+    final NfcAdapter adapter=NfcAdapter.getDefaultAdapter(activity);
+    if (adapter == null)     return false;
+    adapter.setNdefPushMessageCallback(callback,activity);
+    return true;
+  }
+ catch (  SecurityException e) {
+    Log.w(LOGTAG,e);
+  }
+  return false;
+}

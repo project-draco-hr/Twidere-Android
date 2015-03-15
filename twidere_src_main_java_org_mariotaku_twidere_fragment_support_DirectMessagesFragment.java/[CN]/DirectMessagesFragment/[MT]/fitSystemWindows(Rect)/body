@@ -1,4 +1,6 @@
 {
   super.fitSystemWindows(insets);
-  mContentView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mRecyclerView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mSystemWindowsInsets.set(insets);
+  updateRefreshProgressOffset();
 }

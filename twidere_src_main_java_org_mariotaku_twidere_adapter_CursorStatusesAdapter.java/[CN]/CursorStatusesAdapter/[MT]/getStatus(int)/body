@@ -1,5 +1,5 @@
 {
-  if (hasLoadMoreIndicator() && position == getStatusCount() - 1)   return null;
+  if (hasLoadMoreIndicator() && position == getStatusesCount() - 1)   return null;
   final Cursor c=mCursor;
   if (c != null && !c.isClosed() && c.moveToPosition(position)) {
     return new ParcelableStatus(c,mIndices);

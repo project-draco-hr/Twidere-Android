@@ -1,0 +1,4 @@
+{
+  mControlBarOffsetPixels=Math.round(activity.getControlBarHeight() * (1 - offset));
+  updateRefreshProgressOffset();
+}

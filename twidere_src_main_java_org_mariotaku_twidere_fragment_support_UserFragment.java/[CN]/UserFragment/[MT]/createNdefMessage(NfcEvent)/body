@@ -1,5 +1,0 @@
-{
-  final ParcelableUser user=getUser();
-  if (user == null)   return null;
-  return new NdefMessage(new NdefRecord[]{NdefRecord.createUri(LinkCreator.getUserTwitterLink(user.screen_name))});
-}

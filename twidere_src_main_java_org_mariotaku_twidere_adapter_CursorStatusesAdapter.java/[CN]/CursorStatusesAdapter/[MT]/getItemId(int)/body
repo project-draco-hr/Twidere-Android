@@ -1,5 +1,5 @@
 {
-  if (position == getStatusCount())   return -1;
+  if (position == getStatusesCount())   return -1;
   final Cursor c=mCursor;
   if (c != null && !c.isClosed() && c.moveToPosition(position)) {
     final long account_id=c.getLong(mIndices.account_id);

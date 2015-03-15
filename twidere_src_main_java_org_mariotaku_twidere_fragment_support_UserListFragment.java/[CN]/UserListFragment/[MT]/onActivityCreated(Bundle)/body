@@ -2,6 +2,14 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   final FragmentActivity activity=getActivity();
+  Utils.setNdefPushMessageCallback(activity,new CreateNdefMessageCallback(){
+    @Override public NdefMessage createNdefMessage(    NfcEvent event){
+      final ParcelableUserList userList=getUserList();
+      if (userList == null)       return null;
+      return new NdefMessage(new NdefRecord[]{NdefRecord.createUri(LinkCreator.getTwitterUserListLink(userList.user_screen_name,userList.name))});
+    }
+  }
+);
   mHeaderDrawerLayout.setDrawerCallback(this);
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
   mViewPager.setAdapter(mPagerAdapter);

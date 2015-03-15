@@ -1,4 +1,4 @@
 {
-  if (position == getStatusCount())   return position;
+  if (position == getStatusesCount())   return position;
   return mData.get(position).hashCode();
 }

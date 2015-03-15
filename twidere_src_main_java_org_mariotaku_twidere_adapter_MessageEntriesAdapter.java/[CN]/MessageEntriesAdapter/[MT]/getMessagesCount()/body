@@ -1,0 +1,5 @@
+{
+  final Cursor c=mCursor;
+  if (c == null || c.isClosed())   return 0;
+  return c.getCount();
+}

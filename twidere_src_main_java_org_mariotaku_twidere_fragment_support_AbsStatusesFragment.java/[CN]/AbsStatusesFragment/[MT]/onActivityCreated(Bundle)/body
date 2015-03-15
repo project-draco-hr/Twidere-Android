@@ -4,7 +4,6 @@
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
   final boolean compact=Utils.isCompactCards(context);
-  mTouchSlop=ViewConfiguration.get(context).getScaledTouchSlop();
   mDrawerCallback=new SimpleDrawerCallback(mRecyclerView);
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
@@ -19,7 +18,9 @@
     mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
   }
   mRecyclerView.setAdapter(mAdapter);
-  mRecyclerView.setOnScrollListener(mOnScrollListener);
+  final ContentListScrollListener scrollListener=new ContentListScrollListener(this);
+  scrollListener.setTouchSlop(ViewConfiguration.get(context).getScaledTouchSlop());
+  mRecyclerView.setOnScrollListener(scrollListener);
   mAdapter.setListener(this);
   final Bundle loaderArgs=new Bundle(getArguments());
   loaderArgs.putBoolean(EXTRA_FROM_USER,true);

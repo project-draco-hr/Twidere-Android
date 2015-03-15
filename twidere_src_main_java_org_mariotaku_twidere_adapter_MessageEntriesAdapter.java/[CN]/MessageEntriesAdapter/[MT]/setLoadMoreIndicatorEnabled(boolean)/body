@@ -1,0 +1,5 @@
+{
+  if (mLoadMoreIndicatorEnabled == enabled)   return;
+  mLoadMoreIndicatorEnabled=enabled;
+  notifyDataSetChanged();
+}

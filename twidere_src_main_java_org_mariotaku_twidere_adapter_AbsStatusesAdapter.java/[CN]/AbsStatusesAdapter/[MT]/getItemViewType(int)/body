@@ -1,5 +1,5 @@
 {
-  if (position == getStatusCount()) {
+  if (position == getStatusesCount()) {
     return ITEM_VIEW_TYPE_LOAD_INDICATOR;
   }
  else   if (isGapItem(position)) {

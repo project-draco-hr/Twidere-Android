@@ -17,7 +17,14 @@
   }
   mProfileImageLoader=getApplication().getImageLoaderWrapper();
   final FragmentActivity activity=getActivity();
-  initNdefCallback();
+  Utils.setNdefPushMessageCallback(activity,new CreateNdefMessageCallback(){
+    @Override public NdefMessage createNdefMessage(    NfcEvent event){
+      final ParcelableUser user=getUser();
+      if (user == null)       return null;
+      return new NdefMessage(new NdefRecord[]{NdefRecord.createUri(LinkCreator.getTwitterUserLink(user.screen_name))});
+    }
+  }
+);
   activity.setEnterSharedElementCallback(new SharedElementCallback(){
     @Override public void onSharedElementEnd(    List<String> sharedElementNames,    List<View> sharedElements,    List<View> sharedElementSnapshots){
       int idx=sharedElementNames.indexOf(TRANSITION_NAME_PROFILE_IMAGE);
