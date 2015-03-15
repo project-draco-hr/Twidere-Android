@@ -1,3 +1,0 @@
-SSLSocket sslSocket
-String hostname
-List<Protocol> protocols

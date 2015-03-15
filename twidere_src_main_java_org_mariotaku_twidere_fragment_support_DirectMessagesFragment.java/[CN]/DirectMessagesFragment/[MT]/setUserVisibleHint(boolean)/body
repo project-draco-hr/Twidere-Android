@@ -1,6 +1,3 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
-  if (isVisibleToUser) {
-    updateRefreshState();
-  }
 }

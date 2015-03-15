@@ -1,11 +1,11 @@
 {
-  if (location_string == null) {
+  if (locationString == null) {
     latitude=-1;
     longitude=-1;
     return;
   }
-  final String[] longlat=location_string.split(",");
-  if (longlat == null || longlat.length != 2) {
+  final String[] longlat=locationString.split(",");
+  if (longlat.length != 2) {
     latitude=-1;
     longitude=-1;
   }

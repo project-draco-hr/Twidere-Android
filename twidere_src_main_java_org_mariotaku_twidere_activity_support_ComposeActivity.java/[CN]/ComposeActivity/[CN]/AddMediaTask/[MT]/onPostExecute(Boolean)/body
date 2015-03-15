@@ -1,5 +1,5 @@
 {
-  activity.setProgressVisibility(false);
+  activity.setProgressVisible(false);
   activity.addMedia(new ParcelableMediaUpdate(dst.toString(),media_type));
   activity.setMenu();
   activity.updateTextCount();

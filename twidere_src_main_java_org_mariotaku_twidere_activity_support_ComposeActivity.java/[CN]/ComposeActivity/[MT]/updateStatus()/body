@@ -14,22 +14,6 @@
     return;
   }
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
-  if (mRecentLocation == null && attachLocation) {
-    final Location location;
-    if (mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-      location=mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-    }
- else {
-      location=null;
-    }
-    if (location != null) {
-      mRecentLocation=new ParcelableLocation(location);
-    }
- else {
-      mRecentLocation=null;
-    }
-    updateLocationText();
-  }
   final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
   final boolean isQuote=INTENT_ACTION_QUOTE.equals(getIntent().getAction());
   final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;

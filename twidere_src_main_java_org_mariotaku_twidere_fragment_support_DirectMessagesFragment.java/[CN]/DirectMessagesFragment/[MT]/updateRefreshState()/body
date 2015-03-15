@@ -1,5 +1,4 @@
 {
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  if (twitter == null || !getUserVisibleHint())   return;
-  setRefreshing(twitter.isReceivedDirectMessagesRefreshing() || twitter.isSentDirectMessagesRefreshing());
+  setRefreshing(twitter != null && (twitter.isReceivedDirectMessagesRefreshing() || twitter.isSentDirectMessagesRefreshing()));
 }

@@ -1,9 +1,3 @@
 {
-  if (location != null) {
-    mRecentLocation=new ParcelableLocation(location);
-  }
- else {
-    mRecentLocation=null;
-  }
-  updateLocationText();
+  setRecentLocation(ParcelableLocation.fromLocation(location));
 }

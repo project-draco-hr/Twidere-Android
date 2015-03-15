@@ -1,0 +1,9 @@
+{
+  if (location != null) {
+    mLocationText.setText(location.getHumanReadableString(3));
+  }
+ else {
+    mLocationText.setText(R.string.unknown_location);
+  }
+  mRecentLocation=location;
+}

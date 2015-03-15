@@ -1,4 +1,4 @@
 {
-  mActivity.setProgressVisibility(false);
+  mActivity.setProgressVisible(false);
   mActivity.finish();
 }

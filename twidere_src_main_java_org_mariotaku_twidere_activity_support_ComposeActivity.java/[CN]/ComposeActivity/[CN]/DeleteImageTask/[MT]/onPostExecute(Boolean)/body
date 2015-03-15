@@ -1,5 +1,5 @@
 {
-  mActivity.setProgressVisibility(false);
+  mActivity.setProgressVisible(false);
   mActivity.removeAllMedia(Arrays.asList(mMedia));
   mActivity.setMenu();
   if (!result) {

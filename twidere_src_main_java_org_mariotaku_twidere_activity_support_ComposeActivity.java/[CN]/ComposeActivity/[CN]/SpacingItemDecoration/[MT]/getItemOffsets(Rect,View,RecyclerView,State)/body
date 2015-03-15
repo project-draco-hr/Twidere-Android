@@ -1,5 +1,5 @@
 {
-  final int pos=parent.getChildPosition(view);
+  final int pos=parent.getChildAdapterPosition(view);
   if (pos == 0) {
     outRect.set(0,mSpacingNormal,0,0);
   }

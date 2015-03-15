@@ -1,8 +1,0 @@
-{
-  if (mRecentLocation != null) {
-    mLocationText.setText(String.format("%.3f, %.3f",mRecentLocation.latitude,mRecentLocation.longitude));
-  }
- else {
-    mLocationText.setText(R.string.unknown_location);
-  }
-}
