@@ -14,7 +14,7 @@ synchronized (mLock) {
     results.count=list.size();
   }
  else {
-    String prefixString=prefix.toString().toLowerCase();
+    String prefixString=prefix.toString().toLowerCase(Locale.getDefault());
     ArrayList<T> values;
 synchronized (mLock) {
       values=new ArrayList<>(mOriginalValues);
@@ -23,15 +23,15 @@ synchronized (mLock) {
     final ArrayList<T> newValues=new ArrayList<>();
     for (int i=0; i < count; i++) {
       final T value=values.get(i);
-      final String valueText=value.toString().toLowerCase();
+      final String valueText=value.toString().toLowerCase(Locale.getDefault());
       if (valueText.startsWith(prefixString)) {
         newValues.add(value);
       }
  else {
         final String[] words=valueText.split(" ");
         final int wordCount=words.length;
-        for (int k=0; k < wordCount; k++) {
-          if (words[k].startsWith(prefixString)) {
+        for (        String word : words) {
+          if (word.startsWith(prefixString)) {
             newValues.add(value);
             break;
           }

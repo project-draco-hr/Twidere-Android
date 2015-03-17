@@ -11,6 +11,6 @@
   final File root=context.getFilesDir();
   final File[] spiceFiles=root.listFiles(new SpiceFileFilter());
   uploadToServer(spiceFiles);
-  prefs.edit().putLong(LAST_UPLOAD_DATE,System.currentTimeMillis()).commit();
+  prefs.edit().putLong(LAST_UPLOAD_DATE,System.currentTimeMillis()).apply();
   return null;
 }

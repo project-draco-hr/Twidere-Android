@@ -4,7 +4,7 @@
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(this));
   setContentView(R.layout.activity_drafts);
-  final ActionBar actionBar=getActionBar();
+  final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
   }

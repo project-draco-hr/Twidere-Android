@@ -1,7 +1,10 @@
 {
-  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
   super.onCreate(savedInstanceState);
-  getActionBar().setDisplayHomeAsUpEnabled(true);
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
   mUri=getIntent().getData();
   if (mUri == null) {
     Toast.makeText(this,R.string.error_occurred,Toast.LENGTH_SHORT).show();

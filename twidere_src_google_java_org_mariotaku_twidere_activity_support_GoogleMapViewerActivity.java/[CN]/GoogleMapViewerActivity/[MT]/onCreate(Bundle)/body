@@ -20,7 +20,7 @@
     finish();
     return;
   }
-  final ActionBar actionBar=getActionBar();
+  final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
   }

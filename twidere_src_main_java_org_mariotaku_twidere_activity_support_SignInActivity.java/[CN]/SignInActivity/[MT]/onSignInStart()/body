@@ -1,5 +1,5 @@
 {
-  setProgressBarIndeterminateVisibility(true);
+  setSupportProgressBarIndeterminateVisibility(true);
   mEditPassword.setEnabled(false);
   mEditUsername.setEnabled(false);
   mSignInButton.setEnabled(false);

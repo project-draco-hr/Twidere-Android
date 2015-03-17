@@ -22,6 +22,7 @@
     final Fragment f=new ViewStatusDialogFragment();
     final Bundle args=new Bundle();
     args.putParcelable(EXTRA_STATUS,intent.getParcelableExtra(EXTRA_STATUS));
+    args.putBoolean(EXTRA_SHOW_MEDIA_PREVIEW,false);
     f.setArguments(args);
     ft.replace(R.id.media_status,f);
     ft.commit();

@@ -54,7 +54,7 @@ showErrorMessage(this,getString(R.string.action_signing_in),result.exception,tru
 }
 }
 }
-setProgressBarIndeterminateVisibility(false);
+setSupportProgressBarIndeterminateVisibility(false);
 mEditPassword.setEnabled(true);
 mEditUsername.setEnabled(true);
 mSignInButton.setEnabled(true);

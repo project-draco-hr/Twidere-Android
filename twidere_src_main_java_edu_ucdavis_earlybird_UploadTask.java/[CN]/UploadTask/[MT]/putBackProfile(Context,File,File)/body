@@ -7,12 +7,12 @@
       copyStream(is,os);
       is.close();
       os.close();
+      success=true;
     }
  catch (    final IOException e) {
       e.printStackTrace();
       success=false;
     }
-    success=true;
     if (success && tmp.renameTo(profile) && tmp.delete()) {
       ProfilingUtil.log(context,"put profile back success");
     }

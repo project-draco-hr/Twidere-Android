@@ -15,7 +15,7 @@
     client.addFilePart("file",fileName,SpiceIOUtil.readFile(tmp));
     client.finishMultipart();
     String serverResponseCode=client.getResponse();
-    if (serverResponseCode.indexOf("00") > -1) {
+    if (serverResponseCode.contains("00")) {
       SpiceProfilingUtil.log(context,"server has already received file " + tmp.getName());
       tmp.delete();
     }
