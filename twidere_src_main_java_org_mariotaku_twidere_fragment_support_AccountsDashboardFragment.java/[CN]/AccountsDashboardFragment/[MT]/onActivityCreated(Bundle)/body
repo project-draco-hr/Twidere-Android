@@ -27,6 +27,19 @@
   mAccountsToggleMenu=(ActionMenuView)mAccountSelectorView.findViewById(R.id.toggle_menu);
   final SupportMenuInflater menuInflater=new SupportMenuInflater(context);
   menuInflater.inflate(R.menu.action_dashboard_timeline_toggle,mAccountsToggleMenu.getMenu());
+  mAccountsToggleMenu.setOnMenuItemClickListener(new OnMenuItemClickListener(){
+    @Override public boolean onMenuItemClick(    MenuItem item){
+      if (item.getGroupId() != SupportAccountActionProvider.MENU_GROUP)       return false;
+      final ParcelableAccount[] accounts=mAccountActionProvider.getAccounts();
+      final ParcelableAccount account=accounts[item.getOrder()];
+      final ContentValues values=new ContentValues();
+      values.put(Accounts.IS_ACTIVATED,!account.is_activated);
+      final String where=Accounts.ACCOUNT_ID + " = " + account.account_id;
+      mResolver.update(Accounts.CONTENT_URI,values,where,null);
+      return true;
+    }
+  }
+);
   mAccountProfileContainer.setOnClickListener(this);
   mAdapter.addView(mAccountSelectorView,false);
   mAdapter.addAdapter(mAccountOptionsAdapter);
