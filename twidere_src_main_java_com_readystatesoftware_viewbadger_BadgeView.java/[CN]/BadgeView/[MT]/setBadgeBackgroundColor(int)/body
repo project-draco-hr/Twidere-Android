@@ -1,4 +1,0 @@
-{
-  this.badgeColor=badgeColor;
-  badgeBg=getDefaultBackground();
-}

@@ -11,3 +11,4 @@ int profileImageStyle
 int mediaPreviewStyle
 ParcelableStatus status
 TranslationResult translation
+boolean shouldDisplayExtraType

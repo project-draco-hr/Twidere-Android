@@ -1,3 +1,0 @@
-{
-  this(context,null,android.R.attr.textViewStyle,target,index);
-}

@@ -9,7 +9,7 @@
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
   final int backgroundColor=ThemeUtils.getThemeBackgroundColor(context);
   final int colorRes=ColorUtils.getContrastYIQ(backgroundColor,R.color.bg_refresh_progress_color_light,R.color.bg_refresh_progress_color_dark);
-  mSwipeRefreshLayout.setProgressBackgroundColor(colorRes);
+  mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(colorRes);
   mAdapter=onCreateAdapter(context,compact);
   mLayoutManager=new LinearLayoutManager(context);
   mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

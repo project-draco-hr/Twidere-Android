@@ -10,6 +10,11 @@ case R.id.save:
     saveToGallery();
     return true;
   }
+case R.id.refresh:
+{
+  loadImage();
+  return true;
+}
 }
 return super.onOptionsItemSelected(item);
 }

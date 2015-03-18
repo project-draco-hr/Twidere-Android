@@ -1,4 +1,0 @@
-{
-  setText(String.valueOf(count));
-  return count;
-}

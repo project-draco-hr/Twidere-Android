@@ -1,5 +1,0 @@
-Context context
-AttributeSet attrs
-int defStyle
-View target
-int tabIndex

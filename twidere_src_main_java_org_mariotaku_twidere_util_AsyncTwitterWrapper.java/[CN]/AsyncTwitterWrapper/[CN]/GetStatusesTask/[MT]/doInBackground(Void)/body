@@ -29,6 +29,7 @@
       storeStatus(accountId,statuses,maxId,truncated,true);
     }
  catch (    final TwitterException e) {
+      Log.w(LOGTAG,e);
       result.add(new StatusListResponse(accountId,e));
     }
     idx++;

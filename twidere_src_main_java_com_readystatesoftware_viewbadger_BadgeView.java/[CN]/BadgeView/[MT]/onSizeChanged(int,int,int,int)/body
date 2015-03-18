@@ -1,4 +1,0 @@
-{
-  setMinWidth(h);
-  super.onSizeChanged(w,h,oldw,oldh);
-}

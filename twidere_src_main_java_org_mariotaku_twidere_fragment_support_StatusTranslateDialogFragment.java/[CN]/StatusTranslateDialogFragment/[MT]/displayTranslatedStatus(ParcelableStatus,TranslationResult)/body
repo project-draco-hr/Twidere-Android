@@ -11,7 +11,7 @@
   final boolean nameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
   final boolean nicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,false);
   final boolean displayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
-  mHolder.displayStatus(activity,loader,handler,twitter,displayMediaPreview,true,true,nameFirst,nicknameOnly,profileImageStyle,mediaPreviewStyle,status,null);
+  mHolder.displayStatus(activity,loader,handler,twitter,displayMediaPreview,true,true,nameFirst,nicknameOnly,profileImageStyle,mediaPreviewStyle,status,null,true);
   mStatusContainer.findViewById(R.id.item_menu).setVisibility(View.GONE);
   mStatusContainer.findViewById(R.id.action_buttons).setVisibility(View.GONE);
   mStatusContainer.findViewById(R.id.reply_retweet_status).setVisibility(View.GONE);
