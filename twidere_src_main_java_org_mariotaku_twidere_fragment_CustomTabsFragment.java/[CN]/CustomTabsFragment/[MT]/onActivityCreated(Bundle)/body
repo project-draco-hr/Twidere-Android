@@ -2,15 +2,16 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   mResolver=getContentResolver();
-  final Activity activity=getActivity();
-  final Context context=getView().getContext();
+  final View view=getView();
+  if (view == null)   throw new AssertionError();
+  final Context context=view.getContext();
   mAdapter=new CustomTabsAdapter(context);
-  setListAdapter(mAdapter);
-  setEmptyText(getString(R.string.no_tab_hint));
-  mListView=(DragSortListView)getListView();
   mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
   mListView.setMultiChoiceModeListener(this);
   mListView.setDropListener(this);
+  mListView.setOnItemClickListener(this);
+  mListView.setAdapter(mAdapter);
+  mListView.setEmptyView(mEmptyView);
   getLoaderManager().initLoader(0,null,this);
   setListShown(false);
 }

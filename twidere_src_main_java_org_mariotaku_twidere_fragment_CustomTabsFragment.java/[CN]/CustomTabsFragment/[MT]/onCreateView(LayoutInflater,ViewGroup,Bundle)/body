@@ -1,8 +1,3 @@
 {
-  final View view=inflater.inflate(android.R.layout.list_content,null,false);
-  final ListView originalList=(ListView)view.findViewById(android.R.id.list);
-  final ViewGroup listContainer=(ViewGroup)originalList.getParent();
-  listContainer.removeView(originalList);
-  inflater.inflate(R.layout.fragment_custom_tabs,listContainer,true);
-  return view;
+  return inflater.inflate(R.layout.fragment_custom_tabs,container,false);
 }

@@ -7,7 +7,7 @@
     final SubMenu subMenu=itemAdd.getSubMenu();
     subMenu.clear();
     final HashMap<String,CustomTabConfiguration> map=getConfiguraionMap();
-    final List<Entry<String,CustomTabConfiguration>> tabs=new ArrayList<Entry<String,CustomTabConfiguration>>(map.entrySet());
+    final List<Entry<String,CustomTabConfiguration>> tabs=new ArrayList<>(map.entrySet());
     Collections.sort(tabs,CustomTabConfigurationComparator.SINGLETON);
     for (    final Entry<String,CustomTabConfiguration> entry : tabs) {
       final String type=entry.getKey();
@@ -22,7 +22,7 @@
       final boolean shouldDisable=conf.isSingleTab() && isTabAdded(getActivity(),type) || isOfficiakKeyAccountRequired && !hasOfficialKeyAccounts || accountIdRequired && account_ids.length == 0;
       subItem.setVisible(!shouldDisable);
       subItem.setEnabled(!shouldDisable);
-      final Drawable icon=res.getDrawable(conf.getDefaultIcon());
+      final Drawable icon=ResourcesCompat.getDrawable(res,conf.getDefaultIcon(),null);
       subItem.setIcon(icon);
       subItem.setIntent(intent);
     }
