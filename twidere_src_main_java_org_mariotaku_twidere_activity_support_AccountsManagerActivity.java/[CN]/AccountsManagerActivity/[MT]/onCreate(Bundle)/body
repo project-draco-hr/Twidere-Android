@@ -5,6 +5,7 @@
     actionBar.setDisplayHomeAsUpEnabled(true);
   }
   setContentView(R.layout.activity_content_fragment);
+  mMainContent.setOnFitSystemWindowsListener(this);
   final FragmentManager fm=getSupportFragmentManager();
   final FragmentTransaction ft=fm.beginTransaction();
   ft.replace(R.id.main_content,new AccountsManagerFragment());

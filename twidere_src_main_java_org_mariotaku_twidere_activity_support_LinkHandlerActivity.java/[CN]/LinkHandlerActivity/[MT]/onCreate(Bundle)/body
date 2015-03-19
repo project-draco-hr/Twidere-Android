@@ -13,6 +13,7 @@
     setActionBarBackground(actionBar,linkId,data);
   }
   setContentView(R.layout.activity_content_fragment);
+  mMainContent.setOnFitSystemWindowsListener(this);
   setStatusBarColor(linkId,data);
   setTaskInfo(linkId,data);
   setSupportProgressBarIndeterminateVisibility(false);

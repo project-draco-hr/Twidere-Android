@@ -1,3 +1,4 @@
 {
+  if (mDragCallback == null)   return false;
   return mDrawerCallback.shouldLayoutHeaderBottom();
 }
