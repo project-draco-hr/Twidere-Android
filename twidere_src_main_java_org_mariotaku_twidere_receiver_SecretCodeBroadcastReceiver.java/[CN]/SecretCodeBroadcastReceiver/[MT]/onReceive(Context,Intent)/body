@@ -3,7 +3,7 @@
   final String cls=SettingsDetailsFragment.class.getName();
   final String title=context.getString(R.string.hidden_settings);
   final Bundle args=new Bundle();
-  args.putInt(EXTRA_RESID,R.xml.settings_hidden);
+  args.putInt(EXTRA_RESID,R.xml.preferences_hidden);
   testIntent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT,cls);
   testIntent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS,args);
   testIntent.putExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT_TITLE,title);

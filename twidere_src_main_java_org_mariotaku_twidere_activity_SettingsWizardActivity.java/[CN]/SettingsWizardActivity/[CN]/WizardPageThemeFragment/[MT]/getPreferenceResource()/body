@@ -1,3 +1,3 @@
 {
-  return R.xml.settings_theme;
+  return R.xml.preferences_theme;
 }

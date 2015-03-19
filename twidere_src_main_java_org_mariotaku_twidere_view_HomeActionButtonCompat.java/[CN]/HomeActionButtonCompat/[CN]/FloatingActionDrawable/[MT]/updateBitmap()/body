@@ -2,9 +2,9 @@
   final Rect bounds=mBounds;
   if (bounds.isEmpty())   return;
   mBitmap=Bitmap.createBitmap(bounds.width(),bounds.height(),Config.ARGB_8888);
-  Canvas canvas=new Canvas(mBitmap);
+  final Canvas canvas=new Canvas(mBitmap);
   final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  paint.setColor(Color.WHITE);
+  paint.setColor(0xFF000000 | mColorPaint.getColor());
   final float radius=mRadius;
   paint.setShadowLayer(radius,0,radius * 1.5f / 2,SHADOW_START_COLOR);
   final RectF rect=new RectF(mView.getPaddingLeft(),mView.getPaddingTop(),bounds.width() - mView.getPaddingRight(),bounds.height() - mView.getPaddingBottom());
@@ -12,5 +12,4 @@
   paint.setShadowLayer(0,0,0,0);
   paint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
   canvas.drawOval(rect,paint);
-  invalidateSelf();
 }

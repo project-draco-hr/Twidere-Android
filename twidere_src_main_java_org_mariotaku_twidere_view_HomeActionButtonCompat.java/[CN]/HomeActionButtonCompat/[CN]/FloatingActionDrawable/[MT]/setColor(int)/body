@@ -1,4 +1,5 @@
 {
   mColorPaint.setColor(color);
+  updateBitmap();
   invalidateSelf();
 }
