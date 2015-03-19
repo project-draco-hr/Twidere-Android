@@ -1,0 +1,11 @@
+{
+  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
+  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
+  final TextView text2=(TextView)view.findViewById(android.R.id.text2);
+  text1.setText('@' + mScreenName);
+  text2.setVisibility(View.GONE);
+  icon.setColorFilter(text1.getCurrentTextColor(),Mode.SRC_ATOP);
+  loader.cancelDisplayTask(icon);
+  icon.setImageResource(R.drawable.ic_action_user);
+}

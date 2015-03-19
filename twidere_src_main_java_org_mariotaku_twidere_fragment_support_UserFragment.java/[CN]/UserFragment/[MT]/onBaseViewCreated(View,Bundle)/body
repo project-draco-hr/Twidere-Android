@@ -37,5 +37,6 @@
   mUuckyFooter=headerView.findViewById(R.id.uucky_footer);
   mPagesContent=view.findViewById(R.id.pages_content);
   mPagesErrorContainer=view.findViewById(R.id.pages_error_container);
+  mPagesErrorIcon=(ImageView)view.findViewById(R.id.pages_error_icon);
   mPagesErrorText=(TextView)view.findViewById(R.id.pages_error_text);
 }

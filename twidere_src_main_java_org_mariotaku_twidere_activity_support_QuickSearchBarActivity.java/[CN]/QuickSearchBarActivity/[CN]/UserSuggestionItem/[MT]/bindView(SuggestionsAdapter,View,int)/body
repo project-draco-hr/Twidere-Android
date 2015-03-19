@@ -7,6 +7,8 @@
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
   final String nick=getUserNickname(context,user.id);
   text1.setText(TextUtils.isEmpty(nick) ? user.name : adapter.isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,user.name,nick));
+  text2.setVisibility(View.VISIBLE);
   text2.setText("@" + user.screen_name);
+  icon.clearColorFilter();
   loader.displayProfileImage(icon,user.profile_image_url);
 }

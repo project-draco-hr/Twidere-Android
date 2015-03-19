@@ -1,0 +1,4 @@
+{
+  Utils.openUserProfile(activity,mAccountId,-1,mScreenName,null);
+  activity.finish();
+}
