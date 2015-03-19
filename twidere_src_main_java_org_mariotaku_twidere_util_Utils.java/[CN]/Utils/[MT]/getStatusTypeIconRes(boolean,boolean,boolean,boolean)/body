@@ -1,7 +1,0 @@
-{
-  if (is_favorite)   return R.drawable.ic_indicator_starred;
- else   if (is_possibly_sensitive && has_media)   return R.drawable.ic_indicator_reported_media;
- else   if (has_media)   return R.drawable.ic_indicator_media;
- else   if (has_location)   return R.drawable.ic_indicator_location;
-  return 0;
-}

@@ -1,4 +1,0 @@
-boolean is_favorite
-boolean has_location
-boolean has_media
-boolean is_possibly_sensitive
