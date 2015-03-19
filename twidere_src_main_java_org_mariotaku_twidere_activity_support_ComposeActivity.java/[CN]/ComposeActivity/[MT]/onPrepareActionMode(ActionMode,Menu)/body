@@ -1,3 +1,4 @@
 {
+  ThemeUtils.wrapMenuIcon(this,menu);
   return true;
 }

@@ -2,8 +2,8 @@
   if (path == null || !path.isDirectory())   return Collections.emptyList();
   final File[] listed_files=path.listFiles();
   if (listed_files == null)   return Collections.emptyList();
-  final List<File> dirs=new ArrayList<File>();
-  final List<File> files=new ArrayList<File>();
+  final List<File> dirs=new ArrayList<>();
+  final List<File> files=new ArrayList<>();
   for (  final File file : listed_files) {
     if (!file.canRead() || file.isHidden()) {
       continue;
@@ -21,7 +21,7 @@
   }
   Collections.sort(dirs,NAME_COMPARATOR);
   Collections.sort(files,NAME_COMPARATOR);
-  final List<File> list=new ArrayList<File>();
+  final List<File> list=new ArrayList<>();
   final File parent=path.getParentFile();
   if (path.getParentFile() != null) {
     list.add(parent);

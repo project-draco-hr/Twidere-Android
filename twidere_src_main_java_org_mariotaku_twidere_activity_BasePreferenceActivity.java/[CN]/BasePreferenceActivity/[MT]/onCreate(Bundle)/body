@@ -1,5 +1,4 @@
 {
-  ThemeUtils.notifyStatusBarColorChanged(this,mCurrentThemeResource,0,0xFF);
   setTheme(mCurrentThemeResource=getThemeResourceId());
   super.onCreate(savedInstanceState);
   setActionBarBackground();

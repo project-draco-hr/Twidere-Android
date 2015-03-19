@@ -1,0 +1,5 @@
+{
+  super(context,attrs);
+  setPositiveButtonText(null);
+  setNegativeButtonText(null);
+}

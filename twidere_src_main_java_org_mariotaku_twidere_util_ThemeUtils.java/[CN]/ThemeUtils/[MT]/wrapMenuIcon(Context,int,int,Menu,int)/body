@@ -1,0 +1,17 @@
+{
+  final Resources resources=context.getResources();
+  final int colorDark=resources.getColor(R.color.action_icon_dark);
+  final int colorLight=resources.getColor(R.color.action_icon_light);
+  final int itemColor=ColorUtils.getContrastYIQ(backgroundColor,colorDark,colorLight);
+  final int popupItemColor=ColorUtils.getContrastYIQ(popupBackgroundColor,colorDark,colorLight);
+  for (int i=0, j=menu.size(), k=0; i < j; i++) {
+    final MenuItem item=menu.getItem(i);
+    wrapMenuItemIcon(item,itemColor,excludeGroups);
+    if (item.hasSubMenu()) {
+      wrapMenuIcon(menu,popupItemColor,popupItemColor,excludeGroups);
+    }
+    if (item.isVisible()) {
+      k++;
+    }
+  }
+}

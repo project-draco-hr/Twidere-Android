@@ -12,7 +12,7 @@
   text.setSingleLine(true);
   text.setEllipsize(TruncateAt.MARQUEE);
   text.setPadding(mPadding,mPadding,position,mPadding);
-  final Drawable icon=mResources.getDrawable(file.isDirectory() ? R.drawable.ic_folder : R.drawable.ic_file);
+  final Drawable icon=ResourcesCompat.getDrawable(mResources,file.isDirectory() ? R.drawable.ic_folder : R.drawable.ic_file,null);
   icon.mutate();
   icon.setColorFilter(mActionIconColor,PorterDuff.Mode.SRC_ATOP);
   text.setCompoundDrawablesWithIntrinsicBounds(icon,null,null,null);

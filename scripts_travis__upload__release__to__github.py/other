@@ -70,4 +70,8 @@ for (root, dirnames, filenames) in os.walk(os.getcwd()):
     for filename in fnmatch.filter(filenames, '*-release.apk'):
         conn = httplib.HTTPSConnection(upload_url.hostname)
         conn.request('POST', ('%s?%s' % (upload_url.path, urllib.urlencode({'name': filename, }))), body=open(os.path.join(root, filename), 'r'), headers={'Accept': github_header_accept, 'Authorization': github_authorization_header, 'Content-Type': 'application/json', 'User-Agent': github_header_user_agent, })
-        print(('Upload %s returned %d' % (filename, conn.getresponse().status)))
+        response = conn.getresponse()
+        if (response.status in range(200, 204)):
+            print(('Upload %s success' % filename))
+        else:
+            print(('Upload %s returned %d' % (filename, response.status)), file=sys.stderr)
