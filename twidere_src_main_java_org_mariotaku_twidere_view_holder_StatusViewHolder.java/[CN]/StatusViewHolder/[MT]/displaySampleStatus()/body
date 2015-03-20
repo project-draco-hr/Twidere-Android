@@ -4,4 +4,5 @@
   screenNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
   textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
   timeView.setTime(System.currentTimeMillis());
+  mediaPreviewContainer.displayMedia(R.drawable.nyan_stars_background);
 }
