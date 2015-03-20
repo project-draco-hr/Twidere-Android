@@ -1,6 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowIsFloating});
-  final boolean b=a.getBoolean(0,false);
-  a.recycle();
-  return b;
-}

@@ -1,3 +1,0 @@
-{
-  return VALUE_THEME_BACKGROUND_SOLID.equals(getThemeBackgroundOption(context));
-}

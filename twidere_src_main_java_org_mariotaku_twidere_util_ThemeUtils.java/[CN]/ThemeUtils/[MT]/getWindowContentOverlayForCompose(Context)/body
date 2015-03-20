@@ -1,4 +1,0 @@
-{
-  final int themeRes=getThemeResource(context);
-  return getWindowContentOverlay(new ContextThemeWrapper(context,themeRes));
-}

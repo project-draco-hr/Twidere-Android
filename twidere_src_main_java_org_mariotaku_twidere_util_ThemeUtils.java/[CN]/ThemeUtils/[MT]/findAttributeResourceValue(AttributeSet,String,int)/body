@@ -1,6 +1,0 @@
-{
-  for (int i=0, j=attrs.getAttributeCount(); i < j; i++) {
-    if (attrs.getAttributeName(i).equals(name))     return attrs.getAttributeResourceValue(i,defaultValue);
-  }
-  return defaultValue;
-}
