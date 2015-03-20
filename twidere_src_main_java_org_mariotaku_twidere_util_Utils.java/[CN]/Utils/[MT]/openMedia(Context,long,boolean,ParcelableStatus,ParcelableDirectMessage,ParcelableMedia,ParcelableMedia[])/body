@@ -8,8 +8,12 @@
     final Bundle args=new Bundle();
     args.putLong(EXTRA_ACCOUNT_ID,accountId);
     args.putParcelable(EXTRA_CURRENT_MEDIA,current);
-    args.putParcelable(EXTRA_STATUS,status);
-    args.putParcelable(EXTRA_MESSAGE,message);
+    if (status != null) {
+      args.putParcelable(EXTRA_STATUS,status);
+    }
+    if (message != null) {
+      args.putParcelable(EXTRA_MESSAGE,message);
+    }
     args.putParcelableArray(EXTRA_MEDIA,media);
     fragment.setArguments(args);
     fragment.show(fm,"sensitive_content_warning");

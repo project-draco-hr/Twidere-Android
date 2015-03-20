@@ -1,7 +1,7 @@
 {
-  nameView.setText("User");
-  screenNameView.setText("@user");
+  profileImageView.setImageResource(R.mipmap.ic_launcher);
+  nameView.setText(TWIDERE_PREVIEW_NAME);
+  screenNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
+  textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
   timeView.setTime(System.currentTimeMillis());
-  textView.setText(R.string.sample_status_text);
-  mediaPreviewContainer.displayMedia(R.drawable.profile_image_nyan_sakamoto,R.drawable.profile_image_nyan_sakamoto_santa);
 }

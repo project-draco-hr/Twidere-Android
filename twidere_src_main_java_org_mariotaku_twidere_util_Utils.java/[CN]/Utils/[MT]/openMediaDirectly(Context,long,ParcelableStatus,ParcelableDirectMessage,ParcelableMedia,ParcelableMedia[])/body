@@ -4,7 +4,12 @@
   intent.putExtra(EXTRA_ACCOUNT_ID,accountId);
   intent.putExtra(EXTRA_CURRENT_MEDIA,current);
   intent.putExtra(EXTRA_MEDIA,media);
-  intent.putExtra(EXTRA_STATUS,status);
+  if (status != null) {
+    intent.putExtra(EXTRA_STATUS,status);
+  }
+  if (message != null) {
+    intent.putExtra(EXTRA_MESSAGE,message);
+  }
   intent.setClass(context,MediaViewerActivity.class);
   context.startActivity(intent);
 }
