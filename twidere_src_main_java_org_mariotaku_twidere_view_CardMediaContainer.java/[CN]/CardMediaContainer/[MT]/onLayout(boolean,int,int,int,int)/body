@@ -2,28 +2,14 @@
   final int[] childIndices=createChildIndices();
   final int childCount=getChildIndicesInLayout(this,childIndices);
   if (childCount > 0) {
-    final double childSqrt=Math.sqrt(childCount);
-    final int columnCount=(int)(childSqrt % 1 == 0 ? Math.ceil(childSqrt) : Math.min(childCount,mMaxColumns));
-    final int rowCount=(int)Math.ceil(childCount / (double)columnCount);
-    final int firstRowColumnCount=childCount - (columnCount * (rowCount - 1));
-    for (int i=0; i < rowCount; i++) {
-      final int currColumnCount=i == 0 ? firstRowColumnCount : columnCount;
-      final int childT;
-      if (i == 0) {
-        childT=getPaddingTop();
-      }
- else       if (i == 1) {
-        childT=getChildAt(childIndices[0]).getBottom() + mVerticalSpacing;
-      }
+    if (childCount == 1) {
+      layout1Media(childIndices);
+    }
+ else     if (childCount == 3) {
+      layout3Media(mHorizontalSpacing,mVerticalSpacing,childIndices);
+    }
  else {
-        childT=getChildAt(childIndices[firstRowColumnCount + columnCount * (i - 1)]).getBottom() + mVerticalSpacing;
-      }
-      for (int j=0; j < currColumnCount; j++) {
-        final int childIdx=i == 0 ? j : firstRowColumnCount + columnCount * (i - 1) + j;
-        final View child=getChildAt(childIndices[childIdx]);
-        final int childL=j == 0 ? getPaddingLeft() : (getChildAt(childIndices[childIdx - 1]).getRight() + mHorizontalSpacing);
-        child.layout(childL,childT,childL + child.getMeasuredWidth(),childT + child.getMeasuredHeight());
-      }
+      layoutGridMedia(childCount,2,mHorizontalSpacing,mVerticalSpacing,childIndices);
     }
   }
 }

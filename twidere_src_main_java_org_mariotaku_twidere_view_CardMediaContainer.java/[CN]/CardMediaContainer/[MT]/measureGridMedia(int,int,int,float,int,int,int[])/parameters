@@ -1,0 +1,7 @@
+int childCount
+int columnCount
+int contentWidth
+float widthHeightRatio
+int horizontalSpacing
+int verticalSpacing
+int[] childIndices

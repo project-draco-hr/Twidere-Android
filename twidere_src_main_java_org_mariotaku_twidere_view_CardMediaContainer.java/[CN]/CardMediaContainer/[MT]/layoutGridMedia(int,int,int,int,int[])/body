@@ -1,0 +1,16 @@
+{
+  final int initialLeft=getPaddingLeft();
+  int left=initialLeft, top=getPaddingTop();
+  for (int i=0; i < childCount; i++) {
+    final int colIdx=i % columnCount;
+    final View child=getChildAt(childIndices[i]);
+    child.layout(left,top,left + child.getMeasuredWidth(),top + child.getMeasuredHeight());
+    if (colIdx == columnCount - 1) {
+      top=child.getBottom() + verticalSpacing;
+      left=initialLeft;
+    }
+ else {
+      left=child.getRight() + horizontalSpacing;
+    }
+  }
+}

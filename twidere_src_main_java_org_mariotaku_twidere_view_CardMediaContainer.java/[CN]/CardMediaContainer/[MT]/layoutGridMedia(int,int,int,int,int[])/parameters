@@ -1,0 +1,5 @@
+int childCount
+int columnCount
+int horizontalSpacing
+int verticalSpacing
+int[] childIndices

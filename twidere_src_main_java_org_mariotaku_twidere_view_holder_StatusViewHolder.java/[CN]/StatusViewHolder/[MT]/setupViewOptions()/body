@@ -1,3 +1,4 @@
 {
   setTextSize(adapter.getTextSize());
+  mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
 }

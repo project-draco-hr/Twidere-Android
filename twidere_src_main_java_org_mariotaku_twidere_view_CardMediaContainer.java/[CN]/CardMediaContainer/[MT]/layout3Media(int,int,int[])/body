@@ -1,0 +1,9 @@
+{
+  final int left=getPaddingLeft(), top=getPaddingTop();
+  final View child0=getChildAt(childIndices[0]), child1=getChildAt(childIndices[1]), child2=getChildAt(childIndices[2]);
+  child0.layout(left,top,left + child0.getMeasuredWidth(),top + child0.getMeasuredHeight());
+  final int rightColLeft=child0.getRight() + horizontalSpacing;
+  child1.layout(rightColLeft,top,rightColLeft + child1.getMeasuredWidth(),top + child1.getMeasuredHeight());
+  final int child2Top=child1.getBottom() + verticalSpacing;
+  child2.layout(rightColLeft,child2Top,rightColLeft + child2.getMeasuredWidth(),child2Top + child2.getMeasuredHeight());
+}
