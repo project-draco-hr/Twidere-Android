@@ -1,3 +1,4 @@
 {
+  setListShown(true);
   mAdapter.changeCursor(cursor);
 }

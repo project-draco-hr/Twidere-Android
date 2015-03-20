@@ -1,5 +1,5 @@
 {
-  super.onViewCreated(view,savedInstanceState);
+  super.onBaseViewCreated(view,savedInstanceState);
   mListView=(DragSortListView)view.findViewById(android.R.id.list);
   mEmptyView=view.findViewById(android.R.id.empty);
   mEmptyIcon=(ImageView)view.findViewById(R.id.empty_icon);

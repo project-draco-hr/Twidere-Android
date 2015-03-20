@@ -7,10 +7,13 @@
   mAdapter=new AccountsAdapter(activity);
   Utils.configBaseAdapter(activity,mAdapter);
   mAdapter.setSortEnabled(true);
-  setListAdapter(mAdapter);
-  final DragSortListView listView=(DragSortListView)getListView();
-  listView.setDragEnabled(true);
-  listView.setDropListener(this);
-  listView.setOnCreateContextMenuListener(this);
+  mListView.setAdapter(mAdapter);
+  mListView.setDragEnabled(true);
+  mListView.setDropListener(this);
+  mListView.setOnCreateContextMenuListener(this);
+  mListView.setEmptyView(mEmptyView);
+  mEmptyText.setText(R.string.no_account);
+  mEmptyIcon.setImageResource(R.drawable.ic_info_error_generic);
   getLoaderManager().initLoader(0,null,this);
+  setListShown(false);
 }

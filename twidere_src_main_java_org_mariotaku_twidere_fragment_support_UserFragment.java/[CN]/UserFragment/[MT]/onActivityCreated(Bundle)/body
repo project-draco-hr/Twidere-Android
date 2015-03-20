@@ -38,10 +38,6 @@
       }
       super.onSharedElementEnd(sharedElementNames,sharedElements,sharedElementSnapshots);
     }
-    @Override public View onCreateSnapshotView(    Context context,    Parcelable snapshot){
-      final View view=super.onCreateSnapshotView(context,snapshot);
-      return view;
-    }
     @Override public void onSharedElementStart(    List<String> sharedElementNames,    List<View> sharedElements,    List<View> sharedElementSnapshots){
       final int idx=sharedElementNames.indexOf(TRANSITION_NAME_PROFILE_IMAGE);
       if (idx != -1) {

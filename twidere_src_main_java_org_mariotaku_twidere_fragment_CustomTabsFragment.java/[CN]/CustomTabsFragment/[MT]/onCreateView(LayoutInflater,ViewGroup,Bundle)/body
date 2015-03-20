@@ -1,3 +1,3 @@
 {
-  return inflater.inflate(R.layout.fragment_custom_tabs,container,false);
+  return inflater.inflate(R.layout.fragment_list_with_empty_view,container,false);
 }

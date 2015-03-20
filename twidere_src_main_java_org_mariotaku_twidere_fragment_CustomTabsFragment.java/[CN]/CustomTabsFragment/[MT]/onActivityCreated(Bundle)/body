@@ -12,6 +12,8 @@
   mListView.setOnItemClickListener(this);
   mListView.setAdapter(mAdapter);
   mListView.setEmptyView(mEmptyView);
+  mEmptyText.setText(R.string.no_tab);
+  mEmptyIcon.setImageResource(R.drawable.ic_info_tab);
   getLoaderManager().initLoader(0,null,this);
   setListShown(false);
 }

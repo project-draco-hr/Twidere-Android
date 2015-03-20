@@ -2,8 +2,20 @@
   if (context == null)   return;
   final SharedPreferences prefs=context.getSharedPreferences(Constants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (!prefs.getBoolean(Constants.KEY_SPICE_DATA_PROFILING,false))   return;
-  String uuid="XXX";
-  if (Build.SERIAL.length() > 0)   uuid=Build.SERIAL;
+  final String persistedDeviceId=prefs.getString(Constants.KEY_SPICE_DEVICE_ID,null);
+  final String serial=String.valueOf(Build.SERIAL).replaceAll("[^\\w\\d]","");
+  final String uuid;
+  if (!TextUtils.isEmpty(persistedDeviceId)) {
+    uuid=persistedDeviceId.replaceAll("[^\\w\\d]","");
+  }
+ else   if (!TextUtils.isEmpty(serial)) {
+    uuid=serial;
+    prefs.edit().putString(Constants.KEY_SPICE_DEVICE_ID,serial).apply();
+  }
+ else {
+    uuid=UUID.randomUUID().toString().replaceAll("[^\\w\\d]","");
+    prefs.edit().putString(Constants.KEY_SPICE_DEVICE_ID,uuid).apply();
+  }
   final String filename=uuid + "_" + name+ ".spi";
   new Thread(){
     @Override public void run(){
