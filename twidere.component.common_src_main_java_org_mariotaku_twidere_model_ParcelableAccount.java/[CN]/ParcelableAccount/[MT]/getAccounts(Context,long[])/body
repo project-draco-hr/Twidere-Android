@@ -3,17 +3,5 @@
   final String where=accountIds != null ? Expression.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL() : null;
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS_NO_CREDENTIALS,where,null,null);
   if (cur == null)   return new ParcelableAccount[0];
-  try {
-    final Indices idx=new Indices(cur);
-    cur.moveToFirst();
-    final ParcelableAccount[] names=new ParcelableAccount[cur.getCount()];
-    while (!cur.isAfterLast()) {
-      names[cur.getPosition()]=new ParcelableAccount(cur,idx);
-      cur.moveToNext();
-    }
-    return names;
-  }
-  finally {
-    cur.close();
-  }
+  return getAccounts(cur,new Indices(cur));
 }

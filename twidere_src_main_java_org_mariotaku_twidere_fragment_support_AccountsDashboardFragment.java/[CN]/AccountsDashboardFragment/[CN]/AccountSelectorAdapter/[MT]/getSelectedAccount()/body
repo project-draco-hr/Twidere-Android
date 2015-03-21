@@ -1,11 +1,6 @@
 {
-  final Cursor c=mCursor;
-  final Indices i=mIndices;
-  if (c != null && i != null && c.moveToFirst()) {
-    while (!c.isAfterLast()) {
-      if (c.getLong(mIndices.account_id) == mSelectedAccountId)       return new ParcelableAccount(c,mIndices);
-      c.moveToNext();
-    }
+  if (mInternalAccounts == null || mInternalAccounts.length < 0) {
+    return null;
   }
-  return null;
+  return mInternalAccounts[0];
 }

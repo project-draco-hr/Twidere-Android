@@ -1,0 +1,17 @@
+{
+  int fromIdx=-1, toIdx=-1;
+  for (int i=0, j=mInternalAccounts.length; i < j; i++) {
+    final ParcelableAccount account=mInternalAccounts[i];
+    if (account.account_id == fromId) {
+      fromIdx=i;
+    }
+    if (account.account_id == toId) {
+      toIdx=i;
+    }
+  }
+  if (fromIdx < 0 || toIdx < 0)   return;
+  final ParcelableAccount temp=mInternalAccounts[toIdx];
+  mInternalAccounts[toIdx]=mInternalAccounts[fromIdx];
+  mInternalAccounts[fromIdx]=temp;
+  notifyDataSetChanged();
+}

@@ -1,4 +1,0 @@
-{
-  mAccountsAdapter.setSelectedAccountId(account.account_id);
-  updateAccountOptionsSeparatorLabel();
-}

@@ -1,0 +1,6 @@
+{
+  if (mInternalAccounts == null || mInternalAccounts.length < 1) {
+    return null;
+  }
+  return mInternalAccounts[adapterPosition + 1];
+}

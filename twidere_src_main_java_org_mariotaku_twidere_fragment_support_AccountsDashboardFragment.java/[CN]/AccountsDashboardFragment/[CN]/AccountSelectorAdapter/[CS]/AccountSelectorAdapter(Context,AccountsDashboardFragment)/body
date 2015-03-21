@@ -2,4 +2,5 @@
   mInflater=LayoutInflater.from(context);
   mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
   mFragment=fragment;
+  setHasStableIds(true);
 }

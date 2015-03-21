@@ -1,0 +1,24 @@
+{
+  mAccounts=accounts;
+  if (accounts != null) {
+    final ParcelableAccount[] previousAccounts=mInternalAccounts;
+    mInternalAccounts=new ParcelableAccount[accounts.length];
+    int tempIdx=0;
+    final List<ParcelableAccount> tempList=Arrays.asList(accounts);
+    if (previousAccounts != null) {
+      for (      ParcelableAccount previousAccount : previousAccounts) {
+        final int idx=indexOfAccount(tempList,previousAccount.account_id);
+        if (idx >= 0) {
+          mInternalAccounts[tempIdx++]=tempList.remove(idx);
+        }
+      }
+    }
+    for (    ParcelableAccount account : tempList) {
+      mInternalAccounts[tempIdx++]=account;
+    }
+  }
+ else {
+    mInternalAccounts=null;
+  }
+  notifyDataSetChanged();
+}

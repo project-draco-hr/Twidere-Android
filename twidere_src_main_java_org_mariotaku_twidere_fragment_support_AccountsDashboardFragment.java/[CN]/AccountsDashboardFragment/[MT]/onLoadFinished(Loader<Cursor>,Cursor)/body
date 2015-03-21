@@ -2,30 +2,23 @@
   final Menu menu=mAccountsToggleMenu.getMenu();
   mAccountActionProvider=(SupportAccountActionProvider)MenuItemCompat.getActionProvider(menu.findItem(MENU_SELECT_ACCOUNT));
   mAccountActionProvider.setExclusive(false);
-  final ArrayList<ParcelableAccount> accounts=new ArrayList<>();
+  final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(data);
   final Set<Long> activatedIds=new HashSet<>();
-  if (data != null) {
-    data.moveToFirst();
-    final Indices indices=new Indices(data);
-    long defaultId=-1;
-    while (!data.isAfterLast()) {
-      final ParcelableAccount account=new ParcelableAccount(data,indices);
-      accounts.add(account);
-      if (account.is_activated) {
-        if (defaultId < 0) {
-          defaultId=account.account_id;
-        }
-        activatedIds.add(account.account_id);
+  long defaultId=-1;
+  for (  ParcelableAccount account : accounts) {
+    if (account.is_activated) {
+      if (defaultId < 0) {
+        defaultId=account.account_id;
       }
-      data.moveToNext();
-    }
-    if (mAccountsAdapter.getSelectedAccountId() <= 0) {
-      mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
+      activatedIds.add(account.account_id);
     }
   }
-  mAccountActionProvider.setAccounts(accounts.toArray(new ParcelableAccount[accounts.size()]));
+  mAccountsAdapter.setAccounts(accounts);
+  if (mAccountsAdapter.getSelectedAccountId() <= 0) {
+    mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
+  }
+  mAccountActionProvider.setAccounts(accounts);
   mAccountActionProvider.setSelectedAccountIds(ArrayUtils.toPrimitive(activatedIds.toArray(new Long[activatedIds.size()])));
-  mAccountsAdapter.changeCursor(data);
-  updateAccountOptionsSeparatorLabel();
+  updateAccountOptionsSeparatorLabel(null);
   updateDefaultAccountState();
 }

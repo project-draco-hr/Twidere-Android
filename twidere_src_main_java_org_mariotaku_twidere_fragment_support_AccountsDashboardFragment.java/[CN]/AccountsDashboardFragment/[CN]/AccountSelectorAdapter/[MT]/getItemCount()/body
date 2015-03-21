@@ -1,4 +1,4 @@
 {
-  if (mCursor == null)   return 0;
-  return Math.max(mCursor.getCount() - 1,0);
+  if (mInternalAccounts == null || mInternalAccounts.length == 0)   return 0;
+  return mInternalAccounts.length - 1;
 }

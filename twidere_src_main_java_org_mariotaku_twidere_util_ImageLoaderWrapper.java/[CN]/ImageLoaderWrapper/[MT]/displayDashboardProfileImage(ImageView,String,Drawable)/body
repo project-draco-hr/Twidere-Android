@@ -1,0 +1,11 @@
+{
+  if (drawableOnLoading != null) {
+    final Builder builder=new Builder();
+    builder.cloneFrom(mDashboardProfileImageDisplayOptions);
+    builder.showImageOnLoading(drawableOnLoading);
+    builder.showImageOnFail(drawableOnLoading);
+    mImageLoader.displayImage(url,view,builder.build());
+    return;
+  }
+  mImageLoader.displayImage(url,view,mDashboardProfileImageDisplayOptions);
+}

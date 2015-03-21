@@ -4,7 +4,7 @@
   final TextView text1=(TextView)view.findViewById(android.R.id.text1);
   final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   text1.setText(option.name);
-  icon.setImageDrawable(icon.getResources().getDrawable(option.icon));
+  icon.setImageDrawable(ResourcesCompat.getDrawable(icon.getResources(),option.icon,null));
   icon.setColorFilter(mActionIconColor,Mode.SRC_ATOP);
   return view;
 }

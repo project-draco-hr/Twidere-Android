@@ -1,0 +1,3 @@
+{
+  return getAdapterAccount(position).account_id;
+}

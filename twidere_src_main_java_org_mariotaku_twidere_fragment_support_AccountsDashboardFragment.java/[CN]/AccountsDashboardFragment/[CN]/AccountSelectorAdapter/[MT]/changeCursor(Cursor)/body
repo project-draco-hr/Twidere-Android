@@ -1,8 +1,0 @@
-{
-  mCursor=cursor;
-  if (cursor != null) {
-    mIndices=new Indices(cursor);
-  }
-  updateSelectedAccountIndex();
-  notifyDataSetChanged();
-}
