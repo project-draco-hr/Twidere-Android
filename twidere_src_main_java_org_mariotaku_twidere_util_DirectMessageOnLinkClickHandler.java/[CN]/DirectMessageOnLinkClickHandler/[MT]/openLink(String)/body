@@ -1,5 +1,5 @@
 {
-  if (link == null || context == null || manager.isActive())   return;
+  if (link == null || manager != null && manager.isActive())   return;
   if (!hasShortenedLinks(link)) {
     super.openLink(link);
     return;

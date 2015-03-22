@@ -1,5 +1,5 @@
 {
-  if (context == null || (manager != null && manager.isActive()))   return;
+  if (manager != null && manager.isActive())   return;
   final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(link));
   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
   try {

@@ -1,7 +1,9 @@
 {
-  if (context == null || (manager != null && manager.isActive()))   return;
-  ProfilingUtil.profile(context,account_id,"Click, " + link + ", "+ type);
-  SpiceProfilingUtil.profile(context,account_id,account_id + ",Visit," + link+ ","+ TypeMapingUtil.getLinkType(type));
+  if (manager != null && manager.isActive())   return;
+  if (!isPrivateData()) {
+    ProfilingUtil.profile(context,account_id,"Click, " + link + ", "+ type);
+    SpiceProfilingUtil.profile(context,account_id,account_id + ",Visit," + link+ ","+ TypeMapingUtil.getLinkType(type));
+  }
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
