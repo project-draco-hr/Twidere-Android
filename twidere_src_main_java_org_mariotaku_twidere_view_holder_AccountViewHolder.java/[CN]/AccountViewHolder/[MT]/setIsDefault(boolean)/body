@@ -1,3 +1,0 @@
-{
-  default_indicator.setVisibility(is_default ? View.VISIBLE : View.GONE);
-}

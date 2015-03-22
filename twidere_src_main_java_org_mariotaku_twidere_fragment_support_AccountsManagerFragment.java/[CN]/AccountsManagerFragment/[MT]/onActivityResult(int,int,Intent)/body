@@ -5,9 +5,9 @@ case REQUEST_SET_COLOR:
       if (resultCode != Activity.RESULT_OK || data == null || mSelectedAccount == null)       return;
       final ContentValues values=new ContentValues();
       values.put(Accounts.COLOR,data.getIntExtra(EXTRA_COLOR,Color.WHITE));
-      final String where=Accounts.ACCOUNT_ID + " = " + mSelectedAccount.account_id;
+      final Expression where=Expression.equals(Accounts.ACCOUNT_ID,mSelectedAccount.account_id);
       final ContentResolver cr=getContentResolver();
-      cr.update(Accounts.CONTENT_URI,values,where,null);
+      cr.update(Accounts.CONTENT_URI,values,where.getSQL(),null);
       return;
     }
 }

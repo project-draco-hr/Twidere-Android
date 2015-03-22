@@ -1,4 +1,5 @@
 {
   this.context=context;
+  this.client=Utils.getDefaultHttpClient(context);
   device_id=Secure.getString(context.getContentResolver(),Secure.ANDROID_ID);
 }

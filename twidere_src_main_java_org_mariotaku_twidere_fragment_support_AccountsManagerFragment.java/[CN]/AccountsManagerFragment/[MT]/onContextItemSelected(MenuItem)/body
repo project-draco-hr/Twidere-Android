@@ -5,30 +5,23 @@
   mSelectedAccount=mAdapter.getAccount(info.position);
   if (mSelectedAccount == null)   return false;
 switch (item.getItemId()) {
-case MENU_SET_AS_DEFAULT:
-{
-      final Editor editor=mPreferences.edit();
-      editor.putLong(KEY_DEFAULT_ACCOUNT_ID,mSelectedAccount.account_id);
-      editor.apply();
-      return true;
-    }
 case MENU_SET_COLOR:
 {
-    final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
-    intent.putExtra(EXTRA_COLOR,mSelectedAccount.color);
-    intent.putExtra(EXTRA_ALPHA_SLIDER,false);
-    startActivityForResult(intent,REQUEST_SET_COLOR);
-    break;
-  }
+      final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
+      intent.putExtra(EXTRA_COLOR,mSelectedAccount.color);
+      intent.putExtra(EXTRA_ALPHA_SLIDER,false);
+      startActivityForResult(intent,REQUEST_SET_COLOR);
+      break;
+    }
 case MENU_DELETE:
 {
-  final AccountDeletionDialogFragment f=new AccountDeletionDialogFragment();
-  final Bundle args=new Bundle();
-  args.putLong(EXTRA_ACCOUNT_ID,mSelectedAccount.account_id);
-  f.setArguments(args);
-  f.show(getChildFragmentManager(),FRAGMENT_TAG_ACCOUNT_DELETION);
-  break;
-}
+    final AccountDeletionDialogFragment f=new AccountDeletionDialogFragment();
+    final Bundle args=new Bundle();
+    args.putLong(EXTRA_ACCOUNT_ID,mSelectedAccount.account_id);
+    f.setArguments(args);
+    f.show(getChildFragmentManager(),FRAGMENT_TAG_ACCOUNT_DELETION);
+    break;
+  }
 }
 return false;
 }

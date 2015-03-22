@@ -3,7 +3,6 @@
   final AccountViewHolder holder=(AccountViewHolder)view.getTag();
   holder.screen_name.setText("@" + cursor.getString(mIndices.screen_name));
   holder.setAccountColor(color);
-  holder.setIsDefault(mDefaultAccountId != -1 && mDefaultAccountId == cursor.getLong(mIndices.account_id));
   if (mDisplayProfileImage) {
     mImageLoader.displayProfileImage(holder.profile_image,cursor.getString(mIndices.profile_image_url));
   }

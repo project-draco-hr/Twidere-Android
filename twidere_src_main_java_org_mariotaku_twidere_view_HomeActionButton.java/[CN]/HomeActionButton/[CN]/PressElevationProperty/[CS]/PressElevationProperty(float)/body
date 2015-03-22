@@ -1,0 +1,4 @@
+{
+  super(Float.TYPE,null);
+  mElevation=elevation;
+}

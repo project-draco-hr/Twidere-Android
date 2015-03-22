@@ -41,6 +41,9 @@
       finishAnimation();
     }
     private void finishAnimation(){
+      final Editor editor=mPreferences.edit();
+      editor.putLong(KEY_DEFAULT_ACCOUNT_ID,account.account_id);
+      editor.apply();
       mAccountsAdapter.setSelectedAccountId(account.account_id);
       updateAccountOptionsSeparatorLabel(clickedDrawable);
       snapshotView.setVisibility(View.INVISIBLE);
