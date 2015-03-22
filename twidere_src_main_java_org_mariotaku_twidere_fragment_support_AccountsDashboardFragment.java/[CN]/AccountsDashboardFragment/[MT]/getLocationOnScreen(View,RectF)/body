@@ -1,0 +1,5 @@
+{
+  final int[] location=new int[2];
+  view.getLocationOnScreen(location);
+  rectF.set(location[0],location[1],location[0] + view.getWidth(),location[1] + view.getHeight());
+}

@@ -73,5 +73,7 @@
   if (Utils.isDebugBuild()) {
     Log.w(RESOLVER_LOGTAG,"Resolve address " + host + " failed, using original host");
   }
-  return InetAddress.getAllByName(host);
+  final InetAddress[] defaultAddresses=InetAddress.getAllByName(host);
+  mHostCache.put(host,defaultAddresses);
+  return defaultAddresses;
 }
