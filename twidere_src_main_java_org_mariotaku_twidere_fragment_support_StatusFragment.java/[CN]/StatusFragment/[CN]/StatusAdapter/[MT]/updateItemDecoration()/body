@@ -2,10 +2,10 @@
   final DividerItemDecoration decoration=mFragment.getItemDecoration();
   decoration.setDecorationStart(0);
   if (mReplies != null) {
-    decoration.setDecorationEnd(getItemCount() - 2);
+    decoration.setDecorationEndOffset(2);
   }
  else {
-    decoration.setDecorationEnd(getItemCount() - 3);
+    decoration.setDecorationEndOffset(3);
   }
   mFragment.mRecyclerView.invalidateItemDecorations();
 }

@@ -1,7 +1,7 @@
 {
-  final int childPos=parent.getChildPosition(view);
+  final int childPos=parent.getChildAdapterPosition(view);
   final int start=getDecorationStart(), end=getDecorationEnd(parent);
-  if (start >= 0 && end >= 0 && childPos < start && childPos > end) {
+  if (start >= 0 && childPos < start || end >= 0 && childPos > end) {
     outRect.setEmpty();
     return;
   }
