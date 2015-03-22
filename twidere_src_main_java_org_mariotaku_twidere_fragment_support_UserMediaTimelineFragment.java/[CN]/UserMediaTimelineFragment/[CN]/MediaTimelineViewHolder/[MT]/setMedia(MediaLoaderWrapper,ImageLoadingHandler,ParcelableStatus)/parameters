@@ -1,0 +1,3 @@
+MediaLoaderWrapper loader
+ImageLoadingHandler loadingHandler
+ParcelableStatus status

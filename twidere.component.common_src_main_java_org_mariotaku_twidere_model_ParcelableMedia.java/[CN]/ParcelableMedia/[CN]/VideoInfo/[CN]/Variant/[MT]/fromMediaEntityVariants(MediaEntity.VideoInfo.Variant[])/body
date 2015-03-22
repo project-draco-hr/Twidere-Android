@@ -1,0 +1,8 @@
+{
+  if (entityVariants == null)   return null;
+  final Variant[] variants=new Variant[entityVariants.length];
+  for (int i=0, j=entityVariants.length; i < j; i++) {
+    variants[i]=new Variant(entityVariants[i]);
+  }
+  return variants;
+}

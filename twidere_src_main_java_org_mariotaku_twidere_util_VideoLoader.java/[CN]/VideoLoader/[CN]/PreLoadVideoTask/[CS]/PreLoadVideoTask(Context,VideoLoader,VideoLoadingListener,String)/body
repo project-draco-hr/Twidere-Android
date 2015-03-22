@@ -1,0 +1,6 @@
+{
+  super(context,preLoader.mTaskManager,uri);
+  mPreLoader=preLoader;
+  mListener=listener;
+  mUri=uri;
+}

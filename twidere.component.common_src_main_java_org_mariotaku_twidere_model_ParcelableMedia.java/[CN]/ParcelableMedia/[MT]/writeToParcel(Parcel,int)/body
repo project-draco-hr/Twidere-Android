@@ -6,4 +6,5 @@
   dest.writeInt(type);
   dest.writeInt(width);
   dest.writeInt(height);
+  dest.writeParcelable(video_info,flags);
 }

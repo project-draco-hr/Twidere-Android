@@ -1,0 +1,4 @@
+String uri
+VideoLoadingListener listener
+int current
+int total

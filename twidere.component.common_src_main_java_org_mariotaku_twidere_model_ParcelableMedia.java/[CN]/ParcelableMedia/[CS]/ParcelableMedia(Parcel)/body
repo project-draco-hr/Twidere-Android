@@ -6,4 +6,5 @@
   type=in.readInt();
   width=in.readInt();
   height=in.readInt();
+  video_info=in.readParcelable(VideoInfo.class.getClassLoader());
 }

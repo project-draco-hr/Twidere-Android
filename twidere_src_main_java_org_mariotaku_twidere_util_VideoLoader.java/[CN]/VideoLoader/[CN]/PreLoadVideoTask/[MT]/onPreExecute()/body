@@ -1,0 +1,6 @@
+{
+  super.onPreExecute();
+  if (mListener != null) {
+    mListener.onVideoLoadingStarted(mUri,mListener);
+  }
+}

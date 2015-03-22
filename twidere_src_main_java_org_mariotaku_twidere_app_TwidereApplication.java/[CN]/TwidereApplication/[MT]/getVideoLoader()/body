@@ -1,0 +1,5 @@
+{
+  if (mVideoLoader != null)   return mVideoLoader;
+  final VideoLoader loader=new VideoLoader(this);
+  return mVideoLoader=loader;
+}

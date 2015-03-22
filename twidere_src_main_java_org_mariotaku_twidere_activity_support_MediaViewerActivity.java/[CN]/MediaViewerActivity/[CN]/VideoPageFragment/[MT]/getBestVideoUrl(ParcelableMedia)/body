@@ -1,0 +1,9 @@
+{
+  if (media == null || media.video_info == null)   return null;
+  for (  Variant variant : media.video_info.variants) {
+    if (ArrayUtils.contains(SUPPORTED_VIDEO_TYPES,variant.content_type)) {
+      return variant.url;
+    }
+  }
+  return null;
+}

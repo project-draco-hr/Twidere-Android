@@ -1,0 +1,5 @@
+{
+  this.content_type=in.readString();
+  this.url=in.readString();
+  this.bitrate=in.readLong();
+}

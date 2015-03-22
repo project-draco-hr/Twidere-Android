@@ -3,7 +3,7 @@
   final StatusFragment fragment=adapter.getFragment();
   final Context context=adapter.getContext();
   final Resources resources=context.getResources();
-  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getImageLoader();
   final boolean nameFirst=adapter.isNameFirst();
   final boolean nicknameOnly=adapter.isNicknameOnly();
   if (status.retweet_id > 0) {

@@ -1,5 +1,5 @@
 {
-  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getImageLoader();
   final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   final TextView text1=(TextView)view.findViewById(android.R.id.text1);
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);

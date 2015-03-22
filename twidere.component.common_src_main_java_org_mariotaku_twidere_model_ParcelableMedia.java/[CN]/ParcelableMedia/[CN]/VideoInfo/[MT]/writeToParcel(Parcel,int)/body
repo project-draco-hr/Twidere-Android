@@ -1,0 +1,5 @@
+{
+  dest.writeTypedArray(variants,flags);
+  dest.writeLongArray(aspect_ratio);
+  dest.writeLong(duration);
+}

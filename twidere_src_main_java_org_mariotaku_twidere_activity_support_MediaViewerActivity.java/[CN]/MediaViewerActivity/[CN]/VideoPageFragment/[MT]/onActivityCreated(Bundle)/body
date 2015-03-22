@@ -1,0 +1,8 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mVideoLoader=TwidereApplication.getInstance(getActivity()).getVideoLoader();
+  final String url=getBestVideoUrl(getMedia());
+  if (url != null) {
+    mWebView.loadUrl(url);
+  }
+}

@@ -33,6 +33,9 @@
     if (!json.isNull("display_url")) {
       displayURL=json.getString("display_url");
     }
+    if (!json.isNull("video_info")) {
+      videoInfo=new VideoInfoJSONImpl(json.getJSONObject("video_info"));
+    }
     final JSONObject sizes=json.getJSONObject("sizes");
     this.sizes=new HashMap<Integer,MediaEntity.Size>(4);
     addMediaEntitySizeIfNotNull(this.sizes,sizes,MediaEntity.Size.LARGE,"large");
@@ -40,7 +43,7 @@
     addMediaEntitySizeIfNotNull(this.sizes,sizes,MediaEntity.Size.SMALL,"small");
     addMediaEntitySizeIfNotNull(this.sizes,sizes,MediaEntity.Size.THUMB,"thumb");
     if (!json.isNull("type")) {
-      type=json.getString("type");
+      type=Type.parse(json.getString("type"));
     }
   }
  catch (  final JSONException jsone) {

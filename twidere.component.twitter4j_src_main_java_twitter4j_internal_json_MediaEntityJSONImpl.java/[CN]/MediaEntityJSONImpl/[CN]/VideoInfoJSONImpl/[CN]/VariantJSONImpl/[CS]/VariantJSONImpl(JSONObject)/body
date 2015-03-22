@@ -1,0 +1,5 @@
+{
+  contentType=json.getString("content_type");
+  url=json.getString("url");
+  bitrate=json.optLong("bitrate",-1);
+}

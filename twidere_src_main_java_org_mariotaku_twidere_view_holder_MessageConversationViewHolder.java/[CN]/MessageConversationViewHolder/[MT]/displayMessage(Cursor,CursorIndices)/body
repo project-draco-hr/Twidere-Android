@@ -1,7 +1,7 @@
 {
   final Context context=adapter.getContext();
   final TwidereLinkify linkify=adapter.getLinkify();
-  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getImageLoader();
   final long accountId=cursor.getLong(indices.account_id);
   final long timestamp=cursor.getLong(indices.message_timestamp);
   final ParcelableMedia[] media=SimpleValueSerializer.fromSerializedString(cursor.getString(indices.media),ParcelableMedia.SIMPLE_CREATOR);

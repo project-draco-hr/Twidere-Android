@@ -1,0 +1,6 @@
+{
+  for (  ParcelableMedia mediaItem : media) {
+    if (mediaItem.type == ParcelableMedia.TYPE_VIDEO)     return true;
+  }
+  return false;
+}

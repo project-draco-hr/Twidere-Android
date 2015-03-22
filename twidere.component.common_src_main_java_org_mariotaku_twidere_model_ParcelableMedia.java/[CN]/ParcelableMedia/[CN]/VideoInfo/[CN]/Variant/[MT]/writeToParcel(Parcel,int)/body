@@ -1,0 +1,5 @@
+{
+  dest.writeString(this.content_type);
+  dest.writeString(this.url);
+  dest.writeLong(this.bitrate);
+}

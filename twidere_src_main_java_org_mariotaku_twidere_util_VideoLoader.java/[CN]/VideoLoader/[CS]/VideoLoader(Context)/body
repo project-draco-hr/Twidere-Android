@@ -1,0 +1,8 @@
+{
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  mContext=context;
+  mDiskCache=app.getDiskCache();
+  mImageDownloader=app.getImageDownloader();
+  mTaskManager=app.getAsyncTaskManager();
+  mBus=app.getMessageBus();
+}

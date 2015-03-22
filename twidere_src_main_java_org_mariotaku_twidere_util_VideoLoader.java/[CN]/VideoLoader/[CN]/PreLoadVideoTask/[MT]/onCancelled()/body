@@ -1,0 +1,6 @@
+{
+  super.onCancelled();
+  if (mListener != null) {
+    mListener.onVideoLoadingCancelled(mUri,mListener);
+  }
+}

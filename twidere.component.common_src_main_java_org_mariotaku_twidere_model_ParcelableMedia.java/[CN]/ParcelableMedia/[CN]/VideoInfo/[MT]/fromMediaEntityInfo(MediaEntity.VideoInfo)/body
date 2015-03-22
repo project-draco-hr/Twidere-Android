@@ -1,0 +1,4 @@
+{
+  if (videoInfo == null)   return null;
+  return new VideoInfo(videoInfo);
+}

@@ -1,0 +1,5 @@
+{
+  content_type=entityVariant.getContentType();
+  url=entityVariant.getUrl();
+  bitrate=entityVariant.getBitrate();
+}

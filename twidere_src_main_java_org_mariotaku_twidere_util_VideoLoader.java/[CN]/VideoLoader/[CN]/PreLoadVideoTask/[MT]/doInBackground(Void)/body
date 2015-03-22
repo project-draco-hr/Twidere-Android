@@ -1,0 +1,15 @@
+{
+  final File file=mPreLoader.mDiskCache.get(mUri);
+  if (file.isFile() && file.length() > 0)   return SingleResponse.getInstance(file);
+  try {
+    final InputStream is=mPreLoader.mImageDownloader.getStream(mUri,null);
+    mPreLoader.mDiskCache.save(mUri,is,this);
+    IoUtils.closeSilently(is);
+  }
+ catch (  IOException e) {
+    mPreLoader.mDiskCache.remove(mUri);
+    Log.w(LOGTAG,e);
+    return SingleResponse.getInstance(e);
+  }
+  return SingleResponse.getInstance(file);
+}

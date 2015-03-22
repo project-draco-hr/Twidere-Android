@@ -1,6 +1,16 @@
 {
+  final ParcelableMedia media=mMedia[position];
   final Bundle args=new Bundle();
   args.putLong(EXTRA_ACCOUNT_ID,mAccountId);
-  args.putParcelable(EXTRA_MEDIA,mMedia[position]);
-  return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+  args.putParcelable(EXTRA_MEDIA,media);
+switch (media.type) {
+case ParcelableMedia.TYPE_VIDEO:
+{
+      return Fragment.instantiate(mActivity,VideoPageFragment.class.getName(),args);
+    }
+default :
+{
+    return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+  }
+}
 }

@@ -1,0 +1,3 @@
+{
+  return "VariantJSONImpl{" + "contentType='" + contentType + '\''+ ", url='"+ url+ '\''+ ", bitrate="+ bitrate+ '}';
+}

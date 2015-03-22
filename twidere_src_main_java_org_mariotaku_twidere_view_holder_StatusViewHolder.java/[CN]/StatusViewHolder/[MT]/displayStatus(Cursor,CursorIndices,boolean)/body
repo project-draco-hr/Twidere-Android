@@ -1,5 +1,5 @@
 {
-  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getImageLoader();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();

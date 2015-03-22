@@ -1,5 +1,5 @@
 {
-  final ImageLoaderWrapper imageLoader=adapter.getImageLoader();
+  final MediaLoaderWrapper imageLoader=adapter.getImageLoader();
   if (statuses == null) {
     for (    final ImageView view : profileImageViews) {
       imageLoader.cancelDisplayTask(view);

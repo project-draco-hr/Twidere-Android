@@ -1,6 +1,6 @@
 {
-  if (mImageLoaderWrapper != null) {
-    mImageLoaderWrapper.clearMemoryCache();
+  if (mMediaLoaderWrapper != null) {
+    mMediaLoaderWrapper.clearMemoryCache();
   }
   super.onLowMemory();
 }

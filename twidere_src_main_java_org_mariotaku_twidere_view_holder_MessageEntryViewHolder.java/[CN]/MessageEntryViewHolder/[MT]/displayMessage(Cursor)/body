@@ -1,6 +1,6 @@
 {
   final Context context=adapter.getContext();
-  final ImageLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getImageLoader();
   final long accountId=cursor.getLong(ConversationEntries.IDX_ACCOUNT_ID);
   final long conversationId=cursor.getLong(ConversationEntries.IDX_CONVERSATION_ID);
   final long timestamp=cursor.getLong(ConversationEntries.IDX_MESSAGE_TIMESTAMP);

@@ -1,0 +1,3 @@
+{
+  return "VideoInfoJSONImpl{" + "variants=" + Arrays.toString(variants) + ", aspectRatio="+ Arrays.toString(aspectRatio)+ ", duration="+ duration+ '}';
+}

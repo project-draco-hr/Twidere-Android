@@ -12,7 +12,12 @@
     extraTypeView.setVisibility(View.VISIBLE);
   }
  else   if (media != null && media.length > 0) {
-    extraTypeView.setImageResource(R.drawable.ic_action_gallery);
+    if (hasVideo(media)) {
+      extraTypeView.setImageResource(R.drawable.ic_action_movie);
+    }
+ else {
+      extraTypeView.setImageResource(R.drawable.ic_action_gallery);
+    }
     extraTypeView.setVisibility(View.VISIBLE);
   }
  else   if (location != null && location.isValid()) {

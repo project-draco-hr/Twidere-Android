@@ -1,0 +1,9 @@
+{
+switch (type) {
+case PHOTO:
+    return TYPE_IMAGE;
+case VIDEO:
+  return TYPE_VIDEO;
+}
+return TYPE_UNKNOWN;
+}

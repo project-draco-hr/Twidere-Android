@@ -3,8 +3,9 @@
   media_url=ParseUtils.parseString(entity.getMediaURL());
   start=entity.getStart();
   end=entity.getEnd();
-  type=TYPE_IMAGE;
+  type=getTypeInt(entity.getType());
   final Size size=entity.getSizes().get(Size.LARGE);
   width=size != null ? size.getWidth() : 0;
   height=size != null ? size.getHeight() : 0;
+  video_info=VideoInfo.fromMediaEntityInfo(entity.getVideoInfo());
 }
