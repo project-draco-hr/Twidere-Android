@@ -4,6 +4,9 @@ switch (type) {
 case ParcelableMedia.TYPE_IMAGE:
     mediaType="image";
   break;
+case ParcelableMedia.TYPE_VIDEO:
+mediaType="video";
+break;
 default :
 mediaType="unknown";
 break;

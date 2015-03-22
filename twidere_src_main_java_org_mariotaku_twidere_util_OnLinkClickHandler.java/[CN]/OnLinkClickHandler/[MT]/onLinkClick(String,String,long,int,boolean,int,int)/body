@@ -2,7 +2,7 @@
   if (manager != null && manager.isActive())   return;
   if (!isPrivateData()) {
     ProfilingUtil.profile(context,account_id,"Click, " + link + ", "+ type);
-    SpiceProfilingUtil.profile(context,account_id,account_id + ",Visit," + link+ ","+ TypeMapingUtil.getLinkType(type));
+    SpiceProfilingUtil.profile(context,account_id,account_id + ",Visit," + link+ ","+ TypeMappingUtil.getLinkType(type));
   }
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
