@@ -21,7 +21,6 @@
       }
  else {
         mImageLoader.cancelDisplayTask(icon);
-        icon.setImageResource(R.drawable.ic_profile_image_default);
       }
     }
   }

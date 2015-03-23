@@ -2,6 +2,5 @@
   super.onAttachedToHierarchy(preferenceManager);
   setTitle(mAccount.name);
   setSummary(String.format("@%s",mAccount.screen_name));
-  setIcon(R.drawable.ic_profile_image_default);
   mImageLoader.loadProfileImage(mAccount.profile_image_url,this);
 }

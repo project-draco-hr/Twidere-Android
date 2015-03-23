@@ -26,7 +26,6 @@
       mProfileImageLoader.displayProfileImage(icon,profile_image_url_string);
     }
  else {
-      icon.setImageResource(R.drawable.ic_profile_image_default);
     }
   }
  else {
