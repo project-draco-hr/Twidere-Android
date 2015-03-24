@@ -61,7 +61,7 @@
         final String path=getImagePathFromUri(this,Uri.parse(media.uri));
         final File file=path != null ? new File(path) : null;
         if (!mUseUploader && file != null && file.exists()) {
-          Utils.downscaleImageIfNeeded(file,95);
+          BitmapUtils.downscaleImageIfNeeded(file,95);
         }
       }
     }

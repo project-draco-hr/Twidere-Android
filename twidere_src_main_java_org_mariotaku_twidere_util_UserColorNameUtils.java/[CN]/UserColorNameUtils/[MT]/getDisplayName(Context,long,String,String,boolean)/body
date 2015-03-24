@@ -2,6 +2,5 @@
   if (context == null)   return null;
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final boolean nameFirst=prefs.getBoolean(KEY_NAME_FIRST,true);
-  final boolean nicknameOnly=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getBoolean(KEY_NICKNAME_ONLY,false);
-  return getDisplayName(context,userId,name,screenName,nameFirst,nicknameOnly,ignoreCache);
+  return getDisplayName(context,userId,name,screenName,nameFirst,ignoreCache);
 }

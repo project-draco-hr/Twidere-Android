@@ -5,14 +5,7 @@
   final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   icon.setImageDrawable(null);
   if (mScreenNameIdx != -1 && mNameIdx != -1 && mUserIdIdx != -1) {
-    final String nick=getUserNickname(context,cursor.getLong(mUserIdIdx));
-    final String name=cursor.getString(mNameIdx);
-    if (TextUtils.isEmpty(nick)) {
-      text1.setText(name);
-    }
- else {
-      text1.setText(mNicknameOnly ? nick : context.getString(R.string.name_with_nickname,name,nick));
-    }
+    text1.setText(getUserNickname(context,cursor.getLong(mUserIdIdx),cursor.getString(mNameIdx)));
     text2.setText("@" + cursor.getString(mScreenNameIdx));
   }
  else {
@@ -21,11 +14,12 @@
   }
   icon.setVisibility(mDisplayProfileImage ? View.VISIBLE : View.GONE);
   if (mProfileImageUrlIdx != -1) {
-    if (mDisplayProfileImage && mProfileImageLoader != null) {
-      final String profile_image_url_string=cursor.getString(mProfileImageUrlIdx);
-      mProfileImageLoader.displayProfileImage(icon,profile_image_url_string);
+    if (mDisplayProfileImage) {
+      final String profileImageUrl=cursor.getString(mProfileImageUrlIdx);
+      mProfileImageLoader.displayProfileImage(icon,profileImageUrl);
     }
  else {
+      mProfileImageLoader.cancelDisplayTask(icon);
     }
   }
  else {

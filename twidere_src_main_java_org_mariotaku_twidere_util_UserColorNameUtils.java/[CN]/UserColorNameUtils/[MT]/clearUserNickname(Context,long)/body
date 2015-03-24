@@ -1,8 +1,8 @@
 {
   if (context == null)   return;
-  sUserNicknames.remove(user_id);
+  sUserNicknames.remove(userId);
   final SharedPreferences prefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final SharedPreferences.Editor editor=prefs.edit();
-  editor.remove(Long.toString(user_id));
+  editor.remove(Long.toString(userId));
   editor.apply();
 }

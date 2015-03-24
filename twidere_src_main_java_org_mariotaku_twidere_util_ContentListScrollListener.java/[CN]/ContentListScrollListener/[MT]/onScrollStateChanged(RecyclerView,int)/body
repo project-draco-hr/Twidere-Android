@@ -1,4 +1,6 @@
 {
-  super.onScrollStateChanged(recyclerView,newState);
+  if (mOnScrollListener != null) {
+    mOnScrollListener.onScrollStateChanged(recyclerView,newState);
+  }
   mScrollState=newState;
 }

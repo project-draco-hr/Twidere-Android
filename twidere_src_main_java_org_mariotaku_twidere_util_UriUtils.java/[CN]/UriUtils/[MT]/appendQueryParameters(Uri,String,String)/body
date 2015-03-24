@@ -1,0 +1,5 @@
+{
+  final Uri.Builder builder=uri.buildUpon();
+  builder.appendQueryParameter(key,value);
+  return builder.build();
+}

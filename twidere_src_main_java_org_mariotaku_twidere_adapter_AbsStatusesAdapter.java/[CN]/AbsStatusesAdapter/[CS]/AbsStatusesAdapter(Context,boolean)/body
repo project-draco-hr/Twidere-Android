@@ -12,7 +12,6 @@
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
-  mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,false);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
   setShowInReplyTo(true);
 }

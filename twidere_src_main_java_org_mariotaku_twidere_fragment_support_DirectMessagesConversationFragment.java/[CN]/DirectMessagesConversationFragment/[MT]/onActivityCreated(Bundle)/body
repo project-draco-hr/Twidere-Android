@@ -37,7 +37,7 @@
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(getActivity());
   mAdapter=new MessageConversationAdapter(getActivity());
-  final LinearLayoutManager layoutManager=new LinearLayoutManager(viewContext);
+  final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(viewContext);
   layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   layoutManager.setStackFromEnd(true);
   mMessagesListView.setLayoutManager(layoutManager);

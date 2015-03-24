@@ -5,8 +5,7 @@
   final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   final TextView text1=(TextView)view.findViewById(android.R.id.text1);
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
-  final String nick=getUserNickname(context,user.id);
-  text1.setText(TextUtils.isEmpty(nick) ? user.name : adapter.isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,user.name,nick));
+  text1.setText(getUserNickname(context,user.id,user.name));
   text2.setVisibility(View.VISIBLE);
   text2.setText("@" + user.screen_name);
   icon.clearColorFilter();

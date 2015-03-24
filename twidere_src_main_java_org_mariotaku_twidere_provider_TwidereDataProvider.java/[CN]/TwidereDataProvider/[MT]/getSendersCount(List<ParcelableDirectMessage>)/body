@@ -1,8 +1,0 @@
-{
-  if (items == null || items.isEmpty())   return 0;
-  final Set<Long> ids=new HashSet<>();
-  for (  final ParcelableDirectMessage item : items.toArray(new ParcelableDirectMessage[items.size()])) {
-    ids.add(item.sender_id);
-  }
-  return ids.size();
-}

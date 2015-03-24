@@ -1,0 +1,67 @@
+{
+  final long accountId=pref.getAccountId();
+  final Context context=getContext();
+  final Resources resources=context.getResources();
+  final NotificationManager nm=getNotificationManager();
+  final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
+  final String filteredSelection=Utils.buildStatusFilterWhereClause(Mentions.TABLE_NAME,selection,true).getSQL();
+  final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
+  final String[] statusProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME,Statuses.TEXT_UNESCAPED,Statuses.STATUS_TIMESTAMP};
+  final Cursor statusCursor=mDatabaseWrapper.query(Mentions.TABLE_NAME,statusProjection,filteredSelection,null,null,null,Statuses.SORT_ORDER_TIMESTAMP_DESC);
+  final Cursor userCursor=mDatabaseWrapper.query(Mentions.TABLE_NAME,userProjection,filteredSelection,null,Statuses.USER_ID,null,Statuses.SORT_ORDER_TIMESTAMP_DESC);
+  try {
+    final int usersCount=userCursor.getCount();
+    final int statusesCount=statusCursor.getCount();
+    if (statusesCount == 0 || usersCount == 0)     return;
+    final String accountName=Utils.getAccountName(context,accountId);
+    final String accountScreenName=Utils.getAccountScreenName(context,accountId);
+    final int idxStatusText=statusCursor.getColumnIndex(Statuses.TEXT_UNESCAPED), idxStatusTimestamp=statusCursor.getColumnIndex(Statuses.STATUS_TIMESTAMP), idxStatusUserName=statusCursor.getColumnIndex(Statuses.USER_NAME), idxStatusUserScreenName=statusCursor.getColumnIndex(Statuses.USER_SCREEN_NAME), idxUserName=userCursor.getColumnIndex(Statuses.USER_NAME), idxUserScreenName=userCursor.getColumnIndex(Statuses.USER_NAME), idxUserId=userCursor.getColumnIndex(Statuses.USER_NAME);
+    final CharSequence notificationTitle=resources.getQuantityString(R.plurals.N_new_mentions,statusesCount,statusesCount);
+    final String notificationContent;
+    userCursor.moveToFirst();
+    final String displayName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+    if (usersCount == 1) {
+      notificationContent=context.getString(R.string.notification_mention,displayName);
+    }
+ else {
+      notificationContent=context.getString(R.string.notification_mention_multiple,displayName,usersCount - 1);
+    }
+    long when=-1;
+    final InboxStyle style=new InboxStyle();
+    for (int i=0, j=Math.min(statusesCount,5); statusCursor.moveToPosition(i) && i < j; i++) {
+      if (when < 0) {
+        when=statusCursor.getLong(idxStatusTimestamp);
+      }
+      final SpannableStringBuilder sb=new SpannableStringBuilder();
+      sb.append(UserColorNameUtils.getUserNickname(context,statusCursor.getLong(idxUserId),mNameFirst ? statusCursor.getString(idxStatusUserName) : statusCursor.getString(idxStatusUserScreenName)));
+      sb.setSpan(new StyleSpan(Typeface.BOLD),0,sb.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+      sb.append(' ');
+      sb.append(statusCursor.getString(idxStatusText));
+      style.addLine(sb);
+    }
+    if (mNameFirst) {
+      style.setSummaryText(accountName);
+    }
+ else {
+      style.setSummaryText("@" + accountScreenName);
+    }
+    final Intent homeIntent=new Intent(context,HomeActivity.class);
+    final PendingIntent clickIntent=PendingIntent.getActivity(context,0,homeIntent,0);
+    final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+    builder.setSmallIcon(R.drawable.ic_stat_mention);
+    builder.setTicker(notificationTitle);
+    builder.setContentTitle(notificationTitle);
+    builder.setContentText(notificationContent);
+    builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
+    builder.setContentIntent(clickIntent);
+    builder.setNumber(statusesCount);
+    builder.setWhen(when);
+    builder.setStyle(style);
+    builder.setColor(pref.getNotificationLightColor());
+    nm.notify("mentions_" + accountId,NOTIFICATION_ID_MENTIONS_TIMELINE,builder.build());
+  }
+  finally {
+    statusCursor.close();
+    userCursor.close();
+  }
+}

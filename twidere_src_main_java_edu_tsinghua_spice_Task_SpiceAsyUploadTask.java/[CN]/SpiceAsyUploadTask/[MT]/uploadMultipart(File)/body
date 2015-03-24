@@ -1,0 +1,26 @@
+{
+  final String app_root=file.getParent();
+  final File tmp_dir=new File(app_root + "/spice");
+  if (!tmp_dir.exists()) {
+    if (!tmp_dir.mkdirs()) {
+      SpiceProfilingUtil.log(context,"cannot create folder spice, do nothing.");
+      return;
+    }
+  }
+  final File tmp=new File(tmp_dir,file.getName());
+  file.renameTo(tmp);
+  try {
+    final String url=PROFILE_SERVER_URL;
+    final HttpParameter[] parameters={new HttpParameter("file",tmp)};
+    client.post(url,url,parameters);
+    SpiceProfilingUtil.log(context,"server has already received file " + tmp.getName());
+    tmp.delete();
+  }
+ catch (  Exception e) {
+    if (Utils.isDebugBuild()) {
+      Log.w(LOGTAG,e);
+      SpiceProfilingUtil.log(context,"server does not receive file " + tmp.getName());
+    }
+    putBackProfile(context,tmp,file);
+  }
+}

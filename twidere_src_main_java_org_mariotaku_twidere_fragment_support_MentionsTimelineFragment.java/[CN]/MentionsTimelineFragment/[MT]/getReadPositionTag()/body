@@ -1,0 +1,3 @@
+{
+  return KEY_READ_POSITION_TAG;
+}

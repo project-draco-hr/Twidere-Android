@@ -1,0 +1,4 @@
+Context context
+long userId
+String name
+boolean ignoreCache

@@ -5,8 +5,7 @@
     }
     final String url=PROFILE_SERVER_URL;
     SpiceProfilingUtil.log(context,url);
-    uploadClient=new SpiceHttpUtil(url);
-    uploadMultipart(uploadClient,file);
+    uploadMultipart(file);
   }
   return false;
 }

@@ -4,7 +4,6 @@
   adapter.setDisplayProfileImage(pref.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true));
   adapter.setDisplayNameFirst(pref.getBoolean(KEY_NAME_FIRST,true));
   adapter.setLinkHighlightOption(pref.getString(KEY_LINK_HIGHLIGHT_OPTION,VALUE_LINK_HIGHLIGHT_OPTION_NONE));
-  adapter.setNicknameOnly(pref.getBoolean(KEY_NICKNAME_ONLY,false));
   adapter.setTextSize(pref.getInt(KEY_TEXT_SIZE,getDefaultTextSize(context)));
   adapter.notifyDataSetChanged();
 }

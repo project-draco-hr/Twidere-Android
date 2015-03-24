@@ -8,11 +8,11 @@
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   updatePreferences();
   mPermissionsManager=new PermissionsManager(context);
+  mPositionManager=new PositionManager(context);
   mImagePreloader=new ImagePreloader(context,app.getImageLoader());
   final IntentFilter filter=new IntentFilter();
   filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTART);
   filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTOP);
   context.registerReceiver(mHomeActivityStateReceiver,filter);
-  restoreUnreadItems();
   return true;
 }

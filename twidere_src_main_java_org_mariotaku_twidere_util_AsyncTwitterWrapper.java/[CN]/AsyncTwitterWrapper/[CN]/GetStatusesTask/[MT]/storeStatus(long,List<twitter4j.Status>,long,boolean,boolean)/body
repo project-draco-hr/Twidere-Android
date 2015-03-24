@@ -14,11 +14,11 @@
   final Expression accountWhere=Expression.equals(Statuses.ACCOUNT_ID,accountId);
   final Expression statusWhere=Expression.in(new Column(Statuses.STATUS_ID),new RawItemArray(statusIds));
   final String deleteWhere=Expression.and(accountWhere,statusWhere).getSQL();
-  final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
+  final Uri deleteUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,false);
   final int rowsDeleted=mResolver.delete(deleteUri,deleteWhere,null);
   ProfilingUtil.profile(mContext,accountId,"Download tweets, " + TwidereArrayUtils.toString(statusIds,',',true));
   SpiceProfilingUtil.profile(mContext,accountId,accountId + ",Refresh," + TwidereArrayUtils.toString(statusIds,',',true));
-  final Uri insertUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
+  final Uri insertUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,notify);
   bulkInsert(mResolver,insertUri,values);
   final long minId=statusIds.length != 0 ? TwidereArrayUtils.min(statusIds) : -1;
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,maxId);
@@ -28,7 +28,7 @@
     final ContentValues gapValue=new ContentValues();
     gapValue.put(Statuses.IS_GAP,1);
     final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,minId));
-    final Uri updateUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,true));
+    final Uri updateUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,true);
     mResolver.update(updateUri,gapValue,where.getSQL(),null);
   }
   return false;

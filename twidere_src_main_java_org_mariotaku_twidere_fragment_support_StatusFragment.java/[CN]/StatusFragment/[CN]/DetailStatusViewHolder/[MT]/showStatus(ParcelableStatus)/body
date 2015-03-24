@@ -5,9 +5,8 @@
   final Resources resources=context.getResources();
   final MediaLoaderWrapper loader=adapter.getImageLoader();
   final boolean nameFirst=adapter.isNameFirst();
-  final boolean nicknameOnly=adapter.isNicknameOnly();
   if (status.retweet_id > 0) {
-    final String retweetedBy=UserColorNameUtils.getDisplayName(context,status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst,nicknameOnly);
+    final String retweetedBy=UserColorNameUtils.getDisplayName(context,status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst);
     retweetedByView.setText(context.getString(R.string.name_retweeted,retweetedBy));
     retweetedByContainer.setVisibility(View.VISIBLE);
   }
@@ -15,16 +14,7 @@
     retweetedByView.setText(null);
     retweetedByContainer.setVisibility(View.GONE);
   }
-  final String nickname=getUserNickname(context,status.user_id,true);
-  if (TextUtils.isEmpty(nickname)) {
-    nameView.setText(status.user_name);
-  }
- else   if (nicknameOnly) {
-    nameView.setText(nickname);
-  }
- else {
-    nameView.setText(context.getString(R.string.name_with_nickname,status.user_name,nickname));
-  }
+  nameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
   screenNameView.setText("@" + status.user_screen_name);
   textView.setText(Html.fromHtml(status.text_html));
   final StatusLinkClickHandler linkClickHandler=new StatusLinkClickHandler(context,null);

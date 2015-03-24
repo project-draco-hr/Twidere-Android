@@ -1,5 +1,0 @@
-{
-  restoreUnreadItemsFile(mUnreadStatuses,UNREAD_STATUSES_FILE_NAME);
-  restoreUnreadItemsFile(mUnreadMentions,UNREAD_MENTIONS_FILE_NAME);
-  restoreUnreadItemsFile(mUnreadMessages,UNREAD_MESSAGES_FILE_NAME);
-}

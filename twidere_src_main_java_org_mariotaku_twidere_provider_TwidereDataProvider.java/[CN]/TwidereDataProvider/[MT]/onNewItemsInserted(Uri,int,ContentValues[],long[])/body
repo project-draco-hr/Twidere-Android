@@ -5,15 +5,10 @@
 switch (tableId) {
 case TABLE_ID_STATUSES:
 {
-      final int notifiedCount=notifyStatusesInserted(valuesArray);
-      final List<ParcelableStatus> items=new ArrayList<>(mNewStatuses);
-      Collections.sort(items);
       final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
       for (      final AccountPreferences pref : prefs) {
-        if (pref.isHomeTimelineNotificationEnabled()) {
-          final long accountId=pref.getAccountId();
-          displayStatusesNotification(notifiedCount,pref,pref.getHomeTimelineNotificationType(),NOTIFICATION_ID_HOME_TIMELINE,getStatusesForAccounts(items,accountId),R.string.notification_status,R.string.notification_status_multiple,R.drawable.ic_stat_twitter);
-        }
+        if (!pref.isHomeTimelineNotificationEnabled())         continue;
+        showTimelineNotification(pref,mPositionManager.getPosition(HomeTimelineFragment.KEY_READ_POSITION_TAG));
       }
       notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
       break;
@@ -21,28 +16,19 @@ case TABLE_ID_STATUSES:
 case TABLE_ID_MENTIONS:
 {
     final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
-    final int notifiedCount=notifyMentionsInserted(prefs,valuesArray);
-    final List<ParcelableStatus> items=new ArrayList<>(mNewMentions);
-    Collections.sort(items);
     for (    final AccountPreferences pref : prefs) {
-      if (pref.isMentionsNotificationEnabled()) {
-        final long accountId=pref.getAccountId();
-        displayStatusesNotification(notifiedCount,pref,pref.getMentionsNotificationType(),NOTIFICATION_ID_MENTIONS_TIMELINE,getStatusesForAccounts(items,accountId),R.string.notification_mention,R.string.notification_mention_multiple,R.drawable.ic_stat_mention);
-      }
+      if (!pref.isMentionsNotificationEnabled())       continue;
+      showMentionsNotification(pref,mPositionManager.getPosition(MentionsTimelineFragment.KEY_READ_POSITION_TAG));
     }
     notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS_TIMELINE);
     break;
   }
 case TABLE_ID_DIRECT_MESSAGES_INBOX:
 {
-  final int notifiedCount=notifyIncomingMessagesInserted(valuesArray);
-  final List<ParcelableDirectMessage> items=new ArrayList<>(mNewMessages);
-  Collections.sort(items);
   final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
   for (  final AccountPreferences pref : prefs) {
     if (pref.isDirectMessagesNotificationEnabled()) {
       final long accountId=pref.getAccountId();
-      displayMessagesNotification(notifiedCount,pref,pref.getDirectMessagesNotificationType(),R.drawable.ic_stat_mention,getMessagesForAccounts(items,accountId));
     }
   }
   notifyUnreadCountChanged(NOTIFICATION_ID_DIRECT_MESSAGES);

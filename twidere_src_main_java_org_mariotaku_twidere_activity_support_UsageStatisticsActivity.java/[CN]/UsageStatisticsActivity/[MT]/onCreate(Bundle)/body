@@ -1,0 +1,11 @@
+{
+  super.onCreate(savedInstanceState);
+  final Bundle fragmentArgs=new Bundle();
+  fragmentArgs.putInt(EXTRA_RESID,R.xml.preferences_usage_statistics);
+  final Intent intent=new Intent(this,SettingsActivity.class);
+  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT,SettingsDetailsFragment.class.getName());
+  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS,fragmentArgs);
+  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_TITLE,R.string.usage_statistics);
+  startActivity(intent);
+  finish();
+}

@@ -1,3 +1,7 @@
 {
-  return getDisplayName(context,user_id,name,screen_name,name_first,nickname_only,false);
+  if (context == null)   return null;
+  final String nick=getUserNickname(context,userId,ignoreCache);
+  final boolean nickAvailable=!isEmpty(nick);
+  if (nickAvailable)   return nick;
+  return nameFirst && !isEmpty(name) ? name : "@" + screenName;
 }

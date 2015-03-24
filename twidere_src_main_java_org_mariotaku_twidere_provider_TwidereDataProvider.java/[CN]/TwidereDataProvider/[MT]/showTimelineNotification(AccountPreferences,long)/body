@@ -1,0 +1,51 @@
+{
+  final long accountId=pref.getAccountId();
+  final Context context=getContext();
+  final Resources resources=context.getResources();
+  final NotificationManager nm=getNotificationManager();
+  final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
+  final String filteredSelection=Utils.buildStatusFilterWhereClause(Statuses.TABLE_NAME,selection,true).getSQL();
+  final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
+  final String[] statusProjection=new String[0];
+  final Cursor statusCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,statusProjection,filteredSelection,null,null,null,Statuses.SORT_ORDER_TIMESTAMP_DESC);
+  final Cursor userCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,userProjection,filteredSelection,null,Statuses.USER_ID,null,Statuses.SORT_ORDER_TIMESTAMP_DESC);
+  try {
+    final int usersCount=userCursor.getCount();
+    final int statusesCount=statusCursor.getCount();
+    if (statusesCount == 0 || usersCount == 0)     return;
+    final int idxUserName=userCursor.getColumnIndex(Statuses.USER_NAME), idxUserScreenName=userCursor.getColumnIndex(Statuses.USER_NAME), idxUserId=userCursor.getColumnIndex(Statuses.USER_NAME);
+    final String notificationTitle=resources.getQuantityString(R.plurals.N_new_statuses,statusesCount,statusesCount);
+    final String notificationContent;
+    userCursor.moveToFirst();
+    final String displayName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+    if (usersCount == 1) {
+      notificationContent=context.getString(R.string.from_name,displayName);
+    }
+ else     if (usersCount == 2) {
+      userCursor.moveToPosition(1);
+      final String othersName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+      notificationContent=resources.getQuantityString(R.plurals.from_name_and_N_others,usersCount - 1,othersName,usersCount - 1);
+    }
+ else {
+      userCursor.moveToPosition(1);
+      final String othersName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+      notificationContent=resources.getString(R.string.from_name_and_N_others,othersName,usersCount - 1);
+    }
+    final Intent homeIntent=new Intent(context,HomeActivity.class);
+    final PendingIntent clickIntent=PendingIntent.getActivity(context,0,homeIntent,0);
+    final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+    builder.setSmallIcon(R.drawable.ic_stat_twitter);
+    builder.setTicker(notificationTitle);
+    builder.setContentTitle(notificationTitle);
+    builder.setContentText(notificationContent);
+    builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
+    builder.setContentIntent(clickIntent);
+    builder.setNumber(statusesCount);
+    builder.setColor(pref.getNotificationLightColor());
+    nm.notify("home_" + accountId,NOTIFICATION_ID_HOME_TIMELINE,builder.build());
+  }
+  finally {
+    statusCursor.close();
+    userCursor.close();
+  }
+}

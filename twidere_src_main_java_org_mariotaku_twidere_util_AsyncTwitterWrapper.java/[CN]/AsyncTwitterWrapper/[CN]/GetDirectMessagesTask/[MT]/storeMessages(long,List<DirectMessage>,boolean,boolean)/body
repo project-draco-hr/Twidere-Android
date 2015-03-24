@@ -9,9 +9,9 @@
     valuesArray[i]=createDirectMessage(message,accountId,isOutgoing);
   }
   final Expression deleteWhere=Expression.and(Expression.equals(DirectMessages.ACCOUNT_ID,accountId),Expression.in(new Column(DirectMessages.MESSAGE_ID),new RawItemArray(messageIds)));
-  final Uri deleteUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,false));
+  final Uri deleteUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,false);
   mResolver.delete(deleteUri,deleteWhere.getSQL(),null);
-  final Uri insertUri=appendQueryParameters(uri,new NameValuePairImpl(QUERY_PARAM_NOTIFY,notify));
+  final Uri insertUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,notify);
   bulkInsert(mResolver,insertUri,valuesArray);
   return false;
 }

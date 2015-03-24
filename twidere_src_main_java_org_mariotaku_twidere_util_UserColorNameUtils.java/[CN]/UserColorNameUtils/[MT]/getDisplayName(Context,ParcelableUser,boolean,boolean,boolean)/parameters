@@ -1,5 +1,0 @@
-Context context
-ParcelableUser user
-boolean nameFirst
-boolean nicknameOnly
-boolean ignoreCache

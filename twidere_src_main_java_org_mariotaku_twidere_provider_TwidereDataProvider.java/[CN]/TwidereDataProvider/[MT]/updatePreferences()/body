@@ -1,4 +1,3 @@
 {
   mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST,false);
-  mNickOnly=mPreferences.getBoolean(KEY_NICKNAME_ONLY,false);
 }

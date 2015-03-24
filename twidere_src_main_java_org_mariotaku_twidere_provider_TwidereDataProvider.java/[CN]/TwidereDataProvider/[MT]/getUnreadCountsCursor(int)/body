@@ -1,29 +1,4 @@
 {
   final MatrixCursor c=new MatrixCursor(TwidereDataStore.UnreadCounts.MATRIX_COLUMNS);
-  final Context context=getContext();
-  final SupportTabSpec tab=CustomTabUtils.getAddedTabAt(context,position);
-  if (tab == null)   return c;
-  final int count;
-  if (TAB_TYPE_HOME_TIMELINE.equals(tab.type) || TAB_TYPE_STAGGERED_HOME_TIMELINE.equals(tab.type)) {
-    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
-    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
-    count=getUnreadCount(mUnreadStatuses,account_ids);
-  }
- else   if (TAB_TYPE_MENTIONS_TIMELINE.equals(tab.type)) {
-    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
-    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
-    count=getUnreadCount(mUnreadMentions,account_ids);
-  }
- else   if (TAB_TYPE_DIRECT_MESSAGES.equals(tab.type)) {
-    final long account_id=tab.args != null ? tab.args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
-    final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(context);
-    count=getUnreadCount(mUnreadMessages,account_ids);
-  }
- else {
-    count=0;
-  }
-  if (tab.type != null) {
-    c.addRow(new Object[]{position,tab.type,count});
-  }
   return c;
 }

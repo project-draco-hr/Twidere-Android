@@ -1,8 +1,8 @@
 {
-  if (position == getStatusesCount())   return position;
+  if (position == getStatusesCount())   return -1;
   final Cursor c=mCursor;
   if (c != null && !c.isClosed() && c.moveToPosition(position)) {
     return c.getLong(mIndices.status_id);
   }
-  return position;
+  return -1;
 }

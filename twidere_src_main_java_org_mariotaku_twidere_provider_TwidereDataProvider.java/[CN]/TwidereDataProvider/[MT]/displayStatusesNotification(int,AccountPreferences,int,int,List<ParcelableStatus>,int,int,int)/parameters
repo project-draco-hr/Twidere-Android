@@ -1,8 +1,0 @@
-int notifiedCount
-AccountPreferences accountPreferences
-int notificationType
-int notificationId
-List<ParcelableStatus> statuses
-int titleSingle
-int titleMultiple
-int icon

@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  final FragmentManager fm=getFragmentManager();
-  fm.beginTransaction().replace(android.R.id.content,new DataProfilingSettingsFragment()).commit();
-}

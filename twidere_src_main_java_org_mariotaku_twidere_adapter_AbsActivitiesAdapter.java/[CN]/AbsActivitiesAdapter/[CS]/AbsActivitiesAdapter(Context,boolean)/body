@@ -13,5 +13,4 @@
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
-  mNicknameOnly=preferences.getBoolean(KEY_NICKNAME_ONLY,false);
 }

@@ -7,7 +7,7 @@
   mMultiSelectManager=getMultiSelectManager();
   mAdapter=new MessageEntriesAdapter(viewContext);
   mAdapter.setListener(this);
-  mLayoutManager=new LinearLayoutManager(viewContext);
+  mLayoutManager=new FixedLinearLayoutManager(viewContext);
   mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(viewContext));

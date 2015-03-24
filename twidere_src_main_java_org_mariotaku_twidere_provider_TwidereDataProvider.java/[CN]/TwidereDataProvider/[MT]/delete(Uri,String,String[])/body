@@ -27,11 +27,6 @@ case VIRTUAL_TABLE_ID_NOTIFICATIONS:
     }
 case VIRTUAL_TABLE_ID_UNREAD_COUNTS:
 {
-    final List<String> segments=uri.getPathSegments();
-    final int segmentsSize=segments.size();
-    if (segmentsSize == 1)     return clearUnreadCount();
- else     if (segmentsSize == 2)     return clearUnreadCount(ParseUtils.parseInt(segments.get(1)));
- else     if (segmentsSize == 4)     return removeUnreadItems(ParseUtils.parseInt(segments.get(1)),ParseUtils.parseLong(segments.get(2)),TwidereArrayUtils.parseLongArray(segments.get(3),','));
     return 0;
   }
 }

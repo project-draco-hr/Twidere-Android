@@ -1,15 +1,18 @@
 {
+  if (mOnScrollListener != null) {
+    mOnScrollListener.onScrolled(recyclerView,dx,dy);
+  }
   if (dy * mScrollSum < 0) {
     mScrollSum=0;
   }
   mScrollSum+=dy;
   if (Math.abs(mScrollSum) > mTouchSlop) {
-    mContentListAware.setControlVisible(dy < 0);
+    mContentListSupport.setControlVisible(dy < 0);
     mScrollSum=0;
   }
-  final IContentCardAdapter adapter=mContentListAware.getAdapter();
+  final IContentCardAdapter adapter=mContentListSupport.getAdapter();
   final LinearLayoutManager layoutManager=(LinearLayoutManager)recyclerView.getLayoutManager();
-  if (!mContentListAware.isRefreshing() && adapter.hasLoadMoreIndicator() && mScrollState != RecyclerView.SCROLL_STATE_IDLE && layoutManager.findLastVisibleItemPosition() == adapter.getItemCount() - 1) {
-    mContentListAware.onLoadMoreContents();
+  if (!mContentListSupport.isRefreshing() && adapter.hasLoadMoreIndicator() && mScrollState != RecyclerView.SCROLL_STATE_IDLE && layoutManager.findLastVisibleItemPosition() == adapter.getItemCount() - 1) {
+    mContentListSupport.onLoadMoreContents();
   }
 }

@@ -24,7 +24,7 @@
   mAccountSelectorContainer.setOnClickListener(this);
   mAccountSelectorButton.setOnClickListener(this);
   mLocationContainer.setOnClickListener(this);
-  final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+  final LinearLayoutManager linearLayoutManager=new FixedLinearLayoutManager(this);
   linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   linearLayoutManager.setStackFromEnd(true);
   mAccountSelector.setLayoutManager(linearLayoutManager);

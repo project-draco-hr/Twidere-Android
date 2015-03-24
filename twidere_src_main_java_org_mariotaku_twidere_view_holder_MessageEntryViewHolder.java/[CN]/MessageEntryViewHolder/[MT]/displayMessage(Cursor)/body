@@ -7,8 +7,7 @@
   final boolean isOutgoing=cursor.getInt(ConversationEntries.IDX_IS_OUTGOING) == 1;
   final String name=cursor.getString(ConversationEntries.IDX_NAME);
   final String screenName=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
-  final String nick=getUserNickname(context,conversationId);
-  nameView.setText(TextUtils.isEmpty(nick) ? name : adapter.isNicknameOnly() ? nick : context.getString(R.string.name_with_nickname,name,nick));
+  nameView.setText(getUserNickname(context,conversationId,name));
   screenNameView.setText("@" + screenName);
   textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
   timeView.setTime(timestamp);

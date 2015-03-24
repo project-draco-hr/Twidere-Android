@@ -3,7 +3,6 @@
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();
-  final boolean nicknameOnly=adapter.isNicknameOnly();
   final long reply_count=cursor.getLong(indices.reply_count);
   final long retweet_count;
   final long favorite_count;
@@ -28,14 +27,14 @@
   final ParcelableMedia[] media=SimpleValueSerializer.fromSerializedString(cursor.getString(indices.media),ParcelableMedia.SIMPLE_CREATOR);
   final ParcelableLocation location=ParcelableLocation.fromString(cursor.getString(indices.location));
   if (retweet_id > 0) {
-    final String retweetedBy=UserColorNameUtils.getDisplayName(context,retweeted_by_id,retweeted_by_name,retweeted_by_screen_name,nameFirst,nicknameOnly);
+    final String retweetedBy=UserColorNameUtils.getDisplayName(context,retweeted_by_id,retweeted_by_name,retweeted_by_screen_name,nameFirst);
     replyRetweetView.setText(context.getString(R.string.name_retweeted,retweetedBy));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_retweet);
     replyRetweetView.setVisibility(View.VISIBLE);
     replyRetweetIcon.setVisibility(View.VISIBLE);
   }
  else   if (in_reply_to_status_id > 0 && in_reply_to_user_id > 0 && displayInReplyTo) {
-    final String inReplyTo=UserColorNameUtils.getDisplayName(context,in_reply_to_user_id,in_reply_to_name,in_reply_to_screen_name,nameFirst,nicknameOnly);
+    final String inReplyTo=UserColorNameUtils.getDisplayName(context,in_reply_to_user_id,in_reply_to_name,in_reply_to_screen_name,nameFirst);
     replyRetweetView.setText(context.getString(R.string.in_reply_to_name,inReplyTo));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_reply);
     replyRetweetView.setVisibility(View.VISIBLE);

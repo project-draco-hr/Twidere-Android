@@ -1,9 +1,0 @@
-{
-  final Uri.Builder builder=uri.buildUpon();
-  if (params != null) {
-    for (    final NameValuePair param : params) {
-      builder.appendQueryParameter(param.getName(),param.getValue());
-    }
-  }
-  return builder.build();
-}

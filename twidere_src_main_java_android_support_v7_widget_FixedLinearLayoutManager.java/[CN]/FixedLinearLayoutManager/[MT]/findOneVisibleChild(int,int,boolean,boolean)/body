@@ -1,0 +1,4 @@
+{
+  if (getChildCount() < 0)   return null;
+  return super.findOneVisibleChild(fromIndex,toIndex,completelyVisible,acceptPartiallyVisible);
+}

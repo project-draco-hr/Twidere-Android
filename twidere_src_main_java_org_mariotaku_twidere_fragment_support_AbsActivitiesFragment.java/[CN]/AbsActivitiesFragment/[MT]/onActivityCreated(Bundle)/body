@@ -10,7 +10,7 @@
   mAdapter=onCreateAdapter(context,compact);
   mAdapter.setLoadMoreIndicatorEnabled(true);
   mAdapter.setListener(this);
-  final LinearLayoutManager layoutManager=new LinearLayoutManager(context);
+  final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
   layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   mRecyclerView.setLayoutManager(layoutManager);
   if (compact) {
