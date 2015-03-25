@@ -11,7 +11,15 @@
   screenNameView.setText("@" + screenName);
   textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
   timeView.setTime(timestamp);
-  setIsOutgoing(isOutgoing);
+  if (isOutgoing) {
+    timeView.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_indicator_sent,0);
+  }
+ else {
+    timeView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+  }
+  nameView.setTypeface(null,isUnread ? Typeface.BOLD : Typeface.NORMAL);
+  screenNameView.setTypeface(null,isUnread ? Typeface.BOLD : Typeface.NORMAL);
+  textView.setTypeface(null,isUnread ? Typeface.BOLD : Typeface.NORMAL);
   if (account_color_enabled) {
     content.drawEnd(Utils.getAccountColor(context,accountId));
   }

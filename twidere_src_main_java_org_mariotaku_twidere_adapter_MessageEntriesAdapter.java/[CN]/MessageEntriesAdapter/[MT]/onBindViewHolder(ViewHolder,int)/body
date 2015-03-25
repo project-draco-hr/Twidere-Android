@@ -4,7 +4,7 @@ case ITEM_VIEW_TYPE_MESSAGE:
 {
       final Cursor c=mCursor;
       c.moveToPosition(position);
-      ((MessageEntryViewHolder)holder).displayMessage(c);
+      ((MessageEntryViewHolder)holder).displayMessage(c,isUnread(c));
       break;
     }
 }

@@ -1,0 +1,4 @@
+{
+  mPositionPairs=mReadStateManager.getPositionPairs(DirectMessagesFragment.KEY_READ_POSITION_TAG);
+  notifyDataSetChanged();
+}

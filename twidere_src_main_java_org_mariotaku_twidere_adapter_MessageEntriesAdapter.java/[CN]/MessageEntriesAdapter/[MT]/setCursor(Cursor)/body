@@ -1,4 +1,9 @@
 {
   mCursor=cursor;
+  mReadStateManager.unregisterOnSharedPreferenceChangeListener(mReadStateChangeListener);
+  if (cursor != null) {
+    updateReadState();
+    mReadStateManager.registerOnSharedPreferenceChangeListener(mReadStateChangeListener);
+  }
   notifyDataSetChanged();
 }
