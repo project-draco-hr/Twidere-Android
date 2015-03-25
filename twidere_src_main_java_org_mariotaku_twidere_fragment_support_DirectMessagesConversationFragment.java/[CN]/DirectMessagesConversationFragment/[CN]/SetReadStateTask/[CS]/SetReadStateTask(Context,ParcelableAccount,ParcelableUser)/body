@@ -1,0 +1,6 @@
+{
+  mContext=context;
+  mReadStateManager=new ReadStateManager(context);
+  mAccount=account;
+  mRecipient=recipient;
+}

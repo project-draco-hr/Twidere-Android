@@ -1,0 +1,30 @@
+{
+  if (TextUtils.isEmpty(key))   return false;
+  Set<String> set=mPreferences.getStringSet(key,null);
+  if (set == null) {
+    set=new CompactHashSet<>();
+  }
+  String keyValue=null;
+  final String prefix=keyId + ":";
+  for (  String entry : set) {
+    if (entry.startsWith(prefix)) {
+      keyValue=entry;
+      break;
+    }
+  }
+  final StringLongPair pair;
+  if (keyValue != null) {
+    pair=StringLongPair.valueOf(keyValue);
+    if (!acceptOlder && pair.getValue() > position)     return false;
+    set.remove(keyValue);
+    pair.setValue(position);
+  }
+ else {
+    pair=new StringLongPair(keyId,position);
+  }
+  set.add(pair.toString());
+  final SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putStringSet(key,set);
+  editor.apply();
+  return true;
+}

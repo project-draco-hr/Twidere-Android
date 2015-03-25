@@ -1,0 +1,7 @@
+{
+  final ContentResolver resolver=mContext.getContentResolver();
+  final String[] projection={ConversationEntries.MESSAGE_ID};
+  final String selection=Expression.and(Expression.equals(ConversationEntries.ACCOUNT_ID,mAccount.account_id),Expression.equals(ConversationEntries.CONVERSATION_ID,mRecipient.id)).getSQL();
+  final String orderBy=new OrderBy(ConversationEntries.MESSAGE_ID,false).getSQL();
+  return resolver.query(ConversationEntries.CONTENT_URI,projection,selection,null,orderBy);
+}

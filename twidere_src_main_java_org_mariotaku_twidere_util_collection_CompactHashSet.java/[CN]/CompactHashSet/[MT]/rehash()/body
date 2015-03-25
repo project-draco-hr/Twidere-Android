@@ -1,0 +1,5 @@
+{
+  int gargagecells=objects.length - (elements + freecells);
+  if (gargagecells / (double)objects.length > 0.05)   rehash(objects.length);
+ else   rehash(objects.length * 2 + 1);
+}

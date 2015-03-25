@@ -1,7 +1,7 @@
 {
   if (position == getStatusesCount())   return Long.MAX_VALUE;
   final Cursor c=mCursor;
-  if (c != null && !c.isClosed() && c.moveToPosition(position)) {
+  if (c != null && c.moveToPosition(position)) {
     return c.getLong(mIndices._id);
   }
   return RecyclerView.NO_ID;

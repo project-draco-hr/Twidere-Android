@@ -13,6 +13,12 @@
     mLoaderInitialized=true;
     lm.initLoader(0,args,this);
   }
+  AsyncTask.execute(new Runnable(){
+    @Override public void run(){
+    }
+  }
+);
+  new SetReadStateTask(getActivity(),account,recipient).execute();
   updateActionBar();
   updateProfileImage();
 }

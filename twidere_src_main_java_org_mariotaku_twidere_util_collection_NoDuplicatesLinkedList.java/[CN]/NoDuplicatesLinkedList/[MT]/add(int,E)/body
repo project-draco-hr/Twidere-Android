@@ -1,6 +1,0 @@
-{
-  if (contains(element))   return;
- else {
-    super.add(index,element);
-  }
-}

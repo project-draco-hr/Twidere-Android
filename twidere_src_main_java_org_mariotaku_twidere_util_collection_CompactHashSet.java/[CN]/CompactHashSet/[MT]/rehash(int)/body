@@ -1,0 +1,19 @@
+{
+  int oldCapacity=objects.length;
+  @SuppressWarnings("unchecked") E[] newObjects=(E[])new Object[newCapacity];
+  for (int ix=0; ix < oldCapacity; ix++) {
+    Object o=objects[ix];
+    if (o == null || o == deletedObject)     continue;
+    int hash=o.hashCode();
+    int index=(hash & 0x7FFFFFFF) % newCapacity;
+    int offset=1;
+    while (newObjects[index] != null) {
+      index=((index + offset) & 0x7FFFFFFF) % newCapacity;
+      offset=offset * 2 + 1;
+      if (offset == -1)       offset=2;
+    }
+    newObjects[index]=(E)o;
+  }
+  objects=newObjects;
+  freecells=objects.length - elements;
+}

@@ -2,5 +2,10 @@
   if (mOnScrollListener != null) {
     mOnScrollListener.onScrollStateChanged(recyclerView,newState);
   }
+  final IContentCardAdapter adapter=mContentListSupport.getAdapter();
+  final LinearLayoutManager layoutManager=(LinearLayoutManager)recyclerView.getLayoutManager();
+  if (!mContentListSupport.isRefreshing() && adapter.hasLoadMoreIndicator() && mScrollState != RecyclerView.SCROLL_STATE_IDLE && layoutManager.findLastVisibleItemPosition() == adapter.getItemCount() - 1) {
+    mContentListSupport.onLoadMoreContents();
+  }
   mScrollState=newState;
 }

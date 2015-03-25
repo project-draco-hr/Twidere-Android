@@ -1,0 +1,6 @@
+{
+  elements=0;
+  for (int ix=0; ix < objects.length; ix++)   objects[ix]=null;
+  freecells=objects.length;
+  modCount++;
+}

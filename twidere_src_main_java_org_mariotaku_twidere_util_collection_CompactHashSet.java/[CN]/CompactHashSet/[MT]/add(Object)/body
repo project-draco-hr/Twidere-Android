@@ -1,0 +1,23 @@
+{
+  if (o == null)   o=nullObject;
+  int hash=o.hashCode();
+  int index=(hash & 0x7FFFFFFF) % objects.length;
+  int offset=1;
+  int deletedix=-1;
+  while (objects[index] != null && !(objects[index].hashCode() == hash && objects[index].equals(o))) {
+    if (objects[index] == deletedObject)     deletedix=index;
+    index=((index + offset) & 0x7FFFFFFF) % objects.length;
+    offset=offset * 2 + 1;
+    if (offset == -1)     offset=2;
+  }
+  if (objects[index] == null) {
+    if (deletedix != -1)     index=deletedix;
+ else     freecells--;
+    modCount++;
+    elements++;
+    objects[index]=(E)o;
+    if (1 - (freecells / (double)objects.length) > LOAD_FACTOR)     rehash();
+    return true;
+  }
+ else   return false;
+}

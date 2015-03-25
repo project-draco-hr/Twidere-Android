@@ -1,0 +1,12 @@
+{
+  if (modCount != expectedModCount)   throw new ConcurrentModificationException();
+  int length=objects.length;
+  if (index >= length) {
+    lastReturned=-2;
+    throw new NoSuchElementException();
+  }
+  lastReturned=index;
+  for (index+=1; index < length && (objects[index] == null || objects[index] == deletedObject); index++)   ;
+  if (objects[lastReturned] == nullObject)   return null;
+ else   return (T)objects[lastReturned];
+}

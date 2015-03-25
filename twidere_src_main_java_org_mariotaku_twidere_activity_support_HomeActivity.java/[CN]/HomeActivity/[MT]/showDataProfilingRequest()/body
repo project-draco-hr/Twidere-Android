@@ -1,5 +1,5 @@
 {
-  if (mPreferences.contains(KEY_UCD_DATA_PROFILING) && mPreferences.contains(KEY_SPICE_DATA_PROFILING)) {
+  if (mPreferences.contains(KEY_USAGE_STATISTICS)) {
     return;
   }
   final Intent intent=new Intent(this,UsageStatisticsActivity.class);

@@ -1,10 +1,16 @@
 {
   super.onActivityCreated(savedInstanceState);
+  final BaseActionBarActivity activity=(BaseActionBarActivity)getActivity();
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mImageLoader=TwidereApplication.getInstance(activity).getImageLoaderWrapper();
+  mReadStateManager=new ReadStateManager(activity);
+  mTwitterWrapper=getTwitterWrapper();
+  mValidator=new TwidereValidator(activity);
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context viewContext=view.getContext();
   setHasOptionsMenu(true);
-  final BaseActionBarActivity activity=(BaseActionBarActivity)getActivity();
   final ActionBar actionBar=activity.getSupportActionBar();
   if (actionBar == null)   throw new NullPointerException();
   actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -31,12 +37,7 @@
   }
 );
   mQueryButton.setOnClickListener(this);
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mImageLoader=TwidereApplication.getInstance(getActivity()).getImageLoaderWrapper();
-  mTwitterWrapper=getTwitterWrapper();
-  mValidator=new TwidereValidator(getActivity());
-  mAdapter=new MessageConversationAdapter(getActivity());
+  mAdapter=new MessageConversationAdapter(activity);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(viewContext);
   layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   layoutManager.setStackFromEnd(true);

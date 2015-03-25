@@ -1,4 +1,5 @@
 {
   final Cursor c=mCursor;
-  return c != null && c.moveToPosition(position) && c.getInt(mIndices.is_gap) == 1;
+  if (c == null || !c.moveToPosition(position) || position == getStatusesCount() - 1)   return false;
+  return c.getInt(mIndices.is_gap) == 1;
 }

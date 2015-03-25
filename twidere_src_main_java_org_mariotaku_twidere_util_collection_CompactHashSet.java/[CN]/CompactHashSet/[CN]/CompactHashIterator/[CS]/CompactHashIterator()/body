@@ -1,0 +1,4 @@
+{
+  for (index=0; index < objects.length && (objects[index] == null || objects[index] == deletedObject); index++)   ;
+  expectedModCount=modCount;
+}

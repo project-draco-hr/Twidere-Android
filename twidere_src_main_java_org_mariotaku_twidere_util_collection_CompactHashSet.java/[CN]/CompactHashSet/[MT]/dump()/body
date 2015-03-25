@@ -1,0 +1,7 @@
+{
+  System.out.println("Size: " + objects.length);
+  System.out.println("Elements: " + elements);
+  System.out.println("Free cells: " + freecells);
+  System.out.println();
+  for (int ix=0; ix < objects.length; ix++)   System.out.println("[" + ix + "]: "+ objects[ix]);
+}

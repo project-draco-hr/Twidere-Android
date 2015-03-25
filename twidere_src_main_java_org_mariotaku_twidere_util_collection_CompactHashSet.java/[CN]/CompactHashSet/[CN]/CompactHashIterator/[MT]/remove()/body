@@ -1,0 +1,10 @@
+{
+  if (modCount != expectedModCount)   throw new ConcurrentModificationException();
+  if (lastReturned == -1 || lastReturned == -2)   throw new IllegalStateException();
+  if (objects[lastReturned] != null && objects[lastReturned] != deletedObject) {
+    objects[lastReturned]=(E)deletedObject;
+    elements--;
+    modCount++;
+    expectedModCount=modCount;
+  }
+}

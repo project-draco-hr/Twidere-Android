@@ -1,0 +1,18 @@
+{
+  if (o == null)   o=nullObject;
+  int hash=o.hashCode();
+  int index=(hash & 0x7FFFFFFF) % objects.length;
+  int offset=1;
+  while (objects[index] != null && !(objects[index].hashCode() == hash && objects[index].equals(o))) {
+    index=((index + offset) & 0x7FFFFFFF) % objects.length;
+    offset=offset * 2 + 1;
+    if (offset == -1)     offset=2;
+  }
+  if (objects[index] != null) {
+    objects[index]=(E)deletedObject;
+    modCount++;
+    elements--;
+    return true;
+  }
+ else   return false;
+}

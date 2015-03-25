@@ -1,0 +1,6 @@
+{
+  objects=(E[])new Object[(size == 0 ? 1 : size)];
+  elements=0;
+  freecells=objects.length;
+  modCount=0;
+}
