@@ -29,7 +29,7 @@ case TABLE_ID_DIRECT_MESSAGES_INBOX:
   for (  final AccountPreferences pref : prefs) {
     if (!pref.isDirectMessagesNotificationEnabled())     continue;
     final StringLongPair[] pairs=mReadStateManager.getPositionPairs(DirectMessagesFragment.KEY_READ_POSITION_TAG);
-    showMessagesNotification(pref,pairs);
+    showMessagesNotification(pref,pairs,valuesArray);
   }
   notifyUnreadCountChanged(NOTIFICATION_ID_DIRECT_MESSAGES);
   break;

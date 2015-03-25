@@ -1,0 +1,5 @@
+{
+  tryCreateDatabase();
+  if (mDatabase == null)   return null;
+  return mDatabase.query(table,columns,selection,selectionArgs,groupBy,having,orderBy,limit);
+}

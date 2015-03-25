@@ -1,5 +1,13 @@
 {
   final long accountId=pref.getAccountId();
+  final long prevOldestId=mReadStateManager.getPosition(TAG_OLDEST_MESSAGES,String.valueOf(accountId));
+  long oldestId=-1;
+  for (  final ContentValues contentValues : valuesArray) {
+    final long messageId=contentValues.getAsLong(DirectMessages.MESSAGE_ID);
+    oldestId=oldestId < 0 ? messageId : Math.min(oldestId,messageId);
+    if (messageId <= prevOldestId)     return;
+  }
+  mReadStateManager.setPosition(TAG_OLDEST_MESSAGES,String.valueOf(accountId),oldestId,false);
   final Context context=getContext();
   final Resources resources=context.getResources();
   final NotificationManager nm=getNotificationManager();
@@ -17,7 +25,7 @@
     }
   }
   orExpressions.add(Expression.notIn(new Column(DirectMessages.SENDER_ID),new RawItemArray(senderIds.toArray())));
-  final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.or(orExpressions.toArray(new Expression[orExpressions.size()])));
+  final Expression selection=Expression.and(Expression.equals(DirectMessages.ACCOUNT_ID,accountId),Expression.greaterThan(DirectMessages.MESSAGE_ID,prevOldestId),Expression.or(orExpressions.toArray(new Expression[orExpressions.size()])));
   final String filteredSelection=selection.getSQL();
   final String[] userProjection={DirectMessages.SENDER_ID,DirectMessages.SENDER_NAME,DirectMessages.SENDER_SCREEN_NAME};
   final String[] messageProjection={DirectMessages.SENDER_ID,DirectMessages.SENDER_NAME,DirectMessages.SENDER_SCREEN_NAME,DirectMessages.TEXT_UNESCAPED,DirectMessages.MESSAGE_TIMESTAMP};
