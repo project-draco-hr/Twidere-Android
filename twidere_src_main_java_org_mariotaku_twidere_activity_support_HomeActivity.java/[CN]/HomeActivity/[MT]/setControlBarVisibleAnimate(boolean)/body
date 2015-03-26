@@ -10,6 +10,7 @@
     if (offset <= 0)     return;
     animator=ObjectAnimator.ofFloat(this,ControlBarOffsetProperty.SINGLETON,offset,0);
   }
+  animator.setInterpolator(new DecelerateInterpolator());
   animator.addListener(this);
   animator.setDuration(DURATION);
   animator.start();
