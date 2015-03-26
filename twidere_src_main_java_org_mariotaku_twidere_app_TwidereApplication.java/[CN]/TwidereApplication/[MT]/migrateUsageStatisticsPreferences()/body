@@ -1,9 +1,7 @@
 {
   final boolean hasUsageStatistics=mPreferences.contains(KEY_USAGE_STATISTICS);
-  final boolean hasUCDDataProfiling=mPreferences.contains(KEY_UCD_DATA_PROFILING);
-  final boolean hasSpiceDataProfiling=mPreferences.contains(KEY_SPICE_DATA_PROFILING);
-  Log.d(LOGTAG,String.format("usage: %b, ucd: %b, spice: %b",hasUsageStatistics,hasUCDDataProfiling,hasSpiceDataProfiling));
-  if (!hasUsageStatistics && (hasUCDDataProfiling || hasSpiceDataProfiling)) {
+  if (hasUsageStatistics)   return;
+  if (mPreferences.contains(KEY_UCD_DATA_PROFILING) || mPreferences.contains(KEY_SPICE_DATA_PROFILING)) {
     final boolean prevUsageEnabled=mPreferences.getBoolean(KEY_UCD_DATA_PROFILING,false) || mPreferences.getBoolean(KEY_SPICE_DATA_PROFILING,false);
     final Editor editor=mPreferences.edit();
     editor.putBoolean(KEY_USAGE_STATISTICS,prevUsageEnabled);
