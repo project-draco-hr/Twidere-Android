@@ -1,6 +1,6 @@
 {
   if (TextUtils.isEmpty(key))   return -1;
-  final Set<String> set=mPreferences.getStringSet(key,new HashSet<String>());
+  final Set<String> set=mPreferences.getStringSet(key,null);
   if (set == null)   return -1;
   final String prefix=keyId + ":";
   for (  String entry : set) {
