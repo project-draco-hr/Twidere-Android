@@ -1,0 +1,3 @@
+{
+  return getSelectedAccountIds().length == 0;
+}

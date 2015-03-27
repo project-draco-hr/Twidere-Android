@@ -1,0 +1,4 @@
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  return twitter != null && twitter.isHomeTimelineRefreshing();
+}

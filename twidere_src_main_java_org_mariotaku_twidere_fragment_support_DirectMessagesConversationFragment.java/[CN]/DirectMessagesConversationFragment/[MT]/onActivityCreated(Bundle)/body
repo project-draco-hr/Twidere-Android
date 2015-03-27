@@ -4,7 +4,7 @@
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mImageLoader=TwidereApplication.getInstance(activity).getImageLoaderWrapper();
-  mReadStateManager=new ReadStateManager(activity);
+  mReadStateManager=getReadStateManager();
   mTwitterWrapper=getTwitterWrapper();
   mValidator=new TwidereValidator(activity);
   final View view=getView();

@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mReadStateManager=new ReadStateManager(getActivity());
+  mReadStateManager=getReadStateManager();
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
