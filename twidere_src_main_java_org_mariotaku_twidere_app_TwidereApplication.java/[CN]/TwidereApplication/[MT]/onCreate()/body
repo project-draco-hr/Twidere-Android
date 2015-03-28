@@ -1,8 +1,8 @@
 {
+  BugReporter.init(this);
   if (Utils.isDebugBuild()) {
     StrictModeUtils.detectAllVmPolicy();
   }
-  setTheme(ThemeUtils.getThemeResource(this));
   super.onCreate();
   mHandler=new Handler();
   mMessageBus=new Bus();

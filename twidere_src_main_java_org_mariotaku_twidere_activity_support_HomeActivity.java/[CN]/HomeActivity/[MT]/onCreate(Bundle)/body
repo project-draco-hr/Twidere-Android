@@ -36,7 +36,6 @@
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   mTabDisplayOption=getTabDisplayOptionInt(this);
-  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
   mColorStatusFrameLayout.setOnFitSystemWindowsListener(this);
   ThemeUtils.applyBackground(mTabIndicator);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,1);
@@ -54,7 +53,6 @@
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
   mEmptyTabHint.setOnClickListener(this);
-  setTabPosition(initialTabPosition);
   setupSlidingMenu();
   setupBars();
   showDataProfilingRequest();
@@ -72,4 +70,6 @@
   }
   mPagerPosition=Float.NaN;
   setupHomeTabs();
+  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
+  setTabPosition(initialTabPosition);
 }

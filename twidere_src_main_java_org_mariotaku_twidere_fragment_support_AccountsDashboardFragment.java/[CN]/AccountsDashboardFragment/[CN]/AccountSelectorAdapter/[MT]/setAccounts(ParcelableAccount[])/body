@@ -1,13 +1,10 @@
 {
-  mAccounts=accounts;
   if (accounts != null) {
     final ParcelableAccount[] previousAccounts=mInternalAccounts;
     mInternalAccounts=new ParcelableAccount[accounts.length];
     int tempIdx=0;
     final List<ParcelableAccount> tempList=new ArrayList<>();
-    for (    ParcelableAccount account : accounts) {
-      tempList.add(account);
-    }
+    Collections.addAll(tempList,accounts);
     if (previousAccounts != null) {
       for (      ParcelableAccount previousAccount : previousAccounts) {
         final int idx=indexOfAccount(tempList,previousAccount.account_id);

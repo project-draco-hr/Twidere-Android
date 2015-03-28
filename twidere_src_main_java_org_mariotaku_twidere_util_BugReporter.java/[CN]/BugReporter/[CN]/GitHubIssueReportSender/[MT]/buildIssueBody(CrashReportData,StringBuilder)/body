@@ -1,0 +1,28 @@
+{
+  bodyBuilder.append("**Application Version**: ");
+  bodyBuilder.append(report.getProperty(ReportField.APP_VERSION_NAME));
+  bodyBuilder.append(" (");
+  bodyBuilder.append(report.getProperty(ReportField.APP_VERSION_CODE));
+  bodyBuilder.append(")\n\n");
+  bodyBuilder.append("**Device Information**: ");
+  bodyBuilder.append(Build.MODEL);
+  bodyBuilder.append(" (");
+  bodyBuilder.append(Build.PRODUCT);
+  bodyBuilder.append(", ");
+  bodyBuilder.append(Build.BRAND);
+  bodyBuilder.append(")");
+  bodyBuilder.append(", ");
+  bodyBuilder.append("Android ");
+  bodyBuilder.append(VERSION.RELEASE);
+  bodyBuilder.append(" (");
+  bodyBuilder.append(VERSION.SDK_INT);
+  bodyBuilder.append(")\n\n");
+  bodyBuilder.append("**User comment**: \n");
+  bodyBuilder.append("````\n");
+  bodyBuilder.append(report.getProperty(ReportField.USER_COMMENT));
+  bodyBuilder.append("\n````\n");
+  bodyBuilder.append("**Stack trace**: \n");
+  bodyBuilder.append("````\n");
+  bodyBuilder.append(report.getProperty(ReportField.STACK_TRACE));
+  bodyBuilder.append("\n````");
+}

@@ -14,9 +14,7 @@
     }
   }
   mAccountsAdapter.setAccounts(accounts);
-  if (mAccountsAdapter.getSelectedAccountId() <= 0) {
-    mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
-  }
+  mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
   mAccountActionProvider.setAccounts(accounts);
   mAccountActionProvider.setSelectedAccountIds(ArrayUtils.toPrimitive(activatedIds.toArray(new Long[activatedIds.size()])));
   updateAccountOptionsSeparatorLabel(null);

@@ -1,0 +1,73 @@
+{
+  final String stackTrace=report.getProperty(ReportField.STACK_TRACE);
+  final StringBuilder bodyBuilder=new StringBuilder();
+  buildIssueBody(report,bodyBuilder);
+  final Scanner scanner=new Scanner(stackTrace);
+  final String messageLine=scanner.nextLine();
+  final String recentLine=scanner.nextLine();
+  final String titleContent=messageLine + " " + recentLine;
+  scanner.close();
+  final StringBuilder titleBuilder=new StringBuilder();
+  final CRC32 crc32=new CRC32();
+  crc32.update(titleContent.getBytes(Charset.defaultCharset()));
+  final String checksum=Long.toHexString(crc32.getValue());
+  titleBuilder.append(checksum);
+  titleBuilder.append(" ");
+  titleBuilder.append(titleContent);
+  final JSONObject json=new JSONObject();
+  try {
+    json.put("title",titleBuilder.toString());
+    json.put("body",bodyBuilder.toString());
+  }
+ catch (  JSONException e) {
+    throw new ReportSenderException("Error processing report json",e);
+  }
+  final OkHttpClient client=new OkHttpClient();
+  final Request.Builder searchIssueBuilder=new Request.Builder();
+  final String query=String.format(Locale.ROOT,"%s repo:%s",checksum,USER_REPO);
+  final Uri.Builder searchIssueUrlBuilder=Uri.parse("https://api.github.com/search/issues").buildUpon();
+  searchIssueUrlBuilder.appendQueryParameter("q",query);
+  searchIssueBuilder.url(searchIssueUrlBuilder.build().toString());
+  authorizeRequest(searchIssueBuilder);
+  try {
+    final Response response=client.newCall(searchIssueBuilder.build()).execute();
+    final JsonReader jsonReader=new JsonReader(response.body().charStream());
+    boolean isDuplicate=false;
+    jsonReader.beginObject();
+    while (jsonReader.hasNext()) {
+      if ("total_count".equals(jsonReader.nextName())) {
+        isDuplicate=jsonReader.nextInt() > 0;
+      }
+ else {
+        jsonReader.skipValue();
+      }
+    }
+    jsonReader.endObject();
+    if (isDuplicate) {
+      Log.d(LOGTAG,"Issue already exists");
+      return;
+    }
+  }
+ catch (  IOException e) {
+    final String msg="Network error when searching issues";
+    Log.w(LOGTAG,msg,e);
+    throw new ReportSenderException(msg,e);
+  }
+  final RequestBody issueBody=RequestBody.create(MediaType.parse("application/json"),json.toString());
+  final Request.Builder createIssueBuilder=new Request.Builder();
+  createIssueBuilder.url(String.format(Locale.ROOT,"https://api.github.com/repos/%s/issues",USER_REPO));
+  createIssueBuilder.post(issueBody);
+  authorizeRequest(createIssueBuilder);
+  try {
+    final Response response=client.newCall(createIssueBuilder.build()).execute();
+    final String location=response.header("Location");
+    if (!TextUtils.isEmpty(location)) {
+      Log.d(LOGTAG,"Issue created at " + location);
+    }
+  }
+ catch (  IOException e) {
+    final String msg="Network error when sending error report";
+    Log.w(LOGTAG,msg,e);
+    throw new ReportSenderException(msg,e);
+  }
+}

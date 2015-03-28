@@ -3,7 +3,7 @@
   final ContentResolver resolver=context.getContentResolver();
   final Cursor cur=resolver.query(Tabs.CONTENT_URI,Tabs.COLUMNS,null,null,Tabs.DEFAULT_SORT_ORDER);
   if (cur == null)   return Collections.emptyList();
-  final ArrayList<SupportTabSpec> tabs=new ArrayList<SupportTabSpec>();
+  final ArrayList<SupportTabSpec> tabs=new ArrayList<>();
   cur.moveToFirst();
   final int idxName=cur.getColumnIndex(Tabs.NAME), idxIcon=cur.getColumnIndex(Tabs.ICON), idxType=cur.getColumnIndex(Tabs.TYPE), idxArguments=cur.getColumnIndex(Tabs.ARGUMENTS), idxExtras=cur.getColumnIndex(Tabs.EXTRAS), idxPosition=cur.getColumnIndex(Tabs.POSITION);
   while (!cur.isAfterLast()) {

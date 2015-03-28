@@ -2,7 +2,7 @@
   if (res == null)   return null;
   if (iconObj instanceof Integer) {
     try {
-      return res.getDrawable((Integer)iconObj);
+      return ResourcesCompat.getDrawable(res,(Integer)iconObj,null);
     }
  catch (    final Resources.NotFoundException e) {
     }
@@ -13,5 +13,5 @@
     final Bitmap b=getTabIconFromFile((File)iconObj,res);
     if (b != null)     return new BitmapDrawable(res,b);
   }
-  return res.getDrawable(R.drawable.ic_action_list);
+  return ResourcesCompat.getDrawable(res,R.drawable.ic_action_list,null);
 }

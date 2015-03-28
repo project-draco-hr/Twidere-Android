@@ -1,0 +1,3 @@
+{
+  return HOME_TABS_URI_MATCHER.match(uri);
+}
