@@ -40,13 +40,13 @@ case MENU_FAVORITE:
 {
 if (status.is_favorite) {
 twitter.destroyFavoriteAsync(status.account_id,status.id);
-SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
-SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
 }
  else {
 twitter.createFavoriteAsync(status.account_id,status.id);
-SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
-SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.timestamp);
+SpiceProfilingUtil.profile(adapter.getContext(),status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+SpiceProfilingUtil.log(adapter.getContext(),status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
 }
 break;
 }
