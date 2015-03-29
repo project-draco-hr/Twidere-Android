@@ -25,6 +25,6 @@
     }
   }
  else   if (text1 != null) {
-    text1.setText(R.string.none);
+    text1.setText(mDummyItemText);
   }
 }

@@ -3,6 +3,7 @@
   final ContentResolver cr=getContentResolver();
   mContentObserver=new ContentObserver(new Handler()){
     @Override public void onChange(    boolean selfChange){
+      reloadStatuses();
     }
   }
 ;

@@ -1,0 +1,5 @@
+FragmentActivity activity
+FragmentManager fm
+AsyncTwitterWrapper twitter
+ParcelableStatus status
+MenuItem item

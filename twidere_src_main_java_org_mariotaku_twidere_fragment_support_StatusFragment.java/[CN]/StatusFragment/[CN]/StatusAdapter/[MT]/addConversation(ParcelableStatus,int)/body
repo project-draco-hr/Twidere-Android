@@ -1,0 +1,8 @@
+{
+  if (mConversation == null) {
+    mConversation=new ArrayList<>();
+  }
+  mConversation.add(position,status);
+  notifyDataSetChanged();
+  updateItemDecoration();
+}

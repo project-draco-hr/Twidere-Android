@@ -1,0 +1,128 @@
+{
+switch (item.getItemId()) {
+case MENU_COPY:
+{
+      if (ClipboardUtils.setText(activity,status.text_plain)) {
+        showOkMessage(activity,R.string.text_copied,false);
+      }
+      break;
+    }
+case MENU_RETWEET:
+{
+    if (isMyRetweet(status)) {
+      twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
+    }
+ else {
+      twitter.retweetStatusAsync(status.account_id,status.id);
+    }
+    break;
+  }
+case MENU_QUOTE:
+{
+  final Intent intent=new Intent(INTENT_ACTION_QUOTE);
+  intent.putExtra(EXTRA_STATUS,status);
+  activity.startActivity(intent);
+  break;
+}
+case MENU_REPLY:
+{
+final Intent intent=new Intent(INTENT_ACTION_REPLY);
+intent.putExtra(EXTRA_STATUS,status);
+activity.startActivity(intent);
+break;
+}
+case MENU_FAVORITE:
+{
+if (status.is_favorite) {
+twitter.destroyFavoriteAsync(status.account_id,status.id);
+SpiceProfilingUtil.profile(activity,status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+SpiceProfilingUtil.log(activity,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+}
+ else {
+twitter.createFavoriteAsync(status.account_id,status.id);
+SpiceProfilingUtil.profile(activity,status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+SpiceProfilingUtil.log(activity,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+}
+break;
+}
+case MENU_DELETE:
+{
+DestroyStatusDialogFragment.show(fm,status);
+break;
+}
+case MENU_ADD_TO_FILTER:
+{
+AddStatusFilterDialogFragment.show(fm,status);
+break;
+}
+case MENU_SET_COLOR:
+{
+final Intent intent=new Intent(activity,ColorPickerDialogActivity.class);
+final int color=getUserColor(activity,status.user_id,true);
+if (color != 0) {
+intent.putExtra(EXTRA_COLOR,color);
+}
+intent.putExtra(EXTRA_CLEAR_BUTTON,color != 0);
+intent.putExtra(EXTRA_ALPHA_SLIDER,false);
+activity.startActivityForResult(intent,REQUEST_SET_COLOR);
+break;
+}
+case MENU_CLEAR_NICKNAME:
+{
+clearUserNickname(activity,status.user_id);
+break;
+}
+case MENU_SET_NICKNAME:
+{
+final String nick=getUserNickname(activity,status.user_id,true);
+SetUserNicknameDialogFragment.show(fm,status.user_id,nick);
+break;
+}
+case MENU_TRANSLATE:
+{
+final ParcelableCredentials account=ParcelableAccount.getCredentials(activity,status.account_id);
+if (isOfficialCredentials(activity,account)) {
+StatusTranslateDialogFragment.show(fm,status);
+}
+ else {
+final Resources resources=activity.getResources();
+final Locale locale=resources.getConfiguration().locale;
+try {
+final String template="http://translate.google.com/#%s|%s|%s";
+final String sourceLang="auto";
+final String targetLang=URLEncoder.encode(locale.getLanguage(),HTTP.UTF_8);
+final String text=URLEncoder.encode(status.text_unescaped,HTTP.UTF_8);
+final Uri uri=Uri.parse(String.format(Locale.ROOT,template,sourceLang,targetLang,text));
+final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+intent.addCategory(Intent.CATEGORY_BROWSABLE);
+activity.startActivity(intent);
+}
+ catch (UnsupportedEncodingException ignore) {
+}
+}
+break;
+}
+case MENU_OPEN_WITH_ACCOUNT:
+{
+final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
+intent.setClass(activity,AccountSelectorActivity.class);
+intent.putExtra(EXTRA_SINGLE_SELECTION,true);
+activity.startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
+break;
+}
+default :
+{
+if (item.getIntent() != null) {
+try {
+activity.startActivity(item.getIntent());
+}
+ catch (final ActivityNotFoundException e) {
+Log.w(LOGTAG,e);
+return false;
+}
+}
+break;
+}
+}
+return true;
+}

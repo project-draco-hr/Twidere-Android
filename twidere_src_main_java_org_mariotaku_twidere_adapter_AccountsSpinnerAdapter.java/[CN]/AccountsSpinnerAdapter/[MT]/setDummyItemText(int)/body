@@ -1,0 +1,3 @@
+{
+  setDummyItemText(mContext.getString(textRes));
+}
