@@ -1,0 +1,5 @@
+{
+  builder.setRequestProperty("Authorization",String.format(Locale.ROOT,"token %s",AUTH_TOKEN));
+  builder.setRequestProperty("Accept","application/vnd.github.v3+json");
+  builder.setRequestProperty("User-Agent","Twidere (" + BuildConfig.VERSION_NAME + ")");
+}

@@ -1,5 +1,0 @@
-{
-  builder.header("Authorization","token " + AUTH_TOKEN);
-  builder.header("Accept","application/vnd.github.v3+json");
-  builder.header("User-Agent","Twidere (" + BuildConfig.VERSION_NAME + ")");
-}
