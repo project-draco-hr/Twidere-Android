@@ -70,7 +70,7 @@
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
     mediaPreviewContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
-    mediaPreviewContainer.displayMedia(media,loader,account_id,null,adapter.getImageLoadingHandler());
+    mediaPreviewContainer.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
   }
  else {
     mediaPreviewContainer.setVisibility(View.GONE);

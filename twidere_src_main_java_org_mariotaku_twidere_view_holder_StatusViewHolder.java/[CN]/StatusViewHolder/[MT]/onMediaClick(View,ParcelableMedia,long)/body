@@ -1,0 +1,5 @@
+{
+  if (statusClickListener == null)   return;
+  final int position=getAdapterPosition();
+  statusClickListener.onMediaClick(this,media,position);
+}

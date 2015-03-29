@@ -1,0 +1,5 @@
+{
+  final ParcelableStatus status=mAdapter.getStatus(position);
+  if (status == null)   return;
+  Utils.openMedia(getActivity(),status,media);
+}

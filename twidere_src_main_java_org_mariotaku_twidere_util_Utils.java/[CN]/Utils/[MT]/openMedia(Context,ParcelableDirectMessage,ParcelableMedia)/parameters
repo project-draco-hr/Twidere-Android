@@ -1,6 +1,3 @@
 Context context
-long accountId
-boolean isPossiblySensitive
 ParcelableDirectMessage message
 ParcelableMedia current
-ParcelableMedia[] media

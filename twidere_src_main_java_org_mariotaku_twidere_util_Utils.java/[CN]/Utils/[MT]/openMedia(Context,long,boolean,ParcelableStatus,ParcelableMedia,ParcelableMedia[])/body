@@ -1,3 +1,0 @@
-{
-  openMedia(context,accountId,isPossiblySensitive,status,null,current,media);
-}

@@ -4,7 +4,6 @@
   itemView.findViewById(R.id.item_menu).setOnClickListener(this);
   itemView.setOnClickListener(this);
   profileImageView.setOnClickListener(this);
-  mediaPreviewContainer.setOnClickListener(this);
   replyCountView.setOnClickListener(this);
   retweetCountView.setOnClickListener(this);
   favoriteCountView.setOnClickListener(this);

@@ -10,5 +10,5 @@
   text.setMovementMethod(null);
   time.setText(Utils.formatToLongTimeString(context,timestamp));
   mediaContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
-  mediaContainer.displayMedia(media,loader,accountId,null,null);
+  mediaContainer.displayMedia(media,loader,accountId,this,null);
 }
