@@ -1,1 +1,1 @@
-TwidereAsyncTask<Void,Void,List<ParcelableAccount>>
+AsyncTask<Void,Void,List<ParcelableAccount>>

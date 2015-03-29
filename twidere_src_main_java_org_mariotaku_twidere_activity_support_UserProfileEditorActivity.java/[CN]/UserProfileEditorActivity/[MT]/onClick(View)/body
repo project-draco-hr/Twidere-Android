@@ -1,6 +1,6 @@
 {
   final ParcelableUser user=mUser;
-  if (user == null || (mTask != null && mTask.getStatus() == Status.RUNNING))   return;
+  if (user == null || (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING))   return;
 switch (view.getId()) {
 case R.id.profile_image:
 {
@@ -37,7 +37,7 @@ break;
 case R.id.profile_banner_remove:
 {
 mTask=new RemoveProfileBannerTaskInternal(user.account_id);
-mTask.executeTask();
+AsyncTaskUtils.executeTask(mTask);
 break;
 }
 case R.id.actionbar_cancel:
@@ -54,7 +54,7 @@ final String description=ParseUtils.parseString(mEditDescription.getText());
 final int linkColor=mLinkColor.getColor();
 final int backgroundColor=mBackgroundColor.getColor();
 mTask=new UpdateProfileTaskInternal(this,mAccountId,mUser,name,url,location,description,linkColor,backgroundColor);
-mTask.executeTask();
+AsyncTaskUtils.executeTask(mTask);
 break;
 }
 case R.id.set_link_color:

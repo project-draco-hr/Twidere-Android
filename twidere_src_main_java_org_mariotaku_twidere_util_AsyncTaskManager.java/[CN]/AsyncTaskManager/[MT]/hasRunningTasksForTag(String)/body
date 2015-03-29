@@ -1,7 +1,7 @@
 {
   if (tag == null)   return false;
   for (  final ManagedAsyncTask<?,?,?> task : getTaskSpecList()) {
-    if (task.getStatus() == ManagedAsyncTask.Status.RUNNING && tag.equals(task.getTag()))     return true;
+    if (task.getStatus() == AsyncTask.Status.RUNNING && tag.equals(task.getTag()))     return true;
   }
   return false;
 }

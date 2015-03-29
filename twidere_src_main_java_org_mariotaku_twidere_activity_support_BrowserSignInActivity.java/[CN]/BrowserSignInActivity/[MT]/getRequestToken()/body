@@ -1,5 +1,5 @@
 {
-  if (mRequestToken != null || mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING)   return;
+  if (mRequestToken != null || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
   mTask=new GetRequestTokenTask(this);
-  mTask.executeTask();
+  AsyncTaskUtils.executeTask(mTask);
 }

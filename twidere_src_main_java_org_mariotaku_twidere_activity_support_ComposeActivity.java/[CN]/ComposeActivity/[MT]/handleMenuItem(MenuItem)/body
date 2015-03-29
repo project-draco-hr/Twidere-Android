@@ -26,7 +26,7 @@ break;
 }
 case MENU_DELETE:
 {
-new DeleteImageTask(this).executeTask();
+AsyncTaskUtils.executeTask(new DeleteImageTask(this));
 break;
 }
 case MENU_TOGGLE_SENSITIVE:

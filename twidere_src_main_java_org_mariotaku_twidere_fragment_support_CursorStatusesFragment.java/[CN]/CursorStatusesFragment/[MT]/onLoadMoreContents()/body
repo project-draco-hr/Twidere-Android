@@ -1,5 +1,5 @@
 {
-  new TwidereAsyncTask<Void,Void,long[][]>(){
+  AsyncTaskUtils.executeTask(new AsyncTask<Void,Void,long[][]>(){
     @Override protected long[][] doInBackground(    final Void... params){
       final long[][] result=new long[3][];
       result[0]=getAccountIds();
@@ -10,5 +10,5 @@
       getStatuses(result[0],result[1],result[2]);
     }
   }
-.executeTask();
+);
 }

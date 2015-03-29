@@ -1,2 +1,2 @@
 List<ParcelableUserList> data
-boolean is_my_account
+boolean isMyAccount

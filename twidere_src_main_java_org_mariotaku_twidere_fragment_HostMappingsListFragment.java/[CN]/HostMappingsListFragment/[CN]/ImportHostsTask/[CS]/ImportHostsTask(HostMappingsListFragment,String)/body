@@ -1,5 +1,0 @@
-{
-  mActivity=activity;
-  mPath=path;
-  mPreferences=activity.getSharedPreferences(HOST_MAPPING_PREFERENCES_NAME,Context.MODE_PRIVATE);
-}

@@ -1,1 +1,1 @@
-TwidereAsyncTask<Void,Void,RequestToken>
+AsyncTask<Void,Void,RequestToken>

@@ -4,8 +4,7 @@ case DialogInterface.BUTTON_POSITIVE:
 {
       final Bundle args=getArguments();
       if (args == null)       return;
-      final DeleteDraftsTask task=new DeleteDraftsTask(getActivity(),args.getLongArray(EXTRA_IDS));
-      task.executeTask();
+      AsyncTaskUtils.executeTask(new DeleteDraftsTask(getActivity(),args.getLongArray(EXTRA_IDS)));
       break;
     }
 }

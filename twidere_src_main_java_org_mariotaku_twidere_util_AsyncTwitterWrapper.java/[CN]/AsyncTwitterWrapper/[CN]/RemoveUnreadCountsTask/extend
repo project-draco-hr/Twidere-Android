@@ -1,1 +1,1 @@
-TwidereAsyncTask<Void,Void,Integer>
+AsyncTask<Void,Void,Integer>

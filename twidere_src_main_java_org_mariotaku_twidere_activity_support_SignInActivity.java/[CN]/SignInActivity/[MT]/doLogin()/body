@@ -1,10 +1,10 @@
 {
-  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING) {
+  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) {
     mTask.cancel(true);
   }
   saveEditedText();
   setDefaultAPI();
   final Configuration conf=getConfiguration();
   mTask=new SignInTask(this,conf,mUsername,mPassword,mAuthType,mAPIUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
-  mTask.executeTask();
+  AsyncTaskUtils.executeTask(mTask);
 }

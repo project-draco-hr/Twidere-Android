@@ -1,1 +1,1 @@
-TwidereAsyncTask<Void,Void,ParcelableUserList>
+AsyncTask<Void,Void,ParcelableUserList>

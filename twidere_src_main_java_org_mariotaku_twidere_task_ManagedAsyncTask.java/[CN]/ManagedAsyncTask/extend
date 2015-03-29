@@ -1,1 +1,1 @@
-TwidereAsyncTask<Params,Progress,Result>
+AsyncTask<Params,Progress,Result>

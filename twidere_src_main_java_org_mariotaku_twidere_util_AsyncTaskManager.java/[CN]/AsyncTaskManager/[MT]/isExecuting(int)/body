@@ -1,5 +1,5 @@
 {
   final ManagedAsyncTask<?,?,?> task=findTask(hashCode);
-  if (task != null && task.getStatus() == TwidereAsyncTask.Status.RUNNING)   return true;
+  if (task != null && task.getStatus() == AsyncTask.Status.RUNNING)   return true;
   return false;
 }

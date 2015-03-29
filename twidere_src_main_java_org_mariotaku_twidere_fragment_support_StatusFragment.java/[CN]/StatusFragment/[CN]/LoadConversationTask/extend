@@ -1,1 +1,1 @@
-TwidereAsyncTask<ParcelableStatus,ParcelableStatus,ListResponse<ParcelableStatus>>
+AsyncTask<ParcelableStatus,ParcelableStatus,ListResponse<ParcelableStatus>>

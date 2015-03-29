@@ -1,5 +1,5 @@
 {
-  new TwidereAsyncTask<Void,Void,long[][]>(){
+  AsyncTaskUtils.executeTask(new AsyncTask<Void,Void,long[][]>(){
     @Override protected long[][] doInBackground(    final Void... params){
       final long[][] result=new long[2][];
       result[0]=Utils.getActivatedAccountIds(getActivity());
@@ -13,5 +13,5 @@
       twitter.getSentDirectMessagesAsync(result[0],null,null);
     }
   }
-.executeTask();
+);
 }

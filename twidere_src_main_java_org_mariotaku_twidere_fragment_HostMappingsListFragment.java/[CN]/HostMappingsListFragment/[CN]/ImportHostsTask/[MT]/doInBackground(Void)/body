@@ -1,9 +1,0 @@
-{
-  final HostsFileParser hosts=new HostsFileParser(mPath);
-  final boolean result=hosts.reload();
-  final SharedPreferences.Editor editor=mPreferences.edit();
-  for (  final Map.Entry<String,String> entry : hosts.getAll().entrySet()) {
-    editor.putString(entry.getKey(),entry.getValue());
-  }
-  return result && editor.commit();
-}

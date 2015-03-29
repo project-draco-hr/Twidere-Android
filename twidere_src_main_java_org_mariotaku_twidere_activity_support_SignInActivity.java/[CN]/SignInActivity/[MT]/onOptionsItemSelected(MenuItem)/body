@@ -10,14 +10,14 @@ case MENU_HOME:
     }
 case MENU_SETTINGS:
 {
-    if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING)     return false;
+    if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)     return false;
     final Intent intent=new Intent(this,SettingsActivity.class);
     startActivity(intent);
     break;
   }
 case MENU_EDIT_API:
 {
-  if (mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING)   return false;
+  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return false;
   setDefaultAPI();
   final Intent intent=new Intent(this,APIEditorActivity.class);
   intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
@@ -31,7 +31,7 @@ case MENU_EDIT_API:
 }
 case MENU_OPEN_IN_BROWSER:
 {
-if (mAuthType != Accounts.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == TwidereAsyncTask.Status.RUNNING) return false;
+if (mAuthType != Accounts.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
 saveEditedText();
 final Intent intent=new Intent(this,BrowserSignInActivity.class);
 intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);

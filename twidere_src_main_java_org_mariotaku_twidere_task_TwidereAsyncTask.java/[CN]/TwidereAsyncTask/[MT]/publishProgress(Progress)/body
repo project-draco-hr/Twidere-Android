@@ -1,4 +1,0 @@
-{
-  if (isCancelled())   return;
-  mHandler.post(new OnProgressUpdateRunnable(progress));
-}

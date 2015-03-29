@@ -1,4 +1,4 @@
 {
   final RemoveUnreadCountsTask task=new RemoveUnreadCountsTask(position,counts);
-  task.executeTask();
+  AsyncTaskUtils.executeTask(task);
 }
