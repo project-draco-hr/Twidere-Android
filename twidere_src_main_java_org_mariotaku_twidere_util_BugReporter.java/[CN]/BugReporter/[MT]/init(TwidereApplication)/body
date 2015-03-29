@@ -1,5 +1,0 @@
-{
-  ACRA.init(application);
-  final ErrorReporter reporter=ACRA.getErrorReporter();
-  reporter.setReportSender(new GitHubIssueReportSender());
-}

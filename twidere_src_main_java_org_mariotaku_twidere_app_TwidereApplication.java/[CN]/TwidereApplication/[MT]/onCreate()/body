@@ -1,5 +1,4 @@
 {
-  BugReporter.init(this);
   if (Utils.isDebugBuild()) {
     StrictModeUtils.detectAllVmPolicy();
   }
@@ -16,8 +15,8 @@
   final ComponentName main2=new ComponentName(this,MainHondaJOJOActivity.class);
   final boolean mainDisabled=pm.getComponentEnabledSetting(main) != PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
   final boolean main2Disabled=pm.getComponentEnabledSetting(main2) != PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
-  final boolean no_entry=mainDisabled && main2Disabled;
-  if (no_entry) {
+  final boolean noEntry=mainDisabled && main2Disabled;
+  if (noEntry) {
     pm.setComponentEnabledSetting(main,PackageManager.COMPONENT_ENABLED_STATE_ENABLED,PackageManager.DONT_KILL_APP);
   }
  else   if (!mainDisabled) {
