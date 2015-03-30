@@ -22,7 +22,7 @@
   mMapView.setBuiltInZoomControls(true);
   final List<Overlay> overlays=mMapView.getOverlays();
   final GeoPoint gp=new GeoPoint((int)(latitude * 1E6),(int)(longitude * 1E6));
-  final Drawable d=getResources().getDrawable(R.drawable.ic_map_marker);
+  final Drawable d=ResourcesCompat.getDrawable(getResources(),R.drawable.ic_map_marker,null);
   final Itemization markers=new Itemization(d,mMapView.getResourceProxy());
   final OverlayItem overlayitem=new OverlayItem("","",gp);
   markers.addOverlay(overlayitem);
