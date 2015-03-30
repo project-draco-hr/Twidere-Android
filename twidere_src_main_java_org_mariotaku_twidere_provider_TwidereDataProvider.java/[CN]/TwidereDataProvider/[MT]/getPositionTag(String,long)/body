@@ -1,0 +1,5 @@
+{
+  final long position=mReadStateManager.getPosition(Utils.getReadPositionTagWithAccounts(tag,accountId));
+  if (position != -1)   return position;
+  return mReadStateManager.getPosition(tag);
+}

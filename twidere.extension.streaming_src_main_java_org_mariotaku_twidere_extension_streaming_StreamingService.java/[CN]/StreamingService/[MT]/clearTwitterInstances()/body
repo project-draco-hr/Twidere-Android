@@ -4,5 +4,5 @@
     new Thread(new ShutdownStreamTwitterRunnable(twitter)).start();
   }
   mTwitterInstances.clear();
-  mNotificationManager.cancel(NOTIFITION_SERVICE_STARTED);
+  mNotificationManager.cancel(NOTIFICATION_SERVICE_STARTED);
 }

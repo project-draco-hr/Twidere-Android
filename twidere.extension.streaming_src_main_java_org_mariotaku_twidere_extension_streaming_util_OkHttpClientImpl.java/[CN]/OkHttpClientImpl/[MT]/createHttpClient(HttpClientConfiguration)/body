@@ -1,0 +1,28 @@
+{
+  final OkHttpClient client=new OkHttpClient();
+  final boolean ignoreSSLError=conf.isSSLErrorIgnored();
+  if (ignoreSSLError) {
+    client.setSslSocketFactory(SSLCertificateSocketFactory.getInsecure(0,null));
+  }
+ else {
+    client.setSslSocketFactory(SSLCertificateSocketFactory.getDefault(0,null));
+  }
+  client.setSocketFactory(SocketFactory.getDefault());
+  client.setConnectTimeout(conf.getHttpConnectionTimeout(),TimeUnit.MILLISECONDS);
+  if (conf.isProxyConfigured()) {
+    client.setProxy(new Proxy(Type.HTTP,InetSocketAddress.createUnresolved(conf.getHttpProxyHost(),conf.getHttpProxyPort())));
+  }
+  Internal.instance.setNetwork(client,new Network(){
+    @Override public InetAddress[] resolveInetAddresses(    String host) throws UnknownHostException {
+      try {
+        return resolver.resolve(host);
+      }
+ catch (      IOException e) {
+        if (e instanceof UnknownHostException)         throw (UnknownHostException)e;
+        throw new UnknownHostException("Unable to resolve address " + e.getMessage());
+      }
+    }
+  }
+);
+  return client;
+}

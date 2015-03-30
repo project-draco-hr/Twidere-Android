@@ -1,0 +1,4 @@
+String key
+long keyId
+long position
+boolean acceptOlder

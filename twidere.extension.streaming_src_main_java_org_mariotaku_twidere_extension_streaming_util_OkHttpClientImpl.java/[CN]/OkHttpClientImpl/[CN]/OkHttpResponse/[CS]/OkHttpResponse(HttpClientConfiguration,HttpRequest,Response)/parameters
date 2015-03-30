@@ -1,0 +1,3 @@
+HttpClientConfiguration conf
+HttpRequest request
+Response response

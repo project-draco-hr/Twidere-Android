@@ -13,6 +13,8 @@
     final long account_id=account.account_id;
     mAccountIds[i]=account_id;
     final StreamConfigurationBuilder cb=new StreamConfigurationBuilder();
+    cb.setHttpClientFactory(new OkHttpClientFactory(this));
+    cb.setHostAddressResolverFactory(new TwidereHostAddressResolverFactory(this));
     cb.setGZIPEnabled(prefs.getBoolean(KEY_GZIP_COMPRESSING,true));
     cb.setIncludeEntitiesEnabled(true);
     if (prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false)) {

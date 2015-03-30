@@ -1,0 +1,24 @@
+{
+  if (params == null)   return null;
+  if (!HttpParameter.containsFile(params)) {
+    return RequestBody.create(APPLICATION_FORM_URLENCODED,HttpParameter.encodeParameters(params));
+  }
+  final MultipartBuilder builder=new MultipartBuilder();
+  builder.type(MultipartBuilder.FORM);
+  for (  final HttpParameter param : params) {
+    if (param.isFile()) {
+      RequestBody requestBody;
+      if (param.hasFileBody()) {
+        requestBody=new StreamRequestBody(MediaType.parse(param.getContentType()),param.getFileBody(),true);
+      }
+ else {
+        requestBody=RequestBody.create(MediaType.parse(param.getContentType()),param.getFile());
+      }
+      builder.addFormDataPart(param.getName(),param.getFileName(),requestBody);
+    }
+ else {
+      builder.addFormDataPart(param.getName(),param.getValue());
+    }
+  }
+  return builder.build();
+}

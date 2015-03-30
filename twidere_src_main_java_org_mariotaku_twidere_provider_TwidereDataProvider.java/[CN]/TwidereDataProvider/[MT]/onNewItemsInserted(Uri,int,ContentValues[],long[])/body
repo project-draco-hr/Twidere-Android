@@ -8,7 +8,7 @@ case TABLE_ID_STATUSES:
       final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
       for (      final AccountPreferences pref : prefs) {
         if (!pref.isHomeTimelineNotificationEnabled())         continue;
-        showTimelineNotification(pref,mReadStateManager.getPosition(HomeTimelineFragment.KEY_READ_POSITION_TAG));
+        showTimelineNotification(pref,getPositionTag(HomeTimelineFragment.KEY_READ_POSITION_TAG,pref.getAccountId()));
       }
       notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
       break;
@@ -18,7 +18,7 @@ case TABLE_ID_MENTIONS:
     final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(getContext(),getAccountIds(getContext()));
     for (    final AccountPreferences pref : prefs) {
       if (!pref.isMentionsNotificationEnabled())       continue;
-      showMentionsNotification(pref,mReadStateManager.getPosition(MentionsTimelineFragment.KEY_READ_POSITION_TAG));
+      showMentionsNotification(pref,getPositionTag(MentionsTimelineFragment.KEY_READ_POSITION_TAG,pref.getAccountId()));
     }
     notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS_TIMELINE);
     break;

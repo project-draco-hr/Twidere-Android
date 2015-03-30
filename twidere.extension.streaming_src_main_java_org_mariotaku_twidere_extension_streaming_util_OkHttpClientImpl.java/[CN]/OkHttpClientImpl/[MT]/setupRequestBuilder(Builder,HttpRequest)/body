@@ -1,0 +1,45 @@
+{
+  final Uri.Builder uriBuilder=Uri.parse(req.getURL()).buildUpon();
+  final RequestMethod method=req.getMethod();
+  if (method != RequestMethod.POST && method != RequestMethod.PUT) {
+    final HttpParameter[] parameters=req.getParameters();
+    if (parameters != null) {
+      for (      HttpParameter param : parameters) {
+        uriBuilder.appendQueryParameter(param.getName(),param.getValue());
+      }
+    }
+  }
+  final Uri uri=uriBuilder.build();
+switch (req.getMethod()) {
+case GET:
+{
+      builder.get();
+      break;
+    }
+case POST:
+{
+    builder.post(getRequestBody(req.getParameters()));
+    break;
+  }
+case DELETE:
+{
+  builder.delete();
+  break;
+}
+case HEAD:
+{
+builder.head();
+break;
+}
+case PUT:
+{
+builder.put(getRequestBody(req.getParameters()));
+break;
+}
+default :
+{
+throw new AssertionError();
+}
+}
+builder.url(uri.toString());
+}

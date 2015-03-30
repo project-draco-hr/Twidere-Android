@@ -1,0 +1,10 @@
+{
+  int len;
+  byte[] buf=new byte[8192];
+  while ((len=stream.read(buf)) != -1) {
+    sink.write(buf,0,len);
+  }
+  if (closeAfterWrite) {
+    Utils.closeSilently(stream);
+  }
+}

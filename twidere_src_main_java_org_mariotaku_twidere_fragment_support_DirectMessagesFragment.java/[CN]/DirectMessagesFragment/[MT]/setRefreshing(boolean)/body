@@ -1,3 +1,4 @@
 {
+  if (refreshing == mSwipeRefreshLayout.isRefreshing())   return;
   mSwipeRefreshLayout.setRefreshing(refreshing);
 }

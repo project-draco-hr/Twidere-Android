@@ -20,10 +20,10 @@
       notification.icon=R.drawable.ic_stat_twidere;
       notification.tickerText=getString(R.string.streaming_service_running);
       notification.setLatestEventInfo(this,contentTitle,contentText,contentIntent);
-      mNotificationManager.notify(NOTIFITION_SERVICE_STARTED,notification);
+      mNotificationManager.notify(NOTIFICATION_SERVICE_STARTED,notification);
     }
  else {
-      mNotificationManager.cancel(NOTIFITION_SERVICE_STARTED);
+      mNotificationManager.cancel(NOTIFICATION_SERVICE_STARTED);
     }
   }
  else {
@@ -36,6 +36,6 @@
     notification.icon=R.drawable.ic_stat_login;
     notification.tickerText=getString(R.string.request_permission);
     notification.setLatestEventInfo(this,contentTitle,contentText,contentIntent);
-    mNotificationManager.notify(NOTIFITION_REQUEST_PERMISSION,notification);
+    mNotificationManager.notify(NOTIFICATION_REQUEST_PERMISSION,notification);
   }
 }

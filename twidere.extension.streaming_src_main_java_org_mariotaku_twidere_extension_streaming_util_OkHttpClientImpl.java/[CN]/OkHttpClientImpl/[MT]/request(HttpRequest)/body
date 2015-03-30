@@ -1,0 +1,21 @@
+{
+  final Builder builder=new Builder();
+  for (  Entry<String,String> headerEntry : req.getRequestHeaders().entrySet()) {
+    builder.header(headerEntry.getKey(),headerEntry.getValue());
+  }
+  final Authorization authorization=req.getAuthorization();
+  if (authorization != null) {
+    final String authHeader=authorization.getAuthorizationHeader(req);
+    if (authHeader != null) {
+      builder.header("Authorization",authHeader);
+    }
+  }
+  try {
+    setupRequestBuilder(builder,req);
+    final Response response=client.newCall(builder.build()).execute();
+    return new OkHttpResponse(conf,null,response);
+  }
+ catch (  IOException e) {
+    throw new TwitterException(e);
+  }
+}
