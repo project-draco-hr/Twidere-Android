@@ -1,0 +1,14 @@
+Context context
+MediaLoaderWrapper loader
+ImageLoadingHandler handler
+AsyncTwitterWrapper twitter
+boolean displayProfileImage
+boolean displayMediaPreview
+boolean displayAccountsColor
+boolean displayInReplyTo
+boolean nameFirst
+int profileImageStyle
+int mediaPreviewStyle
+ParcelableStatus status
+TranslationResult translation
+boolean shouldDisplayExtraType

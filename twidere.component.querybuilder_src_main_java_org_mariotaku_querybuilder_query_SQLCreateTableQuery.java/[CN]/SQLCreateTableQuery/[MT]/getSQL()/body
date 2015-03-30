@@ -9,12 +9,21 @@
   if (createIfNotExists) {
     sb.append("IF NOT EXISTS ");
   }
-  sb.append(String.format("%s ",table));
+  sb.append(table);
+  sb.append(' ');
   if (newColumns != null && newColumns.length > 0) {
-    sb.append(String.format("(%s)",Utils.toString(newColumns,',',true)));
+    sb.append('(');
+    sb.append(Utils.toString(newColumns,',',true));
+    if (constraints != null) {
+      sb.append(' ');
+      sb.append(Utils.toString(constraints,',',true));
+      sb.append(' ');
+    }
+    sb.append(')');
   }
  else {
-    sb.append(String.format("AS %s",selectStmt.getSQL()));
+    sb.append("AS ");
+    sb.append(selectStmt.getSQL());
   }
   return sb.toString();
 }

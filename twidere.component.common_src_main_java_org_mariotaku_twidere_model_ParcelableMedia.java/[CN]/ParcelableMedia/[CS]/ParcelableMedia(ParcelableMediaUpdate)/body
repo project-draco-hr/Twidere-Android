@@ -1,0 +1,5 @@
+{
+  media_url=update.uri;
+  page_url=update.uri;
+  type=update.type;
+}

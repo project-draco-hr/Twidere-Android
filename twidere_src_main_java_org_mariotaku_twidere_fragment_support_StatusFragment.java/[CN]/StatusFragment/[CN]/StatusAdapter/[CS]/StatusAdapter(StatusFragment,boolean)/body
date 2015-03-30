@@ -1,7 +1,7 @@
 {
   final Context context=fragment.getActivity();
   final Resources res=context.getResources();
-  final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mFragment=fragment;
   mContext=context;
   mInflater=LayoutInflater.from(context);
@@ -12,6 +12,7 @@
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mIsCompact=compact;
+  mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compact;

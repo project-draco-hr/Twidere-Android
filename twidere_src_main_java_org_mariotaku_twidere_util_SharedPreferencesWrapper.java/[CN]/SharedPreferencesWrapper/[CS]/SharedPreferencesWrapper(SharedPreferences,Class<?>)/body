@@ -1,4 +1,15 @@
 {
   mPreferences=preferences;
-  mKeysClass=keysClass;
+  mMap=new HashMap<>();
+  if (keysClass != null) {
+    for (    Field field : keysClass.getFields()) {
+      final Preference preference=field.getAnnotation(Preference.class);
+      if (preference == null)       continue;
+      try {
+        mMap.put((String)field.get(null),preference);
+      }
+ catch (      Exception ignore) {
+      }
+    }
+  }
 }

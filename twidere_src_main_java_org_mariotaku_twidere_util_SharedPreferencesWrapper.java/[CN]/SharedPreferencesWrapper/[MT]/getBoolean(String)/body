@@ -1,0 +1,5 @@
+{
+  final Preference preference=mMap.get(key);
+  if (preference == null || !preference.hasDefault())   return getBoolean(key,false);
+  return getBoolean(key,preference.defaultBoolean());
+}

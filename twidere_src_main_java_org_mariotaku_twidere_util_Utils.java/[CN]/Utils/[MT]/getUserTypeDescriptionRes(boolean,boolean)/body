@@ -1,0 +1,5 @@
+{
+  if (isVerified)   return R.string.user_type_verified;
+ else   if (isProtected)   return R.string.user_type_protected;
+  return 0;
+}

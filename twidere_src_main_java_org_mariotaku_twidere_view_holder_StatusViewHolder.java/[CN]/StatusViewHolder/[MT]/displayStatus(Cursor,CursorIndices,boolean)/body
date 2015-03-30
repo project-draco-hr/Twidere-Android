@@ -65,7 +65,16 @@
     itemContent.drawEnd();
   }
   profileImageView.setStyle(adapter.getProfileImageStyle());
-  loader.displayProfileImage(profileImageView,user_profile_image_url);
+  if (adapter.isProfileImageEnabled()) {
+    profileTypeView.setVisibility(View.VISIBLE);
+    profileImageView.setVisibility(View.VISIBLE);
+    loader.displayProfileImage(profileImageView,user_profile_image_url);
+  }
+ else {
+    profileTypeView.setVisibility(View.GONE);
+    profileImageView.setVisibility(View.GONE);
+    loader.cancelDisplayTask(profileImageView);
+  }
   final String text_unescaped=cursor.getString(indices.text_unescaped);
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());

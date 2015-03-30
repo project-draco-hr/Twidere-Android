@@ -1,3 +1,3 @@
 {
-  return LayoutInflater.from(getThemedContext()).inflate(R.layout.fragment_accounts_drawer,container,false);
+  return LayoutInflater.from(getThemedContext()).inflate(R.layout.fragment_accounts_dashboard,container,false);
 }

@@ -44,12 +44,15 @@
   favoritesCountView.setText(getLocalizedNumber(locale,status.favorite_count));
   loader.displayProfileImage(profileImageView,status.user_profile_image_url);
   final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
-  if (typeIconRes != 0) {
+  final int typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.user_is_verified,status.user_is_protected);
+  if (typeIconRes != 0 && typeDescriptionRes != 0) {
     profileTypeView.setImageResource(typeIconRes);
+    profileTypeView.setContentDescription(context.getString(typeDescriptionRes));
     profileTypeView.setVisibility(View.VISIBLE);
   }
  else {
     profileTypeView.setImageDrawable(null);
+    profileTypeView.setContentDescription(null);
     profileTypeView.setVisibility(View.GONE);
   }
   if (status.media == null) {

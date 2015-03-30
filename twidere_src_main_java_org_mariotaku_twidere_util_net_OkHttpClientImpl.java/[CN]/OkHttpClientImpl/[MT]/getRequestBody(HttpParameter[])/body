@@ -9,10 +9,7 @@
     if (param.isFile()) {
       RequestBody requestBody;
       if (param.hasFileBody()) {
-        final ByteArrayOutputStream os=new ByteArrayOutputStream();
-        Utils.copyStream(param.getFileBody(),os);
-        requestBody=RequestBody.create(MediaType.parse(param.getContentType()),os.toByteArray());
-        os.close();
+        requestBody=new StreamRequestBody(MediaType.parse(param.getContentType()),param.getFileBody(),true);
       }
  else {
         requestBody=RequestBody.create(MediaType.parse(param.getContentType()),param.getFile());
