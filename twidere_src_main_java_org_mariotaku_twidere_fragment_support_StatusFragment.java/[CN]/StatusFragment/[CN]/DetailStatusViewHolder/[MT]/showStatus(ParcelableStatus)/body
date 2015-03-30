@@ -35,6 +35,7 @@
     timeSourceView.setText(timeString);
   }
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
+  locationView.setVisibility(ParcelableLocation.isValidLocation(status.location) ? View.VISIBLE : View.GONE);
   retweetsContainer.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
   repliesContainer.setVisibility(status.reply_count < 0 ? View.GONE : View.VISIBLE);
   final Locale locale=context.getResources().getConfiguration().locale;

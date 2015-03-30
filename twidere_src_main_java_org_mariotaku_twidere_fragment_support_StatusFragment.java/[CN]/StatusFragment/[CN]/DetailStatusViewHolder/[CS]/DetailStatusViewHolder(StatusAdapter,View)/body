@@ -20,7 +20,7 @@
   mediaPreviewContainer=itemView.findViewById(R.id.media_preview);
   mediaPreviewLoad=itemView.findViewById(R.id.media_preview_load);
   mediaPreviewGrid=(LinearLayout)itemView.findViewById(R.id.media_preview_grid);
-  locationContainer=itemView.findViewById(R.id.location_container);
+  locationView=(TextView)itemView.findViewById(R.id.location_view);
   profileContainer=itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
   setIsRecyclable(false);

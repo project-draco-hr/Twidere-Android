@@ -30,5 +30,13 @@ if (status.retweet_id > 0) {
 }
 break;
 }
+case R.id.location_view:
+{
+final ParcelableStatus status=adapter.getStatus(getAdapterPosition());
+final ParcelableLocation location=status.location;
+if (!ParcelableLocation.isValidLocation(location)) return;
+Utils.openMap(adapter.getContext(),location.latitude,location.longitude);
+break;
+}
 }
 }
