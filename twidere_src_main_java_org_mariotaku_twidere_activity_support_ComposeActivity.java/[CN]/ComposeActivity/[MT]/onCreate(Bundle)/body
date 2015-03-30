@@ -6,7 +6,7 @@
   mTwitterWrapper=app.getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
-  mImageLoader=app.getImageLoaderWrapper();
+  mImageLoader=app.getMediaLoaderWrapper();
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
   final long[] defaultAccountIds=getAccountIds(this);

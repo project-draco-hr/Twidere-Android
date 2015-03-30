@@ -1,6 +1,6 @@
 {
   mActivity=activity;
   mInflater=LayoutInflater.from(activity);
-  mImageLoader=TwidereApplication.getInstance(activity).getImageLoaderWrapper();
+  mImageLoader=TwidereApplication.getInstance(activity).getMediaLoaderWrapper();
   mSelection=new LongSparseArray<>();
 }

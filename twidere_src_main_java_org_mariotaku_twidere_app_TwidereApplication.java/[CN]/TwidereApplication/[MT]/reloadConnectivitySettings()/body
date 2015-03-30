@@ -2,4 +2,7 @@
   if (mImageDownloader != null) {
     mImageDownloader.reloadConnectivitySettings();
   }
+  if (mFullImageDownloader != null) {
+    mFullImageDownloader.reloadConnectivitySettings();
+  }
 }

@@ -1,6 +1,7 @@
 {
   super.fitSystemWindows(insets);
   mRecyclerView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  mProgressContainer.setPadding(insets.left,insets.top,insets.right,insets.bottom);
   mSystemWindowsInsets.set(insets);
   updateRefreshProgressOffset();
 }

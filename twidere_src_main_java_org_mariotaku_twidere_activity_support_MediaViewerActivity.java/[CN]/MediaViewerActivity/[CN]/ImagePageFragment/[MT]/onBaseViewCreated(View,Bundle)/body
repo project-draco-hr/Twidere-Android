@@ -1,5 +1,5 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
   mImageView=(TouchImageView)view.findViewById(R.id.image_view);
-  mProgressBar=(ProgressBar)view.findViewById(R.id.progress);
+  mProgressBar=(ProgressWheel)view.findViewById(R.id.progress);
 }

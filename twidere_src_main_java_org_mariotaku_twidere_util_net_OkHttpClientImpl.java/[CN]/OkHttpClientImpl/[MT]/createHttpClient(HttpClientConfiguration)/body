@@ -1,12 +1,14 @@
 {
   final OkHttpClient client=new OkHttpClient();
   final boolean ignoreSSLError=conf.isSSLErrorIgnored();
+  final SSLCertificateSocketFactory sslSocketFactory;
   if (ignoreSSLError) {
-    client.setSslSocketFactory(SSLCertificateSocketFactory.getInsecure(0,null));
+    sslSocketFactory=(SSLCertificateSocketFactory)SSLCertificateSocketFactory.getInsecure(0,null);
   }
  else {
-    client.setSslSocketFactory(SSLCertificateSocketFactory.getDefault(0,null));
+    sslSocketFactory=(SSLCertificateSocketFactory)SSLCertificateSocketFactory.getDefault(0,null);
   }
+  client.setSslSocketFactory(sslSocketFactory);
   client.setSocketFactory(SocketFactory.getDefault());
   client.setConnectTimeout(conf.getHttpConnectionTimeout(),TimeUnit.MILLISECONDS);
   if (conf.isProxyConfigured()) {

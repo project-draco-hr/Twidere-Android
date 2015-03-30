@@ -21,7 +21,7 @@
  else {
   }
   mTwitterWrapper=getApplication().getTwitterWrapper();
-  mProfileImageLoader=getApplication().getImageLoaderWrapper();
+  mProfileImageLoader=getApplication().getMediaLoaderWrapper();
   mProfileImageView.setOnClickListener(this);
   mUserListDetails.setOnClickListener(this);
   mRetryButton.setOnClickListener(this);

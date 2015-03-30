@@ -1,8 +1,9 @@
 {
-  if (mContentLength == 0) {
-    mProgressBar.setIndeterminate(true);
+  if (mContentLength <= 0) {
+    if (!mProgressBar.isSpinning()) {
+      mProgressBar.spin();
+    }
     return;
   }
-  mProgressBar.setIndeterminate(false);
-  mProgressBar.setProgress((int)(downloaded / 1024));
+  mProgressBar.setProgress(downloaded / mContentLength);
 }

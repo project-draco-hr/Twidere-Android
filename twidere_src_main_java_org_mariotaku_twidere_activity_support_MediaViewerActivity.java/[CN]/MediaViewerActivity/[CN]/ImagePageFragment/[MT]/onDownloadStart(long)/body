@@ -1,5 +1,4 @@
 {
   mContentLength=total;
-  mProgressBar.setIndeterminate(total <= 0);
-  mProgressBar.setMax(total > 0 ? (int)(total / 1024) : 0);
+  mProgressBar.spin();
 }

@@ -1,6 +1,6 @@
 {
   mProgressBar.setVisibility(View.VISIBLE);
-  mProgressBar.setIndeterminate(true);
+  mProgressBar.spin();
   invalidateOptionsMenu();
   final ParcelableMedia media=getMedia();
   final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);

@@ -7,7 +7,7 @@
     return;
   }
   mAsyncTaskManager=TwidereApplication.getInstance(this).getAsyncTaskManager();
-  mLazyImageLoader=TwidereApplication.getInstance(this).getImageLoaderWrapper();
+  mLazyImageLoader=TwidereApplication.getInstance(this).getMediaLoaderWrapper();
   mAccountId=accountId;
   setContentView(R.layout.activity_user_profile_editor);
   setSupportActionBar(mToolbar);

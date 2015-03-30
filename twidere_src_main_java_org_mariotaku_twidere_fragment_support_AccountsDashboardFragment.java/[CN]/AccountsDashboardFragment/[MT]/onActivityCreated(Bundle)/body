@@ -5,7 +5,7 @@
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
-  mImageLoader=TwidereApplication.getInstance(context).getImageLoaderWrapper();
+  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
   final LayoutInflater inflater=LayoutInflater.from(context);
   final ListView listView=getListView();
   mAdapter=new MergeAdapter();
