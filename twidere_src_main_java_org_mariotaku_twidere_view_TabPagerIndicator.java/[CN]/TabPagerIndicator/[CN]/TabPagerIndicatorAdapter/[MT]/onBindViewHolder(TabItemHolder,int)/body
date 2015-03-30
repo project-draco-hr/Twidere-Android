@@ -6,6 +6,7 @@
   holder.setStripHeight(mIndicator.getStripHeight());
   holder.setStripColor(mStripColor);
   holder.setIconColor(mIconColor);
+  holder.setLabelColor(mLabelColor);
   holder.setBadge(mUnreadCounts.get(position,0),mDisplayBadge);
   holder.setDisplayOption(mIndicator.isIconDisplayed(),mIndicator.isLabelDisplayed());
 }

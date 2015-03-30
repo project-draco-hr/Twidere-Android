@@ -1,0 +1,3 @@
+{
+  labelView.setTextColor(color);
+}
