@@ -1,4 +1,5 @@
-FragmentActivity activity
+Context context
+Fragment fragment
 FragmentManager fm
 AsyncTwitterWrapper twitter
 ParcelableStatus status
