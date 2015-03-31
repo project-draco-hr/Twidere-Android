@@ -1,7 +1,0 @@
-{
-  final View view=inflater.inflate(R.layout.fragment_donate,container,false);
-  mEditName=(EditText)view.findViewById(R.id.name);
-  mEditAmount=(EditText)view.findViewById(R.id.amount);
-  mDonateButton=(Button)view.findViewById(R.id.donate);
-  return view;
-}

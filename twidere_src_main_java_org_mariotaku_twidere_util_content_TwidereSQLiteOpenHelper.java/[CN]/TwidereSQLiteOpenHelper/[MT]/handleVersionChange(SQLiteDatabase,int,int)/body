@@ -29,6 +29,7 @@
   safeUpgrade(db,SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true,null);
   db.beginTransaction();
   createViews(db);
+  createTriggers(db);
   createIndices(db);
   db.setTransactionSuccessful();
   db.endTransaction();

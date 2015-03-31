@@ -1,0 +1,4 @@
+{
+  db.execSQL(createDeleteDuplicateStatusTrigger("delete_old_statuses",Statuses.TABLE_NAME).getSQL());
+  db.execSQL(createDeleteDuplicateStatusTrigger("delete_old_mentions",Mentions.TABLE_NAME).getSQL());
+}

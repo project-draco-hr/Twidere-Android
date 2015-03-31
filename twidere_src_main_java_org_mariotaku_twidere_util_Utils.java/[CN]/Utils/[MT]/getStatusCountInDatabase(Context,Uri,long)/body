@@ -1,8 +1,8 @@
 {
   if (context == null)   return -1;
   final ContentResolver resolver=context.getContentResolver();
-  final String where=Statuses.ACCOUNT_ID + " = " + account_id;
-  final String[] projection=new String[]{SQLFunctions.COUNT(Statuses.STATUS_ID)};
+  final String where=Expression.equals(Statuses.ACCOUNT_ID,accountId).getSQL();
+  final String[] projection=new String[]{SQLFunctions.COUNT()};
   final Cursor cur=ContentResolverUtils.query(resolver,uri,projection,where,null,null);
   if (cur == null)   return -1;
   try {

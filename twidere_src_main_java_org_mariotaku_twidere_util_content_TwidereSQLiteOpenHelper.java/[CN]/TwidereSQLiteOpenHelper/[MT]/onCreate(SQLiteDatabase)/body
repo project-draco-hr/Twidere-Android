@@ -19,6 +19,7 @@
   db.execSQL(createTable(SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true));
   db.execSQL(createTable(SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true));
   createViews(db);
+  createTriggers(db);
   createIndices(db);
   db.setTransactionSuccessful();
   db.endTransaction();
