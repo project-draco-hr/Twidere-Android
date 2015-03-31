@@ -8,7 +8,7 @@
       final long id=c.getLong(idIdx);
       final ContentValues values=new ContentValues();
       values.put(Tabs.POSITION,i);
-      final String where=Tabs._ID + " = " + id;
+      final String where=Expression.equals(Tabs._ID,id).getSQL();
       mResolver.update(Tabs.CONTENT_URI,values,where,null);
     }
   }
