@@ -2,6 +2,8 @@
   if (getActivity() == null)   return;
   mFirstVisibleItem=-1;
   mAdapter.setCursor(cursor);
-  mAdapter.setLoadMoreIndicatorEnabled(cursor != null && cursor.getCount() > 0);
+  mAdapter.setLoadMoreIndicatorVisible(false);
+  mAdapter.setLoadMoreSupported(cursor != null && cursor.getCount() > 0);
+  mSwipeRefreshLayout.setEnabled(true);
   setListShown(true);
 }

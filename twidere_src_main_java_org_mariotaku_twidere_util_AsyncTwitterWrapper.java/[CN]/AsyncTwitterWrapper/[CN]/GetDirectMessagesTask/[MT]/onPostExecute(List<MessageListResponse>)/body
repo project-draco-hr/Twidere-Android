@@ -1,5 +1,7 @@
 {
   super.onPostExecute(result);
+  final Bus bus=TwidereApplication.getInstance(getContext()).getMessageBus();
+  bus.post(new GetMessagesTaskEvent(getDatabaseUri(),false));
   for (  final TwitterListResponse<DirectMessage> response : result) {
     if (response.list == null) {
       mMessagesManager.showErrorMessage(R.string.action_refreshing_direct_messages,response.getException(),true);

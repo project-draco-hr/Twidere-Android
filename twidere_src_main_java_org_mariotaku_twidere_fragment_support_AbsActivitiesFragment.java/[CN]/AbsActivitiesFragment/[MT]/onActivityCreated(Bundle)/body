@@ -8,7 +8,7 @@
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
   mAdapter=onCreateAdapter(context,compact);
-  mAdapter.setLoadMoreIndicatorEnabled(true);
+  mAdapter.setLoadMoreIndicatorVisible(true);
   mAdapter.setListener(this);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
   layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

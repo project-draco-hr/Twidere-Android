@@ -1,4 +1,5 @@
 {
+  super.onLoadMoreContents();
   AsyncTaskUtils.executeTask(new AsyncTask<Void,Void,long[][]>(){
     @Override protected long[][] doInBackground(    final Void... params){
       final long[][] result=new long[3][];

@@ -1,0 +1,4 @@
+{
+  setLoadMoreIndicatorVisible(true);
+  setRefreshEnabled(false);
+}

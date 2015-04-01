@@ -1,3 +1,4 @@
 {
-  return mSwipeRefreshLayout.isRefreshing();
+  if (mSwipeRefreshLayout == null || mAdapter == null)   return false;
+  return mSwipeRefreshLayout.isRefreshing() || mAdapter.isLoadMoreIndicatorVisible();
 }

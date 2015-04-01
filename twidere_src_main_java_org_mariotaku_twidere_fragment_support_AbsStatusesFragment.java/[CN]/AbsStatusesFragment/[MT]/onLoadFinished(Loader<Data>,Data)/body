@@ -1,5 +1,4 @@
 {
-  setRefreshing(false);
   final SharedPreferences preferences=getSharedPreferences();
   final boolean rememberPosition=preferences.getBoolean(KEY_REMEMBER_POSITION,false);
   final boolean readFromBottom=preferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
@@ -31,7 +30,7 @@
   }
   mAdapter.setData(data);
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
-    mAdapter.setLoadMoreIndicatorEnabled(hasMoreData(data));
+    mAdapter.setLoadMoreSupported(hasMoreData(data));
     int pos=-1;
     for (int i=0, j=mAdapter.getItemCount(); i < j; i++) {
       if (lastReadId != -1 && lastReadId == mAdapter.getStatusId(i)) {
@@ -47,4 +46,5 @@
     ((IExtendedLoader)loader).setFromUser(false);
   }
   setListShown(true);
+  onLoadingFinished();
 }
