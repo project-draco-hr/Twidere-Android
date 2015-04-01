@@ -1,5 +1,5 @@
 {
-  super(new Drawable[]{shadow,background,new LineBackgroundDrawable(resources,2.0f),new ActionBarColorDrawable()});
+  super(new Drawable[]{shadow,background,new LineBackgroundDrawable(resources,2.0f),new ActionBarColorDrawable(true)});
   mShadowDrawable=getDrawable(0);
   mBackgroundDrawable=getDrawable(1);
   mLineDrawable=(LineBackgroundDrawable)getDrawable(2);

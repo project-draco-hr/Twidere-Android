@@ -48,6 +48,7 @@
     builder.setContentIntent(clickIntent);
     builder.setNumber(statusesCount);
     builder.setColor(pref.getNotificationLightColor());
+    setNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     nm.notify("home_" + accountId,NOTIFICATION_ID_HOME_TIMELINE,builder.build());
   }
   finally {

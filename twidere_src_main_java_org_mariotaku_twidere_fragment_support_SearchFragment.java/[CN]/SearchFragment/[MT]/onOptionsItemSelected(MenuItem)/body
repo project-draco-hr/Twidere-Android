@@ -11,6 +11,14 @@ case MENU_SAVE:
       }
       return true;
     }
+case MENU_COMPOSE:
+{
+    final Intent intent=new Intent(getActivity(),ComposeActivity.class);
+    intent.setAction(INTENT_ACTION_COMPOSE);
+    intent.putExtra(Intent.EXTRA_TEXT,String.format("#%s ",getQuery()));
+    startActivity(intent);
+    break;
+  }
 }
 return super.onOptionsItemSelected(item);
 }

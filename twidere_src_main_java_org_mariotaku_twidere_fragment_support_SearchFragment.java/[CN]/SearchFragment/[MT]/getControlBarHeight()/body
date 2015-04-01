@@ -1,0 +1,14 @@
+{
+  final FragmentActivity activity=getActivity();
+  final int controlBarHeight;
+  if (activity instanceof LinkHandlerActivity) {
+    controlBarHeight=((LinkHandlerActivity)activity).getControlBarHeight();
+  }
+ else {
+    controlBarHeight=mControlBarHeight;
+  }
+  if (controlBarHeight == 0) {
+    return Utils.getActionBarHeight(activity);
+  }
+  return controlBarHeight;
+}

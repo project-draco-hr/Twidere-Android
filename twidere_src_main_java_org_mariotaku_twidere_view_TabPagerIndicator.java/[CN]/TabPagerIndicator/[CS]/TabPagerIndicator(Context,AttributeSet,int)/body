@@ -17,6 +17,7 @@
   setVerticalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabHorizontalPadding,0));
   setStripColor(a.getColor(R.styleable.TabPagerIndicator_tabStripColor,0));
   setIconColor(a.getColor(R.styleable.TabPagerIndicator_tabIconColor,0));
+  setLabelColor(a.getColor(R.styleable.TabPagerIndicator_tabLabelColor,ThemeUtils.getTextColorPrimary(context)));
   setTabDisplayOption(a.getInt(R.styleable.TabPagerIndicator_tabDisplayOption,ICON));
   setTabShowDivider(a.getBoolean(R.styleable.TabPagerIndicator_tabShowDivider,false));
   final int dividerVerticalPadding=a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabDividerVerticalPadding,0);

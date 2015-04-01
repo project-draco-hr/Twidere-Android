@@ -3,7 +3,13 @@
   final Context context=getContext();
   final Resources resources=context.getResources();
   final NotificationManager nm=getNotificationManager();
-  final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
+  final Expression selection;
+  if (pref.isNotificationFollowingOnly()) {
+    selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position),Expression.equals(Statuses.IS_FOLLOWING,1));
+  }
+ else {
+    selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
+  }
   final String filteredSelection=Utils.buildStatusFilterWhereClause(Mentions.TABLE_NAME,selection,true).getSQL();
   final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
   final String[] statusProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME,Statuses.TEXT_UNESCAPED,Statuses.STATUS_TIMESTAMP};
@@ -64,6 +70,7 @@
     builder.setWhen(when);
     builder.setStyle(style);
     builder.setColor(pref.getNotificationLightColor());
+    setNotificationPreferences(builder,pref,pref.getMentionsNotificationType());
     nm.notify("mentions_" + accountId,NOTIFICATION_ID_MENTIONS_TIMELINE,builder.build());
   }
   finally {

@@ -8,4 +8,5 @@
   }
 ;
   cr.registerContentObserver(Accounts.CONTENT_URI,true,mContentObserver);
+  updateRefreshState();
 }

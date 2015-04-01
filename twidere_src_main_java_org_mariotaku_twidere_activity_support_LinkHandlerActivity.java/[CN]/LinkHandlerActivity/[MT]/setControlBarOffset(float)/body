@@ -1,2 +1,6 @@
 {
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  actionBar.setHideOffset(Math.round((1 - offset) * getControlBarHeight()));
+  notifyControlBarOffsetChanged();
 }

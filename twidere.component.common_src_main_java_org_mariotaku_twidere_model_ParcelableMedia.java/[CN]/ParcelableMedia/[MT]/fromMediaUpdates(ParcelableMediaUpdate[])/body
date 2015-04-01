@@ -1,4 +1,5 @@
 {
+  if (mediaUpdates == null)   return null;
   final ParcelableMedia[] media=new ParcelableMedia[mediaUpdates.length];
   for (int i=0, j=mediaUpdates.length; i < j; i++) {
     final ParcelableMediaUpdate mediaUpdate=mediaUpdates[i];

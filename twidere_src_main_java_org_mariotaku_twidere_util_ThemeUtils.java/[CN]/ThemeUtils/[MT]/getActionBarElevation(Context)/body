@@ -1,0 +1,9 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.elevation},android.R.attr.actionBarStyle,0);
+  try {
+    return a.getDimension(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}

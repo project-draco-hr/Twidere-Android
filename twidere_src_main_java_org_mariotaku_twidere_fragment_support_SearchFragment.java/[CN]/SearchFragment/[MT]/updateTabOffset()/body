@@ -1,0 +1,4 @@
+{
+  int controlBarHeight=getControlBarHeight();
+  mPagerIndicator.setTranslationY(controlBarHeight - mControlBarOffsetPixels);
+}

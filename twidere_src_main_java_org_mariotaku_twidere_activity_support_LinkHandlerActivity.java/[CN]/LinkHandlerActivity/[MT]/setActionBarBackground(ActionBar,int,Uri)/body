@@ -4,10 +4,15 @@ case LINK_ID_USER:
 {
       break;
     }
-default :
+case LINK_ID_SEARCH:
 {
-    ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),getCurrentThemeColor());
+    ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),getCurrentThemeColor(),false);
     break;
   }
+default :
+{
+  ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),getCurrentThemeColor(),true);
+  break;
+}
 }
 }

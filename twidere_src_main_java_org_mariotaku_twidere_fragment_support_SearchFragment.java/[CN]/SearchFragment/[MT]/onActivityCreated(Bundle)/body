@@ -10,11 +10,20 @@
   mViewPager.setOffscreenPageLimit(2);
   mPagerIndicator.setViewPager(mViewPager);
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
+  mPagerIndicator.setOnPageChangeListener(this);
   if (activity instanceof IThemedActivity) {
-    mPagerIndicator.setStripColor(((IThemedActivity)activity).getCurrentThemeColor());
+    final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
+    final int contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
+    mPagerIndicator.setBackgroundColor(themeColor);
+    mPagerIndicator.setIconColor(contrastColor);
+    mPagerIndicator.setLabelColor(contrastColor);
+    mPagerIndicator.setStripColor(contrastColor);
   }
  else {
+    mPagerIndicator.setBackgroundColor(ThemeUtils.getThemeColor(activity));
   }
+  final float supportActionBarElevation=ThemeUtils.getSupportActionBarElevation(activity);
+  ViewCompat.setElevation(mPagerIndicator,supportActionBarElevation);
   if (savedInstanceState == null && args != null && args.containsKey(EXTRA_QUERY)) {
     final String query=args.getString(EXTRA_QUERY);
     final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(getActivity(),RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);
@@ -30,4 +39,5 @@
       }
     }
   }
+  updateTabOffset();
 }

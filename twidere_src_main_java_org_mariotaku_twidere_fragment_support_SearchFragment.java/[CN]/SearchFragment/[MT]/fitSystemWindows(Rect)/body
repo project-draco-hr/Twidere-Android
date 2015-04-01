@@ -2,6 +2,8 @@
   super.fitSystemWindows(insets);
   final View view=getView();
   if (view != null) {
-    view.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+    final int top=Utils.getInsetsTopWithoutActionBarHeight(getActivity(),insets.top);
+    view.setPadding(insets.left,top,insets.right,insets.bottom);
   }
+  updateTabOffset();
 }

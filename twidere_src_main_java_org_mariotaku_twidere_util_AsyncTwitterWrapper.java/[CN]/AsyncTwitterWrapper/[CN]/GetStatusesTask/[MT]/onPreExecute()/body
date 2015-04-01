@@ -1,0 +1,5 @@
+{
+  super.onPreExecute();
+  final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+  bus.post(new GetStatusesTaskEvent(getDatabaseUri(),true));
+}

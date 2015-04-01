@@ -1,0 +1,3 @@
+{
+  return getSupportFragmentManager().findFragmentById(R.id.main_content);
+}

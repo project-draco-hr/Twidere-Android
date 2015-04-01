@@ -5,7 +5,6 @@
   final Uri data=intent.getData();
   final int linkId=matchLinkId(data);
   requestWindowFeatures(getWindow(),linkId,data);
-  setUiOptions(getWindow(),linkId,data);
   super.onCreate(savedInstanceState);
   final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {

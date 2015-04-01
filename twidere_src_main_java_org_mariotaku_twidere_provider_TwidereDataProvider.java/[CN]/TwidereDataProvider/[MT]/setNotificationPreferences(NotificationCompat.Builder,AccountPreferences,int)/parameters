@@ -1,0 +1,3 @@
+NotificationCompat.Builder builder
+AccountPreferences pref
+int defaultFlags

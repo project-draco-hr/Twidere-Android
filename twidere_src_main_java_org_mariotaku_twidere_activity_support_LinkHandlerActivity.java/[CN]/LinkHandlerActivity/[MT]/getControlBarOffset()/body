@@ -1,3 +1,5 @@
 {
-  return 0;
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return 0;
+  return 1f - actionBar.getHideOffset() / (float)getControlBarHeight();
 }

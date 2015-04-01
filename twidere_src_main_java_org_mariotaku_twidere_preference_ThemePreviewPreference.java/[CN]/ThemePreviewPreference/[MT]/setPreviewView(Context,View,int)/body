@@ -13,7 +13,7 @@
   final int cardBackgroundColor=ThemeUtils.getCardBackgroundColor(context);
   final int accentColor=ThemeUtils.getUserAccentColor(context);
   ViewAccessor.setBackground(windowBackgroundView,ThemeUtils.getWindowBackground(context));
-  ViewAccessor.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor));
+  ViewAccessor.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,true));
   ViewAccessor.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
   cardView.setCardBackgroundColor(cardBackgroundColor);
   actionBarView.setTitle(R.string.app_name);

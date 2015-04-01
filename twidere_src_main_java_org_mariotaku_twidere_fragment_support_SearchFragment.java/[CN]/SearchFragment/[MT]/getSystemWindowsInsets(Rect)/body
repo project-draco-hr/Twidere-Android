@@ -1,3 +1,10 @@
 {
+  if (mPagerIndicator == null)   return false;
+  final FragmentActivity activity=getActivity();
+  if (activity instanceof LinkHandlerActivity) {
+    ((LinkHandlerActivity)activity).getSystemWindowsInsets(insets);
+    insets.top=mPagerIndicator.getHeight() + getControlBarHeight();
+    return true;
+  }
   return false;
 }

@@ -1,0 +1,5 @@
+android.support.v7.app.ActionBar actionBar
+Context context
+int themeRes
+int accentColor
+boolean outlineEnabled
