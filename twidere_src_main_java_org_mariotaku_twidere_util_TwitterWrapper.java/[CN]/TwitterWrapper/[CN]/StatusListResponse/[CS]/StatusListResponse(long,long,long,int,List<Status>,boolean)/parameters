@@ -1,6 +1,0 @@
-long account_id
-long max_id
-long since_id
-int load_item_limit
-List<Status> list
-boolean truncated

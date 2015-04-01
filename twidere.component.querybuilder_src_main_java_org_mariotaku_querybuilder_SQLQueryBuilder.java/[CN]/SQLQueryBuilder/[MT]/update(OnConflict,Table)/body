@@ -1,0 +1,3 @@
+{
+  return new SQLUpdateQuery.Builder().update(onConflict,table);
+}

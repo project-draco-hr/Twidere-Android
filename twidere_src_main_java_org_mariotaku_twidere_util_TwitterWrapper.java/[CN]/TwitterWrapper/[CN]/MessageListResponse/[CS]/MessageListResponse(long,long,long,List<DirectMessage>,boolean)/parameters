@@ -1,6 +1,5 @@
 long accountId
 long maxId
 long sinceId
-List<Status> list
+List<DirectMessage> list
 boolean truncated
-Exception exception

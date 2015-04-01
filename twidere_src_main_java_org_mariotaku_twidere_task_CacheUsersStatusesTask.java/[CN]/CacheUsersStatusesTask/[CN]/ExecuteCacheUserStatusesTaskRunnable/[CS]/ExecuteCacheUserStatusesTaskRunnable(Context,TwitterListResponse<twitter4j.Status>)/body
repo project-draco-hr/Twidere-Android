@@ -1,4 +1,0 @@
-{
-  this.context=context;
-  this.all_statuses=all_statuses;
-}

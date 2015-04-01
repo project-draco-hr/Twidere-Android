@@ -1,0 +1,3 @@
+{
+  return getArguments().getLong(EXTRA_ACCOUNT_ID);
+}

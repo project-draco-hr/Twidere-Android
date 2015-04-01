@@ -17,7 +17,7 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
       for (      final ContentValues values : valuesArray) {
         final Expression where=Expression.equals(CachedUsers.USER_ID,values.getAsLong(CachedUsers.USER_ID));
         mDatabaseWrapper.update(table,values,where.getSQL(),null);
-        newIds[result++]=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+        newIds[result++]=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
       }
     }
  else     if (tableId == TABLE_ID_SEARCH_HISTORY) {

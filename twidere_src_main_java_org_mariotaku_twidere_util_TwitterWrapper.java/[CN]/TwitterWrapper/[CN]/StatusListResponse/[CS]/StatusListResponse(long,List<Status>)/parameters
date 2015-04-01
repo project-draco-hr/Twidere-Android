@@ -1,2 +1,2 @@
-long account_id
+long accountId
 List<Status> list

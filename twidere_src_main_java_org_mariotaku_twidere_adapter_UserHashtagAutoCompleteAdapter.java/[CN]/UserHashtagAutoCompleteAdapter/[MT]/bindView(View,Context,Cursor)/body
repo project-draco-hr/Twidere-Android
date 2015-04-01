@@ -21,9 +21,11 @@
  else {
       mProfileImageLoader.cancelDisplayTask(icon);
     }
+    icon.clearColorFilter();
   }
  else {
     icon.setImageResource(R.drawable.ic_action_hashtag);
+    icon.setColorFilter(text1.getCurrentTextColor(),Mode.SRC_ATOP);
   }
   super.bindView(view,context,cursor);
 }

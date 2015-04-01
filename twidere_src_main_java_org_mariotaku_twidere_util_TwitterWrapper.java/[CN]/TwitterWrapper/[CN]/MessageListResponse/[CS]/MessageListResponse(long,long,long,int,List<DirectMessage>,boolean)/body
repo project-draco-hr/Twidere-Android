@@ -1,3 +1,0 @@
-{
-  this(account_id,max_id,since_id,list,truncated,null);
-}

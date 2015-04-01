@@ -27,6 +27,7 @@
       final List<twitter4j.Status> statuses=new ArrayList<>();
       final boolean truncated=truncateStatuses(getStatuses(twitter,paging),statuses,sinceId);
       storeStatus(accountId,statuses,maxId,truncated,true);
+      publishProgress(new StatusListResponse(accountId,statuses));
     }
  catch (    final TwitterException e) {
       Log.w(LOGTAG,e);

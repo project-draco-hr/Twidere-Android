@@ -42,7 +42,6 @@
   }
   final long minStatusId=statuses.isEmpty() ? -1 : Collections.min(statuses).getId();
   final boolean insertGap=minStatusId > 0 && statuses.size() > 1 && !data.isEmpty() && !truncated;
-  mHandler.post(CacheUsersStatusesTask.getRunnable(context,new StatusListResponse(mAccountId,statuses)));
   for (  final Status status : statuses) {
     final long id=status.getId();
     final boolean deleted=deleteStatus(data,id);

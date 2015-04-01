@@ -1,3 +1,0 @@
-{
-  AsyncTaskUtils.executeTask(new CacheUsersStatusesTask(context,all_statuses));
-}

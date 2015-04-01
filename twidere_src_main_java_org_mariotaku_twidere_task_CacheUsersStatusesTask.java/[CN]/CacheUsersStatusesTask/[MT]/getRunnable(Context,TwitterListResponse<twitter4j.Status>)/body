@@ -1,3 +1,0 @@
-{
-  return new ExecuteCacheUserStatusesTaskRunnable(context,all_statuses);
-}

@@ -1,6 +1,6 @@
-long account_id
-long max_id
-long since_id
+long accountId
+long maxId
+long sinceId
 List<DirectMessage> list
 boolean truncated
 Exception exception
