@@ -1,6 +1,5 @@
 {
   mColor=color;
   mColorDrawable.setColor(color);
-  mLineDrawable.setColor(color);
   setFactor(mFactor);
 }

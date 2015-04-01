@@ -1,7 +1,4 @@
 {
-  setSupportProgressBarIndeterminateVisibility(true);
-  mEditPassword.setEnabled(false);
-  mEditUsername.setEnabled(false);
-  mSignInButton.setEnabled(false);
-  mSignUpButton.setEnabled(false);
+  final SupportProgressDialogFragment fragment=SupportProgressDialogFragment.show(this,FRAGMENT_TAG_SIGN_IN_PROGRESS);
+  fragment.setCancelable(false);
 }

@@ -1,3 +1,4 @@
 {
+  if (!(getCurrentVisibleFragment() instanceof SearchFragment))   return;
   mControlBarShowHideHelper.setControlBarVisibleAnimate(visible);
 }

@@ -1,4 +1,9 @@
 {
+  final FragmentManager fm=getSupportFragmentManager();
+  final Fragment f=fm.findFragmentByTag(FRAGMENT_TAG_SIGN_IN_PROGRESS);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
   if (result != null) {
     if (result.succeed) {
       final ContentValues values;
@@ -54,10 +59,5 @@ showErrorMessage(this,getString(R.string.action_signing_in),result.exception,tru
 }
 }
 }
-setSupportProgressBarIndeterminateVisibility(false);
-mEditPassword.setEnabled(true);
-mEditUsername.setEnabled(true);
-mSignInButton.setEnabled(true);
-mSignUpButton.setEnabled(true);
 setSignInButton();
 }

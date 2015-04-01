@@ -70,8 +70,10 @@
   mRetryButton.setOnClickListener(this);
   mProfileBannerView.setOnSizeChangedListener(this);
   mProfileBannerSpace.setOnTouchListener(this);
-  mCardView.setCardBackgroundColor(ThemeUtils.getCardBackgroundColor(getActivity()));
+  mCardView.setCardBackgroundColor(ThemeUtils.getCardBackgroundColor(activity));
   getUserInfo(accountId,userId,screenName,false);
+  final float actionBarElevation=ThemeUtils.getActionBarElevation(activity);
+  ViewCompat.setElevation(mPagerIndicator,actionBarElevation);
   setupBaseActionBar();
   setupUserPages();
 }

@@ -23,7 +23,7 @@
   mFollowersCount=(TextView)headerView.findViewById(R.id.followers_count);
   mFriendsContainer=headerView.findViewById(R.id.friends_container);
   mFriendsCount=(TextView)headerView.findViewById(R.id.friends_count);
-  mProfileNameContainer=(IColorLabelView)headerView.findViewById(R.id.profile_name_container);
+  mProfileNameContainer=(ColorLabelRelativeLayout)headerView.findViewById(R.id.profile_name_container);
   mProfileImageView=(ShapedImageView)headerView.findViewById(R.id.profile_image);
   mProfileTypeView=(ImageView)headerView.findViewById(R.id.profile_type);
   mDescriptionContainer=headerView.findViewById(R.id.description_container);
@@ -39,4 +39,6 @@
   mPagesErrorContainer=view.findViewById(R.id.pages_error_container);
   mPagesErrorIcon=(ImageView)view.findViewById(R.id.pages_error_icon);
   mPagesErrorText=(TextView)view.findViewById(R.id.pages_error_text);
+  mProfileNameBackground=view.findViewById(R.id.profile_name_background);
+  mProfileDetailsContainer=view.findViewById(R.id.profile_details_container);
 }

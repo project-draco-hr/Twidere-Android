@@ -1,0 +1,4 @@
+{
+  mOutlineAlphaFactor=f;
+  invalidateSelf();
+}

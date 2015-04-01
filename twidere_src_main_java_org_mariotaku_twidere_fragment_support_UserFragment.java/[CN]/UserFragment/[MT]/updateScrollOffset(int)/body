@@ -9,6 +9,24 @@
   if (mActionBarBackground != null && mTintedStatusContent != null) {
     mActionBarBackground.setFactor(factor);
     mTintedStatusContent.setFactor(factor);
+    final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
+    final float outlineAlphaFactor;
+    if ((offset - spaceHeight) > 0) {
+      outlineAlphaFactor=1f - MathUtils.clamp((offset - spaceHeight) / profileContentHeight,0,1);
+    }
+ else {
+      outlineAlphaFactor=1f;
+    }
+    mActionBarBackground.setOutlineAlphaFactor(outlineAlphaFactor);
+    final Drawable drawable=mPagerIndicator.getBackground();
+    if (drawable != null) {
+      drawable.setAlpha(Math.round(255 * (1 - outlineAlphaFactor)));
+    }
+    final int color=mActionBarBackground.getColor();
+    final int contrastColor=ColorUtils.getContrastYIQ(color,192);
+    mPagerIndicator.setIconColor(contrastColor);
+    mPagerIndicator.setLabelColor(contrastColor);
+    mPagerIndicator.setStripColor(contrastColor);
   }
   updateTitleColor();
 }

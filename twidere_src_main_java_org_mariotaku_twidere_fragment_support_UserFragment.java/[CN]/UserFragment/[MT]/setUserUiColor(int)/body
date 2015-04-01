@@ -3,9 +3,23 @@
     setupBaseActionBar();
   }
   mActionBarBackground.setColor(color);
-  mTintedStatusContent.setColor(color,ThemeUtils.getThemeAlpha(getActivity()));
-  mPagerIndicator.setStripColor(color);
+  final FragmentActivity activity=getActivity();
+  mTintedStatusContent.setColor(color,ThemeUtils.getThemeAlpha(activity));
   mDescriptionView.setLinkTextColor(color);
+  mProfileBannerView.setBackgroundColor(color);
   mLocationView.setLinkTextColor(color);
   mURLView.setLinkTextColor(color);
+  if (activity instanceof IThemedActivity) {
+    final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
+    if (ThemeUtils.isDarkTheme(themeRes)) {
+      ViewAccessor.setBackground(mPagerIndicator,ThemeUtils.getActionBarBackground(activity,themeRes));
+      mPagerIndicator.setStripColor(color);
+    }
+ else {
+      mPagerIndicator.setBackgroundColor(color);
+    }
+  }
+ else {
+    mPagerIndicator.setBackgroundColor(color);
+  }
 }

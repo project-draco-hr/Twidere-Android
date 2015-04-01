@@ -11,6 +11,7 @@
   mEditConsumerKey=(EditText)view.findViewById(R.id.consumer_key);
   mEditConsumerSecret=(EditText)view.findViewById(R.id.consumer_secret);
   mAPIFormatHelpButton=view.findViewById(R.id.api_url_format_help);
+  mEditNoVersionSuffix.setOnCheckedChangeListener(this);
   mEditAuthType.setOnCheckedChangeListener(this);
   mAPIFormatHelpButton.setOnClickListener(this);
   return view;
