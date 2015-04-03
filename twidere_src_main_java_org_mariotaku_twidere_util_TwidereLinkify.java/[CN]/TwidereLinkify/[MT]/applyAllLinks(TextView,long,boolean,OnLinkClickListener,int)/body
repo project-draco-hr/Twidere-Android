@@ -5,5 +5,7 @@
     addLinks(string,account_id,type,sensitive,listener,highlightOption);
   }
   view.setText(string);
-  addLinkMovementMethod(view);
+  if (mAddMovementMethod) {
+    addLinkMovementMethod(view);
+  }
 }

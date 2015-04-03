@@ -12,5 +12,7 @@
     applyLink(screenName,0,string.length(),string,accountId,LINK_TYPE_MENTION,false,listener);
   }
   view.setText(string);
-  addLinkMovementMethod(view);
+  if (mAddMovementMethod) {
+    addLinkMovementMethod(view);
+  }
 }

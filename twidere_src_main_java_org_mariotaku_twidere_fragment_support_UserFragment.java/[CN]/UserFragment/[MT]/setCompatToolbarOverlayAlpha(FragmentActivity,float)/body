@@ -1,14 +1,6 @@
 {
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   return;
-  final View view=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.decor_content_parent);
-  if (!(view instanceof ActionBarOverlayLayout))   return;
-  try {
-    final Field field=ActionBarOverlayLayout.class.getDeclaredField("mWindowContentOverlay");
-    field.setAccessible(true);
-    final Drawable drawable=(Drawable)field.get(view);
-    if (drawable == null)     return;
-    drawable.setAlpha(Math.round(alpha * 255));
-  }
- catch (  Exception ignore) {
-  }
+  final Drawable drawable=ThemeUtils.getCompatToolbarOverlay(activity);
+  if (drawable == null)   return;
+  drawable.setAlpha(Math.round(alpha * 255));
 }

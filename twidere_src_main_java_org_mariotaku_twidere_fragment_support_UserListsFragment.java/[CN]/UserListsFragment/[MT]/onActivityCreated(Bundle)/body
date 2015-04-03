@@ -10,4 +10,5 @@
   mPagerIndicator.setViewPager(mViewPager);
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
   ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator);
+  ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
 }

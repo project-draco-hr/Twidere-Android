@@ -1,0 +1,13 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   return null;
+  final View view=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.decor_content_parent);
+  if (!(view instanceof ActionBarOverlayLayout))   return null;
+  try {
+    final Field field=ActionBarOverlayLayout.class.getDeclaredField("mWindowContentOverlay");
+    field.setAccessible(true);
+    return (Drawable)field.get(view);
+  }
+ catch (  Exception ignore) {
+  }
+  return null;
+}

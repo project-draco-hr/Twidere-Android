@@ -12,6 +12,7 @@
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
   mPagerIndicator.setOnPageChangeListener(this);
   ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator);
+  ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
   if (savedInstanceState == null && args != null && args.containsKey(EXTRA_QUERY)) {
     final String query=args.getString(EXTRA_QUERY);
     final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(getActivity(),RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);
