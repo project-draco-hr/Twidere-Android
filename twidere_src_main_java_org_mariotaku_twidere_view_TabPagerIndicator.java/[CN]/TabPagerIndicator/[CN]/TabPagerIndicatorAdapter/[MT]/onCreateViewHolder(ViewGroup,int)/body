@@ -1,5 +1,9 @@
 {
   if (mIndicator == null)   throw new IllegalStateException("item context not set");
   final View view=mInflater.inflate(R.layout.layout_tab_item,parent,false);
-  return new TabItemHolder(mIndicator,view);
+  final TabItemHolder holder=new TabItemHolder(mIndicator,view);
+  holder.setStripHeight(mIndicator.getStripHeight());
+  holder.setPadding(mIndicator.getTabHorizontalPadding(),mIndicator.getTabVerticalPadding());
+  holder.setDisplayOption(mIndicator.isIconDisplayed(),mIndicator.isLabelDisplayed());
+  return holder;
 }

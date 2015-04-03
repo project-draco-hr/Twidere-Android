@@ -1,3 +1,0 @@
-{
-  applyActionBarBackground(actionBar,context,true);
-}

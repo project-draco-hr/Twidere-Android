@@ -10,7 +10,6 @@
   mErrorMessageView=(TextView)headerView.findViewById(R.id.error_message);
   mProfileBannerView=(ProfileBannerImageView)view.findViewById(R.id.profile_banner);
   mProfileBannerContainer=view.findViewById(R.id.profile_banner_container);
-  mCardView=(CardView)headerView.findViewById(R.id.card);
   mNameView=(TextView)headerView.findViewById(R.id.name);
   mScreenNameView=(TextView)headerView.findViewById(R.id.screen_name);
   mDescriptionView=(TextView)headerView.findViewById(R.id.description);

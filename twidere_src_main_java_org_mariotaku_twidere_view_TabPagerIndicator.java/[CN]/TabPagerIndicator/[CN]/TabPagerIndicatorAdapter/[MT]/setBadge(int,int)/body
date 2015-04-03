@@ -1,4 +1,4 @@
 {
   mUnreadCounts.put(position,count);
-  notifyDataSetChanged();
+  notifyItemChanged(position);
 }

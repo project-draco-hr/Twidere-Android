@@ -1,0 +1,21 @@
+{
+  final float supportActionBarElevation=getSupportActionBarElevation(activity);
+  ViewCompat.setElevation(indicator,supportActionBarElevation);
+  if (!(activity instanceof IThemedActivity))   return;
+  final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
+  final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
+  final int contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
+  ViewAccessor.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
+  if (isDarkTheme(themeRes)) {
+    final int foregroundColor=getThemeForegroundColor(activity);
+    indicator.setIconColor(foregroundColor);
+    indicator.setLabelColor(foregroundColor);
+    indicator.setStripColor(themeColor);
+  }
+ else {
+    indicator.setIconColor(contrastColor);
+    indicator.setLabelColor(contrastColor);
+    indicator.setStripColor(contrastColor);
+  }
+  indicator.updateAppearance();
+}

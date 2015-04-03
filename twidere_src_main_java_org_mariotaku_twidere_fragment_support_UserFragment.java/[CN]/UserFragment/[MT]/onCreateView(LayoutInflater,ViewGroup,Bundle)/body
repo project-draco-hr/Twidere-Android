@@ -1,12 +1,4 @@
 {
   final View view=inflater.inflate(R.layout.fragment_user,container,false);
-  final ViewGroup profileDetailsContainer=(ViewGroup)view.findViewById(R.id.profile_details_container);
-  final boolean isCompact=Utils.isCompactCards(getActivity());
-  if (isCompact) {
-    inflater.inflate(R.layout.layout_user_details_compact,profileDetailsContainer);
-  }
- else {
-    inflater.inflate(R.layout.layout_user_details,profileDetailsContainer);
-  }
   return view;
 }

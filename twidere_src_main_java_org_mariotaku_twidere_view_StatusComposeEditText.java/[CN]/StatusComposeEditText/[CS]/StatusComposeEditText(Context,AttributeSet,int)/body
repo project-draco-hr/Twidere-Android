@@ -1,11 +1,5 @@
 {
   super(context,attrs,defStyle);
-  if (isInEditMode()) {
-    mAdapter=null;
-  }
- else {
-    mAdapter=new UserHashtagAutoCompleteAdapter(this);
-  }
   setTokenizer(new ScreenNameTokenizer());
   setMovementMethod(ArrowKeyMovementMethod.getInstance());
   setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE);

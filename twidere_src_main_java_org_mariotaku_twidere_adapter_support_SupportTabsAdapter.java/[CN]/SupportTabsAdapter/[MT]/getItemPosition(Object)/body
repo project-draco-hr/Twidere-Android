@@ -1,0 +1,6 @@
+{
+  if (!(object instanceof Fragment))   return POSITION_NONE;
+  final Bundle args=((Fragment)object).getArguments();
+  if (args == null)   return POSITION_NONE;
+  return args.getInt(EXTRA_TAB_POSITION,POSITION_NONE);
+}

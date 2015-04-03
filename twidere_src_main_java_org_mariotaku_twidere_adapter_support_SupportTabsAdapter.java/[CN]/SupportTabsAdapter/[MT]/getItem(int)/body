@@ -1,5 +1,5 @@
 {
   final Fragment fragment=Fragment.instantiate(mContext,mTabs.get(position).cls.getName());
-  fragment.setArguments(mTabs.get(position).args);
+  fragment.setArguments(getPageArguments(mTabs.get(position).args,position));
   return fragment;
 }

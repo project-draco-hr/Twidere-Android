@@ -11,15 +11,14 @@
   mURLView.setLinkTextColor(color);
   if (activity instanceof IThemedActivity) {
     final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
-    if (ThemeUtils.isDarkTheme(themeRes)) {
-      ViewAccessor.setBackground(mPagerIndicator,ThemeUtils.getActionBarBackground(activity,themeRes));
-      mPagerIndicator.setStripColor(color);
-    }
- else {
-      mPagerIndicator.setBackgroundColor(color);
-    }
+    ViewAccessor.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,color,true));
   }
  else {
     mPagerIndicator.setBackgroundColor(color);
+  }
+  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
+  if (drawer != null) {
+    final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();
+    updateScrollOffset(offset);
   }
 }

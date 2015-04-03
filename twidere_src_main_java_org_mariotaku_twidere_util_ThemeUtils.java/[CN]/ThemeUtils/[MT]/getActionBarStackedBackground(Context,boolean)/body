@@ -1,6 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.backgroundStacked},android.R.attr.actionBarStyle,0);
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
-  return applyActionBarDrawable(context,d,applyAlpha);
-}

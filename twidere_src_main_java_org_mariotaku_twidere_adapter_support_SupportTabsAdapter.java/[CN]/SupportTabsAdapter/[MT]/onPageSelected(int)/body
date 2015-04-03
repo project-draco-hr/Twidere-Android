@@ -1,4 +1,5 @@
 {
+  Log.d(LOGTAG,"onPageSelected " + position);
   if (mIndicator == null)   return;
   announceForAccessibilityCompat(mContext,(View)mIndicator,getPageTitle(position),getClass());
 }

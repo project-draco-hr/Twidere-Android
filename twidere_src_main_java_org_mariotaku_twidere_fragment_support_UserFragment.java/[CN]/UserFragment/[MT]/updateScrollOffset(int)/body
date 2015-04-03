@@ -10,23 +10,46 @@
     mActionBarBackground.setFactor(factor);
     mTintedStatusContent.setFactor(factor);
     final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
-    final float outlineAlphaFactor;
+    final float tabOutlineAlphaFactor;
     if ((offset - spaceHeight) > 0) {
-      outlineAlphaFactor=1f - MathUtils.clamp((offset - spaceHeight) / profileContentHeight,0,1);
+      tabOutlineAlphaFactor=1f - MathUtils.clamp((offset - spaceHeight) / profileContentHeight,0,1);
     }
  else {
-      outlineAlphaFactor=1f;
+      tabOutlineAlphaFactor=1f;
     }
-    mActionBarBackground.setOutlineAlphaFactor(outlineAlphaFactor);
-    final Drawable drawable=mPagerIndicator.getBackground();
-    if (drawable != null) {
-      drawable.setAlpha(Math.round(255 * (1 - outlineAlphaFactor)));
+    mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
+    final FragmentActivity activity=getActivity();
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+      setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
     final int color=mActionBarBackground.getColor();
-    final int contrastColor=ColorUtils.getContrastYIQ(color,192);
-    mPagerIndicator.setIconColor(contrastColor);
-    mPagerIndicator.setLabelColor(contrastColor);
-    mPagerIndicator.setStripColor(contrastColor);
+    if (activity instanceof IThemedActivity) {
+      final Drawable drawable=mPagerIndicator.getBackground();
+      final int stackedTabColor;
+      if (ThemeUtils.isDarkTheme(((IThemedActivity)activity).getCurrentThemeResourceId())) {
+        stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
+        final int contrastColor=ColorUtils.getContrastYIQ(stackedTabColor,192);
+        mPagerIndicator.setIconColor(contrastColor);
+        mPagerIndicator.setLabelColor(contrastColor);
+        mPagerIndicator.setStripColor(color);
+      }
+ else       if (drawable instanceof ColorDrawable) {
+        stackedTabColor=color;
+        final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
+        ((ColorDrawable)drawable).setColor(tabColor);
+        final int contrastColor=ColorUtils.getContrastYIQ(tabColor,192);
+        mPagerIndicator.setIconColor(contrastColor);
+        mPagerIndicator.setLabelColor(contrastColor);
+        mPagerIndicator.setStripColor(contrastColor);
+      }
+    }
+ else {
+      final int contrastColor=ColorUtils.getContrastYIQ(color,192);
+      mPagerIndicator.setIconColor(contrastColor);
+      mPagerIndicator.setLabelColor(contrastColor);
+      mPagerIndicator.setStripColor(contrastColor);
+    }
+    mPagerIndicator.updateAppearance();
   }
   updateTitleColor();
 }
