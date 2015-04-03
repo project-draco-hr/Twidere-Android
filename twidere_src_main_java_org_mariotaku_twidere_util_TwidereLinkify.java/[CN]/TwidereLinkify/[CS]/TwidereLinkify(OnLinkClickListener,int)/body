@@ -1,4 +1,3 @@
 {
-  mOnLinkClickListener=listener;
-  setHighlightOption(highlightOption);
+  this(listener,highlightOption,true);
 }

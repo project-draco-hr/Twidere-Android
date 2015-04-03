@@ -1,3 +1,5 @@
 {
-  setSelectedAccounts(mAccountsAdapter.getSelectedAccounts());
+  final ParcelableAccount[] accounts=mAccountsAdapter.getSelectedAccounts();
+  setSelectedAccounts(accounts);
+  mEditText.setAccountId(accounts.length > 0 ? accounts[0].account_id : Utils.getDefaultAccountId(this));
 }

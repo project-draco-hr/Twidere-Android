@@ -30,6 +30,7 @@
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
+      mEditText.setAccountId(account.account_id);
       searchUsers(account.account_id,ParseUtils.parseString(s),true);
     }
     @Override public void afterTextChanged(    Editable s){

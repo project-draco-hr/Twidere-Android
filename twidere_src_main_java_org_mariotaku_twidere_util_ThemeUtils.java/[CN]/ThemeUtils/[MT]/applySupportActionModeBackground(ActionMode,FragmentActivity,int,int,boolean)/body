@@ -1,0 +1,25 @@
+{
+  if (!(mode instanceof SupportActionModeWrapper) || !(activity instanceof IThemedActivity))   return;
+  final android.support.v7.view.ActionMode modeCompat=SupportActionModeWrapperTrojan.getWrappedObject((SupportActionModeWrapper)mode);
+  if (!(modeCompat instanceof ActionModeImpl))   return;
+  try {
+    WindowDecorActionBar actionBar=null;
+    final Field[] fields=ActionModeImpl.class.getDeclaredFields();
+    for (    Field field : fields) {
+      if (WindowDecorActionBar.class.isAssignableFrom(field.getType())) {
+        field.setAccessible(true);
+        actionBar=(WindowDecorActionBar)field.get(modeCompat);
+        break;
+      }
+    }
+    if (actionBar == null)     return;
+    final Field contextViewField=WindowDecorActionBar.class.getDeclaredField("mContextView");
+    contextViewField.setAccessible(true);
+    final View view=(View)contextViewField.get(actionBar);
+    if (view == null)     return;
+    ViewAccessor.setBackground(view,getActionBarBackground(activity,themeRes,accentColor,outlineEnabled));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

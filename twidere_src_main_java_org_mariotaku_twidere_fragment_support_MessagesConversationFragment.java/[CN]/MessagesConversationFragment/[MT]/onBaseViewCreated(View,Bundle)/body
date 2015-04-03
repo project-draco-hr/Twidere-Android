@@ -8,7 +8,7 @@
   final View inputSendContainer=view.findViewById(R.id.input_send_container);
   mConversationContainer=view.findViewById(R.id.conversation_container);
   mRecipientSelectorContainer=view.findViewById(R.id.recipient_selector_container);
-  mEditText=(EditText)inputSendContainer.findViewById(R.id.edit_text);
+  mEditText=(StatusComposeEditText)inputSendContainer.findViewById(R.id.edit_text);
   mTextCountView=(StatusTextCountView)inputSendContainer.findViewById(R.id.text_count);
   mSendButton=inputSendContainer.findViewById(R.id.send);
   mAddImageButton=(ImageView)inputSendContainer.findViewById(R.id.add_image);

@@ -77,7 +77,7 @@ return c;
 case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_RELATIONSHIP:
 {
 final long accountId=ParseUtils.parseLong(uri.getLastPathSegment(),-1);
-final SQLSelectQuery query=CachedUsersQueryBuilder.buildWithRelationship(projection,selection,sortOrder,accountId);
+final SQLSelectQuery query=CachedUsersQueryBuilder.withRelationship(projection,selection,sortOrder,accountId);
 final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
 setNotificationUri(c,CachedUsers.CONTENT_URI);
 return c;
@@ -85,7 +85,7 @@ return c;
 case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_SCORE:
 {
 final long accountId=ParseUtils.parseLong(uri.getLastPathSegment(),-1);
-final SQLSelectQuery query=CachedUsersQueryBuilder.buildWithScore(projection,selection,sortOrder,accountId);
+final SQLSelectQuery query=CachedUsersQueryBuilder.withScore(projection,selection,sortOrder,accountId);
 final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
 setNotificationUri(c,CachedUsers.CONTENT_URI);
 return c;

@@ -14,7 +14,7 @@
   final String expr=String.format(Locale.ROOT,"%s * 100 + %s * 50 - %s * 100 - %s * 100 - %s * 100",valueOrZero(CachedRelationships.FOLLOWING,CachedRelationships.FOLLOWED_BY,CachedRelationships.BLOCKING,CachedRelationships.BLOCKED_BY,CachedRelationships.MUTING));
   columns[columns.length - 1]=new Column(expr,"score");
   qb.select(select);
-  qb.from(buildWithRelationship(new Columns(columns),null,null,accountId));
+  qb.from(withRelationship(new Columns(columns),null,null,accountId));
   if (selection != null) {
     qb.where(new Expression(selection));
   }

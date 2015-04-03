@@ -1,0 +1,3 @@
+OnLinkClickListener listener
+int highlightOption
+boolean addMovementMethod

@@ -1,0 +1,4 @@
+{
+  if (mAdapter == null)   return;
+  mAdapter.setAccountId(mAccountId);
+}

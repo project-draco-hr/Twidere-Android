@@ -8,6 +8,8 @@
     mEditText.setText(savedInstanceState.getCharSequence(EXTRA_TEXT));
   }
   mUserAutoCompleteAdapter=new UserHashtagAutoCompleteAdapter(wrapped);
+  final Bundle args=getArguments();
+  mUserAutoCompleteAdapter.setAccountId(args.getLong(EXTRA_ACCOUNT_ID));
   mEditText.setAdapter(mUserAutoCompleteAdapter);
   mEditText.setThreshold(1);
   mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});

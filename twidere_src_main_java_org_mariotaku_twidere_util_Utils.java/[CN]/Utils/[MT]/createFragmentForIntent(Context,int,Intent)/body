@@ -126,7 +126,7 @@ break;
 }
 case LINK_ID_DIRECT_MESSAGES_CONVERSATION:
 {
-fragment=new DirectMessagesConversationFragment();
+fragment=new MessagesConversationFragment();
 final String paramRecipientId=uri.getQueryParameter(QUERY_PARAM_RECIPIENT_ID);
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final long conversationId=ParseUtils.parseLong(paramRecipientId);

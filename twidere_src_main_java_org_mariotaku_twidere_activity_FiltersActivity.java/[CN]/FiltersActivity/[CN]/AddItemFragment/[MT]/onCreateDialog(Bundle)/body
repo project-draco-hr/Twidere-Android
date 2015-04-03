@@ -1,5 +1,6 @@
 {
-  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final FragmentActivity activity=getActivity();
+  final Context wrapped=ThemeUtils.getDialogThemedContext(activity);
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
   buildDialog(builder);
   final View view=LayoutInflater.from(wrapped).inflate(R.layout.auto_complete_textview,null);
@@ -9,10 +10,12 @@
   final int auto_complete_type=args != null ? args.getInt(EXTRA_AUTO_COMPLETE_TYPE,0) : 0;
   if (auto_complete_type != 0) {
     if (auto_complete_type == AUTO_COMPLETE_TYPE_SOURCES) {
-      mUserAutoCompleteAdapter=new SourceAutoCompleteAdapter(getActivity());
+      mUserAutoCompleteAdapter=new SourceAutoCompleteAdapter(activity);
     }
  else {
-      mUserAutoCompleteAdapter=new UserHashtagAutoCompleteAdapter(getActivity());
+      final UserHashtagAutoCompleteAdapter adapter=new UserHashtagAutoCompleteAdapter(activity);
+      adapter.setAccountId(Utils.getDefaultAccountId(activity));
+      mUserAutoCompleteAdapter=adapter;
     }
     mEditText.setAdapter(mUserAutoCompleteAdapter);
     mEditText.setThreshold(1);

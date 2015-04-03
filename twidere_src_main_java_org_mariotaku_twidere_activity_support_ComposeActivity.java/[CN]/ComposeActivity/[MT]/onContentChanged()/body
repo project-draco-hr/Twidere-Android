@@ -1,6 +1,6 @@
 {
   super.onContentChanged();
-  mEditText=(EditText)findViewById(R.id.edit_text);
+  mEditText=(StatusComposeEditText)findViewById(R.id.edit_text);
   mMediaPreviewGrid=(GridView)findViewById(R.id.media_thumbnail_preview);
   mMenuBar=(ActionMenuView)findViewById(R.id.menu_bar);
   mSendView=findViewById(R.id.send);

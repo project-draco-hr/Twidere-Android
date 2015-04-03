@@ -1,5 +1,6 @@
 {
   if (context == null)   return false;
-  ((ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE)).setText(text != null ? text : "");
+  final ClipboardManager clipboardManager=(ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+  clipboardManager.setPrimaryClip(ClipData.newPlainText(text,text));
   return true;
 }
