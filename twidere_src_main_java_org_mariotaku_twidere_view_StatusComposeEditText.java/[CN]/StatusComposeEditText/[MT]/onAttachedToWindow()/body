@@ -1,6 +1,6 @@
 {
   super.onAttachedToWindow();
-  if (!isInEditMode() && mAdapter == null || mAdapter.isCursorClosed()) {
+  if (!isInEditMode() && (mAdapter == null || mAdapter.isCursorClosed())) {
     mAdapter=new UserHashtagAutoCompleteAdapter(this);
   }
   setAdapter(mAdapter);
