@@ -36,4 +36,5 @@
   out.writeString(in_reply_to_name);
   out.writeTypedArray(mentions,flags);
   out.writeParcelable(card,flags);
+  out.writeString(place_full_name);
 }

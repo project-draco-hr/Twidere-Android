@@ -110,7 +110,7 @@
     favoriteCountView.setText(null);
   }
   if (shouldDisplayExtraType) {
-    displayExtraTypeIcon(status.card_name,status.media,status.location);
+    displayExtraTypeIcon(status.card_name,status.media,status.location,status.place_full_name);
   }
  else {
     extraTypeView.setVisibility(View.GONE);

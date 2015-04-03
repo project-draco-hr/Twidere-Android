@@ -57,6 +57,10 @@
   if (location != null) {
     values.put(Statuses.LOCATION,location.getLatitude() + "," + location.getLongitude());
   }
+  final Place place=status.getPlace();
+  if (place != null) {
+    values.put(Statuses.PLACE_FULL_NAME,place.getFullName());
+  }
   values.put(Statuses.IS_RETWEET,isRetweet);
   values.put(Statuses.IS_FAVORITE,status.isFavorited());
   final ParcelableMedia[] media=ParcelableMedia.fromEntities(status);

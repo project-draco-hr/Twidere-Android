@@ -33,12 +33,13 @@
   in_reply_to_status_id=status.getInReplyToStatusId();
   in_reply_to_user_id=status.getInReplyToUserId();
   source=status.getSource();
-  location=new ParcelableLocation(status.getGeoLocation());
+  location=ParcelableLocation.fromGeoLocation(status.getGeoLocation());
   is_favorite=status.isFavorited();
   text_unescaped=HtmlEscapeHelper.toPlainText(text_html);
   my_retweet_id=retweeted_by_id == account_id ? id : status.getCurrentUserRetweet();
   is_possibly_sensitive=status.isPossiblySensitive();
   mentions=ParcelableUserMention.fromUserMentionEntities(status.getUserMentionEntities());
   card=ParcelableCardEntity.fromCardEntity(status.getCard(),account_id);
+  place_full_name=getPlaceFullName(status.getPlace());
   card_name=card != null ? card.name : null;
 }

@@ -1,13 +1,13 @@
 {
   if (locationString == null) {
-    latitude=-1;
-    longitude=-1;
+    latitude=Double.NaN;
+    longitude=Double.NaN;
     return;
   }
   final String[] longlat=locationString.split(",");
   if (longlat.length != 2) {
-    latitude=-1;
-    longitude=-1;
+    latitude=Double.NaN;
+    longitude=Double.NaN;
   }
  else {
     latitude=ParseUtils.parseDouble(longlat[0]);

@@ -1,0 +1,4 @@
+{
+  if (geoLocation == null)   return null;
+  return new ParcelableLocation(geoLocation);
+}

@@ -1,4 +1,4 @@
 {
-  latitude=in.readDouble("latitude",-1);
-  longitude=in.readDouble("longutude",-1);
+  latitude=in.readDouble("latitude",Double.NaN);
+  longitude=in.readDouble("longutude",Double.NaN);
 }

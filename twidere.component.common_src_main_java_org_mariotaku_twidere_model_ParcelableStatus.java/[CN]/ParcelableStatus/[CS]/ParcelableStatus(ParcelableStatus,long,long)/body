@@ -36,5 +36,6 @@
   in_reply_to_name=orig.in_reply_to_name;
   mentions=orig.mentions;
   card=orig.card;
+  place_full_name=orig.place_full_name;
   card_name=card != null ? card.name : null;
 }

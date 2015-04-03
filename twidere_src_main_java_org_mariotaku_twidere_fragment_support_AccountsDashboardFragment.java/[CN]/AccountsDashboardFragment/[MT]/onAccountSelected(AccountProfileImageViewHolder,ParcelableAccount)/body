@@ -45,6 +45,7 @@
       editor.putLong(KEY_DEFAULT_ACCOUNT_ID,account.account_id);
       editor.apply();
       mAccountsAdapter.setSelectedAccountId(account.account_id);
+      mAccountOptionsAdapter.setSelectedAccount(account);
       updateAccountOptionsSeparatorLabel(clickedDrawable);
       snapshotView.setVisibility(View.INVISIBLE);
       snapshotView.setImageDrawable(null);

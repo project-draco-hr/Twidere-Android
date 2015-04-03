@@ -36,4 +36,5 @@
   out.writeBoolean("is_following",user_is_following);
   out.writeParcelableArray("mentions",mentions);
   out.writeParcelable("card",card);
+  out.writeString("place_full_name",place_full_name);
 }

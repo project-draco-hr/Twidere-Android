@@ -36,5 +36,6 @@
   user_is_following=idx.is_following != -1 && c.getInt(idx.is_following) == 1;
   mentions=idx.mentions != -1 ? ParcelableUserMention.fromJSONString(c.getString(idx.mentions)) : null;
   card=idx.card != -1 ? ParcelableCardEntity.fromJSONString(c.getString(idx.card)) : null;
+  place_full_name=idx.place_full_name != -1 ? c.getString(idx.place_full_name) : null;
   card_name=card != null ? card.name : null;
 }

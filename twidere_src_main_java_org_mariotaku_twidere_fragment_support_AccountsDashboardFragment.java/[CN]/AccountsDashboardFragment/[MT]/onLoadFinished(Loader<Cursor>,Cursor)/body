@@ -15,8 +15,10 @@
   }
   mAccountsAdapter.setAccounts(accounts);
   mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
+  mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
   mAccountActionProvider.setAccounts(accounts);
   mAccountActionProvider.setSelectedAccountIds(ArrayUtils.toPrimitive(activatedIds.toArray(new Long[activatedIds.size()])));
+  initAccountActionsAdapter(accounts);
   updateAccountOptionsSeparatorLabel(null);
   updateDefaultAccountState();
 }

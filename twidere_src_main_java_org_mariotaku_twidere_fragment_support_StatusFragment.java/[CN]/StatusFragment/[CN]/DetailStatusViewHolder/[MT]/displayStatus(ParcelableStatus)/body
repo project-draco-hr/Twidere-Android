@@ -35,7 +35,20 @@
     timeSourceView.setText(timeString);
   }
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
-  locationView.setVisibility(ParcelableLocation.isValidLocation(status.location) ? View.VISIBLE : View.GONE);
+  if (!TextUtils.isEmpty(status.place_full_name)) {
+    locationView.setVisibility(View.VISIBLE);
+    locationView.setText(status.place_full_name);
+    locationView.setClickable(ParcelableLocation.isValidLocation(status.location));
+  }
+ else   if (ParcelableLocation.isValidLocation(status.location)) {
+    locationView.setVisibility(View.VISIBLE);
+    locationView.setText(R.string.view_map);
+    locationView.setClickable(true);
+  }
+ else {
+    locationView.setVisibility(View.GONE);
+    locationView.setText(null);
+  }
   retweetsContainer.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
   repliesContainer.setVisibility(status.reply_count < 0 ? View.GONE : View.VISIBLE);
   final Locale locale=context.getResources().getConfiguration().locale;

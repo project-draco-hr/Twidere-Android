@@ -1,5 +1,3 @@
 {
   super(context);
-  clear();
-  addAll(sOptions);
 }

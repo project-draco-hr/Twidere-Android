@@ -1,7 +1,8 @@
 {
   final Resources res=getResources();
   final boolean hasOfficialKeyAccounts=Utils.hasAccountSignedWithOfficialKeys(getActivity());
-  final long[] account_ids=getAccountIds(getActivity());
+  final boolean forcePrivateAPI=mPreferences.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false);
+  final long[] accountIds=getAccountIds(getActivity());
   final MenuItem itemAdd=menu.findItem(R.id.add_submenu);
   if (itemAdd != null && itemAdd.hasSubMenu()) {
     final SubMenu subMenu=itemAdd.getSubMenu();
@@ -19,7 +20,10 @@
       intent.putExtra(EXTRA_TYPE,type);
       intent.putExtra(EXTRA_OFFICIAL_KEY_ONLY,isOfficiakKeyAccountRequired);
       final MenuItem subItem=subMenu.add(conf.getDefaultTitle());
-      final boolean shouldDisable=conf.isSingleTab() && isTabAdded(getActivity(),type) || isOfficiakKeyAccountRequired && !hasOfficialKeyAccounts || accountIdRequired && account_ids.length == 0;
+      final boolean disabledByNoAccount=accountIdRequired && accountIds.length == 0;
+      final boolean disabledByNoOfficialKey=!forcePrivateAPI && isOfficiakKeyAccountRequired && !hasOfficialKeyAccounts;
+      final boolean disabledByDuplicateTab=conf.isSingleTab() && isTabAdded(getActivity(),type);
+      final boolean shouldDisable=disabledByDuplicateTab || disabledByNoOfficialKey || disabledByNoAccount;
       subItem.setVisible(!shouldDisable);
       subItem.setEnabled(!shouldDisable);
       final Drawable icon=ResourcesCompat.getDrawable(res,conf.getDefaultIcon(),null);

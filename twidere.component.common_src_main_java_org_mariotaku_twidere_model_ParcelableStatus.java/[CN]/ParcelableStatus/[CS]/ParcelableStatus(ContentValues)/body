@@ -36,5 +36,6 @@
   user_is_following=ContentValuesUtils.getAsBoolean(values,Statuses.IS_FOLLOWING,false);
   mentions=SimpleValueSerializer.fromSerializedString(values.getAsString(Statuses.MENTIONS_LIST),ParcelableUserMention.SIMPLE_CREATOR);
   card=ParcelableCardEntity.fromJSONString(values.getAsString(Statuses.CARD));
+  place_full_name=values.getAsString(Statuses.PLACE_FULL_NAME);
   card_name=card != null ? card.name : null;
 }
