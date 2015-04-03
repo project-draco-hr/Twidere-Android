@@ -1,3 +1,5 @@
 {
-  return factory.createUser(get(conf.getRestBaseURL() + ENDPOINT_USERS_SHOW,conf.getSigningRestBaseURL() + ENDPOINT_USERS_SHOW,new HttpParameter("user_id",userId),INCLUDE_ENTITIES));
+  final String url=conf.getRestBaseURL() + ENDPOINT_USERS_SHOW;
+  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_USERS_SHOW;
+  return factory.createUser(get(url,signUrl,new HttpParameter("user_id",userId),INCLUDE_ENTITIES));
 }

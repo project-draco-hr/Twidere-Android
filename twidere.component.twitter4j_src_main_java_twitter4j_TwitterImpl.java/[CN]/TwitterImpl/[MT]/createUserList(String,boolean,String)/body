@@ -1,6 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  final List<HttpParameter> params=new ArrayList<HttpParameter>();
+  final List<HttpParameter> params=new ArrayList<>();
   addParameterToList(params,"name",listName);
   addParameterToList(params,"mode",isPublicList ? "public" : "private");
   addParameterToList(params,"description",description);

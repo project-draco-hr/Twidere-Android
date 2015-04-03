@@ -1,6 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  final List<HttpParameter> params=new ArrayList<HttpParameter>(6);
+  final List<HttpParameter> params=new ArrayList<>(6);
   addParameterToList(params,"name",name);
   addParameterToList(params,"contained_within",containedWithin);
   addParameterToList(params,"token",token);

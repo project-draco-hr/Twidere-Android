@@ -1,5 +1,5 @@
 {
-  final List<HttpParameter> params=new ArrayList<HttpParameter>(3);
+  final List<HttpParameter> params=new ArrayList<>(3);
   params.add(new HttpParameter("lat",location.getLatitude()));
   params.add(new HttpParameter("long",location.getLongitude()));
   params.add(new HttpParameter("name",name));

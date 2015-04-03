@@ -1,4 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  return factory.createSavedSearch(get(conf.getRestBaseURL() + "saved_searches/show/" + id+ ".json",conf.getSigningRestBaseURL() + "saved_searches/show/" + id+ ".json"));
+  final String url=conf.getRestBaseURL() + "saved_searches/show/" + id+ ".json";
+  final String signUrl=conf.getSigningRestBaseURL() + "saved_searches/show/" + id+ ".json";
+  return factory.createSavedSearch(get(url,signUrl));
 }

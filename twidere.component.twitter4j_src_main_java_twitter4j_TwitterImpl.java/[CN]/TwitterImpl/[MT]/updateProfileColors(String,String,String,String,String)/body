@@ -1,6 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  final List<HttpParameter> params=new ArrayList<HttpParameter>(6);
+  final List<HttpParameter> params=new ArrayList<>(6);
   addParameterToList(params,"profile_background_color",profileBackgroundColor);
   addParameterToList(params,"profile_text_color",profileTextColor);
   addParameterToList(params,"profile_link_color",profileLinkColor);

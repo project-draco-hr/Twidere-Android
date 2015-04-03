@@ -1,7 +1,7 @@
 {
   ensureAuthorizationEnabled();
   checkFileValidity(banner);
-  final List<HttpParameter> params=new ArrayList<HttpParameter>(5);
+  final List<HttpParameter> params=new ArrayList<>(5);
   addParameterToList(params,"width",width);
   addParameterToList(params,"height",height);
   addParameterToList(params,"offset_left",offsetLeft);

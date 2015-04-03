@@ -1,6 +1,6 @@
 {
   ensureAuthorizationEnabled();
-  final List<HttpParameter> httpParams=new ArrayList<HttpParameter>();
+  final List<HttpParameter> httpParams=new ArrayList<>();
   httpParams.add(new HttpParameter("list_id",listId));
   if (newListName != null) {
     httpParams.add(new HttpParameter("name",newListName));
