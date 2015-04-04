@@ -1,5 +1,5 @@
 {
-  final String readPositionTag=getReadPositionTag();
+  final String readPositionTag=getReadPositionTagWithAccounts();
   if (readPositionTag == null)   return;
   final int position=mLayoutManager.findFirstVisibleItemPosition();
   if (position == RecyclerView.NO_POSITION)   return;

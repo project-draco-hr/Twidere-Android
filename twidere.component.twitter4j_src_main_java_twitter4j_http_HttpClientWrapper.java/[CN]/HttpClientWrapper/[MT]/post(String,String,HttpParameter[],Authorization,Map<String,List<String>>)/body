@@ -1,0 +1,7 @@
+{
+  final Map<String,List<String>> headers=new HashMap<>(this.requestHeaders);
+  if (requestHeaders != null) {
+    headers.putAll(requestHeaders);
+  }
+  return request(new HttpRequest(POST,url,signUrl,parameters,authorization,headers));
+}

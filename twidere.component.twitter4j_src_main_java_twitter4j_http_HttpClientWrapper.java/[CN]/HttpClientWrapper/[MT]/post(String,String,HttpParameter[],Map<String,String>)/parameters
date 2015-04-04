@@ -1,4 +1,0 @@
-String url
-String signUrl
-HttpParameter[] parameters
-Map<String,String> requestHeaders

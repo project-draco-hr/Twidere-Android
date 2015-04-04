@@ -1,4 +1,5 @@
 {
+  if (isFinishing())   return;
   final SupportProgressDialogFragment fragment=SupportProgressDialogFragment.show(this,FRAGMENT_TAG_SIGN_IN_PROGRESS);
   fragment.setCancelable(false);
 }

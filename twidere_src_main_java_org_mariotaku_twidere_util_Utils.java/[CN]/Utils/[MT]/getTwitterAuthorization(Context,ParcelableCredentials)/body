@@ -13,6 +13,7 @@ case Accounts.AUTH_TYPE_XAUTH:
         cb.setRestBaseURL(getApiUrl(account.api_url_format,"api",versionSuffix));
         cb.setOAuthBaseURL(getApiUrl(account.api_url_format,"api","/oauth/"));
         cb.setUploadBaseURL(getApiUrl(account.api_url_format,"upload",versionSuffix));
+        cb.setOAuthAuthorizationURL(getApiUrl(account.api_url_format,null,null));
         if (!account.same_oauth_signing_url) {
           cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
           cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);

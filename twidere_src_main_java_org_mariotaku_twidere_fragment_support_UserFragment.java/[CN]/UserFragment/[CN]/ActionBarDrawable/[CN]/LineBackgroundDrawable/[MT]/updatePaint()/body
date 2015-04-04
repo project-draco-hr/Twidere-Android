@@ -1,5 +1,0 @@
-{
-  mPaint.setColor(mColor);
-  mPaint.setAlpha(Color.alpha(mColor) * mAlpha / 0xFF);
-  invalidateSelf();
-}

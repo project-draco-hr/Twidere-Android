@@ -1,0 +1,6 @@
+{
+  List<String> values=get(key);
+  if (values == null)   values=new ArrayList<>();
+  values.add(value);
+  put(key,values);
+}

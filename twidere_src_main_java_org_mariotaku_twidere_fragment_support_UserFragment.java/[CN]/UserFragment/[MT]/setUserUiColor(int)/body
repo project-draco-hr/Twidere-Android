@@ -2,20 +2,23 @@
   if (mActionBarBackground == null) {
     setupBaseActionBar();
   }
-  mActionBarBackground.setColor(color);
   final FragmentActivity activity=getActivity();
-  mTintedStatusContent.setColor(color,ThemeUtils.getThemeAlpha(activity));
+  final IThemedActivity themed=(IThemedActivity)activity;
+  final int themeRes=themed.getCurrentThemeResourceId();
+  if (ThemeUtils.isDarkTheme(themeRes)) {
+    final int actionBarColor=getResources().getColor(R.color.background_color_action_bar_dark);
+    mTintedStatusContent.setColor(actionBarColor,themed.getCurrentThemeBackgroundAlpha());
+    mActionBarBackground.setColor(actionBarColor);
+  }
+ else {
+    mTintedStatusContent.setColor(color,themed.getCurrentThemeBackgroundAlpha());
+    mActionBarBackground.setColor(color);
+  }
   mDescriptionView.setLinkTextColor(color);
   mProfileBannerView.setBackgroundColor(color);
   mLocationView.setLinkTextColor(color);
   mURLView.setLinkTextColor(color);
-  if (activity instanceof IThemedActivity) {
-    final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
-    ViewAccessor.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,color,true));
-  }
- else {
-    mPagerIndicator.setBackgroundColor(color);
-  }
+  ViewAccessor.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,color,true));
   final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
   if (drawer != null) {
     final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();

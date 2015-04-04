@@ -1,9 +1,3 @@
 {
-  final boolean showColor=!mColorLineOnly && mColor != 0;
-  if (showColor) {
-    return mColorDrawable.getIntrinsicHeight();
-  }
- else {
-    return mBackgroundDrawable.getIntrinsicHeight();
-  }
+  return mColorDrawable.getIntrinsicHeight();
 }

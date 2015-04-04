@@ -1,4 +1,0 @@
-{
-  super.onInitialize(isReconnect);
-  addWatchContentUris(URIS);
-}

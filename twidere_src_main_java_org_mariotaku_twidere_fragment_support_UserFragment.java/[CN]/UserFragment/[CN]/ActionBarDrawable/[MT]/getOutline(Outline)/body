@@ -1,10 +1,4 @@
 {
-  final boolean showColor=!mColorLineOnly && mColor != 0;
-  if (showColor) {
-    mColorDrawable.getOutline(outline);
-  }
- else {
-    mBackgroundDrawable.getOutline(outline);
-  }
+  mColorDrawable.getOutline(outline);
   outline.setAlpha(mFactor * mOutlineAlphaFactor * 0.99f);
 }

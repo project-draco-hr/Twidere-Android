@@ -36,6 +36,7 @@
     cb.setRestBaseURL(getApiUrl(apiUrlFormat,"api",versionSuffix));
     cb.setOAuthBaseURL(getApiUrl(apiUrlFormat,"api","/oauth/"));
     cb.setUploadBaseURL(getApiUrl(apiUrlFormat,"upload",versionSuffix));
+    cb.setOAuthAuthorizationURL(getApiUrl(apiUrlFormat,null,null));
     if (!sameOAuthSigningUrl) {
       cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
       cb.setSigningOAuthBaseURL(DEFAULT_SIGNING_OAUTH_BASE_URL);

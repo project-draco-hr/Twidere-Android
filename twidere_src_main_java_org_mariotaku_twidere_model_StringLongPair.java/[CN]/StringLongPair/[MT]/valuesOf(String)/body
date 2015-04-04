@@ -1,0 +1,9 @@
+{
+  if (s == null)   return null;
+  final String[] segs=s.split(";");
+  final StringLongPair[] pairs=new StringLongPair[segs.length];
+  for (int i=0, j=segs.length; i < j; i++) {
+    pairs[i]=valueOf(segs[i]);
+  }
+  return pairs;
+}

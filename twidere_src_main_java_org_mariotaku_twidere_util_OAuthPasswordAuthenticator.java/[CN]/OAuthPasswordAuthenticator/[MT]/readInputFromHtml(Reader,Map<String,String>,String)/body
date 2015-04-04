@@ -1,0 +1,19 @@
+{
+  final XmlPullParserFactory f=XmlPullParserFactory.newInstance();
+  final XmlPullParser parser=f.newPullParser();
+  parser.setFeature(Xml.FEATURE_RELAXED,true);
+  parser.setInput(in);
+  while (parser.next() != XmlPullParser.END_DOCUMENT) {
+    final String tag=parser.getName();
+switch (parser.getEventType()) {
+case XmlPullParser.START_TAG:
+{
+        final String name=parser.getAttributeValue(null,"name");
+        if ("input".equalsIgnoreCase(tag) && ArrayUtils.contains(desiredNames,name)) {
+          map.put(name,parser.getAttributeValue(null,"value"));
+        }
+        break;
+      }
+  }
+}
+}

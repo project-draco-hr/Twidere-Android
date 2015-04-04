@@ -1,3 +1,0 @@
-{
-  canvas.drawRect(mBounds.left,mBounds.bottom - mLineSize,mBounds.right,mBounds.bottom,mPaint);
-}

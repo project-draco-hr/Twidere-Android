@@ -1,9 +1,0 @@
-{
-  super(new Drawable[]{shadow,background,new ActionBarColorDrawable(true)});
-  mShadowDrawable=getDrawable(0);
-  mBackgroundDrawable=getDrawable(1);
-  mColorDrawable=(ColorDrawable)getDrawable(2);
-  mColorLineOnly=colorLineOnly;
-  setAlpha(0xFF);
-  setOutlineAlphaFactor(1);
-}

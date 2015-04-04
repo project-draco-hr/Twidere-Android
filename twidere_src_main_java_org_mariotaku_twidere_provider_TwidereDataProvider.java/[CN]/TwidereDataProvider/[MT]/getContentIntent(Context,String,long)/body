@@ -1,0 +1,9 @@
+{
+  final Intent homeIntent=new Intent(context,HomeActivity.class);
+  final Uri.Builder homeLinkBuilder=new Uri.Builder();
+  homeLinkBuilder.scheme(SCHEME_TWIDERE);
+  homeLinkBuilder.authority(type);
+  homeLinkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  homeIntent.setData(homeLinkBuilder.build());
+  return PendingIntent.getActivity(context,0,homeIntent,0);
+}

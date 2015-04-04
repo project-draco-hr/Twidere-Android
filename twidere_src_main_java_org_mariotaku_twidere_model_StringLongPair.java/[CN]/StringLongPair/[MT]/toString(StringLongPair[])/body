@@ -1,0 +1,4 @@
+{
+  if (pairs == null)   return null;
+  return TwidereArrayUtils.toString(pairs,';',false);
+}

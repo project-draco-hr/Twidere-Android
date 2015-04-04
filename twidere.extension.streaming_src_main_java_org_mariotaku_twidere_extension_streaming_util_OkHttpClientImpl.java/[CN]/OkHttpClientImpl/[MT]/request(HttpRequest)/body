@@ -1,7 +1,10 @@
 {
   final Builder builder=new Builder();
-  for (  Entry<String,String> headerEntry : req.getRequestHeaders().entrySet()) {
-    builder.header(headerEntry.getKey(),headerEntry.getValue());
+  for (  Entry<String,List<String>> headerEntry : req.getRequestHeaders().entrySet()) {
+    final String name=headerEntry.getKey();
+    for (    String value : headerEntry.getValue()) {
+      builder.addHeader(name,value);
+    }
   }
   final Authorization authorization=req.getAuthorization();
   if (authorization != null) {

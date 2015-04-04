@@ -1,0 +1,28 @@
+{
+switch (intent.getAction()) {
+case BROADCAST_NOTIFICATION_DELETED:
+{
+      final Uri uri=intent.getData();
+      final String tag=getPositionTag(uri.getLastPathSegment());
+      if (tag == null)       return;
+      final long accountId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
+      final TwidereApplication app=TwidereApplication.getInstance(context);
+      final ReadStateManager manager=app.getReadStateManager();
+      final String paramReadPosition, paramReadPositions;
+      if (!TextUtils.isEmpty(paramReadPosition=uri.getQueryParameter(QUERY_PARAM_READ_POSITION))) {
+        manager.setPosition(Utils.getReadPositionTagWithAccounts(tag,accountId),ParseUtils.parseLong(paramReadPosition,-1));
+      }
+ else       if (!TextUtils.isEmpty(paramReadPositions=uri.getQueryParameter(QUERY_PARAM_READ_POSITIONS))) {
+        try {
+          final StringLongPair[] pairs=StringLongPair.valuesOf(paramReadPositions);
+          for (          StringLongPair pair : pairs) {
+            manager.setPosition(tag,pair.getKey(),pair.getValue());
+          }
+        }
+ catch (        NumberFormatException ignore) {
+        }
+      }
+      break;
+    }
+}
+}

@@ -1,4 +1,0 @@
-{
-  super();
-  responseAsString=content;
-}

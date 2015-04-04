@@ -1,2 +1,13 @@
 {
+  if (mPopupMenu != null) {
+    mPopupMenu.dismiss();
+  }
+  final PopupMenu popupMenu=new PopupMenu(mStatusAdapter.getContext(),menuView,Gravity.NO_GRAVITY,R.attr.actionOverflowMenuStyle,0);
+  popupMenu.setOnMenuItemClickListener(mOnStatusMenuItemClickListener);
+  popupMenu.inflate(R.menu.action_status);
+  final ParcelableStatus status=mStatusAdapter.getStatus(position);
+  setMenuForStatus(mStatusAdapter.getContext(),popupMenu.getMenu(),status);
+  popupMenu.show();
+  mPopupMenu=popupMenu;
+  mSelectedStatus=status;
 }
