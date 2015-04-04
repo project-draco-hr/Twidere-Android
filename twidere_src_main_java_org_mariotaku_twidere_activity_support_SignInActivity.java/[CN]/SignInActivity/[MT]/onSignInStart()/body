@@ -1,5 +1,13 @@
 {
-  if (isFinishing())   return;
-  final SupportProgressDialogFragment fragment=SupportProgressDialogFragment.show(this,FRAGMENT_TAG_SIGN_IN_PROGRESS);
-  fragment.setCancelable(false);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      if (isFinishing())       return;
+      final FragmentManager fm=getSupportFragmentManager();
+      final FragmentTransaction ft=fm.beginTransaction();
+      final SupportProgressDialogFragment fragment=new SupportProgressDialogFragment();
+      fragment.setCancelable(false);
+      fragment.show(ft,FRAGMENT_TAG_SIGN_IN_PROGRESS);
+    }
+  }
+);
 }
