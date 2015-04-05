@@ -2,8 +2,8 @@
   final Context context=getActivity();
   final Bundle args=getArguments(), tabArgs=new Bundle();
   final long accountId;
-  if (args.containsKey(EXTRA_USER)) {
-    final ParcelableUser user=args.getParcelable(EXTRA_USER);
+  final ParcelableUser user=args.getParcelable(EXTRA_USER);
+  if (user != null) {
     tabArgs.putLong(EXTRA_ACCOUNT_ID,accountId=user.account_id);
     tabArgs.putLong(EXTRA_USER_ID,user.id);
     tabArgs.putString(EXTRA_SCREEN_NAME,user.screen_name);

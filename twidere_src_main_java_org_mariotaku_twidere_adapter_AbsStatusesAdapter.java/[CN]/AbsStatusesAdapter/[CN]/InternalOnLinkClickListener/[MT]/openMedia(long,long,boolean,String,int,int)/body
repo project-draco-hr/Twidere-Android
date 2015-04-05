@@ -1,0 +1,5 @@
+{
+  final ParcelableStatus status=adapter.getStatus((int)extraId);
+  final ParcelableMedia current=StatusLinkClickHandler.findByLink(status.media,link);
+  Utils.openMedia(context,status,current);
+}

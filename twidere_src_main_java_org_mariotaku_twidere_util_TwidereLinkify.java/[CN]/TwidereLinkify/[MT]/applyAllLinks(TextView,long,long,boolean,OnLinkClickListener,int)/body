@@ -1,0 +1,11 @@
+{
+  view.setMovementMethod(LinkMovementMethod.getInstance());
+  final SpannableString string=SpannableString.valueOf(view.getText());
+  for (  final int type : ALL_LINK_TYPES) {
+    addLinks(string,accountId,extraId,type,sensitive,listener,highlightOption);
+  }
+  view.setText(string);
+  if (mAddMovementMethod) {
+    addLinkMovementMethod(view);
+  }
+}

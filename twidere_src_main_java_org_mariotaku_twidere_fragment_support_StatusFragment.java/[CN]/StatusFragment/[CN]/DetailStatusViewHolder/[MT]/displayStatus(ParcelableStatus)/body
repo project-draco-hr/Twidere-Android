@@ -20,7 +20,7 @@
   final StatusLinkClickHandler linkClickHandler=new StatusLinkClickHandler(context,null);
   linkClickHandler.setStatus(status);
   final TwidereLinkify linkify=new TwidereLinkify(linkClickHandler,VALUE_LINK_HIGHLIGHT_OPTION_CODE_BOTH,false);
-  linkify.applyAllLinks(textView,status.account_id,status.is_possibly_sensitive);
+  linkify.applyAllLinks(textView,status.account_id,getAdapterPosition(),status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
   final String timeString=formatToLongTimeString(context,status.timestamp);
   final String sourceHtml=status.source;

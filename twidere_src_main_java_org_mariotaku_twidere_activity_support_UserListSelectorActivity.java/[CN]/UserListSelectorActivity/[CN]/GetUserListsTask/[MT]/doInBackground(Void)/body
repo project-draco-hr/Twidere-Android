@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);
-    final List<ParcelableUserList> data=new ArrayList<ParcelableUserList>();
+    final List<ParcelableUserList> data=new ArrayList<>();
     boolean is_my_account=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountId));
     for (    final UserList item : lists) {
       final User user=item.getUser();

@@ -1,0 +1,4 @@
+Spannable spannable
+long accountId
+long extraId
+OnLinkClickListener listener

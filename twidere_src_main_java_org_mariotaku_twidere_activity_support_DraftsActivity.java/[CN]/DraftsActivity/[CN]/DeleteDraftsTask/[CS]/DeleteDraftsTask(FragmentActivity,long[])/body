@@ -2,4 +2,5 @@
   mActivity=activity;
   mNotificationManager=(NotificationManager)activity.getSystemService(NOTIFICATION_SERVICE);
   mIds=ids;
+  mHandler=new Handler(activity.getMainLooper());
 }

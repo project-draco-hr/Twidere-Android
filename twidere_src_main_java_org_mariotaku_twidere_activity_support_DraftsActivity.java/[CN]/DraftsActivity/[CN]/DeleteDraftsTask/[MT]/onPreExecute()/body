@@ -1,5 +1,10 @@
 {
   super.onPreExecute();
-  final SupportProgressDialogFragment f=SupportProgressDialogFragment.show(mActivity,FRAGMENT_TAG_DELETING_DRAFTS);
-  f.setCancelable(false);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      final SupportProgressDialogFragment f=SupportProgressDialogFragment.show(mActivity,FRAGMENT_TAG_DELETING_DRAFTS);
+      f.setCancelable(false);
+    }
+  }
+);
 }

@@ -1,5 +1,5 @@
 {
-  final int optionInt=getLinkHighlightOptionInt(option);
+  final int optionInt=Utils.getLinkHighlightingStyleInt(option);
   mLinkify.setHighlightOption(optionInt);
   if (optionInt == mLinkHighlightOption)   return;
   mLinkHighlightOption=optionInt;

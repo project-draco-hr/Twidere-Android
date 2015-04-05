@@ -1,5 +1,6 @@
 {
   mActivity=activity;
-  mAccountId=account_id;
-  mScreenName=screen_name;
+  mHandler=new Handler(activity.getMainLooper());
+  mAccountId=accountId;
+  mScreenName=screenName;
 }

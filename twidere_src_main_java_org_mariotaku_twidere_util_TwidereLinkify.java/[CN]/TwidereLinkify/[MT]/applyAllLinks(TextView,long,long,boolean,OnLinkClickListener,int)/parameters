@@ -1,0 +1,6 @@
+TextView view
+long accountId
+long extraId
+boolean sensitive
+OnLinkClickListener listener
+int highlightOption

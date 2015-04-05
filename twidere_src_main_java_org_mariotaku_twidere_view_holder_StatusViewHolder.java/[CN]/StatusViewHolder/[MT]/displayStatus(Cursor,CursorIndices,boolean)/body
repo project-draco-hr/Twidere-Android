@@ -1,6 +1,7 @@
 {
   final MediaLoaderWrapper loader=adapter.getImageLoader();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
+  final TwidereLinkify linkify=adapter.getTwidereLinkify();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();
   final long reply_count=cursor.getLong(indices.reply_count);
@@ -76,7 +77,6 @@
     profileImageView.setVisibility(View.GONE);
     loader.cancelDisplayTask(profileImageView);
   }
-  final String text_unescaped=cursor.getString(indices.text_unescaped);
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
     mediaPreviewContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
@@ -85,7 +85,13 @@
  else {
     mediaPreviewContainer.setVisibility(View.GONE);
   }
-  textView.setText(text_unescaped);
+  if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
+    textView.setText(cursor.getString(indices.text_unescaped));
+  }
+ else {
+    textView.setText(Html.fromHtml(cursor.getString(indices.text_html)));
+    linkify.applyAllLinks(textView,account_id,getAdapterPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1);
+  }
   if (reply_count > 0) {
     replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));
   }

@@ -4,5 +4,4 @@
   mProgressBar=(ProgressBar)mProgressContainer.findViewById(android.R.id.progress);
   mMessageView=(TextView)mProgressContainer.findViewById(android.R.id.message);
   mStatusContainer=view.findViewById(R.id.status_container);
-  mHolder=new StatusViewHolder(mStatusContainer);
 }

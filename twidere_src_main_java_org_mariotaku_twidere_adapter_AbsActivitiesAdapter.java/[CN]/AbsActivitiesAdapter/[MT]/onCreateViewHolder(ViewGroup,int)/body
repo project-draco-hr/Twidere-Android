@@ -13,7 +13,7 @@ case ITEM_VIEW_TYPE_STATUS:
         final CardView cardView=(CardView)view.findViewById(R.id.card);
         cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
-      final StatusViewHolder holder=new StatusViewHolder(view);
+      final StatusViewHolder holder=new StatusViewHolder(mStatusAdapterDelegate,view);
       holder.setTextSize(getTextSize());
       holder.setStatusClickListener(this);
       return holder;

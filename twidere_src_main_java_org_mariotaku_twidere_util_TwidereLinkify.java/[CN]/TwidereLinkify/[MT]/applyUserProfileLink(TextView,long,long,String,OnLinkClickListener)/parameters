@@ -1,5 +1,0 @@
-TextView view
-long accountId
-long userId
-String screenName
-OnLinkClickListener listener

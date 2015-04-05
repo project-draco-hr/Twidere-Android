@@ -1,5 +1,10 @@
 {
-  final DialogFragment df=SupportProgressDialogFragment.show(mActivity,DIALOG_FRAGMENT_TAG);
-  df.setCancelable(false);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      final DialogFragment df=SupportProgressDialogFragment.show(mActivity,DIALOG_FRAGMENT_TAG);
+      df.setCancelable(false);
+    }
+  }
+);
   super.onPreExecute();
 }

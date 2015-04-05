@@ -1,0 +1,13 @@
+{
+  this.context=context;
+  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  loader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
+  handler=new ImageLoadingHandler(R.id.media_preview_progress);
+  twitter=getTwitterWrapper();
+  linkify=new TwidereLinkify(null);
+  profileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  nameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
+  displayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+  displayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
+}

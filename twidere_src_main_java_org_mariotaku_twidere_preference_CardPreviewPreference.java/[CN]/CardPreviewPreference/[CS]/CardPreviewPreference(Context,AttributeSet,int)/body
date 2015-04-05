@@ -4,4 +4,5 @@
   mLinkify=new TwidereLinkify(null);
   mPreferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
+  mAdapter=new DummyStatusHolderAdapter(context);
 }

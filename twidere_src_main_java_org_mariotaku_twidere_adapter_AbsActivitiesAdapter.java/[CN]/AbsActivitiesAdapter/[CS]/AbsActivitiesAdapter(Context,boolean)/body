@@ -11,7 +11,10 @@
   mCompactCards=compact;
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mLinkHighlightingStyle=Utils.getLinkHighlightingStyleInt(preferences.getString(KEY_LINK_HIGHLIGHT_OPTION,null));
   mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
+  mLinkify=new TwidereLinkify(this);
+  mStatusAdapterDelegate=new DummyStatusHolderAdapter(context);
 }

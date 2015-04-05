@@ -1,0 +1,53 @@
+{
+  if (manager != null && manager.isActive())   return;
+  if (!isPrivateData()) {
+    ProfilingUtil.profile(context,accountId,"Click, " + link + ", "+ type);
+    SpiceProfilingUtil.profile(context,accountId,accountId + ",Visit," + link+ ","+ TypeMappingUtil.getLinkType(type));
+  }
+switch (type) {
+case TwidereLinkify.LINK_TYPE_MENTION:
+{
+      openUserProfile(context,accountId,-1,link,null);
+      break;
+    }
+case TwidereLinkify.LINK_TYPE_HASHTAG:
+{
+    openTweetSearch(context,accountId,"#" + link);
+    break;
+  }
+case TwidereLinkify.LINK_TYPE_LINK:
+{
+  if (MediaPreviewUtils.isLinkSupported(link)) {
+    openMedia(accountId,extraId,sensitive,link,start,end);
+  }
+ else {
+    openLink(link);
+  }
+  break;
+}
+case TwidereLinkify.LINK_TYPE_LIST:
+{
+final String[] mentionList=link.split("/");
+if (mentionList.length != 2) {
+  break;
+}
+openUserListDetails(context,accountId,-1,-1,mentionList[0],mentionList[1]);
+break;
+}
+case TwidereLinkify.LINK_TYPE_CASHTAG:
+{
+openTweetSearch(context,accountId,link);
+break;
+}
+case TwidereLinkify.LINK_TYPE_USER_ID:
+{
+openUserProfile(context,accountId,ParseUtils.parseLong(link),null,null);
+break;
+}
+case TwidereLinkify.LINK_TYPE_STATUS:
+{
+openStatus(context,accountId,ParseUtils.parseLong(link));
+break;
+}
+}
+}

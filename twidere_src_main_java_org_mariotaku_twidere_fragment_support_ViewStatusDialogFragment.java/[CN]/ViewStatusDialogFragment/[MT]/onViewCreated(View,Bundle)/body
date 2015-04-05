@@ -1,5 +1,4 @@
 {
   super.onViewCreated(view,savedInstanceState);
   mStatusContainer=view.findViewById(R.id.status_container);
-  mHolder=new StatusViewHolder(view);
 }

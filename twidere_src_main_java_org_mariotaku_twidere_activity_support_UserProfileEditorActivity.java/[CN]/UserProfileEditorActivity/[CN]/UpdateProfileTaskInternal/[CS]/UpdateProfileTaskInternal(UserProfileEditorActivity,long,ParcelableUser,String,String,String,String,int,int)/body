@@ -1,5 +1,6 @@
 {
   mActivity=activity;
+  mHandler=new Handler(activity.getMainLooper());
   mAccountId=accountId;
   mOriginal=original;
   mName=name;
