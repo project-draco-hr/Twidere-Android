@@ -3,4 +3,11 @@
   response=res;
   request=req;
   statusCode=res != null ? res.getStatusCode() : -1;
+  if (response != null) {
+    try {
+      decode(response.asString());
+    }
+ catch (    TwitterException ignore) {
+    }
+  }
 }
