@@ -3,7 +3,7 @@
   for (  final Entity entity : mExtractor.extractHashtagsWithIndices(spannable.toString())) {
     final int start=entity.getStart();
     final int end=entity.getEnd();
-    applyLink(entity.getValue(),start,end,spannable,accountId,extraId,LINK_TYPE_HASHTAG,false,listener);
+    applyLink(entity.getValue(),start,end,spannable,accountId,extraId,LINK_TYPE_HASHTAG,false,highlightOption,listener);
     hasMatches=true;
   }
   return hasMatches;

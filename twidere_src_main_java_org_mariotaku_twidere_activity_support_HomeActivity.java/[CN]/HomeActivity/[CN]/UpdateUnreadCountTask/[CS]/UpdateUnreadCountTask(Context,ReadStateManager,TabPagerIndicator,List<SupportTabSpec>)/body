@@ -1,0 +1,6 @@
+{
+  mContext=context;
+  mReadStateManager=manager;
+  mIndicator=indicator;
+  mTabs=Collections.unmodifiableList(tabs);
+}

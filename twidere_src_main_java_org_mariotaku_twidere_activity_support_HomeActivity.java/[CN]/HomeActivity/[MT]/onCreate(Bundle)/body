@@ -11,6 +11,7 @@
   }
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mTwitterWrapper=getTwitterWrapper();
+  mReadStateManager=TwidereApplication.getInstance(this).getReadStateManager();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mHotKeyHandler=new HotKeyHandler(this);

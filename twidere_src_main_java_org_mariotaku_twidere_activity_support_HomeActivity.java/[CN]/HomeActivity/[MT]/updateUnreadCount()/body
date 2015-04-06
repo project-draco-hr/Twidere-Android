@@ -1,6 +1,6 @@
 {
   if (mTabIndicator == null || mUpdateUnreadCountTask != null && mUpdateUnreadCountTask.getStatus() == AsyncTask.Status.RUNNING)   return;
-  mUpdateUnreadCountTask=new UpdateUnreadCountTask(mTabIndicator);
+  mUpdateUnreadCountTask=new UpdateUnreadCountTask(this,mReadStateManager,mTabIndicator,mPagerAdapter.getTabs());
   AsyncTaskUtils.executeTask(mUpdateUnreadCountTask);
   mTabIndicator.setDisplayBadge(mPreferences.getBoolean(KEY_UNREAD_COUNT,true));
 }

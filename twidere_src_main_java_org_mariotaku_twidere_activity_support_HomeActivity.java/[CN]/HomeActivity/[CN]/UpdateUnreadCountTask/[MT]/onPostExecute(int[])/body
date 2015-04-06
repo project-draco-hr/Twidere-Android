@@ -1,7 +1,0 @@
-{
-  final int tabCount=mIndicator.getCount();
-  if (result == null || result.length != tabCount)   return;
-  for (int i=0; i < tabCount; i++) {
-    mIndicator.setBadge(i,result[i]);
-  }
-}

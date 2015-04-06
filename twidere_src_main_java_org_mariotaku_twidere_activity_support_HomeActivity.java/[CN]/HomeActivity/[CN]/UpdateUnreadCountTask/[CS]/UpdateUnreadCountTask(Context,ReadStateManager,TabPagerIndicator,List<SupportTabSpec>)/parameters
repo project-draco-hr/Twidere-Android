@@ -1,0 +1,4 @@
+Context context
+ReadStateManager manager
+TabPagerIndicator indicator
+List<SupportTabSpec> tabs

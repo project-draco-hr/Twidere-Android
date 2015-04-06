@@ -2,15 +2,15 @@
 switch (type) {
 case AUTHORITY_HOME:
 {
-      return HomeTimelineFragment.KEY_READ_POSITION_TAG;
+      return TAB_TYPE_HOME_TIMELINE;
     }
 case AUTHORITY_MENTIONS:
 {
-    return MentionsTimelineFragment.KEY_READ_POSITION_TAG;
+    return TAB_TYPE_MENTIONS_TIMELINE;
   }
 case AUTHORITY_DIRECT_MESSAGES:
 {
-  return DirectMessagesFragment.KEY_READ_POSITION_TAG;
+  return TAB_TYPE_DIRECT_MESSAGES;
 }
 }
 return null;

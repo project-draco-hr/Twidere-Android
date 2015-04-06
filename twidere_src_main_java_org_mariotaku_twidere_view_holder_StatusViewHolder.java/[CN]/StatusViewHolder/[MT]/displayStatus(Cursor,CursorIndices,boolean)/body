@@ -90,7 +90,7 @@
   }
  else {
     textView.setText(Html.fromHtml(cursor.getString(indices.text_html)));
-    linkify.applyAllLinks(textView,account_id,getAdapterPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1);
+    linkify.applyAllLinks(textView,account_id,getLayoutPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1,adapter.getLinkHighlightingStyle());
   }
   if (reply_count > 0) {
     replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));

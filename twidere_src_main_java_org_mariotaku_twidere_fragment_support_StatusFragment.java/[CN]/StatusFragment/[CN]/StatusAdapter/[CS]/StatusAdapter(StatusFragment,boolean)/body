@@ -12,6 +12,7 @@
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mLinkHighligingStyle=Utils.getLinkHighlightingStyleInt(preferences.getString(KEY_LINK_HIGHLIGHT_OPTION,null));
   mIsCompact=compact;
   mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
@@ -21,5 +22,5 @@
  else {
     mCardLayoutResource=R.layout.card_item_status;
   }
-  mLinkify=new TwidereLinkify(this);
+  mTwidereLinkify=new TwidereLinkify(new StatusAdapterLinkClickHandler<>(this));
 }

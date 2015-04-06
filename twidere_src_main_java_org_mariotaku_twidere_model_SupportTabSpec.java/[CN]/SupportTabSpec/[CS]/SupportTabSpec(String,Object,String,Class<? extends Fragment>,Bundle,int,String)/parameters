@@ -1,0 +1,7 @@
+String name
+Object icon
+String type
+Class<? extends Fragment> cls
+Bundle args
+int position
+String tag

@@ -1,9 +1,0 @@
-String url
-int start
-int end
-Spannable text
-long accountId
-long extraId
-int type
-boolean sensitive
-OnLinkClickListener listener

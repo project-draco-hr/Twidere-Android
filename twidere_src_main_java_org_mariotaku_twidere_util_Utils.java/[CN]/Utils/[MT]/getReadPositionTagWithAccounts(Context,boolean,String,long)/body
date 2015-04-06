@@ -1,0 +1,10 @@
+{
+  if (accountIds == null || accountIds.length == 0 || (accountIds.length == 1 && accountIds[0] < 0)) {
+    final long[] activatedIds=getActivatedAccountIds(context);
+    Arrays.sort(activatedIds);
+    return tag + "_" + TwidereArrayUtils.toString(activatedIds,'_',false);
+  }
+  final long[] accountIdsClone=accountIds.clone();
+  Arrays.sort(accountIdsClone);
+  return tag + "_" + TwidereArrayUtils.toString(accountIdsClone,'_',false);
+}

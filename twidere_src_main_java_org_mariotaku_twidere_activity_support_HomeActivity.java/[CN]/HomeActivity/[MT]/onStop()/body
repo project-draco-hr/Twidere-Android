@@ -1,5 +1,6 @@
 {
   mMultiSelectHandler.dispatchOnStop();
+  mReadStateManager.unregisterOnSharedPreferenceChangeListener(mReadStateChangeListener);
   final Bus bus=TwidereApplication.getInstance(this).getMessageBus();
   bus.unregister(this);
   final ContentResolver resolver=getContentResolver();

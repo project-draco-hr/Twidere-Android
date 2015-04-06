@@ -10,11 +10,6 @@
   final FragmentActivity activity=getActivity();
   mAdapter=new DummyStatusHolderAdapter(activity);
   mHolder=new StatusViewHolder(mAdapter,getView());
-  final TwidereApplication application=getApplication();
-  final MediaLoaderWrapper loader=application.getMediaLoaderWrapper();
-  final ImageLoadingHandler handler=new ImageLoadingHandler(R.id.media_preview_progress);
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
   if (args.containsKey(EXTRA_SHOW_MEDIA_PREVIEW)) {
     mAdapter.setMediaPreviewEnabled(args.getBoolean(EXTRA_SHOW_MEDIA_PREVIEW));

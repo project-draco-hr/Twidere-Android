@@ -12,11 +12,12 @@
     final String iconType=cur.getString(idxIcon);
     final String name=cur.getString(idxName);
     final Bundle args=ParseUtils.jsonToBundle(cur.getString(idxArguments));
+    final String tag=getTagByType(type);
     args.putInt(EXTRA_TAB_POSITION,position);
     args.putBundle(EXTRA_EXTRAS,ParseUtils.jsonToBundle(cur.getString(idxExtras)));
     final CustomTabConfiguration conf=getTabConfiguration(type);
     final Class<? extends Fragment> cls=conf != null ? conf.getFragmentClass() : InvalidTabFragment.class;
-    tabs.add(new SupportTabSpec(name != null ? name : getTabTypeName(context,type),getTabIconObject(iconType),type,cls,args,position));
+    tabs.add(new SupportTabSpec(name != null ? name : getTabTypeName(context,type),getTabIconObject(iconType),type,cls,args,position,tag));
     cur.moveToNext();
   }
   cur.close();

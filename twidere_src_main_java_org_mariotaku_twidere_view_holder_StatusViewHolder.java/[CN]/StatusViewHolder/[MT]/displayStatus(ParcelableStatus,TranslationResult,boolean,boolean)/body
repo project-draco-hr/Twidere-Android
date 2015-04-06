@@ -84,7 +84,7 @@
   }
  else {
     textView.setText(Html.fromHtml(status.text_html));
-    linkify.applyAllLinks(textView,status.account_id,getAdapterPosition(),status.is_possibly_sensitive);
+    linkify.applyAllLinks(textView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,linkHighlightingStyle);
   }
   if (status.reply_count > 0) {
     replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),status.reply_count));

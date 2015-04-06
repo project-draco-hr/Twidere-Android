@@ -2,7 +2,7 @@
 switch (type) {
 case LINK_TYPE_MENTION:
 {
-      addMentionOrListLinks(string,accountId,extraId,listener);
+      addMentionOrListLinks(string,accountId,extraId,highlightOption,listener);
       break;
     }
 case LINK_TYPE_HASHTAG:
@@ -20,7 +20,7 @@ case LINK_TYPE_LINK:
       continue;
     }
     string.removeSpan(span);
-    applyLink(span.getURL(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,listener);
+    applyLink(span.getURL(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,highlightOption,listener);
   }
   final List<Extractor.Entity> urls=mExtractor.extractURLsWithIndices(ParseUtils.parseString(string));
   for (  final Extractor.Entity entity : urls) {
@@ -28,7 +28,7 @@ case LINK_TYPE_LINK:
     if (entity.getType() != Extractor.Entity.Type.URL || string.getSpans(start,end,URLSpan.class).length > 0) {
       continue;
     }
-    applyLink(entity.getValue(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,listener);
+    applyLink(entity.getValue(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,highlightOption,listener);
   }
   break;
 }
@@ -42,7 +42,7 @@ for (final URLSpan span : spans) {
     final int end=string.getSpanEnd(span);
     final String url=matcherGroup(matcher,GROUP_ID_TWITTER_STATUS_STATUS_ID);
     string.removeSpan(span);
-    applyLink(url,start,end,string,accountId,extraId,LINK_TYPE_STATUS,sensitive,listener);
+    applyLink(url,start,end,string,accountId,extraId,LINK_TYPE_STATUS,sensitive,highlightOption,listener);
   }
 }
 break;

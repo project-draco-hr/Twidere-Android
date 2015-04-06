@@ -1,1 +1,1 @@
-AsyncTask<Void,Void,int[]>
+AsyncTask<Void,Void,Map<SupportTabSpec,Integer>>

@@ -1,0 +1,17 @@
+{
+switch (type) {
+case TAB_TYPE_HOME_TIMELINE:
+{
+      return TAB_TYPE_HOME_TIMELINE;
+    }
+case TAB_TYPE_MENTIONS_TIMELINE:
+{
+    return TAB_TYPE_MENTIONS_TIMELINE;
+  }
+case TAB_TYPE_DIRECT_MESSAGES:
+{
+  return TAB_TYPE_DIRECT_MESSAGES;
+}
+}
+return null;
+}

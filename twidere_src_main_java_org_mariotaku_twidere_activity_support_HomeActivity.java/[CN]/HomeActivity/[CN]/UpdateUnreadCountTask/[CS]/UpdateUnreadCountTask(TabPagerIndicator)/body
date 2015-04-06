@@ -1,4 +1,0 @@
-{
-  mIndicator=indicator;
-  mContext=indicator.getContext();
-}

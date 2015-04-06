@@ -1,13 +1,4 @@
 {
-  final long[] accountIds;
-  if (args.containsKey(EXTRA_ACCOUNT_IDS)) {
-    accountIds=args.getLongArray(EXTRA_ACCOUNT_IDS);
-  }
- else   if (args.containsKey(EXTRA_ACCOUNT_ID)) {
-    accountIds=new long[]{args.getLong(EXTRA_ACCOUNT_ID,-1)};
-  }
- else {
-    accountIds=null;
-  }
+  final long[] accountIds=getAccountIds(args);
   return getReadPositionTagWithAccounts(tag,accountIds);
 }
