@@ -1,0 +1,7 @@
+{
+  final Object tag=parent.getTag();
+  if (tag instanceof ParcelableMedia) {
+    return ((ParcelableMedia)tag).type == ParcelableMedia.TYPE_VIDEO;
+  }
+  return false;
+}

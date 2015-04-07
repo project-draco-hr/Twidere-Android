@@ -1,7 +1,0 @@
-{
-  super(context);
-  mContext=context;
-  mFullImage=fullImage;
-  mTwitterProfileImageSize=context.getString(R.string.profile_image_size);
-  reloadConnectivitySettings();
-}

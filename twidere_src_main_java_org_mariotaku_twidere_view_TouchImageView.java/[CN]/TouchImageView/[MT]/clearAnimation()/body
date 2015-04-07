@@ -1,4 +1,0 @@
-{
-  super.clearAnimation();
-  mIsAnimatingBack=false;
-}

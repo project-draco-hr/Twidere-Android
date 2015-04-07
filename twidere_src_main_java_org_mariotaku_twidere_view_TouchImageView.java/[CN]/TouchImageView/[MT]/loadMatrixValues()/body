@@ -1,6 +1,0 @@
-{
-  mMatrix.getValues(mMatrixValues);
-  mScale=mMatrixValues[Matrix.MSCALE_X];
-  mTranslationX=mMatrixValues[Matrix.MTRANS_X];
-  mTranslationY=mMatrixValues[Matrix.MTRANS_Y];
-}

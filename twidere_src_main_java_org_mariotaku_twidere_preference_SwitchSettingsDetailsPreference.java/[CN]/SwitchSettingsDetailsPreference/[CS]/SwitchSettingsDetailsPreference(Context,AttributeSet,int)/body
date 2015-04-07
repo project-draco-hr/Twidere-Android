@@ -1,0 +1,8 @@
+{
+  super(context,attrs,defStyleAttr);
+  final TypedArray a=context.obtainStyledAttributes(attrs,new int[]{android.R.attr.src});
+  setFragment(SettingsDetailsFragment.class.getName());
+  final Bundle extras=getExtras();
+  extras.putInt(EXTRA_RESID,a.getResourceId(0,0));
+  a.recycle();
+}

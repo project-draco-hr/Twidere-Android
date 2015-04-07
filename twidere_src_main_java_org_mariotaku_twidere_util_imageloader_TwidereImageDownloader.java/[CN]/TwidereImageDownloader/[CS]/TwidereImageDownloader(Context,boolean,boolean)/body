@@ -1,0 +1,9 @@
+{
+  super(context);
+  mContext=context;
+  mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
+  mFullImage=fullImage;
+  mTwitterProfileImageSize=context.getString(R.string.profile_image_size);
+  mUseThumbor=useThumbor;
+  reloadConnectivitySettings();
+}

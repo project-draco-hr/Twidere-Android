@@ -37,5 +37,15 @@
   mentions=in.readParcelableArray("mentions",ParcelableUserMention.JSON_CREATOR);
   card=in.readParcelable("card",ParcelableCardEntity.JSON_CREATOR);
   place_full_name=in.readString("place_full_name");
+  is_quote=in.readBoolean("is_quote");
+  quote_id=in.readLong("quote_id");
+  quote_text_html=in.readString("quote_text_html");
+  quote_text_plain=in.readString("quote_text_plain");
+  quote_text_unescaped=in.readString("quote_text_unescaped");
+  quote_timestamp=in.readLong("quote_timestamp");
+  quoted_by_user_id=in.readLong("quoted_by_user_id");
+  quoted_by_user_name=in.readString("quoted_by_user_name");
+  quoted_by_user_screen_name=in.readString("quoted_by_user_screen_name");
+  quoted_by_user_profile_image=in.readString("quoted_by_user_profile_image");
   card_name=card != null ? card.name : null;
 }

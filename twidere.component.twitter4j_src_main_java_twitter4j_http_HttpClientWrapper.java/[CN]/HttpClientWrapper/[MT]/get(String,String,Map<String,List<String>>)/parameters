@@ -1,0 +1,3 @@
+String url
+String signUrl
+Map<String,List<String>> requestHeaders

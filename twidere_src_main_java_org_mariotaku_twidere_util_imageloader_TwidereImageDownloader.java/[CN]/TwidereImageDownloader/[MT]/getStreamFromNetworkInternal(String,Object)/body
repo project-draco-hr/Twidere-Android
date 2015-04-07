@@ -11,7 +11,14 @@
     account=null;
     auth=null;
   }
-  final String modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);
-  final HttpResponse resp=getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth);
+  String modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);
+  if (mThumbor != null) {
+    modifiedUri=mThumbor.buildImage(modifiedUri).filter(ThumborUrlBuilder.quality(85)).toUrl();
+  }
+  final HeaderMap additionalHeaders=new HeaderMap();
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+    additionalHeaders.addHeader("Accept","image/webp, */*");
+  }
+  final HttpResponse resp=getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth,additionalHeaders);
   return new ContentLengthInputStream(resp.asStream(),(int)resp.getContentLength());
 }

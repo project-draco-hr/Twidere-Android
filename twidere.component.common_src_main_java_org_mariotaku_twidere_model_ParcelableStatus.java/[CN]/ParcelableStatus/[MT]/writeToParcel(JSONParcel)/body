@@ -37,4 +37,14 @@
   out.writeParcelableArray("mentions",mentions);
   out.writeParcelable("card",card);
   out.writeString("place_full_name",place_full_name);
+  out.writeBoolean("is_quote",is_quote);
+  out.writeLong("quote_id",quote_id);
+  out.writeString("quote_text_html",quote_text_html);
+  out.writeString("quote_text_plain",quote_text_plain);
+  out.writeString("quote_text_unescaped",quote_text_unescaped);
+  out.writeLong("quote_timestamp",quote_timestamp);
+  out.writeLong("quoted_by_user_id",quoted_by_user_id);
+  out.writeString("quoted_by_user_name",quoted_by_user_name);
+  out.writeString("quoted_by_user_screen_name",quoted_by_user_screen_name);
+  out.writeString("quoted_by_user_profile_image",quoted_by_user_profile_image);
 }

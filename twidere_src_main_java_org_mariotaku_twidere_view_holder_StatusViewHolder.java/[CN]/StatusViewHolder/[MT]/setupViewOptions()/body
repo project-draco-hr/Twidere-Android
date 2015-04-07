@@ -1,4 +1,5 @@
 {
   setTextSize(adapter.getTextSize());
-  mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
+  mediaPreview.setStyle(adapter.getMediaPreviewStyle());
+  profileImageView.setStyle(adapter.getProfileImageStyle());
 }

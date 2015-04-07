@@ -1,8 +1,0 @@
-{
-  final int oldMeasuredWidth=getMeasuredWidth();
-  final int oldMeasuredHeight=getMeasuredHeight();
-  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
-  if (oldMeasuredWidth != getMeasuredWidth() || oldMeasuredHeight != getMeasuredHeight()) {
-    resetToInitialState();
-  }
-}

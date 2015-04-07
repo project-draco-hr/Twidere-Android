@@ -2,7 +2,7 @@
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mContext=context;
   mDiskCache=app.getDiskCache();
-  mImageDownloader=app.getImageDownloader();
+  mImageDownloader=new TwidereImageDownloader(context,false,false);
   mTaskManager=app.getAsyncTaskManager();
   mBus=app.getMessageBus();
 }

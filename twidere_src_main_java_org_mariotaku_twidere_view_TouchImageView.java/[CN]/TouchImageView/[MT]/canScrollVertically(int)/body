@@ -1,4 +1,0 @@
-{
-  loadMatrixValues();
-  return canScroll(getMeasuredHeight(),mDrawableIntrinsicHeight * mScale,mTranslationY,direction);
-}

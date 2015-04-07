@@ -41,6 +41,15 @@
       logger.warn("failed to parse retweeted_status:" + json);
     }
   }
+  if (!json.isNull("quoted_status")) {
+    try {
+      quotedStatus=new StatusJSONImpl(json.getJSONObject("quoted_status"));
+    }
+ catch (    final JSONException ignore) {
+      ignore.printStackTrace();
+      logger.warn("failed to parse retweeted_status:" + json);
+    }
+  }
   if (!json.isNull("contributors")) {
     try {
       final JSONArray contributorsArray=json.getJSONArray("contributors");

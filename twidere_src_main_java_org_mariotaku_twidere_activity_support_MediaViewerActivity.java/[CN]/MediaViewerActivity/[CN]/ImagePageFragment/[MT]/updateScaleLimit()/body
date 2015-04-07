@@ -1,12 +1,2 @@
 {
-  final int viewWidth=mImageView.getWidth(), viewHeight=mImageView.getHeight();
-  final Drawable drawable=mImageView.getDrawable();
-  if (drawable == null || viewWidth <= 0 || viewHeight <= 0)   return;
-  final int drawableWidth=drawable.getIntrinsicWidth();
-  final int drawableHeight=drawable.getIntrinsicHeight();
-  if (drawableWidth <= 0 || drawableHeight <= 0)   return;
-  final float widthRatio=viewWidth / (float)drawableWidth;
-  final float heightRatio=viewHeight / (float)drawableHeight;
-  mImageView.setMaxScale(Math.max(1,Math.max(heightRatio,widthRatio)));
-  mImageView.resetScale();
 }

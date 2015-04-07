@@ -37,5 +37,15 @@
   mentions=SimpleValueSerializer.fromSerializedString(values.getAsString(Statuses.MENTIONS_LIST),ParcelableUserMention.SIMPLE_CREATOR);
   card=ParcelableCardEntity.fromJSONString(values.getAsString(Statuses.CARD));
   place_full_name=values.getAsString(Statuses.PLACE_FULL_NAME);
+  is_quote=ContentValuesUtils.getAsBoolean(values,Statuses.IS_QUOTE,false);
+  quote_id=ContentValuesUtils.getAsLong(values,Statuses.QUOTE_ID,-1);
+  quote_timestamp=ContentValuesUtils.getAsLong(values,Statuses.QUOTE_TIMESTAMP,-1);
+  quote_text_html=values.getAsString(Statuses.QUOTE_TEXT_HTML);
+  quote_text_plain=values.getAsString(Statuses.QUOTE_TEXT_PLAIN);
+  quote_text_unescaped=values.getAsString(Statuses.QUOTE_TEXT_UNESCAPED);
+  quoted_by_user_id=ContentValuesUtils.getAsLong(values,Statuses.QUOTED_BY_USER_ID,-1);
+  quoted_by_user_name=values.getAsString(Statuses.QUOTED_BY_USER_NAME);
+  quoted_by_user_screen_name=values.getAsString(Statuses.QUOTED_BY_USER_SCREEN_NAME);
+  quoted_by_user_profile_image=values.getAsString(Statuses.QUOTED_BY_USER_PROFILE_IMAGE);
   card_name=card != null ? card.name : null;
 }

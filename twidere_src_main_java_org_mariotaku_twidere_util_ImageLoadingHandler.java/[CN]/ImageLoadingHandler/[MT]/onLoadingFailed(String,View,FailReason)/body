@@ -1,8 +1,9 @@
 {
   if (view == null)   return;
-  if (view instanceof ImageView) {
+  if (view instanceof ForegroundImageView) {
     ((ImageView)view).setImageDrawable(null);
-    view.setBackgroundResource(R.drawable.image_preview_refresh);
+    final Drawable foreground=ResourcesCompat.getDrawable(view.getResources(),R.drawable.image_preview_refresh,null);
+    ((ForegroundImageView)view).setForeground(foreground);
   }
   mLoadingUris.remove(view);
   final ProgressBar progress=findProgressBar(view.getParent());

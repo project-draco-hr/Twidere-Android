@@ -1,3 +1,0 @@
-{
-  addToLinearLayout(container,loader,Arrays.asList(mediaArray),accountId,maxColumnCount,listener);
-}

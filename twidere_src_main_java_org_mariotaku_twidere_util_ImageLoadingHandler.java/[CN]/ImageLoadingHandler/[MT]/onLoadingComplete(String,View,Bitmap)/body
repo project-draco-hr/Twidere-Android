@@ -1,7 +1,18 @@
 {
   if (view == null)   return;
   mLoadingUris.remove(view);
-  final ProgressBar progress=findProgressBar(view.getParent());
+  final ViewGroup parent=(ViewGroup)view.getParent();
+  if (view instanceof ForegroundImageView) {
+    final Drawable foreground;
+    if (isVideoItem(parent)) {
+      foreground=ResourcesCompat.getDrawable(view.getResources(),R.drawable.ic_card_media_play,null);
+    }
+ else {
+      foreground=null;
+    }
+    ((ForegroundImageView)view).setForeground(foreground);
+  }
+  final ProgressBar progress=findProgressBar(parent);
   if (progress != null) {
     progress.setVisibility(View.GONE);
   }

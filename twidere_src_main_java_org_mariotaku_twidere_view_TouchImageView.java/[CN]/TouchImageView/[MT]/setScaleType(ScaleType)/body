@@ -1,6 +1,0 @@
-{
-  if (scaleType != ScaleType.MATRIX) {
-    throw new IllegalArgumentException("Unsupported scaleType. Only ScaleType.MATRIX is allowed.");
-  }
-  super.setScaleType(scaleType);
-}

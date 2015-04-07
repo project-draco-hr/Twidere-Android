@@ -1,9 +1,0 @@
-{
-  if (currentTranslation > 0 && focusCoordinate < currentTranslation) {
-    return currentTranslation;
-  }
- else   if (currentTranslation < viewSize - drawableSize && focusCoordinate > currentTranslation + drawableSize) {
-    return drawableSize + currentTranslation;
-  }
-  return focusCoordinate;
-}

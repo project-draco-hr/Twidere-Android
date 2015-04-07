@@ -1,0 +1,11 @@
+{
+  super.onBindView(view);
+  if (view instanceof ViewGroup) {
+    ((ViewGroup)view).setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+  }
+  final Switch switchView=(Switch)findViewByType(view,Switch.class);
+  if (switchView != null) {
+    switchView.setClickable(true);
+    switchView.setFocusable(true);
+  }
+}

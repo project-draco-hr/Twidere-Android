@@ -1,9 +1,0 @@
-{
-  if (matrix == null) {
-    matrix=new Matrix();
-  }
-  if (!mMatrix.equals(matrix)) {
-    mMatrix.set(matrix);
-    invalidate();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super.setImageMatrix(mMatrix);
-  super.onDraw(canvas);
-}

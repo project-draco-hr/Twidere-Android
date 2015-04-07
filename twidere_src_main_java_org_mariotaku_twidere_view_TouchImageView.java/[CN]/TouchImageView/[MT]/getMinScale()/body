@@ -1,7 +1,0 @@
-{
-  float minScale=Math.min(getMeasuredWidth() / (float)mDrawableIntrinsicWidth,getMeasuredHeight() / (float)mDrawableIntrinsicHeight);
-  if (minScale > mMaxScale) {
-    minScale=mMaxScale;
-  }
-  return minScale;
-}

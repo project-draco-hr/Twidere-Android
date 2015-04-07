@@ -17,9 +17,9 @@
   repliesCountView=(TextView)itemView.findViewById(R.id.replies_count);
   retweetsCountView=(TextView)itemView.findViewById(R.id.retweets_count);
   favoritesCountView=(TextView)itemView.findViewById(R.id.favorites_count);
-  mediaPreviewContainer=itemView.findViewById(R.id.media_preview);
+  mediaPreviewContainer=itemView.findViewById(R.id.media_preview_container);
   mediaPreviewLoad=itemView.findViewById(R.id.media_preview_load);
-  mediaPreviewGrid=(LinearLayout)itemView.findViewById(R.id.media_preview_grid);
+  mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
   locationView=(TextView)itemView.findViewById(R.id.location_view);
   profileContainer=itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);

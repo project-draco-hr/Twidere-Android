@@ -1,4 +1,0 @@
-float viewSize
-float drawableSize
-float currentTranslation
-float delta

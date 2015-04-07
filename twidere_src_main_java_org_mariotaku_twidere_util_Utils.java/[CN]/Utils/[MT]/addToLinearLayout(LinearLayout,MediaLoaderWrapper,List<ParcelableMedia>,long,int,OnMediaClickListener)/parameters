@@ -1,6 +1,0 @@
-LinearLayout container
-MediaLoaderWrapper loader
-List<ParcelableMedia> mediaList
-long accountId
-int maxColumnCount
-OnMediaClickListener mediaClickListener

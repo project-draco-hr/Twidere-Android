@@ -8,7 +8,6 @@
   final long retweet_count;
   final long favorite_count;
   final long account_id=cursor.getLong(indices.account_id);
-  final long timestamp=cursor.getLong(indices.status_timestamp);
   final long user_id=cursor.getLong(indices.user_id);
   final long status_id=cursor.getLong(indices.status_id);
   final long retweet_id=cursor.getLong(indices.retweet_id);
@@ -16,19 +15,15 @@
   final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);
   final long in_reply_to_status_id=cursor.getLong(indices.in_reply_to_status_id);
   final long in_reply_to_user_id=cursor.getLong(indices.in_reply_to_user_id);
-  final boolean user_is_protected=cursor.getInt(indices.is_protected) == 1;
   final String user_name=cursor.getString(indices.user_name);
   final String user_screen_name=cursor.getString(indices.user_screen_name);
-  final String user_profile_image_url=cursor.getString(indices.user_profile_image_url);
-  final String retweeted_by_name=cursor.getString(indices.retweeted_by_user_name);
-  final String retweeted_by_screen_name=cursor.getString(indices.retweeted_by_user_screen_name);
-  final String in_reply_to_name=cursor.getString(indices.in_reply_to_user_name);
-  final String in_reply_to_screen_name=cursor.getString(indices.in_reply_to_user_screen_name);
   final String card_name=cursor.getString(indices.card_name);
   final String place_full_name=cursor.getString(indices.place_full_name);
   final ParcelableMedia[] media=SimpleValueSerializer.fromSerializedString(cursor.getString(indices.media),ParcelableMedia.SIMPLE_CREATOR);
   final ParcelableLocation location=ParcelableLocation.fromString(cursor.getString(indices.location));
   if (retweet_id > 0) {
+    final String retweeted_by_name=cursor.getString(indices.retweeted_by_user_name);
+    final String retweeted_by_screen_name=cursor.getString(indices.retweeted_by_user_screen_name);
     final String retweetedBy=UserColorNameUtils.getDisplayName(context,retweeted_by_id,retweeted_by_name,retweeted_by_screen_name,nameFirst);
     replyRetweetView.setText(context.getString(R.string.name_retweeted,retweetedBy));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_retweet);
@@ -36,6 +31,8 @@
     replyRetweetIcon.setVisibility(View.VISIBLE);
   }
  else   if (in_reply_to_status_id > 0 && in_reply_to_user_id > 0 && displayInReplyTo) {
+    final String in_reply_to_name=cursor.getString(indices.in_reply_to_user_name);
+    final String in_reply_to_screen_name=cursor.getString(indices.in_reply_to_user_screen_name);
     final String inReplyTo=UserColorNameUtils.getDisplayName(context,in_reply_to_user_id,in_reply_to_name,in_reply_to_screen_name,nameFirst);
     replyRetweetView.setText(context.getString(R.string.in_reply_to_name,inReplyTo));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_reply);
@@ -46,7 +43,7 @@
     replyRetweetView.setVisibility(View.GONE);
     replyRetweetIcon.setVisibility(View.GONE);
   }
-  final int typeIconRes=getUserTypeIconRes(cursor.getInt(indices.is_verified) == 1,user_is_protected);
+  final int typeIconRes=getUserTypeIconRes(cursor.getShort(indices.is_verified) == 1,cursor.getShort(indices.is_protected) == 1);
   if (typeIconRes != 0) {
     profileTypeView.setImageResource(typeIconRes);
     profileTypeView.setVisibility(View.VISIBLE);
@@ -55,35 +52,71 @@
     profileTypeView.setImageDrawable(null);
     profileTypeView.setVisibility(View.GONE);
   }
-  nameView.setText(user_name);
-  screenNameView.setText("@" + user_screen_name);
-  timeView.setTime(timestamp);
-  final int userColor=UserColorNameUtils.getUserColor(context,user_id);
-  itemContent.drawStart(userColor);
+  if (cursor.getShort(indices.is_quote) == 1) {
+    quotedNameView.setText(user_name);
+    quotedScreenNameView.setText("@" + user_screen_name);
+    timeView.setTime(cursor.getLong(indices.quote_timestamp));
+    nameView.setText(cursor.getString(indices.quoted_by_user_name));
+    screenNameView.setText("@" + cursor.getString(indices.quoted_by_user_screen_name));
+    if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
+      quoteTextView.setText(cursor.getString(indices.quote_text_unescaped));
+    }
+ else {
+      quoteTextView.setText(Html.fromHtml(cursor.getString(indices.quote_text_html)));
+      linkify.applyAllLinks(quoteTextView,account_id,getLayoutPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1,adapter.getLinkHighlightingStyle());
+      quoteTextView.setMovementMethod(null);
+    }
+    quotedNameContainer.setVisibility(View.VISIBLE);
+    quoteTextView.setVisibility(View.VISIBLE);
+    quoteIndicator.setVisibility(View.VISIBLE);
+    quoteIndicator.setColor(UserColorNameUtils.getUserColor(context,user_id));
+    if (adapter.isProfileImageEnabled()) {
+      profileTypeView.setVisibility(View.VISIBLE);
+      profileImageView.setVisibility(View.VISIBLE);
+      loader.displayProfileImage(profileImageView,cursor.getString(indices.quoted_by_user_profile_image));
+    }
+ else {
+      profileTypeView.setVisibility(View.GONE);
+      profileImageView.setVisibility(View.GONE);
+      loader.cancelDisplayTask(profileImageView);
+    }
+    final int userColor=UserColorNameUtils.getUserColor(context,cursor.getLong(indices.quoted_by_user_id));
+    itemContent.drawStart(userColor);
+  }
+ else {
+    nameView.setText(user_name);
+    screenNameView.setText("@" + user_screen_name);
+    timeView.setTime(cursor.getLong(indices.status_timestamp));
+    quotedNameContainer.setVisibility(View.GONE);
+    quoteTextView.setVisibility(View.GONE);
+    quoteIndicator.setVisibility(View.GONE);
+    if (adapter.isProfileImageEnabled()) {
+      final String user_profile_image_url=cursor.getString(indices.user_profile_image_url);
+      profileTypeView.setVisibility(View.VISIBLE);
+      profileImageView.setVisibility(View.VISIBLE);
+      loader.displayProfileImage(profileImageView,user_profile_image_url);
+    }
+ else {
+      profileTypeView.setVisibility(View.GONE);
+      profileImageView.setVisibility(View.GONE);
+      loader.cancelDisplayTask(profileImageView);
+    }
+    final int userColor=UserColorNameUtils.getUserColor(context,user_id);
+    itemContent.drawStart(userColor);
+  }
   if (adapter.shouldShowAccountsColor()) {
     itemContent.drawEnd(Utils.getAccountColor(context,account_id));
   }
  else {
     itemContent.drawEnd();
   }
-  profileImageView.setStyle(adapter.getProfileImageStyle());
-  if (adapter.isProfileImageEnabled()) {
-    profileTypeView.setVisibility(View.VISIBLE);
-    profileImageView.setVisibility(View.VISIBLE);
-    loader.displayProfileImage(profileImageView,user_profile_image_url);
-  }
- else {
-    profileTypeView.setVisibility(View.GONE);
-    profileImageView.setVisibility(View.GONE);
-    loader.cancelDisplayTask(profileImageView);
-  }
   if (adapter.isMediaPreviewEnabled()) {
-    mediaPreviewContainer.setStyle(adapter.getMediaPreviewStyle());
-    mediaPreviewContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
-    mediaPreviewContainer.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
+    mediaPreview.setStyle(adapter.getMediaPreviewStyle());
+    mediaPreview.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
+    mediaPreview.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
   }
  else {
-    mediaPreviewContainer.setVisibility(View.GONE);
+    mediaPreview.setVisibility(View.GONE);
   }
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
     textView.setText(cursor.getString(indices.text_unescaped));
@@ -91,6 +124,7 @@
  else {
     textView.setText(Html.fromHtml(cursor.getString(indices.text_html)));
     linkify.applyAllLinks(textView,account_id,getLayoutPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1,adapter.getLinkHighlightingStyle());
+    textView.setMovementMethod(null);
   }
   if (reply_count > 0) {
     replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));
@@ -113,15 +147,13 @@
  else {
     retweetCountView.setText(null);
   }
-  retweetCountView.setEnabled(!user_is_protected);
-  favoriteCountView.setActivated(cursor.getInt(indices.is_favorite) == 1);
   if (twitter.isDestroyingFavorite(account_id,status_id)) {
     favoriteCountView.setActivated(false);
     favorite_count=Math.max(0,cursor.getLong(indices.favorite_count) - 1);
   }
  else {
     final boolean creatingFavorite=twitter.isCreatingFavorite(account_id,status_id);
-    favoriteCountView.setActivated(creatingFavorite || cursor.getInt(indices.is_favorite) == 1);
+    favoriteCountView.setActivated(creatingFavorite || cursor.getShort(indices.is_favorite) == 1);
     favorite_count=cursor.getLong(indices.favorite_count) + (creatingFavorite ? 1 : 0);
   }
   if (favorite_count > 0) {

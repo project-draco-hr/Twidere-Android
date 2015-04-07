@@ -73,16 +73,13 @@
  else   if (adapter.isDetailMediaExpanded()) {
     mediaPreviewContainer.setVisibility(View.VISIBLE);
     mediaPreviewLoad.setVisibility(View.GONE);
-    mediaPreviewGrid.setVisibility(View.VISIBLE);
-    mediaPreviewGrid.removeAllViews();
-    final int maxColumns=resources.getInteger(R.integer.grid_column_image_preview);
-    Utils.addToLinearLayout(mediaPreviewGrid,loader,status.media,status.account_id,maxColumns,adapter.getFragment());
+    mediaPreview.setVisibility(View.VISIBLE);
+    mediaPreview.displayMedia(status.media,loader,status.account_id,adapter.getFragment(),adapter.getImageLoadingHandler());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);
     mediaPreviewLoad.setVisibility(View.VISIBLE);
-    mediaPreviewGrid.setVisibility(View.GONE);
-    mediaPreviewGrid.removeAllViews();
+    mediaPreview.setVisibility(View.GONE);
   }
   if (TwitterCardUtils.isCardSupported(status.card)) {
     final Point size=TwitterCardUtils.getCardSize(status.card);

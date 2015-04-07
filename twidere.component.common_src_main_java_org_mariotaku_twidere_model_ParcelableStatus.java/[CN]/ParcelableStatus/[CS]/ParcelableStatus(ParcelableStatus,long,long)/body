@@ -37,5 +37,15 @@
   mentions=orig.mentions;
   card=orig.card;
   place_full_name=orig.place_full_name;
+  is_quote=orig.is_quote;
+  quote_id=orig.quote_id;
+  quote_timestamp=orig.quote_timestamp;
+  quoted_by_user_id=orig.quoted_by_user_id;
+  quoted_by_user_name=orig.quoted_by_user_name;
+  quoted_by_user_screen_name=orig.quoted_by_user_screen_name;
+  quoted_by_user_profile_image=orig.quoted_by_user_profile_image;
+  quote_text_html=orig.quote_text_html;
+  quote_text_plain=orig.quote_text_plain;
+  quote_text_unescaped=orig.quote_text_unescaped;
   card_name=card != null ? card.name : null;
 }

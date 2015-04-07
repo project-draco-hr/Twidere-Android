@@ -12,7 +12,7 @@
     stopService(new Intent(this,SpiceService.class));
     startUsageStatisticsServiceIfNeeded(this);
   }
- else   if (KEY_CONSUMER_KEY.equals(key) || KEY_CONSUMER_SECRET.equals(key) || KEY_API_URL_FORMAT.equals(key)|| KEY_AUTH_TYPE.equals(key)|| KEY_SAME_OAUTH_SIGNING_URL.equals(key)) {
+ else   if (KEY_CONSUMER_KEY.equals(key) || KEY_CONSUMER_SECRET.equals(key) || KEY_API_URL_FORMAT.equals(key)|| KEY_AUTH_TYPE.equals(key)|| KEY_SAME_OAUTH_SIGNING_URL.equals(key)|| KEY_THUMBOR_ENABLED.equals(key)|| KEY_THUMBOR_ADDRESS.equals(key)|| KEY_THUMBOR_SECURITY_KEY.equals(key)) {
     final SharedPreferences.Editor editor=preferences.edit();
     editor.putLong(KEY_API_LAST_CHANGE,System.currentTimeMillis());
     editor.apply();
