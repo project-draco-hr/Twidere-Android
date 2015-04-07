@@ -5,6 +5,7 @@
   final Resources resources=context.getResources();
   final MediaLoaderWrapper loader=adapter.getImageLoader();
   final boolean nameFirst=adapter.isNameFirst();
+  linkClickHandler.setStatus(status);
   if (status.retweet_id > 0) {
     final String retweetedBy=UserColorNameUtils.getDisplayName(context,status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst);
     retweetedByView.setText(context.getString(R.string.name_retweeted,retweetedBy));
@@ -14,12 +15,28 @@
     retweetedByView.setText(null);
     retweetedByContainer.setVisibility(View.GONE);
   }
-  nameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
-  screenNameView.setText("@" + status.user_screen_name);
+  if (status.is_quote) {
+    quotedNameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
+    quotedScreenNameView.setText("@" + status.user_screen_name);
+    nameView.setText(getUserNickname(context,status.quoted_by_user_id,status.quoted_by_user_name,true));
+    screenNameView.setText("@" + status.quoted_by_user_screen_name);
+    quoteTextView.setText(Html.fromHtml(status.quote_text_html));
+    linkify.applyAllLinks(quoteTextView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
+    timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
+    loader.displayProfileImage(profileImageView,status.quoted_by_user_profile_image);
+    quotedNameContainer.setVisibility(View.VISIBLE);
+    quoteTextView.setVisibility(View.VISIBLE);
+    quoteIndicator.setVisibility(View.VISIBLE);
+  }
+ else {
+    nameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
+    screenNameView.setText("@" + status.user_screen_name);
+    loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+    quotedNameContainer.setVisibility(View.GONE);
+    quoteTextView.setVisibility(View.GONE);
+    quoteIndicator.setVisibility(View.GONE);
+  }
   textView.setText(Html.fromHtml(status.text_html));
-  final StatusLinkClickHandler linkClickHandler=new StatusLinkClickHandler(context,null);
-  linkClickHandler.setStatus(status);
-  final TwidereLinkify linkify=new TwidereLinkify(linkClickHandler,VALUE_LINK_HIGHLIGHT_OPTION_CODE_BOTH,false);
   linkify.applyAllLinks(textView,status.account_id,getAdapterPosition(),status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
   final String timeString=formatToLongTimeString(context,status.timestamp);
@@ -54,7 +71,6 @@
   repliesCountView.setText(getLocalizedNumber(locale,status.reply_count));
   retweetsCountView.setText(getLocalizedNumber(locale,status.retweet_count));
   favoritesCountView.setText(getLocalizedNumber(locale,status.favorite_count));
-  loader.displayProfileImage(profileImageView,status.user_profile_image_url);
   final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
   final int typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.user_is_verified,status.user_is_protected);
   if (typeIconRes != 0 && typeDescriptionRes != 0) {
@@ -98,7 +114,6 @@
   }
  else {
     twitterCard.setVisibility(View.GONE);
-    final FragmentManager fm=fragment.getChildFragmentManager();
   }
   Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
 }

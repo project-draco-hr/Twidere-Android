@@ -1,0 +1,10 @@
+{
+  final FragmentActivity activity=fragment.getActivity();
+  if (activity instanceof IThemedActivity) {
+    final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
+    final int accentColor=((IThemedActivity)activity).getCurrentThemeColor();
+    ThemeUtils.applySupportActionModeBackground(mode,fragment.getActivity(),themeRes,accentColor,true);
+  }
+  mode.getMenuInflater().inflate(R.menu.action_status_text_selection,menu);
+  return true;
+}

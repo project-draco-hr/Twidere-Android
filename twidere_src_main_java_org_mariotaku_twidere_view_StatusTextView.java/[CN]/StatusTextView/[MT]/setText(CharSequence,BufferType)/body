@@ -1,0 +1,7 @@
+{
+  if (text == null) {
+    super.setText(null,type);
+    return;
+  }
+  super.setText(new SafeSpannableStringWrapper(text),type);
+}

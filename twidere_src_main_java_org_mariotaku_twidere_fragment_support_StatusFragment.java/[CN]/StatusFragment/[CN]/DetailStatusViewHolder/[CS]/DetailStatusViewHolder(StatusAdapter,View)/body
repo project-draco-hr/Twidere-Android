@@ -1,5 +1,7 @@
 {
   super(itemView);
+  this.linkClickHandler=new StatusLinkClickHandler(adapter.getContext(),null);
+  this.linkify=new TwidereLinkify(linkClickHandler,false);
   this.adapter=adapter;
   cardView=(CardView)itemView.findViewById(R.id.card);
   menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
@@ -23,6 +25,11 @@
   locationView=(TextView)itemView.findViewById(R.id.location_view);
   profileContainer=itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
+  quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
+  quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
+  quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
+  quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);
+  quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   setIsRecyclable(false);
   initViews();
 }
