@@ -1,4 +1,3 @@
 {
-  mWebView.destroy();
   super.onDestroyView();
 }

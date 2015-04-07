@@ -1,0 +1,6 @@
+{
+  final int startOfHost=format.indexOf("://") + 3, endOfHost=format.indexOf('/',startOfHost);
+  final String host=format.substring(startOfHost,endOfHost);
+  if (!host.equalsIgnoreCase("api.twitter.com"))   return format;
+  return format.substring(0,startOfHost) + domain + ".twitter.com"+ format.substring(endOfHost);
+}
