@@ -23,7 +23,7 @@
   mediaPreviewLoad=itemView.findViewById(R.id.media_preview_load);
   mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
   locationView=(TextView)itemView.findViewById(R.id.location_view);
-  profileContainer=itemView.findViewById(R.id.profile_container);
+  profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
   quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
   quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
