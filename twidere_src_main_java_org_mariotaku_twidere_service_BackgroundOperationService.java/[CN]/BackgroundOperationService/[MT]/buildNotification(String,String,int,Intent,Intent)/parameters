@@ -2,4 +2,4 @@ String title
 String message
 int icon
 Intent content_intent
-Intent delete_intent
+Intent deleteIntent

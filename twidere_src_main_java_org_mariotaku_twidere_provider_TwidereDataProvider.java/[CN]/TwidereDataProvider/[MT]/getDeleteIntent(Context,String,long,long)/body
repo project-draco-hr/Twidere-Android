@@ -1,5 +1,6 @@
 {
   final Intent recvIntent=new Intent(context,NotificationReceiver.class);
+  recvIntent.setAction(BROADCAST_NOTIFICATION_DELETED);
   final Uri.Builder recvLinkBuilder=new Uri.Builder();
   recvLinkBuilder.scheme(SCHEME_TWIDERE);
   recvLinkBuilder.authority(AUTHORITY_NOTIFICATIONS);

@@ -3,12 +3,20 @@
   if (AccountPreferences.isNotificationHasLight(defaultFlags)) {
     notificationDefaults|=NotificationCompat.DEFAULT_LIGHTS;
   }
-  if (AccountPreferences.isNotificationHasVibration(defaultFlags)) {
-    notificationDefaults|=NotificationCompat.DEFAULT_VIBRATE;
+  if (isNotificationAudible()) {
+    if (AccountPreferences.isNotificationHasVibration(defaultFlags)) {
+      notificationDefaults|=NotificationCompat.DEFAULT_VIBRATE;
+    }
+ else {
+      notificationDefaults&=~NotificationCompat.DEFAULT_VIBRATE;
+    }
+    if (AccountPreferences.isNotificationHasRingtone(defaultFlags)) {
+      notificationDefaults|=NotificationCompat.DEFAULT_SOUND;
+      builder.setSound(pref.getNotificationRingtone(),AudioManager.STREAM_NOTIFICATION);
+    }
   }
-  if (AccountPreferences.isNotificationHasRingtone(defaultFlags)) {
-    notificationDefaults|=NotificationCompat.DEFAULT_SOUND;
-    builder.setSound(pref.getNotificationRingtone(),AudioManager.STREAM_NOTIFICATION);
+ else {
+    notificationDefaults&=~(NotificationCompat.DEFAULT_VIBRATE | NotificationCompat.DEFAULT_SOUND);
   }
   builder.setDefaults(notificationDefaults);
 }
