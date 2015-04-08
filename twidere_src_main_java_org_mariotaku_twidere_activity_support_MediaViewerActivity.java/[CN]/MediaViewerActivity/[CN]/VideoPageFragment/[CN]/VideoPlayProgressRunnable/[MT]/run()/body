@@ -1,0 +1,7 @@
+{
+  final int duration=mMediaPlayerControl.getDuration();
+  final int position=mMediaPlayerControl.getCurrentPosition();
+  if (duration <= 0 || position < 0)   return;
+  mProgressBar.setProgress(Math.round(1000 * position / (float)duration));
+  mHandler.postDelayed(this,16);
+}

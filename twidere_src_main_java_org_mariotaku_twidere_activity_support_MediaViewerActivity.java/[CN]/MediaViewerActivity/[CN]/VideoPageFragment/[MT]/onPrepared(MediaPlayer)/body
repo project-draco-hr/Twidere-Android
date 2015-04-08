@@ -8,5 +8,7 @@
       mp.setVolume(0,0);
     }
     mp.start();
+    mVideoViewProgress.setVisibility(View.VISIBLE);
+    mVideoViewProgress.post(mVideoProgressRunnable);
   }
 }

@@ -1,8 +1,12 @@
 {
   super.onActivityCreated(savedInstanceState);
   mVideoLoader=TwidereApplication.getInstance(getActivity()).getVideoLoader();
+  mVideoProgressRunnable=new VideoPlayProgressRunnable(mVideoViewProgress.getHandler(),mVideoViewProgress,mVideoView);
   final String url=getBestVideoUrl(getMedia());
   if (url != null) {
     mVideoLoader.loadVideo(url,this);
   }
+  mVideoView.setOnPreparedListener(this);
+  mVideoView.setOnErrorListener(this);
+  mVideoView.setOnCompletionListener(this);
 }

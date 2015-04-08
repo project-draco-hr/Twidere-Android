@@ -1,4 +1,3 @@
 {
   mVideoView.setVideoURI(Uri.fromFile(file));
-  mVideoView.setOnPreparedListener(this);
 }

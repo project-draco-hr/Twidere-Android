@@ -1,0 +1,6 @@
+{
+  mHandler=handler;
+  mProgressBar=progressBar;
+  mMediaPlayerControl=mediaPlayerControl;
+  mProgressBar.setMax(1000);
+}
