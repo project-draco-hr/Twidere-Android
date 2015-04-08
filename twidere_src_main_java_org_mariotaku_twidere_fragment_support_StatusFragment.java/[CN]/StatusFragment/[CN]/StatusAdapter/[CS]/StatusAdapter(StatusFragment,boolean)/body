@@ -16,6 +16,7 @@
   mIsCompact=compact;
   mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
+  mSensitiveContentEnabled=preferences.getBoolean(KEY_DISPLAY_SENSITIVE_CONTENTS,false);
   if (compact) {
     mCardLayoutResource=R.layout.card_item_status_compact;
   }

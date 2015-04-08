@@ -15,6 +15,7 @@
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
   mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mDisplayMediaPreview=preferences.getBoolean(KEY_MEDIA_PREVIEW,false);
+  mSensitiveContentEnabled=preferences.getBoolean(KEY_DISPLAY_SENSITIVE_CONTENTS,false);
   mLinkify=new TwidereLinkify(new StatusAdapterLinkClickHandler<>(this));
   setShowInReplyTo(true);
 }

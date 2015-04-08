@@ -1,14 +1,20 @@
 {
+  final ParcelableStatus status=adapter.getStatus(getAdapterPosition());
+  final StatusFragment fragment=adapter.getFragment();
 switch (v.getId()) {
 case R.id.media_preview_load:
 {
-      adapter.setDetailMediaExpanded(true);
+      if (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive) {
+        adapter.setDetailMediaExpanded(true);
+      }
+ else {
+        final LoadSensitiveImageConfirmDialogFragment f=new LoadSensitiveImageConfirmDialogFragment();
+        f.show(fragment.getChildFragmentManager(),"load_sensitive_image_confirm");
+      }
       break;
     }
 case R.id.profile_container:
 {
-    final ParcelableStatus status=adapter.getStatus(getPosition());
-    final Fragment fragment=adapter.getFragment();
     final FragmentActivity activity=fragment.getActivity();
     final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<View,String>(profileTypeView,UserFragment.TRANSITION_NAME_PROFILE_TYPE));
     openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,activityOption);
@@ -16,15 +22,12 @@ case R.id.profile_container:
   }
 case R.id.retweets_container:
 {
-  final ParcelableStatus status=adapter.getStatus(getPosition());
-  final Fragment fragment=adapter.getFragment();
   final FragmentActivity activity=fragment.getActivity();
   Utils.openStatusRetweeters(activity,status.account_id,status.id);
   break;
 }
 case R.id.retweeted_by_container:
 {
-final ParcelableStatus status=adapter.getStatus(getPosition());
 if (status.retweet_id > 0) {
   Utils.openUserProfile(adapter.getContext(),status.account_id,status.user_id,status.user_screen_name,null);
 }
@@ -32,7 +35,6 @@ break;
 }
 case R.id.location_view:
 {
-final ParcelableStatus status=adapter.getStatus(getAdapterPosition());
 final ParcelableLocation location=status.location;
 if (!ParcelableLocation.isValidLocation(location)) return;
 Utils.openMap(adapter.getContext(),location.latitude,location.longitude);

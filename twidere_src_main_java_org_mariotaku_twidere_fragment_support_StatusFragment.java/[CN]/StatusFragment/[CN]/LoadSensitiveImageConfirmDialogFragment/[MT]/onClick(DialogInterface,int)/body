@@ -1,0 +1,13 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final Fragment f=getParentFragment();
+      if (f instanceof StatusFragment) {
+        final StatusAdapter adapter=((StatusFragment)f).getAdapter();
+        adapter.setDetailMediaExpanded(true);
+      }
+      break;
+    }
+}
+}

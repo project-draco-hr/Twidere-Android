@@ -94,8 +94,14 @@
   }
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    mediaPreview.setVisibility(status.media != null && status.media.length > 0 ? View.VISIBLE : View.GONE);
-    mediaPreview.displayMedia(status.media,loader,status.account_id,this,adapter.getImageLoadingHandler());
+    final boolean hasMedia=status.media != null && status.media.length > 0;
+    if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
+      mediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
+      mediaPreview.displayMedia(status.media,loader,status.account_id,this,adapter.getImageLoadingHandler());
+    }
+ else {
+      mediaPreview.setVisibility(View.GONE);
+    }
   }
  else {
     mediaPreview.setVisibility(View.GONE);
@@ -145,7 +151,7 @@
     favoriteCountView.setText(null);
   }
   if (shouldDisplayExtraType) {
-    displayExtraTypeIcon(status.card_name,status.media,status.location,status.place_full_name);
+    displayExtraTypeIcon(status.card_name,status.media,status.location,status.place_full_name,status.is_possibly_sensitive);
   }
  else {
     extraTypeView.setVisibility(View.GONE);

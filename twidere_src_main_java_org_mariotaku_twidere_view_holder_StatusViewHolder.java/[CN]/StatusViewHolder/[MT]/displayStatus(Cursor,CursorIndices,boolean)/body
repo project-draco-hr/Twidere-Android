@@ -12,16 +12,17 @@
   final long status_id=cursor.getLong(indices.status_id);
   final long retweet_id=cursor.getLong(indices.retweet_id);
   final long my_retweet_id=cursor.getLong(indices.my_retweet_id);
-  final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);
   final long in_reply_to_status_id=cursor.getLong(indices.in_reply_to_status_id);
   final long in_reply_to_user_id=cursor.getLong(indices.in_reply_to_user_id);
   final String user_name=cursor.getString(indices.user_name);
   final String user_screen_name=cursor.getString(indices.user_screen_name);
   final String card_name=cursor.getString(indices.card_name);
   final String place_full_name=cursor.getString(indices.place_full_name);
+  final boolean sensitive=cursor.getShort(indices.is_possibly_sensitive) == 1;
   final ParcelableMedia[] media=SimpleValueSerializer.fromSerializedString(cursor.getString(indices.media),ParcelableMedia.SIMPLE_CREATOR);
   final ParcelableLocation location=ParcelableLocation.fromString(cursor.getString(indices.location));
   if (retweet_id > 0) {
+    final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);
     final String retweeted_by_name=cursor.getString(indices.retweeted_by_user_name);
     final String retweeted_by_screen_name=cursor.getString(indices.retweeted_by_user_screen_name);
     final String retweetedBy=UserColorNameUtils.getDisplayName(context,retweeted_by_id,retweeted_by_name,retweeted_by_screen_name,nameFirst);
@@ -113,9 +114,14 @@
     itemContent.drawEnd();
   }
   if (adapter.isMediaPreviewEnabled()) {
-    mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    mediaPreview.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
-    mediaPreview.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
+    final boolean hasMedia=media != null && media.length > 0;
+    if (hasMedia && (adapter.isSensitiveContentEnabled() || !sensitive)) {
+      mediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
+      mediaPreview.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
+    }
+ else {
+      mediaPreview.setVisibility(View.GONE);
+    }
   }
  else {
     mediaPreview.setVisibility(View.GONE);
@@ -140,6 +146,7 @@
   }
  else {
     final boolean creatingRetweet=twitter.isCreatingRetweet(account_id,status_id);
+    final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);
     retweetCountView.setActivated(creatingRetweet || Utils.isMyRetweet(account_id,retweeted_by_id,my_retweet_id));
     retweet_count=cursor.getLong(indices.retweet_count) + (creatingRetweet ? 1 : 0);
   }
@@ -164,5 +171,5 @@
  else {
     favoriteCountView.setText(null);
   }
-  displayExtraTypeIcon(card_name,media,location,place_full_name);
+  displayExtraTypeIcon(card_name,media,location,place_full_name,sensitive);
 }

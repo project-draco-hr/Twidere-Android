@@ -1,4 +1,5 @@
 {
+  mUserUiColor=color;
   if (mActionBarBackground == null) {
     setupBaseActionBar();
   }
