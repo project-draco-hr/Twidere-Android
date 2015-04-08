@@ -24,7 +24,9 @@
     quotedScreenNameView.setText("@" + status.user_screen_name);
     nameView.setText(getUserNickname(context,status.quoted_by_user_id,status.quoted_by_user_name,true));
     screenNameView.setText("@" + status.quoted_by_user_screen_name);
-    quoteTextView.setText(Html.fromHtml(status.quote_text_html));
+    final int idx=status.quote_text_unescaped.lastIndexOf(" twitter.com");
+    final Spanned quote_text=Html.fromHtml(status.quote_text_html);
+    quoteTextView.setText(idx > 0 ? quote_text.subSequence(0,idx - 1) : quote_text);
     linkify.applyAllLinks(quoteTextView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
     loader.displayProfileImage(profileImageView,status.quoted_by_user_profile_image);
     quotedNameContainer.setVisibility(View.VISIBLE);

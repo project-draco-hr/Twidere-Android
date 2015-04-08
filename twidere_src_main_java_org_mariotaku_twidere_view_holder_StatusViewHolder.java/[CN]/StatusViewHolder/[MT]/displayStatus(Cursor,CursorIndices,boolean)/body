@@ -51,11 +51,14 @@
     timeView.setTime(cursor.getLong(indices.quote_timestamp));
     nameView.setText(cursor.getString(indices.quoted_by_user_name));
     screenNameView.setText("@" + cursor.getString(indices.quoted_by_user_screen_name));
+    final String quote_text_unescaped=cursor.getString(indices.quote_text_unescaped);
+    final int idx=quote_text_unescaped.lastIndexOf(" twitter.com");
     if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
-      quoteTextView.setText(cursor.getString(indices.quote_text_unescaped));
+      quoteTextView.setText(idx > 0 ? quote_text_unescaped.substring(0,idx - 1) : quote_text_unescaped);
     }
  else {
-      quoteTextView.setText(Html.fromHtml(cursor.getString(indices.quote_text_html)));
+      final Spanned text=Html.fromHtml(cursor.getString(indices.quote_text_html));
+      quoteTextView.setText(idx > 0 ? text.subSequence(0,idx - 1) : text);
       linkify.applyAllLinks(quoteTextView,account_id,getLayoutPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1,adapter.getLinkHighlightingStyle());
       quoteTextView.setMovementMethod(null);
     }

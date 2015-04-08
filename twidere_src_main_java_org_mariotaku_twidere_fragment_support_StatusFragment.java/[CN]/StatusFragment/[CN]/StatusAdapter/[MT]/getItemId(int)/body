@@ -1,15 +1,15 @@
 {
   final int conversationCount=getConversationCount();
   if (position == getItemCount() - 1) {
-    return 4;
+    return VIEW_TYPE_SPACE;
   }
  else   if (position < conversationCount) {
-    return mConversation != null ? mConversation.get(position).id : 2;
+    return mConversation != null ? mConversation.get(position).id : VIEW_TYPE_CONVERSATION_LOAD_INDICATOR;
   }
  else   if (position > conversationCount) {
-    return mReplies != null ? mReplies.get(position - conversationCount - 1).id : 3;
+    return mReplies != null ? mReplies.get(position - conversationCount - 1).id : VIEW_TYPE_REPLIES_LOAD_INDICATOR;
   }
  else {
-    return mStatus != null ? mStatus.id : 1;
+    return mStatus != null ? mStatus.id : VIEW_TYPE_DETAIL_STATUS;
   }
 }
