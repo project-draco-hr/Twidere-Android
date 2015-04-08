@@ -2,4 +2,6 @@
   setTextSize(adapter.getTextSize());
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
   profileImageView.setStyle(adapter.getProfileImageStyle());
+  actionButtons.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
+  itemMenu.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
 }

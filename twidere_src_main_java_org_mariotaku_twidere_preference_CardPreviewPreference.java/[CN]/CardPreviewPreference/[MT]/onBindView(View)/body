@@ -1,10 +1,7 @@
 {
-  if (mPreferences == null)   return;
+  if (mHolder == null)   return;
   mCompactModeChanged=false;
-  final Context context=getContext();
-  final int highlightOption=Utils.getLinkHighlightingStyle(context);
-  mHolder=new StatusViewHolder(mAdapter,view);
+  mHolder.setupViewOptions();
   mHolder.displaySampleStatus();
-  mLinkify.setHighlightOption(highlightOption);
   super.onBindView(view);
 }

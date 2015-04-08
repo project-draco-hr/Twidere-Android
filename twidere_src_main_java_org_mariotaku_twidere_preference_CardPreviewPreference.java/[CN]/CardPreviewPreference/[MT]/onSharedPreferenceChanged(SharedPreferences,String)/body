@@ -3,5 +3,6 @@
   if (KEY_COMPACT_CARDS.equals(key)) {
     mCompactModeChanged=true;
   }
+  mAdapter.updateOptions();
   notifyChanged();
 }

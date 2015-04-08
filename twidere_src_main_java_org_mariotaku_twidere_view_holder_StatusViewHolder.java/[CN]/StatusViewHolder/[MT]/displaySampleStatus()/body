@@ -1,8 +1,17 @@
 {
+  profileImageView.setVisibility(adapter.isProfileImageEnabled() ? View.VISIBLE : View.GONE);
   profileImageView.setImageResource(R.mipmap.ic_launcher);
   nameView.setText(TWIDERE_PREVIEW_NAME);
   screenNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
-  textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
+  if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
+    textView.setText(Html.fromHtml(TWIDERE_PREVIEW_TEXT_HTML));
+    adapter.getTwidereLinkify().applyAllLinks(textView,-1,-1,false,adapter.getLinkHighlightingStyle());
+  }
+ else {
+    textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
+  }
+  textView.setMovementMethod(null);
   timeView.setTime(System.currentTimeMillis());
+  mediaPreview.setVisibility(adapter.isMediaPreviewEnabled() ? View.VISIBLE : View.GONE);
   mediaPreview.displayMedia(R.drawable.nyan_stars_background);
 }

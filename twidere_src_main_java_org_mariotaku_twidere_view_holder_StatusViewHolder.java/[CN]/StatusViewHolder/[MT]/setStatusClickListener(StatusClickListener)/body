@@ -1,7 +1,7 @@
 {
   statusClickListener=listener;
   itemView.findViewById(R.id.item_content).setOnClickListener(this);
-  itemView.findViewById(R.id.item_menu).setOnClickListener(this);
+  itemMenu.setOnClickListener(this);
   itemView.setOnClickListener(this);
   profileImageView.setOnClickListener(this);
   replyCountView.setOnClickListener(this);
