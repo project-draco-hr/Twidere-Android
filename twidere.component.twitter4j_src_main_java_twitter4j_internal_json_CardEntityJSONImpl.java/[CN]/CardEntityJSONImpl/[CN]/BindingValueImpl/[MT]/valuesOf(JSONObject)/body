@@ -2,8 +2,10 @@
   final Iterator<String> keys=json.keys();
   final HashMap<String,BindingValue> values=new HashMap<>();
   while (keys.hasNext()) {
-    String key=keys.next();
-    values.put(key,valueOf(key,json.getJSONObject(key)));
+    final String key=keys.next();
+    if (!json.isNull("name")) {
+      values.put(key,valueOf(key,json.getJSONObject(key)));
+    }
   }
   return values;
 }

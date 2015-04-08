@@ -1,5 +1,5 @@
 {
-  final String type=json.optString("type");
+  final String type=json.getString("type");
   if (TYPE_STRING.equals(type)) {
     return new StringValueImpl(name,json);
   }
@@ -12,5 +12,5 @@
  else   if (TYPE_BOOLEAN.equals(type)) {
     return new BooleanValueImpl(name,json);
   }
-  throw new UnsupportedOperationException(String.format("Unsupported type %s",type));
+  throw new TwitterException(String.format("Unsupported type %s",type));
 }
