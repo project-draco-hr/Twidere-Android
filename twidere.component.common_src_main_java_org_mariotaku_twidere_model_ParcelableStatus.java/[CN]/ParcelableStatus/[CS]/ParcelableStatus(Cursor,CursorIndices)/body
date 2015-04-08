@@ -47,5 +47,8 @@
   quoted_by_user_name=idx.quoted_by_user_name != -1 ? c.getString(idx.quoted_by_user_name) : null;
   quoted_by_user_screen_name=idx.quoted_by_user_screen_name != -1 ? c.getString(idx.quoted_by_user_screen_name) : null;
   quoted_by_user_profile_image=idx.quoted_by_user_profile_image != -1 ? c.getString(idx.quoted_by_user_profile_image) : null;
+  quoted_by_user_is_protected=idx.quoted_by_user_is_protected != -1 && c.getShort(idx.quoted_by_user_is_protected) == 1;
+  quoted_by_user_is_verified=idx.quoted_by_user_is_verified != -1 && c.getShort(idx.quoted_by_user_is_verified) == 1;
+  quote_source=idx.quote_source != -1 ? c.getString(idx.quote_source) : null;
   card_name=card != null ? card.name : null;
 }

@@ -1,6 +1,6 @@
 {
-  page_url=ParseUtils.parseString(entity.getMediaURL());
-  media_url=ParseUtils.parseString(entity.getMediaURL());
+  page_url=entity.getMediaURL();
+  media_url=entity.getMediaURL();
   start=entity.getStart();
   end=entity.getEnd();
   type=getTypeInt(entity.getType());

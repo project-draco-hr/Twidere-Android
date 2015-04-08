@@ -47,5 +47,8 @@
   quoted_by_user_name=in.readString("quoted_by_user_name");
   quoted_by_user_screen_name=in.readString("quoted_by_user_screen_name");
   quoted_by_user_profile_image=in.readString("quoted_by_user_profile_image");
+  quoted_by_user_is_protected=in.readBoolean("quoted_by_user_is_protected");
+  quoted_by_user_is_verified=in.readBoolean("quoted_by_user_is_verified");
+  quote_source=in.readString("quote_source");
   card_name=card != null ? card.name : null;
 }

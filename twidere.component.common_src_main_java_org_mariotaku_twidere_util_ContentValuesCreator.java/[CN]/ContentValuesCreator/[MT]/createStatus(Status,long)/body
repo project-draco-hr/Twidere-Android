@@ -14,7 +14,7 @@
     values.put(Statuses.RETWEETED_BY_USER_ID,retweetedById);
     values.put(Statuses.RETWEETED_BY_USER_NAME,retweetUser.getName());
     values.put(Statuses.RETWEETED_BY_USER_SCREEN_NAME,retweetUser.getScreenName());
-    values.put(Statuses.RETWEETED_BY_USER_PROFILE_IMAGE,ParseUtils.parseString(retweetUser.getProfileImageUrlHttps()));
+    values.put(Statuses.RETWEETED_BY_USER_PROFILE_IMAGE,(retweetUser.getProfileImageUrlHttps()));
     values.put(Statuses.IS_RETWEET,true);
     if (retweetedById == accountId) {
       values.put(Statuses.MY_RETWEET_ID,orig.getId());
@@ -33,11 +33,14 @@
     values.put(Statuses.QUOTE_TEXT_HTML,textHtml);
     values.put(Statuses.QUOTE_TEXT_PLAIN,orig.getText());
     values.put(Statuses.QUOTE_TEXT_UNESCAPED,toPlainText(textHtml));
-    values.put(Statuses.QUOTE_TIMESTAMP,quotedStatus.getCreatedAt().getTime());
+    values.put(Statuses.QUOTE_TIMESTAMP,orig.getCreatedAt().getTime());
+    values.put(Statuses.QUOTE_SOURCE,orig.getSource());
     values.put(Statuses.QUOTED_BY_USER_ID,quotedById);
     values.put(Statuses.QUOTED_BY_USER_NAME,quoteUser.getName());
     values.put(Statuses.QUOTED_BY_USER_SCREEN_NAME,quoteUser.getScreenName());
-    values.put(Statuses.QUOTED_BY_USER_PROFILE_IMAGE,ParseUtils.parseString(quoteUser.getProfileImageUrlHttps()));
+    values.put(Statuses.QUOTED_BY_USER_PROFILE_IMAGE,quoteUser.getProfileImageUrlHttps());
+    values.put(Statuses.QUOTED_BY_USER_IS_VERIFIED,quoteUser.isVerified());
+    values.put(Statuses.QUOTED_BY_USER_IS_PROTECTED,quoteUser.isProtected());
     values.put(Statuses.IS_QUOTE,true);
     if (quotedById == accountId) {
       values.put(Statuses.MY_QUOTE_ID,orig.getId());
@@ -50,7 +53,7 @@
   }
   final User user=status.getUser();
   final long userId=user.getId();
-  final String profileImageUrl=ParseUtils.parseString(user.getProfileImageUrlHttps());
+  final String profileImageUrl=(user.getProfileImageUrlHttps());
   final String name=user.getName(), screenName=user.getScreenName();
   values.put(Statuses.USER_ID,userId);
   values.put(Statuses.USER_NAME,name);

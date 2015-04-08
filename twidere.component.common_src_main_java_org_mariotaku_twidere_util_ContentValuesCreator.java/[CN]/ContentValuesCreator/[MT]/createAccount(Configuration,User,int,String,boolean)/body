@@ -5,8 +5,8 @@
   values.put(Accounts.ACCOUNT_ID,user.getId());
   values.put(Accounts.SCREEN_NAME,user.getScreenName());
   values.put(Accounts.NAME,user.getName());
-  values.put(Accounts.PROFILE_IMAGE_URL,ParseUtils.parseString(user.getProfileImageUrlHttps()));
-  values.put(Accounts.PROFILE_BANNER_URL,ParseUtils.parseString(user.getProfileBannerImageUrl()));
+  values.put(Accounts.PROFILE_IMAGE_URL,(user.getProfileImageUrlHttps()));
+  values.put(Accounts.PROFILE_BANNER_URL,(user.getProfileBannerImageUrl()));
   values.put(Accounts.COLOR,color);
   values.put(Accounts.IS_ACTIVATED,1);
   values.put(Accounts.API_URL_FORMAT,apiUrlFormat);

@@ -9,10 +9,12 @@
     final int actionBarColor=getResources().getColor(R.color.background_color_action_bar_dark);
     mTintedStatusContent.setColor(actionBarColor,themed.getCurrentThemeBackgroundAlpha());
     mActionBarBackground.setColor(actionBarColor);
+    ActivityAccessor.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
   }
  else {
     mTintedStatusContent.setColor(color,themed.getCurrentThemeBackgroundAlpha());
     mActionBarBackground.setColor(color);
+    ActivityAccessor.setTaskDescription(activity,new TaskDescriptionCompat(null,null,color));
   }
   mDescriptionView.setLinkTextColor(color);
   mProfileBannerView.setBackgroundColor(color);

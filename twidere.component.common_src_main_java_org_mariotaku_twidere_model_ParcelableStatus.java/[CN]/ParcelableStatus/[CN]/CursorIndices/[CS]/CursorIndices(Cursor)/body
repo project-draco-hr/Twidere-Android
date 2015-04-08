@@ -32,10 +32,13 @@
   quote_text_plain=cursor.getColumnIndex(Statuses.QUOTE_TEXT_PLAIN);
   quote_text_unescaped=cursor.getColumnIndex(Statuses.QUOTE_TEXT_UNESCAPED);
   quote_timestamp=cursor.getColumnIndex(Statuses.QUOTE_TIMESTAMP);
+  quote_source=cursor.getColumnIndex(Statuses.QUOTE_SOURCE);
   quoted_by_user_id=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_ID);
   quoted_by_user_name=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_NAME);
   quoted_by_user_screen_name=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_SCREEN_NAME);
   quoted_by_user_profile_image=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_PROFILE_IMAGE);
+  quoted_by_user_is_protected=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_IS_PROTECTED);
+  quoted_by_user_is_verified=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_IS_VERIFIED);
   user_id=cursor.getColumnIndex(Statuses.USER_ID);
   source=cursor.getColumnIndex(Statuses.SOURCE);
   retweet_count=cursor.getColumnIndex(Statuses.RETWEET_COUNT);

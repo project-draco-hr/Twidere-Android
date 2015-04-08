@@ -1,0 +1,4 @@
+{
+  if (!(activity instanceof SettingsActivity))   return;
+  ((SettingsActivity)activity).setShouldNotifyChange(true);
+}

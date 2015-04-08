@@ -1,9 +1,3 @@
 {
-  if (null == profileImageUrlHttps)   return null;
-  try {
-    return new URL(profileImageUrlHttps);
-  }
- catch (  final MalformedURLException ex) {
-    return null;
-  }
+  return profileImageUrlHttps;
 }

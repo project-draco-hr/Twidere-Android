@@ -47,4 +47,7 @@
   out.writeString(quoted_by_user_name);
   out.writeString(quoted_by_user_screen_name);
   out.writeString(quoted_by_user_profile_image);
+  out.writeByte((byte)(quoted_by_user_is_protected ? 1 : 0));
+  out.writeByte((byte)(quoted_by_user_is_verified ? 1 : 0));
+  out.writeString(quote_source);
 }

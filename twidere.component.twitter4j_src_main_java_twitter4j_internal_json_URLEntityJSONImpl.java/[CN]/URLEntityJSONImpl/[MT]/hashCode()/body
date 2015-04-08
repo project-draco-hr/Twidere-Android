@@ -1,8 +1,8 @@
 {
   int result=start;
   result=31 * result + end;
-  result=31 * result + (url != null ? url.toString().hashCode() : 0);
-  result=31 * result + (expandedURL != null ? expandedURL.toString().hashCode() : 0);
+  result=31 * result + (url != null ? url.hashCode() : 0);
+  result=31 * result + (expandedURL != null ? expandedURL.hashCode() : 0);
   result=31 * result + (displayURL != null ? displayURL.hashCode() : 0);
   return result;
 }

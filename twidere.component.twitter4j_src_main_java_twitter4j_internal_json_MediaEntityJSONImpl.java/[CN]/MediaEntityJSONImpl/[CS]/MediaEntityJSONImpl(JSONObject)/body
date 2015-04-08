@@ -4,31 +4,15 @@
     start=indicesArray.getInt(0);
     end=indicesArray.getInt(1);
     id=getLong("id",json);
-    try {
-      url=new URL(json.getString("url"));
-    }
- catch (    final MalformedURLException ignore) {
-    }
+    url=(json.getString("url"));
     if (!json.isNull("expanded_url")) {
-      try {
-        expandedURL=new URL(json.getString("expanded_url"));
-      }
- catch (      final MalformedURLException ignore) {
-      }
+      expandedURL=json.getString("expanded_url");
     }
     if (!json.isNull("media_url")) {
-      try {
-        mediaURL=new URL(json.getString("media_url"));
-      }
- catch (      final MalformedURLException ignore) {
-      }
+      mediaURL=(json.getString("media_url"));
     }
     if (!json.isNull("media_url_https")) {
-      try {
-        mediaURLHttps=new URL(json.getString("media_url_https"));
-      }
- catch (      final MalformedURLException ignore) {
-      }
+      mediaURLHttps=(json.getString("media_url_https"));
     }
     if (!json.isNull("display_url")) {
       displayURL=json.getString("display_url");

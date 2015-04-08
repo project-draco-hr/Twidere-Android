@@ -47,5 +47,8 @@
   quote_text_html=orig.quote_text_html;
   quote_text_plain=orig.quote_text_plain;
   quote_text_unescaped=orig.quote_text_unescaped;
+  quote_source=orig.quote_source;
+  quoted_by_user_is_protected=orig.quoted_by_user_is_protected;
+  quoted_by_user_is_verified=orig.quoted_by_user_is_verified;
   card_name=card != null ? card.name : null;
 }

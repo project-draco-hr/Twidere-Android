@@ -2,25 +2,7 @@
   super();
   this.start=start;
   this.end=end;
-  try {
-    this.url=new URL(url);
-  }
- catch (  final MalformedURLException e) {
-    try {
-      this.url=new URL("http://example.com/");
-    }
- catch (    final MalformedURLException ignore) {
-    }
-  }
-  try {
-    this.expandedURL=new URL(expandedURL);
-  }
- catch (  final MalformedURLException e) {
-    try {
-      this.expandedURL=new URL("http://example.com/");
-    }
- catch (    final MalformedURLException ignore) {
-    }
-  }
+  this.url=url;
+  this.expandedURL=expandedURL;
   this.displayURL=displayURL;
 }

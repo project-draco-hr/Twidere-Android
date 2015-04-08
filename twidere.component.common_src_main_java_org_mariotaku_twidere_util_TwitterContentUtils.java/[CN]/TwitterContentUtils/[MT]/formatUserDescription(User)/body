@@ -6,9 +6,9 @@
   final URLEntity[] urls=user.getDescriptionEntities();
   if (urls != null) {
     for (    final URLEntity url : urls) {
-      final URL expanded_url=url.getExpandedURL();
+      final String expanded_url=url.getExpandedURL();
       if (expanded_url != null) {
-        builder.addLink(ParseUtils.parseString(expanded_url),url.getDisplayURL(),url.getStart(),url.getEnd());
+        builder.addLink(expanded_url,url.getDisplayURL(),url.getStart(),url.getEnd());
       }
     }
   }

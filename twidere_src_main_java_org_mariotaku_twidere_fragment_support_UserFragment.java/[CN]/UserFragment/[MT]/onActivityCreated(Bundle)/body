@@ -72,6 +72,7 @@
   mProfileBannerSpace.setOnTouchListener(this);
   mProfileNameBackground.setBackgroundColor(mCardBackgroundColor);
   mProfileDetailsContainer.setBackgroundColor(mCardBackgroundColor);
+  mPagerIndicator.setBackgroundColor(mCardBackgroundColor);
   mUuckyFooter.setBackgroundColor(mCardBackgroundColor);
   getUserInfo(accountId,userId,screenName,false);
   final float actionBarElevation=ThemeUtils.getSupportActionBarElevation(activity);

@@ -4,7 +4,7 @@
   }
   final String scheme=mUri.getScheme();
   if ("http".equals(scheme) || "https".equals(scheme)) {
-    final String url=ParseUtils.parseString(mUri.toString());
+    final String url=mUri.toString();
     if (url == null)     return Result.nullInstance();
     final File cacheFile=mDiskCache.get(url);
     if (cacheFile != null) {

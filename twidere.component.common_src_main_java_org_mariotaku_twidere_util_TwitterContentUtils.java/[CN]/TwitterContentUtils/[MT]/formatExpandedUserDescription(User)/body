@@ -6,7 +6,7 @@
   final URLEntity[] urls=user.getDescriptionEntities();
   if (urls != null) {
     for (    final URLEntity url : urls) {
-      final String expanded_url=ParseUtils.parseString(url.getExpandedURL());
+      final String expanded_url=url.getExpandedURL();
       if (expanded_url != null) {
         builder.addLink(expanded_url,expanded_url,url.getStart(),url.getEnd());
       }
