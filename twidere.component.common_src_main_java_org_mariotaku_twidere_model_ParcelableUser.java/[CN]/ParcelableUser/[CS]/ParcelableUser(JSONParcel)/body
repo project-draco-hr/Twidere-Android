@@ -21,6 +21,7 @@
   statuses_count=in.readInt("statuses_count");
   favorites_count=in.readInt("favorites_count");
   listed_count=in.readInt("listed_count");
+  media_count=in.readInt("media_count");
   url_expanded=in.readString("url_expanded");
   is_following=in.readBoolean("is_following");
   background_color=in.readInt("background_color");

@@ -8,6 +8,7 @@
   is_verified=cursor.getColumnIndex(CachedUsers.IS_VERIFIED);
   favorites_count=cursor.getColumnIndex(CachedUsers.FAVORITES_COUNT);
   listed_count=cursor.getColumnIndex(CachedUsers.LISTED_COUNT);
+  media_count=cursor.getColumnIndex(CachedUsers.LISTED_COUNT);
   followers_count=cursor.getColumnIndex(CachedUsers.FOLLOWERS_COUNT);
   friends_count=cursor.getColumnIndex(CachedUsers.FRIENDS_COUNT);
   statuses_count=cursor.getColumnIndex(CachedUsers.STATUSES_COUNT);

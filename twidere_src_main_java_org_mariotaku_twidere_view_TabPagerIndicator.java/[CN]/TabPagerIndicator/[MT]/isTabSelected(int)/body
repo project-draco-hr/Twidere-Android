@@ -1,0 +1,9 @@
+{
+  final int current=getCurrentItem();
+  final int columns=getColumns();
+  final int count=getCount();
+  if (current + columns > count) {
+    return position >= count - columns;
+  }
+  return position >= current && position < current + columns;
+}

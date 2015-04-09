@@ -26,6 +26,7 @@
     friendsCount=getInt("friends_count",json);
     createdAt=getDate("created_at",json,"EEE MMM dd HH:mm:ss z yyyy");
     favouritesCount=getInt("favourites_count",json);
+    mediaCount=getInt("media_count",json);
     utcOffset=getInt("utc_offset",json);
     timeZone=getRawString("time_zone",json);
     profileBackgroundImageUrl=getRawString("profile_background_image_url",json);

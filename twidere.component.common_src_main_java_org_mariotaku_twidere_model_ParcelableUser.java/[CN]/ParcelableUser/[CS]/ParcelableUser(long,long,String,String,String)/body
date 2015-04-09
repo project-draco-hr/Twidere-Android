@@ -23,6 +23,7 @@
   statuses_count=0;
   favorites_count=0;
   listed_count=0;
+  media_count=0;
   background_color=0;
   link_color=0;
   text_color=0;

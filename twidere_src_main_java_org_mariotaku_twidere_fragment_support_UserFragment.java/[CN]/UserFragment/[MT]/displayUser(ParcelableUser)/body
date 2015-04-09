@@ -2,7 +2,8 @@
   mUser=user;
   final FragmentActivity activity=getActivity();
   if (user == null || user.id <= 0 || activity == null)   return;
-  final Resources res=getResources();
+  final Resources resources=getResources();
+  final Resources res=resources;
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);

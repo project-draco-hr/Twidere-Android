@@ -21,6 +21,7 @@
   out.writeInt("statuses_count",statuses_count);
   out.writeInt("favorites_count",favorites_count);
   out.writeInt("listed_count",listed_count);
+  out.writeInt("media_count",media_count);
   out.writeString("url_expanded",url_expanded);
   out.writeBoolean("is_following",is_following);
   out.writeInt("background_color",background_color);

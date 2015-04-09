@@ -1,0 +1,4 @@
+{
+  if (mColumns > 0)   return mColumns;
+  return 1;
+}

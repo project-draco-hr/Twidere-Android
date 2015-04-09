@@ -1,0 +1,6 @@
+{
+  for (  SupportTabSpec spec : mTabs) {
+    if (position == spec.position)     spec.name=label;
+  }
+  notifyDataSetChanged();
+}

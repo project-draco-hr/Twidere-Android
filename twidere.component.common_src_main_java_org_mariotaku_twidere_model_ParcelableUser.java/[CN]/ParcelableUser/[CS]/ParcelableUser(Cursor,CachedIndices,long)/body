@@ -26,6 +26,7 @@
   background_color=indices.background_color != -1 ? cursor.getInt(indices.background_color) : 0;
   link_color=indices.link_color != -1 ? cursor.getInt(indices.link_color) : 0;
   text_color=indices.text_color != -1 ? cursor.getInt(indices.text_color) : 0;
+  media_count=indices.media_count != -1 ? cursor.getInt(indices.media_count) : 0;
   is_cache=true;
   is_basic=indices.description_plain == -1 || indices.url == -1 || indices.location == -1;
 }

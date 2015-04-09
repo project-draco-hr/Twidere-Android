@@ -23,6 +23,7 @@
   statuses_count=user.getStatusesCount();
   favorites_count=user.getFavouritesCount();
   listed_count=user.getListedCount();
+  media_count=user.getMediaCount();
   is_following=user.isFollowing();
   background_color=ParseUtils.parseColor("#" + user.getProfileBackgroundColor(),0);
   link_color=ParseUtils.parseColor("#" + user.getProfileLinkColor(),0);

@@ -14,7 +14,4 @@
  catch (  final JSONException jsone) {
     throw new TwitterException(jsone);
   }
-catch (  final TwitterException te) {
-    throw te;
-  }
 }
