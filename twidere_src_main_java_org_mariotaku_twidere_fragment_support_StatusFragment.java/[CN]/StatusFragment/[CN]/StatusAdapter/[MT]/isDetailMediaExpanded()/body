@@ -1,3 +1,7 @@
 {
+  if (mDisplayMediaPreview) {
+    final ParcelableStatus status=mStatus;
+    return status != null && (mSensitiveContentEnabled || !status.is_possibly_sensitive);
+  }
   return mDetailMediaExpanded;
 }
