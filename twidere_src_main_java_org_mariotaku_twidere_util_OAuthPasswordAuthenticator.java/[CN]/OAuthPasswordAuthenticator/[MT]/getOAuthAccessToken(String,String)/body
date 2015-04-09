@@ -26,8 +26,19 @@
     final HeaderMap requestHeaders=new HeaderMap();
     requestHeaders.addHeader("Origin","https://twitter.com");
     requestHeaders.addHeader("Referer","https://twitter.com/oauth/authorize?oauth_token=" + requestToken.getToken());
-    requestHeaders.put("Cookie",cookieHeaders);
+    final List<String> modifiedCookieHeaders=new ArrayList<>();
     final String oAuthAuthorizationUrl=conf.getOAuthAuthorizationURL();
+    final String host=parseUrlHost(oAuthAuthorizationUrl);
+    for (    String cookieHeader : cookieHeaders) {
+      for (      HttpCookie cookie : HttpCookie.parse(cookieHeader)) {
+        if (HttpCookie.domainMatches(cookie.getDomain(),host)) {
+          cookie.setVersion(1);
+          cookie.setDomain("twitter.com");
+        }
+        modifiedCookieHeaders.add(cookie.toString());
+      }
+    }
+    requestHeaders.put("Cookie",modifiedCookieHeaders);
     final String oauthPin=readOAuthPINFromHtml(client.post(oAuthAuthorizationUrl,oAuthAuthorizationUrl,params.toArray(new HttpParameter[params.size()]),requestHeaders).asReader());
     if (isEmpty(oauthPin))     throw new WrongUserPassException();
     return twitter.getOAuthAccessToken(requestToken,oauthPin);
