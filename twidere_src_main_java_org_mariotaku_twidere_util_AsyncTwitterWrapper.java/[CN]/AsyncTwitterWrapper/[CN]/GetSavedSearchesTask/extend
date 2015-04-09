@@ -1,1 +1,1 @@
-ManagedAsyncTask<Long,Void,SingleResponse<Void>>
+ManagedAsyncTask<Long,Object,SingleResponse<Object>>

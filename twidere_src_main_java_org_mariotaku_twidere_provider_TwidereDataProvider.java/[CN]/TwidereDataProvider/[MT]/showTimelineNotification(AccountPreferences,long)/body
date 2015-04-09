@@ -4,7 +4,7 @@
   final Resources resources=context.getResources();
   final NotificationManager nm=getNotificationManager();
   final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
-  final String filteredSelection=Utils.buildStatusFilterWhereClause(Statuses.TABLE_NAME,selection,true).getSQL();
+  final String filteredSelection=Utils.buildStatusFilterWhereClause(Statuses.TABLE_NAME,selection).getSQL();
   final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
   final String[] statusProjection={Statuses.STATUS_ID};
   final Cursor statusCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,statusProjection,filteredSelection,null,null,null,Statuses.SORT_ORDER_TIMESTAMP_DESC);

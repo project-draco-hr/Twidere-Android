@@ -1,8 +1,7 @@
 {
-  if (twitter == null)   return null;
   if (mListId > 0)   return twitter.getUserListStatuses(mListId,paging);
- else   if (mListName == null)   return null;
+ else   if (mListName == null)   throw new TwitterException("No list name or id given");
  else   if (mUserId > 0)   return twitter.getUserListStatuses(mListName.replace(' ','-'),mUserId,paging);
  else   if (mScreenName != null)   return twitter.getUserListStatuses(mListName.replace(' ','-'),mScreenName,paging);
-  return null;
+  throw new TwitterException("User id or screen name is required for list name");
 }

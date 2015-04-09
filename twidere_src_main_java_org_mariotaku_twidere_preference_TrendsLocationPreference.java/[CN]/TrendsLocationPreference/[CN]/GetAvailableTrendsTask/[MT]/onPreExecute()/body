@@ -1,5 +1,5 @@
 {
-  if (mProgress != null && mProgress.isShowing()) {
+  if (mProgress.isShowing()) {
     mProgress.dismiss();
   }
   mProgress.setMessage(getContext().getString(R.string.please_wait));

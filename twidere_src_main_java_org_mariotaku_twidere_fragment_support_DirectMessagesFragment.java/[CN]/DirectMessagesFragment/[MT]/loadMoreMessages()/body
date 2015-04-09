@@ -2,8 +2,8 @@
   if (isRefreshing())   return;
   mAdapter.setLoadMoreIndicatorVisible(true);
   mSwipeRefreshLayout.setEnabled(false);
-  AsyncTaskUtils.executeTask(new AsyncTask<Void,Void,long[][]>(){
-    @Override protected long[][] doInBackground(    final Void... params){
+  AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
+    @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[3][];
       result[0]=Utils.getActivatedAccountIds(getActivity());
       result[1]=Utils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);

@@ -1,6 +1,6 @@
 {
-  AsyncTaskUtils.executeTask(new AsyncTask<Void,Void,long[][]>(){
-    @Override protected long[][] doInBackground(    final Void... params){
+  AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
+    @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[2][];
       result[0]=Utils.getActivatedAccountIds(getActivity());
       result[1]=Utils.getNewestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);

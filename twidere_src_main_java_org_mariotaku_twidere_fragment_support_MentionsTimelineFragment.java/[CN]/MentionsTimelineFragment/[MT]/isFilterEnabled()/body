@@ -1,4 +1,3 @@
 {
-  final SharedPreferences pref=getSharedPreferences();
-  return pref != null && pref.getBoolean(KEY_FILTERS_IN_MENTIONS_TIMELINE,true);
+  return true;
 }

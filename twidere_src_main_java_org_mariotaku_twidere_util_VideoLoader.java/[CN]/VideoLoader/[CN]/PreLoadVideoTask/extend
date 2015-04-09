@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Integer,SingleResponse<File>>
+ManagedAsyncTask<Object,Integer,SingleResponse<File>>

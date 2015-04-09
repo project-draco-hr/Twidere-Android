@@ -1,1 +1,1 @@
-AsyncTask<TwitterListResponse<twitter4j.Status>,Void,Void>
+AsyncTask<TwitterListResponse<twitter4j.Status>,Object,Object>

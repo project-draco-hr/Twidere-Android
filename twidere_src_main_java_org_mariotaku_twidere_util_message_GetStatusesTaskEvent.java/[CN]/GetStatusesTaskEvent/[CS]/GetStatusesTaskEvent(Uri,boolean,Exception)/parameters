@@ -1,0 +1,3 @@
+Uri uri
+boolean running
+Exception exception

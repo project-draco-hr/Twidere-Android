@@ -1,4 +1,4 @@
 {
   if (!isFilterEnabled())   return null;
-  return buildStatusFilterWhereClause(table,null,shouldEnableFiltersForRTs(getActivity()));
+  return buildStatusFilterWhereClause(table,null);
 }

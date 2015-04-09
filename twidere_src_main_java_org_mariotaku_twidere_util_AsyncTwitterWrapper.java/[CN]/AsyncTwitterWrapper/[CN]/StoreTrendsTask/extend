@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<Boolean>>
+ManagedAsyncTask<Object,Object,SingleResponse<Boolean>>

@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<DirectMessage>>
+ManagedAsyncTask<Object,Object,SingleResponse<DirectMessage>>

@@ -1,0 +1,6 @@
+{
+  for (  T response : responses) {
+    if (response.hasException())     return response.getException();
+  }
+  return null;
+}

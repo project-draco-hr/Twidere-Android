@@ -1,10 +1,4 @@
 {
-  super.onPostExecute(responses);
+  super.onPostExecute(result);
   mGetMentionsTaskId=-1;
-  for (  final StatusListResponse response : responses) {
-    if (response.list == null) {
-      mMessagesManager.showErrorMessage(R.string.action_refreshing_mentions,response.getException(),true);
-      break;
-    }
-  }
 }

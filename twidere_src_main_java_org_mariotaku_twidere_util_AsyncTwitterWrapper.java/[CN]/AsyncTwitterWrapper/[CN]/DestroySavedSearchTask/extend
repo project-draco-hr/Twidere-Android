@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<SavedSearch>>
+ManagedAsyncTask<Object,Object,SingleResponse<SavedSearch>>

@@ -26,27 +26,6 @@ case MENU_ADD:
     dialog.show(getSupportFragmentManager(),"add_rule");
     return true;
   }
-case R.id.enable_in_home_timeline:
-{
-  final SharedPreferences.Editor editor=mPreferences.edit();
-  editor.putBoolean(KEY_FILTERS_IN_HOME_TIMELINE,!item.isChecked());
-  editor.apply();
-  break;
-}
-case R.id.enable_in_mentions:
-{
-final SharedPreferences.Editor editor=mPreferences.edit();
-editor.putBoolean(KEY_FILTERS_IN_MENTIONS_TIMELINE,!item.isChecked());
-editor.apply();
-break;
-}
-case R.id.enable_for_rts:
-{
-final SharedPreferences.Editor editor=mPreferences.edit();
-editor.putBoolean(KEY_FILTERS_FOR_RTS,!item.isChecked());
-editor.apply();
-break;
-}
 }
 return false;
 }

@@ -1,1 +1,1 @@
-AsyncTask<Void,Void,SingleResponse<Boolean>>
+AsyncTask<Object,Object,SingleResponse<Boolean>>

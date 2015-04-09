@@ -8,7 +8,7 @@
  else {
     idsIn=new RawItemArray(accountIds);
   }
-  final Expression selection=Expression.and(Expression.in(new Column(Statuses.ACCOUNT_ID),idsIn),Expression.greaterThan(Statuses.STATUS_ID,sinceId),buildStatusFilterWhereClause(getTableNameByUri(uri),null,shouldEnableFiltersForRTs(context)));
+  final Expression selection=Expression.and(Expression.in(new Column(Statuses.ACCOUNT_ID),idsIn),Expression.greaterThan(Statuses.STATUS_ID,sinceId),buildStatusFilterWhereClause(getTableNameByUri(uri),null));
   final Cursor cur=ContentResolverUtils.query(resolver,uri,new String[]{SQLFunctions.COUNT()},selection.getSQL(),null,null);
   if (cur == null)   return 0;
   try {

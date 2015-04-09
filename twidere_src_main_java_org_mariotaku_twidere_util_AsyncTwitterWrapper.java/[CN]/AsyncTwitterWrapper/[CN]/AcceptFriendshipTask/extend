@@ -1,1 +1,1 @@
-ManagedAsyncTask<Void,Void,SingleResponse<User>>
+ManagedAsyncTask<Object,Object,SingleResponse<User>>
