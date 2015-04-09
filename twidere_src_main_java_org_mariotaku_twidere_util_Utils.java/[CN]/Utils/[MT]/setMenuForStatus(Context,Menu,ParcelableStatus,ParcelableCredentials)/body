@@ -1,5 +1,5 @@
 {
-  if (context == null || menu == null || status == null)   return;
+  if (context == null || menu == null || status == null || account == null)   return;
   final Resources resources=context.getResources();
   final int retweetHighlight=resources.getColor(R.color.highlight_retweet);
   final int favoriteHighlight=resources.getColor(R.color.highlight_favorite);

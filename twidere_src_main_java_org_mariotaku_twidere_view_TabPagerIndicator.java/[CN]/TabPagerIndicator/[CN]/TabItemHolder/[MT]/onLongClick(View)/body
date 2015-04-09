@@ -1,5 +1,5 @@
 {
-  final int position=getAdapterPosition();
+  final int position=getLayoutPosition();
   if (position == RecyclerView.NO_POSITION)   return false;
   return indicator.dispatchTabLongClick(position);
 }
