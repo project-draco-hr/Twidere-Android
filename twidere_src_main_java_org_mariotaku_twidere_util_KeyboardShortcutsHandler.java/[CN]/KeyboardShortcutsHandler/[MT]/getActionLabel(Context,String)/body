@@ -1,0 +1,5 @@
+{
+  if (!sActionLabelMap.containsKey(action))   return null;
+  final int labelRes=sActionLabelMap.get(action);
+  return context.getString(labelRes);
+}

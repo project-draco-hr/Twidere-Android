@@ -1,0 +1,4 @@
+{
+  mKeyboardShortcutsHandler.handleKey(null,keyCode,event);
+  return super.handleKeyboardShortcut(keyCode,event);
+}

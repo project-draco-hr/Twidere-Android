@@ -1,0 +1,4 @@
+{
+  mContext=context;
+  mPreferences=SharedPreferencesWrapper.getInstance(context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
+}

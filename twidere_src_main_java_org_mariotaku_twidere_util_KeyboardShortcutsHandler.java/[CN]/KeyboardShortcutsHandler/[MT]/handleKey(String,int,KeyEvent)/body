@@ -1,0 +1,19 @@
+{
+  if (!isValidForHotkey(keyCode,event))   return false;
+  final String key=getKeyEventKey(contextTag,keyCode,event);
+  final String action=mPreferences.getString(key,null);
+  if (action == null)   return false;
+switch (action) {
+case "compose":
+{
+      mContext.startActivity(new Intent(mContext,ComposeActivity.class).setAction(INTENT_ACTION_COMPOSE));
+      return true;
+    }
+case "search":
+{
+    mContext.startActivity(new Intent(mContext,QuickSearchBarActivity.class).setAction(INTENT_ACTION_QUICK_SEARCH));
+    return true;
+  }
+}
+return false;
+}

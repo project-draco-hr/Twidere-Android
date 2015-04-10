@@ -14,7 +14,7 @@
   mReadStateManager=TwidereApplication.getInstance(this).getReadStateManager();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
-  mHotKeyHandler=new HotKeyHandler(this);
+  mKeyboardShortcutsHandler=new KeyboardShortcutsHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
   final long[] accountIds=getAccountIds(this);
   if (accountIds.length == 0) {
@@ -71,7 +71,6 @@
       openAccountsDrawer();
     }
   }
-  mPagerPosition=Float.NaN;
   setupHomeTabs();
   final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
   setTabPosition(initialTabPosition);

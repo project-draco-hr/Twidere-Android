@@ -8,10 +8,6 @@ case KeyEvent.KEYCODE_MENU:
       }
       break;
     }
-default :
-{
-    if (mHotKeyHandler.handleKey(keyCode,event))     return true;
-  }
 }
 return super.onKeyUp(keyCode,event);
 }

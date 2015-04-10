@@ -1,0 +1,21 @@
+{
+  final StringBuilder keyNameBuilder=new StringBuilder();
+  if (!TextUtils.isEmpty(contextTag)) {
+    keyNameBuilder.append(contextTag);
+    keyNameBuilder.append("_");
+  }
+  if (event.isCtrlPressed()) {
+    keyNameBuilder.append("ctrl_");
+  }
+  if (event.isAltPressed()) {
+    keyNameBuilder.append("alt_");
+  }
+  if (event.isShiftPressed()) {
+    keyNameBuilder.append("shift_");
+  }
+  final String keyCodeString=KeyEvent.keyCodeToString(keyCode);
+  if (keyCodeString.startsWith(KEYCODE_STRING_PREFIX)) {
+    keyNameBuilder.append(keyCodeString.substring(KEYCODE_STRING_PREFIX.length()).toLowerCase(Locale.US));
+  }
+  return keyNameBuilder.toString();
+}

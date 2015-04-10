@@ -1,0 +1,4 @@
+{
+  mListContainer.setVisibility(listShown ? View.VISIBLE : View.GONE);
+  mProgressContainer.setVisibility(listShown ? View.GONE : View.VISIBLE);
+}
