@@ -32,6 +32,7 @@
     quotedNameContainer.setVisibility(View.VISIBLE);
     quoteTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
+    quoteIndicator.setColor(UserColorNameUtils.getUserColor(context,status.user_id));
     profileContainer.drawStart(UserColorNameUtils.getUserColor(context,status.quoted_by_user_id));
     typeIconRes=getUserTypeIconRes(status.quoted_by_user_is_verified,status.quoted_by_user_is_protected);
     typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.quoted_by_user_is_verified,status.quoted_by_user_is_protected);

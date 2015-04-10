@@ -1,5 +1,6 @@
 {
   saveReadPosition();
-  mRecyclerView.smoothScrollToPosition(0);
+  mLayoutManager.scrollToPositionWithOffset(0,0);
+  setControlVisible(true);
   return true;
 }
