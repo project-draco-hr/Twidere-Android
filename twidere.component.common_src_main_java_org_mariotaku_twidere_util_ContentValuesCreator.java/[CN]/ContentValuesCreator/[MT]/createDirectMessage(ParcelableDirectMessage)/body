@@ -16,7 +16,7 @@
   values.put(DirectMessages.SENDER_PROFILE_IMAGE_URL,message.sender_profile_image_url);
   values.put(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL,message.recipient_profile_image_url);
   if (message.media != null) {
-    values.put(Statuses.MEDIA_LIST,SimpleValueSerializer.toSerializedString(message.media));
+    values.put(DirectMessages.MEDIA_LIST,SimpleValueSerializer.toSerializedString(message.media));
   }
   return values;
 }

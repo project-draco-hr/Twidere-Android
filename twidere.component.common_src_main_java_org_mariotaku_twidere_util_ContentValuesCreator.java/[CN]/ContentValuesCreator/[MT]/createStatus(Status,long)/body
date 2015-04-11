@@ -1,5 +1,5 @@
 {
-  if (orig == null || orig.getId() <= 0)   return null;
+  if (orig == null)   throw new NullPointerException();
   final ContentValues values=new ContentValues();
   values.put(Statuses.ACCOUNT_ID,accountId);
   values.put(Statuses.STATUS_ID,orig.getId());
@@ -42,9 +42,6 @@
     values.put(Statuses.QUOTED_BY_USER_IS_VERIFIED,quoteUser.isVerified());
     values.put(Statuses.QUOTED_BY_USER_IS_PROTECTED,quoteUser.isProtected());
     values.put(Statuses.IS_QUOTE,true);
-    if (quotedById == accountId) {
-      values.put(Statuses.MY_QUOTE_ID,orig.getId());
-    }
     status=quotedStatus;
   }
  else {

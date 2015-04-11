@@ -1,4 +1,5 @@
 {
   final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
+  if (activity == null)   return;
   activity.toggleBar();
 }

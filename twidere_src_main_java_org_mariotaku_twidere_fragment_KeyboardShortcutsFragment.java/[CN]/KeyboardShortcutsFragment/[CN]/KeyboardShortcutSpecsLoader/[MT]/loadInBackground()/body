@@ -1,0 +1,10 @@
+{
+  final ArrayList<KeyboardShortcutSpec> list=new ArrayList<>();
+  for (  Entry<String,?> entry : preferences.getAll().entrySet()) {
+    final KeyboardShortcutSpec spec=new KeyboardShortcutSpec(entry.getKey(),ParseUtils.parseString(entry.getValue()));
+    if (spec.isValid()) {
+      list.add(spec);
+    }
+  }
+  return list;
+}

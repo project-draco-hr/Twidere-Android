@@ -4,5 +4,5 @@
   final int progressCircleDiameter=mSwipeRefreshLayout.getProgressCircleDiameter();
   final int swipeStart=(mSystemWindowsInsets.top - mControlBarOffsetPixels) - progressCircleDiameter;
   final int swipeDistance=Math.round(64 * density);
-  mSwipeRefreshLayout.setProgressViewOffset(true,swipeStart,swipeStart + swipeDistance);
+  mSwipeRefreshLayout.setProgressViewOffset(false,swipeStart,swipeStart + swipeDistance);
 }

@@ -1,6 +1,6 @@
 {
   final LocationManager lm=mLocationManager;
-  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
+  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION);
   if (!attachLocation) {
     lm.removeUpdates(this);
     return false;

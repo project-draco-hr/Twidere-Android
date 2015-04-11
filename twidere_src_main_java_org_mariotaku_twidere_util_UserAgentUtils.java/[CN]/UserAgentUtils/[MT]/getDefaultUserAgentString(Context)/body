@@ -1,0 +1,26 @@
+{
+  if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException();
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+    return NewApiWrapper.getDefaultUserAgent(context);
+  }
+  try {
+    Constructor<WebSettings> constructor=WebSettings.class.getDeclaredConstructor(Context.class,WebView.class);
+    constructor.setAccessible(true);
+    try {
+      WebSettings settings=constructor.newInstance(context,null);
+      return settings.getUserAgentString();
+    }
+  finally {
+      constructor.setAccessible(false);
+    }
+  }
+ catch (  Exception e) {
+    final WebView webView=new WebView(context);
+    try {
+      return webView.getSettings().getUserAgentString();
+    }
+  finally {
+      webView.destroy();
+    }
+  }
+}

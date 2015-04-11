@@ -1,0 +1,10 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mAdapter=new Adapter(getActivity());
+  setListAdapter(mAdapter);
+  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  mListView.setMultiChoiceModeListener(this);
+  getLoaderManager().initLoader(0,null,this);
+  setListShown(false);
+}

@@ -1,0 +1,6 @@
+{
+  for (int i=0, j=sMetaNameMap.size(); i < j; i++) {
+    if (sMetaNameMap.valueAt(i).equalsIgnoreCase(name))     return sMetaNameMap.keyAt(i);
+  }
+  return 0;
+}

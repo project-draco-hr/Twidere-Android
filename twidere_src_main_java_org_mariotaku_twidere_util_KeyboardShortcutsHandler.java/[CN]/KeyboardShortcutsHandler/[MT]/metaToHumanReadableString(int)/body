@@ -1,0 +1,12 @@
+{
+  final StringBuilder keyNameBuilder=new StringBuilder();
+  for (int i=0, j=sMetaNameMap.size(); i < j; i++) {
+    if ((sMetaNameMap.keyAt(i) & metaState) != 0) {
+      final String value=sMetaNameMap.valueAt(i);
+      keyNameBuilder.append(value.substring(0,1).toUpperCase(Locale.US));
+      keyNameBuilder.append(value.substring(1));
+      keyNameBuilder.append("+");
+    }
+  }
+  return keyNameBuilder.toString();
+}

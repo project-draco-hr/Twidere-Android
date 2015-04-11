@@ -1,0 +1,3 @@
+{
+  inflater.inflate(R.menu.menu_keyboard_shortcuts,menu);
+}

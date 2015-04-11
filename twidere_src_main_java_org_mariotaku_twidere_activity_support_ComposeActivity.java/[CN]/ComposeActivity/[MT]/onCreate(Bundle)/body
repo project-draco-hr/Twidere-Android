@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-  mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   final TwidereApplication app=TwidereApplication.getInstance(this);
   mTwitterWrapper=app.getTwitterWrapper();
   mResolver=getContentResolver();
@@ -18,7 +18,7 @@
     return;
   }
   mMenuBar.setOnMenuItemClickListener(this);
-  mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND,false) ? this : null);
+  mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND) ? this : null);
   mEditText.addTextChangedListener(this);
   mEditText.setCustomSelectionActionModeCallback(this);
   mAccountSelectorContainer.setOnClickListener(this);

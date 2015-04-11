@@ -6,9 +6,9 @@
   if (extensionInfo.pname != null && extensionInfo.settings != null) {
     final Intent intent=new Intent(INTENT_ACTION_EXTENSION_SETTINGS);
     intent.setClassName(extensionInfo.pname,extensionInfo.settings);
-    Utils.setMenuItemAvailability(menu,MENU_SETTINGS,mPackageManager.queryIntentActivities(intent,0).size() == 1);
+    MenuUtils.setMenuItemAvailability(menu,MENU_SETTINGS,mPackageManager.queryIntentActivities(intent,0).size() == 1);
   }
  else {
-    Utils.setMenuItemAvailability(menu,MENU_SETTINGS,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_SETTINGS,false);
   }
 }

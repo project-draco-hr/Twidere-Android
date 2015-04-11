@@ -3,6 +3,7 @@
     StrictModeUtils.detectAllVmPolicy();
   }
   super.onCreate();
+  mDefaultUserAgent=UserAgentUtils.getDefaultUserAgentString(this);
   mHandler=new Handler();
   mMessageBus=new Bus();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
@@ -29,4 +30,5 @@
   migrateUsageStatisticsPreferences();
   startUsageStatisticsServiceIfNeeded(this);
   startRefreshServiceIfNeeded(this);
+  reloadConnectivitySettings();
 }

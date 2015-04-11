@@ -19,7 +19,7 @@
   }
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
   final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
-  final boolean isQuote=INTENT_ACTION_QUOTE.equals(getIntent().getAction());
+  final boolean isQuote=isQuote();
   final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;
   final boolean linkToQuotedTweet=mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET,true);
   final long inReplyToStatusId=!isQuote || linkToQuotedTweet ? mInReplyToStatusId : -1;

@@ -1,0 +1,16 @@
+{
+  rawKey=key;
+  final int contextDotIdx=key.indexOf('.');
+  if (contextDotIdx != -1) {
+    contextTag=key.substring(0,contextDotIdx);
+  }
+  int idx=contextDotIdx, previousIdx=idx;
+  while ((idx=key.indexOf('+',idx + 1)) != -1) {
+    keyMeta|=KeyboardShortcutsHandler.getKeyEventMeta(key.substring(previousIdx + 1,idx));
+    previousIdx=idx;
+  }
+  if (previousIdx != -1) {
+    keyName=key.substring(previousIdx + 1);
+  }
+  this.value=value;
+}

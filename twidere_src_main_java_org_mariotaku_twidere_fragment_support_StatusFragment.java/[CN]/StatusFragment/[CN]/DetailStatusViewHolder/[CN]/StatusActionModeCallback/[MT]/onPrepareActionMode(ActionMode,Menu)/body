@@ -3,6 +3,6 @@
   final SpannableString string=SpannableString.valueOf(textView.getText());
   final URLSpan[] spans=string.getSpans(start,end,URLSpan.class);
   final boolean avail=spans.length == 1 && URLUtil.isValidUrl(spans[0].getURL());
-  Utils.setMenuItemAvailability(menu,android.R.id.copyUrl,avail);
+  MenuUtils.setMenuItemAvailability(menu,android.R.id.copyUrl,avail);
   return true;
 }

@@ -1,0 +1,6 @@
+{
+  if (isAbandoned()) {
+    preferences.unregisterOnSharedPreferenceChangeListener(changeListener);
+  }
+  super.onReset();
+}

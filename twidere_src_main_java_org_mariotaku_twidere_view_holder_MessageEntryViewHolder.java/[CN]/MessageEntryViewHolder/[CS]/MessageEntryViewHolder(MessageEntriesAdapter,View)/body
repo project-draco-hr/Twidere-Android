@@ -9,4 +9,5 @@
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   setTextSize(adapter.getTextSize());
   itemView.setOnClickListener(this);
+  profileImageView.setOnClickListener(this);
 }

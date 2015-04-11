@@ -1,0 +1,3 @@
+{
+  Utils.openUserProfile(getActivity(),entry.account_id,entry.conversation_id,entry.screen_name,null);
+}
