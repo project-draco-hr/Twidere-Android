@@ -1,0 +1,4 @@
+{
+  final KeyboardShortcutSpec spec=mKeyboardShortcutHandler.findKey(mAction);
+  setSummary(spec != null ? spec.toKeyString() : null);
+}

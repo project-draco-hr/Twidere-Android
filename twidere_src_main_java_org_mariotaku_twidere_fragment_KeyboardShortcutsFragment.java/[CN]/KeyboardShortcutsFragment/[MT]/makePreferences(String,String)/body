@@ -1,0 +1,5 @@
+{
+  final PreferenceScreen preferenceScreen=getPreferenceScreen();
+  final Context context=preferenceScreen.getContext();
+  return new KeyboardShortcutPreferences(context,mKeyboardShortcutHandler,contextTag,action);
+}

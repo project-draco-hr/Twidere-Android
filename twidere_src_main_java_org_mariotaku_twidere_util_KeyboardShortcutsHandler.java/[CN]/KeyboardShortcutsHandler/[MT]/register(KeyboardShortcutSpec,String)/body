@@ -1,0 +1,4 @@
+{
+  unregister(action);
+  mPreferences.edit().putString(spec.getRawKey(),action).apply();
+}

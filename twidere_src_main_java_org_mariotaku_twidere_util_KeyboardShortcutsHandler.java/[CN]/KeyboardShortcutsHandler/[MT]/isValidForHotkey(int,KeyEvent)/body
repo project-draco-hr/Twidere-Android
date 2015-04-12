@@ -1,3 +1,17 @@
 {
-  return !event.isSystem() && !KeyEvent.isModifierKey(keyCode) && keyCode != KeyEvent.KEYCODE_UNKNOWN;
+switch (keyCode) {
+case KeyEvent.KEYCODE_DPAD_CENTER:
+case KeyEvent.KEYCODE_DPAD_DOWN:
+case KeyEvent.KEYCODE_DPAD_LEFT:
+case KeyEvent.KEYCODE_DPAD_RIGHT:
+case KeyEvent.KEYCODE_DPAD_UP:
+case KeyEvent.KEYCODE_ENTER:
+case KeyEvent.KEYCODE_NUMPAD_ENTER:
+case KeyEvent.KEYCODE_TAB:
+{
+      if (event.hasNoModifiers())       return false;
+      break;
+    }
+}
+return !event.isSystem() && !KeyEvent.isModifierKey(keyCode) && keyCode != KeyEvent.KEYCODE_UNKNOWN;
 }

@@ -1,4 +1,5 @@
 {
+  if (!isValidForHotkey(keyCode,event))   return null;
   final StringBuilder keyNameBuilder=new StringBuilder();
   if (!TextUtils.isEmpty(contextTag)) {
     keyNameBuilder.append(contextTag);

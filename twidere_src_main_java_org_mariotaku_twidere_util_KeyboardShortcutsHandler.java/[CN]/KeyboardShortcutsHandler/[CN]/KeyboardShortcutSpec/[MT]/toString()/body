@@ -1,0 +1,3 @@
+{
+  return "KeyboardShortcutSpec{" + "action='" + action + '\''+ ", contextTag='"+ contextTag+ '\''+ ", keyMeta="+ keyMeta+ ", keyName='"+ keyName+ '\''+ '}';
+}

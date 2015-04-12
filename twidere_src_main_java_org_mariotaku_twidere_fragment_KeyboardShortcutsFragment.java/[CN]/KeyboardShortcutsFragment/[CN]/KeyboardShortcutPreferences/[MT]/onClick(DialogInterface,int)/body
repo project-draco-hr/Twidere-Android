@@ -1,0 +1,15 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      if (mKeySpec == null)       return;
+      mKeyboardShortcutHandler.register(mKeySpec,mAction);
+      break;
+    }
+case DialogInterface.BUTTON_NEUTRAL:
+{
+    mKeyboardShortcutHandler.unregister(mAction);
+    break;
+  }
+}
+}

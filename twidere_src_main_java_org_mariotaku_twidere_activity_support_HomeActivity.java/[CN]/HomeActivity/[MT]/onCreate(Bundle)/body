@@ -11,10 +11,11 @@
   }
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mTwitterWrapper=getTwitterWrapper();
-  mReadStateManager=TwidereApplication.getInstance(this).getReadStateManager();
+  final TwidereApplication app=TwidereApplication.getInstance(this);
+  mReadStateManager=app.getReadStateManager();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
-  mKeyboardShortcutsHandler=new KeyboardShortcutsHandler(this);
+  mKeyboardShortcutsHandler=app.getKeyboardShortcutsHandler();
   mMultiSelectHandler.dispatchOnCreate();
   final long[] accountIds=getAccountIds(this);
   if (accountIds.length == 0) {

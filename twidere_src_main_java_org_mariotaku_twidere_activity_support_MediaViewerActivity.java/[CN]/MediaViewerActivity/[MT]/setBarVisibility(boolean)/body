@@ -6,5 +6,6 @@
  else {
     mActionBar.hide();
   }
-  mMediaStatusContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
+  mIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
+  mMediaStatusContainer.setVisibility(isMediaStatusEnabled() && visible ? View.VISIBLE : View.GONE);
 }

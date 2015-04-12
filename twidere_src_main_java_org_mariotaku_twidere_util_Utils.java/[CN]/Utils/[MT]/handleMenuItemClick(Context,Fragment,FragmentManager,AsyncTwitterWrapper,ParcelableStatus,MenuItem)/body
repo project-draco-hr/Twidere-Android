@@ -34,14 +34,10 @@ break;
 case MENU_FAVORITE:
 {
 if (status.is_favorite) {
-twitter.destroyFavoriteAsync(status.account_id,status.id);
-SpiceProfilingUtil.profile(context,status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-SpiceProfilingUtil.log(context,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+twitter.destroyFavoriteAsync(status);
 }
  else {
-twitter.createFavoriteAsync(status.account_id,status.id);
-SpiceProfilingUtil.profile(context,status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-SpiceProfilingUtil.log(context,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+twitter.createFavoriteAsync(status);
 }
 break;
 }

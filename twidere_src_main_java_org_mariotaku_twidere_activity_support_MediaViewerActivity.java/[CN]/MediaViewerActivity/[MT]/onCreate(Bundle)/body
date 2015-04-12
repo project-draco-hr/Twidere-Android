@@ -7,16 +7,19 @@
   mViewPager.setAdapter(mAdapter);
   mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.element_spacing_normal));
   mViewPager.setOnPageChangeListener(this);
+  mIndicator.setSelectedColor(getCurrentThemeColor());
+  mIndicator.setViewPager(mViewPager);
   final Intent intent=getIntent();
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
   final ParcelableMedia[] media=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);
   final ParcelableMedia currentMedia=intent.getParcelableExtra(EXTRA_CURRENT_MEDIA);
   mAdapter.setMedia(accountId,media);
+  mIndicator.notifyDataSetChanged();
   final int currentIndex=ArrayUtils.indexOf(media,currentMedia);
   if (currentIndex != -1) {
     mViewPager.setCurrentItem(currentIndex,false);
   }
-  if (intent.hasExtra(EXTRA_STATUS)) {
+  if (isMediaStatusEnabled() && intent.hasExtra(EXTRA_STATUS)) {
     mMediaStatusContainer.setVisibility(View.VISIBLE);
     final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
     final Fragment f=new ViewStatusDialogFragment();

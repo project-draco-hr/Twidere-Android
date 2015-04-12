@@ -10,4 +10,7 @@
     mContentListSupport.setControlVisible(dy < 0);
     mScrollSum=0;
   }
+  if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_IDLE) {
+    notifyScrollStateChanged(recyclerView);
+  }
 }

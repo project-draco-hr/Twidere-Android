@@ -1,0 +1,12 @@
+{
+  final Editor editor=mPreferences.edit();
+  for (  Entry<String,?> entry : mPreferences.getAll().entrySet()) {
+    if (action.equals(entry.getValue())) {
+      final KeyboardShortcutSpec spec=new KeyboardShortcutSpec(entry.getKey(),action);
+      if (spec.isValid()) {
+        editor.remove(spec.getRawKey());
+      }
+    }
+  }
+  editor.apply();
+}

@@ -1,8 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.homeAsUpIndicator});
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
-  setImageDrawable(d);
-  setScaleType(ScaleType.CENTER);
-}

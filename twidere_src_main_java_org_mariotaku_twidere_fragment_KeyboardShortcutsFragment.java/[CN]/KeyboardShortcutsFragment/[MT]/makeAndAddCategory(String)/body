@@ -1,0 +1,8 @@
+{
+  final PreferenceScreen preferenceScreen=getPreferenceScreen();
+  final Context context=preferenceScreen.getContext();
+  final PreferenceCategory category=new PreferenceCategory(context,null);
+  category.setTitle(title);
+  preferenceScreen.addPreference(category);
+  return category;
+}

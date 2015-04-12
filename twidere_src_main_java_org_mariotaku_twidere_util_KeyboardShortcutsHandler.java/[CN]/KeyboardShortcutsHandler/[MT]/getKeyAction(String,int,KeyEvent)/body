@@ -1,0 +1,5 @@
+{
+  if (!isValidForHotkey(keyCode,event))   return null;
+  final String key=getKeyEventKey(contextTag,keyCode,event);
+  return mPreferences.getString(key,null);
+}

@@ -1,5 +1,0 @@
-{
-  super(context);
-  preferences=context.getSharedPreferences(KEYBOARD_SHORTCUTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  preferences.registerOnSharedPreferenceChangeListener(changeListener);
-}

@@ -1,6 +1,9 @@
 {
   super.onActivityCreated(savedInstanceState);
   mReadStateManager=getReadStateManager();
+  final FragmentActivity activity=getActivity();
+  final TwidereApplication application=TwidereApplication.getInstance(activity);
+  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();

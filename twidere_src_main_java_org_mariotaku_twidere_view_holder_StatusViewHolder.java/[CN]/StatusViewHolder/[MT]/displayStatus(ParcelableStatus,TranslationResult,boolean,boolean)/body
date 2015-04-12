@@ -25,15 +25,7 @@
     replyRetweetView.setVisibility(View.GONE);
     replyRetweetIcon.setVisibility(View.GONE);
   }
-  final int typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
-  if (typeIconRes != 0) {
-    profileTypeView.setImageResource(typeIconRes);
-    profileTypeView.setVisibility(View.VISIBLE);
-  }
- else {
-    profileTypeView.setImageDrawable(null);
-    profileTypeView.setVisibility(View.GONE);
-  }
+  final int typeIconRes;
   if (status.is_quote) {
     quotedNameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
     quotedScreenNameView.setText("@" + status.user_screen_name);
@@ -59,11 +51,13 @@
       profileTypeView.setVisibility(View.VISIBLE);
       profileImageView.setVisibility(View.VISIBLE);
       loader.displayProfileImage(profileImageView,status.quoted_by_user_profile_image);
+      typeIconRes=getUserTypeIconRes(status.quoted_by_user_is_verified,status.quoted_by_user_is_protected);
     }
  else {
       profileTypeView.setVisibility(View.GONE);
       profileImageView.setVisibility(View.GONE);
       loader.cancelDisplayTask(profileImageView);
+      typeIconRes=0;
     }
     final int userColor=UserColorNameUtils.getUserColor(context,status.quoted_by_user_id);
     itemContent.drawStart(userColor);
@@ -76,18 +70,27 @@
     quoteTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
     if (adapter.isProfileImageEnabled()) {
-      final String user_profile_image_url=status.user_profile_image_url;
-      profileTypeView.setVisibility(View.VISIBLE);
       profileImageView.setVisibility(View.VISIBLE);
+      final String user_profile_image_url=status.user_profile_image_url;
       loader.displayProfileImage(profileImageView,user_profile_image_url);
+      typeIconRes=getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
     }
  else {
       profileTypeView.setVisibility(View.GONE);
       profileImageView.setVisibility(View.GONE);
       loader.cancelDisplayTask(profileImageView);
+      typeIconRes=0;
     }
     final int userColor=UserColorNameUtils.getUserColor(context,status.user_id);
     itemContent.drawStart(userColor);
+  }
+  if (typeIconRes != 0) {
+    profileTypeView.setImageResource(typeIconRes);
+    profileTypeView.setVisibility(View.VISIBLE);
+  }
+ else {
+    profileTypeView.setImageDrawable(null);
+    profileTypeView.setVisibility(View.GONE);
   }
   if (adapter.shouldShowAccountsColor()) {
     itemContent.drawEnd(Utils.getAccountColor(context,status.account_id));

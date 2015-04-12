@@ -1,0 +1,12 @@
+{
+  if (mScrollFactor == Float.MIN_VALUE) {
+    TypedValue outValue=new TypedValue();
+    if (getContext().getTheme().resolveAttribute(android.R.attr.listPreferredItemHeight,outValue,true)) {
+      mScrollFactor=outValue.getDimension(getContext().getResources().getDisplayMetrics());
+    }
+ else {
+      return 0;
+    }
+  }
+  return mScrollFactor;
+}

@@ -10,7 +10,6 @@
   }
   final MenuItem retweet=menu.findItem(MENU_RETWEET);
   if (retweet != null) {
-    retweet.setVisible(!status.user_is_protected || isMyRetweet);
     ActionIconDrawable.setMenuHighlight(retweet,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
     retweet.setTitle(isMyRetweet ? R.string.cancel_retweet : R.string.retweet);
   }

@@ -1,0 +1,24 @@
+{
+  if (!isValidForHotkey(keyCode,event))   return false;
+  final String key=getKeyEventKey(contextTag,keyCode,event);
+  final String action=mPreferences.getString(key,null);
+  if (action == null)   return false;
+switch (action) {
+case "compose":
+{
+      context.startActivity(new Intent(context,ComposeActivity.class).setAction(INTENT_ACTION_COMPOSE));
+      return true;
+    }
+case "search":
+{
+    context.startActivity(new Intent(context,QuickSearchBarActivity.class).setAction(INTENT_ACTION_QUICK_SEARCH));
+    return true;
+  }
+case "message":
+{
+  Utils.openMessageConversation(context,-1,-1);
+  return true;
+}
+}
+return false;
+}

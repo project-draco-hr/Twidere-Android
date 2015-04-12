@@ -1,5 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  if (isInEditMode())   return;
-  ThemeUtils.applyThemeAlphaToDrawable(context,getBackground());
-}

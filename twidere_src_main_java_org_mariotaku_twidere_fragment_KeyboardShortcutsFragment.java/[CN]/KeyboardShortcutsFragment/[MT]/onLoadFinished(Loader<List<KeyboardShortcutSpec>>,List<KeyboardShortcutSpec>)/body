@@ -1,5 +1,0 @@
-{
-  mAdapter.clear();
-  mAdapter.addAll(data);
-  setListShown(true);
-}

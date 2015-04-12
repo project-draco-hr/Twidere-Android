@@ -1,3 +1,0 @@
-{
-  return KeyboardShortcutsHandler.metaToHumanReadableString(keyMeta) + keyName.toUpperCase(Locale.US);
-}

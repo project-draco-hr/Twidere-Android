@@ -1,0 +1,11 @@
+{
+  final Editor editor=mPreferences.edit();
+  editor.clear();
+  editor.putString("n","compose");
+  editor.putString("m","message");
+  editor.putString("slash","search");
+  editor.putString("status.f","status.favorite");
+  editor.putString("status.r","status.reply");
+  editor.putString("status.t","status.retweet");
+  editor.apply();
+}

@@ -1,0 +1,28 @@
+{
+  if (event.getAction() != KeyEvent.ACTION_UP)   return false;
+  if (event.hasNoModifiers() && keyCode == KeyEvent.KEYCODE_DEL || keyCode == KeyEvent.KEYCODE_FORWARD_DEL) {
+    mKeyboardShortcutHandler.unregister(mAction);
+    return true;
+  }
+  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(mContextTag,keyCode,event);
+  if (spec == null || !spec.isValid())   return false;
+  mKeySpec=spec;
+  mKeysLabel.setText(spec.toKeyString());
+  final String oldAction=mKeyboardShortcutHandler.findAction(spec);
+  final Context context=getContext();
+  if (mAction.equals(oldAction) || TextUtils.isEmpty(oldAction)) {
+    mConflictLabel.setVisibility(View.GONE);
+    if (dialog instanceof AlertDialog) {
+      ((AlertDialog)dialog).setButton(DialogInterface.BUTTON_POSITIVE,context.getString(android.R.string.ok),this);
+    }
+  }
+ else {
+    mConflictLabel.setVisibility(View.VISIBLE);
+    final String label=KeyboardShortcutsHandler.getActionLabel(context,oldAction);
+    mConflictLabel.setText(context.getString(R.string.conflicts_with_name,label));
+    if (dialog instanceof AlertDialog) {
+      ((AlertDialog)dialog).setButton(DialogInterface.BUTTON_POSITIVE,context.getString(R.string.overwrite),this);
+    }
+  }
+  return true;
+}

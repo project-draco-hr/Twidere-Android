@@ -1,8 +1,0 @@
-{
-  if (isClickable() && isEnabled() && ArrayUtils.contains(getDrawableState(),android.R.attr.state_pressed)) {
-    setColorFilter(mHighlightColor,Mode.MULTIPLY);
-  }
- else {
-    clearColorFilter();
-  }
-}

@@ -1,6 +1,0 @@
-{
-  final ImageView iconView=(ImageView)findViewById(android.R.id.icon);
-  if (iconView == null)   return;
-  iconView.setVisibility(icon != null ? GONE : VISIBLE);
-  iconView.setImageDrawable(icon);
-}

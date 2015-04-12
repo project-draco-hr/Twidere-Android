@@ -1,0 +1,13 @@
+{
+  final int contextDotIdx=key.indexOf('.');
+  if (contextDotIdx != -1) {
+    contextTag=key.substring(0,contextDotIdx);
+  }
+  int idx=contextDotIdx, previousIdx=idx;
+  while ((idx=key.indexOf('+',idx + 1)) != -1) {
+    keyMeta|=getKeyEventMeta(key.substring(previousIdx + 1,idx));
+    previousIdx=idx;
+  }
+  keyName=key.substring(previousIdx + 1);
+  this.action=action;
+}

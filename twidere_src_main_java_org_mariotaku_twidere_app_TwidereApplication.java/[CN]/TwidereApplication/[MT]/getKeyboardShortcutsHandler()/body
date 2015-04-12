@@ -1,0 +1,8 @@
+{
+  if (mKeyboardShortcutsHandler != null)   return mKeyboardShortcutsHandler;
+  mKeyboardShortcutsHandler=new KeyboardShortcutsHandler(this);
+  if (mKeyboardShortcutsHandler.isEmpty()) {
+    mKeyboardShortcutsHandler.reset();
+  }
+  return mKeyboardShortcutsHandler;
+}

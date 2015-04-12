@@ -1,0 +1,15 @@
+{
+  final StringBuilder keyNameBuilder=new StringBuilder();
+  if (!TextUtils.isEmpty(contextTag)) {
+    keyNameBuilder.append(contextTag);
+    keyNameBuilder.append(".");
+  }
+  for (int i=0, j=sMetaNameMap.size(); i < j; i++) {
+    if ((sMetaNameMap.keyAt(i) & metaState) != 0) {
+      keyNameBuilder.append(sMetaNameMap.valueAt(i));
+      keyNameBuilder.append("+");
+    }
+  }
+  keyNameBuilder.append(keyName);
+  return keyNameBuilder.toString();
+}

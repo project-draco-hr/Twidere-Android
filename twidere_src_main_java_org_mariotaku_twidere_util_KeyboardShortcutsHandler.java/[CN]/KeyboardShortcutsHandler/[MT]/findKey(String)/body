@@ -1,0 +1,9 @@
+{
+  for (  Entry<String,?> entry : mPreferences.getAll().entrySet()) {
+    if (action.equals(entry.getValue())) {
+      final KeyboardShortcutSpec spec=new KeyboardShortcutSpec(entry.getKey(),action);
+      if (spec.isValid())       return spec;
+    }
+  }
+  return null;
+}

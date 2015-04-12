@@ -1,0 +1,6 @@
+{
+  this.contextTag=contextTag;
+  this.keyMeta=keyMeta;
+  this.keyName=keyName;
+  this.action=action;
+}

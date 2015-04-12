@@ -1,0 +1,6 @@
+{
+  final Context context=getContext();
+  SpiceProfilingUtil.profile(context,status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+  SpiceProfilingUtil.log(context,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+  return destroyFavoriteAsync(status.account_id,status.id);
+}

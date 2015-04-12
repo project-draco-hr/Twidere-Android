@@ -1,4 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  mHighlightColor=isInEditMode() ? 0 : ThemeUtils.getUserAccentColor(context);
-}

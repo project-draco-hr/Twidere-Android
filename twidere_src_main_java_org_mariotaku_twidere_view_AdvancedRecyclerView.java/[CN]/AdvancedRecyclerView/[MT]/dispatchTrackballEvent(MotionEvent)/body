@@ -1,4 +1,0 @@
-{
-  Log.d(Constants.LOGTAG,event.toString());
-  return super.dispatchTrackballEvent(event);
-}

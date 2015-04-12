@@ -1,7 +1,0 @@
-{
-  final LayoutManager lm=getLayoutManager();
-  if (!(lm instanceof LinearLayoutManager))   return false;
-  final LinearLayoutManager llm=(LinearLayoutManager)lm;
-  Log.d(Constants.LOGTAG,event.toString());
-  return true;
-}
