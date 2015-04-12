@@ -1,0 +1,7 @@
+{
+  final Fragment fragment=getCurrentVisibleFragment();
+  if (fragment instanceof ShortcutCallback) {
+    return ((ShortcutCallback)fragment).handleKeyboardShortcutSingle(keyCode,event);
+  }
+  return false;
+}

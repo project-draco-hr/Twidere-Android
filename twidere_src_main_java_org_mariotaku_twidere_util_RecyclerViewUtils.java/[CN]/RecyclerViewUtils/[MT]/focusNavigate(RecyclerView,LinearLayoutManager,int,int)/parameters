@@ -1,0 +1,4 @@
+RecyclerView recyclerView
+LinearLayoutManager layoutManager
+int currentFocus
+int direction

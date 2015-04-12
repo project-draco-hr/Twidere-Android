@@ -1,7 +1,5 @@
 {
-  if (!isValidForHotkey(keyCode,event))   return false;
-  final String key=getKeyEventKey(contextTag,keyCode,event);
-  final String action=mPreferences.getString(key,null);
+  final String action=getKeyAction(contextTag,keyCode,event);
   if (action == null)   return false;
 switch (action) {
 case "compose":

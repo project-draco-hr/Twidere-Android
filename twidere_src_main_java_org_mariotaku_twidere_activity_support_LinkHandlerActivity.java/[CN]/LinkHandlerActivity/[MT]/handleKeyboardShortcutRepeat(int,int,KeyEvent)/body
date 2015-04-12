@@ -1,0 +1,4 @@
+{
+  if (handleFragmentKeyboardShortcutRepeat(keyCode,repeatCount,event))   return true;
+  return super.handleKeyboardShortcutRepeat(keyCode,repeatCount,event);
+}

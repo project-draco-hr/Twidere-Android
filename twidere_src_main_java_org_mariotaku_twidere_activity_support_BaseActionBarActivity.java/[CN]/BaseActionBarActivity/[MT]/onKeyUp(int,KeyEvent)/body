@@ -1,4 +1,4 @@
 {
-  if (handleKeyboardShortcut(keyCode,event))   return true;
+  if (handleKeyboardShortcutSingle(keyCode,event))   return true;
   return super.onKeyUp(keyCode,event);
 }

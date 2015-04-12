@@ -1,0 +1,4 @@
+{
+  if (handleKeyboardShortcutRepeat(keyCode,event.getRepeatCount(),event))   return true;
+  return super.onKeyDown(keyCode,event);
+}

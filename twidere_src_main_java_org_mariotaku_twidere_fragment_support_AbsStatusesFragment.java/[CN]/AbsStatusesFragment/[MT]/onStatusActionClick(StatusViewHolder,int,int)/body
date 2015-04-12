@@ -21,14 +21,10 @@ case R.id.favorite_count:
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
   if (twitter == null)   return;
   if (status.is_favorite) {
-    twitter.destroyFavoriteAsync(status.account_id,status.id);
-    SpiceProfilingUtil.profile(activity,status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-    SpiceProfilingUtil.log(activity,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+    twitter.destroyFavoriteAsync(status);
   }
  else {
-    twitter.createFavoriteAsync(status.account_id,status.id);
-    SpiceProfilingUtil.profile(activity,status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-    SpiceProfilingUtil.log(activity,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+    twitter.createFavoriteAsync(status);
   }
   break;
 }

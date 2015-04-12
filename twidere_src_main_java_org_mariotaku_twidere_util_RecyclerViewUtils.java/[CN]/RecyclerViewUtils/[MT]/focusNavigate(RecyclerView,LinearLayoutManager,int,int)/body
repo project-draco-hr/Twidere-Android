@@ -1,0 +1,39 @@
+{
+  if (direction == 0)   return;
+  if (currentFocus < 0) {
+    final int firstVisibleItemPosition=layoutManager.findFirstVisibleItemPosition();
+    final View firstVisibleView=layoutManager.findViewByPosition(firstVisibleItemPosition);
+    if (firstVisibleView != null) {
+      firstVisibleView.requestFocus();
+    }
+  }
+ else {
+    final View view;
+    if (direction > 0 && currentFocus == layoutManager.findLastVisibleItemPosition()) {
+      view=recyclerView.focusSearch(recyclerView.getFocusedChild(),View.FOCUS_DOWN);
+    }
+ else     if (direction < 0 && currentFocus == layoutManager.findFirstVisibleItemPosition()) {
+      view=recyclerView.focusSearch(recyclerView.getFocusedChild(),View.FOCUS_UP);
+    }
+ else {
+      view=null;
+    }
+    final View firstVisibleView=layoutManager.findViewByPosition(currentFocus + (direction > 0 ? 1 : -1));
+    final View viewToFocus;
+    if (firstVisibleView != null) {
+      viewToFocus=firstVisibleView;
+      firstVisibleView.requestFocus();
+    }
+ else     if (view != null) {
+      final View recyclerViewChild=findRecyclerViewChild(recyclerView,view);
+      viewToFocus=recyclerViewChild;
+    }
+ else {
+      viewToFocus=null;
+    }
+    if (viewToFocus == null)     return;
+    final int nextPos=layoutManager.getPosition(viewToFocus);
+    if (nextPos < 0 || (nextPos - currentFocus) * direction < 0)     return;
+    viewToFocus.requestFocus();
+  }
+}

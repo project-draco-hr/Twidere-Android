@@ -1,6 +1,0 @@
-{
-  if (mCurrentVisibleFragment instanceof ShortcutCallback) {
-    return ((ShortcutCallback)mCurrentVisibleFragment).handleKeyboardShortcut(keyCode,event);
-  }
-  return false;
-}

@@ -4,6 +4,9 @@
   editor.putString("n","compose");
   editor.putString("m","message");
   editor.putString("slash","search");
+  editor.putString("navigation.period","navigation.refresh");
+  editor.putString("navigation.j","navigation.next");
+  editor.putString("navigation.k","navigation.previous");
   editor.putString("status.f","status.favorite");
   editor.putString("status.r","status.reply");
   editor.putString("status.t","status.retweet");

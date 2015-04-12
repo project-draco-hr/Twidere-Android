@@ -1,0 +1,7 @@
+{
+  if (keyName == null)   return null;
+  final String upperName=keyName.toUpperCase(Locale.US);
+  final int keyCode=KeyEvent.keyCodeFromString(KEYCODE_STRING_PREFIX + upperName);
+  if (keyCode == KeyEvent.KEYCODE_UNKNOWN)   return upperName;
+  return String.valueOf(new KeyEvent(KeyEvent.ACTION_DOWN,keyCode).getDisplayLabel());
+}

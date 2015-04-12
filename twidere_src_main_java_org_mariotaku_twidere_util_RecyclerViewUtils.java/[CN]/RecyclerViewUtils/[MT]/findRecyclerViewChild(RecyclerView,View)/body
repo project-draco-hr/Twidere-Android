@@ -1,0 +1,9 @@
+{
+  if (view == null)   return null;
+  final ViewParent parent=view.getParent();
+  if (parent == recyclerView)   return view;
+  if (parent instanceof View) {
+    return findRecyclerViewChild(recyclerView,(View)parent);
+  }
+  return null;
+}
