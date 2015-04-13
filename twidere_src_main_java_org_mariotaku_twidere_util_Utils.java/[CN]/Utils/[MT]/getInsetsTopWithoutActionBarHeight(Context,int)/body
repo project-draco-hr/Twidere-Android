@@ -9,8 +9,8 @@
  else {
     return top;
   }
-  if (actionBarHeight < top) {
-    return top - actionBarHeight;
+  if (actionBarHeight > top) {
+    return top;
   }
-  return top;
+  return top - actionBarHeight;
 }

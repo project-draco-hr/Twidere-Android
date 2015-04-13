@@ -1,8 +1,12 @@
 {
   mCreatingFavoriteIds.remove(account_id,status_id);
   if (result.hasData()) {
+    final ParcelableStatus status=result.getData();
+    final Context context=getContext();
+    SpiceProfilingUtil.profile(context,status.account_id,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
+    SpiceProfilingUtil.log(context,status.id + ",Favor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-    bus.post(new FavoriteCreatedEvent(result.getData()));
+    bus.post(new FavoriteCreatedEvent(status));
     mMessagesManager.showOkMessage(R.string.status_favorited,false);
   }
  else {
