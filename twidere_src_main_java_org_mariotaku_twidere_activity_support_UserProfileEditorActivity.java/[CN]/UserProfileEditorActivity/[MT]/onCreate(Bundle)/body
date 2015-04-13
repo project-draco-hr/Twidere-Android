@@ -11,8 +11,8 @@
   mAccountId=accountId;
   setContentView(R.layout.activity_user_profile_editor);
   setSupportActionBar(mToolbar);
-  ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
-  ViewAccessor.setBackground(mToolbar,ThemeUtils.getActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
+  ViewUtils.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
+  ViewUtils.setBackground(mToolbar,ThemeUtils.getActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);

@@ -1,0 +1,6 @@
+{
+  if (mPreferences != null)   return mPreferences;
+  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  return mPreferences;
+}

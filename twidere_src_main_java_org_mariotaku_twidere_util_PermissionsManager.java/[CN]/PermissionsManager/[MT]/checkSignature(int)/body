@@ -1,4 +1,3 @@
 {
-  final String pname=getPackageNameByUid(uid);
-  return checkSignature(pname);
+  return checkSignature(getPackageNameByUid(uid));
 }

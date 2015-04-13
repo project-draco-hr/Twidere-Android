@@ -17,7 +17,7 @@
     contextViewField.setAccessible(true);
     final View view=(View)contextViewField.get(actionBar);
     if (view == null)     return;
-    ViewAccessor.setBackground(view,getActionBarBackground(activity,themeRes,accentColor,outlineEnabled));
+    ViewUtils.setBackground(view,getActionBarBackground(activity,themeRes,accentColor,outlineEnabled));
   }
  catch (  Exception e) {
     e.printStackTrace();

@@ -1,5 +1,0 @@
-{
-  if (context == null)   return true;
-  final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
-  return pref.getBoolean(KEY_THEME_DARK_ACTIONBAR,true);
-}

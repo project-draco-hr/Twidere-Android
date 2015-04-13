@@ -1,6 +1,6 @@
 {
   final int[] location=new int[2];
-  mNameView.getLocationOnScreen(location);
+  mNameView.getLocationInWindow(location);
   final float nameShowingRatio=(mHeaderDrawerLayout.getPaddingTop() - location[1]) / (float)mNameView.getHeight();
   final int textAlpha=Math.round(0xFF * MathUtils.clamp(nameShowingRatio,0,1));
   final FragmentActivity activity=getActivity();

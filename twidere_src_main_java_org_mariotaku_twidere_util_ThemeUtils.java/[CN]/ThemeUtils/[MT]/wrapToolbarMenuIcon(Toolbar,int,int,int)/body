@@ -1,0 +1,14 @@
+{
+  final Menu menu=view.getMenu();
+  final int childCount=view.getChildCount();
+  for (int i=0, j=menu.size(), k=0; i < j; i++) {
+    final MenuItem item=menu.getItem(i);
+    wrapMenuItemIcon(item,itemColor,excludeGroups);
+    if (item.hasSubMenu()) {
+      wrapMenuIcon(menu,popupItemColor,popupItemColor,excludeGroups);
+    }
+    if (item.isVisible()) {
+      k++;
+    }
+  }
+}

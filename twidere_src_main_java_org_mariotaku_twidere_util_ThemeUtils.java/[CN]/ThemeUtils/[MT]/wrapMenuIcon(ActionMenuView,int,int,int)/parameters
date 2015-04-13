@@ -1,0 +1,4 @@
+ActionMenuView view
+int colorDark
+int colorLight
+int excludeGroups

@@ -1,3 +1,4 @@
 {
-  setColorFilter(color == 0 ? mDefaultColor : color,Mode.SRC_ATOP);
+  mHighlightColor=color;
+  updateColorFilter();
 }

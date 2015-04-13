@@ -6,8 +6,6 @@
   mDefaultUserAgent=UserAgentUtils.getDefaultUserAgentString(this);
   mHandler=new Handler();
   mMessageBus=new Bus();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
-  mPreferences.registerOnSharedPreferenceChangeListener(this);
   initializeAsyncTask();
   initAccountColor(this);
   initUserColor(this);

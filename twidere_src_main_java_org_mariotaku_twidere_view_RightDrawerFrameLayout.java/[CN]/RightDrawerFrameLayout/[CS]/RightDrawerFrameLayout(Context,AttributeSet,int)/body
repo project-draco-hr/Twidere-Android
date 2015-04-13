@@ -1,7 +1,7 @@
 {
   super(context,attrs,defStyle);
   final Drawable bg=ThemeUtils.getWindowBackground(context,ThemeUtils.getDrawerThemeResource(context));
-  ViewAccessor.setBackground(this,bg);
+  ViewUtils.setBackground(this,bg);
   setWillNotDraw(false);
   mClipPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
 }

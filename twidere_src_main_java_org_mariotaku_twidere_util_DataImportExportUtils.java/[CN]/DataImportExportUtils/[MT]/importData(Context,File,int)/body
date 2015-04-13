@@ -13,5 +13,8 @@
   if (hasFlag(flags,FLAG_HOST_MAPPING)) {
     readRawSharedPreferencesData(zipFile,context,HOST_MAPPING_PREFERENCES_NAME,ENTRY_HOST_MAPPING);
   }
+  if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
+    readRawSharedPreferencesData(zipFile,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS);
+  }
   zipFile.close();
 }

@@ -10,7 +10,7 @@
   final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
-    setActionBarBackground(actionBar,linkId,data);
+    setActionBarTheme(actionBar,linkId,data);
   }
   setContentView(R.layout.activity_content_fragment);
   mMainContent.setOnFitSystemWindowsListener(this);

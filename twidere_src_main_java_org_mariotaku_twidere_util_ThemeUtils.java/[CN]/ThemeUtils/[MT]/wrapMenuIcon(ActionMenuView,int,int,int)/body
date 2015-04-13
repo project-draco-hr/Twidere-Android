@@ -1,0 +1,18 @@
+{
+  final int itemBackgroundColor=ThemeUtils.getThemeBackgroundColor(view.getContext());
+  final int popupItemBackgroundColor=ThemeUtils.getThemeBackgroundColor(view.getContext(),view.getPopupTheme());
+  final int itemColor=ColorUtils.getContrastYIQ(itemBackgroundColor,colorDark,colorLight);
+  final int popupItemColor=ColorUtils.getContrastYIQ(popupItemBackgroundColor,colorDark,colorLight);
+  final Menu menu=view.getMenu();
+  final int childCount=view.getChildCount();
+  for (int i=0, j=menu.size(), k=0; i < j; i++) {
+    final MenuItem item=menu.getItem(i);
+    wrapMenuItemIcon(item,itemColor,excludeGroups);
+    if (item.hasSubMenu()) {
+      wrapMenuIcon(menu,popupItemColor,popupItemColor,excludeGroups);
+    }
+    if (item.isVisible()) {
+      k++;
+    }
+  }
+}

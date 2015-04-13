@@ -12,9 +12,9 @@
   final int defaultTextSize=getDefaultTextSize(context);
   final int cardBackgroundColor=ThemeUtils.getCardBackgroundColor(context);
   final int accentColor=ThemeUtils.getUserAccentColor(context);
-  ViewAccessor.setBackground(windowBackgroundView,ThemeUtils.getWindowBackground(context));
-  ViewAccessor.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,true));
-  ViewAccessor.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
+  ViewUtils.setBackground(windowBackgroundView,ThemeUtils.getWindowBackground(context));
+  ViewUtils.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,true));
+  ViewUtils.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
   cardView.setCardBackgroundColor(cardBackgroundColor);
   actionBarView.setTitle(R.string.app_name);
   actionBarView.setTitleTextColor(ColorUtils.getContrastYIQ(accentColor,192));
@@ -23,7 +23,7 @@
   inflater.inflate(R.menu.menu_status,menuBar.getMenu());
   ThemeUtils.wrapMenuIcon(menuBar,MENU_GROUP_STATUS_SHARE);
   if (statusContentView != null) {
-    ViewAccessor.setBackground(statusContentView,ThemeUtils.getWindowBackground(context));
+    ViewUtils.setBackground(statusContentView,ThemeUtils.getWindowBackground(context));
     final View profileView=statusContentView.findViewById(R.id.profile_container);
     final ImageView profileImageView=(ImageView)statusContentView.findViewById(R.id.profile_image);
     final TextView nameView=(TextView)statusContentView.findViewById(R.id.name);

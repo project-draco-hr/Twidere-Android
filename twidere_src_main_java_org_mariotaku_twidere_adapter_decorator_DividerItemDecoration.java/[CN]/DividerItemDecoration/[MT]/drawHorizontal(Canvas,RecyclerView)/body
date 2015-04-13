@@ -1,4 +1,5 @@
 {
+  if (mDivider == null)   return;
   final int top=parent.getPaddingTop();
   final int bottom=parent.getHeight() - parent.getPaddingBottom();
   final int childCount=parent.getChildCount();

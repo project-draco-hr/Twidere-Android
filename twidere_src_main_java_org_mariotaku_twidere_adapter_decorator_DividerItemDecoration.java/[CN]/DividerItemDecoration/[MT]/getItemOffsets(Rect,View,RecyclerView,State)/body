@@ -1,4 +1,5 @@
 {
+  if (mDivider == null)   return;
   final int childPos=parent.getChildAdapterPosition(view);
   final int start=getDecorationStart(), end=getDecorationEnd(parent);
   if (start >= 0 && childPos < start || end >= 0 && childPos > end) {

@@ -29,6 +29,6 @@
   mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
   final Window window=getWindow();
   final Drawable windowBackground=ThemeUtils.getWindowBackground(this,getCurrentThemeResourceId());
-  ViewAccessor.setBackground(mSlidingMenu.getContent(),windowBackground);
+  ViewUtils.setBackground(mSlidingMenu.getContent(),windowBackground);
   window.setBackgroundDrawable(new EmptyDrawable(windowBackground));
 }

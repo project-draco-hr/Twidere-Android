@@ -6,13 +6,13 @@
  else   if (view instanceof ProgressBar) {
     final ColorStateList tintList=ColorStateList.valueOf(tintColor);
     final ProgressBar progressBar=(ProgressBar)view;
-    ViewAccessor.setProgressTintList(progressBar,tintList);
-    ViewAccessor.setProgressBackgroundTintList(progressBar,tintList);
-    ViewAccessor.setIndeterminateTintList(progressBar,tintList);
+    ViewUtils.setProgressTintList(progressBar,tintList);
+    ViewUtils.setProgressBackgroundTintList(progressBar,tintList);
+    ViewUtils.setIndeterminateTintList(progressBar,tintList);
   }
  else   if (view instanceof CompoundButton) {
     final ColorStateList tintList=ColorStateList.valueOf(tintColor);
     final CompoundButton compoundButton=(CompoundButton)view;
-    ViewAccessor.setButtonTintList(compoundButton,tintList);
+    ViewUtils.setButtonTintList(compoundButton,tintList);
   }
 }

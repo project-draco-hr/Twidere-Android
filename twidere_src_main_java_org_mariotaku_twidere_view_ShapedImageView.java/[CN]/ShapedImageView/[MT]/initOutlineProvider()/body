@@ -1,4 +1,4 @@
 {
-  ViewAccessor.setClipToOutline(this,true);
-  ViewAccessor.setOutlineProvider(this,new CircularOutlineProvider());
+  ViewUtils.setClipToOutline(this,true);
+  ViewUtils.setOutlineProvider(this,new CircularOutlineProvider());
 }

@@ -1,5 +1,0 @@
-{
-  super.onResume();
-  mInstanceStateSaved=false;
-  mIsOnTop=true;
-}

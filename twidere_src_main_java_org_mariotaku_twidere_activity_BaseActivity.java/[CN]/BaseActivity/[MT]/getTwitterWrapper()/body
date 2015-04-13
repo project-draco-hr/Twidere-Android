@@ -1,3 +1,0 @@
-{
-  return getTwidereApplication() != null ? getTwidereApplication().getTwitterWrapper() : null;
-}

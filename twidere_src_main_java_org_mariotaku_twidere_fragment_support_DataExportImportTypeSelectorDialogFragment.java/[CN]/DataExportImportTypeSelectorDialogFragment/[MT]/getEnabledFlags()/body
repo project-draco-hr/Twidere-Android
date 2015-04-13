@@ -1,5 +1,5 @@
 {
   final Bundle args=getArguments();
-  if (args == null)   return FLAG_ALL;
-  return args.getInt(EXTRA_FLAGS,FLAG_ALL);
+  if (args == null)   return DataImportExportUtils.FLAG_ALL;
+  return args.getInt(EXTRA_FLAGS,DataImportExportUtils.FLAG_ALL);
 }

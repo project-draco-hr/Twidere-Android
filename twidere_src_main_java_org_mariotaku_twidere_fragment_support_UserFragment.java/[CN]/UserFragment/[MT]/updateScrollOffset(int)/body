@@ -18,35 +18,42 @@
       tabOutlineAlphaFactor=1f;
     }
     mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
-    final FragmentActivity activity=getActivity();
+    final ThemedActionBarActivity activity=(ThemedActionBarActivity)getActivity();
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
-    if (activity instanceof IThemedActivity) {
-      final Drawable drawable=mPagerIndicator.getBackground();
-      final int stackedTabColor;
-      if (ThemeUtils.isDarkTheme(((IThemedActivity)activity).getCurrentThemeResourceId())) {
-        stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
-        final int contrastColor=ColorUtils.getContrastYIQ(stackedTabColor,192);
-        mPagerIndicator.setIconColor(contrastColor);
-        mPagerIndicator.setLabelColor(contrastColor);
-        mPagerIndicator.setStripColor(mUserUiColor);
-      }
- else       if (drawable instanceof ColorDrawable) {
-        stackedTabColor=mUserUiColor;
-        final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
-        ((ColorDrawable)drawable).setColor(tabColor);
-        final int contrastColor=ColorUtils.getContrastYIQ(tabColor,192);
-        mPagerIndicator.setIconColor(contrastColor);
-        mPagerIndicator.setLabelColor(contrastColor);
-        mPagerIndicator.setStripColor(contrastColor);
-      }
+    final Drawable drawable=mPagerIndicator.getBackground();
+    final int stackedTabColor;
+    if (ThemeUtils.isDarkTheme(activity.getCurrentThemeResourceId())) {
+      stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
+      final int contrastColor=ColorUtils.getContrastYIQ(stackedTabColor,192);
+      mPagerIndicator.setIconColor(contrastColor);
+      mPagerIndicator.setLabelColor(contrastColor);
+      mPagerIndicator.setStripColor(mUserUiColor);
     }
- else {
-      final int contrastColor=ColorUtils.getContrastYIQ(mUserUiColor,192);
+ else     if (drawable instanceof ColorDrawable) {
+      stackedTabColor=mUserUiColor;
+      final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
+      ((ColorDrawable)drawable).setColor(tabColor);
+      final int contrastColor=ColorUtils.getContrastYIQ(tabColor,192);
       mPagerIndicator.setIconColor(contrastColor);
       mPagerIndicator.setLabelColor(contrastColor);
       mPagerIndicator.setStripColor(contrastColor);
+    }
+ else {
+      return;
+    }
+    final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
+    final int itemColor=ColorUtils.getContrastYIQ(barColor,192);
+    if (mActionBarHomeAsUpIndicator != null) {
+      mActionBarHomeAsUpIndicator.setColorFilter(itemColor,Mode.SRC_ATOP);
+    }
+    final View actionBarView=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.action_bar);
+    if (actionBarView instanceof Toolbar) {
+      final Toolbar toolbar=(Toolbar)actionBarView;
+      toolbar.setTitleTextColor(itemColor);
+      ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
+      ThemeUtils.wrapToolbarMenuIcon(toolbar,itemColor,itemColor);
     }
     mPagerIndicator.updateAppearance();
   }

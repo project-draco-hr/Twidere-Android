@@ -1,7 +1,7 @@
 {
   mCardWidth=width;
   mCardHeight=height;
-  if (!ViewAccessor.isInLayout(this)) {
+  if (!ViewUtils.isInLayout(this)) {
     requestLayout();
   }
 }

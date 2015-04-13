@@ -1,0 +1,11 @@
+{
+switch (item.getItemId()) {
+case MENU_RESET:
+{
+      final DialogFragment f=new ResetKeyboardShortcutConfirmDialogFragment();
+      f.show(getFragmentManager().beginTransaction(),"reset_keyboard_shortcut_confirm");
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

@@ -1,4 +1,4 @@
 {
-  if (Thread.currentThread().getId() != 1)   return null;
+  if (Thread.currentThread().getId() != 1)   return new Handler(Looper.getMainLooper());
   return new Handler();
 }

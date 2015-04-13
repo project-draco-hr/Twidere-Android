@@ -5,7 +5,7 @@
   final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
   final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
   mTabIndicator.setItemContext(ThemeUtils.getActionBarContext(this));
-  ViewAccessor.setBackground(mActionBar,ThemeUtils.getActionBarBackground(this,themeResId,themeColor,true));
+  ViewUtils.setBackground(mActionBar,ThemeUtils.getActionBarBackground(this,themeResId,themeColor,true));
   if (ThemeUtils.isDarkTheme(themeResId)) {
     final int backgroundColor=ThemeUtils.getThemeBackgroundColor(mTabIndicator.getItemContext());
     final int foregroundColor=ThemeUtils.getThemeForegroundColor(mTabIndicator.getItemContext());
@@ -34,5 +34,5 @@
   }
   mTabIndicator.setAlpha(actionBarAlpha / 255f);
   mActionsButton.setAlpha(actionBarAlpha / 255f);
-  ViewAccessor.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
+  ViewUtils.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
 }

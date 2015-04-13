@@ -1,5 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
   final Activity activity=getActivity();
   mKeyboardShortcutHandler=TwidereApplication.getInstance(activity).getKeyboardShortcutsHandler();
   final PreferenceScreen defaultScreen=getPreferenceScreen();

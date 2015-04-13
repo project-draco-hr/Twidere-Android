@@ -9,4 +9,6 @@
   mActionBarBackground.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha());
   mProfileBannerView.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha() / 255f);
   actionBar.setBackgroundDrawable(mActionBarBackground);
+  mActionBarHomeAsUpIndicator=ThemeUtils.getActionBarHomeAsUpIndicator(actionBar);
+  actionBar.setHomeAsUpIndicator(mActionBarHomeAsUpIndicator);
 }

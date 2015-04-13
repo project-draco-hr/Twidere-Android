@@ -14,6 +14,9 @@
   if (zipFile.getEntry(ENTRY_HOST_MAPPING) != null) {
     flags|=FLAG_HOST_MAPPING;
   }
+  if (zipFile.getEntry(ENTRY_KEYBOARD_SHORTCUTS) != null) {
+    flags|=FLAG_KEYBOARD_SHORTCUTS;
+  }
   zipFile.close();
   return flags;
 }

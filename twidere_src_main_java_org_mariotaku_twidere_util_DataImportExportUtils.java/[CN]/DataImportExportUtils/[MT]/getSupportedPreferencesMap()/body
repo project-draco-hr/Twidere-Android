@@ -7,9 +7,8 @@
       try {
         supportedPrefsMap.put((String)field.get(null),annotation);
       }
- catch (      final IllegalAccessException e) {
-      }
-catch (      final IllegalArgumentException e) {
+ catch (      final IllegalAccessException|IllegalArgumentException e) {
+        Log.w(LOGTAG,e);
       }
     }
   }

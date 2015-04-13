@@ -1,0 +1,7 @@
+{
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setMessage(R.string.reset_keyboard_shortcuts_confirm);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

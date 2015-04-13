@@ -1,0 +1,28 @@
+{
+  final int currentThemeColor=getCurrentThemeColor();
+  int actionBarItemsColor=ColorUtils.getContrastYIQ(currentThemeColor,192);
+switch (linkId) {
+case LINK_ID_USER:
+{
+      actionBarItemsColor=Color.WHITE;
+      break;
+    }
+case LINK_ID_SEARCH:
+case LINK_ID_USER_LISTS:
+{
+    ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),currentThemeColor,false);
+    ThemeUtils.applyActionBarBackground(getActionBar(),this,getCurrentThemeResourceId(),currentThemeColor,true);
+    break;
+  }
+default :
+{
+  ThemeUtils.applyActionBarBackground(actionBar,this,getCurrentThemeResourceId(),currentThemeColor,true);
+  ThemeUtils.applyActionBarBackground(getActionBar(),this,getCurrentThemeResourceId(),currentThemeColor,true);
+  break;
+}
+}
+if (actionBarItemsColor != 0) {
+ThemeUtils.setActionBarItemsColor(getWindow(),actionBar,actionBarItemsColor);
+}
+mActionBarItemsColor=actionBarItemsColor;
+}

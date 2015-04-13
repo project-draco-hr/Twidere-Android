@@ -5,7 +5,7 @@
   final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
   final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
   final int contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
-  ViewAccessor.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
+  ViewUtils.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
   if (isDarkTheme(themeRes)) {
     final int foregroundColor=getThemeForegroundColor(activity);
     indicator.setIconColor(foregroundColor);
