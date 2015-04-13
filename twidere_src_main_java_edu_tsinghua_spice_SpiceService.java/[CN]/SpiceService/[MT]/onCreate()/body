@@ -3,5 +3,6 @@
   SpiceProfilingUtil.log(this,"onCreate");
   mAlarmManager=(AlarmManager)getSystemService(Service.ALARM_SERVICE);
   final Intent uploadIntent=new Intent(SpiceUploadReceiver.ACTION_UPLOAD_PROFILE);
-  mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),12 * 60 * 60* 1000,PendingIntent.getBroadcast(this,0,uploadIntent,0));
+  mUploadIntent=PendingIntent.getBroadcast(this,0,uploadIntent,0);
+  mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),12 * 60 * 60* 1000,mUploadIntent);
 }

@@ -1,5 +1,4 @@
 {
-  mAlarmManager.cancel(locationIntent);
-  unregisterReceiver(mAlarmReceiver);
+  mAlarmManager.cancel(uploadIntent);
   super.onDestroy();
 }
