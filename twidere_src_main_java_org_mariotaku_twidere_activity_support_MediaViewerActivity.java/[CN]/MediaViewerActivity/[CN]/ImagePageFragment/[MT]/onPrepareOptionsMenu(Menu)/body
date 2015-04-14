@@ -1,25 +1,23 @@
 {
   super.onPrepareOptionsMenu(menu);
-  final Object imageTag=mImageView.getTag();
+  final File file=mImageFile;
   final boolean isLoading=getLoaderManager().hasRunningLoaders();
-  final boolean hasImage=imageTag instanceof File;
+  final boolean hasImage=file != null && file.exists();
   MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
   MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
   MenuUtils.setMenuItemAvailability(menu,R.id.save,hasImage && !isLoading);
-  if (hasImage) {
-    final MenuItem shareItem=menu.findItem(R.id.share);
-    final ShareActionProvider shareProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
-    final File file=(File)imageTag;
-    final Intent intent=new Intent(Intent.ACTION_SEND);
-    final Uri fileUri=Uri.fromFile(file);
-    intent.setDataAndType(fileUri,Utils.getImageMimeType(file));
-    intent.putExtra(Intent.EXTRA_STREAM,fileUri);
-    final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
-    if (activity.hasStatus()) {
-      final ParcelableStatus status=activity.getStatus();
-      intent.putExtra(Intent.EXTRA_TEXT,Utils.getStatusShareText(activity,status));
-      intent.putExtra(Intent.EXTRA_SUBJECT,Utils.getStatusShareSubject(activity,status));
-    }
-    shareProvider.setShareIntent(intent);
+  if (!hasImage)   return;
+  final MenuItem shareItem=menu.findItem(R.id.share);
+  final ShareActionProvider shareProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
+  final Intent intent=new Intent(Intent.ACTION_SEND);
+  final Uri fileUri=Uri.fromFile(file);
+  intent.setDataAndType(fileUri,Utils.getImageMimeType(file));
+  intent.putExtra(Intent.EXTRA_STREAM,fileUri);
+  final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
+  if (activity.hasStatus()) {
+    final ParcelableStatus status=activity.getStatus();
+    intent.putExtra(Intent.EXTRA_TEXT,Utils.getStatusShareText(activity,status));
+    intent.putExtra(Intent.EXTRA_SUBJECT,Utils.getStatusShareSubject(activity,status));
   }
+  shareProvider.setShareIntent(intent);
 }
