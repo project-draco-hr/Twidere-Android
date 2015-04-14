@@ -5,7 +5,7 @@
   final ActionBar actionBar=linkHandler.getSupportActionBar();
   if (actionBar == null)   return;
   final Drawable shadow=ResourcesCompat.getDrawable(activity.getResources(),R.drawable.shadow_user_banner_action_bar,null);
-  mActionBarBackground=new ActionBarDrawable(getResources(),shadow);
+  mActionBarBackground=new ActionBarDrawable(shadow);
   mActionBarBackground.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha());
   mProfileBannerView.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha() / 255f);
   actionBar.setBackgroundDrawable(mActionBarBackground);

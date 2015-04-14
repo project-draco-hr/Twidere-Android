@@ -52,10 +52,11 @@
     if (actionBarView instanceof Toolbar) {
       final Toolbar toolbar=(Toolbar)actionBarView;
       toolbar.setTitleTextColor(itemColor);
+      toolbar.setSubtitleTextColor(itemColor);
       ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
       ThemeUtils.wrapToolbarMenuIcon(toolbar,itemColor,itemColor);
     }
     mPagerIndicator.updateAppearance();
   }
-  updateTitleColor();
+  updateTitleAlpha();
 }

@@ -62,6 +62,7 @@
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
+  mPagerIndicator.setOnPageChangeListener(this);
   mFollowButton.setOnClickListener(this);
   mProfileImageView.setOnClickListener(this);
   mProfileBannerView.setOnClickListener(this);

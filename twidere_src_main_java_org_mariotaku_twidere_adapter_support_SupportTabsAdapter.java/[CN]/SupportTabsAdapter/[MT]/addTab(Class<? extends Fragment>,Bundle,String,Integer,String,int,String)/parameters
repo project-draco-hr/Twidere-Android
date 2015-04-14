@@ -1,0 +1,7 @@
+Class<? extends Fragment> cls
+Bundle args
+String name
+Integer icon
+String type
+int position
+String tag

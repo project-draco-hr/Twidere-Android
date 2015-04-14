@@ -1,0 +1,3 @@
+{
+  addTab(new SupportTabSpec(name,icon,type,cls,args,position,tag));
+}

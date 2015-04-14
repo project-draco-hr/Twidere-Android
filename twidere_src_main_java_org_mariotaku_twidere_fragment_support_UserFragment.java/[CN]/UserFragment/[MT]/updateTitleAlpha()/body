@@ -1,0 +1,19 @@
+{
+  final int[] location=new int[2];
+  mNameView.getLocationInWindow(location);
+  final float nameShowingRatio=(mHeaderDrawerLayout.getPaddingTop() - location[1]) / (float)mNameView.getHeight();
+  final float textAlpha=MathUtils.clamp(nameShowingRatio,0,1);
+  final FragmentActivity activity=getActivity();
+  final View actionBarView=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.action_bar);
+  if (actionBarView instanceof Toolbar) {
+    final Toolbar toolbar=(Toolbar)actionBarView;
+    final TextView titleView=ViewUtils.findViewByText(toolbar,toolbar.getTitle());
+    if (titleView != null) {
+      titleView.setAlpha(textAlpha);
+    }
+    final TextView subtitleView=ViewUtils.findViewByText(toolbar,toolbar.getSubtitle());
+    if (subtitleView != null) {
+      subtitleView.setAlpha(textAlpha);
+    }
+  }
+}

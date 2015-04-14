@@ -1,5 +1,6 @@
 {
   supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR);
   super.onCreate(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mResolver=getContentResolver();

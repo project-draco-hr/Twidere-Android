@@ -1,0 +1,10 @@
+{
+  if (view instanceof TextView && CompareUtils.textEquals(text,((TextView)view).getText()))   return (TextView)view;
+  if (view instanceof ViewGroup) {
+    for (int i=0, j=((ViewGroup)view).getChildCount(); i < j; i++) {
+      final TextView found=findViewByText(((ViewGroup)view).getChildAt(i),text);
+      if (found != null)       return found;
+    }
+  }
+  return null;
+}

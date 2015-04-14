@@ -60,6 +60,7 @@
     getFriendship();
   }
   activity.setTitle(UserColorNameUtils.getDisplayName(activity,user,true));
-  updateTitleColor();
+  updateTitleAlpha();
   invalidateOptionsMenu();
+  updateSubtitle();
 }

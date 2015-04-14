@@ -2,10 +2,10 @@
   super.onCreate();
   SpiceProfilingUtil.log(this,"onCreate");
   mAlarmManager=(AlarmManager)getSystemService(Service.ALARM_SERVICE);
-  IntentFilter mScreenOnFilter=new IntentFilter("android.intent.action.SCREEN_ON");
-  SpiceService.this.registerReceiver(mScreenOReceiver,mScreenOnFilter);
-  IntentFilter mScreenOffFilter=new IntentFilter("android.intent.action.SCREEN_OFF");
-  SpiceService.this.registerReceiver(mScreenOReceiver,mScreenOffFilter);
+  IntentFilter screenFilter=new IntentFilter();
+  screenFilter.addAction(Intent.ACTION_SCREEN_ON);
+  screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
+  registerReceiver(mScreenReceiver,screenFilter);
   final Intent uploadIntent=new Intent(SpiceUploadReceiver.ACTION_UPLOAD_PROFILE);
   mUploadIntent=PendingIntent.getBroadcast(this,0,uploadIntent,0);
   mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),12 * 60 * 60* 1000,mUploadIntent);
