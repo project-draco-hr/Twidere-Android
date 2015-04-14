@@ -1,3 +1,0 @@
-{
-  os.write((delimiter + boundary + delimiter+ "\r\n").getBytes());
-}
