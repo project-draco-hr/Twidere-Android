@@ -6,7 +6,7 @@ case MENU_HOME:
         finish();
       }
  else {
-        navigateUpFromSameTask();
+        NavUtils.navigateUpFromSameTask(this);
       }
       break;
     }

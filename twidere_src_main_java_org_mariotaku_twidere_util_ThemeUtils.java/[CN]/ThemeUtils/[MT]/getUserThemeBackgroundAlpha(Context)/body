@@ -1,8 +1,4 @@
 {
-  if (context instanceof IThemedActivity) {
-    final int alpha=((IThemedActivity)context).getCurrentThemeBackgroundAlpha();
-    if (alpha >= 0)     return alpha;
-  }
   if (context == null)   return DEFAULT_THEME_BACKGROUND_ALPHA;
   final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
   return pref.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA);

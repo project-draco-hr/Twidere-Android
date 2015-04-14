@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case MENU_HOME:
 {
-      navigateUpFromSameTask();
+      NavUtils.navigateUpFromSameTask(this);
       return true;
     }
 case MENU_ADD:

@@ -1,3 +1,0 @@
-{
-  NavUtils.navigateUpFromSameTask(this);
-}
