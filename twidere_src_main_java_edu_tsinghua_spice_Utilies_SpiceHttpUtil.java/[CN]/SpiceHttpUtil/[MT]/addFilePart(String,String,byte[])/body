@@ -1,9 +1,0 @@
-{
-  os.write((delimiter + boundary + "\r\n").getBytes());
-  os.write(("Content-Disposition: form-data; name=\"" + paramName + "\"; filename=\""+ fileName+ "\"\r\n").getBytes());
-  os.write(("Content-Type: application/octet-stream\r\n").getBytes());
-  os.write(("Content-Transfer-Encoding: binary\r\n").getBytes());
-  os.write("\r\n".getBytes());
-  os.write(data);
-  os.write("\r\n".getBytes());
-}
