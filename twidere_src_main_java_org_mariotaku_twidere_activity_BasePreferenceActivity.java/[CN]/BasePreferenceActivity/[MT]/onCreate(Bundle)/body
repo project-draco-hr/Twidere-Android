@@ -1,5 +1,6 @@
 {
   setTheme(mCurrentThemeResource=getThemeResourceId());
+  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   super.onCreate(savedInstanceState);
   setActionBarBackground();
 }

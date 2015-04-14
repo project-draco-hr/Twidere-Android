@@ -4,8 +4,8 @@
   final FragmentActivity activity=getActivity();
   final boolean isTransparentBackground;
   if (activity instanceof IThemedActivity) {
-    final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
-    isTransparentBackground=ThemeUtils.isTransparentBackground(themeRes);
+    final String backgroundOption=((IThemedActivity)activity).getCurrentThemeBackgroundOption();
+    isTransparentBackground=ThemeUtils.isTransparentBackground(backgroundOption);
   }
  else {
     isTransparentBackground=ThemeUtils.isTransparentBackground(getActivity());

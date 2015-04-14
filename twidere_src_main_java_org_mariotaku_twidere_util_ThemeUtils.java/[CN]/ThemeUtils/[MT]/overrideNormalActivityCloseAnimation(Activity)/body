@@ -1,5 +1,5 @@
 {
-  final TypedArray a=activity.obtainStyledAttributes(null,ANIM_CLOSE_STYLE_ATTRS,0,android.R.style.Animation_Activity);
+  @SuppressWarnings("ConstantConditions") final TypedArray a=activity.obtainStyledAttributes(null,ANIM_CLOSE_STYLE_ATTRS,0,android.R.style.Animation_Activity);
   final int activityCloseEnterAnimation=a.getResourceId(0,0);
   final int activityCloseExitAnimation=a.getResourceId(1,0);
   a.recycle();

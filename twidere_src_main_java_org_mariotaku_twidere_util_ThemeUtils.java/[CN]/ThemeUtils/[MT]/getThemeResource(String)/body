@@ -1,0 +1,6 @@
+{
+  if (VALUE_THEME_NAME_DARK.equals(name)) {
+    return R.style.Theme_Twidere_Dark;
+  }
+  return R.style.Theme_Twidere_Light;
+}

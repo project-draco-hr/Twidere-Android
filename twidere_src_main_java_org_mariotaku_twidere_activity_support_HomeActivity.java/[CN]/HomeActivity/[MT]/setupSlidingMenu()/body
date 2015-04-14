@@ -21,14 +21,14 @@
   mSlidingMenu.setOnClosedListener(this);
   mLeftDrawerContainer=(LeftDrawerFrameLayout)mSlidingMenu.getMenu().findViewById(R.id.left_drawer_container);
   mRightDrawerContainer=(RightDrawerFrameLayout)mSlidingMenu.getSecondaryMenu().findViewById(R.id.right_drawer_container);
-  final boolean isTransparentBackground=ThemeUtils.isTransparentBackground(this);
+  final boolean isTransparentBackground=ThemeUtils.isTransparentBackground(getCurrentThemeBackgroundOption());
   mLeftDrawerContainer.setClipEnabled(isTransparentBackground);
   mLeftDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
   mRightDrawerContainer.setClipEnabled(isTransparentBackground);
   mRightDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
   mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
   final Window window=getWindow();
-  final Drawable windowBackground=ThemeUtils.getWindowBackground(this,getCurrentThemeResourceId());
+  final Drawable windowBackground=ThemeUtils.getWindowBackground(this);
   ViewUtils.setBackground(mSlidingMenu.getContent(),windowBackground);
   window.setBackgroundDrawable(new EmptyDrawable(windowBackground));
 }

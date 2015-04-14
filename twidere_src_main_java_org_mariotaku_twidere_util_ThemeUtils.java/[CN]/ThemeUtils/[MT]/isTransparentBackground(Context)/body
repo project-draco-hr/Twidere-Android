@@ -1,3 +1,7 @@
 {
-  return isTransparentBackground(getThemeResource(context));
+  if (context instanceof IThemedActivity) {
+    final String option=((IThemedActivity)context).getCurrentThemeBackgroundOption();
+    if (option != null)     return isTransparentBackground(option);
+  }
+  return isTransparentBackground(getThemeBackgroundOption(context));
 }

@@ -1,0 +1,6 @@
+{
+  final View actionBarView=window.findViewById(android.support.v7.appcompat.R.id.action_bar);
+  if (actionBarView instanceof Toolbar) {
+    ((Toolbar)actionBarView).setSubtitleTextColor(itemColor);
+  }
+}

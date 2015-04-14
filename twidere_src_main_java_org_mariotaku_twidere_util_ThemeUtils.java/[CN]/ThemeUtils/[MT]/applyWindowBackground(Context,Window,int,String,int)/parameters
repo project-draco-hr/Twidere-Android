@@ -1,0 +1,5 @@
+Context context
+Window window
+int theme
+String option
+int alpha

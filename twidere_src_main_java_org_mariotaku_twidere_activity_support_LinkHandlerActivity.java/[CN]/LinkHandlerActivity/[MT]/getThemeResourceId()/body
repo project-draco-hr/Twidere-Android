@@ -1,3 +1,3 @@
 {
-  return R.style.Theme_Twidere_Light_DialogWhenLarge;
+  return ThemeUtils.getDialogWhenLargeThemeResource(this);
 }

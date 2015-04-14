@@ -1,7 +1,7 @@
 {
   final Context appContext=context.getApplicationContext();
   final Resources res=appContext.getResources();
-  final TypedArray a=appContext.obtainStyledAttributes(null,new int[]{android.R.attr.colorActivatedHighlight},0,themeResourceId);
+  @SuppressWarnings("ConstantConditions") final TypedArray a=appContext.obtainStyledAttributes(null,new int[]{android.R.attr.colorActivatedHighlight},0,themeResourceId);
   try {
     return a.getColor(0,res.getColor(R.color.material_light_blue));
   }

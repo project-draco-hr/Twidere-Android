@@ -1,7 +1,7 @@
 {
   final int themeColor=getThemeColor();
   final int themeResId=getCurrentThemeResourceId();
-  final boolean isTransparent=ThemeUtils.isTransparentBackground(themeResId);
+  final boolean isTransparent=ThemeUtils.isTransparentBackground(getCurrentThemeBackgroundOption());
   final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
   final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
   mTabIndicator.setItemContext(ThemeUtils.getActionBarContext(this));

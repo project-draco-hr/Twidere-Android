@@ -1,0 +1,10 @@
+{
+  if (window.isFloating())   return;
+  if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(option)) {
+    window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER);
+    window.setBackgroundDrawable(ThemeUtils.getWindowBackgroundApplyAlpha(context,alpha));
+  }
+ else   if (VALUE_THEME_BACKGROUND_SOLID.equals(option)) {
+    window.setBackgroundDrawable(new ColorDrawable(isDarkTheme(theme) ? Color.BLACK : Color.WHITE));
+  }
+}

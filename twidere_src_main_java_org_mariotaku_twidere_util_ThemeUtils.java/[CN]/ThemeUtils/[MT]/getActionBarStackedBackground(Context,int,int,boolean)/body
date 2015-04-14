@@ -7,5 +7,5 @@
     actionBarColor=accentColor;
   }
   final ColorDrawable d=new ActionBarColorDrawable(actionBarColor,outlineEnabled);
-  return applyActionBarDrawable(context,d,isTransparentBackground(themeRes));
+  return applyActionBarDrawable(context,d,isTransparentBackground(context));
 }

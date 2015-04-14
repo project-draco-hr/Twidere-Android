@@ -1,5 +1,5 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.titleTextStyle},android.R.attr.actionBarStyle,android.R.style.Widget_Holo_ActionBar);
+  @SuppressWarnings("ConstantConditions") final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.titleTextStyle},android.R.attr.actionBarStyle,android.R.style.Widget_Holo_ActionBar);
   final int textAppearance=a.getResourceId(0,android.R.style.TextAppearance_Holo);
   a.recycle();
   return textAppearance;

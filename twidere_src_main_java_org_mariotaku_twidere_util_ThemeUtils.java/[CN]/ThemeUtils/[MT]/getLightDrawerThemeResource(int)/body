@@ -1,7 +1,0 @@
-{
-switch (themeRes) {
-case R.style.Theme_Twidere_Light_Transparent:
-    return R.style.Theme_Twidere_Drawer_Light_Transparent;
-}
-return R.style.Theme_Twidere_Drawer_Light;
-}

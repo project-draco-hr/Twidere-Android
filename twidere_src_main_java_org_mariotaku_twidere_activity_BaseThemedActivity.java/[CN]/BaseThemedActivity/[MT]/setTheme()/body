@@ -3,8 +3,7 @@
   mCurrentThemeColor=getThemeColor();
   mCurrentThemeFontFamily=getThemeFontFamily();
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
+  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   setTheme(mCurrentThemeResource);
-  if (ThemeUtils.isTransparentBackground(mCurrentThemeResource)) {
-    getWindow().setBackgroundDrawable(ThemeUtils.getWindowBackground(this));
-  }
+  ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
 }
