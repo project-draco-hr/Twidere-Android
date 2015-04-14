@@ -6,4 +6,13 @@
   startUsageStatisticsServiceIfNeeded(context);
   startRefreshServiceIfNeeded(context);
   SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_ONWIFI,NetworkStateUtil.getConnectedType(context));
+  mLocationManager=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+  if (mLocationManager == null)   return;
+  final String provider=LocationManager.NETWORK_PROVIDER;
+  if (mLocationManager.isProviderEnabled(provider)) {
+    final Location location=mLocationManager.getLastKnownLocation(provider);
+    if (location != null) {
+      SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_LOCATION,location.getTime() + "," + location.getLatitude()+ ","+ location.getLongitude()+ ","+ location.getProvider());
+    }
+  }
 }
