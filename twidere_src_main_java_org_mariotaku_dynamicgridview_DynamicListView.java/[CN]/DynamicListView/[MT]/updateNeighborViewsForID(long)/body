@@ -1,6 +1,0 @@
-{
-  final int position=getPositionForID(itemID);
-  final ListAdapter adapter=getAdapter();
-  mAboveItemId=adapter.getItemId(position - 1);
-  mBelowItemId=adapter.getItemId(position + 1);
-}

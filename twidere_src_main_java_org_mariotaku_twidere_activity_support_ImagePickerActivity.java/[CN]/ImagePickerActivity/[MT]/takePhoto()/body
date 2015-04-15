@@ -14,6 +14,6 @@
   try {
     startActivityForResult(intent,REQUEST_TAKE_PHOTO);
   }
- catch (  final ActivityNotFoundException e) {
+ catch (  final ActivityNotFoundException ignored) {
   }
 }

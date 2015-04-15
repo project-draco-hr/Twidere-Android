@@ -1,4 +1,0 @@
-{
-  if (mCroutonsManager != null)   return mCroutonsManager;
-  return mCroutonsManager=new MessagesManager(this);
-}

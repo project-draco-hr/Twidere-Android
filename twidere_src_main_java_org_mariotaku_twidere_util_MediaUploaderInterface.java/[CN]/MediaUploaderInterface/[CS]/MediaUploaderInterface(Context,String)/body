@@ -1,6 +1,3 @@
 {
-  final Intent intent=new Intent(INTENT_ACTION_EXTENSION_UPLOAD_MEDIA);
-  final ComponentName component=ComponentName.unflattenFromString(uploader_name);
-  intent.setComponent(component);
-  bindToService(context,intent,mConntecion);
+  super(context,shortenerName);
 }

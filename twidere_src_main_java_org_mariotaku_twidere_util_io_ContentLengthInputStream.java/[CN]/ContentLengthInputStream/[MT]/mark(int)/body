@@ -1,4 +1,4 @@
 {
-  pos=readlimit;
-  stream.mark(readlimit);
+  pos=readLimit;
+  stream.mark(readLimit);
 }

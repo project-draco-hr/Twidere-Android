@@ -3,7 +3,12 @@
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
   builder.setTicker(getString(R.string.draft_saved));
   builder.setContentTitle(getString(R.string.draft_saved));
-  builder.setContentText(text);
+  if (TextUtils.isEmpty(text)) {
+    builder.setContentText(getString(R.string.empty_content));
+  }
+ else {
+    builder.setContentText(text);
+  }
   builder.setSmallIcon(R.drawable.ic_stat_info);
   builder.setAutoCancel(true);
   final Intent draftsIntent=new Intent(this,DraftsActivity.class);

@@ -1,4 +1,0 @@
-{
-  if (!(adapter instanceof DraggableAdapter))   throw new IllegalArgumentException("Adapter have to implement DraggableAdapter");
-  super.setAdapter(adapter);
-}

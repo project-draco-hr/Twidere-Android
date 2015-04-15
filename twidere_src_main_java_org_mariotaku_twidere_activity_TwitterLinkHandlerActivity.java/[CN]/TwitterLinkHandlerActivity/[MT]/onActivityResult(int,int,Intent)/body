@@ -20,7 +20,6 @@ case REQUEST_PICK_ACTIVITY:
       intent.setClassName(activityInfo.packageName,activityInfo.name);
       startActivity(intent);
       finish();
-      return;
     }
 }
 }

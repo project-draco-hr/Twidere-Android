@@ -1,0 +1,5 @@
+{
+  final ServiceBinder serviceBinder=sConnectionMap.get(token.wrappedContext);
+  if (serviceBinder == null)   return;
+  token.wrappedContext.unbindService(serviceBinder);
+}

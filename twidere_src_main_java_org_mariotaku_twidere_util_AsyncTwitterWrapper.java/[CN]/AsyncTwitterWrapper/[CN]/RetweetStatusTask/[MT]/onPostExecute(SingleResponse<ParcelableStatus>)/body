@@ -26,10 +26,10 @@
     }
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
     bus.post(new StatusRetweetedEvent(status));
-    mMessagesManager.showOkMessage(R.string.status_retweeted,false);
+    showOkMessage(mContext,R.string.status_retweeted,false);
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_retweeting,result.getException(),true);
+    showErrorMessage(mContext,R.string.action_retweeting,result.getException(),true);
   }
   super.onPostExecute(result);
 }

@@ -17,16 +17,17 @@
     if (mUseShortener && mShortener == null)     throw new ShortenerNotFoundException(this);
     final boolean hasMedia=statusUpdate.media != null && statusUpdate.media.length > 0;
     final String overrideStatusText;
-    if (mUseUploader && hasMedia) {
+    if (mUseUploader && mUploader != null && hasMedia) {
       final MediaUploadResult uploadResult;
       try {
-        if (mUploader != null) {
-          mUploader.waitForService();
-        }
+        mUploader.waitForService();
         uploadResult=mUploader.upload(statusUpdate,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
       }
  catch (      final Exception e) {
         throw new UploadException(this);
+      }
+ finally {
+        mUploader.unbindService();
       }
       if (mUseUploader && hasMedia && uploadResult == null)       throw new UploadException(this);
       if (uploadResult.error_code != 0)       throw new UploadException(uploadResult.error_message);
@@ -47,6 +48,9 @@
         }
  catch (        final Exception e) {
           throw new ShortenException(this);
+        }
+ finally {
+          mShortener.unbindService();
         }
         if (shortenedResult == null || shortenedResult.shortened == null)         throw new ShortenException(this);
         shortenedText=shortenedResult.shortened;

@@ -1,5 +1,4 @@
 {
-  if (!shouldUseNativeMenu() || !menu.hasVisibleItems())   return;
   final AsyncTwitterWrapper twitter=getTwitterWrapper();
   final ParcelableUser user=getUser();
   final Relationship relationship=mRelationship;

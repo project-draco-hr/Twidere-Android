@@ -2,7 +2,7 @@
   final Bundle args=getArguments();
   if (args == null || !args.containsKey(EXTRA_STATUS))   return new FilterItemInfo[0];
   final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
-  final ArrayList<FilterItemInfo> list=new ArrayList<FilterItemInfo>();
+  final ArrayList<FilterItemInfo> list=new ArrayList<>();
   list.add(new FilterItemInfo(FilterItemInfo.FILTER_TYPE_USER,status));
   final ParcelableUserMention[] mentions=status.mentions;
   if (mentions != null) {
@@ -12,7 +12,7 @@
       }
     }
   }
-  final HashSet<String> hashtags=new HashSet<String>();
+  final HashSet<String> hashtags=new HashSet<>();
   hashtags.addAll(mExtractor.extractHashtags(status.text_plain));
   for (  final String hashtag : hashtags) {
     list.add(new FilterItemInfo(FilterItemInfo.FILTER_TYPE_KEYWORD,hashtag));

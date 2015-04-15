@@ -1,3 +1,0 @@
-{
-  return MILLISECONDS_PER_INCH / displayMetrics.densityDpi;
-}

@@ -9,9 +9,7 @@ case R.id.take_photo_sub_item:
 case MENU_ADD_IMAGE:
 case R.id.add_image_sub_item:
 {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || !openDocument()) {
-      pickImage();
-    }
+    pickImage();
     break;
   }
 case MENU_ADD_LOCATION:

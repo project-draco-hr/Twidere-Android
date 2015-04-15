@@ -1,7 +1,8 @@
 {
-  if (mUploader == null)   return null;
+  final IMediaUploader iface=getInterface();
+  if (iface == null)   return null;
   try {
-    return mUploader.upload(status,media);
+    return iface.upload(status,media);
   }
  catch (  final RemoteException e) {
     e.printStackTrace();

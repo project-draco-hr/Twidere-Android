@@ -2,10 +2,10 @@
   if (result.hasData()) {
     final User user=result.getData();
     final String message=mContext.getString(R.string.accepted_users_follow_request,getUserName(mContext,user));
-    mMessagesManager.showOkMessage(message,false);
+    showOkMessage(mContext,message,false);
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_accepting_follow_request,result.getException(),false);
+    showErrorMessage(mContext,R.string.action_accepting_follow_request,result.getException(),false);
   }
   final Intent intent=new Intent(BROADCAST_FRIENDSHIP_ACCEPTED);
   intent.putExtra(EXTRA_USER_ID,mUserId);

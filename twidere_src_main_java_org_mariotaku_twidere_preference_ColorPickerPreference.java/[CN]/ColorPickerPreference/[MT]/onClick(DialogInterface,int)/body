@@ -1,8 +1,8 @@
 {
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
-    if (mDialog == null)     return;
-  final int color=mDialog.getColor();
+    if (mController == null)     return;
+  final int color=mController.getColor();
 if (isPersistent()) {
   persistInt(color);
 }

@@ -1,6 +1,0 @@
-Uri uri
-Integer outputX
-Integer outputY
-Integer aspectX
-Integer aspectY
-boolean scaleUpIfNeeded

@@ -11,14 +11,14 @@
       final Resources res=mContext.getResources();
       message=res.getQuantityString(R.plurals.deleted_N_users_from_list,users.length,users.length,result.getData().name);
     }
-    mMessagesManager.showInfoMessage(message,false);
+    showInfoMessage(mContext,message,false);
     final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_DELETED);
     intent.putExtra(EXTRA_USER_LIST,result.getData());
     intent.putExtra(EXTRA_USERS,users);
     mContext.sendBroadcast(intent);
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_deleting,result.getException(),true);
+    showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);
   }
   super.onPostExecute(result);
 }

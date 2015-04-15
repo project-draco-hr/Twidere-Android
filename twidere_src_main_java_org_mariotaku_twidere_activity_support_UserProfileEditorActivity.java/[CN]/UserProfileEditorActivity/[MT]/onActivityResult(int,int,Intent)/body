@@ -3,13 +3,15 @@
 switch (requestCode) {
 case REQUEST_UPLOAD_PROFILE_BANNER_IMAGE:
 {
-      if (mTask == null || mTask.getStatus() != AsyncTask.Status.PENDING)       return;
+      if (mTask != null && mTask.getStatus() == Status.RUNNING)       return;
+      mTask=new UpdateProfileBannerImageTaskInternal(this,mAsyncTaskManager,mAccountId,data.getData(),true);
       AsyncTaskUtils.executeTask(mTask);
       break;
     }
 case REQUEST_UPLOAD_PROFILE_IMAGE:
 {
-    if (mTask == null || mTask.getStatus() != AsyncTask.Status.PENDING)     return;
+    if (mTask != null && mTask.getStatus() == Status.RUNNING)     return;
+    mTask=new UpdateProfileImageTaskInternal(this,mAsyncTaskManager,mAccountId,data.getData(),true);
     AsyncTaskUtils.executeTask(mTask);
     break;
   }

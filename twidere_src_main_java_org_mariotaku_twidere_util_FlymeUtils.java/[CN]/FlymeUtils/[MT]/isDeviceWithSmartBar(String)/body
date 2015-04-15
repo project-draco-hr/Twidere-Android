@@ -1,6 +1,0 @@
-{
-  for (  final String dev : SMARTBAR_SUPPORTED_DEVICES) {
-    if (dev.equals(buildDevice))     return true;
-  }
-  return false;
-}

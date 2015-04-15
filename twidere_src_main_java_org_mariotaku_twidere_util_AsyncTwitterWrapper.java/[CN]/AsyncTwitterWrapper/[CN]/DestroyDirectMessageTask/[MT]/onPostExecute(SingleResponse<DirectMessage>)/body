@@ -2,9 +2,9 @@
   super.onPostExecute(result);
   if (result == null)   return;
   if (result.hasData() || isMessageNotFound(result.getException())) {
-    mMessagesManager.showInfoMessage(R.string.direct_message_deleted,false);
+    showInfoMessage(mContext,R.string.direct_message_deleted,false);
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_deleting,result.getException(),true);
+    showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);
   }
 }

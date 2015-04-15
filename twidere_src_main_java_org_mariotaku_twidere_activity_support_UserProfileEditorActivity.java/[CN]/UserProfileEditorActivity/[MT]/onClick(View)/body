@@ -12,25 +12,22 @@ case R.id.profile_banner:
   }
 case R.id.profile_image_camera:
 {
-  final Uri uri=createTempFileUri();
-  final Intent intent=createTakePhotoIntent(uri,null,null,1,1,true);
-  mTask=new UpdateProfileImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+  final Intent intent=new Intent(this,ImagePickerActivity.class);
+  intent.setAction(INTENT_ACTION_PICK_IMAGE);
   startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
   break;
 }
 case R.id.profile_image_gallery:
 {
-final Uri uri=createTempFileUri();
-final Intent intent=createPickImageIntent(uri,null,null,1,1,true);
-mTask=new UpdateProfileImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+final Intent intent=new Intent(this,ImagePickerActivity.class);
+intent.setAction(INTENT_ACTION_TAKE_PHOTO);
 startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
 break;
 }
 case R.id.profile_banner_gallery:
 {
-final Uri uri=createTempFileUri();
-final Intent intent=createPickImageIntent(uri,null,null,2,1,true);
-mTask=new UpdateProfileBannerImageTaskInternal(this,mAsyncTaskManager,mAccountId,uri,true);
+final Intent intent=new Intent(this,ImagePickerActivity.class);
+intent.setAction(INTENT_ACTION_PICK_IMAGE);
 startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_BANNER_IMAGE);
 break;
 }

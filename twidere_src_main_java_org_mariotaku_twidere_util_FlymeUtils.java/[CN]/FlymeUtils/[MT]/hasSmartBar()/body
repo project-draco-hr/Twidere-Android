@@ -1,9 +1,0 @@
-{
-  try {
-    final Method method=Build.class.getMethod("hasSmartBar");
-    return (Boolean)method.invoke(null);
-  }
- catch (  final Exception ignored) {
-  }
-  return isDeviceWithSmartBar(Build.DEVICE);
-}

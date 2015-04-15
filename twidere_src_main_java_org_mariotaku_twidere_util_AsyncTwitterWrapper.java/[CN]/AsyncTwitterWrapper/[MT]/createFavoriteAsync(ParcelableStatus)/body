@@ -1,3 +1,0 @@
-{
-  return createFavoriteAsync(status.account_id,status.id);
-}

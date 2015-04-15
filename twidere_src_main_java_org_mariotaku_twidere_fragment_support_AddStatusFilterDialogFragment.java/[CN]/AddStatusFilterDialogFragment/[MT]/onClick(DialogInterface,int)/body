@@ -1,10 +1,10 @@
 {
-  final Set<Long> user_ids=new HashSet<Long>();
-  final Set<String> keywords=new HashSet<String>();
-  final Set<String> sources=new HashSet<String>();
-  final ArrayList<ContentValues> user_values=new ArrayList<ContentValues>();
-  final ArrayList<ContentValues> keyword_values=new ArrayList<ContentValues>();
-  final ArrayList<ContentValues> source_values=new ArrayList<ContentValues>();
+  final Set<Long> user_ids=new HashSet<>();
+  final Set<String> keywords=new HashSet<>();
+  final Set<String> sources=new HashSet<>();
+  final ArrayList<ContentValues> user_values=new ArrayList<>();
+  final ArrayList<ContentValues> keyword_values=new ArrayList<>();
+  final ArrayList<ContentValues> source_values=new ArrayList<>();
   for (  final FilterItemInfo info : mCheckedFilterItems) {
     final Object value=info.value;
     if (value instanceof ParcelableUserMention) {

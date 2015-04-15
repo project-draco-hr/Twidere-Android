@@ -11,7 +11,7 @@
     output=fos.getChannel();
     final long size=input.size();
     long pos=0;
-    long count=0;
+    long count;
     while (pos < size) {
       count=size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
       pos+=output.transferFrom(input,pos,count);

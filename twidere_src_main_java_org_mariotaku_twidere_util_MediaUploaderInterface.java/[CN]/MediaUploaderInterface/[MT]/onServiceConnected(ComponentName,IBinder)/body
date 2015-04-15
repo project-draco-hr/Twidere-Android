@@ -1,0 +1,3 @@
+{
+  return IMediaUploader.Stub.asInterface(obj);
+}

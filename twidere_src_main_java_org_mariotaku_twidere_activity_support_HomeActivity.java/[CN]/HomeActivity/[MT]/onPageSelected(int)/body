@@ -4,5 +4,4 @@
   }
   updateSlidingMenuTouchMode();
   updateActionsButton();
-  updateSmartBar();
 }

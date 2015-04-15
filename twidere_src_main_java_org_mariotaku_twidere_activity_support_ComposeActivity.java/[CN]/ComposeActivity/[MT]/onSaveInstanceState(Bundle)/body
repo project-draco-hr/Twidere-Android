@@ -8,6 +8,5 @@
   outState.putParcelable(EXTRA_DRAFT,mDraftItem);
   outState.putBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS,mShouldSaveAccounts);
   outState.putString(EXTRA_ORIGINAL_TEXT,mOriginalText);
-  outState.putParcelable(EXTRA_TEMP_URI,mTempPhotoUri);
   super.onSaveInstanceState(outState);
 }

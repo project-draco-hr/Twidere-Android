@@ -48,7 +48,6 @@
     mDraftItem=savedInstanceState.getParcelable(EXTRA_DRAFT);
     mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);
     mOriginalText=savedInstanceState.getString(EXTRA_ORIGINAL_TEXT);
-    mTempPhotoUri=savedInstanceState.getParcelable(EXTRA_TEMP_URI);
   }
  else {
     final int notificationId=intent.getIntExtra(EXTRA_NOTIFICATION_ID,-1);

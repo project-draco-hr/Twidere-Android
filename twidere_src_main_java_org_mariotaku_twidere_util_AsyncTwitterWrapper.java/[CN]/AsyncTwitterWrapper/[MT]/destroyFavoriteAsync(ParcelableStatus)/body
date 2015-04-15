@@ -1,3 +1,0 @@
-{
-  return destroyFavoriteAsync(status.account_id,status.id);
-}

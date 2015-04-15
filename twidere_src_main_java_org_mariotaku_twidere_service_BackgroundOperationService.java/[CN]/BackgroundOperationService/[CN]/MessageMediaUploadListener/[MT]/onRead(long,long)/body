@@ -1,7 +1,7 @@
 {
   final int percent=length > 0 ? (int)(position * 100 / length) : 0;
   if (this.percent != percent) {
-    manager.notify(NOTIFICATION_ID_SEND_DIRECT_MESSAGE,updateSendDirectMessageNotificaion(context,builder,percent,message));
+    manager.notify(NOTIFICATION_ID_SEND_DIRECT_MESSAGE,updateSendDirectMessageNotification(context,builder,percent,message));
   }
   this.percent=percent;
 }

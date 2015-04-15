@@ -1,9 +1,0 @@
-{
-  try {
-    final Method method=Build.class.getMethod("hasSmartBar");
-    return method != null;
-  }
- catch (  final Exception e) {
-    return false;
-  }
-}

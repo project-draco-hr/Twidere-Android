@@ -1,4 +1,4 @@
 Context context
-int action
+int actionRes
 String desc
-boolean long_message
+boolean longMessage

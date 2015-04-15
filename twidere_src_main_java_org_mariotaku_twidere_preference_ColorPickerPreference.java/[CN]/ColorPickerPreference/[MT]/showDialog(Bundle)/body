@@ -1,0 +1,7 @@
+{
+  super.showDialog(state);
+  final Dialog dialog=getDialog();
+  if (dialog != null && mController != null) {
+    dialog.setOnShowListener(mController);
+  }
+}

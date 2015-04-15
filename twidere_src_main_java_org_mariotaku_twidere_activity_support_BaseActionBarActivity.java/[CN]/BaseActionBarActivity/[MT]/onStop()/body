@@ -1,8 +1,4 @@
 {
   mIsVisible=false;
-  final MessagesManager manager=getMessagesManager();
-  if (manager != null) {
-    manager.removeMessageCallback(this);
-  }
   super.onStop();
 }

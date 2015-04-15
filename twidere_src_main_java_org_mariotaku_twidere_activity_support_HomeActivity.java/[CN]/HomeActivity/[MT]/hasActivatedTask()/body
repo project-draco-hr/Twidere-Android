@@ -1,4 +1,0 @@
-{
-  if (mTwitterWrapper == null)   return false;
-  return mTwitterWrapper.hasActivatedTask();
-}

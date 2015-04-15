@@ -1,8 +1,6 @@
 {
   if (bundle1 == null || bundle2 == null)   return bundle1 == bundle2;
-  final Iterator<String> keys=bundle1.keySet().iterator();
-  while (keys.hasNext()) {
-    final String key=keys.next();
+  for (  String key : bundle1.keySet()) {
     if (!ArrayUtils.contains(ignoredKeys,key) && !objectEquals(bundle1.get(key),bundle2.get(key)))     return false;
   }
   return true;

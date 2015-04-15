@@ -8,12 +8,12 @@
  else {
       message=mContext.getString(R.string.followed_user,getUserName(mContext,user));
     }
-    mMessagesManager.showOkMessage(message,false);
+    showOkMessage(mContext,message,false);
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
     bus.post(new FriendshipUpdatedEvent(result.getData()));
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_following,result.getException(),false);
+    showErrorMessage(mContext,R.string.action_following,result.getException(),false);
   }
   super.onPostExecute(result);
 }

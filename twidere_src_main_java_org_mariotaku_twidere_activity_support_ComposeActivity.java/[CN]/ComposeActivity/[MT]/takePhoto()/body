@@ -1,16 +1,6 @@
 {
-  final Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-  if (!getExternalStorageState().equals(Environment.MEDIA_MOUNTED))   return false;
-  final File cache_dir=getExternalCacheDir();
-  final File file=new File(cache_dir,"tmp_photo_" + System.currentTimeMillis());
-  mTempPhotoUri=Uri.fromFile(file);
-  intent.putExtra(MediaStore.EXTRA_OUTPUT,mTempPhotoUri);
-  try {
-    startActivityForResult(intent,REQUEST_TAKE_PHOTO);
-  }
- catch (  final ActivityNotFoundException e) {
-    showErrorMessage(this,null,e,false);
-    return false;
-  }
+  final Intent intent=new Intent(this,ImagePickerActivity.class);
+  intent.setAction(INTENT_ACTION_TAKE_PHOTO);
+  startActivityForResult(intent,REQUEST_TAKE_PHOTO);
   return true;
 }

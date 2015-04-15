@@ -62,7 +62,6 @@
   showDataProfilingRequest();
   initUnreadCount();
   updateActionsButton();
-  updateSmartBar();
   updateSlidingMenuTouchMode();
   if (savedInstanceState == null) {
     if (refreshOnStart) {

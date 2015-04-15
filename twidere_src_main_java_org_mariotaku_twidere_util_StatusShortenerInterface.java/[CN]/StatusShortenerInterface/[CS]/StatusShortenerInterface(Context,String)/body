@@ -1,6 +1,3 @@
 {
-  final Intent intent=new Intent(INTENT_ACTION_EXTENSION_SHORTEN_STATUS);
-  final ComponentName component=ComponentName.unflattenFromString(shortenerName);
-  intent.setComponent(component);
-  bindToService(context,intent,mConntecion);
+  super(context,shortenerName);
 }

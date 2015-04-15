@@ -1,12 +1,12 @@
 {
   if (result.hasData()) {
     final String message=mContext.getString(R.string.unblocked_user,getUserName(mContext,result.getData()));
-    mMessagesManager.showInfoMessage(message,false);
+    showInfoMessage(mContext,message,false);
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
     bus.post(new FriendshipUpdatedEvent(result.getData()));
   }
  else {
-    mMessagesManager.showErrorMessage(R.string.action_unblocking,result.getException(),true);
+    showErrorMessage(mContext,R.string.action_unblocking,result.getException(),true);
   }
   super.onPostExecute(result);
 }

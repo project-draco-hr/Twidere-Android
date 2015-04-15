@@ -1,4 +1,0 @@
-{
-  final UpdateProfileBannerImageTask task=new UpdateProfileBannerImageTask(mContext,mAsyncTaskManager,accountId,image_uri,delete_image);
-  return mAsyncTaskManager.add(task,true);
-}

@@ -1,5 +1,5 @@
 {
-  final Collection<E> copy=new ArrayList<E>(collection);
+  final Collection<E> copy=new ArrayList<>(collection);
   copy.removeAll(this);
   return super.addAll(index,copy);
 }

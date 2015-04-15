@@ -1,0 +1,3 @@
+{
+  return IStatusShortener.Stub.asInterface(obj);
+}

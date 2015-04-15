@@ -7,7 +7,6 @@
   mResolver=getContentResolver();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mTwitter=app.getTwitterWrapper();
-  mMessagesManager=app.getMessagesManager();
   final String uploaderComponent=mPreferences.getString(KEY_MEDIA_UPLOADER,null);
   final String shortenerComponent=mPreferences.getString(KEY_STATUS_SHORTENER,null);
   mUseUploader=!ServicePickerPreference.isNoneValue(uploaderComponent);

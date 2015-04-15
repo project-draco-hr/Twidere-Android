@@ -5,7 +5,7 @@
   if (INTENT_ACTION_TAKE_PHOTO.equals(action)) {
     takePhoto();
   }
- else   if (INTENT_ACTION_PICK_FILE.equals(action)) {
+ else   if (INTENT_ACTION_PICK_IMAGE.equals(action)) {
     pickImage();
   }
  else {

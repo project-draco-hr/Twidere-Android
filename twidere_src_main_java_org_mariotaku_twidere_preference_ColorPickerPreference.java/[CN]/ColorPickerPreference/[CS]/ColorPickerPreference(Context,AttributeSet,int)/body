@@ -1,6 +1,8 @@
 {
   super(context,attrs,defStyle);
-  mResources=context.getResources();
   setWidgetLayoutResource(R.layout.preference_widget_color_picker);
-  init(context,attrs);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.ColorPickerPreferences);
+  mAlphaSliderEnabled=a.getBoolean(R.styleable.ColorPickerPreferences_alphaSlider,false);
+  setDefaultValue(a.getColor(R.styleable.ColorPickerPreferences_defaultColor,0));
+  a.recycle();
 }

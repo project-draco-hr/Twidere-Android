@@ -5,6 +5,6 @@
   try {
     startActivityForResult(intent,REQUEST_PICK_IMAGE);
   }
- catch (  final ActivityNotFoundException e) {
+ catch (  final ActivityNotFoundException ignored) {
   }
 }

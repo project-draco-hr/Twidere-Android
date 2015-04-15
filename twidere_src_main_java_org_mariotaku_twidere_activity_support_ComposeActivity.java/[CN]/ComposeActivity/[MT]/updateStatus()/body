@@ -28,7 +28,6 @@
   if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {
     mIsPossiblySensitive=false;
     mShouldSaveAccounts=true;
-    mTempPhotoUri=null;
     mInReplyToStatus=null;
     mMentionUser=null;
     mDraftItem=null;

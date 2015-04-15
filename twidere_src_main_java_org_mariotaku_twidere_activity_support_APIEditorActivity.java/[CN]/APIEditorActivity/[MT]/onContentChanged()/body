@@ -3,9 +3,9 @@
   mEditAPIUrlFormat=(EditText)findViewById(R.id.api_url_format);
   mEditAuthType=(RadioGroup)findViewById(R.id.auth_type);
   mButtonOAuth=(RadioButton)findViewById(R.id.oauth);
-  mButtonxAuth=(RadioButton)findViewById(R.id.xauth);
+  mButtonXAuth=(RadioButton)findViewById(R.id.xauth);
   mButtonBasic=(RadioButton)findViewById(R.id.basic);
-  mButtonTwipOMode=(RadioButton)findViewById(R.id.twip_o);
+  mButtonTWIPOMode=(RadioButton)findViewById(R.id.twip_o);
   mEditSameOAuthSigningUrl=(CheckBox)findViewById(R.id.same_oauth_signing_url);
   mEditNoVersionSuffix=(CheckBox)findViewById(R.id.no_version_suffix);
   mEditConsumerKey=(EditText)findViewById(R.id.consumer_key);

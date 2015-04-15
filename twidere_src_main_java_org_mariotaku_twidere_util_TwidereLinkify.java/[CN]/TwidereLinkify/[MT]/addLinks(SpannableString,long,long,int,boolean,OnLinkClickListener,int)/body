@@ -52,9 +52,5 @@ case LINK_TYPE_CASHTAG:
 addCashtagLinks(string,accountId,extraId,listener,highlightOption);
 break;
 }
-default :
-{
-return;
-}
 }
 }

@@ -1,7 +1,7 @@
 {
   mHandler.post(new Runnable(){
     @Override public void run(){
-      mMessagesManager.showErrorMessage(action_res,e,long_message);
+      Utils.showErrorMessage(BackgroundOperationService.this,actionRes,e,longMessage);
     }
   }
 );

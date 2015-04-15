@@ -1,9 +1,0 @@
-{
-  try {
-    final Method method=ActionBar.class.getMethod("setActionModeHeaderHidden",new Class[]{boolean.class});
-    method.invoke(actionbar,hidden);
-  }
- catch (  final Exception e) {
-    e.printStackTrace();
-  }
-}

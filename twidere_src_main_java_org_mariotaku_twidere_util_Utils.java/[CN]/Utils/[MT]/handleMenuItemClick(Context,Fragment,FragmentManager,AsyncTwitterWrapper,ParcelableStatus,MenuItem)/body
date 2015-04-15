@@ -34,10 +34,10 @@ break;
 case MENU_FAVORITE:
 {
 if (status.is_favorite) {
-twitter.destroyFavoriteAsync(status);
+twitter.destroyFavoriteAsync(status.account_id,status.id);
 }
  else {
-twitter.createFavoriteAsync(status);
+twitter.createFavoriteAsync(status.account_id,status.id);
 }
 break;
 }

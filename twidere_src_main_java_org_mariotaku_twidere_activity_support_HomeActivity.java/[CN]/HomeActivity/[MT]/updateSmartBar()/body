@@ -1,6 +1,0 @@
-{
-  final boolean useBottomActionItems=FlymeUtils.hasSmartBar();
-  if (useBottomActionItems) {
-    invalidateOptionsMenu();
-  }
-}
