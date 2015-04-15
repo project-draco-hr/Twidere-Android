@@ -1,9 +1,9 @@
 {
   final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
-  if (isTransparentBackground(context)) {
-    applyThemeBackgroundAlphaToDrawable(context,d);
+  try {
+    return a.getDrawable(0);
   }
-  return d;
+  finally {
+    a.recycle();
+  }
 }

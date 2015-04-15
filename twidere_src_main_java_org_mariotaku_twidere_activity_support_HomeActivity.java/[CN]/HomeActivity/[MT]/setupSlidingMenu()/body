@@ -28,7 +28,6 @@
   mRightDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
   mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
   final Window window=getWindow();
-  final Drawable windowBackground=ThemeUtils.getWindowBackground(this);
-  ViewUtils.setBackground(mSlidingMenu.getContent(),windowBackground);
-  window.setBackgroundDrawable(new EmptyDrawable(windowBackground));
+  ThemeUtils.applyWindowBackground(this,mSlidingMenu.getContent(),getCurrentThemeResourceId(),getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());
+  window.setBackgroundDrawable(new EmptyDrawable());
 }

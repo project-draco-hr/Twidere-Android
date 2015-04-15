@@ -1,0 +1,9 @@
+{
+  @SuppressWarnings("ConstantConditions") final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.windowBackground},0,theme);
+  try {
+    return a.getDrawable(0);
+  }
+  finally {
+    a.recycle();
+  }
+}

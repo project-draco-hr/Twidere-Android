@@ -12,7 +12,7 @@
   setContentView(R.layout.activity_user_profile_editor);
   setSupportActionBar(mToolbar);
   ViewUtils.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
-  ViewUtils.setBackground(mToolbar,ThemeUtils.getActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
+  ViewUtils.setBackground(mToolbar,ThemeUtils.getSupportActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);

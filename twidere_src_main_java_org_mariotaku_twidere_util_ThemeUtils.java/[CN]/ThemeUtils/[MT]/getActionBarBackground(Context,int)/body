@@ -1,21 +1,9 @@
 {
-  @SuppressWarnings("ConstantConditions") final TypedArray a1=context.obtainStyledAttributes(null,new int[]{android.R.attr.background},R.attr.actionBarStyle,themeRes);
+  @SuppressWarnings("ConstantConditions") final TypedArray array=context.obtainStyledAttributes(null,new int[]{android.R.attr.background},android.R.attr.actionBarStyle,themeRes);
   try {
-    if (a1.hasValue(0)) {
-      return applyActionBarDrawable(context,a1.getDrawable(0),isTransparentBackground(context));
-    }
+    return array.getDrawable(0);
   }
   finally {
-    a1.recycle();
+    array.recycle();
   }
-  @SuppressWarnings("ConstantConditions") final TypedArray a2=context.obtainStyledAttributes(null,new int[]{android.R.attr.background},android.R.attr.actionBarStyle,themeRes);
-  try {
-    if (a2.hasValue(0)) {
-      return applyActionBarDrawable(context,a2.getDrawable(0),isTransparentBackground(context));
-    }
-  }
-  finally {
-    a2.recycle();
-  }
-  return null;
 }

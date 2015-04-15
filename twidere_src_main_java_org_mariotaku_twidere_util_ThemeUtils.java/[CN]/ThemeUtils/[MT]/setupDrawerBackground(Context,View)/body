@@ -1,0 +1,12 @@
+{
+  if (!(context instanceof IThemedActivity))   return;
+  final int themeRes=((IThemedActivity)context).getCurrentThemeResourceId();
+  final int drawerThemeRes=getDrawerThemeResource(themeRes);
+  final String backgroundOption=((IThemedActivity)context).getThemeBackgroundOption();
+  final int alpha=((IThemedActivity)context).getCurrentThemeBackgroundAlpha();
+  final Drawable d=getWindowBackgroundFromTheme(context,drawerThemeRes);
+  if (d != null && isTransparentBackground(backgroundOption)) {
+    d.setAlpha(alpha);
+  }
+  ViewUtils.setBackground(view,d);
+}

@@ -1,0 +1,12 @@
+{
+  if (isWindowFloating(context,theme))   return;
+  if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(option)) {
+    ViewUtils.setBackground(window,ThemeUtils.getWindowBackgroundApplyAlpha(context,alpha));
+  }
+ else   if (VALUE_THEME_BACKGROUND_SOLID.equals(option)) {
+    ViewUtils.setBackground(window,new ColorDrawable(isDarkTheme(theme) ? Color.BLACK : Color.WHITE));
+  }
+ else {
+    ViewUtils.setBackground(window,ThemeUtils.getWindowBackground(context));
+  }
+}
