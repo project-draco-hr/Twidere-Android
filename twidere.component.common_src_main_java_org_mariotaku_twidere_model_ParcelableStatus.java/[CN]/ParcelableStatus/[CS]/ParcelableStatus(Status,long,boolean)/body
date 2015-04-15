@@ -46,7 +46,7 @@
   user_is_verified=user.isVerified();
   user_is_following=user.isFollowing();
   text_html=TwitterContentUtils.formatStatusText(status);
-  media=ParcelableMedia.fromEntities(status);
+  media=ParcelableMedia.fromStatus(status);
   text_plain=status.getText();
   retweet_count=status.getRetweetCount();
   favorite_count=status.getFavoriteCount();

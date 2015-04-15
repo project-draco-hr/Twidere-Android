@@ -1,15 +1,12 @@
 {
-  String mediaType="";
 switch (type) {
 case ParcelableMedia.TYPE_IMAGE:
-    mediaType="image";
-  break;
+    return "image";
 case ParcelableMedia.TYPE_VIDEO:
-mediaType="video";
-break;
+  return "video";
+case ParcelableMedia.TYPE_CARD_ANIMATED_GIF:
+return "card_animated_gif";
 default :
-mediaType="unknown";
-break;
+return "unknown";
 }
-return mediaType;
 }

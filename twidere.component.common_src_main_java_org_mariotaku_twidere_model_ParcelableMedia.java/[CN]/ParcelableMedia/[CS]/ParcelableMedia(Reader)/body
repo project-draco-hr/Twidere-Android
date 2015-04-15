@@ -11,15 +11,20 @@ case "page_url":
       page_url=reader.nextString();
       break;
     }
-case "start":
+case "preview_url":
 {
-    start=reader.nextInt();
+    preview_url=reader.nextString();
     break;
   }
+case "start":
+{
+  start=reader.nextInt();
+  break;
+}
 case "end":
 {
-  end=reader.nextInt();
-  break;
+end=reader.nextInt();
+break;
 }
 case "type":
 {

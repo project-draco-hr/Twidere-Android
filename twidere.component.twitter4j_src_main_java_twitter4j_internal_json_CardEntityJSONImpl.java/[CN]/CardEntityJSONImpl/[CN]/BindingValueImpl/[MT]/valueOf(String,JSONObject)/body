@@ -12,5 +12,10 @@
  else   if (TYPE_BOOLEAN.equals(type)) {
     return new BooleanValueImpl(name,json);
   }
-  throw new TwitterException(String.format("Unsupported type %s",type));
+  if (BuildConfig.DEBUG) {
+    throw new RuntimeException(String.format("Unsupported type %s",type));
+  }
+ else {
+    throw new TwitterException(String.format("Unsupported type %s",type));
+  }
 }

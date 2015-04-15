@@ -1,6 +1,7 @@
 {
   out.writeString("media_url",media_url);
   out.writeString("page_url",page_url);
+  out.writeString("preview_url",preview_url);
   out.writeInt("start",start);
   out.writeInt("end",end);
   out.writeInt("type",type);

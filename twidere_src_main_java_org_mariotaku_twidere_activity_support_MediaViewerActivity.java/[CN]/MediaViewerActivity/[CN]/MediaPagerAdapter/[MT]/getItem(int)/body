@@ -4,13 +4,18 @@
   args.putLong(EXTRA_ACCOUNT_ID,mAccountId);
   args.putParcelable(EXTRA_MEDIA,media);
 switch (media.type) {
-case ParcelableMedia.TYPE_VIDEO:
+case ParcelableMedia.TYPE_CARD_ANIMATED_GIF:
 {
+      args.putBoolean(EXTRA_LOOP,true);
       return Fragment.instantiate(mActivity,VideoPageFragment.class.getName(),args);
     }
+case ParcelableMedia.TYPE_VIDEO:
+{
+    return Fragment.instantiate(mActivity,VideoPageFragment.class.getName(),args);
+  }
 default :
 {
-    return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
-  }
+  return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+}
 }
 }

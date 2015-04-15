@@ -1,6 +1,7 @@
 {
   page_url=entity.getMediaURL();
   media_url=entity.getMediaURL();
+  preview_url=entity.getMediaURL();
   start=entity.getStart();
   end=entity.getEnd();
   type=getTypeInt(entity.getType());

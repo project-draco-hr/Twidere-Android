@@ -3,7 +3,7 @@
   final HashMap<String,BindingValue> values=new HashMap<>();
   while (keys.hasNext()) {
     final String key=keys.next();
-    if (!json.isNull("name")) {
+    if (!json.isNull(key)) {
       values.put(key,valueOf(key,json.getJSONObject(key)));
     }
   }

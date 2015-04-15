@@ -7,6 +7,7 @@
  else {
       mp.setVolume(0,0);
     }
+    mp.setLooping(isLoopEnabled());
     mp.start();
     mVideoViewProgress.setVisibility(View.VISIBLE);
     mVideoViewProgress.post(mVideoProgressRunnable);

@@ -1,6 +1,7 @@
 {
   dest.writeString(page_url);
   dest.writeString(media_url);
+  dest.writeString(preview_url);
   dest.writeInt(start);
   dest.writeInt(end);
   dest.writeInt(type);

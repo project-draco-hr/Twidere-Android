@@ -1,30 +1,20 @@
 {
-  String linkType="";
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
-    linkType="mention";
-  break;
+    return "mention";
 case TwidereLinkify.LINK_TYPE_CASHTAG:
-linkType="cashTag";
-break;
+  return "cashTag";
 case TwidereLinkify.LINK_TYPE_LINK:
-linkType="urlLink";
-break;
+return "urlLink";
 case TwidereLinkify.LINK_TYPE_LIST:
-linkType="userList";
-break;
+return "userList";
 case TwidereLinkify.LINK_TYPE_STATUS:
-linkType="status";
-break;
+return "status";
 case TwidereLinkify.LINK_TYPE_USER_ID:
-linkType="userID";
-break;
+return "userID";
 case TwidereLinkify.LINK_TYPE_HASHTAG:
-linkType="hashTag";
-break;
+return "hashTag";
 default :
-linkType="unknown";
-break;
+return "unknown";
 }
-return linkType;
 }

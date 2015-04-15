@@ -21,8 +21,6 @@
   timeSourceView.setTextSize(defaultTextSize * 0.85f);
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
   textView.setMovementMethod(StatusContentMovementMethod.getInstance());
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    quoteTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quoteTextView,fragment,activity));
-    textView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(textView,fragment,activity));
-  }
+  quoteTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quoteTextView,fragment,activity));
+  textView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(textView,fragment,activity));
 }

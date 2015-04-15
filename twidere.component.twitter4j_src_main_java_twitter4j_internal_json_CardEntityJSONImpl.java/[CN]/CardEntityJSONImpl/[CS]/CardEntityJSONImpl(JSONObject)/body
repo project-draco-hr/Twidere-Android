@@ -1,5 +1,6 @@
 {
   this.name=json.getString("name");
+  this.url=json.optString("url");
   this.bindingValues=BindingValueImpl.valuesOf(json.getJSONObject("binding_values"));
   if (!json.isNull("users")) {
     final JSONObject usersJSON=json.getJSONObject("users");

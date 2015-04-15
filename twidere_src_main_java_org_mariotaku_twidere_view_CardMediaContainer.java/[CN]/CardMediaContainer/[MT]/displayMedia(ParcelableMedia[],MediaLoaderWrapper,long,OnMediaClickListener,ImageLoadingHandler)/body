@@ -25,7 +25,12 @@ case VALUE_MEDIA_PREVIEW_STYLE_CODE_SCALE:
 }
 if (i < k) {
   final ParcelableMedia media=mediaArray[i];
-  loader.displayPreviewImage(imageView,media.page_url,loadingHandler);
+  if (TextUtils.isEmpty(media.preview_url)) {
+    loader.displayPreviewImage(imageView,media.media_url,loadingHandler);
+  }
+ else {
+    loader.displayPreviewImage(imageView,media.preview_url,loadingHandler);
+  }
   child.setTag(media);
   child.setVisibility(VISIBLE);
   if (i == j - 1) {

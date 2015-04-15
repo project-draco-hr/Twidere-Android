@@ -1,0 +1,13 @@
+{
+  final ParcelableMedia[] fromEntities=fromEntities(status);
+  final ParcelableMedia[] fromCard=fromCard(status.getCard(),status.getURLEntities());
+  if (fromEntities == null) {
+    return fromCard;
+  }
+ else   if (fromCard == null) {
+    return fromEntities;
+  }
+  final ParcelableMedia[] merged=new ParcelableMedia[fromCard.length + fromEntities.length];
+  TwidereArrayUtils.mergeArray(merged,fromEntities,fromCard);
+  return merged;
+}
