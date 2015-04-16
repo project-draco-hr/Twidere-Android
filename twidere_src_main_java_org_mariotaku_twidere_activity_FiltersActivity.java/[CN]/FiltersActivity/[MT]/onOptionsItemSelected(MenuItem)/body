@@ -5,27 +5,6 @@ case MENU_HOME:
       NavUtils.navigateUpFromSameTask(this);
       return true;
     }
-case MENU_ADD:
-{
-    final Fragment f=mAdapter.getItem(mViewPager.getCurrentItem());
-    if (!(f instanceof BaseFiltersFragment))     return true;
-    final Bundle args=new Bundle();
-    if (f instanceof FilteredUsersFragment) {
-      final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
-      intent.setClass(this,UserListSelectorActivity.class);
-      intent.putExtra(EXTRA_ACCOUNT_ID,getDefaultAccountId(this));
-      startActivityForResult(intent,REQUEST_SELECT_USER);
-      return true;
-    }
-    if (f instanceof FilteredSourcesFragment) {
-      args.putInt(EXTRA_AUTO_COMPLETE_TYPE,AUTO_COMPLETE_TYPE_SOURCES);
-    }
-    args.putParcelable(EXTRA_URI,((BaseFiltersFragment)f).getContentUri());
-    final AddItemFragment dialog=new AddItemFragment();
-    dialog.setArguments(args);
-    dialog.show(getSupportFragmentManager(),"add_rule");
-    return true;
-  }
 }
-return false;
+return super.onOptionsItemSelected(item);
 }

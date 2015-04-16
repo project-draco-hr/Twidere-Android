@@ -1,4 +1,6 @@
 {
   super.onSupportContentChanged();
-  mViewPager=(ViewPager)findViewById(R.id.pager);
+  mMainContent=(TintedStatusFrameLayout)findViewById(R.id.main_content);
+  mViewPager=(ViewPager)findViewById(R.id.view_pager);
+  mPagerIndicator=(TabPagerIndicator)findViewById(R.id.view_pager_tabs);
 }

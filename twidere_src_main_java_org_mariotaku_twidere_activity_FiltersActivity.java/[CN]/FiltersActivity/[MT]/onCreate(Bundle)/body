@@ -1,16 +1,34 @@
 {
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    getWindow().addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  }
   supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR);
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_MODE_OVERLAY);
   super.onCreate(savedInstanceState);
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
-  setContentView(R.layout.activity_filters);
-  mActionBar=getSupportActionBar();
-  mAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),null);
-  mActionBar.setDisplayHomeAsUpEnabled(true);
-  mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-  addTab(FilteredUsersFragment.class,R.string.users,0);
-  addTab(FilteredKeywordsFragment.class,R.string.keywords,1);
-  addTab(FilteredSourcesFragment.class,R.string.sources,2);
-  addTab(FilteredLinksFragment.class,R.string.links,3);
+  ThemeUtils.applyActionBarBackground(getSupportActionBar(),this,getCurrentThemeResourceId(),getCurrentThemeColor(),false);
+  setContentView(R.layout.activity_content_pages);
+  mMainContent.setOnFitSystemWindowsListener(this);
+  mAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),null,1);
   mViewPager.setAdapter(mAdapter);
-  mViewPager.setOnPageChangeListener(this);
+  mViewPager.setOffscreenPageLimit(2);
+  mPagerIndicator.setViewPager(mViewPager);
+  mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
+  mAdapter.addTab(FilteredUsersFragment.class,null,getString(R.string.users),null,0,null);
+  mAdapter.addTab(FilteredKeywordsFragment.class,null,getString(R.string.keywords),null,1,null);
+  mAdapter.addTab(FilteredSourcesFragment.class,null,getString(R.string.sources),null,2,null);
+  mAdapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
+  ThemeUtils.initPagerIndicatorAsActionBarTab(this,mPagerIndicator);
+  ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
+  mMainContent.setDrawShadow(false);
+  mMainContent.setDrawColor(true);
+  mMainContent.setFactor(1);
+  final int color=getCurrentThemeColor();
+  final int alpha=ThemeUtils.isTransparentBackground(getThemeBackgroundOption()) ? getCurrentThemeBackgroundAlpha() : 0xFF;
+  if (ThemeUtils.isDarkTheme(getCurrentThemeResourceId())) {
+    mMainContent.setColor(getResources().getColor(R.color.background_color_action_bar_dark),alpha);
+  }
+ else {
+    mMainContent.setColor(color,alpha);
+  }
 }

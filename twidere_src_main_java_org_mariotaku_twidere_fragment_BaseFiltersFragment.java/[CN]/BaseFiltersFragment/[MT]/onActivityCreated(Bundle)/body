@@ -1,6 +1,7 @@
 {
-  mResolver=getContentResolver();
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  mResolver=getContentResolver();
   mAdapter=createListAdapter();
   setListAdapter(mAdapter);
   mListView=getListView();

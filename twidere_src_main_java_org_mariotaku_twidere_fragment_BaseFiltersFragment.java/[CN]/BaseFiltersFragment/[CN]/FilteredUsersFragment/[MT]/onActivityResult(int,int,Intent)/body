@@ -2,8 +2,7 @@
 switch (requestCode) {
 case REQUEST_SELECT_USER:
 {
-      final Fragment filter=mAdapter.getItem(mViewPager.getCurrentItem());
-      if (resultCode != RESULT_OK || !(filter instanceof FilteredUsersFragment) || !data.hasExtra(EXTRA_USER))       return;
+      if (resultCode != FragmentActivity.RESULT_OK || !data.hasExtra(EXTRA_USER))       return;
       final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
       final ContentValues values=ContentValuesCreator.createFilteredUser(user);
       final ContentResolver resolver=getContentResolver();

@@ -1,4 +1,0 @@
-{
-  if (mActionBar == null)   return;
-  mActionBar.setSelectedNavigationItem(position);
-}

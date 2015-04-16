@@ -1,0 +1,5 @@
+{
+  final View view=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.decor_content_parent);
+  if (!(view instanceof ActionBarOverlayLayout))   return;
+  ((ActionBarOverlayLayout)view).setOverlayMode(mode);
+}

@@ -1,5 +1,0 @@
-{
-  if (mActionBar == null || mAdapter == null)   return;
-  mActionBar.addTab(mActionBar.newTab().setText(name).setTabListener(this));
-  mAdapter.addTab(cls,null,getString(name),null,position,null);
-}

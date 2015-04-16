@@ -1,0 +1,13 @@
+{
+switch (item.getItemId()) {
+case MENU_ADD:
+{
+      final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
+      intent.setClass(getActivity(),UserListSelectorActivity.class);
+      intent.putExtra(EXTRA_ACCOUNT_ID,getDefaultAccountId(getActivity()));
+      startActivityForResult(intent,REQUEST_SELECT_USER);
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

@@ -1,0 +1,15 @@
+{
+switch (item.getItemId()) {
+case MENU_ADD:
+{
+      final Bundle args=new Bundle();
+      args.putInt(EXTRA_AUTO_COMPLETE_TYPE,AUTO_COMPLETE_TYPE_SOURCES);
+      args.putParcelable(EXTRA_URI,getContentUri());
+      final AddItemFragment dialog=new AddItemFragment();
+      dialog.setArguments(args);
+      dialog.show(getFragmentManager(),"add_rule");
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}
