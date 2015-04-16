@@ -1,5 +1,5 @@
 {
-  final MediaLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   final TwidereLinkify linkify=adapter.getTwidereLinkify();
   final Context context=adapter.getContext();
@@ -103,7 +103,7 @@
     final boolean hasMedia=status.media != null && status.media.length > 0;
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
       mediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
-      mediaPreview.displayMedia(status.media,loader,status.account_id,this,adapter.getImageLoadingHandler());
+      mediaPreview.displayMedia(status.media,loader,status.account_id,this,adapter.getMediaLoadingHandler());
     }
  else {
       mediaPreview.setVisibility(View.GONE);
@@ -120,8 +120,9 @@
     linkify.applyAllLinks(textView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
     textView.setMovementMethod(null);
   }
+  final Locale locale=Locale.getDefault();
   if (reply_count > 0) {
-    replyCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),reply_count));
+    replyCountView.setText(Utils.getLocalizedNumber(locale,reply_count));
   }
  else {
     replyCountView.setText(null);
@@ -136,7 +137,7 @@
     retweet_count=status.retweet_count + (creatingRetweet ? 1 : 0);
   }
   if (retweet_count > 0) {
-    retweetCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),retweet_count));
+    retweetCountView.setText(Utils.getLocalizedNumber(locale,retweet_count));
   }
  else {
     retweetCountView.setText(null);
@@ -151,7 +152,7 @@
     favorite_count=status.favorite_count + (creatingFavorite ? 1 : 0);
   }
   if (favorite_count > 0) {
-    favoriteCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),favorite_count));
+    favoriteCountView.setText(Utils.getLocalizedNumber(locale,favorite_count));
   }
  else {
     favoriteCountView.setText(null);

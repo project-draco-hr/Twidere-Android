@@ -1,3 +1,0 @@
-{
-  return getActivatedAccountIds(getActivity()).length > 1;
-}

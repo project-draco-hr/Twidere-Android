@@ -1,7 +1,8 @@
 {
-  final ParcelableStatus status=mAdapter.getStatus(position);
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   Utils.openMedia(getActivity(),status,media);
-  SpiceProfilingUtil.log(getActivity(),status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
-  SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
+  SpiceProfilingUtil.log(getActivity(),status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ adapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
+  SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ adapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
 }

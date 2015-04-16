@@ -1,0 +1,22 @@
+{
+switch (viewType) {
+case ITEM_VIEW_TYPE_USER:
+{
+      final View view;
+      if (mCompactCards) {
+        view=mInflater.inflate(R.layout.card_item_user_compact,parent,false);
+      }
+ else {
+        view=mInflater.inflate(R.layout.card_item_user,parent,false);
+      }
+      final UserViewHolder holder=new UserViewHolder(this,view);
+      return holder;
+    }
+case ITEM_VIEW_TYPE_LOAD_INDICATOR:
+{
+    final View view=mInflater.inflate(R.layout.card_item_load_indicator,parent,false);
+    return new LoadIndicatorViewHolder(view);
+  }
+}
+throw new IllegalStateException("Unknown view type " + viewType);
+}

@@ -1,6 +1,6 @@
 {
   if (statusClickListener == null)   return;
-  final int position=getAdapterPosition();
+  final int position=getLayoutPosition();
 switch (v.getId()) {
 case R.id.item_content:
 {

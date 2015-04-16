@@ -1,3 +1,4 @@
 {
-  Utils.openStatus(getActivity(),mAdapter.getStatus(position),null);
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  Utils.openStatus(getActivity(),adapter.getStatus(position),null);
 }

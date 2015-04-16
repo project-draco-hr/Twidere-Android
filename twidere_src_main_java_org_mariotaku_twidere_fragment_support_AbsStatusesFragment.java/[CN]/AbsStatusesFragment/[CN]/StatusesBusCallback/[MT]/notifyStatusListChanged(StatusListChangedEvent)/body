@@ -1,3 +1,4 @@
 {
-  mAdapter.notifyDataSetChanged();
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  adapter.notifyDataSetChanged();
 }

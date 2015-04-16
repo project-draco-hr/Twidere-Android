@@ -1,0 +1,6 @@
+{
+  if (position == getUsersCount()) {
+    return ITEM_VIEW_TYPE_LOAD_INDICATOR;
+  }
+  return ITEM_VIEW_TYPE_USER;
+}

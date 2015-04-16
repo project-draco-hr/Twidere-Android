@@ -5,7 +5,9 @@
     triggerRefresh();
     return true;
   }
-  final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(mRecyclerView,mLayoutManager.getFocusedChild());
+  final RecyclerView mRecyclerView=getRecyclerView();
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(mRecyclerView,layoutManager.getFocusedChild());
   final int position;
   if (focusedChild != null && focusedChild.getParent() == mRecyclerView) {
     position=mRecyclerView.getChildLayoutPosition(focusedChild);
@@ -14,7 +16,7 @@
     return false;
   }
   if (position == -1)   return false;
-  final ParcelableStatus status=mAdapter.getStatus(position);
+  final ParcelableStatus status=getAdapter().getStatus(position);
   if (status == null)   return false;
   if (action == null) {
     action=mKeyboardShortcutsHandler.getKeyAction("status",keyCode,event);

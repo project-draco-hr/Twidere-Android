@@ -1,10 +1,12 @@
 {
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
   final SharedPreferences preferences=getSharedPreferences();
   final boolean rememberPosition=preferences.getBoolean(KEY_REMEMBER_POSITION,false);
   final boolean readFromBottom=preferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
   final long lastReadId;
   final int lastVisiblePos, lastVisibleTop;
   final String tag=getCurrentReadPositionTag();
+  final LinearLayoutManager mLayoutManager=getLayoutManager();
   if (readFromBottom) {
     lastVisiblePos=mLayoutManager.findLastVisibleItemPosition();
   }
@@ -12,7 +14,7 @@
     lastVisiblePos=mLayoutManager.findFirstVisibleItemPosition();
   }
   if (lastVisiblePos != RecyclerView.NO_POSITION) {
-    lastReadId=mAdapter.getStatusId(lastVisiblePos);
+    lastReadId=adapter.getStatusId(lastVisiblePos);
     final View positionView=mLayoutManager.findViewByPosition(lastVisiblePos);
     lastVisibleTop=positionView != null ? positionView.getTop() : 0;
   }
@@ -24,18 +26,18 @@
     lastReadId=-1;
     lastVisibleTop=0;
   }
-  mAdapter.setData(data);
+  adapter.setData(data);
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
-    mAdapter.setLoadMoreSupported(hasMoreData(data));
+    adapter.setLoadMoreSupported(hasMoreData(data));
     setRefreshEnabled(true);
     int pos=-1;
-    for (int i=0, j=mAdapter.getItemCount(); i < j; i++) {
-      if (lastReadId != -1 && lastReadId == mAdapter.getStatusId(i)) {
+    for (int i=0, j=adapter.getItemCount(); i < j; i++) {
+      if (lastReadId != -1 && lastReadId == adapter.getStatusId(i)) {
         pos=i;
         break;
       }
     }
-    if (pos != -1 && mAdapter.isStatus(pos) && (readFromBottom || lastVisiblePos != 0)) {
+    if (pos != -1 && adapter.isStatus(pos) && (readFromBottom || lastVisiblePos != 0)) {
       mLayoutManager.scrollToPositionWithOffset(pos,lastVisibleTop);
     }
   }

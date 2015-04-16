@@ -3,7 +3,7 @@
   final StatusFragment fragment=adapter.getFragment();
   final Context context=adapter.getContext();
   final Resources resources=context.getResources();
-  final MediaLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final boolean nameFirst=adapter.isNameFirst();
   linkClickHandler.setStatus(status);
   if (status.retweet_id > 0) {
@@ -106,7 +106,7 @@
     mediaPreviewContainer.setVisibility(View.VISIBLE);
     mediaPreview.setVisibility(View.VISIBLE);
     mediaPreviewLoad.setVisibility(View.GONE);
-    mediaPreview.displayMedia(status.media,loader,status.account_id,adapter.getFragment(),adapter.getImageLoadingHandler());
+    mediaPreview.displayMedia(status.media,loader,status.account_id,adapter.getFragment(),adapter.getMediaLoadingHandler());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);

@@ -1,8 +1,8 @@
 {
   if (!KeyboardShortcutsHandler.isValidForHotkey(keyCode,event))   return false;
   String action=mKeyboardShortcutsHandler.getKeyAction("navigation",keyCode,event);
-  final LinearLayoutManager layoutManager=mLayoutManager;
-  final RecyclerView recyclerView=mRecyclerView;
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  final RecyclerView recyclerView=getRecyclerView();
   final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(recyclerView,layoutManager.getFocusedChild());
   final int position;
   if (focusedChild != null) {
@@ -12,7 +12,7 @@
     position=-1;
   }
  else {
-    final int itemCount=mAdapter.getItemCount();
+    final int itemCount=getAdapter().getItemCount();
     if (layoutManager.findLastVisibleItemPosition() == itemCount - 1) {
       position=itemCount;
     }

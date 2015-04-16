@@ -1,0 +1,25 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mDrawerCallback=new SimpleDrawerCallback(mRecyclerView);
+  final View view=getView();
+  if (view == null)   throw new AssertionError();
+  final Context context=view.getContext();
+  final boolean compact=Utils.isCompactCards(context);
+  final int backgroundColor=ThemeUtils.getThemeBackgroundColor(context);
+  final int colorRes=ColorUtils.getContrastYIQ(backgroundColor,R.color.bg_refresh_progress_color_light,R.color.bg_refresh_progress_color_dark);
+  mSwipeRefreshLayout.setOnRefreshListener(this);
+  mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
+  mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(colorRes);
+  mAdapter=onCreateAdapter(context,compact);
+  mLayoutManager=new FixedLinearLayoutManager(context);
+  mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  mRecyclerView.setLayoutManager(mLayoutManager);
+  mRecyclerView.setHasFixedSize(true);
+  if (compact) {
+    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
+  }
+  mRecyclerView.setAdapter((RecyclerView.Adapter)mAdapter);
+  mScrollListener=new ContentListScrollListener(this);
+  mScrollListener.setTouchSlop(ViewConfiguration.get(context).getScaledTouchSlop());
+  mRecyclerView.setOnScrollListener(mScrollListener);
+}

@@ -1,0 +1,6 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final Bundle loaderArgs=new Bundle(getArguments());
+  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
+  getLoaderManager().initLoader(0,loaderArgs,this);
+}

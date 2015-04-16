@@ -1,3 +1,4 @@
 {
-  setData(data,false);
+  mData=data;
+  notifyDataSetChanged();
 }

@@ -1,9 +1,11 @@
 {
   final String readPositionTag=getReadPositionTagWithAccounts();
   if (readPositionTag == null)   return;
-  final int position=mLayoutManager.findFirstVisibleItemPosition();
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  final int position=layoutManager.findFirstVisibleItemPosition();
   if (position == RecyclerView.NO_POSITION)   return;
-  final ParcelableStatus status=mAdapter.getStatus(position);
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   mReadStateManager.setPosition(readPositionTag,status.id);
   mReadStateManager.setPosition(getCurrentReadPositionTag(),status.id,true);

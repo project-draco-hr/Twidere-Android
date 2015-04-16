@@ -1,5 +1,4 @@
 {
-  if (mStatusAdapterListener != null) {
-    mStatusAdapterListener.onGapClick((GapViewHolder)holder,position);
-  }
+  if (mStatusAdapterListener == null)   return;
+  mStatusAdapterListener.onGapClick((GapViewHolder)holder,position);
 }

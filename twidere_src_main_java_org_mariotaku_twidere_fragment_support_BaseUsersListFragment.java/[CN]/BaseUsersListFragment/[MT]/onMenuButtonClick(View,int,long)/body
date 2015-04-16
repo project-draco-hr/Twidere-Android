@@ -1,5 +1,0 @@
-{
-  final ParcelableUser user=mAdapter.getItem(position - mListView.getHeaderViewsCount());
-  if (user == null)   return;
-  showMenu(button,user);
-}

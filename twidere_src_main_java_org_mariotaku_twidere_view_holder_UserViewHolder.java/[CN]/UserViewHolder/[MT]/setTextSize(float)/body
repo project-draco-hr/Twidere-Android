@@ -1,0 +1,10 @@
+{
+  description.setTextSize(textSize);
+  name.setTextSize(textSize);
+  screenName.setTextSize(textSize * 0.75f);
+  location.setTextSize(textSize);
+  url.setTextSize(textSize);
+  statusesCount.setTextSize(textSize);
+  followersCount.setTextSize(textSize);
+  friendsCount.setTextSize(textSize);
+}

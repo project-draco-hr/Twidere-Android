@@ -1,7 +1,0 @@
-{
-  setProgressBarIndeterminateVisibility(false);
-  mAdapter.setData(data);
-  mAdapter.setShowAccountColor(shouldShowAccountColor());
-  setRefreshing(false);
-  setListShown(true);
-}

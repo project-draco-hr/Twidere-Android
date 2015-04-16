@@ -1,3 +1,4 @@
 {
-  return mAdapter.getData();
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  return adapter.getData();
 }

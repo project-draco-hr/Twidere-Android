@@ -1,7 +1,0 @@
-{
-  if (userIds == null || userIds.length == 0)   return;
-  for (  final long userId : userIds) {
-    mData.remove(mAdapter.findItemPosition(userId));
-  }
-  mAdapter.setData(mData,true);
-}

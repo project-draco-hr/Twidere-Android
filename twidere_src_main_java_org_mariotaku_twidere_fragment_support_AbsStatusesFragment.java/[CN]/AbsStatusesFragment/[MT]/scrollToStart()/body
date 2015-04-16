@@ -1,6 +1,4 @@
 {
   saveReadPosition();
-  mLayoutManager.scrollToPositionWithOffset(0,0);
-  setControlVisible(true);
-  return true;
+  return super.scrollToStart();
 }

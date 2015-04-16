@@ -1,5 +1,5 @@
 {
-  final MediaLoaderWrapper loader=adapter.getImageLoader();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   final TwidereLinkify linkify=adapter.getTwidereLinkify();
   final Context context=adapter.getContext();
@@ -118,7 +118,7 @@
     final boolean hasMedia=media != null && media.length > 0;
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !sensitive)) {
       mediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
-      mediaPreview.displayMedia(media,loader,account_id,this,adapter.getImageLoadingHandler());
+      mediaPreview.displayMedia(media,loader,account_id,this,adapter.getMediaLoadingHandler());
     }
  else {
       mediaPreview.setVisibility(View.GONE);

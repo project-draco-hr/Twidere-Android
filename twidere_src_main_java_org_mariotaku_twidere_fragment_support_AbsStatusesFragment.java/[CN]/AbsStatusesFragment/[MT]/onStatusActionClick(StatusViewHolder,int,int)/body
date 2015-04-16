@@ -1,5 +1,6 @@
 {
-  final ParcelableStatus status=mAdapter.getStatus(position);
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   final FragmentActivity activity=getActivity();
 switch (id) {
