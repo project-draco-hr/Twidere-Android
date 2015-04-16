@@ -1,0 +1,4 @@
+{
+  setTextSize(adapter.getTextSize());
+  profileImageView.setStyle(adapter.getProfileImageStyle());
+}

@@ -1,0 +1,5 @@
+{
+  if (args == null)   return null;
+  if (args.containsKey(EXTRA_USERS))   return new IntentExtrasUsersLoader(context,args,getData(),fromUser);
+  return null;
+}

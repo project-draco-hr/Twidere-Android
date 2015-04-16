@@ -1,5 +1,0 @@
-{
-  super(context,account_id,max_id,users_list);
-  mUserId=user_id;
-  mScreenName=screen_name;
-}

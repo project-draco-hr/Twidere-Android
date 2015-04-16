@@ -9,18 +9,18 @@
  else {
     profileTypeView.setImageDrawable(null);
   }
-  name.setText(getUserNickname(context,user.id,user.name));
-  screenName.setText("@" + user.screen_name);
-  description.setVisibility(TextUtils.isEmpty(user.description_unescaped) ? View.GONE : View.VISIBLE);
-  description.setText(user.description_unescaped);
-  location.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
-  location.setText(user.location);
-  url.setVisibility(TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
-  url.setText(user.url_expanded);
+  nameView.setText(getUserNickname(context,user.id,user.name));
+  screenNameView.setText("@" + user.screen_name);
+  descriptionView.setVisibility(TextUtils.isEmpty(user.description_unescaped) ? View.GONE : View.VISIBLE);
+  descriptionView.setText(user.description_unescaped);
+  locationView.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
+  locationView.setText(user.location);
+  urlView.setVisibility(TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
+  urlView.setText(user.url_expanded);
   final Locale locale=Locale.getDefault();
-  statusesCount.setText(getLocalizedNumber(locale,user.statuses_count));
-  followersCount.setText(getLocalizedNumber(locale,user.followers_count));
-  friendsCount.setText(getLocalizedNumber(locale,user.friends_count));
+  statusesCountView.setText(getLocalizedNumber(locale,user.statuses_count));
+  followersCountView.setText(getLocalizedNumber(locale,user.followers_count));
+  friendsCountView.setText(getLocalizedNumber(locale,user.friends_count));
   if (adapter.isProfileImageEnabled()) {
     profileImageView.setVisibility(View.VISIBLE);
     loader.displayProfileImage(profileImageView,user.profile_image_url);

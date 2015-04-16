@@ -1,5 +1,0 @@
-Context context
-long account_id
-long status_id
-long cursor
-List<ParcelableUser> data

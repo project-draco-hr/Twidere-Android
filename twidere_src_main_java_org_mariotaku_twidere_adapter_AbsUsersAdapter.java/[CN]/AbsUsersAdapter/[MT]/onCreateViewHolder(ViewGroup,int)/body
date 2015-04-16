@@ -5,11 +5,17 @@ case ITEM_VIEW_TYPE_USER:
       final View view;
       if (mCompactCards) {
         view=mInflater.inflate(R.layout.card_item_user_compact,parent,false);
+        final View itemContent=view.findViewById(R.id.item_content);
+        itemContent.setBackgroundColor(mCardBackgroundColor);
       }
  else {
         view=mInflater.inflate(R.layout.card_item_user,parent,false);
+        final CardView cardView=(CardView)view.findViewById(R.id.card);
+        cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
       final UserViewHolder holder=new UserViewHolder(this,view);
+      holder.setOnClickListeners();
+      holder.setupViewOptions();
       return holder;
     }
 case ITEM_VIEW_TYPE_LOAD_INDICATOR:

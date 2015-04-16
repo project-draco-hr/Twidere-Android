@@ -1,3 +1,0 @@
-{
-  content.drawEnd(account_color_enabled ? color : Color.TRANSPARENT);
-}

@@ -1,0 +1,10 @@
+{
+  if (userClickListener == null)   return;
+switch (v.getId()) {
+case R.id.item_content:
+{
+      userClickListener.onUserClick(this,getLayoutPosition());
+      break;
+    }
+}
+}

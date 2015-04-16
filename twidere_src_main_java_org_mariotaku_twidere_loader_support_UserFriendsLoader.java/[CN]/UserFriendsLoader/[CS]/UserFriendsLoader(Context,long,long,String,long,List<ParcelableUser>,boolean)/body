@@ -1,0 +1,5 @@
+{
+  super(context,accountId,maxId,userList,fromUser);
+  mUserId=userId;
+  mScreenName=screenName;
+}

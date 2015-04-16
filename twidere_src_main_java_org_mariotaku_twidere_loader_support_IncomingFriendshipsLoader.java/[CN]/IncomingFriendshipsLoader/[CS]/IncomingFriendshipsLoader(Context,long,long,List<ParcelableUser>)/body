@@ -1,3 +1,0 @@
-{
-  super(context,account_id,max_id,users_list);
-}

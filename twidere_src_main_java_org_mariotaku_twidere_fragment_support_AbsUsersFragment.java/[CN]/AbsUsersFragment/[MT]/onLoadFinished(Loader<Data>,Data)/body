@@ -32,5 +32,4 @@
     ((IExtendedLoader)loader).setFromUser(false);
   }
   setListShown(true);
-  onLoadingFinished(data);
 }

@@ -1,3 +1,5 @@
 {
-  return newLoaderInstance(getActivity(),args);
+  final boolean fromUser=args.getBoolean(EXTRA_FROM_USER);
+  args.remove(EXTRA_FROM_USER);
+  return onCreateUsersLoader(getActivity(),args,fromUser);
 }

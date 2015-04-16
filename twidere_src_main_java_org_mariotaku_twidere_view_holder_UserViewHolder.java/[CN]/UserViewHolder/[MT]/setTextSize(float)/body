@@ -1,10 +1,10 @@
 {
-  description.setTextSize(textSize);
-  name.setTextSize(textSize);
-  screenName.setTextSize(textSize * 0.75f);
-  location.setTextSize(textSize);
-  url.setTextSize(textSize);
-  statusesCount.setTextSize(textSize);
-  followersCount.setTextSize(textSize);
-  friendsCount.setTextSize(textSize);
+  descriptionView.setTextSize(textSize);
+  nameView.setTextSize(textSize);
+  screenNameView.setTextSize(textSize * 0.75f);
+  locationView.setTextSize(textSize);
+  urlView.setTextSize(textSize);
+  statusesCountView.setTextSize(textSize);
+  followersCountView.setTextSize(textSize);
+  friendsCountView.setTextSize(textSize);
 }

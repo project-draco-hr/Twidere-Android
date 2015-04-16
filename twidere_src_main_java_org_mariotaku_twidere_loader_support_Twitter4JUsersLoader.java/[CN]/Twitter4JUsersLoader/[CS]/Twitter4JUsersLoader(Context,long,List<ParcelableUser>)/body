@@ -1,5 +1,0 @@
-{
-  super(context,data);
-  mContext=context;
-  mAccountId=account_id;
-}

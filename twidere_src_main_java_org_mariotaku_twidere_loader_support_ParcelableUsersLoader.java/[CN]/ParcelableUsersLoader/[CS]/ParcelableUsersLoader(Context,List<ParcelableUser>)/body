@@ -1,6 +1,0 @@
-{
-  super(context);
-  if (data != null) {
-    mData.addAll(data);
-  }
-}

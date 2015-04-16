@@ -1,0 +1,5 @@
+{
+  super(context,accountId,data,fromUser);
+  mQuery=query;
+  mPage=page;
+}

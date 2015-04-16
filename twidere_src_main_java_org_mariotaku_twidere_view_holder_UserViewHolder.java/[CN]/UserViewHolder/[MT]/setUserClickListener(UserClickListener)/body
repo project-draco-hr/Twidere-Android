@@ -1,0 +1,5 @@
+{
+  userClickListener=listener;
+  ((View)itemContent).setOnClickListener(this);
+  ((View)itemContent).setOnLongClickListener(this);
+}
