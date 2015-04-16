@@ -1,0 +1,11 @@
+{
+  final int actionBarColor;
+  if (isDarkTheme(themeRes)) {
+    actionBarColor=context.getResources().getColor(R.color.background_color_action_bar_dark);
+  }
+ else {
+    actionBarColor=accentColor;
+  }
+  final ColorDrawable d=new ActionBarColorDrawable(actionBarColor,outlineEnabled);
+  return applyActionBarDrawable(context,d,isTransparentBackground(backgroundOption));
+}

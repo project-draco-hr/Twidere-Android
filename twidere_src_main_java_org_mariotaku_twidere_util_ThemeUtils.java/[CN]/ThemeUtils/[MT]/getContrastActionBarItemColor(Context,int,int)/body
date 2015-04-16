@@ -1,0 +1,6 @@
+{
+  if (isDarkTheme(theme) || ColorUtils.getYIQLuminance(color) < 192) {
+    return Color.WHITE;
+  }
+  return Color.BLACK;
+}

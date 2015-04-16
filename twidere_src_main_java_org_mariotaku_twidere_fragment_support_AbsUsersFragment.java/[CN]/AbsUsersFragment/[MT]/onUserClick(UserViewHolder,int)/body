@@ -1,0 +1,8 @@
+{
+  final ParcelableUser user=getAdapter().getUser(position);
+  final FragmentActivity activity=getActivity();
+  final View profileImageView=holder.getProfileImageView();
+  final View profileTypeView=holder.getProfileTypeView();
+  final Bundle options=Utils.makeSceneTransitionOption(activity,new Pair<>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<>(profileTypeView,UserFragment.TRANSITION_NAME_PROFILE_TYPE));
+  Utils.openUserProfile(activity,user.account_id,user.id,user.screen_name,options);
+}

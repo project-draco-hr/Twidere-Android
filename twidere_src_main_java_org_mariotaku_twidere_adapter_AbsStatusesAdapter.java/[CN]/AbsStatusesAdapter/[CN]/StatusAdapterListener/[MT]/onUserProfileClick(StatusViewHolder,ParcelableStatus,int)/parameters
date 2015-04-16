@@ -1,0 +1,3 @@
+StatusViewHolder holder
+ParcelableStatus status
+int position

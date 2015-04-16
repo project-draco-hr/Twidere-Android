@@ -1,5 +1,5 @@
 {
   if (!(mode instanceof SupportActionModeWrapper) || !(activity instanceof IThemedActivity))   return;
   final android.support.v7.view.ActionMode modeCompat=SupportActionModeWrapperTrojan.getWrappedObject((SupportActionModeWrapper)mode);
-  applySupportActionModeBackground(modeCompat,activity,themeRes,accentColor,outlineEnabled);
+  applySupportActionModeBackground(modeCompat,activity,themeRes,accentColor,backgroundOption,outlineEnabled);
 }

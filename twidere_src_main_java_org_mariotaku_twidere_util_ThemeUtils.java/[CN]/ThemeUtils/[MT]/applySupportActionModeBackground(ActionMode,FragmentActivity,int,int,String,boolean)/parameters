@@ -2,4 +2,5 @@ ActionMode mode
 FragmentActivity activity
 int themeRes
 int accentColor
+String backgroundOption
 boolean outlineEnabled
