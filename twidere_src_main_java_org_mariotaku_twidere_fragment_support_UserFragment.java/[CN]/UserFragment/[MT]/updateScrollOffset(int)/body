@@ -55,7 +55,7 @@
       toolbar.setTitleTextColor(itemColor);
       toolbar.setSubtitleTextColor(itemColor);
       ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
-      ThemeUtils.wrapToolbarMenuIcon(toolbar,itemColor,itemColor);
+      ThemeUtils.wrapToolbarMenuIcon(ViewUtils.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
     }
     mPagerIndicator.updateAppearance();
   }

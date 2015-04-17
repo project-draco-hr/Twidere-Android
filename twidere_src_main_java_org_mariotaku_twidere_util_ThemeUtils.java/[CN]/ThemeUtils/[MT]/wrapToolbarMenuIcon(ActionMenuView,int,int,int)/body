@@ -1,4 +1,5 @@
 {
+  if (view == null)   return;
   final Menu menu=view.getMenu();
   final int childCount=view.getChildCount();
   for (int i=0, j=menu.size(), k=0; i < j; i++) {
