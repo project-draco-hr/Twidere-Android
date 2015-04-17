@@ -13,6 +13,7 @@
   setSupportActionBar(mToolbar);
   ViewUtils.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
   ViewUtils.setBackground(mToolbar,ThemeUtils.getSupportActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
+  ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);

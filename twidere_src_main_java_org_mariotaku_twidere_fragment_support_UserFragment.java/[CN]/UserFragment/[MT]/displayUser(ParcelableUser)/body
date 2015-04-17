@@ -12,12 +12,12 @@
   mErrorRetryContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=getUserColor(activity,user.id,true);
+  final int userColor=UserColorNameUtils.getUserColor(activity,user.id,true);
   mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
-  mProfileNameContainer.drawEnd(getAccountColor(activity,user.account_id));
-  final String nick=getUserNickname(activity,user.id,true);
+  mProfileNameContainer.drawEnd(Utils.getAccountColor(activity,user.account_id));
+  final String nick=UserColorNameUtils.getUserNickname(activity,user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
-  final int typeIconRes=getUserTypeIconRes(user.is_verified,user.is_protected);
+  final int typeIconRes=Utils.getUserTypeIconRes(user.is_verified,user.is_protected);
   if (typeIconRes != 0) {
     mProfileTypeView.setImageResource(typeIconRes);
     mProfileTypeView.setVisibility(View.VISIBLE);
@@ -27,24 +27,24 @@
     mProfileTypeView.setVisibility(View.GONE);
   }
   mScreenNameView.setText("@" + user.screen_name);
-  mDescriptionContainer.setVisibility(isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
+  mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
   mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : user.description_plain);
   final TwidereLinkify linkify=new TwidereLinkify(this);
   linkify.applyAllLinks(mDescriptionView,user.account_id,false);
   mDescriptionView.setMovementMethod(null);
-  mLocationContainer.setVisibility(isEmpty(user.location) ? View.GONE : View.VISIBLE);
+  mLocationContainer.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
-  mURLContainer.setVisibility(isEmpty(user.url) && isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
-  mURLView.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
+  mURLContainer.setVisibility(TextUtils.isEmpty(user.url) && TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
+  mURLView.setText(TextUtils.isEmpty(user.url_expanded) ? user.url : user.url_expanded);
   mURLView.setMovementMethod(null);
-  final String createdAt=formatToLongTimeString(activity,user.created_at);
+  final String createdAt=Utils.formatToLongTimeString(activity,user.created_at);
   final float daysSinceCreation=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
   final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreation));
   mCreatedAtView.setText(res.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
-  mListedCount.setText(getLocalizedNumber(mLocale,user.listed_count));
-  mFollowersCount.setText(getLocalizedNumber(mLocale,user.followers_count));
-  mFriendsCount.setText(getLocalizedNumber(mLocale,user.friends_count));
-  mProfileImageLoader.displayProfileImage(mProfileImageView,getOriginalTwitterProfileImage(user.profile_image_url));
+  mListedCount.setText(Utils.getLocalizedNumber(mLocale,user.listed_count));
+  mFollowersCount.setText(Utils.getLocalizedNumber(mLocale,user.followers_count));
+  mFriendsCount.setText(Utils.getLocalizedNumber(mLocale,user.friends_count));
+  mProfileImageLoader.displayProfileImage(mProfileImageView,Utils.getOriginalTwitterProfileImage(user.profile_image_url));
   if (userColor != 0) {
     setUserUiColor(userColor);
   }

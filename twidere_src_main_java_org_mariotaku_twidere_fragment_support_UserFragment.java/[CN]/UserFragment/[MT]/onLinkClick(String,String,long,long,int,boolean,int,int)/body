@@ -4,12 +4,12 @@
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
-      openUserProfile(getActivity(),user.account_id,-1,link,null);
+      Utils.openUserProfile(getActivity(),user.account_id,-1,link,null);
       break;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
 {
-    openTweetSearch(getActivity(),user.account_id,"#" + link);
+    Utils.openTweetSearch(getActivity(),user.account_id,"#" + link);
     break;
   }
 case TwidereLinkify.LINK_TYPE_LINK:
@@ -36,7 +36,7 @@ break;
 }
 case TwidereLinkify.LINK_TYPE_STATUS:
 {
-openStatus(getActivity(),accountId,parseLong(link));
+Utils.openStatus(getActivity(),accountId,ParseUtils.parseLong(link));
 break;
 }
 }

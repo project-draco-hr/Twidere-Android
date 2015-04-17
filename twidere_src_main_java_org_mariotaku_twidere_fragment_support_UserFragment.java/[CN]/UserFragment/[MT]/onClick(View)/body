@@ -35,7 +35,7 @@ case R.id.follow:
   }
 case R.id.profile_image:
 {
-  final String url=getOriginalTwitterProfileImage(user.profile_image_url);
+  final String url=Utils.getOriginalTwitterProfileImage(user.profile_image_url);
   final ParcelableMedia[] media={ParcelableMedia.newImage(url,url)};
   Utils.openMedia(activity,user.account_id,false,null,media);
   break;
@@ -50,17 +50,17 @@ break;
 }
 case R.id.listed_container:
 {
-openUserLists(getActivity(),user.account_id,user.id,user.screen_name);
+Utils.openUserLists(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }
 case R.id.followers_container:
 {
-openUserFollowers(getActivity(),user.account_id,user.id,user.screen_name);
+Utils.openUserFollowers(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }
 case R.id.friends_container:
 {
-openUserFriends(getActivity(),user.account_id,user.id,user.screen_name);
+Utils.openUserFriends(getActivity(),user.account_id,user.id,user.screen_name);
 break;
 }
 case R.id.name_container:

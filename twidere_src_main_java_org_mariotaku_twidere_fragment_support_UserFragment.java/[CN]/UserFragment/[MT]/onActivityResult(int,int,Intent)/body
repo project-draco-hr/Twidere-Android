@@ -10,7 +10,7 @@ case REQUEST_SET_COLOR:
         UserColorNameUtils.setUserColor(getActivity(),mUser.id,color);
       }
  else       if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
-        clearUserColor(getActivity(),mUser.id);
+        UserColorNameUtils.clearUserColor(getActivity(),mUser.id);
       }
       break;
     }
@@ -31,7 +31,7 @@ case REQUEST_SELECT_ACCOUNT:
   if (resultCode == Activity.RESULT_OK) {
     if (data == null || !data.hasExtra(EXTRA_ID))     return;
     final long accountId=data.getLongExtra(EXTRA_ID,-1);
-    openUserProfile(getActivity(),accountId,user.id,user.screen_name,null);
+    Utils.openUserProfile(getActivity(),accountId,user.id,user.screen_name,null);
   }
   break;
 }

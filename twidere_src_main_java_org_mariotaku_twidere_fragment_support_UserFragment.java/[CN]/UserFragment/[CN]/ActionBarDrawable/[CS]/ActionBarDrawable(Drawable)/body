@@ -1,5 +1,5 @@
 {
-  super(new Drawable[]{shadow,new ActionBarColorDrawable(true)});
+  super(new Drawable[]{shadow,ActionBarColorDrawable.create(true)});
   mShadowDrawable=getDrawable(0);
   mColorDrawable=(ColorDrawable)getDrawable(1);
   setAlpha(0xFF);

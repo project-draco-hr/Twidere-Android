@@ -28,11 +28,11 @@ case MENU_ADD_TO_FILTER:
   if (filtering) {
     final Expression where=Expression.equals(Filters.Users.USER_ID,user.id);
     cr.delete(Filters.Users.CONTENT_URI,where.getSQL(),null);
-    showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
+    Utils.showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
   }
  else {
     cr.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.createFilteredUser(user));
-    showInfoMessage(getActivity(),R.string.message_user_muted,false);
+    Utils.showInfoMessage(getActivity(),R.string.message_user_muted,false);
   }
   break;
 }
@@ -73,7 +73,7 @@ break;
 case MENU_SET_COLOR:
 {
 final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
-intent.putExtra(EXTRA_COLOR,getUserColor(getActivity(),user.id,true));
+intent.putExtra(EXTRA_COLOR,UserColorNameUtils.getUserColor(getActivity(),user.id,true));
 intent.putExtra(EXTRA_ALPHA_SLIDER,false);
 intent.putExtra(EXTRA_CLEAR_BUTTON,true);
 startActivityForResult(intent,REQUEST_SET_COLOR);
@@ -81,12 +81,12 @@ break;
 }
 case MENU_CLEAR_NICKNAME:
 {
-clearUserNickname(getActivity(),user.id);
+UserColorNameUtils.clearUserNickname(getActivity(),user.id);
 break;
 }
 case MENU_SET_NICKNAME:
 {
-final String nick=getUserNickname(getActivity(),user.id,true);
+final String nick=UserColorNameUtils.getUserNickname(getActivity(),user.id,true);
 SetUserNicknameDialogFragment.show(getFragmentManager(),user.id,nick);
 break;
 }
@@ -95,7 +95,7 @@ case MENU_ADD_TO_LIST:
 final Intent intent=new Intent(INTENT_ACTION_SELECT_USER_LIST);
 intent.setClass(getActivity(),UserListSelectorActivity.class);
 intent.putExtra(EXTRA_ACCOUNT_ID,user.account_id);
-intent.putExtra(EXTRA_SCREEN_NAME,getAccountScreenName(getActivity(),user.account_id));
+intent.putExtra(EXTRA_SCREEN_NAME,Utils.getAccountScreenName(getActivity(),user.account_id));
 startActivityForResult(intent,REQUEST_ADD_TO_LIST);
 break;
 }
@@ -125,17 +125,22 @@ return true;
 }
 case R.id.muted_users:
 {
-openMutesUsers(getActivity(),user.account_id);
+Utils.openMutesUsers(getActivity(),user.account_id);
 return true;
 }
 case R.id.blocked_users:
 {
-openUserBlocks(getActivity(),user.account_id);
+Utils.openUserBlocks(getActivity(),user.account_id);
 return true;
 }
 case R.id.incoming_friendships:
 {
-openIncomingFriendships(getActivity(),user.account_id);
+Utils.openIncomingFriendships(getActivity(),user.account_id);
+return true;
+}
+case R.id.user_mentions:
+{
+Utils.openUserMentions(getActivity(),user.account_id,user.screen_name);
 return true;
 }
 default :

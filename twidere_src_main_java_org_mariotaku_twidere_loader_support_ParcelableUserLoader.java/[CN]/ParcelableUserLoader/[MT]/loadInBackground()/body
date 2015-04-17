@@ -53,6 +53,7 @@
     return SingleResponse.getInstance(result);
   }
  catch (  final TwitterException e) {
+    Log.w(LOGTAG,e);
     return SingleResponse.getInstance(e);
   }
 }

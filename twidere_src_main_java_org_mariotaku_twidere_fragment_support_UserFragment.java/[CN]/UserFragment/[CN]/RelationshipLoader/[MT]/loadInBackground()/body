@@ -1,6 +1,6 @@
 {
   if (account_id == user_id)   return SingleResponse.getInstance();
-  final Twitter twitter=getTwitterInstance(context,account_id,false);
+  final Twitter twitter=Utils.getTwitterInstance(context,account_id,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final Relationship relationship=twitter.showFriendship(account_id,user_id);

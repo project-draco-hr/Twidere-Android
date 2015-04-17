@@ -4,7 +4,7 @@
   mUser=user;
   if (user != null) {
     mProgressContainer.setVisibility(View.GONE);
-    mContent.setVisibility(View.VISIBLE);
+    mEditProfileContent.setVisibility(View.VISIBLE);
     mEditName.setText(user.name);
     mEditDescription.setText(user.description_expanded);
     mEditLocation.setText(user.location);
@@ -17,7 +17,7 @@
   }
  else {
     mProgressContainer.setVisibility(View.GONE);
-    mContent.setVisibility(View.GONE);
+    mEditProfileContent.setVisibility(View.GONE);
   }
   updateDoneButton();
 }

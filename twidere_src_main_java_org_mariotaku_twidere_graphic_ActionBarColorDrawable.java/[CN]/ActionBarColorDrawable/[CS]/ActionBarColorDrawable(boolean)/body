@@ -1,4 +1,3 @@
 {
-  super();
-  this.outlineEnabled=outlineEnabled;
+  super(outlineEnabled);
 }

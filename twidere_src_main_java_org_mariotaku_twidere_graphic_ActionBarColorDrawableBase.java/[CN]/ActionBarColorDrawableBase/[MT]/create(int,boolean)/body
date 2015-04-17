@@ -1,0 +1,6 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+    return new ActionBarColorDrawableBase(color,outlineEnabled);
+  }
+  return new ActionBarColorDrawable(color,outlineEnabled);
+}

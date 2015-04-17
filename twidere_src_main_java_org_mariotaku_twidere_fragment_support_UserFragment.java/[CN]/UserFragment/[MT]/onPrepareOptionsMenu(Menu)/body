@@ -11,9 +11,9 @@
   MenuUtils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.incoming_friendships,isMyself);
   if (!isMyself && relationship != null) {
-    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
-    setMenuItemAvailability(menu,MENU_BLOCK,true);
-    setMenuItemAvailability(menu,MENU_MUTE_USER,true);
+    MenuUtils.setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
+    MenuUtils.setMenuItemAvailability(menu,MENU_BLOCK,true);
+    MenuUtils.setMenuItemAvailability(menu,MENU_MUTE_USER,true);
     final MenuItem blockItem=menu.findItem(MENU_BLOCK);
     if (blockItem != null) {
       final boolean blocking=relationship.isSourceBlockingTarget();
@@ -34,17 +34,17 @@
     }
   }
  else {
-    setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
-    setMenuItemAvailability(menu,MENU_BLOCK,false);
-    setMenuItemAvailability(menu,MENU_MUTE_USER,false);
-    setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_BLOCK,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_MUTE_USER,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
   }
-  setMenuItemAvailability(menu,R.id.muted_users,isMyself);
-  setMenuItemAvailability(menu,R.id.blocked_users,isMyself);
+  MenuUtils.setMenuItemAvailability(menu,R.id.muted_users,isMyself);
+  MenuUtils.setMenuItemAvailability(menu,R.id.blocked_users,isMyself);
   final Intent intent=new Intent(INTENT_ACTION_EXTENSION_OPEN_USER);
   final Bundle extras=new Bundle();
   extras.putParcelable(EXTRA_USER,user);
   intent.putExtras(extras);
   menu.removeGroup(MENU_GROUP_USER_EXTENSION);
-  addIntentToMenu(getActivity(),menu,intent,MENU_GROUP_USER_EXTENSION);
+  Utils.addIntentToMenu(getActivity(),menu,intent,MENU_GROUP_USER_EXTENSION);
 }
