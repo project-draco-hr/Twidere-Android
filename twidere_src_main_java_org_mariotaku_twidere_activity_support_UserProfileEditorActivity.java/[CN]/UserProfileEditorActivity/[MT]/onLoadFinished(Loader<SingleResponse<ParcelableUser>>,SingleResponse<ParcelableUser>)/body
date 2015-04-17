@@ -3,6 +3,5 @@
     displayUser(data.getData());
   }
  else   if (mUser == null) {
-    finish();
   }
 }

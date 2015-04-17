@@ -1,8 +1,0 @@
-{
-  if (d == null)   return null;
-  d.mutate();
-  if (applyAlpha) {
-    d.setAlpha(getThemeAlpha(context));
-  }
-  return d;
-}

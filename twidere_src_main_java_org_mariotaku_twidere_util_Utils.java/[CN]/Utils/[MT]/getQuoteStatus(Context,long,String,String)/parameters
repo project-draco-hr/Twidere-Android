@@ -1,0 +1,4 @@
+Context context
+long statusId
+String screen_name
+String text

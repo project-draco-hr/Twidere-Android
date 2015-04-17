@@ -1,0 +1,3 @@
+{
+  window.setSharedElementsUseOverlay(sharedElementsUseOverlay);
+}

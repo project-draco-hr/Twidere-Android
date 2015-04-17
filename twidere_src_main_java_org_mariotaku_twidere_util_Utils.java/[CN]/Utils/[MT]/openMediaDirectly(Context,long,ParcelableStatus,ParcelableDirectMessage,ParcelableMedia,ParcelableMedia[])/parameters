@@ -1,6 +1,0 @@
-Context context
-long accountId
-ParcelableStatus status
-ParcelableDirectMessage message
-ParcelableMedia current
-ParcelableMedia[] media

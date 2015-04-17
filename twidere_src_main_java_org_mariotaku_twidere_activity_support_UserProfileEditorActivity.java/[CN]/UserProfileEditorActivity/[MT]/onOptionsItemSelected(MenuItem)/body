@@ -1,0 +1,22 @@
+{
+switch (item.getItemId()) {
+case MENU_HOME:
+{
+      finish();
+      return true;
+    }
+case MENU_SAVE:
+{
+    final String name=ParseUtils.parseString(mEditName.getText());
+    final String url=ParseUtils.parseString(mEditUrl.getText());
+    final String location=ParseUtils.parseString(mEditLocation.getText());
+    final String description=ParseUtils.parseString(mEditDescription.getText());
+    final int linkColor=mLinkColor.getColor();
+    final int backgroundColor=mBackgroundColor.getColor();
+    mTask=new UpdateProfileTaskInternal(this,mAccountId,mUser,name,url,location,description,linkColor,backgroundColor);
+    AsyncTaskUtils.executeTask(mTask);
+    return true;
+  }
+}
+return super.onOptionsItemSelected(item);
+}

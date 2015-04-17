@@ -1,3 +1,4 @@
 {
-  Utils.openMedia(adapter.getContext(),adapter.getDirectMessage(getAdapterPosition()),media);
+  Bundle options=null;
+  Utils.openMedia(adapter.getContext(),adapter.getDirectMessage(getAdapterPosition()),media,options);
 }

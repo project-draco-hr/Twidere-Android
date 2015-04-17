@@ -4,5 +4,7 @@
   mColor=a.getColor(R.styleable.IconActionButton_iabColor,0);
   mDisabledColor=a.getColor(R.styleable.IconActionButton_iabDisabledColor,0);
   mActivatedColor=a.getColor(R.styleable.IconActionButton_iabActivatedColor,0);
+  mIconWidth=a.getDimensionPixelSize(R.styleable.IconActionButton_iabIconWidth,0);
+  mIconHeight=a.getDimensionPixelSize(R.styleable.IconActionButton_iabIconHeight,0);
   a.recycle();
 }

@@ -9,7 +9,7 @@
   mImageLoader=app.getMediaLoaderWrapper();
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
-  final long[] defaultAccountIds=getAccountIds(this);
+  final long[] defaultAccountIds=Utils.getAccountIds(this);
   if (defaultAccountIds.length <= 0) {
     final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
     intent.setClass(this,SignInActivity.class);
@@ -75,11 +75,11 @@
   mSendView.setOnClickListener(this);
   mSendView.setOnLongClickListener(this);
   final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
-  addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
+  Utils.addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
   final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
   final MenuItem mediaMenuItem=menu.findItem(R.id.media_menu);
   if (mediaMenuItem != null && mediaMenuItem.hasSubMenu()) {
-    addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
+    Utils.addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
   }
   setMenu();
   updateLocationState();

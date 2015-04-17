@@ -1,19 +1,39 @@
 {
+  final Window window=getWindow();
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  }
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR);
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
   super.onCreate(savedInstanceState);
+  mAsyncTaskManager=TwidereApplication.getInstance(this).getAsyncTaskManager();
+  mLazyImageLoader=TwidereApplication.getInstance(this).getMediaLoaderWrapper();
   final Intent intent=getIntent();
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
+  mAccountId=accountId;
   if (!isMyAccount(this,accountId)) {
     finish();
     return;
   }
-  mAsyncTaskManager=TwidereApplication.getInstance(this).getAsyncTaskManager();
-  mLazyImageLoader=TwidereApplication.getInstance(this).getMediaLoaderWrapper();
-  mAccountId=accountId;
+  final ActionBar actionBar=getSupportActionBar();
+  final int themeColor=getCurrentThemeColor();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+    final int themeId=getCurrentThemeResourceId();
+    final String option=getThemeBackgroundOption();
+    final int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+    ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,true);
+    ThemeUtils.setActionBarItemsColor(getWindow(),actionBar,actionBarItemsColor);
+  }
   setContentView(R.layout.activity_user_profile_editor);
-  setSupportActionBar(mToolbar);
-  ViewUtils.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
-  ViewUtils.setBackground(mToolbar,ThemeUtils.getSupportActionBarBackground(mToolbar.getContext(),getCurrentThemeResourceId()));
-  ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
+  mMainContent.setOnFitSystemWindowsListener(this);
+  if (ThemeUtils.isDarkTheme(getCurrentThemeResourceId())) {
+    mMainContent.setColor(getResources().getColor(R.color.background_color_action_bar_dark));
+  }
+ else {
+    mMainContent.setColor(themeColor);
+  }
+  mMainContent.setDrawColor(true);
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);
@@ -24,8 +44,6 @@
   mProfileImageGallery.setOnClickListener(this);
   mProfileBannerGallery.setOnClickListener(this);
   mProfileBannerRemove.setOnClickListener(this);
-  mCancelButton.setOnClickListener(this);
-  mDoneButton.setOnClickListener(this);
   mSetLinkColor.setOnClickListener(this);
   mSetBackgroundColor.setOnClickListener(this);
   if (savedInstanceState != null && savedInstanceState.getParcelable(EXTRA_USER) != null) {

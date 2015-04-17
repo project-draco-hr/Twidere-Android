@@ -1,3 +1,0 @@
-{
-  openMedia(context,message.account_id,false,null,message,current,message.media);
-}

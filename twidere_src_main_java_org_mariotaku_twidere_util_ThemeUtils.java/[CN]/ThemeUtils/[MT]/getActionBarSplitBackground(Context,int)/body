@@ -1,6 +1,9 @@
 {
   @SuppressWarnings("ConstantConditions") final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.backgroundSplit},android.R.attr.actionBarStyle,themeRes);
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
-  return applyActionBarDrawable(context,d,isTransparentBackground(context));
+  try {
+    return a.getDrawable(0);
+  }
+  finally {
+    a.recycle();
+  }
 }

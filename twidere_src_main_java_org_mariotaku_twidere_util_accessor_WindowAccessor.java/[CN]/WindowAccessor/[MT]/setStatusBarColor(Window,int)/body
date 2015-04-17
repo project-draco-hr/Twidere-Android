@@ -1,4 +1,4 @@
 {
   if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return;
-  WindowAccessorL.setStatusBarColor(window,color);
+  WindowAccessorLollipop.setStatusBarColor(window,color);
 }

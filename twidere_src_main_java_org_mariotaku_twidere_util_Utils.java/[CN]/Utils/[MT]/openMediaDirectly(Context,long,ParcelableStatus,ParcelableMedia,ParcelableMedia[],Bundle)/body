@@ -1,0 +1,3 @@
+{
+  openMediaDirectly(context,accountId,status,null,current,media,options);
+}

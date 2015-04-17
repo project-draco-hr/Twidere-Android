@@ -1,5 +1,6 @@
 {
   final ParcelableStatus status=mStatus;
   final ParcelableMedia current=findByLink(status.media,link);
-  Utils.openMedia(context,status,current);
+  Bundle options=null;
+  Utils.openMedia(context,status,current,options);
 }

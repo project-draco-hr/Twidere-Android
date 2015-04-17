@@ -1,7 +1,8 @@
 {
   final ParcelableStatus status=mStatusAdapter.getStatus(position);
   if (status == null)   return;
-  Utils.openMedia(getActivity(),status,media);
-  SpiceProfilingUtil.log(getActivity(),status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
-  SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
+  Bundle options=null;
+  Utils.openMedia(getActivity(),status,media,options);
+  SpiceProfilingUtil.log(getActivity(),status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
+  SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
 }

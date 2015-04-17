@@ -1,4 +1,0 @@
-Context context
-int themeRes
-int accentColor
-boolean outlineEnabled

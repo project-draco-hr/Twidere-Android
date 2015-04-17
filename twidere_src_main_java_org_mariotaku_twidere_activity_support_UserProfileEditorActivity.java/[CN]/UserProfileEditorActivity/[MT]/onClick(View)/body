@@ -37,23 +37,6 @@ mTask=new RemoveProfileBannerTaskInternal(user.account_id);
 AsyncTaskUtils.executeTask(mTask);
 break;
 }
-case R.id.actionbar_cancel:
-{
-finish();
-break;
-}
-case R.id.actionbar_done:
-{
-final String name=ParseUtils.parseString(mEditName.getText());
-final String url=ParseUtils.parseString(mEditUrl.getText());
-final String location=ParseUtils.parseString(mEditLocation.getText());
-final String description=ParseUtils.parseString(mEditDescription.getText());
-final int linkColor=mLinkColor.getColor();
-final int backgroundColor=mBackgroundColor.getColor();
-mTask=new UpdateProfileTaskInternal(this,mAccountId,mUser,name,url,location,description,linkColor,backgroundColor);
-AsyncTaskUtils.executeTask(mTask);
-break;
-}
 case R.id.set_link_color:
 {
 final Intent intent=new Intent(this,ColorPickerDialogActivity.class);

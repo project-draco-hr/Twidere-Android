@@ -7,5 +7,5 @@
   mImageLoader=app.getMediaLoaderWrapper();
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mIncomingMessageColor=ThemeUtils.getUserAccentColor(context);
-  mOutgoingMessageColor=ThemeUtils.getCardBackgroundColor(context);
+  mOutgoingMessageColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
 }

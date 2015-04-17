@@ -1,0 +1,4 @@
+{
+  mMainContent.setPadding(insets.left,insets.top,insets.right,insets.bottom);
+  super.onFitSystemWindows(insets);
+}

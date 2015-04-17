@@ -9,7 +9,7 @@
     mEditText.setSelection(textLength - (tweetLength - maxLength),textLength);
     return;
   }
- else   if (!hasMedia && (isEmpty(text) || noReplyContent(text))) {
+ else   if (!hasMedia && (TextUtils.isEmpty(text) || noReplyContent(text))) {
     mEditText.setError(getString(R.string.error_message_no_content));
     return;
   }

@@ -8,7 +8,8 @@ case R.id.media_preview:
 {
       final ParcelableDirectMessage message=getDirectMessage(position);
       if (message == null || message.media == null)       return;
-      openMedia(mContext,message,null);
+      Bundle options=null;
+      openMedia(mContext,message,null,options);
     }
 }
 }

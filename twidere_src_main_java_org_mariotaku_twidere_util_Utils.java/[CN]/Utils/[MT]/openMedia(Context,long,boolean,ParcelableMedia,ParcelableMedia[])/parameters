@@ -1,5 +1,0 @@
-Context context
-long accountId
-boolean isPossiblySensitive
-ParcelableMedia current
-ParcelableMedia[] media

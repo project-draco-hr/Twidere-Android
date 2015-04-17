@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.menu_profile_editor,menu);
+  return true;
+}

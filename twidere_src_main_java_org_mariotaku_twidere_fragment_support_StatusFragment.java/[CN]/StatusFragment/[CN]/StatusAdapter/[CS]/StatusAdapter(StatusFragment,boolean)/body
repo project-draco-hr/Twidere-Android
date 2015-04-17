@@ -7,7 +7,7 @@
   mInflater=LayoutInflater.from(context);
   mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
-  mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context);
+  mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
   mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));

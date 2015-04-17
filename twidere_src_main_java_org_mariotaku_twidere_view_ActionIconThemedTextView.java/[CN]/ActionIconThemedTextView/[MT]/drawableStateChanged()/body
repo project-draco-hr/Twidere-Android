@@ -1,19 +1,4 @@
 {
   super.drawableStateChanged();
-  for (  Drawable d : getCompoundDrawables()) {
-    if (d != null) {
-      d.mutate();
-      final int color;
-      if (isActivated()) {
-        color=getActivatedColor();
-      }
- else       if (isEnabled()) {
-        color=getColor();
-      }
- else {
-        color=getDisabledColor();
-      }
-      d.setColorFilter(color,Mode.SRC_ATOP);
-    }
-  }
+  updateCompoundDrawables();
 }

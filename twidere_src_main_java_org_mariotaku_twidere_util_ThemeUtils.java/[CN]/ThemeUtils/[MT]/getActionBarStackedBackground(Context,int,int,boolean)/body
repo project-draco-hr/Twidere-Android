@@ -6,6 +6,5 @@
  else {
     actionBarColor=accentColor;
   }
-  final ColorDrawable d=ActionBarColorDrawable.create(actionBarColor,outlineEnabled);
-  return applyActionBarDrawable(context,d,isTransparentBackground(context));
+  return ActionBarColorDrawable.create(actionBarColor,outlineEnabled);
 }

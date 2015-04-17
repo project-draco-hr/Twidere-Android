@@ -1,7 +1,7 @@
 {
   if (screenNames == null || screenNames.length == 0 || accountId <= 0)   return false;
-  final String myScreenName=getAccountScreenName(this,accountId);
-  if (isEmpty(myScreenName))   return false;
+  final String myScreenName=Utils.getAccountScreenName(this,accountId);
+  if (TextUtils.isEmpty(myScreenName))   return false;
   for (  final String screenName : screenNames) {
     if (screenName.equalsIgnoreCase(myScreenName)) {
       continue;

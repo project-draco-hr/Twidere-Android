@@ -82,7 +82,12 @@
  else {
     nameView.setText(user_name);
     screenNameView.setText("@" + user_screen_name);
-    timeView.setTime(cursor.getLong(indices.status_timestamp));
+    if (retweet_id > 0) {
+      timeView.setTime(cursor.getLong(indices.retweet_timestamp));
+    }
+ else {
+      timeView.setTime(cursor.getLong(indices.status_timestamp));
+    }
     quotedNameContainer.setVisibility(View.GONE);
     quoteTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);

@@ -3,7 +3,7 @@
     final ContentResolver resolver=activity.getContentResolver();
     final InputStream is=resolver.openInputStream(src);
     final OutputStream os=resolver.openOutputStream(dst);
-    copyStream(is,os);
+    Utils.copyStream(is,os);
     os.close();
     if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && delete_src) {
       final File file=new File(src.getPath());
