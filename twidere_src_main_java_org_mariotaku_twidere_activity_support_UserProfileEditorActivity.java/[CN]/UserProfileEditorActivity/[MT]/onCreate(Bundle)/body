@@ -1,10 +1,4 @@
 {
-  final Window window=getWindow();
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-    window.addFlags(LayoutParams.FLAG_TRANSLUCENT_STATUS);
-  }
-  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR);
-  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
   super.onCreate(savedInstanceState);
   mAsyncTaskManager=TwidereApplication.getInstance(this).getAsyncTaskManager();
   mLazyImageLoader=TwidereApplication.getInstance(this).getMediaLoaderWrapper();
