@@ -1,6 +1,5 @@
 {
   super.onSupportContentChanged();
-  mMainContent=(TintedStatusFrameLayout)findViewById(R.id.main_content);
   mProgressContainer=findViewById(R.id.progress_container);
   mEditProfileContent=findViewById(R.id.edit_profile_content);
   mProfileBannerView=(ImageView)findViewById(R.id.profile_banner);

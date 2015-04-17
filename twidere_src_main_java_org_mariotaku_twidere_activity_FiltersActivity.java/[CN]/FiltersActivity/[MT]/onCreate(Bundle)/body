@@ -6,9 +6,7 @@
   supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR_OVERLAY);
   supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_MODE_OVERLAY);
   super.onCreate(savedInstanceState);
-  ThemeUtils.applyActionBarBackground(getSupportActionBar(),this,getCurrentThemeResourceId(),getCurrentThemeColor(),getThemeBackgroundOption(),false);
-  setContentView(R.layout.activity_content_pages);
-  mMainContent.setOnFitSystemWindowsListener(this);
+  setContentView(R.layout.activity_filters);
   mAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),null,1);
   mViewPager.setAdapter(mAdapter);
   mViewPager.setOffscreenPageLimit(2);
@@ -20,15 +18,4 @@
   mAdapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
   ThemeUtils.initPagerIndicatorAsActionBarTab(this,mPagerIndicator);
   ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
-  mMainContent.setDrawShadow(false);
-  mMainContent.setDrawColor(true);
-  mMainContent.setFactor(1);
-  final int color=getCurrentThemeColor();
-  final int alpha=ThemeUtils.isTransparentBackground(getThemeBackgroundOption()) ? getCurrentThemeBackgroundAlpha() : 0xFF;
-  if (ThemeUtils.isDarkTheme(getCurrentThemeResourceId())) {
-    mMainContent.setColor(getResources().getColor(R.color.background_color_action_bar_dark),alpha);
-  }
- else {
-    mMainContent.setColor(color,alpha);
-  }
 }

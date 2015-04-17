@@ -1,5 +1,7 @@
 {
   super(context,attrs,defStyleAttr);
+  TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TintedStatusLayout);
+  mSetPadding=a.getBoolean(R.styleable.TintedStatusLayout_setPadding,false);
   mBlackPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
   mBlackPaint.setColor(Color.BLACK);
   mShadowPaint=new Paint(Paint.ANTI_ALIAS_FLAG);

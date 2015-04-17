@@ -16,24 +16,10 @@
     return;
   }
   final ActionBar actionBar=getSupportActionBar();
-  final int themeColor=getCurrentThemeColor();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
-    final int themeId=getCurrentThemeResourceId();
-    final String option=getThemeBackgroundOption();
-    final int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
-    ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,true);
-    ThemeUtils.setActionBarItemsColor(getWindow(),actionBar,actionBarItemsColor);
   }
   setContentView(R.layout.activity_user_profile_editor);
-  mMainContent.setOnFitSystemWindowsListener(this);
-  if (ThemeUtils.isDarkTheme(getCurrentThemeResourceId())) {
-    mMainContent.setColor(getResources().getColor(R.color.background_color_action_bar_dark));
-  }
- else {
-    mMainContent.setColor(themeColor);
-  }
-  mMainContent.setDrawColor(true);
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);

@@ -1,0 +1,10 @@
+{
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  final int themeColor=getCurrentThemeColor();
+  final int themeId=getCurrentThemeResourceId();
+  final String option=getThemeBackgroundOption();
+  final int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+  ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,isActionBarOutlineEnabled());
+  ThemeUtils.setActionBarItemsColor(getWindow(),actionBar,actionBarItemsColor);
+}
