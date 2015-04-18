@@ -1,4 +1,3 @@
 {
   super.onStop();
-  mImageView.removeOnLayoutChangeListener(this);
 }

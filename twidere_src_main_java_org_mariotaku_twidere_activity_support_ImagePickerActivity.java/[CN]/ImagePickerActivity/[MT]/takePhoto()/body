@@ -15,5 +15,6 @@
     startActivityForResult(intent,REQUEST_TAKE_PHOTO);
   }
  catch (  final ActivityNotFoundException ignored) {
+    takePhotoFallback(mTempPhotoUri);
   }
 }

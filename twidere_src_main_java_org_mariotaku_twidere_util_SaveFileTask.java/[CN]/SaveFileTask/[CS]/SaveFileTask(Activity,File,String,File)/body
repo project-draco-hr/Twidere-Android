@@ -1,0 +1,6 @@
+{
+  this.activity=activity;
+  this.source=source;
+  this.mimeType=mimeType;
+  this.destination=destination;
+}

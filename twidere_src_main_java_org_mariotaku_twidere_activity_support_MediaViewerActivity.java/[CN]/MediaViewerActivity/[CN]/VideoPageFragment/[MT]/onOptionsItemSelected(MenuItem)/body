@@ -1,0 +1,15 @@
+{
+switch (item.getItemId()) {
+case MENU_SAVE:
+{
+      saveToGallery();
+      return true;
+    }
+case MENU_REFRESH:
+{
+    loadVideo();
+    return true;
+  }
+}
+return super.onOptionsItemSelected(item);
+}

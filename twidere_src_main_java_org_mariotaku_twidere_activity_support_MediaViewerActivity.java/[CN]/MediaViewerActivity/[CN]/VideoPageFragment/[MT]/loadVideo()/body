@@ -1,0 +1,6 @@
+{
+  Pair<String,String> urlAndType=getBestVideoUrlAndType(getMedia());
+  if (urlAndType == null)   return;
+  mVideoUrlAndType=urlAndType;
+  mVideoLoader.loadVideo(urlAndType.first,this);
+}

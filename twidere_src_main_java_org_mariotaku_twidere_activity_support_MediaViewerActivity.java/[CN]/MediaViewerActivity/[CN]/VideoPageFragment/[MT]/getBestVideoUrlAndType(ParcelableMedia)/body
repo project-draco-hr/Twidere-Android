@@ -6,14 +6,14 @@ case ParcelableMedia.TYPE_VIDEO:
       if (media.video_info == null)       return null;
       for (      String supportedType : SUPPORTED_VIDEO_TYPES) {
         for (        Variant variant : media.video_info.variants) {
-          if (supportedType.equalsIgnoreCase(variant.content_type))           return variant.url;
+          if (supportedType.equalsIgnoreCase(variant.content_type))           return new Pair<>(variant.url,variant.content_type);
         }
       }
       return null;
     }
 case ParcelableMedia.TYPE_CARD_ANIMATED_GIF:
 {
-    return media.media_url;
+    return new Pair<>(media.media_url,"video/mp4");
   }
 default :
 {

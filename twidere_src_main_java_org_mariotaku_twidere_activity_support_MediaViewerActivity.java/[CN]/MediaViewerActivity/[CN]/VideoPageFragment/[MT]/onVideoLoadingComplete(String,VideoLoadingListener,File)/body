@@ -1,3 +1,5 @@
 {
   mVideoView.setVideoURI(Uri.fromFile(file));
+  mVideoFile=file;
+  invalidateOptionsMenu();
 }

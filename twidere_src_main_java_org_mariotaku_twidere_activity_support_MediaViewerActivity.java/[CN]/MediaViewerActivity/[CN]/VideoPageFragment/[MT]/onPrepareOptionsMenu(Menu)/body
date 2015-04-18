@@ -1,0 +1,24 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  final File file=mVideoFile;
+  final Pair<String,String> linkAndType=mVideoUrlAndType;
+  final boolean isLoading=getLoaderManager().hasRunningLoaders();
+  final boolean hasVideo=file != null && file.exists() && linkAndType != null;
+  MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasVideo && !isLoading);
+  MenuUtils.setMenuItemAvailability(menu,R.id.share,hasVideo && !isLoading);
+  MenuUtils.setMenuItemAvailability(menu,R.id.save,hasVideo && !isLoading);
+  if (!hasVideo)   return;
+  final MenuItem shareItem=menu.findItem(R.id.share);
+  final ShareActionProvider shareProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
+  final Intent intent=new Intent(Intent.ACTION_SEND);
+  final Uri fileUri=Uri.fromFile(file);
+  intent.setDataAndType(fileUri,linkAndType.second);
+  intent.putExtra(Intent.EXTRA_STREAM,fileUri);
+  final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
+  if (activity.hasStatus()) {
+    final ParcelableStatus status=activity.getStatus();
+    intent.putExtra(Intent.EXTRA_TEXT,Utils.getStatusShareText(activity,status));
+    intent.putExtra(Intent.EXTRA_SUBJECT,Utils.getStatusShareSubject(activity,status));
+  }
+  shareProvider.setShareIntent(intent);
+}

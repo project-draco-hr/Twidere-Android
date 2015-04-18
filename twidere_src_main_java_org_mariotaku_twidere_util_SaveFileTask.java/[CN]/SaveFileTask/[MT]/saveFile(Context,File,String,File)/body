@@ -1,18 +1,21 @@
 {
-  if (context == null && image_file == null)   return null;
+  if (context == null && source == null)   return null;
   try {
-    final String name=image_file.getName();
+    final String name=source.getName();
     if (isEmpty(name))     return null;
-    final String mimeType=getImageMimeType(image_file);
     final MimeTypeMap map=MimeTypeMap.getSingleton();
     final String extension=map.getExtensionFromMimeType(mimeType);
     if (extension == null)     return null;
     final String nameToSave=name.contains(".") ? name : name + "." + extension;
-    final File pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-    final File saveDir=new File(pubDir,"Twidere");
-    if (!saveDir.isDirectory() && !saveDir.mkdirs())     return null;
-    final File saveFile=new File(saveDir,nameToSave);
-    FileUtils.copyFile(image_file,saveFile);
+    if (!destination.isDirectory() && !destination.mkdirs())     return null;
+    final File saveFile;
+    if (destination.isDirectory()) {
+      saveFile=new File(destination,nameToSave);
+    }
+ else {
+      saveFile=destination;
+    }
+    FileUtils.copyFile(source,saveFile);
     if (mimeType != null) {
       MediaScannerConnection.scanFile(context,new String[]{saveFile.getPath()},new String[]{mimeType},null);
     }

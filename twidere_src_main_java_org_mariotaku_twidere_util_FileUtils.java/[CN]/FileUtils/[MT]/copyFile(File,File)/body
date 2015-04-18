@@ -8,6 +8,6 @@
   if (parentFile != null) {
     if (!parentFile.mkdirs() && !parentFile.isDirectory())     throw new IOException("Destination '" + parentFile + "' directory cannot be created");
   }
-  if (destFile.exists() && destFile.canWrite() == false)   throw new IOException("Destination '" + destFile + "' exists but is read-only");
+  if (destFile.exists() && !destFile.canWrite())   throw new IOException("Destination '" + destFile + "' exists but is read-only");
   doCopyFile(srcFile,destFile,true);
 }
