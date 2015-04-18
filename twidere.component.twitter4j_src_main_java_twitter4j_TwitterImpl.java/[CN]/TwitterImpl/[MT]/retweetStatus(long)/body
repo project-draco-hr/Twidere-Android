@@ -2,5 +2,5 @@
   ensureAuthorizationEnabled();
   final String url=conf.getRestBaseURL() + "statuses/retweet/" + statusId+ ".json";
   final String signUrl=conf.getSigningRestBaseURL() + "statuses/retweet/" + statusId+ ".json";
-  return factory.createStatus(post(url,signUrl,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT));
+  return factory.createStatus(post(url,signUrl,INCLUDE_ENTITIES,INCLUDE_REPLY_COUNT,INCLUDE_DESCENDENT_REPLY_COUNT,INCLUDE_CARDS,CARDS_PLATFORM));
 }
