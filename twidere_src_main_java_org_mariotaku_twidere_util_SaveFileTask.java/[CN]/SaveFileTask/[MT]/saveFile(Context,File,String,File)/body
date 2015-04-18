@@ -8,13 +8,7 @@
     if (extension == null)     return null;
     final String nameToSave=name.contains(".") ? name : name + "." + extension;
     if (!destination.isDirectory() && !destination.mkdirs())     return null;
-    final File saveFile;
-    if (destination.isDirectory()) {
-      saveFile=new File(destination,nameToSave);
-    }
- else {
-      saveFile=destination;
-    }
+    final File saveFile=new File(destination,nameToSave);
     FileUtils.copyFile(source,saveFile);
     if (mimeType != null) {
       MediaScannerConnection.scanFile(context,new String[]{saveFile.getPath()},new String[]{mimeType},null);
