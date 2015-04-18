@@ -1,0 +1,12 @@
+{
+  if (view instanceof ForegroundImageView) {
+    final Drawable foreground;
+    if (isVideoItem(parent)) {
+      foreground=ResourcesCompat.getDrawable(view.getResources(),R.drawable.ic_card_media_play,null);
+    }
+ else {
+      foreground=null;
+    }
+    ((ForegroundImageView)view).setForeground(foreground);
+  }
+}

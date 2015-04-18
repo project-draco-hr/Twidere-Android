@@ -1,10 +1,11 @@
 {
   if (view == null || imageUri == null || imageUri.equals(mLoadingUris.get(view)))   return;
+  ViewGroup parent=(ViewGroup)view.getParent();
   if (view instanceof ForegroundImageView) {
     ((ForegroundImageView)view).setForeground(null);
   }
   mLoadingUris.put(view,imageUri);
-  final ProgressBar progress=findProgressBar(view.getParent());
+  final ProgressBar progress=findProgressBar(parent);
   if (progress != null) {
     progress.setVisibility(View.VISIBLE);
     progress.setIndeterminate(true);
