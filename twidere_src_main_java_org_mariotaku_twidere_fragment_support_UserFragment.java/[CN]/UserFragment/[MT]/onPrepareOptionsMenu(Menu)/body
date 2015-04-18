@@ -10,6 +10,7 @@
   }
   MenuUtils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.incoming_friendships,isMyself);
+  MenuUtils.setMenuItemAvailability(menu,R.id.saved_searches,isMyself);
   if (!isMyself && relationship != null) {
     MenuUtils.setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,relationship.canSourceDMTarget());
     MenuUtils.setMenuItemAvailability(menu,MENU_BLOCK,true);

@@ -6,8 +6,15 @@ case DialogInterface.BUTTON_POSITIVE:
       if (isPickDirectory() && a instanceof Callback) {
         ((Callback)a).onFilePicked(getCurrentDirectory());
       }
-      dismiss();
       break;
     }
+case DialogInterface.BUTTON_NEGATIVE:
+{
+    final FragmentActivity a=getActivity();
+    if (a instanceof Callback) {
+      ((Callback)a).onCancelled(this);
+    }
+    break;
+  }
 }
 }

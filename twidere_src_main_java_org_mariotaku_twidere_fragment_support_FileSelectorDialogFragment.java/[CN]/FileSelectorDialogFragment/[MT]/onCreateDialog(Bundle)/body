@@ -3,7 +3,7 @@
   final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setAdapter(mAdapter,this);
   builder.setTitle(R.string.pick_file);
-  builder.setNegativeButton(android.R.string.cancel,null);
+  builder.setNegativeButton(android.R.string.cancel,this);
   if (isPickDirectory()) {
     builder.setPositiveButton(android.R.string.ok,this);
   }

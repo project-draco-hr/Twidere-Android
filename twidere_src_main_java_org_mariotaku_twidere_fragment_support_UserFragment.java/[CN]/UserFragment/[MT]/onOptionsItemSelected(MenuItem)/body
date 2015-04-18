@@ -143,6 +143,11 @@ case R.id.user_mentions:
 Utils.openUserMentions(getActivity(),user.account_id,user.screen_name);
 return true;
 }
+case R.id.saved_searches:
+{
+Utils.openSavedSearches(getActivity(),user.account_id);
+return true;
+}
 default :
 {
 if (item.getIntent() != null) {

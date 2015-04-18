@@ -1,5 +1,0 @@
-{
-  if (mStatusAdapterListener != null) {
-    mStatusAdapterListener.onMediaClick(holder,media,position);
-  }
-}

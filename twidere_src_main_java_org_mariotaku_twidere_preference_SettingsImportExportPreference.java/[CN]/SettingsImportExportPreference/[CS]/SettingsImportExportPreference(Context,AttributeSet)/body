@@ -1,5 +1,6 @@
 {
   super(context,attrs);
+  setDialogTitle(null);
   setPositiveButtonText(null);
   setNegativeButtonText(null);
 }

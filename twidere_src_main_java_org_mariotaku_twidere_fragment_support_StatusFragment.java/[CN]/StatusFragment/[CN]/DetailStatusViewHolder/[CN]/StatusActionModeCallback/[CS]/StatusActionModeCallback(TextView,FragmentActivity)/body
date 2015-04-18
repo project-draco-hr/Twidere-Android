@@ -1,5 +1,4 @@
 {
   this.textView=textView;
-  this.fragment=fragment;
   this.activity=activity;
 }
