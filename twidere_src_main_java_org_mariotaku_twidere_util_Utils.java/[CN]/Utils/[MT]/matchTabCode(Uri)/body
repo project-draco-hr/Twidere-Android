@@ -1,3 +1,4 @@
 {
+  if (uri == null)   return UriMatcher.NO_MATCH;
   return HOME_TABS_URI_MATCHER.match(uri);
 }

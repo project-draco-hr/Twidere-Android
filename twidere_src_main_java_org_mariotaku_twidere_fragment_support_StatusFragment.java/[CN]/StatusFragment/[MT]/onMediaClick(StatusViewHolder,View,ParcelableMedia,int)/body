@@ -1,10 +1,7 @@
 {
   final ParcelableStatus status=mStatusAdapter.getStatus(position);
   if (status == null)   return;
-  view.buildDrawingCache();
-  final Bitmap drawingCache=Bitmap.createBitmap(view.getDrawingCache());
-  final Bundle options=ActivityOptionsCompat.makeThumbnailScaleUpAnimation(view,drawingCache,0,0).toBundle();
-  view.destroyDrawingCache();
+  final Bundle options=Utils.createMediaViewerActivityOption(view);
   Utils.openMedia(getActivity(),status,media,options);
   SpiceProfilingUtil.log(getActivity(),status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
   SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);

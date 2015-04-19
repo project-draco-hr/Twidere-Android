@@ -13,7 +13,8 @@ case R.id.sign_in:
   }
 case R.id.sign_in_method_introduction:
 {
-  new SignInMethodIntroductionDialogFragment().show(getSupportFragmentManager(),"sign_in_method_introduction");
+  final FragmentManager fm=getSupportFragmentManager();
+  new SignInMethodIntroductionDialogFragment().show(fm.beginTransaction(),"sign_in_method_introduction");
   break;
 }
 }

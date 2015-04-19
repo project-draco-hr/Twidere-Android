@@ -1,3 +1,4 @@
 {
+  if (uri == null)   return UriMatcher.NO_MATCH;
   return LINK_HANDLER_URI_MATCHER.match(uri);
 }
