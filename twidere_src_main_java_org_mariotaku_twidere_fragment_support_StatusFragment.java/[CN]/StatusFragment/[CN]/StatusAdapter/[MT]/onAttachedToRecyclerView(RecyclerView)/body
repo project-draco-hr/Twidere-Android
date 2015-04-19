@@ -1,0 +1,4 @@
+{
+  super.onAttachedToRecyclerView(recyclerView);
+  mRecyclerView=recyclerView;
+}

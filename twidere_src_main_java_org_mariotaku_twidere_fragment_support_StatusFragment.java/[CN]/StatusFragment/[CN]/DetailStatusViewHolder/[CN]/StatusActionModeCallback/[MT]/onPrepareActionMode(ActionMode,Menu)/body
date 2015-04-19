@@ -4,5 +4,6 @@
   final URLSpan[] spans=string.getSpans(start,end,URLSpan.class);
   final boolean avail=spans.length == 1 && URLUtil.isValidUrl(spans[0].getURL());
   MenuUtils.setMenuItemAvailability(menu,android.R.id.copyUrl,avail);
+  MenuUtils.setMenuItemShowAsActionFlags(menu,android.R.id.copyUrl,MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
   return true;
 }

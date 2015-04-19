@@ -20,10 +20,6 @@
   locationView.setTextSize(defaultTextSize * 0.85f);
   timeSourceView.setTextSize(defaultTextSize * 0.85f);
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-  quoteTextView.setTextIsSelectable(true);
-  textView.setTextIsSelectable(true);
-  quoteTextView.setMovementMethod(StatusContentMovementMethod.getInstance());
-  textView.setMovementMethod(StatusContentMovementMethod.getInstance());
   quoteTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quoteTextView,activity));
   textView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(textView,activity));
 }

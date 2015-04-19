@@ -1,4 +1,5 @@
 {
+  if (mRecyclerView == null)   return;
   final DividerItemDecoration decoration=mFragment.getItemDecoration();
   decoration.setDecorationStart(0);
   if (isLoadMoreIndicatorVisible()) {
@@ -7,5 +8,5 @@
  else {
     decoration.setDecorationEndOffset(mReplies != null && mReplies.size() > 0 ? 1 : 2);
   }
-  mFragment.mRecyclerView.invalidateItemDecorations();
+  mRecyclerView.invalidateItemDecorations();
 }

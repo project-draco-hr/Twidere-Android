@@ -1,0 +1,11 @@
+{
+  if ((event.getSource() & InputDevice.SOURCE_CLASS_POINTER) == 0) {
+    return false;
+  }
+  if (event.getAction() != MotionEventCompat.ACTION_SCROLL)   return false;
+  verticalScroll=event.getAxisValue(MotionEvent.AXIS_VSCROLL);
+  horizontalScroll=event.getAxisValue(MotionEvent.AXIS_HSCROLL);
+  verticalView.onGenericMotionEvent(event);
+  horizontalView.onGenericMotionEvent(event);
+  return verticalScroll != 0 || horizontalScroll != 0;
+}

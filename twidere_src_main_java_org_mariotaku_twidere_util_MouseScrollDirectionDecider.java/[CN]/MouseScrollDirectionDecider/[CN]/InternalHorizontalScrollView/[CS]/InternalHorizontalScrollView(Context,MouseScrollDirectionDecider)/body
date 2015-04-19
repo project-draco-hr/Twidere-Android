@@ -1,0 +1,9 @@
+{
+  super(context);
+  this.decider=decider;
+  final View view=new View(context);
+  addView(view);
+  this.factor=Math.round(decider.factor);
+  view.setLeft(-factor);
+  view.setRight(factor);
+}

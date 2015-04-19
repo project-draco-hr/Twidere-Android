@@ -1,5 +1,7 @@
 {
   if (status == null)   return;
+  if (status.equals(this.status))   return;
+  this.status=status;
   final StatusFragment fragment=adapter.getFragment();
   final Context context=adapter.getContext();
   final Resources resources=context.getResources();
@@ -138,4 +140,6 @@
     twitterCard.setVisibility(View.GONE);
   }
   Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
+  quoteTextView.setTextIsSelectable(true);
+  textView.setTextIsSelectable(true);
 }

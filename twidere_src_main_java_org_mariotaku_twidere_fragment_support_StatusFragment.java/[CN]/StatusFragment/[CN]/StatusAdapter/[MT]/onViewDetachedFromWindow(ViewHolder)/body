@@ -1,6 +1,0 @@
-{
-  super.onViewDetachedFromWindow(holder);
-  if (holder instanceof DetailStatusViewHolder) {
-    mCachedHolder=(DetailStatusViewHolder)holder;
-  }
-}

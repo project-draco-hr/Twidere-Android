@@ -1,0 +1,15 @@
+{
+  super.scrollTo(0,factor);
+  if (t != factor) {
+    float value=(t - oldt) * decider.verticalScroll;
+    if (value > 0) {
+      decider.setVerticalDirection(1);
+    }
+ else     if (value < 0) {
+      decider.setVerticalDirection(-1);
+    }
+ else {
+      decider.setVerticalDirection(0);
+    }
+  }
+}
