@@ -1,0 +1,6 @@
+{
+  if (mAccountOptionsAdapter == null) {
+    return Utils.getActivatedAccountIds(getActivity());
+  }
+  return mAccountActionProvider.getActivatedAccountIds();
+}

@@ -40,6 +40,11 @@
     @Override public void onAnimationEnd(    Animator animation){
       finishAnimation();
     }
+    @Override public void onAnimationCancel(    Animator animation){
+      finishAnimation();
+    }
+    @Override public void onAnimationRepeat(    Animator animation){
+    }
     private void finishAnimation(){
       final Editor editor=mPreferences.edit();
       editor.putLong(KEY_DEFAULT_ACCOUNT_ID,account.account_id);
@@ -56,11 +61,6 @@
       clickedImageView.setScaleY(1);
       clickedImageView.setAlpha(1f);
       mSwitchAccountAnimationPlaying=false;
-    }
-    @Override public void onAnimationCancel(    Animator animation){
-      finishAnimation();
-    }
-    @Override public void onAnimationRepeat(    Animator animation){
     }
   }
 );
