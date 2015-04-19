@@ -5,7 +5,10 @@
     return true;
   }
   final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(mContextTag,keyCode,event);
-  if (spec == null || !spec.isValid())   return false;
+  if (spec == null || !spec.isValid()) {
+    Log.d(LOGTAG,String.format("Invalid key %s",spec));
+    return false;
+  }
   mKeySpec=spec;
   mKeysLabel.setText(spec.toKeyString());
   final String oldAction=mKeyboardShortcutHandler.findAction(spec);

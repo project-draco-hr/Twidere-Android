@@ -142,4 +142,6 @@
   Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
   quoteTextView.setTextIsSelectable(true);
   textView.setTextIsSelectable(true);
+  quoteTextView.setMovementMethod(StatusContentMovementMethod.getInstance());
+  textView.setMovementMethod(StatusContentMovementMethod.getInstance());
 }
