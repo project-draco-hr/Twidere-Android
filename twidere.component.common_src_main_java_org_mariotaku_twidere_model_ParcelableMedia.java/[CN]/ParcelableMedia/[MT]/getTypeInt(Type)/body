@@ -4,6 +4,8 @@ case PHOTO:
     return TYPE_IMAGE;
 case VIDEO:
   return TYPE_VIDEO;
+case ANIMATED_GIF:
+return TYPE_ANIMATED_GIF;
 }
 return TYPE_UNKNOWN;
 }

@@ -4,6 +4,7 @@
   args.putLong(EXTRA_ACCOUNT_ID,mAccountId);
   args.putParcelable(EXTRA_MEDIA,media);
 switch (media.type) {
+case ParcelableMedia.TYPE_ANIMATED_GIF:
 case ParcelableMedia.TYPE_CARD_ANIMATED_GIF:
 {
       args.putBoolean(EXTRA_LOOP,true);

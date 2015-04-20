@@ -2,6 +2,7 @@
   if (media == null)   return null;
 switch (media.type) {
 case ParcelableMedia.TYPE_VIDEO:
+case ParcelableMedia.TYPE_ANIMATED_GIF:
 {
       if (media.video_info == null)       return null;
       for (      String supportedType : SUPPORTED_VIDEO_TYPES) {
