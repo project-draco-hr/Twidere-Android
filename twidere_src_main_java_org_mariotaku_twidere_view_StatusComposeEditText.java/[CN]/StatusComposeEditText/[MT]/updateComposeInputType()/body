@@ -1,0 +1,7 @@
+{
+  int rawInputType=InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES;
+  if (!mInputSingleLine) {
+    rawInputType|=InputType.TYPE_TEXT_FLAG_MULTI_LINE;
+  }
+  setRawInputType(rawInputType);
+}

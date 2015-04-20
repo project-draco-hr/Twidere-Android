@@ -8,6 +8,8 @@
   editor.putString("navigation.period","navigation.refresh");
   editor.putString("navigation.j","navigation.next");
   editor.putString("navigation.k","navigation.previous");
+  editor.putString("navigation.h","navigation.previous_tab");
+  editor.putString("navigation.l","navigation.next_tab");
   editor.putString("status.f","status.favorite");
   editor.putString("status.r","status.reply");
   editor.putString("status.t","status.retweet");

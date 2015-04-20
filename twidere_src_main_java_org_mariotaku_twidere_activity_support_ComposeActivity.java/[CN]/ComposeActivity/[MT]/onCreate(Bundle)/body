@@ -18,7 +18,16 @@
     return;
   }
   mMenuBar.setOnMenuItemClickListener(this);
-  mEditText.setOnEditorActionListener(mPreferences.getBoolean(KEY_QUICK_SEND) ? this : null);
+  boolean quickSend=mPreferences.getBoolean(KEY_QUICK_SEND);
+  if (quickSend) {
+    mEditText.setImeOptions(EditorInfo.IME_ACTION_SEND);
+    mEditText.setComposeInputSingleLine(true);
+  }
+ else {
+    mEditText.setImeOptions(EditorInfo.IME_ACTION_UNSPECIFIED);
+    mEditText.setComposeInputSingleLine(false);
+  }
+  mEditText.setOnEditorActionListener(this);
   mEditText.addTextChangedListener(this);
   mEditText.setCustomSelectionActionModeCallback(this);
   mAccountSelectorContainer.setOnClickListener(this);

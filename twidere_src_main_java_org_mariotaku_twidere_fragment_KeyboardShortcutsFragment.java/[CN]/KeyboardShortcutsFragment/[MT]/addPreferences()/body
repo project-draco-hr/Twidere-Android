@@ -6,8 +6,10 @@
   final PreferenceCategory home=makeAndAddCategory(getString(R.string.home));
   home.addPreference(makePreferences("home","home.accounts_dashboard"));
   final PreferenceCategory navigation=makeAndAddCategory(getString(R.string.navigation));
-  navigation.addPreference(makePreferences("navigation","navigation.next"));
   navigation.addPreference(makePreferences("navigation","navigation.previous"));
+  navigation.addPreference(makePreferences("navigation","navigation.next"));
+  navigation.addPreference(makePreferences("navigation","navigation.previous_tab"));
+  navigation.addPreference(makePreferences("navigation","navigation.next_tab"));
   navigation.addPreference(makePreferences("navigation","navigation.refresh"));
   final PreferenceCategory statuses=makeAndAddCategory(getString(R.string.statuses));
   statuses.addPreference(makePreferences("status","status.reply"));

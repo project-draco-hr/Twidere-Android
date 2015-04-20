@@ -1,0 +1,4 @@
+{
+  mInputSingleLine=singleLine;
+  updateComposeInputType();
+}
