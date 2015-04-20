@@ -1,0 +1,21 @@
+{
+switch (type) {
+case TWITTER_FOR_ANDROID:
+{
+      return "TwitterAndroid";
+    }
+case TWITTER_FOR_IPHONE:
+{
+    return "Twitter-iPhone";
+  }
+case TWITTER_FOR_IPAD:
+{
+  return "Twitter-iPad";
+}
+case TWITTER_FOR_MAC:
+{
+return "Twitter-Mac";
+}
+}
+return "Twitter";
+}

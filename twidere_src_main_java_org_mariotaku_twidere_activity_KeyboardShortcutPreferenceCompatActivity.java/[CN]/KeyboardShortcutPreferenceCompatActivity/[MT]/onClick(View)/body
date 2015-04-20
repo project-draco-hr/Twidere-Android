@@ -1,0 +1,22 @@
+{
+switch (v.getId()) {
+case R.id.button_positive:
+{
+      if (mKeySpec == null)       return;
+      mKeyboardShortcutHandler.register(mKeySpec,getKeyAction());
+      finish();
+      break;
+    }
+case R.id.button_neutral:
+{
+    mKeyboardShortcutHandler.unregister(getKeyAction());
+    finish();
+    break;
+  }
+case R.id.button_negative:
+{
+  finish();
+  break;
+}
+}
+}

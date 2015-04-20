@@ -1,6 +1,6 @@
 {
   super.onCreate();
-  SpiceProfilingUtil.log(this,"onCreate");
+  SpiceProfilingUtil.log("onCreate");
   mAlarmManager=(AlarmManager)getSystemService(Service.ALARM_SERVICE);
   IntentFilter screenFilter=new IntentFilter();
   screenFilter.addAction(Intent.ACTION_SCREEN_ON);

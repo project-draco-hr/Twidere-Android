@@ -1,0 +1,8 @@
+{
+  super.onContentChanged();
+  mKeysLabel=(TextView)findViewById(R.id.keys_label);
+  mConflictLabel=(TextView)findViewById(R.id.conflict_label);
+  mButtonPositive=(Button)findViewById(R.id.button_positive);
+  mButtonNegative=(Button)findViewById(R.id.button_negative);
+  mButtonNeutral=(Button)findViewById(R.id.button_neutral);
+}

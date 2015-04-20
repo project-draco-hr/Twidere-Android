@@ -1,0 +1,11 @@
+{
+  if (Utils.isDebugBuild()) {
+    final StackTraceElement ste=new Throwable().fillInStackTrace().getStackTrace()[1];
+    final String fullName=ste.getClassName();
+    final String name=fullName.substring(fullName.lastIndexOf('.'));
+    final String tag=name + "." + ste.getMethodName();
+    Log.d(tag,msg);
+    return true;
+  }
+ else   return false;
+}

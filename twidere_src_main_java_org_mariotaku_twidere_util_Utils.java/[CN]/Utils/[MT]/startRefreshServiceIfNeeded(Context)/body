@@ -1,12 +1,17 @@
 {
   final Intent refreshServiceIntent=new Intent(context,RefreshService.class);
-  if (isNetworkAvailable(context) && hasAutoRefreshAccounts(context)) {
-    if (isDebugBuild()) {
-      Log.d(LOGTAG,"Start background refresh service");
-    }
-    context.startService(refreshServiceIntent);
-  }
+  AsyncTask.execute(new Runnable(){
+    @Override public void run(){
+      if (isNetworkAvailable(context) && hasAutoRefreshAccounts(context)) {
+        if (isDebugBuild()) {
+          Log.d(LOGTAG,"Start background refresh service");
+        }
+        context.startService(refreshServiceIntent);
+      }
  else {
-    context.stopService(refreshServiceIntent);
+        context.stopService(refreshServiceIntent);
+      }
+    }
   }
+);
 }

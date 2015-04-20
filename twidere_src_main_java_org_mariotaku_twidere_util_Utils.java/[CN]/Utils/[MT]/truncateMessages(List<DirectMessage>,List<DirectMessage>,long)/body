@@ -1,7 +1,7 @@
 {
   if (in == null)   return false;
   for (  final DirectMessage message : in) {
-    if (since_id > 0 && message.getId() <= since_id) {
+    if (sinceId > 0 && message.getId() <= sinceId) {
       continue;
     }
     out.add(message);

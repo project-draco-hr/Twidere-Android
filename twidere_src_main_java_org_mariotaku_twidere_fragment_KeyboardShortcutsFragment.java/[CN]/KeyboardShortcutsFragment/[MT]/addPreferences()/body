@@ -3,6 +3,8 @@
   general.addPreference(makePreferences(null,"compose"));
   general.addPreference(makePreferences(null,"search"));
   general.addPreference(makePreferences(null,"message"));
+  final PreferenceCategory home=makeAndAddCategory(getString(R.string.home));
+  home.addPreference(makePreferences("home","home.accounts_dashboard"));
   final PreferenceCategory navigation=makeAndAddCategory(getString(R.string.navigation));
   navigation.addPreference(makePreferences("navigation","navigation.next"));
   navigation.addPreference(makePreferences("navigation","navigation.previous"));

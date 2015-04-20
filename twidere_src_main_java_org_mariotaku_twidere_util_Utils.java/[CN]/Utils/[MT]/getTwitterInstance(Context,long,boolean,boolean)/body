@@ -43,12 +43,7 @@
       cb.setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
     }
   }
-  if (TwitterContentUtils.isOfficialKey(context,consumerKey,consumerSecret)) {
-    setMockOfficialUserAgent(context,cb);
-  }
- else {
-    setUserAgent(context,cb);
-  }
+  setClientUserAgent(context,consumerKey,consumerSecret,cb);
   cb.setIncludeEntitiesEnabled(includeEntities);
   cb.setIncludeRTsEnabled(includeRetweets);
   cb.setIncludeReplyCountEnabled(true);

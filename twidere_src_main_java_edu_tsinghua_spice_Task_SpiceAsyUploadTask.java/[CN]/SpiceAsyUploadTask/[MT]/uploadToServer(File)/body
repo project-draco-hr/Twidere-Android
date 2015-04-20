@@ -4,7 +4,7 @@
       continue;
     }
     final String url=PROFILE_SERVER_URL;
-    SpiceProfilingUtil.log(context,url);
+    SpiceProfilingUtil.log(url);
     uploadMultipart(file);
   }
   return false;

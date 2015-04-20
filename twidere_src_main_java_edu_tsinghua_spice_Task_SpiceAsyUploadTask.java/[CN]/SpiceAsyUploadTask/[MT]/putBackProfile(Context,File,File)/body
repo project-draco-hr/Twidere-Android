@@ -14,18 +14,18 @@
       success=false;
     }
     if (success && tmp.renameTo(profile) && tmp.delete()) {
-      SpiceProfilingUtil.log(context,"put profile back success");
+      SpiceProfilingUtil.log("put profile back success");
     }
  else {
-      SpiceProfilingUtil.log(context,"put profile back failed");
+      SpiceProfilingUtil.log("put profile back failed");
     }
   }
  else {
     if (tmp.renameTo(profile)) {
-      SpiceProfilingUtil.log(context,"put profile back success");
+      SpiceProfilingUtil.log("put profile back success");
     }
  else {
-      SpiceProfilingUtil.log(context,"put profile back failed");
+      SpiceProfilingUtil.log("put profile back failed");
     }
   }
 }

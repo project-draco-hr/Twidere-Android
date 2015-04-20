@@ -4,6 +4,7 @@
   editor.putString("n","compose");
   editor.putString("m","message");
   editor.putString("slash","search");
+  editor.putString("home.q","home.accounts_dashboard");
   editor.putString("navigation.period","navigation.refresh");
   editor.putString("navigation.j","navigation.next");
   editor.putString("navigation.k","navigation.previous");

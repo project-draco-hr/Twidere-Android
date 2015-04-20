@@ -1,0 +1,7 @@
+{
+  final Context context=getContext();
+  final Intent intent=new Intent(context,KeyboardShortcutPreferenceCompatActivity.class);
+  intent.putExtra(KeyboardShortcutPreferenceCompatActivity.EXTRA_CONTEXT_TAG,mContextTag);
+  intent.putExtra(KeyboardShortcutPreferenceCompatActivity.EXTRA_KEY_ACTION,mAction);
+  context.startActivity(intent);
+}

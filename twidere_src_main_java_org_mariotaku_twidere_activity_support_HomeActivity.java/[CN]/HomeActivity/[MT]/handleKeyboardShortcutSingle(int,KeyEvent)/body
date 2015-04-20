@@ -1,4 +1,19 @@
 {
   if (handleFragmentKeyboardShortcutSingle(keyCode,event))   return true;
-  return mKeyboardShortcutsHandler.handleKey(this,null,keyCode,event);
+  final String action=mKeyboardShortcutsHandler.getKeyAction("home",keyCode,event);
+  if (action != null) {
+switch (action) {
+case "home.accounts_dashboard":
+{
+        if (mSlidingMenu.isMenuShowing()) {
+          mSlidingMenu.showContent(true);
+        }
+ else {
+          mSlidingMenu.showMenu(true);
+        }
+        return true;
+      }
+  }
+}
+return mKeyboardShortcutsHandler.handleKey(this,null,keyCode,event);
 }

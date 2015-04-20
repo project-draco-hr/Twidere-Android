@@ -1,5 +1,0 @@
-{
-  builder.setPositiveButton(getContext().getString(android.R.string.ok),this);
-  builder.setNegativeButton(getContext().getString(android.R.string.cancel),this);
-  builder.setNeutralButton(getContext().getString(R.string.clear),this);
-}

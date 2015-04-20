@@ -1,0 +1,15 @@
+{
+  super(context,null);
+  mKeyboardShortcutHandler=handler;
+  mContextTag=contextTag;
+  mAction=action;
+  setPersistent(false);
+  setTitle(KeyboardShortcutsHandler.getActionLabel(context,action));
+  mPreferencesChangeListener=new OnSharedPreferenceChangeListener(){
+    @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
+      updateSummary();
+    }
+  }
+;
+  updateSummary();
+}

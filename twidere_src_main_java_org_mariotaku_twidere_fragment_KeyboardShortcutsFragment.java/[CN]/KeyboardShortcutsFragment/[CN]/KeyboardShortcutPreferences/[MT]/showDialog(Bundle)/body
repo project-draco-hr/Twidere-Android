@@ -1,8 +1,0 @@
-{
-  super.showDialog(state);
-  final Dialog dialog=getDialog();
-  dialog.setOnKeyListener(this);
-  mKeysLabel=(TextView)dialog.findViewById(R.id.keys_label);
-  mConflictLabel=(TextView)dialog.findViewById(R.id.conflict_label);
-  mConflictLabel.setVisibility(View.GONE);
-}

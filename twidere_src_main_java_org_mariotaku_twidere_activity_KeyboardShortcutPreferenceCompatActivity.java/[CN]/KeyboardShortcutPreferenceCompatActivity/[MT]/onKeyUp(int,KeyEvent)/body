@@ -1,0 +1,31 @@
+{
+  final String keyAction=getKeyAction();
+  if (keyAction == null)   return false;
+  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(getContextTag(),keyCode,event);
+  if (spec == null || !spec.isValid()) {
+    return super.onKeyUp(keyCode,event);
+  }
+  mKeySpec=spec;
+  mKeysLabel.setText(spec.toKeyString());
+  final String oldAction=mKeyboardShortcutHandler.findAction(spec);
+  final KeyboardShortcutSpec copyOfSpec=spec.copy();
+  copyOfSpec.setContextTag(null);
+  final String oldGeneralAction=mKeyboardShortcutHandler.findAction(copyOfSpec);
+  if (!TextUtils.isEmpty(oldAction) && !keyAction.equals(oldAction)) {
+    mConflictLabel.setVisibility(View.VISIBLE);
+    final String label=KeyboardShortcutsHandler.getActionLabel(this,oldAction);
+    mConflictLabel.setText(getString(R.string.conflicts_with_name,label));
+    mButtonPositive.setText((R.string.overwrite));
+  }
+ else   if (!TextUtils.isEmpty(oldGeneralAction) && !keyAction.equals(oldGeneralAction)) {
+    mConflictLabel.setVisibility(View.VISIBLE);
+    final String label=KeyboardShortcutsHandler.getActionLabel(this,oldGeneralAction);
+    mConflictLabel.setText(getString(R.string.conflicts_with_name,label));
+    mButtonPositive.setText((R.string.overwrite));
+  }
+ else {
+    mConflictLabel.setVisibility(View.GONE);
+    mButtonPositive.setText((android.R.string.ok));
+  }
+  return true;
+}
