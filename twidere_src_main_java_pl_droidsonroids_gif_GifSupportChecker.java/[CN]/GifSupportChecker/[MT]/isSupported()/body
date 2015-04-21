@@ -1,0 +1,9 @@
+{
+  try {
+    System.identityHashCode(GifInfoHandle.NULL_INFO);
+  }
+ catch (  Throwable t) {
+    return false;
+  }
+  return true;
+}

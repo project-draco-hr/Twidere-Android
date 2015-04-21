@@ -1,5 +1,6 @@
 {
-  if (!(mCurrentVisibleFragment instanceof RefreshScrollTopInterface))   return false;
-  ((RefreshScrollTopInterface)mCurrentVisibleFragment).triggerRefresh();
+  final Fragment fragment=getCurrentVisibleFragment();
+  if (!(fragment instanceof RefreshScrollTopInterface))   return false;
+  ((RefreshScrollTopInterface)fragment).triggerRefresh();
   return true;
 }

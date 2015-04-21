@@ -16,7 +16,10 @@ case ParcelableMedia.TYPE_VIDEO:
   }
 default :
 {
-  return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+  if (ANIMATED_GIF_SUPPORTED) {
+    return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+  }
+  return Fragment.instantiate(mActivity,BaseImagePageFragment.class.getName(),args);
 }
 }
 }

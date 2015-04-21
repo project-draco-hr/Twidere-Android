@@ -1,32 +1,12 @@
 {
-  if (data.hasData()) {
-    mImageFile=data.file;
-    if (data.useDecoder) {
-      mGifImageView.setVisibility(View.GONE);
-      mImageView.setVisibility(View.VISIBLE);
-      mImageView.setImage(ImageSource.uri(Uri.fromFile(data.file)));
-    }
- else     if ("image/gif".equals(data.options.outMimeType)) {
-      mGifImageView.setVisibility(View.VISIBLE);
-      mImageView.setVisibility(View.GONE);
-      mGifImageView.setInputSource(new FileSource(data.file));
-      updateScaleLimit();
-    }
- else {
-      mGifImageView.setVisibility(View.GONE);
-      mImageView.setVisibility(View.VISIBLE);
-      mImageView.setImage(ImageSource.bitmap(data.bitmap));
-      updateScaleLimit();
-    }
+  if (data.hasData() && "image/gif".equals(data.options.outMimeType)) {
+    mGifImageView.setVisibility(View.VISIBLE);
+    setImageViewVisibility(View.GONE);
+    mGifImageView.setInputSource(new FileSource(data.file));
+    setLoadProgressVisibility(View.GONE);
+    setLoadProgress(0);
+    invalidateOptionsMenu();
+    return;
   }
- else {
-    mImageView.recycle();
-    mImageFile=null;
-    mImageView.setVisibility(View.GONE);
-    mGifImageView.setVisibility(View.GONE);
-    Utils.showErrorMessage(getActivity(),null,data.exception,true);
-  }
-  mProgressBar.setVisibility(View.GONE);
-  mProgressBar.setProgress(0);
-  invalidateOptionsMenu();
+  super.onLoadFinished(loader,data);
 }

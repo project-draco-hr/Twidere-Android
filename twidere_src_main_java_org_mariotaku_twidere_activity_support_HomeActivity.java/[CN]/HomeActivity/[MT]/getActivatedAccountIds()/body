@@ -1,5 +1,5 @@
 {
-  final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.left_drawer);
+  final Fragment fragment=getLeftDrawerFragment();
   if (fragment instanceof AccountsDashboardFragment) {
     return ((AccountsDashboardFragment)fragment).getActivatedAccountIds();
   }

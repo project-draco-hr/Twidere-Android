@@ -1,5 +1,5 @@
 {
-  final Fragment fragment=mCurrentVisibleFragment;
+  final Fragment fragment=getCurrentVisibleFragment();
   if (fragment instanceof DrawerCallback) {
     ((DrawerCallback)fragment).fling(velocity);
   }

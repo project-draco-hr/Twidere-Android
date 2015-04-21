@@ -1,0 +1,11 @@
+{
+  if (mSlidingMenu.isMenuShowing()) {
+    return getLeftDrawerFragment();
+  }
+ else   if (mSlidingMenu.isSecondaryMenuShowing()) {
+    return null;
+  }
+ else {
+    return getCurrentVisibleFragment();
+  }
+}

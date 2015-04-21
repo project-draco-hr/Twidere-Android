@@ -3,7 +3,7 @@
   if (drawer == null)   return;
   final int offset=drawer.getPaddingTop() - top;
   updateScrollOffset(offset);
-  final Fragment fragment=mCurrentVisibleFragment;
+  final Fragment fragment=getCurrentVisibleFragment();
   if (fragment instanceof DrawerCallback) {
     ((DrawerCallback)fragment).topChanged(top);
   }

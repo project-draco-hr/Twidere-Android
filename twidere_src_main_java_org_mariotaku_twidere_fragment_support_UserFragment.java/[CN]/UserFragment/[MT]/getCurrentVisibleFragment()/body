@@ -1,3 +1,5 @@
 {
-  return mCurrentVisibleFragment;
+  final int currentItem=mViewPager.getCurrentItem();
+  if (currentItem < 0 || currentItem >= mPagerAdapter.getCount())   return null;
+  return (Fragment)mPagerAdapter.instantiateItem(mViewPager,currentItem);
 }

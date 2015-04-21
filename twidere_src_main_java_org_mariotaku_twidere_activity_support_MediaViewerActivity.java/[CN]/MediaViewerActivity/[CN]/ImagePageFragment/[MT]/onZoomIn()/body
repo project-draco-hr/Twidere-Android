@@ -1,4 +1,0 @@
-{
-  final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
-  activity.setBarVisibility(false);
-}

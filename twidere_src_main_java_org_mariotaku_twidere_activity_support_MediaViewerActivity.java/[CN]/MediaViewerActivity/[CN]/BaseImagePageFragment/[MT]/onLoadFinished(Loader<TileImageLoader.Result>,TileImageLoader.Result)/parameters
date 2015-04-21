@@ -1,0 +1,2 @@
+Loader<TileImageLoader.Result> loader
+TileImageLoader.Result data

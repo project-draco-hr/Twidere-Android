@@ -1,5 +1,0 @@
-{
-  if (fragment instanceof IBaseFragment && ((IBaseFragment)fragment).getTabPosition() != -1) {
-    mAttachedFragments.put(((IBaseFragment)fragment).getTabPosition(),fragment);
-  }
-}

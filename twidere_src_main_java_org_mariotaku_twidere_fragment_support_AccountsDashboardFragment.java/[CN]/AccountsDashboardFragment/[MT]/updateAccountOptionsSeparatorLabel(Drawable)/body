@@ -16,4 +16,7 @@
   if (bannerView.getDrawable() == null || !CompareUtils.objectEquals(bannerUrl,bannerView.getTag())) {
     mImageLoader.displayProfileBanner(mAccountProfileBannerView,bannerUrl,this);
   }
+ else {
+    mImageLoader.cancelDisplayTask(mAccountProfileBannerView);
+  }
 }

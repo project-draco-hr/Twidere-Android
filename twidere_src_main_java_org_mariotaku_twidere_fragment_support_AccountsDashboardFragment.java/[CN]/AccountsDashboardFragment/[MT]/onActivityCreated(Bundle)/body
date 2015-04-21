@@ -5,9 +5,12 @@
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
-  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
+  final TwidereApplication application=TwidereApplication.getInstance(context);
+  mImageLoader=application.getMediaLoaderWrapper();
+  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   final LayoutInflater inflater=LayoutInflater.from(context);
   final ListView listView=getListView();
+  listView.setItemsCanFocus(true);
   mAdapter=new MergeAdapter();
   mAccountsAdapter=new AccountSelectorAdapter(context,this);
   mAccountOptionsAdapter=new AccountOptionsAdapter(context);
@@ -44,7 +47,7 @@
   }
 );
   mAccountProfileContainer.setOnClickListener(this);
-  mAdapter.addView(mAccountSelectorView,false);
+  mAdapter.addView(mAccountSelectorView,true);
   mAdapter.addAdapter(mAccountOptionsAdapter);
   mAdapter.addView(mAppMenuSectionView,false);
   mAdapter.addAdapter(mAppMenuAdapter);

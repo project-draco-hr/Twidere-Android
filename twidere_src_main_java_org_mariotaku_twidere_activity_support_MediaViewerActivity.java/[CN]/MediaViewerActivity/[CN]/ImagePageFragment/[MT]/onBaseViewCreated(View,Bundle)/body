@@ -1,6 +1,4 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
-  mImageView=(SubsamplingScaleImageView)view.findViewById(R.id.image_view);
   mGifImageView=(GifTextureView)view.findViewById(R.id.gif_image_view);
-  mProgressBar=(ProgressWheel)view.findViewById(R.id.load_progress);
 }
