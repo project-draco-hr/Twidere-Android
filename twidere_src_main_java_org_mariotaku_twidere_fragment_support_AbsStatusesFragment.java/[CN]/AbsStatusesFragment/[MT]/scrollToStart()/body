@@ -1,4 +1,7 @@
 {
-  saveReadPosition();
-  return super.scrollToStart();
+  final boolean result=super.scrollToStart();
+  if (result) {
+    saveReadPosition();
+  }
+  return result;
 }
