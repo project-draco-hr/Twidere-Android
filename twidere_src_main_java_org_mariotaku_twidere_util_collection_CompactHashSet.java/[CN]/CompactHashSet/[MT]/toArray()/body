@@ -2,9 +2,9 @@
   Object[] result=new Object[elements];
   Object[] objects=this.objects;
   int pos=0;
-  for (int i=0; i < objects.length; i++)   if (objects[i] != null && objects[i] != deletedObject) {
-    if (objects[i] == nullObject)     result[pos++]=null;
- else     result[pos++]=objects[i];
+  for (  Object object : objects)   if (object != null && object != deletedObject) {
+    if (object == nullObject)     result[pos++]=null;
+ else     result[pos++]=object;
   }
   return result;
 }

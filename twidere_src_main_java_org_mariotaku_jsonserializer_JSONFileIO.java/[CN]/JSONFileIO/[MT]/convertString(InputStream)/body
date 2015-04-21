@@ -1,8 +1,8 @@
 {
   if (stream == null)   throw new FileNotFoundException();
   final BufferedReader reader=new BufferedReader(new InputStreamReader(stream,Charset.defaultCharset()));
-  final StringBuffer buf=new StringBuffer();
-  String line=null;
+  final StringBuilder buf=new StringBuilder();
+  String line;
   while ((line=reader.readLine()) != null) {
     buf.append(line);
     buf.append('\n');

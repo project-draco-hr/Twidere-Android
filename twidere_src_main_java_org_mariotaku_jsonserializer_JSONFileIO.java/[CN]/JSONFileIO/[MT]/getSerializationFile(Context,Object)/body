@@ -5,6 +5,5 @@
     cache_dir.mkdirs();
   }
   final String filename=Utils.encodeQueryParams(TwidereArrayUtils.toString(args,'.',false));
-  final File cache_file=new File(cache_dir,filename + ".json");
-  return cache_file;
+  return new File(cache_dir,filename + ".json");
 }

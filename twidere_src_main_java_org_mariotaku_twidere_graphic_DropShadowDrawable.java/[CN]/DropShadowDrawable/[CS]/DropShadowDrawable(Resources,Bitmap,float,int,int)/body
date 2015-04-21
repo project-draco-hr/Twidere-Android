@@ -1,8 +1,0 @@
-{
-  super(resources,bitmap);
-  final float density=resources.getDisplayMetrics().density;
-  final int shadowAlpha=Color.alpha(shadowColor), shadowMaskAlpha=Color.alpha(shadowMaskColor);
-  final boolean hasShadow=shadowRadius != 0 && shadowAlpha != 0;
-  dropShadow=hasShadow ? createDropShadow(bitmap,shadowRadius * density,shadowColor) : null;
-  dropShadowMask=shadowMaskAlpha != 0 ? createDropShadowMask(bitmap,shadowMaskColor) : null;
-}

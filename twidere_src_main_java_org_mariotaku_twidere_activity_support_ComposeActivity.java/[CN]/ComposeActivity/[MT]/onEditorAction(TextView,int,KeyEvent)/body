@@ -1,7 +1,0 @@
-{
-  if (actionId == EditorInfo.IME_ACTION_SEND) {
-    updateStatus();
-    return true;
-  }
-  return false;
-}

@@ -1,8 +1,7 @@
 {
   int oldCapacity=objects.length;
   @SuppressWarnings("unchecked") E[] newObjects=(E[])new Object[newCapacity];
-  for (int ix=0; ix < oldCapacity; ix++) {
-    Object o=objects[ix];
+  for (  E o : objects) {
     if (o == null || o == deletedObject)     continue;
     int hash=o.hashCode();
     int index=(hash & 0x7FFFFFFF) % newCapacity;

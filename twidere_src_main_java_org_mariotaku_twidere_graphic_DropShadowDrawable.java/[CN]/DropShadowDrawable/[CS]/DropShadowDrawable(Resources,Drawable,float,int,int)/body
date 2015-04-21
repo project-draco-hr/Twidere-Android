@@ -1,3 +1,0 @@
-{
-  this(resources,Utils.getBitmap(drawable),shadowRadius,shadowColor,shadowMaskColor);
-}

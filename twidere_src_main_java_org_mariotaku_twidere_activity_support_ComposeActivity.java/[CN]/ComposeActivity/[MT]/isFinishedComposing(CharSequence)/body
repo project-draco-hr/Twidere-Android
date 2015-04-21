@@ -1,0 +1,17 @@
+{
+  if (!(text instanceof Spanned))   return true;
+  final Spanned spanned=(Spanned)text;
+  try {
+    final Class<?> cls=Class.forName("android.text.style.SpellCheckSpan");
+    if (spanned.getSpans(0,spanned.length(),cls).length > 0)     return false;
+  }
+ catch (  Exception ignored) {
+  }
+  try {
+    final Class<?> cls=Class.forName("android.view.inputmethod.ComposingText");
+    if (spanned.getSpans(0,spanned.length(),cls).length > 0)     return false;
+  }
+ catch (  Exception ignored) {
+  }
+  return true;
+}
