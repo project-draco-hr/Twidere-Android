@@ -2,4 +2,5 @@
   super.onBaseViewCreated(view,savedInstanceState);
   mVideoView=(TextureVideoView)view.findViewById(R.id.video_view);
   mVideoViewProgress=(ProgressBar)view.findViewById(R.id.video_view_progress);
+  mProgressBar=(ProgressWheel)view.findViewById(R.id.load_progress);
 }

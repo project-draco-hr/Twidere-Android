@@ -1,2 +1,9 @@
 {
+  if (total <= 0) {
+    if (!mProgressBar.isSpinning()) {
+      mProgressBar.spin();
+    }
+    return;
+  }
+  mProgressBar.setProgress(current / (float)total);
 }

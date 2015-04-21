@@ -10,6 +10,7 @@ case "home.accounts_dashboard":
         }
  else {
           mSlidingMenu.showMenu(true);
+          setControlBarVisibleAnimate(true);
         }
         return true;
       }

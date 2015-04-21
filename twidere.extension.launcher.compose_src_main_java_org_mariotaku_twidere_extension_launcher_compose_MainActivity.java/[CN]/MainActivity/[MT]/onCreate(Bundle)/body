@@ -1,0 +1,13 @@
+{
+  super.onCreate(savedInstanceState);
+  final Intent intent=new Intent(INTENT_ACTION_COMPOSE);
+  intent.setPackage(TWIDERE_PACKAGE_NAME);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+  try {
+    startActivity(intent);
+  }
+ catch (  ActivityNotFoundException ignored) {
+  }
+  finish();
+}

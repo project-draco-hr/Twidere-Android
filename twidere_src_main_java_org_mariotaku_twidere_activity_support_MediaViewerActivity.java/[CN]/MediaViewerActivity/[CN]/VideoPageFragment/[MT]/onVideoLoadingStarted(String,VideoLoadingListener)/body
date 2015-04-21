@@ -1,3 +1,5 @@
 {
+  mProgressBar.setVisibility(View.VISIBLE);
+  mProgressBar.spin();
   invalidateOptionsMenu();
 }
