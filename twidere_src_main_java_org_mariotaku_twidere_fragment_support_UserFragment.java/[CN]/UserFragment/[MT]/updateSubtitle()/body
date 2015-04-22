@@ -1,5 +1,5 @@
 {
-  final ActionBarActivity activity=(ActionBarActivity)getActivity();
+  final AppCompatActivity activity=(AppCompatActivity)getActivity();
   if (activity == null)   return;
   final ActionBar actionBar=activity.getSupportActionBar();
   if (actionBar == null)   return;

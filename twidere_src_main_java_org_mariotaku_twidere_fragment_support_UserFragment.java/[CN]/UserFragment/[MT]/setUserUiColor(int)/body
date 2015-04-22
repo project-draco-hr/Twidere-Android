@@ -3,7 +3,7 @@
   if (mActionBarBackground == null) {
     setupBaseActionBar();
   }
-  final ActionBarActivity activity=(ActionBarActivity)getActivity();
+  final AppCompatActivity activity=(AppCompatActivity)getActivity();
   final IThemedActivity themed=(IThemedActivity)activity;
   final int themeRes=themed.getCurrentThemeResourceId();
   if (ThemeUtils.isDarkTheme(themeRes)) {
