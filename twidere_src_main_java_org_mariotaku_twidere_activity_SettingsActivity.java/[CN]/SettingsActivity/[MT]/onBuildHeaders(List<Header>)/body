@@ -4,7 +4,8 @@
   adapter.clear();
   adapter.addAll(target);
   final ComponentName main=new ComponentName(this,MainActivity.class);
-  if (mPackageManager.getComponentEnabledSetting(main) == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+  final PackageManager pm=getPackageManager();
+  if (pm.getComponentEnabledSetting(main) == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
     final Header restoreIconHeader=new Header();
     restoreIconHeader.titleRes=R.string.want_old_icon_back;
     restoreIconHeader.title=getString(restoreIconHeader.titleRes);

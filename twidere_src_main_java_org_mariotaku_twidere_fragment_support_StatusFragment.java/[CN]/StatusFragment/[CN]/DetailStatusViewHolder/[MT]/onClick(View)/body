@@ -1,5 +1,5 @@
 {
-  final ParcelableStatus status=adapter.getStatus(getAdapterPosition());
+  final ParcelableStatus status=adapter.getStatus(getLayoutPosition());
   final StatusFragment fragment=adapter.getFragment();
 switch (v.getId()) {
 case R.id.media_preview_load:

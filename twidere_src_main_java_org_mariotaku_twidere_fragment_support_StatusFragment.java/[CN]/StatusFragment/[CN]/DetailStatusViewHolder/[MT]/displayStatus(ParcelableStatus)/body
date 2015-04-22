@@ -75,7 +75,7 @@
   }
   timeSourceView.setMovementMethod(null);
   textView.setText(Html.fromHtml(status.text_html));
-  linkify.applyAllLinks(textView,status.account_id,getAdapterPosition(),status.is_possibly_sensitive);
+  linkify.applyAllLinks(textView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
   if (!TextUtils.isEmpty(status.place_full_name)) {
     locationView.setVisibility(View.VISIBLE);

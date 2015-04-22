@@ -1,7 +1,7 @@
 {
-  if (shouldNotifyThemeChange()) {
+  if (shouldNotifyChange()) {
     final Intent data=new Intent();
-    data.putExtra(EXTRA_RESTART_ACTIVITY,true);
+    data.putExtra(EXTRA_CHANGED,true);
     setResult(RESULT_OK,data);
   }
   super.finish();

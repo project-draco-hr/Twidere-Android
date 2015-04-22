@@ -1,15 +1,8 @@
 {
-  mPackageManager=getPackageManager();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
-  mCompactCards=mPreferences.getBoolean(KEY_COMPACT_CARDS,false);
-  mTheme=mPreferences.getString(KEY_THEME,DEFAULT_THEME);
-  mThemeBackground=mPreferences.getString(KEY_THEME_BACKGROUND,DEFAULT_THEME_BACKGROUND);
-  mThemeBackgroundAlpha=mPreferences.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA);
-  mThemeFontFamily=mPreferences.getString(KEY_THEME_FONT_FAMILY,DEFAULT_THEME_FONT_FAMILY);
-  mCurrentThemeColor=ThemeUtils.getUserAccentColor(this);
+  supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_BAR);
   super.onCreate(savedInstanceState);
   setIntent(getIntent().addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-  final ActionBar actionBar=getActionBar();
+  final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
   }

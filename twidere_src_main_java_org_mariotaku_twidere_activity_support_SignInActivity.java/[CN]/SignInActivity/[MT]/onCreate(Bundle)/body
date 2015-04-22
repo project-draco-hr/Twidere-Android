@@ -30,6 +30,6 @@
   mEditPassword.addTextChangedListener(this);
   final Resources resources=getResources();
   final ColorStateList color=ColorStateList.valueOf(resources.getColor(R.color.material_light_green));
-  ViewUtils.setBackgroundTintList(mSignInButton,color);
+  ViewCompat.setBackgroundTintList(mSignInButton,color);
   setSignInButton();
 }

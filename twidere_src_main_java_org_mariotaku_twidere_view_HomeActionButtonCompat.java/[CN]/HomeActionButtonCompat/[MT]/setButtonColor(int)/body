@@ -4,7 +4,7 @@
   if (child instanceof FrameLayout) {
     final Drawable foreground=((FrameLayout)child).getForeground();
     if (foreground != null) {
-      foreground.setColorFilter(ColorUtils.getContrastYIQ(color,192),Mode.MULTIPLY);
+      foreground.setColorFilter(TwidereColorUtils.getContrastYIQ(color,192),Mode.MULTIPLY);
     }
   }
 }

@@ -4,7 +4,7 @@ case REQUEST_SETTINGS:
 {
       if (data == null)       return;
       final FragmentActivity activity=getActivity();
-      if (data.getBooleanExtra(EXTRA_RESTART_ACTIVITY,false) && activity instanceof IThemedActivity) {
+      if (data.getBooleanExtra(EXTRA_CHANGED,false) && activity instanceof IThemedActivity) {
         ((IThemedActivity)activity).restart();
       }
       return;

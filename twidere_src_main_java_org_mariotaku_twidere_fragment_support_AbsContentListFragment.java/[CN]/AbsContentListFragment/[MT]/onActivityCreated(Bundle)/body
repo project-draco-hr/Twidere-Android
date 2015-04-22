@@ -6,7 +6,7 @@
   final Context context=view.getContext();
   final boolean compact=Utils.isCompactCards(context);
   final int backgroundColor=ThemeUtils.getThemeBackgroundColor(context);
-  final int colorRes=ColorUtils.getContrastYIQ(backgroundColor,R.color.bg_refresh_progress_color_light,R.color.bg_refresh_progress_color_dark);
+  final int colorRes=TwidereColorUtils.getContrastYIQ(backgroundColor,R.color.bg_refresh_progress_color_light,R.color.bg_refresh_progress_color_dark);
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
   mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(colorRes);

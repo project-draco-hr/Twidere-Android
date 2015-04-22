@@ -1,0 +1,9 @@
+{
+  mCurrentThemeResource=getThemeResourceId();
+  mCurrentThemeColor=getThemeColor();
+  mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
+  mProfileImageStyle=Utils.getProfileImageStyle(this);
+  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
+  setTheme(mCurrentThemeResource);
+  ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
+}

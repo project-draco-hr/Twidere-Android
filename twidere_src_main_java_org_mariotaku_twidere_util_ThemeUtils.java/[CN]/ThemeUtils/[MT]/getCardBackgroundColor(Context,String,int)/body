@@ -6,7 +6,7 @@
     return themeAlpha << 24 | (0x00FFFFFF & color);
   }
  else   if (isSolidBackground(backgroundOption)) {
-    return ColorUtils.getContrastYIQ(color,Color.WHITE,Color.BLACK);
+    return TwidereColorUtils.getContrastYIQ(color,Color.WHITE,Color.BLACK);
   }
  else {
     return color;

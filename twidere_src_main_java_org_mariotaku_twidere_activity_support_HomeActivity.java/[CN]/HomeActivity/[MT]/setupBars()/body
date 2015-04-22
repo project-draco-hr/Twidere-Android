@@ -21,7 +21,7 @@
     mColorStatusFrameLayout.setFactor(1);
   }
  else {
-    final int contrastColor=ColorUtils.getContrastYIQ(themeColor,192);
+    final int contrastColor=TwidereColorUtils.getContrastYIQ(themeColor,192);
     homeActionButton.setButtonColor(themeColor);
     homeActionButton.setIconColor(contrastColor,Mode.SRC_ATOP);
     mTabIndicator.setStripColor(contrastColor);

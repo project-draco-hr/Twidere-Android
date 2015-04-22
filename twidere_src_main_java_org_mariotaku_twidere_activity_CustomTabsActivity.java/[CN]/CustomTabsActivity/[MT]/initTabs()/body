@@ -1,4 +1,0 @@
-{
-  mCustomTabs.clear();
-  mCustomTabs.addAll(getHomeTabs(this));
-}

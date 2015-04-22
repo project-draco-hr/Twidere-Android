@@ -15,4 +15,6 @@
     final CompoundButton compoundButton=(CompoundButton)view;
     ViewUtils.setButtonTintList(compoundButton,tintList);
   }
+ else {
+  }
 }

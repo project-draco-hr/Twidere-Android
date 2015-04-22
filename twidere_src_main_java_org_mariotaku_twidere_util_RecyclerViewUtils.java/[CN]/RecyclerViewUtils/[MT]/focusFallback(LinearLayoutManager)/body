@@ -1,0 +1,7 @@
+{
+  final int firstVisibleItemPosition=layoutManager.findFirstVisibleItemPosition();
+  final View firstVisibleView=layoutManager.findViewByPosition(firstVisibleItemPosition);
+  if (firstVisibleView != null) {
+    firstVisibleView.requestFocus();
+  }
+}

@@ -3,12 +3,14 @@
   mReadStateManager=getReadStateManager();
   final FragmentActivity activity=getActivity();
   final TwidereApplication application=TwidereApplication.getInstance(activity);
-  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   final AbsStatusesAdapter<Data> adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
+  final ContentListScrollListener scrollListener=getScrollListener();
+  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
+  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mKeyboardShortcutsHandler,recyclerView,layoutManager,adapter);
   adapter.setListener(this);
-  getScrollListener().setOnScrollListener(new OnScrollListener(){
+  scrollListener.setOnScrollListener(new OnScrollListener(){
     @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int newState){
       if (newState == RecyclerView.SCROLL_STATE_IDLE) {
         saveReadPosition();
@@ -16,7 +18,6 @@
     }
   }
 );
-  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mKeyboardShortcutsHandler,recyclerView,layoutManager,adapter);
   final Bundle loaderArgs=new Bundle(getArguments());
   loaderArgs.putBoolean(EXTRA_FROM_USER,true);
   getLoaderManager().initLoader(0,loaderArgs,this);

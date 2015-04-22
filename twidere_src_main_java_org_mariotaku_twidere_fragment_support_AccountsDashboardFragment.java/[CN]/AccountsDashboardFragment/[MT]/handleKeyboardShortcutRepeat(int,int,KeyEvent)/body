@@ -19,7 +19,7 @@ default :
 }
 }
 final ListView listView=getListView();
-int firstVisiblePosition=listView.getFirstVisiblePosition();
+final int firstVisiblePosition=ListViewUtils.getFirstFullyVisiblePosition(listView);
 final int selectedItem=listView.getSelectedItemPosition();
 final int count=listView.getCount();
 int resultPosition;

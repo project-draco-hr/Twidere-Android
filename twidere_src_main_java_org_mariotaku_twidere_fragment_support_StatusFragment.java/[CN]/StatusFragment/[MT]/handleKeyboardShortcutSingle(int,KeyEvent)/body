@@ -1,0 +1,42 @@
+{
+  if (!KeyboardShortcutsHandler.isValidForHotkey(keyCode,event))   return false;
+  final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(mRecyclerView,mLayoutManager.getFocusedChild());
+  final int position;
+  if (focusedChild != null && focusedChild.getParent() == mRecyclerView) {
+    position=mRecyclerView.getChildLayoutPosition(focusedChild);
+  }
+ else {
+    return false;
+  }
+  if (position == -1)   return false;
+  final ParcelableStatus status=getAdapter().getStatus(position);
+  if (status == null)   return false;
+  String action=mKeyboardShortcutsHandler.getKeyAction("status",keyCode,event);
+  if (action == null)   return false;
+switch (action) {
+case "status.reply":
+{
+      final Intent intent=new Intent(INTENT_ACTION_REPLY);
+      intent.putExtra(EXTRA_STATUS,status);
+      startActivity(intent);
+      return true;
+    }
+case "status.retweet":
+{
+    RetweetQuoteDialogFragment.show(getFragmentManager(),status);
+    return true;
+  }
+case "status.favorite":
+{
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  if (status.is_favorite) {
+    twitter.destroyFavoriteAsync(status.account_id,status.id);
+  }
+ else {
+    twitter.createFavoriteAsync(status.account_id,status.id);
+  }
+  return true;
+}
+}
+return false;
+}

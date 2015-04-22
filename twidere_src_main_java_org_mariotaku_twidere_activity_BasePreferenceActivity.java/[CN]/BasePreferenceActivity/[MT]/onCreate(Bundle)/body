@@ -1,6 +1,8 @@
 {
-  setTheme(mCurrentThemeResource=getThemeResourceId());
-  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
+  if (Utils.isDebugBuild()) {
+    StrictModeUtils.detectAllVmPolicy();
+    StrictModeUtils.detectAllThreadPolicy();
+  }
+  setTheme();
   super.onCreate(savedInstanceState);
-  setActionBarBackground();
 }

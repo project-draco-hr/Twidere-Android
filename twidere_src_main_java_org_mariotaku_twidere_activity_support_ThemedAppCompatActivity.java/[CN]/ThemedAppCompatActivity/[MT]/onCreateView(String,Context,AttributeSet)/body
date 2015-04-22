@@ -1,0 +1,9 @@
+{
+  final View view=ThemeUtils.createView(name,context,attrs,mCurrentThemeColor);
+  if (view instanceof ShapedImageView) {
+    final ShapedImageView shapedImageView=(ShapedImageView)view;
+    shapedImageView.setStyle(mProfileImageStyle);
+  }
+  if (view != null)   return view;
+  return super.onCreateView(name,context,attrs);
+}

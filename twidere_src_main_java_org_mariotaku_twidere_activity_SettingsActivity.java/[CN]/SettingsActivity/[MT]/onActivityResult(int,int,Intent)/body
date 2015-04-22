@@ -1,5 +1,5 @@
 {
-  if (resultCode == RESULT_OK && data != null && data.getBooleanExtra(EXTRA_RESTART_ACTIVITY,false)) {
+  if (resultCode == RESULT_OK && data != null && data.getBooleanExtra(EXTRA_CHANGED,false)) {
     setShouldNotifyChange(true);
   }
   super.onActivityResult(requestCode,resultCode,data);

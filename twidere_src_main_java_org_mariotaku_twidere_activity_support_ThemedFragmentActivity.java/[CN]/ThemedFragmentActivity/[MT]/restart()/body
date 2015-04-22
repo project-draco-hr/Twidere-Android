@@ -1,3 +1,3 @@
 {
-  restartActivity(this);
+  Utils.restartActivity(this);
 }

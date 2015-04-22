@@ -1,5 +1,0 @@
-{
-  if (VALUE_THEME_NAME_TWIDERE.equals(name) || VALUE_THEME_NAME_LIGHT.equals(name))   return R.style.Theme_Twidere_Settings_Light_DarkActionBar;
- else   if (VALUE_THEME_NAME_DARK.equals(name))   return R.style.Theme_Twidere_Settings_Dark;
-  return R.style.Theme_Twidere_Settings_Light_DarkActionBar;
-}

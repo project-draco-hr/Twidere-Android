@@ -3,6 +3,8 @@
   setHasOptionsMenu(true);
   final Bundle args=getArguments();
   final FragmentActivity activity=getActivity();
+  final TwidereApplication app=TwidereApplication.getInstance(activity);
+  mKeyboardShortcutsHandler=app.getKeyboardShortcutsHandler();
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager(),null,1);
   mPagerAdapter.addTab(StatusesSearchFragment.class,args,getString(R.string.statuses),R.drawable.ic_action_twitter,0,null);
   mPagerAdapter.addTab(SearchUsersFragment.class,args,getString(R.string.users),R.drawable.ic_action_user,1,null);
