@@ -1,5 +1,0 @@
-{
-  updateTextCount();
-  if (mSendButton == null || s == null)   return;
-  mSendButton.setEnabled(mValidator.isValidTweet(s.toString()));
-}

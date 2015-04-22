@@ -5,6 +5,6 @@
   startLocationUpdateIfEnabled();
   setMenu();
   updateTextCount();
-  final int text_size=mPreferences.getInt(KEY_TEXT_SIZE,Utils.getDefaultTextSize(this));
-  mEditText.setTextSize(text_size * 1.25f);
+  final int textSize=mPreferences.getInt(KEY_TEXT_SIZE,Utils.getDefaultTextSize(this));
+  mEditText.setTextSize(textSize * 1.25f);
 }

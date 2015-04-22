@@ -1,0 +1,7 @@
+{
+  final EditTextEnterHandler enterHandler=new EditTextEnterHandler(listener,enabled);
+  editText.setOnKeyListener(enterHandler);
+  editText.setOnEditorActionListener(enterHandler);
+  editText.addTextChangedListener(enterHandler);
+  return enterHandler;
+}

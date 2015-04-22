@@ -1,8 +1,8 @@
 {
   if (draft == null)   return false;
   mEditText.setText(draft.text);
-  final int selection_end=mEditText.length();
-  mEditText.setSelection(selection_end);
+  final int selectionEnd=mEditText.length();
+  mEditText.setSelection(selectionEnd);
   mAccountsAdapter.setSelectedAccountIds(draft.account_ids);
   if (draft.media != null) {
     addMedia(Arrays.asList(draft.media));

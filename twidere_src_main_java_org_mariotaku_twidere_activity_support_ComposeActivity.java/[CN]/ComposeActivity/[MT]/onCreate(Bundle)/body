@@ -19,28 +19,12 @@
   }
   mMenuBar.setOnMenuItemClickListener(this);
   final boolean sendByEnter=mPreferences.getBoolean(KEY_QUICK_SEND);
-  mEditText.setOnKeyListener(new OnKeyListener(){
-    @Override public boolean onKey(    View v,    int keyCode,    KeyEvent event){
-      if (keyCode == KeyEvent.KEYCODE_ENTER && sendByEnter && event.getAction() == KeyEvent.ACTION_DOWN) {
-        updateStatus();
-        return true;
-      }
-      return false;
+  EditTextEnterHandler.attach(mEditText,new EnterListener(){
+    @Override public void onHitEnter(){
+      updateStatus();
     }
   }
-);
-  mEditText.setOnEditorActionListener(new OnEditorActionListener(){
-    @Override public boolean onEditorAction(    final TextView view,    final int actionId,    final KeyEvent event){
-      if (sendByEnter) {
-        if (event != null && actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
-          updateStatus();
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-);
+,sendByEnter);
   mEditText.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    final CharSequence s,    final int start,    final int count,    final int after){
     }
@@ -49,11 +33,6 @@
       updateTextCount();
     }
     @Override public void afterTextChanged(    final Editable s){
-      final int length=s.length();
-      if (sendByEnter && length > 0 && s.charAt(length - 1) == '\n') {
-        s.delete(length - 1,length);
-        updateStatus();
-      }
     }
   }
 );

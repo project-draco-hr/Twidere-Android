@@ -25,18 +25,6 @@
   accountsSpinnerAdapter.addAll(accounts);
   mAccountSpinner.setAdapter(accountsSpinnerAdapter);
   mAccountSpinner.setOnItemSelectedListener(this);
-  mUserQuery.addTextChangedListener(new TextWatcher(){
-    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
-    }
-    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
-      final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
-      mEditText.setAccountId(account.account_id);
-      searchUsers(account.account_id,ParseUtils.parseString(s),true);
-    }
-    @Override public void afterTextChanged(    Editable s){
-    }
-  }
-);
   mQueryButton.setOnClickListener(this);
   mAdapter=new MessageConversationAdapter(activity);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(viewContext);
@@ -55,10 +43,8 @@
     }
   }
 );
-  if (mPreferences.getBoolean(KEY_QUICK_SEND,false)) {
-    mEditText.setOnEditorActionListener(this);
-  }
-  mEditText.addTextChangedListener(this);
+  setupEditQuery();
+  setupEditText();
   mSendButton.setOnClickListener(this);
   mAddImageButton.setOnClickListener(this);
   mSendButton.setEnabled(false);

@@ -1,0 +1,10 @@
+{
+  if (!enabled)   return false;
+  if (event != null && actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
+    if (listener != null) {
+      listener.onHitEnter();
+    }
+    return true;
+  }
+  return false;
+}

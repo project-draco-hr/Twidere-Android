@@ -1,0 +1,6 @@
+{
+  if (textWatchers == null) {
+    textWatchers=new ArrayList<>();
+  }
+  textWatchers.add(watcher);
+}

@@ -1,0 +1,14 @@
+{
+  final int length=s.length();
+  if (enabled && length > 0 && s.charAt(length - 1) == '\n') {
+    s.delete(length - 1,length);
+    if (listener != null) {
+      listener.onHitEnter();
+    }
+  }
+ else   if (textWatchers != null) {
+    for (    TextWatcher textWatcher : textWatchers) {
+      textWatcher.afterTextChanged(s);
+    }
+  }
+}

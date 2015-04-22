@@ -3,7 +3,13 @@
   final ParcelableUser recipient=mRecipient;
   if (mAccount == null || mRecipient == null)   return;
   final String message=mEditText.getText().toString();
-  if (mValidator.isValidTweet(message)) {
+  if (TextUtils.isEmpty(message)) {
+    mEditText.setError(getString(R.string.error_message_no_content));
+  }
+ else   if (mValidator.getTweetLength(message) > mValidator.getMaxTweetLength()) {
+    mEditText.setError(getString(R.string.error_message_message_too_long));
+  }
+ else {
     mTwitterWrapper.sendDirectMessageAsync(account.account_id,recipient.id,message,mImageUri);
     mEditText.setText(null);
     mImageUri=null;

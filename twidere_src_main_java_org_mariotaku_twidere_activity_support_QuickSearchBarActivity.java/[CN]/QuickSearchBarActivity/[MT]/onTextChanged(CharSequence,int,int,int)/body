@@ -1,3 +1,0 @@
-{
-  getSupportLoaderManager().restartLoader(0,null,this);
-}

@@ -36,7 +36,7 @@
     }
   }
   mEditText.setText(Utils.getShareStatus(this,extraSubject,extraText));
-  final int selection_end=mEditText.length();
-  mEditText.setSelection(selection_end);
+  final int selectionEnd=mEditText.length();
+  mEditText.setSelection(selectionEnd);
   return true;
 }

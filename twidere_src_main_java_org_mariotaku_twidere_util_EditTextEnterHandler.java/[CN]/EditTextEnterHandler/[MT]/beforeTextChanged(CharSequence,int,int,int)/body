@@ -1,0 +1,6 @@
+{
+  if (textWatchers == null)   return;
+  for (  TextWatcher textWatcher : textWatchers) {
+    textWatcher.beforeTextChanged(s,start,count,after);
+  }
+}

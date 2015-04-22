@@ -1,0 +1,3 @@
+EditText editText
+EnterListener listener
+boolean enabled

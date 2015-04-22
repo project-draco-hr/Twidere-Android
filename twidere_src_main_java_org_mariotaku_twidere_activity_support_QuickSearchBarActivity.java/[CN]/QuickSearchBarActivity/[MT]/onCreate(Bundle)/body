@@ -22,7 +22,26 @@
   mSuggestionsList.setOnTouchListener(listener);
   mSuggestionsList.setOnScrollListener(listener.makeScrollListener());
   mSearchSubmit.setOnClickListener(this);
-  mSearchQuery.setOnEditorActionListener(this);
-  mSearchQuery.addTextChangedListener(this);
+  EditTextEnterHandler.attach(mSearchQuery,new EnterListener(){
+    @Override public void onHitEnter(){
+      doSearch();
+    }
+  }
+,true);
+  mSearchQuery.addTextChangedListener(new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      if (Utils.removeLineBreaks(s)) {
+        doSearch();
+      }
+ else {
+        getSupportLoaderManager().restartLoader(0,null,QuickSearchBarActivity.this);
+      }
+    }
+  }
+);
   getSupportLoaderManager().initLoader(0,null,this);
 }
