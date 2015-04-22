@@ -1,0 +1,4 @@
+IThemedActivity themed
+Context context
+Window window
+AppCompatCallback callback

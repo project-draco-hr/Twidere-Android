@@ -11,7 +11,7 @@ case REQUEST_EDIT_API:
         mConsumerSecret=data.getStringExtra(Accounts.CONSUMER_SECRET);
         final boolean isTwipOMode=mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE;
         mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
-        mSigninSignupContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
       }
       setSignInButton();
       invalidateOptionsMenu();

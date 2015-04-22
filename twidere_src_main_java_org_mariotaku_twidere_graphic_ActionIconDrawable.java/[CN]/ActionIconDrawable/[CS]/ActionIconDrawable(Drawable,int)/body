@@ -1,5 +1,5 @@
 {
   super(drawable);
-  mDefaultColor=defaultColor;
+  setDefaultColor(defaultColor);
   setHighlightColor(0);
 }

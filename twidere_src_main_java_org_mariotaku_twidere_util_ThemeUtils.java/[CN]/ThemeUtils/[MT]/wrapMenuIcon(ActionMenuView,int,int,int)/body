@@ -9,7 +9,7 @@
     final MenuItem item=menu.getItem(i);
     wrapMenuItemIcon(item,itemColor,excludeGroups);
     if (item.hasSubMenu()) {
-      wrapMenuIcon(menu,popupItemColor,popupItemColor,excludeGroups);
+      wrapMenuIcon(item.getSubMenu(),popupItemColor,popupItemColor,excludeGroups);
     }
     if (item.isVisible()) {
       k++;

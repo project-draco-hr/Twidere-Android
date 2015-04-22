@@ -1,3 +1,0 @@
-{
-  ViewCompat.setBackgroundTintList(this,color);
-}

@@ -1,5 +1,0 @@
-{
-  super.onSupportContentChanged();
-  mViewPager=(ViewPager)findViewById(R.id.view_pager);
-  mPagerIndicator=(TabPagerIndicator)findViewById(R.id.view_pager_tabs);
-}

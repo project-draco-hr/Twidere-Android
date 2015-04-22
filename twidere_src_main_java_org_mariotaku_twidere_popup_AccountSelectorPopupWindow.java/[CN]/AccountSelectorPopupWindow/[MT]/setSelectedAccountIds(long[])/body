@@ -1,8 +1,0 @@
-{
-  if (accountIds == null) {
-    mGridView.clearChoices();
-  }
-  for (int i=0, j=mAdapter.getCount(); i < j; i++) {
-    mGridView.setItemChecked(i,ArrayUtils.contains(accountIds,mAdapter.getItem(i).account_id));
-  }
-}

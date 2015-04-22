@@ -1,0 +1,5 @@
+{
+  super.onContentChanged();
+  mMainContent=(TintedStatusFrameLayout)findViewById(R.id.main_content);
+  setupTintStatusBar();
+}

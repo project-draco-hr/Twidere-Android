@@ -1,0 +1,6 @@
+{
+  final LayoutInflater inflater=LayoutInflater.from(mContext);
+  if (inflater.getFactory() == null) {
+    LayoutInflaterCompat.setFactory(inflater,new ThemedLayoutInflaterFactory(themed,this));
+  }
+}

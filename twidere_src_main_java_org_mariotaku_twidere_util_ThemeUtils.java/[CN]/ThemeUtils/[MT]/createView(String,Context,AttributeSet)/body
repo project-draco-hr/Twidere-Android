@@ -1,3 +1,0 @@
-{
-  return createView(name,context,attrs,0);
-}

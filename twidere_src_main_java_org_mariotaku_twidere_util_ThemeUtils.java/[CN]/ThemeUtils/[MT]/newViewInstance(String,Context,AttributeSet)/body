@@ -1,5 +1,0 @@
-{
-  final Class<?> viewCls=Class.forName(className);
-  final Constructor<?> constructor=viewCls.getConstructor(Context.class,AttributeSet.class);
-  return (View)constructor.newInstance(context,attrs);
-}

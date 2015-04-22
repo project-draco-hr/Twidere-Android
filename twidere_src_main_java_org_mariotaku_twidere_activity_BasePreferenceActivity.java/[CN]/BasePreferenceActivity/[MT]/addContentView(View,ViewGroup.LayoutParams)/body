@@ -1,0 +1,9 @@
+{
+  FrameLayout mainContent=(FrameLayout)findViewById(R.id.main_content);
+  if (mainContent == null) {
+    @SuppressLint("InflateParams") final View mainLayout=getLayoutInflater().inflate(R.layout.activity_settings,null);
+    mainContent=(FrameLayout)mainLayout.findViewById(R.id.main_content);
+  }
+  mainContent.addView(view,params);
+  onContentChanged();
+}

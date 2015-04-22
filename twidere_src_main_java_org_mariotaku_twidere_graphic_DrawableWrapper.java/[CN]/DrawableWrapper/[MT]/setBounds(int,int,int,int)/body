@@ -1,4 +1,0 @@
-{
-  super.setBounds(left,top,right,bottom);
-  mDrawable.setBounds(left,top,right,bottom);
-}

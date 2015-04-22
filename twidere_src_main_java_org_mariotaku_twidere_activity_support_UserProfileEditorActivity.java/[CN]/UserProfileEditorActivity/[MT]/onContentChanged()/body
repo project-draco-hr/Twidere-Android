@@ -1,0 +1,19 @@
+{
+  super.onContentChanged();
+  mProgressContainer=findViewById(R.id.progress_container);
+  mEditProfileContent=findViewById(R.id.edit_profile_content);
+  mProfileBannerView=(ImageView)findViewById(R.id.profile_banner);
+  mProfileImageView=(ImageView)findViewById(R.id.profile_image);
+  mEditName=(EditText)findViewById(R.id.name);
+  mEditDescription=(EditText)findViewById(R.id.description);
+  mEditLocation=(EditText)findViewById(R.id.location);
+  mEditUrl=(EditText)findViewById(R.id.url);
+  mProfileImageCamera=findViewById(R.id.profile_image_camera);
+  mProfileImageGallery=findViewById(R.id.profile_image_gallery);
+  mProfileBannerGallery=findViewById(R.id.profile_banner_gallery);
+  mProfileBannerRemove=findViewById(R.id.profile_banner_remove);
+  mLinkColor=(ForegroundColorView)findViewById(R.id.link_color);
+  mBackgroundColor=(ForegroundColorView)findViewById(R.id.background_color);
+  mSetLinkColor=findViewById(R.id.set_link_color);
+  mSetBackgroundColor=findViewById(R.id.set_background_color);
+}

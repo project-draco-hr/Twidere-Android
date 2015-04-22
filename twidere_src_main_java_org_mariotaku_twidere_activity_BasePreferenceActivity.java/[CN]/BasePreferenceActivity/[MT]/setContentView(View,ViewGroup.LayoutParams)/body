@@ -1,0 +1,6 @@
+{
+  final FrameLayout mainContent=initMainContent();
+  mainContent.removeAllViews();
+  mainContent.addView(view,params);
+  super.setContentView(mainContent);
+}

@@ -8,7 +8,6 @@
   }
  else   if (KEY_USAGE_STATISTICS.equals(key)) {
     stopService(new Intent(this,UCDService.class));
-    startUsageStatisticsServiceIfNeeded(this);
     stopService(new Intent(this,SpiceService.class));
     startUsageStatisticsServiceIfNeeded(this);
   }

@@ -1,0 +1,14 @@
+{
+  if (mMainContent == null)   return;
+  final int color=getCurrentThemeColor();
+  final int alpha=ThemeUtils.isTransparentBackground(getThemeBackgroundOption()) ? getCurrentThemeBackgroundAlpha() : 0xFF;
+  if (ThemeUtils.isDarkTheme(getCurrentThemeResourceId())) {
+    mMainContent.setColor(getResources().getColor(R.color.background_color_action_bar_dark),alpha);
+  }
+ else {
+    mMainContent.setColor(color,alpha);
+  }
+  mMainContent.setDrawShadow(false);
+  mMainContent.setDrawColor(true);
+  mMainContent.setFactor(1);
+}

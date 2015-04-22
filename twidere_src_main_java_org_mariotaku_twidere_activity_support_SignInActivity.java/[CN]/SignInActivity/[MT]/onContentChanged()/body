@@ -1,0 +1,9 @@
+{
+  super.onContentChanged();
+  mEditUsername=(EditText)findViewById(R.id.username);
+  mEditPassword=(EditText)findViewById(R.id.password);
+  mSignInButton=(Button)findViewById(R.id.sign_in);
+  mSignUpButton=(Button)findViewById(R.id.sign_up);
+  mSignInSignUpContainer=(LinearLayout)findViewById(R.id.sign_in_sign_up);
+  mUsernamePasswordContainer=(LinearLayout)findViewById(R.id.username_password);
+}

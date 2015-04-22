@@ -4,5 +4,7 @@
     StrictModeUtils.detectAllThreadPolicy();
   }
   setTheme();
+  setupWindow();
   super.onCreate(savedInstanceState);
+  setupActionBar();
 }

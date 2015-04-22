@@ -1,5 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)   return;
-  DrawableCompat.setTintList(getThumbDrawable(),color);
-  DrawableCompat.setTintList(getTrackDrawable(),color);
-}

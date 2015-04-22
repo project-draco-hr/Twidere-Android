@@ -1,0 +1,9 @@
+{
+  if (view == null)   return;
+  if (view instanceof ShapedImageView) {
+    final ShapedImageView shapedImageView=(ShapedImageView)view;
+    shapedImageView.setStyle(profileImageStyle);
+  }
+ else   if (view instanceof TextView) {
+  }
+}

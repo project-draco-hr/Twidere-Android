@@ -1,0 +1,5 @@
+{
+  final FrameLayout mainContent=initMainContent();
+  getLayoutInflater().inflate(layoutResID,mainContent,true);
+  super.setContentView(mainContent);
+}

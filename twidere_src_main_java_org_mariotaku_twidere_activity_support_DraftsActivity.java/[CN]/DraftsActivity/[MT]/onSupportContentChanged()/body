@@ -1,9 +1,0 @@
-{
-  super.onSupportContentChanged();
-  mListView=(ListView)findViewById(android.R.id.list);
-  mEmptyView=findViewById(android.R.id.empty);
-  mEmptyText=(TextView)findViewById(R.id.empty_text);
-  mEmptyIcon=(ImageView)findViewById(R.id.empty_icon);
-  mProgressContainer=findViewById(R.id.progress_container);
-  mListContainer=findViewById(R.id.list_container);
-}

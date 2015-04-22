@@ -1,0 +1,4 @@
+{
+  super.onContentChanged();
+  mMapView=(MapView)findViewById(R.id.map_view);
+}

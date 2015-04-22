@@ -1,5 +1,0 @@
-{
-  if (view.isInEditMode())   return;
-  final Context context=view.getContext();
-  view.setTypeface(ThemeUtils.getUserTypeface(context,view.getTypeface()));
-}

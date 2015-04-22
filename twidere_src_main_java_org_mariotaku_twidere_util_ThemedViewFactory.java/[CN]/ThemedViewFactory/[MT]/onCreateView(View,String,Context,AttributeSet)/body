@@ -1,3 +1,0 @@
-{
-  return ThemeUtils.createView(name,context,attrs,mThemeColor);
-}

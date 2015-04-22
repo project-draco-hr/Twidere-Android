@@ -1,3 +1,0 @@
-{
-  DrawableCompat.setHotspotBounds(mDrawable,left,top,right,bottom);
-}

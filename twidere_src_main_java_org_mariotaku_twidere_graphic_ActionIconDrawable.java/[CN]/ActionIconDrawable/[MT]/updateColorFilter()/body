@@ -1,3 +1,5 @@
 {
-  setColorFilter(mHighlightColor == 0 ? mDefaultColor : mHighlightColor,Mode.SRC_ATOP);
+  final int color=mHighlightColor == 0 ? mDefaultColor : mHighlightColor;
+  setColorFilter(color,Mode.SRC_ATOP);
+  invalidateSelf();
 }

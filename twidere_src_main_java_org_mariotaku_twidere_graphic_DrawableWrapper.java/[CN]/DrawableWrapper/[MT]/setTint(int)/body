@@ -1,3 +1,0 @@
-{
-  DrawableCompat.setTint(mDrawable,tint);
-}
