@@ -1,4 +1,0 @@
-{
-  if (mView != null)   return mView;
-  return mView=super.onCreateView(parent);
-}
