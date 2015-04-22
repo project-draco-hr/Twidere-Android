@@ -7,8 +7,7 @@
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
   final ContentListScrollListener scrollListener=getScrollListener();
-  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
-  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mKeyboardShortcutsHandler,recyclerView,layoutManager,adapter);
+  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter);
   adapter.setListener(this);
   scrollListener.setOnScrollListener(new OnScrollListener(){
     @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int newState){

@@ -3,7 +3,6 @@
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final TwidereApplication application=TwidereApplication.getInstance(getActivity());
-  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final Context viewContext=view.getContext();
   mMultiSelectManager=getMultiSelectManager();
@@ -15,10 +14,10 @@
   mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(viewContext));
   mRecyclerView.setLayoutManager(mLayoutManager);
   mRecyclerView.setAdapter(mAdapter);
-  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mKeyboardShortcutsHandler,mRecyclerView,mLayoutManager,mAdapter);
+  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mRecyclerView,mLayoutManager,mAdapter);
   final ContentListScrollListener scrollListener=new ContentListScrollListener(this);
   scrollListener.setTouchSlop(ViewConfiguration.get(viewContext).getScaledTouchSlop());
-  mRecyclerView.setOnScrollListener(scrollListener);
+  mRecyclerView.addOnScrollListener(scrollListener);
   final DividerItemDecoration itemDecoration=new DividerItemDecoration(viewContext,mLayoutManager.getOrientation());
   final Resources res=viewContext.getResources();
   final int decorPaddingLeft=res.getDimensionPixelSize(R.dimen.element_spacing_normal) * 3 + res.getDimensionPixelSize(R.dimen.icon_size_status_profile_image);

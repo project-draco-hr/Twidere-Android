@@ -1,0 +1,5 @@
+{
+  this.view=view;
+  this.manager=manager;
+  this.adapter=adapter;
+}

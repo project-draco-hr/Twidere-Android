@@ -1,0 +1,59 @@
+{
+  if (handleFragmentKeyboardShortcutSingle(handler,keyCode,event))   return true;
+  String action=handler.getKeyAction("home",keyCode,event);
+  if (action != null) {
+switch (action) {
+case "home.accounts_dashboard":
+{
+        if (mSlidingMenu.isMenuShowing()) {
+          mSlidingMenu.showContent(true);
+        }
+ else {
+          mSlidingMenu.showMenu(true);
+          setControlBarVisibleAnimate(true);
+        }
+        return true;
+      }
+  }
+}
+action=handler.getKeyAction("navigation",keyCode,event);
+if (action != null) {
+switch (action) {
+case "navigation.previous_tab":
+{
+      final int previous=mViewPager.getCurrentItem() - 1;
+      if (previous < 0) {
+        mSlidingMenu.showMenu(true);
+        setControlBarVisibleAnimate(true);
+      }
+ else       if (previous < mPagerAdapter.getCount()) {
+        if (mSlidingMenu.isSecondaryMenuShowing()) {
+          mSlidingMenu.showContent(true);
+        }
+ else {
+          mViewPager.setCurrentItem(previous,true);
+        }
+      }
+      return true;
+    }
+case "navigation.next_tab":
+{
+    final int next=mViewPager.getCurrentItem() + 1;
+    if (next >= mPagerAdapter.getCount()) {
+      mSlidingMenu.showSecondaryMenu(true);
+      setControlBarVisibleAnimate(true);
+    }
+ else     if (next >= 0) {
+      if (mSlidingMenu.isMenuShowing()) {
+        mSlidingMenu.showContent(true);
+      }
+ else {
+        mViewPager.setCurrentItem(next,true);
+      }
+    }
+    return true;
+  }
+}
+}
+return handler.handleKey(this,null,keyCode,event);
+}

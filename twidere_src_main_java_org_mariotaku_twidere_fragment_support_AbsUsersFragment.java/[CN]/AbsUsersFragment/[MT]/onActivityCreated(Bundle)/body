@@ -2,12 +2,11 @@
   super.onActivityCreated(savedInstanceState);
   final FragmentActivity activity=getActivity();
   final TwidereApplication application=TwidereApplication.getInstance(activity);
-  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   final AbsUsersAdapter<Data> adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
   adapter.setListener(this);
-  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mKeyboardShortcutsHandler,recyclerView,layoutManager,adapter);
+  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter);
   final Bundle loaderArgs=new Bundle(getArguments());
   loaderArgs.putBoolean(EXTRA_FROM_USER,true);
   getLoaderManager().initLoader(0,loaderArgs,this);

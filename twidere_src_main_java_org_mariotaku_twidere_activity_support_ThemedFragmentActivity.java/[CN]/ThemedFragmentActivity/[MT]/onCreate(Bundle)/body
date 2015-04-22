@@ -5,4 +5,5 @@
   }
   setTheme();
   super.onCreate(savedInstanceState);
+  mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

@@ -2,8 +2,9 @@
 switch (event.getActionMasked()) {
 case MotionEvent.ACTION_DOWN:
 {
-      getWindow().getDecorView().getHitRect(mWindowDecorHitRect);
-      if (!mWindowDecorHitRect.contains(Math.round(event.getX()),Math.round(event.getY()))) {
+      final Rect rect=new Rect();
+      getWindow().getDecorView().getHitRect(rect);
+      if (!rect.contains(Math.round(event.getX()),Math.round(event.getY()))) {
         onBackPressed();
         return true;
       }

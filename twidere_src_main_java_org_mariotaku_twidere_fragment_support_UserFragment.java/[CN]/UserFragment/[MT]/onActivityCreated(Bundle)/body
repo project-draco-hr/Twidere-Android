@@ -9,7 +9,6 @@
   mActionBarShadowColor=0xA0000000;
   final TwidereApplication app=TwidereApplication.getInstance(activity);
   mProfileImageLoader=app.getMediaLoaderWrapper();
-  mKeyboardShortcutsHandler=app.getKeyboardShortcutsHandler();
   final Bundle args=getArguments();
   long accountId=-1, userId=-1;
   String screenName=null;

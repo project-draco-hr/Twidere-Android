@@ -15,7 +15,6 @@
   mReadStateManager=app.getReadStateManager();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
-  mKeyboardShortcutsHandler=app.getKeyboardShortcutsHandler();
   mMultiSelectHandler.dispatchOnCreate();
   final long[] accountIds=getAccountIds(this);
   if (accountIds.length == 0) {

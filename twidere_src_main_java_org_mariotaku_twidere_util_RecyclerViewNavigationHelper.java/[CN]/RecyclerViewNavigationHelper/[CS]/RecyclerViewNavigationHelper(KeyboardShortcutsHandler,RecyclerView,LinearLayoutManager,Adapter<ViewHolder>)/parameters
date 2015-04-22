@@ -1,4 +1,0 @@
-KeyboardShortcutsHandler handler
-RecyclerView view
-LinearLayoutManager manager
-Adapter<ViewHolder> adapter

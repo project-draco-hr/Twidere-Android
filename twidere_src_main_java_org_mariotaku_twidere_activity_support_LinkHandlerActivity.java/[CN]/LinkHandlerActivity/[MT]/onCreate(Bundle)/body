@@ -6,7 +6,6 @@
   final int linkId=matchLinkId(data);
   requestWindowFeatures(getWindow(),linkId,data);
   super.onCreate(savedInstanceState);
-  mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
   final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);

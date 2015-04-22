@@ -7,7 +7,6 @@
   final Context context=view.getContext();
   final TwidereApplication application=TwidereApplication.getInstance(context);
   mImageLoader=application.getMediaLoaderWrapper();
-  mKeyboardShortcutsHandler=application.getKeyboardShortcutsHandler();
   final LayoutInflater inflater=LayoutInflater.from(context);
   final ListView listView=getListView();
   listView.setItemsCanFocus(true);

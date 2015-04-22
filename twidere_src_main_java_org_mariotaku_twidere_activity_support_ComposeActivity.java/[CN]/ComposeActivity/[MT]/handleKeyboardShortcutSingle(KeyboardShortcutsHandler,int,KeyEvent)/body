@@ -1,0 +1,23 @@
+{
+  final String action=handler.getKeyAction("navigation",keyCode,event);
+  if ("navigation.back".equals(action)) {
+    if (mEditText.length() == 0) {
+      if (!mNavigateBackPressed) {
+        final SuperToast toast=SuperToast.create(this,getString(R.string.press_again_to_close),Duration.SHORT);
+        toast.setOnDismissListener(new OnDismissListener(){
+          @Override public void onDismiss(          View view){
+            mNavigateBackPressed=false;
+          }
+        }
+);
+        toast.show();
+        mNavigateBackPressed=true;
+      }
+ else {
+        onBackPressed();
+      }
+    }
+    return true;
+  }
+  return super.handleKeyboardShortcutSingle(handler,keyCode,event);
+}

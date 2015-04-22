@@ -1,0 +1,43 @@
+{
+  final String action=handler.getKeyAction("navigation",keyCode,event);
+  if (action == null)   return false;
+  final int offset;
+switch (action) {
+case "navigation.previous":
+{
+      offset=-1;
+      break;
+    }
+case "navigation.next":
+{
+    offset=1;
+    break;
+  }
+default :
+{
+  return false;
+}
+}
+final ListView listView=getListView();
+final int firstVisiblePosition=ListViewUtils.getFirstFullyVisiblePosition(listView);
+final int selectedItem=listView.getSelectedItemPosition();
+final int count=listView.getCount();
+int resultPosition;
+if (!listView.isFocused() || selectedItem == ListView.INVALID_POSITION) {
+resultPosition=firstVisiblePosition;
+}
+ else {
+resultPosition=selectedItem + offset;
+while (resultPosition >= 0 && resultPosition < count && !mAdapter.isEnabled(resultPosition)) {
+resultPosition+=offset;
+}
+}
+final View focusedChild=listView.getFocusedChild();
+if (focusedChild == null) {
+listView.requestChildFocus(listView.getChildAt(0),null);
+}
+if (resultPosition >= 0 && resultPosition < count) {
+listView.setSelection(resultPosition);
+}
+return true;
+}

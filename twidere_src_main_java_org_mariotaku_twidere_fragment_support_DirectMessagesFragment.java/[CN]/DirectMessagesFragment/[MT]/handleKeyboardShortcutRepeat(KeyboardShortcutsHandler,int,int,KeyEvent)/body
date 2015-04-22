@@ -1,0 +1,3 @@
+{
+  return mRecyclerViewNavigationHelper.handleKeyboardShortcutRepeat(handler,keyCode,repeatCount,event);
+}

@@ -1,0 +1,4 @@
+{
+  if (handleFragmentKeyboardShortcutSingle(handler,keyCode,event))   return true;
+  return handler.handleKey(this,null,keyCode,event);
+}
