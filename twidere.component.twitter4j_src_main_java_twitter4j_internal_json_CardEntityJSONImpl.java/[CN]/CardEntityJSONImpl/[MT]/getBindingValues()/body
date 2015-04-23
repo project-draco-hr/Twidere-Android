@@ -1,3 +1,3 @@
 {
-  return bindingValues.values().toArray(new BindingValue[bindingValues.size()]);
+  return bindingValues;
 }

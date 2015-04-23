@@ -1,3 +1,0 @@
-{
-  return JSONSerializer.createArray(creator,jsonObject.optJSONArray(key));
-}

@@ -1,4 +1,0 @@
-{
-  if (jsonObject.isNull(key))   return null;
-  return new JSONArrayParcel(readJSONArray(key));
-}

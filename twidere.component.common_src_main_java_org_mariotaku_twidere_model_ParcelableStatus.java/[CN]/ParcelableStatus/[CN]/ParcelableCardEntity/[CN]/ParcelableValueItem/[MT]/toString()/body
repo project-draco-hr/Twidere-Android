@@ -1,3 +1,0 @@
-{
-  return "ParcelableValueItem{" + "name='" + name + '\''+ ", type='"+ type+ '\''+ ", value="+ value+ '}';
-}

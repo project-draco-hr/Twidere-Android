@@ -1,5 +1,12 @@
 {
   name=src.readString();
-  values=src.createTypedArray(ParcelableValueItem.CREATOR);
   users=src.createTypedArray(ParcelableUser.CREATOR);
+  final Bundle bundle=src.readBundle(ParcelableBindingValue.class.getClassLoader());
+  for (  String key : bundle.keySet()) {
+    if (values == null) {
+      values=new HashMap<>();
+    }
+    final ParcelableBindingValue value=bundle.getParcelable(key);
+    values.put(key,value);
+  }
 }

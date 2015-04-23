@@ -1,4 +1,0 @@
-{
-  if (json == null)   throw new NullPointerException();
-  jsonArray=json;
-}

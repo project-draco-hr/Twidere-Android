@@ -1,5 +1,0 @@
-{
-  this.name=in.readString();
-  this.type=in.readString();
-  this.value=in.readValue(ParcelableValueItem.class.getClassLoader());
-}

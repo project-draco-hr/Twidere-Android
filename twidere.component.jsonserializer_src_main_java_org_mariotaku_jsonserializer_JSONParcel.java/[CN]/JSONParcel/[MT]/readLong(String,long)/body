@@ -1,3 +1,0 @@
-{
-  return jsonObject.optLong(key,def);
-}

@@ -1,0 +1,4 @@
+{
+  this.type=in.readString();
+  this.value=in.readString();
+}

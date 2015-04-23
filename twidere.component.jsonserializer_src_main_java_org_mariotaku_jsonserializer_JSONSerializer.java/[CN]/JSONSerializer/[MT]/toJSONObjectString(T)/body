@@ -1,3 +1,0 @@
-{
-  return jsonToString(toJSONObject(parcelable));
-}

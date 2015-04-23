@@ -1,0 +1,15 @@
+{
+  this.type=value.getType();
+  if (BindingValue.TYPE_IMAGE.equals(type)) {
+    this.value=((ImageValue)value).getUrl();
+  }
+ else   if (BindingValue.TYPE_STRING.equals(type)) {
+    this.value=((StringValue)value).getValue();
+  }
+ else   if (BindingValue.TYPE_BOOLEAN.equals(type)) {
+    this.value=String.valueOf(((BooleanValue)value).getValue());
+  }
+ else   if (BindingValue.TYPE_USER.equals(type)) {
+    this.value=String.valueOf(((UserValue)value).getUserId());
+  }
+}

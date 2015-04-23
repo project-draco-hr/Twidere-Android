@@ -1,6 +1,6 @@
 {
-  final ParcelableValueItem player_width=ParcelableCardEntity.getValue(card,"player_width");
-  final ParcelableValueItem player_height=ParcelableCardEntity.getValue(card,"player_height");
+  final ParcelableBindingValue player_width=ParcelableCardEntity.getValue(card,"player_width");
+  final ParcelableBindingValue player_height=ParcelableCardEntity.getValue(card,"player_height");
   if (player_width != null && player_height != null) {
     final int width=ParseUtils.parseInt(String.valueOf(player_width.value));
     final int height=ParseUtils.parseInt(String.valueOf(player_height.value));

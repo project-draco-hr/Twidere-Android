@@ -1,5 +1,0 @@
-{
-  dest.writeString(name);
-  dest.writeString(type);
-  dest.writeValue(value);
-}

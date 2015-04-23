@@ -1,6 +1,4 @@
 {
-  for (  ParcelableValueItem item : entity.values) {
-    if (item.name.equals(key))     return item;
-  }
-  return null;
+  if (entity == null || entity.values == null || key == null)   return null;
+  return entity.values.get(key);
 }
