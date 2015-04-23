@@ -16,8 +16,7 @@
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
-  final long[] accountIds=getAccountIds(this);
-  if (accountIds.length == 0) {
+  if (!Utils.hasAccount(this)) {
     final Intent signInIntent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
     signInIntent.setClass(this,SignInActivity.class);
     startActivity(signInIntent);

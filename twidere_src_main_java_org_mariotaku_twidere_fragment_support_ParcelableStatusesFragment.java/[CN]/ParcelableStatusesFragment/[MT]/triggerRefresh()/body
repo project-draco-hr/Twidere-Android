@@ -1,4 +1,5 @@
 {
+  super.triggerRefresh();
   final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
   final long[] accountIds=getAccountIds();
   if (adapter.getStatusesCount() > 0) {

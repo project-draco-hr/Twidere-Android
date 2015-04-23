@@ -1,11 +1,3 @@
 {
   if (mPreferences == null)   return;
-  final long[] account_ids=getAccountIds(this);
-  final long default_id=mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,-1);
-  if (account_ids == null || account_ids.length == 0) {
-    finish();
-  }
- else   if (account_ids.length > 0 && !ArrayUtils.contains(account_ids,default_id)) {
-    mPreferences.edit().putLong(KEY_DEFAULT_ACCOUNT_ID,account_ids[0]).apply();
-  }
 }

@@ -1,4 +1,5 @@
 {
+  super.triggerRefresh();
   AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
     @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[3][];

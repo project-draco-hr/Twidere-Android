@@ -11,11 +11,11 @@
         }
 );
         toast.show();
-        mNavigateBackPressed=true;
       }
  else {
         onBackPressed();
       }
+      mNavigateBackPressed=true;
     }
  else {
       mTextChanged=false;

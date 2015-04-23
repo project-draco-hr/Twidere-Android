@@ -1,4 +1,9 @@
 {
-  if (refreshing == mSwipeRefreshLayout.isRefreshing())   return;
-  mSwipeRefreshLayout.setRefreshing(refreshing && !mAdapter.isLoadMoreIndicatorVisible());
+  final boolean currentRefreshing=mSwipeRefreshLayout.isRefreshing();
+  if (!currentRefreshing) {
+    updateRefreshProgressOffset();
+  }
+  if (refreshing == currentRefreshing)   return;
+  final boolean layoutRefreshing=refreshing && !mAdapter.isLoadMoreIndicatorVisible();
+  mSwipeRefreshLayout.setRefreshing(layoutRefreshing);
 }

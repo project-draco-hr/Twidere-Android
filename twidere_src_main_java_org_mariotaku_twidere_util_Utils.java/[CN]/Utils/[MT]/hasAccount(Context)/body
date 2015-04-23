@@ -1,0 +1,11 @@
+{
+  if (context == null)   return false;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,new String[]{SQLFunctions.COUNT()},null,null,null);
+  try {
+    cur.moveToFirst();
+    return cur.getInt(0) > 0;
+  }
+  finally {
+    cur.close();
+  }
+}

@@ -88,4 +88,6 @@
   mRecipientSelectorContainer.setVisibility(isValid ? View.GONE : View.VISIBLE);
   mUsersSearchList.setVisibility(View.GONE);
   mUsersSearchProgress.setVisibility(View.GONE);
+  mQueryTextChanged=false;
+  mTextChanged=false;
 }
