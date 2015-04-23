@@ -1,7 +1,0 @@
-Context context
-Menu menu
-int groupId
-String action
-String parelableKey
-String parelableJSONKey
-TwidereParcelable parcelable

@@ -4,7 +4,7 @@
   final int databaseItemLimit=prefs.getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
   try {
     final List<ParcelableActivity> activities=data.subList(0,Math.min(databaseItemLimit,data.size()));
-    JSONFileIO.writeArray(file,activities.toArray(new ParcelableActivity[activities.size()]));
+    LoganSquare.serialize(activities,new FileOutputStream(file),ParcelableActivity.class);
   }
  catch (  final IOException e) {
     e.printStackTrace();

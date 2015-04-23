@@ -1,5 +1,0 @@
-{
-  out.writeLong("id",id);
-  out.writeString("name",name);
-  out.writeString("screen_name",screen_name);
-}

@@ -1,9 +1,10 @@
 {
   if (TextUtils.isEmpty(json))   return null;
   try {
-    return JSONSerializer.createArray(JSON_CREATOR,new JSONArray(json));
+    final List<ParcelableMediaUpdate> list=LoganSquare.parseList(json,ParcelableMediaUpdate.class);
+    return list.toArray(new ParcelableMediaUpdate[list.size()]);
   }
- catch (  final JSONException e) {
+ catch (  final IOException e) {
     return null;
   }
 }

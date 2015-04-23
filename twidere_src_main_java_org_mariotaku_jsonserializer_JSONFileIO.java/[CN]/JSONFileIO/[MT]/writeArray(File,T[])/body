@@ -1,3 +1,0 @@
-{
-  writeArray(new FileOutputStream(file),array);
-}

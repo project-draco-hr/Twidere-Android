@@ -1,4 +1,0 @@
-{
-  out.writeLong("id",id);
-  out.writeLong("account_id",account_id);
-}

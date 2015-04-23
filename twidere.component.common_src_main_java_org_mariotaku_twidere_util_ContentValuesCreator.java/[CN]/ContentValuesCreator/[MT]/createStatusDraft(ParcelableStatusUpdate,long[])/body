@@ -8,7 +8,11 @@
   values.put(Drafts.IS_POSSIBLY_SENSITIVE,status.is_possibly_sensitive);
   values.put(Drafts.TIMESTAMP,System.currentTimeMillis());
   if (status.media != null) {
-    values.put(Drafts.MEDIA,JSONSerializer.toJSONArrayString(status.media));
+    try {
+      values.put(Drafts.MEDIA,LoganSquare.serialize(Arrays.asList(status.media),ParcelableMediaUpdate.class));
+    }
+ catch (    IOException ignored) {
+    }
   }
   return values;
 }

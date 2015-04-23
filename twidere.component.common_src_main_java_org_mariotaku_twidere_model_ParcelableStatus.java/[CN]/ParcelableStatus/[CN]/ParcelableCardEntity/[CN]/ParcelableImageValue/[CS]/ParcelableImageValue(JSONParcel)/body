@@ -1,5 +1,0 @@
-{
-  this.width=in.readInt("width");
-  this.height=in.readInt("height");
-  this.url=in.readString("url");
-}

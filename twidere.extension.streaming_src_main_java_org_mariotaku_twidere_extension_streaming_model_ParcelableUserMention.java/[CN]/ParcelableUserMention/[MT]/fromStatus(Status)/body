@@ -1,3 +1,0 @@
-{
-  return fromUserMentionEntities(status.getUserMentionEntities());
-}

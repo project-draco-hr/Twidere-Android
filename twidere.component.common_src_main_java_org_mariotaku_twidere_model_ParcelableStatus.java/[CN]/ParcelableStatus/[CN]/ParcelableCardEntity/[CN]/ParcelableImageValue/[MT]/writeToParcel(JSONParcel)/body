@@ -1,5 +1,0 @@
-{
-  dest.writeInt("width",width);
-  dest.writeInt("height",height);
-  dest.writeString("url",url);
-}

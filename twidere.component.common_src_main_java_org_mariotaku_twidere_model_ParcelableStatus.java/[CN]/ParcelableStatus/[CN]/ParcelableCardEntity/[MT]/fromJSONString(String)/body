@@ -1,9 +1,9 @@
 {
   if (TextUtils.isEmpty(json))   return null;
   try {
-    return JSONSerializer.createObject(JSON_CREATOR,new JSONObject(json));
+    return LoganSquare.parse(json,ParcelableCardEntity.class);
   }
- catch (  final JSONException e) {
+ catch (  final IOException e) {
     return null;
   }
 }

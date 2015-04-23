@@ -1,7 +1,2 @@
 {
-  final byte[] data=getSerializedRawSharedPreferencesData(context,preferencesName);
-  if (data == null)   return;
-  zos.putNextEntry(new ZipEntry(entryName));
-  zos.write(data);
-  zos.closeEntry();
 }

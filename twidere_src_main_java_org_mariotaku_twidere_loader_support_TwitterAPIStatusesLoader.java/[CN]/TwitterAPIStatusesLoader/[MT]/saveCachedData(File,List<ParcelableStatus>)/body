@@ -3,8 +3,8 @@
   final SharedPreferences prefs=mContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final int databaseItemLimit=prefs.getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
   try {
-    final List<ParcelableStatus> activities=data.subList(0,Math.min(databaseItemLimit,data.size()));
-    JSONFileIO.writeArray(file,activities.toArray(new ParcelableStatus[activities.size()]));
+    final List<ParcelableStatus> statuses=data.subList(0,Math.min(databaseItemLimit,data.size()));
+    LoganSquare.serialize(statuses,new FileOutputStream(file),ParcelableStatus.class);
   }
  catch (  final IOException e) {
     e.printStackTrace();

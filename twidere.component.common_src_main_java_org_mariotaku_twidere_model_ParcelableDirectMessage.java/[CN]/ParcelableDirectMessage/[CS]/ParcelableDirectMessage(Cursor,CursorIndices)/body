@@ -1,6 +1,6 @@
 {
   account_id=idx.account_id != -1 ? c.getLong(idx.account_id) : -1;
-  is_outgoing=idx.is_outgoing != -1 ? c.getShort(idx.is_outgoing) == 1 : null;
+  is_outgoing=idx.is_outgoing != -1 && c.getShort(idx.is_outgoing) == 1;
   id=idx.message_id != -1 ? c.getLong(idx.message_id) : -1;
   timestamp=idx.message_timestamp != -1 ? c.getLong(idx.message_timestamp) : -1;
   sender_id=idx.sender_id != -1 ? c.getLong(idx.sender_id) : -1;

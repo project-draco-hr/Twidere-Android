@@ -1,5 +1,0 @@
-{
-  name=src.readString("name");
-  values=src.readParcelableArray("values",ParcelableValueItem.JSON_CREATOR);
-  users=src.readParcelableArray("users",ParcelableUser.JSON_CREATOR);
-}

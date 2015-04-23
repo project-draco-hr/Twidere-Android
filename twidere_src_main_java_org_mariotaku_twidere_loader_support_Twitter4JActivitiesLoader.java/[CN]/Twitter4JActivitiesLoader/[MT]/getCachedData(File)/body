@@ -1,7 +1,7 @@
 {
   if (file == null)   return null;
   try {
-    return JSONFileIO.readArrayList(file);
+    return LoganSquare.parseList(new FileInputStream(file),ParcelableActivity.class);
   }
  catch (  final IOException e) {
     e.printStackTrace();

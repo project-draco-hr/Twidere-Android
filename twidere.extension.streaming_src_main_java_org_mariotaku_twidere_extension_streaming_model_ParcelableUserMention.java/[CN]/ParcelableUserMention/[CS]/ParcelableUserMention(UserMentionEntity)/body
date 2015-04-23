@@ -1,5 +1,0 @@
-{
-  id=entity.getId();
-  name=entity.getName();
-  screen_name=entity.getScreenName();
-}

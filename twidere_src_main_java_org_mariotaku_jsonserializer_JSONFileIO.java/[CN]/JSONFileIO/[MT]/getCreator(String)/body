@@ -1,9 +1,0 @@
-{
-  try {
-    final Class<?> cls=Class.forName(name);
-    return (JSONParcelable.Creator<T>)cls.getField("JSON_CREATOR").get(null);
-  }
- catch (  final Exception e) {
-    throw new IOException(e);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  dest.writeString("name",name);
-  dest.writeParcelableArray("values",values);
-  dest.writeParcelableArray("users",users);
-}

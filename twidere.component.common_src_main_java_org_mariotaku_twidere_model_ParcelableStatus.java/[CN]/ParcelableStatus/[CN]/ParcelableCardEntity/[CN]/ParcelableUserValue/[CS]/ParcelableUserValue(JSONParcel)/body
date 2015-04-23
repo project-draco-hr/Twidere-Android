@@ -1,3 +1,0 @@
-{
-  this.id=in.readLong("id");
-}

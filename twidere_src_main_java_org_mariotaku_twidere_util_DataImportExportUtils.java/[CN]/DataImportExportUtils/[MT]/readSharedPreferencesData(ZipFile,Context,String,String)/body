@@ -1,9 +1,2 @@
 {
-  final ZipEntry entry=zipFile.getEntry(entryName);
-  if (entry == null)   return;
-  final JSONObject json=JSONFileIO.convertJSONObject(zipFile.getInputStream(entry));
-  final SharedPreferencesData data=JSONSerializer.createObject(SharedPreferencesData.JSON_CREATOR,json);
-  if (data != null) {
-    data.writeToSharedPreferences(context.getSharedPreferences(preferencesName,Context.MODE_PRIVATE));
-  }
 }

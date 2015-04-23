@@ -1,8 +1,0 @@
-{
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (!(obj instanceof ParcelableUserMention))   return false;
-  final ParcelableUserMention other=(ParcelableUserMention)obj;
-  if (id != other.id)   return false;
-  return true;
-}

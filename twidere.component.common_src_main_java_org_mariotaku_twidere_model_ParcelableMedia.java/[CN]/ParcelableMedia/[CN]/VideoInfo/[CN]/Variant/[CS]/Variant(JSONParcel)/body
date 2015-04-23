@@ -1,5 +1,0 @@
-{
-  content_type=source.readString("content_type");
-  url=source.readString("url");
-  bitrate=source.readLong("bitrate");
-}
