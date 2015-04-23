@@ -1,10 +1,12 @@
 {
   super.onCreate(savedInstanceState);
-  mActionBar=getSupportActionBar();
-  mActionBar.setDisplayHomeAsUpEnabled(true);
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
   setContentView(R.layout.activity_media_viewer);
-  mAdapter=new MediaPagerAdapter(this);
-  mViewPager.setAdapter(mAdapter);
+  mPagerAdapter=new MediaPagerAdapter(this);
+  mViewPager.setAdapter(mPagerAdapter);
   mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.element_spacing_normal));
   mViewPager.setOnPageChangeListener(this);
   mIndicator.setSelectedColor(getCurrentThemeColor());
@@ -13,7 +15,7 @@
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
   final ParcelableMedia[] media=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);
   final ParcelableMedia currentMedia=intent.getParcelableExtra(EXTRA_CURRENT_MEDIA);
-  mAdapter.setMedia(accountId,media);
+  mPagerAdapter.setMedia(accountId,media);
   mIndicator.notifyDataSetChanged();
   final int currentIndex=ArrayUtils.indexOf(media,currentMedia);
   if (currentIndex != -1) {

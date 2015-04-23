@@ -1,10 +1,11 @@
 {
-  if (mActionBar == null)   return;
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
   if (visible) {
-    mActionBar.show();
+    actionBar.show();
   }
  else {
-    mActionBar.hide();
+    actionBar.hide();
   }
   mIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
   mMediaStatusContainer.setVisibility(isMediaStatusEnabled() && visible ? View.VISIBLE : View.GONE);

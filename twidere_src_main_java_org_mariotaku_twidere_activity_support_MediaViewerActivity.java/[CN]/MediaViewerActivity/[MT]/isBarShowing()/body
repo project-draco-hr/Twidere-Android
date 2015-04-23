@@ -1,4 +1,5 @@
 {
-  if (mActionBar == null)   return false;
-  return mActionBar.isShowing();
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return false;
+  return actionBar.isShowing();
 }
