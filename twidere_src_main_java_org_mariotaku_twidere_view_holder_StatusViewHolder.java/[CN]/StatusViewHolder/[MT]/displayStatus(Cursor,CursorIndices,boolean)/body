@@ -19,7 +19,7 @@
   final String card_name=cursor.getString(indices.card_name);
   final String place_full_name=cursor.getString(indices.place_full_name);
   final boolean sensitive=cursor.getShort(indices.is_possibly_sensitive) == 1;
-  final ParcelableMedia[] media=SimpleValueSerializer.fromSerializedString(cursor.getString(indices.media),ParcelableMedia.SIMPLE_CREATOR);
+  final ParcelableMedia[] media=ParcelableMedia.fromSerializedJson(cursor.getString(indices.media));
   final ParcelableLocation location=ParcelableLocation.fromString(cursor.getString(indices.location));
   if (retweet_id > 0) {
     final long retweeted_by_id=cursor.getLong(indices.retweeted_by_user_id);

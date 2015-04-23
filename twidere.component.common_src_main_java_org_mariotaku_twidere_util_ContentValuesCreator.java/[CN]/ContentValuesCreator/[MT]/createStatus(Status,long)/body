@@ -35,6 +35,10 @@
     values.put(Statuses.QUOTE_TEXT_UNESCAPED,toPlainText(textHtml));
     values.put(Statuses.QUOTE_TIMESTAMP,orig.getCreatedAt().getTime());
     values.put(Statuses.QUOTE_SOURCE,orig.getSource());
+    final ParcelableMedia[] quoteMedia=ParcelableMedia.fromStatus(orig);
+    if (quoteMedia != null) {
+      values.put(Statuses.QUOTE_MEDIA_JSON,JSONSerializer.toJSONArrayString(quoteMedia));
+    }
     values.put(Statuses.QUOTED_BY_USER_ID,quotedById);
     values.put(Statuses.QUOTED_BY_USER_NAME,quoteUser.getName());
     values.put(Statuses.QUOTED_BY_USER_SCREEN_NAME,quoteUser.getScreenName());
@@ -92,11 +96,11 @@
   values.put(Statuses.IS_FAVORITE,status.isFavorited());
   final ParcelableMedia[] media=ParcelableMedia.fromStatus(status);
   if (media != null) {
-    values.put(Statuses.MEDIA_LIST,SimpleValueSerializer.toSerializedString(media));
+    values.put(Statuses.MEDIA_JSON,JSONSerializer.toJSONArrayString(media));
   }
   final ParcelableUserMention[] mentions=ParcelableUserMention.fromStatus(status);
   if (mentions != null) {
-    values.put(Statuses.MENTIONS_LIST,SimpleValueSerializer.toSerializedString(mentions));
+    values.put(Statuses.MENTIONS_JSON,JSONSerializer.toJSONArrayString(mentions));
   }
   final ParcelableCardEntity card=ParcelableCardEntity.fromCardEntity(status.getCard(),accountId);
   if (card != null) {

@@ -1,0 +1,25 @@
+{
+  reader.beginObject();
+  while (reader.hasNext()) {
+switch (reader.nextName()) {
+case "variants":
+{
+        reader.beginArray();
+        variants=JsonSerializationUtils.array(reader,Variant.class);
+        reader.endArray();
+        break;
+      }
+case "duration":
+{
+      duration=reader.nextLong();
+      break;
+    }
+default :
+{
+    reader.skipValue();
+    break;
+  }
+}
+}
+reader.endObject();
+}

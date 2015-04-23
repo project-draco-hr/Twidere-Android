@@ -1,0 +1,60 @@
+{
+  reader.beginObject();
+  while (reader.hasNext()) {
+switch (reader.nextName()) {
+case "media_url":
+{
+        media_url=reader.nextString();
+        break;
+      }
+case "page_url":
+{
+      page_url=reader.nextString();
+      break;
+    }
+case "preview_url":
+{
+    preview_url=reader.nextString();
+    break;
+  }
+case "start":
+{
+  start=reader.nextInt();
+  break;
+}
+case "end":
+{
+end=reader.nextInt();
+break;
+}
+case "type":
+{
+type=reader.nextInt();
+break;
+}
+case "width":
+{
+width=reader.nextInt();
+break;
+}
+case "height":
+{
+height=reader.nextInt();
+break;
+}
+case "video_info":
+{
+reader.beginObject();
+video_info=JsonSerializationUtils.object(reader,VideoInfo.class);
+reader.endObject();
+break;
+}
+default :
+{
+reader.skipValue();
+break;
+}
+}
+}
+reader.endObject();
+}

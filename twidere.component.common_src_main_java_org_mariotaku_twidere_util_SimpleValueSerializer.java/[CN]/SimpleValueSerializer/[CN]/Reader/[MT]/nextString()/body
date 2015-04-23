@@ -1,6 +1,0 @@
-{
-  if (lastToken != DIVIDER_KEY_VALUE) {
-    throw new SerializationException();
-  }
-  return peek();
-}

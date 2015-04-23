@@ -1,0 +1,20 @@
+{
+  if (TextUtils.isEmpty(string))   return null;
+  JsonReader reader=new JsonReader(new StringReader(string));
+  try {
+    reader.beginArray();
+    final ParcelableMedia[] media=JsonSerializationUtils.array(reader,ParcelableMedia.class);
+    reader.endArray();
+    return media;
+  }
+ catch (  IOException ignore) {
+    return null;
+  }
+ finally {
+    try {
+      reader.close();
+    }
+ catch (    IOException ignore) {
+    }
+  }
+}

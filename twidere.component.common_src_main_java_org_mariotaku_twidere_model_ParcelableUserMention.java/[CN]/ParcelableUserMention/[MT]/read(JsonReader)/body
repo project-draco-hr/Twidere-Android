@@ -1,0 +1,28 @@
+{
+  reader.beginObject();
+  while (reader.hasNext()) {
+switch (reader.nextName()) {
+case "id":
+{
+        id=reader.nextLong();
+        break;
+      }
+case "name":
+{
+      name=reader.nextString();
+      break;
+    }
+case "screen_name":
+{
+    screen_name=reader.nextString();
+    break;
+  }
+default :
+{
+  reader.skipValue();
+  break;
+}
+}
+}
+reader.endObject();
+}

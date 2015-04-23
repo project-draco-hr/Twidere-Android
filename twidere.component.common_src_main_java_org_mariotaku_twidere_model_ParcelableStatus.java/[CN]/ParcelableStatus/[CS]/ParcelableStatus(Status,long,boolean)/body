@@ -47,6 +47,7 @@
   user_is_following=user.isFollowing();
   text_html=TwitterContentUtils.formatStatusText(status);
   media=ParcelableMedia.fromStatus(status);
+  quote_media=quoted != null ? ParcelableMedia.fromStatus(orig) : null;
   text_plain=status.getText();
   retweet_count=status.getRetweetCount();
   favorite_count=status.getFavoriteCount();

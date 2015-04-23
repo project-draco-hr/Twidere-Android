@@ -30,6 +30,7 @@
   out.writeString("source",source);
   out.writeString("profile_image_url",user_profile_image_url);
   out.writeParcelableArray("media",media);
+  out.writeParcelableArray("quote_media",quote_media);
   out.writeParcelable("location",location);
   out.writeLong("my_retweet_id",my_retweet_id);
   out.writeBoolean("is_possibly_sensitive",is_possibly_sensitive);

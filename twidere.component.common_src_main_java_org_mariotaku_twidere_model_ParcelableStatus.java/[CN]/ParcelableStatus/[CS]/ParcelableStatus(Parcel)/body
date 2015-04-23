@@ -27,6 +27,7 @@
   source=in.readString();
   user_profile_image_url=in.readString();
   media=in.createTypedArray(ParcelableMedia.CREATOR);
+  quote_media=in.createTypedArray(ParcelableMedia.CREATOR);
   location=in.readParcelable(ParcelableLocation.class.getClassLoader());
   my_retweet_id=in.readLong();
   is_possibly_sensitive=in.readByte() == 1;

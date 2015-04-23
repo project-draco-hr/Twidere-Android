@@ -1,3 +1,3 @@
 {
-  return "VideoInfo{" + "variants=" + Arrays.toString(variants) + ", aspect_ratio="+ Arrays.toString(aspect_ratio)+ ", duration="+ duration+ '}';
+  return "VideoInfo{" + "variants=" + Arrays.toString(variants) + ", duration="+ duration+ '}';
 }

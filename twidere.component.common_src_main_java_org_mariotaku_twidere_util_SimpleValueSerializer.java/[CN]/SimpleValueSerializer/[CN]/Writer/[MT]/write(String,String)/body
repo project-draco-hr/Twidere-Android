@@ -1,8 +1,0 @@
-{
-  if (keyValuesCount++ > 0) {
-    stringBuilder.append(DIVIDER_OBJECT_FIELD);
-  }
-  stringBuilder.append(escape(key));
-  stringBuilder.append(DIVIDER_KEY_VALUE);
-  stringBuilder.append(escape(value));
-}

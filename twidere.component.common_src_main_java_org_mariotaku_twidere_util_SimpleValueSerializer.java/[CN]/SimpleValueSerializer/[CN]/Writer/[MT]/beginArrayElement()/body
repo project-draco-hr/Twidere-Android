@@ -1,6 +1,0 @@
-{
-  keyValuesCount=0;
-  if (stringBuilder.length() > 0) {
-    stringBuilder.append(DIVIDER_ARRAY_ELEMENT);
-  }
-}

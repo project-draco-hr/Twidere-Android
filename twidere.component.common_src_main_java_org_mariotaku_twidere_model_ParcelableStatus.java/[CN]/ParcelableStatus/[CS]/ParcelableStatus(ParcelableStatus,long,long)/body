@@ -27,6 +27,7 @@
   source=orig.source;
   user_profile_image_url=orig.user_profile_image_url;
   media=orig.media;
+  quote_media=orig.quote_media;
   location=orig.location;
   my_retweet_id=override_my_retweet_id;
   is_possibly_sensitive=orig.is_possibly_sensitive;

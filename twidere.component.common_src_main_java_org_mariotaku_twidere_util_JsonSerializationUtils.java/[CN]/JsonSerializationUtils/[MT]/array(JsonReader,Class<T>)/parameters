@@ -1,0 +1,2 @@
+JsonReader reader
+Class<T> cls

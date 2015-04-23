@@ -1,5 +1,4 @@
 {
   variants=Variant.fromMediaEntityVariants(videoInfo.getVariants());
-  aspect_ratio=videoInfo.getAspectRatio();
   duration=videoInfo.getDuration();
 }

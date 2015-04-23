@@ -1,5 +1,4 @@
 {
   variants=in.createTypedArray(Variant.CREATOR);
-  aspect_ratio=in.createLongArray();
   duration=in.readLong();
 }

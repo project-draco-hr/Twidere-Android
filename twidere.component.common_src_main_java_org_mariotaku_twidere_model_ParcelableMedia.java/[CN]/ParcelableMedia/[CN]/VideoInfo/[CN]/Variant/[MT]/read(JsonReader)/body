@@ -1,0 +1,28 @@
+{
+  reader.beginObject();
+  while (reader.hasNext()) {
+switch (reader.nextName()) {
+case "content_type":
+{
+        content_type=reader.nextString();
+        break;
+      }
+case "url":
+{
+      url=reader.nextString();
+      break;
+    }
+case "bitrate":
+{
+    bitrate=reader.nextLong();
+    break;
+  }
+default :
+{
+  reader.skipValue();
+  break;
+}
+}
+}
+reader.endObject();
+}

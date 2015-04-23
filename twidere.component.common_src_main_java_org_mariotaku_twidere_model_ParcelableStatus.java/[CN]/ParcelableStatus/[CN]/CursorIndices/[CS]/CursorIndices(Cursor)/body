@@ -47,8 +47,9 @@
   descendent_reply_count=cursor.getColumnIndex(Statuses.DESCENDENT_REPLY_COUNT);
   is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
   is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
-  media=cursor.getColumnIndex(Statuses.MEDIA_LIST);
-  mentions=cursor.getColumnIndex(Statuses.MENTIONS_LIST);
+  media=cursor.getColumnIndex(Statuses.MEDIA_JSON);
+  mentions=cursor.getColumnIndex(Statuses.MENTIONS_JSON);
+  quote_media=cursor.getColumnIndex(Statuses.QUOTE_MEDIA_JSON);
   card=cursor.getColumnIndex(Statuses.CARD);
   card_name=cursor.getColumnIndex(Statuses.CARD_NAME);
   place_full_name=cursor.getColumnIndex(Statuses.PLACE_FULL_NAME);

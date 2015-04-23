@@ -21,7 +21,8 @@
   retweeted_by_screen_name=idx.retweeted_by_user_screen_name != -1 ? c.getString(idx.retweeted_by_user_screen_name) : null;
   retweeted_by_profile_image=idx.retweeted_by_user_profile_image != -1 ? c.getString(idx.retweeted_by_user_profile_image) : null;
   text_html=idx.text_html != -1 ? c.getString(idx.text_html) : null;
-  media=SimpleValueSerializer.fromSerializedString(idx.media != -1 ? c.getString(idx.media) : null,ParcelableMedia.SIMPLE_CREATOR);
+  media=idx.media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.media)) : null;
+  quote_media=idx.quote_media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.quote_media)) : null;
   text_plain=idx.text_plain != -1 ? c.getString(idx.text_plain) : null;
   user_name=idx.user_name != -1 ? c.getString(idx.user_name) : null;
   user_screen_name=idx.user_screen_name != -1 ? c.getString(idx.user_screen_name) : null;
@@ -34,7 +35,7 @@
   my_retweet_id=idx.my_retweet_id != -1 ? c.getLong(idx.my_retweet_id) : -1;
   is_possibly_sensitive=idx.is_possibly_sensitive != -1 && c.getInt(idx.is_possibly_sensitive) == 1;
   user_is_following=idx.is_following != -1 && c.getInt(idx.is_following) == 1;
-  mentions=idx.mentions != -1 ? ParcelableUserMention.fromJSONString(c.getString(idx.mentions)) : null;
+  mentions=idx.mentions != -1 ? ParcelableUserMention.fromSerializedJson(c.getString(idx.mentions)) : null;
   card=idx.card != -1 ? ParcelableCardEntity.fromJSONString(c.getString(idx.card)) : null;
   place_full_name=idx.place_full_name != -1 ? c.getString(idx.place_full_name) : null;
   is_quote=idx.is_quote != -1 && c.getShort(idx.is_quote) == 1;

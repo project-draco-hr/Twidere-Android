@@ -27,6 +27,7 @@
   out.writeString(source);
   out.writeString(user_profile_image_url);
   out.writeTypedArray(media,flags);
+  out.writeTypedArray(quote_media,flags);
   out.writeParcelable(location,flags);
   out.writeLong(my_retweet_id);
   out.writeByte((byte)(is_possibly_sensitive ? 1 : 0));

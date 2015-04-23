@@ -29,7 +29,7 @@
   values.put(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL,recipient_profile_image_url);
   final ParcelableMedia[] mediaArray=ParcelableMedia.fromEntities(message);
   if (mediaArray != null) {
-    values.put(DirectMessages.MEDIA_LIST,SimpleValueSerializer.toSerializedString(mediaArray));
+    values.put(DirectMessages.MEDIA_JSON,JSONSerializer.toJSONArrayString(mediaArray));
   }
   return values;
 }

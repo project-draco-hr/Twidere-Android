@@ -1,0 +1,5 @@
+{
+  writer.name("id").value(id);
+  writer.name("name").value(name);
+  writer.name("screen_name").value(screen_name);
+}
