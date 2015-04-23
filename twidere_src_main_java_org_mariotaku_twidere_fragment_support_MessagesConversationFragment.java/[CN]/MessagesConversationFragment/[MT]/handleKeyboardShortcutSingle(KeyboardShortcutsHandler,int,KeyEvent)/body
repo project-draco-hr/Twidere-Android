@@ -1,0 +1,31 @@
+{
+  final String action=handler.getKeyAction(CONTEXT_TAG_NAVIGATION,keyCode,event);
+  if (ACTION_NAVIGATION_BACK.equals(action)) {
+    final boolean showingConversation=isShowingConversation();
+    final EditText editText=showingConversation ? mEditText : mEditUserQuery;
+    final boolean textChanged=showingConversation ? mTextChanged : mQueryTextChanged;
+    if (editText.length() == 0 && !textChanged) {
+      final FragmentActivity activity=getActivity();
+      if (!mNavigateBackPressed) {
+        final SuperToast toast=SuperToast.create(activity,getString(R.string.press_again_to_close),Duration.SHORT);
+        toast.setOnDismissListener(new OnDismissListener(){
+          @Override public void onDismiss(          View view){
+            mNavigateBackPressed=false;
+          }
+        }
+);
+        toast.show();
+        mNavigateBackPressed=true;
+      }
+ else {
+        activity.onBackPressed();
+      }
+    }
+ else {
+      mQueryTextChanged=false;
+      mTextChanged=false;
+    }
+    return true;
+  }
+  return false;
+}

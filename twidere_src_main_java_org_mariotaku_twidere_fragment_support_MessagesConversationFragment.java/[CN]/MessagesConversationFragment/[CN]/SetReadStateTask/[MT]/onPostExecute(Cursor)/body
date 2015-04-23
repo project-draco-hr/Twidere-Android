@@ -4,6 +4,5 @@
     final String key=mAccount.account_id + "-" + mRecipient.id;
     mReadStateManager.setPosition(TAB_TYPE_DIRECT_MESSAGES,key,cursor.getLong(messageIdIdx),false);
   }
-  Log.d(LOGTAG,Arrays.toString(mReadStateManager.getPositionPairs(TAB_TYPE_DIRECT_MESSAGES)));
   cursor.close();
 }

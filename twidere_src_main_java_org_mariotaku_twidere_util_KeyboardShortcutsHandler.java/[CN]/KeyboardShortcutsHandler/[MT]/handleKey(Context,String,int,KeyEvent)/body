@@ -2,17 +2,17 @@
   final String action=getKeyAction(contextTag,keyCode,event);
   if (action == null)   return false;
 switch (action) {
-case "compose":
+case ACTION_COMPOSE:
 {
       context.startActivity(new Intent(context,ComposeActivity.class).setAction(INTENT_ACTION_COMPOSE));
       return true;
     }
-case "search":
+case ACTION_SEARCH:
 {
     context.startActivity(new Intent(context,QuickSearchBarActivity.class).setAction(INTENT_ACTION_QUICK_SEARCH));
     return true;
   }
-case "message":
+case ACTION_MESSAGE:
 {
   Utils.openMessageConversation(context,-1,-1);
   return true;

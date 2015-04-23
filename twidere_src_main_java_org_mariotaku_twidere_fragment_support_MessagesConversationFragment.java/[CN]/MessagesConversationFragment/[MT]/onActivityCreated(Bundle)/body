@@ -17,7 +17,7 @@
   actionBar.setCustomView(R.layout.actionbar_custom_view_message_user_picker);
   final View actionBarView=actionBar.getCustomView();
   mAccountSpinner=(Spinner)actionBarView.findViewById(R.id.account_spinner);
-  mUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
+  mEditUserQuery=(EditText)actionBarView.findViewById(R.id.user_query);
   mQueryButton=actionBarView.findViewById(R.id.query_button);
   final List<ParcelableAccount> accounts=ParcelableAccount.getAccountsList(activity,false);
   final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(actionBar.getThemedContext(),R.layout.spinner_item_account_icon);

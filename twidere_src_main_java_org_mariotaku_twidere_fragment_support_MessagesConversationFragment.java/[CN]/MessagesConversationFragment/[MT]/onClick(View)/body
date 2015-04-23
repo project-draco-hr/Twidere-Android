@@ -22,7 +22,7 @@ case R.id.item_profile_image:
 case R.id.query_button:
 {
 final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
-searchUsers(account.account_id,ParseUtils.parseString(mUserQuery.getText()),false);
+searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
 break;
 }
 }

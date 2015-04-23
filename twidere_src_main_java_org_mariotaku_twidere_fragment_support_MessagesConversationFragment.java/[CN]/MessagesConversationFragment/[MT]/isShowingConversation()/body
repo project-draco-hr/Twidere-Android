@@ -1,0 +1,3 @@
+{
+  return mConversationContainer.getVisibility() == View.VISIBLE;
+}

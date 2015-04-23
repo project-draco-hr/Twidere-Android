@@ -1,17 +1,17 @@
 {
   final Editor editor=mPreferences.edit();
   editor.clear();
-  editor.putString("n","compose");
-  editor.putString("m","message");
-  editor.putString("slash","search");
-  editor.putString("home.q","home.accounts_dashboard");
-  editor.putString("navigation.period","navigation.refresh");
-  editor.putString("navigation.j","navigation.next");
-  editor.putString("navigation.k","navigation.previous");
-  editor.putString("navigation.h","navigation.previous_tab");
-  editor.putString("navigation.l","navigation.next_tab");
-  editor.putString("status.f","status.favorite");
-  editor.putString("status.r","status.reply");
-  editor.putString("status.t","status.retweet");
+  editor.putString("n",ACTION_COMPOSE);
+  editor.putString("m",ACTION_MESSAGE);
+  editor.putString("slash",ACTION_SEARCH);
+  editor.putString("home.q",ACTION_HOME_ACCOUNTS_DASHBOARD);
+  editor.putString("navigation.period",ACTION_NAVIGATION_REFRESH);
+  editor.putString("navigation.j",ACTION_NAVIGATION_NEXT);
+  editor.putString("navigation.k",ACTION_NAVIGATION_PREVIOUS);
+  editor.putString("navigation.h",ACTION_NAVIGATION_PREVIOUS_TAB);
+  editor.putString("navigation.l",ACTION_NAVIGATION_NEXT_TAB);
+  editor.putString("status.f",ACTION_STATUS_FAVORITE);
+  editor.putString("status.r",ACTION_STATUS_REPLY);
+  editor.putString("status.t",ACTION_STATUS_RETWEET);
   editor.apply();
 }

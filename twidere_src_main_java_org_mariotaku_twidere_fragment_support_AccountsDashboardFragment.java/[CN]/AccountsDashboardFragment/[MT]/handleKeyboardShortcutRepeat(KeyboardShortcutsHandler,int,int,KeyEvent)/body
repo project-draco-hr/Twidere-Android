@@ -1,14 +1,14 @@
 {
-  final String action=handler.getKeyAction("navigation",keyCode,event);
+  final String action=handler.getKeyAction(CONTEXT_TAG_NAVIGATION,keyCode,event);
   if (action == null)   return false;
   final int offset;
 switch (action) {
-case "navigation.previous":
+case ACTION_NAVIGATION_PREVIOUS:
 {
       offset=-1;
       break;
     }
-case "navigation.next":
+case ACTION_NAVIGATION_NEXT:
 {
     offset=1;
     break;
