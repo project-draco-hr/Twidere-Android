@@ -1,3 +1,8 @@
 {
+  String action=handler.getKeyAction(CONTEXT_TAG_NAVIGATION,keyCode,event);
+  if (ACTION_NAVIGATION_REFRESH.equals(action)) {
+    triggerRefresh();
+    return true;
+  }
   return false;
 }

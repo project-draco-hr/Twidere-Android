@@ -15,7 +15,6 @@
   mMainContent.setOnFitSystemWindowsListener(this);
   setStatusBarColor(linkId,data);
   setTaskInfo(linkId,data);
-  setSupportProgressBarIndeterminateVisibility(false);
   if (!showFragment(linkId,data)) {
     finish();
   }

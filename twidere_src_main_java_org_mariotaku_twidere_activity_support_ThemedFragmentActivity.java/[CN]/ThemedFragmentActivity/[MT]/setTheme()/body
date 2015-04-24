@@ -4,6 +4,7 @@
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
   mProfileImageStyle=Utils.getProfileImageStyle(this);
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
+  mCurrentThemeFontFamily=getThemeFontFamily();
   setTheme(mCurrentThemeResource);
   ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
 }

@@ -1,5 +1,0 @@
-{
-  final View view=super.onCreateView(name,context,attrs);
-  ThemeUtils.initView(view,getCurrentThemeColor(),mProfileImageStyle);
-  return view;
-}

@@ -7,4 +7,5 @@
   setupWindow();
   super.onCreate(savedInstanceState);
   setupActionBar();
+  mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

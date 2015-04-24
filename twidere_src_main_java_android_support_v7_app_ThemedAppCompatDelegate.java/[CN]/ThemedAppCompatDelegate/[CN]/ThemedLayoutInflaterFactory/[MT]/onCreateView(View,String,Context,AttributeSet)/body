@@ -1,5 +1,5 @@
 {
   final View createdView=delegate.onCreateView(view,s,context,attributeSet);
-  ThemeUtils.initView(createdView,activity.getCurrentThemeColor(),activity.getCurrentProfileImageStyle());
+  ThemeUtils.initView(createdView,activity);
   return createdView;
 }
