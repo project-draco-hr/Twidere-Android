@@ -4,7 +4,11 @@
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mLinkify=new TwidereLinkify(new DirectMessageOnLinkClickHandler(context,null));
   mMultiSelectManager=app.getMultiSelectManager();
-  mImageLoader=app.getMediaLoaderWrapper();
+  mMediaLoader=app.getMediaLoaderWrapper();
+  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+  mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mIncomingMessageColor=ThemeUtils.getUserAccentColor(context);
   mOutgoingMessageColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));

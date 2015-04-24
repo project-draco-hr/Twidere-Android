@@ -1,0 +1,4 @@
+{
+  text.setTextSize(textSize);
+  time.setTextSize(textSize * 0.75f);
+}

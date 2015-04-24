@@ -5,7 +5,7 @@ case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
 {
       final Cursor c=mCursor;
       c.moveToPosition(getCursorPosition(position));
-      ((MessageConversationViewHolder)holder).displayMessage(c,mIndices);
+      ((MessageViewHolder)holder).displayMessage(c,mIndices);
     }
 }
 }

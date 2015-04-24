@@ -15,12 +15,18 @@
     }
   }
  catch (  Exception e) {
-    final WebView webView=new WebView(context);
+    WebView webView=null;
     try {
+      webView=new WebView(context);
       return webView.getSettings().getUserAgentString();
     }
-  finally {
-      webView.destroy();
+ catch (    Exception e2) {
+      return System.getProperty("http.agent");
+    }
+ finally {
+      if (webView != null) {
+        webView.destroy();
+      }
     }
   }
 }
