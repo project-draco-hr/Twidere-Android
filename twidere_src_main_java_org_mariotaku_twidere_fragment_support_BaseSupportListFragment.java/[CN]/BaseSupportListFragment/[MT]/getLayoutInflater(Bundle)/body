@@ -1,0 +1,11 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (!(activity instanceof IThemedActivity)) {
+    return super.getLayoutInflater(savedInstanceState);
+  }
+  final LayoutInflater inflater=activity.getLayoutInflater().cloneInContext(getThemedContext());
+  getChildFragmentManager();
+  final LayoutInflaterFactory delegate=FragmentManagerTrojan.getLayoutInflaterFactory(getChildFragmentManager());
+  LayoutInflaterCompat.setFactory(inflater,new ThemedLayoutInflaterFactory((IThemedActivity)activity,delegate));
+  return inflater;
+}

@@ -1,20 +1,6 @@
 {
   View view=super.createView(parent,name,context,attrs);
-  if (view == null && name.contains(".")) {
-    try {
-      Constructor<?> constructor=sConstructorCache.get(name);
-      if (constructor == null) {
-        final Class<?> viewCls=Class.forName(name);
-        constructor=viewCls.getConstructor(Context.class,AttributeSet.class);
-        sConstructorCache.put(name,constructor);
-      }
-      view=(View)constructor.newInstance(context,attrs);
-    }
- catch (    ClassNotFoundException ignore) {
-    }
-catch (    NoSuchMethodException|InvocationTargetException|InstantiationException|IllegalAccessException e) {
-      throw new InflateException(e);
-    }
+  if (view == null) {
   }
   return view;
 }

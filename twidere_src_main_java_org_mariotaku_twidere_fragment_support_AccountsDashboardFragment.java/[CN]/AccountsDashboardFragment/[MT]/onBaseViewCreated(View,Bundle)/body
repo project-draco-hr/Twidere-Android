@@ -1,0 +1,4 @@
+{
+  super.onBaseViewCreated(view,savedInstanceState);
+  mListView=(ListView)view.findViewById(android.R.id.list);
+}

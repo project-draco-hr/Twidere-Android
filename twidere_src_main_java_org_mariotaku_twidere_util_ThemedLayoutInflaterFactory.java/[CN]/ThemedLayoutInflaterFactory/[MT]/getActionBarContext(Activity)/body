@@ -1,0 +1,13 @@
+{
+  if (activity instanceof AppCompatActivity) {
+    final android.support.v7.app.ActionBar actionBar=((AppCompatActivity)activity).getSupportActionBar();
+    if (actionBar != null)     return actionBar.getThemedContext();
+  }
+ else   if (activity instanceof AppCompatPreferenceActivity) {
+    final android.support.v7.app.ActionBar actionBar=((AppCompatPreferenceActivity)activity).getSupportActionBar();
+    if (actionBar != null)     return actionBar.getThemedContext();
+  }
+  final ActionBar actionBar=activity.getActionBar();
+  if (actionBar != null)   return actionBar.getThemedContext();
+  return null;
+}

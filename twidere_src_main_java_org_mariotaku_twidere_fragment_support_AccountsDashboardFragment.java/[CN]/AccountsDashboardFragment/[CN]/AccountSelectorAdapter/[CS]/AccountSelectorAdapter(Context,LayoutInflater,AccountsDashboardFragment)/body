@@ -1,0 +1,6 @@
+{
+  mInflater=inflater;
+  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
+  mFragment=fragment;
+  setHasStableIds(true);
+}

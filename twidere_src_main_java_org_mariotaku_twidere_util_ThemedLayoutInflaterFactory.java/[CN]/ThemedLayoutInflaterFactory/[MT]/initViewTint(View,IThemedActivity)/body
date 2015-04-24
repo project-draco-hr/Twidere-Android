@@ -1,0 +1,22 @@
+{
+  final ColorStateList tintList;
+  if (!isActionBarContext(view.getContext(),getActionBarContext((Activity)activity))) {
+    tintList=ColorStateList.valueOf(activity.getCurrentThemeColor());
+  }
+ else   if (ThemeUtils.isDarkTheme(activity.getCurrentThemeResourceId())) {
+    tintList=ColorStateList.valueOf(Color.WHITE);
+  }
+ else {
+    final int themeColor=activity.getCurrentThemeColor();
+    tintList=ColorStateList.valueOf(TwidereColorUtils.getContrastYIQ(themeColor,192));
+  }
+  if (view instanceof IThemedView) {
+    ((IThemedView)view).setThemeTintColor(tintList);
+  }
+ else   if (view instanceof TintableBackgroundView) {
+    ((TintableBackgroundView)view).setSupportBackgroundTintList(tintList);
+  }
+ else   if (view instanceof EditText) {
+    ViewCompat.setBackgroundTintList(view,tintList);
+  }
+}

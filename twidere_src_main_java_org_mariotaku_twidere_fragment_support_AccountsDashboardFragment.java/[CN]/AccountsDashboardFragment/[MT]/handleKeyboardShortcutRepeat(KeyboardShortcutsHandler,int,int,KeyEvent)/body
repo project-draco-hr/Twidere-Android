@@ -18,12 +18,11 @@ default :
   return false;
 }
 }
-final ListView listView=getListView();
-final int firstVisiblePosition=ListViewUtils.getFirstFullyVisiblePosition(listView);
-final int selectedItem=listView.getSelectedItemPosition();
-final int count=listView.getCount();
+final int firstVisiblePosition=ListViewUtils.getFirstFullyVisiblePosition(mListView);
+final int selectedItem=mListView.getSelectedItemPosition();
+final int count=mListView.getCount();
 int resultPosition;
-if (!listView.isFocused() || selectedItem == ListView.INVALID_POSITION) {
+if (!mListView.isFocused() || selectedItem == ListView.INVALID_POSITION) {
 resultPosition=firstVisiblePosition;
 }
  else {
@@ -32,12 +31,12 @@ while (resultPosition >= 0 && resultPosition < count && !mAdapter.isEnabled(resu
 resultPosition+=offset;
 }
 }
-final View focusedChild=listView.getFocusedChild();
+final View focusedChild=mListView.getFocusedChild();
 if (focusedChild == null) {
-listView.requestChildFocus(listView.getChildAt(0),null);
+mListView.requestChildFocus(mListView.getChildAt(0),null);
 }
 if (resultPosition >= 0 && resultPosition < count) {
-listView.setSelection(resultPosition);
+mListView.setSelection(resultPosition);
 }
 return true;
 }

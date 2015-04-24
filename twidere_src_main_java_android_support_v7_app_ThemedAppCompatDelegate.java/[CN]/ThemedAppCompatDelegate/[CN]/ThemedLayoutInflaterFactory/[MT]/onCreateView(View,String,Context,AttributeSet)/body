@@ -1,5 +1,0 @@
-{
-  final View createdView=delegate.onCreateView(view,s,context,attributeSet);
-  ThemeUtils.initView(createdView,activity);
-  return createdView;
-}

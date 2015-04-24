@@ -7,15 +7,14 @@
   final Context context=view.getContext();
   final TwidereApplication application=TwidereApplication.getInstance(context);
   mImageLoader=application.getMediaLoaderWrapper();
-  final LayoutInflater inflater=LayoutInflater.from(context);
-  final ListView listView=getListView();
-  listView.setItemsCanFocus(true);
+  mListView.setItemsCanFocus(true);
   mAdapter=new MergeAdapter();
-  mAccountsAdapter=new AccountSelectorAdapter(context,this);
+  final LayoutInflater inflater=getLayoutInflater(savedInstanceState);
+  mAccountsAdapter=new AccountSelectorAdapter(context,inflater,this);
   mAccountOptionsAdapter=new AccountOptionsAdapter(context);
   mAppMenuAdapter=new AppMenuAdapter(context);
   mAppMenuSectionView=Utils.newSectionView(context,R.string.more);
-  mAccountSelectorView=inflater.inflate(R.layout.header_drawer_account_selector,listView,false);
+  mAccountSelectorView=inflater.inflate(R.layout.header_drawer_account_selector,mListView,false);
   mAccountsSelector=(RecyclerView)mAccountSelectorView.findViewById(R.id.other_accounts_list);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
   layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -52,7 +51,8 @@
   mAdapter.addAdapter(mAccountOptionsAdapter);
   mAdapter.addView(mAppMenuSectionView,false);
   mAdapter.addAdapter(mAppMenuAdapter);
-  setListAdapter(mAdapter);
+  mListView.setAdapter(mAdapter);
+  mListView.setOnItemClickListener(this);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   getLoaderManager().initLoader(0,null,this);
 }

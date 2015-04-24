@@ -1,0 +1,8 @@
+{
+  if (color == null) {
+    clearColorFilter();
+  }
+ else {
+    setColorFilter(color.getDefaultColor());
+  }
+}

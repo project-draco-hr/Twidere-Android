@@ -1,0 +1,8 @@
+{
+  if (context == actionBarContext)   return true;
+  Context base=context;
+  while (base instanceof ContextWrapper && (base=((ContextWrapper)base).getBaseContext()) != null) {
+    if (base == actionBarContext)     return true;
+  }
+  return base == actionBarContext;
+}

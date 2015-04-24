@@ -1,0 +1,8 @@
+{
+  View view=delegate.onCreateView(parent,name,context,attrs);
+  if (view == null) {
+    view=createCustomView(name,context,attrs);
+  }
+  initView(view,activity);
+  return view;
+}
