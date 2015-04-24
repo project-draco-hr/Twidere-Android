@@ -1,4 +1,4 @@
 {
-  if (sInstance != null)   return sInstance;
-  return sInstance=new AsyncTwitterWrapper(context);
+  final TwidereApplication application=TwidereApplication.getInstance(context);
+  return application.getTwitterWrapper();
 }

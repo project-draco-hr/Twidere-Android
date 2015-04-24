@@ -1,0 +1,15 @@
+{
+  if (isEmpty(str))   return new long[0];
+  final List<Long> list=new ArrayList<>();
+  for (  final Entry<String,?> entry : manager.getNameEntries()) {
+    final String value=ParseUtils.parseString(entry.getValue());
+    final long key=ParseUtils.parseLong(entry.getKey(),-1);
+    if (key == -1 || isEmpty(value)) {
+      continue;
+    }
+    if (StringUtils.startsWithIgnoreCase(value,str)) {
+      list.add(key);
+    }
+  }
+  return TwidereArrayUtils.fromList(list);
+}

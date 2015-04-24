@@ -3,7 +3,7 @@
   final FragmentActivity activity=getActivity();
   if (user == null || user.id <= 0 || activity == null)   return;
   final Resources resources=getResources();
-  final Resources res=resources;
+  final UserColorNameManager manager=UserColorNameManager.getInstance(activity);
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
@@ -12,10 +12,10 @@
   mErrorRetryContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=UserColorNameUtils.getUserColor(activity,user.id,true);
+  final int userColor=manager.getUserColor(user.id,true);
   mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
   mProfileNameContainer.drawEnd(Utils.getAccountColor(activity,user.account_id));
-  final String nick=UserColorNameUtils.getUserNickname(activity,user.id,true);
+  final String nick=manager.getUserNickname(user.id,true);
   mNameView.setText(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick));
   final int typeIconRes=Utils.getUserTypeIconRes(user.is_verified,user.is_protected);
   if (typeIconRes != 0) {
@@ -40,7 +40,7 @@
   final String createdAt=Utils.formatToLongTimeString(activity,user.created_at);
   final float daysSinceCreation=(System.currentTimeMillis() - user.created_at) / 1000 / 60/ 60/ 24;
   final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreation));
-  mCreatedAtView.setText(res.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
+  mCreatedAtView.setText(resources.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
   mListedCount.setText(Utils.getLocalizedNumber(mLocale,user.listed_count));
   mFollowersCount.setText(Utils.getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(Utils.getLocalizedNumber(mLocale,user.friends_count));
@@ -51,7 +51,7 @@
  else {
     setUserUiColor(user.link_color);
   }
-  final int defWidth=res.getDisplayMetrics().widthPixels;
+  final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
   mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
   mUuckyFooter.setVisibility(isUucky(user.id,user.screen_name,user) ? View.VISIBLE : View.GONE);
@@ -59,7 +59,7 @@
   if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();
   }
-  activity.setTitle(UserColorNameUtils.getDisplayName(activity,user,true));
+  activity.setTitle(manager.getDisplayName(user,mNameFirst,true));
   updateTitleAlpha();
   invalidateOptionsMenu();
   updateSubtitle();

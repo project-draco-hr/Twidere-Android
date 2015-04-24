@@ -7,6 +7,7 @@
   mContext=context;
   mInflater=LayoutInflater.from(context);
   mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
+  mUserColorNameManager=TwidereApplication.getInstance(context).getUserColorNameManager();
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mNameFirst=preferences.getBoolean(KEY_NAME_FIRST,true);

@@ -1,0 +1,5 @@
+{
+  final String nick=getUserNickname(userId,ignoreCache);
+  if (!isEmpty(nick))   return nick;
+  return nameFirst && !isEmpty(name) ? name : "@" + screenName;
+}

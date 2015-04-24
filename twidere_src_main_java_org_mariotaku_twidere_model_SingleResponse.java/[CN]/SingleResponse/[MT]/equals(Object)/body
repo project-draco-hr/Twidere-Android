@@ -11,9 +11,6 @@
     if (other.exception != null)     return false;
   }
  else   if (!exception.equals(other.exception))   return false;
-  if (getExtras() == null) {
-    if (other.getExtras() != null)     return false;
-  }
- else   if (!getExtras().equals(other.getExtras()))   return false;
+  if (!getExtras().equals(other.getExtras()))   return false;
   return true;
 }

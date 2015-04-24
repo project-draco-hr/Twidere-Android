@@ -1,3 +1,5 @@
 {
   super(context);
+  mUserColorNameManager=UserColorNameManager.getInstance(context);
+  mNameFirst=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class).getBoolean(KEY_NAME_FIRST);
 }

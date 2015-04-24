@@ -73,7 +73,7 @@ break;
 case MENU_SET_COLOR:
 {
 final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
-intent.putExtra(EXTRA_COLOR,UserColorNameUtils.getUserColor(getActivity(),user.id,true));
+intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.id,true));
 intent.putExtra(EXTRA_ALPHA_SLIDER,false);
 intent.putExtra(EXTRA_CLEAR_BUTTON,true);
 startActivityForResult(intent,REQUEST_SET_COLOR);
@@ -81,12 +81,13 @@ break;
 }
 case MENU_CLEAR_NICKNAME:
 {
-UserColorNameUtils.clearUserNickname(getActivity(),user.id);
+final UserColorNameManager manager=UserColorNameManager.getInstance(getActivity());
+manager.clearUserNickname(user.id);
 break;
 }
 case MENU_SET_NICKNAME:
 {
-final String nick=UserColorNameUtils.getUserNickname(getActivity(),user.id,true);
+final String nick=mUserColorNameManager.getUserNickname(user.id,true);
 SetUserNicknameDialogFragment.show(getFragmentManager(),user.id,nick);
 break;
 }

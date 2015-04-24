@@ -6,7 +6,8 @@
   final boolean isMyself=user.account_id == user.id;
   final MenuItem mentionItem=menu.findItem(MENU_MENTION);
   if (mentionItem != null) {
-    mentionItem.setTitle(getString(R.string.mention_user_name,UserColorNameUtils.getDisplayName(getActivity(),user)));
+    final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
+    mentionItem.setTitle(getString(R.string.mention_user_name,displayName));
   }
   MenuUtils.setMenuItemAvailability(menu,MENU_MENTION,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.incoming_friendships,isMyself);

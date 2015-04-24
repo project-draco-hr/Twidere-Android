@@ -1,8 +1,0 @@
-{
-  if (context == null)   return;
-  sUserColors.remove(userId);
-  final SharedPreferences prefs=context.getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final SharedPreferences.Editor editor=prefs.edit();
-  editor.remove(Long.toString(userId));
-  editor.apply();
-}

@@ -41,7 +41,8 @@
     final CharSequence notificationTitle=resources.getQuantityString(R.plurals.N_new_messages,messagesCount,messagesCount);
     final String notificationContent;
     userCursor.moveToFirst();
-    final String displayName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+    final UserColorNameManager manager=UserColorNameManager.getInstance(context);
+    final String displayName=manager.getUserNickname(userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
     if (usersCount == 1) {
       if (messagesCount == 1) {
         notificationContent=context.getString(R.string.notification_direct_message,displayName);
@@ -62,7 +63,7 @@
       }
       if (i < 5) {
         final SpannableStringBuilder sb=new SpannableStringBuilder();
-        sb.append(UserColorNameUtils.getUserNickname(context,messageCursor.getLong(idxUserId),mNameFirst ? messageCursor.getString(idxMessageUserName) : messageCursor.getString(idxMessageUserScreenName)));
+        sb.append(manager.getUserNickname(messageCursor.getLong(idxUserId),mNameFirst ? messageCursor.getString(idxMessageUserName) : messageCursor.getString(idxMessageUserScreenName)));
         sb.setSpan(new StyleSpan(Typeface.BOLD),0,sb.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         sb.append(' ');
         sb.append(messageCursor.getString(idxMessageText));

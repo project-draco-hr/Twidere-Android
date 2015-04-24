@@ -2,20 +2,21 @@
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   final TwidereLinkify linkify=adapter.getTwidereLinkify();
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();
   final long reply_count=status.reply_count;
   final long retweet_count;
   final long favorite_count;
   if (status.retweet_id > 0) {
-    final String retweetedBy=UserColorNameUtils.getDisplayName(context,status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst);
+    final String retweetedBy=manager.getDisplayName(status.retweeted_by_id,status.retweeted_by_name,status.retweeted_by_screen_name,nameFirst,false);
     replyRetweetView.setText(context.getString(R.string.name_retweeted,retweetedBy));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_retweet);
     replyRetweetView.setVisibility(View.VISIBLE);
     replyRetweetIcon.setVisibility(View.VISIBLE);
   }
  else   if (status.in_reply_to_status_id > 0 && status.in_reply_to_user_id > 0 && displayInReplyTo) {
-    final String inReplyTo=UserColorNameUtils.getDisplayName(context,status.in_reply_to_user_id,status.in_reply_to_name,status.in_reply_to_screen_name,nameFirst);
+    final String inReplyTo=manager.getDisplayName(status.in_reply_to_user_id,status.in_reply_to_name,status.in_reply_to_screen_name,nameFirst,false);
     replyRetweetView.setText(context.getString(R.string.in_reply_to_name,inReplyTo));
     replyRetweetIcon.setImageResource(R.drawable.ic_activity_action_reply);
     replyRetweetView.setVisibility(View.VISIBLE);
@@ -27,10 +28,10 @@
   }
   final int typeIconRes;
   if (status.is_quote) {
-    quotedNameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
+    quotedNameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
     quotedScreenNameView.setText("@" + status.user_screen_name);
     timeView.setTime(status.quote_timestamp);
-    nameView.setText(getUserNickname(context,status.quoted_by_user_id,status.quoted_by_user_name,true));
+    nameView.setText(manager.getUserNickname(status.quoted_by_user_id,status.quoted_by_user_name,false));
     screenNameView.setText("@" + status.quoted_by_user_screen_name);
     final int idx=status.quote_text_unescaped.lastIndexOf(" twitter.com");
     if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
@@ -46,7 +47,7 @@
     quotedNameContainer.setVisibility(View.VISIBLE);
     quoteTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
-    quoteIndicator.setColor(UserColorNameUtils.getUserColor(context,status.user_id));
+    quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
     if (adapter.isProfileImageEnabled()) {
       profileTypeView.setVisibility(View.VISIBLE);
       profileImageView.setVisibility(View.VISIBLE);
@@ -59,11 +60,11 @@
       loader.cancelDisplayTask(profileImageView);
       typeIconRes=0;
     }
-    final int userColor=UserColorNameUtils.getUserColor(context,status.quoted_by_user_id);
+    final int userColor=manager.getUserColor(status.quoted_by_user_id,false);
     itemContent.drawStart(userColor);
   }
  else {
-    nameView.setText(getUserNickname(context,status.user_id,status.user_name,true));
+    nameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
     screenNameView.setText("@" + status.user_screen_name);
     if (status.is_retweet) {
       timeView.setTime(status.retweet_timestamp);
@@ -86,7 +87,7 @@
       loader.cancelDisplayTask(profileImageView);
       typeIconRes=0;
     }
-    final int userColor=UserColorNameUtils.getUserColor(context,status.user_id);
+    final int userColor=manager.getUserColor(status.user_id,false);
     itemContent.drawStart(userColor);
   }
   if (typeIconRes != 0) {

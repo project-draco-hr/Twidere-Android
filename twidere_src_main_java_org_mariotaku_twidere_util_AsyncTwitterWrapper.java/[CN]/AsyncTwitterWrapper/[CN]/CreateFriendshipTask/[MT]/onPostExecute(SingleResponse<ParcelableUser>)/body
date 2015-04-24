@@ -2,14 +2,17 @@
   if (result.hasData()) {
     final ParcelableUser user=result.getData();
     final String message;
+    final TwidereApplication application=TwidereApplication.getInstance(mContext);
+    final UserColorNameManager manager=application.getUserColorNameManager();
+    final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
     if (user.is_protected) {
-      message=mContext.getString(R.string.sent_follow_request_to_user,getUserName(mContext,user));
+      message=mContext.getString(R.string.sent_follow_request_to_user,manager.getDisplayName(user,nameFirst,true));
     }
  else {
-      message=mContext.getString(R.string.followed_user,getUserName(mContext,user));
+      message=mContext.getString(R.string.followed_user,manager.getDisplayName(user,nameFirst,true));
     }
     showOkMessage(mContext,message,false);
-    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    final Bus bus=application.getMessageBus();
     bus.post(new FriendshipUpdatedEvent(result.getData()));
   }
  else {

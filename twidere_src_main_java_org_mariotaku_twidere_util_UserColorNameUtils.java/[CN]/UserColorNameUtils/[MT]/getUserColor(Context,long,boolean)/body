@@ -1,8 +1,0 @@
-{
-  if (context == null || userId == -1)   return Color.TRANSPARENT;
-  if (!ignoreCache && sUserColors.indexOfKey(userId) >= 0)   return sUserColors.get(userId);
-  final SharedPreferences prefs=context.getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final int color=prefs.getInt(Long.toString(userId),Color.TRANSPARENT);
-  sUserColors.put(userId,color);
-  return color;
-}

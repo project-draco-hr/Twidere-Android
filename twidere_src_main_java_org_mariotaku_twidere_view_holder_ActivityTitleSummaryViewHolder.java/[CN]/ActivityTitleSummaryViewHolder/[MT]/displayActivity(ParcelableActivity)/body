@@ -56,7 +56,8 @@ case ParcelableActivity.ACTION_LIST_MEMBER_ADDED:
 activityTypeView.setImageResource(R.drawable.ic_activity_action_list_added);
 activityTypeView.setColorFilter(activityTypeView.getDefaultColor(),Mode.SRC_ATOP);
 if (activity.sources.length == 1 && activity.target_object_user_lists != null && activity.target_object_user_lists.length == 1) {
-final SpannableString firstDisplayName=new SpannableString(UserColorNameUtils.getDisplayName(context,activity.sources[0]));
+final UserColorNameManager manager=adapter.getUserColorNameManager();
+final SpannableString firstDisplayName=new SpannableString(manager.getDisplayName(activity.sources[0],adapter.isNameFirst(),false));
 final SpannableString listName=new SpannableString(activity.target_object_user_lists[0].name);
 firstDisplayName.setSpan(new StyleSpan(Typeface.BOLD),0,firstDisplayName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 listName.setSpan(new StyleSpan(Typeface.BOLD),0,listName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

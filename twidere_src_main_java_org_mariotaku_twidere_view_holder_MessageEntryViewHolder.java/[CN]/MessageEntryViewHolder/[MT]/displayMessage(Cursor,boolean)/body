@@ -1,13 +1,14 @@
 {
   final Context context=adapter.getContext();
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
   final long accountId=cursor.getLong(ConversationEntries.IDX_ACCOUNT_ID);
   final long conversationId=cursor.getLong(ConversationEntries.IDX_CONVERSATION_ID);
   final long timestamp=cursor.getLong(ConversationEntries.IDX_MESSAGE_TIMESTAMP);
   final boolean isOutgoing=cursor.getInt(ConversationEntries.IDX_IS_OUTGOING) == 1;
   final String name=cursor.getString(ConversationEntries.IDX_NAME);
   final String screenName=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
-  nameView.setText(getUserNickname(context,conversationId,name));
+  nameView.setText(manager.getUserNickname(conversationId,name,false));
   screenNameView.setText("@" + screenName);
   textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
   timeView.setTime(timestamp);
@@ -23,7 +24,7 @@
   if (account_color_enabled) {
     content.drawEnd(Utils.getAccountColor(context,accountId));
   }
-  content.drawStart(UserColorNameUtils.getUserColor(context,conversationId));
+  content.drawStart(manager.getUserColor(conversationId,false));
   final String profileImage=cursor.getString(ConversationEntries.IDX_PROFILE_IMAGE_URL);
   loader.displayProfileImage(profileImageView,profileImage);
 }

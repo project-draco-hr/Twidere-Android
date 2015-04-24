@@ -1,11 +1,11 @@
 {
   final ParcelableUser user=mUser;
-  final Context context=adapter.getContext();
   final MediaLoaderWrapper loader=adapter.getImageLoader();
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
   final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   final TextView text1=(TextView)view.findViewById(android.R.id.text1);
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
-  text1.setText(getUserNickname(context,user.id,user.name));
+  text1.setText(manager.getUserNickname(user.id,user.name,false));
   text2.setVisibility(View.VISIBLE);
   text2.setText("@" + user.screen_name);
   icon.clearColorFilter();

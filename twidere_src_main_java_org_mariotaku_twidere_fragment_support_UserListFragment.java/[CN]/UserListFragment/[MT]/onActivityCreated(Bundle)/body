@@ -1,7 +1,12 @@
 {
   super.onActivityCreated(savedInstanceState);
-  setHasOptionsMenu(true);
   final FragmentActivity activity=getActivity();
+  final TwidereApplication application=TwidereApplication.getInstance(activity);
+  mTwitterWrapper=application.getTwitterWrapper();
+  mProfileImageLoader=application.getMediaLoaderWrapper();
+  mUserColorNameManager=application.getUserColorNameManager();
+  mPreferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
+  setHasOptionsMenu(true);
   Utils.setNdefPushMessageCallback(activity,new CreateNdefMessageCallback(){
     @Override public NdefMessage createNdefMessage(    NfcEvent event){
       final ParcelableUserList userList=getUserList();
@@ -20,8 +25,6 @@
   }
  else {
   }
-  mTwitterWrapper=getApplication().getTwitterWrapper();
-  mProfileImageLoader=getApplication().getMediaLoaderWrapper();
   mProfileImageView.setOnClickListener(this);
   mUserListDetails.setOnClickListener(this);
   mRetryButton.setOnClickListener(this);

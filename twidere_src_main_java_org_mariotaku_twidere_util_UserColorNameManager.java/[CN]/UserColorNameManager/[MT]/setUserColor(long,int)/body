@@ -1,0 +1,7 @@
+{
+  if (userId < 0)   return;
+  mUserColors.put(userId,color);
+  final SharedPreferences.Editor editor=mColorPreferences.edit();
+  editor.putInt(String.valueOf(userId),color);
+  editor.apply();
+}

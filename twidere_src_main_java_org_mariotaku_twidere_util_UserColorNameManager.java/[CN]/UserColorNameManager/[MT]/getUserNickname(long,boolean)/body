@@ -1,0 +1,7 @@
+{
+  if (userId == -1)   return null;
+  if (!ignoreCache && LongSparseArrayUtils.hasKey(mUserNicknames,userId))   return mUserNicknames.get(userId);
+  final String nickname=mNicknamePreferences.getString(Long.toString(userId),null);
+  mUserNicknames.put(userId,nickname);
+  return nickname;
+}

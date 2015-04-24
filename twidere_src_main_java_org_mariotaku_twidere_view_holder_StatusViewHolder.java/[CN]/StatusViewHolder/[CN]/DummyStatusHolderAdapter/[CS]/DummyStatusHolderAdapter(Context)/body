@@ -5,6 +5,7 @@
   loader=app.getMediaLoaderWrapper();
   handler=new MediaLoadingHandler(R.id.media_preview_progress);
   twitter=app.getTwitterWrapper();
+  manager=app.getUserColorNameManager();
   linkify=new TwidereLinkify(null);
   updateOptions();
 }

@@ -4,7 +4,9 @@
     final View firstChild=mLayoutManager.getChildAt(0);
     final int top=firstChild != null ? firstChild.getTop() : 0;
     final ParcelableStatus status=data.getData();
-    if (mStatusAdapter.setStatus(status)) {
+    final Bundle dataExtra=data.getExtras();
+    final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
+    if (mStatusAdapter.setStatus(credentials,status)) {
       mLayoutManager.scrollToPositionWithOffset(1,0);
       mStatusAdapter.setConversation(null);
       mStatusAdapter.setReplies(null);

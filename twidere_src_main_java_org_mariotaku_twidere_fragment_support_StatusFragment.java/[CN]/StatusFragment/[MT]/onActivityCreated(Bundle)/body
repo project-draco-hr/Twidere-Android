@@ -23,8 +23,6 @@
   mStatusAdapter=new StatusAdapter(this,compact);
   mStatusAdapter.setEventListener(this);
   mRecyclerView.setAdapter(mStatusAdapter);
-  final FragmentActivity activity=getActivity();
-  final TwidereApplication application=TwidereApplication.getInstance(activity);
   mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mRecyclerView,mLayoutManager,mStatusAdapter);
   setState(STATE_LOADING);
   getLoaderManager().initLoader(LOADER_ID_DETAIL_STATUS,getArguments(),this);

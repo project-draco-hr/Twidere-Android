@@ -1,4 +1,5 @@
 {
+  final UserColorNameManager colorNameManager=UserColorNameManager.getInstance(context);
 switch (item.getItemId()) {
 case MENU_COPY:
 {
@@ -54,7 +55,7 @@ break;
 case MENU_SET_COLOR:
 {
 final Intent intent=new Intent(context,ColorPickerDialogActivity.class);
-final int color=getUserColor(context,status.user_id,true);
+final int color=colorNameManager.getUserColor(status.user_id,true);
 if (color != 0) {
 intent.putExtra(EXTRA_COLOR,color);
 }
@@ -70,12 +71,12 @@ break;
 }
 case MENU_CLEAR_NICKNAME:
 {
-clearUserNickname(context,status.user_id);
+colorNameManager.clearUserNickname(status.user_id);
 break;
 }
 case MENU_SET_NICKNAME:
 {
-final String nick=getUserNickname(context,status.user_id,true);
+final String nick=colorNameManager.getUserNickname(status.user_id,true);
 SetUserNicknameDialogFragment.show(fm,status.user_id,nick);
 break;
 }

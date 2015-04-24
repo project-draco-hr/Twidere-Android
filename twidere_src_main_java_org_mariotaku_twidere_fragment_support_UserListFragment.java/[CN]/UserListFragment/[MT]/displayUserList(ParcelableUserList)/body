@@ -6,7 +6,8 @@
   mUserList=userList;
   mUserListDetails.drawEnd(getAccountColor(getActivity(),userList.account_id));
   mListNameView.setText(userList.name);
-  final String displayName=UserColorNameUtils.getDisplayName(getActivity(),userList.user_id,userList.user_name,userList.user_screen_name,false);
+  final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+  final String displayName=mUserColorNameManager.getDisplayName(userList,nameFirst,false);
   mCreatedByView.setText(getString(R.string.created_by,displayName));
   final String description=userList.description;
   mDescriptionView.setVisibility(isEmpty(description) ? View.GONE : View.VISIBLE);

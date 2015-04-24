@@ -18,18 +18,19 @@
     final String notificationTitle=resources.getQuantityString(R.plurals.N_new_statuses,statusesCount,statusesCount);
     final String notificationContent;
     userCursor.moveToFirst();
-    final String displayName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+    final UserColorNameManager manager=UserColorNameManager.getInstance(context);
+    final String displayName=manager.getUserNickname(userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
     if (usersCount == 1) {
       notificationContent=context.getString(R.string.from_name,displayName);
     }
  else     if (usersCount == 2) {
       userCursor.moveToPosition(1);
-      final String othersName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+      final String othersName=manager.getUserNickname(userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
       notificationContent=resources.getQuantityString(R.plurals.from_name_and_N_others,usersCount - 1,othersName,usersCount - 1);
     }
  else {
       userCursor.moveToPosition(1);
-      final String othersName=UserColorNameUtils.getUserNickname(context,userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
+      final String othersName=manager.getUserNickname(userCursor.getLong(idxUserId),mNameFirst ? userCursor.getString(idxUserName) : userCursor.getString(idxUserScreenName));
       notificationContent=resources.getString(R.string.from_name_and_N_others,othersName,usersCount - 1);
     }
     final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);

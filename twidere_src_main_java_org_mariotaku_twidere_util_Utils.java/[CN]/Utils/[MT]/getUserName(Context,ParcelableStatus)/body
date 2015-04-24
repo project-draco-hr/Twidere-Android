@@ -1,4 +1,0 @@
-{
-  if (context == null || status == null)   return null;
-  return UserColorNameUtils.getDisplayName(context,status.user_id,status.user_name,status.user_screen_name);
-}

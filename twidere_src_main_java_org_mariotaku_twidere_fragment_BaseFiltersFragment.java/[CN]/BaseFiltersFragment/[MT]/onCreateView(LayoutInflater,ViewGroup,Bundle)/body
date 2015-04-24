@@ -1,10 +1,2 @@
 {
-  final View view=super.onCreateView(inflater,container,savedInstanceState);
-  final View lv=view.findViewById(android.R.id.list);
-  final Resources res=getResources();
-  final float density=res.getDisplayMetrics().density;
-  final int padding=(int)density * 16;
-  lv.setId(android.R.id.list);
-  lv.setPadding(padding,0,padding,0);
-  return view;
 }

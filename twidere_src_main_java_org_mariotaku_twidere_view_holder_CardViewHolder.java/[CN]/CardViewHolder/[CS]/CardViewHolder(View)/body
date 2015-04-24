@@ -1,4 +1,0 @@
-{
-  super(view);
-  content=(IColorLabelView)view.findViewById(R.id.content);
-}

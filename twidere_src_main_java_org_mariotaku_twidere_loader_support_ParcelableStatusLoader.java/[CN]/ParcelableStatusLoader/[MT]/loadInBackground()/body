@@ -4,7 +4,12 @@
     if (cache != null)     return SingleResponse.getInstance(cache);
   }
   try {
-    return SingleResponse.getInstance(findStatus(getContext(),mAccountId,mStatusId));
+    final ParcelableStatus status=findStatus(getContext(),mAccountId,mStatusId);
+    final ParcelableAccount.ParcelableCredentials credentials=ParcelableAccount.getCredentials(getContext(),mAccountId);
+    final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(status);
+    final Bundle extras=response.getExtras();
+    extras.putParcelable(EXTRA_ACCOUNT,credentials);
+    return response;
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

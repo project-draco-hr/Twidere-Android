@@ -1,3 +1,0 @@
-{
-  return getUserColor(context,user_id,false);
-}

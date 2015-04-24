@@ -1,8 +1,11 @@
 {
   if (result.hasData()) {
-    final String message=mContext.getString(R.string.muted_user,getUserName(mContext,result.getData()));
+    final TwidereApplication application=TwidereApplication.getInstance(mContext);
+    final UserColorNameManager manager=application.getUserColorNameManager();
+    final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+    final String message=mContext.getString(R.string.muted_user,manager.getDisplayName(result.getData(),nameFirst,true));
     showInfoMessage(mContext,message,false);
-    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+    final Bus bus=application.getMessageBus();
     bus.post(new FriendshipUpdatedEvent(result.getData()));
   }
  else {

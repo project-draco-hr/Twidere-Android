@@ -1,0 +1,7 @@
+{
+  if (userId < 0)   return;
+  mUserNicknames.remove(userId);
+  final SharedPreferences.Editor editor=mNicknamePreferences.edit();
+  editor.remove(Long.toString(userId));
+  editor.apply();
+}

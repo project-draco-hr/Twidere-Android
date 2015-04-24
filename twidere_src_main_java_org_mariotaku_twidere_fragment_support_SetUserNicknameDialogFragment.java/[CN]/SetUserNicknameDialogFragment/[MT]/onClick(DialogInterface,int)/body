@@ -3,20 +3,21 @@
   final String text=ParseUtils.parseString(mEditText.getText());
   final long userId=args != null ? args.getLong(EXTRA_USER_ID,-1) : -1;
   if (userId == -1)   return;
+  final UserColorNameManager manager=UserColorNameManager.getInstance(getActivity());
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
       if (TextUtils.isEmpty(text)) {
-        clearUserNickname(getActivity(),userId);
+        manager.clearUserNickname(userId);
       }
  else {
-        setUserNickname(getActivity(),userId,text);
+        manager.setUserNickname(userId,text);
       }
       break;
     }
 case DialogInterface.BUTTON_NEUTRAL:
 {
-    clearUserNickname(getActivity(),userId);
+    manager.clearUserNickname(userId);
     break;
   }
 }

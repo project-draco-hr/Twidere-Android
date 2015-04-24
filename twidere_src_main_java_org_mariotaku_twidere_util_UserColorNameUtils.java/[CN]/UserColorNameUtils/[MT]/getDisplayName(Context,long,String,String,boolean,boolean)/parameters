@@ -1,6 +1,0 @@
-Context context
-long userId
-String name
-String screenName
-boolean nameFirst
-boolean ignoreCache

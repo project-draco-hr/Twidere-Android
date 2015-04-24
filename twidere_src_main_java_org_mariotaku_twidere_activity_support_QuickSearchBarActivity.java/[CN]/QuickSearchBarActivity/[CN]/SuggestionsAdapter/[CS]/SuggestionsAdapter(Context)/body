@@ -1,5 +1,7 @@
 {
   mContext=context;
   mInflater=LayoutInflater.from(context);
-  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
+  final TwidereApplication application=TwidereApplication.getInstance(context);
+  mImageLoader=application.getMediaLoaderWrapper();
+  mUserColorNameManager=application.getUserColorNameManager();
 }

@@ -3,7 +3,6 @@
   this.linkClickHandler=new StatusLinkClickHandler(adapter.getContext(),null);
   this.linkify=new TwidereLinkify(linkClickHandler,false);
   this.adapter=adapter;
-  cardView=(CardView)itemView.findViewById(R.id.card);
   menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);

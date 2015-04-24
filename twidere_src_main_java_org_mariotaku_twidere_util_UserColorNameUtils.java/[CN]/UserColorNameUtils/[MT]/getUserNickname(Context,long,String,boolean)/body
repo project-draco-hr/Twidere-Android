@@ -1,4 +1,0 @@
-{
-  final String nick=getUserNickname(context,userId,ignoreCache);
-  return isEmpty(nick) ? name : nick;
-}

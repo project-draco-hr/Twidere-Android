@@ -1,8 +1,7 @@
 {
   final Uri uri=DirectMessages.ConversationEntries.CONTENT_URI;
-  final long account_id=getAccountId();
-  final long[] account_ids=account_id > 0 ? new long[]{account_id} : getActivatedAccountIds(getActivity());
-  final boolean no_account_selected=account_ids.length == 0;
-  final Expression account_where=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(account_ids));
+  final long[] accountIds=getAccountIds();
+  final boolean no_account_selected=accountIds.length == 0;
+  final Expression account_where=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountIds));
   return new CursorLoader(getActivity(),uri,null,account_where.getSQL(),null,null);
 }

@@ -11,6 +11,7 @@
   mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mTextSize=preferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
   mReadStateManager=app.getReadStateManager();
+  mUserColorNameManager=app.getUserColorNameManager();
   mReadStateChangeListener=new OnSharedPreferenceChangeListener(){
     @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
       updateReadState();

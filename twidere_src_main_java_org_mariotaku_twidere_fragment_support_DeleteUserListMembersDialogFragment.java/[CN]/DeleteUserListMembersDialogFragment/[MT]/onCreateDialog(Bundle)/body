@@ -1,12 +1,16 @@
 {
-  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
+  final FragmentActivity activity=getActivity();
+  final Context wrapped=ThemeUtils.getDialogThemedContext(activity);
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
   final ParcelableUser[] users=getUsers();
   final ParcelableUserList userList=getUserList();
   if (users == null || userList == null)   throw new NullPointerException();
   if (users.length == 1) {
     final ParcelableUser user=users[0];
-    final String displayName=UserColorNameUtils.getDisplayName(wrapped,user.id,user.name,user.screen_name);
+    final UserColorNameManager manager=UserColorNameManager.getInstance(activity);
+    final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(activity,SharedPreferencesWrapper.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
+    final boolean nameFirst=prefs.getBoolean(KEY_NAME_FIRST);
+    final String displayName=manager.getDisplayName(user,nameFirst,false);
     builder.setTitle(getString(R.string.delete_user,displayName));
     builder.setMessage(getString(R.string.delete_user_from_list_confirm,displayName,userList.name));
   }

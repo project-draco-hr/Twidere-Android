@@ -14,7 +14,7 @@
     final Expression selection;
     final String[] selectionArgs;
     if (constraintEscaped != null) {
-      final long[] nicknameIds=Utils.getMatchedNicknameIds(ParseUtils.parseString(constraint),mUserNicknamePreferences);
+      final long[] nicknameIds=Utils.getMatchedNicknameIds(ParseUtils.parseString(constraint),mUserColorNameManager);
       selection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
       selectionArgs=new String[]{constraintEscaped,constraintEscaped};
     }

@@ -1,0 +1,3 @@
+ParcelableStatus status
+boolean nameFirst
+boolean ignoreCache

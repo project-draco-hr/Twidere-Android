@@ -1,7 +1,0 @@
-{
-  if (context == null)   return null;
-  final String nick=getUserNickname(context,userId,ignoreCache);
-  final boolean nickAvailable=!isEmpty(nick);
-  if (nickAvailable)   return nick;
-  return nameFirst && !isEmpty(name) ? name : "@" + screenName;
-}

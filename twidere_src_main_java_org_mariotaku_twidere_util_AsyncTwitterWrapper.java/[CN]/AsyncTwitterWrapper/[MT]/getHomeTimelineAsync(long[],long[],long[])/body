@@ -1,5 +1,6 @@
 {
   mAsyncTaskManager.cancel(mGetHomeTimelineTaskId);
   final GetHomeTimelineTask task=new GetHomeTimelineTask(accountIds,max_ids,since_ids);
-  return mGetHomeTimelineTaskId=mAsyncTaskManager.add(task,true);
+  mGetHomeTimelineTaskId=mAsyncTaskManager.add(task,true);
+  return true;
 }

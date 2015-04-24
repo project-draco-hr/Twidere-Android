@@ -12,7 +12,7 @@
   historyCursor.close();
   if (!emptyQuery) {
     final String queryEscaped=mQuery.replace("_","^_");
-    final SharedPreferences nicknamePrefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
+    final UserColorNameManager nicknamePrefs=UserColorNameManager.getInstance(context);
     final long[] nicknameIds=Utils.getMatchedNicknameIds(mQuery,nicknamePrefs);
     final Expression selection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
     final String[] selectionArgs=new String[]{queryEscaped,queryEscaped};

@@ -1,7 +1,8 @@
 {
   final Context context=adapter.getContext();
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
-  setUserColor(getUserColor(context,user.id));
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
+  setUserColor(manager.getUserColor(user.id,false));
   final int userTypeRes=getUserTypeIconRes(user.is_verified,user.is_protected);
   if (userTypeRes != 0) {
     profileTypeView.setImageResource(userTypeRes);
@@ -9,7 +10,7 @@
  else {
     profileTypeView.setImageDrawable(null);
   }
-  nameView.setText(getUserNickname(context,user.id,user.name));
+  nameView.setText(manager.getUserNickname(user.id,user.name,false));
   screenNameView.setText("@" + user.screen_name);
   descriptionView.setVisibility(TextUtils.isEmpty(user.description_unescaped) ? View.GONE : View.VISIBLE);
   descriptionView.setText(user.description_unescaped);
