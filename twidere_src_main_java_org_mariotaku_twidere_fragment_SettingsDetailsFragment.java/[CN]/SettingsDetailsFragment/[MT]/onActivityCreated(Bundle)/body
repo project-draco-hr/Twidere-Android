@@ -1,5 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  final PreferenceManager preferenceManager=getPreferenceManager();
   final PreferenceScreen defaultScreen=getPreferenceScreen();
   final PreferenceScreen preferenceScreen;
   if (defaultScreen != null) {
@@ -7,7 +8,7 @@
     preferenceScreen=defaultScreen;
   }
  else {
-    preferenceScreen=getPreferenceManager().createPreferenceScreen(getActivity());
+    preferenceScreen=preferenceManager.createPreferenceScreen(getActivity());
   }
   setPreferenceScreen(preferenceScreen);
   final Bundle args=getArguments();

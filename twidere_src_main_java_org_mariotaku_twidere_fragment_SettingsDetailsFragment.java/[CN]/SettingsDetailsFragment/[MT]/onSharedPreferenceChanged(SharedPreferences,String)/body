@@ -1,0 +1,8 @@
+{
+  final Preference preference=findPreference(key);
+  if (preference == null)   return;
+  final Bundle extras=preference.getExtras();
+  if (extras != null && extras.containsKey(EXTRA_NOTIFY_CHANGE)) {
+    SettingsActivity.setShouldNotifyChange(getActivity());
+  }
+}
