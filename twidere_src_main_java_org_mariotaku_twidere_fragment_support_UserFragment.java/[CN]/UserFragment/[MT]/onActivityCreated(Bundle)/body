@@ -73,7 +73,7 @@
   mListedContainer.setOnClickListener(this);
   mFollowersContainer.setOnClickListener(this);
   mFriendsContainer.setOnClickListener(this);
-  mRetryButton.setOnClickListener(this);
+  mHeaderErrorIcon.setOnClickListener(this);
   mProfileBannerView.setOnSizeChangedListener(this);
   mProfileBannerSpace.setOnTouchListener(this);
   mProfileNameBackground.setBackgroundColor(mCardBackgroundColor);

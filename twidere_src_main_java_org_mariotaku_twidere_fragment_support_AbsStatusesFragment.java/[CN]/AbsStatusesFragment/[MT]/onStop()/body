@@ -1,5 +1,7 @@
 {
   final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
   bus.unregister(mStatusesBusCallback);
+  final RecyclerView recyclerView=getRecyclerView();
+  recyclerView.removeOnScrollListener(mOnScrollListener);
   super.onStop();
 }

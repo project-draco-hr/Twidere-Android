@@ -1,7 +1,7 @@
 {
   if (event.uri.equals(Inbox.CONTENT_URI) && !event.running) {
     setRefreshing(false);
-    mAdapter.setLoadMoreIndicatorVisible(false);
-    mSwipeRefreshLayout.setEnabled(true);
+    setLoadMoreIndicatorVisible(false);
+    setRefreshEnabled(true);
   }
 }

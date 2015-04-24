@@ -1,7 +1,4 @@
 {
-  if (mOnScrollListener != null) {
-    mOnScrollListener.onScrolled(recyclerView,dx,dy);
-  }
   if (dy * mScrollSum < 0) {
     mScrollSum=0;
   }

@@ -1,0 +1,4 @@
+{
+  this.account_ids=account_ids;
+  this.activated_ids=activated_ids;
+}

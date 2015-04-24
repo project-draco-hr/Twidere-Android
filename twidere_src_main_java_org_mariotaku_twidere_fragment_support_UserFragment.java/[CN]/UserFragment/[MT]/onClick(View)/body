@@ -3,7 +3,7 @@
   final ParcelableUser user=getUser();
   if (activity == null || user == null)   return;
 switch (view.getId()) {
-case R.id.retry:
+case R.id.error_container:
 {
       getUserInfo(true);
       break;

@@ -1,0 +1,7 @@
+{
+  mErrorContainer.setVisibility(View.VISIBLE);
+  mProgressContainer.setVisibility(View.GONE);
+  mSwipeRefreshLayout.setVisibility(View.GONE);
+  mErrorIconView.setImageResource(icon);
+  mErrorTextView.setText(text);
+}

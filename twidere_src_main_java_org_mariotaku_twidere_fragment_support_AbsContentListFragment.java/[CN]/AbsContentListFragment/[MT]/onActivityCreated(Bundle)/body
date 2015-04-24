@@ -15,11 +15,19 @@
   mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   mRecyclerView.setLayoutManager(mLayoutManager);
   mRecyclerView.setHasFixedSize(true);
+  mRecyclerView.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+        updateRefreshProgressOffset();
+      }
+      return false;
+    }
+  }
+);
   if (compact) {
     mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
   }
   mRecyclerView.setAdapter((RecyclerView.Adapter)mAdapter);
   mScrollListener=new ContentListScrollListener(this);
   mScrollListener.setTouchSlop(ViewConfiguration.get(context).getScaledTouchSlop());
-  mRecyclerView.setOnScrollListener(mScrollListener);
 }

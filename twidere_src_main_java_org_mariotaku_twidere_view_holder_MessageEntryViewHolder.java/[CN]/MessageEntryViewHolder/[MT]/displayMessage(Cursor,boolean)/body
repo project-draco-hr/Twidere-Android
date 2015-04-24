@@ -21,8 +21,11 @@
   nameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   screenNameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   textView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
-  if (account_color_enabled) {
+  if (adapter.shouldShowAccountsColor()) {
     content.drawEnd(Utils.getAccountColor(context,accountId));
+  }
+ else {
+    content.drawEnd();
   }
   content.drawStart(manager.getUserColor(conversationId,false));
   final String profileImage=cursor.getString(ConversationEntries.IDX_PROFILE_IMAGE_URL);

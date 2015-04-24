@@ -1,7 +1,7 @@
 {
   if (userList == null || getActivity() == null)   return;
   getLoaderManager().destroyLoader(0);
-  mErrorRetryContainer.setVisibility(View.GONE);
+  mErrorContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUserList=userList;
   mUserListDetails.drawEnd(getAccountColor(getActivity(),userList.account_id));

@@ -1,4 +1,5 @@
 {
+  showContent();
   setRefreshEnabled(true);
   setRefreshing(false);
   setLoadMoreIndicatorVisible(false);

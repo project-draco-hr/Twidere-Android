@@ -1,7 +1,7 @@
 {
   if (isRefreshing())   return;
-  mAdapter.setLoadMoreIndicatorVisible(true);
-  mSwipeRefreshLayout.setEnabled(false);
+  setLoadMoreIndicatorVisible(true);
+  setRefreshEnabled(false);
   AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
     @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[3][];

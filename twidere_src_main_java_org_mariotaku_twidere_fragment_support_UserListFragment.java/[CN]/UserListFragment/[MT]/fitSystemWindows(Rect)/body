@@ -1,6 +1,6 @@
 {
   super.fitSystemWindows(insets);
-  final View progress=mProgressContainer, error=mErrorRetryContainer;
+  final View progress=mProgressContainer, error=mErrorContainer;
   final HeaderDrawerLayout content=mHeaderDrawerLayout;
   if (progress == null || error == null || content == null) {
     return;

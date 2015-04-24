@@ -1,9 +1,18 @@
 {
   if (getActivity() == null)   return;
   mFirstVisibleItem=-1;
-  mAdapter.setCursor(cursor);
-  mAdapter.setLoadMoreIndicatorVisible(false);
-  mAdapter.setLoadMoreSupported(cursor != null && cursor.getCount() > 0);
-  mSwipeRefreshLayout.setEnabled(true);
-  setListShown(true);
+  final MessageEntriesAdapter adapter=getAdapter();
+  adapter.setCursor(cursor);
+  adapter.setLoadMoreIndicatorVisible(false);
+  adapter.setLoadMoreSupported(cursor != null && cursor.getCount() > 0);
+  adapter.setLoadMoreSupported(hasMoreData(cursor));
+  final long[] accountIds=getAccountIds();
+  adapter.setShowAccountsColor(accountIds.length > 1);
+  setRefreshEnabled(true);
+  if (accountIds.length > 0) {
+    showContent();
+  }
+ else {
+    showError(R.drawable.ic_info_account,getString(R.string.no_account_selected));
+  }
 }

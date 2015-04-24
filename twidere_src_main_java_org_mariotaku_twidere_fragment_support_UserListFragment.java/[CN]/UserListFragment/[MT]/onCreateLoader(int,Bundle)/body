@@ -1,7 +1,7 @@
 {
-  mErrorMessageView.setText(null);
-  mErrorMessageView.setVisibility(View.GONE);
-  mErrorRetryContainer.setVisibility(View.GONE);
+  mErrorTextView.setText(null);
+  mErrorTextView.setVisibility(View.GONE);
+  mErrorContainer.setVisibility(View.GONE);
   mHeaderDrawerLayout.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.VISIBLE);
   setProgressBarIndeterminateVisibility(true);

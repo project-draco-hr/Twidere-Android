@@ -1,3 +1,4 @@
 {
-  mAdapter.setCursor(null);
+  final MessageEntriesAdapter adapter=getAdapter();
+  adapter.setCursor(null);
 }

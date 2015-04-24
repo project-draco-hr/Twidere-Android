@@ -1,6 +1,6 @@
 {
-  if (mAccountActionProvider == null) {
-    return Utils.getActivatedAccountIds(getActivity());
+  if (mAccountActionProvider != null) {
+    return mAccountActionProvider.getActivatedAccountIds();
   }
-  return mAccountActionProvider.getActivatedAccountIds();
+  return Utils.getActivatedAccountIds(getActivity());
 }

@@ -1,4 +1,4 @@
 {
-  if (mSwipeRefreshLayout == null || mAdapter == null)   return false;
-  return mSwipeRefreshLayout.isRefreshing() || mAdapter.isLoadMoreIndicatorVisible();
+  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  return twitter != null && (twitter.isReceivedDirectMessagesRefreshing() || twitter.isSentDirectMessagesRefreshing());
 }

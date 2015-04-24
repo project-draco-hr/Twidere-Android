@@ -1,2 +1,9 @@
 {
+  final long[] accountIds=getAccountIds();
+  if (accountIds.length > 0) {
+    showContent();
+  }
+ else {
+    showError(R.drawable.ic_info_account,getString(R.string.no_account_selected));
+  }
 }

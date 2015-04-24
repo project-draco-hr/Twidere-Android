@@ -4,10 +4,10 @@
   final View headerView=mHeaderDrawerLayout.getHeader();
   final View contentView=mHeaderDrawerLayout.getContent();
   mCardContent=headerView.findViewById(R.id.card_content);
-  mErrorRetryContainer=headerView.findViewById(R.id.error_retry_container);
+  mHeaderErrorContainer=headerView.findViewById(R.id.error_container);
+  mHeaderErrorTextView=(TextView)headerView.findViewById(R.id.error_text);
+  mHeaderErrorIcon=(ImageView)headerView.findViewById(R.id.error_icon);
   mProgressContainer=headerView.findViewById(R.id.progress_container);
-  mRetryButton=(Button)headerView.findViewById(R.id.retry);
-  mErrorMessageView=(TextView)headerView.findViewById(R.id.error_message);
   mProfileBannerView=(ProfileBannerImageView)view.findViewById(R.id.profile_banner);
   mProfileBannerContainer=view.findViewById(R.id.profile_banner_container);
   mNameView=(TextView)headerView.findViewById(R.id.name);

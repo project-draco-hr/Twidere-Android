@@ -1,9 +1,11 @@
 {
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
-  final int tabPosition=getTabPosition();
-  if (twitter != null && tabPosition >= 0) {
-    twitter.clearUnreadCountAsync(tabPosition);
+  final boolean result=super.scrollToStart();
+  if (result) {
+    final AsyncTwitterWrapper twitter=getTwitterWrapper();
+    final int tabPosition=getTabPosition();
+    if (twitter != null && tabPosition >= 0) {
+      twitter.clearUnreadCountAsync(tabPosition);
+    }
   }
-  mRecyclerView.smoothScrollToPosition(0);
-  return true;
+  return result;
 }

@@ -27,7 +27,7 @@
   }
   mProfileImageView.setOnClickListener(this);
   mUserListDetails.setOnClickListener(this);
-  mRetryButton.setOnClickListener(this);
+  mErrorIconView.setOnClickListener(this);
   getUserListInfo(false);
   setupUserPages();
 }

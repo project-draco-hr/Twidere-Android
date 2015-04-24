@@ -1,7 +1,7 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
   mHeaderDrawerLayout=(HeaderDrawerLayout)view.findViewById(R.id.details_container);
-  mErrorRetryContainer=view.findViewById(R.id.error_retry_container);
+  mErrorContainer=view.findViewById(R.id.error_container);
   mProgressContainer=view.findViewById(R.id.progress_container);
   final View headerView=mHeaderDrawerLayout.getHeader();
   final View contentView=mHeaderDrawerLayout.getContent();
@@ -11,8 +11,8 @@
   mCreatedByView=(TextView)headerView.findViewById(R.id.created_by);
   mDescriptionView=(TextView)headerView.findViewById(R.id.description);
   mProfileImageView=(ImageView)headerView.findViewById(R.id.profile_image);
-  mRetryButton=(Button)mErrorRetryContainer.findViewById(R.id.retry);
-  mErrorMessageView=(TextView)mErrorRetryContainer.findViewById(R.id.error_message);
+  mErrorIconView=(Button)mErrorContainer.findViewById(R.id.error_icon);
+  mErrorTextView=(TextView)mErrorContainer.findViewById(R.id.error_text);
   mViewPager=(ViewPager)contentView.findViewById(R.id.view_pager);
   mPagerIndicator=(TabPagerIndicator)contentView.findViewById(R.id.view_pager_tabs);
 }

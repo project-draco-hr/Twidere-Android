@@ -1,6 +1,6 @@
 {
 switch (view.getId()) {
-case R.id.retry:
+case R.id.error_container:
 {
       getUserListInfo(true);
       break;
