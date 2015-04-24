@@ -11,19 +11,11 @@ case R.id.add_image:
     startActivityForResult(intent,REQUEST_PICK_IMAGE);
     break;
   }
-case R.id.item_profile_image:
-{
-  final ParcelableUser recipient=mRecipient;
-  if (recipient == null)   return;
-  final Bundle options=Utils.makeSceneTransitionOption(getActivity(),new Pair<View,String>(mRecipientProfileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE));
-  Utils.openUserProfile(getActivity(),recipient.account_id,recipient.id,recipient.screen_name,options);
-  break;
-}
 case R.id.query_button:
 {
-final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
-searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
-break;
+  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
+  searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
+  break;
 }
 }
 }

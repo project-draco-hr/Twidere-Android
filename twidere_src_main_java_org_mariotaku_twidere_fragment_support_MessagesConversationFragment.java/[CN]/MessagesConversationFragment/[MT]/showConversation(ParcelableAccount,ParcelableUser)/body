@@ -15,5 +15,6 @@
   }
   AsyncTaskUtils.executeTask(new SetReadStateTask(getActivity(),account,recipient));
   updateActionBar();
-  updateProfileImage();
+  updateRecipientInfo();
+  mEditText.requestFocus();
 }

@@ -1,0 +1,4 @@
+{
+  final Fragment fragment=getCurrentVisibleFragment();
+  return fragment instanceof KeyboardShortcutsHandler.TakeAllKeyboardShortcut;
+}
