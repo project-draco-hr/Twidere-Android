@@ -46,10 +46,10 @@
   mFriendsCount.setText(Utils.getLocalizedNumber(mLocale,user.friends_count));
   mProfileImageLoader.displayProfileImage(mProfileImageView,Utils.getOriginalTwitterProfileImage(user.profile_image_url));
   if (userColor != 0) {
-    setUserUiColor(userColor);
+    setUiColor(userColor);
   }
  else {
-    setUserUiColor(user.link_color);
+    setUiColor(user.link_color);
   }
   final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;

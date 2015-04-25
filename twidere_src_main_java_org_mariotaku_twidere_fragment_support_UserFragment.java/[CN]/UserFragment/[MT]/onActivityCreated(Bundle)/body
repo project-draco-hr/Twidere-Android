@@ -80,9 +80,12 @@
   mProfileDetailsContainer.setBackgroundColor(mCardBackgroundColor);
   mPagerIndicator.setBackgroundColor(mCardBackgroundColor);
   mUuckyFooter.setBackgroundColor(mCardBackgroundColor);
-  getUserInfo(accountId,userId,screenName,false);
   final float actionBarElevation=ThemeUtils.getSupportActionBarElevation(activity);
   ViewCompat.setElevation(mPagerIndicator,actionBarElevation);
   setupBaseActionBar();
   setupUserPages();
+  if (activity instanceof IThemedActivity) {
+    setUiColor(((IThemedActivity)activity).getCurrentThemeColor());
+  }
+  getUserInfo(accountId,userId,screenName,false);
 }

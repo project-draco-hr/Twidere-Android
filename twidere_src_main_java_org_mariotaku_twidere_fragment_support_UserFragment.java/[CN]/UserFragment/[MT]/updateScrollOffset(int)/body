@@ -30,10 +30,10 @@
       final int contrastColor=TwidereColorUtils.getContrastYIQ(stackedTabColor,192);
       mPagerIndicator.setIconColor(contrastColor);
       mPagerIndicator.setLabelColor(contrastColor);
-      mPagerIndicator.setStripColor(mUserUiColor);
+      mPagerIndicator.setStripColor(mUiColor);
     }
  else     if (drawable instanceof ColorDrawable) {
-      stackedTabColor=mUserUiColor;
+      stackedTabColor=mUiColor;
       final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
       ((ColorDrawable)drawable).setColor(tabColor);
       final int contrastColor=TwidereColorUtils.getContrastYIQ(tabColor,192);

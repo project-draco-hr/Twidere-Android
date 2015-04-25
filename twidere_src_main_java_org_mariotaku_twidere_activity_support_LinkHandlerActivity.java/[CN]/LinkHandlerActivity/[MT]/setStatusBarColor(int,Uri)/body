@@ -3,9 +3,6 @@ switch (linkId) {
 case LINK_ID_USER:
 {
       mMainContent.setShadowColor(0xA0000000);
-      mMainContent.setDrawShadow(false);
-      mMainContent.setDrawColor(true);
-      break;
     }
 default :
 {

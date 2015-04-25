@@ -4,24 +4,19 @@
   final String option=getThemeBackgroundOption();
   int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
 switch (linkId) {
-case LINK_ID_USER:
-{
-      actionBarItemsColor=Color.WHITE;
-      break;
-    }
 case LINK_ID_SEARCH:
 case LINK_ID_USER_LISTS:
 {
-    ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,false);
+      ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,false);
+      ThemeUtils.applyActionBarBackground(getActionBar(),this,themeId,themeColor,option,true);
+      break;
+    }
+default :
+{
+    ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,true);
     ThemeUtils.applyActionBarBackground(getActionBar(),this,themeId,themeColor,option,true);
     break;
   }
-default :
-{
-  ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,true);
-  ThemeUtils.applyActionBarBackground(getActionBar(),this,themeId,themeColor,option,true);
-  break;
-}
 }
 if (actionBarItemsColor != 0) {
 ThemeUtils.setActionBarItemsColor(getWindow(),actionBar,actionBarItemsColor);
