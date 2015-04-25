@@ -1,0 +1,3 @@
+{
+  mEffectHelper.resetState(mShowElevation);
+}

@@ -33,6 +33,18 @@
   layoutManager.setStackFromEnd(true);
   mMessagesListView.setLayoutManager(layoutManager);
   mMessagesListView.setAdapter(mAdapter);
+  final boolean useOutline=Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP;
+  if (useOutline) {
+    final float elevation=getResources().getDimension(R.dimen.element_spacing_normal);
+    final PanelElevationProperty property=new PanelElevationProperty(elevation);
+    mEffectHelper=new EffectViewHelper(mInputPanel,property,100);
+  }
+ else {
+    mEffectHelper=new EffectViewHelper(mInputPanelShadowCompat,View.ALPHA,100);
+  }
+  mScrollListener=new PanelShowHideListener(mEffectHelper);
+  mInputPanelShadowCompat.setVisibility(useOutline ? View.GONE : View.VISIBLE);
+  ViewCompat.setAlpha(mInputPanelShadowCompat,0);
   mUsersSearchAdapter=new SimpleParcelableUsersAdapter(activity);
   mUsersSearchList.setAdapter(mUsersSearchAdapter);
   mUsersSearchList.setEmptyView(mUsersSearchEmpty);
