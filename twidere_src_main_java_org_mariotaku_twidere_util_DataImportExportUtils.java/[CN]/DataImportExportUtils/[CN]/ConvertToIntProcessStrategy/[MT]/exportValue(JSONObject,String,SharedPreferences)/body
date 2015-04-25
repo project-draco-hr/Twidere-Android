@@ -1,0 +1,10 @@
+{
+  if (!preferences.contains(key))   return false;
+  try {
+    json.put(key,preferences.getInt(key,0));
+  }
+ catch (  Exception ignore) {
+    return false;
+  }
+  return true;
+}

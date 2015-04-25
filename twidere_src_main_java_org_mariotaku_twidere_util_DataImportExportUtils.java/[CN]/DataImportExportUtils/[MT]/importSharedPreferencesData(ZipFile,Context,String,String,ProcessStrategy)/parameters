@@ -1,0 +1,5 @@
+ZipFile zipFile
+Context context
+String preferencesName
+String entryName
+ProcessStrategy strategy

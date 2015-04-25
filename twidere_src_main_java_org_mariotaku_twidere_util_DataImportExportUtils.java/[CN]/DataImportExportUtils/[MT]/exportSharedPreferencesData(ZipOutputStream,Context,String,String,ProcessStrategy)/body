@@ -1,0 +1,11 @@
+{
+  final SharedPreferences preferences=context.getSharedPreferences(preferencesName,Context.MODE_PRIVATE);
+  final Map<String,?> map=preferences.getAll();
+  zos.putNextEntry(new ZipEntry(entryName));
+  final JSONObject json=new JSONObject();
+  for (  String key : map.keySet()) {
+    strategy.exportValue(json,key,preferences);
+  }
+  zos.write(json.toString().getBytes(Charset.defaultCharset()));
+  zos.closeEntry();
+}

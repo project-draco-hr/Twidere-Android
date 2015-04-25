@@ -1,0 +1,29 @@
+{
+  final Preference preference=supportedMap.get(key);
+  if (preference == null || !preference.exportable())   return false;
+  try {
+switch (preference.type()) {
+case BOOLEAN:
+      json.put(key,preferences.getBoolean(key,preference.defaultBoolean()));
+    break;
+case INT:
+  json.put(key,preferences.getInt(key,preference.defaultInt()));
+break;
+case LONG:
+json.put(key,preferences.getLong(key,preference.defaultLong()));
+break;
+case FLOAT:
+json.put(key,preferences.getFloat(key,preference.defaultFloat()));
+break;
+case STRING:
+json.put(key,preferences.getString(key,preference.defaultString()));
+break;
+default :
+break;
+}
+}
+ catch (JSONException e) {
+return false;
+}
+return true;
+}

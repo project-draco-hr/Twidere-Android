@@ -1,0 +1,16 @@
+{
+  final Field[] fields=cls.getDeclaredFields();
+  final HashMap<String,Preference> supportedPrefsMap=new HashMap<>();
+  for (  final Field field : fields) {
+    final Preference annotation=field.getAnnotation(Preference.class);
+    if (Modifier.isStatic(field.getModifiers()) && CompareUtils.classEquals(field.getType(),String.class) && annotation != null && annotation.exportable() && annotation.type() != INVALID) {
+      try {
+        supportedPrefsMap.put((String)field.get(null),annotation);
+      }
+ catch (      final IllegalAccessException|IllegalArgumentException e) {
+        Log.w(LOGTAG,e);
+      }
+    }
+  }
+  return supportedPrefsMap;
+}

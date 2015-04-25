@@ -1,0 +1,5 @@
+{
+  if (!json.has(key))   return false;
+  editor.putInt(key,json.optInt(key));
+  return true;
+}

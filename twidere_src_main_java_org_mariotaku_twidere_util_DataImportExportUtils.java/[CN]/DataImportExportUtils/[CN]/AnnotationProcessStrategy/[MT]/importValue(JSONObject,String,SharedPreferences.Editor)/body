@@ -1,0 +1,24 @@
+{
+  final Preference preference=supportedMap.get(key);
+  if (preference == null || !preference.exportable())   return false;
+switch (preference.type()) {
+case BOOLEAN:
+    editor.putBoolean(key,json.optBoolean(key,preference.defaultBoolean()));
+  break;
+case INT:
+editor.putInt(key,json.optInt(key,preference.defaultInt()));
+break;
+case LONG:
+editor.putLong(key,json.optLong(key,preference.defaultLong()));
+break;
+case FLOAT:
+editor.putFloat(key,(float)json.optDouble(key,preference.defaultFloat()));
+break;
+case STRING:
+editor.putString(key,json.optString(key,preference.defaultString()));
+break;
+default :
+break;
+}
+return true;
+}

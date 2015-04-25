@@ -1,3 +1,0 @@
-{
-  preferencesMap.putAll(preferences.getAll());
-}
