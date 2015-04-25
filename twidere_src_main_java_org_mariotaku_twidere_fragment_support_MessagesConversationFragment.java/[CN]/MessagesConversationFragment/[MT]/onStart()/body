@@ -4,4 +4,6 @@
   bus.register(this);
   updateTextCount();
   updateEmptyText();
+  mMessagesListView.addOnScrollListener(mScrollListener);
+  mScrollListener.reset();
 }

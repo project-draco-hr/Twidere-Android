@@ -1,0 +1,8 @@
+{
+  final LinearLayoutManager layoutManager=(LinearLayoutManager)recyclerView.getLayoutManager();
+  final boolean showElevation=layoutManager.findLastCompletelyVisibleItemPosition() < layoutManager.getItemCount() - 1;
+  if (mShowElevation != showElevation) {
+    mEffectHelper.setState(showElevation);
+  }
+  mShowElevation=showElevation;
+}

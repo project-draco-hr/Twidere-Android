@@ -1,4 +1,5 @@
 {
+  mMessagesListView.removeOnScrollListener(mScrollListener);
   final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
   bus.unregister(this);
   if (mPopupMenu != null) {
