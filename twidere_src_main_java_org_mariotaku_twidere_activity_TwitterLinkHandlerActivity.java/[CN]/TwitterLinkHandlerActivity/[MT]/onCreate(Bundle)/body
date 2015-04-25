@@ -8,7 +8,7 @@
     finish();
     return;
   }
-  final Uri uri=data.buildUpon().authority(AUTHORITY_TWITTER_COM).build();
+  final Uri uri=regulateTwitterUri(data);
   final Intent handledIntent=getHandledIntent(uri);
   if (handledIntent != null) {
     startActivity(handledIntent);

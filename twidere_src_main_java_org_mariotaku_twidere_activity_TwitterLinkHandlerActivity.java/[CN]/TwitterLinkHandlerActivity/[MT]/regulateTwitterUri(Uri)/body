@@ -1,0 +1,9 @@
+{
+  final String encodedFragment=data.getEncodedFragment();
+  if (encodedFragment != null && encodedFragment.startsWith("!/")) {
+    return regulateTwitterUri(Uri.parse("https://twitter.com" + encodedFragment.substring(1)));
+  }
+  final Uri.Builder builder=data.buildUpon();
+  builder.authority(AUTHORITY_TWITTER_COM);
+  return builder.build();
+}
