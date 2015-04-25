@@ -6,7 +6,7 @@
   popupMenu.setOnMenuItemClickListener(mOnStatusMenuItemClickListener);
   popupMenu.inflate(R.menu.action_status);
   final ParcelableStatus status=mStatusAdapter.getStatus(position);
-  setMenuForStatus(mStatusAdapter.getContext(),popupMenu.getMenu(),status);
+  Utils.setMenuForStatus(mStatusAdapter.getContext(),popupMenu.getMenu(),status);
   popupMenu.show();
   mPopupMenu=popupMenu;
   mSelectedStatus=status;

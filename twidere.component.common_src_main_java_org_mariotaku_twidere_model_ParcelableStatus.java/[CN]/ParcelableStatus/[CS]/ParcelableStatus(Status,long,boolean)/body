@@ -8,10 +8,10 @@
   is_retweet=orig.isRetweet();
   retweet_id=retweeted != null ? retweeted.getId() : -1;
   retweet_timestamp=retweeted != null ? getTime(retweeted.getCreatedAt()) : -1;
-  retweeted_by_id=retweet_user != null ? retweet_user.getId() : -1;
-  retweeted_by_name=retweet_user != null ? retweet_user.getName() : null;
-  retweeted_by_screen_name=retweet_user != null ? retweet_user.getScreenName() : null;
-  retweeted_by_profile_image=retweet_user != null ? retweet_user.getProfileImageUrlHttps() : null;
+  retweeted_by_user_id=retweet_user != null ? retweet_user.getId() : -1;
+  retweeted_by_user_name=retweet_user != null ? retweet_user.getName() : null;
+  retweeted_by_user_screen_name=retweet_user != null ? retweet_user.getScreenName() : null;
+  retweeted_by_user_profile_image=retweet_user != null ? retweet_user.getProfileImageUrlHttps() : null;
   final Status quoted=orig.getQuotedStatus();
   final User quote_user=quoted != null ? orig.getUser() : null;
   is_quote=orig.isQuote();
@@ -61,7 +61,7 @@
   location=ParcelableLocation.fromGeoLocation(status.getGeoLocation());
   is_favorite=status.isFavorited();
   text_unescaped=HtmlEscapeHelper.toPlainText(text_html);
-  my_retweet_id=retweeted_by_id == account_id ? id : status.getCurrentUserRetweet();
+  my_retweet_id=retweeted_by_user_id == account_id ? id : status.getCurrentUserRetweet();
   is_possibly_sensitive=status.isPossiblySensitive();
   mentions=ParcelableUserMention.fromUserMentionEntities(status.getUserMentionEntities());
   card=ParcelableCardEntity.fromCardEntity(status.getCard(),account_id);

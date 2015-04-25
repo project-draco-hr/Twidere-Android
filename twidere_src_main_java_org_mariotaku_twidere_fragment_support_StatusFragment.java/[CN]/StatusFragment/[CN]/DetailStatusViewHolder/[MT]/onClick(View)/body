@@ -17,7 +17,12 @@ case R.id.profile_container:
 {
     final FragmentActivity activity=fragment.getActivity();
     final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<View,String>(profileTypeView,UserFragment.TRANSITION_NAME_PROFILE_TYPE));
-    openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,activityOption);
+    if (status.is_quote) {
+      Utils.openUserProfile(adapter.getContext(),status.account_id,status.quoted_by_user_id,status.quoted_by_user_screen_name,activityOption);
+    }
+ else {
+      Utils.openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,activityOption);
+    }
     break;
   }
 case R.id.retweets_container:
@@ -29,7 +34,7 @@ case R.id.retweets_container:
 case R.id.retweeted_by_container:
 {
 if (status.retweet_id > 0) {
-  Utils.openUserProfile(adapter.getContext(),status.account_id,status.retweeted_by_id,status.retweeted_by_screen_name,null);
+  Utils.openUserProfile(adapter.getContext(),status.account_id,status.retweeted_by_user_id,status.retweeted_by_user_screen_name,null);
 }
 break;
 }
@@ -38,6 +43,11 @@ case R.id.location_view:
 final ParcelableLocation location=status.location;
 if (!ParcelableLocation.isValidLocation(location)) return;
 Utils.openMap(adapter.getContext(),location.latitude,location.longitude);
+break;
+}
+case R.id.quoted_name_container:
+{
+Utils.openUserProfile(adapter.getContext(),status.account_id,status.user_id,status.user_screen_name,null);
 break;
 }
 }

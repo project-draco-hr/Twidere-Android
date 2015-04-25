@@ -5,7 +5,7 @@
   user_id=orig.user_id;
   retweet_id=orig.retweet_id;
   retweet_timestamp=orig.retweet_timestamp;
-  retweeted_by_id=orig.retweeted_by_id;
+  retweeted_by_user_id=orig.retweeted_by_user_id;
   retweet_count=override_retweet_count;
   favorite_count=orig.favorite_count;
   reply_count=orig.reply_count;
@@ -16,9 +16,9 @@
   is_favorite=orig.is_favorite;
   user_is_protected=orig.user_is_protected;
   user_is_verified=orig.user_is_verified;
-  retweeted_by_name=orig.retweeted_by_name;
-  retweeted_by_screen_name=orig.retweeted_by_screen_name;
-  retweeted_by_profile_image=orig.retweeted_by_profile_image;
+  retweeted_by_user_name=orig.retweeted_by_user_name;
+  retweeted_by_user_screen_name=orig.retweeted_by_user_screen_name;
+  retweeted_by_user_profile_image=orig.retweeted_by_user_profile_image;
   text_html=orig.text_html;
   text_plain=orig.text_plain;
   user_name=orig.user_name;

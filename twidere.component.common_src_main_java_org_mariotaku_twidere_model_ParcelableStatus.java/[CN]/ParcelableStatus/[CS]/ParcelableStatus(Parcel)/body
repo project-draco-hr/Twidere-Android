@@ -5,7 +5,7 @@
   user_id=in.readLong();
   retweet_id=in.readLong();
   retweet_timestamp=in.readLong();
-  retweeted_by_id=in.readLong();
+  retweeted_by_user_id=in.readLong();
   retweet_count=in.readLong();
   favorite_count=in.readLong();
   reply_count=in.readLong();
@@ -16,9 +16,9 @@
   is_favorite=in.readByte() == 1;
   user_is_protected=in.readByte() == 1;
   user_is_verified=in.readByte() == 1;
-  retweeted_by_name=in.readString();
-  retweeted_by_screen_name=in.readString();
-  retweeted_by_profile_image=in.readString();
+  retweeted_by_user_name=in.readString();
+  retweeted_by_user_screen_name=in.readString();
+  retweeted_by_user_profile_image=in.readString();
   text_html=in.readString();
   text_plain=in.readString();
   user_name=in.readString();

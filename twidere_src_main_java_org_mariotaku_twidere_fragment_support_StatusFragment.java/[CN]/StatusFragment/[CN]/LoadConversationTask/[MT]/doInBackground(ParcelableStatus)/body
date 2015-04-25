@@ -4,7 +4,7 @@
     ParcelableStatus status=params[0];
     final long account_id=status.account_id;
     while (status.in_reply_to_status_id > 0 && !isCancelled()) {
-      status=findStatus(context,account_id,status.in_reply_to_status_id);
+      status=Utils.findStatus(context,account_id,status.in_reply_to_status_id);
       publishProgress(status);
       list.add(0,status);
     }

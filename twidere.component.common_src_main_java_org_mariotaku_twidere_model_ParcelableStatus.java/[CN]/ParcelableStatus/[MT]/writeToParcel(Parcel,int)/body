@@ -5,7 +5,7 @@
   out.writeLong(user_id);
   out.writeLong(retweet_id);
   out.writeLong(retweet_timestamp);
-  out.writeLong(retweeted_by_id);
+  out.writeLong(retweeted_by_user_id);
   out.writeLong(retweet_count);
   out.writeLong(favorite_count);
   out.writeLong(reply_count);
@@ -16,9 +16,9 @@
   out.writeByte((byte)(is_favorite ? 1 : 0));
   out.writeByte((byte)(user_is_protected ? 1 : 0));
   out.writeByte((byte)(user_is_verified ? 1 : 0));
-  out.writeString(retweeted_by_name);
-  out.writeString(retweeted_by_screen_name);
-  out.writeString(retweeted_by_profile_image);
+  out.writeString(retweeted_by_user_name);
+  out.writeString(retweeted_by_user_screen_name);
+  out.writeString(retweeted_by_user_profile_image);
   out.writeString(text_html);
   out.writeString(text_plain);
   out.writeString(user_name);

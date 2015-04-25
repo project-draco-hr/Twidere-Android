@@ -7,6 +7,7 @@
   ThemeUtils.wrapMenuIcon(menuBar,MENU_GROUP_STATUS_SHARE);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);
+  quotedNameContainer.setOnClickListener(this);
   retweetsContainer.setOnClickListener(this);
   favoritesContainer.setOnClickListener(this);
   retweetedByContainer.setOnClickListener(this);

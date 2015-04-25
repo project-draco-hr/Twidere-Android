@@ -5,7 +5,7 @@
   user_id=idx.user_id != -1 ? c.getLong(idx.user_id) : -1;
   retweet_id=idx.retweet_id != -1 ? c.getLong(idx.retweet_id) : -1;
   retweet_timestamp=idx.retweet_timestamp != -1 ? c.getLong(idx.retweet_timestamp) : -1;
-  retweeted_by_id=idx.retweeted_by_user_id != -1 ? c.getLong(idx.retweeted_by_user_id) : -1;
+  retweeted_by_user_id=idx.retweeted_by_user_id != -1 ? c.getLong(idx.retweeted_by_user_id) : -1;
   retweet_count=idx.retweet_count != -1 ? c.getLong(idx.retweet_count) : -1;
   favorite_count=idx.favorite_count != -1 ? c.getLong(idx.favorite_count) : -1;
   reply_count=idx.reply_count != -1 ? c.getLong(idx.reply_count) : -1;
@@ -17,9 +17,9 @@
   is_favorite=idx.is_favorite != -1 && c.getInt(idx.is_favorite) == 1;
   user_is_protected=idx.is_protected != -1 && c.getInt(idx.is_protected) == 1;
   user_is_verified=idx.is_verified != -1 && c.getInt(idx.is_verified) == 1;
-  retweeted_by_name=idx.retweeted_by_user_name != -1 ? c.getString(idx.retweeted_by_user_name) : null;
-  retweeted_by_screen_name=idx.retweeted_by_user_screen_name != -1 ? c.getString(idx.retweeted_by_user_screen_name) : null;
-  retweeted_by_profile_image=idx.retweeted_by_user_profile_image != -1 ? c.getString(idx.retweeted_by_user_profile_image) : null;
+  retweeted_by_user_name=idx.retweeted_by_user_name != -1 ? c.getString(idx.retweeted_by_user_name) : null;
+  retweeted_by_user_screen_name=idx.retweeted_by_user_screen_name != -1 ? c.getString(idx.retweeted_by_user_screen_name) : null;
+  retweeted_by_user_profile_image=idx.retweeted_by_user_profile_image != -1 ? c.getString(idx.retweeted_by_user_profile_image) : null;
   text_html=idx.text_html != -1 ? c.getString(idx.text_html) : null;
   media=idx.media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.media)) : null;
   quote_media=idx.quote_media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.quote_media)) : null;
