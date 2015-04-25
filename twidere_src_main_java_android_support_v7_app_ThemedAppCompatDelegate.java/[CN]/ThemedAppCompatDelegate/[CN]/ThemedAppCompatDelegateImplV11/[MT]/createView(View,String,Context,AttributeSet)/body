@@ -1,6 +1,0 @@
-{
-  View view=super.createView(parent,name,context,attrs);
-  if (view == null) {
-  }
-  return view;
-}
