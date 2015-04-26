@@ -1,5 +1,7 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_content_fragment);
+  getMainContent().setSetPaddingEnabled(true);
   final Uri uri=getIntent().getData();
   if (uri == null || !AUTHORITY_MAP.equals(uri.getAuthority())) {
     finish();
@@ -27,5 +29,5 @@
   final Fragment fragment=isNativeMapSupported() ? new GoogleMapFragment() : new WebMapFragment();
   fragment.setArguments(bundle);
   final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-  ft.replace(android.R.id.content,fragment).commit();
+  ft.replace(R.id.main_content,fragment).commit();
 }

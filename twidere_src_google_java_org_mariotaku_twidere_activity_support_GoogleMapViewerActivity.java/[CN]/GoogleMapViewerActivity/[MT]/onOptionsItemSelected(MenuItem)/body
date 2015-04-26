@@ -7,11 +7,10 @@ case MENU_HOME:
     }
 case MENU_CENTER:
 {
-    final Fragment fragment=getSupportFragmentManager().findFragmentById(android.R.id.content);
-    if (!(fragment instanceof IMapFragment)) {
-      break;
+    final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.main_content);
+    if ((fragment instanceof IMapFragment)) {
+      ((IMapFragment)fragment).center();
     }
-    ((IMapFragment)fragment).center();
     break;
   }
 }
