@@ -15,8 +15,8 @@
     textSecondaryDark=textColorSecondaryInverse;
     textSecondaryLight=textColorSecondary;
   }
-  final int textContrastPrimary=TwidereColorUtils.getContrastYIQ(color,192,textPrimaryDark,textPrimaryLight);
-  final int textContrastSecondary=TwidereColorUtils.getContrastYIQ(color,192,textSecondaryDark,textSecondaryLight);
+  final int textContrastPrimary=TwidereColorUtils.getContrastYIQ(color,ThemeUtils.ACCENT_COLOR_THRESHOLD,textPrimaryDark,textPrimaryLight);
+  final int textContrastSecondary=TwidereColorUtils.getContrastYIQ(color,ThemeUtils.ACCENT_COLOR_THRESHOLD,textSecondaryDark,textSecondaryLight);
   text.setTextColor(textContrastPrimary);
   text.setLinkTextColor(textContrastSecondary);
   time.setTextColor(textContrastSecondary);

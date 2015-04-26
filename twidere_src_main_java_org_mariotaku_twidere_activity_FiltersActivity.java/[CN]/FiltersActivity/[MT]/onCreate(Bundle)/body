@@ -12,4 +12,5 @@
   mAdapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
   ThemeUtils.initPagerIndicatorAsActionBarTab(this,mPagerIndicator);
   ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
+  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
 }

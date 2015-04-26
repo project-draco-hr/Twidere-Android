@@ -1,0 +1,16 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(ATTRS_COLOR_FOREGROUND_AND_INVERSE);
+  try {
+    if (isDarkTheme(themeRes)) {
+      colors[0]=a.getColor(1,Color.WHITE);
+      colors[1]=a.getColor(0,Color.BLACK);
+    }
+ else {
+      colors[0]=a.getColor(0,Color.WHITE);
+      colors[1]=a.getColor(1,Color.BLACK);
+    }
+  }
+  finally {
+    a.recycle();
+  }
+}

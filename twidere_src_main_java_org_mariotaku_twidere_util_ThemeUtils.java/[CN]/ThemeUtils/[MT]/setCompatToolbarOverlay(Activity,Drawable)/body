@@ -2,16 +2,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   return;
   final Window window=activity.getWindow();
   final View view=window.findViewById(android.support.v7.appcompat.R.id.decor_content_parent);
-  if (!(view instanceof ActionBarOverlayLayout)) {
-    View contentLayout=window.findViewById(android.support.v7.appcompat.R.id.action_bar_activity_content);
-    if (contentLayout == null) {
-      contentLayout=window.findViewById(android.R.id.content);
-    }
-    if (contentLayout instanceof ContentFrameLayout) {
-      ((ContentFrameLayout)contentLayout).setForeground(overlay);
-    }
-    return;
-  }
+  if (!(view instanceof ActionBarOverlayLayout))   return;
   try {
     final Field field=ActionBarOverlayLayout.class.getDeclaredField("mWindowContentOverlay");
     field.setAccessible(true);

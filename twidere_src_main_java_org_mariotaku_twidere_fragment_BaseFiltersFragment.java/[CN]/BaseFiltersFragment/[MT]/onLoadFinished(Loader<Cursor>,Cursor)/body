@@ -5,6 +5,6 @@
     showContent();
   }
  else {
-    showError(R.drawable.ic_info_error_generic,getString(R.string.no_rule));
+    showEmpty(R.drawable.ic_info_volume_off,getString(R.string.no_rule));
   }
 }

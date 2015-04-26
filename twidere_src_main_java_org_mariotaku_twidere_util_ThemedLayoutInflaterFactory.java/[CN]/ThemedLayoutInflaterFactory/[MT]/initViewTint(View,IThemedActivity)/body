@@ -3,7 +3,7 @@
   final boolean isColorTint;
   if (!isActionBarContext(view.getContext(),getActionBarContext((Activity)activity))) {
     tintColor=activity.getCurrentThemeColor();
-    noTintColor=TwidereColorUtils.getContrastYIQ(tintColor,192);
+    noTintColor=TwidereColorUtils.getContrastYIQ(tintColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
     isColorTint=true;
   }
  else   if (ThemeUtils.isDarkTheme(activity.getCurrentThemeResourceId())) {
@@ -13,8 +13,8 @@
   }
  else {
     final int themeColor=activity.getCurrentThemeColor();
-    tintColor=TwidereColorUtils.getContrastYIQ(themeColor,192);
-    noTintColor=TwidereColorUtils.getContrastYIQ(tintColor,192);
+    tintColor=TwidereColorUtils.getContrastYIQ(themeColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
+    noTintColor=TwidereColorUtils.getContrastYIQ(tintColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
     isColorTint=false;
   }
   if (view instanceof TextView) {

@@ -2,7 +2,7 @@
   if (isDarkTheme(theme)) {
     return getTextColorPrimary(context);
   }
- else   if (TwidereColorUtils.getYIQLuminance(color) < 192) {
+ else   if (TwidereColorUtils.getYIQLuminance(color) < ACCENT_COLOR_THRESHOLD) {
     return getTextColorPrimaryInverse(context);
   }
  else {
