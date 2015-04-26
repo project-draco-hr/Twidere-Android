@@ -7,3 +7,4 @@ List<ParcelableStatus> data
 String[] savedStatusesArgs
 int tabPosition
 boolean fromUser
+boolean makeGap
