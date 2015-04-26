@@ -1,5 +1,5 @@
 {
-  if (getIntent().getStringExtra(EXTRA_SHOW_FRAGMENT) != null)   return false;
+  if (!isTopSettings())   return false;
   getMenuInflater().inflate(R.menu.menu_settings,menu);
   return true;
 }

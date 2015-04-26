@@ -1,1 +1,1 @@
-AbsContentListFragment<AbsUsersAdapter<Data>>
+AbsContentRecyclerViewFragment<AbsUsersAdapter<Data>>

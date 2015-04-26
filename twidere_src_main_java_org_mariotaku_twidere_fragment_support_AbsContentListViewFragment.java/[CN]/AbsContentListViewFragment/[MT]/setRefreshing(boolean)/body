@@ -1,0 +1,8 @@
+{
+  final boolean currentRefreshing=mSwipeRefreshLayout.isRefreshing();
+  if (!currentRefreshing) {
+    updateRefreshProgressOffset();
+  }
+  if (refreshing == currentRefreshing)   return;
+  mSwipeRefreshLayout.setRefreshing(refreshing);
+}

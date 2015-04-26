@@ -1,1 +1,1 @@
-AbsContentListFragment<MessageEntriesAdapter>
+AbsContentRecyclerViewFragment<MessageEntriesAdapter>

@@ -1,0 +1,7 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (activity instanceof IControlBarActivity) {
+    ((IControlBarActivity)activity).unregisterControlBarOffsetListener(this);
+  }
+  super.onDetach();
+}

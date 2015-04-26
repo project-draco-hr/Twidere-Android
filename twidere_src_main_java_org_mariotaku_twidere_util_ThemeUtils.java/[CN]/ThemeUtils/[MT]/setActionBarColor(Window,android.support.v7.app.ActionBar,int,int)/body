@@ -1,0 +1,9 @@
+{
+  final Drawable drawable=getActionBarHomeAsUpIndicator(actionBar);
+  if (drawable != null) {
+    drawable.setColorFilter(itemColor,Mode.SRC_ATOP);
+  }
+  actionBar.setHomeAsUpIndicator(drawable);
+  setActionBarTitleTextColor(window,titleColor);
+  setActionBarSubtitleTextColor(window,titleColor);
+}

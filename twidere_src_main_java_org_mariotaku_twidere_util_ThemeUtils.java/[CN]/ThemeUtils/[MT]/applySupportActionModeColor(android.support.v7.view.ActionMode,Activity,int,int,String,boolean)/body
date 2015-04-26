@@ -1,5 +1,6 @@
 {
   if (!(modeCompat instanceof ActionModeImpl))   return;
+  modeCompat.setTitle(null);
   try {
     WindowDecorActionBar actionBar=null;
     final Field[] fields=ActionModeImpl.class.getDeclaredFields();
@@ -16,7 +17,6 @@
     contextViewField.setAccessible(true);
     final View contextView=(View)contextViewField.get(actionBar);
     if (!(contextView instanceof ActionBarContextView))     return;
-    final ActionBarContextView actionBarContextView=(ActionBarContextView)contextView;
     final TextView actionBarTitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_title);
     final TextView actionBarSubtitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_subtitle);
     final ImageView actionModeCloseButton=(ImageView)contextView.findViewById(android.support.v7.appcompat.R.id.action_mode_close_button);

@@ -1,0 +1,16 @@
+{
+  final SettingsActivity activity=(SettingsActivity)getActivity();
+  if (activity == null)   return;
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      activity.finish();
+      break;
+    }
+case DialogInterface.BUTTON_NEGATIVE:
+{
+    activity.finishNoRestart();
+    break;
+  }
+}
+}

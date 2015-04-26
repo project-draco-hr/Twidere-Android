@@ -1,4 +1,10 @@
 {
-  mAdapter.swapCursor(data);
-  setListShown(true);
+  final SimpleCursorAdapter adapter=getAdapter();
+  adapter.swapCursor(data);
+  if (data != null && data.getCount() > 0) {
+    showContent();
+  }
+ else {
+    showError(R.drawable.ic_info_error_generic,getString(R.string.no_rule));
+  }
 }

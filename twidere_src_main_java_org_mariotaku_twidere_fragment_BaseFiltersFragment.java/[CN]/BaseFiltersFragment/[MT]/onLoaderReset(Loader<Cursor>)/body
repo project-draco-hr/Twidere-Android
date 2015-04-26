@@ -1,3 +1,4 @@
 {
-  mAdapter.swapCursor(null);
+  final SimpleCursorAdapter adapter=getAdapter();
+  adapter.swapCursor(null);
 }

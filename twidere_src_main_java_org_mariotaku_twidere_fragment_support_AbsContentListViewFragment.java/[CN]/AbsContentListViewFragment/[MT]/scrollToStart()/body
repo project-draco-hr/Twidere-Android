@@ -1,0 +1,5 @@
+{
+  mListView.setSelectionFromTop(0,0);
+  setControlVisible(true);
+  return true;
+}

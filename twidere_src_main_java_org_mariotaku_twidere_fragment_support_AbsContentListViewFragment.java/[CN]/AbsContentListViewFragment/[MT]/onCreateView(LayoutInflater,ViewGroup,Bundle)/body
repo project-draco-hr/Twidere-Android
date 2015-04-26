@@ -1,0 +1,3 @@
+{
+  return inflater.inflate(R.layout.fragment_content_listview,container,false);
+}

@@ -1,6 +1,11 @@
 {
-  if (isDarkTheme(theme) || TwidereColorUtils.getYIQLuminance(color) < 192) {
-    return Color.WHITE;
+  if (isDarkTheme(theme)) {
+    return getTextColorPrimary(context);
   }
-  return Color.BLACK;
+ else   if (TwidereColorUtils.getYIQLuminance(color) < 192) {
+    return getTextColorPrimaryInverse(context);
+  }
+ else {
+    return getTextColorPrimary(context);
+  }
 }

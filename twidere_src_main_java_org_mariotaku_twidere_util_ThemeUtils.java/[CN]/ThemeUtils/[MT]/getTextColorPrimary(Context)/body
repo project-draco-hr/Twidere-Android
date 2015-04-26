@@ -1,5 +1,5 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary});
+  final TypedArray a=context.obtainStyledAttributes(ATTRS_TEXT_COLOR_PRIMARY);
   try {
     return a.getColor(0,Color.TRANSPARENT);
   }

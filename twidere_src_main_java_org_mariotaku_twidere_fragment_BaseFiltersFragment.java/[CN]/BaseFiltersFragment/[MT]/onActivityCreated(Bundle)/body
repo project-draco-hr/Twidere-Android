@@ -2,12 +2,10 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   mResolver=getContentResolver();
-  mAdapter=createListAdapter();
-  setListAdapter(mAdapter);
-  mListView=getListView();
-  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-  mListView.setMultiChoiceModeListener(this);
-  setEmptyText(getString(R.string.no_rule));
+  final ListView listView=getListView();
+  listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  listView.setMultiChoiceModeListener(this);
   getLoaderManager().initLoader(0,null,this);
-  setListShown(false);
+  setRefreshEnabled(false);
+  showProgress();
 }

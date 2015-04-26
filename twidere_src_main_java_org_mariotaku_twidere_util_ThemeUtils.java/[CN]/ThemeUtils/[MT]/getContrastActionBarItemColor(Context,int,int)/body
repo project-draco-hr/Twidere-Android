@@ -1,6 +1,6 @@
 {
   if (isDarkTheme(theme) || TwidereColorUtils.getYIQLuminance(color) < 192) {
-    return Color.WHITE;
+    return context.getResources().getColor(R.color.action_icon_light);
   }
-  return Color.BLACK;
+  return context.getResources().getColor(R.color.action_icon_dark);
 }
