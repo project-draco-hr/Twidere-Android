@@ -4,7 +4,15 @@
     return LoganSquare.parseList(new FileInputStream(file),ParcelableActivity.class);
   }
  catch (  final IOException e) {
-    e.printStackTrace();
+    if (Utils.isDebugBuild()) {
+      Log.w(LOGTAG,e);
+    }
+  }
+catch (  RuntimeException e) {
+    if (Utils.isDebugBuild()) {
+      throw e;
+    }
+    Log.e(LOGTAG,"Error unserializing data",e);
   }
   return null;
 }
