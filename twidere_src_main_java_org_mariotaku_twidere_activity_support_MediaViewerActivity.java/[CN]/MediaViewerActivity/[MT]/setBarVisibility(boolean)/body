@@ -7,6 +7,6 @@
  else {
     actionBar.hide();
   }
-  mIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
+  mIndicator.setVisibility(visible && mPagerAdapter.getCount() > 1 ? View.VISIBLE : View.GONE);
   mMediaStatusContainer.setVisibility(isMediaStatusEnabled() && visible ? View.VISIBLE : View.GONE);
 }
