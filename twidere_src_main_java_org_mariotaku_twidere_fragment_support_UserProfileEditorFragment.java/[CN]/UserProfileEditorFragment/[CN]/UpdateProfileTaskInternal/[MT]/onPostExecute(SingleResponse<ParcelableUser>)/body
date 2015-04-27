@@ -1,0 +1,7 @@
+{
+  super.onPostExecute(result);
+  final Fragment f=mFragment.getFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_TAG);
+  if (f instanceof DialogFragment) {
+    ((DialogFragment)f).dismissAllowingStateLoss();
+  }
+}

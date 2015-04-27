@@ -1,6 +1,6 @@
 {
   final Context context=getContext();
-  final int themeResource=ThemeUtils.getThemeResource(context);
+  final int themeResource=ThemeUtils.getNoActionBarThemeResource(context);
   final Context theme=new ContextThemeWrapper(context,themeResource);
   final LayoutInflater inflater=LayoutInflater.from(theme);
   try {

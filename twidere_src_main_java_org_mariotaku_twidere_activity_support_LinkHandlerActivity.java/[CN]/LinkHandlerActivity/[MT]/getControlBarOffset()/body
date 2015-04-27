@@ -1,5 +1,4 @@
 {
-  final ActionBar actionBar=getSupportActionBar();
-  if (actionBar == null)   return 0;
-  return 1f - actionBar.getHideOffset() / (float)getControlBarHeight();
+  final Toolbar toolbar=peekActionBarToolbar();
+  return toolbar != null ? 1 + toolbar.getTranslationY() / (float)getControlBarHeight() : 0;
 }

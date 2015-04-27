@@ -3,6 +3,5 @@
     StrictModeUtils.detectAllVmPolicy();
     StrictModeUtils.detectAllThreadPolicy();
   }
-  setupTheme();
   super.onCreate(savedInstanceState);
 }

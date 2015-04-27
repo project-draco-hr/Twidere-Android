@@ -1,0 +1,9 @@
+{
+  final Intent intent=new Intent();
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_FILTERS);
+  intent.setData(builder.build());
+  intent.setPackage(BuildConfig.APPLICATION_ID);
+  context.startActivity(intent);
+}

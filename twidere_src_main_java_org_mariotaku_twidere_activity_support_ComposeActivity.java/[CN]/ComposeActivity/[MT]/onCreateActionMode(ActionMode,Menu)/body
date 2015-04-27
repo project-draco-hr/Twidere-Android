@@ -2,7 +2,7 @@
   final Window window=getWindow();
   final Rect rect=new Rect();
   window.getDecorView().getWindowVisibleDisplayFrame(rect);
-  final int actionBarHeight=Utils.getActionBarHeight(this);
+  final int actionBarHeight=ThemeUtils.getActionBarHeight(this);
   final View contentView=window.findViewById(android.R.id.content);
   final int[] location=new int[2];
   contentView.getLocationOnScreen(location);

@@ -1,0 +1,3 @@
+{
+  super.setTheme(mCurrentThemeResource=getThemeResourceId());
+}

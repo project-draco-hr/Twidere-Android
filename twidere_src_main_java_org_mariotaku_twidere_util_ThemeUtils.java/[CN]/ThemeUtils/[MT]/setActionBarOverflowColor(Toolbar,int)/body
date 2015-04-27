@@ -1,6 +1,6 @@
 {
   if (toolbar == null)   return;
-  final ActionMenuView actionMenuView=ViewUtils.findViewByType(toolbar,ActionMenuView.class);
+  final ActionMenuView actionMenuView=ViewSupport.findViewByType(toolbar,ActionMenuView.class);
   if (actionMenuView == null)   return;
   View overflowView=null;
   for (int i=0, j=actionMenuView.getChildCount(); i < j; i++) {

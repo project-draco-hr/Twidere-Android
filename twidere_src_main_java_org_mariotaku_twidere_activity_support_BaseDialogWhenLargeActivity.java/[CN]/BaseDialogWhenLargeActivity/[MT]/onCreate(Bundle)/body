@@ -1,5 +1,4 @@
 {
   setupWindow();
   super.onCreate(savedInstanceState);
-  setupActionBar();
 }

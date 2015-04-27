@@ -1,0 +1,3 @@
+{
+  return outlineL instanceof OutlineL ? ((OutlineL)outlineL).outline : null;
+}

@@ -1,0 +1,36 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final TwidereApplication application=TwidereApplication.getInstance(getActivity());
+  mAsyncTaskManager=application.getAsyncTaskManager();
+  mLazyImageLoader=application.getMediaLoaderWrapper();
+  final Bundle args=getArguments();
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  mAccountId=accountId;
+  if (!Utils.isMyAccount(getActivity(),accountId)) {
+    getActivity().finish();
+    return;
+  }
+  mEditName.addTextChangedListener(this);
+  mEditDescription.addTextChangedListener(this);
+  mEditLocation.addTextChangedListener(this);
+  mEditUrl.addTextChangedListener(this);
+  mProfileImageView.setOnClickListener(this);
+  mProfileBannerView.setOnClickListener(this);
+  mProfileImageCamera.setOnClickListener(this);
+  mProfileImageGallery.setOnClickListener(this);
+  mProfileBannerGallery.setOnClickListener(this);
+  mProfileBannerRemove.setOnClickListener(this);
+  mSetLinkColor.setOnClickListener(this);
+  mSetBackgroundColor.setOnClickListener(this);
+  if (savedInstanceState != null && savedInstanceState.getParcelable(EXTRA_USER) != null) {
+    final ParcelableUser user=savedInstanceState.getParcelable(EXTRA_USER);
+    displayUser(user);
+    mEditName.setText(savedInstanceState.getString(EXTRA_NAME,user.name));
+    mEditLocation.setText(savedInstanceState.getString(EXTRA_LOCATION,user.location));
+    mEditDescription.setText(savedInstanceState.getString(EXTRA_DESCRIPTION,user.description_expanded));
+    mEditUrl.setText(savedInstanceState.getString(EXTRA_URL,user.url_expanded));
+  }
+ else {
+    getUserInfo();
+  }
+}

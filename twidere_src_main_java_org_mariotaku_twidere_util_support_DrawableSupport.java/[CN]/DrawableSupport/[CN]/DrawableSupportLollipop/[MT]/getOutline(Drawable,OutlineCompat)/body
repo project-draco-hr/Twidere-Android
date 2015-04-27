@@ -1,0 +1,3 @@
+{
+  drawable.getOutline(OutlineCompat.OutlineL.getWrapped(outlineCompat));
+}

@@ -11,7 +11,7 @@
   }
   mIconView=(ImageView)findViewById(android.R.id.icon);
   mProgressBar=(ProgressBar)findViewById(android.R.id.progress);
-  ViewUtils.setOutlineProvider(this,new HomeActionButtonOutlineProvider());
+  ViewSupport.setOutlineProvider(this,new HomeActionButtonOutlineProvider());
   setClipToOutline(true);
   setButtonColor(Color.WHITE);
 }

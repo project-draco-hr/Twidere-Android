@@ -3,7 +3,6 @@
     StrictModeUtils.detectAllVmPolicy();
     StrictModeUtils.detectAllThreadPolicy();
   }
-  setTheme();
   super.onCreate(savedInstanceState);
   mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

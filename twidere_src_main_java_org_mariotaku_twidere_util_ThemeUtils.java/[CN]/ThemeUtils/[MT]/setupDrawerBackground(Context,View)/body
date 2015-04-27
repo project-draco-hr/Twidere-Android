@@ -8,5 +8,5 @@
   if (d != null && isTransparentBackground(backgroundOption)) {
     d.setAlpha(alpha);
   }
-  ViewUtils.setBackground(view,d);
+  ViewSupport.setBackground(view,d);
 }

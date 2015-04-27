@@ -1,5 +1,5 @@
 {
-  final ParcelableActivity activity=mAdapter.getActivity(position);
+  final ParcelableActivity activity=getAdapter().getActivity(position);
   final long[] accountIds={activity.account_id};
   final long[] maxIds={activity.min_position};
   getActivities(accountIds,maxIds,null);

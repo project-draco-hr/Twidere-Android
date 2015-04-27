@@ -1,8 +1,9 @@
 {
 switch (themeRes) {
 case R.style.Theme_Twidere_Dark:
+case R.style.Theme_Twidere_Dark_NoActionBar:
 case R.style.Theme_Twidere_Dark_Dialog:
-case R.style.Theme_Twidere_Dark_DialogWhenLarge:
+case R.style.Theme_Twidere_Dark_DialogWhenLarge_NoActionBar:
 case R.style.Theme_Twidere_Dark_Compose:
     return true;
 }

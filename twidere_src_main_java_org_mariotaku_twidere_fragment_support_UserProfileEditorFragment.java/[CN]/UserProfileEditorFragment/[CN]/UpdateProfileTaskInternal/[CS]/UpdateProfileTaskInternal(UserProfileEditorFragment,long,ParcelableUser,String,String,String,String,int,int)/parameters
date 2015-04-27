@@ -1,0 +1,9 @@
+UserProfileEditorFragment fragment
+long accountId
+ParcelableUser original
+String name
+String url
+String location
+String description
+int linkColor
+int backgroundColor

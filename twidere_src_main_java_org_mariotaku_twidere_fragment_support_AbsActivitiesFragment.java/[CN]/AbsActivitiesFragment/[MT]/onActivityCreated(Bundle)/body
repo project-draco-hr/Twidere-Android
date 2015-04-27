@@ -2,22 +2,7 @@
   super.onActivityCreated(savedInstanceState);
   final View view=getView();
   if (view == null)   throw new AssertionError();
-  final Context context=view.getContext();
-  final boolean compact=Utils.isCompactCards(context);
-  mDrawerCallback=new SimpleDrawerCallback(mRecyclerView);
-  mSwipeRefreshLayout.setOnRefreshListener(this);
-  mSwipeRefreshLayout.setColorSchemeColors(ThemeUtils.getUserAccentColor(context));
-  mAdapter=onCreateAdapter(context,compact);
-  mAdapter.setLoadMoreIndicatorVisible(true);
-  mAdapter.setListener(this);
-  final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
-  layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-  mRecyclerView.setLayoutManager(layoutManager);
-  if (compact) {
-    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,layoutManager.getOrientation()));
-  }
-  mRecyclerView.setAdapter(mAdapter);
-  mRecyclerView.setOnScrollListener(mOnScrollListener);
+  getAdapter().setListener(this);
   getLoaderManager().initLoader(0,getArguments(),this);
-  setListShown(false);
+  showProgress();
 }

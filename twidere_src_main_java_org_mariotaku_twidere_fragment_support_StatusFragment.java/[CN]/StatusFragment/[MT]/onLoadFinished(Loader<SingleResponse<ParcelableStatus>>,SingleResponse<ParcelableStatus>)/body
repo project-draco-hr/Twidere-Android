@@ -6,7 +6,7 @@
     final ParcelableStatus status=data.getData();
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
-    if (mStatusAdapter.setStatus(credentials,status)) {
+    if (mStatusAdapter.setStatus(status,credentials)) {
       mLayoutManager.scrollToPositionWithOffset(1,0);
       mStatusAdapter.setConversation(null);
       mStatusAdapter.setReplies(null);

@@ -1,0 +1,4 @@
+{
+  mFactor=f;
+  updateAlpha();
+}

@@ -19,12 +19,12 @@
   if (mActionBarBackground != null) {
     mActionBarBackground.setColor(actionBarColor);
   }
-  ActivityAccessor.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
+  ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
   mDescriptionView.setLinkTextColor(color);
   mProfileBannerView.setBackgroundColor(color);
   mLocationView.setLinkTextColor(color);
   mURLView.setLinkTextColor(color);
-  ViewUtils.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,color,true));
+  ViewSupport.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,color,true));
   final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
   if (drawer != null) {
     final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();

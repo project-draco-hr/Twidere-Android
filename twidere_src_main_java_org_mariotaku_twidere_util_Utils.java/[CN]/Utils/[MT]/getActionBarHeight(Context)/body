@@ -1,9 +1,0 @@
-{
-  final TypedValue tv=new TypedValue();
-  final Theme theme=context.getTheme();
-  final int attr=context instanceof AppCompatActivity ? R.attr.actionBarSize : android.R.attr.actionBarSize;
-  if (theme.resolveAttribute(attr,tv,true)) {
-    return TypedValue.complexToDimensionPixelSize(tv.data,context.getResources().getDisplayMetrics());
-  }
-  return 0;
-}

@@ -1,3 +1,0 @@
-{
-  providerCompat.getOutline(view,new OutlineL(outline));
-}

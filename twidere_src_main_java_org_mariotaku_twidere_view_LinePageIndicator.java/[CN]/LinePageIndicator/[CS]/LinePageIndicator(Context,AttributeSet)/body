@@ -17,7 +17,7 @@
   mPaintSelected.setColor(a.getColor(R.styleable.LinePageIndicator_selectedColor,defaultSelectedColor));
   final Drawable background=a.getDrawable(R.styleable.LinePageIndicator_android_background);
   if (background != null) {
-    ViewUtils.setBackground(this,background);
+    ViewSupport.setBackground(this,background);
   }
   a.recycle();
   final ViewConfiguration configuration=ViewConfiguration.get(context);

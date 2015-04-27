@@ -1,0 +1,19 @@
+{
+  super.onBaseViewCreated(view,savedInstanceState);
+  mProgressContainer=view.findViewById(R.id.progress_container);
+  mEditProfileContent=view.findViewById(R.id.edit_profile_content);
+  mProfileBannerView=(ImageView)view.findViewById(R.id.profile_banner);
+  mProfileImageView=(ImageView)view.findViewById(R.id.profile_image);
+  mEditName=(EditText)view.findViewById(R.id.name);
+  mEditDescription=(EditText)view.findViewById(R.id.description);
+  mEditLocation=(EditText)view.findViewById(R.id.location);
+  mEditUrl=(EditText)view.findViewById(R.id.url);
+  mProfileImageCamera=view.findViewById(R.id.profile_image_camera);
+  mProfileImageGallery=view.findViewById(R.id.profile_image_gallery);
+  mProfileBannerGallery=view.findViewById(R.id.profile_banner_gallery);
+  mProfileBannerRemove=view.findViewById(R.id.profile_banner_remove);
+  mLinkColor=(ForegroundColorView)view.findViewById(R.id.link_color);
+  mBackgroundColor=(ForegroundColorView)view.findViewById(R.id.background_color);
+  mSetLinkColor=view.findViewById(R.id.set_link_color);
+  mSetBackgroundColor=view.findViewById(R.id.set_background_color);
+}

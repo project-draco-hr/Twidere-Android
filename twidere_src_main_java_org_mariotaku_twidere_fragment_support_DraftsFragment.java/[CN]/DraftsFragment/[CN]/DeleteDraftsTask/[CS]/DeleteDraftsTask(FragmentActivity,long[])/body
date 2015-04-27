@@ -1,0 +1,6 @@
+{
+  mActivity=activity;
+  mNotificationManager=(NotificationManager)activity.getSystemService(Context.NOTIFICATION_SERVICE);
+  mIds=ids;
+  mHandler=new Handler(activity.getMainLooper());
+}

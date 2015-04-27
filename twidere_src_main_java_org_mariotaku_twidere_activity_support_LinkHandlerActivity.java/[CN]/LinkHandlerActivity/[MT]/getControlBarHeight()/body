@@ -1,4 +1,4 @@
 {
-  final ActionBar actionBar=getSupportActionBar();
-  return actionBar != null ? actionBar.getHeight() : 0;
+  final Toolbar toolbar=peekActionBarToolbar();
+  return toolbar != null ? toolbar.getHeight() : 0;
 }

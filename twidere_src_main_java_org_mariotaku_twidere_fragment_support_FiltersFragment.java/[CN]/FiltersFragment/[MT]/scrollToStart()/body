@@ -1,0 +1,6 @@
+{
+  final Fragment fragment=getCurrentVisibleFragment();
+  if (!(fragment instanceof RefreshScrollTopInterface))   return false;
+  ((RefreshScrollTopInterface)fragment).scrollToStart();
+  return true;
+}

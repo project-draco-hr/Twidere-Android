@@ -1,7 +1,8 @@
 {
   final int noTintColor, tintColor;
   final boolean isColorTint;
-  if (!isActionBarContext(view.getContext(),getActionBarContext((Activity)activity))) {
+  final boolean isActionBarContext=isActionBarContext(view.getContext(),getActionBarContext((Activity)activity));
+  if (!isActionBarContext) {
     tintColor=activity.getCurrentThemeColor();
     noTintColor=TwidereColorUtils.getContrastYIQ(tintColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
     isColorTint=true;

@@ -49,13 +49,13 @@
     if (mActionBarHomeAsUpIndicator != null) {
       mActionBarHomeAsUpIndicator.setColorFilter(itemColor,Mode.SRC_ATOP);
     }
-    final View actionBarView=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.action_bar);
-    if (actionBarView instanceof Toolbar) {
-      final Toolbar toolbar=(Toolbar)actionBarView;
+    final Toolbar actionBarView=activity.getActionBarToolbar();
+    if (actionBarView != null) {
+      final Toolbar toolbar=actionBarView;
       toolbar.setTitleTextColor(itemColor);
       toolbar.setSubtitleTextColor(itemColor);
       ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
-      ThemeUtils.wrapToolbarMenuIcon(ViewUtils.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
+      ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
     }
     mPagerIndicator.updateAppearance();
   }

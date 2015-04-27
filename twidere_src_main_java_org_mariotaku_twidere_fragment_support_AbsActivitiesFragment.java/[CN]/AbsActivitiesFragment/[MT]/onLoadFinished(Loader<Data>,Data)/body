@@ -1,5 +1,5 @@
 {
   setRefreshing(false);
-  mAdapter.setData(data);
-  setListShown(true);
+  getAdapter().setData(data);
+  showContent();
 }

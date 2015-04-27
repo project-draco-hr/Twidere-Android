@@ -130,10 +130,25 @@ setTitle(android.R.string.search_go);
 setSubtitle(uri.getQueryParameter(QUERY_PARAM_QUERY));
 break;
 }
+case LINK_ID_ACCOUNTS:
+{
+setTitle(R.string.accounts);
+break;
+}
+case LINK_ID_DRAFTS:
+{
+setTitle(R.string.drafts);
+break;
+}
+case LINK_ID_FILTERS:
+{
+setTitle(R.string.filters);
+break;
+}
 }
 mFinishOnly=Boolean.parseBoolean(uri.getQueryParameter(QUERY_PARAM_FINISH_ONLY));
 final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-ft.replace(R.id.main_content,fragment);
+ft.replace(R.id.content_fragment,fragment);
 ft.commit();
 return true;
 }

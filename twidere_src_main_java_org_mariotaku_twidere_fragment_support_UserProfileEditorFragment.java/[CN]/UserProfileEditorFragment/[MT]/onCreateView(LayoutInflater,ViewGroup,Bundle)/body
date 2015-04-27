@@ -1,0 +1,3 @@
+{
+  return inflater.inflate(R.layout.activity_user_profile_editor,container,false);
+}

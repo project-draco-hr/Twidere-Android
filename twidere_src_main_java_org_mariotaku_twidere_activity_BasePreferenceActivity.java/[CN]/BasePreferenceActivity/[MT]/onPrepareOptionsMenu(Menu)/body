@@ -9,7 +9,7 @@
     final Toolbar toolbar=(Toolbar)actionBarView;
     ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
     final int popupColor=ThemeUtils.getThemeForegroundColor(toolbar.getContext(),toolbar.getPopupTheme());
-    ThemeUtils.wrapToolbarMenuIcon(ViewUtils.findViewByType(actionBarView,ActionMenuView.class),itemColor,popupColor);
+    ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,popupColor);
   }
   return result;
 }

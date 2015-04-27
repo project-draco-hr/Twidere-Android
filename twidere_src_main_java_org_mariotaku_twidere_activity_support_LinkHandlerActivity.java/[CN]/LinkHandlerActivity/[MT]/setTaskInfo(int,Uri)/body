@@ -3,7 +3,7 @@ switch (linkId) {
 default :
 {
       if (ThemeUtils.isColoredActionBar(getCurrentThemeResourceId())) {
-        ActivityAccessor.setTaskDescription(this,new TaskDescriptionCompat(null,null,getCurrentThemeColor()));
+        ActivitySupport.setTaskDescription(this,new TaskDescriptionCompat(null,null,getCurrentThemeColor()));
       }
       break;
     }

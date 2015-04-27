@@ -6,12 +6,17 @@
   final int linkId=matchLinkId(data);
   requestWindowFeatures(getWindow(),linkId,data);
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_content_fragment);
+  setSupportActionBar((Toolbar)findViewById(R.id.tool_bar));
+  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
+  final Toolbar toolbar=peekActionBarToolbar();
+  ViewCompat.setElevation(toolbar,ThemeUtils.getSupportActionBarElevation(this));
+  ViewSupport.setOutlineProvider(toolbar,ViewOutlineProviderCompat.BACKGROUND);
   final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
     setActionBarTheme(actionBar,linkId,data);
   }
-  setContentView(R.layout.activity_content_fragment);
   mMainContent.setOnFitSystemWindowsListener(this);
   setStatusBarColor(linkId,data);
   setTaskInfo(linkId,data);

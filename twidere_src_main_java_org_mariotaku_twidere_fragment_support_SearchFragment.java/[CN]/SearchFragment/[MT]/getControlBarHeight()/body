@@ -8,7 +8,7 @@
     controlBarHeight=mControlBarHeight;
   }
   if (controlBarHeight == 0) {
-    return Utils.getActionBarHeight(activity);
+    return ThemeUtils.getActionBarHeight(activity);
   }
   return controlBarHeight;
 }

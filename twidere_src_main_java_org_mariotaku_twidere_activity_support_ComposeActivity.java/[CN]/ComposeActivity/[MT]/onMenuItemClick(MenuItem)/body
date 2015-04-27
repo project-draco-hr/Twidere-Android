@@ -19,7 +19,7 @@ case MENU_ADD_LOCATION:
 }
 case MENU_DRAFTS:
 {
-startActivity(new Intent(INTENT_ACTION_DRAFTS));
+Utils.openDrafts(this);
 break;
 }
 case MENU_DELETE:

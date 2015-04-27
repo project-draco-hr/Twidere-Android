@@ -1,6 +1,15 @@
 {
+  final Toolbar toolbar=peekActionBarToolbar();
+  if (toolbar != null) {
+    final ViewGroup.LayoutParams toolBarParams=toolbar.getLayoutParams();
+    if (toolBarParams instanceof ViewGroup.MarginLayoutParams) {
+      ((ViewGroup.MarginLayoutParams)toolBarParams).topMargin=insets.top;
+    }
+    toolbar.setLayoutParams(toolBarParams);
+  }
+  insets.top+=ThemeUtils.getActionBarHeight(this);
   super.onFitSystemWindows(insets);
-  final Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.main_content);
+  final Fragment fragment=getCurrentVisibleFragment();
   if (fragment instanceof IBaseFragment) {
     ((IBaseFragment)fragment).requestFitSystemWindows();
   }

@@ -12,11 +12,11 @@
   final int defaultTextSize=getDefaultTextSize(context);
   final int cardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   final int accentColor=ThemeUtils.getUserAccentColor(context);
-  final int themeId=ThemeUtils.getThemeResource(context);
+  final int themeId=ThemeUtils.getNoActionBarThemeResource(context);
   final String backgroundOption=ThemeUtils.getThemeBackgroundOption(context);
   ThemeUtils.applyWindowBackground(context,windowBackgroundView,themeId,backgroundOption,ThemeUtils.getUserThemeBackgroundAlpha(context));
-  ViewUtils.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,backgroundOption,true));
-  ViewUtils.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
+  ViewSupport.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,backgroundOption,true));
+  ViewSupport.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
   cardView.setCardBackgroundColor(cardBackgroundColor);
   actionBarView.setTitle(R.string.app_name);
   actionBarView.setTitleTextColor(ThemeUtils.getContrastActionBarTitleColor(context,themeId,accentColor));

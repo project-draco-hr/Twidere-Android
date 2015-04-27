@@ -4,6 +4,10 @@
     drawable.setColorFilter(itemColor,Mode.SRC_ATOP);
   }
   actionBar.setHomeAsUpIndicator(drawable);
-  setActionBarTitleTextColor(window,titleColor);
-  setActionBarSubtitleTextColor(window,titleColor);
+  if (actionBar instanceof WindowDecorActionBar) {
+    actionBar.setTitle(actionBar.getTitle());
+    actionBar.setSubtitle(actionBar.getSubtitle());
+    setActionBarTitleTextColor(window,titleColor);
+    setActionBarSubtitleTextColor(window,titleColor);
+  }
 }

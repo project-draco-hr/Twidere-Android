@@ -1,4 +1,5 @@
 {
+  mMainContent.removeOnLayoutChangeListener(mLayoutChangeListener);
   mMultiSelectHandler.dispatchOnStop();
   super.onStop();
 }

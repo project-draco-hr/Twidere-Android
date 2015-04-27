@@ -1,6 +1,6 @@
 {
-  final ActionBar actionBar=getSupportActionBar();
-  if (actionBar == null)   return;
-  actionBar.setHideOffset(Math.round((1 - offset) * getControlBarHeight()));
+  final Toolbar toolbar=peekActionBarToolbar();
+  if (toolbar == null)   return;
+  toolbar.setTranslationY(-Math.round((1 - offset) * getControlBarHeight()));
   notifyControlBarOffsetChanged();
 }

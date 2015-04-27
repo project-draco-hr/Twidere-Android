@@ -1,4 +1,4 @@
 {
-  ViewUtils.setClipToOutline(this,true);
-  ViewUtils.setOutlineProvider(this,new CircularOutlineProvider());
+  ViewSupport.setClipToOutline(this,true);
+  ViewSupport.setOutlineProvider(this,new CircularOutlineProvider());
 }

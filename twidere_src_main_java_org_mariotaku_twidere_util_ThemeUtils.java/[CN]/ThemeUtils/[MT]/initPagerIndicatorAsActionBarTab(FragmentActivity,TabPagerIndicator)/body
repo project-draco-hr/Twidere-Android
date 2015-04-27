@@ -16,7 +16,7 @@
     colorLight=textColors[1];
   }
   final int contrastColor=TwidereColorUtils.getContrastYIQ(themeColor,ACCENT_COLOR_THRESHOLD,colorDark,colorLight);
-  ViewUtils.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
+  ViewSupport.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
   if (isDarkTheme(themeRes)) {
     final int foregroundColor=getThemeForegroundColor(activity);
     indicator.setIconColor(foregroundColor);

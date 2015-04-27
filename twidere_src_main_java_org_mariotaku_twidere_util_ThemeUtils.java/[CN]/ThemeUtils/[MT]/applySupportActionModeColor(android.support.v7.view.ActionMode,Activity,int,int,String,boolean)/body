@@ -20,7 +20,7 @@
     final TextView actionBarTitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_title);
     final TextView actionBarSubtitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_subtitle);
     final ImageView actionModeCloseButton=(ImageView)contextView.findViewById(android.support.v7.appcompat.R.id.action_mode_close_button);
-    final ActionMenuView menuView=ViewUtils.findViewByType(contextView,ActionMenuView.class);
+    final ActionMenuView menuView=ViewSupport.findViewByType(contextView,ActionMenuView.class);
     final int actionBarColor;
     if (isDarkTheme(themeRes)) {
       actionBarColor=context.getResources().getColor(R.color.background_color_action_bar_dark);
@@ -43,7 +43,7 @@
       setActionBarOverflowColor(menuView,itemColor);
       ThemeUtils.wrapToolbarMenuIcon(menuView,itemColor,itemColor);
     }
-    ViewUtils.setBackground(contextView,getActionBarBackground(activity,themeRes,accentColor,backgroundOption,outlineEnabled));
+    ViewSupport.setBackground(contextView,getActionBarBackground(activity,themeRes,accentColor,backgroundOption,outlineEnabled));
   }
  catch (  Exception e) {
     e.printStackTrace();

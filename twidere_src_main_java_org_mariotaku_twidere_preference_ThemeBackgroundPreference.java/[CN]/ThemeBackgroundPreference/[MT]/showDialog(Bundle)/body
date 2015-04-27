@@ -18,7 +18,7 @@
     mAlphaSlider.setOnSeekBarChangeListener(mAlphaSliderChangedListener);
     mAlphaSlider.setProgress(preferences.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA));
     final int patternSize=res.getDimensionPixelSize(R.dimen.element_spacing_msmall);
-    ViewUtils.setBackground(mAlphaPreview,new AlphaPatternDrawable(patternSize));
+    ViewSupport.setBackground(mAlphaPreview,new AlphaPatternDrawable(patternSize));
     updateAlphaVisibility();
     updateAlphaPreview();
     final int checkedIdx=findIndexOfValue(mValue);

@@ -11,7 +11,7 @@
   }
   builder.setSmallIcon(R.drawable.ic_stat_info);
   builder.setAutoCancel(true);
-  final Intent draftsIntent=new Intent(this,DraftsActivity.class);
+  final Intent draftsIntent=new Intent(this,DraftsFragment.class);
   builder.setContentIntent(PendingIntent.getActivity(this,0,draftsIntent,PendingIntent.FLAG_UPDATE_CURRENT));
   final Intent serviceIntent=new Intent(this,BackgroundOperationService.class);
   serviceIntent.setAction(INTENT_ACTION_DISCARD_DRAFT);
