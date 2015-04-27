@@ -1,6 +1,4 @@
 {
-  final boolean result=super.onPrepareOptionsMenu(menu);
-  if (!shouldSetActionItemColor())   return result;
   final Toolbar toolbar=peekActionBarToolbar();
   if (toolbar != null) {
     final int themeColor=getCurrentThemeColor();
@@ -9,5 +7,4 @@
     ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
     ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),itemColor,itemColor);
   }
-  return result;
 }

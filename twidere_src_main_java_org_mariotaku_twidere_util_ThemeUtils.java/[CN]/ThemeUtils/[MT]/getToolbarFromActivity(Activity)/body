@@ -1,0 +1,4 @@
+{
+  if (activity instanceof LinkHandlerActivity)   return ((LinkHandlerActivity)activity).peekActionBarToolbar();
+  return null;
+}

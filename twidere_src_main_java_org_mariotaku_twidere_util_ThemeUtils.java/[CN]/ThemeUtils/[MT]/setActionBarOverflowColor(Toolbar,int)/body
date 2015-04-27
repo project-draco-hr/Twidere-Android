@@ -12,7 +12,5 @@
     }
   }
   if (!(overflowView instanceof ImageView))   return;
-  final Drawable drawable=((ImageView)overflowView).getDrawable();
-  if (drawable == null)   return;
-  drawable.setColorFilter(itemColor,Mode.SRC_ATOP);
+  ((ImageView)overflowView).setColorFilter(itemColor,Mode.SRC_ATOP);
 }

@@ -1,0 +1,13 @@
+{
+  final boolean result=super.onPreparePanel(featureId,view,menu);
+  if (shouldSetActionItemColor()) {
+    setupToolbarMenuItemColor();
+    mActionBarContainer.post(new Runnable(){
+      @Override public void run(){
+        setupToolbarMenuItemColor();
+      }
+    }
+);
+  }
+  return result;
+}
