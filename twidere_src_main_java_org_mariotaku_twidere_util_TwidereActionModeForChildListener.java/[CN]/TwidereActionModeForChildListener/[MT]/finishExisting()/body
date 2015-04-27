@@ -1,0 +1,7 @@
+{
+  if (mActionMode != null) {
+    mActionMode.finish();
+    return true;
+  }
+  return false;
+}

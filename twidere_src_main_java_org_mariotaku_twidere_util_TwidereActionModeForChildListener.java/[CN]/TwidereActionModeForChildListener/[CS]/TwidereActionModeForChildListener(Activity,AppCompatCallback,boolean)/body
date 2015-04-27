@@ -1,0 +1,12 @@
+{
+  mActivity=activity;
+  mWindow=activity.getWindow();
+  mAppCompatCallback=callback;
+  if (activity instanceof IThemedActivity) {
+    mIsFloating=ThemeUtils.isWindowFloating(mActivity,((IThemedActivity)activity).getCurrentThemeResourceId());
+  }
+ else {
+    mIsFloating=mWindow.isFloating();
+  }
+  mUsePopup=usePopup;
+}

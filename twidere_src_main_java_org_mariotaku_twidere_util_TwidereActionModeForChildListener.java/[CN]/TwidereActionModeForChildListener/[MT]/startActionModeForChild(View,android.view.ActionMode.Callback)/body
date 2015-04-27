@@ -1,0 +1,7 @@
+{
+  final ActionMode supportActionMode=startSupportActionMode(new SupportActionModeWrapper.CallbackWrapper(mActivity,callback));
+  if (supportActionMode == null) {
+    return mActivity.startActionMode(callback);
+  }
+  return new SupportActionModeWrapper(mActivity,supportActionMode);
+}

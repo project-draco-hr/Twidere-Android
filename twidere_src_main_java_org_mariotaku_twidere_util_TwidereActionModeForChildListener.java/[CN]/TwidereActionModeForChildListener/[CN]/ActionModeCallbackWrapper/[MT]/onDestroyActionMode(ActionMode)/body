@@ -1,0 +1,20 @@
+{
+  mWrapped.onDestroyActionMode(mode);
+  if (mActionModePopup != null) {
+    mWindow.getDecorView().removeCallbacks(mShowActionModePopup);
+    mActionModePopup.dismiss();
+  }
+ else   if (mActionModeView != null) {
+    mActionModeView.setVisibility(View.GONE);
+    if (mActionModeView.getParent() != null) {
+      ViewCompat.requestApplyInsets((View)mActionModeView.getParent());
+    }
+  }
+  if (mActionModeView != null) {
+    mActionModeView.removeAllViews();
+  }
+  if (mAppCompatCallback != null) {
+    mAppCompatCallback.onSupportActionModeFinished(mActionMode);
+  }
+  mActionMode=null;
+}

@@ -1,0 +1,55 @@
+{
+  if (mActionMode != null) {
+    mActionMode.finish();
+  }
+  final ActionMode.Callback wrappedCallback=new ActionModeCallbackWrapper(callback);
+  if (mActionModeView == null) {
+    if (mIsFloating && mUsePopup) {
+      final TypedValue outValue=new TypedValue();
+      final Resources.Theme baseTheme=mActivity.getTheme();
+      baseTheme.resolveAttribute(android.support.v7.appcompat.R.attr.actionBarTheme,outValue,true);
+      final Context actionBarContext=getActionBarThemedContext();
+      mActionModeView=new ActionBarContextView(actionBarContext);
+      mActionModePopup=new PopupWindow(actionBarContext,null,android.support.v7.appcompat.R.attr.actionModePopupWindowStyle);
+      mActionModePopup.setContentView(mActionModeView);
+      mActionModePopup.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+      actionBarContext.getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize,outValue,true);
+      final int height=TypedValue.complexToDimensionPixelSize(outValue.data,actionBarContext.getResources().getDisplayMetrics());
+      mActionModeView.setContentHeight(height);
+      mActionModePopup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+      mShowActionModePopup=new Runnable(){
+        public void run(){
+          mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.FILL_HORIZONTAL,0,0);
+        }
+      }
+;
+    }
+ else {
+      mActionModeView=(ActionBarContextView)mWindow.findViewById(R.id.action_context_bar);
+    }
+  }
+  if (mActionModeView != null) {
+    mActionModeView.killMode();
+    ActionMode mode=new StandaloneActionMode(mActionModeView.getContext(),mActionModeView,wrappedCallback,mActionModePopup == null);
+    if (callback.onCreateActionMode(mode,mode.getMenu())) {
+      mode.invalidate();
+      mActionModeView.initForMode(mode);
+      mActionModeView.setVisibility(View.VISIBLE);
+      mActionMode=mode;
+      if (mActionModePopup != null) {
+        mWindow.getDecorView().post(mShowActionModePopup);
+      }
+      mActionModeView.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
+      if (mActionModeView.getParent() != null) {
+        ViewCompat.requestApplyInsets((View)mActionModeView.getParent());
+      }
+    }
+ else {
+      mActionMode=null;
+    }
+  }
+  if (mActionMode != null && mAppCompatCallback != null) {
+    mAppCompatCallback.onSupportActionModeStarted(mActionMode);
+  }
+  return mActionMode;
+}

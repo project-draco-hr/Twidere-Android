@@ -1,0 +1,6 @@
+Context context
+View contextView
+int themeRes
+int accentColor
+String backgroundOption
+boolean outlineEnabled

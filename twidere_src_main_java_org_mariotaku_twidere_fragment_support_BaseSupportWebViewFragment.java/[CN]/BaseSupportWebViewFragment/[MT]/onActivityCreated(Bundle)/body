@@ -5,5 +5,5 @@
   final WebSettings settings=view.getSettings();
   settings.setBuiltInZoomControls(true);
   settings.setJavaScriptEnabled(true);
-  WebSettingsAccessor.setAllowUniversalAccessFromFileURLs(settings,true);
+  WebSettingsSupport.setAllowUniversalAccessFromFileURLs(settings,true);
 }

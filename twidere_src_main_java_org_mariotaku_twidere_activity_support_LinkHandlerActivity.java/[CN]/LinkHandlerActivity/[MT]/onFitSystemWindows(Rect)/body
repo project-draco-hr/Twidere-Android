@@ -1,11 +1,11 @@
 {
-  final Toolbar toolbar=peekActionBarToolbar();
-  if (toolbar != null) {
-    final ViewGroup.LayoutParams toolBarParams=toolbar.getLayoutParams();
+  final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
+  if (actionBarContainer != null) {
+    final ViewGroup.LayoutParams toolBarParams=actionBarContainer.getLayoutParams();
     if (toolBarParams instanceof ViewGroup.MarginLayoutParams) {
       ((ViewGroup.MarginLayoutParams)toolBarParams).topMargin=insets.top;
     }
-    toolbar.setLayoutParams(toolBarParams);
+    actionBarContainer.setLayoutParams(toolBarParams);
   }
   insets.top+=ThemeUtils.getActionBarHeight(this);
   super.onFitSystemWindows(insets);

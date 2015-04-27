@@ -1,0 +1,13 @@
+{
+  if (callback == null) {
+    throw new IllegalArgumentException("ActionMode callback can not be null.");
+  }
+  if (mActionMode != null) {
+    mActionMode.finish();
+  }
+  final ActionMode.Callback wrappedCallback=new ActionModeCallbackWrapper(callback);
+  if (mActionMode == null) {
+    mActionMode=startSupportActionModeFromWindow(wrappedCallback);
+  }
+  return mActionMode;
+}
