@@ -1,5 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
   final Bundle args=getArguments();
   final double latitude=args.getDouble(EXTRA_LATITUDE,Double.NaN);
   final double longitude=args.getDouble(EXTRA_LONGITUDE,Double.NaN);
