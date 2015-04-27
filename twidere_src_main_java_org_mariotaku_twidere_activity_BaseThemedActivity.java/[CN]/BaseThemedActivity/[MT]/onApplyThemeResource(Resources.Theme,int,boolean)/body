@@ -5,5 +5,5 @@
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   mProfileImageStyle=Utils.getProfileImageStyle(this);
   ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
-  super.onApplyThemeResource(theme,resid,first);
+  super.onApplyThemeResource(theme,resId,first);
 }

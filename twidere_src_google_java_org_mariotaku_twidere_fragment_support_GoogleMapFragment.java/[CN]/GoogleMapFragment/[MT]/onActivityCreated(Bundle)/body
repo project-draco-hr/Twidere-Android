@@ -1,5 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
   final Bundle args=getArguments();
   if (args == null || !args.containsKey(EXTRA_LATITUDE) || !args.containsKey(EXTRA_LONGITUDE))   return;
   final double lat=args.getDouble(EXTRA_LATITUDE,0.0), lng=args.getDouble(EXTRA_LONGITUDE,0.0);

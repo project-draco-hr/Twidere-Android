@@ -1,7 +1,0 @@
-{
-  if (v == null)   return null;
-  final int wSpec=MeasureSpec.makeMeasureSpec(v.getWidth(),MeasureSpec.UNSPECIFIED);
-  final int hSpec=MeasureSpec.makeMeasureSpec(v.getHeight(),MeasureSpec.UNSPECIFIED);
-  v.measure(wSpec,hSpec);
-  return getMapStaticImageUri(lat,lng,12,v.getMeasuredWidth(),v.getMeasuredHeight(),v.getResources().getConfiguration().locale);
-}

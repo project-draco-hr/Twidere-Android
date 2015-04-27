@@ -1,3 +1,0 @@
-{
-  return getThemeResourceId() != mCurrentThemeResource || getThemeColor() != mCurrentThemeColor || !CompareUtils.objectEquals(getThemeFontFamily(),mCurrentThemeFontFamily) || getThemeBackgroundAlpha() != mCurrentThemeBackgroundAlpha;
-}

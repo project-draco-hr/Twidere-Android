@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case MENU_CENTER:
+{
+      center();
+      break;
+    }
+}
+return true;
+}

@@ -6,6 +6,6 @@
   builder.appendQueryParameter(QUERY_PARAM_LAT,String.valueOf(latitude));
   builder.appendQueryParameter(QUERY_PARAM_LNG,String.valueOf(longitude));
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-  intent.setPackage(context.getPackageName());
+  intent.setPackage(BuildConfig.APPLICATION_ID);
   context.startActivity(Intent.createChooser(intent,null));
 }

@@ -1,4 +1,5 @@
 {
+  setupWindow();
   super.onCreate(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mResolver=getContentResolver();

@@ -5,5 +5,15 @@
     itemBrowser.setVisible(is_oauth);
     itemBrowser.setEnabled(is_oauth);
   }
-  return super.onPrepareOptionsMenu(menu);
+  final boolean result=super.onPrepareOptionsMenu(menu);
+  if (!shouldSetActionItemColor())   return result;
+  final Toolbar toolbar=peekActionBarToolbar();
+  if (toolbar != null) {
+    final int themeColor=getCurrentThemeColor();
+    final int themeId=getCurrentThemeResourceId();
+    final int itemColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+    ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
+    ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),itemColor,itemColor);
+  }
+  return result;
 }

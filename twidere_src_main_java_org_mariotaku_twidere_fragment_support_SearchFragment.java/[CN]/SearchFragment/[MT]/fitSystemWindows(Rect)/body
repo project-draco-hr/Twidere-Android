@@ -1,5 +1,4 @@
 {
-  super.fitSystemWindows(insets);
   final View view=getView();
   if (view != null) {
     final int top=Utils.getInsetsTopWithoutActionBarHeight(getActivity(),insets.top);

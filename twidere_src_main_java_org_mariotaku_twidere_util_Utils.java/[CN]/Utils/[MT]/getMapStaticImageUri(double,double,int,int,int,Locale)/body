@@ -1,3 +1,0 @@
-{
-  return String.format(Locale.US,MAPS_STATIC_IMAGE_URI_TEMPLATE,zoom,w,h,locale.toString(),lat,lng,lat,lng);
-}

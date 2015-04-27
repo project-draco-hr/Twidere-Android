@@ -26,10 +26,22 @@ case LINK_ID_FILTERS:
 }
 case LINK_ID_PROFILE_EDITOR:
 {
-fragment=new UserProfileEditorFragment();
 if (!args.containsKey(EXTRA_ACCOUNT_ID) && uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID) == null) {
   return null;
 }
+fragment=new UserProfileEditorFragment();
+break;
+}
+case LINK_ID_MAP:
+{
+if (!args.containsKey(EXTRA_LATITUDE) && !args.containsKey(EXTRA_LONGITUDE)) {
+final double lat=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LAT),Double.NaN);
+final double lng=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LNG),Double.NaN);
+if (Double.isNaN(lat) || Double.isNaN(lng)) return null;
+args.putDouble(EXTRA_LATITUDE,lat);
+args.putDouble(EXTRA_LONGITUDE,lng);
+}
+fragment=MapFragmentFactory.SINGLETON.createMapFragment(context);
 break;
 }
 case LINK_ID_STATUS:

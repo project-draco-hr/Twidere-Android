@@ -1,0 +1,17 @@
+{
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  final int themeColor=getCurrentThemeColor();
+  final int themeId=getCurrentThemeResourceId();
+  final String option=getThemeBackgroundOption();
+  final int titleColor=ThemeUtils.getContrastActionBarTitleColor(this,themeId,themeColor);
+  final int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+  ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,isActionBarOutlineEnabled());
+  final Toolbar toolbar=peekActionBarToolbar();
+  if (toolbar != null) {
+    ThemeUtils.setToolBarColor(toolbar,titleColor,actionBarItemsColor);
+  }
+ else {
+    ThemeUtils.setActionBarColor(getWindow(),getSupportActionBar(),titleColor,actionBarItemsColor);
+  }
+}
