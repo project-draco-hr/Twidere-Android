@@ -29,4 +29,7 @@
     indicator.setStripColor(contrastColor);
   }
   indicator.updateAppearance();
+  if (pagerOverlay != null) {
+    ViewSupport.setBackground(pagerOverlay,getNormalWindowContentOverlay(activity,themeRes));
+  }
 }

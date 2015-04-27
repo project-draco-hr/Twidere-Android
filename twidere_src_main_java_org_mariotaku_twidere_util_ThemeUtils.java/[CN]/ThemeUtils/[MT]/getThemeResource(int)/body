@@ -1,0 +1,6 @@
+{
+  if (isDarkTheme(otherTheme)) {
+    return R.style.Theme_Twidere_Dark;
+  }
+  return R.style.Theme_Twidere_Light;
+}

@@ -3,19 +3,18 @@
   final int themeId=getCurrentThemeResourceId();
   final String option=getThemeBackgroundOption();
   int actionBarItemsColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+  final ActionBarContainer actionBarContainer=(ActionBarContainer)findViewById(R.id.twidere_action_bar_container);
 switch (linkId) {
 case LINK_ID_SEARCH:
 case LINK_ID_USER_LISTS:
 case LINK_ID_FILTERS:
 {
-      ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,false);
-      ThemeUtils.applyActionBarBackground(getActionBar(),this,themeId,themeColor,option,true);
+      ThemeUtils.applyActionBarBackground(actionBarContainer,this,themeId,themeColor,option,false);
       break;
     }
 default :
 {
-    ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,true);
-    ThemeUtils.applyActionBarBackground(getActionBar(),this,themeId,themeColor,option,true);
+    ThemeUtils.applyActionBarBackground(actionBarContainer,this,themeId,themeColor,option,true);
     break;
   }
 }

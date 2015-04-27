@@ -1,4 +1,3 @@
 {
-  final Toolbar toolbar=peekActionBarToolbar();
-  return toolbar != null ? 1 + toolbar.getTranslationY() / (float)getControlBarHeight() : 0;
+  return 1 + mActionBarContainer.getTranslationY() / (float)getControlBarHeight();
 }

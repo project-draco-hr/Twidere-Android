@@ -10,7 +10,7 @@
   mPagerAdapter.addTab(FilteredKeywordsFragment.class,null,getString(R.string.keywords),null,1,null);
   mPagerAdapter.addTab(FilteredSourcesFragment.class,null,getString(R.string.sources),null,2,null);
   mPagerAdapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
-  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator);
+  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator,mPagerOverlay);
   ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
   ThemeUtils.setCompatContentViewOverlay(activity,new EmptyDrawable());
   ThemeUtils.setWindowOverlayViewOverlay(activity,new EmptyDrawable());

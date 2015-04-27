@@ -1,6 +1,4 @@
 {
-  final Toolbar toolbar=peekActionBarToolbar();
-  if (toolbar == null)   return;
-  toolbar.setTranslationY(-Math.round((1 - offset) * getControlBarHeight()));
+  mActionBarContainer.setTranslationY(-Math.round((1 - offset) * getControlBarHeight()));
   notifyControlBarOffsetChanged();
 }

@@ -1,4 +1,4 @@
 {
-  final Toolbar toolbar=peekActionBarToolbar();
-  return toolbar != null ? toolbar.getHeight() : 0;
+  if (mActionBarHeight != 0)   return mActionBarHeight;
+  return mActionBarHeight=ThemeUtils.getActionBarHeight(this);
 }

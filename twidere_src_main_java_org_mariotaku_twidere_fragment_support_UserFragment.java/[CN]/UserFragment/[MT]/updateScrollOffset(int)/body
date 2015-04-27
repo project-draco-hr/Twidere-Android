@@ -46,16 +46,17 @@
     }
     final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
     final int itemColor=ThemeUtils.getContrastActionBarItemColor(activity,themeId,barColor);
-    if (mActionBarHomeAsUpIndicator != null) {
-      mActionBarHomeAsUpIndicator.setColorFilter(itemColor,Mode.SRC_ATOP);
-    }
     final Toolbar actionBarView=activity.getActionBarToolbar();
     if (actionBarView != null) {
-      final Toolbar toolbar=actionBarView;
-      toolbar.setTitleTextColor(itemColor);
-      toolbar.setSubtitleTextColor(itemColor);
-      ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
+      actionBarView.setTitleTextColor(itemColor);
+      actionBarView.setSubtitleTextColor(itemColor);
+      ThemeUtils.setActionBarOverflowColor(actionBarView,itemColor);
       ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
+      final Drawable navigationIcon=actionBarView.getNavigationIcon();
+      if (navigationIcon != null) {
+        navigationIcon.setColorFilter(itemColor,Mode.SRC_ATOP);
+      }
+      actionBarView.setNavigationIcon(navigationIcon);
     }
     mPagerIndicator.updateAppearance();
   }

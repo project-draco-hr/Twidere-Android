@@ -9,7 +9,7 @@
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
   mPagerAdapter.addTab(UserListsListFragment.class,args,getString(R.string.follows),null,0,null);
   mPagerAdapter.addTab(UserListMembershipsListFragment.class,args,getString(R.string.belongs_to),0,1,null);
-  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator);
+  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator,mPagerOverlay);
   ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
   ThemeUtils.setCompatContentViewOverlay(activity,new EmptyDrawable());
   ThemeUtils.setWindowOverlayViewOverlay(activity,new EmptyDrawable());

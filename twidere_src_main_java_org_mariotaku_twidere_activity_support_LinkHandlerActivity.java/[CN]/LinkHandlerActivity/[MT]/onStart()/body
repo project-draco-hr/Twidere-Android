@@ -1,5 +1,5 @@
 {
+  mMainContent.addOnLayoutChangeListener(mLayoutChangeListener);
   super.onStart();
   mMultiSelectHandler.dispatchOnStart();
-  mMainContent.addOnLayoutChangeListener(mLayoutChangeListener);
 }
