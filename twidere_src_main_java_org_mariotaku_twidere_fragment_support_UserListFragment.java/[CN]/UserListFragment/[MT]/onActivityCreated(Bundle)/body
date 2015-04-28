@@ -15,7 +15,6 @@
     }
   }
 );
-  mHeaderDrawerLayout.setDrawerCallback(this);
   mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
@@ -25,9 +24,6 @@
   }
  else {
   }
-  mProfileImageView.setOnClickListener(this);
-  mUserListDetails.setOnClickListener(this);
-  mErrorIconView.setOnClickListener(this);
   getUserListInfo(false);
   setupUserPages();
 }

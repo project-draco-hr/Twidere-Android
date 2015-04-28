@@ -1,5 +1,4 @@
 {
-  final Context context=getActivity();
   final Bundle args=getArguments(), tabArgs=new Bundle();
   if (args.containsKey(EXTRA_USER)) {
     final ParcelableUserList userList=args.getParcelable(EXTRA_USER_LIST);
@@ -19,5 +18,9 @@
   mPagerAdapter.addTab(UserListTimelineFragment.class,tabArgs,getString(R.string.statuses),null,0,null);
   mPagerAdapter.addTab(UserListMembersFragment.class,tabArgs,getString(R.string.members),null,1,null);
   mPagerAdapter.addTab(UserListSubscribersFragment.class,tabArgs,getString(R.string.subscribers),null,2,null);
-  mPagerIndicator.notifyDataSetChanged();
+  final FragmentActivity activity=getActivity();
+  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator,mPagerOverlay);
+  ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
+  ThemeUtils.setCompatContentViewOverlay(activity,new EmptyDrawable());
+  ThemeUtils.setWindowOverlayViewOverlay(activity,new EmptyDrawable());
 }

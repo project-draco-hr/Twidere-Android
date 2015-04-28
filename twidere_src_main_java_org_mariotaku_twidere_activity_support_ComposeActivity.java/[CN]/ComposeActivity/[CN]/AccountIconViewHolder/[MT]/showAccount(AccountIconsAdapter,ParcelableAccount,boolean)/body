@@ -3,4 +3,5 @@
   final MediaLoaderWrapper loader=adapter.getImageLoader();
   loader.displayProfileImage(iconView,account.profile_image_url);
   iconView.setBorderColor(account.color);
+  nameView.setText(adapter.isNameFirst() ? account.name : ("@" + account.screen_name));
 }

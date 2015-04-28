@@ -1,6 +1,0 @@
-{
-  final ViewPager v=mViewPager;
-  final int[] location=new int[2];
-  v.getLocationOnScreen(location);
-  return x >= location[0] && x <= location[0] + v.getWidth() && y >= location[1] && y <= location[1] + v.getHeight();
-}

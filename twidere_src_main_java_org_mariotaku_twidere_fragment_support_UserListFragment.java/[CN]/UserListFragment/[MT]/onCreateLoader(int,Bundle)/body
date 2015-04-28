@@ -1,9 +1,4 @@
 {
-  mErrorTextView.setText(null);
-  mErrorTextView.setVisibility(View.GONE);
-  mErrorContainer.setVisibility(View.GONE);
-  mHeaderDrawerLayout.setVisibility(View.GONE);
-  mProgressContainer.setVisibility(View.VISIBLE);
   setProgressBarIndeterminateVisibility(true);
   final long accountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
   final long userId=args != null ? args.getLong(EXTRA_USER_ID,-1) : -1;

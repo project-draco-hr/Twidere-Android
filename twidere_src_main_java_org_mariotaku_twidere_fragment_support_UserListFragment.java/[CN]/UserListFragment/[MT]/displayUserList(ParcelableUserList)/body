@@ -1,20 +1,10 @@
 {
   if (userList == null || getActivity() == null)   return;
   getLoaderManager().destroyLoader(0);
-  mErrorContainer.setVisibility(View.GONE);
-  mProgressContainer.setVisibility(View.GONE);
   mUserList=userList;
-  mUserListDetails.drawEnd(getAccountColor(getActivity(),userList.account_id));
-  mListNameView.setText(userList.name);
   final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
   final String displayName=mUserColorNameManager.getDisplayName(userList,nameFirst,false);
-  mCreatedByView.setText(getString(R.string.created_by,displayName));
   final String description=userList.description;
-  mDescriptionView.setVisibility(isEmpty(description) ? View.GONE : View.VISIBLE);
-  mDescriptionView.setText(description);
   final TwidereLinkify linkify=new TwidereLinkify(new OnLinkClickHandler(getActivity(),getMultiSelectManager()));
-  linkify.applyAllLinks(mDescriptionView,userList.account_id,false);
-  mDescriptionView.setMovementMethod(LinkMovementMethod.getInstance());
-  mProfileImageLoader.displayProfileImage(mProfileImageView,userList.user_profile_image_url);
   invalidateOptionsMenu();
 }
