@@ -1,0 +1,16 @@
+{
+  labelField:   for (  Field field : cls.getDeclaredFields()) {
+    final Class<?> type=field.getType();
+    View view=null;
+    for (    Class<?> checkType : checkTypes) {
+      if (!checkType.isAssignableFrom(type))       continue labelField;
+    }
+    field.setAccessible(true);
+    try {
+      return field.get(obj);
+    }
+ catch (    Exception ignore) {
+    }
+  }
+  return null;
+}

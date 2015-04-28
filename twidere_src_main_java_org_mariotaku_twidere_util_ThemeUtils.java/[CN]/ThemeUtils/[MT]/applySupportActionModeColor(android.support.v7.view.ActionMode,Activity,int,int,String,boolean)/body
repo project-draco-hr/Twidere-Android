@@ -4,15 +4,7 @@
     View contextView=null;
     Context actionBarContext=null;
     if (modeCompat instanceof ActionModeImpl) {
-      WindowDecorActionBar actionBar=null;
-      final Field[] fields=ActionModeImpl.class.getDeclaredFields();
-      for (      Field field : fields) {
-        if (WindowDecorActionBar.class.isAssignableFrom(field.getType())) {
-          field.setAccessible(true);
-          actionBar=(WindowDecorActionBar)field.get(modeCompat);
-          break;
-        }
-      }
+      WindowDecorActionBar actionBar=(WindowDecorActionBar)Utils.findFieldOfTypes(modeCompat,ActionModeImpl.class,WindowDecorActionBar.class);
       if (actionBar == null)       return;
       actionBarContext=actionBar.getThemedContext();
       final Field contextViewField=WindowDecorActionBar.class.getDeclaredField("mContextView");

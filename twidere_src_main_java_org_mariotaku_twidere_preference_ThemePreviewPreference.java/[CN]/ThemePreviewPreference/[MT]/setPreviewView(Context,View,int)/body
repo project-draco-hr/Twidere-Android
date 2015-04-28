@@ -16,6 +16,7 @@
   final String backgroundOption=ThemeUtils.getThemeBackgroundOption(context);
   ThemeUtils.applyWindowBackground(context,windowBackgroundView,themeId,backgroundOption,ThemeUtils.getUserThemeBackgroundAlpha(context));
   ViewSupport.setBackground(actionBarView,ThemeUtils.getActionBarBackground(context,themeRes,accentColor,backgroundOption,true));
+  ViewCompat.setElevation(actionBarView,ThemeUtils.getSupportActionBarElevation(context));
   ViewSupport.setBackground(actionBarOverlay,ThemeUtils.getWindowContentOverlay(context));
   cardView.setCardBackgroundColor(cardBackgroundColor);
   actionBarView.setTitle(R.string.app_name);

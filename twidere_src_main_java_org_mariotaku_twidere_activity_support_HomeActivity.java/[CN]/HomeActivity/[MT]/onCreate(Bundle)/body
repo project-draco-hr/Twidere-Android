@@ -55,6 +55,7 @@
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
   mEmptyTabHint.setOnClickListener(this);
+  ViewCompat.setElevation(mActionBar,ThemeUtils.getSupportActionBarElevation(this));
   ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
   ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
   setupSlidingMenu();

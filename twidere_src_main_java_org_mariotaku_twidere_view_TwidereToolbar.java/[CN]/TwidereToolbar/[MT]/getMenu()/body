@@ -1,0 +1,12 @@
+{
+  final Menu menu=super.getMenu();
+  ThemeUtils.setActionBarOverflowColor(this,mItemColor);
+  final ActionMenuView menuView=(ActionMenuView)Utils.findFieldOfTypes(this,Toolbar.class,ActionMenuView.class);
+  if (menuView != null) {
+    final ActionMenuPresenter presenter=(ActionMenuPresenter)Utils.findFieldOfTypes(menuView,ActionMenuView.class,ActionMenuPresenter.class);
+    if (presenter != null) {
+      ThemeUtils.setActionBarOverflowColor(presenter,mItemColor);
+    }
+  }
+  return menu;
+}
