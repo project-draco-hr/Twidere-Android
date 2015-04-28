@@ -8,7 +8,7 @@
       final TypedValue outValue=new TypedValue();
       final Resources.Theme baseTheme=mActivity.getTheme();
       baseTheme.resolveAttribute(android.support.v7.appcompat.R.attr.actionBarTheme,outValue,true);
-      final Context actionBarContext=getActionBarThemedContext();
+      final Context actionBarContext=ThemeUtils.getActionBarThemedContext(mActivity);
       mActionModeView=new ActionBarContextView(actionBarContext);
       mActionModePopup=new PopupWindow(actionBarContext,null,android.support.v7.appcompat.R.attr.actionModePopupWindowStyle);
       mActionModePopup.setContentView(mActionModeView);
