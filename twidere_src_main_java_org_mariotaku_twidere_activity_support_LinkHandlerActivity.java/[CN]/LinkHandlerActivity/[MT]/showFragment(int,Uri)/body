@@ -151,6 +151,11 @@ case LINK_ID_MAP:
 setTitle(R.string.view_map);
 break;
 }
+case LINK_ID_PROFILE_EDITOR:
+{
+setTitle(R.string.edit_profile);
+break;
+}
 default :
 {
 setTitle(getString(R.string.app_name));

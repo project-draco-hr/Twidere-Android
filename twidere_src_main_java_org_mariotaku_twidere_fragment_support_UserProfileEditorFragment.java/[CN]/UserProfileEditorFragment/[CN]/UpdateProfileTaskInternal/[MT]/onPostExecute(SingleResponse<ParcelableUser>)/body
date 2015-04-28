@@ -4,4 +4,5 @@
   if (f instanceof DialogFragment) {
     ((DialogFragment)f).dismissAllowingStateLoss();
   }
+  mFragment.getActivity().finish();
 }

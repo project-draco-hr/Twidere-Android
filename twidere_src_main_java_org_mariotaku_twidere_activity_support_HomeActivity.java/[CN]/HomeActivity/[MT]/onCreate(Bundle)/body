@@ -63,15 +63,34 @@
   initUnreadCount();
   updateActionsButton();
   updateSlidingMenuTouchMode();
-  if (savedInstanceState == null) {
-    if (refreshOnStart) {
-      mTwitterWrapper.refreshAll(getActivatedAccountIds());
+  getDelegate().setKeyListener(new ThemedAppCompatDelegateFactory.KeyListener(){
+    @Override public boolean onKeyDown(    int keyCode,    KeyEvent event){
+      return false;
     }
-    if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
-      openAccountsDrawer();
+    @Override public boolean onKeyUp(    int keyCode,    KeyEvent event){
+switch (keyCode) {
+case KeyEvent.KEYCODE_MENU:
+{
+          if (mSlidingMenu != null) {
+            mSlidingMenu.toggle(true);
+            return true;
+          }
+          break;
+        }
     }
+    return false;
   }
-  setupHomeTabs();
-  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
-  setTabPosition(initialTabPosition);
+}
+);
+if (savedInstanceState == null) {
+  if (refreshOnStart) {
+    mTwitterWrapper.refreshAll(getActivatedAccountIds());
+  }
+  if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
+    openAccountsDrawer();
+  }
+}
+setupHomeTabs();
+final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
+setTabPosition(initialTabPosition);
 }

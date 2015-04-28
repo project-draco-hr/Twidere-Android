@@ -1,7 +1,7 @@
 {
   final Activity activity=(Activity)themed;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-    return new ThemedAppCompatDelegateImplV11(themed,activity,activity.getWindow(),callback);
+    return new ThemedAppCompatDelegate(themed,activity,activity.getWindow(),callback);
   }
  else {
     throw new UnsupportedOperationException();
