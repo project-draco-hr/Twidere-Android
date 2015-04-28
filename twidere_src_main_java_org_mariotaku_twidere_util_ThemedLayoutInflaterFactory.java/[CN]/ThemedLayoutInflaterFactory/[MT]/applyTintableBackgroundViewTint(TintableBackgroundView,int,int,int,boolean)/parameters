@@ -1,0 +1,5 @@
+TintableBackgroundView tintable
+int accentColor
+int noTintColor
+int backgroundTintColor
+boolean isColorTint
