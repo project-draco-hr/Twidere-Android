@@ -1,8 +1,7 @@
 {
-  final Context context=adapter.getContext();
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final UserColorNameManager manager=adapter.getUserColorNameManager();
-  setUserColor(manager.getUserColor(user.id,false));
+  itemContent.drawStart(manager.getUserColor(user.id,false));
   final int userTypeRes=getUserTypeIconRes(user.is_verified,user.is_protected);
   if (userTypeRes != 0) {
     profileTypeView.setImageResource(userTypeRes);

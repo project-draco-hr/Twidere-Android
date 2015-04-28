@@ -1,0 +1,6 @@
+{
+  if (c != null) {
+    mNameIdx=c.getColumnIndex(TwidereDataStore.CachedTrends.NAME);
+  }
+  return super.swapCursor(c);
+}

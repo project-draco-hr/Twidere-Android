@@ -1,0 +1,6 @@
+{
+  super.onLoadFinished(loader,data);
+  setRefreshEnabled(true);
+  setRefreshing(false);
+  setLoadMoreIndicatorVisible(false);
+}

@@ -1,8 +1,0 @@
-{
-  if (color != null) {
-    setBarColor(color.getDefaultColor());
-  }
- else {
-    setBarColor(Color.TRANSPARENT);
-  }
-}

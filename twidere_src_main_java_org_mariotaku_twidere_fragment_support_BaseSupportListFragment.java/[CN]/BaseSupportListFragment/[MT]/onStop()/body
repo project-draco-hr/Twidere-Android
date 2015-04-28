@@ -1,4 +1,0 @@
-{
-  mStoppedPreviously=true;
-  super.onStop();
-}

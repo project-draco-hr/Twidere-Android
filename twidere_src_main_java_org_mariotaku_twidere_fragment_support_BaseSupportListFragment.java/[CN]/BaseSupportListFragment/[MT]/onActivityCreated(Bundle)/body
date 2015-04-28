@@ -1,9 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  mNotReachedBottomBefore=true;
-  mStoppedPreviously=false;
-  mIsInstanceStateSaved=savedInstanceState != null;
-  mListScrollCounter.setScrollDistanceListener(this);
-  final ListView lv=getListView();
-  lv.setOnScrollListener(this);
-}

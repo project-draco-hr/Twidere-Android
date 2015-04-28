@@ -4,5 +4,5 @@
     mData.addAll(data);
   }
   mCursor=cursor;
-  mAccountId=account_id;
+  mAccountId=accountId;
 }

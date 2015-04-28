@@ -1,4 +1,0 @@
-{
-  if (getView() == null)   return;
-  Utils.scrollListToPosition(getListView(),position);
-}

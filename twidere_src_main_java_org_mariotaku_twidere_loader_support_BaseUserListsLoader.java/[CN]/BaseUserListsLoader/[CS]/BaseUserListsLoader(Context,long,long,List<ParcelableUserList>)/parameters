@@ -1,4 +1,4 @@
 Context context
-long account_id
+long accountId
 long cursor
 List<ParcelableUserList> data

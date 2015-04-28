@@ -1,9 +1,0 @@
-{
-  final Activity activity=getActivity();
-  if (!isAdded() || activity == null)   return false;
-  Utils.scrollListToTop(getListView());
-  if (activity instanceof IControlBarActivity) {
-    ((IControlBarActivity)activity).setControlBarOffset(1);
-  }
-  return true;
-}

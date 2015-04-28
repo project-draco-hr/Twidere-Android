@@ -1,11 +1,10 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mAdapter=new SavedSearchesAdapter(getActivity());
-  setListAdapter(mAdapter);
-  mListView=getListView();
-  mListView.setOnItemLongClickListener(this);
+  final ListView listView=getListView();
+  listView.setOnItemClickListener(this);
+  listView.setOnItemLongClickListener(this);
   final Bundle args=getArguments();
   mAccountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
   getLoaderManager().initLoader(0,null,this);
-  setListShown(false);
+  showProgress();
 }

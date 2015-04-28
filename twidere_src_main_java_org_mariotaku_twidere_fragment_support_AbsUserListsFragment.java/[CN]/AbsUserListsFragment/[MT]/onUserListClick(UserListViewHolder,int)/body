@@ -1,0 +1,5 @@
+{
+  final ParcelableUserList userList=getAdapter().getUserList(position);
+  if (userList == null)   return;
+  Utils.openUserListDetails(getActivity(),userList);
+}

@@ -1,0 +1,8 @@
+{
+  super(itemView);
+  itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
+  this.adapter=adapter;
+  profileImageView=(ShapedImageView)itemView.findViewById(R.id.profile_image);
+  nameView=(TextView)itemView.findViewById(R.id.name);
+  createdByView=(TextView)itemView.findViewById(R.id.created_by);
+}

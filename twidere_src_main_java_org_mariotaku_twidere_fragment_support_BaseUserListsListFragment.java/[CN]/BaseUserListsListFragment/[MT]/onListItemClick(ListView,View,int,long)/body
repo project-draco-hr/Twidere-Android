@@ -1,6 +1,0 @@
-{
-  if (mMultiSelectManager.isActive())   return;
-  final int userListPosition=mAdapter.findItemPosition(id);
-  if (userListPosition < 0)   return;
-  openUserListDetails(getActivity(),mAdapter.getItem(userListPosition));
-}

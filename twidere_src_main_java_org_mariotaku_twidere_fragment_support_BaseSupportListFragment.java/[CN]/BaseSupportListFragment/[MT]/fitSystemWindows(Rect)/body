@@ -1,3 +1,0 @@
-{
-  Utils.makeListFragmentFitsSystemWindows(this,insets);
-}

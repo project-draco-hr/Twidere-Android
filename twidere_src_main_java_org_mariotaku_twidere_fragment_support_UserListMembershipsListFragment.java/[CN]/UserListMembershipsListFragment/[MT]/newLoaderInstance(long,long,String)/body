@@ -1,3 +1,0 @@
-{
-  return new UserListMembershipsLoader(getActivity(),accountId,userId,screenName,getCursor(),getData());
-}

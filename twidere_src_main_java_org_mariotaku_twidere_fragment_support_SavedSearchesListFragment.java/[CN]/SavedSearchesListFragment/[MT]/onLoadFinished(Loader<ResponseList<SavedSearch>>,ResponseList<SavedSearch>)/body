@@ -2,7 +2,7 @@
   if (data != null) {
     Collections.sort(data,POSITION_COMPARATOR);
   }
-  mAdapter.setData(data);
-  setListShown(true);
+  getAdapter().setData(data);
+  showContent();
   setRefreshing(false);
 }

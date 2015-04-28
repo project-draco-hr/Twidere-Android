@@ -1,0 +1,10 @@
+{
+  if (userListClickListener == null)   return false;
+switch (v.getId()) {
+case R.id.item_content:
+{
+      return userListClickListener.onUserListLongClick(this,getLayoutPosition());
+    }
+}
+return false;
+}

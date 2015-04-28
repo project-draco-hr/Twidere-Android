@@ -1,0 +1,3 @@
+{
+  return mUserListAdapterListener != null && mUserListAdapterListener.onUserListLongClick(holder,position);
+}

@@ -1,5 +1,0 @@
-{
-  final ParcelableUserList userList=mAdapter.getItem(position - mListView.getHeaderViewsCount());
-  if (userList == null)   return;
-  showMenu(button,userList);
-}

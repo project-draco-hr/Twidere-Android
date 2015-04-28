@@ -2,7 +2,7 @@
 switch (holder.getItemViewType()) {
 case ITEM_VIEW_TYPE_USER:
 {
-      bindStatus(((UserViewHolder)holder),position);
+      bindUser(((UserViewHolder)holder),position);
       break;
     }
 }

@@ -1,7 +1,2 @@
 {
-  final MenuItem item=menu.findItem(R.id.new_user_list);
-  if (item == null)   return;
-  final long account_id=getAccountId(), user_id=getUserId();
-  final String screen_name=getAccountScreenName(getActivity(),account_id);
-  item.setVisible(user_id == account_id || screen_name != null && screen_name.equalsIgnoreCase(getScreenName()));
 }

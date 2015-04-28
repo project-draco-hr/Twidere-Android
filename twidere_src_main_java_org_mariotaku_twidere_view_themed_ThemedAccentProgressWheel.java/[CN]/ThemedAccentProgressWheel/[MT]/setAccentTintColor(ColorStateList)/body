@@ -1,0 +1,3 @@
+{
+  setBarColor(color.getDefaultColor());
+}

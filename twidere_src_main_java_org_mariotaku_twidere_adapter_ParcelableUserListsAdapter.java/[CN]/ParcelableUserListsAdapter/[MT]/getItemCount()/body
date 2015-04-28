@@ -1,0 +1,3 @@
+{
+  return getUserListsCount() + (isLoadMoreIndicatorVisible() ? 1 : 0);
+}

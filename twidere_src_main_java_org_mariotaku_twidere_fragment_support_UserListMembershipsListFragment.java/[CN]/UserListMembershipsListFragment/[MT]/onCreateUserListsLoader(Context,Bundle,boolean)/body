@@ -1,0 +1,7 @@
+{
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  final long userId=args.getLong(EXTRA_USER_ID,-1);
+  final String screenName=args.getString(EXTRA_SCREEN_NAME);
+  final long cursor=args.getLong(EXTRA_NEXT_CURSOR,-1);
+  return new UserListMembershipsLoader(getActivity(),accountId,userId,screenName,cursor,getData());
+}

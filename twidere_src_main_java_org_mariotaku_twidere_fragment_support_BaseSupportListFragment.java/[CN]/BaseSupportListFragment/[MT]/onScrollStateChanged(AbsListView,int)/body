@@ -1,3 +1,0 @@
-{
-  mListScrollCounter.onScrollStateChanged(view,scrollState);
-}

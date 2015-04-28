@@ -1,0 +1,18 @@
+{
+  final Context context=adapter.getContext();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
+  itemContent.drawStart(manager.getUserColor(userList.user_id,false));
+  nameView.setText(userList.name);
+  final boolean nameFirst=adapter.isNameFirst();
+  final String createdByDisplayName=manager.getDisplayName(userList,nameFirst,false);
+  createdByView.setText(context.getString(R.string.created_by,createdByDisplayName));
+  if (adapter.isProfileImageEnabled()) {
+    profileImageView.setVisibility(View.VISIBLE);
+    loader.displayProfileImage(profileImageView,userList.user_profile_image_url);
+  }
+ else {
+    profileImageView.setVisibility(View.GONE);
+    loader.cancelDisplayTask(profileImageView);
+  }
+}
