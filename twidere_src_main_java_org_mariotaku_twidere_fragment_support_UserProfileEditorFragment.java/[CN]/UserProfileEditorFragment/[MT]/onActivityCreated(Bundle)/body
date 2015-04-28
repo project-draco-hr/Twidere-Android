@@ -11,10 +11,12 @@
     getActivity().finish();
     return;
   }
+  final TwitterValidatorMETLengthChecker lengthChecker=new TwitterValidatorMETLengthChecker(new Validator());
   mEditName.addTextChangedListener(this);
   mEditDescription.addTextChangedListener(this);
   mEditLocation.addTextChangedListener(this);
   mEditUrl.addTextChangedListener(this);
+  mEditDescription.setLengthChecker(lengthChecker);
   mProfileImageView.setOnClickListener(this);
   mProfileBannerView.setOnClickListener(this);
   mProfileImageCamera.setOnClickListener(this);
