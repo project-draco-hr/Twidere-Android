@@ -1,0 +1,3 @@
+{
+  setColorSchemeColors(color.getDefaultColor());
+}

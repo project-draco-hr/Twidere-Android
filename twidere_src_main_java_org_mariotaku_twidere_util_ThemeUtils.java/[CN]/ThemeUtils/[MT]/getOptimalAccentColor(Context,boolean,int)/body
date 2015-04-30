@@ -1,0 +1,16 @@
+{
+  final int userAccentColor=getUserAccentColor(context);
+  final int backgroundColorApprox;
+  final boolean isDarkTheme=isDarkTheme(themeResId);
+  if (!isActionBarContext) {
+    backgroundColorApprox=isDarkTheme ? Color.BLACK : Color.WHITE;
+  }
+ else   if (isDarkTheme) {
+    backgroundColorApprox=Color.BLACK;
+  }
+ else {
+    backgroundColorApprox=Color.WHITE;
+  }
+  if (Math.abs(TwidereColorUtils.getYIQContrast(backgroundColorApprox,userAccentColor)) > 64)   return userAccentColor;
+  return getColorFromAttribute(context,R.attr.colorAccent,context.getResources().getColor(R.color.branding_color));
+}
