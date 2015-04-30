@@ -1,4 +1,0 @@
-{
-  mDrawColor=color;
-  invalidate();
-}

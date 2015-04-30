@@ -1,0 +1,15 @@
+{
+  boolean result=false;
+  WallpaperManager wm=WallpaperManager.getInstance(context);
+  try {
+    InputStream is=new FileInputStream(path);
+    sSetLockWallpaper=getMethod(sSetLockWallpaper,sClass,"setStreamToLockWallpaper",InputStream.class);
+    if (wm != null) {
+      result=invoke(sSetLockWallpaper,wm,is);
+    }
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+  }
+  return result;
+}

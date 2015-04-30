@@ -62,10 +62,11 @@
     final Status status=statuses.get(i);
     data.add(new ParcelableStatus(status,mAccountId,insertGap && isGapEnabled() && minIdx == i));
   }
+  final SQLiteDatabase db=TwidereApplication.getInstance(context).getSQLiteDatabase();
   final ParcelableStatus[] array=data.toArray(new ParcelableStatus[data.size()]);
   for (int i=0, size=array.length; i < size; i++) {
     final ParcelableStatus status=array[i];
-    if (shouldFilterStatus(mDatabase,status) && !status.is_gap && i != size - 1) {
+    if (shouldFilterStatus(db,status) && !status.is_gap && i != size - 1) {
       deleteStatus(data,status.id);
     }
   }

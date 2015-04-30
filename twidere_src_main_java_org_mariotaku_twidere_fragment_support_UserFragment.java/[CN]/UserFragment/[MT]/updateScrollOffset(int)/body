@@ -27,38 +27,48 @@
     final int themeId=activity.getCurrentThemeResourceId();
     if (ThemeUtils.isDarkTheme(themeId)) {
       stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
-      final int contrastColor=TwidereColorUtils.getContrastYIQ(stackedTabColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
-      mPagerIndicator.setIconColor(contrastColor);
-      mPagerIndicator.setLabelColor(contrastColor);
-      mPagerIndicator.setStripColor(mUiColor);
-    }
- else     if (drawable instanceof ColorDrawable) {
-      stackedTabColor=mUiColor;
-      final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
-      ((ColorDrawable)drawable).setColor(tabColor);
-      final int contrastColor=TwidereColorUtils.getContrastYIQ(tabColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
-      mPagerIndicator.setIconColor(contrastColor);
-      mPagerIndicator.setLabelColor(contrastColor);
-      mPagerIndicator.setStripColor(contrastColor);
     }
  else {
-      return;
+      stackedTabColor=mUiColor;
     }
-    final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
-    final int itemColor=ThemeUtils.getContrastActionBarItemColor(activity,themeId,barColor);
-    final Toolbar actionBarView=activity.getActionBarToolbar();
-    if (actionBarView != null) {
-      actionBarView.setTitleTextColor(itemColor);
-      actionBarView.setSubtitleTextColor(itemColor);
-      ThemeUtils.setActionBarOverflowColor(actionBarView,itemColor);
-      ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
-      final Drawable navigationIcon=actionBarView.getNavigationIcon();
-      if (navigationIcon != null) {
-        navigationIcon.setColorFilter(itemColor,Mode.SRC_ATOP);
+    final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
+    ((ColorDrawable)drawable).setColor(tabColor);
+    final boolean tabItemIsDark=TwidereColorUtils.getYIQLuminance(tabColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
+    if (mPreviousTabItemIsDark == 0 || (tabItemIsDark ? 1 : -1) != mPreviousTabItemIsDark) {
+      final int[] primaryColors=new int[2];
+      ThemeUtils.getDarkLightForegroundColors(activity,themeId,primaryColors);
+      final int tabContrastColor=primaryColors[tabItemIsDark ? 0 : 1];
+      mPagerIndicator.setIconColor(tabContrastColor);
+      mPagerIndicator.setLabelColor(tabContrastColor);
+      if (ThemeUtils.isDarkTheme(themeId)) {
+        mPagerIndicator.setStripColor(mUiColor);
       }
-      actionBarView.setNavigationIcon(navigationIcon);
+ else {
+        mPagerIndicator.setStripColor(tabContrastColor);
+      }
+      mPagerIndicator.updateAppearance();
     }
-    mPagerIndicator.updateAppearance();
+    mPreviousTabItemIsDark=(tabItemIsDark ? 1 : -1);
+    final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
+    final boolean actionItemIsDark=TwidereColorUtils.getYIQLuminance(barColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
+    if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
+      StatusBarProxy.setStatusBarDarkIcon(activity.getWindow(),actionItemIsDark);
+      final int itemColor=ThemeUtils.getContrastActionBarItemColor(activity,themeId,barColor);
+      final int titleColor=ThemeUtils.getContrastActionBarTitleColor(activity,themeId,barColor);
+      final Toolbar actionBarView=activity.getActionBarToolbar();
+      if (actionBarView != null) {
+        actionBarView.setTitleTextColor(titleColor);
+        actionBarView.setSubtitleTextColor(titleColor);
+        ThemeUtils.setActionBarOverflowColor(actionBarView,itemColor);
+        ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,itemColor);
+        final Drawable navigationIcon=actionBarView.getNavigationIcon();
+        if (navigationIcon != null) {
+          navigationIcon.setColorFilter(itemColor,Mode.SRC_ATOP);
+        }
+        actionBarView.setNavigationIcon(navigationIcon);
+      }
+    }
+    mPreviousActionBarItemIsDark=actionItemIsDark ? 1 : -1;
   }
   updateTitleAlpha();
 }

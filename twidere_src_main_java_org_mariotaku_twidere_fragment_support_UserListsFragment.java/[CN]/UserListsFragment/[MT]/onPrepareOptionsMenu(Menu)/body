@@ -1,0 +1,11 @@
+{
+  final MenuItem item=menu.findItem(R.id.new_user_list);
+  if (item == null)   return;
+  final long accountId=getAccountId(), userId=getUserId();
+  if (accountId == userId) {
+    MenuUtils.setMenuItemAvailability(menu,R.id.new_user_list,true);
+  }
+ else {
+    MenuUtils.setMenuItemAvailability(menu,R.id.new_user_list,Utils.isMyAccount(getActivity(),getScreenName()));
+  }
+}

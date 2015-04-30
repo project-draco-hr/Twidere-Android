@@ -1,5 +1,6 @@
 {
-  final int contentLeft=view.getPaddingLeft(), contentTop=view.getPaddingTop(), contentRight=view.getWidth() - view.getPaddingRight(), contentBottom=view.getHeight() - view.getPaddingBottom();
+  final int viewWidth=view.getWidth(), viewHeight=view.getHeight();
+  final int contentLeft=view.getPaddingLeft(), contentTop=view.getPaddingTop(), contentRight=viewWidth - view.getPaddingRight(), contentBottom=viewHeight - view.getPaddingBottom();
   final ShapedImageView imageView=(ShapedImageView)view;
   if (imageView.getStyle() == SHAPE_CIRCLE) {
     final int contentWidth=contentRight - contentLeft, contentHeight=contentBottom - contentTop;

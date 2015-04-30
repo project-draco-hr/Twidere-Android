@@ -1,8 +1,0 @@
-{
-  setStatusBarHeight(Utils.getInsetsTopWithoutActionBarHeight(getContext(),insets.top));
-  if (mSetPadding) {
-    setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  }
-  mSystemWindowsInsets.set(insets);
-  return super.fitSystemWindows(insets);
-}

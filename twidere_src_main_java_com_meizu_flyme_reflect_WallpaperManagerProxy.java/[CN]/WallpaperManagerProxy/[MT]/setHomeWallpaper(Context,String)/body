@@ -1,0 +1,16 @@
+{
+  boolean result=false;
+  WallpaperManager wm=WallpaperManager.getInstance(context);
+  try {
+    InputStream is=new FileInputStream(path);
+    wm.setStream(is);
+    result=true;
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return result;
+}

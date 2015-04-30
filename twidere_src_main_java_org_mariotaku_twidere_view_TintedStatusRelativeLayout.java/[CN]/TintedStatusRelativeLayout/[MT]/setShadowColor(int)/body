@@ -1,5 +1,0 @@
-{
-  mShadowPaint.setColor(color);
-  mShadowAlpha=Color.alpha(color);
-  updateAlpha();
-}

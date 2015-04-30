@@ -1,0 +1,3 @@
+{
+  return getYIQLuminance(color1) - getYIQLuminance(color2);
+}

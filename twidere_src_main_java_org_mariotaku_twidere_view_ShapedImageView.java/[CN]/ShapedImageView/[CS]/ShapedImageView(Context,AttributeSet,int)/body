@@ -24,7 +24,7 @@
   setStyle(shapeStyle);
   setCornerRadius(a.getDimension(R.styleable.ShapedImageView_sivCornerRadius,0));
   setCornerRadiusRatio(a.getFraction(R.styleable.ShapedImageView_sivCornerRadiusRatio,1,1,-1));
-  if (USE_OUTLINE) {
+  if (useOutline()) {
     if (a.hasValue(R.styleable.ShapedImageView_sivElevation)) {
       ViewCompat.setElevation(this,a.getDimensionPixelSize(R.styleable.ShapedImageView_sivElevation,0));
     }
@@ -34,7 +34,5 @@
   }
   setBackgroundColor(a.getColor(R.styleable.ShapedImageView_sivBackgroundColor,0));
   a.recycle();
-  if (USE_OUTLINE) {
-    initOutlineProvider();
-  }
+  initOutlineProvider();
 }

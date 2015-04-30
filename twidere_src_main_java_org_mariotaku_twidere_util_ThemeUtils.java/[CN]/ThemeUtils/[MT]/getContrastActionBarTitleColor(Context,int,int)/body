@@ -1,11 +1,11 @@
 {
   if (isDarkTheme(theme)) {
-    return getTextColorPrimary(context);
+    return getColorFromAttribute(context,android.R.attr.colorForeground,Color.RED);
   }
- else   if (TwidereColorUtils.getYIQLuminance(color) < ACCENT_COLOR_THRESHOLD) {
-    return getTextColorPrimaryInverse(context);
+ else   if (TwidereColorUtils.getYIQLuminance(color) <= ACCENT_COLOR_THRESHOLD) {
+    return getColorFromAttribute(context,android.R.attr.colorForegroundInverse,Color.RED);
   }
  else {
-    return getTextColorPrimary(context);
+    return getColorFromAttribute(context,android.R.attr.colorForeground,Color.RED);
   }
 }

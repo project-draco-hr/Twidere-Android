@@ -35,6 +35,7 @@
   mColorStatusFrameLayout.setDrawColor(true);
   mColorStatusFrameLayout.setDrawShadow(false);
   mColorStatusFrameLayout.setColor(statusBarColor,actionBarAlpha);
+  StatusBarProxy.setStatusBarDarkIcon(getWindow(),TwidereColorUtils.getYIQLuminance(statusBarColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD);
   mColorStatusFrameLayout.setFactor(1);
   mTabIndicator.setAlpha(actionBarAlpha / 255f);
   mActionsButton.setAlpha(actionBarAlpha / 255f);

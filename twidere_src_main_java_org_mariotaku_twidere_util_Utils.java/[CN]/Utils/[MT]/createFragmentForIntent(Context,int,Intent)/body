@@ -68,7 +68,7 @@ break;
 }
 case LINK_ID_USER_LIST_MEMBERSHIPS:
 {
-fragment=new UserListMembershipsListFragment();
+fragment=new UserListMembershipsFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
@@ -189,7 +189,7 @@ break;
 }
 case LINK_ID_USER_LISTS:
 {
-fragment=new UserListsFragment();
+fragment=new ListsFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {

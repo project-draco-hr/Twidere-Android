@@ -1,5 +1,6 @@
 {
+  final View v=mRecyclerView;
   final int[] location=new int[2];
-  mRecyclerView.getLocationOnScreen(location);
-  return x >= location[0] && x <= location[0] && y >= location[1] && y <= location[1];
+  v.getLocationInWindow(location);
+  return x >= location[0] && x <= location[0] + v.getWidth() && y >= location[1] && y <= location[1] + v.getHeight();
 }

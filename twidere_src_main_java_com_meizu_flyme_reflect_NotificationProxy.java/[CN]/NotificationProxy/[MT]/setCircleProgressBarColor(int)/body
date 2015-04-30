@@ -1,0 +1,11 @@
+{
+  try {
+    if (sField != null && sObject != null) {
+      sSetCircleProgressBarColor=sField.getType().getDeclaredMethod("setCircleProgressBarColor",int.class);
+      invoke(sSetCircleProgressBarColor,sObject,color);
+    }
+  }
+ catch (  Exception ignore) {
+    ignore.printStackTrace();
+  }
+}

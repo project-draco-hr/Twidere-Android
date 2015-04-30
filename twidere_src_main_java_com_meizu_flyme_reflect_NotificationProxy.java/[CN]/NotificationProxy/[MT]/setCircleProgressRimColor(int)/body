@@ -1,0 +1,11 @@
+{
+  try {
+    if (sField != null && sObject != null) {
+      ssetCircleProgressRimColor=sField.getType().getDeclaredMethod("ssetCircleProgressRimColor",int.class);
+      invoke(ssetCircleProgressRimColor,sObject,color);
+    }
+  }
+ catch (  Exception ignore) {
+    ignore.printStackTrace();
+  }
+}

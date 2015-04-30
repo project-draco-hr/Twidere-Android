@@ -1,0 +1,10 @@
+{
+  if (actionbar != null) {
+    TypedValue tv=new TypedValue();
+    if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize,tv,true)) {
+      return TypedValue.complexToDimensionPixelSize(tv.data,context.getResources().getDisplayMetrics());
+    }
+    return actionbar.getHeight();
+  }
+  return 0;
+}

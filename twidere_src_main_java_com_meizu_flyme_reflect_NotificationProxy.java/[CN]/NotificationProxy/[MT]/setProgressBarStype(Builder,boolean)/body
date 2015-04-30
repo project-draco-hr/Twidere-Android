@@ -1,0 +1,13 @@
+{
+  try {
+    sField=sClass.getField("mFlymeNotificationBuilder");
+    sObject=sField.get(builder);
+    sSetProgressBarStype=sField.getType().getDeclaredMethod("setCircleProgressBar",boolean.class);
+    if (sObject != null) {
+      invoke(sSetProgressBarStype,sObject,isCircle);
+    }
+  }
+ catch (  Exception ignore) {
+    ignore.printStackTrace();
+  }
+}

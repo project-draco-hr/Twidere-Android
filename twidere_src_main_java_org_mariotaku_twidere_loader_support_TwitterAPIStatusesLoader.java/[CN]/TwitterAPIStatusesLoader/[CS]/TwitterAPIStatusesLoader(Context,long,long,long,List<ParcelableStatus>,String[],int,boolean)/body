@@ -4,6 +4,5 @@
   mAccountId=accountId;
   mMaxId=maxId;
   mSinceId=sinceId;
-  mDatabase=TwidereApplication.getInstance(context).getSQLiteDatabase();
   mSavedStatusesFileArgs=savedStatusesArgs;
 }

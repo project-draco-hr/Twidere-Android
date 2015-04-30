@@ -1,6 +1,6 @@
 {
   final Thread thread=Thread.currentThread();
-  if (thread == null || thread.getId() != 1)   return;
+  if (thread.getId() != 1)   return;
   final StackTraceElement[] framesArray=thread.getStackTrace();
   int logCounter=-1;
   for (  final StackTraceElement stackFrame : framesArray) {

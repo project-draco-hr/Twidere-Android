@@ -1,4 +1,0 @@
-{
-  mStatusBarHeight=height;
-  invalidate();
-}

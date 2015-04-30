@@ -10,4 +10,6 @@
     setActionBarTitleTextColor(window,titleColor);
     setActionBarSubtitleTextColor(window,titleColor);
   }
+ else   if (actionBar instanceof ToolbarActionBar) {
+  }
 }

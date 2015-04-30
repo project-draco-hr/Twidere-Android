@@ -1,5 +1,8 @@
 {
   if (toolbar == null)   return;
+  if (toolbar instanceof TwidereToolbar) {
+    ((TwidereToolbar)toolbar).setItemColor(itemColor);
+  }
   final ActionMenuView actionMenuView=ViewSupport.findViewByType(toolbar,ActionMenuView.class);
   if (actionMenuView == null)   return;
   View overflowView=null;

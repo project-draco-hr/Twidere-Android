@@ -1,0 +1,11 @@
+{
+  if (method == null) {
+    try {
+      method=clazz.getMethod(name,parameterTypes);
+    }
+ catch (    NoSuchMethodException e) {
+      e.printStackTrace();
+    }
+  }
+  return method;
+}

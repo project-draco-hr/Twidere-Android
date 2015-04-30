@@ -1,5 +1,5 @@
 {
-  if (USE_OUTLINE)   return;
+  if (useOutline())   return;
   final int width=getWidth(), height=getHeight();
   if (width <= 0 || height <= 0)   return;
   final int contentLeft=getPaddingLeft(), contentTop=getPaddingTop(), contentRight=width - getPaddingRight(), contentBottom=height - getPaddingBottom();

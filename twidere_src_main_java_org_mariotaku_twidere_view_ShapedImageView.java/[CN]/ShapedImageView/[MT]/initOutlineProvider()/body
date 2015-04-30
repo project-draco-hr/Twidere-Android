@@ -1,4 +1,5 @@
 {
+  if (!useOutline())   return;
   ViewSupport.setClipToOutline(this,true);
   ViewSupport.setOutlineProvider(this,new CircularOutlineProvider());
 }

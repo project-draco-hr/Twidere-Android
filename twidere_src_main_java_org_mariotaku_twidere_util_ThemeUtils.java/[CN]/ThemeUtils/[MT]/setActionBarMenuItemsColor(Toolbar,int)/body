@@ -1,0 +1,14 @@
+{
+  if (toolbar == null)   return;
+  if (toolbar instanceof TwidereToolbar) {
+    ((TwidereToolbar)toolbar).setItemColor(itemColor);
+  }
+  final ActionMenuView actionMenuView=ViewSupport.findViewByType(toolbar,ActionMenuView.class);
+  if (actionMenuView == null)   return;
+  for (int i=0, j=actionMenuView.getChildCount(); i < j; i++) {
+    final View child=actionMenuView.getChildAt(i);
+    if (child instanceof ActionMenuView.ActionMenuChildView && child instanceof ImageView) {
+      ((ImageView)child).setColorFilter(itemColor,Mode.SRC_ATOP);
+    }
+  }
+}

@@ -1,4 +1,5 @@
 {
+  setHasStableIds(true);
   mActivity=activity;
   mInflater=activity.getLayoutInflater();
   mImageLoader=TwidereApplication.getInstance(activity).getMediaLoaderWrapper();

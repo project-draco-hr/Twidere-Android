@@ -1,0 +1,16 @@
+{
+  if (actionbar != null) {
+    try {
+      Class<?> c=Class.forName("com.android.internal.R$dimen");
+      Object obj=c.newInstance();
+      Field field=c.getField("mz_action_button_min_height");
+      int height=Integer.parseInt(field.get(obj).toString());
+      return context.getResources().getDimensionPixelSize(height);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    actionbar.getHeight();
+  }
+  return 0;
+}

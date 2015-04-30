@@ -49,4 +49,9 @@
   intent.putExtras(extras);
   menu.removeGroup(MENU_GROUP_USER_EXTENSION);
   Utils.addIntentToMenu(getActivity(),menu,intent,MENU_GROUP_USER_EXTENSION);
+  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
+  if (drawer != null) {
+    final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();
+    updateScrollOffset(offset);
+  }
 }

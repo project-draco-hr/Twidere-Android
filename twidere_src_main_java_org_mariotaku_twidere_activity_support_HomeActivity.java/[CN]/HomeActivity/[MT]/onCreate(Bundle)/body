@@ -16,16 +16,6 @@
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
-  if (!Utils.hasAccount(this)) {
-    final Intent signInIntent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
-    signInIntent.setClass(this,SignInActivity.class);
-    startActivity(signInIntent);
-    finish();
-    return;
-  }
- else {
-    notifyAccountsChanged();
-  }
   final Intent intent=getIntent();
   if (openSettingsWizard()) {
     finish();
@@ -41,7 +31,6 @@
   ThemeUtils.applyBackground(mTabIndicator);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,mTabColumns);
   mViewPager.setAdapter(mPagerAdapter);
-  mViewPager.setOffscreenPageLimit(3);
   mTabIndicator.setViewPager(mViewPager);
   mTabIndicator.setOnPageChangeListener(this);
   mTabIndicator.setColumns(mTabColumns);
