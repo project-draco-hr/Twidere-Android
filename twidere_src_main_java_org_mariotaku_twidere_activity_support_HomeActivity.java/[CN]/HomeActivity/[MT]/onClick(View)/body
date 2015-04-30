@@ -1,6 +1,6 @@
 {
 switch (v.getId()) {
-case R.id.action_buttons:
+case R.id.actions_button:
 {
       triggerActionsClick();
       break;

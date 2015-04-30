@@ -1,6 +1,16 @@
 {
   super(context,attrs,defStyle);
-  inflate(ThemeUtils.getActionBarContext(context),R.layout.action_item_home_actions_compat,this);
+  if (isInEditMode()) {
+    inflate(context,R.layout.action_item_home_actions_compat,this);
+  }
+ else   if (context instanceof IThemedActivity) {
+    int themeResourceId=((IThemedActivity)context).getCurrentThemeResourceId();
+    int themeColor=((IThemedActivity)context).getCurrentThemeColor();
+    inflate(ThemeUtils.getActionBarThemedContext(context,themeResourceId,themeColor),R.layout.action_item_home_actions_compat,this);
+  }
+ else {
+    inflate(ThemeUtils.getActionBarThemedContext(context),R.layout.action_item_home_actions_compat,this);
+  }
   mIconView=(ImageView)findViewById(android.R.id.icon);
   mProgressBar=(ProgressBar)findViewById(android.R.id.progress);
   final Resources resources=getResources();

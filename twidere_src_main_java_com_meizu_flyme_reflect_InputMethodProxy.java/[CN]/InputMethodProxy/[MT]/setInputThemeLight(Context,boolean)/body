@@ -1,8 +1,0 @@
-{
-  sSetMzInputThemeLight=getMethod(sSetMzInputThemeLight,sClass,"setMzInputThemeLight",boolean.class);
-  InputMethodManager imm=(InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
-  if (imm != null) {
-    return invoke(sSetMzInputThemeLight,imm,light);
-  }
-  return false;
-}

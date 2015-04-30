@@ -19,8 +19,7 @@
       window.setAttributes(lp);
       result=true;
     }
- catch (    Exception e) {
-      Log.e(TAG,"setStatusBarDarkIcon: failed");
+ catch (    Exception ignored) {
     }
   }
   return result;

@@ -1,6 +1,5 @@
 {
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return 0;
-  @SuppressLint("InlinedApi") final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.actionBarPopupTheme});
+  final TypedArray a=context.obtainStyledAttributes(new int[]{R.attr.actionBarPopupTheme});
   try {
     return a.getResourceId(0,0);
   }

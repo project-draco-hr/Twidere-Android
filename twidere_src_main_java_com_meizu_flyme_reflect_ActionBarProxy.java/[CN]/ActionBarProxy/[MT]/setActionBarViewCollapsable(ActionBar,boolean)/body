@@ -1,4 +1,0 @@
-{
-  sSetActionBarViewCollapsableMethod=getMethod(sSetActionBarViewCollapsableMethod,sClass,"setActionBarViewCollapsable",boolean.class);
-  return invoke(sSetActionBarViewCollapsableMethod,bar,collapsable);
-}

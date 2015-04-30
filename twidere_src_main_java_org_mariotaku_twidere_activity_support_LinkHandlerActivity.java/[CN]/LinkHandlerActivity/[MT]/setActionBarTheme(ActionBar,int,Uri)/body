@@ -29,5 +29,4 @@ if (toolbar != null) {
   ThemeUtils.setActionBarColor(getWindow(),getSupportActionBar(),titleColor,actionBarItemsColor);
 }
 }
-mActionBarItemsColor=actionBarItemsColor;
 }
