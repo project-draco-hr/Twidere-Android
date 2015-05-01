@@ -1,11 +1,10 @@
 {
-  if (isDarkTheme(themeId))   return base;
   final int actionBarThemeId;
-  if (TwidereColorUtils.getYIQLuminance(accentColor) > ACCENT_COLOR_THRESHOLD) {
-    actionBarThemeId=R.style.Theme_Twidere_Light;
+  if (isDarkTheme(themeId) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
+    actionBarThemeId=R.style.Theme_Twidere_Dark;
   }
  else {
-    actionBarThemeId=R.style.Theme_Twidere_Dark;
+    actionBarThemeId=R.style.Theme_Twidere_Light;
   }
   final Resources.Theme baseTheme=base.getTheme();
   final Resources.Theme actionBarTheme=base.getResources().newTheme();
