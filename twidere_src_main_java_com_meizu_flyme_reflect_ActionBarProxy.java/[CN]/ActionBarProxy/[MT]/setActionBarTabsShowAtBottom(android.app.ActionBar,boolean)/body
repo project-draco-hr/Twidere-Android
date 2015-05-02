@@ -1,4 +1,0 @@
-{
-  sSetTabsShowAtBottom=getMethod(sSetTabsShowAtBottom,sClass,"setTabsShowAtBottom",boolean.class);
-  return invoke(sSetTabsShowAtBottom,actionbar,showAtBottom);
-}

@@ -5,7 +5,7 @@
   final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
   final int actionBarAlpha=isTransparent ? ThemeUtils.getUserThemeBackgroundAlpha(this) : 0xFF;
   final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
-  mTabIndicator.setItemContext(ThemeUtils.getActionBarContext(this));
+  mTabIndicator.setItemContext(ThemeUtils.getActionBarThemedContext(this,themeResId,themeColor));
   ViewSupport.setBackground(mActionBar,ThemeUtils.getActionBarBackground(this,themeResId,themeColor,backgroundOption,true));
   final int statusBarColor;
   final Resources resources=getResources();
@@ -39,5 +39,4 @@
   mColorStatusFrameLayout.setFactor(1);
   mTabIndicator.setAlpha(actionBarAlpha / 255f);
   mActionsButton.setAlpha(actionBarAlpha / 255f);
-  ViewSupport.setBackground(mActionBarOverlay,ThemeUtils.getWindowContentOverlay(this));
 }

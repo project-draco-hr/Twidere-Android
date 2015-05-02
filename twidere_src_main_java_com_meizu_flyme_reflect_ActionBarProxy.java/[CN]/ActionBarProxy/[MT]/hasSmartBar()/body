@@ -1,9 +1,0 @@
-{
-  try {
-    Method method=Class.forName("android.os.Build").getMethod("hasSmartBar");
-    return ((Boolean)method.invoke(null)).booleanValue();
-  }
- catch (  Exception e) {
-  }
-  return false;
-}

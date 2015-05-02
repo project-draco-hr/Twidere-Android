@@ -1,0 +1,16 @@
+{
+  final int actionBarThemeId;
+  if (isDarkTheme(themeId) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
+    actionBarThemeId=R.style.Theme_Twidere_Dark;
+  }
+ else {
+    actionBarThemeId=R.style.Theme_Twidere_Light;
+  }
+  final Resources.Theme baseTheme=base.getTheme();
+  final Resources.Theme actionBarTheme=base.getResources().newTheme();
+  actionBarTheme.setTo(baseTheme);
+  actionBarTheme.applyStyle(actionBarThemeId,true);
+  final Context actionBarContext=new android.support.v7.internal.view.ContextThemeWrapper(base,0);
+  actionBarContext.getTheme().setTo(actionBarTheme);
+  return actionBarContext;
+}

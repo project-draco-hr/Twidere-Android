@@ -43,9 +43,12 @@
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
   mEmptyTabHint.setOnClickListener(this);
-  ViewCompat.setElevation(mActionBar,ThemeUtils.getSupportActionBarElevation(this));
-  ThemeUtils.setCompatToolbarOverlay(this,new EmptyDrawable());
   ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
+  final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
+  ViewCompat.setElevation(actionBarContainer,ThemeUtils.getSupportActionBarElevation(this));
+  ViewSupport.setOutlineProvider(actionBarContainer,ViewOutlineProviderCompat.BACKGROUND);
+  final View windowOverlay=findViewById(R.id.window_overlay);
+  ViewSupport.setBackground(windowOverlay,ThemeUtils.getNormalWindowContentOverlay(this,getCurrentThemeResourceId()));
   setupSlidingMenu();
   setupBars();
   showDataProfilingRequest();

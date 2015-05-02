@@ -1,4 +1,0 @@
-{
-  sSetActionModeHeaderHiddenMethod=getMethod(sSetActionModeHeaderHiddenMethod,sClass,"setActionModeHeaderHidden",boolean.class);
-  return invoke(sSetActionModeHeaderHiddenMethod,bar,hide);
-}
