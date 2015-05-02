@@ -57,7 +57,7 @@
     }
   }
  else   if (view instanceof TwidereToolbar) {
-    final int itemColor=ThemeUtils.getContrastActionBarItemColor((Context)activity,themeResourceId,actionBarColor);
+    final int itemColor=ThemeUtils.getContrastForegroundColor((Context)activity,themeResourceId,actionBarColor);
     ((TwidereToolbar)view).setItemColor(itemColor);
   }
  else   if (view instanceof EditText) {

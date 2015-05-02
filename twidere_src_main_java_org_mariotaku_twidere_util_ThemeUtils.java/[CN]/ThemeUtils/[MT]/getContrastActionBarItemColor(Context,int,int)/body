@@ -1,6 +1,0 @@
-{
-  if (isDarkTheme(theme) || TwidereColorUtils.getYIQLuminance(color) <= ACCENT_COLOR_THRESHOLD) {
-    return context.getResources().getColor(R.color.action_icon_light);
-  }
-  return context.getResources().getColor(R.color.action_icon_dark);
-}

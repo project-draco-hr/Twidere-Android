@@ -11,7 +11,7 @@
   if (toolbar != null) {
     final int themeColor=getCurrentThemeColor();
     final int themeId=getCurrentThemeResourceId();
-    final int itemColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+    final int itemColor=ThemeUtils.getContrastForegroundColor(this,themeId,themeColor);
     ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),itemColor,itemColor);
   }
   return result;

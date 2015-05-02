@@ -5,7 +5,7 @@
   if (actionBarView instanceof Toolbar) {
     final int themeColor=getCurrentThemeColor();
     final int themeId=getCurrentThemeResourceId();
-    final int itemColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
+    final int itemColor=ThemeUtils.getContrastForegroundColor(this,themeId,themeColor);
     final Toolbar toolbar=(Toolbar)actionBarView;
     final int popupColor=ThemeUtils.getThemeForegroundColor(toolbar.getContext(),toolbar.getPopupTheme());
     ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),itemColor,popupColor);

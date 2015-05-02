@@ -1,0 +1,8 @@
+{
+  final int[] colors=new int[2];
+  getDarkLightForegroundColors(context,theme,colors);
+  if (isDarkTheme(theme) || TwidereColorUtils.getYIQLuminance(color) <= ACCENT_COLOR_THRESHOLD) {
+    return colors[1];
+  }
+  return colors[0];
+}

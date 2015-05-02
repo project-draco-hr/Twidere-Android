@@ -10,7 +10,7 @@
  else {
     actionBarColor=accentColor;
   }
-  final int itemColor=getContrastActionBarItemColor(context,themeRes,actionBarColor);
+  final int itemColor=getContrastForegroundColor(context,themeRes,actionBarColor);
   if (actionModeCloseButton != null) {
     actionModeCloseButton.setColorFilter(itemColor,Mode.SRC_ATOP);
   }

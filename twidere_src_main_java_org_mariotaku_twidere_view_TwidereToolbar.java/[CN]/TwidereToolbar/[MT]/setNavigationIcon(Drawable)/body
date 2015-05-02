@@ -1,0 +1,6 @@
+{
+  if (icon != null && mItemColor != 0) {
+    icon.setColorFilter(mItemColor,PorterDuff.Mode.SRC_ATOP);
+  }
+  super.setNavigationIcon(icon);
+}
