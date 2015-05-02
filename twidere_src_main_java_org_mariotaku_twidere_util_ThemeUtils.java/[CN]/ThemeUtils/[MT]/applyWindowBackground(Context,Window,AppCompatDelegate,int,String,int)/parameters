@@ -1,6 +1,0 @@
-Context context
-Window window
-AppCompatDelegate delegate
-int theme
-String option
-int alpha
