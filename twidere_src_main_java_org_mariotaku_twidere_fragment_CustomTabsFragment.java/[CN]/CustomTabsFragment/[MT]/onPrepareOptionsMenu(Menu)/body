@@ -34,10 +34,11 @@
   final Activity activity=getActivity();
   if (activity instanceof BasePreferenceActivity) {
     final ActionBar actionBar=((BasePreferenceActivity)activity).getSupportActionBar();
+    final int themeResId=((IThemedActivity)activity).getThemeResourceId();
     final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
-    final int itemColor=TwidereColorUtils.getContrastYIQ(themeColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
+    final int itemColor=ThemeUtils.getContrastActionBarItemColor(actionBar.getThemedContext());
     final int popupTheme=ThemeUtils.getActionBarPopupThemeRes(actionBar.getThemedContext());
-    final int popupColor=ThemeUtils.getThemeForegroundColor(activity,popupTheme);
+    final int popupColor=ThemeUtils.getContrastActionBarItemColor(activity);
     ThemeUtils.applyColorFilterToMenuIcon(menu,itemColor,popupColor,0,Mode.SRC_ATOP);
   }
 }

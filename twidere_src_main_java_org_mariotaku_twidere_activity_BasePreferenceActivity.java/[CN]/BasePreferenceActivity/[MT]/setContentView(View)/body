@@ -1,6 +1,7 @@
 {
   final FrameLayout mainContent=initMainContent();
-  mainContent.removeAllViews();
-  mainContent.addView(view);
+  final ViewGroup settingsContent=(ViewGroup)mainContent.findViewById(R.id.settings_content);
+  settingsContent.removeAllViews();
+  settingsContent.addView(view);
   super.setContentView(mainContent);
 }

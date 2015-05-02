@@ -1,5 +1,5 @@
 Context context
-View contextView
+ActionBarContextView contextView
 int themeRes
 int accentColor
 String backgroundOption

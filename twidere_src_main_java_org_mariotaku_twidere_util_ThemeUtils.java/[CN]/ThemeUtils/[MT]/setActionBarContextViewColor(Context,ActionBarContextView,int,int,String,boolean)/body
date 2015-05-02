@@ -1,6 +1,6 @@
 {
-  final TextView actionBarTitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_title);
-  final TextView actionBarSubtitleView=(TextView)contextView.findViewById(android.support.v7.appcompat.R.id.action_bar_subtitle);
+  contextView.setTitle(contextView.getTitle());
+  contextView.setSubtitle(contextView.getSubtitle());
   final ImageView actionModeCloseButton=(ImageView)contextView.findViewById(android.support.v7.appcompat.R.id.action_mode_close_button);
   final ActionMenuView menuView=ViewSupport.findViewByType(contextView,ActionMenuView.class);
   final int actionBarColor;
@@ -10,14 +10,7 @@
  else {
     actionBarColor=accentColor;
   }
-  final int titleColor=getContrastActionBarTitleColor(context,themeRes,actionBarColor);
   final int itemColor=getContrastActionBarItemColor(context,themeRes,actionBarColor);
-  if (actionBarTitleView != null) {
-    actionBarTitleView.setTextColor(titleColor);
-  }
-  if (actionBarSubtitleView != null) {
-    actionBarSubtitleView.setTextColor(titleColor);
-  }
   if (actionModeCloseButton != null) {
     actionModeCloseButton.setColorFilter(itemColor,Mode.SRC_ATOP);
   }

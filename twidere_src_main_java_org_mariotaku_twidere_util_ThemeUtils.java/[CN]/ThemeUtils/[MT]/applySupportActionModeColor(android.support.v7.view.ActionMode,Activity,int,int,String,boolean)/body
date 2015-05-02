@@ -26,7 +26,7 @@
       }
     }
     if (!(contextView instanceof ActionBarContextView) || actionBarContext == null)     return;
-    setActionBarContextViewColor(actionBarContext,contextView,themeRes,accentColor,backgroundOption,outlineEnabled);
+    setActionBarContextViewColor(actionBarContext,(ActionBarContextView)contextView,themeRes,accentColor,backgroundOption,outlineEnabled);
   }
  catch (  Exception e) {
     e.printStackTrace();

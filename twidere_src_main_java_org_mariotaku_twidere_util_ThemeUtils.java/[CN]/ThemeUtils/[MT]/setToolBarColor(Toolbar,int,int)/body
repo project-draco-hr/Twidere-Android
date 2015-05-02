@@ -1,9 +1,4 @@
 {
-  final Drawable drawable=toolbar.getNavigationIcon();
-  if (drawable != null) {
-    drawable.setColorFilter(itemColor,Mode.SRC_ATOP);
-  }
-  toolbar.setNavigationIcon(drawable);
   toolbar.setTitleTextColor(titleColor);
   toolbar.setSubtitleTextColor(titleColor);
 }

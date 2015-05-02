@@ -4,7 +4,6 @@
     final int themeColor=getCurrentThemeColor();
     final int themeId=getCurrentThemeResourceId();
     final int itemColor=ThemeUtils.getContrastActionBarItemColor(this,themeId,themeColor);
-    ThemeUtils.setActionBarOverflowColor(toolbar,itemColor);
     ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),itemColor,itemColor);
   }
 }

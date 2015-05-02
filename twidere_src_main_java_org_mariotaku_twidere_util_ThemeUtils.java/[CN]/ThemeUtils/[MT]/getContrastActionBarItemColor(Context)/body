@@ -1,0 +1,7 @@
+{
+  final int colorBackground=getColorFromAttribute(context,android.R.attr.colorBackground,0);
+  if (TwidereColorUtils.getYIQLuminance(colorBackground) <= ACCENT_COLOR_THRESHOLD) {
+    return context.getResources().getColor(R.color.action_icon_light);
+  }
+  return context.getResources().getColor(R.color.action_icon_dark);
+}

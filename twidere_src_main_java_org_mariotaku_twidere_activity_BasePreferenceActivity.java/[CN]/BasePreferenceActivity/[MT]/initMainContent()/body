@@ -3,6 +3,5 @@
   if (mainContent != null) {
     return mainContent;
   }
-  @SuppressLint("InflateParams") final View view=getLayoutInflater().inflate(R.layout.activity_settings,null);
-  return (FrameLayout)view.findViewById(R.id.main_content);
+  return ((FrameLayout)getLayoutInflater().inflate(R.layout.activity_settings,null));
 }

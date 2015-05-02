@@ -6,12 +6,7 @@
   if (mActionModeView == null) {
     if (mIsFloating && mUsePopup) {
       final Context actionBarContext;
-      if (mActivity instanceof IThemedActivity) {
-        actionBarContext=ThemeUtils.getActionBarThemedContext(mActivity,((IThemedActivity)mActivity).getCurrentThemeResourceId(),((IThemedActivity)mActivity).getCurrentThemeColor());
-      }
- else {
-        actionBarContext=ThemeUtils.getActionBarThemedContext(mActivity);
-      }
+      actionBarContext=ThemeUtils.getActionBarThemedContext(mActivity,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor());
       mActionModeView=new ActionBarContextView(actionBarContext);
       mActionModePopup=new PopupWindow(actionBarContext,null,android.support.v7.appcompat.R.attr.actionModePopupWindowStyle);
       mActionModePopup.setContentView(mActionModeView);
@@ -20,6 +15,7 @@
       actionBarContext.getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize,outValue,true);
       final int height=TypedValue.complexToDimensionPixelSize(outValue.data,actionBarContext.getResources().getDisplayMetrics());
       mActionModeView.setContentHeight(height);
+      ThemeUtils.setActionBarContextViewColor(actionBarContext,mActionModeView,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor(),mThemed.getCurrentThemeBackgroundOption(),false);
       mActionModePopup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
       mShowActionModePopup=new Runnable(){
         public void run(){

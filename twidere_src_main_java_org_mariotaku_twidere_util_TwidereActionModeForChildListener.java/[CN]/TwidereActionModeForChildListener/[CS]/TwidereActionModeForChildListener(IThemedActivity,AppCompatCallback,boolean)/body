@@ -1,0 +1,8 @@
+{
+  mActivity=(Activity)activity;
+  mThemed=activity;
+  mWindow=mActivity.getWindow();
+  mAppCompatCallback=callback;
+  mIsFloating=ThemeUtils.isWindowFloating(mActivity,activity.getCurrentThemeResourceId());
+  mUsePopup=usePopup;
+}
