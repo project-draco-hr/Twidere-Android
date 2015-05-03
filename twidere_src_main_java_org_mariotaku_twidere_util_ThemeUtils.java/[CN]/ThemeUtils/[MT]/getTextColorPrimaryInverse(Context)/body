@@ -1,9 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(ATTRS_TEXT_COLOR_PRIMARY_INVERSE);
-  try {
-    return a.getColor(0,Color.TRANSPARENT);
-  }
-  finally {
-    a.recycle();
-  }
-}

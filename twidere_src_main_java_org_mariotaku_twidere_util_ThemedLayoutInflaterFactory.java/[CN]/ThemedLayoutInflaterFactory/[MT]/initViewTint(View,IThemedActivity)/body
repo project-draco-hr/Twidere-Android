@@ -1,5 +1,5 @@
 {
-  final int noTintColor, accentColor, backgroundTintColor, actionBarColor;
+  final int noTintColor, accentColor, backgroundTintColor;
   final boolean isColorTint;
   final Resources resources=((Activity)activity).getResources();
   final boolean isActionBarContext=isActionBarContext(view.getContext(),getActionBarContext((Activity)activity));
@@ -7,14 +7,15 @@
   final boolean isDarkTheme=ThemeUtils.isDarkTheme(themeResourceId);
   final int backgroundColorApprox;
   if (!isActionBarContext) {
-    accentColor=actionBarColor=activity.getCurrentThemeColor();
-    noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
+    accentColor=activity.getCurrentThemeColor();
+    final int[] darkLightColors=new int[2];
+    ThemeUtils.getDarkLightForegroundColors((Context)activity,activity.getCurrentThemeResourceId(),darkLightColors);
+    noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
     backgroundTintColor=accentColor;
     backgroundColorApprox=isDarkTheme ? Color.BLACK : Color.WHITE;
     isColorTint=true;
   }
  else   if (isDarkTheme) {
-    actionBarColor=resources.getColor(R.color.background_color_action_bar_dark);
     noTintColor=Color.WHITE;
     accentColor=activity.getCurrentThemeColor();
     backgroundTintColor=noTintColor;
@@ -22,9 +23,12 @@
     isColorTint=true;
   }
  else {
-    actionBarColor=activity.getCurrentThemeColor();
-    accentColor=TwidereColorUtils.getContrastYIQ(actionBarColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
-    noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD);
+    final int actionBarColor=activity.getCurrentThemeColor();
+    final int actionBarTheme=ThemeUtils.getActionBarThemeResource(activity.getThemeResourceId(),actionBarColor);
+    final int[] darkLightColors=new int[2];
+    ThemeUtils.getDarkLightForegroundColors((Context)activity,actionBarTheme,darkLightColors);
+    accentColor=TwidereColorUtils.getContrastYIQ(actionBarColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
+    noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
     backgroundTintColor=accentColor;
     backgroundColorApprox=Color.WHITE;
     isColorTint=false;
@@ -57,8 +61,13 @@
     }
   }
  else   if (view instanceof TwidereToolbar) {
-    final int itemColor=ThemeUtils.getContrastForegroundColor((Context)activity,themeResourceId,actionBarColor);
-    ((TwidereToolbar)view).setItemColor(itemColor);
+    final Context context=view.getContext();
+    if (context instanceof android.support.v7.internal.view.ContextThemeWrapper) {
+      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(context,((ContextThemeWrapper)context).getThemeResId()));
+    }
+ else {
+      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(context));
+    }
   }
  else   if (view instanceof EditText) {
     if (isAccentOptimal || !isColorTint) {

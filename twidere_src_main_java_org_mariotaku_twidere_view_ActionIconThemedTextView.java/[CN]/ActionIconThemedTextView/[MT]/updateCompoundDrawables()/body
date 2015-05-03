@@ -1,20 +1,4 @@
 {
-  for (  Drawable d : getCompoundDrawables()) {
-    if (d == null)     continue;
-    d.mutate();
-    final int color;
-    if (isActivated()) {
-      color=getActivatedColor();
-    }
- else     if (isEnabled()) {
-      color=getColor();
-    }
- else {
-      color=getDisabledColor();
-    }
-    if (mIconWidth > 0 && mIconHeight > 0) {
-      d.setBounds(0,0,mIconWidth,mIconHeight);
-    }
-    d.setColorFilter(color,Mode.SRC_ATOP);
-  }
+  updateCompoundDrawables(getCompoundDrawables());
+  updateCompoundDrawables(TextViewSupport.getCompoundDrawablesRelative(this));
 }

@@ -1,0 +1,8 @@
+{
+  if (isDarkTheme(themeId) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
+    return R.style.Theme_Twidere_Dark;
+  }
+ else {
+    return R.style.Theme_Twidere_Light;
+  }
+}

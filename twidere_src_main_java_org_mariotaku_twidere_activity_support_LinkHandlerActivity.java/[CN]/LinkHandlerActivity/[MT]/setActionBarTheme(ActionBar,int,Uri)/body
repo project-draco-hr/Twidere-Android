@@ -19,6 +19,4 @@ default :
     break;
   }
 }
-if (actionBarItemsColor != 0 && shouldSetActionItemColor()) {
-}
 }

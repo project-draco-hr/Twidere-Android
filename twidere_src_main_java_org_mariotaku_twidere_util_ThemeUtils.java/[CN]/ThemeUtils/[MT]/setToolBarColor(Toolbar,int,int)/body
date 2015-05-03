@@ -1,4 +1,0 @@
-{
-  toolbar.setTitleTextColor(titleColor);
-  toolbar.setSubtitleTextColor(titleColor);
-}

@@ -1,3 +1,0 @@
-{
-  return getThemeResource(getThemeNameOption(context));
-}

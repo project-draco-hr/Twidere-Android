@@ -1,4 +1,0 @@
-{
-  final int backgroundColor=ThemeUtils.getThemeBackgroundColor(context);
-  wrapMenuIcon(context,backgroundColor,backgroundColor,menu,excludeGroups);
-}

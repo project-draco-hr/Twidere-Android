@@ -1,9 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
-  if (d != null) {
-    d.setAlpha(alpha);
-  }
-  return d;
-}

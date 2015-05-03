@@ -4,11 +4,5 @@
   final int themeColor=getCurrentThemeColor();
   final int themeId=getCurrentThemeResourceId();
   final String option=getThemeBackgroundOption();
-  final int actionBarItemsColor=ThemeUtils.getContrastForegroundColor(this,themeId,themeColor);
   ThemeUtils.applyActionBarBackground(actionBar,this,themeId,themeColor,option,isActionBarOutlineEnabled());
-  final Toolbar toolbar=peekActionBarToolbar();
-  if (toolbar != null) {
-  }
- else {
-  }
 }

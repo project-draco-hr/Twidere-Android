@@ -1,8 +1,0 @@
-{
-  if (actionBar instanceof WindowDecorActionBar) {
-    actionBar.setTitle(actionBar.getTitle());
-    actionBar.setSubtitle(actionBar.getSubtitle());
-  }
- else   if (actionBar instanceof ToolbarActionBar) {
-  }
-}

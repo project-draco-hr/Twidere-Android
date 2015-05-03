@@ -4,8 +4,8 @@
   final View profileBannerContainer=mProfileBannerContainer;
   final int spaceHeight=space.getHeight();
   final float factor=MathUtils.clamp(offset / (float)spaceHeight,0,1);
-  profileBannerContainer.setTranslationY(Math.max(-offset,-spaceHeight));
-  profileBannerView.setTranslationY(Math.min(offset,spaceHeight) / 2);
+  profileBannerContainer.setTranslationY(-offset);
+  profileBannerView.setTranslationY(offset / 2);
   if (mActionBarBackground != null && mTintedStatusContent != null) {
     mActionBarBackground.setFactor(factor);
     mTintedStatusContent.setFactor(factor);
@@ -22,8 +22,8 @@
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
-    final Drawable drawable=mPagerIndicator.getBackground();
-    final int stackedTabColor;
+    final Drawable tabBackground=mPagerIndicator.getBackground();
+    int stackedTabColor;
     final int themeId=activity.getCurrentThemeResourceId();
     if (ThemeUtils.isDarkTheme(themeId)) {
       stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
@@ -31,8 +31,11 @@
  else {
       stackedTabColor=mUiColor;
     }
+    if (ThemeUtils.isTransparentBackground(activity.getCurrentThemeBackgroundOption())) {
+      stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,activity.getCurrentThemeBackgroundAlpha());
+    }
     final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
-    ((ColorDrawable)drawable).setColor(tabColor);
+    ((ColorDrawable)tabBackground).setColor(tabColor);
     final boolean tabItemIsDark=TwidereColorUtils.getYIQLuminance(tabColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
     if (mPreviousTabItemIsDark == 0 || (tabItemIsDark ? 1 : -1) != mPreviousTabItemIsDark) {
       final int[] primaryColors=new int[2];

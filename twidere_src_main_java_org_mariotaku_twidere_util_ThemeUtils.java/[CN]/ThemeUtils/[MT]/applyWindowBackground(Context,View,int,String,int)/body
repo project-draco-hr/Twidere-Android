@@ -1,12 +1,12 @@
 {
   if (isWindowFloating(context,theme))   return;
   if (VALUE_THEME_BACKGROUND_TRANSPARENT.equals(option)) {
-    ViewSupport.setBackground(window,ThemeUtils.getWindowBackgroundApplyAlpha(context,alpha));
+    ViewSupport.setBackground(window,getWindowBackgroundFromThemeApplyAlpha(context,theme,alpha));
   }
  else   if (VALUE_THEME_BACKGROUND_SOLID.equals(option)) {
     ViewSupport.setBackground(window,new ColorDrawable(isDarkTheme(theme) ? Color.BLACK : Color.WHITE));
   }
  else {
-    ViewSupport.setBackground(window,ThemeUtils.getWindowBackground(context));
+    ViewSupport.setBackground(window,getWindowBackground(context));
   }
 }

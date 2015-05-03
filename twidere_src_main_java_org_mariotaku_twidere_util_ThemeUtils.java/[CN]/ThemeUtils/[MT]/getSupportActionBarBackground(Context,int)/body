@@ -1,9 +1,0 @@
-{
-  @SuppressWarnings("ConstantConditions") final TypedArray array=context.obtainStyledAttributes(null,new int[]{android.R.attr.background},R.attr.actionBarStyle,themeRes);
-  try {
-    return array.getDrawable(0);
-  }
-  finally {
-    array.recycle();
-  }
-}

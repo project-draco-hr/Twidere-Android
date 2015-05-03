@@ -1,4 +1,3 @@
 {
-  final View view=inflater.inflate(R.layout.fragment_user,container,false);
-  return view;
+  return inflater.inflate(R.layout.fragment_user,container,false);
 }

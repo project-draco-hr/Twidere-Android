@@ -1,5 +1,0 @@
-Context context
-int backgroundColor
-int popupBackgroundColor
-Menu menu
-int excludeGroups

@@ -1,5 +1,0 @@
-Menu menu
-int color
-int highlightColor
-Mode mode
-int excludedGroups

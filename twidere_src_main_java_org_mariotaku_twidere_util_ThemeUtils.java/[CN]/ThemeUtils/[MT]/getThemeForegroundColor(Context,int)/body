@@ -1,6 +1,5 @@
 {
-  final Context wrapped=theme != 0 ? new ContextThemeWrapper(context,theme) : context;
-  final TypedArray a=wrapped.obtainStyledAttributes(new int[]{android.R.attr.colorForeground});
+  @SuppressWarnings("ConstantConditions") final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.colorForeground},0,theme);
   try {
     return a.getColor(0,0);
   }

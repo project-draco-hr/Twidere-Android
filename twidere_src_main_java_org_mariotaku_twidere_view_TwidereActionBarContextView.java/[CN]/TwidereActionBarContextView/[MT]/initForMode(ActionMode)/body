@@ -1,0 +1,6 @@
+{
+  super.initForMode(mode);
+  if (mItemColor != 0) {
+    ThemeUtils.setActionBarContextViewColor(this,mItemColor);
+  }
+}

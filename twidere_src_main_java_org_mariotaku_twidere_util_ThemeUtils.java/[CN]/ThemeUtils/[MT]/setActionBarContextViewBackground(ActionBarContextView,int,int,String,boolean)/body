@@ -1,0 +1,3 @@
+{
+  ViewSupport.setBackground(contextView,getActionBarBackground(contextView.getContext(),themeRes,accentColor,backgroundOption,outlineEnabled));
+}

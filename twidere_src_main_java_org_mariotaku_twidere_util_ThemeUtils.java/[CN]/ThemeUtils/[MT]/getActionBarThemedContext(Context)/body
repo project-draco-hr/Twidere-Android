@@ -6,7 +6,7 @@
     final Resources.Theme actionBarTheme=base.getResources().newTheme();
     actionBarTheme.setTo(baseTheme);
     actionBarTheme.applyStyle(outValue.resourceId,true);
-    final Context actionBarContext=new android.support.v7.internal.view.ContextThemeWrapper(base,0);
+    final ActionBarContextThemeWrapper actionBarContext=new ActionBarContextThemeWrapper(base,outValue.resourceId);
     actionBarContext.getTheme().setTo(actionBarTheme);
     return actionBarContext;
   }

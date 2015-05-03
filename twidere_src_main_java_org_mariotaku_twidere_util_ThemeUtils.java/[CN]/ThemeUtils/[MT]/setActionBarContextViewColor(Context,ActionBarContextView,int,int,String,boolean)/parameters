@@ -1,6 +1,0 @@
-Context context
-ActionBarContextView contextView
-int themeRes
-int accentColor
-String backgroundOption
-boolean outlineEnabled

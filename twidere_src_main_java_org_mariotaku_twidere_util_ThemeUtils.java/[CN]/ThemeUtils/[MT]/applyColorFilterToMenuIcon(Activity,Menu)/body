@@ -1,9 +1,0 @@
-{
-  final ActionBar actionBar=activity.getActionBar();
-  final Context context=actionBar != null ? actionBar.getThemedContext() : activity;
-  final int color=getThemeForegroundColor(context);
-  final int popupTheme=getActionBarPopupThemeRes(context);
-  final int popupColor=getThemeForegroundColor(context,popupTheme);
-  final int highlightColor=getUserAccentColor(activity);
-  applyColorFilterToMenuIcon(menu,color,popupColor,highlightColor,Mode.SRC_ATOP);
-}

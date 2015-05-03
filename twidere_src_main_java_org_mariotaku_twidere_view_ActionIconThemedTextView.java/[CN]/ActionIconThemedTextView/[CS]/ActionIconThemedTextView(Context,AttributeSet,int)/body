@@ -7,4 +7,5 @@
   mIconWidth=a.getDimensionPixelSize(R.styleable.IconActionButton_iabIconWidth,0);
   mIconHeight=a.getDimensionPixelSize(R.styleable.IconActionButton_iabIconHeight,0);
   a.recycle();
+  updateCompoundDrawables();
 }

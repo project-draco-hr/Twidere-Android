@@ -15,7 +15,7 @@
       actionBarContext.getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize,outValue,true);
       final int height=TypedValue.complexToDimensionPixelSize(outValue.data,actionBarContext.getResources().getDisplayMetrics());
       mActionModeView.setContentHeight(height);
-      ThemeUtils.setActionBarContextViewColor(actionBarContext,mActionModeView,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor(),mThemed.getCurrentThemeBackgroundOption(),false);
+      ThemeUtils.setActionBarContextViewBackground(mActionModeView,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor(),mThemed.getCurrentThemeBackgroundOption(),false);
       mActionModePopup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
       mShowActionModePopup=new Runnable(){
         public void run(){

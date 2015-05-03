@@ -1,4 +1,5 @@
 {
+  if (context instanceof ThemeUtils.ActionBarContextThemeWrapper)   return true;
   if (actionBarContext == null)   return false;
   if (context == actionBarContext)   return true;
   Context base=context;

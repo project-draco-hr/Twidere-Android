@@ -1,34 +1,14 @@
 {
-  modeCompat.setTitle(null);
-  try {
-    View contextView=null;
-    Context actionBarContext=null;
-    if (modeCompat instanceof ActionModeImpl) {
-      WindowDecorActionBar actionBar=(WindowDecorActionBar)Utils.findFieldOfTypes(modeCompat,ActionModeImpl.class,WindowDecorActionBar.class);
-      if (actionBar == null)       return;
-      actionBarContext=actionBar.getThemedContext();
-      final Field contextViewField=WindowDecorActionBar.class.getDeclaredField("mContextView");
-      contextViewField.setAccessible(true);
-      contextView=(View)contextViewField.get(actionBar);
-    }
- else     if (modeCompat instanceof StandaloneActionMode) {
-      final Field[] fields=StandaloneActionMode.class.getDeclaredFields();
-      for (      Field field : fields) {
-        if (ActionBarContextView.class.isAssignableFrom(field.getType())) {
-          field.setAccessible(true);
-          contextView=(View)field.get(modeCompat);
-        }
- else         if (Context.class.isAssignableFrom(field.getType())) {
-          field.setAccessible(true);
-          actionBarContext=(Context)field.get(modeCompat);
-        }
-        if (contextView != null && actionBarContext != null)         break;
-      }
-    }
-    if (!(contextView instanceof ActionBarContextView) || actionBarContext == null)     return;
-    setActionBarContextViewColor(actionBarContext,(ActionBarContextView)contextView,themeRes,accentColor,backgroundOption,outlineEnabled);
+  modeCompat.setTitle(modeCompat.getTitle());
+  View contextView=null;
+  if (modeCompat instanceof ActionModeImpl) {
+    WindowDecorActionBar actionBar=(WindowDecorActionBar)Utils.findFieldOfTypes(modeCompat,ActionModeImpl.class,WindowDecorActionBar.class);
+    if (actionBar == null)     return;
+    contextView=(View)Utils.findFieldOfTypes(actionBar,WindowDecorActionBar.class,ActionBarContextView.class);
   }
- catch (  Exception e) {
-    e.printStackTrace();
+ else   if (modeCompat instanceof StandaloneActionMode) {
+    contextView=(View)Utils.findFieldOfTypes(modeCompat,StandaloneActionMode.class,ActionBarContextView.class);
   }
+  if (!(contextView instanceof ActionBarContextView))   return;
+  setActionBarContextViewBackground((ActionBarContextView)contextView,themeRes,accentColor,backgroundOption,outlineEnabled);
 }
