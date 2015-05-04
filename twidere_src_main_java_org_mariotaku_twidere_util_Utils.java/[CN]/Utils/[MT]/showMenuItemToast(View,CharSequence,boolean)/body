@@ -11,7 +11,7 @@
     cheatSheet.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL,0,height);
   }
  else {
-    cheatSheet.setGravity(Gravity.TOP | Gravity.RIGHT,screenWidth - screenPos[0] - width / 2,height);
+    cheatSheet.setGravity(Gravity.TOP | GravityCompat.END,screenWidth - screenPos[0] - width / 2,height);
   }
   cheatSheet.show();
 }

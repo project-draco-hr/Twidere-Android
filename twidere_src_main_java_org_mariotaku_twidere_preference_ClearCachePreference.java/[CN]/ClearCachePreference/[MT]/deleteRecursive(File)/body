@@ -1,6 +1,8 @@
 {
   if (f.isDirectory()) {
-    for (    final File c : f.listFiles()) {
+    final File[] files=f.listFiles();
+    if (files == null)     return;
+    for (    final File c : files) {
       deleteRecursive(c);
     }
   }

@@ -1,5 +1,4 @@
 {
-  if (mProgress == null)   return;
   if (mProgress.isShowing()) {
     mProgress.dismiss();
   }
