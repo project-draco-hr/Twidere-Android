@@ -2,20 +2,20 @@
   final Set<Long> user_ids=new HashSet<>();
   final Set<String> keywords=new HashSet<>();
   final Set<String> sources=new HashSet<>();
-  final ArrayList<ContentValues> user_values=new ArrayList<>();
-  final ArrayList<ContentValues> keyword_values=new ArrayList<>();
-  final ArrayList<ContentValues> source_values=new ArrayList<>();
+  final ArrayList<ContentValues> userValues=new ArrayList<>();
+  final ArrayList<ContentValues> keywordValues=new ArrayList<>();
+  final ArrayList<ContentValues> sourceValues=new ArrayList<>();
   for (  final FilterItemInfo info : mCheckedFilterItems) {
     final Object value=info.value;
     if (value instanceof ParcelableUserMention) {
       final ParcelableUserMention mention=(ParcelableUserMention)value;
       user_ids.add(mention.id);
-      user_values.add(createFilteredUser(mention));
+      userValues.add(ContentValuesCreator.createFilteredUser(mention));
     }
- else     if (value instanceof ParcelableStatus) {
-      final ParcelableStatus status=(ParcelableStatus)value;
-      user_ids.add(status.user_id);
-      user_values.add(ContentValuesCreator.createFilteredUser(status));
+ else     if (value instanceof UserItem) {
+      final UserItem item=(UserItem)value;
+      user_ids.add(item.id);
+      userValues.add(createFilteredUser(item));
     }
  else     if (info.type == FilterItemInfo.FILTER_TYPE_KEYWORD) {
       if (value != null) {
@@ -23,7 +23,7 @@
         keywords.add(keyword);
         final ContentValues values=new ContentValues();
         values.put(Filters.Keywords.VALUE,"#" + keyword);
-        keyword_values.add(values);
+        keywordValues.add(values);
       }
     }
  else     if (info.type == FilterItemInfo.FILTER_TYPE_SOURCE) {
@@ -32,15 +32,15 @@
         sources.add(source);
         final ContentValues values=new ContentValues();
         values.put(Filters.Sources.VALUE,source);
-        source_values.add(values);
+        sourceValues.add(values);
       }
     }
   }
   final ContentResolver resolver=getContentResolver();
-  bulkDelete(resolver,Filters.Users.CONTENT_URI,Filters.Users.USER_ID,user_ids,null,false);
-  bulkDelete(resolver,Filters.Keywords.CONTENT_URI,Filters.Keywords.VALUE,keywords,null,true);
-  bulkDelete(resolver,Filters.Sources.CONTENT_URI,Filters.Sources.VALUE,sources,null,true);
-  bulkInsert(resolver,Filters.Users.CONTENT_URI,user_values);
-  bulkInsert(resolver,Filters.Keywords.CONTENT_URI,keyword_values);
-  bulkInsert(resolver,Filters.Sources.CONTENT_URI,source_values);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Users.CONTENT_URI,Filters.Users.USER_ID,user_ids,null,false);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Keywords.CONTENT_URI,Filters.Keywords.VALUE,keywords,null,true);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Sources.CONTENT_URI,Filters.Sources.VALUE,sources,null,true);
+  ContentResolverUtils.bulkInsert(resolver,Filters.Users.CONTENT_URI,userValues);
+  ContentResolverUtils.bulkInsert(resolver,Filters.Keywords.CONTENT_URI,keywordValues);
+  ContentResolverUtils.bulkInsert(resolver,Filters.Sources.CONTENT_URI,sourceValues);
 }

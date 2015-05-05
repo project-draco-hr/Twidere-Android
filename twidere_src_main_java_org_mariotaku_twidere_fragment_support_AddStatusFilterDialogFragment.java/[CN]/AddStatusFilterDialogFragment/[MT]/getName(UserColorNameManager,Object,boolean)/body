@@ -1,0 +1,11 @@
+{
+  if (value instanceof ParcelableUserMention) {
+    final ParcelableUserMention mention=(ParcelableUserMention)value;
+    return manager.getDisplayName(mention.id,mention.name,mention.screen_name,nameFirst,true);
+  }
+ else   if (value instanceof UserItem) {
+    final UserItem item=(UserItem)value;
+    return manager.getDisplayName(item.id,item.name,item.screen_name,nameFirst,true);
+  }
+ else   return ParseUtils.parseString(value);
+}

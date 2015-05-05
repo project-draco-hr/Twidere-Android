@@ -7,5 +7,5 @@
     df.show(getFragmentManager().beginTransaction(),"restart_confirm");
     return;
   }
-  super.onBackPressed();
+  onBackPressed();
 }

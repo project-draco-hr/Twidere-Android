@@ -12,7 +12,7 @@
   mTabId=intent.getLongExtra(EXTRA_ID,-1);
   setTitle(isEditMode() ? R.string.edit_tab : R.string.add_tab);
   setContentView(R.layout.activity_custom_tab_editor);
-  mTabTypeName.setText(getTabTypeName(this,type));
+  mEditTabName.setFloatingLabelText(getTabTypeName(this,type));
   mTabIconsAdapter=new CustomTabIconsAdapter(this);
   mTabIconsAdapter.setData(getIconMap());
   mAccountsAdapter=new AccountsSpinnerAdapter(this);

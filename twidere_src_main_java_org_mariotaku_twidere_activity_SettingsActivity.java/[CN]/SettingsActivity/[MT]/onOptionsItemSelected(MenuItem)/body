@@ -1,24 +1,17 @@
 {
 switch (item.getItemId()) {
-case MENU_HOME:
-{
-      if (!isFinishing()) {
-        onBackPressed();
-      }
-      return true;
-    }
 case MENU_IMPORT_SETTINGS:
 {
-    final Intent intent=new Intent(this,DataImportActivity.class);
+      final Intent intent=new Intent(this,DataImportActivity.class);
+      startActivity(intent);
+      return true;
+    }
+case MENU_EXPORT_SETTINGS:
+{
+    final Intent intent=new Intent(this,DataExportActivity.class);
     startActivity(intent);
     return true;
   }
-case MENU_EXPORT_SETTINGS:
-{
-  final Intent intent=new Intent(this,DataExportActivity.class);
-  startActivity(intent);
-  return true;
-}
 }
 return super.onOptionsItemSelected(item);
 }
