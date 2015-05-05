@@ -1,5 +1,0 @@
-{
-  final List<HttpParameter> paramList=new ArrayList<HttpParameter>(params.length);
-  paramList.addAll(Arrays.asList(params));
-  return paramList;
-}

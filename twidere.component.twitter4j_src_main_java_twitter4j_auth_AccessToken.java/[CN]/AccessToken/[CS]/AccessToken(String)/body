@@ -1,8 +1,0 @@
-{
-  super(str);
-  screenName=getParameter("screen_name");
-  final String sUserId=getParameter("user_id");
-  if (sUserId != null) {
-    userId=Long.parseLong(sUserId);
-  }
-}

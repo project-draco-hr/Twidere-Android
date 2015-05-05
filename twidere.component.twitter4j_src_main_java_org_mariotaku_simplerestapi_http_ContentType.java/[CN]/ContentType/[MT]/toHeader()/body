@@ -1,0 +1,10 @@
+{
+  final StringBuilder sb=new StringBuilder(contentType);
+  for (  KeyValuePair parameter : parameters) {
+    sb.append("; ");
+    sb.append(parameter.getKey());
+    sb.append("=");
+    sb.append(parameter.getValue());
+  }
+  return sb.toString();
+}

@@ -1,3 +1,0 @@
-{
-  return post(url,signUrl,parameters,null,requestHeaders);
-}

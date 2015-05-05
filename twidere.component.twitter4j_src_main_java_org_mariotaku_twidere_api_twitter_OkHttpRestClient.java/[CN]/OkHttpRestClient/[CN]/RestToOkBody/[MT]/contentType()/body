@@ -1,0 +1,3 @@
+{
+  return MediaType.parse(body.contentType().toHeader());
+}

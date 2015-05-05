@@ -1,3 +1,0 @@
-{
-  return factory.createRelationship(get(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW,new HttpParameter("source_id",sourceId),new HttpParameter("target_id",targetId)));
-}

@@ -1,3 +1,0 @@
-{
-  return factory.createCategoryList(get(conf.getRestBaseURL() + ENDPOINT_USERS_SUGGESTIONS,conf.getSigningRestBaseURL() + ENDPOINT_USERS_SUGGESTIONS));
-}

@@ -16,12 +16,12 @@
   out.writeString(profile_banner_url);
   out.writeString(url);
   out.writeByte((byte)(is_follow_request_sent ? 1 : 0));
-  out.writeInt(followers_count);
-  out.writeInt(friends_count);
-  out.writeInt(statuses_count);
-  out.writeInt(favorites_count);
-  out.writeInt(listed_count);
-  out.writeInt(media_count);
+  out.writeLong(followers_count);
+  out.writeLong(friends_count);
+  out.writeLong(statuses_count);
+  out.writeLong(favorites_count);
+  out.writeLong(listed_count);
+  out.writeLong(media_count);
   out.writeString(url_expanded);
   out.writeByte((byte)(is_following ? 1 : 0));
   out.writeInt(background_color);

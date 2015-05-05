@@ -1,4 +1,0 @@
-{
-  super(token,tokenSecret);
-  conf=ConfigurationContext.getInstance();
-}

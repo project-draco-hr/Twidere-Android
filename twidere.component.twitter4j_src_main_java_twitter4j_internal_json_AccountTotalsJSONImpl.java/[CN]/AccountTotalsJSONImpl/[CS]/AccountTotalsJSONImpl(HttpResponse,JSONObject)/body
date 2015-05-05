@@ -1,7 +1,0 @@
-{
-  super(res);
-  updates=getInt("updates",json);
-  followers=getInt("followers",json);
-  favorites=getInt("favorites",json);
-  friends=getInt("friends",json);
-}

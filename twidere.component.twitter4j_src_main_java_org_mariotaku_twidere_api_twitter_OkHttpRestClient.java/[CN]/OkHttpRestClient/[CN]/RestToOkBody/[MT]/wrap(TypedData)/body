@@ -1,0 +1,4 @@
+{
+  if (body == null)   return null;
+  return new RestToOkBody(body);
+}

@@ -1,4 +1,0 @@
-{
-  this.hideThread=hideThread;
-  return this;
-}

@@ -1,5 +1,0 @@
-{
-  final String url=conf.getUploadBaseURL() + ENDPOINT_MEDIA_UPLOAD;
-  final String signUrl=conf.getSigningUploadBaseURL() + ENDPOINT_MEDIA_UPLOAD;
-  return factory.createMediaUploadResponse(post(url,signUrl,new HttpParameter("media",file)));
-}

@@ -1,3 +1,0 @@
-{
-  return new TrendsJSONImpl(res,conf);
-}

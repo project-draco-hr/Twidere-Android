@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createStatusList(get(conf.getRestBaseURL() + "statuses/retweets/" + statusId+ ".json",conf.getSigningRestBaseURL() + "statuses/retweets/" + statusId+ ".json",INCLUDE_ENTITIES));
-}

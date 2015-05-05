@@ -1,8 +1,0 @@
-{
-  try {
-    return Long.parseLong(getResponseHeader("Content-Length"));
-  }
- catch (  final Exception e) {
-    return -1;
-  }
-}

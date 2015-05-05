@@ -1,4 +1,0 @@
-{
-  this(page,count);
-  setSinceId(sinceId);
-}

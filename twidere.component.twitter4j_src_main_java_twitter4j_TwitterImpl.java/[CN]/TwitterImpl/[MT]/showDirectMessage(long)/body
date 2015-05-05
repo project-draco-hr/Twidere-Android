@@ -1,6 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final String url=conf.getRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_SHOW;
-  final String sign_url=conf.getSigningRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_SHOW;
-  return factory.createDirectMessage(get(url,sign_url,new HttpParameter("id",id),INCLUDE_ENTITIES));
-}

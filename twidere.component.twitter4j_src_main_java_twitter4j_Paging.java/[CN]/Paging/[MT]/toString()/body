@@ -1,3 +1,0 @@
-{
-  return "Paging{" + "page=" + page + ", count="+ count+ ", sinceId="+ sinceId+ ", maxId="+ maxId+ '}';
-}

@@ -1,3 +1,0 @@
-{
-  return factory.createPagableUserListList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_SUBSCRIPTIONS,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_SUBSCRIPTIONS,new HttpParameter("screen_name",listOwnerScreenName),new HttpParameter("cursor",cursor)));
-}

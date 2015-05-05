@@ -1,4 +1,0 @@
-{
-  final HttpResponse res=get(conf.getRestBaseURL() + "users/suggestions/" + categorySlug+ "/members.json",conf.getSigningRestBaseURL() + "users/suggestions/" + categorySlug+ "/members.json");
-  return factory.createUserListFromJSONArray(res);
-}

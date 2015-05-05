@@ -1,0 +1,4 @@
+{
+  if (!hasAuthorization())   return null;
+  return "Basic " + Base64.encodeToString((user + ":" + password).getBytes(),Base64.NO_WRAP);
+}

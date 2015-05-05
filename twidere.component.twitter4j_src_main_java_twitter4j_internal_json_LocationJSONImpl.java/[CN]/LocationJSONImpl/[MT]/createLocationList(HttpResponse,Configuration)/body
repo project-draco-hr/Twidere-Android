@@ -1,3 +1,0 @@
-{
-  return createLocationList(res.asJSONArray());
-}

@@ -1,4 +1,3 @@
 {
-  if (sinceId < 1)   throw new IllegalArgumentException("since_id should be positive integer. passed:" + sinceId);
   this.sinceId=sinceId;
 }

@@ -1,3 +1,0 @@
-{
-  return createCategoriesList(res.asJSONArray(),res,conf);
-}

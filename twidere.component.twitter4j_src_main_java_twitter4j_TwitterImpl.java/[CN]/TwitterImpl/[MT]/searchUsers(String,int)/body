@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createUserList(get(conf.getRestBaseURL() + ENDPOINT_USERS_SEARCH,conf.getSigningRestBaseURL() + ENDPOINT_USERS_SEARCH,new HttpParameter("q",query),new HttpParameter("per_page",20),new HttpParameter("page",page),INCLUDE_ENTITIES));
-}

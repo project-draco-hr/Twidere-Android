@@ -1,0 +1,43 @@
+{
+  if (!(endpoint instanceof OAuthEndpoint))   throw new IllegalArgumentException();
+  final OAuthEndpoint oauthEndpoint=(OAuthEndpoint)endpoint;
+  final RestMethod method=request.getMethod();
+  final String url=Endpoint.constructUrl(oauthEndpoint.getSignUrl(),request);
+  final String oauthNonce=generateOAuthNonce();
+  final long timestamp=System.currentTimeMillis() / 1000;
+  final Map<String,Object> extras=request.getExtras();
+  final String oauthToken, oauthTokenSecret;
+  if (this.oauthToken != null) {
+    oauthToken=this.oauthToken.getOauthToken();
+    oauthTokenSecret=this.oauthToken.getOauthTokenSecret();
+  }
+ else {
+    oauthToken=(String)extras.get("oauth_token");
+    oauthTokenSecret=(String)extras.get("oauth_token_secret");
+  }
+  final String oauthSignature=generateOAuthSignature(method,url,oauthNonce,timestamp,oauthToken,oauthTokenSecret,request.getQueries(),request.getForms());
+  final List<KeyValuePair> encodeParams=new ArrayList<>();
+  encodeParams.add(new KeyValuePair("oauth_consumer_key",consumerKey));
+  encodeParams.add(new KeyValuePair("oauth_nonce",oauthNonce));
+  encodeParams.add(new KeyValuePair("oauth_signature",encode(oauthSignature)));
+  encodeParams.add(new KeyValuePair("oauth_signature_method",OAUTH_SIGNATURE_METHOD));
+  encodeParams.add(new KeyValuePair("oauth_timestamp",String.valueOf(timestamp)));
+  encodeParams.add(new KeyValuePair("oauth_version",OAUTH_VERSION));
+  if (oauthToken != null) {
+    encodeParams.add(new KeyValuePair("oauth_token",oauthToken));
+  }
+  Collections.sort(encodeParams);
+  final StringBuilder headerBuilder=new StringBuilder();
+  headerBuilder.append("OAuth ");
+  for (int i=0, j=encodeParams.size(); i < j; i++) {
+    if (i != 0) {
+      headerBuilder.append(", ");
+    }
+    final KeyValuePair keyValuePair=encodeParams.get(i);
+    headerBuilder.append(keyValuePair.getKey());
+    headerBuilder.append("=\"");
+    headerBuilder.append(keyValuePair.getValue());
+    headerBuilder.append('\"');
+  }
+  return headerBuilder.toString();
+}

@@ -1,3 +1,0 @@
-{
-  return "StatusActivitySummaryJSONImpl{favoriters=" + favoriters + ", repliers="+ repliers+ ", retweeters="+ retweeters+ ", favoritersCount="+ favoritersCount+ ", repliersCount="+ repliersCount+ ", retweetersCount="+ retweetersCount+ ", descendentReplyCount="+ descendentReplyCount+ "}";
-}

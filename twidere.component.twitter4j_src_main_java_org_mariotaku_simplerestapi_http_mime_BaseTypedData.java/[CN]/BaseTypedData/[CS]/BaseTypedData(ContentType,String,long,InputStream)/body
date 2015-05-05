@@ -1,0 +1,11 @@
+{
+  this.contentType=contentType;
+  this.contentEncoding=contentEncoding;
+  this.contentLength=contentLength;
+  if ("gzip".equals(contentEncoding)) {
+    this.stream=new StreamingGZIPInputStream(stream);
+  }
+ else {
+    this.stream=stream;
+  }
+}

@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createSavedSearch(post(conf.getRestBaseURL() + ENDPOINT_SAVED_SEARCHES_CREATE,conf.getSigningRestBaseURL() + ENDPOINT_SAVED_SEARCHES_CREATE,new HttpParameter("query",query)));
-}

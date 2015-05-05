@@ -1,3 +1,0 @@
-{
-  return UserJSONImpl.createPagableUserList(res,conf);
-}

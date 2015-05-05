@@ -1,5 +1,0 @@
-{
-  final String url=conf.getRestBaseURL() + ENDPOINT_LISTS_SHOW;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_LISTS_SHOW;
-  return factory.createAUserList(get(url,signUrl,new HttpParameter("list_id",listId)));
-}

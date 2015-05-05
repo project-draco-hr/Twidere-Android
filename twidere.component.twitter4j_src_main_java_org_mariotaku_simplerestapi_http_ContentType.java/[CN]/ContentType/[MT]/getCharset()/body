@@ -1,0 +1,9 @@
+{
+  if (parameters == null)   return null;
+  for (  KeyValuePair parameter : parameters) {
+    if ("charset".equals(parameter.getKey())) {
+      return Charset.forName(parameter.getValue());
+    }
+  }
+  return null;
+}

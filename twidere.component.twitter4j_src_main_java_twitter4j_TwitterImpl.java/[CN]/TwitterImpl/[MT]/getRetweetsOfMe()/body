@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_STATUSES_RETWEETS_OF_ME,conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_RETWEETS_OF_ME,INCLUDE_ENTITIES,INCLUDE_RTS));
-}

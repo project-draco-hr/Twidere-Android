@@ -1,0 +1,15 @@
+{
+  if (partsCache != null)   return partsCache;
+  final ArrayList<TypedData> list=new ArrayList<>();
+  for (  Map.Entry<Part,Object> entry : parts.entrySet()) {
+    final Part form=entry.getKey();
+    final Object value=entry.getValue();
+    if (value instanceof TypedData) {
+      list.add((TypedData)value);
+    }
+ else     if (value != null) {
+      list.add(BaseTypedData.wrap(value));
+    }
+  }
+  return partsCache=list;
+}

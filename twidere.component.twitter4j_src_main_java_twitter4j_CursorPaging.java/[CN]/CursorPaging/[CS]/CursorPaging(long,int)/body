@@ -1,4 +1,0 @@
-{
-  setCursor(cursor);
-  setCount(count);
-}

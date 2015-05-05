@@ -1,8 +1,0 @@
-{
-  conf=(Configuration)stream.readObject();
-  auth=(Authorization)stream.readObject();
-  rateLimitStatusListeners=(List<RateLimitStatusListener>)stream.readObject();
-  http=new HttpClientWrapper(conf);
-  http.setHttpResponseListener(this);
-  setFactory();
-}

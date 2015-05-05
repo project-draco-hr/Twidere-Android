@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createUser(post(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_IMAGE,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_IMAGE,new HttpParameter("image","image",image),INCLUDE_ENTITIES));
-}

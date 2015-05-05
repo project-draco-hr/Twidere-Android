@@ -1,3 +1,0 @@
-{
-  return factory.createTrends(get(conf.getRestBaseURL() + ENDPOINT_TRENDS_PLACE,conf.getSigningRestBaseURL() + ENDPOINT_TRENDS_PLACE,new HttpParameter("id",woeid)));
-}

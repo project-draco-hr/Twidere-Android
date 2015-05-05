@@ -14,7 +14,8 @@
         final Set<ContentValues> statusesValues=new HashSet<>();
         final Set<ContentValues> hashTagValues=new HashSet<>();
         statusesValues.add(createStatus(status,response.accountId));
-        for (        final String hashtag : extractor.extractHashtags(status.getText())) {
+        final String text=TwitterContentUtils.unescapeTwitterStatusText(status.getText());
+        for (        final String hashtag : extractor.extractHashtags(text)) {
           final ContentValues values=new ContentValues();
           values.put(CachedHashtags.NAME,hashtag);
           hashTagValues.add(values);

@@ -1,3 +1,0 @@
-{
-  return SavedSearchJSONImpl.createSavedSearchList(res,conf);
-}

@@ -1,3 +1,0 @@
-{
-  return "UserMentionEntityJSONImpl{" + "start=" + start + ", end="+ end+ ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ ", id="+ id+ '}';
-}

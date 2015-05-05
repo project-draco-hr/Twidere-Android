@@ -1,7 +1,0 @@
-{
-  int result=remaining;
-  result=31 * result + limit;
-  result=31 * result + resetTimeInSeconds;
-  result=31 * result + secondsUntilReset;
-  return result;
-}

@@ -31,7 +31,7 @@
     values.put(Statuses.QUOTE_ID,quotedStatus.getId());
     final String textHtml=TwitterContentUtils.formatStatusText(orig);
     values.put(Statuses.QUOTE_TEXT_HTML,textHtml);
-    values.put(Statuses.QUOTE_TEXT_PLAIN,orig.getText());
+    values.put(Statuses.QUOTE_TEXT_PLAIN,TwitterContentUtils.unescapeTwitterStatusText(orig.getText()));
     values.put(Statuses.QUOTE_TEXT_UNESCAPED,toPlainText(textHtml));
     values.put(Statuses.QUOTE_TIMESTAMP,orig.getCreatedAt().getTime());
     values.put(Statuses.QUOTE_SOURCE,orig.getSource());
@@ -81,7 +81,7 @@
   values.put(CachedUsers.IS_FOLLOWING,user.isFollowing());
   final String textHtml=TwitterContentUtils.formatStatusText(status);
   values.put(Statuses.TEXT_HTML,textHtml);
-  values.put(Statuses.TEXT_PLAIN,status.getText());
+  values.put(Statuses.TEXT_PLAIN,TwitterContentUtils.unescapeTwitterStatusText(status.getText()));
   values.put(Statuses.TEXT_UNESCAPED,toPlainText(textHtml));
   values.put(Statuses.RETWEET_COUNT,status.getRetweetCount());
   values.put(Statuses.REPLY_COUNT,status.getReplyCount());

@@ -1,3 +1,0 @@
-{
-  return new HashtagEntityJSONImpl(start,end,text);
-}

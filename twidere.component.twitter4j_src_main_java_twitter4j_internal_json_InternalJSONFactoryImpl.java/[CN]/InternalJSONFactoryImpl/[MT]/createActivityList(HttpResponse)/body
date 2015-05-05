@@ -1,3 +1,0 @@
-{
-  return ActivityJSONImpl.createActivityList(res,conf);
-}

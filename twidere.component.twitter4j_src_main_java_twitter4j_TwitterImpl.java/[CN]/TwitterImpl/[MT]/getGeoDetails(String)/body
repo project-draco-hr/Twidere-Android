@@ -1,3 +1,0 @@
-{
-  return factory.createPlace(get(conf.getRestBaseURL() + "geo/id/" + id+ ".json",conf.getSigningRestBaseURL() + "geo/id/" + id+ ".json"));
-}

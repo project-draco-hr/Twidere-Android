@@ -1,5 +1,0 @@
-{
-  final JSONObject json=res.asJSONObject();
-  final Map<String,RateLimitStatus> map=createRateLimitStatuses(json);
-  return map;
-}

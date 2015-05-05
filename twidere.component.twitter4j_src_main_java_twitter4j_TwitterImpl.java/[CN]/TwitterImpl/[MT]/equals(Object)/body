@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  if (!super.equals(o))   return false;
-  final TwitterImpl twitter=(TwitterImpl)o;
-  if (!INCLUDE_ENTITIES.equals(twitter.INCLUDE_ENTITIES))   return false;
-  if (!INCLUDE_RTS.equals(twitter.INCLUDE_RTS))   return false;
-  return true;
-}

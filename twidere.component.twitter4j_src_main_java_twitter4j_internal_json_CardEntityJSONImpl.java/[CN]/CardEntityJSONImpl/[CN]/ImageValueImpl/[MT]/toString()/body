@@ -1,3 +1,0 @@
-{
-  return "ImageValueImpl{" + "name='" + name + '\''+ "width="+ width+ ", height="+ height+ ", url='"+ url+ '\''+ '}';
-}

@@ -1,6 +1,0 @@
-{
-  this.name=name;
-  this.fileName=fileName;
-  this.fileBody=fileBody;
-  this.overrideFileType=overrideFileType;
-}

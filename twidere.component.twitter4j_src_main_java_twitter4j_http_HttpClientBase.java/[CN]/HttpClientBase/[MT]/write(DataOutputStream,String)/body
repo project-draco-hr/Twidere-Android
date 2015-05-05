@@ -1,4 +1,0 @@
-{
-  out.writeBytes(outStr);
-  logger.debug(outStr);
-}

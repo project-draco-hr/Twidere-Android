@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createAUserList(post(conf.getRestBaseURL() + ENDPOINT_LISTS_MEMBERS_DESTROY_ALL,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_MEMBERS_DESTROY_ALL,new HttpParameter("list_id",listId),new HttpParameter("screen_name",InternalStringUtil.join(screenNames))));
-}

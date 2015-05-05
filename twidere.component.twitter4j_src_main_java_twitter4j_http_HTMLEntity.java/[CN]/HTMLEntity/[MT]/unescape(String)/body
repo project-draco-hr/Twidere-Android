@@ -1,9 +1,0 @@
-{
-  String returnValue=null;
-  if (original != null) {
-    final StringBuffer buf=new StringBuffer(original);
-    unescape(buf);
-    returnValue=buf.toString();
-  }
-  return returnValue;
-}

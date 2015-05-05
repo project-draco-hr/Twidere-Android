@@ -1,3 +1,0 @@
-{
-  return "TranslationResultJSONImpl{id=" + id + ", lang="+ lang+ ", translatedLang="+ translatedLang+ ", translationType="+ translationType+ ", text="+ text+ "}";
-}

@@ -1,6 +1,0 @@
-{
-  int result=wrapperConf.hashCode();
-  result=31 * result + http.hashCode();
-  result=31 * result + requestHeaders.hashCode();
-  return result;
-}

@@ -1,0 +1,4 @@
+{
+  if (currentUserRetweet == null)   return -1;
+  return currentUserRetweet.id;
+}

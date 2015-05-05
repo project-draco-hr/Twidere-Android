@@ -1,5 +1,0 @@
-{
-  final String url=conf.getRestBaseURL() + ENDPOINT_USERS_SHOW;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_USERS_SHOW;
-  return factory.createUser(get(url,signUrl,new HttpParameter("screen_name",screenName),INCLUDE_ENTITIES));
-}

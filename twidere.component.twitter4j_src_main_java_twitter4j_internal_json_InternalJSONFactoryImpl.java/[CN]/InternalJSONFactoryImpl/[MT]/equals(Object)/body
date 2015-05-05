@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof InternalJSONFactoryImpl))   return false;
-  final InternalJSONFactoryImpl that=(InternalJSONFactoryImpl)o;
-  if (conf != null ? !conf.equals(that.conf) : that.conf != null)   return false;
-  return true;
-}

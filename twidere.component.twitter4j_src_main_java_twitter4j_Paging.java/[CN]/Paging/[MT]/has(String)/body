@@ -1,0 +1,25 @@
+{
+switch (key) {
+case "since_id":
+{
+      return sinceId != -1;
+    }
+case "max_id":
+{
+    return maxId != -1;
+  }
+case "count":
+{
+  return count != -1;
+}
+case "page":
+{
+return page != -1;
+}
+case "cursor":
+{
+return cursor != 0;
+}
+}
+return false;
+}

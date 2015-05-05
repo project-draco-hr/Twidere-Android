@@ -1,3 +1,0 @@
-{
-  return "OAuthToken{" + "token='" + token + '\''+ ", tokenSecret='"+ tokenSecret+ '\''+ ", secretKeySpec="+ secretKeySpec+ '}';
-}

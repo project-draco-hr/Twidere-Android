@@ -1,6 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final String url=conf.getRestBaseURL() + ENDPOINT_BLOCKS_IDS;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_BLOCKS_IDS;
-  return factory.createIDs(get(url,signUrl,paging.asPostParameterArray()));
-}

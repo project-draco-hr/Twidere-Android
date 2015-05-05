@@ -1,3 +1,0 @@
-{
-  return request(new HttpRequest(HEAD,url,signUrl,parameters,authorization,requestHeaders));
-}

@@ -1,4 +1,0 @@
-String url
-String signUrl
-Authorization authorization
-Map<String,List<String>> requestHeaders

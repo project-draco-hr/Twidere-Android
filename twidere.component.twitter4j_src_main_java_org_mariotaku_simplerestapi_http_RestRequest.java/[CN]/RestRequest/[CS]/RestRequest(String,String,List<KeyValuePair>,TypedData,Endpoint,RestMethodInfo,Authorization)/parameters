@@ -1,0 +1,7 @@
+String method
+String url
+List<KeyValuePair> headers
+TypedData body
+Endpoint endpoint
+RestMethodInfo restMethodInfo
+Authorization authorization

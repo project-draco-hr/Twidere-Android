@@ -1,5 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  checkFileValidity(banner);
-  post(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BANNER,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_UPDATE_PROFILE_BANNER,new HttpParameter("banner",banner));
-}

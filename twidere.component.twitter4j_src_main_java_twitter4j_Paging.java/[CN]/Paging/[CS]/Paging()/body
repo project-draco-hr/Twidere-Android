@@ -1,2 +1,7 @@
 {
+  setSinceId(-1);
+  setMaxId(-1);
+  setCount(-1);
+  setPage(-1);
+  setCursor(0);
 }

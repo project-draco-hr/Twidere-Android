@@ -1,4 +1,0 @@
-{
-  super(res);
-  this.conf=conf;
-}

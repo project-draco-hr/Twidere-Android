@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof HttpClientBase))   return false;
-  final HttpClientBase that=(HttpClientBase)o;
-  if (!CONF.equals(that.CONF))   return false;
-  return true;
-}

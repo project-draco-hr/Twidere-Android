@@ -1,0 +1,8 @@
+RestMethod method
+String url
+String oauthNonce
+long timestamp
+String oauthToken
+String oauthTokenSecret
+List<KeyValuePair> queries
+List<KeyValuePair> forms

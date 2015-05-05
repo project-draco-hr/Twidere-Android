@@ -1,5 +1,0 @@
-{
-  final String url=conf.getRestBaseURL() + ENDPOINT_LISTS_MEMBERS;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_LISTS_MEMBERS;
-  return factory.createPagableUserList(get(url,signUrl,mergeParameters(paging.asPostParameterArray(),new HttpParameter("slug",slug),new HttpParameter("owner_id",ownerId),INCLUDE_ENTITIES)));
-}

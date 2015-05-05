@@ -1,0 +1,3 @@
+{
+  return "BaseTypedData{" + "contentType=" + contentType + ", contentLength="+ contentLength+ ", stream="+ stream+ ", contentEncoding='"+ contentEncoding+ '\''+ '}';
+}

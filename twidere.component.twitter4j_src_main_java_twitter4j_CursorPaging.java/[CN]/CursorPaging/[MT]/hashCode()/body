@@ -1,5 +1,0 @@
-{
-  int result=count;
-  result=31 * result + (int)(cursor ^ cursor >>> 32);
-  return result;
-}

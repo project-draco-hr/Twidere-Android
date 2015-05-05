@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createDirectMessage(post(conf.getRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_DESTROY,conf.getSigningRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_DESTROY,new HttpParameter("id",id),INCLUDE_ENTITIES));
-}

@@ -1,3 +1,0 @@
-{
-  return "OEmbedRequest{" + "statusId=" + statusId + ", url='"+ url+ '\''+ ", maxWidth="+ maxWidth+ ", hideMedia="+ hideMedia+ ", hideThread="+ hideThread+ ", omitScript="+ omitScript+ ", align="+ align+ ", related="+ (related == null ? null : Arrays.asList(related))+ ", lang='"+ lang+ '\''+ '}';
-}

@@ -1,3 +1,0 @@
-{
-  return get(url,signUrl,parameters,null,requestHeaders);
-}

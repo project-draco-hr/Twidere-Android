@@ -1,0 +1,63 @@
+{
+  RestMethod restMethod=null;
+  String pathFormat=null;
+  for (  Annotation annotation : method.getAnnotations()) {
+    final Class<?> annotationType=annotation.annotationType();
+    restMethod=annotationType.getAnnotation(RestMethod.class);
+    if (restMethod != null) {
+      try {
+        pathFormat=(String)annotationType.getMethod("value").invoke(annotation);
+      }
+ catch (      Exception e) {
+        throw new RuntimeException(e);
+      }
+      break;
+    }
+  }
+  final Body body=method.getAnnotation(Body.class);
+  final HashMap<Path,Object> paths=new HashMap<>();
+  final HashMap<Query,Object> queries=new HashMap<>();
+  final HashMap<Header,Object> headers=new HashMap<>();
+  final HashMap<Form,Object> forms=new HashMap<>();
+  final HashMap<Part,Object> parts=new HashMap<>();
+  final HashMap<Extra,Object> extras=new HashMap<>();
+  FileValue file=null;
+  final Annotation[][] annotations=method.getParameterAnnotations();
+  for (int i=0, j=annotations.length; i < j; i++) {
+    final Path path=getAnnotation(annotations[i],Path.class);
+    if (path != null) {
+      paths.put(path,args[i]);
+    }
+    final Query query=getAnnotation(annotations[i],Query.class);
+    if (query != null) {
+      queries.put(query,args[i]);
+    }
+    final Header header=getAnnotation(annotations[i],Header.class);
+    if (header != null) {
+      headers.put(header,args[i]);
+    }
+    final Form form=getAnnotation(annotations[i],Form.class);
+    if (form != null) {
+      forms.put(form,args[i]);
+    }
+    final Part part=getAnnotation(annotations[i],Part.class);
+    if (part != null) {
+      parts.put(part,args[i]);
+    }
+    final File paramFile=getAnnotation(annotations[i],File.class);
+    if (paramFile != null) {
+      if (file == null) {
+        file=new FileValue(paramFile,args[i]);
+      }
+ else {
+        throw new IllegalArgumentException();
+      }
+    }
+    final Extra extra=getAnnotation(annotations[i],Extra.class);
+    if (extra != null) {
+      extras.put(extra,args[i]);
+    }
+  }
+  checkMethod(restMethod,body,forms,parts,file);
+  return new RestMethodInfo(restMethod,pathFormat,body,paths,queries,headers,forms,parts,file,extras);
+}

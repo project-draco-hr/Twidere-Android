@@ -1,3 +1,0 @@
-{
-  return SimilarPlacesImpl.createSimilarPlaces(res,conf);
-}

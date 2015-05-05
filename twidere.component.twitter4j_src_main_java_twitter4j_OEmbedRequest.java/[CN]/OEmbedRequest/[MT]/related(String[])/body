@@ -1,4 +1,0 @@
-{
-  this.related=related;
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  return head(url,signUrl,parameters,null);
-}

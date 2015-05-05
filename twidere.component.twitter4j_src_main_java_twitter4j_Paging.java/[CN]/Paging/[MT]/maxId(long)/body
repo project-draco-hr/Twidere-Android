@@ -1,4 +1,4 @@
 {
-  setMaxId(maxId);
+  this.maxId=maxId;
   return this;
 }

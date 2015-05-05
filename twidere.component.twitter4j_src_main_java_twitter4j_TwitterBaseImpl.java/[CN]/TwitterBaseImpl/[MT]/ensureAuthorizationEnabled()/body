@@ -1,3 +1,0 @@
-{
-  if (!auth.isEnabled())   throw new IllegalStateException("Authentication credentials are missing. See http://twitter4j.org/configuration.html for the detail.");
-}

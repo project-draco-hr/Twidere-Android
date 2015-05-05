@@ -1,3 +1,0 @@
-{
-  return factory.createPagableUserList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_SUBSCRIBERS,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_SUBSCRIBERS,mergeParameters(paging.asPostParameterArray(),new HttpParameter("list_id",listId),INCLUDE_ENTITIES)));
-}

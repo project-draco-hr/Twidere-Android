@@ -1,3 +1,0 @@
-{
-  return getOAuth().getOAuthRequestToken(callbackUrl,xAuthAccessType);
-}

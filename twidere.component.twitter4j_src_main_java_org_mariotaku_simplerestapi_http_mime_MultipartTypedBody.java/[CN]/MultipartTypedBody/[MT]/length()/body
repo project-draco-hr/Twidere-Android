@@ -1,0 +1,10 @@
+{
+  if (!lengthSet) {
+    length=0;
+    for (    TypedData part : parts) {
+      length+=part.length();
+    }
+    lengthSet=true;
+  }
+  return length;
+}

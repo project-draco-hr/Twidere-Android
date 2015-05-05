@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createIDs(get(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_INCOMING,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_INCOMING,paging.asPostParameterArray()));
-}

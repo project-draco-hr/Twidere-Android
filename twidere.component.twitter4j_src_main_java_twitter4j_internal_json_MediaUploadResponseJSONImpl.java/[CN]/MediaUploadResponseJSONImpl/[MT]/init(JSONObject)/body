@@ -1,7 +1,0 @@
-{
-  if (json.isNull("image")) {
-    image=new ImageJSONImpl(json.getJSONObject("image"));
-  }
-  id=getLong("media_id",json);
-  size=getLong("size",json);
-}

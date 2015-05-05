@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createSavedSearch(post(conf.getRestBaseURL() + "saved_searches/destroy/" + id+ ".json",conf.getSigningRestBaseURL() + "saved_searches/destroy/" + id+ ".json"));
-}

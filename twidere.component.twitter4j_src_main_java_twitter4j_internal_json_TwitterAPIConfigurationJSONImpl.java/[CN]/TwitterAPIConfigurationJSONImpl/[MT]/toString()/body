@@ -1,3 +1,0 @@
-{
-  return "TwitterAPIConfigurationJSONImpl{" + "photoSizeLimit=" + photoSizeLimit + ", shortURLLength="+ shortURLLength+ ", shortURLLengthHttps="+ shortURLLengthHttps+ ", charactersReservedPerMedia="+ charactersReservedPerMedia+ ", photoSizes="+ photoSizes+ ", nonUsernamePaths="+ (nonUsernamePaths == null ? null : Arrays.asList(nonUsernamePaths))+ ", maxMediaPerUpload="+ maxMediaPerUpload+ '}';
-}

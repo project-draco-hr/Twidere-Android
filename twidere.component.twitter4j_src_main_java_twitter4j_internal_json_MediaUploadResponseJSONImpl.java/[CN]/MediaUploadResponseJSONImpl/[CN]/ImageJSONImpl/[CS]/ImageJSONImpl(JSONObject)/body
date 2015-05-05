@@ -1,5 +1,0 @@
-{
-  width=getInt("w",json);
-  height=getInt("h",json);
-  imageType=getRawString("image_type",json);
-}

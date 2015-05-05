@@ -1,7 +1,7 @@
 {
   this.position=position;
   this.account_id=account_id;
-  final URLEntity[] urls_url_entities=user.getURLEntities();
+  final UrlEntity[] urls_url_entities=user.getUrlEntities();
   id=user.getId();
   created_at=user.getCreatedAt().getTime();
   is_protected=user.isProtected();
@@ -15,8 +15,8 @@
   location=user.getLocation();
   profile_image_url=user.getProfileImageUrlHttps();
   profile_banner_url=user.getProfileBannerImageUrl();
-  url=user.getURL();
-  url_expanded=url != null && urls_url_entities != null && urls_url_entities.length > 0 ? urls_url_entities[0].getExpandedURL() : null;
+  url=user.getUrl();
+  url_expanded=url != null && urls_url_entities != null && urls_url_entities.length > 0 ? urls_url_entities[0].getExpandedUrl() : null;
   is_follow_request_sent=user.isFollowRequestSent();
   followers_count=user.getFollowersCount();
   friends_count=user.getFriendsCount();

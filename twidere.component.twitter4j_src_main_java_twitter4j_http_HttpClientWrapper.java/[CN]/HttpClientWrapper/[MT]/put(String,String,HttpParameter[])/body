@@ -1,3 +1,0 @@
-{
-  return put(url,signUrl,parameters,null);
-}

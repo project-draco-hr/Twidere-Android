@@ -1,4 +1,0 @@
-{
-  Collections.sort(params);
-  return encodeParameters(params);
-}

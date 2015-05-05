@@ -1,5 +1,0 @@
-{
-  name=getRawString("name",json);
-  url=getRawString("url",json);
-  query=getRawString("query",json);
-}

@@ -1,5 +1,0 @@
-{
-  final String url=conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_DENY;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_DENY;
-  return factory.createUser(post(url,signUrl,new HttpParameter("user_id",userId)));
-}

@@ -1,4 +1,4 @@
 {
-  setSinceId(sinceId);
+  this.sinceId=sinceId;
   return this;
 }

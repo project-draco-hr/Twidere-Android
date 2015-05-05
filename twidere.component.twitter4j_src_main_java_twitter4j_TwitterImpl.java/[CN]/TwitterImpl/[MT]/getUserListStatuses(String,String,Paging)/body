@@ -1,3 +1,0 @@
-{
-  return factory.createStatusList(get(conf.getRestBaseURL() + ENDPOINT_LISTS_STATUSES,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_STATUSES,mergeParameters(paging.asPostParameterArray(),new HttpParameter("slug",slug),new HttpParameter("owner_screen_name",ownerScreenName),INCLUDE_ENTITIES,INCLUDE_RTS)));
-}

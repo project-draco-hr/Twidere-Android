@@ -1,3 +1,0 @@
-{
-  return "ActivityJSONImpl{" + "action=" + action + ", createdAt="+ createdAt+ ", sources="+ Arrays.toString(sources)+ ", targetUsers="+ Arrays.toString(targetUsers)+ ", targetObjectStatuses="+ Arrays.toString(targetObjectStatuses)+ ", targetStatuses="+ Arrays.toString(targetStatuses)+ ", targetUserLists="+ Arrays.toString(targetUserLists)+ ", targetObjectUserLists="+ Arrays.toString(targetObjectUserLists)+ ", maxPosition="+ maxPosition+ ", minPosition="+ minPosition+ ", targetObjectsSize="+ targetObjectsSize+ ", targetsSize="+ targetsSize+ ", sourcesSize="+ sourcesSize+ '}';
-}

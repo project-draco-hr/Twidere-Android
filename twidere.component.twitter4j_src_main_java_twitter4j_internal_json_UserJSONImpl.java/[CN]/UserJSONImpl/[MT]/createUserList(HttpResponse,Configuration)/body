@@ -1,3 +1,0 @@
-{
-  return createUserList(res.asJSONArray(),res,conf);
-}

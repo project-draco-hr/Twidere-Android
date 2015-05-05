@@ -1,4 +1,0 @@
-{
-  if (!(auth instanceof OAuthSupport))   throw new IllegalStateException("OAuth consumer key/secret combination not supplied");
-  return (OAuthSupport)auth;
-}

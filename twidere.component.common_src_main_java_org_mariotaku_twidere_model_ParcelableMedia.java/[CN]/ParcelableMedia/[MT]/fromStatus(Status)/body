@@ -1,6 +1,6 @@
 {
   final ParcelableMedia[] fromEntities=fromEntities(status);
-  final ParcelableMedia[] fromCard=fromCard(status.getCard(),status.getURLEntities());
+  final ParcelableMedia[] fromCard=fromCard(status.getCard(),status.getUrlEntities());
   if (fromEntities == null) {
     return fromCard;
   }

@@ -1,3 +1,0 @@
-{
-  return UserJSONImpl.createUserList(res.asJSONArray(),res,conf);
-}

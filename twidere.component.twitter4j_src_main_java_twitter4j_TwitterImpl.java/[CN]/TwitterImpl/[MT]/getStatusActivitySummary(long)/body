@@ -1,3 +1,0 @@
-{
-  return getStatusActivitySummary(statusId,false);
-}

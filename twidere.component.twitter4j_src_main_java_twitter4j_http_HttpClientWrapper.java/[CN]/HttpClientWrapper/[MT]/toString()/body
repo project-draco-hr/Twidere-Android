@@ -1,3 +1,0 @@
-{
-  return "HttpClientWrapper{" + "wrapperConf=" + wrapperConf + ", http="+ http+ ", requestHeaders="+ requestHeaders+ ", httpResponseListener="+ httpResponseListener+ '}';
-}

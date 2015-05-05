@@ -1,5 +1,0 @@
-{
-  final long timestamp=System.currentTimeMillis() / 1000;
-  final long nonce=timestamp + RAND.nextInt();
-  return generateAuthorizationHeader(method,sign_url,params,String.valueOf(nonce),String.valueOf(timestamp),token);
-}

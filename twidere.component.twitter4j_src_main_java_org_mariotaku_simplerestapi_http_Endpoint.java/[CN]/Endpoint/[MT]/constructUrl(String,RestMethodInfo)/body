@@ -1,0 +1,3 @@
+{
+  return constructUrl(endpoint,requestInfo.getPath(),requestInfo.getQueries());
+}

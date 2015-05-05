@@ -1,0 +1,6 @@
+{
+  final byte[] buffer=new byte[8192];
+  for (int len; (len=stream.read(buffer)) != -1; ) {
+    os.write(buffer,0,len);
+  }
+}

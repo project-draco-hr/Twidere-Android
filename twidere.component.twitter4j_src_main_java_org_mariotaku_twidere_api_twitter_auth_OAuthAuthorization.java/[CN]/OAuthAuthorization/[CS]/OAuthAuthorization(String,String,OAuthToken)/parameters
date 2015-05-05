@@ -1,0 +1,3 @@
+String consumerKey
+String consumerSecret
+OAuthToken oauthToken

@@ -1,6 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final String url=conf.getRestBaseURL() + ENDPOINT_MUTES_USERS_CREATE;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_MUTES_USERS_CREATE;
-  return factory.createUser(post(url,signUrl,new HttpParameter("screen_name",screenName),INCLUDE_ENTITIES));
-}

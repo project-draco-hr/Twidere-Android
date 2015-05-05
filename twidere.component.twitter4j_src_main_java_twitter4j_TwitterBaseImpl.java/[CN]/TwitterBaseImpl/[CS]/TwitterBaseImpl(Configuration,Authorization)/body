@@ -1,5 +1,0 @@
-{
-  this.conf=conf;
-  this.auth=auth;
-  init();
-}

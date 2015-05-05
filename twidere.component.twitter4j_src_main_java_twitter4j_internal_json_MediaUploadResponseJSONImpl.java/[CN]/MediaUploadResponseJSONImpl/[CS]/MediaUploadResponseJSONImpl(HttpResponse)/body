@@ -1,9 +1,0 @@
-{
-  super(res);
-  try {
-    init(res.asJSONObject());
-  }
- catch (  final JSONException e) {
-    throw new TwitterException(e);
-  }
-}

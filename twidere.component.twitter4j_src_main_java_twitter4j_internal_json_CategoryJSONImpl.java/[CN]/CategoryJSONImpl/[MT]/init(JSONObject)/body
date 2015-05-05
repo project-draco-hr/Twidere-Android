@@ -1,5 +1,0 @@
-{
-  name=json.getString("name");
-  slug=json.getString("slug");
-  size=InternalParseUtil.getInt("size",json);
-}

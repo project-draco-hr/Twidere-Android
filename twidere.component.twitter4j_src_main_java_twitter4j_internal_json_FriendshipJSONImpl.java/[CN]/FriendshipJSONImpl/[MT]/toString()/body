@@ -1,3 +1,0 @@
-{
-  return "FriendshipJSONImpl{" + "id=" + id + ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ ", following="+ following+ ", followedBy="+ followedBy+ '}';
-}

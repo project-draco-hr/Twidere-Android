@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createDirectMessageList(get(conf.getRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_SENT,conf.getSigningRestBaseURL() + ENDPOINT_DIRECT_MESSAGES_SENT,mergeParameters(paging.asPostParameterArray(),INCLUDE_ENTITIES)));
-}

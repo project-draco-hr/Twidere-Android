@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createFriendshipList(get(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_LOOKUP,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_LOOKUP,new HttpParameter("user_id",InternalStringUtil.join(ids))));
-}

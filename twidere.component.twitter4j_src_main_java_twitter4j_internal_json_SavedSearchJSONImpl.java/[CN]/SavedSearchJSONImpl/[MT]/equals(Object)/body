@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof SavedSearch))   return false;
-  final SavedSearch that=(SavedSearch)o;
-  if (id != that.getId())   return false;
-  return true;
-}

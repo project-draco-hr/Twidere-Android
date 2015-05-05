@@ -1,3 +1,0 @@
-{
-  return CategoryJSONImpl.createCategoriesList(res,conf);
-}

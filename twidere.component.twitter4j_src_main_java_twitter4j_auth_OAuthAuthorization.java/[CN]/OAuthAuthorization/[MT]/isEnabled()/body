@@ -1,3 +1,0 @@
-{
-  return oauthToken != null && oauthToken instanceof AccessToken;
-}

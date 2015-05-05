@@ -1,5 +1,0 @@
-{
-  width=json.getInt("w");
-  height=json.getInt("h");
-  resize="fit".equals(json.getString("resize")) ? MediaEntity.Size.FIT : MediaEntity.Size.CROP;
-}

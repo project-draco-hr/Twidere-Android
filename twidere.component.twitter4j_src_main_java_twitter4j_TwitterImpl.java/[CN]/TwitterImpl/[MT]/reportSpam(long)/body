@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createUser(post(conf.getRestBaseURL() + ENDPOINT_USERS_REPORT_SPAM,conf.getSigningRestBaseURL() + ENDPOINT_USERS_REPORT_SPAM,new HttpParameter("user_id",userId),INCLUDE_ENTITIES));
-}

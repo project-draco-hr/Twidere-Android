@@ -1,3 +1,0 @@
-{
-  return "DirectMessageJSONImpl{" + "id=" + id + ", text='"+ text+ '\''+ ", rawText='"+ rawText+ '\''+ ", senderId="+ senderId+ ", recipientId="+ recipientId+ ", createdAt="+ createdAt+ ", senderScreenName='"+ senderScreenName+ '\''+ ", recipientScreenName='"+ recipientScreenName+ '\''+ ", userMentionEntities="+ Arrays.toString(userMentionEntities)+ ", urlEntities="+ Arrays.toString(urlEntities)+ ", hashtagEntities="+ Arrays.toString(hashtagEntities)+ ", mediaEntities="+ Arrays.toString(mediaEntities)+ ", sender="+ sender+ ", recipient="+ recipient+ '}';
-}

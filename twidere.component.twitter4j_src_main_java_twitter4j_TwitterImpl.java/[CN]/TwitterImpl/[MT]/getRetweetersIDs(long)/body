@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createIDs(get(conf.getRestBaseURL() + ENDPOINT_STATUSES_RETWEETERS_IDS,conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_RETWEETERS_IDS,new HttpParameter("id",statusId)));
-}

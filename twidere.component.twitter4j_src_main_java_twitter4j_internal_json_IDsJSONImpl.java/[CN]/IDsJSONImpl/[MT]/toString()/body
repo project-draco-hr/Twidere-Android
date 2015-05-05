@@ -1,3 +1,0 @@
-{
-  return "IDsJSONImpl{" + "ids=" + Arrays.toString(ids) + ", previousCursor="+ previousCursor+ ", nextCursor="+ nextCursor+ '}';
-}

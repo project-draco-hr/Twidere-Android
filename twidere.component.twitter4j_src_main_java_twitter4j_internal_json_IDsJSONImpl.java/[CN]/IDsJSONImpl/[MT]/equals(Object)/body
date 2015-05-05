@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof IDs))   return false;
-  final IDs iDs=(IDs)o;
-  if (!Arrays.equals(ids,iDs.getIDs()))   return false;
-  return true;
-}

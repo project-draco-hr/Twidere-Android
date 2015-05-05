@@ -1,6 +1,0 @@
-{
-  final OAuthSupport oauth=getOAuth();
-  final AccessToken oauthAccessToken=oauth.getOAuthAccessToken(requestToken);
-  screenName=oauthAccessToken.getScreenName();
-  return oauthAccessToken;
-}

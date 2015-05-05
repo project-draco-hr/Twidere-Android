@@ -1,4 +1,0 @@
-{
-  super(res);
-  conf=ConfigurationContext.getInstance();
-}

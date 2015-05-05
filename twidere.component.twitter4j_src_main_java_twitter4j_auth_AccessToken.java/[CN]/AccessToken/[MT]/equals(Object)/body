@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  if (!super.equals(o))   return false;
-  final AccessToken that=(AccessToken)o;
-  if (userId != that.userId)   return false;
-  if (screenName != null ? !screenName.equals(that.screenName) : that.screenName != null)   return false;
-  return true;
-}

@@ -1,7 +1,0 @@
-{
-  final HttpClientFactory factory=conf.getHttpClientFactory();
-  if (factory == null)   return new HttpClientImpl(conf);
-  final HttpClient client=factory.getInstance(conf);
-  if (client == null)   return new HttpClientImpl(conf);
-  return client;
-}

@@ -1,3 +1,0 @@
-{
-  return "Paging{" + "cursor=" + cursor + ", count="+ count+ '}';
-}

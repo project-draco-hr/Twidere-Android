@@ -1,6 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final String url=conf.getRestBaseURL() + ENDPOINT_BLOCKS_LIST;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_BLOCKS_LIST;
-  return factory.createPagableUserList(get(url,signUrl,INCLUDE_ENTITIES));
-}

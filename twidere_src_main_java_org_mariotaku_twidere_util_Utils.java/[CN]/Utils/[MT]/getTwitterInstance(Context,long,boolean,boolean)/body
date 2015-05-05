@@ -67,7 +67,7 @@ case Accounts.AUTH_TYPE_XAUTH:
       final String token=credentials.oauth_token;
       final String tokenSecret=credentials.oauth_token_secret;
       if (isEmpty(token) || isEmpty(tokenSecret))       return null;
-      return new TwitterFactory(cb.build()).getInstance(new AccessToken(token,tokenSecret));
+      return new TwitterFactory(cb.build()).getInstance(new OAuthToken(token,tokenSecret));
     }
 case Accounts.AUTH_TYPE_BASIC:
 {
@@ -80,7 +80,7 @@ case Accounts.AUTH_TYPE_BASIC:
   }
 case Accounts.AUTH_TYPE_TWIP_O_MODE:
 {
-  return new TwitterFactory(cb.build()).getInstance(new TwipOModeAuthorization());
+  return new TwitterFactory(cb.build()).getInstance(new EmptyAuthorization());
 }
 default :
 {

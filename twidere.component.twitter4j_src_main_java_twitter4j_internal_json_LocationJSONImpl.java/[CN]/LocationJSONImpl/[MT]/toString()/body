@@ -1,3 +1,0 @@
-{
-  return "LocationJSONImpl{" + "woeid=" + woeid + ", countryName='"+ countryName+ '\''+ ", countryCode='"+ countryCode+ '\''+ ", placeName='"+ placeName+ '\''+ ", placeCode='"+ placeCode+ '\''+ ", name='"+ name+ '\''+ ", url='"+ url+ '\''+ '}';
-}

@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createAccountSettings(get(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_SETTINGS,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_SETTINGS));
-}

@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createSavedSearchList(get(conf.getRestBaseURL() + ENDPOINT_SAVED_SEARCHES_LIST,conf.getSigningRestBaseURL() + ENDPOINT_SAVED_SEARCHES_LIST));
-}

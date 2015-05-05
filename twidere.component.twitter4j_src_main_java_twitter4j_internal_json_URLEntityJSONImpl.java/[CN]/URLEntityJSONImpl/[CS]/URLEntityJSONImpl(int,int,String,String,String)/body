@@ -1,8 +1,0 @@
-{
-  super();
-  this.start=start;
-  this.end=end;
-  this.url=url;
-  this.expandedURL=expandedURL;
-  this.displayURL=displayURL;
-}

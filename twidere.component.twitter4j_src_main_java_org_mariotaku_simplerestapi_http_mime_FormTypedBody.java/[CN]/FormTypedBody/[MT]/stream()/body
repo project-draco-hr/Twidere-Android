@@ -1,0 +1,4 @@
+{
+  toRawBytes();
+  return new ByteArrayInputStream(bytes);
+}

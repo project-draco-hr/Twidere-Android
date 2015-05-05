@@ -12,16 +12,16 @@
   }
   if (mediaEntities != null) {
     for (    final MediaEntity media : mediaEntities) {
-      final String mediaURL=media.getMediaURL();
+      final String mediaURL=media.getMediaUrl();
       if (mediaURL != null) {
         list.add(new ParcelableMedia(media));
       }
     }
   }
-  final URLEntity[] urlEntities=entities.getURLEntities();
+  final UrlEntity[] urlEntities=entities.getUrlEntities();
   if (urlEntities != null) {
-    for (    final URLEntity url : urlEntities) {
-      final String expanded=url.getExpandedURL();
+    for (    final UrlEntity url : urlEntities) {
+      final String expanded=url.getExpandedUrl();
       final String media_url=MediaPreviewUtils.getSupportedLink(expanded);
       if (expanded != null && media_url != null) {
         final ParcelableMedia media=new ParcelableMedia();

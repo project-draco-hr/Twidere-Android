@@ -1,7 +1,0 @@
-{
-  id=getLong("id",json);
-  lang=getRawString("lang",json);
-  translatedLang=getRawString("translated_lang",json);
-  translationType=getRawString("translation_type",json);
-  text=getUnescapedString("text",json);
-}

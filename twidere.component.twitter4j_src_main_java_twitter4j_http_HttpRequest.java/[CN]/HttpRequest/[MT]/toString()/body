@@ -1,3 +1,0 @@
-{
-  return "HttpRequest{" + "requestMethod=" + method + ", url='"+ url+ '\''+ ", signUrl='"+ signUrl+ '\''+ ", postParams="+ (parameters == null ? null : Arrays.asList(parameters))+ ", authentication="+ authorization+ ", requestHeaders="+ requestHeaders+ '}';
-}

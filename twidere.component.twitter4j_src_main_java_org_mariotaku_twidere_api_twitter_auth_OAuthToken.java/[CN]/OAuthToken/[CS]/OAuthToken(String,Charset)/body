@@ -1,0 +1,21 @@
+{
+  List<KeyValuePair> params=new ArrayList<>();
+  Utils.parseGetParameters(body,params,charset.name());
+  for (  KeyValuePair param : params) {
+switch (param.getKey()) {
+case "oauth_token":
+{
+        oauthToken=param.getValue();
+        break;
+      }
+case "oauth_token_secret":
+{
+      oauthTokenSecret=param.getValue();
+      break;
+    }
+}
+}
+if (oauthToken == null || oauthTokenSecret == null) {
+throw new ParseException("Unable to parse request token",-1);
+}
+}

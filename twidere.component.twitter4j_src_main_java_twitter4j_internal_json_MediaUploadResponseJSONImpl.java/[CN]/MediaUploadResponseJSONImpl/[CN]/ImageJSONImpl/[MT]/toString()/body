@@ -1,3 +1,0 @@
-{
-  return "ImageJSONImpl{width=" + width + ", height="+ height+ ", imageType="+ imageType+ "}";
-}

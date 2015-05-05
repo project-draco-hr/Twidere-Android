@@ -1,3 +1,0 @@
-{
-  return factory.createLocationList(get(conf.getRestBaseURL() + ENDPOINT_TRENDS_CLOSEST,conf.getSigningRestBaseURL() + ENDPOINT_TRENDS_CLOSEST,new HttpParameter("lat",location.getLatitude()),new HttpParameter("long",location.getLongitude())));
-}

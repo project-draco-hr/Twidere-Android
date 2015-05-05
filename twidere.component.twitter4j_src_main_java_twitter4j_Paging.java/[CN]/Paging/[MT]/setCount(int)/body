@@ -1,4 +1,3 @@
 {
-  if (count < 1)   throw new IllegalArgumentException("count should be positive integer. passed:" + count);
   this.count=count;
 }

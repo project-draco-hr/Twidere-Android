@@ -1,8 +1,0 @@
-{
-  try {
-    return UserJSONImpl.createUserList(res.asJSONObject().getJSONArray("users"),res,conf);
-  }
- catch (  final JSONException jsone) {
-    throw new TwitterException(jsone);
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super(name,json);
-  this.value=json.getString("string_value");
-}

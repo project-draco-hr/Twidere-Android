@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createAUserList(post(conf.getRestBaseURL() + ENDPOINT_LISTS_MEMBERS_CREATE,conf.getSigningRestBaseURL() + ENDPOINT_LISTS_MEMBERS_CREATE,new HttpParameter("list_id",listId),new HttpParameter("screen_name",screenName)));
-}

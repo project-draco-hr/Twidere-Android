@@ -1,6 +1,0 @@
-{
-  if (another == null)   return 0;
-  final Date thisDate=getCreatedAt(), thatDate=another.getCreatedAt();
-  if (thisDate == null || thatDate == null)   return 0;
-  return thisDate.compareTo(thatDate);
-}

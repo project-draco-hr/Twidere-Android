@@ -1,7 +1,0 @@
-{
-  final VariantJSONImpl[] variant=new VariantJSONImpl[json.length()];
-  for (int i=0, j=variant.length; i < j; i++) {
-    variant[i]=new VariantJSONImpl(json.getJSONObject(i));
-  }
-  return variant;
-}

@@ -1,8 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final HttpParameter[] params={new HttpParameter("include_entities",conf.isIncludeEntitiesEnabled())};
-  final User user=factory.createUser(http.get(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_VERIFY_CREDENTIALS,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_VERIFY_CREDENTIALS,params,auth));
-  screenName=user.getScreenName();
-  id=user.getId();
-  return user;
-}

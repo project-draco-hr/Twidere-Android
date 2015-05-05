@@ -1,0 +1,4 @@
+{
+  if (extendedEntities == null)   return null;
+  return extendedEntities.getMedia();
+}

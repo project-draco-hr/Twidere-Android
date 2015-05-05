@@ -1,0 +1,3 @@
+{
+  return "Request{" + "authorization=" + authorization + ", method='"+ method+ '\''+ ", url='"+ url+ '\''+ ", headers="+ headers+ ", endpoint="+ endpoint+ ", restMethodInfo="+ restMethodInfo+ ", body="+ body+ '}';
+}

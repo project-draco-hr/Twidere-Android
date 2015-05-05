@@ -1,5 +1,0 @@
-{
-  final String url=conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_SHOW;
-  return factory.createRelationship(get(url,signUrl,getParameterArray("source_screen_name",sourceScreenName,"target_screen_name",targetScreenName)));
-}

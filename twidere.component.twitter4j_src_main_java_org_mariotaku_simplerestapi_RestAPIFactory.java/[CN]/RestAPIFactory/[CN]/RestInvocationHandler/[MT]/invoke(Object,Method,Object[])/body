@@ -1,0 +1,50 @@
+{
+  final RestMethodInfo methodInfo=RestMethodInfo.get(method,args);
+  final RestMethod restMethod=methodInfo.getMethod();
+  final String url=Endpoint.constructUrl(endpoint.getUrl(),methodInfo);
+  final RestRequest restRequest=new RestRequest(restMethod.value(),url,methodInfo.getHeaders(),methodInfo.getBody(),endpoint,methodInfo,authorization);
+  final Class<?>[] parameterTypes=method.getParameterTypes();
+  RestResponse response=null;
+  try {
+    response=restClient.execute(restRequest);
+    if (parameterTypes.length > 0) {
+      final Class<?> lastParameterType=parameterTypes[parameterTypes.length - 1];
+      if (RestCallback.class.isAssignableFrom(lastParameterType)) {
+        final Method callbackMethod=lastParameterType.getMethod("result",Object.class);
+        final RestCallback<?> callback=(RestCallback<?>)args[args.length - 1];
+        final Object object=converter.convert(response,method.getGenericReturnType());
+        if (callback != null) {
+          callbackMethod.invoke(callback,object);
+        }
+        return null;
+      }
+ else       if (RawCallback.class.isAssignableFrom(lastParameterType)) {
+        final RawCallback callback=(RawCallback)args[args.length - 1];
+        callback.result(response);
+        return null;
+      }
+    }
+    return converter.convert(response,method.getGenericReturnType());
+  }
+ catch (  IOException e) {
+    final RestException re=new RestException(e);
+    re.setResponse(response);
+    if (parameterTypes.length > 0) {
+      final Class<?> lastParameterType=parameterTypes[parameterTypes.length - 1];
+      if (ErrorCallback.class.isAssignableFrom(lastParameterType)) {
+        final ErrorCallback callback=(ErrorCallback)args[args.length - 1];
+        if (callback != null) {
+          callback.error(re);
+          return null;
+        }
+      }
+    }
+    throw re;
+  }
+catch (  InvocationTargetException|NoSuchMethodException|IllegalAccessException e) {
+    throw new RuntimeException(e);
+  }
+ finally {
+    Utils.closeSilently(response);
+  }
+}

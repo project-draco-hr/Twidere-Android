@@ -1,3 +1,0 @@
-{
-  return TrendsJSONImpl.createTrendsList(res,false);
-}

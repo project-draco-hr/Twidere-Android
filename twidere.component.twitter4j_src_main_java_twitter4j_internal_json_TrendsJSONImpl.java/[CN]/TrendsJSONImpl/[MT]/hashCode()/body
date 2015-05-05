@@ -1,6 +1,0 @@
-{
-  int result=asOf != null ? asOf.hashCode() : 0;
-  result=31 * result + (trendAt != null ? trendAt.hashCode() : 0);
-  result=31 * result + (trends != null ? Arrays.hashCode(trends) : 0);
-  return result;
-}

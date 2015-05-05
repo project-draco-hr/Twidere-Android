@@ -1,3 +1,0 @@
-{
-  return new URLEntityJSONImpl(start,end,url,expandedURL,displayURL);
-}

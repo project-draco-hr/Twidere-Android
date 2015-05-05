@@ -1,3 +1,0 @@
-{
-  return "JSONImplFactory{" + "conf=" + conf + '}';
-}

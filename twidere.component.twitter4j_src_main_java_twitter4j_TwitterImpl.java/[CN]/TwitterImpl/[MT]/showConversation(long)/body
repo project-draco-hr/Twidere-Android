@@ -1,3 +1,0 @@
-{
-  return showConversation(statusId,null);
-}

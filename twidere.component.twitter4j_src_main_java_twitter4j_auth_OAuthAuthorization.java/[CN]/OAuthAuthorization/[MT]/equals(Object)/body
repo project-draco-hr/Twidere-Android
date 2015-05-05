@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof OAuthSupport))   return false;
-  final OAuthAuthorization that=(OAuthAuthorization)o;
-  if (consumerKey != null ? !consumerKey.equals(that.consumerKey) : that.consumerKey != null)   return false;
-  if (consumerSecret != null ? !consumerSecret.equals(that.consumerSecret) : that.consumerSecret != null)   return false;
-  if (oauthToken != null ? !oauthToken.equals(that.oauthToken) : that.oauthToken != null)   return false;
-  return true;
-}

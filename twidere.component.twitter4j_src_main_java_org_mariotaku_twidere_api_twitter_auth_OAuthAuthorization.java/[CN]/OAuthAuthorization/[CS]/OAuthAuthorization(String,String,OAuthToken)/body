@@ -1,0 +1,5 @@
+{
+  this.consumerKey=consumerKey;
+  this.consumerSecret=consumerSecret;
+  this.oauthToken=oauthToken;
+}

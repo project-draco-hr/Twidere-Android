@@ -16,12 +16,12 @@
   profile_banner_url=in.readString();
   url=in.readString();
   is_follow_request_sent=in.readInt() == 1;
-  followers_count=in.readInt();
-  friends_count=in.readInt();
-  statuses_count=in.readInt();
-  favorites_count=in.readInt();
-  listed_count=in.readInt();
-  media_count=in.readInt();
+  followers_count=in.readLong();
+  friends_count=in.readLong();
+  statuses_count=in.readLong();
+  favorites_count=in.readLong();
+  listed_count=in.readLong();
+  media_count=in.readLong();
   url_expanded=in.readString();
   is_following=in.readInt() == 1;
   background_color=in.readInt();

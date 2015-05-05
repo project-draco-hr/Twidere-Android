@@ -1,9 +1,0 @@
-{
-  final List<HttpParameter> pagingParams=new ArrayList<HttpParameter>(supportedParams.length);
-  addPostParameter(supportedParams,'s',pagingParams,"since_id",getSinceId());
-  addPostParameter(supportedParams,'m',pagingParams,"max_id",getMaxId());
-  addPostParameter(supportedParams,'c',pagingParams,perPageParamName,getCount());
-  addPostParameter(supportedParams,'p',pagingParams,"page",getPage());
-  if (pagingParams.size() == 0)   return NULL_PARAMETER_ARRAY;
- else   return pagingParams.toArray(new HttpParameter[pagingParams.size()]);
-}

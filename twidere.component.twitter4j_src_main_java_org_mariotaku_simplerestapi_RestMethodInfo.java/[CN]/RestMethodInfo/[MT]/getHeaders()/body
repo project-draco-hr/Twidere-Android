@@ -1,0 +1,22 @@
+{
+  if (headersCache != null)   return headersCache;
+  final ArrayList<KeyValuePair> list=new ArrayList<>();
+  for (  Map.Entry<Header,Object> entry : headers.entrySet()) {
+    final Header form=entry.getKey();
+    final Object value=entry.getValue();
+    if (value instanceof ValueMap) {
+      final ValueMap valueMap=(ValueMap)value;
+      for (      String key : form.value()) {
+        if (valueMap.has(key)) {
+          list.add(new KeyValuePair(key,String.valueOf(valueMap.get(key))));
+        }
+      }
+    }
+ else     if (value != null) {
+      for (      String key : form.value()) {
+        list.add(new KeyValuePair(key,String.valueOf(value)));
+      }
+    }
+  }
+  return headersCache=list;
+}

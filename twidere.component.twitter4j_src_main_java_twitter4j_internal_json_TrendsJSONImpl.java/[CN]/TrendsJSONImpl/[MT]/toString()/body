@@ -1,3 +1,0 @@
-{
-  return "TrendsJSONImpl{" + "asOf=" + asOf + ", trendAt="+ trendAt+ ", trends="+ (trends == null ? null : Arrays.asList(trends))+ '}';
-}

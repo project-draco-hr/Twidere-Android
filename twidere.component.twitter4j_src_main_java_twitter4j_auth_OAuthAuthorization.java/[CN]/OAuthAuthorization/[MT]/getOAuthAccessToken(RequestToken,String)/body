@@ -1,4 +1,0 @@
-{
-  oauthToken=requestToken;
-  return getOAuthAccessToken(oauthVerifier);
-}

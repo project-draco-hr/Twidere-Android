@@ -1,3 +1,0 @@
-{
-  return "PlaceJSONImpl{" + "name='" + name + '\''+ ", streetAddress='"+ streetAddress+ '\''+ ", countryCode='"+ countryCode+ '\''+ ", id='"+ id+ '\''+ ", country='"+ country+ '\''+ ", placeType='"+ placeType+ '\''+ ", url='"+ url+ '\''+ ", fullName='"+ fullName+ '\''+ ", boundingBoxType='"+ boundingBoxType+ '\''+ ", boundingBoxCoordinates="+ (boundingBoxCoordinates == null ? null : Arrays.asList(boundingBoxCoordinates))+ ", geometryType='"+ geometryType+ '\''+ ", geometryCoordinates="+ (geometryCoordinates == null ? null : Arrays.asList(geometryCoordinates))+ ", containedWithIn="+ (containedWithIn == null ? null : Arrays.asList(containedWithIn))+ '}';
-}

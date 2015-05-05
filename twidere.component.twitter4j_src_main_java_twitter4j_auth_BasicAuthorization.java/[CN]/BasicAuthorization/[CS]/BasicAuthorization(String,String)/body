@@ -1,5 +1,0 @@
-{
-  this.userId=userId;
-  this.password=password;
-  basic=encodeBasicAuthenticationString();
-}

@@ -1,3 +1,0 @@
-{
-  return "SavedSearchJSONImpl{" + "createdAt=" + createdAt + ", query='"+ query+ '\''+ ", position="+ position+ ", name='"+ name+ '\''+ ", id="+ id+ '}';
-}

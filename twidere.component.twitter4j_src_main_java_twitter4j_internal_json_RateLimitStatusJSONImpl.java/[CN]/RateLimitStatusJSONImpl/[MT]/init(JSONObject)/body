@@ -1,6 +1,0 @@
-{
-  limit=getInt("limit",json);
-  remaining=getInt("remaining",json);
-  resetTimeInSeconds=getInt("reset",json);
-  secondsUntilReset=(int)((resetTimeInSeconds * 1000L - System.currentTimeMillis()) / 1000);
-}

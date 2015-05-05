@@ -3,12 +3,12 @@
   final String text=user.getDescription();
   if (text == null)   return null;
   final HtmlBuilder builder=new HtmlBuilder(text,false,true,true);
-  final URLEntity[] urls=user.getDescriptionEntities();
+  final UrlEntity[] urls=user.getDescriptionEntities();
   if (urls != null) {
-    for (    final URLEntity url : urls) {
-      final String expanded_url=url.getExpandedURL();
+    for (    final UrlEntity url : urls) {
+      final String expanded_url=url.getExpandedUrl();
       if (expanded_url != null) {
-        builder.addLink(expanded_url,url.getDisplayURL(),url.getStart(),url.getEnd());
+        builder.addLink(expanded_url,url.getDisplayUrl(),url.getStart(),url.getEnd());
       }
     }
   }

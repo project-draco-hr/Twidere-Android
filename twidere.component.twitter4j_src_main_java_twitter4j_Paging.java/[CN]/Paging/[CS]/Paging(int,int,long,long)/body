@@ -1,4 +1,0 @@
-{
-  this(page,count,sinceId);
-  setMaxId(maxId);
-}

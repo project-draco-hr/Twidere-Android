@@ -1,0 +1,3 @@
+{
+  return ContentType.parse(body.contentType().toString());
+}

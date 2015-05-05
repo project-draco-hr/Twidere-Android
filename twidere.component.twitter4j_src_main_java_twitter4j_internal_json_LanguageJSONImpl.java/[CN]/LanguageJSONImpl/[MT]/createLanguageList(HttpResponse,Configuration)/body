@@ -1,3 +1,0 @@
-{
-  return createLanguageList(res.asJSONArray(),res,conf);
-}

@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createUser(post(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_DESTROY,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_DESTROY,new HttpParameter("user_id",userId)));
-}

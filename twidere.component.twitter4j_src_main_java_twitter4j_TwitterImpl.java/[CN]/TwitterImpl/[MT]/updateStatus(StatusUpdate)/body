@@ -1,6 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  final String url=conf.getRestBaseURL() + ENDPOINT_STATUSES_UPDATE;
-  final String signUrl=conf.getSigningRestBaseURL() + ENDPOINT_STATUSES_UPDATE;
-  return factory.createStatus(post(url,signUrl,status.asHttpParameterArray(INCLUDE_ENTITIES)));
-}

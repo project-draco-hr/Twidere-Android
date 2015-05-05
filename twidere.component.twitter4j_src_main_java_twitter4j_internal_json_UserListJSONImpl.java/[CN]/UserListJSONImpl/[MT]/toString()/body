@@ -1,3 +1,0 @@
-{
-  return "UserListJSONImpl{" + "id=" + id + ", name='"+ name+ '\''+ ", fullName='"+ fullName+ '\''+ ", slug='"+ slug+ '\''+ ", description='"+ description+ '\''+ ", subscriberCount="+ subscriberCount+ ", memberCount="+ memberCount+ ", uri='"+ uri+ '\''+ ", mode="+ mode+ ", user="+ user+ ", following="+ following+ '}';
-}

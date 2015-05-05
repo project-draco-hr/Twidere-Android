@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createRelationship(post(conf.getRestBaseURL() + ENDPOINT_FRIENDSHIPS_UPDATE,conf.getSigningRestBaseURL() + ENDPOINT_FRIENDSHIPS_UPDATE,new HttpParameter("user_id",userId),new HttpParameter("device",enableDeviceNotification),new HttpParameter("retweets",enableDeviceNotification)));
-}

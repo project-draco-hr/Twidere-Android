@@ -1,3 +1,0 @@
-{
-  return getMediaTimeline(screenName,null);
-}

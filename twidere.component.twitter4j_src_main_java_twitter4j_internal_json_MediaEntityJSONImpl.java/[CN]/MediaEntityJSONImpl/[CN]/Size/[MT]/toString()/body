@@ -1,3 +1,0 @@
-{
-  return "Size{" + "width=" + width + ", height="+ height+ ", resize="+ resize+ '}';
-}

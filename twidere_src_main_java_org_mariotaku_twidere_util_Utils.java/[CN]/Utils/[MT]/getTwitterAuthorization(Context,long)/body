@@ -39,11 +39,10 @@ case Accounts.AUTH_TYPE_XAUTH:
           cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
           cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
         }
-        final OAuthAuthorization auth=new OAuthAuthorization(cb.build());
+        final Configuration conf=cb.build();
         final String token=c.getString(c.getColumnIndexOrThrow(Accounts.OAUTH_TOKEN));
         final String tokenSecret=c.getString(c.getColumnIndexOrThrow(Accounts.OAUTH_TOKEN_SECRET));
-        auth.setOAuthAccessToken(new AccessToken(token,tokenSecret));
-        return auth;
+        return new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret(),new OAuthToken(token,tokenSecret));
       }
 case Accounts.AUTH_TYPE_BASIC:
 {

@@ -1,5 +1,0 @@
-{
-  this.wrapperConf=wrapperConf;
-  requestHeaders=wrapperConf.getRequestHeaders();
-  http=FactoryUtils.getHttpClient(wrapperConf);
-}

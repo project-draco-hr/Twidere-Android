@@ -1,5 +1,0 @@
-{
-  super(res);
-  final String json=res.asString();
-  init(json);
-}

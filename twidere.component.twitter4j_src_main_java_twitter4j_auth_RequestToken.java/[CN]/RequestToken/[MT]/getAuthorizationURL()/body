@@ -1,3 +1,0 @@
-{
-  return conf.getOAuthAuthorizationURL() + "?oauth_token=" + getToken();
-}

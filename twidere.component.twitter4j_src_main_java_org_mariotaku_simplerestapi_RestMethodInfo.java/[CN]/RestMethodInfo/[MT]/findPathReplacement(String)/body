@@ -1,0 +1,14 @@
+{
+  for (  Map.Entry<Path,Object> entry : paths.entrySet()) {
+    final Path path=entry.getKey();
+    if (key.equals(path.value())) {
+      if (path.encoded()) {
+        return String.valueOf(entry.getValue());
+      }
+ else {
+        return Utils.encode(String.valueOf(entry.getValue()),"UTF-8");
+      }
+    }
+  }
+  return null;
+}

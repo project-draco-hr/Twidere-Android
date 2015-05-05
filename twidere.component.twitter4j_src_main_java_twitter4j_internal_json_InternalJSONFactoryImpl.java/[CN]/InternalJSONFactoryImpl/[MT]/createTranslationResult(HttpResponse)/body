@@ -1,3 +1,0 @@
-{
-  return new TranslationResultJSONImpl(res,conf);
-}

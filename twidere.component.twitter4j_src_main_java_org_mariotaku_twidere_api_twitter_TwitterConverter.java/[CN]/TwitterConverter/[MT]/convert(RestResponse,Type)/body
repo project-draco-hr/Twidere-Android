@@ -1,0 +1,21 @@
+{
+  final TypedData body=response.getBody();
+  final ContentType contentType=body.contentType();
+  final InputStream stream=body.stream();
+  if (type instanceof Class<?>) {
+    final Class<?> cls=(Class<?>)type;
+    if (OAuthToken.class.isAssignableFrom(cls)) {
+      final ByteArrayOutputStream os=new ByteArrayOutputStream();
+      body.writeTo(os);
+      Charset charset=contentType.getCharset();
+      try {
+        return new OAuthToken(os.toString(charset.name()),charset);
+      }
+ catch (      ParseException e) {
+        throw new IOException(e);
+      }
+    }
+    LoganSquare.parse(stream,cls);
+  }
+  throw new UnsupportedOperationException();
+}

@@ -1,4 +1,0 @@
-{
-  this.rateLimitStatus=RateLimitStatusJSONImpl.createFromResponseHeader(res);
-  accessLevel=InternalParseUtil.toAccessLevel(res);
-}

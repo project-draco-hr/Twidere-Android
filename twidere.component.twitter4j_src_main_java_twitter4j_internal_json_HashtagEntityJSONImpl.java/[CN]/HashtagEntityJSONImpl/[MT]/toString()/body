@@ -1,3 +1,0 @@
-{
-  return "HashtagEntityJSONImpl{" + "start=" + start + ", end="+ end+ ", text='"+ text+ '\''+ '}';
-}

@@ -1,3 +1,0 @@
-{
-  return "CardEntityJSONImpl{" + "name='" + name + '\''+ ", bindingValues="+ bindingValues+ ", users="+ Arrays.toString(users)+ '}';
-}

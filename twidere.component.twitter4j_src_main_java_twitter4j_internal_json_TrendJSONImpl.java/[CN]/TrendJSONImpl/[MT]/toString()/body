@@ -1,3 +1,0 @@
-{
-  return "TrendJSONImpl{" + "name='" + name + '\''+ ", url='"+ url+ '\''+ ", query='"+ query+ '\''+ '}';
-}

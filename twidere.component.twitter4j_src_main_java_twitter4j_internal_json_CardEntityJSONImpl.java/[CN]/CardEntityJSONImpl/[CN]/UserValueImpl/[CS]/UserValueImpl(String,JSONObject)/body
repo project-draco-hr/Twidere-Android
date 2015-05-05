@@ -1,5 +1,0 @@
-{
-  super(name,json);
-  final JSONObject userValue=json.getJSONObject("user_value");
-  this.userId=InternalParseUtil.getLong("id_str",userValue);
-}

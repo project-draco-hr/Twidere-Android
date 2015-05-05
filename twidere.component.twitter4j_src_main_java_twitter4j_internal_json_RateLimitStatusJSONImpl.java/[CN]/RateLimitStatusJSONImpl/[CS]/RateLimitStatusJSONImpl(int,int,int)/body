@@ -1,6 +1,0 @@
-{
-  this.limit=limit;
-  this.remaining=remaining;
-  this.resetTimeInSeconds=resetTimeInSeconds;
-  secondsUntilReset=(int)((resetTimeInSeconds * 1000L - System.currentTimeMillis()) / 1000);
-}

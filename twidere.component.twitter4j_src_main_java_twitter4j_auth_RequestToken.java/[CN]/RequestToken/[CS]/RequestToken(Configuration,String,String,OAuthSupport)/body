@@ -1,4 +1,0 @@
-{
-  super(token,tokenSecret);
-  this.conf=conf;
-}

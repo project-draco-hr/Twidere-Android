@@ -1,3 +1,0 @@
-{
-  return LocationJSONImpl.createLocationList(res,conf);
-}

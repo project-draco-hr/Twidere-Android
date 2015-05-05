@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return factory.createUser(post(conf.getRestBaseURL() + ENDPOINT_BLOCKS_DESTROY,conf.getSigningRestBaseURL() + ENDPOINT_BLOCKS_DESTROY,new HttpParameter("screen_name",screenName),INCLUDE_ENTITIES));
-}

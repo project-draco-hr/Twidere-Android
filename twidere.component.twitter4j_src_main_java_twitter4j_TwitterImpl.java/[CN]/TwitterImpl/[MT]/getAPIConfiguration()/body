@@ -1,3 +1,0 @@
-{
-  return factory.createTwitterAPIConfiguration(get(conf.getRestBaseURL() + ENDPOINT_HELP_CONFIGURATION,conf.getSigningRestBaseURL() + ENDPOINT_HELP_CONFIGURATION));
-}

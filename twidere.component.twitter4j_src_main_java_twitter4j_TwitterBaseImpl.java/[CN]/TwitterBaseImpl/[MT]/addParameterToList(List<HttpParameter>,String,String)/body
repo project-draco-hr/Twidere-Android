@@ -1,5 +1,0 @@
-{
-  if (param != null) {
-    params.add(new HttpParameter(paramName,param));
-  }
-}

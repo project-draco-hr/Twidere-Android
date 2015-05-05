@@ -1,3 +1,0 @@
-{
-  return "AccessToken{" + "screenName='" + screenName + '\''+ ", userId="+ userId+ '}';
-}

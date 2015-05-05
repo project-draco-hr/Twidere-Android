@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  post(conf.getRestBaseURL() + ENDPOINT_ACCOUNT_REMOVE_PROFILE_BANNER,conf.getSigningRestBaseURL() + ENDPOINT_ACCOUNT_REMOVE_PROFILE_BANNER);
-}

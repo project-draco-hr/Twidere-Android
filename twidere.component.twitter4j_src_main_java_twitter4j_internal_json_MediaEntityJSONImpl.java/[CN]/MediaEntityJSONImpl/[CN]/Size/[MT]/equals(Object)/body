@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof Size))   return false;
-  final Size size=(Size)o;
-  if (height != size.height)   return false;
-  if (resize != size.resize)   return false;
-  if (width != size.width)   return false;
-  return true;
-}
