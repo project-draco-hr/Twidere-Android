@@ -13,6 +13,16 @@ case "oauth_token_secret":
       oauthTokenSecret=param.getValue();
       break;
     }
+case "user_id":
+{
+    userId=Long.parseLong(param.getValue());
+    break;
+  }
+case "screen_name":
+{
+  screenName=param.getValue();
+  break;
+}
 }
 }
 if (oauthToken == null || oauthTokenSecret == null) {

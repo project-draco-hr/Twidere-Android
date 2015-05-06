@@ -1,5 +1,4 @@
 {
-  final Authorization authorization=restRequest.getAuthorization();
   final Request.Builder builder=new Request.Builder();
   builder.url(restRequest.getUrl());
   builder.method(restRequest.getMethod(),RestToOkBody.wrap(restRequest.getBody()));
@@ -9,10 +8,6 @@
       builder.addHeader(header.getKey(),header.getValue());
     }
   }
-  if (authorization != null && authorization.hasAuthorization()) {
-    builder.header("Authorization",authorization.getHeader(restRequest.getEndpoint(),restRequest.getRestMethodInfo()));
-  }
-  builder.header("Accept-Encoding","gzip; q=1.0, *; q=0.5");
   final Call call=client.newCall(builder.build());
   return new OkRestResponse(call.execute());
 }

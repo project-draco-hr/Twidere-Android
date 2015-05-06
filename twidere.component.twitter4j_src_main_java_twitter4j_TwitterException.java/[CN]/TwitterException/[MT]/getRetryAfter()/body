@@ -8,7 +8,7 @@
   }
  else   if (statusCode == ENHANCE_YOUR_CLAIM) {
     try {
-      final String retryAfterStr=response.getResponseHeader("Retry-After");
+      final String retryAfterStr=response.getHeader("Retry-After");
       if (retryAfterStr != null) {
         retryAfter=Integer.valueOf(retryAfterStr);
       }

@@ -1,8 +1,6 @@
 {
   final RestMethodInfo methodInfo=RestMethodInfo.get(method,args);
-  final RestMethod restMethod=methodInfo.getMethod();
-  final String url=Endpoint.constructUrl(endpoint.getUrl(),methodInfo);
-  final RestRequest restRequest=new RestRequest(restMethod.value(),url,methodInfo.getHeaders(),methodInfo.getBody(),endpoint,methodInfo,authorization);
+  final RestRequest restRequest=requestFactory.create(endpoint,methodInfo,authorization);
   final Class<?>[] parameterTypes=method.getParameterTypes();
   RestResponse response=null;
   try {
@@ -41,7 +39,13 @@
     }
     throw re;
   }
-catch (  InvocationTargetException|NoSuchMethodException|IllegalAccessException e) {
+catch (  InvocationTargetException e) {
+    throw new RuntimeException(e);
+  }
+catch (  NoSuchMethodException e) {
+    throw new RuntimeException(e);
+  }
+catch (  IllegalAccessException e) {
     throw new RuntimeException(e);
   }
  finally {

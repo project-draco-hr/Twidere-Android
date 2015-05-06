@@ -1,5 +1,5 @@
 {
   final ClassLoader classLoader=cls.getClassLoader();
   final Class[] interfaces=new Class[]{cls};
-  return (T)Proxy.newProxyInstance(classLoader,interfaces,new RestInvocationHandler(endpoint,authorization,restClient,converter));
+  return (T)Proxy.newProxyInstance(classLoader,interfaces,new RestInvocationHandler(endpoint,authorization,restClient,converter,requestFactory));
 }

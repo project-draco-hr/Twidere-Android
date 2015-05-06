@@ -1,0 +1,32 @@
+{
+switch (key) {
+case "lat":
+{
+      if (location == null)       return null;
+      return String.valueOf(location.getLatitude());
+    }
+case "long":
+{
+    if (location == null)     return null;
+    return String.valueOf(location.getLongitude());
+  }
+case "ip":
+{
+  return ip;
+}
+case "accuracy":
+{
+return accuracy;
+}
+case "granularity":
+{
+return granularity;
+}
+case "max_results":
+{
+if (maxResults <= 0) return null;
+return String.valueOf(maxResults);
+}
+}
+return null;
+}

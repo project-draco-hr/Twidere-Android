@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpClientFactory(factory);
-  return this;
-}

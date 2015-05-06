@@ -1,8 +1,4 @@
 {
   final List<String> values=response.headers(name);
-  final KeyValuePair[] headers=new KeyValuePair[values.size()];
-  for (int i=0, j=headers.length; i < j; i++) {
-    headers[i]=new KeyValuePair(name,values.get(i));
-  }
-  return headers;
+  return values.toArray(new String[values.size()]);
 }

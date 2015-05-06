@@ -1,8 +1,7 @@
 {
-  if (url == null)   return null;
   final ArrayList<String> urls=new ArrayList<>();
   urls.add(url);
-  HttpResponse resp;
+  RestResponse resp;
   try {
     resp=client.get(url,signUrl,auth,additionalHeaders);
   }
@@ -12,8 +11,8 @@
     }
  else     throw te;
   }
-  while (resp != null && isRedirected(resp.getStatusCode())) {
-    final String request_url=resp.getResponseHeader("Location");
+  while (resp != null && isRedirected(resp.getStatus())) {
+    final String request_url=resp.getHeader("Location");
     if (request_url == null)     return null;
     if (urls.contains(request_url))     throw new TwitterException("Too many redirects");
     urls.add(request_url);

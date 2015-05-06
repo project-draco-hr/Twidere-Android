@@ -1,0 +1,31 @@
+{
+switch (key) {
+case "status":
+{
+      return status != null;
+    }
+case "in_reply_to_status_id":
+{
+    return inReplyToStatusId != -1;
+  }
+case "lat":
+case "long":
+{
+  return location != null;
+}
+case "place_id":
+{
+return placeId != null;
+}
+case "possibly_sensitive":
+case "display_coordinates":
+{
+return true;
+}
+case "media_ids":
+{
+return mediaIds != null && mediaIds.length > 0;
+}
+}
+return false;
+}

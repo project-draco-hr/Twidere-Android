@@ -1,8 +1,8 @@
 {
   if (name == null)   throw new NullPointerException();
-  final List<KeyValuePair> headers=getHeaders();
+  final List<Pair<String,String>> headers=getHeaders();
   if (headers == null)   return null;
-  for (  KeyValuePair header : headers) {
+  for (  Pair<String,String> header : headers) {
     if (header.getKey().equalsIgnoreCase(name))     return header.getValue();
   }
   return null;

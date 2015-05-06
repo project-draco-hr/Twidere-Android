@@ -12,14 +12,5 @@
     }
     urlBuilder.append(path);
   }
-  if (queries != null) {
-    for (int i=0, j=queries.size(); i < j; i++) {
-      final KeyValuePair item=queries.get(i);
-      urlBuilder.append(i != 0 ? '&' : '?');
-      urlBuilder.append(Utils.encode(item.getKey(),"UTF-8"));
-      urlBuilder.append('=');
-      urlBuilder.append(Utils.encode(item.getValue(),"UTF-8"));
-    }
-  }
-  return urlBuilder.toString();
+  return constructUrl(urlBuilder.toString(),queries);
 }

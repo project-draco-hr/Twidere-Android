@@ -1,8 +1,8 @@
 {
   if (!lengthSet) {
     length=0;
-    for (    TypedData part : parts) {
-      length+=part.length();
+    for (    Pair<String,TypedData> part : parts) {
+      length+=part.getValue().length();
     }
     lengthSet=true;
   }

@@ -1,6 +1,0 @@
-{
-  this.endpoint=endpoint;
-  this.authorization=authorization;
-  this.restClient=restClient;
-  this.converter=converter;
-}

@@ -1,5 +1,0 @@
-{
-  if (0 < value) {
-    params.add(new HttpParameter(name,String.valueOf(value)));
-  }
-}

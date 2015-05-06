@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=new TwitterFactory(conf).getInstance(new TwipOModeAuthorization());
+  final Twitter twitter=new TwitterFactory(conf).getInstance(new EmptyAuthorization());
   final User user=twitter.verifyCredentials();
   final long user_id=user.getId();
   if (user_id <= 0)   return new SignInResponse(false,false,null);

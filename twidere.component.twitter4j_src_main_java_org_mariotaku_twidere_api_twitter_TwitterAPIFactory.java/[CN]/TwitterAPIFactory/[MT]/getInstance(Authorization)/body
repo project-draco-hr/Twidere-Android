@@ -1,0 +1,9 @@
+{
+  final OAuthEndpoint endpoint=new OAuthEndpoint("https://api.twitter.com/1.1/");
+  final RestAPIFactory factory=new RestAPIFactory();
+  factory.setClient(new OkHttpRestClient());
+  factory.setConverter(new TwitterConverter());
+  factory.setEndpoint(endpoint);
+  factory.setAuthorization(authorization);
+  return factory.build(Twitter.class);
+}

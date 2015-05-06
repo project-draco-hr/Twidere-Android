@@ -1,0 +1,40 @@
+{
+switch (key) {
+case "status":
+{
+      return status;
+    }
+case "in_reply_to_status_id":
+{
+    return String.valueOf(inReplyToStatusId);
+  }
+case "lat":
+{
+  if (location == null)   return null;
+  return String.valueOf(location.getLatitude());
+}
+case "long":
+{
+if (location == null) return null;
+return String.valueOf(location.getLongitude());
+}
+case "place_id":
+{
+return placeId;
+}
+case "possibly_sensitive":
+{
+return String.valueOf(possiblySensitive);
+}
+case "display_coordinates":
+{
+return String.valueOf(displayCoordinates);
+}
+case "media_ids":
+{
+if (mediaIds == null) return null;
+return InternalStringUtil.join(mediaIds);
+}
+}
+return null;
+}

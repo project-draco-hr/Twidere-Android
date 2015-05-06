@@ -1,20 +1,19 @@
 {
-  final RequestToken requestToken;
+  final OAuthToken requestToken;
   try {
-    requestToken=twitter.getOAuthRequestToken(OAUTH_CALLBACK_OOB);
+    requestToken=twitter.getRequestToken(OAUTH_CALLBACK_OOB);
   }
- catch (  final TwitterException e) {
-    if (e.isCausedByNetworkIssue())     throw new AuthenticationException(e);
+ catch (  final Exception e) {
     throw new AuthenticityTokenException();
   }
-  HttpResponse authorizePage=null, authorizeResult=null;
+  RestResponse authorizePage=null, authorizeResult=null;
   try {
-    final String oauthToken=requestToken.getToken();
+    final String oauthToken=requestToken.getOauthToken();
     final String authorizationUrl=requestToken.getAuthorizationURL();
     final HashMap<String,String> inputMap=new HashMap<>();
     authorizePage=client.get(authorizationUrl,authorizationUrl,null,null,null);
-    final List<String> cookieHeaders=authorizePage.getResponseHeaders("Set-Cookie");
-    readInputFromHtml(authorizePage.asReader(),inputMap,INPUT_AUTHENTICITY_TOKEN,INPUT_REDIRECT_AFTER_LOGIN);
+    final String[] cookieHeaders=authorizePage.getHeaders("Set-Cookie");
+    readInputFromHtml(BaseTypedData.reader(authorizePage.getBody()),inputMap,INPUT_AUTHENTICITY_TOKEN,INPUT_REDIRECT_AFTER_LOGIN);
     final Configuration conf=twitter.getConfiguration();
     final List<HttpParameter> params=new ArrayList<>();
     params.add(new HttpParameter("oauth_token",oauthToken));
@@ -50,18 +49,10 @@
   }
  finally {
     if (authorizePage != null) {
-      try {
-        authorizePage.disconnect();
-      }
- catch (      IOException ignore) {
-      }
+      IoUtils.closeSilently(authorizePage);
     }
     if (authorizeResult != null) {
-      try {
-        authorizeResult.disconnect();
-      }
- catch (      IOException ignore) {
-      }
+      IoUtils.closeSilently(authorizeResult);
     }
   }
 }

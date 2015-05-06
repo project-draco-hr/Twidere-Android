@@ -1,0 +1,6 @@
+{
+  if (contentType == null) {
+    return ContentType.OCTET_STREAM;
+  }
+  return contentType;
+}

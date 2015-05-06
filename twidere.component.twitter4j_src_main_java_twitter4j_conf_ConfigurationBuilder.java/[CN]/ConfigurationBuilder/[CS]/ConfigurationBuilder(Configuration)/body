@@ -5,7 +5,6 @@
   configuration.setDebug(conf.isDebugEnabled());
   configuration.setGZIPEnabled(conf.isGZIPEnabled());
   configuration.setHostAddressResolverFactory(conf.getHostAddressResolverFactory());
-  configuration.setHttpClientFactory(conf.getHttpClientFactory());
   configuration.setHttpConnectionTimeout(conf.getHttpConnectionTimeout());
   configuration.setHttpDefaultMaxPerRoute(conf.getHttpDefaultMaxPerRoute());
   configuration.setHttpMaxTotalConnections(conf.getHttpMaxTotalConnections());

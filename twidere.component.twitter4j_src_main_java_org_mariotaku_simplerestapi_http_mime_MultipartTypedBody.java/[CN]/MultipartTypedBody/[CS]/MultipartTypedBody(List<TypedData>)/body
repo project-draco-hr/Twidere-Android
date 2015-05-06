@@ -1,3 +1,0 @@
-{
-  this(parts.toArray(new TypedData[parts.size()]));
-}

@@ -1,0 +1,26 @@
+{
+switch (key) {
+case "lat":
+case "long":
+{
+      return location != null;
+    }
+case "ip":
+{
+    return ip != null;
+  }
+case "accuracy":
+{
+  return accuracy != null;
+}
+case "granularity":
+{
+return granularity != null;
+}
+case "max_results":
+{
+return maxResults > 0;
+}
+}
+return false;
+}

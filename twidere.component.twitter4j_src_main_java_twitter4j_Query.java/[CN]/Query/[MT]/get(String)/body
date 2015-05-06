@@ -1,0 +1,53 @@
+{
+switch (key) {
+case "q":
+{
+      return query;
+    }
+case "lang":
+{
+    return lang;
+  }
+case "locale":
+{
+  return locale;
+}
+case "max_id":
+{
+if (maxId == -1) return null;
+return String.valueOf(maxId);
+}
+case "since_id":
+{
+if (sinceId == -1) return null;
+return String.valueOf(sinceId);
+}
+case "rpp":
+{
+if (rpp == -1) return null;
+return String.valueOf(rpp);
+}
+case "page":
+{
+if (page == -1) return null;
+return String.valueOf(page);
+}
+case "since":
+{
+return since;
+}
+case "until":
+{
+return until;
+}
+case "geocode":
+{
+return geocode;
+}
+case "result_type":
+{
+return resultType;
+}
+}
+return null;
+}

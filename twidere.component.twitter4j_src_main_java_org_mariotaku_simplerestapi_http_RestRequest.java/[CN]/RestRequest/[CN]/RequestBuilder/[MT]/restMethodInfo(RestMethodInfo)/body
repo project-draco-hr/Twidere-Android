@@ -1,4 +1,0 @@
-{
-  this.restMethodInfo=restMethodInfo;
-  return this;
-}

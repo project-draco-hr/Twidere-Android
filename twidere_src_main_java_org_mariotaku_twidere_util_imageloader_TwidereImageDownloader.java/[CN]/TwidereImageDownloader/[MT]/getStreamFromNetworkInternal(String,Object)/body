@@ -19,6 +19,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
     additionalHeaders.addHeader("Accept","image/webp, */*");
   }
-  final HttpResponse resp=getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth,additionalHeaders);
-  return new ContentLengthInputStream(resp.asStream(),(int)resp.getContentLength());
+  final RestResponse resp=getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth,additionalHeaders);
+  final TypedData body=resp.getBody();
+  return new ContentLengthInputStream(body.stream(),(int)body.length());
 }

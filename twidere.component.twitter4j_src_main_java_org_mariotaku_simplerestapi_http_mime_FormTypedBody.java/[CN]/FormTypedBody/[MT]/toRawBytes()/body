@@ -5,7 +5,7 @@
     if (i != 0) {
       sb.append('&');
     }
-    final KeyValuePair form=forms.get(i);
+    final Pair<String,String> form=forms.get(i);
     sb.append(Utils.encode(form.getKey(),charset.name()));
     sb.append('=');
     sb.append(Utils.encode(form.getValue(),charset.name()));

@@ -1,0 +1,16 @@
+{
+  if (isEmpty(id))   return null;
+  if (client != null) {
+    final RestRequest.Builder builder=new RestRequest.Builder();
+    builder.method(GET.METHOD);
+    builder.url(Endpoint.constructUrl(URL_PHOTOZOU_PHOTO_INFO,new KeyValuePair("photo_id",id)));
+    final RestResponse response=client.execute(builder.build());
+    final PhotoZouPhotoInfo info=LoganSquare.parse(response.getBody().stream(),PhotoZouPhotoInfo.class);
+    if (info.info != null && info.info.photo != null) {
+      final String key=fullImage ? info.info.photo.originalImageUrl : info.info.photo.imageUrl;
+      return ParcelableMedia.newImage(key,orig);
+    }
+  }
+  final String preview=String.format(Locale.US,"http://photozou.jp/p/img/%s",id);
+  return ParcelableMedia.newImage(preview,orig);
+}

@@ -1,5 +1,5 @@
 {
-  for (  TypedData part : parts) {
-    part.close();
+  for (  Pair<String,TypedData> part : parts) {
+    part.getValue().close();
   }
 }

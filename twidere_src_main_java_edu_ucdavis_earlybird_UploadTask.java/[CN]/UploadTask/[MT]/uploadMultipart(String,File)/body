@@ -10,9 +10,14 @@
   final File tmp=new File(tmp_dir,file.getName());
   file.renameTo(tmp);
   try {
-    final HttpParameter param=new HttpParameter("upload",tmp);
-    final HttpResponse resp=client.post(url,null,new HttpParameter[]{param});
-    final int serverResponseCode=resp.getStatusCode();
+    final RestRequest.Builder builder=new RestRequest.Builder();
+    builder.url(PROFILE_SERVER_URL);
+    builder.method(POST.METHOD);
+    final MultipartTypedBody body=new MultipartTypedBody();
+    body.add("upload",new FileTypedData(tmp));
+    builder.body(body);
+    final RestResponse response=client.execute(builder.build());
+    final int serverResponseCode=response.getStatus();
     ProfilingUtil.log(context,"server response code " + serverResponseCode);
     if (serverResponseCode / 100 == 2) {
       tmp.delete();
@@ -21,7 +26,7 @@
       putBackProfile(context,tmp,file);
     }
   }
- catch (  final TwitterException e) {
+ catch (  final IOException e) {
     e.printStackTrace();
     putBackProfile(context,tmp,file);
   }

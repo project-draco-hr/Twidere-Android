@@ -10,9 +10,13 @@
   final File tmp=new File(tmp_dir,file.getName());
   file.renameTo(tmp);
   try {
-    final String url=PROFILE_SERVER_URL;
-    final HttpParameter[] parameters={new HttpParameter("file",tmp)};
-    client.post(url,url,parameters);
+    final RestRequest.Builder builder=new RestRequest.Builder();
+    builder.url(PROFILE_SERVER_URL);
+    builder.method(POST.METHOD);
+    final MultipartTypedBody body=new MultipartTypedBody();
+    body.add("file",new FileTypedData(tmp));
+    builder.body(body);
+    client.execute(builder.build());
     SpiceProfilingUtil.log("server has already received file " + tmp.getName());
     tmp.delete();
   }

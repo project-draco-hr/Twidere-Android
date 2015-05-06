@@ -1,14 +1,15 @@
 {
   if (partsCache != null)   return partsCache;
-  final ArrayList<TypedData> list=new ArrayList<>();
+  final ArrayList<Pair<String,TypedData>> list=new ArrayList<>();
   for (  Map.Entry<Part,Object> entry : parts.entrySet()) {
     final Part form=entry.getKey();
+    final String[] names=form.value();
     final Object value=entry.getValue();
     if (value instanceof TypedData) {
-      list.add((TypedData)value);
+      list.add(new ImmutablePair<>(names[0],(TypedData)value));
     }
  else     if (value != null) {
-      list.add(BaseTypedData.wrap(value));
+      list.add(new ImmutablePair<>(names[0],BaseTypedData.wrap(value)));
     }
   }
   return partsCache=list;

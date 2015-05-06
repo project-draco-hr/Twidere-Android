@@ -1,5 +1,4 @@
 {
-  if (uri == null)   return null;
   if (apiUrlFormat == null)   return uri.toString();
   if (isTwitterUri(uri)) {
     final StringBuilder sb=new StringBuilder();

@@ -1,3 +1,0 @@
-{
-  params.add(new HttpParameter(name,String.valueOf(value)));
-}

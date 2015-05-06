@@ -1,5 +1,5 @@
 {
-  for (  TypedData part : parts) {
-    part.writeTo(os);
+  for (  Pair<String,TypedData> part : parts) {
+    part.getValue().writeTo(os);
   }
 }

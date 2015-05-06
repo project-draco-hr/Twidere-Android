@@ -1,0 +1,5 @@
+{
+  final ContentType contentType=data.contentType();
+  final Charset charset=contentType != null ? contentType.getCharset() : null;
+  return new InputStreamReader(data.stream(),charset != null ? charset : Charset.defaultCharset());
+}

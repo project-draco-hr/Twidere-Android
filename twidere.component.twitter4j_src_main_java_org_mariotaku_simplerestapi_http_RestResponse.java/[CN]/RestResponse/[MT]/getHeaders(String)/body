@@ -1,12 +1,12 @@
 {
   if (name == null)   throw new NullPointerException();
-  final List<KeyValuePair> headers=getHeaders();
-  if (headers == null)   return new KeyValuePair[0];
-  final ArrayList<KeyValuePair> result=new ArrayList<>();
-  for (  KeyValuePair header : headers) {
+  final List<Pair<String,String>> headers=getHeaders();
+  if (headers == null)   return new String[0];
+  final ArrayList<String> result=new ArrayList<>();
+  for (  Pair<String,String> header : headers) {
     if (name.equalsIgnoreCase(header.getKey())) {
-      result.add(header);
+      result.add(header.getValue());
     }
   }
-  return result.toArray(new KeyValuePair[result.size()]);
+  return result.toArray(new String[result.size()]);
 }

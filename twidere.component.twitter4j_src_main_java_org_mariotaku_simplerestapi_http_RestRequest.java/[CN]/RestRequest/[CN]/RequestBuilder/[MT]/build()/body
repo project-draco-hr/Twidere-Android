@@ -1,3 +1,0 @@
-{
-  return new RestRequest(method,url,headers,body,endpoint,restMethodInfo,authorization);
-}

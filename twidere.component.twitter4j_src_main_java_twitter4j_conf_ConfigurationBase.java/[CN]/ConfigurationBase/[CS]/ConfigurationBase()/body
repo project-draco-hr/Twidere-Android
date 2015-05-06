@@ -15,7 +15,6 @@
   setHttpRetryIntervalSeconds(5);
   setHttpMaxTotalConnections(20);
   setHttpDefaultMaxPerRoute(2);
-  setHttpClientFactory(null);
   setOAuthConsumerKey(null);
   setOAuthConsumerSecret(null);
   setOAuthAccessToken(null);
