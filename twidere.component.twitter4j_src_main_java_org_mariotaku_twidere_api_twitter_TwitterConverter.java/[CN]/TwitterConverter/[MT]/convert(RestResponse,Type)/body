@@ -1,5 +1,17 @@
 {
   final TypedData body=response.getBody();
+  if (!response.isSuccessful()) {
+    final ByteArrayOutputStream os=new ByteArrayOutputStream();
+    body.writeTo(os);
+    os.flush();
+    final ContentType contentType=body.contentType();
+    Charset charset=null;
+    if (contentType != null) {
+      charset=contentType.getCharset();
+    }
+    if (charset == null)     charset=Charset.defaultCharset();
+    throw new TwitterException(os.toString(charset.name()));
+  }
   final ContentType contentType=body.contentType();
   final InputStream stream=body.stream();
   if (type instanceof Class<?>) {

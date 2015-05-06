@@ -1,0 +1,15 @@
+{
+  try {
+    final Method method=cls.getMethod("parse",String.class);
+    return (T)method.invoke(null,jsonParser.getValueAsString());
+  }
+ catch (  NoSuchMethodException e) {
+    return Enum.valueOf(cls,jsonParser.getValueAsString());
+  }
+catch (  InvocationTargetException e) {
+    throw new RuntimeException(e);
+  }
+catch (  IllegalAccessException e) {
+    throw new RuntimeException(e);
+  }
+}

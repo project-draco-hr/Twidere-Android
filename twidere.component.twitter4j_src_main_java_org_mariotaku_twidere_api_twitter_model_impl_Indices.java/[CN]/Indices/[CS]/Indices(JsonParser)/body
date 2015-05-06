@@ -1,0 +1,6 @@
+{
+  if (!reader.isExpectedStartArrayToken())   throw new IOException("Malformed indices");
+  start=reader.nextIntValue(-1);
+  end=reader.nextIntValue(-1);
+  if (reader.nextToken() != JsonToken.END_ARRAY)   throw new IOException("Malformed indices");
+}

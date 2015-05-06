@@ -1,5 +1,5 @@
 {
   final byte[] input=new byte[32];
   secureRandom.nextBytes(input);
-  return Base64.encodeToString(input,Base64.URL_SAFE | Base64.NO_PADDING);
+  return Base64.encodeToString(input,Base64.NO_WRAP).replaceAll("[^\\w\\d]","");
 }

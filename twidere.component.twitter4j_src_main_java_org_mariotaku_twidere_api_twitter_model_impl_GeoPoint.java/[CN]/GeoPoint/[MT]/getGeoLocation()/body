@@ -1,0 +1,5 @@
+{
+  if (coordinates == null)   return null;
+  if (geoLocation != null)   return geoLocation;
+  return geoLocation=new GeoLocation(coordinates[0],coordinates[1]);
+}

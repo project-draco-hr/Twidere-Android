@@ -1,0 +1,3 @@
+{
+  return "MediaEntityImpl{" + "id=" + id + ", idStr='"+ idStr+ '\''+ ", indices="+ indices+ ", mediaUrl='"+ mediaUrl+ '\''+ ", mediaUrlHttps='"+ mediaUrlHttps+ '\''+ ", url='"+ url+ '\''+ ", displayUrl='"+ displayUrl+ '\''+ ", expandedUrl='"+ expandedUrl+ '\''+ ", type="+ type+ ", sizes="+ sizes+ ", sourceStatusId="+ sourceStatusId+ ", sourceStatusIdStr='"+ sourceStatusIdStr+ '\''+ ", sourceUserId="+ sourceUserId+ ", sourceUserIdStr='"+ sourceUserIdStr+ '\''+ ", videoInfo="+ videoInfo+ ", features="+ features+ '}';
+}
