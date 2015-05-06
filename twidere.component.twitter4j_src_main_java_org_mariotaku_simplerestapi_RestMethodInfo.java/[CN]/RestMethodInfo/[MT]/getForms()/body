@@ -1,6 +1,6 @@
 {
   if (formsCache != null)   return formsCache;
-  final ArrayList<KeyValuePair> list=new ArrayList<>();
+  final ArrayList<Pair<String,String>> list=new ArrayList<>();
   for (  Map.Entry<Form,Object> entry : forms.entrySet()) {
     final Form form=entry.getKey();
     final Object value=entry.getValue();
@@ -8,13 +8,13 @@
       final ValueMap valueMap=(ValueMap)value;
       for (      String key : form.value()) {
         if (valueMap.has(key)) {
-          list.add(new KeyValuePair(key,String.valueOf(valueMap.get(key))));
+          list.add(new ImmutablePair<>(key,String.valueOf(valueMap.get(key))));
         }
       }
     }
  else     if (value != null) {
       for (      String key : form.value()) {
-        list.add(new KeyValuePair(key,String.valueOf(value)));
+        list.add(new ImmutablePair<>(key,String.valueOf(value)));
       }
     }
   }

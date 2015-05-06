@@ -1,0 +1,2 @@
+String path
+List<Pair<String,String>> queries
