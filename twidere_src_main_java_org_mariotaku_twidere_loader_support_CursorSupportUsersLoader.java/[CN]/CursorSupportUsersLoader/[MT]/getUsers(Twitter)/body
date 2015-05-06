@@ -1,6 +1,7 @@
 {
   if (twitter == null)   return null;
-  final CursorPaging paging=new CursorPaging(getCount());
+  final Paging paging=new Paging();
+  paging.count(getCount());
   if (getCursor() > 0) {
     paging.setCursor(getCursor());
   }

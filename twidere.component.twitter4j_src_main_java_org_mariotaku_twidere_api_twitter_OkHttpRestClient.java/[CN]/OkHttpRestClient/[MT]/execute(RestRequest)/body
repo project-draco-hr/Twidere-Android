@@ -2,9 +2,9 @@
   final Request.Builder builder=new Request.Builder();
   builder.url(restRequest.getUrl());
   builder.method(restRequest.getMethod(),RestToOkBody.wrap(restRequest.getBody()));
-  final List<KeyValuePair> headers=restRequest.getHeaders();
+  final List<Pair<String,String>> headers=restRequest.getHeaders();
   if (headers != null) {
-    for (    KeyValuePair header : headers) {
+    for (    Pair<String,String> header : headers) {
       builder.addHeader(header.getKey(),header.getValue());
     }
   }

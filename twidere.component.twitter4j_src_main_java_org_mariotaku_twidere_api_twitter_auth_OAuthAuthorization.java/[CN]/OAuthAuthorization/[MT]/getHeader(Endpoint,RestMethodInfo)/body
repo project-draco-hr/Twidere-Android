@@ -16,15 +16,15 @@
     oauthTokenSecret=(String)extras.get("oauth_token_secret");
   }
   final String oauthSignature=generateOAuthSignature(method,url,oauthNonce,timestamp,oauthToken,oauthTokenSecret,request.getQueries(),request.getForms());
-  final List<KeyValuePair> encodeParams=new ArrayList<>();
-  encodeParams.add(new KeyValuePair("oauth_consumer_key",consumerKey));
-  encodeParams.add(new KeyValuePair("oauth_nonce",oauthNonce));
-  encodeParams.add(new KeyValuePair("oauth_signature",encode(oauthSignature)));
-  encodeParams.add(new KeyValuePair("oauth_signature_method",OAUTH_SIGNATURE_METHOD));
-  encodeParams.add(new KeyValuePair("oauth_timestamp",String.valueOf(timestamp)));
-  encodeParams.add(new KeyValuePair("oauth_version",OAUTH_VERSION));
+  final List<Pair<String,String>> encodeParams=new ArrayList<>();
+  encodeParams.add(new ImmutablePair<>("oauth_consumer_key",consumerKey));
+  encodeParams.add(new ImmutablePair<>("oauth_nonce",oauthNonce));
+  encodeParams.add(new ImmutablePair<>("oauth_signature",encode(oauthSignature)));
+  encodeParams.add(new ImmutablePair<>("oauth_signature_method",OAUTH_SIGNATURE_METHOD));
+  encodeParams.add(new ImmutablePair<>("oauth_timestamp",String.valueOf(timestamp)));
+  encodeParams.add(new ImmutablePair<>("oauth_version",OAUTH_VERSION));
   if (oauthToken != null) {
-    encodeParams.add(new KeyValuePair("oauth_token",oauthToken));
+    encodeParams.add(new ImmutablePair<>("oauth_token",oauthToken));
   }
   Collections.sort(encodeParams);
   final StringBuilder headerBuilder=new StringBuilder();
@@ -33,7 +33,7 @@
     if (i != 0) {
       headerBuilder.append(", ");
     }
-    final KeyValuePair keyValuePair=encodeParams.get(i);
+    final Pair<String,String> keyValuePair=encodeParams.get(i);
     headerBuilder.append(keyValuePair.getKey());
     headerBuilder.append("=\"");
     headerBuilder.append(keyValuePair.getValue());

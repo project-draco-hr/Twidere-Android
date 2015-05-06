@@ -1,5 +1,7 @@
 {
-  final Configuration conf=twitter.getConfiguration();
-  this.twitter=twitter;
-  client=new HttpClientWrapper(conf);
+  final InvocationHandler handler=Proxy.getInvocationHandler(oauth);
+  if (!(handler instanceof RestClient))   throw new IllegalArgumentException();
+  this.oauth=oauth;
+  this.client=((RestClient)handler).getRestClient();
+  this.endpoint=((RestClient)handler).getEndpoint();
 }

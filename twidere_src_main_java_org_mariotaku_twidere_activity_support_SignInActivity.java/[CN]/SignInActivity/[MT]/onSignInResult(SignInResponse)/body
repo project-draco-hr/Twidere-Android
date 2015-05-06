@@ -21,7 +21,7 @@ case Accounts.AUTH_TYPE_TWIP_O_MODE:
 case Accounts.AUTH_TYPE_OAUTH:
 case Accounts.AUTH_TYPE_XAUTH:
 {
-      values=ContentValuesCreator.createAccount(result.conf,result.access_token,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url,result.no_version_suffix);
+      values=ContentValuesCreator.createAccount(result.conf,result.OAuthToken,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url,result.no_version_suffix);
       break;
     }
 default :

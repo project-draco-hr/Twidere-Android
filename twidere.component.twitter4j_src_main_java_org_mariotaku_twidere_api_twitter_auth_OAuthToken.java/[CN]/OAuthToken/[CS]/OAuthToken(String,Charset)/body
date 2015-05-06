@@ -1,7 +1,7 @@
 {
-  List<KeyValuePair> params=new ArrayList<>();
+  List<Pair<String,String>> params=new ArrayList<>();
   Utils.parseGetParameters(body,params,charset.name());
-  for (  KeyValuePair param : params) {
+  for (  Pair<String,String> param : params) {
 switch (param.getKey()) {
 case "oauth_token":
 {

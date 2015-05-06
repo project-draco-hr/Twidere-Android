@@ -1,4 +1,4 @@
 {
-  this(contentType,new ArrayList<KeyValuePair>());
-  parameters.add(new KeyValuePair("charset",charset.name()));
+  this(contentType,new ArrayList<Pair<String,String>>());
+  parameters.add(new ImmutablePair<>("charset",charset.name()));
 }

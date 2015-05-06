@@ -1,8 +1,8 @@
 {
   final Headers headers=response.headers();
-  final ArrayList<KeyValuePair> headersList=new ArrayList<>();
+  final ArrayList<Pair<String,String>> headersList=new ArrayList<>();
   for (int i=0, j=headers.size(); i < j; i++) {
-    headersList.add(new KeyValuePair(headers.name(i),headers.value(i)));
+    headersList.add(new ImmutablePair<>(headers.name(i),headers.value(i)));
   }
   return headersList;
 }

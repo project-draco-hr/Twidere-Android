@@ -1,7 +1,7 @@
 {
   try {
     final Twitter twitter=new TwitterFactory(conf).getInstance();
-    final OAuthToken access_token=twitter.getOAuthAccessToken(new RequestToken(conf,request_token,request_token_secret),oauth_verifier);
+    final OAuthToken access_token=twitter.getOAuthOAuthToken(new RequestToken(conf,request_token,request_token_secret),oauth_verifier);
     final long userId=access_token.getUserId();
     if (userId <= 0)     return new SignInResponse(false,false,null);
     final User user=twitter.verifyCredentials();

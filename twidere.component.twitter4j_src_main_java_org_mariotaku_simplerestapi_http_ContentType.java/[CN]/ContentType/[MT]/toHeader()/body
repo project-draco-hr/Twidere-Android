@@ -1,6 +1,6 @@
 {
   final StringBuilder sb=new StringBuilder(contentType);
-  for (  KeyValuePair parameter : parameters) {
+  for (  Pair<String,String> parameter : parameters) {
     sb.append("; ");
     sb.append(parameter.getKey());
     sb.append("=");

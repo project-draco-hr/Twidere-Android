@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,RequestToken>
+AsyncTask<Object,Object,OAuthToken>
