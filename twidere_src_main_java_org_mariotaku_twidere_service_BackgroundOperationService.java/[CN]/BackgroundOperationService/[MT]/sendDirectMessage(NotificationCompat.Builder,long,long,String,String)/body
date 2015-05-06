@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(this,accountId,true,true);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(this,accountId,true,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ParcelableDirectMessage directMessage;

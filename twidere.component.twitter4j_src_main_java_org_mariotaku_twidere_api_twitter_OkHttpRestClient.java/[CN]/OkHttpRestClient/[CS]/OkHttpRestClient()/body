@@ -1,3 +1,3 @@
 {
-  client=new OkHttpClient();
+  this(new OkHttpClient());
 }

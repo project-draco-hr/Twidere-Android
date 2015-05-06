@@ -1,4 +1,4 @@
 {
-  final Twitter twitter=getTwitterInstance(context,accountId,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(context,accountId,false);
   updateProfileBannerImage(context,twitter,imageUri,deleteImage);
 }

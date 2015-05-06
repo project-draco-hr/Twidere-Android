@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,account_id,false);
   if (twitter == null || list_name == null)   return SingleResponse.getInstance();
   try {
     final UserList list=twitter.createUserList(list_name,is_public,description);

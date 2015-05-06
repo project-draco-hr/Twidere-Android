@@ -7,7 +7,10 @@
     if (OAuthToken.class.isAssignableFrom(cls)) {
       final ByteArrayOutputStream os=new ByteArrayOutputStream();
       body.writeTo(os);
-      Charset charset=contentType.getCharset();
+      Charset charset=contentType != null ? contentType.getCharset() : null;
+      if (charset == null) {
+        charset=Charset.defaultCharset();
+      }
       try {
         return new OAuthToken(os.toString(charset.name()),charset);
       }
@@ -17,5 +20,15 @@
     }
     LoganSquare.parse(stream,cls);
   }
-  throw new UnsupportedOperationException();
+ else   if (type instanceof ParameterizedType) {
+    final Type rawType=((ParameterizedType)type).getRawType();
+    if (rawType instanceof Class<?>) {
+      final Class<?> rawClass=(Class<?>)rawType;
+      if (ResponseList.class.isAssignableFrom(rawClass)) {
+        final Type elementType=((ParameterizedType)type).getActualTypeArguments()[0];
+        return new ResponseListImpl<>(LoganSquare.parseList(stream,(Class<?>)elementType));
+      }
+    }
+  }
+  throw new UnsupportedTypeException(type);
 }

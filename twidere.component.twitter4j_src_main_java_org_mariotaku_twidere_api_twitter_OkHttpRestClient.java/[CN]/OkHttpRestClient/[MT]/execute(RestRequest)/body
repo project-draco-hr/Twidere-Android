@@ -5,7 +5,7 @@
   final List<Pair<String,String>> headers=restRequest.getHeaders();
   if (headers != null) {
     for (    Pair<String,String> header : headers) {
-      builder.addHeader(header.getKey(),header.getValue());
+      builder.addHeader(header.first,header.second);
     }
   }
   final Call call=client.newCall(builder.build());

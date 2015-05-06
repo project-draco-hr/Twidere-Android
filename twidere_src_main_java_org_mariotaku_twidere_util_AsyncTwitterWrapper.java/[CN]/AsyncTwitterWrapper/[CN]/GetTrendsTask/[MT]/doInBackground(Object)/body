@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,account_id,false);
   final Bundle extras=new Bundle();
   extras.putLong(EXTRA_ACCOUNT_ID,account_id);
   if (twitter != null) {

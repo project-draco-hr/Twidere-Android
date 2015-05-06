@@ -1,0 +1,3 @@
+{
+  mDateFormat=new SimpleDateFormat("EEE MMM d HH:mm:ss z yyyy",Locale.ENGLISH);
+}

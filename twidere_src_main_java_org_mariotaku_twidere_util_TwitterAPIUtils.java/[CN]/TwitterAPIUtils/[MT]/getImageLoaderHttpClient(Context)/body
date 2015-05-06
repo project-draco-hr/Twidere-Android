@@ -1,0 +1,9 @@
+{
+  if (context == null)   return null;
+  final SharedPreferences prefs=context.getSharedPreferences(TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final int timeoutMillis=prefs.getInt(SharedPreferenceConstants.KEY_CONNECTION_TIMEOUT,10000) * 1000;
+  final Proxy proxy=Utils.getProxy(context);
+  final String userAgent=TwidereApplication.getInstance(context).getDefaultUserAgent();
+  final HostAddressResolverFactory resolverFactory=new TwidereHostResolverFactory(TwidereApplication.getInstance(context));
+  return getHttpClient(context,timeoutMillis,true,proxy,resolverFactory,userAgent,false);
+}

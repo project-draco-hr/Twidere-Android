@@ -1,0 +1,16 @@
+{
+  final ArrayList<String> urls=new ArrayList<>();
+  urls.add(url);
+  RestResponse resp;
+  RestRequest req=new RestRequest.Builder().method(GET.METHOD).url(url).headers(additionalHeaders).build();
+  resp=client.execute(req);
+  while (resp != null && Utils.isRedirected(resp.getStatus())) {
+    final String requestUrl=resp.getHeader("Location");
+    if (requestUrl == null)     return null;
+    if (urls.contains(requestUrl))     throw new IOException("Too many redirects");
+    urls.add(requestUrl);
+    req=new RestRequest.Builder().method(GET.METHOD).url(requestUrl).headers(additionalHeaders).build();
+    resp=client.execute(req);
+  }
+  return resp;
+}

@@ -70,7 +70,7 @@
       }
     }
     for (    final ParcelableAccount account : statusUpdate.accounts) {
-      final Twitter twitter=getTwitterInstance(this,account.account_id,true,true);
+      final Twitter twitter=TwitterAPIUtils.getTwitterInstance(this,account.account_id,true,true);
       final StatusUpdate status=new StatusUpdate(shortenedText);
       status.setInReplyToStatusId(statusUpdate.in_reply_to_status_id);
       if (statusUpdate.location != null) {

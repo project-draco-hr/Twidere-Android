@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(mActivity,mAccountId,true);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mActivity,mAccountId,true);
   try {
     User user=null;
     if (isColorChanged()) {

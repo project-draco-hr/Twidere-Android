@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(getContext(),mAccountId,true);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(getContext(),mAccountId,true);
   List<UserList> listLoaded=null;
   try {
     listLoaded=getUserLists(twitter);

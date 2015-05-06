@@ -1,3 +1,5 @@
 {
-  return MediaType.parse(body.contentType().toHeader());
+  final ContentType contentType=body.contentType();
+  if (contentType == null)   return null;
+  return MediaType.parse(contentType.toHeader());
 }

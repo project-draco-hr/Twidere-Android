@@ -1,3 +1,3 @@
 {
-  parts.add(new ImmutablePair<>(name,data));
+  parts.add(Pair.create(name,data));
 }

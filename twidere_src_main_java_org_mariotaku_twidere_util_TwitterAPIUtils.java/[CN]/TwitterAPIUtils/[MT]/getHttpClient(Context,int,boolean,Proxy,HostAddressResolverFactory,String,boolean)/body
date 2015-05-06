@@ -1,0 +1,15 @@
+{
+  final ConfigurationBuilder cb=new ConfigurationBuilder();
+  cb.setHttpConnectionTimeout(timeoutMillis);
+  cb.setIgnoreSSLError(ignoreSslError);
+  cb.setIncludeTwitterClientHeader(twitterClientHeader);
+  if (proxy != null && !Proxy.NO_PROXY.equals(proxy)) {
+    final SocketAddress address=proxy.address();
+    if (address instanceof InetSocketAddress) {
+      cb.setHttpProxyHost(((InetSocketAddress)address).getHostName());
+      cb.setHttpProxyPort(((InetSocketAddress)address).getPort());
+    }
+  }
+  cb.setHostAddressResolverFactory(resolverFactory);
+  return new OkHttpRestClient();
+}

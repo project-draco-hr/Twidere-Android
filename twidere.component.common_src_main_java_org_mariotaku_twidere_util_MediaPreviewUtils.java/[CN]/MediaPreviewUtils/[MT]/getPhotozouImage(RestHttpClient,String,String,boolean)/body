@@ -3,7 +3,7 @@
   if (client != null) {
     final RestRequest.Builder builder=new RestRequest.Builder();
     builder.method(GET.METHOD);
-    builder.url(Endpoint.constructUrl(URL_PHOTOZOU_PHOTO_INFO,new ImmutablePair<>("photo_id",id)));
+    builder.url(Endpoint.constructUrl(URL_PHOTOZOU_PHOTO_INFO,Pair.create("photo_id",id)));
     final RestResponse response=client.execute(builder.build());
     final PhotoZouPhotoInfo info=LoganSquare.parse(response.getBody().stream(),PhotoZouPhotoInfo.class);
     if (info.info != null && info.info.photo != null) {

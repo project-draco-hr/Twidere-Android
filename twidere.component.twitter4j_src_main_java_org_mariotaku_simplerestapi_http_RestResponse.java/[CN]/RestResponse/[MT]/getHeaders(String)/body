@@ -4,8 +4,8 @@
   if (headers == null)   return new String[0];
   final ArrayList<String> result=new ArrayList<>();
   for (  Pair<String,String> header : headers) {
-    if (name.equalsIgnoreCase(header.getKey())) {
-      result.add(header.getValue());
+    if (name.equalsIgnoreCase(header.first)) {
+      result.add(header.second);
     }
   }
   return result.toArray(new String[result.size()]);

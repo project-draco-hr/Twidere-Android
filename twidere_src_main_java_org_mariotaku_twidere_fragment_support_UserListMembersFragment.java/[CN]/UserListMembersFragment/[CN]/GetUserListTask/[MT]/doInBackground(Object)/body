@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(getActivity(),accountId,true);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(getActivity(),accountId,true);
   if (twitter == null)   return null;
   try {
     final UserList list;

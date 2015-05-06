@@ -2,7 +2,7 @@
   if (!lengthSet) {
     length=0;
     for (    Pair<String,TypedData> part : parts) {
-      length+=part.getValue().length();
+      length+=part.second.length();
     }
     lengthSet=true;
   }

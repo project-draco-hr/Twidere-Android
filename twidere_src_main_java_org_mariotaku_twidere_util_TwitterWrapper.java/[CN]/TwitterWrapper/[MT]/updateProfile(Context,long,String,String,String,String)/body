@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(context,account_id,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(context,account_id,false);
   if (twitter != null) {
     try {
       final User user=twitter.updateProfile(name,url,location,description);

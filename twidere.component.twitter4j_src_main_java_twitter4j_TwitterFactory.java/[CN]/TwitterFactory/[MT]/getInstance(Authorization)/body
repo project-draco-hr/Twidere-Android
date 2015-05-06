@@ -1,3 +1,9 @@
 {
-  return TwitterAPIFactory.getInstance(auth);
+  final OAuthEndpoint endpoint=new OAuthEndpoint(conf.getRestBaseURL(),conf.getSigningRestBaseURL());
+  final RestAPIFactory factory=new RestAPIFactory();
+  factory.setClient(new OkHttpRestClient(createHttpClient(conf)));
+  factory.setConverter(new TwitterConverter());
+  factory.setEndpoint(endpoint);
+  factory.setAuthorization(auth);
+  return factory.build(Twitter.class);
 }

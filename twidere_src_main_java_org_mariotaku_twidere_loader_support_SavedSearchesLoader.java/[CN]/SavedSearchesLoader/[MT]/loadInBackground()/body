@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(getContext(),mAccountId,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(getContext(),mAccountId,false);
   if (twitter == null)   return null;
   try {
     return twitter.getSavedSearches();

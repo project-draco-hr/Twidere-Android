@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getDefaultTwitterInstance(getContext(),false);
+  final Twitter twitter=TwitterAPIUtils.getDefaultTwitterInstance(getContext(),false);
   if (twitter == null)   return null;
   try {
     return twitter.getAvailableTrends();

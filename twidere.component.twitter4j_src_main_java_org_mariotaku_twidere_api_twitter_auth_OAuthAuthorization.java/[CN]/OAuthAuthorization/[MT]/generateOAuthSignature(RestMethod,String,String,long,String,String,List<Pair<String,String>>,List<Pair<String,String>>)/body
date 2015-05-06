@@ -10,12 +10,12 @@
   }
   if (queries != null) {
     for (    Pair<String,String> query : queries) {
-      encodeParams.add(encodeParameter(query.getKey(),query.getValue()));
+      encodeParams.add(encodeParameter(query.first,query.second));
     }
   }
   if (forms != null) {
     for (    Pair<String,String> form : forms) {
-      encodeParams.add(encodeParameter(form.getKey(),form.getValue()));
+      encodeParams.add(encodeParameter(form.first,form.second));
     }
   }
   Collections.sort(encodeParams);

@@ -15,9 +15,9 @@
   if (mThumbor != null) {
     modifiedUri=mThumbor.buildImage(modifiedUri).filter(ThumborUrlBuilder.quality(85)).toUrl();
   }
-  final HeaderMap additionalHeaders=new HeaderMap();
+  final List<Pair<String,String>> additionalHeaders=new ArrayList<>();
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-    additionalHeaders.addHeader("Accept","image/webp, */*");
+    additionalHeaders.add(Pair.create("Accept","image/webp, */*"));
   }
   final RestResponse resp=getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth,additionalHeaders);
   final TypedData body=resp.getBody();

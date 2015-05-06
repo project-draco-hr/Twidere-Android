@@ -1,5 +1,5 @@
 {
   this.context=context;
-  this.client=Utils.getDefaultHttpClient(context);
+  this.client=TwitterAPIUtils.getDefaultHttpClient(context);
   device_id=Secure.getString(context.getContentResolver(),Secure.ANDROID_ID);
 }

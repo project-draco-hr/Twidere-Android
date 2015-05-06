@@ -6,9 +6,9 @@
       sb.append('&');
     }
     final Pair<String,String> form=forms.get(i);
-    sb.append(Utils.encode(form.getKey(),charset.name()));
+    sb.append(Utils.encode(form.first,charset.name()));
     sb.append('=');
-    sb.append(Utils.encode(form.getValue(),charset.name()));
+    sb.append(Utils.encode(form.second,charset.name()));
   }
   bytes=sb.toString().getBytes(charset);
 }

@@ -1,0 +1,4 @@
+{
+  if (context == null)   return null;
+  return getTwitterInstance(context,Utils.getDefaultAccountId(context),includeEntities,includeRetweets);
+}

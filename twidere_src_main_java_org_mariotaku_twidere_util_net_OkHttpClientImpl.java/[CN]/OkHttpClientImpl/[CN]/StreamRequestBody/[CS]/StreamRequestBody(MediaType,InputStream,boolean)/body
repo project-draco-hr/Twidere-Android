@@ -1,5 +1,0 @@
-{
-  this.contentType=contentType;
-  this.stream=stream;
-  this.closeAfterWrite=closeAfterWrite;
-}

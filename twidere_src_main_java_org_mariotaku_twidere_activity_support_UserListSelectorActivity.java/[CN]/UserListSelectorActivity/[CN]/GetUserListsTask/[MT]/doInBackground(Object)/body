@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=getTwitterInstance(mActivity,mAccountId,false);
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mActivity,mAccountId,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);
