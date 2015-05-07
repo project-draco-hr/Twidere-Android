@@ -1,6 +1,0 @@
-{
-  if (null == exceptionDiagnosis) {
-    exceptionDiagnosis=new ExceptionDiagnosis(this,FILTER);
-  }
-  return exceptionDiagnosis;
-}

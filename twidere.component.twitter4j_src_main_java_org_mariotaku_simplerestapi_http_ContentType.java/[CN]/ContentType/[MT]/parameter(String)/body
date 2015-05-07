@@ -1,0 +1,6 @@
+{
+  for (  Pair<String,String> parameter : parameters) {
+    if (name.equalsIgnoreCase(parameter.first))     return parameter.second;
+  }
+  return null;
+}

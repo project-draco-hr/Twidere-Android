@@ -6,7 +6,7 @@
     final Object value=entry.getValue();
     if (value instanceof ValueMap) {
       final ValueMap valueMap=(ValueMap)value;
-      for (      String key : form.value()) {
+      for (      String key : getValueMapKeys(form.value(),valueMap)) {
         if (valueMap.has(key)) {
           list.add(Pair.create(key,String.valueOf(valueMap.get(key))));
         }

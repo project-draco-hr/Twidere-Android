@@ -1,4 +1,6 @@
 {
   if (twitter == null)   return null;
-  return twitter.searchUsers(mQuery,mPage);
+  final Paging paging=new Paging();
+  paging.page(mPage);
+  return twitter.searchUsers(mQuery,paging);
 }

@@ -1,9 +1,6 @@
 {
   if (parameters == null)   return null;
-  for (  Pair<String,String> parameter : parameters) {
-    if ("charset".equals(parameter.getKey())) {
-      return Charset.forName(parameter.getValue());
-    }
-  }
+  final String charset=parameter("charset");
+  if (charset != null)   return Charset.forName(charset);
   return null;
 }

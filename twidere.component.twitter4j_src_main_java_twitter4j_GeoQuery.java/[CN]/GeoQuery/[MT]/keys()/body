@@ -1,0 +1,3 @@
+{
+  return new String[]{"lat","long","ip","accuracy","granularity","max_results"};
+}

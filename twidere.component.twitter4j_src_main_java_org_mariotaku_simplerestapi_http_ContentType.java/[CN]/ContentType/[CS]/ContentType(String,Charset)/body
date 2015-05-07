@@ -1,4 +1,4 @@
 {
   this(contentType,new ArrayList<Pair<String,String>>());
-  parameters.add(new ImmutablePair<>("charset",charset.name()));
+  addParameter("charset",charset.name());
 }

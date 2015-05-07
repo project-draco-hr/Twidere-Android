@@ -2,9 +2,9 @@
   final StringBuilder sb=new StringBuilder(contentType);
   for (  Pair<String,String> parameter : parameters) {
     sb.append("; ");
-    sb.append(parameter.getKey());
+    sb.append(parameter.first);
     sb.append("=");
-    sb.append(parameter.getValue());
+    sb.append(parameter.second);
   }
   return sb.toString();
 }

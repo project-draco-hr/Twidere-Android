@@ -1,0 +1,19 @@
+{
+switch (credentials.auth_type) {
+case TwidereDataStore.Accounts.AUTH_TYPE_OAUTH:
+case TwidereDataStore.Accounts.AUTH_TYPE_XAUTH:
+{
+      return new OAuthAuthorization(credentials.consumer_key,credentials.consumer_secret,new OAuthToken(credentials.oauth_token,credentials.oauth_token_secret));
+    }
+case TwidereDataStore.Accounts.AUTH_TYPE_BASIC:
+{
+    final String screenName=credentials.screen_name;
+    final String username=credentials.basic_auth_username;
+    final String loginName=username != null ? username : screenName;
+    final String password=credentials.basic_auth_password;
+    if (isEmpty(loginName) || isEmpty(password))     return null;
+    return new BasicAuthorization(loginName,password);
+  }
+}
+return new EmptyAuthorization();
+}

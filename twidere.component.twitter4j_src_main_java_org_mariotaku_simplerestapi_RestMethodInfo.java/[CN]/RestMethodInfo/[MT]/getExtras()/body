@@ -6,7 +6,7 @@
     final Object value=entry.getValue();
     if (value instanceof ValueMap) {
       final ValueMap valueMap=(ValueMap)value;
-      for (      String key : extra.value()) {
+      for (      String key : getValueMapKeys(extra.value(),valueMap)) {
         if (valueMap.has(key)) {
           map.put(key,valueMap.get(key));
         }

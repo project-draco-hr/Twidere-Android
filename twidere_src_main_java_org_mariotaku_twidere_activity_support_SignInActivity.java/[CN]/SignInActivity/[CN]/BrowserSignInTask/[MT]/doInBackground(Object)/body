@@ -1,9 +1,10 @@
 {
   try {
-    final Twitter twitter=new TwitterFactory(conf).getInstance();
-    final OAuthToken accessToken=twitter.getAccessToken(new OAuthToken(requestToken,requestTokenSecret),oauthVerifier);
+    final TwitterOAuth oauth=new TwitterFactory(conf).getInstance(new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret()),TwitterOAuth.class);
+    final OAuthToken accessToken=oauth.getAccessToken(new OAuthToken(requestToken,requestTokenSecret),oauthVerifier);
     final long userId=accessToken.getUserId();
     if (userId <= 0)     return new SignInResponse(false,false,null);
+    final Twitter twitter=new TwitterFactory(conf).getInstance(new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret(),accessToken),Twitter.class);
     final User user=twitter.verifyCredentials();
     if (isUserLoggedIn(context,userId))     return new SignInResponse(true,false,null);
     final int color=analyseUserProfileColor(user);

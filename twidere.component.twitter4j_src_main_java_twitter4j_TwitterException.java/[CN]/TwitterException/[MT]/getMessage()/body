@@ -1,5 +1,5 @@
 {
-  if (errorMessage != null && errorCode != -1)   return String.format(Locale.US,"Error %d: %s",errorCode,errorMessage);
+  if (errors != null && errors.length > 0)   return String.format(Locale.US,"Error %d: %s",errors[0].getCode(),errors[0].getMessage());
  else   if (statusCode != -1)   return String.format(Locale.US,"Error %d",statusCode);
  else   return super.getMessage();
 }

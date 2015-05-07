@@ -18,7 +18,7 @@
       segs=Utils.split(string.substring(previousIndex + 1,idx).trim(),"=");
     }
     if (segs.length == 2) {
-      parameters.add(new ImmutablePair<>(segs[0],segs[1]));
+      parameters.add(Pair.create(segs[0],segs[1]));
     }
     if (idx < 0) {
       break;

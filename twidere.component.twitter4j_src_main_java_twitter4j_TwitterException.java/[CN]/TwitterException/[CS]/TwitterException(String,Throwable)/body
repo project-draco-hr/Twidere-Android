@@ -1,4 +1,3 @@
 {
   super(message,cause);
-  decode(message);
 }

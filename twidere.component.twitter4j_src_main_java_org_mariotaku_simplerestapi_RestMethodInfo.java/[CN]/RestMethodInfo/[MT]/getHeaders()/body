@@ -2,18 +2,18 @@
   if (headersCache != null)   return headersCache;
   final ArrayList<Pair<String,String>> list=new ArrayList<>();
   for (  Map.Entry<Header,Object> entry : headers.entrySet()) {
-    final Header form=entry.getKey();
+    final Header header=entry.getKey();
     final Object value=entry.getValue();
     if (value instanceof ValueMap) {
       final ValueMap valueMap=(ValueMap)value;
-      for (      String key : form.value()) {
+      for (      String key : getValueMapKeys(header.value(),valueMap)) {
         if (valueMap.has(key)) {
           list.add(Pair.create(key,String.valueOf(valueMap.get(key))));
         }
       }
     }
  else     if (value != null) {
-      for (      String key : form.value()) {
+      for (      String key : header.value()) {
         list.add(Pair.create(key,String.valueOf(value)));
       }
     }

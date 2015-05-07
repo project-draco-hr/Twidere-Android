@@ -30,7 +30,8 @@
     }
   }
   try {
-    final Twitter twitter=new TwitterFactory(cb.build()).getInstance();
+    final Configuration conf=cb.build();
+    final TwitterOAuth twitter=new TwitterFactory(conf).getInstance(new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret()),TwitterOAuth.class);
     return twitter.getRequestToken(OAUTH_CALLBACK_OOB);
   }
  catch (  final Exception e) {

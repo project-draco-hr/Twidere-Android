@@ -1,6 +1,6 @@
 {
   super.onLoadFinished(loader,data);
-  if (loader instanceof IExtendedLoader && ((IExtendedLoader)loader).isFromUser() && data != null) {
-    mPage++;
+  if (loader instanceof UserSearchLoader) {
+    mPage=((UserSearchLoader)loader).getPage();
   }
 }

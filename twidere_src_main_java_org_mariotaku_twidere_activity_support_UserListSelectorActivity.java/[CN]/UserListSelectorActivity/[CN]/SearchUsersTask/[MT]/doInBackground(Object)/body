@@ -2,7 +2,8 @@
   final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mActivity,mAccountId,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final ResponseList<User> lists=twitter.searchUsers(mName,1);
+    final Paging paging=new Paging();
+    final ResponseList<User> lists=twitter.searchUsers(mName,paging);
     final List<ParcelableUser> data=new ArrayList<>();
     for (    final User item : lists) {
       data.add(new ParcelableUser(item,mAccountId));

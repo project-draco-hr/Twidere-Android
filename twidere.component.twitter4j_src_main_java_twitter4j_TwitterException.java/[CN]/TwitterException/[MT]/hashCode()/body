@@ -1,9 +1,0 @@
-{
-  int result=statusCode;
-  result=31 * result + errorCode;
-  result=31 * result + (exceptionDiagnosis != null ? exceptionDiagnosis.hashCode() : 0);
-  result=31 * result + (response != null ? response.hashCode() : 0);
-  result=31 * result + (errorMessage != null ? errorMessage.hashCode() : 0);
-  result=31 * result + (nested ? 1 : 0);
-  return result;
-}

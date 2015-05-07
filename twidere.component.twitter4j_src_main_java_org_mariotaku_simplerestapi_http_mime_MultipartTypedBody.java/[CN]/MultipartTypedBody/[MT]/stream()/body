@@ -1,3 +1,5 @@
 {
-  return null;
+  final ByteArrayOutputStream os=new ByteArrayOutputStream();
+  writeTo(os);
+  return new ByteArrayInputStream(os.toByteArray());
 }

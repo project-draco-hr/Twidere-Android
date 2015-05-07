@@ -1,0 +1,4 @@
+InputStream stream
+String fileName
+long length
+ContentType contentType

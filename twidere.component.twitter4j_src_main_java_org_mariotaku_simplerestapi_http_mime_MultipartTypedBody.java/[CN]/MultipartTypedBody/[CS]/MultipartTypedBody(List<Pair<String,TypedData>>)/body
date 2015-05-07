@@ -1,3 +1,6 @@
 {
-  this.parts=(parts);
+  this.parts=parts;
+  this.contentType=ContentType.parse("multipart/form-data");
+  boundary=Utils.bytesToHex(UUID.randomUUID().toString().getBytes());
+  contentType.addParameter("boundary",boundary);
 }
