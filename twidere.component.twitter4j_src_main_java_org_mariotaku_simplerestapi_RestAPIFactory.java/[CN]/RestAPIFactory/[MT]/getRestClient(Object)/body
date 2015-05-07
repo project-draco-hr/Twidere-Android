@@ -1,0 +1,5 @@
+{
+  final InvocationHandler handler=Proxy.getInvocationHandler(obj);
+  if (!(handler instanceof RestClient))   throw new IllegalArgumentException();
+  return (RestClient)handler;
+}

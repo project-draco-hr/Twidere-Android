@@ -1,0 +1,3 @@
+{
+  return (int)((resetTimeInSeconds * 1000L - creationTimeInMillis) / 1000);
+}

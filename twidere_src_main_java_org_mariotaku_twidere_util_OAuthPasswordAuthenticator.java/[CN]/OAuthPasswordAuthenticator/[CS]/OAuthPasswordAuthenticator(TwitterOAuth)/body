@@ -1,7 +1,6 @@
 {
-  final InvocationHandler handler=Proxy.getInvocationHandler(oauth);
-  if (!(handler instanceof RestClient))   throw new IllegalArgumentException();
+  final RestClient restClient=RestAPIFactory.getRestClient(oauth);
   this.oauth=oauth;
-  this.client=((RestClient)handler).getRestClient();
-  this.endpoint=((RestClient)handler).getEndpoint();
+  this.client=restClient.getRestClient();
+  this.endpoint=restClient.getEndpoint();
 }

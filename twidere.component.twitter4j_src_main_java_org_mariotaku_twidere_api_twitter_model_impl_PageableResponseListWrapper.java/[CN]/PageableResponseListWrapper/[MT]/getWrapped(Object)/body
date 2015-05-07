@@ -1,0 +1,11 @@
+{
+  final Type[] typeArgs=(Type[])extra;
+  final Class<?> elementType=(Class<?>)typeArgs[0];
+  if (User.class.isAssignableFrom(elementType)) {
+    return new PageableResponseListImpl<>(users);
+  }
+ else   if (Status.class.isAssignableFrom(elementType)) {
+    return new PageableResponseListImpl<>(statuses);
+  }
+  throw new TwitterConverter.UnsupportedTypeException(elementType);
+}

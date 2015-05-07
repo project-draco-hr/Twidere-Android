@@ -4,7 +4,7 @@
     searchScreenName=screenName;
   }
  else   if (id != -1) {
-    searchScreenName=twitter.showFriendship(twitter.getId(),id).getTargetUserScreenName();
+    searchScreenName=twitter.showFriendship(id).getTargetUserScreenName();
   }
  else   throw new IllegalArgumentException();
   final Paging paging=new Paging();

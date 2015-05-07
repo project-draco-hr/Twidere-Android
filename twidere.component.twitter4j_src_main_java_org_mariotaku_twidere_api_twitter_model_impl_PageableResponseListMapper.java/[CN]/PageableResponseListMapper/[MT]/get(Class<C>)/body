@@ -1,0 +1,17 @@
+{
+  @SuppressWarnings("unchecked") final PageableResponseListMapper<C> cache=(PageableResponseListMapper<C>)instanceCache.get(cls);
+  if (cache != null)   return cache;
+  final String listField;
+  if (User.class.isAssignableFrom(cls)) {
+    listField="users";
+  }
+ else   if (Status.class.isAssignableFrom(cls)) {
+    listField="statuses";
+  }
+ else {
+    throw new TwitterConverter.UnsupportedTypeException(cls);
+  }
+  final PageableResponseListMapper<C> created=new PageableResponseListMapper<>(listField,cls);
+  instanceCache.put(cls,created);
+  return created;
+}

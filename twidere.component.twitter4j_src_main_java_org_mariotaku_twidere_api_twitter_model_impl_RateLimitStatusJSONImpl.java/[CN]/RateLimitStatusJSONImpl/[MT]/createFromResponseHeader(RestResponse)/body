@@ -1,0 +1,23 @@
+{
+  if (null == res)   return null;
+  int remainingHits;
+  int limit;
+  int resetTimeInSeconds;
+  final String strLimit=res.getHeader("X-Rate-Limit-Limit");
+  if (strLimit != null) {
+    limit=Integer.parseInt(strLimit);
+  }
+ else   return null;
+  final String remaining=res.getHeader("X-Rate-Limit-Remaining");
+  if (remaining != null) {
+    remainingHits=Integer.parseInt(remaining);
+  }
+ else   return null;
+  final String reset=res.getHeader("X-Rate-Limit-Reset");
+  if (reset != null) {
+    final long longReset=Long.parseLong(reset);
+    resetTimeInSeconds=(int)longReset;
+  }
+ else   return null;
+  return new RateLimitStatusJSONImpl(limit,remainingHits,resetTimeInSeconds);
+}

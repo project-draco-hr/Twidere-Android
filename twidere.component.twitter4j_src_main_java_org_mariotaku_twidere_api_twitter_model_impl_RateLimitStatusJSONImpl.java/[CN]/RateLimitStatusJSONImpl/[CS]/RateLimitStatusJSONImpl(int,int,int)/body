@@ -1,0 +1,6 @@
+{
+  this();
+  this.limit=limit;
+  this.remaining=remaining;
+  this.resetTimeInSeconds=resetTimeInSeconds;
+}

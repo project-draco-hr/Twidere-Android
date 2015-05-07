@@ -16,7 +16,13 @@
   final InputStream stream=body.stream();
   if (type instanceof Class<?>) {
     final Class<?> cls=(Class<?>)type;
-    if (OAuthToken.class.isAssignableFrom(cls)) {
+    final Class<?> wrapperCls=wrapperMap.get(cls);
+    if (wrapperCls != null) {
+      final Wrapper<?> wrapper=(Wrapper<?>)LoganSquare.parse(stream,wrapperCls);
+      wrapper.processResponseHeader(response);
+      return wrapper.getWrapped(null);
+    }
+ else     if (OAuthToken.class.isAssignableFrom(cls)) {
       final ByteArrayOutputStream os=new ByteArrayOutputStream();
       body.writeTo(os);
       Charset charset=contentType != null ? contentType.getCharset() : null;
@@ -30,15 +36,28 @@
         throw new IOException(e);
       }
     }
-    LoganSquare.parse(stream,cls);
+    final Object object=LoganSquare.parse(stream,cls);
+    checkResponse(cls,object,response);
+    if (object instanceof TwitterResponseImpl) {
+      ((TwitterResponseImpl)object).processResponseHeader(response);
+    }
+    return object;
   }
  else   if (type instanceof ParameterizedType) {
     final Type rawType=((ParameterizedType)type).getRawType();
     if (rawType instanceof Class<?>) {
       final Class<?> rawClass=(Class<?>)rawType;
-      if (ResponseList.class.isAssignableFrom(rawClass)) {
+      final Class<?> wrapperCls=wrapperMap.get(rawClass);
+      if (wrapperCls != null) {
+        final Wrapper<?> wrapper=(Wrapper<?>)LoganSquare.parse(stream,wrapperCls);
+        wrapper.processResponseHeader(response);
+        return wrapper.getWrapped(((ParameterizedType)type).getActualTypeArguments());
+      }
+ else       if (ResponseList.class.isAssignableFrom(rawClass)) {
         final Type elementType=((ParameterizedType)type).getActualTypeArguments()[0];
-        return new ResponseListImpl<>(LoganSquare.parseList(stream,(Class<?>)elementType));
+        final ResponseListImpl<?> responseList=new ResponseListImpl<>(LoganSquare.parseList(stream,(Class<?>)elementType));
+        responseList.processResponseHeader(response);
+        return responseList;
       }
     }
   }

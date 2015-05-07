@@ -1,0 +1,7 @@
+{
+  int result=(int)(creationTimeInMillis ^ (creationTimeInMillis >>> 32));
+  result=31 * result + remaining;
+  result=31 * result + limit;
+  result=31 * result + resetTimeInSeconds;
+  return result;
+}

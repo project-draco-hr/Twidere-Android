@@ -1,0 +1,11 @@
+{
+  if (listField.equals(fieldName)) {
+    instance.addAll(LoganSquare.mapperFor(elementType).parseList(jsonParser));
+  }
+ else   if ("previous_cursor".equals(fieldName)) {
+    instance.previousCursor=jsonParser.getValueAsLong(0);
+  }
+ else   if ("next_cursor".equals(fieldName)) {
+    instance.previousCursor=jsonParser.getValueAsLong(0);
+  }
+}
