@@ -10,6 +10,6 @@
   out.writeString(user_name);
   out.writeString(user_screen_name);
   out.writeString(user_profile_image_url);
-  out.writeInt(members_count);
-  out.writeInt(subscribers_count);
+  out.writeLong(members_count);
+  out.writeLong(subscribers_count);
 }

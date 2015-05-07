@@ -10,6 +10,6 @@
   user_name=in.readString();
   user_screen_name=in.readString();
   user_profile_image_url=in.readString();
-  members_count=in.readInt();
-  subscribers_count=in.readInt();
+  members_count=in.readLong();
+  subscribers_count=in.readLong();
 }

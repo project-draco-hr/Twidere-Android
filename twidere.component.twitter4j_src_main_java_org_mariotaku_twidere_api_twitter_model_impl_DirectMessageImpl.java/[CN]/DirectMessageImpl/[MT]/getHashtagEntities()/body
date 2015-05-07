@@ -1,0 +1,4 @@
+{
+  if (entities == null)   return null;
+  return entities.getHashtags();
+}
