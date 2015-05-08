@@ -1,6 +1,8 @@
 {
   if (twitter == null)   return null;
-  if (mUserId > 0)   return twitter.getUserListMemberships(mUserId,getCursor());
- else   if (mScreenName != null)   return twitter.getUserListMemberships(mScreenName,getCursor());
+  final Paging paging=new Paging();
+  paging.cursor(getCursor());
+  if (mUserId > 0)   return twitter.getUserListMemberships(mUserId,paging);
+ else   if (mScreenName != null)   return twitter.getUserListMemberships(mScreenName,paging);
   return null;
 }
