@@ -5,7 +5,7 @@
   if (isTwitterAuthRequired(uri) && extras instanceof AccountExtra) {
     final AccountExtra accountExtra=(AccountExtra)extras;
     account=ParcelableAccount.getCredentials(mContext,accountExtra.account_id);
-    auth=Utils.getTwitterAuthorization(mContext,accountExtra.account_id);
+    auth=TwitterAPIUtils.getAuthorization(account);
   }
  else {
     account=null;
@@ -19,7 +19,9 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
     additionalHeaders.add(Pair.create("Accept","image/webp, */*"));
   }
-  final RestResponse resp=TwitterAPIUtils.getRedirectedHttpResponse(mClient,modifiedUri,uriString,auth,additionalHeaders);
+  if (auth != null && auth.hasAuthorization()) {
+  }
+  final RestResponse resp=mClient.execute(new RestRequest.Builder().method(GET.METHOD).url(modifiedUri).headers(additionalHeaders).build());
   final TypedData body=resp.getBody();
   return new ContentLengthInputStream(body.stream(),(int)body.length());
 }

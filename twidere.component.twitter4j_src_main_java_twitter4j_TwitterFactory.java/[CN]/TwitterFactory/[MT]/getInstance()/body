@@ -1,3 +1,0 @@
-{
-  return getInstance(new OAuthToken(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret()));
-}

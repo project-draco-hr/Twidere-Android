@@ -1,0 +1,3 @@
+{
+  return getInstance(context,endpoint,getAuthorization(credentials),cls);
+}

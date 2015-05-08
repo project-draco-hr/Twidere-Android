@@ -25,8 +25,7 @@
     return converter.convert(response,method.getGenericReturnType());
   }
  catch (  IOException e) {
-    final RestException re=new RestException(e);
-    re.setResponse(response);
+    final Exception re=exceptionFactory.newException(e,response);
     if (parameterTypes.length > 0) {
       final Class<?> lastParameterType=parameterTypes[parameterTypes.length - 1];
       if (ErrorCallback.class.isAssignableFrom(lastParameterType)) {

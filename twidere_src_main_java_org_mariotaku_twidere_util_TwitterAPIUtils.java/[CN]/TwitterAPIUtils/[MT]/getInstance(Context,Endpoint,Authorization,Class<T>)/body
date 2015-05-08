@@ -1,0 +1,44 @@
+{
+  final RestAPIFactory factory=new RestAPIFactory();
+  final String userAgent;
+  if (auth instanceof OAuthAuthorization) {
+    final String consumerKey=((OAuthAuthorization)auth).getConsumerKey();
+    final String consumerSecret=((OAuthAuthorization)auth).getConsumerSecret();
+    final ConsumerKeyType officialKeyType=TwitterContentUtils.getOfficialKeyType(context,consumerKey,consumerSecret);
+    if (officialKeyType != ConsumerKeyType.UNKNOWN) {
+      userAgent=Utils.getUserAgentName(officialKeyType);
+    }
+ else {
+      userAgent=Utils.getTwidereUserAgent(context);
+    }
+  }
+ else {
+    userAgent=Utils.getTwidereUserAgent(context);
+  }
+  factory.setClient(getDefaultHttpClient(context));
+  factory.setConverter(new TwitterConverter());
+  factory.setEndpoint(endpoint);
+  factory.setAuthorization(auth);
+  factory.setRequestFactory(new RestRequest.Factory(){
+    @Override public RestRequest create(    @NonNull Endpoint endpoint,    @NonNull RestMethodInfo info,    @Nullable Authorization authorization){
+      final RestMethod restMethod=info.getMethod();
+      final String url=Endpoint.constructUrl(endpoint.getUrl(),info);
+      final ArrayList<Pair<String,String>> headers=new ArrayList<>(info.getHeaders());
+      if (authorization != null && authorization.hasAuthorization()) {
+        headers.add(Pair.create("Authorization",authorization.getHeader(endpoint,info)));
+      }
+      headers.add(Pair.create("User-Agent",userAgent));
+      return new RestRequest(restMethod.value(),url,headers,info.getBody(),null);
+    }
+  }
+);
+  factory.setExceptionFactory(new RestAPIFactory.ExceptionFactory(){
+    @Override public Exception newException(    Throwable cause,    RestResponse response){
+      final TwitterException te=new TwitterException(cause);
+      te.setResponse(response);
+      return te;
+    }
+  }
+);
+  return factory.build(cls);
+}

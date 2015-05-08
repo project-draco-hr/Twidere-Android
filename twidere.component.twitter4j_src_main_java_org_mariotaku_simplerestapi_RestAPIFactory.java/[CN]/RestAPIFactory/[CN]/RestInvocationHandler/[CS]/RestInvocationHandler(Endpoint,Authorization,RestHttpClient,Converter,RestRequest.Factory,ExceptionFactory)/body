@@ -1,0 +1,8 @@
+{
+  this.endpoint=endpoint;
+  this.authorization=authorization;
+  this.restClient=restClient;
+  this.converter=converter;
+  this.requestFactory=requestFactory != null ? requestFactory : new RestRequest.DefaultFactory();
+  this.exceptionFactory=exceptionFactory != null ? exceptionFactory : new DefaultExceptionFactory();
+}

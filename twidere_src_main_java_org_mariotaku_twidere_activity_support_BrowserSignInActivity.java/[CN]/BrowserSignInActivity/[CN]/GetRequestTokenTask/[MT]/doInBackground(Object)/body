@@ -6,7 +6,6 @@
   final String consumerKey=getNonEmptyString(mPreferences,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);
   final String consumerSecret=getNonEmptyString(mPreferences,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET);
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(mApplication));
-  Utils.setClientUserAgent(mActivity,consumerKey,consumerSecret,cb);
   cb.setRestBaseURL(DEFAULT_REST_BASE_URL);
   cb.setOAuthBaseURL(DEFAULT_OAUTH_BASE_URL);
   cb.setSigningRestBaseURL(DEFAULT_SIGNING_REST_BASE_URL);
@@ -31,7 +30,9 @@
   }
   try {
     final Configuration conf=cb.build();
-    final TwitterOAuth twitter=new TwitterFactory(conf).getInstance(new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret()),TwitterOAuth.class);
+    final Endpoint endpoint=new Endpoint(DEFAULT_OAUTH_BASE_URL);
+    final Authorization auth=new OAuthAuthorization(conf.getOAuthConsumerKey(),conf.getOAuthConsumerSecret());
+    final TwitterOAuth twitter=TwitterAPIUtils.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
     return twitter.getRequestToken(OAUTH_CALLBACK_OOB);
   }
  catch (  final Exception e) {

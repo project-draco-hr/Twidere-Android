@@ -1,0 +1,4 @@
+Context context
+Endpoint endpoint
+ParcelableAccount.ParcelableCredentials credentials
+Class<T> cls

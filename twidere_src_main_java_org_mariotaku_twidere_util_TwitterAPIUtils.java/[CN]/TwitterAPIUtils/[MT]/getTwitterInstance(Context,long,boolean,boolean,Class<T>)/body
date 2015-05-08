@@ -2,6 +2,38 @@
   if (context == null)   return null;
   final ParcelableAccount.ParcelableCredentials credentials=ParcelableAccount.ParcelableCredentials.getCredentials(context,accountId);
   if (credentials == null)   return null;
-  final Configuration conf=getConfiguration(context,includeEntities,includeRetweets,credentials);
-  return new TwitterFactory(conf).getInstance(getAuthorization(credentials),cls);
+  final String apiUrlFormat;
+  final boolean sameOAuthSigningUrl=credentials.same_oauth_signing_url;
+  final boolean noVersionSuffix=credentials.no_version_suffix;
+  final String endpointUrl, signEndpointUrl;
+  if (!isEmpty(credentials.api_url_format)) {
+    apiUrlFormat=credentials.api_url_format;
+  }
+ else {
+    apiUrlFormat=DEFAULT_TWITTER_API_URL_FORMAT;
+  }
+  final String domain, versionSuffix;
+  if (Twitter.class.isAssignableFrom(cls)) {
+    domain="api";
+    versionSuffix=noVersionSuffix ? null : "/1.1/";
+  }
+ else   if (TwitterUpload.class.isAssignableFrom(cls)) {
+    domain="upload";
+    versionSuffix=noVersionSuffix ? null : "/1.1/";
+  }
+ else   if (TwitterOAuth.class.isAssignableFrom(cls)) {
+    domain="api";
+    versionSuffix="oauth";
+  }
+ else {
+    throw new TwitterConverter.UnsupportedTypeException(cls);
+  }
+  endpointUrl=Utils.getApiUrl(apiUrlFormat,domain,versionSuffix);
+  if (!sameOAuthSigningUrl) {
+    signEndpointUrl=Utils.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,domain,versionSuffix);
+  }
+ else {
+    signEndpointUrl=endpointUrl;
+  }
+  return getInstance(context,new OAuthEndpoint(endpointUrl,signEndpointUrl),credentials,cls);
 }

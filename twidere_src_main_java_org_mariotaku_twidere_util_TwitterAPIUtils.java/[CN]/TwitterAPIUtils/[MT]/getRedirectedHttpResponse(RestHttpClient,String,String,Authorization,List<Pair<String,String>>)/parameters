@@ -1,5 +1,0 @@
-RestHttpClient client
-String url
-String signUrl
-Authorization auth
-List<Pair<String,String>> additionalHeaders

@@ -1,0 +1,5 @@
+{
+  final RestException e=new RestException(cause);
+  e.setResponse(response);
+  return e;
+}
