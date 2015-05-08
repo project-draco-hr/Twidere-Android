@@ -1,4 +1,0 @@
-{
-  statusId=InternalParseUtil.getLong("id",status);
-  userId=InternalParseUtil.getLong("user_id",status);
-}

@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return getCountStream("statuses/firehose.json",count);
-}

@@ -1,5 +1,0 @@
-{
-  super(source);
-  this.rateLimitStatus=rateLimitStatus;
-  this.isAccountRateLimitStatus=isAccountRateLimitStatus;
-}

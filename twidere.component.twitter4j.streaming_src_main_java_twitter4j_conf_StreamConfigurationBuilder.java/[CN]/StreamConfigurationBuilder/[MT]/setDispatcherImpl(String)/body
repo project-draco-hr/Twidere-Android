@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setDispatcherImpl(dispatcherImpl);
-  return this;
-}

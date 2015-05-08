@@ -1,3 +1,0 @@
-{
-  if (statusListeners.size() == 0 && rawStreamListeners.size() == 0)   throw new IllegalStateException("StatusListener is not set.");
-}

@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((UserStreamListener)listener).onUserListUpdate(asUser(source),asUserList(target));
-  }
-}

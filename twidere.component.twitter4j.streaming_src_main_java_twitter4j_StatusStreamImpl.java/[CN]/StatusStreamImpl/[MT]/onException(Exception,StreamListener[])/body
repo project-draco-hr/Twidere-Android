@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    listener.onException(e);
-  }
-}

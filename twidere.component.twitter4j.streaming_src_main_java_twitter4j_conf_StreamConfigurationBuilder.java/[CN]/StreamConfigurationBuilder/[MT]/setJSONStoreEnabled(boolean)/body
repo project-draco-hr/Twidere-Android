@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setJSONStoreEnabled(enabled);
-  return this;
-}

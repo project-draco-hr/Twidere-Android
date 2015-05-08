@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setPassword(password);
-  return this;
-}

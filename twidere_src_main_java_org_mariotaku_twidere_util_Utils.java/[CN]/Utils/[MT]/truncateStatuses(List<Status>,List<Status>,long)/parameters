@@ -1,0 +1,3 @@
+List<Status> in
+List<Status> out
+long sinceId

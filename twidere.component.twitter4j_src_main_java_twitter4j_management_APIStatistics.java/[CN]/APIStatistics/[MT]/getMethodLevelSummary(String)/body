@@ -1,3 +1,0 @@
-{
-  return METHOD_STATS_MAP.get(methodName).toString();
-}

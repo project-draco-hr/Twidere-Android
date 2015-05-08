@@ -1,2 +1,0 @@
-List<StreamListener> streamListeners
-List<RawStreamListener> rawStreamListeners

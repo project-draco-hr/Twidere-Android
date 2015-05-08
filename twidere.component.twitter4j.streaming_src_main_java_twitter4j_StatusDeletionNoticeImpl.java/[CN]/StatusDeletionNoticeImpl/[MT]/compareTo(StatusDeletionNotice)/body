@@ -1,6 +1,0 @@
-{
-  final long delta=statusId - that.getStatusId();
-  if (delta < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
- else   if (delta > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
-  return (int)delta;
-}

@@ -1,4 +1,0 @@
-{
-  dispatcherImpl=conf.getDispatcherImpl();
-  this.conf=conf;
-}

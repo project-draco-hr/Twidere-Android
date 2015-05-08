@@ -1,0 +1,10 @@
+{
+  if (in == null)   return false;
+  for (  final Status status : in) {
+    if (sinceId > 0 && status.getId() <= sinceId) {
+      continue;
+    }
+    out.add(status);
+  }
+  return in.size() != out.size();
+}

@@ -1,0 +1,9 @@
+{
+  try {
+    return resolveInternal(host,host);
+  }
+ catch (  IOException e) {
+    if (e instanceof UnknownHostException)     throw (UnknownHostException)e;
+    throw new UnknownHostException("Unable to resolve address " + e.getMessage());
+  }
+}

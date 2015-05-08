@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((StatusListener)listener).onTrackLimitationNotice(InternalParseUtil.getInt("track",json.getJSONObject("limit")));
-  }
-}

@@ -1,4 +1,0 @@
-{
-  if (text == null || regex == null || replacement == null)   return text;
-  return text.replaceFirst("(?s)" + regex + "(?!.*?"+ regex+ ")",replacement);
-}

@@ -1,4 +1,0 @@
-{
-  super(dispatcher,response,conf);
-  this.cs=cs;
-}

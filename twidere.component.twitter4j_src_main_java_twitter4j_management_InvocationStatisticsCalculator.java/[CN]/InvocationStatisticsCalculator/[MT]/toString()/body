@@ -1,5 +1,0 @@
-{
-  final StringBuffer sb=new StringBuffer();
-  sb.append("calls=").append(getCallCount()).append(",").append("errors=").append(getErrorCount()).append(",").append("totalTime=").append(getTotalTime()).append(",").append("avgTime=").append(getAverageTime());
-  return sb.toString();
-}

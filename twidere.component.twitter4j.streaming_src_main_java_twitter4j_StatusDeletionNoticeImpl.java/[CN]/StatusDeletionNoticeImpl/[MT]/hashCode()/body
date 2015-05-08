@@ -1,5 +1,0 @@
-{
-  int result=(int)(statusId ^ statusId >>> 32);
-  result=31 * result + (int)(userId ^ userId >>> 32);
-  return result;
-}

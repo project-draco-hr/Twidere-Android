@@ -1,5 +1,0 @@
-{
-  if (isWarnEnabled()) {
-    Log.w(logTag,message + message2);
-  }
-}

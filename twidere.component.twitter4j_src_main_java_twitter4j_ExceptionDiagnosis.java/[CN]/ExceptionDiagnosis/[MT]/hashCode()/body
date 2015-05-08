@@ -1,5 +1,0 @@
-{
-  int result=stackLineHash;
-  result=31 * result + lineNumberHash;
-  return result;
-}

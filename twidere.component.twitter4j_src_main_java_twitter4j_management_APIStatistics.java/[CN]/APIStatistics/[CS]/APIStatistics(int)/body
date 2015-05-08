@@ -1,5 +1,0 @@
-{
-  API_STATS_CALCULATOR=new InvocationStatisticsCalculator("API",historySize);
-  METHOD_STATS_MAP=new HashMap<String,InvocationStatisticsCalculator>(100);
-  HISTORY_SIZE=historySize;
-}

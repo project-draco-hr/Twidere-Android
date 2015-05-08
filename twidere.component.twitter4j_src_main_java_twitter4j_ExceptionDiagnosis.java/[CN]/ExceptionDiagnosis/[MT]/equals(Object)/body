@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  final ExceptionDiagnosis that=(ExceptionDiagnosis)o;
-  if (lineNumberHash != that.lineNumberHash)   return false;
-  if (stackLineHash != that.stackLineHash)   return false;
-  return true;
-}

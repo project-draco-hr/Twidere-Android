@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setSigningRestBaseURL(signingRestBaseURL);
-  return this;
-}

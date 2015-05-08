@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((UserStreamListener)listener).onUserListUnsubscription(asUser(source),asUser(owner),asUserList(target));
-  }
-}

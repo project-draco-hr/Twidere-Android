@@ -13,18 +13,6 @@
   if (enableProxy) {
     client.setProxy(getProxy(prefs));
   }
-  final HostAddressResolver resolver=TwidereApplication.getInstance(context).getHostAddressResolver();
-  Internal.instance.setNetwork(client,new Network(){
-    @Override public InetAddress[] resolveInetAddresses(    String host) throws UnknownHostException {
-      try {
-        return resolver.resolve(host);
-      }
- catch (      IOException e) {
-        if (e instanceof UnknownHostException)         throw (UnknownHostException)e;
-        throw new UnknownHostException("Unable to resolve address " + e.getMessage());
-      }
-    }
-  }
-);
+  Internal.instance.setNetwork(client,TwidereApplication.getInstance(context).getNetwork());
   return new OkHttpRestClient(client);
 }

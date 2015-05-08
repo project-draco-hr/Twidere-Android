@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((SiteStreamsListener)listener).onUserProfileUpdate(forUser.get(),asUser(source));
-  }
-}

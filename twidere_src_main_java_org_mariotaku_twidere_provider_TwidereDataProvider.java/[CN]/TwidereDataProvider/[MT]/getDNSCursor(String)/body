@@ -1,7 +1,7 @@
 {
   final MatrixCursor c=new MatrixCursor(TwidereDataStore.DNS.MATRIX_COLUMNS);
   try {
-    final InetAddress[] addresses=mHostAddressResolver.resolve(host);
+    final InetAddress[] addresses=mNetwork.resolveInetAddresses(host);
     for (    InetAddress address : addresses) {
       c.addRow(new String[]{host,address.getHostAddress()});
     }

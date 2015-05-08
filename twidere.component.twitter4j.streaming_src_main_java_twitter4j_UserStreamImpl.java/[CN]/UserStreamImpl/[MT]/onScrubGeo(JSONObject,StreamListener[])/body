@@ -1,3 +1,0 @@
-{
-  logger.info("Geo-tagging deletion notice (not implemented yet): " + line);
-}

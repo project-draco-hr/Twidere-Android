@@ -1,6 +1,0 @@
-{
-  final JSONObject warning=json.getJSONObject("warning");
-  code=getRawString("code",warning);
-  message=getRawString("message",warning);
-  percentFull=getInt("percent_full",warning);
-}

@@ -1,7 +1,0 @@
-{
-  if (isNullOrEmpty(siteStreamBaseURL)) {
-    siteStreamBaseURL=DEFAULT_SITE_STREAM_BASE_URL;
-  }
-  this.siteStreamBaseURL=fixURLSlash(siteStreamBaseURL);
-  fixSiteStreamBaseURL();
-}

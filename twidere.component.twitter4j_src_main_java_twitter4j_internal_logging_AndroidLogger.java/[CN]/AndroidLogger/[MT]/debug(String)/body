@@ -1,5 +1,0 @@
-{
-  if (isDebugEnabled()) {
-    Log.d(logTag,message);
-  }
-}

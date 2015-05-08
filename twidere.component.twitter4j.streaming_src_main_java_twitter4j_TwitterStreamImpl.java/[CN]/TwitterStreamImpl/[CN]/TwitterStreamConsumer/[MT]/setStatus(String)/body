@@ -1,5 +1,0 @@
-{
-  final String actualMessage=NAME + message;
-  setName(actualMessage);
-  logger.debug(actualMessage);
-}

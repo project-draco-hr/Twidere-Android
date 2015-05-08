@@ -1,7 +1,0 @@
-{
-  is=stream;
-  br=new BufferedReader(new InputStreamReader(stream,"UTF-8"));
-  this.dispatcher=dispatcher;
-  CONF=conf;
-  factory=new InternalJSONFactoryImpl(conf);
-}

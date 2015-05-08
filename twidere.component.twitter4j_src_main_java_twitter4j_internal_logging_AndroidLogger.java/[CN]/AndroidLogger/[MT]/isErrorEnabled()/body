@@ -1,3 +1,0 @@
-{
-  return Log.isLoggable(DEFAULT_LOGTAG,Log.ERROR);
-}

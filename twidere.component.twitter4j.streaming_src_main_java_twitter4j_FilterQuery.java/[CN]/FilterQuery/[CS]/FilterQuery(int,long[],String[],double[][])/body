@@ -1,6 +1,0 @@
-{
-  this.count=count;
-  this.follow=follow;
-  this.track=track;
-  this.locations=locations;
-}

@@ -1,3 +1,0 @@
-{
-  return "ExceptionDiagnosis{" + "stackLineHash=" + stackLineHash + ", lineNumberHash="+ lineNumberHash+ '}';
-}

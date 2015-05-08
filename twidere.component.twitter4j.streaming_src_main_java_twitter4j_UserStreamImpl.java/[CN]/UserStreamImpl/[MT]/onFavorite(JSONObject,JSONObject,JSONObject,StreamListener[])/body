@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((UserStreamListener)listener).onFavorite(asUser(source),asUser(target),asStatus(targetObject));
-  }
-}

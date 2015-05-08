@@ -1,7 +1,0 @@
-{
-  final UserList userList=factory.createAUserList(json);
-  if (CONF.isJSONStoreEnabled()) {
-    DataObjectFactoryUtil.registerJSONObject(userList,json);
-  }
-  return userList;
-}

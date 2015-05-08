@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpConnectionTimeout(httpConnectionTimeout);
-  return this;
-}

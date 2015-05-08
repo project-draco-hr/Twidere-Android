@@ -1,4 +1,0 @@
-{
-  ensureAuthorizationEnabled();
-  return getCountStream("statuses/links.json",count);
-}

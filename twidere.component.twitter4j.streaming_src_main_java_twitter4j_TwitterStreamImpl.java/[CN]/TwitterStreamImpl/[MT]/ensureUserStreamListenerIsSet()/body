@@ -1,3 +1,0 @@
-{
-  if (userStreamListeners.size() == 0 && rawStreamListeners.size() == 0)   throw new IllegalStateException("UserStreamListener is not set.");
-}

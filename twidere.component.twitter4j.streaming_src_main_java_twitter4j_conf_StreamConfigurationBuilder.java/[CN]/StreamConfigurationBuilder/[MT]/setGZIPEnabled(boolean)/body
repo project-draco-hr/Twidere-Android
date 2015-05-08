@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setGZIPEnabled(gzipEnabled);
-  return this;
-}

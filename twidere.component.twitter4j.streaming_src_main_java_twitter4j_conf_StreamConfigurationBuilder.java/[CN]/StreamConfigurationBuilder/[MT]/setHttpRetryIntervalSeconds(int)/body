@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpRetryIntervalSeconds(httpRetryIntervalSeconds);
-  return this;
-}

@@ -44,7 +44,7 @@
   int minIdx=-1;
   int rowsDeleted=0;
   for (int i=0, j=statuses.size(); i < j; i++) {
-    final twitter4j.Status status=statuses.get(i);
+    final Status status=statuses.get(i);
     final long id=status.getId();
     if (minId == -1 || id < minId) {
       minId=id;

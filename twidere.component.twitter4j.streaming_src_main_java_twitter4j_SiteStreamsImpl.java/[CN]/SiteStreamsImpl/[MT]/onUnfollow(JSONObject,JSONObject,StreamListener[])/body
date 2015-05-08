@@ -1,5 +1,0 @@
-{
-  for (  final StreamListener listener : listeners) {
-    ((SiteStreamsListener)listener).onUnfollow(forUser.get(),asUser(source),asUser(target));
-  }
-}

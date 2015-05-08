@@ -1,7 +1,0 @@
-{
-  final Matcher matcher=pattern.matcher(twitterUrl);
-  if (matcher.matches() && matcher.groupCount() > 0) {
-    final String method=matcher.group();
-    STATISTICS.methodCalled(method,elapsedTime,success);
-  }
-}

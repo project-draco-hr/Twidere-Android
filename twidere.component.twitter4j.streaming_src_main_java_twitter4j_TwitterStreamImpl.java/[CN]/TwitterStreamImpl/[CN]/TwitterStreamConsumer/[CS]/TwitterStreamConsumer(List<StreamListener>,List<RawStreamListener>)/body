@@ -1,6 +1,0 @@
-{
-  super();
-  setName(NAME + "[initializing]");
-  this.streamListeners=streamListeners.toArray(new StreamListener[streamListeners.size()]);
-  this.rawStreamListeners=rawStreamListeners.toArray(new RawStreamListener[rawStreamListeners.size()]);
-}

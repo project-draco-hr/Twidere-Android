@@ -1,3 +1,0 @@
-{
-  return "StallWarning{" + "code='" + code + '\''+ ", message='"+ message+ '\''+ ", percentFull="+ percentFull+ '}';
-}

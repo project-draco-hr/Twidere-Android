@@ -1,3 +1,0 @@
-{
-  return resolveInternal(host,host);
-}

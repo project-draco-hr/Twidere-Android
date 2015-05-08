@@ -1,8 +1,0 @@
-{
-  final Map<String,String> summariesMap=new HashMap<String,String>();
-  final Collection<InvocationStatisticsCalculator> allMethodStats=METHOD_STATS_MAP.values();
-  for (  final InvocationStatisticsCalculator methodStats : allMethodStats) {
-    summariesMap.put(methodStats.getName(),methodStats.toString());
-  }
-  return summariesMap;
-}

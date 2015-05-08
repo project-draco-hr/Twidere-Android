@@ -1,4 +1,0 @@
-{
-  rawJsonMap.get().put(key,json);
-  return key;
-}

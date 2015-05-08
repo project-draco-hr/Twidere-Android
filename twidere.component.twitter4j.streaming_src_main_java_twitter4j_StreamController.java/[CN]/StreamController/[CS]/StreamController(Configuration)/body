@@ -1,4 +1,0 @@
-{
-  HTTP=new HttpClientWrapper(conf);
-  AUTH=AuthorizationFactory.getInstance(conf);
-}

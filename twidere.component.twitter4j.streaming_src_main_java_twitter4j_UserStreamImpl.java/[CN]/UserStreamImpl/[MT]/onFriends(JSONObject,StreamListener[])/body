@@ -1,6 +1,0 @@
-{
-  final long[] friendIds=asFriendList(json);
-  for (  final StreamListener listener : listeners) {
-    ((UserStreamListener)listener).onFriendList(friendIds);
-  }
-}

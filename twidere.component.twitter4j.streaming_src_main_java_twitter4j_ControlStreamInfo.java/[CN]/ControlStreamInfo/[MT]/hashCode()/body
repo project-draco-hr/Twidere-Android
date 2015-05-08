@@ -1,8 +1,0 @@
-{
-  int result=users != null ? Arrays.hashCode(users) : 0;
-  result=31 * result + (includeFollowingsActivity ? 1 : 0);
-  result=31 * result + (includeUserChanges ? 1 : 0);
-  result=31 * result + (replies != null ? replies.hashCode() : 0);
-  result=31 * result + (with != null ? with.hashCode() : 0);
-  return result;
-}

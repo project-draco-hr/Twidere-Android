@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  final User user=(User)o;
-  if (dm != user.dm)   return false;
-  if (id != user.id)   return false;
-  if (name != null ? !name.equals(user.name) : user.name != null)   return false;
-  return true;
-}

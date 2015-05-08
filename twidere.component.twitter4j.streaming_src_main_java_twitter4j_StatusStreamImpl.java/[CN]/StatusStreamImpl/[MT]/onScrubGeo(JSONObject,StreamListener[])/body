@@ -1,6 +1,0 @@
-{
-  final JSONObject scrubGeo=json.getJSONObject("scrub_geo");
-  for (  final StreamListener listener : listeners) {
-    ((StatusListener)listener).onScrubGeo(InternalParseUtil.getLong("user_id",scrubGeo),InternalParseUtil.getLong("up_to_status_id",scrubGeo));
-  }
-}

@@ -1,7 +1,0 @@
-{
-  final Status status=factory.createStatus(json);
-  if (CONF.isJSONStoreEnabled()) {
-    DataObjectFactoryUtil.registerJSONObject(status,json);
-  }
-  return status;
-}

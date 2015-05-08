@@ -1,3 +1,0 @@
-{
-  return "TwitterStreamImpl{http=" + http + ", conf="+ conf+ ", lifeCycleListeners="+ lifeCycleListeners+ ", handler="+ handler+ ", STALL_WARNINGS="+ STALL_WARNINGS+ ", userStreamListeners="+ userStreamListeners+ ", statusListeners="+ statusListeners+ ", siteStreamsListeners="+ siteStreamsListeners+ ", rawStreamListeners="+ rawStreamListeners+ "}";
-}

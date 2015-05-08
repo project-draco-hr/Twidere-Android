@@ -1,9 +1,0 @@
-{
-  if (DEFAULT_STREAM_BASE_URL.equals(fixURL(DEFAULT_USE_SSL,streamBaseURL))) {
-    streamBaseURL=fixURL(isSSLEnabled(),streamBaseURL);
-  }
-  if (streamBaseURL != null && streamBaseURL.equals(fixURL(DEFAULT_USE_SSL,streamBaseURL))) {
-    streamBaseURL=fixURL(isSSLEnabled(),streamBaseURL);
-  }
-  initRequestHeaders();
-}

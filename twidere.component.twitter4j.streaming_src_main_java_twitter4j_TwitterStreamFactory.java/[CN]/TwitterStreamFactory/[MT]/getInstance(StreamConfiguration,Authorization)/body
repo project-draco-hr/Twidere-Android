@@ -1,3 +1,0 @@
-{
-  return new TwitterStreamImpl(conf,auth);
-}

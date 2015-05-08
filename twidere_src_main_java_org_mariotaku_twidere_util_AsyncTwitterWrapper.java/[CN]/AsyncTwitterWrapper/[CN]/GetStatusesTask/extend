@@ -1,1 +1,1 @@
-ManagedAsyncTask<Object,TwitterListResponse<twitter4j.Status>,List<StatusListResponse>>
+ManagedAsyncTask<Object,TwitterListResponse<Status>,List<StatusListResponse>>

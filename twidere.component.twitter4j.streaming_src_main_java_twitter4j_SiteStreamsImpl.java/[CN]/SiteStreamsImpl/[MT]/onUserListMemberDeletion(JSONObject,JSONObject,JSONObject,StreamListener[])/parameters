@@ -1,4 +1,0 @@
-JSONObject deletedMember
-JSONObject owner
-JSONObject userList
-StreamListener[] listeners

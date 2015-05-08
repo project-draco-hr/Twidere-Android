@@ -1,7 +1,0 @@
-{
-  if (isNullOrEmpty(streamBaseURL)) {
-    streamBaseURL=DEFAULT_STREAM_BASE_URL;
-  }
-  this.streamBaseURL=fixURLSlash(streamBaseURL);
-  fixStreamBaseURL();
-}

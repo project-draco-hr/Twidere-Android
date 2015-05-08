@@ -1,6 +1,0 @@
-{
-  final DirectMessage directMessage=asDirectMessage(json);
-  for (  final StreamListener listener : listeners) {
-    ((UserStreamListener)listener).onDirectMessage(directMessage);
-  }
-}

@@ -1,5 +1,0 @@
-long accountId
-List<twitter4j.Status> statuses
-long maxId
-boolean truncated
-boolean notify

@@ -1,4 +1,0 @@
-{
-  API_STATS_CALCULATOR.reset();
-  METHOD_STATS_MAP.clear();
-}
