@@ -17,8 +17,8 @@
     cb.setSigningUploadBaseURL(DEFAULT_SIGNING_UPLOAD_BASE_URL);
   }
   if (isEmpty(mConsumerKey) || isEmpty(mConsumerSecret)) {
-    cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY_3);
-    cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET_3);
+    cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
+    cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
   }
  else {
     cb.setOAuthConsumerKey(mConsumerKey);

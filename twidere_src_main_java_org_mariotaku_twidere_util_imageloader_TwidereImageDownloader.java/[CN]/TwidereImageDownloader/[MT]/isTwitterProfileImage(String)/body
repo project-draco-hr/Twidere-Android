@@ -1,4 +1,4 @@
 {
   if (TextUtils.isEmpty(uriString))   return false;
-  return PATTERN_TWITTER_PROFILE_IMAGES.matcher(uriString).matches();
+  return TwidereLinkify.PATTERN_TWITTER_PROFILE_IMAGES.matcher(uriString).matches();
 }

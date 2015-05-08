@@ -1,13 +1,13 @@
 {
   final TwidereApplication app=TwidereApplication.getInstance(context);
   final SharedPreferences prefs=context.getSharedPreferences(TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final int connection_timeout=prefs.getInt(SharedPreferenceConstants.KEY_CONNECTION_TIMEOUT,10) * 1000;
+  final int connectionTimeout=prefs.getInt(SharedPreferenceConstants.KEY_CONNECTION_TIMEOUT,10) * 1000;
   final boolean enableGzip=prefs.getBoolean(SharedPreferenceConstants.KEY_GZIP_COMPRESSING,true);
   final boolean ignoreSslError=prefs.getBoolean(SharedPreferenceConstants.KEY_IGNORE_SSL_ERROR,false);
   final boolean enableProxy=prefs.getBoolean(SharedPreferenceConstants.KEY_ENABLE_PROXY,false);
   final ConfigurationBuilder cb=new ConfigurationBuilder();
   cb.setHostAddressResolverFactory(new TwidereHostResolverFactory(app));
-  cb.setHttpConnectionTimeout(connection_timeout);
+  cb.setHttpConnectionTimeout(connectionTimeout);
   cb.setGZIPEnabled(enableGzip);
   cb.setIgnoreSSLError(ignoreSslError);
   cb.setIncludeCards(true);

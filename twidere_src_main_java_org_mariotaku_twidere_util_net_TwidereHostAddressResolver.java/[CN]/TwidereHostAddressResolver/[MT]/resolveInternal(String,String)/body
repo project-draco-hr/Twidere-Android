@@ -1,11 +1,11 @@
 {
   if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
-  if (mHostCache.containsKey(host)) {
-    final InetAddress[] hostAddr=mHostCache.get(host);
+  final InetAddress[] cachedHostAddr=mHostCache.get(host);
+  if (cachedHostAddr != null) {
     if (Utils.isDebugBuild()) {
-      Log.d(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(hostAddr));
+      Log.d(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(cachedHostAddr));
+      return cachedHostAddr;
     }
-    return hostAddr;
   }
   if (mHostMapping.contains(host)) {
     final String mappedAddr=mHostMapping.getString(host,null);

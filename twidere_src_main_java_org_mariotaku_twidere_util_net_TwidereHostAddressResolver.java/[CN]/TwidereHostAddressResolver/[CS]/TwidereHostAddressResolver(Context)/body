@@ -1,3 +1,6 @@
 {
-  this(context,false);
+  mHostMapping=context.getSharedPreferences(HOST_MAPPING_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mPreferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final String address=mPreferences.getString(KEY_DNS_SERVER,DEFAULT_DNS_SERVER_ADDRESS);
+  mDnsAddress=isValidIpAddress(address) ? address : DEFAULT_DNS_SERVER_ADDRESS;
 }

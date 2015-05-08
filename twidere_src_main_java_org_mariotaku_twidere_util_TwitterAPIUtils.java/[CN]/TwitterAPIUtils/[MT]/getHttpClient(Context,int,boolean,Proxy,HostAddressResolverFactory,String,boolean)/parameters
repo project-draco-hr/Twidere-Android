@@ -1,7 +1,0 @@
-Context context
-int timeoutMillis
-boolean ignoreSslError
-Proxy proxy
-HostAddressResolverFactory resolverFactory
-String userAgent
-boolean twitterClientHeader

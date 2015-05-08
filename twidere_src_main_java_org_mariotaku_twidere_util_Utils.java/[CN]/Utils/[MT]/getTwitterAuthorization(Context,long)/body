@@ -9,8 +9,8 @@ case Accounts.AUTH_TYPE_OAUTH:
 case Accounts.AUTH_TYPE_XAUTH:
 {
         final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-        final String prefConsumerKey=prefs.getString(KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);
-        final String prefConsumerSecret=prefs.getString(KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET);
+        final String prefConsumerKey=prefs.getString(KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_LEGACY);
+        final String prefConsumerSecret=prefs.getString(KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_LEGACY);
         final ConfigurationBuilder cb=new ConfigurationBuilder();
         final String apiUrlFormat=c.getString(c.getColumnIndex(Accounts.API_URL_FORMAT));
         final String consumerKey=trim(c.getString(c.getColumnIndex(Accounts.CONSUMER_KEY)));
@@ -36,8 +36,8 @@ case Accounts.AUTH_TYPE_XAUTH:
           cb.setOAuthConsumerSecret(prefConsumerSecret);
         }
  else {
-          cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
-          cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
+          cb.setOAuthConsumerKey(TWITTER_CONSUMER_KEY_LEGACY);
+          cb.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET_LEGACY);
         }
         final Configuration conf=cb.build();
         final String token=c.getString(c.getColumnIndexOrThrow(Accounts.OAUTH_TOKEN));

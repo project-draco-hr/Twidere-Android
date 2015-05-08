@@ -4,7 +4,7 @@
   RestResponse resp;
   RestRequest req=new RestRequest.Builder().method(GET.METHOD).url(url).headers(additionalHeaders).build();
   resp=client.execute(req);
-  while (resp != null && Utils.isRedirected(resp.getStatus())) {
+  while (Utils.isRedirected(resp.getStatus())) {
     final String requestUrl=resp.getHeader("Location");
     if (requestUrl == null)     return null;
     if (urls.contains(requestUrl))     throw new IOException("Too many redirects");
