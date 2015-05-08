@@ -12,6 +12,15 @@
     @Override public void onTextChanged(    final CharSequence s,    final int start,    final int before,    final int count){
       setMenu();
       updateTextCount();
+      if (s instanceof Spannable && count == 1 && before == 0) {
+        final ImageSpan[] imageSpans=((Spannable)s).getSpans(start,start + count,ImageSpan.class);
+        if (imageSpans.length == 1) {
+          final Intent intent=new Intent(ComposeActivity.this,ImagePickerActivity.class);
+          intent.setAction(ImagePickerActivity.INTENT_ACTION_GET_IMAGE);
+          intent.setData(Uri.parse(imageSpans[0].getSource()));
+          startActivityForResult(intent,REQUEST_PICK_IMAGE);
+        }
+      }
     }
     @Override public void afterTextChanged(    final Editable s){
       mTextChanged=s.length() == 0;

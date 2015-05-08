@@ -8,6 +8,9 @@
  else   if (INTENT_ACTION_PICK_IMAGE.equals(action)) {
     pickImage();
   }
+ else   if (INTENT_ACTION_GET_IMAGE.equals(action)) {
+    imageSelected(intent.getData());
+  }
  else {
     new ImageSourceDialogFragment().show(getSupportFragmentManager(),"image_source");
   }
