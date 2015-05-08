@@ -1,0 +1,8 @@
+SignInActivity context
+String username
+String password
+int auth_type
+OAuthToken consumerKey
+String apiUrlFormat
+boolean sameOAuthSigningUrl
+boolean noVersionSuffix

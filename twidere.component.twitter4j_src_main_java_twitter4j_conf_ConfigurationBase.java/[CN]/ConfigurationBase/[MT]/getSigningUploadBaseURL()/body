@@ -1,3 +1,0 @@
-{
-  return signingUploadBaseURL != null ? signingUploadBaseURL : uploadBaseURL;
-}

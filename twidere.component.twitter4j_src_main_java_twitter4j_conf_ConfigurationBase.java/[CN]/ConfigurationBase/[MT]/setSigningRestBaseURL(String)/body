@@ -1,7 +1,0 @@
-{
-  if (isNullOrEmpty(signingRestBaseURL)) {
-    signingRestBaseURL=DEFAULT_SIGNING_REST_BASE_URL;
-  }
-  this.signingRestBaseURL=fixURLSlash(signingRestBaseURL);
-  fixRestBaseURL();
-}

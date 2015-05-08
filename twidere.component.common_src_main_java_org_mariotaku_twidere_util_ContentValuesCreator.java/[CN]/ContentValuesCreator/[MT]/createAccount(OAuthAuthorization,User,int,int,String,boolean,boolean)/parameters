@@ -1,0 +1,7 @@
+OAuthAuthorization auth
+User user
+int authType
+int color
+String apiUrlFormat
+boolean sameOAuthSigningUrl
+boolean noVersionSuffix

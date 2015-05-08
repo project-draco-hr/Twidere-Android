@@ -1,0 +1,10 @@
+{
+  super(context);
+  this.context=context;
+  this.consumerKey=consumerKey;
+  this.requestToken=requestToken;
+  this.oauthVerifier=oauthVerifier;
+  this.apiUrlFormat=apiUrlFormat;
+  this.sameOauthSigningUrl=sameOauthSigningUrl;
+  this.noVersionSuffix=noVersionSuffix;
+}

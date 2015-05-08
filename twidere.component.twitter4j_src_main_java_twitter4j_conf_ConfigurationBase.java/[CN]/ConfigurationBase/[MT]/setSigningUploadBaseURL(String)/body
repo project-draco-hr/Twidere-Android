@@ -1,7 +1,0 @@
-{
-  if (isNullOrEmpty(signingUploadBaseURL)) {
-    signingUploadBaseURL=DEFAULT_SIGNING_UPLOAD_BASE_URL;
-  }
-  this.signingUploadBaseURL=fixURLSlash(signingUploadBaseURL);
-  fixUploadBaseURL();
-}

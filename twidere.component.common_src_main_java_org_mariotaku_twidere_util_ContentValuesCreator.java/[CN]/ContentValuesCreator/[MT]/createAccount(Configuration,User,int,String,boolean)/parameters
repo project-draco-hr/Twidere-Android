@@ -1,5 +1,0 @@
-Configuration conf
-User user
-int color
-String apiUrlFormat
-boolean noVersionSuffix

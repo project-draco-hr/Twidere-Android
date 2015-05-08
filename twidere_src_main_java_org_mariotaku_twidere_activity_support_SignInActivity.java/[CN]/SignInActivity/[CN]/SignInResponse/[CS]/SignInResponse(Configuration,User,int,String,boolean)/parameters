@@ -1,5 +1,0 @@
-Configuration conf
-User user
-int color
-String api_url_format
-boolean no_version_suffix

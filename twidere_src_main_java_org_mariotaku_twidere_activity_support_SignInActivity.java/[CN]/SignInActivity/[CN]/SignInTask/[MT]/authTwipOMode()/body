@@ -8,5 +8,5 @@
   if (user_id <= 0)   return new SignInResponse(false,false,null);
   if (isUserLoggedIn(context,user_id))   return new SignInResponse(true,false,null);
   final int color=analyseUserProfileColor(user);
-  return new SignInResponse(conf,user,color,apiUrlFormat,noVersionSuffix);
+  return new SignInResponse(user,color,apiUrlFormat,noVersionSuffix);
 }

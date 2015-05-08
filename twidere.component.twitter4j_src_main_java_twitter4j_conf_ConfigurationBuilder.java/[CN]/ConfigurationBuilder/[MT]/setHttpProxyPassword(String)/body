@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpProxyPassword(httpProxyPassword);
-  return this;
-}

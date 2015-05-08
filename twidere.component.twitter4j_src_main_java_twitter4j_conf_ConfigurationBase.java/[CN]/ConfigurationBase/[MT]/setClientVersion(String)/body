@@ -1,4 +1,0 @@
-{
-  this.clientVersion=clientVersion;
-  initRequestHeaders();
-}

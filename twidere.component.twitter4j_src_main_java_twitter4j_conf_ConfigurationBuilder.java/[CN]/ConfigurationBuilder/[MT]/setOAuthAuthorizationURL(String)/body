@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setOAuthAuthorizationURL(oAuthAuthorizationURL);
-  return this;
-}

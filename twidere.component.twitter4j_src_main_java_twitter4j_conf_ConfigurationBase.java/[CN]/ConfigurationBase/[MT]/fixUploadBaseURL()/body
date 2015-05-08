@@ -1,9 +1,0 @@
-{
-  if (DEFAULT_UPLOAD_BASE_URL.equals(fixURL(DEFAULT_USE_SSL,uploadBaseURL))) {
-    uploadBaseURL=fixURL(useSSL,uploadBaseURL);
-  }
-  if (uploadBaseURL != null && uploadBaseURL.equals(fixURL(DEFAULT_USE_SSL,uploadBaseURL))) {
-    uploadBaseURL=fixURL(useSSL,uploadBaseURL);
-  }
-  initRequestHeaders();
-}

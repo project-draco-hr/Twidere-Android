@@ -1,3 +1,0 @@
-{
-  return signingOAuthAuthorizationURL != null ? signingOAuthAuthorizationURL : oAuthAuthorizationURL;
-}

@@ -1,0 +1,6 @@
+String basicUsername
+String basicPassword
+User user
+int color
+String apiUrlFormat
+boolean noVersionSuffix

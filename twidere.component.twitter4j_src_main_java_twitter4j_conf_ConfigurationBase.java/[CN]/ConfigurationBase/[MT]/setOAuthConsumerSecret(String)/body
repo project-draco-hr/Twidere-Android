@@ -1,4 +1,0 @@
-{
-  this.oAuthConsumerSecret=oAuthConsumerSecret;
-  fixRestBaseURL();
-}

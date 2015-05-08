@@ -4,7 +4,6 @@
   }
   saveEditedText();
   setDefaultAPI();
-  final Configuration conf=getConfiguration();
-  mTask=new SignInTask(this,conf,mUsername,mPassword,mAuthType,mAPIUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
+  mTask=new SignInTask(this,mUsername,mPassword,mAuthType,new OAuthToken(mConsumerKey,mConsumerSecret),mAPIUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
   AsyncTaskUtils.executeTask(mTask);
 }

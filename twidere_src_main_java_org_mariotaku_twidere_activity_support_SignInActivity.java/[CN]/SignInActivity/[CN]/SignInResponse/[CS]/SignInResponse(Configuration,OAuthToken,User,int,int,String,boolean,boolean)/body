@@ -1,3 +1,0 @@
-{
-  this(false,true,null,conf,null,null,OAuthToken,user,auth_type,color,api_url_format,same_oauth_signing_url,no_version_suffix);
-}

@@ -1,3 +1,0 @@
-{
-  return getRestBaseURL() != null && getRestBaseURL().startsWith("https://");
-}

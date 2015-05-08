@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setDebug(debugEnabled);
-  return this;
-}

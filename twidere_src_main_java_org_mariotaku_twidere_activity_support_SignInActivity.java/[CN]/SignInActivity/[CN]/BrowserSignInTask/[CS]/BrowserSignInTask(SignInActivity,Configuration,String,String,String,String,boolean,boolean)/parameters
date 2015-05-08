@@ -1,8 +1,0 @@
-SignInActivity context
-Configuration conf
-String requestToken
-String requestTokenSecret
-String oauthVerifier
-String apiUrlFormat
-boolean sameOauthSigningUrl
-boolean noVersionSuffix

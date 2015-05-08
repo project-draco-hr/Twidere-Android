@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setSigningUploadBaseURL(signingUploadBaseURL);
-  return this;
-}

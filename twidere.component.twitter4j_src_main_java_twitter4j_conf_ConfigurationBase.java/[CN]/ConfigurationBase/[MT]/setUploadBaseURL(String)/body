@@ -1,7 +1,0 @@
-{
-  if (isNullOrEmpty(uploadBaseURL)) {
-    uploadBaseURL=DEFAULT_UPLOAD_BASE_URL;
-  }
-  this.uploadBaseURL=fixURLSlash(uploadBaseURL);
-  fixUploadBaseURL();
-}

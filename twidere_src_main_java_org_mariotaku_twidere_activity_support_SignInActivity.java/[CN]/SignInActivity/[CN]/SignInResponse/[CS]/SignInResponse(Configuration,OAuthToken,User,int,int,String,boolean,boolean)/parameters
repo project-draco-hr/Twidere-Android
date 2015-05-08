@@ -1,8 +1,0 @@
-Configuration conf
-OAuthToken OAuthToken
-User user
-int auth_type
-int color
-String api_url_format
-boolean same_oauth_signing_url
-boolean no_version_suffix

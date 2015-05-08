@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpProxyPort(httpProxyPort);
-  return this;
-}

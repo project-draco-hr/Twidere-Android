@@ -1,3 +1,0 @@
-{
-  return signingRestBaseURL != null ? signingRestBaseURL : restBaseURL;
-}

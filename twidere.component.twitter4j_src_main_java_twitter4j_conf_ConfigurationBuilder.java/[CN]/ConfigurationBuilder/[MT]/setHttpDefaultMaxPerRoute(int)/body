@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setHttpDefaultMaxPerRoute(httpDefaultMaxPerRoute);
-  return this;
-}

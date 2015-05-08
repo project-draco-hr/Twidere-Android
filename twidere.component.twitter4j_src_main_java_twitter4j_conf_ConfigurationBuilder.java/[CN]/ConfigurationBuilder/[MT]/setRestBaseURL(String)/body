@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setRestBaseURL(restBaseURL);
-  return this;
-}

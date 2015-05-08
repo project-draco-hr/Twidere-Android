@@ -1,0 +1,3 @@
+{
+  this(false,true,null,null,null,null,user,Accounts.AUTH_TYPE_TWIP_O_MODE,color,api_url_format,false,no_version_suffix);
+}

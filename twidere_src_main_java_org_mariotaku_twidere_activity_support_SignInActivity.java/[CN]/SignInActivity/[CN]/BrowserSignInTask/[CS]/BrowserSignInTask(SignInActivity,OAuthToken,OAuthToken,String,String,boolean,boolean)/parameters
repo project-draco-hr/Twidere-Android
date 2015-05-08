@@ -1,0 +1,7 @@
+SignInActivity context
+OAuthToken consumerKey
+OAuthToken requestToken
+String oauthVerifier
+String apiUrlFormat
+boolean sameOauthSigningUrl
+boolean noVersionSuffix

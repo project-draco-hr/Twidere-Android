@@ -1,5 +1,0 @@
-{
-  if (urlOrig == null)   return null;
-  if (!urlOrig.endsWith("/"))   return urlOrig + "/";
-  return urlOrig;
-}

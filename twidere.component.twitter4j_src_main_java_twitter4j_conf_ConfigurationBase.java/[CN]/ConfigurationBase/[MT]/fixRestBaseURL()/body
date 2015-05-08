@@ -1,9 +1,0 @@
-{
-  if (DEFAULT_REST_BASE_URL.equals(fixURL(DEFAULT_USE_SSL,restBaseURL))) {
-    restBaseURL=fixURL(useSSL,restBaseURL);
-  }
-  if (restBaseURL != null && restBaseURL.equals(fixURL(DEFAULT_USE_SSL,signingRestBaseURL))) {
-    signingRestBaseURL=fixURL(useSSL,signingRestBaseURL);
-  }
-  initRequestHeaders();
-}

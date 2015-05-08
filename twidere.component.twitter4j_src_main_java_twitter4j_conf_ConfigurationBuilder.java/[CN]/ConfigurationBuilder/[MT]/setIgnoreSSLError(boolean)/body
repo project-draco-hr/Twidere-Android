@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  configuration.setIgnoreSSLError(ignoreSSLError);
-  return this;
-}

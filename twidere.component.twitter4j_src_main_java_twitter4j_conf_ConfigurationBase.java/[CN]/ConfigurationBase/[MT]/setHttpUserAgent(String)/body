@@ -1,4 +1,0 @@
-{
-  this.userAgent=userAgent;
-  initRequestHeaders();
-}

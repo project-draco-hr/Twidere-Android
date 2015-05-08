@@ -10,18 +10,18 @@
 switch (result.auth_type) {
 case Accounts.AUTH_TYPE_BASIC:
 {
-          values=createAccount(result.conf,result.basic_username,result.basic_password,result.user,result.color,result.api_url_format,result.no_version_suffix);
+          values=createAccount(result.basic_username,result.basic_password,result.user,result.color,result.api_url_format,result.no_version_suffix);
           break;
         }
 case Accounts.AUTH_TYPE_TWIP_O_MODE:
 {
-        values=ContentValuesCreator.createAccount(result.conf,result.user,result.color,result.api_url_format,result.no_version_suffix);
+        values=ContentValuesCreator.createAccount(result.user,result.color,result.api_url_format,result.no_version_suffix);
         break;
       }
 case Accounts.AUTH_TYPE_OAUTH:
 case Accounts.AUTH_TYPE_XAUTH:
 {
-      values=ContentValuesCreator.createAccount(result.conf,result.OAuthToken,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url,result.no_version_suffix);
+      values=ContentValuesCreator.createAccount(result.oauth,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url,result.no_version_suffix);
       break;
     }
 default :
