@@ -1,3 +1,5 @@
 {
-  this.mediaIds=mediaIds;
+  remove("media_ids");
+  if (mediaIds == null)   return;
+  put("media_ids",Utils.toString(mediaIds,','));
 }

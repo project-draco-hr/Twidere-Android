@@ -1,8 +1,6 @@
 {
   this(message);
-  response=res;
+  setResponse(res);
   request=req;
   statusCode=res != null ? res.getStatus() : -1;
-  if (response != null) {
-  }
 }

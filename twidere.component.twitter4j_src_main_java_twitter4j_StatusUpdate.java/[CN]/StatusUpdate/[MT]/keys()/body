@@ -1,3 +1,0 @@
-{
-  return new String[]{"status","in_reply_to_status_id","lat","long","place_id","possibly_sensitive","display_coordinates","media_ids"};
-}

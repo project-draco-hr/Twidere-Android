@@ -1,3 +1,3 @@
 {
-  this.inReplyToStatusId=inReplyToStatusId;
+  put("in_reply_to_status_id",inReplyToStatusId);
 }

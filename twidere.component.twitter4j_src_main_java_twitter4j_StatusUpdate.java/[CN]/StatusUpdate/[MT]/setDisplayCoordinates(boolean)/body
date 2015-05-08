@@ -1,3 +1,3 @@
 {
-  this.displayCoordinates=displayCoordinates;
+  put("display_coordinates",displayCoordinates);
 }

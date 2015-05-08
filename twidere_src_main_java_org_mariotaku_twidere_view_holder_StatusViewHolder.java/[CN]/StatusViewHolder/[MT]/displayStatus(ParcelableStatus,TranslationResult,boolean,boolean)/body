@@ -111,7 +111,7 @@
     mediaPreview.setStyle(adapter.getMediaPreviewStyle());
     final boolean hasMedia=status.media != null && status.media.length > 0;
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
-      mediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
+      mediaPreview.setVisibility(View.VISIBLE);
       mediaPreview.displayMedia(status.media,loader,status.account_id,this,adapter.getMediaLoadingHandler());
     }
  else {

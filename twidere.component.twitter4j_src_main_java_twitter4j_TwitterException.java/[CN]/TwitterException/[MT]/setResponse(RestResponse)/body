@@ -1,0 +1,6 @@
+{
+  response=res;
+  if (res != null) {
+    rateLimitStatus=RateLimitStatusJSONImpl.createFromResponseHeader(res);
+  }
+}
