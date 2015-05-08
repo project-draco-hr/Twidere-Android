@@ -1,3 +1,3 @@
 {
-  set("screen_name",screenName);
+  put("screen_name",screenName);
 }

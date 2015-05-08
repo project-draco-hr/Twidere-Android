@@ -7,7 +7,11 @@ case DialogInterface.BUTTON_POSITIVE:
       mDescription=ParseUtils.parseString(mEditDescription.getText());
       mIsPublic=mPublicCheckBox.isChecked();
       if (mName == null || mName.length() <= 0)       return;
-      mTwitterWrapper.updateUserListDetails(mAccountId,mListId,mIsPublic,mName,mDescription);
+      final UserListUpdate update=new UserListUpdate();
+      update.setPublic(mIsPublic);
+      update.setName(mName);
+      update.setDescription(mDescription);
+      mTwitterWrapper.updateUserListDetails(mAccountId,mListId,update);
       break;
     }
 }

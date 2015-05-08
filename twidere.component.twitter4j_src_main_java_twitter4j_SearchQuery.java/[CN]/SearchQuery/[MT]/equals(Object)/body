@@ -4,7 +4,7 @@
   final SearchQuery query1=(SearchQuery)o;
   if (maxId != query1.maxId)   return false;
   if (page != query1.page)   return false;
-  if (rpp != query1.rpp)   return false;
+  if (count != query1.count)   return false;
   if (sinceId != query1.sinceId)   return false;
   if (geocode != null ? !geocode.equals(query1.geocode) : query1.geocode != null)   return false;
   if (lang != null ? !lang.equals(query1.lang) : query1.lang != null)   return false;

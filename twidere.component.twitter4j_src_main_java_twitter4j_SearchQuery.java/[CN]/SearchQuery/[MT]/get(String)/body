@@ -22,10 +22,10 @@ case "since_id":
 if (sinceId == -1) return null;
 return String.valueOf(sinceId);
 }
-case "rpp":
+case "count":
 {
-if (rpp == -1) return null;
-return String.valueOf(rpp);
+if (count == -1) return null;
+return String.valueOf(count);
 }
 case "page":
 {

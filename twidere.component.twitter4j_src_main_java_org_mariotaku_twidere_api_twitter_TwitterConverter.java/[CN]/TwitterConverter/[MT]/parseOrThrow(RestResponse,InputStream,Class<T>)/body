@@ -1,0 +1,8 @@
+{
+  try {
+    return LoganSquare.parse(stream,cls);
+  }
+ catch (  JsonParseException e) {
+    throw new TwitterException("Malformed JSON Data",resp);
+  }
+}

@@ -1,5 +1,0 @@
-long accountId
-long listId
-boolean isPublic
-String name
-String description

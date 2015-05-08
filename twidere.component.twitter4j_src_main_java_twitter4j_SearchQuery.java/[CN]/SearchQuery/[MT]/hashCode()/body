@@ -3,7 +3,7 @@
   result=31 * result + (lang != null ? lang.hashCode() : 0);
   result=31 * result + (locale != null ? locale.hashCode() : 0);
   result=31 * result + (int)(maxId ^ maxId >>> 32);
-  result=31 * result + rpp;
+  result=31 * result + count;
   result=31 * result + page;
   result=31 * result + (since != null ? since.hashCode() : 0);
   result=31 * result + (int)(sinceId ^ sinceId >>> 32);

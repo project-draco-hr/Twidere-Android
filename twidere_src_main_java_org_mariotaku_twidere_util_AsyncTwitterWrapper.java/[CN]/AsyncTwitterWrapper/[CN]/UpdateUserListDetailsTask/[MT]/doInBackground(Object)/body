@@ -2,7 +2,7 @@
   final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,false);
   if (twitter != null) {
     try {
-      final UserList list=twitter.updateUserList(listId,name,isPublic,description);
+      final UserList list=twitter.updateUserList(listId,update);
       return SingleResponse.getInstance(new ParcelableUserList(list,accountId));
     }
  catch (    final TwitterException e) {

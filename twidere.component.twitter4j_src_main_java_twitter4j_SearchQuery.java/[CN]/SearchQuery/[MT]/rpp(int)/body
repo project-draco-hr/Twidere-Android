@@ -1,4 +1,4 @@
 {
-  setRpp(rpp);
+  setCount(rpp);
   return this;
 }

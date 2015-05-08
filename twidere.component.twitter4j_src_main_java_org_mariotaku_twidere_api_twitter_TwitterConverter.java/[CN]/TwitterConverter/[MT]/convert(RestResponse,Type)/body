@@ -1,7 +1,7 @@
 {
   final TypedData body=response.getBody();
   if (!response.isSuccessful()) {
-    throw LoganSquare.parse(body.stream(),TwitterException.class);
+    throw parseOrThrow(response,body.stream(),TwitterException.class);
   }
   final ContentType contentType=body.contentType();
   final InputStream stream=body.stream();
@@ -9,7 +9,7 @@
     final Class<?> cls=(Class<?>)type;
     final Class<?> wrapperCls=wrapperMap.get(cls);
     if (wrapperCls != null) {
-      final Wrapper<?> wrapper=(Wrapper<?>)LoganSquare.parse(stream,wrapperCls);
+      final Wrapper<?> wrapper=(Wrapper<?>)parseOrThrow(response,stream,wrapperCls);
       wrapper.processResponseHeader(response);
       return wrapper.getWrapped(null);
     }
@@ -27,7 +27,7 @@
         throw new IOException(e);
       }
     }
-    final Object object=LoganSquare.parse(stream,cls);
+    final Object object=parseOrThrow(response,stream,cls);
     checkResponse(cls,object,response);
     if (object instanceof TwitterResponseImpl) {
       ((TwitterResponseImpl)object).processResponseHeader(response);
@@ -40,13 +40,13 @@
       final Class<?> rawClass=(Class<?>)rawType;
       final Class<?> wrapperCls=wrapperMap.get(rawClass);
       if (wrapperCls != null) {
-        final Wrapper<?> wrapper=(Wrapper<?>)LoganSquare.parse(stream,wrapperCls);
+        final Wrapper<?> wrapper=(Wrapper<?>)parseOrThrow(response,stream,wrapperCls);
         wrapper.processResponseHeader(response);
         return wrapper.getWrapped(((ParameterizedType)type).getActualTypeArguments());
       }
  else       if (ResponseList.class.isAssignableFrom(rawClass)) {
         final Type elementType=((ParameterizedType)type).getActualTypeArguments()[0];
-        final ResponseListImpl<?> responseList=new ResponseListImpl<>(LoganSquare.parseList(stream,(Class<?>)elementType));
+        final ResponseListImpl<?> responseList=new ResponseListImpl<>(parseListOrThrow(response,stream,(Class<?>)elementType));
         responseList.processResponseHeader(response);
         return responseList;
       }

@@ -20,9 +20,9 @@ case "since_id":
 {
 return sinceId != -1;
 }
-case "rpp":
+case "count":
 {
-return rpp != -1;
+return count != -1;
 }
 case "page":
 {

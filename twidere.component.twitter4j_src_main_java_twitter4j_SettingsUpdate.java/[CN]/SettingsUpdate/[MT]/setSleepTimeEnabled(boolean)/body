@@ -1,3 +1,3 @@
 {
-  set("sleep_time_enabled",enabled);
+  put("sleep_time_enabled",enabled);
 }

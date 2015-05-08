@@ -1,3 +1,3 @@
 {
-  set("trend_location_woeid",woeid);
+  put("trend_location_woeid",woeid);
 }
