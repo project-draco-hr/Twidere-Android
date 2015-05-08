@@ -4,10 +4,16 @@
   OutputStream os=null;
   try {
     final File cacheDir=mActivity.getCacheDir();
-    is=cr.openInputStream(mUri);
+    final Uri uri=this.mUri;
+    if (SCHEME_HTTP.equals(uri.getScheme()) || SCHEME_HTTPS.equals(uri.getScheme())) {
+      is=new URL(uri.toString()).openStream();
+    }
+ else {
+      is=cr.openInputStream(uri);
+    }
     final BitmapFactory.Options opts=new BitmapFactory.Options();
     opts.inJustDecodeBounds=true;
-    BitmapFactory.decodeStream(cr.openInputStream(mUri),null,opts);
+    BitmapFactory.decodeStream(cr.openInputStream(uri),null,opts);
     final String mimeType=opts.outMimeType;
     final String suffix=mimeType != null ? "." + MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType) : null;
     final File outFile=File.createTempFile("temp_image_",suffix,cacheDir);
