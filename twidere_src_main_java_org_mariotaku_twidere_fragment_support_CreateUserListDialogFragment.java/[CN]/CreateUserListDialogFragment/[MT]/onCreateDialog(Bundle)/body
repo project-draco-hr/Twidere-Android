@@ -6,8 +6,9 @@
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
   final View view=LayoutInflater.from(wrapped).inflate(R.layout.dialog_user_list_detail_editor,null);
   builder.setView(view);
-  mEditName=(EditText)view.findViewById(R.id.name);
-  mEditDescription=(EditText)view.findViewById(R.id.description);
+  mEditName=(MaterialEditText)view.findViewById(R.id.name);
+  mEditName.addValidator(new UserListNameValidator(getString(R.string.invalid_list_name)));
+  mEditDescription=(MaterialEditText)view.findViewById(R.id.description);
   mPublicCheckBox=(CheckBox)view.findViewById(R.id.is_public);
   if (mName != null) {
     mEditName.setText(mName);

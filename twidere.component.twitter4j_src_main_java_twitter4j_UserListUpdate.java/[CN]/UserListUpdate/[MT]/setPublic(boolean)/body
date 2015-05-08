@@ -1,3 +1,0 @@
-{
-  put("public",String.valueOf(isPublic));
-}

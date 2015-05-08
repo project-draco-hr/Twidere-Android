@@ -8,7 +8,7 @@ case DialogInterface.BUTTON_POSITIVE:
       mIsPublic=mPublicCheckBox.isChecked();
       if (mName == null || mName.length() <= 0)       return;
       final UserListUpdate update=new UserListUpdate();
-      update.setPublic(mIsPublic);
+      update.setMode(mIsPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
       update.setName(mName);
       update.setDescription(mDescription);
       mTwitterWrapper.updateUserListDetails(mAccountId,mListId,update);
