@@ -5,16 +5,30 @@
   try {
     final File cacheDir=mActivity.getCacheDir();
     final Uri uri=this.mUri;
+    final String mimeType;
     if (SCHEME_HTTP.equals(uri.getScheme()) || SCHEME_HTTPS.equals(uri.getScheme())) {
-      is=new URL(uri.toString()).openStream();
+      final RestHttpClient client=TwitterAPIUtils.getDefaultHttpClient(mActivity);
+      final RestRequest.Builder builder=new RestRequest.Builder();
+      builder.method(GET.METHOD);
+      builder.url(uri.toString());
+      final RestResponse response=client.execute(builder.build());
+      if (response.isSuccessful()) {
+        final TypedData body=response.getBody();
+        is=body.stream();
+        final ContentType contentType=body.contentType();
+        mimeType=contentType != null ? contentType.getContentType() : "image/*";
+      }
+ else {
+        throw new IOException("Unable to get " + uri);
+      }
     }
  else {
       is=cr.openInputStream(uri);
+      final BitmapFactory.Options opts=new BitmapFactory.Options();
+      opts.inJustDecodeBounds=true;
+      BitmapFactory.decodeStream(cr.openInputStream(uri),null,opts);
+      mimeType=opts.outMimeType;
     }
-    final BitmapFactory.Options opts=new BitmapFactory.Options();
-    opts.inJustDecodeBounds=true;
-    BitmapFactory.decodeStream(cr.openInputStream(uri),null,opts);
-    final String mimeType=opts.outMimeType;
     final String suffix=mimeType != null ? "." + MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType) : null;
     final File outFile=File.createTempFile("temp_image_",suffix,cacheDir);
     os=new FileOutputStream(outFile);
