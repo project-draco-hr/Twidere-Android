@@ -1,0 +1,19 @@
+{
+  String dateString=jsonParser.getValueAsString(null);
+  if (dateString == null)   throw new IOException();
+  try {
+synchronized (FORMATTER_LOCK) {
+switch (dateString.length()) {
+case 10:
+        return new Date(Long.parseLong(dateString) * 1000);
+case 20:
+      return DATE_FORMAT_1.parse(dateString);
+default :
+    return DATE_FORMAT_2.parse(dateString);
+}
+}
+}
+ catch (ParseException e) {
+throw new IOException(e);
+}
+}
