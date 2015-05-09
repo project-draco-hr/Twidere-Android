@@ -1,0 +1,5 @@
+{
+  if ("lat".equals(key))   return latitude;
+  if ("long".equals(key))   return longitude;
+  return null;
+}
