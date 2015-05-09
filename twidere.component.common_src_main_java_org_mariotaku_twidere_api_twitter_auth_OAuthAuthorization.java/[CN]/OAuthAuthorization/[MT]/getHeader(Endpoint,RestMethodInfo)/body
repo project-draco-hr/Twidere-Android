@@ -1,5 +1,5 @@
 {
-  if (!(endpoint instanceof OAuthEndpoint))   throw new IllegalArgumentException();
+  if (!(endpoint instanceof OAuthEndpoint))   throw new IllegalArgumentException("OAuthEndpoint required");
   final OAuthEndpoint oauthEndpoint=(OAuthEndpoint)endpoint;
   final RestMethod method=request.getMethod();
   final String url=Endpoint.constructUrl(oauthEndpoint.getSignUrl(),request);
