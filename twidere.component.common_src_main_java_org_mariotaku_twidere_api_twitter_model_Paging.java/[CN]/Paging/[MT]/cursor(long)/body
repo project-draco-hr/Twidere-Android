@@ -1,4 +1,4 @@
 {
-  this.cursor=cursor;
+  setCursor(cursor);
   return this;
 }

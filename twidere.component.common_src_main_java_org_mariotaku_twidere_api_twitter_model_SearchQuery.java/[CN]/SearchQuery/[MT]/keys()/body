@@ -1,3 +1,0 @@
-{
-  return new String[]{"q","lang","locale","max_id","since_id","count","page","since","until","geocode","result_type"};
-}

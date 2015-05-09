@@ -1,0 +1,7 @@
+{
+  if (paging == null)   return;
+  copyValue(paging,"since_id");
+  copyValue(paging,"max_id");
+  copyValue(paging,"count");
+  copyValue(paging,"page");
+}

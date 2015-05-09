@@ -1,0 +1,5 @@
+{
+  if (from.has(key)) {
+    put(key,from.get(key));
+  }
+}

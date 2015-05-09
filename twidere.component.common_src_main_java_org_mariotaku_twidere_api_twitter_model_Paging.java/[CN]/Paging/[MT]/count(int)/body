@@ -1,4 +1,4 @@
 {
-  this.count=count;
+  setCount(count);
   return this;
 }

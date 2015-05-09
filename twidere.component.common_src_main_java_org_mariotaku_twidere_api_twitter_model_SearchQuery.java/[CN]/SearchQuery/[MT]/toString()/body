@@ -1,3 +1,0 @@
-{
-  return "Query{" + "query='" + query + '\''+ ", lang='"+ lang+ '\''+ ", locale='"+ locale+ '\''+ ", maxId="+ maxId+ ", count="+ count+ ", page="+ page+ ", since='"+ since+ '\''+ ", sinceId="+ sinceId+ ", geocode='"+ geocode+ '\''+ ", until='"+ until+ '\''+ ", resultType='"+ resultType+ '\''+ '}';
-}

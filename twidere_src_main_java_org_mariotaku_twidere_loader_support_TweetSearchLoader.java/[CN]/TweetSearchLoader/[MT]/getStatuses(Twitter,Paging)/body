@@ -1,8 +1,5 @@
 {
   final SearchQuery query=new SearchQuery(processQuery(mQuery));
-  query.setCount(paging.getCount());
-  if (paging.getMaxId() > 0) {
-    query.setMaxId(paging.getMaxId());
-  }
+  query.paging(paging);
   return twitter.search(query);
 }
