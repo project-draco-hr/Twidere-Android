@@ -1,0 +1,15 @@
+{
+  LoganSquare.registerTypeConverter(cls,new TypeConverterMapper<>(impl));
+  try {
+    final Field objectMappersField=LoganSquare.class.getDeclaredField("OBJECT_MAPPERS");
+    objectMappersField.setAccessible(true);
+    final Map<Class,JsonMapper> mappers=(Map<Class,JsonMapper>)objectMappersField.get(null);
+    mappers.put(cls,mapper);
+  }
+ catch (  IllegalAccessException e) {
+    throw new RuntimeException(e);
+  }
+catch (  NoSuchFieldException e) {
+    throw new RuntimeException(e);
+  }
+}
