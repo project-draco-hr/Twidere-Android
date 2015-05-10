@@ -1,0 +1,5 @@
+{
+  mSearchQuery.setText(query);
+  if (query == null)   return;
+  mSearchQuery.setSelection(query.length());
+}

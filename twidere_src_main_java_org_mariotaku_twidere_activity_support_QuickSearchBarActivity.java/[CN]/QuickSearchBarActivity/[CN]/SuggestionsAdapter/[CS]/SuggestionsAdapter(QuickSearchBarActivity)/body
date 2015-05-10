@@ -1,0 +1,7 @@
+{
+  mActivity=activity;
+  mInflater=LayoutInflater.from(activity);
+  final TwidereApplication application=TwidereApplication.getInstance(activity);
+  mImageLoader=application.getMediaLoaderWrapper();
+  mUserColorNameManager=application.getUserColorNameManager();
+}

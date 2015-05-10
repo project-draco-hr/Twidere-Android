@@ -1,0 +1,15 @@
+{
+switch (v.getId()) {
+case R.id.edit_query:
+{
+      final SuggestionItem item=getItem((Integer)v.getTag());
+      if (item instanceof SearchHistoryItem) {
+        mActivity.setSearchQuery(((SearchHistoryItem)item).getQuery());
+      }
+ else       if (item instanceof SavedSearchItem) {
+        mActivity.setSearchQuery(((SavedSearchItem)item).getQuery());
+      }
+      break;
+    }
+}
+}
