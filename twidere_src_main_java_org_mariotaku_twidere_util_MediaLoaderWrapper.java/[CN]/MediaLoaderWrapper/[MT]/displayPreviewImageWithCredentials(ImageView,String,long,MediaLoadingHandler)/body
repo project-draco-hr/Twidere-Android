@@ -1,4 +1,8 @@
 {
+  if (accountId <= 0) {
+    displayPreviewImage(view,url,loadingHandler);
+    return;
+  }
   final DisplayImageOptions.Builder b=new DisplayImageOptions.Builder();
   b.cloneFrom(mImageDisplayOptions);
   b.extraForDownloader(new AccountExtra(accountId));

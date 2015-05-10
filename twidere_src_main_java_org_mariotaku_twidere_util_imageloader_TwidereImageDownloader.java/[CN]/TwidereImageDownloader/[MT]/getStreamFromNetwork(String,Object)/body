@@ -1,6 +1,6 @@
 {
   if (uriString == null)   return null;
-  final ParcelableMedia media=MediaPreviewUtils.getAllAvailableImage(uriString,mFullImage,mFullImage || !mFastImageLoading ? mClient : null);
+  final ParcelableMedia media=MediaPreviewUtils.getAllAvailableImage(uriString,mFullImage,mClient);
   try {
     final String mediaUrl=media != null ? media.media_url : uriString;
     if (isTwitterProfileImage(uriString)) {
@@ -9,15 +9,10 @@
     }
  else     return getStreamFromNetworkInternal(mediaUrl,extras);
   }
- catch (  final TwitterException e) {
-    final int statusCode=e.getStatusCode();
-    if (statusCode != -1 && isTwitterProfileImage(uriString) && !uriString.contains("_normal.")) {
-      try {
-        return getStreamFromNetworkInternal(Utils.getNormalTwitterProfileImage(uriString),extras);
-      }
- catch (      final TwitterException ignored) {
-      }
+ catch (  final FileNotFoundException e) {
+    if (isTwitterProfileImage(uriString) && !uriString.contains("_normal.")) {
+      return getStreamFromNetworkInternal(Utils.getNormalTwitterProfileImage(uriString),extras);
     }
-    throw new IOException(String.format(Locale.US,"Error downloading image %s, error code: %d",uriString,statusCode));
+    throw new IOException(String.format(Locale.US,"Error downloading image %s",uriString));
   }
 }

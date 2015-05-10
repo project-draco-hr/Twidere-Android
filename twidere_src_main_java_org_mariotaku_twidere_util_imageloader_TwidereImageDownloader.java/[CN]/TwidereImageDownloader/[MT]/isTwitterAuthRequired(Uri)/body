@@ -1,4 +1,3 @@
 {
-  if (uri == null)   return false;
-  return "ton.twitter.com".equalsIgnoreCase(uri.getHost());
+  return uri != null && "ton.twitter.com".equalsIgnoreCase(uri.getHost());
 }

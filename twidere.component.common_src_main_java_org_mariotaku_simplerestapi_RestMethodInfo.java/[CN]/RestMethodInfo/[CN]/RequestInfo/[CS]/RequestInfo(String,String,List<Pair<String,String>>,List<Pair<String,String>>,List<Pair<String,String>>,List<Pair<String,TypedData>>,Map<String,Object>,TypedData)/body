@@ -1,0 +1,10 @@
+{
+  this.method=method;
+  this.path=path;
+  this.queries=queries;
+  this.forms=forms;
+  this.headers=headers;
+  this.parts=parts;
+  this.extras=extras;
+  this.body=body;
+}

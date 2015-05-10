@@ -1,7 +1,9 @@
 {
   if (file == null)   return null;
+  FileInputStream is=null;
   try {
-    return LoganSquare.parseList(new FileInputStream(file),ParcelableActivity.class);
+    is=new FileInputStream(file);
+    return LoganSquare.parseList(is,ParcelableActivity.class);
   }
  catch (  final IOException e) {
     if (Utils.isDebugBuild()) {
@@ -13,6 +15,9 @@ catch (  RuntimeException e) {
       throw e;
     }
     Log.e(LOGTAG,"Error unserializing data",e);
+  }
+ finally {
+    Utils.closeSilently(is);
   }
   return null;
 }

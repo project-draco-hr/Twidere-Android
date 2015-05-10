@@ -11,17 +11,37 @@
     account=null;
     auth=null;
   }
-  String modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);
-  if (mThumbor != null) {
-    modifiedUri=mThumbor.buildImage(modifiedUri).filter(ThumborUrlBuilder.quality(85)).toUrl();
-  }
+  Uri modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);
   final List<Pair<String,String>> additionalHeaders=new ArrayList<>();
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
     additionalHeaders.add(Pair.create("Accept","image/webp, */*"));
   }
+  final String method=GET.METHOD;
   if (auth != null && auth.hasAuthorization()) {
+    final Endpoint endpoint;
+    if (auth instanceof OAuthAuthorization) {
+      endpoint=new OAuthEndpoint(getEndpoint(modifiedUri),getEndpoint(uri));
+    }
+ else {
+      endpoint=new Endpoint(getEndpoint(modifiedUri));
+    }
+    final List<Pair<String,String>> queries=new ArrayList<>();
+    for (    String name : uri.getQueryParameterNames()) {
+      for (      String value : uri.getQueryParameters(name)) {
+        queries.add(Pair.create(name,value));
+      }
+    }
+    final RestMethodInfo.RequestInfo info=new RestMethodInfo.RequestInfo(method,uri.getPath(),queries,null,additionalHeaders,null,null,null);
+    additionalHeaders.add(Pair.create("Authorization",auth.getHeader(endpoint,info)));
   }
-  final RestResponse resp=mClient.execute(new RestRequest.Builder().method(GET.METHOD).url(modifiedUri).headers(additionalHeaders).build());
+  final String requestUri;
+  if (mThumbor != null) {
+    requestUri=mThumbor.buildImage(modifiedUri.toString()).filter(ThumborUrlBuilder.quality(85)).toUrl();
+  }
+ else {
+    requestUri=modifiedUri.toString();
+  }
+  final RestResponse resp=mClient.execute(new RestRequest.Builder().method(method).url(requestUri).headers(additionalHeaders).build());
   final TypedData body=resp.getBody();
   return new ContentLengthInputStream(body.stream(),(int)body.length());
 }

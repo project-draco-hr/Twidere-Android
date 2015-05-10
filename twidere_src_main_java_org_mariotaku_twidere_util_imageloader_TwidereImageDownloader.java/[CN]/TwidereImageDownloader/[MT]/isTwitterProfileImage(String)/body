@@ -1,4 +1,3 @@
 {
-  if (TextUtils.isEmpty(uriString))   return false;
-  return TwidereLinkify.PATTERN_TWITTER_PROFILE_IMAGES.matcher(uriString).matches();
+  return !TextUtils.isEmpty(uriString) && TwidereLinkify.PATTERN_TWITTER_PROFILE_IMAGES.matcher(uriString).matches();
 }
