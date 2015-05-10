@@ -1,0 +1,25 @@
+{
+  final ItemLayout layout=(ItemLayout)inflater.inflate(R.layout.layout_tab_item,this,false);
+  final ImageView tabIcon=(ImageView)layout.findViewById(R.id.tab_icon);
+  final BadgeView badgeView=(BadgeView)layout.findViewById(R.id.unread_indicator);
+  final TextView tabLabel=(TextView)layout.findViewById(R.id.tab_label);
+  layout.setStripColor(stripColor);
+  layout.setStripHeight(stripHeight);
+  layout.setIsCurrent(isCurrent);
+  tabIcon.setImageResource(icon);
+  tabIcon.setColorFilter(iconColor,PorterDuff.Mode.SRC_ATOP);
+  tabIcon.setVisibility((tabDisplayOption & ICON) != 0 ? VISIBLE : GONE);
+  tabLabel.setText(label);
+  tabLabel.setTextColor(labelColor);
+  tabLabel.setVisibility((tabDisplayOption & LABEL) != 0 ? VISIBLE : GONE);
+  badgeView.setText(String.valueOf(unread));
+  badgeView.setVisibility(unread != 0 ? VISIBLE : GONE);
+  final LayoutParams params;
+  if (tabExpandEnabled) {
+    params=new LayoutParams(0,LayoutParams.MATCH_PARENT,1);
+  }
+ else {
+    params=new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.MATCH_PARENT,0);
+  }
+  addView(layout,params);
+}

@@ -1,0 +1,4 @@
+{
+  mResolver.delete(DirectMessages.Inbox.CONTENT_URI,Expression.and(Expression.equals(Inbox.ACCOUNT_ID,accountId),Expression.equals(Inbox.SENDER_ID,userId)).getSQL(),null);
+  mResolver.delete(DirectMessages.Outbox.CONTENT_URI,Expression.and(Expression.equals(Outbox.ACCOUNT_ID,accountId),Expression.equals(Outbox.RECIPIENT_ID,userId)).getSQL(),null);
+}

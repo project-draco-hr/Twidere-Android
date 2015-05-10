@@ -1,0 +1,12 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final ParcelableCredentials account=getArguments().getParcelable(EXTRA_ACCOUNT);
+      final ParcelableUser user=getArguments().getParcelable(EXTRA_USER);
+      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      twitter.destroyMessageConversationAsync(account.account_id,user.id);
+      break;
+    }
+}
+}

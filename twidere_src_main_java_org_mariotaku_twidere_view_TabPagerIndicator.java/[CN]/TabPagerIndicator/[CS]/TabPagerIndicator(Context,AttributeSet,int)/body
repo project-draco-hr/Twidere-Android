@@ -10,7 +10,6 @@
   setLayoutManager(mLayoutManager=new TabLayoutManager(this));
   setItemContext(context);
   setAdapter(mIndicatorAdapter);
-  setTabDisplayOption(ICON);
   final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TabPagerIndicator);
   setTabExpandEnabled(a.getBoolean(R.styleable.TabPagerIndicator_tabExpandEnabled,false));
   setHorizontalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabHorizontalPadding,0));

@@ -1,0 +1,15 @@
+{
+  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    twitter.destroyDirectMessagesConversation(accountId,userId);
+    deleteMessages(accountId,userId);
+    return SingleResponse.getInstance();
+  }
+ catch (  final TwitterException e) {
+    if (isMessageNotFound(e)) {
+      deleteMessages(accountId,userId);
+    }
+    return SingleResponse.getInstance(e);
+  }
+}

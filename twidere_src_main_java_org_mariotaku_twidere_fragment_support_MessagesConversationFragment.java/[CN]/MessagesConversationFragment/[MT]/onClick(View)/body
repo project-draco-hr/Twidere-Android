@@ -13,7 +13,7 @@ case R.id.add_image:
   }
 case R.id.query_button:
 {
-  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
+  final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
   searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
   break;
 }

@@ -1,3 +1,0 @@
-{
-  mIconView.setVisibility(showProgress ? View.GONE : View.VISIBLE);
-}

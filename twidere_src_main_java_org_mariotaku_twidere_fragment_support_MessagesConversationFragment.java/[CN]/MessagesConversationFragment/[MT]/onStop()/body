@@ -5,7 +5,7 @@
   if (mPopupMenu != null) {
     mPopupMenu.dismiss();
   }
-  final ParcelableAccount account=mAccount;
+  final ParcelableCredentials account=mAccount;
   final ParcelableUser recipient=mRecipient;
   if (account != null && recipient != null) {
     final String key=getDraftsTextKey(account.account_id,recipient.id);

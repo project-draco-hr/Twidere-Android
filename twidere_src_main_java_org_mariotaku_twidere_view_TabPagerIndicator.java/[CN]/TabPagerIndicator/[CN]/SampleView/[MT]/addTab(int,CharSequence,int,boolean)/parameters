@@ -1,0 +1,4 @@
+int icon
+CharSequence label
+int unread
+boolean isCurrent

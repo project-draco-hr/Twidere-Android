@@ -1,0 +1,16 @@
+{
+  super(context,attrs,defStyleAttr);
+  inflater=LayoutInflater.from(context);
+  setOrientation(HORIZONTAL);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TabPagerIndicator);
+  this.setHorizontalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabHorizontalPadding,0));
+  this.setTabExpandEnabled(a.getBoolean(R.styleable.TabPagerIndicator_tabExpandEnabled,false));
+  this.setVerticalPadding(a.getDimensionPixelSize(R.styleable.TabPagerIndicator_tabVerticalPadding,0));
+  this.setStripColor(a.getColor(R.styleable.TabPagerIndicator_tabStripColor,0));
+  this.setIconColor(a.getColor(R.styleable.TabPagerIndicator_tabIconColor,0));
+  this.setLabelColor(a.getColor(R.styleable.TabPagerIndicator_tabLabelColor,ThemeUtils.getTextColorPrimary(context)));
+  this.setTabDisplayOption(a.getInt(R.styleable.TabPagerIndicator_tabDisplayOption,ICON));
+  this.setTabShowDivider(a.getBoolean(R.styleable.TabPagerIndicator_tabShowDivider,false));
+  a.recycle();
+  stripHeight=context.getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
+}

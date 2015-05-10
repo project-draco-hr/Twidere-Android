@@ -1,5 +1,5 @@
 {
-  final ParcelableAccount account=mAccount;
+  final ParcelableCredentials account=mAccount;
   final ParcelableUser recipient=mRecipient;
   if (mAccount == null || mRecipient == null)   return;
   final String message=mEditText.getText().toString();

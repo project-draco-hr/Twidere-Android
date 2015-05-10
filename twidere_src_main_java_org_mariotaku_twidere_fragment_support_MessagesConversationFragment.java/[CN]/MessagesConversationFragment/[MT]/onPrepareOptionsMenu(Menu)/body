@@ -1,4 +1,5 @@
 {
   super.onPrepareOptionsMenu(menu);
+  MenuUtils.setMenuItemAvailability(menu,MENU_DELETE_ALL,mRecipient != null && Utils.isOfficialCredentials(getActivity(),mAccount));
   updateRecipientInfo();
 }

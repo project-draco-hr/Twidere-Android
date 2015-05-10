@@ -1,3 +1,10 @@
 {
-  ViewSupport.setBackground(this,new ColorDrawable(color));
+  if (isInEditMode()) {
+    final ShapeDrawable sd=new ShapeDrawable(new OvalShape());
+    sd.getPaint().setColor(color);
+    ViewSupport.setBackground(this,sd);
+  }
+ else {
+    ViewSupport.setBackground(this,new ColorDrawable(color));
+  }
 }
