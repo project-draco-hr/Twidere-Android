@@ -1,4 +1,4 @@
 {
   this.textView=textView;
-  this.activity=activity;
+  this.context=context;
 }

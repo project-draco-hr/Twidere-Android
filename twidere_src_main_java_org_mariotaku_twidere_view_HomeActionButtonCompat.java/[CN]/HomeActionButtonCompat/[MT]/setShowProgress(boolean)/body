@@ -1,4 +1,3 @@
 {
-  mProgressBar.setVisibility(showProgress ? View.VISIBLE : View.GONE);
   mIconView.setVisibility(showProgress ? View.GONE : View.VISIBLE);
 }

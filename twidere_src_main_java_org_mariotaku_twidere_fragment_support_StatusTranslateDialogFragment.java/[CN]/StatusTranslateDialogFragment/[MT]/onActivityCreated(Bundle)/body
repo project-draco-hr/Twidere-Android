@@ -5,7 +5,7 @@
     dismiss();
     return;
   }
-  mAdapter=new DummyStatusHolderAdapter(getActivity());
-  mHolder=new StatusViewHolder(mAdapter,mStatusContainer);
+  DummyStatusHolderAdapter adapter=new DummyStatusHolderAdapter(getActivity());
+  mHolder=new StatusViewHolder(adapter,mStatusContainer);
   getLoaderManager().initLoader(0,args,this);
 }

@@ -1,5 +1,5 @@
 {
-  final int action=event.getAction();
+  final int action=event.getActionMasked();
   if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_DOWN) {
     int x=(int)event.getX();
     int y=(int)event.getY();
@@ -12,13 +12,17 @@
     final int off=layout.getOffsetForHorizontal(line,x);
     final ClickableSpan[] link=buffer.getSpans(off,off,ClickableSpan.class);
     if (link.length != 0) {
-      if (action == MotionEvent.ACTION_UP) {
-        link[0].onClick(widget);
+      if (action == MotionEvent.ACTION_DOWN) {
+        Selection.setSelection(buffer,buffer.getSpanStart(link[0]),buffer.getSpanEnd(link[0]));
+        return true;
       }
  else {
-        Selection.setSelection(buffer,buffer.getSpanStart(link[0]),buffer.getSpanEnd(link[0]));
+        if ((!widget.isLongClickable() || (event.getEventTime() - event.getDownTime()) < ViewConfiguration.getLongPressTimeout())) {
+          link[0].onClick(widget);
+        }
+        Selection.removeSelection(buffer);
+        return true;
       }
-      return true;
     }
  else {
       Selection.removeSelection(buffer);

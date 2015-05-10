@@ -1,7 +1,7 @@
 {
   super.onViewCreated(view,savedInstanceState);
   mProgressContainer=view.findViewById(R.id.progress_container);
-  mProgressBar=(ProgressBar)mProgressContainer.findViewById(android.R.id.progress);
+  mProgress=mProgressContainer.findViewById(R.id.load_progress);
   mMessageView=(TextView)mProgressContainer.findViewById(android.R.id.message);
   mStatusContainer=view.findViewById(R.id.status_container);
 }

@@ -9,7 +9,7 @@
  else {
     mStatusContainer.setVisibility(View.GONE);
     mProgressContainer.setVisibility(View.VISIBLE);
-    mProgressBar.setVisibility(View.GONE);
+    mProgress.setVisibility(View.GONE);
     mMessageView.setVisibility(View.VISIBLE);
     mMessageView.setText(Utils.getErrorMessage(getActivity(),data.getException()));
   }

@@ -20,7 +20,6 @@
   final long timestamp;
   final String source;
   final int layoutPosition=getLayoutPosition();
-  final int linkHighlightingStyle=adapter.getLinkHighlightingStyle();
   if (status.is_quote) {
     quotedNameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
     quotedScreenNameView.setText("@" + status.user_screen_name);
