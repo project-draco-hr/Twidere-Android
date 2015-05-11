@@ -6,7 +6,8 @@
     final File cacheDir=mActivity.getCacheDir();
     final Uri uri=this.mUri;
     final String mimeType;
-    if (SCHEME_HTTP.equals(uri.getScheme()) || SCHEME_HTTPS.equals(uri.getScheme())) {
+    final String scheme=uri.getScheme();
+    if (SCHEME_HTTP.equals(scheme) || SCHEME_HTTPS.equals(scheme)) {
       final RestHttpClient client=TwitterAPIUtils.getDefaultHttpClient(mActivity);
       final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
       builder.method(GET.METHOD);
@@ -21,6 +22,11 @@
  else {
         throw new IOException("Unable to get " + uri);
       }
+    }
+ else     if (SCHEME_DATA.equals(scheme)) {
+      final DataUri dataUri=DataUri.parse(uri.toString(),Charset.defaultCharset());
+      is=new ByteArrayInputStream(dataUri.getData());
+      mimeType=dataUri.getMime();
     }
  else {
       is=cr.openInputStream(uri);

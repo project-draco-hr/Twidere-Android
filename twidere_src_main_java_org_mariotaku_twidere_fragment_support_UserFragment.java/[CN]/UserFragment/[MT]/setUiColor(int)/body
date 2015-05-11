@@ -6,13 +6,7 @@
   final AppCompatActivity activity=(AppCompatActivity)getActivity();
   final IThemedActivity themed=(IThemedActivity)activity;
   final int themeRes=themed.getCurrentThemeResourceId();
-  final int actionBarColor;
-  if (ThemeUtils.isDarkTheme(themeRes)) {
-    actionBarColor=getResources().getColor(R.color.background_color_action_bar_dark);
-  }
- else {
-    actionBarColor=color;
-  }
+  final int actionBarColor=ThemeUtils.getActionBarColor(activity,color,themed.getCurrentThemeResourceId(),themed.getThemeBackgroundOption());
   if (mTintedStatusContent != null) {
     mTintedStatusContent.setColor(actionBarColor,themed.getCurrentThemeBackgroundAlpha());
   }

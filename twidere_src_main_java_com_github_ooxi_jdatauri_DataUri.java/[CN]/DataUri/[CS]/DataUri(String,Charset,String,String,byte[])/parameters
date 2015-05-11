@@ -1,0 +1,5 @@
+String mime
+Charset charset
+String filename
+String contentDisposition
+byte[] data

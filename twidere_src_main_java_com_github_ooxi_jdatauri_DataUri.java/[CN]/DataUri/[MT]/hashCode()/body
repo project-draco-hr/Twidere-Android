@@ -1,0 +1,9 @@
+{
+  int hash=3;
+  hash=23 * hash + (this.mime != null ? this.mime.hashCode() : 0);
+  hash=23 * hash + (this.charset != null ? this.charset.hashCode() : 0);
+  hash=23 * hash + (this.filename != null ? this.filename.hashCode() : 0);
+  hash=23 * hash + (this.contentDisposition != null ? this.contentDisposition.hashCode() : 0);
+  hash=23 * hash + Arrays.hashCode(this.data);
+  return hash;
+}

@@ -23,14 +23,8 @@
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
     final Drawable tabBackground=mPagerIndicator.getBackground();
-    int stackedTabColor;
     final int themeId=activity.getCurrentThemeResourceId();
-    if (ThemeUtils.isDarkTheme(themeId)) {
-      stackedTabColor=getResources().getColor(R.color.background_color_action_bar_dark);
-    }
- else {
-      stackedTabColor=mUiColor;
-    }
+    int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,themeId,activity.getThemeBackgroundOption());
     if (ThemeUtils.isTransparentBackground(activity.getCurrentThemeBackgroundOption())) {
       stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,activity.getCurrentThemeBackgroundAlpha());
     }

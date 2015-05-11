@@ -1,0 +1,9 @@
+{
+  if (!isDarkTheme(themeResId)) {
+    return themeColor;
+  }
+ else   if (isSolidBackground(backgroundOption)) {
+    return Color.BLACK;
+  }
+  return context.getResources().getColor(R.color.background_color_action_bar_dark);
+}

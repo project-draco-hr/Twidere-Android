@@ -1,0 +1,4 @@
+Context context
+int themeColor
+int themeResId
+String backgroundOption
