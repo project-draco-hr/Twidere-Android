@@ -1,10 +1,11 @@
 {
-  InputStream is;
+  InputStream is=null;
   try {
     is=context.getContentResolver().openInputStream(imageUri);
-    twitter.updateProfileBannerImage(is);
+    twitter.updateProfileBannerImage(new FileTypedData(is,"image",-1,null));
   }
   finally {
+    Utils.closeSilently(is);
     if (deleteImage && "file".equals(imageUri.getScheme())) {
       final File file=new File(imageUri.getPath());
       if (!file.delete()) {
