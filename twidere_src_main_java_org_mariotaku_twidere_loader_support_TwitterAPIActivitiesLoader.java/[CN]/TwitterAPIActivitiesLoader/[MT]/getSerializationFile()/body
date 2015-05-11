@@ -1,7 +1,7 @@
 {
   if (mSavedStatusesFileArgs == null)   return null;
   try {
-    return JSONFileIO.getSerializationFile(mContext,mSavedStatusesFileArgs);
+    return LoganSquareWrapper.getSerializationFile(mContext,mSavedStatusesFileArgs);
   }
  catch (  final IOException e) {
     e.printStackTrace();

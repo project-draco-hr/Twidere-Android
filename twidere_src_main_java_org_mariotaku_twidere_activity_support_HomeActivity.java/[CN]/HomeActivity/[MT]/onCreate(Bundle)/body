@@ -25,7 +25,7 @@
   setSupportActionBar(mActionBar);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
-  mTabDisplayOption=getTabDisplayOptionInt(this);
+  int tabDisplayOptionInt=getTabDisplayOptionInt(this);
   mTabColumns=getResources().getInteger(R.integer.default_tab_columns);
   mColorStatusFrameLayout.setOnFitSystemWindowsListener(this);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,mTabColumns);
@@ -33,13 +33,13 @@
   mTabIndicator.setViewPager(mViewPager);
   mTabIndicator.setOnPageChangeListener(this);
   mTabIndicator.setColumns(mTabColumns);
-  if (mTabDisplayOption != 0) {
-    mTabIndicator.setTabDisplayOption(mTabDisplayOption);
+  if (tabDisplayOptionInt == 0) {
+    tabDisplayOptionInt=TabPagerIndicator.ICON;
   }
- else {
-    mTabIndicator.setTabDisplayOption(TabPagerIndicator.ICON);
-  }
+  mTabIndicator.setTabDisplayOption(tabDisplayOptionInt);
+  mTabIndicator.setTabExpandEnabled((tabDisplayOptionInt & TabPagerIndicator.LABEL) == 0);
   mTabIndicator.setDisplayBadge(mPreferences.getBoolean(KEY_UNREAD_COUNT,true));
+  mTabIndicator.updateAppearance();
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
   mEmptyTabHint.setOnClickListener(this);

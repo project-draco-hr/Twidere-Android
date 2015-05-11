@@ -30,4 +30,5 @@
   final Window window=getWindow();
   ThemeUtils.applyWindowBackground(this,mSlidingMenu.getContent(),getCurrentThemeResourceId(),getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());
   window.setBackgroundDrawable(new EmptyDrawable());
+  mSlidingMenu.addIgnoredView(mActionBarContainer);
 }

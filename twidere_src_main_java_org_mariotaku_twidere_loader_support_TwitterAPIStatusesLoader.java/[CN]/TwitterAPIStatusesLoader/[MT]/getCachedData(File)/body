@@ -1,10 +1,10 @@
 {
   if (file == null)   return null;
   try {
-    return LoganSquare.parseList(new FileInputStream(file),ParcelableStatus.class);
+    return LoganSquareWrapper.parseList(file,ParcelableStatus.class);
   }
  catch (  final IOException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

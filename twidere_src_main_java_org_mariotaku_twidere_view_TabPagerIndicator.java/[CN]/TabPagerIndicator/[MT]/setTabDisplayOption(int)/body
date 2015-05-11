@@ -1,4 +1,3 @@
 {
   mOption=flags;
-  notifyDataSetChanged();
 }

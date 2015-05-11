@@ -2,11 +2,11 @@
   if (mRecyclerView == null)   return;
   final DividerItemDecoration decoration=mFragment.getItemDecoration();
   decoration.setDecorationStart(0);
-  if (isLoadMoreIndicatorVisible()) {
-    decoration.setDecorationEndOffset(3);
+  if (mReplies == null) {
+    decoration.setDecorationEndOffset(2);
   }
  else {
-    decoration.setDecorationEndOffset(mReplies != null && mReplies.size() > 0 ? 1 : 2);
+    decoration.setDecorationEndOffset(1);
   }
   mRecyclerView.invalidateItemDecorations();
 }
