@@ -1,0 +1,4 @@
+{
+  if (is != null)   return is;
+  return is=new ByteArrayInputStream(data);
+}

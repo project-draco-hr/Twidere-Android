@@ -1,0 +1,4 @@
+{
+  this.contentType=ContentType.parse("text/plain").charset(charset);
+  this.data=string.getBytes(charset);
+}

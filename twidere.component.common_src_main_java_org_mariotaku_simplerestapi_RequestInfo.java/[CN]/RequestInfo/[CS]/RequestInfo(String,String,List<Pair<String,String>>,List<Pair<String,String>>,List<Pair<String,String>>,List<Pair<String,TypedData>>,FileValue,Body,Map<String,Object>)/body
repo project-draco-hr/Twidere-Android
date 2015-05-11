@@ -6,5 +6,6 @@
   this.headers=headers;
   this.parts=parts;
   this.extras=extras;
+  this.file=file;
   this.body=body;
 }

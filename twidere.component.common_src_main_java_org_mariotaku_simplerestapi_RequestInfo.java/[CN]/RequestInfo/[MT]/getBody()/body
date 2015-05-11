@@ -1,3 +1,22 @@
 {
-  return body;
+  if (bodyCache != null)   return bodyCache;
+  if (body == null)   return null;
+switch (body.value()) {
+case FORM:
+{
+      bodyCache=new FormTypedBody(getForms());
+      break;
+    }
+case MULTIPART:
+{
+    bodyCache=new MultipartTypedBody(getParts());
+    break;
+  }
+case FILE:
+{
+  bodyCache=file.body();
+  break;
+}
+}
+return bodyCache;
 }

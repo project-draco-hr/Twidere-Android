@@ -4,5 +4,6 @@ List<Pair<String,String>> queries
 List<Pair<String,String>> forms
 List<Pair<String,String>> headers
 List<Pair<String,TypedData>> parts
+FileValue file
+Body body
 Map<String,Object> extras
-TypedData body

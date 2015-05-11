@@ -1,0 +1,4 @@
+{
+  removeParameter("charset");
+  return parameter("charset",charset.name());
+}
