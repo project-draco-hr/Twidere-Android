@@ -5,4 +5,7 @@
   profileImageView=(ShapedImageView)itemView.findViewById(R.id.profile_image);
   nameView=(TextView)itemView.findViewById(R.id.name);
   createdByView=(TextView)itemView.findViewById(R.id.created_by);
+  descriptionView=(TextView)itemView.findViewById(R.id.description);
+  membersCountView=(TextView)itemView.findViewById(R.id.members_count);
+  subscribersCountView=(TextView)itemView.findViewById(R.id.subscribers_count);
 }

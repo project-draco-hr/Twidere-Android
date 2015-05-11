@@ -15,4 +15,8 @@
     profileImageView.setVisibility(View.GONE);
     loader.cancelDisplayTask(profileImageView);
   }
+  descriptionView.setVisibility(TextUtils.isEmpty(userList.description) ? View.GONE : View.VISIBLE);
+  descriptionView.setText(userList.description);
+  membersCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),userList.members_count));
+  subscribersCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),userList.subscribers_count));
 }

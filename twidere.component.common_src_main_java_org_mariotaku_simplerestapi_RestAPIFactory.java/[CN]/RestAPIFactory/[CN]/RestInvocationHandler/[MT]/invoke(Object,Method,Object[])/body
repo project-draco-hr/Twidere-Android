@@ -1,10 +1,17 @@
 {
   final RestMethodInfo methodInfo=RestMethodInfo.get(method,args);
-  final RestRequest restRequest=requestFactory.create(endpoint,methodInfo.toRequestInfo(),authorization);
+  final RequestInfo requestInfo;
+  if (requestInfoFactory != null) {
+    requestInfo=requestInfoFactory.create(methodInfo);
+  }
+ else {
+    requestInfo=methodInfo.toRequestInfo();
+  }
+  final RestHttpRequest restHttpRequest=requestFactory.create(endpoint,requestInfo,authorization);
   final Class<?>[] parameterTypes=method.getParameterTypes();
-  RestResponse response=null;
+  RestHttpResponse response=null;
   try {
-    response=restClient.execute(restRequest);
+    response=restClient.execute(restHttpRequest);
     if (parameterTypes.length > 0) {
       final Class<?> lastParameterType=parameterTypes[parameterTypes.length - 1];
       if (RestCallback.class.isAssignableFrom(lastParameterType)) {

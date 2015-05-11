@@ -1,6 +1,0 @@
-Endpoint endpoint
-Authorization authorization
-RestHttpClient restClient
-Converter converter
-RestRequest.Factory requestFactory
-ExceptionFactory exceptionFactory

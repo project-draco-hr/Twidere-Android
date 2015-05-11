@@ -31,7 +31,7 @@
         queries.add(Pair.create(name,value));
       }
     }
-    final RestMethodInfo.RequestInfo info=new RestMethodInfo.RequestInfo(method,uri.getPath(),queries,null,additionalHeaders,null,null,null);
+    final RequestInfo info=new RequestInfo(method,uri.getPath(),queries,null,additionalHeaders,null,null,null);
     additionalHeaders.add(Pair.create("Authorization",auth.getHeader(endpoint,info)));
   }
   final String requestUri;
@@ -41,7 +41,7 @@
  else {
     requestUri=modifiedUri.toString();
   }
-  final RestResponse resp=mClient.execute(new RestRequest.Builder().method(method).url(requestUri).headers(additionalHeaders).build());
+  final RestHttpResponse resp=mClient.execute(new RestHttpRequest.Builder().method(method).url(requestUri).headers(additionalHeaders).build());
   final TypedData body=resp.getBody();
   return new ContentLengthInputStream(body.stream(),(int)body.length());
 }

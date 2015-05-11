@@ -6,14 +6,14 @@
  catch (  final TwitterException e) {
     throw new AuthenticityTokenException(e);
   }
-  RestResponse authorizePage=null, authorizeResult=null;
+  RestHttpResponse authorizePage=null, authorizeResult=null;
   try {
     final String oauthToken=requestToken.getOauthToken();
     final HashMap<String,String> inputMap=new HashMap<>();
-    final RestRequest.Builder authorizePageBuilder=new RestRequest.Builder();
+    final RestHttpRequest.Builder authorizePageBuilder=new RestHttpRequest.Builder();
     authorizePageBuilder.method(GET.METHOD);
     authorizePageBuilder.url(endpoint.construct("/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken())));
-    final RestRequest authorizePageRequest=authorizePageBuilder.build();
+    final RestHttpRequest authorizePageRequest=authorizePageBuilder.build();
     authorizePage=client.execute(authorizePageRequest);
     final String[] cookieHeaders=authorizePage.getHeaders("Set-Cookie");
     readInputFromHtml(BaseTypedData.reader(authorizePage.getBody()),inputMap,INPUT_AUTHENTICITY_TOKEN,INPUT_REDIRECT_AFTER_LOGIN);
@@ -39,7 +39,7 @@
         requestHeaders.add(Pair.create("Cookie",cookie.toString()));
       }
     }
-    final RestRequest.Builder authorizeResultBuilder=new RestRequest.Builder();
+    final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
     authorizeResultBuilder.method(POST.METHOD);
     authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
     authorizeResultBuilder.headers(requestHeaders);
