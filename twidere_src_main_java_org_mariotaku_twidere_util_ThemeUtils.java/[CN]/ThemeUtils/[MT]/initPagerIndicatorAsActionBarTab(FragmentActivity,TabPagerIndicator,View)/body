@@ -4,6 +4,7 @@
   if (!(activity instanceof IThemedActivity))   return;
   final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
   final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
+  final String backgroundOption=((IThemedActivity)activity).getCurrentThemeBackgroundOption();
   final int colorDark, colorLight;
   final int[] textColors=new int[2];
   getTextColorPrimaryAndInverse(activity,textColors);
@@ -16,7 +17,7 @@
     colorLight=textColors[1];
   }
   final int contrastColor=TwidereColorUtils.getContrastYIQ(themeColor,ACCENT_COLOR_THRESHOLD,colorDark,colorLight);
-  ViewSupport.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,true));
+  ViewSupport.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,backgroundOption,true));
   if (isDarkTheme(themeRes)) {
     final int foregroundColor=getThemeForegroundColor(activity);
     indicator.setIconColor(foregroundColor);

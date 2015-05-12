@@ -24,7 +24,8 @@
   }
 );
   if (compact) {
-    mRecyclerView.addItemDecoration(new DividerItemDecoration(context,mLayoutManager.getOrientation()));
+    mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
+    mRecyclerView.addItemDecoration(mItemDecoration);
   }
   mRecyclerView.setAdapter((RecyclerView.Adapter)mAdapter);
   mScrollListener=new ContentListScrollListener(this);

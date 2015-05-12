@@ -1,3 +1,6 @@
 {
+  if (mItemDecoration != null) {
+    mItemDecoration.setDecorationEndOffset(visible ? 1 : 0);
+  }
   mAdapter.setLoadMoreIndicatorVisible(visible);
 }

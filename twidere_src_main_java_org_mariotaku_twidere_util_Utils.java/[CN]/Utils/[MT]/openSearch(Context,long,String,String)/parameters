@@ -1,3 +1,4 @@
 Context context
 long accountId
 String query
+String type

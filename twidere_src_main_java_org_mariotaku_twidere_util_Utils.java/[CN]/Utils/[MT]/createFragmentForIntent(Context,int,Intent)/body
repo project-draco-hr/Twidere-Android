@@ -306,9 +306,13 @@ break;
 }
 case LINK_ID_SEARCH:
 {
-final String param_query=uri.getQueryParameter(QUERY_PARAM_QUERY);
-if (isEmpty(param_query)) return null;
-args.putString(EXTRA_QUERY,param_query);
+final String paramQuery=uri.getQueryParameter(QUERY_PARAM_QUERY);
+if (!args.containsKey(EXTRA_QUERY) && !isEmpty(paramQuery)) {
+args.putString(EXTRA_QUERY,paramQuery);
+}
+if (!args.containsKey(EXTRA_QUERY)) {
+return null;
+}
 fragment=new SearchFragment();
 break;
 }

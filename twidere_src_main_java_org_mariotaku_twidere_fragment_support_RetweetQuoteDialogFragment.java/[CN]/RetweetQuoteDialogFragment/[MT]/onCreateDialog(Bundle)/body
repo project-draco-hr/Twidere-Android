@@ -1,19 +1,2 @@
 {
-  final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
-  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
-  final Context context=builder.getContext();
-  final LayoutInflater inflater=LayoutInflater.from(context);
-  @SuppressLint("InflateParams") final View view=inflater.inflate(R.layout.dialog_status_quote_retweet,null);
-  final StatusViewHolder holder=new StatusViewHolder(new DummyStatusHolderAdapter(context),view.findViewById(R.id.item_content));
-  final ParcelableStatus status=getStatus();
-  builder.setView(view);
-  builder.setTitle(R.string.retweet_quote_confirm_title);
-  builder.setPositiveButton(isMyRetweet(status) ? R.string.cancel_retweet : R.string.retweet,this);
-  builder.setNeutralButton(R.string.quote,this);
-  builder.setNegativeButton(android.R.string.cancel,null);
-  holder.displayStatus(status,null,false,true);
-  view.findViewById(R.id.item_menu).setVisibility(View.GONE);
-  view.findViewById(R.id.action_buttons).setVisibility(View.GONE);
-  view.findViewById(R.id.item_content).setFocusable(false);
-  return builder.create();
 }
