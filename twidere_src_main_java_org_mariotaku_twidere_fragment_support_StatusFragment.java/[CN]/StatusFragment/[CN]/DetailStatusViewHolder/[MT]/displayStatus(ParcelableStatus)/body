@@ -74,7 +74,7 @@
  else   if (!TextUtils.isEmpty(timeString) && TextUtils.isEmpty(source)) {
     timeSourceView.setText(timeString);
   }
-  timeSourceView.setMovementMethod(StatusContentMovementMethod.getInstance());
+  timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
   textView.setText(Html.fromHtml(status.text_html));
   linkify.applyAllLinks(textView,status.account_id,layoutPosition,status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
@@ -143,6 +143,6 @@
   Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
   quoteTextView.setTextIsSelectable(true);
   textView.setTextIsSelectable(true);
-  quoteTextView.setMovementMethod(StatusContentMovementMethod.getInstance());
-  textView.setMovementMethod(StatusContentMovementMethod.getInstance());
+  quoteTextView.setMovementMethod(LinkMovementMethod.getInstance());
+  textView.setMovementMethod(LinkMovementMethod.getInstance());
 }
