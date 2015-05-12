@@ -1,4 +1,0 @@
-{
-  this.listField=listField;
-  this.elementType=elementType;
-}

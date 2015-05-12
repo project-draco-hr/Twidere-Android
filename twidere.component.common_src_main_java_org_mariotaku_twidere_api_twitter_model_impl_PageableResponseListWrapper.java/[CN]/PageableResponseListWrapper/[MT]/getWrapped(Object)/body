@@ -1,14 +1,20 @@
 {
   final Type[] typeArgs=(Type[])extra;
   final Class<?> elementType=(Class<?>)typeArgs[0];
+  PageableResponseListImpl<?> list;
   if (User.class.isAssignableFrom(elementType)) {
-    return new PageableResponseListImpl<>(users);
+    list=new PageableResponseListImpl<>(users);
   }
  else   if (Status.class.isAssignableFrom(elementType)) {
-    return new PageableResponseListImpl<>(statuses);
+    list=new PageableResponseListImpl<>(statuses);
   }
  else   if (UserList.class.isAssignableFrom(elementType)) {
-    return new PageableResponseListImpl<>(userLists);
+    list=new PageableResponseListImpl<>(userLists);
   }
-  throw new TwitterConverter.UnsupportedTypeException(elementType);
+ else {
+    throw new TwitterConverter.UnsupportedTypeException(elementType);
+  }
+  list.previousCursor=previousCursor;
+  list.nextCursor=nextCursor;
+  return list;
 }
