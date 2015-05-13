@@ -1,0 +1,4 @@
+{
+  if (!(status instanceof StatusImpl))   return;
+  ((StatusImpl)status).quotedStatus=quoted;
+}

@@ -1,8 +1,8 @@
 {
   final int idx=internalArray.indexOfKey(key);
-  final HashSet<T> set;
+  final CompactHashSet<T> set;
   if (idx < 0) {
-    set=new HashSet<>();
+    set=new CompactHashSet<>();
     internalArray.put(key,set);
   }
  else {
