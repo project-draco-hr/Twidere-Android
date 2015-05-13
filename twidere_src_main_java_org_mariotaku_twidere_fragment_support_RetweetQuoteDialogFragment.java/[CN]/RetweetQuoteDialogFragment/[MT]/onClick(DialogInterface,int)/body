@@ -6,15 +6,7 @@ case DialogInterface.BUTTON_POSITIVE:
 {
       final AsyncTwitterWrapper twitter=getTwitterWrapper();
       if (twitter == null)       return;
-      if (mEditComment.length() > 0) {
-        quoteStatus(twitter,status);
-      }
- else       if (isMyRetweet(status)) {
-        twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
-      }
- else {
-        twitter.retweetStatusAsync(status.account_id,status.id);
-      }
+      retweetOrQuote(twitter,status);
       break;
     }
 case DialogInterface.BUTTON_NEUTRAL:
