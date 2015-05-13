@@ -1,9 +1,0 @@
-{
-  try {
-    if (json.isNull(name))     return null;
-    return json.getString(name);
-  }
- catch (  final JSONException e) {
-    return null;
-  }
-}

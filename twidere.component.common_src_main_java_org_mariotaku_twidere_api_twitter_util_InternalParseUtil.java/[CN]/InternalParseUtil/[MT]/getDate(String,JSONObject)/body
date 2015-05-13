@@ -1,3 +1,0 @@
-{
-  return getDate(name,json,"EEE MMM d HH:mm:ss z yyyy");
-}

@@ -1,5 +1,0 @@
-{
-  final String str=getRawString(name,json);
-  if (null == str || "null".equals(str))   return false;
-  return Boolean.valueOf(str);
-}

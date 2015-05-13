@@ -1,3 +1,0 @@
-{
-  return count(text) > 140;
-}

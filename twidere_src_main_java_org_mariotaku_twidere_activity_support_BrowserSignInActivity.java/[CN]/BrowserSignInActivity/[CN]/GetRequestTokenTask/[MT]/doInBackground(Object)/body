@@ -11,7 +11,7 @@
     consumerSecret=defConsumerSecret;
   }
   try {
-    final Endpoint endpoint=new Endpoint(DEFAULT_OAUTH_BASE_URL);
+    final Endpoint endpoint=new Endpoint(Utils.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api","oauth"));
     final Authorization auth=new OAuthAuthorization(consumerKey,consumerSecret);
     final TwitterOAuth twitter=TwitterAPIUtils.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
     return twitter.getRequestToken(OAUTH_CALLBACK_OOB);

@@ -1,5 +1,0 @@
-{
-  final String dateStr=getUnescapedString(name,json);
-  if ("null".equals(dateStr) || null == dateStr)   return null;
- else   return getDate(dateStr,format);
-}

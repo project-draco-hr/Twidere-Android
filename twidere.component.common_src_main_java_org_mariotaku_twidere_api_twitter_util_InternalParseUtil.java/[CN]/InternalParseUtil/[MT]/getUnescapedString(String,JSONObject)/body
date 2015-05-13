@@ -1,5 +1,0 @@
-{
-  final String str=getRawString(name,json);
-  if (str == null)   return null;
-  return str.replace("&amp;","&").replace("&lt;","<").replace("&gt;",">");
-}
