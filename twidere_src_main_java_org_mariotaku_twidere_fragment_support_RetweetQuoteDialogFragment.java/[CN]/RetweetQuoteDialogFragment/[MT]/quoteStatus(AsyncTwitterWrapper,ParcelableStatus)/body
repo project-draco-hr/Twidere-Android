@@ -1,0 +1,21 @@
+{
+  final Menu menu=mPopupMenu.getMenu();
+  final MenuItem quoteOriginalStatus=menu.findItem(R.id.quote_original_status);
+  final MenuItem linkToQuotedStatus=menu.findItem(R.id.link_to_quoted_status);
+  final Uri statusLink;
+  final long inReplyToStatusId;
+  if (!status.is_quote) {
+    inReplyToStatusId=status.id;
+    statusLink=LinkCreator.getTwitterStatusLink(status.quoted_by_user_screen_name,status.id);
+  }
+ else   if (quoteOriginalStatus.isChecked()) {
+    inReplyToStatusId=status.quote_id;
+    statusLink=LinkCreator.getTwitterStatusLink(status.user_screen_name,status.quote_id);
+  }
+ else {
+    inReplyToStatusId=status.id;
+    statusLink=LinkCreator.getTwitterStatusLink(status.quoted_by_user_screen_name,status.id);
+  }
+  final String commentText=mEditComment.getText() + " " + statusLink;
+  twitter.updateStatusAsync(new long[]{status.account_id},commentText,null,null,linkToQuotedStatus.isChecked() ? inReplyToStatusId : -1,status.is_possibly_sensitive);
+}

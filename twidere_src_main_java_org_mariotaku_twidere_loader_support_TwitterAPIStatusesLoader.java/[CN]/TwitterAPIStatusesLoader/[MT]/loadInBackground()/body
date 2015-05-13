@@ -36,7 +36,7 @@
       paging.setSinceId(mSinceId - 1);
     }
     statuses=new ArrayList<>();
-    truncated=truncateStatuses(getStatuses(twitter,paging),statuses,mSinceId);
+    truncated=Utils.truncateStatuses(getStatuses(twitter,paging),statuses,mSinceId);
     if (!Utils.isOfficialTwitterInstance(context,twitter)) {
       TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }

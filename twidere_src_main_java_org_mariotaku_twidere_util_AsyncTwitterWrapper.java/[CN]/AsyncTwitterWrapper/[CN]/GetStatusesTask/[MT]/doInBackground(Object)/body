@@ -25,7 +25,8 @@
         sinceId=-1;
       }
       final List<org.mariotaku.twidere.api.twitter.model.Status> statuses=new ArrayList<>();
-      final boolean truncated=truncateStatuses(getStatuses(twitter,paging),statuses,sinceId);
+      final boolean truncated=Utils.truncateStatuses(getStatuses(twitter,paging),statuses,sinceId);
+      TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
       storeStatus(accountId,statuses,maxId,truncated,true);
       publishProgress(new StatusListResponse(accountId,statuses));
     }
