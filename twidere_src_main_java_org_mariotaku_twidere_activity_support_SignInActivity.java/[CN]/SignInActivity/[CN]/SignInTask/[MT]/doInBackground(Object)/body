@@ -1,6 +1,6 @@
 {
   try {
-switch (auth_type) {
+switch (authType) {
 case Accounts.AUTH_TYPE_OAUTH:
       return authOAuth();
 case Accounts.AUTH_TYPE_XAUTH:

@@ -5,9 +5,10 @@
   }
   saveEditedText();
   setDefaultAPI();
-  final String requestToken=intent.getStringExtra(EXTRA_REQUEST_TOKEN);
-  final String requestTokenSecret=intent.getStringExtra(EXTRA_REQUEST_TOKEN_SECRET);
   final String verifier=intent.getStringExtra(EXTRA_OAUTH_VERIFIER);
-  mTask=new BrowserSignInTask(this,new OAuthToken(mConsumerKey,mConsumerSecret),new OAuthToken(requestToken,requestTokenSecret),verifier,mAPIUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
+  final OAuthToken consumerKey=new OAuthToken(mConsumerKey,mConsumerSecret);
+  final OAuthToken requestToken=new OAuthToken(intent.getStringExtra(EXTRA_REQUEST_TOKEN),intent.getStringExtra(EXTRA_REQUEST_TOKEN_SECRET));
+  final String apiUrlFormat=TextUtils.isEmpty(mAPIUrlFormat) ? DEFAULT_TWITTER_API_URL_FORMAT : mAPIUrlFormat;
+  mTask=new BrowserSignInTask(this,consumerKey,requestToken,verifier,apiUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
   AsyncTaskUtils.executeTask(mTask);
 }

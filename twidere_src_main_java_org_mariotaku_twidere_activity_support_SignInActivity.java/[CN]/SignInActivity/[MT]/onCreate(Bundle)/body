@@ -6,9 +6,9 @@
   mApplication=TwidereApplication.getInstance(this);
   setContentView(R.layout.activity_sign_in);
   setSupportActionBar((Toolbar)findViewById(R.id.action_bar));
-  mTwidereActionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
+  TwidereActionModeForChildListener actionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
   final NativeActionModeAwareLayout layout=(NativeActionModeAwareLayout)findViewById(android.R.id.content);
-  layout.setActionModeForChildListener(mTwidereActionModeForChildListener);
+  layout.setActionModeForChildListener(actionModeForChildListener);
   ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
   final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
   ViewCompat.setElevation(actionBarContainer,ThemeUtils.getSupportActionBarElevation(this));

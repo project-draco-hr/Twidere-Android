@@ -4,6 +4,8 @@
   }
   saveEditedText();
   setDefaultAPI();
-  mTask=new SignInTask(this,mUsername,mPassword,mAuthType,new OAuthToken(mConsumerKey,mConsumerSecret),mAPIUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
+  final OAuthToken consumerKey=new OAuthToken(mConsumerKey,mConsumerSecret);
+  final String apiUrlFormat=TextUtils.isEmpty(mAPIUrlFormat) ? DEFAULT_TWITTER_API_URL_FORMAT : mAPIUrlFormat;
+  mTask=new SignInTask(this,mUsername,mPassword,mAuthType,consumerKey,apiUrlFormat,mSameOAuthSigningUrl,mNoVersionSuffix);
   AsyncTaskUtils.executeTask(mTask);
 }

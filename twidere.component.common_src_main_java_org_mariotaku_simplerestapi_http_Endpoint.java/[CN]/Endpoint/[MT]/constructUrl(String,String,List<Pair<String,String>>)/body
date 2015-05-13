@@ -1,4 +1,5 @@
 {
+  if (endpoint == null)   throw new NullPointerException("Endpoint is null");
   final StringBuilder urlBuilder=new StringBuilder();
   if (endpoint.charAt(endpoint.length() - 1) == '/') {
     urlBuilder.append(endpoint.substring(0,endpoint.length() - 1));

@@ -3,7 +3,7 @@
   this.context=context;
   this.username=username;
   this.password=password;
-  this.auth_type=auth_type;
+  this.authType=authType;
   this.consumerKey=consumerKey;
   this.apiUrlFormat=apiUrlFormat;
   this.sameOAuthSigningUrl=sameOAuthSigningUrl;

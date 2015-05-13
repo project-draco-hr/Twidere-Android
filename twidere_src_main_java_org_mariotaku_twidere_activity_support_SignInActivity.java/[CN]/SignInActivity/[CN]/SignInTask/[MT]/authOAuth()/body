@@ -12,9 +12,9 @@
   final TwitterOAuth oauth=TwitterAPIUtils.getInstance(context,endpoint,auth,TwitterOAuth.class);
   final OAuthPasswordAuthenticator authenticator=new OAuthPasswordAuthenticator(oauth);
   final OAuthToken accessToken=authenticator.getOAuthAccessToken(username,password);
-  final long user_id=accessToken.getUserId();
-  if (user_id <= 0)   return new SignInResponse(false,false,null);
-  if (isUserLoggedIn(context,user_id))   return new SignInResponse(true,false,null);
+  final long userId=accessToken.getUserId();
+  if (userId <= 0)   return new SignInResponse(false,false,null);
+  if (isUserLoggedIn(context,userId))   return new SignInResponse(true,false,null);
   final String versionSuffix=noVersionSuffix ? null : "1.1";
   endpointUrl=Utils.getApiUrl(apiUrlFormat,"api",versionSuffix);
   if (!sameOAuthSigningUrl) {

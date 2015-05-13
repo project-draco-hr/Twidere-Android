@@ -1,7 +1,7 @@
 {
   final long apiLastChange=mPreferences.getLong(KEY_API_LAST_CHANGE,mAPIChangeTimestamp);
   final boolean defaultApiChanged=apiLastChange != mAPIChangeTimestamp;
-  final String apiUrlFormat=getNonEmptyString(mPreferences,KEY_API_URL_FORMAT,null);
+  final String apiUrlFormat=getNonEmptyString(mPreferences,KEY_API_URL_FORMAT,DEFAULT_TWITTER_API_URL_FORMAT);
   final int authType=mPreferences.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
   final boolean sameOAuthSigningUrl=mPreferences.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
   final boolean noVersionSuffix=mPreferences.getBoolean(KEY_NO_VERSION_SUFFIX,false);

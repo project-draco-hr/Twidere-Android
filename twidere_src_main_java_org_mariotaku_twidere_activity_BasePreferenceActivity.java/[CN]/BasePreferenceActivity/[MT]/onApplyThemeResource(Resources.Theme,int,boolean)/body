@@ -5,7 +5,4 @@
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   mCurrentThemeFontFamily=getThemeFontFamily();
   super.onApplyThemeResource(theme,resid,first);
-  if (shouldApplyWindowBackground()) {
-    ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
-  }
 }

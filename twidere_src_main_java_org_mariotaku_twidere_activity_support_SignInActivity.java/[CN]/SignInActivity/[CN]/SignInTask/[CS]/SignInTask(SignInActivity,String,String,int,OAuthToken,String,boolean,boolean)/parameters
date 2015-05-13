@@ -1,7 +1,7 @@
 SignInActivity context
 String username
 String password
-int auth_type
+int authType
 OAuthToken consumerKey
 String apiUrlFormat
 boolean sameOAuthSigningUrl
