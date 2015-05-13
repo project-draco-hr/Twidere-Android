@@ -127,8 +127,8 @@
       twitterCard.setCardSize(0,0);
     }
     final Fragment cardFragment=TwitterCardUtils.createCardFragment(status.card);
-    if (cardFragment != null) {
-      final FragmentManager fm=fragment.getChildFragmentManager();
+    final FragmentManager fm=fragment.getChildFragmentManager();
+    if (cardFragment != null && !FragmentManagerTrojan.isStateSaved(fm)) {
       final FragmentTransaction ft=fm.beginTransaction();
       ft.replace(R.id.twitter_card,cardFragment);
       ft.commit();
