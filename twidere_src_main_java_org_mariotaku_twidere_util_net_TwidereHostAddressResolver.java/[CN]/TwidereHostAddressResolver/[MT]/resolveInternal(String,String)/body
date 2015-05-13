@@ -2,7 +2,7 @@
   if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
   final InetAddress[] cachedHostAddr=mHostCache.get(host);
   if (cachedHostAddr != null) {
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.d(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(cachedHostAddr));
       return cachedHostAddr;
     }
@@ -12,7 +12,7 @@
     if (mappedAddr != null) {
       final InetAddress[] hostAddr=fromAddressString(originalHost,mappedAddr);
       mHostCache.put(originalHost,hostAddr);
-      if (Utils.isDebugBuild()) {
+      if (BuildConfig.DEBUG) {
         Log.d(RESOLVER_LOGTAG,"Got mapped " + Arrays.toString(hostAddr));
       }
       return hostAddr;
@@ -22,7 +22,7 @@
   if (mSystemHosts.contains(host)) {
     final InetAddress[] hostAddr=fromAddressString(originalHost,mSystemHosts.getAddress(host));
     mHostCache.put(originalHost,hostAddr);
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.d(RESOLVER_LOGTAG,"Got hosts " + Arrays.toString(hostAddr));
     }
     return hostAddr;
@@ -31,7 +31,7 @@
   if (customMappedHost != null) {
     final InetAddress[] hostAddr=fromAddressString(originalHost,customMappedHost);
     mHostCache.put(originalHost,hostAddr);
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.d(RESOLVER_LOGTAG,"Got mapped address " + customMappedHost + " for host "+ host);
     }
     return hostAddr;
@@ -61,7 +61,7 @@
     if (!resolvedAddresses.isEmpty()) {
       final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
       mHostCache.put(originalHost,hostAddr);
-      if (Utils.isDebugBuild()) {
+      if (BuildConfig.DEBUG) {
         Log.d(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(hostAddr));
       }
       return hostAddr;
@@ -70,7 +70,7 @@
       if (record instanceof CNAMERecord)       return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString());
     }
   }
-  if (Utils.isDebugBuild()) {
+  if (BuildConfig.DEBUG) {
     Log.w(RESOLVER_LOGTAG,"Resolve address " + host + " failed, using original host");
   }
   final InetAddress[] defaultAddresses=InetAddress.getAllByName(host);

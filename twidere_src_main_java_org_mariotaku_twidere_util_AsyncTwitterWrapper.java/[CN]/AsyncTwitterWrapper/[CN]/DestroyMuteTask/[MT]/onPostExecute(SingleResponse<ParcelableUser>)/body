@@ -6,7 +6,7 @@
     final String message=mContext.getString(R.string.unmuted_user,manager.getDisplayName(result.getData(),nameFirst,true));
     showInfoMessage(mContext,message,false);
     final Bus bus=application.getMessageBus();
-    bus.post(new FriendshipUpdatedEvent(result.getData()));
+    bus.post(new FriendshipUserUpdatedEvent(result.getData()));
   }
  else {
     showErrorMessage(mContext,R.string.action_unmuting,result.getException(),true);

@@ -24,7 +24,7 @@
       storeMessages(accountId,messages,isOutgoing(),true);
     }
  catch (    final TwitterException e) {
-      if (Utils.isDebugBuild()) {
+      if (BuildConfig.DEBUG) {
         Log.w(LOGTAG,e);
       }
       result.add(new MessageListResponse(accountId,e));

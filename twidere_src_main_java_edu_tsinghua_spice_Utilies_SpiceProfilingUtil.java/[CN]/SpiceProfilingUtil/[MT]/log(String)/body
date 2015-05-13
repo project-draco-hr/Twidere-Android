@@ -1,5 +1,5 @@
 {
-  if (Utils.isDebugBuild()) {
+  if (BuildConfig.DEBUG) {
     final StackTraceElement ste=new Throwable().fillInStackTrace().getStackTrace()[1];
     final String fullName=ste.getClassName();
     final String name=fullName.substring(fullName.lastIndexOf('.'));

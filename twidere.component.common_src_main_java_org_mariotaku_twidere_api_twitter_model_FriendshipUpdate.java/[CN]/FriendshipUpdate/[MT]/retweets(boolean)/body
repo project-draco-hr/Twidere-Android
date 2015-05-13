@@ -1,0 +1,4 @@
+{
+  setRetweetsEnabled(enabled);
+  return this;
+}

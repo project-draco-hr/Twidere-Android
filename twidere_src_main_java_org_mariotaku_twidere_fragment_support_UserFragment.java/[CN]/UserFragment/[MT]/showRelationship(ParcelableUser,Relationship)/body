@@ -1,0 +1,80 @@
+{
+  mRelationship=relationship;
+  if (user == null)   return;
+  invalidateOptionsMenu();
+  final boolean isMyself=user.account_id == user.id;
+  if (isMyself) {
+    mFollowButton.setText(R.string.edit);
+    mFollowButton.setVisibility(View.VISIBLE);
+  }
+ else   if (relationship != null) {
+    final int drawableRes;
+    mFollowButton.setEnabled(!relationship.isSourceBlockedByTarget());
+    if (relationship.isSourceBlockedByTarget()) {
+      mPagesErrorContainer.setVisibility(View.VISIBLE);
+      final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
+      mPagesErrorText.setText(getString(R.string.blocked_by_user_summary,displayName));
+      mPagesErrorIcon.setImageResource(R.drawable.ic_info_error_generic);
+      mPagesContent.setVisibility(View.GONE);
+    }
+ else     if (!relationship.isSourceFollowingTarget() && user.is_protected) {
+      mPagesErrorContainer.setVisibility(View.VISIBLE);
+      final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
+      mPagesErrorText.setText(getString(R.string.user_protected_summary,displayName));
+      mPagesErrorIcon.setImageResource(R.drawable.ic_info_locked);
+      mPagesContent.setVisibility(View.GONE);
+    }
+ else {
+      mPagesErrorContainer.setVisibility(View.GONE);
+      mPagesErrorText.setText(null);
+      mPagesContent.setVisibility(View.VISIBLE);
+    }
+    if (relationship.isSourceBlockingTarget()) {
+      mFollowButton.setText(R.string.unblock);
+      drawableRes=R.drawable.ic_follow_blocked;
+    }
+ else     if (relationship.isSourceFollowingTarget()) {
+      mFollowButton.setText(R.string.unfollow);
+      if (relationship.isTargetFollowingSource()) {
+        drawableRes=R.drawable.ic_follow_bidirectional;
+      }
+ else {
+        drawableRes=R.drawable.ic_follow_outgoing;
+      }
+    }
+ else     if (user.is_follow_request_sent) {
+      mFollowButton.setText(R.string.requested);
+      if (relationship.isTargetFollowingSource()) {
+        drawableRes=R.drawable.ic_follow_incoming;
+      }
+ else {
+        drawableRes=R.drawable.ic_follow_pending;
+      }
+    }
+ else {
+      mFollowButton.setText(R.string.follow);
+      if (relationship.isTargetFollowingSource()) {
+        drawableRes=R.drawable.ic_follow_incoming;
+      }
+ else {
+        drawableRes=R.drawable.ic_follow_none;
+      }
+    }
+    final Drawable icon=ResourcesCompat.getDrawable(getResources(),drawableRes,null);
+    final int iconSize=Math.round(mFollowButton.getTextSize() * 1.4f);
+    icon.setBounds(0,0,iconSize,iconSize);
+    icon.setColorFilter(mFollowButton.getCurrentTextColor(),Mode.SRC_ATOP);
+    mFollowButton.setCompoundDrawables(icon,null,null,null);
+    mFollowButton.setCompoundDrawablePadding(Math.round(mFollowButton.getTextSize() * 0.25f));
+    final ContentResolver resolver=getContentResolver();
+    final ContentValues cachedValues=ParcelableUser.makeCachedUserContentValues(user);
+    resolver.insert(CachedUsers.CONTENT_URI,cachedValues);
+    mFollowButton.setVisibility(View.VISIBLE);
+  }
+ else {
+    mFollowButton.setText(null);
+    mFollowButton.setVisibility(View.GONE);
+    mPagesErrorContainer.setVisibility(View.GONE);
+    mPagesContent.setVisibility(View.VISIBLE);
+  }
+}

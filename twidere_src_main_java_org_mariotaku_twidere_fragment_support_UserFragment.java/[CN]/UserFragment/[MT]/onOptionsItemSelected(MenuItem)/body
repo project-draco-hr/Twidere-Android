@@ -124,6 +124,15 @@ twitter.createFriendshipAsync(user.account_id,user.id);
 }
 return true;
 }
+case MENU_ENABLE_RETWEETS:
+{
+final boolean newState=!item.isChecked();
+final FriendshipUpdate update=new FriendshipUpdate();
+update.retweets(newState);
+twitter.updateFriendship(user.account_id,user.id,update);
+item.setChecked(newState);
+return true;
+}
 case R.id.muted_users:
 {
 Utils.openMutesUsers(getActivity(),user.account_id);

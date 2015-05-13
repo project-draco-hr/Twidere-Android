@@ -7,7 +7,7 @@
     }
   }
  catch (  final IOException ignore) {
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,ignore);
     }
   }

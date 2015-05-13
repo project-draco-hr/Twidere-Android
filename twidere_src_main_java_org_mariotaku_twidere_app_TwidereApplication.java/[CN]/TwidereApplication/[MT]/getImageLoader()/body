@@ -7,7 +7,7 @@
   cb.tasksProcessingOrder(QueueProcessingType.LIFO);
   cb.diskCache(getDiskCache());
   cb.imageDownloader(getImageDownloader());
-  L.writeDebugLogs(Utils.isDebugBuild());
+  L.writeDebugLogs(BuildConfig.DEBUG);
   loader.init(cb.build());
   return mImageLoader=loader;
 }

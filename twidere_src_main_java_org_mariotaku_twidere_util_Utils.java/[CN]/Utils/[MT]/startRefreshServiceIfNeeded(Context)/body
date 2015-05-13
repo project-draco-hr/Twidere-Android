@@ -3,7 +3,7 @@
   AsyncTask.execute(new Runnable(){
     @Override public void run(){
       if (isNetworkAvailable(context) && hasAutoRefreshAccounts(context)) {
-        if (isDebugBuild()) {
+        if (BuildConfig.DEBUG) {
           Log.d(LOGTAG,"Start background refresh service");
         }
         context.startService(refreshServiceIntent);

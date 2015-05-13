@@ -4,12 +4,12 @@
     return LoganSquareWrapper.parseList(file,ParcelableActivity.class);
   }
  catch (  final IOException e) {
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,e);
     }
   }
 catch (  RuntimeException e) {
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       throw e;
     }
     Log.e(LOGTAG,"Error unserializing data",e);

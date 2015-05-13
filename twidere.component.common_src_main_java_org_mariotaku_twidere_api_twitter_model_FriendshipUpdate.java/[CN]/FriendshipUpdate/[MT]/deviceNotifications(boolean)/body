@@ -1,0 +1,4 @@
+{
+  setDeviceNotificationsEnabled(enabled);
+  return this;
+}

@@ -21,7 +21,7 @@
     tmp.delete();
   }
  catch (  Exception e) {
-    if (Utils.isDebugBuild()) {
+    if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,e);
       SpiceProfilingUtil.log("server does not receive file " + tmp.getName());
     }

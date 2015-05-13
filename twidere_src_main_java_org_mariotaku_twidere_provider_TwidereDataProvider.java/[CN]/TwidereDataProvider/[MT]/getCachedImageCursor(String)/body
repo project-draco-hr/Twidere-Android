@@ -1,5 +1,5 @@
 {
-  if (Utils.isDebugBuild()) {
+  if (BuildConfig.DEBUG) {
     Log.d(LOGTAG,String.format("getCachedImageCursor(%s)",url));
   }
   final MatrixCursor c=new MatrixCursor(TwidereDataStore.CachedImages.MATRIX_COLUMNS);

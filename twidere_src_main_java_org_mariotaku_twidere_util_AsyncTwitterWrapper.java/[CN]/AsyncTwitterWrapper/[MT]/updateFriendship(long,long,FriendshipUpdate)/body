@@ -1,0 +1,26 @@
+{
+  final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+  if (bus == null)   return null;
+  return AsyncManager.runBackgroundTask(new TaskRunnable<Object,SingleResponse<Relationship>,Bus>(){
+    @Override public SingleResponse<Relationship> doLongOperation(    Object param) throws InterruptedException {
+      final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,true);
+      try {
+        return SingleResponse.getInstance(twitter.updateFriendship(userId,update));
+      }
+ catch (      TwitterException e) {
+        return SingleResponse.getInstance(e);
+      }
+    }
+    @Override public void callback(    Bus handler,    SingleResponse<Relationship> result){
+      if (result.hasData()) {
+        handler.post(new FriendshipUpdatedEvent(accountId,userId,result.getData()));
+      }
+ else       if (result.hasException()) {
+        if (BuildConfig.DEBUG) {
+          Log.w(LOGTAG,"Unable to update friendship",result.getException());
+        }
+      }
+    }
+  }
+.setResultHandler(bus));
+}

@@ -1,11 +1,2 @@
 {
-  super.onPostExecute(result);
-  if (result.hasData()) {
-    showOkMessage(mContext,R.string.profile_banner_image_updated,false);
-    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-    bus.post(new ProfileUpdatedEvent(result.getData()));
-  }
- else {
-    showErrorMessage(mContext,R.string.action_updating_profile_banner_image,result.getException(),true);
-  }
 }

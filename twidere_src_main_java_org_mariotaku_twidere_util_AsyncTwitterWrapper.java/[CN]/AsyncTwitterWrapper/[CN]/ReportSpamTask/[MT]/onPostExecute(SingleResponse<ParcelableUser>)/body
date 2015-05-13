@@ -6,7 +6,7 @@
     }
     showInfoMessage(mContext,R.string.reported_user_for_spam,false);
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-    bus.post(new FriendshipUpdatedEvent(result.getData()));
+    bus.post(new FriendshipUserUpdatedEvent(result.getData()));
   }
  else {
     showErrorMessage(mContext,R.string.action_reporting_for_spam,result.getException(),true);

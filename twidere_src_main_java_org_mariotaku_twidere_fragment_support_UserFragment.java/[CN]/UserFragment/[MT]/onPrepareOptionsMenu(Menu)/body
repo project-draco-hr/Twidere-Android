@@ -34,9 +34,14 @@
       ActionIconDrawable.setMenuHighlight(filterItem,new TwidereMenuInfo(filtering));
       filterItem.setTitle(filtering ? R.string.remove_from_filter : R.string.add_to_filter);
     }
+    final MenuItem wantRetweetsItem=menu.findItem(MENU_ENABLE_RETWEETS);
+    if (wantRetweetsItem != null) {
+      wantRetweetsItem.setChecked(relationship.isSourceWantRetweetsFromTarget());
+    }
   }
  else {
     MenuUtils.setMenuItemAvailability(menu,MENU_SEND_DIRECT_MESSAGE,false);
+    MenuUtils.setMenuItemAvailability(menu,MENU_ENABLE_RETWEETS,false);
     MenuUtils.setMenuItemAvailability(menu,MENU_BLOCK,false);
     MenuUtils.setMenuItemAvailability(menu,MENU_MUTE_USER,false);
     MenuUtils.setMenuItemAvailability(menu,MENU_REPORT_SPAM,false);
