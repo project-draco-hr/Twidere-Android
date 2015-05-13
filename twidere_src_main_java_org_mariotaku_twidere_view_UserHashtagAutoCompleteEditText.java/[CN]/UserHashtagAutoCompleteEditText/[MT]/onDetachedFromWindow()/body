@@ -1,0 +1,7 @@
+{
+  super.onDetachedFromWindow();
+  if (mAdapter != null) {
+    mAdapter.closeCursor();
+    mAdapter=null;
+  }
+}
