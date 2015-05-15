@@ -1,0 +1,24 @@
+{
+switch (v.getId()) {
+case R.id.volume_button:
+{
+      mPlayAudio=!mPlayAudio;
+      updateVolume();
+      break;
+    }
+case R.id.play_pause_button:
+{
+    final MediaPlayer mp=mMediaPlayer;
+    if (mp != null) {
+      if (mp.isPlaying()) {
+        mp.pause();
+      }
+ else {
+        mp.start();
+      }
+    }
+    updatePlayerState();
+    break;
+  }
+}
+}

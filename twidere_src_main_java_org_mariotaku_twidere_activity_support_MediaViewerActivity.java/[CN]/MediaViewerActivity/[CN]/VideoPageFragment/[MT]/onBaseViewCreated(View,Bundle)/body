@@ -1,6 +1,10 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
   mVideoView=(TextureVideoView)view.findViewById(R.id.video_view);
-  mVideoViewProgress=(ProgressBar)view.findViewById(R.id.video_view_progress);
+  mVideoViewProgress=(SeekBar)view.findViewById(R.id.video_view_progress);
   mProgressBar=(ProgressWheel)view.findViewById(R.id.load_progress);
+  mDurationLabel=(TextView)view.findViewById(R.id.duration_label);
+  mPositionLabel=(TextView)view.findViewById(R.id.position_label);
+  mPlayPauseButton=(ImageButton)view.findViewById(R.id.play_pause_button);
+  mVolumeButton=(ImageButton)view.findViewById(R.id.volume_button);
 }

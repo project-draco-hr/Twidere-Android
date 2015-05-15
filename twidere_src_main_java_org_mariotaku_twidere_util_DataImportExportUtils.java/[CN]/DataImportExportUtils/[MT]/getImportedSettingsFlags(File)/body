@@ -17,6 +17,9 @@
   if (zipFile.getEntry(ENTRY_KEYBOARD_SHORTCUTS) != null) {
     flags|=FLAG_KEYBOARD_SHORTCUTS;
   }
+  if (zipFile.getEntry(ENTRY_FILTERS) != null) {
+    flags|=FLAG_FILTERS;
+  }
   zipFile.close();
   return flags;
 }

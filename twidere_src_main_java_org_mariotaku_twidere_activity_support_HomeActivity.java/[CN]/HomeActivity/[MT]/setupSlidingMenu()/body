@@ -3,7 +3,7 @@
   final Resources res=getResources();
   final int marginThreshold=res.getDimensionPixelSize(R.dimen.default_sliding_menu_margin_threshold);
   final boolean relativeBehindWidth=res.getBoolean(R.bool.relative_behind_width);
-  mSlidingMenu.setMode(SlidingMenu.LEFT_RIGHT);
+  mSlidingMenu.setMode(SlidingMenu.LEFT);
   mSlidingMenu.setShadowWidthRes(R.dimen.default_sliding_menu_shadow_width);
   mSlidingMenu.setShadowDrawable(R.drawable.shadow_left);
   mSlidingMenu.setSecondaryShadowDrawable(R.drawable.shadow_right);
@@ -16,16 +16,12 @@
   mSlidingMenu.setTouchmodeMarginThreshold(marginThreshold);
   mSlidingMenu.setFadeDegree(0.5f);
   mSlidingMenu.setMenu(R.layout.drawer_home_accounts);
-  mSlidingMenu.setSecondaryMenu(R.layout.drawer_home_quick_menu);
   mSlidingMenu.setOnOpenedListener(this);
   mSlidingMenu.setOnClosedListener(this);
   mLeftDrawerContainer=(LeftDrawerFrameLayout)mSlidingMenu.getMenu().findViewById(R.id.left_drawer_container);
-  mRightDrawerContainer=(RightDrawerFrameLayout)mSlidingMenu.getSecondaryMenu().findViewById(R.id.right_drawer_container);
   final boolean isTransparentBackground=ThemeUtils.isTransparentBackground(getCurrentThemeBackgroundOption());
   mLeftDrawerContainer.setClipEnabled(isTransparentBackground);
   mLeftDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
-  mRightDrawerContainer.setClipEnabled(isTransparentBackground);
-  mRightDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
   mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
   final Window window=getWindow();
   ThemeUtils.applyWindowBackground(this,mSlidingMenu.getContent(),getCurrentThemeResourceId(),getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());

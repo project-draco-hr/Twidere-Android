@@ -1,5 +1,4 @@
 {
-  if (mLeftDrawerContainer == null || mRightDrawerContainer == null)   return;
+  if (mLeftDrawerContainer == null)   return;
   mLeftDrawerContainer.setPercentOpen(percentOpen);
-  mRightDrawerContainer.setPercentOpen(percentOpen);
 }

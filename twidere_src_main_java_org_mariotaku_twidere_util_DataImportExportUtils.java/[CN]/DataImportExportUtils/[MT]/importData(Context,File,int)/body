@@ -16,5 +16,7 @@
   if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
     importSharedPreferencesData(zipFile,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS,ConvertToStringProcessStrategy.SINGLETON);
   }
+  if (hasFlag(flags,FLAG_FILTERS)) {
+  }
   zipFile.close();
 }

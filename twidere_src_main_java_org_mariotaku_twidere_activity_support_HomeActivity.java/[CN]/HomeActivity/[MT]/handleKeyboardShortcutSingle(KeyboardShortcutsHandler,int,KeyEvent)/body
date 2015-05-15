@@ -22,7 +22,8 @@ switch (action) {
 case ACTION_NAVIGATION_PREVIOUS_TAB:
 {
       final int previous=mViewPager.getCurrentItem() - 1;
-      if (previous < 0) {
+      final int mode=mSlidingMenu.getMode();
+      if (previous < 0 && (mode == SlidingMenu.LEFT || mode == SlidingMenu.LEFT_RIGHT)) {
         mSlidingMenu.showMenu(true);
         setControlBarVisibleAnimate(true);
       }
@@ -39,7 +40,8 @@ case ACTION_NAVIGATION_PREVIOUS_TAB:
 case ACTION_NAVIGATION_NEXT_TAB:
 {
     final int next=mViewPager.getCurrentItem() + 1;
-    if (next >= mPagerAdapter.getCount()) {
+    final int mode=mSlidingMenu.getMode();
+    if (next >= mPagerAdapter.getCount() && (mode == SlidingMenu.RIGHT || mode == SlidingMenu.LEFT_RIGHT)) {
       mSlidingMenu.showSecondaryMenu(true);
       setControlBarVisibleAnimate(true);
     }

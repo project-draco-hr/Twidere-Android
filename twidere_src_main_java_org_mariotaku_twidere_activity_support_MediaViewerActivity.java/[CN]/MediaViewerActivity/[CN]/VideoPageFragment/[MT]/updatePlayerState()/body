@@ -1,0 +1,9 @@
+{
+  final MediaPlayer mp=mMediaPlayer;
+  if (mp != null) {
+    mPlayPauseButton.setImageResource(mp.isPlaying() ? R.drawable.ic_action_pause : R.drawable.ic_action_play_arrow);
+  }
+ else {
+    mPlayPauseButton.setImageResource(R.drawable.ic_action_play_arrow);
+  }
+}

@@ -2,9 +2,16 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   mVideoLoader=TwidereApplication.getInstance(getActivity()).getVideoLoader();
-  mVideoProgressRunnable=new VideoPlayProgressRunnable(mVideoViewProgress.getHandler(),mVideoViewProgress,mVideoView);
+  Handler handler=mVideoViewProgress.getHandler();
+  if (handler == null) {
+    handler=new Handler(getActivity().getMainLooper());
+  }
+  mVideoProgressRunnable=new VideoPlayProgressRunnable(handler,mVideoViewProgress,mDurationLabel,mPositionLabel,mVideoView);
   mVideoView.setOnPreparedListener(this);
   mVideoView.setOnErrorListener(this);
   mVideoView.setOnCompletionListener(this);
+  mPlayPauseButton.setOnClickListener(this);
+  mVolumeButton.setOnClickListener(this);
   loadVideo();
+  updateVolume();
 }

@@ -2,5 +2,6 @@
   super.setUserVisibleHint(isVisibleToUser);
   if (!isVisibleToUser && mVideoView != null && mVideoView.isPlaying()) {
     mVideoView.pause();
+    updatePlayerState();
   }
 }

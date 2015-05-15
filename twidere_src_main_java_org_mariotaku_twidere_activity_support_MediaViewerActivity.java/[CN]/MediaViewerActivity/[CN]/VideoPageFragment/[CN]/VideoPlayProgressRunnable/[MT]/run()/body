@@ -3,5 +3,8 @@
   final int position=mMediaPlayerControl.getCurrentPosition();
   if (duration <= 0 || position < 0)   return;
   mProgressBar.setProgress(Math.round(1000 * position / (float)duration));
+  final int durationSecs=duration / 1000, positionSecs=position / 1000;
+  mDurationLabel.setText(String.format("%02d:%02d",durationSecs / 60,durationSecs % 60));
+  mPositionLabel.setText(String.format("%02d:%02d",positionSecs / 60,positionSecs % 60));
   mHandler.postDelayed(this,16);
 }

@@ -141,8 +141,8 @@
     twitterCard.setVisibility(View.GONE);
   }
   Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
-  quoteTextView.setTextIsSelectable(true);
   textView.setTextIsSelectable(true);
-  quoteTextView.setMovementMethod(LinkMovementMethod.getInstance());
-  textView.setMovementMethod(LinkMovementMethod.getInstance());
+  quoteTextView.setTextIsSelectable(true);
+  textView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
+  quoteTextView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
 }

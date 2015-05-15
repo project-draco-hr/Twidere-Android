@@ -1,4 +1,5 @@
 {
+  mMediaPlayer=null;
   mVideoViewProgress.removeCallbacks(mVideoProgressRunnable);
   mVideoViewProgress.setVisibility(View.GONE);
   return true;
