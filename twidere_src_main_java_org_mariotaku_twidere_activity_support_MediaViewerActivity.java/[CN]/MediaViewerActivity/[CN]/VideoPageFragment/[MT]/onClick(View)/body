@@ -20,5 +20,15 @@ case R.id.play_pause_button:
     updatePlayerState();
     break;
   }
+case R.id.video_view_overlay:
+{
+  if (mVideoControl.getVisibility() == View.VISIBLE) {
+    mVideoControl.setVisibility(View.GONE);
+  }
+ else {
+    mVideoControl.setVisibility(View.VISIBLE);
+  }
+  break;
+}
 }
 }

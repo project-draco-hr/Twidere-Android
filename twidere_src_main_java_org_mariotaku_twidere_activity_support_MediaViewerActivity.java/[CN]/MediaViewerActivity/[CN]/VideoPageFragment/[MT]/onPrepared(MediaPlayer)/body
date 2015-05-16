@@ -8,5 +8,6 @@
     mVideoViewProgress.setVisibility(View.VISIBLE);
     mVideoViewProgress.post(mVideoProgressRunnable);
     updatePlayerState();
+    mVideoControl.setVisibility(View.VISIBLE);
   }
 }
