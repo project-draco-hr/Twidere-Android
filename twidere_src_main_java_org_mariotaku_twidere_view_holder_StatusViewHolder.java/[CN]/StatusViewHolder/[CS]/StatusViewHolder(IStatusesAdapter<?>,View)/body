@@ -7,10 +7,10 @@
   extraTypeView=(ImageView)itemView.findViewById(R.id.extra_type);
   textView=(TextView)itemView.findViewById(R.id.text);
   quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
-  nameView=(TextView)itemView.findViewById(R.id.name);
-  screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
-  quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
-  quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
+  nameView=primaryNameView=(TextView)itemView.findViewById(R.id.name);
+  screenNameView=secondaryNameView=(TextView)itemView.findViewById(R.id.screen_name);
+  quotedNameView=quotedPrimaryNameView=(TextView)itemView.findViewById(R.id.quoted_name);
+  quotedScreenNameView=quotedSecondaryNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
   replyRetweetIcon=(ImageView)itemView.findViewById(R.id.reply_retweet_icon);
   replyRetweetView=(TextView)itemView.findViewById(R.id.reply_retweet_status);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);

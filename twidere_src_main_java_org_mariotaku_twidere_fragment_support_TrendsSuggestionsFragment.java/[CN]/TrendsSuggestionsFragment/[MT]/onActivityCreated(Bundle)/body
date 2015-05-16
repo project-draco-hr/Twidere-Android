@@ -5,4 +5,5 @@
   mAccountId=getDefaultAccountId(getActivity());
   getListView().setOnItemClickListener(this);
   getLoaderManager().initLoader(0,null,this);
+  showProgress();
 }

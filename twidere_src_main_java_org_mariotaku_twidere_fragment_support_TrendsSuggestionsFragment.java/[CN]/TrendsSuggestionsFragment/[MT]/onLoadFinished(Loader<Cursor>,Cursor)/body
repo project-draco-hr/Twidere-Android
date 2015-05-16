@@ -1,3 +1,4 @@
 {
   getAdapter().swapCursor(cursor);
+  showContent();
 }

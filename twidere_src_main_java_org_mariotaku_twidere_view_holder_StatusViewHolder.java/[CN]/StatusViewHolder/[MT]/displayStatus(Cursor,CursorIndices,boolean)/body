@@ -47,11 +47,11 @@
   }
   final int typeIconRes;
   if (cursor.getShort(indices.is_quote) == 1) {
-    quotedNameView.setText(user_name);
-    quotedScreenNameView.setText("@" + user_screen_name);
+    quotedPrimaryNameView.setText(user_name);
+    quotedSecondaryNameView.setText("@" + user_screen_name);
     timeView.setTime(cursor.getLong(indices.quote_timestamp));
-    nameView.setText(cursor.getString(indices.quoted_by_user_name));
-    screenNameView.setText("@" + cursor.getString(indices.quoted_by_user_screen_name));
+    primaryNameView.setText(cursor.getString(indices.quoted_by_user_name));
+    secondaryNameView.setText("@" + cursor.getString(indices.quoted_by_user_screen_name));
     final String quote_text_unescaped=cursor.getString(indices.quote_text_unescaped);
     final int idx=quote_text_unescaped.lastIndexOf(" twitter.com");
     if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
@@ -81,8 +81,8 @@
     itemContent.drawStart(userColor);
   }
  else {
-    nameView.setText(user_name);
-    screenNameView.setText("@" + user_screen_name);
+    primaryNameView.setText(user_name);
+    secondaryNameView.setText("@" + user_screen_name);
     if (retweet_id > 0) {
       timeView.setTime(cursor.getLong(indices.retweet_timestamp));
     }

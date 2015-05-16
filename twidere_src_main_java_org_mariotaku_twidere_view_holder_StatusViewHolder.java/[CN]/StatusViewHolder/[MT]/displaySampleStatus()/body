@@ -1,8 +1,8 @@
 {
   profileImageView.setVisibility(adapter.isProfileImageEnabled() ? View.VISIBLE : View.GONE);
   profileImageView.setImageResource(R.mipmap.ic_launcher);
-  nameView.setText(TWIDERE_PREVIEW_NAME);
-  screenNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
+  primaryNameView.setText(TWIDERE_PREVIEW_NAME);
+  secondaryNameView.setText("@" + TWIDERE_PREVIEW_SCREEN_NAME);
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
     textView.setText(Html.fromHtml(TWIDERE_PREVIEW_TEXT_HTML));
     adapter.getTwidereLinkify().applyAllLinks(textView,-1,-1,false,adapter.getLinkHighlightingStyle());
