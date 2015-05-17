@@ -63,8 +63,7 @@
       loader.cancelDisplayTask(profileImageView);
       typeIconRes=0;
     }
-    final int userColor=manager.getUserColor(status.quoted_by_user_id,false);
-    itemContent.drawStart(userColor);
+    itemContent.drawStart(manager.getUserColor(status.quoted_by_user_id,false),manager.getUserColor(status.user_id,false));
   }
  else {
     primaryNameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
@@ -90,8 +89,12 @@
       loader.cancelDisplayTask(profileImageView);
       typeIconRes=0;
     }
-    final int userColor=manager.getUserColor(status.user_id,false);
-    itemContent.drawStart(userColor);
+    if (status.is_retweet) {
+      itemContent.drawStart(manager.getUserColor(status.retweeted_by_user_id,false),manager.getUserColor(status.user_id,false));
+    }
+ else {
+      itemContent.drawStart(manager.getUserColor(status.user_id,false));
+    }
   }
   if (typeIconRes != 0) {
     profileTypeView.setImageResource(typeIconRes);

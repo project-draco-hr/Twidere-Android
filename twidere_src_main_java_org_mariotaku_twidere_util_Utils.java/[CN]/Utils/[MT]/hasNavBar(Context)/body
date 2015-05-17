@@ -1,0 +1,10 @@
+{
+  final Resources resources=context.getResources();
+  int id=resources.getIdentifier("config_showNavigationBar","bool","android");
+  if (id > 0) {
+    return resources.getBoolean(id);
+  }
+ else {
+    return !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK) && !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
+  }
+}

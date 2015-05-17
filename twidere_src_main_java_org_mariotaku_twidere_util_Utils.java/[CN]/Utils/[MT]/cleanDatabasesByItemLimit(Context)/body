@@ -2,16 +2,16 @@
   if (context == null)   return;
   final ContentResolver resolver=context.getContentResolver();
   final int itemLimit=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
-  for (  final long account_id : getAccountIds(context)) {
+  for (  final long accountId : getAccountIds(context)) {
     for (    final Uri uri : STATUSES_URIS) {
       if (CachedStatuses.CONTENT_URI.equals(uri)) {
         continue;
       }
       final String table=getTableNameByUri(uri);
-      final Expression account_where=new Expression(Statuses.ACCOUNT_ID + " = " + account_id);
+      final Expression account_where=new Expression(Statuses.ACCOUNT_ID + " = " + accountId);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(Statuses._ID)).from(new Tables(table));
-      qb.where(Expression.equals(Statuses.ACCOUNT_ID,account_id));
+      qb.where(Expression.equals(Statuses.ACCOUNT_ID,accountId));
       qb.orderBy(new OrderBy(Statuses.STATUS_ID,false));
       qb.limit(itemLimit);
       final Expression where=Expression.and(Expression.notIn(new Column(Statuses._ID),qb.build()),account_where);
@@ -19,12 +19,12 @@
     }
     for (    final Uri uri : DIRECT_MESSAGES_URIS) {
       final String table=getTableNameByUri(uri);
-      final Expression account_where=new Expression(DirectMessages.ACCOUNT_ID + " = " + account_id);
+      final Expression account_where=new Expression(DirectMessages.ACCOUNT_ID + " = " + accountId);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(DirectMessages._ID)).from(new Tables(table));
-      qb.where(Expression.equals(DirectMessages.ACCOUNT_ID,account_id));
+      qb.where(Expression.equals(DirectMessages.ACCOUNT_ID,accountId));
       qb.orderBy(new OrderBy(DirectMessages.MESSAGE_ID,false));
-      qb.limit(itemLimit);
+      qb.limit(itemLimit * 10);
       final Expression where=Expression.and(Expression.notIn(new Column(DirectMessages._ID),qb.build()),account_where);
       resolver.delete(uri,where.getSQL(),null);
     }

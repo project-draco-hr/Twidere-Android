@@ -1,9 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(new int[]{R.attr.actionBarPopupTheme});
-  try {
-    return a.getResourceId(0,0);
-  }
-  finally {
-    a.recycle();
-  }
-}
