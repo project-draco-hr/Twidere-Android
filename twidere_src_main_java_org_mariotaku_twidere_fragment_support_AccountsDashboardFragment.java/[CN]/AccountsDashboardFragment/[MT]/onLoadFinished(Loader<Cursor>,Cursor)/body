@@ -2,6 +2,14 @@
   final Menu menu=mAccountsToggleMenu.getMenu();
   mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(MENU_SELECT_ACCOUNT));
   final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(data);
+  if (accounts.length > 0) {
+    mNoAccountContainer.setVisibility(View.GONE);
+    mAccountProfileContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    mNoAccountContainer.setVisibility(View.VISIBLE);
+    mAccountProfileContainer.setVisibility(View.INVISIBLE);
+  }
   long defaultId=-1;
   for (  ParcelableAccount account : accounts) {
     if (account.is_activated) {
