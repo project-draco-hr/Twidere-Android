@@ -8,7 +8,6 @@
   final Drawable shadow=ResourcesCompat.getDrawable(activity.getResources(),R.drawable.shadow_user_banner_action_bar,null);
   mActionBarBackground=new ActionBarDrawable(shadow);
   if (!ThemeUtils.isWindowFloating(linkHandler,linkHandler.getCurrentThemeResourceId()) && ThemeUtils.isTransparentBackground(linkHandler.getCurrentThemeBackgroundOption())) {
-    mActionBarBackground.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha());
     mProfileBannerView.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha() / 255f);
   }
   actionBarContainer.setPrimaryBackground(mActionBarBackground);

@@ -1,5 +1,5 @@
 {
   if (context == null)   return DEFAULT_THEME_BACKGROUND_ALPHA;
   final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
-  return pref.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA);
+  return MathUtils.clamp(pref.getInt(KEY_THEME_BACKGROUND_ALPHA,DEFAULT_THEME_BACKGROUND_ALPHA),ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA);
 }

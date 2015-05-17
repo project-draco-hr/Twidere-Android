@@ -26,7 +26,7 @@
     final int themeId=activity.getCurrentThemeResourceId();
     int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,themeId,activity.getThemeBackgroundOption());
     if (ThemeUtils.isTransparentBackground(activity.getCurrentThemeBackgroundOption())) {
-      stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,activity.getCurrentThemeBackgroundAlpha());
+      stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,ThemeUtils.getActionBarAlpha(activity.getCurrentThemeBackgroundAlpha()));
     }
     final int tabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
     ((ColorDrawable)tabBackground).setColor(tabColor);

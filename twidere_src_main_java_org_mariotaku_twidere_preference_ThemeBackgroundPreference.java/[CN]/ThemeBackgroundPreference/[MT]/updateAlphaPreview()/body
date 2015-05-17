@@ -2,5 +2,5 @@
   if (mAlphaPreview == null || mAlphaSlider == null)   return;
   final Drawable drawable=mAlphaPreview.getDrawable();
   if (drawable == null)   return;
-  drawable.setAlpha(mAlphaSlider.getProgress());
+  drawable.setAlpha(getSliderAlpha());
 }

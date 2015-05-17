@@ -19,4 +19,7 @@ default :
     break;
   }
 }
+final boolean isTransparent=ThemeUtils.isTransparentBackground(option);
+final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(this)) : 0xFF;
+mActionBarWithOverlay.setAlpha(actionBarAlpha / 255f);
 }

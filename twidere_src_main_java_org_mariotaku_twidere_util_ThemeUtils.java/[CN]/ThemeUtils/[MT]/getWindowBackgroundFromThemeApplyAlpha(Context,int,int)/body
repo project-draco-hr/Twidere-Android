@@ -3,7 +3,7 @@
   final Drawable d=a.getDrawable(0);
   a.recycle();
   if (d != null) {
-    d.setAlpha(alpha);
+    d.setAlpha(MathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
   }
   return d;
 }

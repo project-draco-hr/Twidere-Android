@@ -9,7 +9,7 @@
   final String backgroundOption=themed.getThemeBackgroundOption();
   final int actionBarColor=ThemeUtils.getActionBarColor(activity,color,themeRes,backgroundOption);
   if (mTintedStatusContent != null) {
-    mTintedStatusContent.setColor(actionBarColor,themed.getCurrentThemeBackgroundAlpha());
+    mTintedStatusContent.setColor(actionBarColor,ThemeUtils.getActionBarAlpha(themed.getCurrentThemeBackgroundAlpha()));
   }
   if (mActionBarBackground != null) {
     mActionBarBackground.setColor(actionBarColor);

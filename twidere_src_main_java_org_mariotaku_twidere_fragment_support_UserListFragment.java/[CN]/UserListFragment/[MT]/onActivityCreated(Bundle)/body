@@ -19,11 +19,6 @@
   mViewPager.setAdapter(mPagerAdapter);
   mPagerIndicator.setViewPager(mViewPager);
   mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
-  if (activity instanceof IThemedActivity) {
-    mPagerIndicator.setStripColor(((IThemedActivity)activity).getCurrentThemeColor());
-  }
- else {
-  }
   getUserListInfo(false);
   setupUserPages();
 }

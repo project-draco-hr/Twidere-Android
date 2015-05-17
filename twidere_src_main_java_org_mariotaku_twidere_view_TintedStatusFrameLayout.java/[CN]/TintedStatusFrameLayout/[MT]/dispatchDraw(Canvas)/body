@@ -4,7 +4,6 @@
     canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mShadowPaint);
   }
  else   if (mDrawColor) {
-    canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mBlackPaint);
   }
   canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mDrawColor ? mColorPaint : mBlackPaint);
 }

@@ -15,6 +15,12 @@
   ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
   ThemeUtils.setCompatContentViewOverlay(activity,new EmptyDrawable());
   ThemeUtils.setWindowOverlayViewOverlay(activity,new EmptyDrawable());
+  if (activity instanceof IThemedActivity) {
+    final String backgroundOption=((IThemedActivity)activity).getCurrentThemeBackgroundOption();
+    final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
+    final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(activity)) : 0xFF;
+    mPagerIndicator.setAlpha(actionBarAlpha / 255f);
+  }
   if (savedInstanceState == null && args != null && args.containsKey(EXTRA_QUERY)) {
     final String query=args.getString(EXTRA_QUERY);
     final SearchRecentSuggestions suggestions=new SearchRecentSuggestions(getActivity(),RecentSearchProvider.AUTHORITY,RecentSearchProvider.MODE);

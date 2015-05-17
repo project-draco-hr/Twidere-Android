@@ -3,7 +3,7 @@
   if (positiveResult) {
     final SharedPreferences preferences=getSharedPreferences();
     final SharedPreferences.Editor editor=preferences.edit();
-    editor.putInt(KEY_THEME_BACKGROUND_ALPHA,mAlphaSlider.getProgress());
+    editor.putInt(KEY_THEME_BACKGROUND_ALPHA,getSliderAlpha());
     editor.apply();
     persistValue(mValue);
   }

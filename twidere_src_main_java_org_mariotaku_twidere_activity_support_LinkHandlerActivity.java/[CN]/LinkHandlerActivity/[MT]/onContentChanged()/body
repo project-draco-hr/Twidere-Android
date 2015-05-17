@@ -1,6 +1,6 @@
 {
   super.onContentChanged();
   mMainContent=(TintedStatusFrameLayout)findViewById(R.id.main_content);
-  mActionBarOverlay=findViewById(R.id.twidere_action_bar_with_overlay);
+  mActionBarWithOverlay=findViewById(R.id.twidere_action_bar_with_overlay);
   mActionBarContainer=(ActionBarContainer)findViewById(R.id.twidere_action_bar_container);
 }
