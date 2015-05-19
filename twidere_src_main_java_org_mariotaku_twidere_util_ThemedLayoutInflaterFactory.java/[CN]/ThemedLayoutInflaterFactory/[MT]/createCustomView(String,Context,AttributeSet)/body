@@ -20,7 +20,16 @@
   }
  catch (  ClassNotFoundException ignore) {
   }
-catch (  NoSuchMethodException|InvocationTargetException|InstantiationException|IllegalAccessException e) {
+catch (  NoSuchMethodException e) {
+    throw new InflateException(e);
+  }
+catch (  InvocationTargetException e) {
+    throw new InflateException(e);
+  }
+catch (  InstantiationException e) {
+    throw new InflateException(e);
+  }
+catch (  IllegalAccessException e) {
     throw new InflateException(e);
   }
   return null;

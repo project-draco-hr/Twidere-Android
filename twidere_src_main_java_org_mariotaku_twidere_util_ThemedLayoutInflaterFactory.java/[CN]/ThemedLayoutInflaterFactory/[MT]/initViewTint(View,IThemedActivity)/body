@@ -2,7 +2,8 @@
   final int noTintColor, accentColor, backgroundTintColor;
   final boolean isColorTint;
   final Resources resources=((Activity)activity).getResources();
-  final boolean isActionBarContext=isActionBarContext(view.getContext(),getActionBarContext((Activity)activity));
+  final Context viewContext=view.getContext();
+  final boolean isActionBarContext=isActionBarContext(viewContext,getActionBarContext((Activity)activity));
   final int themeResourceId=activity.getCurrentThemeResourceId();
   final boolean isDarkTheme=ThemeUtils.isDarkTheme(themeResourceId);
   final int backgroundColorApprox;
@@ -25,10 +26,8 @@
  else {
     final int actionBarColor=activity.getCurrentThemeColor();
     final int actionBarTheme=ThemeUtils.getActionBarThemeResource(activity.getThemeResourceId(),actionBarColor);
-    final int[] darkLightColors=new int[2];
-    ThemeUtils.getDarkLightForegroundColors((Context)activity,actionBarTheme,darkLightColors);
-    accentColor=TwidereColorUtils.getContrastYIQ(actionBarColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
-    noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
+    accentColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorForeground,0);
+    noTintColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorBackground,0);
     backgroundTintColor=accentColor;
     backgroundColorApprox=Color.WHITE;
     isColorTint=false;
@@ -45,7 +44,7 @@
       ((IThemeAccentView)view).setAccentTintColor(ColorStateList.valueOf(accentColor));
     }
  else {
-      final int defaultAccentColor=ThemeUtils.getColorFromAttribute(view.getContext(),R.attr.colorAccent,resources.getColor(R.color.branding_color));
+      final int defaultAccentColor=ThemeUtils.getColorFromAttribute(viewContext,R.attr.colorAccent,resources.getColor(R.color.branding_color));
       ((IThemeAccentView)view).setAccentTintColor(ColorStateList.valueOf(defaultAccentColor));
     }
   }
@@ -61,7 +60,7 @@
     }
   }
  else   if (view instanceof TwidereToolbar) {
-    final Context context=view.getContext();
+    final Context context=viewContext;
     if (context instanceof android.support.v7.internal.view.ContextThemeWrapper) {
       ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(context,((ContextThemeWrapper)context).getThemeResId()));
     }

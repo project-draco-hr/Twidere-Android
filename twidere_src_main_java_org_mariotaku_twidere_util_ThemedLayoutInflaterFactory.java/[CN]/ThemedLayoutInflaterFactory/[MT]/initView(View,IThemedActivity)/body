@@ -4,7 +4,7 @@
     final ShapedImageView shapedImageView=(ShapedImageView)view;
     shapedImageView.setStyle(activity.getCurrentProfileImageStyle());
   }
-  if (view instanceof TextView) {
+  if (view instanceof TextView && (!(view instanceof ICustomTypefaceTextView))) {
     final String fontFamily=activity.getCurrentThemeFontFamily();
     final TextView textView=(TextView)view;
     final Typeface defTypeface=textView.getTypeface();
