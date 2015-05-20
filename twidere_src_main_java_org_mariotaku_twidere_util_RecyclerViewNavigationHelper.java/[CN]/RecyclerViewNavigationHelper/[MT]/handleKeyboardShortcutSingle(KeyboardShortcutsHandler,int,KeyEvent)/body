@@ -6,6 +6,9 @@ case ACTION_NAVIGATION_TOP:
 {
       view.stopScroll();
       manager.scrollToPositionWithOffset(0,0);
+      if (support != null) {
+        support.setControlVisible(true);
+      }
       return true;
     }
 }

@@ -50,5 +50,5 @@ case ACTION_STATUS_FAVORITE:
   return true;
 }
 }
-return false;
+return mNavigationHelper.handleKeyboardShortcutSingle(handler,keyCode,event);
 }

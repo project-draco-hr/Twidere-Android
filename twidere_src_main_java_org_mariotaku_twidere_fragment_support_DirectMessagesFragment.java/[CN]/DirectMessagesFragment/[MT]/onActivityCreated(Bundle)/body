@@ -7,7 +7,7 @@
   final MessageEntriesAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
-  mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter);
+  mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter,this);
   adapter.setListener(this);
   final DividerItemDecoration itemDecoration=new DividerItemDecoration(viewContext,layoutManager.getOrientation());
   final Resources res=viewContext.getResources();

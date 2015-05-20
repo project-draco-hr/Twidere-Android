@@ -1,5 +1,2 @@
 {
-  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
-  bus.unregister(mStatusesBusCallback);
-  super.onStop();
 }
