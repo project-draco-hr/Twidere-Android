@@ -1,3 +1,0 @@
-{
-  return annotationValue != null && annotationValue.length > 0 ? annotationValue : valueMap.keys();
-}

@@ -1,10 +1,10 @@
 {
   final int authType=getCheckedAuthType(checkedId);
-  final boolean isOAuth=authType == Accounts.AUTH_TYPE_OAUTH || authType == Accounts.AUTH_TYPE_XAUTH;
+  final boolean isOAuth=authType == ParcelableCredentials.AUTH_TYPE_OAUTH || authType == ParcelableCredentials.AUTH_TYPE_XAUTH;
   mEditSameOAuthSigningUrl.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
   mEditConsumerKey.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
   mEditConsumerSecret.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
   if (!mEditNoVersionSuffixChanged) {
-    mEditNoVersionSuffix.setChecked(authType == Accounts.AUTH_TYPE_TWIP_O_MODE);
+    mEditNoVersionSuffix.setChecked(authType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
   }
 }

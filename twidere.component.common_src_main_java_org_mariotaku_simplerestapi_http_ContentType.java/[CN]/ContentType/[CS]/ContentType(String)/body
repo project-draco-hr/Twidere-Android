@@ -1,3 +1,0 @@
-{
-  this(contentType,new ArrayList<Pair<String,String>>());
-}

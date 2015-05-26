@@ -1,5 +1,0 @@
-{
-  if (length != -1)   return length;
-  if (file == null)   return -1;
-  return length=file.length();
-}

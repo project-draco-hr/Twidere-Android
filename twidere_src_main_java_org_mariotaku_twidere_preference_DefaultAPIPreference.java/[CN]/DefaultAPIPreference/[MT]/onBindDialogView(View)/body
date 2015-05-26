@@ -1,7 +1,7 @@
 {
   final SharedPreferences pref=getSharedPreferences();
   final String apiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_TWITTER_API_URL_FORMAT);
-  final int authType=pref.getInt(KEY_AUTH_TYPE,Accounts.AUTH_TYPE_OAUTH);
+  final int authType=pref.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_OAUTH);
   final boolean sameOAuthSigningUrl=pref.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
   final boolean noVersionSuffix=pref.getBoolean(KEY_NO_VERSION_SUFFIX,false);
   final String consumerKey=getNonEmptyString(pref,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);

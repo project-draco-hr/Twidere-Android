@@ -1,4 +1,0 @@
-{
-  this(contentType,new ArrayList<Pair<String,String>>());
-  addParameter("charset",charset.name());
-}

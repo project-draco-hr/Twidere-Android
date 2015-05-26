@@ -8,7 +8,7 @@
     final String mimeType;
     final String scheme=uri.getScheme();
     if (SCHEME_HTTP.equals(scheme) || SCHEME_HTTPS.equals(scheme)) {
-      final RestHttpClient client=TwitterAPIUtils.getDefaultHttpClient(mActivity);
+      final RestHttpClient client=TwitterAPIFactory.getDefaultHttpClient(mActivity);
       final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
       builder.method(GET.METHOD);
       builder.url(uri.toString());

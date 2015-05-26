@@ -1,0 +1,4 @@
+Context context
+Endpoint endpoint
+ParcelableCredentials credentials
+Class<T> cls

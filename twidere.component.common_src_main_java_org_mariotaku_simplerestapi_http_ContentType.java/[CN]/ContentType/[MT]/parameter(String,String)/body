@@ -1,4 +1,0 @@
-{
-  addParameter(name,value);
-  return this;
-}

@@ -31,7 +31,7 @@ case MENU_EDIT_API:
 }
 case MENU_OPEN_IN_BROWSER:
 {
-if (mAuthType != Accounts.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
+if (mAuthType != ParcelableCredentials.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
 saveEditedText();
 final Intent intent=new Intent(this,BrowserSignInActivity.class);
 intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);

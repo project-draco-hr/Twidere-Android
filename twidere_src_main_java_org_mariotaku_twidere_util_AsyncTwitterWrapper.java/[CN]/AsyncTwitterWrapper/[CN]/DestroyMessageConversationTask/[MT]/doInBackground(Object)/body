@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     twitter.destroyDirectMessagesConversation(accountId,userId);

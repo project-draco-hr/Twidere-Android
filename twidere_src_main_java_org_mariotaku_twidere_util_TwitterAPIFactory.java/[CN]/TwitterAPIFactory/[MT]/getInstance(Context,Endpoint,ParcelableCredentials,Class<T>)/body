@@ -1,0 +1,3 @@
+{
+  return TwitterAPIFactory.getInstance(context,endpoint,TwitterAPIUtils.getAuthorization(credentials),cls);
+}

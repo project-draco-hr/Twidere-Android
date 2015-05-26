@@ -1,6 +1,0 @@
-String basic_username
-String basic_password
-User user
-int color
-String api_url_format
-boolean no_version_suffix

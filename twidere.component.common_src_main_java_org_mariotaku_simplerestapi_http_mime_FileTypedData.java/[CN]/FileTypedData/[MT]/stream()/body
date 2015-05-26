@@ -1,4 +1,0 @@
-{
-  if (stream != null)   return stream;
-  return stream=new FileInputStream(file);
-}

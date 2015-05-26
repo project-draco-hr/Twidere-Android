@@ -1,3 +1,0 @@
-{
-  return parameters.add(Pair.create(name,value));
-}

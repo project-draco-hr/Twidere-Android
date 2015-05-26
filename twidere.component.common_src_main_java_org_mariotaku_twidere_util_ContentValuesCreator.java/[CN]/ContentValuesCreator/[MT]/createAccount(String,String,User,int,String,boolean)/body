@@ -4,7 +4,7 @@
   if (basicUsername == null || basicPassword == null)   return null;
   values.put(Accounts.BASIC_AUTH_USERNAME,basicUsername);
   values.put(Accounts.BASIC_AUTH_PASSWORD,basicPassword);
-  values.put(Accounts.AUTH_TYPE,Accounts.AUTH_TYPE_BASIC);
+  values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_BASIC);
   values.put(Accounts.ACCOUNT_ID,user.getId());
   values.put(Accounts.SCREEN_NAME,user.getScreenName());
   values.put(Accounts.NAME,user.getName());

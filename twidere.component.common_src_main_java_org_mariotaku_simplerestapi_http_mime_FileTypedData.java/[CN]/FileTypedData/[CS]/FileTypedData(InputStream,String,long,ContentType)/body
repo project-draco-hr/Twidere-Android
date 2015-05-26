@@ -1,6 +1,0 @@
-{
-  this.stream=stream;
-  this.fileName=fileName;
-  this.length=length;
-  this.contentType=contentType;
-}

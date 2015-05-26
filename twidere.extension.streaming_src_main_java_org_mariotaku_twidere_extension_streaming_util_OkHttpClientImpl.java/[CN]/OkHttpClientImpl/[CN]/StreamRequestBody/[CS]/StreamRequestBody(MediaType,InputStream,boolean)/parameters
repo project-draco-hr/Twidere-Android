@@ -1,3 +1,0 @@
-MediaType contentType
-InputStream stream
-boolean closeAfterWrite

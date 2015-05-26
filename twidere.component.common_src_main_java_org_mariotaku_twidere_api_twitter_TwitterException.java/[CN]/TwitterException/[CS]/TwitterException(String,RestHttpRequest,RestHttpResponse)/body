@@ -2,5 +2,4 @@
   this(message);
   setResponse(res);
   request=req;
-  statusCode=res != null ? res.getStatus() : -1;
 }

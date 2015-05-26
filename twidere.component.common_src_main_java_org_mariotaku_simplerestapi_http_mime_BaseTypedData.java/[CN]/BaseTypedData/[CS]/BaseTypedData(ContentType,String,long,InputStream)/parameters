@@ -1,4 +1,0 @@
-ContentType contentType
-String contentEncoding
-long contentLength
-InputStream stream

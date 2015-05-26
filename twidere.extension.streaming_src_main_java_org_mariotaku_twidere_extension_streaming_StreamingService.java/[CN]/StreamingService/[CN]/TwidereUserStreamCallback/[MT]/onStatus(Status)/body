@@ -1,0 +1,15 @@
+{
+  final ContentValues values=ContentValuesCreator.createStatus(status,account.account_id);
+  if (!statusStreamStarted) {
+    statusStreamStarted=true;
+    values.put(Statuses.IS_GAP,true);
+  }
+  final String where=Statuses.ACCOUNT_ID + " = " + account.account_id+ " AND "+ Statuses.STATUS_ID+ " = "+ status.getId();
+  resolver.delete(Statuses.CONTENT_URI,where,null);
+  resolver.delete(Mentions.CONTENT_URI,where,null);
+  resolver.insert(Statuses.CONTENT_URI,values);
+  final Status rt=status.getRetweetedStatus();
+  if (rt != null && rt.getText().contains("@" + account.screen_name) || rt == null && status.getText().contains("@" + account.screen_name)) {
+    resolver.insert(Mentions.CONTENT_URI,values);
+  }
+}

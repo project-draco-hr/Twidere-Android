@@ -1,3 +1,0 @@
-{
-  return new RestHttpRequest(method,url,headers,body,extra);
-}

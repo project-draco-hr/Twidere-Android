@@ -1,0 +1,8 @@
+{
+  if (ex instanceof TwitterException) {
+    Log.w(LOGTAG,String.format("Error %d",((TwitterException)ex).getStatusCode()),ex);
+  }
+ else {
+    Log.w(LOGTAG,ex);
+  }
+}

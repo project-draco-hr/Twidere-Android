@@ -1,5 +1,0 @@
-RestMethod restMethod
-Body body
-HashMap<Form,Object> forms
-HashMap<Part,Object> parts
-FileValue file

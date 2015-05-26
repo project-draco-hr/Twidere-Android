@@ -25,8 +25,8 @@
     mPassword=savedInstanceState.getString(Accounts.PASSWORD);
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
   }
-  mUsernamePasswordContainer.setVisibility(mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE ? View.GONE : View.VISIBLE);
-  mSignInSignUpContainer.setOrientation(mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+  mUsernamePasswordContainer.setVisibility(mAuthType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE ? View.GONE : View.VISIBLE);
+  mSignInSignUpContainer.setOrientation(mAuthType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
   mEditUsername.setText(mUsername);
   mEditUsername.addTextChangedListener(this);
   mEditPassword.setText(mPassword);

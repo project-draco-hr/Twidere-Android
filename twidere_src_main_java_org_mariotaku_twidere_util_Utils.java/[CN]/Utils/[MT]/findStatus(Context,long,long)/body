@@ -2,7 +2,7 @@
   if (context == null)   throw new NullPointerException();
   final ParcelableStatus cached=findStatusInDatabases(context,accountId,statusId);
   if (cached != null)   return cached;
-  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(context,accountId,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
   if (twitter == null)   throw new TwitterException("Account does not exist");
   final Status status=twitter.showStatus(statusId);
   final String where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,statusId)).getSQL();

@@ -1,4 +1,0 @@
-{
-  if (fileName != null)   return fileName;
-  return fileName=file.getName();
-}

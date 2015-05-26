@@ -2,25 +2,25 @@
   List<Pair<String,String>> params=new ArrayList<>();
   Utils.parseGetParameters(body,params,charset.name());
   for (  Pair<String,String> param : params) {
-switch (param.getKey()) {
+switch (param.first) {
 case "oauth_token":
 {
-        oauthToken=param.getValue();
+        oauthToken=param.second;
         break;
       }
 case "oauth_token_secret":
 {
-      oauthTokenSecret=param.getValue();
+      oauthTokenSecret=param.second;
       break;
     }
 case "user_id":
 {
-    userId=Long.parseLong(param.getValue());
+    userId=Long.parseLong(param.second);
     break;
   }
 case "screen_name":
 {
-  screenName=param.getValue();
+  screenName=param.second;
   break;
 }
 }

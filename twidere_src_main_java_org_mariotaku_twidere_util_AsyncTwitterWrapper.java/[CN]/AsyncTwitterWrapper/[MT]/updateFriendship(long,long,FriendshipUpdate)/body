@@ -3,7 +3,7 @@
   if (bus == null)   return null;
   return AsyncManager.runBackgroundTask(new TaskRunnable<Object,SingleResponse<Relationship>,Bus>(){
     @Override public SingleResponse<Relationship> doLongOperation(    Object param) throws InterruptedException {
-      final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,true);
+      final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
       try {
         return SingleResponse.getInstance(twitter.updateFriendship(userId,update));
       }

@@ -1,3 +1,3 @@
 {
-  mSignInButton.setEnabled(mEditPassword.getText().length() > 0 && mEditUsername.getText().length() > 0 || mAuthType == Accounts.AUTH_TYPE_TWIP_O_MODE);
+  mSignInButton.setEnabled(mEditPassword.getText().length() > 0 && mEditUsername.getText().length() > 0 || mAuthType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
 }

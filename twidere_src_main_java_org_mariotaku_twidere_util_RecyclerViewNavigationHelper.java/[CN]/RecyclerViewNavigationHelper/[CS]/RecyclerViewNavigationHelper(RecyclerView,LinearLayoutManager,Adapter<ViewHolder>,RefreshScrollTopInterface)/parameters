@@ -1,0 +1,4 @@
+RecyclerView view
+LinearLayoutManager manager
+Adapter<ViewHolder> adapter
+RefreshScrollTopInterface iface

@@ -1,6 +1,6 @@
 {
   try {
-    final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,mAccountId,true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true);
     TwitterWrapper.updateProfileImage(mContext,twitter,mImageUri,mDeleteImage);
     try {
       Thread.sleep(5000L);

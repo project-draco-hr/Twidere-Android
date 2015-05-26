@@ -1,6 +1,6 @@
 {
-  for (  final WeakReference<TwitterStream> reference : mTwitterInstances) {
-    final TwitterStream twitter=reference.get();
+  for (  final WeakReference<TwidereUserStreamCallback> reference : mTwitterInstances) {
+    final TwidereUserStreamCallback twitter=reference.get();
     new Thread(new ShutdownStreamTwitterRunnable(twitter)).start();
   }
   mTwitterInstances.clear();

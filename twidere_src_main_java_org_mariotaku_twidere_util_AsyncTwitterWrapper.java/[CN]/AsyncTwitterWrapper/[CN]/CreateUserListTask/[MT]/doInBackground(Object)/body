@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,false);
   if (twitter == null || list_name == null)   return SingleResponse.getInstance();
   try {
     final UserListUpdate userListUpdate=new UserListUpdate();

@@ -10,7 +10,7 @@
   }
   try {
     final ParcelableStatus status=findStatus(getContext(),mAccountId,mStatusId);
-    final ParcelableAccount.ParcelableCredentials credentials=ParcelableAccount.getCredentials(getContext(),mAccountId);
+    final ParcelableCredentials credentials=ParcelableAccount.getCredentials(getContext(),mAccountId);
     final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(status);
     final Bundle extras=response.getExtras();
     extras.putParcelable(EXTRA_ACCOUNT,credentials);

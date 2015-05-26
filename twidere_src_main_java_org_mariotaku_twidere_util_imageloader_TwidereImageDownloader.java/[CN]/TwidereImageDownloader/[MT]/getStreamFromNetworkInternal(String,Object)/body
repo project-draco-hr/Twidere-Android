@@ -32,7 +32,7 @@
         queries.add(Pair.create(name,value));
       }
     }
-    final RequestInfo info=new RequestInfo(method,uri.getPath(),queries,null,additionalHeaders,null,null,null,null);
+    final RestRequestInfo info=new RestRequestInfo(method,uri.getPath(),queries,null,additionalHeaders,null,null,null,null);
     additionalHeaders.add(Pair.create("Authorization",auth.getHeader(endpoint,info)));
     requestUri=modifiedUri.toString();
   }

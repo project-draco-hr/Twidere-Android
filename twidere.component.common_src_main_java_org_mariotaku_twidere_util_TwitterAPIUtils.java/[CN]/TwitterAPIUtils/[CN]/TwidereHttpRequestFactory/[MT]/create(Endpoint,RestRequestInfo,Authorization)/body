@@ -1,0 +1,10 @@
+{
+  final String restMethod=info.getMethod();
+  final String url=Endpoint.constructUrl(endpoint.getUrl(),info);
+  final ArrayList<Pair<String,String>> headers=new ArrayList<>(info.getHeaders());
+  if (authorization != null && authorization.hasAuthorization()) {
+    headers.add(Pair.create("Authorization",authorization.getHeader(endpoint,info)));
+  }
+  headers.add(Pair.create("User-Agent",userAgent));
+  return new RestHttpRequest(restMethod,url,headers,info.getBody(),null);
+}

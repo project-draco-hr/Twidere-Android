@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIUtils.getDefaultTwitterInstance(getContext(),false);
+  final Twitter twitter=TwitterAPIFactory.getDefaultTwitterInstance(getContext(),false);
   final String pref=mPreferences.getString(KEY_TRANSLATION_DESTINATION,null);
   if (twitter == null)   return null;
   try {

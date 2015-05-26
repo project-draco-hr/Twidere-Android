@@ -1,7 +1,7 @@
 {
   final ContentResolver cr=mContext.getContentResolver();
   for (  long accountId : params) {
-    final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
     if (twitter == null)     continue;
     try {
       final ResponseList<SavedSearch> searches=twitter.getSavedSearches();

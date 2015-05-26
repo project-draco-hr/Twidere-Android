@@ -1,3 +1,0 @@
-{
-  return "RestException{" + "response=" + response + "} "+ super.toString();
-}

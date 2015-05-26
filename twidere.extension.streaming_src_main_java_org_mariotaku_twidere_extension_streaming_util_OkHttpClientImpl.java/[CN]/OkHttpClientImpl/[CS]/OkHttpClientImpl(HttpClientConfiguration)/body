@@ -1,5 +1,0 @@
-{
-  this.conf=conf;
-  this.resolver=conf.getHostAddressResolverFactory().getInstance(conf);
-  this.client=createHttpClient(conf);
-}

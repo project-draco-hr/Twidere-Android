@@ -1,0 +1,3 @@
+{
+  return LoganSquare.mapperFor(cls).parse(json.traverse());
+}

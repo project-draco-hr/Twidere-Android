@@ -1,3 +1,4 @@
 {
   ACRA.init(this);
+  ErrorLogger.setEnabled(BuildConfig.DEBUG);
 }

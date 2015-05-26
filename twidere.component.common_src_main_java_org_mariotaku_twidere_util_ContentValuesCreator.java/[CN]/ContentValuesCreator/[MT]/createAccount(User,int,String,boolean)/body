@@ -1,7 +1,7 @@
 {
   if (user == null || user.getId() <= 0)   return null;
   final ContentValues values=new ContentValues();
-  values.put(Accounts.AUTH_TYPE,Accounts.AUTH_TYPE_TWIP_O_MODE);
+  values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
   values.put(Accounts.ACCOUNT_ID,user.getId());
   values.put(Accounts.SCREEN_NAME,user.getScreenName());
   values.put(Accounts.NAME,user.getName());

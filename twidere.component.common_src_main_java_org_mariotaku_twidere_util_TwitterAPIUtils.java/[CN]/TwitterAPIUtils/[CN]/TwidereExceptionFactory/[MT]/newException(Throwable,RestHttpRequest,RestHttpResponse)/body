@@ -1,0 +1,5 @@
+{
+  final TwitterException te=new TwitterException(cause);
+  te.setResponse(response);
+  return te;
+}

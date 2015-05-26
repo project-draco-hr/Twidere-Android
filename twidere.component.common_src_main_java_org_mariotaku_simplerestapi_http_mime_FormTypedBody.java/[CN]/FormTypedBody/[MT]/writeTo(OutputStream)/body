@@ -1,4 +1,0 @@
-{
-  toRawBytes();
-  os.write(bytes);
-}

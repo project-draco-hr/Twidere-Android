@@ -1,4 +1,0 @@
-RecyclerView view
-LinearLayoutManager manager
-Adapter<ViewHolder> adapter
-ContentListScrollListener.ContentListSupport support

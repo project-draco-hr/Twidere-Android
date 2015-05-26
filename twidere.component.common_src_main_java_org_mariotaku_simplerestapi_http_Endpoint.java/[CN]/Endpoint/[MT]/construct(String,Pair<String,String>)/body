@@ -1,3 +1,0 @@
-{
-  return constructUrl(url,path,Arrays.asList(queries));
-}

@@ -1,4 +1,0 @@
-{
-  toRawBytes();
-  return bytes.length;
-}

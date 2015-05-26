@@ -1,0 +1,4 @@
+{
+  if (!sEnabled)   return;
+  ACRA.getErrorReporter().handleSilentException(t);
+}

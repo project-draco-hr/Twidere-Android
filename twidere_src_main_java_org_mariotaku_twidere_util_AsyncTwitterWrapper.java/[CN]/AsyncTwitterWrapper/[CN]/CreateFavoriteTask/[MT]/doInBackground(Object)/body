@@ -1,6 +1,6 @@
 {
   if (account_id < 0)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,account_id,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final org.mariotaku.twidere.api.twitter.model.Status status=twitter.createFavorite(status_id);

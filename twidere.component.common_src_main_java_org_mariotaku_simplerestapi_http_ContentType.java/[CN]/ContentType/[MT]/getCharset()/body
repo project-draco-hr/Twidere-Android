@@ -1,6 +1,0 @@
-{
-  if (parameters == null)   return null;
-  final String charset=parameter("charset");
-  if (charset != null)   return Charset.forName(charset);
-  return null;
-}

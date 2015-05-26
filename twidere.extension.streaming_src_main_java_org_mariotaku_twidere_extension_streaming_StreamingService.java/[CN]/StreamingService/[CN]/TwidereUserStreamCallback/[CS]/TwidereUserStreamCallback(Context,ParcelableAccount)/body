@@ -1,0 +1,5 @@
+{
+  this.context=context;
+  this.account=account;
+  resolver=context.getContentResolver();
+}

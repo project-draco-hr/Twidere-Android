@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mActivity,mAccountId,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountId,true);
   try {
     User user=null;
     if (isProfileChanged()) {

@@ -1,3 +1,0 @@
-{
-  return copyStream(is,os,8192);
-}

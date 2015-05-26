@@ -1,3 +1,0 @@
-{
-  return "FileValue{" + "annotation=" + annotation + ", value="+ value+ '}';
-}

@@ -1,4 +1,5 @@
 {
   if (twitter == null)   return;
-  twitter.shutdown();
+  Log.d(LOGTAG,"Disconnecting stream");
+  twitter.disconnect();
 }

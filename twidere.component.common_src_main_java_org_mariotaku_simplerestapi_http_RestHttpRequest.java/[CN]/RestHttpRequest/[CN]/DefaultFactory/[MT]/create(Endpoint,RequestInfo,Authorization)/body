@@ -1,8 +1,0 @@
-{
-  final String url=Endpoint.constructUrl(endpoint.getUrl(),requestInfo);
-  final ArrayList<Pair<String,String>> headers=new ArrayList<>(requestInfo.getHeaders());
-  if (authorization != null && authorization.hasAuthorization()) {
-    headers.add(Pair.create("Authorization",authorization.getHeader(endpoint,requestInfo)));
-  }
-  return new RestHttpRequest(requestInfo.getMethod(),url,headers,requestInfo.getBody(),null);
-}

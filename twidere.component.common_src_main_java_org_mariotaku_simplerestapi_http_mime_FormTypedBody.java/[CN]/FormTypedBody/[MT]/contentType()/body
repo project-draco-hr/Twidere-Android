@@ -1,3 +1,0 @@
-{
-  return new ContentType("application/x-www-form-urlencoded",charset);
-}

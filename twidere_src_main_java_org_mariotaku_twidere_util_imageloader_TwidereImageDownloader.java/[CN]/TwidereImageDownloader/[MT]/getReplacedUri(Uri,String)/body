@@ -5,7 +5,7 @@
     final String host=uri.getHost();
     final String domain=host.substring(0,host.lastIndexOf(".twitter.com"));
     final String path=uri.getPath();
-    sb.append(Utils.getApiUrl(apiUrlFormat,domain,path));
+    sb.append(TwitterAPIUtils.getApiUrl(apiUrlFormat,domain,path));
     final String query=uri.getQuery();
     if (!TextUtils.isEmpty(query)) {
       sb.append("?");

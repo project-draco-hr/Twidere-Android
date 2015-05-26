@@ -1,3 +1,0 @@
-{
-  return new RequestInfo(getMethod().value(),getPath(),getQueries(),getForms(),getHeaders(),getParts(),getFile(),getBody(),getExtras());
-}

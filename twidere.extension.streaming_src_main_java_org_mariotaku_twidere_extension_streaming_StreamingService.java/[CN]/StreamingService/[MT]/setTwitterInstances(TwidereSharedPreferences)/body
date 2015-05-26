@@ -8,34 +8,20 @@
   clearTwitterInstances();
   for (int i=0, j=accountsList.size(); i < j; i++) {
     final ParcelableCredentials account=accountsList.get(i);
-    final String token=account.oauth_token;
-    final String secret=account.oauth_token_secret;
+    final Endpoint endpoint=TwitterAPIUtils.getEndpoint(account,TwitterUserStream.class);
+    final Authorization authorization=TwitterAPIUtils.getAuthorization(account);
+    final TwitterUserStream twitter=Utils.getInstance(this,endpoint,authorization,TwitterUserStream.class);
     final long account_id=account.account_id;
     mAccountIds[i]=account_id;
-    final StreamConfigurationBuilder cb=new StreamConfigurationBuilder();
-    cb.setHttpClientFactory(new OkHttpClientFactory(this));
-    cb.setHostAddressResolverFactory(new TwidereHostAddressResolverFactory(this));
-    cb.setGZIPEnabled(prefs.getBoolean(KEY_GZIP_COMPRESSING,true));
-    cb.setIncludeEntitiesEnabled(true);
-    if (prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false)) {
-      cb.setIgnoreSSLError(true);
-      cb.setHostAddressResolverFactory(new TwidereHostAddressResolverFactory(this));
+    final TwidereUserStreamCallback callback=new TwidereUserStreamCallback(this,account);
+    mTwitterInstances.add(new WeakReference<>(callback));
+    new Thread(){
+      @Override public void run(){
+        twitter.getUserStream(callback);
+        Log.d(LOGTAG,"Stream disconnected");
+      }
     }
-    final String default_consumer_key=Utils.getNonEmptyString(prefs,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY_2);
-    final String default_consumer_secret=Utils.getNonEmptyString(prefs,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET_2);
-    final String consumer_key=account.consumer_key, consumer_secret=account.consumer_secret;
-    if (!isEmpty(consumer_key) && !isEmpty(consumer_secret)) {
-      cb.setOAuthConsumerKey(consumer_key);
-      cb.setOAuthConsumerSecret(consumer_secret);
-    }
- else {
-      cb.setOAuthConsumerKey(default_consumer_key);
-      cb.setOAuthConsumerSecret(default_consumer_secret);
-    }
-    final TwitterStream twitter=new TwitterStreamFactory(cb.build()).getInstance(new AccessToken(token,secret));
-    twitter.addListener(new UserStreamListenerImpl(this,account_id));
-    twitter.user();
-    mTwitterInstances.add(new WeakReference<>(twitter));
+.start();
   }
   return true;
 }

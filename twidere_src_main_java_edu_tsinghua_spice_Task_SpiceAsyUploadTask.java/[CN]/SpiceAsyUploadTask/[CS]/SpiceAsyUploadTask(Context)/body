@@ -1,4 +1,4 @@
 {
   this.context=context;
-  this.client=TwitterAPIUtils.getDefaultHttpClient(context);
+  this.client=TwitterAPIFactory.getDefaultHttpClient(context);
 }

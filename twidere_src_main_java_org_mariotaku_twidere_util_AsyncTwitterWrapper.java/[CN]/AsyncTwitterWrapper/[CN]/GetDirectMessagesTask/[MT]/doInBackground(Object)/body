@@ -4,7 +4,7 @@
   int idx=0;
   final int load_item_limit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   for (  final long accountId : account_ids) {
-    final Twitter twitter=TwitterAPIUtils.getTwitterInstance(mContext,accountId,true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();

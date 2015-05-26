@@ -6,56 +6,32 @@
   }
   if (result != null) {
     if (result.succeed) {
-      final ContentValues values;
-switch (result.auth_type) {
-case Accounts.AUTH_TYPE_BASIC:
-{
-          values=createAccount(result.basic_username,result.basic_password,result.user,result.color,result.api_url_format,result.no_version_suffix);
-          break;
-        }
-case Accounts.AUTH_TYPE_TWIP_O_MODE:
-{
-        values=ContentValuesCreator.createAccount(result.user,result.color,result.api_url_format,result.no_version_suffix);
-        break;
-      }
-case Accounts.AUTH_TYPE_OAUTH:
-case Accounts.AUTH_TYPE_XAUTH:
-{
-      values=ContentValuesCreator.createAccount(result.oauth,result.user,result.auth_type,result.color,result.api_url_format,result.same_oauth_signing_url,result.no_version_suffix);
-      break;
+      insertAccount(result);
+      final long loggedId=result.user.getId();
+      final Intent intent=new Intent(this,HomeActivity.class);
+      intent.putExtra(EXTRA_REFRESH_IDS,new long[]{loggedId});
+      intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+      startActivity(intent);
+      finish();
     }
-default :
-{
-    values=null;
+ else     if (result.alreadyLoggedIn) {
+      Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
+    }
+ else {
+      ErrorLogger.exception(result.exception);
+      if (result.exception instanceof AuthenticityTokenException) {
+        Toast.makeText(this,R.string.wrong_api_key,Toast.LENGTH_SHORT).show();
+      }
+ else       if (result.exception instanceof WrongUserPassException) {
+        Toast.makeText(this,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
+      }
+ else       if (result.exception instanceof AuthenticationException) {
+        showErrorMessage(this,getString(R.string.action_signing_in),result.exception.getCause(),true);
+      }
+ else {
+        showErrorMessage(this,getString(R.string.action_signing_in),result.exception,true);
+      }
+    }
   }
-}
-if (values != null) {
-mResolver.insert(Accounts.CONTENT_URI,values);
-}
-final long loggedId=result.user.getId();
-final Intent intent=new Intent(this,HomeActivity.class);
-intent.putExtra(EXTRA_REFRESH_IDS,new long[]{loggedId});
-intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-startActivity(intent);
-finish();
-}
- else if (result.already_logged_in) {
-Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
-}
- else {
-if (result.exception instanceof AuthenticityTokenException) {
-Toast.makeText(this,R.string.wrong_api_key,Toast.LENGTH_SHORT).show();
-}
- else if (result.exception instanceof WrongUserPassException) {
-Toast.makeText(this,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
-}
- else if (result.exception instanceof AuthenticationException) {
-showErrorMessage(this,getString(R.string.action_signing_in),result.exception.getCause(),true);
-}
- else {
-showErrorMessage(this,getString(R.string.action_signing_in),result.exception,true);
-}
-}
-}
-setSignInButton();
+  setSignInButton();
 }

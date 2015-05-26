@@ -1,5 +1,0 @@
-{
-  for (  Pair<String,TypedData> part : parts) {
-    part.second.close();
-  }
-}

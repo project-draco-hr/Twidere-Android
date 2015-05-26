@@ -4,10 +4,8 @@
 switch (action) {
 case ACTION_NAVIGATION_TOP:
 {
-      view.stopScroll();
-      manager.scrollToPositionWithOffset(0,0);
-      if (support != null) {
-        support.setControlVisible(true);
+      if (iface != null) {
+        iface.scrollToStart();
       }
       return true;
     }
