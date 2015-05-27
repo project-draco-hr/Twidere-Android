@@ -1,0 +1,7 @@
+{
+  for (int i=0, j=mCallbacks.size(); i < j; i++) {
+    new Thread(new ShutdownStreamTwitterRunnable(mCallbacks.valueAt(i))).start();
+  }
+  mCallbacks.clear();
+  mNotificationManager.cancel(NOTIFICATION_SERVICE_STARTED);
+}

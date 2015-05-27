@@ -31,7 +31,6 @@
     rowsDeleted=0;
   }
   countCur.close();
-  ProfilingUtil.profile(mContext,accountId,"Download tweets, " + TwidereArrayUtils.toString(statusIds,',',true));
   SpiceProfilingUtil.profile(mContext,accountId,accountId + ",Refresh," + TwidereArrayUtils.toString(statusIds,',',true));
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,maxId);
   final boolean noRowsDeleted=rowsDeleted == 0;

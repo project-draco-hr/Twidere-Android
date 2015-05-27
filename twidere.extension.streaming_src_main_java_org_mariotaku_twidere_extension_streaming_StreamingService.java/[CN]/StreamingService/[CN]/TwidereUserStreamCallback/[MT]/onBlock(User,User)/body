@@ -1,4 +1,0 @@
-{
-  final String message=String.format("%s blocked %s",source.getScreenName(),blockedUser.getScreenName());
-  Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-}

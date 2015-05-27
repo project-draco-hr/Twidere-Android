@@ -1,6 +1,0 @@
-{
-  if (mSwitchKey == null)   return;
-  final SharedPreferences.Editor editor=mSwitchPreference.edit();
-  editor.putBoolean(mSwitchKey,isChecked);
-  editor.apply();
-}

@@ -1,4 +1,0 @@
-{
-  final String message=String.format("%s favorited %s's tweet: %s",source.getScreenName(),target.getScreenName(),favoritedStatus.getText());
-  Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-}

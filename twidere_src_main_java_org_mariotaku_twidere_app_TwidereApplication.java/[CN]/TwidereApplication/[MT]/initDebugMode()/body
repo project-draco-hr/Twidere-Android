@@ -1,0 +1,3 @@
+{
+  DebugModeUtils.initForApplication(this);
+}

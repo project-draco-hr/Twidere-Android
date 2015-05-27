@@ -1,7 +1,6 @@
 {
   if (manager != null && manager.isActive())   return;
   if (!isPrivateData()) {
-    ProfilingUtil.profile(context,accountId,"Click, " + link + ", "+ type);
     SpiceProfilingUtil.profile(context,accountId,accountId + ",Visit," + link+ ","+ TypeMappingUtil.getLinkType(type));
   }
 switch (type) {

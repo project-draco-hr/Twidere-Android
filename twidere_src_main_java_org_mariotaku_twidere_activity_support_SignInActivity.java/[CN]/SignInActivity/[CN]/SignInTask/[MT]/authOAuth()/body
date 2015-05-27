@@ -1,8 +1,8 @@
 {
   String endpointUrl, signEndpointUrl;
-  endpointUrl=TwitterAPIUtils.getApiUrl(apiUrlFormat,"api",null);
+  endpointUrl=TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",null);
   if (!sameOAuthSigningUrl) {
-    signEndpointUrl=TwitterAPIUtils.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",null);
+    signEndpointUrl=TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",null);
   }
  else {
     signEndpointUrl=endpointUrl;
@@ -15,9 +15,9 @@
   final long userId=accessToken.getUserId();
   if (userId <= 0)   return new SignInResponse(false,false,null);
   final String versionSuffix=noVersionSuffix ? null : "1.1";
-  endpointUrl=TwitterAPIUtils.getApiUrl(apiUrlFormat,"api",versionSuffix);
+  endpointUrl=TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix);
   if (!sameOAuthSigningUrl) {
-    signEndpointUrl=TwitterAPIUtils.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",versionSuffix);
+    signEndpointUrl=TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",versionSuffix);
   }
  else {
     signEndpointUrl=endpointUrl;

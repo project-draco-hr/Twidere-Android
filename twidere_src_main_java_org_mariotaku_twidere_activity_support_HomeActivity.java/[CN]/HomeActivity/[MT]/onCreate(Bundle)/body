@@ -84,4 +84,5 @@ if (savedInstanceState == null) {
 setupHomeTabs();
 final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
 setTabPosition(initialTabPosition);
+startService(new Intent(this,StreamingService.class));
 }

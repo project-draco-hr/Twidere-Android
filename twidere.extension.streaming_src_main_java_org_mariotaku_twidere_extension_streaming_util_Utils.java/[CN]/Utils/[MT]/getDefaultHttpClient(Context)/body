@@ -1,5 +1,0 @@
-{
-  if (context == null)   return null;
-  final SharedPreferences prefs=Twidere.getSharedPreferences(context);
-  return createHttpClient(context,prefs);
-}

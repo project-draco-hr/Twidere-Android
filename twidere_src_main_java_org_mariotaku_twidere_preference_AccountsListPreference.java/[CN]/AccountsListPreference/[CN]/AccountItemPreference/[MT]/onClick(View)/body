@@ -1,6 +1,0 @@
-{
-  final Context context=getContext();
-  if (!(context instanceof PreferenceActivity))   return;
-  final PreferenceActivity activity=(PreferenceActivity)context;
-  activity.startPreferencePanel(getFragment(),getExtras(),getTitleRes(),getTitle(),null,0);
-}

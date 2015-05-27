@@ -1,0 +1,5 @@
+{
+  if (callback == null)   return;
+  Log.d(Constants.LOGTAG,"Disconnecting stream");
+  callback.disconnect();
+}

@@ -3,6 +3,7 @@
     StrictModeUtils.detectAllVmPolicy();
   }
   super.onCreate();
+  initDebugMode();
   initBugReport();
   mDefaultUserAgent=UserAgentUtils.getDefaultUserAgentString(this);
   mHandler=new Handler();

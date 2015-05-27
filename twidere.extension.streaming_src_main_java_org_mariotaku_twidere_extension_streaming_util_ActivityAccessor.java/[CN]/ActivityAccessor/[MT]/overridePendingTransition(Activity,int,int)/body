@@ -1,4 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ECLAIR)   return;
-  OverridePendingTransitionAccessor.overridePendingTransition(activity,enter_anim,exit_anim);
-}

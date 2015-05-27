@@ -1,4 +1,0 @@
-{
-  if (sInstance != null)   return sInstance;
-  return sInstance=new TwidereHostAddressResolver(context);
-}

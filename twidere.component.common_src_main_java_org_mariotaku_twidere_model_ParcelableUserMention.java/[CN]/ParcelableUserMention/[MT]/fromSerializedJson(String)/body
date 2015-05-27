@@ -1,3 +1,12 @@
 {
-  return new ParcelableUserMention[0];
+  if (string == null)   return null;
+  final List<ParcelableUserMention> list;
+  try {
+    list=LoganSquare.parseList(string,ParcelableUserMention.class);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+  if (list == null)   return null;
+  return list.toArray(new ParcelableUserMention[list.size()]);
 }

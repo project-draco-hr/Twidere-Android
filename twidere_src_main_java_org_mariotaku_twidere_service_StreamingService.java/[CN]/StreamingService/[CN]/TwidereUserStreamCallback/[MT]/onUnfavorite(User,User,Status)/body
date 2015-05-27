@@ -1,0 +1,4 @@
+{
+  final String message=String.format("%s unfavorited %s's tweet: %s",source.getScreenName(),target.getScreenName(),unfavoritedStatus.getText());
+  Log.d(LOGTAG,message);
+}

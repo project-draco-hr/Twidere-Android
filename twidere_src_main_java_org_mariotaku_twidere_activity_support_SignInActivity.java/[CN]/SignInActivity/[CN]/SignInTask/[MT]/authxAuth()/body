@@ -1,6 +1,6 @@
 {
   final String versionSuffix=noVersionSuffix ? null : "1.1";
-  final Endpoint endpoint=new Endpoint(TwitterAPIUtils.getApiUrl(apiUrlFormat,"api",versionSuffix));
+  final Endpoint endpoint=new Endpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
   OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret());
   final TwitterOAuth oauth=TwitterAPIFactory.getInstance(context,endpoint,auth,TwitterOAuth.class);
   final OAuthToken accessToken=oauth.getAccessToken(username,password,TwitterOAuth.XAuthMode.CLIENT);

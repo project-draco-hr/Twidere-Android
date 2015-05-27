@@ -1,0 +1,3 @@
+{
+  return VALUE_THEME_NAME_DARK.equals(name);
+}

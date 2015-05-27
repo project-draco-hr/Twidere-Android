@@ -1,0 +1,4 @@
+{
+  final String message=String.format("%s unblocked %s",source.getScreenName(),unblockedUser.getScreenName());
+  Log.d(LOGTAG,message);
+}

@@ -1,6 +1,0 @@
-{
-  if (mToggle != null) {
-    mToggle.toggle();
-  }
-  return true;
-}

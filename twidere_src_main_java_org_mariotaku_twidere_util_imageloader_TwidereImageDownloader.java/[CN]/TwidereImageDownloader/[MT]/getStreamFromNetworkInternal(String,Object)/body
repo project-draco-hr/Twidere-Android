@@ -5,7 +5,7 @@
   if (isTwitterAuthRequired(uri) && extras instanceof AccountExtra) {
     final AccountExtra accountExtra=(AccountExtra)extras;
     account=ParcelableAccount.getCredentials(mContext,accountExtra.account_id);
-    auth=TwitterAPIUtils.getAuthorization(account);
+    auth=TwitterAPIFactory.getAuthorization(account);
   }
  else {
     account=null;

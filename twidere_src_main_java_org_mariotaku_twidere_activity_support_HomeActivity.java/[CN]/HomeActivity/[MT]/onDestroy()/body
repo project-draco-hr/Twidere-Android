@@ -1,4 +1,5 @@
 {
+  stopService(new Intent(this,StreamingService.class));
   cleanDatabasesByItemLimit(this);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONDESTROY));
   super.onDestroy();

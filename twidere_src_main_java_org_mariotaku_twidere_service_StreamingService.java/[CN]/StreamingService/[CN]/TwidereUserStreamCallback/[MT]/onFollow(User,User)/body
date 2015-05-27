@@ -1,0 +1,4 @@
+{
+  final String message=String.format("%s followed %s",source.getScreenName(),followedUser.getScreenName());
+  Log.d(LOGTAG,message);
+}

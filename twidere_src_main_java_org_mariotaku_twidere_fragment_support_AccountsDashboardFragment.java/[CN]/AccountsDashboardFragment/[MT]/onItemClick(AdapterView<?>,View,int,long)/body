@@ -39,33 +39,4 @@ break;
 }
 }
 }
- else if (adapter instanceof AppMenuAdapter) {
-if (!(item instanceof OptionItem)) return;
-final OptionItem option=(OptionItem)item;
-switch (option.id) {
-case MENU_ACCOUNTS:
-{
-Utils.openAccountsManager(getActivity());
-break;
-}
-case MENU_DRAFTS:
-{
-Utils.openDrafts(getActivity());
-break;
-}
-case MENU_FILTERS:
-{
-Utils.openFilters(getActivity());
-break;
-}
-case MENU_SETTINGS:
-{
-final Intent intent=new Intent(getActivity(),SettingsActivity.class);
-intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-startActivityForResult(intent,REQUEST_SETTINGS);
-break;
-}
-}
-closeAccountsDrawer();
-}
 }

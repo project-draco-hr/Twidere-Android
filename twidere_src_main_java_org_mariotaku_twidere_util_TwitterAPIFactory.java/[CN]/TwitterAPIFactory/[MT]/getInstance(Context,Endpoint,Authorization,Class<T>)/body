@@ -6,21 +6,21 @@
     final String consumerSecret=((OAuthAuthorization)auth).getConsumerSecret();
     final ConsumerKeyType officialKeyType=TwitterContentUtils.getOfficialKeyType(context,consumerKey,consumerSecret);
     if (officialKeyType != ConsumerKeyType.UNKNOWN) {
-      userAgent=TwitterAPIUtils.getUserAgentName(officialKeyType);
+      userAgent=getUserAgentName(officialKeyType);
     }
  else {
-      userAgent=TwitterAPIUtils.getTwidereUserAgent(context);
+      userAgent=getTwidereUserAgent(context);
     }
   }
  else {
-    userAgent=TwitterAPIUtils.getTwidereUserAgent(context);
+    userAgent=getTwidereUserAgent(context);
   }
   factory.setClient(getDefaultHttpClient(context));
   factory.setConverter(new TwitterConverter());
   factory.setEndpoint(endpoint);
   factory.setAuthorization(auth);
-  factory.setRequestInfoFactory(new TwitterAPIUtils.TwidereRequestInfoFactory());
-  factory.setHttpRequestFactory(new TwitterAPIUtils.TwidereHttpRequestFactory(userAgent));
-  factory.setExceptionFactory(new TwitterAPIUtils.TwidereExceptionFactory());
+  factory.setRequestInfoFactory(new TwidereRequestInfoFactory());
+  factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
+  factory.setExceptionFactory(new TwidereExceptionFactory());
   return factory.build(cls);
 }

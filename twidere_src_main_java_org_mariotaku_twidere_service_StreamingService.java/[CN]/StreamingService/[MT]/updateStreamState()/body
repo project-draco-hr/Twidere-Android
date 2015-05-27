@@ -1,0 +1,18 @@
+{
+  if (mCallbacks.size() > 0) {
+    final Intent intent=new Intent(this,SettingsActivity.class);
+    final PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+    final CharSequence contentTitle=getString(R.string.app_name);
+    final CharSequence contentText=getString(R.string.timeline_streaming_running);
+    final NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+    builder.setOngoing(true);
+    builder.setSmallIcon(R.drawable.ic_stat_refresh);
+    builder.setContentTitle(contentTitle);
+    builder.setContentText(contentText);
+    builder.setContentIntent(contentIntent);
+    mNotificationManager.notify(NOTIFICATION_SERVICE_STARTED,builder.build());
+  }
+ else {
+    mNotificationManager.cancel(NOTIFICATION_SERVICE_STARTED);
+  }
+}

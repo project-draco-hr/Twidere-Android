@@ -1,0 +1,39 @@
+{
+  if (ex instanceof TwitterException) {
+    Log.w(LOGTAG,String.format("Error %d",((TwitterException)ex).getStatusCode()),ex);
+    final RestHttpResponse response=((TwitterException)ex).getHttpResponse();
+    if (response != null) {
+      try {
+        final TypedData body=response.getBody();
+        final ByteArrayOutputStream os=new ByteArrayOutputStream();
+        body.writeTo(os);
+        final String charsetName;
+        if (body != null) {
+          final ContentType contentType=body.contentType();
+          if (contentType != null) {
+            final Charset charset=contentType.getCharset();
+            if (charset != null) {
+              charsetName=charset.name();
+            }
+ else {
+              charsetName=Charset.defaultCharset().name();
+            }
+          }
+ else {
+            charsetName=Charset.defaultCharset().name();
+          }
+        }
+ else {
+          charsetName=Charset.defaultCharset().name();
+        }
+        Log.w(LOGTAG,os.toString(charsetName));
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+ else {
+    Log.w(Constants.LOGTAG,ex);
+  }
+}

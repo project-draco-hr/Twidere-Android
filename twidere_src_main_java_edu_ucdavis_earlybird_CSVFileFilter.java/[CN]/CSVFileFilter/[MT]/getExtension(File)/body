@@ -1,6 +1,0 @@
-{
-  final String name=file.getName();
-  final int pos=name.lastIndexOf('.');
-  if (pos == -1)   return null;
-  return name.substring(pos + 1);
-}

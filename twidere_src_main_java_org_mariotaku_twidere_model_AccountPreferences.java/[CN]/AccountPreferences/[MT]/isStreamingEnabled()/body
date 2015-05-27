@@ -1,0 +1,3 @@
+{
+  return mPreferences.getBoolean(KEY_ENABLE_STREAMING,false);
+}

@@ -1,0 +1,11 @@
+{
+  super.onCreate();
+  mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mResolver=getContentResolver();
+  mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+  if (BuildConfig.DEBUG) {
+    Log.d(Constants.LOGTAG,"Stream service started.");
+  }
+  initStreaming();
+  mResolver.registerContentObserver(Accounts.CONTENT_URI,true,mAccountChangeObserver);
+}

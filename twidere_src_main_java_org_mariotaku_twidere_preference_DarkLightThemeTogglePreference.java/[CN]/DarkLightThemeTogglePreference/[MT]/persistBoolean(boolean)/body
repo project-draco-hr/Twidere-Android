@@ -1,0 +1,3 @@
+{
+  return persistString(value ? VALUE_THEME_NAME_DARK : VALUE_THEME_NAME_TWIDERE);
+}

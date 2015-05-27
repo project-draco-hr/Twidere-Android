@@ -1,4 +1,0 @@
-{
-  mAlarmManager.cancel(uploadIntent);
-  super.onDestroy();
-}

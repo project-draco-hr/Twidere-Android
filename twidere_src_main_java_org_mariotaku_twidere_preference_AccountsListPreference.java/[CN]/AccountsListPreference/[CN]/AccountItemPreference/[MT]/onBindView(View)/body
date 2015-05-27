@@ -8,8 +8,4 @@
   if (summaryView instanceof TextView) {
     ((TextView)summaryView).setSingleLine(true);
   }
-  final CompoundButton toggle=(CompoundButton)view.findViewById(android.R.id.toggle);
-  if (mSwitchKey != null) {
-    toggle.setChecked(mSwitchPreference.getBoolean(mSwitchKey,mSwitchDefault));
-  }
 }

@@ -1,8 +1,0 @@
-{
-  for (  final WeakReference<TwidereUserStreamCallback> reference : mTwitterInstances) {
-    final TwidereUserStreamCallback twitter=reference.get();
-    new Thread(new ShutdownStreamTwitterRunnable(twitter)).start();
-  }
-  mTwitterInstances.clear();
-  mNotificationManager.cancel(NOTIFICATION_SERVICE_STARTED);
-}
