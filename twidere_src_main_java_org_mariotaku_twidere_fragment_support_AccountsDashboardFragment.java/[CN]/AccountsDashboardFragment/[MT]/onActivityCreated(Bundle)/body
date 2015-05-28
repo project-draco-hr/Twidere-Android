@@ -12,6 +12,7 @@
   final LayoutInflater inflater=getLayoutInflater(savedInstanceState);
   mAccountsAdapter=new AccountSelectorAdapter(context,inflater,this);
   mAccountOptionsAdapter=new AccountOptionsAdapter(context);
+  mAppMenuAdapter=new AppMenuAdapter(context);
   mAccountSelectorView=inflater.inflate(R.layout.header_drawer_account_selector,mListView,false);
   mAccountsSelector=(RecyclerView)mAccountSelectorView.findViewById(R.id.other_accounts_list);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
@@ -48,6 +49,8 @@
   mAccountProfileContainer.setOnClickListener(this);
   mAdapter.addView(mAccountSelectorView,true);
   mAdapter.addAdapter(mAccountOptionsAdapter);
+  mAdapter.addView(inflater.inflate(R.layout.layout_divider_drawer,mListView,false),false);
+  mAdapter.addAdapter(mAppMenuAdapter);
   mListView.setAdapter(mAdapter);
   mListView.setOnItemClickListener(this);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
