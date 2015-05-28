@@ -12,8 +12,6 @@
   final LayoutInflater inflater=getLayoutInflater(savedInstanceState);
   mAccountsAdapter=new AccountSelectorAdapter(context,inflater,this);
   mAccountOptionsAdapter=new AccountOptionsAdapter(context);
-  mAppMenuAdapter=new AppMenuAdapter(context);
-  mAppMenuSectionView=Utils.newSectionView(context,R.string.more);
   mAccountSelectorView=inflater.inflate(R.layout.header_drawer_account_selector,mListView,false);
   mAccountsSelector=(RecyclerView)mAccountSelectorView.findViewById(R.id.other_accounts_list);
   final LinearLayoutManager layoutManager=new FixedLinearLayoutManager(context);
