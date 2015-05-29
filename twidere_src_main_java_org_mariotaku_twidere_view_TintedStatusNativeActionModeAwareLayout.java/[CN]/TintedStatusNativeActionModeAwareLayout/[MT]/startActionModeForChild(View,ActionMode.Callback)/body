@@ -1,0 +1,6 @@
+{
+  if (mActionModeForChildListener != null) {
+    return mActionModeForChildListener.startActionModeForChild(originalView,callback);
+  }
+  return super.startActionModeForChild(originalView,callback);
+}

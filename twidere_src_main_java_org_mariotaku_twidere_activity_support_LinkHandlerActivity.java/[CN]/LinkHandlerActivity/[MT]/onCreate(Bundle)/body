@@ -9,7 +9,7 @@
   setContentView(R.layout.activity_content_fragment);
   setSupportActionBar((Toolbar)findViewById(R.id.action_bar));
   mTwidereActionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
-  final NativeActionModeAwareLayout layout=(NativeActionModeAwareLayout)findViewById(android.R.id.content);
+  final TintedStatusNativeActionModeAwareLayout layout=(TintedStatusNativeActionModeAwareLayout)findViewById(R.id.main_content);
   layout.setActionModeForChildListener(mTwidereActionModeForChildListener);
   ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
   final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
