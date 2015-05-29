@@ -1,0 +1,3 @@
+{
+  mPrimaryTextColor=new ForegroundColorSpan(color);
+}

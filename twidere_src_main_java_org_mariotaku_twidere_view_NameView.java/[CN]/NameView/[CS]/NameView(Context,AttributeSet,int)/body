@@ -1,0 +1,12 @@
+{
+  super(context,attrs,defStyleAttr);
+  setSingleLine(true);
+  setEllipsize(TextUtils.TruncateAt.END);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.NameView,defStyleAttr,0);
+  setPrimaryTextColor(a.getColor(R.styleable.NameView_nv_primaryTextColor,0));
+  setSecondaryTextColor(a.getColor(R.styleable.NameView_nv_secondaryTextColor,0));
+  mPrimaryTextStyle=new StyleSpan(a.getInt(R.styleable.NameView_nv_primaryTextStyle,0));
+  mSecondaryTextStyle=new StyleSpan(a.getInt(R.styleable.NameView_nv_secondaryTextStyle,0));
+  a.recycle();
+  setNameFirst(true);
+}

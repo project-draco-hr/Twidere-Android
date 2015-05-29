@@ -54,37 +54,5 @@
   mListView.setAdapter(mAdapter);
   mListView.setOnItemClickListener(this);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
-  menuInflater.inflate(R.menu.menu_dashboard,mActionMenuView.getMenu());
-  mActionMenuView.setOnMenuItemClickListener(new OnMenuItemClickListener(){
-    @Override public boolean onMenuItemClick(    final MenuItem item){
-switch (item.getItemId()) {
-case MENU_ACCOUNTS:
-{
-          Utils.openAccountsManager(getActivity());
-          return true;
-        }
-case MENU_DRAFTS:
-{
-        Utils.openDrafts(getActivity());
-        return true;
-      }
-case MENU_FILTERS:
-{
-      Utils.openFilters(getActivity());
-      return true;
-    }
-case MENU_SETTINGS:
-{
-    final Intent intent=new Intent(getActivity(),SettingsActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-    startActivityForResult(intent,REQUEST_SETTINGS);
-    return true;
-  }
-}
-return false;
-}
-}
-);
-ThemeUtils.resetCheatSheet(mActionMenuView);
-getLoaderManager().initLoader(0,null,this);
+  getLoaderManager().initLoader(0,null,this);
 }

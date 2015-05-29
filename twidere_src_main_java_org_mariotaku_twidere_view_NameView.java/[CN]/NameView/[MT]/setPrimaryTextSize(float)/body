@@ -1,0 +1,3 @@
+{
+  mPrimaryTextSize=new AbsoluteSizeSpan((int)calculateTextSize(TypedValue.COMPLEX_UNIT_SP,textSize));
+}

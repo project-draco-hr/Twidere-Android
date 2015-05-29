@@ -7,15 +7,12 @@
   extraTypeView=(ImageView)itemView.findViewById(R.id.extra_type);
   textView=(TextView)itemView.findViewById(R.id.text);
   quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
-  nameView=primaryNameView=(TextView)itemView.findViewById(R.id.name);
-  screenNameView=secondaryNameView=(TextView)itemView.findViewById(R.id.screen_name);
-  quotedNameView=quotedPrimaryNameView=(TextView)itemView.findViewById(R.id.quoted_name);
-  quotedScreenNameView=quotedSecondaryNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
+  nameView=(NameView)itemView.findViewById(R.id.name);
+  quotedNameView=(NameView)itemView.findViewById(R.id.quoted_name);
   replyRetweetIcon=(ImageView)itemView.findViewById(R.id.reply_retweet_icon);
   replyRetweetView=(TextView)itemView.findViewById(R.id.reply_retweet_status);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
-  quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);
   actionButtons=itemView.findViewById(R.id.action_buttons);

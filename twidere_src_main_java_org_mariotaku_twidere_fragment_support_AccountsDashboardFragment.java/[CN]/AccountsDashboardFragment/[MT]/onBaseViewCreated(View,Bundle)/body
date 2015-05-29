@@ -1,5 +1,4 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
   mListView=(ListView)view.findViewById(android.R.id.list);
-  mActionMenuView=(ActionMenuView)view.findViewById(R.id.dashboard_menu);
 }

@@ -5,8 +5,6 @@
   actionButtons.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
   itemMenu.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
   final boolean nameFirst=adapter.isNameFirst();
-  primaryNameView=nameFirst ? nameView : screenNameView;
-  secondaryNameView=nameFirst ? screenNameView : nameView;
-  quotedPrimaryNameView=nameFirst ? quotedNameView : quotedScreenNameView;
-  quotedSecondaryNameView=nameFirst ? quotedScreenNameView : quotedNameView;
+  nameView.setNameFirst(nameFirst);
+  quotedNameView.setNameFirst(nameFirst);
 }

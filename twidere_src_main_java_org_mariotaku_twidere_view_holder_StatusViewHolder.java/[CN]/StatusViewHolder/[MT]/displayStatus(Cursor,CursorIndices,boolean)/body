@@ -47,11 +47,11 @@
   }
   final int typeIconRes;
   if (cursor.getShort(indices.is_quote) == 1) {
-    quotedPrimaryNameView.setText(manager.getUserNickname(user_id,user_name,false));
-    quotedSecondaryNameView.setText("@" + user_screen_name);
+    quotedNameView.setName(manager.getUserNickname(user_id,user_name,false));
+    quotedNameView.setScreenName("@" + user_screen_name);
     timeView.setTime(cursor.getLong(indices.quote_timestamp));
-    primaryNameView.setText(manager.getUserNickname(cursor.getLong(indices.quoted_by_user_id),cursor.getString(indices.quoted_by_user_name),false));
-    secondaryNameView.setText("@" + cursor.getString(indices.quoted_by_user_screen_name));
+    nameView.setName(manager.getUserNickname(cursor.getLong(indices.quoted_by_user_id),cursor.getString(indices.quoted_by_user_name),false));
+    nameView.setScreenName("@" + cursor.getString(indices.quoted_by_user_screen_name));
     final String quote_text_unescaped=cursor.getString(indices.quote_text_unescaped);
     final int idx=quote_text_unescaped.lastIndexOf(" twitter.com");
     if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
@@ -63,7 +63,7 @@
       linkify.applyAllLinks(quoteTextView,account_id,getLayoutPosition(),cursor.getShort(indices.is_possibly_sensitive) == 1,adapter.getLinkHighlightingStyle());
       quoteTextView.setMovementMethod(null);
     }
-    quotedNameContainer.setVisibility(View.VISIBLE);
+    quotedNameView.setVisibility(View.VISIBLE);
     quoteTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
     quoteIndicator.setColor(manager.getUserColor(user_id,false));
@@ -80,15 +80,15 @@
     itemContent.drawStart(manager.getUserColor(cursor.getLong(indices.quoted_by_user_id),false),manager.getUserColor(cursor.getLong(indices.user_id),false));
   }
  else {
-    primaryNameView.setText(manager.getUserNickname(user_id,user_name,false));
-    secondaryNameView.setText("@" + user_screen_name);
+    nameView.setName(manager.getUserNickname(user_id,user_name,false));
+    nameView.setScreenName("@" + user_screen_name);
     if (retweet_id > 0) {
       timeView.setTime(cursor.getLong(indices.retweet_timestamp));
     }
  else {
       timeView.setTime(cursor.getLong(indices.status_timestamp));
     }
-    quotedNameContainer.setVisibility(View.GONE);
+    quotedNameView.setVisibility(View.GONE);
     quoteTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
     if (adapter.isProfileImageEnabled()) {
@@ -181,4 +181,6 @@
     favoriteCountView.setText(null);
   }
   displayExtraTypeIcon(card_name,media,location,place_full_name,sensitive);
+  nameView.updateText();
+  quotedNameView.updateText();
 }
