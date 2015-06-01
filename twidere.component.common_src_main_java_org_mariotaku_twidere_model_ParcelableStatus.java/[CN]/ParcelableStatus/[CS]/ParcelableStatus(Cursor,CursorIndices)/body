@@ -9,7 +9,6 @@
   retweet_count=idx.retweet_count != -1 ? c.getLong(idx.retweet_count) : -1;
   favorite_count=idx.favorite_count != -1 ? c.getLong(idx.favorite_count) : -1;
   reply_count=idx.reply_count != -1 ? c.getLong(idx.reply_count) : -1;
-  descendent_reply_count=idx.descendent_reply_count != -1 ? c.getLong(idx.descendent_reply_count) : -1;
   in_reply_to_status_id=idx.in_reply_to_status_id != -1 ? c.getLong(idx.in_reply_to_status_id) : -1;
   in_reply_to_user_id=idx.in_reply_to_user_id != -1 ? c.getLong(idx.in_reply_to_user_id) : -1;
   is_gap=idx.is_gap != -1 && c.getInt(idx.is_gap) == 1;
@@ -51,5 +50,8 @@
   quoted_by_user_is_protected=idx.quoted_by_user_is_protected != -1 && c.getShort(idx.quoted_by_user_is_protected) == 1;
   quoted_by_user_is_verified=idx.quoted_by_user_is_verified != -1 && c.getShort(idx.quoted_by_user_is_verified) == 1;
   quote_source=idx.quote_source != -1 ? c.getString(idx.quote_source) : null;
+  quote_retweet_count=idx.quote_retweet_count != -1 ? c.getLong(idx.quote_retweet_count) : -1;
+  quote_favorite_count=idx.quote_favorite_count != -1 ? c.getLong(idx.quote_favorite_count) : -1;
+  quote_reply_count=idx.quote_reply_count != -1 ? c.getLong(idx.quote_reply_count) : -1;
   card_name=card != null ? card.name : null;
 }

@@ -1,0 +1,4 @@
+{
+  if (getLayoutManager() == null)   return 0;
+  return super.computeHorizontalScrollExtent();
+}

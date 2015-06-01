@@ -9,7 +9,6 @@
   retweet_count=override_retweet_count;
   favorite_count=orig.favorite_count;
   reply_count=orig.reply_count;
-  descendent_reply_count=orig.descendent_reply_count;
   in_reply_to_status_id=orig.in_reply_to_status_id;
   is_gap=orig.is_gap;
   is_retweet=orig.is_retweet;
@@ -49,6 +48,9 @@
   quote_text_plain=orig.quote_text_plain;
   quote_text_unescaped=orig.quote_text_unescaped;
   quote_source=orig.quote_source;
+  quote_retweet_count=orig.quote_retweet_count;
+  quote_favorite_count=orig.quote_favorite_count;
+  quote_reply_count=orig.quote_reply_count;
   quoted_by_user_is_protected=orig.quoted_by_user_is_protected;
   quoted_by_user_is_verified=orig.quoted_by_user_is_verified;
   card_name=card != null ? card.name : null;

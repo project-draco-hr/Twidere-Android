@@ -21,6 +21,9 @@
   quote_text_unescaped=HtmlEscapeHelper.toPlainText(quote_text_html);
   quote_timestamp=orig.getCreatedAt().getTime();
   quote_source=orig.getSource();
+  quote_retweet_count=orig.getRetweetCount();
+  quote_favorite_count=orig.getFavoriteCount();
+  quote_reply_count=orig.getReplyCount();
   quoted_by_user_id=quote_user != null ? quote_user.getId() : -1;
   quoted_by_user_name=quote_user != null ? quote_user.getName() : null;
   quoted_by_user_screen_name=quote_user != null ? quote_user.getScreenName() : null;
@@ -52,7 +55,6 @@
   retweet_count=status.getRetweetCount();
   favorite_count=status.getFavoriteCount();
   reply_count=status.getReplyCount();
-  descendent_reply_count=status.getDescendentReplyCount();
   in_reply_to_name=TwitterContentUtils.getInReplyToName(retweeted != null ? retweeted : orig);
   in_reply_to_screen_name=(retweeted != null ? retweeted : orig).getInReplyToScreenName();
   in_reply_to_status_id=(retweeted != null ? retweeted : orig).getInReplyToStatusId();

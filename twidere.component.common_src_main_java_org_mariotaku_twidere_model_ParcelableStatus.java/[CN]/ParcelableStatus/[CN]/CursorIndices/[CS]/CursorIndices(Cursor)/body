@@ -33,6 +33,9 @@
   quote_text_unescaped=cursor.getColumnIndex(Statuses.QUOTE_TEXT_UNESCAPED);
   quote_timestamp=cursor.getColumnIndex(Statuses.QUOTE_TIMESTAMP);
   quote_source=cursor.getColumnIndex(Statuses.QUOTE_SOURCE);
+  quote_retweet_count=cursor.getColumnIndex(Statuses.QUOTE_RETWEET_COUNT);
+  quote_favorite_count=cursor.getColumnIndex(Statuses.QUOTE_FAVORITE_COUNT);
+  quote_reply_count=cursor.getColumnIndex(Statuses.QUOTE_REPLY_COUNT);
   quoted_by_user_id=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_ID);
   quoted_by_user_name=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_NAME);
   quoted_by_user_screen_name=cursor.getColumnIndex(Statuses.QUOTED_BY_USER_SCREEN_NAME);
@@ -44,7 +47,6 @@
   retweet_count=cursor.getColumnIndex(Statuses.RETWEET_COUNT);
   favorite_count=cursor.getColumnIndex(Statuses.FAVORITE_COUNT);
   reply_count=cursor.getColumnIndex(Statuses.REPLY_COUNT);
-  descendent_reply_count=cursor.getColumnIndex(Statuses.DESCENDENT_REPLY_COUNT);
   is_possibly_sensitive=cursor.getColumnIndex(Statuses.IS_POSSIBLY_SENSITIVE);
   is_following=cursor.getColumnIndex(Statuses.IS_FOLLOWING);
   media=cursor.getColumnIndex(Statuses.MEDIA_JSON);
