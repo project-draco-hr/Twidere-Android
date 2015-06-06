@@ -1,6 +1,6 @@
 {
   final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
-  mHeaderDrawerLayout.setPadding(insets.left,Utils.getInsetsTopWithoutActionBarHeight(activity,insets.top),insets.right,insets.bottom);
+  mHeaderDrawerLayout.setPadding(insets.left,insets.top,insets.right,insets.bottom);
   final String backgroundOption=activity.getCurrentThemeBackgroundOption();
   final boolean isTransparentBackground=ThemeUtils.isTransparentBackground(backgroundOption);
   mHeaderDrawerLayout.setClipToPadding(isTransparentBackground);

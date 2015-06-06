@@ -1,0 +1,4 @@
+{
+  RestAPIFactory factory=new RestAPIFactory();
+  return factory.build(Github.class);
+}

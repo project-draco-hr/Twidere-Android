@@ -6,7 +6,6 @@
   final float factor=MathUtils.clamp(spaceHeight == 0 ? 0 : (offset / (float)spaceHeight),0,1);
   profileBannerContainer.setTranslationY(-offset);
   profileBannerView.setTranslationY(offset / 2);
-  final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
   if (mActionBarBackground != null && mTintedStatusContent != null) {
     mActionBarBackground.setFactor(factor);
     mTintedStatusContent.setFactor(factor);
@@ -19,6 +18,7 @@
       tabOutlineAlphaFactor=1f;
     }
     mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
+    final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
