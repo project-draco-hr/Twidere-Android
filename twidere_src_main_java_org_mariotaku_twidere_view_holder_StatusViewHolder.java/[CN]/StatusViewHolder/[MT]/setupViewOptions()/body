@@ -1,7 +1,6 @@
 {
   setTextSize(adapter.getTextSize());
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-  profileImageView.setOval(adapter.getProfileImageStyle() == ShapedImageView.SHAPE_CIRCLE);
   actionButtons.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
   itemMenu.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
   final boolean nameFirst=adapter.isNameFirst();
