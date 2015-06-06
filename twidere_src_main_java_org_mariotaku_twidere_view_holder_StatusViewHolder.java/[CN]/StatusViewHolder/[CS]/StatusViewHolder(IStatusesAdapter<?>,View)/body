@@ -2,7 +2,7 @@
   super(itemView);
   this.adapter=adapter;
   itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
-  profileImageView=(ShapedImageView)itemView.findViewById(R.id.profile_image);
+  profileImageView=(RoundedImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   extraTypeView=(ImageView)itemView.findViewById(R.id.extra_type);
   textView=(TextView)itemView.findViewById(R.id.text);
