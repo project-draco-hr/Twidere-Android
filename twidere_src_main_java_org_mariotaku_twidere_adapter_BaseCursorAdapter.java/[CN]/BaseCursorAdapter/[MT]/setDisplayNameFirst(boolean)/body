@@ -1,5 +1,0 @@
-{
-  if (mDisplayNameFirst == name_first)   return;
-  mDisplayNameFirst=name_first;
-  notifyDataSetChanged();
-}

@@ -1,5 +1,0 @@
-{
-  if (textSize == mTextSize)   return;
-  mTextSize=textSize;
-  notifyDataSetChanged();
-}

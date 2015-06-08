@@ -1,5 +1,0 @@
-{
-  if (show == mShowAccountColor)   return;
-  mShowAccountColor=show;
-  notifyDataSetChanged();
-}
