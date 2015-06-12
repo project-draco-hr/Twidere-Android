@@ -1,0 +1,21 @@
+{
+  final Call call=newCall(request);
+  call.enqueue(new Callback(){
+    @Override public void onFailure(    final Request request,    final IOException e){
+      if (call.isCanceled()) {
+        callback.cancelled();
+        return;
+      }
+      callback.exception(e);
+    }
+    @Override public void onResponse(    final Response response) throws IOException {
+      if (call.isCanceled()) {
+        callback.cancelled();
+        return;
+      }
+      callback.callback(new OkRestHttpResponse(response));
+    }
+  }
+);
+  return new OkHttpQueuedRequest(client,call);
+}
