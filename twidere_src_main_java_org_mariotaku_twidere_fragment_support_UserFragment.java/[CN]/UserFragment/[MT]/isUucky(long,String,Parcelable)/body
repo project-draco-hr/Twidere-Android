@@ -1,8 +1,0 @@
-{
-  if (userId == UUCKY_ID || UUCKY_SCREEN_NAME.equalsIgnoreCase(screenName))   return true;
-  if (parcelable instanceof ParcelableUser) {
-    final ParcelableUser user=(ParcelableUser)parcelable;
-    return user.id == UUCKY_ID || UUCKY_SCREEN_NAME.equalsIgnoreCase(user.screen_name);
-  }
-  return false;
-}

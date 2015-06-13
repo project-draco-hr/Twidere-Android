@@ -54,7 +54,6 @@
   final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
   mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
-  mUuckyFooter.setVisibility(isUucky(user.id,user.screen_name,user) ? View.VISIBLE : View.GONE);
   final Relationship relationship=mRelationship;
   if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();

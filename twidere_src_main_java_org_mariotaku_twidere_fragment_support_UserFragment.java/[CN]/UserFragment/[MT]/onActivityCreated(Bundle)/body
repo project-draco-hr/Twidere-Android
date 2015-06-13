@@ -79,7 +79,6 @@
   mProfileNameBackground.setBackgroundColor(mCardBackgroundColor);
   mProfileDetailsContainer.setBackgroundColor(mCardBackgroundColor);
   mPagerIndicator.setBackgroundColor(mCardBackgroundColor);
-  mUuckyFooter.setBackgroundColor(mCardBackgroundColor);
   final float actionBarElevation=ThemeUtils.getSupportActionBarElevation(activity);
   ViewCompat.setElevation(mPagerIndicator,actionBarElevation);
   if (activity instanceof IThemedActivity) {
