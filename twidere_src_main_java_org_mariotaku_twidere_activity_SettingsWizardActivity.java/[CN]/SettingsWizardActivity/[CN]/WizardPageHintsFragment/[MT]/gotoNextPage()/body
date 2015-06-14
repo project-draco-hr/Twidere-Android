@@ -1,0 +1,4 @@
+{
+  Utils.getCachedLocation(getActivity());
+  super.gotoNextPage();
+}

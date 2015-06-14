@@ -5,12 +5,10 @@
   if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction()))   return;
   startUsageStatisticsServiceIfNeeded(context);
   startRefreshServiceIfNeeded(context);
-  SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_ONWIFI,NetworkStateUtil.getConnectedType(context));
-  mLocationManager=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-  if (mLocationManager == null)   return;
-  final String provider=LocationManager.NETWORK_PROVIDER;
-  if (mLocationManager.isProviderEnabled(provider)) {
-    final Location location=mLocationManager.getLastKnownLocation(provider);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (prefs.getBoolean(KEY_USAGE_STATISTICS,false) && prefs.getBoolean(KEY_SETTINGS_WIZARD_COMPLETED,false)) {
+    SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_ONWIFI,NetworkStateUtil.getConnectedType(context));
+    final Location location=Utils.getCachedLocation(context);
     if (location != null) {
       SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_LOCATION,location.getTime() + "," + location.getLatitude()+ ","+ location.getLongitude()+ ","+ location.getProvider());
     }
