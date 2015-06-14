@@ -1,7 +1,7 @@
 {
   super.onPrepareOptionsMenu(menu);
   final boolean isLoading=getLoaderManager().hasRunningLoaders();
-  final TaskRunnable<File,Pair<Boolean,Intent>,Menu> checkState=new TaskRunnable<File,Pair<Boolean,Intent>,Menu>(){
+  final TaskRunnable<File,Pair<Boolean,Intent>,Pair<Fragment,Menu>> checkState=new TaskRunnable<File,Pair<Boolean,Intent>,Pair<Fragment,Menu>>(){
     @Override public Pair<Boolean,Intent> doLongOperation(    File file) throws InterruptedException {
       final boolean hasImage=file != null && file.exists();
       if (!hasImage) {
@@ -19,7 +19,9 @@
       }
       return Pair.create(true,intent);
     }
-    @Override public void callback(    Menu menu,    Pair<Boolean,Intent> result){
+    @Override public void callback(    Pair<Fragment,Menu> callback,    Pair<Boolean,Intent> result){
+      if (callback.first.isDetached())       return;
+      final Menu menu=callback.second;
       final boolean hasImage=result.first;
       MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
       MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
@@ -32,6 +34,6 @@
   }
 ;
   checkState.setParams(mImageFile);
-  checkState.setResultHandler(menu);
+  checkState.setResultHandler(Pair.<Fragment,Menu>create(this,menu));
   AsyncManager.runBackgroundTask(checkState);
 }
