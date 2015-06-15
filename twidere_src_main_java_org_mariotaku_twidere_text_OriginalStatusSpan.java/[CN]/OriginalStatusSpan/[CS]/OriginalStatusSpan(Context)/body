@@ -1,0 +1,10 @@
+{
+  mBounds=new RectF();
+  mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mDarkLightColors=new int[2];
+  final float density=context.getResources().getDisplayMetrics().density;
+  mCornerRadius=density * 2;
+  mPaint.setStrokeWidth(density);
+  mPadding=(int)(density * 2);
+  ThemeUtils.getDarkLightForegroundColors(context,mDarkLightColors);
+}

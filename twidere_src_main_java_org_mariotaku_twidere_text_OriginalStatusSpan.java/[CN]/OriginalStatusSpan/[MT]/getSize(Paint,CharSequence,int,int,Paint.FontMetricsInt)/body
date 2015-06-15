@@ -1,0 +1,3 @@
+{
+  return (int)paint.measureText(text,start,end) + mPadding * 2;
+}

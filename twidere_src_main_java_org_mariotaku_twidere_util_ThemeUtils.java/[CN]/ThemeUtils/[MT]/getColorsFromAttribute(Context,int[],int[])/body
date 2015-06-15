@@ -1,0 +1,11 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(inAttrs);
+  try {
+    for (int i=0, j=inAttrs.length; i < j; i++) {
+      outColors[i]=a.getColor(i,0);
+    }
+  }
+  finally {
+    a.recycle();
+  }
+}
