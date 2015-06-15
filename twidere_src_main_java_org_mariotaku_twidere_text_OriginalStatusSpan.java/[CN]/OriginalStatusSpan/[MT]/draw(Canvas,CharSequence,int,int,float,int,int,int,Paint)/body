@@ -16,5 +16,5 @@
   mBounds.inset(mPaint.getStrokeWidth() / 2,mPaint.getStrokeWidth() / 2);
   canvas.drawRoundRect(mBounds,mCornerRadius,mCornerRadius,mPaint);
   paint.setColor(innerTextColor);
-  canvas.drawText(text,start,end,x + mPadding,y,paint);
+  canvas.drawText(text,start,end,x + mPadding,top + (bottom - top) / 2 - (paint.descent() + paint.ascent()) / 2,paint);
 }

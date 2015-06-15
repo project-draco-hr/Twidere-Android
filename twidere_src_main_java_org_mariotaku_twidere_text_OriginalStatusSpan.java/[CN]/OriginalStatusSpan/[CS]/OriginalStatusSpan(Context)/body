@@ -5,6 +5,6 @@
   final float density=context.getResources().getDisplayMetrics().density;
   mCornerRadius=density * 2;
   mPaint.setStrokeWidth(density);
-  mPadding=(int)(density * 2);
+  mPadding=(int)(density * 4);
   ThemeUtils.getDarkLightForegroundColors(context,mDarkLightColors);
 }

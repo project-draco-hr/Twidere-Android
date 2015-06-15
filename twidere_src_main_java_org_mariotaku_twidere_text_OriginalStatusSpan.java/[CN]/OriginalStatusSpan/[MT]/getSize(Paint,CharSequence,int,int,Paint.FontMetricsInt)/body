@@ -1,3 +1,4 @@
 {
+  paint.setTextSize(paint.getTextSize() * 0.8f);
   return (int)paint.measureText(text,start,end) + mPadding * 2;
 }
