@@ -1,16 +1,8 @@
 {
   final Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-  if (!getExternalStorageState().equals(Environment.MEDIA_MOUNTED))   return;
-  final File extCacheDir=getExternalCacheDir();
-  final File file;
-  try {
-    file=File.createTempFile("temp_image_",".tmp",extCacheDir);
-  }
- catch (  final IOException e) {
-    return;
-  }
-  mTempPhotoUri=Uri.fromFile(file);
-  intent.putExtra(MediaStore.EXTRA_OUTPUT,mTempPhotoUri);
+  final Uri uri=createTempImageUri();
+  mTempPhotoUri=uri;
+  intent.putExtra(MediaStore.EXTRA_OUTPUT,uri);
   try {
     startActivityForResult(intent,REQUEST_TAKE_PHOTO);
   }

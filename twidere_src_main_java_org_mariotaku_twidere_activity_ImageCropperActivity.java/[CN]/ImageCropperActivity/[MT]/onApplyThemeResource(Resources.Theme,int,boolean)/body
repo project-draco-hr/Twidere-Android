@@ -1,0 +1,8 @@
+{
+  mCurrentThemeColor=getThemeColor();
+  mCurrentThemeFontFamily=getThemeFontFamily();
+  mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
+  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
+  mProfileImageStyle=Utils.getProfileImageStyle(this);
+  super.onApplyThemeResource(theme,resId,first);
+}

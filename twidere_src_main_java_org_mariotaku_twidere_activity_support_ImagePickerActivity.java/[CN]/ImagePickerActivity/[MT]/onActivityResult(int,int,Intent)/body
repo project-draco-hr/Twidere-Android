@@ -4,28 +4,37 @@
     finish();
     return;
   }
+  final boolean needsCrop;
   final Uri src;
 switch (requestCode) {
 case REQUEST_PICK_IMAGE:
 {
+      needsCrop=true;
       src=intent.getData();
       break;
     }
 case REQUEST_TAKE_PHOTO:
 {
+    needsCrop=true;
     src=mTempPhotoUri;
     break;
   }
+case REQUEST_CROP:
+{
+  needsCrop=false;
+  src=mTempPhotoUri;
+  break;
+}
 default :
 {
-  finish();
-  return;
+finish();
+return;
 }
 }
 if (src == null) return;
 mImageSelectedRunnable=new Runnable(){
 @Override public void run(){
-imageSelected(src);
+imageSelected(src,needsCrop,!needsCrop);
 }
 }
 ;

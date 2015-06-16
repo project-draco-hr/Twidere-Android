@@ -1,0 +1,16 @@
+{
+  if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+  }
+  super.onCreate(icicle);
+  final int themeColor=getThemeColor();
+  final int themeResId=getCurrentThemeResourceId();
+  final String backgroundOption=getCurrentThemeBackgroundOption();
+  mMainContent.setDrawColor(true);
+  mMainContent.setDrawShadow(false);
+  mMainContent.setColor(themeColor);
+  ViewSupport.setBackground(mDoneCancelBar,ThemeUtils.getActionBarBackground(this,themeResId,themeColor,backgroundOption,true));
+  ViewCompat.setElevation(mDoneCancelBar,ThemeUtils.getSupportActionBarElevation(this));
+  final View windowOverlay=findViewById(R.id.window_overlay);
+  ViewSupport.setBackground(windowOverlay,ThemeUtils.getNormalWindowContentOverlay(this,themeResId));
+}

@@ -39,6 +39,10 @@
     final File outFile=File.createTempFile("temp_image_",suffix,cacheDir);
     os=new FileOutputStream(outFile);
     IoUtils.copyStream(is,os,null);
+    if (mDeleteSource && SCHEME_FILE.equals(scheme)) {
+      final File sourceFile=new File(mUri.getPath());
+      sourceFile.delete();
+    }
     return SingleResponse.getInstance(outFile);
   }
  catch (  final IOException e) {

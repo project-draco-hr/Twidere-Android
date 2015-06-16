@@ -9,7 +9,7 @@
     pickImage();
   }
  else   if (INTENT_ACTION_GET_IMAGE.equals(action)) {
-    imageSelected(intent.getData());
+    imageSelected(intent.getData(),true,false);
   }
  else {
     new ImageSourceDialogFragment().show(getSupportFragmentManager(),"image_source");

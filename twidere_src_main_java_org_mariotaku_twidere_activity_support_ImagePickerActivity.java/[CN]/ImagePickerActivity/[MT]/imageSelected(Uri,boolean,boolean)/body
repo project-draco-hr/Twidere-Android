@@ -1,0 +1,6 @@
+{
+  final CopyImageTask task=mTask;
+  if (task != null && task.getStatus() == AsyncTask.Status.RUNNING)   return;
+  mTask=new CopyImageTask(this,uri,needsCrop,deleteSource);
+  mTask.execute();
+}
