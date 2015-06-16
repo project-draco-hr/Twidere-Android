@@ -28,6 +28,9 @@
           throw new IOException(e);
         }
       }
+ else       if (ResponseCode.class.isAssignableFrom(cls)) {
+        return new ResponseCode(response);
+      }
       final Object object=parseOrThrow(response,stream,cls);
       checkResponse(cls,object,response);
       if (object instanceof TwitterResponseImpl) {

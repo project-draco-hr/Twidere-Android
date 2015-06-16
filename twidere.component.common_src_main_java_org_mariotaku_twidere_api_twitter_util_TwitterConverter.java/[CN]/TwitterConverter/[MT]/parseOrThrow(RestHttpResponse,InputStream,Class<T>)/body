@@ -1,6 +1,10 @@
 {
   try {
-    return LoganSquare.parse(stream,cls);
+    final T parse=LoganSquare.parse(stream,cls);
+    if (TwitterException.class.isAssignableFrom(cls) && parse == null) {
+      throw new TwitterException();
+    }
+    return parse;
   }
  catch (  JsonParseException e) {
     throw new TwitterException("Malformed JSON Data",resp);
