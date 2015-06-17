@@ -8,20 +8,10 @@
     final String mimeType;
     final String scheme=uri.getScheme();
     if (SCHEME_HTTP.equals(scheme) || SCHEME_HTTPS.equals(scheme)) {
-      final RestHttpClient client=TwitterAPIFactory.getDefaultHttpClient(mActivity);
-      final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
-      builder.method(GET.METHOD);
-      builder.url(uri.toString());
-      final RestHttpResponse response=client.execute(builder.build());
-      if (response.isSuccessful()) {
-        final TypedData body=response.getBody();
-        is=body.stream();
-        final ContentType contentType=body.contentType();
-        mimeType=contentType != null ? contentType.getContentType() : "image/*";
-      }
- else {
-        throw new IOException("Unable to get " + uri);
-      }
+      final NetworkStreamDownloader downloader=new RestFuNetworkStreamDownloader(mActivity);
+      final NetworkStreamDownloader.DownloadResult result=downloader.get(uri);
+      is=result.stream;
+      mimeType=result.mimeType;
     }
  else     if (SCHEME_DATA.equals(scheme)) {
       final DataUri dataUri=DataUri.parse(uri.toString(),Charset.defaultCharset());
@@ -38,7 +28,7 @@
     final String suffix=mimeType != null ? "." + MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType) : null;
     final File outFile=File.createTempFile("temp_image_",suffix,cacheDir);
     os=new FileOutputStream(outFile);
-    IoUtils.copyStream(is,os,null);
+    Utils.copyStream(is,os);
     if (mDeleteSource && SCHEME_FILE.equals(scheme)) {
       final File sourceFile=new File(mUri.getPath());
       sourceFile.delete();
@@ -49,7 +39,7 @@
     return SingleResponse.getInstance(e);
   }
  finally {
-    IoUtils.closeSilently(os);
-    IoUtils.closeSilently(is);
+    Utils.closeSilently(os);
+    Utils.closeSilently(is);
   }
 }
