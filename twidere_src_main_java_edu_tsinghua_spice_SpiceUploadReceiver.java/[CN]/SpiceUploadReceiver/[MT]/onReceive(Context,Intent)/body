@@ -1,8 +1,0 @@
-{
-  final String action=intent.getAction();
-  final boolean isWifi=Utils.isOnWifi(context.getApplicationContext());
-  final boolean isCharging=SpiceProfilingUtil.isCharging(context.getApplicationContext());
-  if (isWifi && isCharging) {
-    new SpiceAsyUploadTask(context).execute();
-  }
-}

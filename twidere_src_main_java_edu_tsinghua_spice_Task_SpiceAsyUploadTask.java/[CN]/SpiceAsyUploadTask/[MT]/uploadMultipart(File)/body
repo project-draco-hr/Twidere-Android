@@ -16,9 +16,12 @@
     final MultipartTypedBody body=new MultipartTypedBody();
     body.add("file",new FileTypedData(tmp));
     builder.body(body);
-    client.execute(builder.build());
-    SpiceProfilingUtil.log("server has already received file " + tmp.getName());
-    tmp.delete();
+    final RestHttpResponse response=client.execute(builder.build());
+    if (response.isSuccessful()) {
+      SpiceProfilingUtil.log("server has already received file " + tmp.getName());
+      tmp.delete();
+    }
+    throw new IOException("Unable to send file");
   }
  catch (  Exception e) {
     if (BuildConfig.DEBUG) {

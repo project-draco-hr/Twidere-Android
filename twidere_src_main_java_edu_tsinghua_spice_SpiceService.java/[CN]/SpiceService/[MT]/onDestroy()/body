@@ -1,5 +1,0 @@
-{
-  mAlarmManager.cancel(mUploadIntent);
-  unregisterReceiver(mScreenReceiver);
-  super.onDestroy();
-}

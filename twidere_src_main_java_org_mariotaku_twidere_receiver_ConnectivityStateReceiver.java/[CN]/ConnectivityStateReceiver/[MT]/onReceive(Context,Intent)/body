@@ -3,7 +3,6 @@
     Log.d(RECEIVER_LOGTAG,String.format("Received Broadcast %s",intent));
   }
   if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction()))   return;
-  startUsageStatisticsServiceIfNeeded(context);
   startRefreshServiceIfNeeded(context);
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (prefs.getBoolean(KEY_USAGE_STATISTICS,false) && prefs.getBoolean(KEY_SETTINGS_WIZARD_COMPLETED,false)) {
@@ -12,5 +11,12 @@
     if (location != null) {
       SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_LOCATION,location.getTime() + "," + location.getLatitude()+ ","+ location.getLongitude()+ ","+ location.getProvider());
     }
+  }
+  final boolean isWifi=Utils.isOnWifi(context.getApplicationContext());
+  final boolean isCharging=SpiceProfilingUtil.isCharging(context.getApplicationContext());
+  final long currentTime=System.currentTimeMillis();
+  final long lastSuccessfulTime=prefs.getLong(KEY_USAGE_STATISTICS_LAST_SUCCESSFUL_UPLOAD,-1);
+  if (isWifi && isCharging && (currentTime - lastSuccessfulTime) > SpiceAsyUploadTask.UPLOAD_INTERVAL_MILLIS) {
+    AsyncTaskUtils.executeTask(new SpiceAsyUploadTask(context));
   }
 }
