@@ -1,11 +1,12 @@
 {
-  mEditName.setEnabled(!start);
-  mEditDescription.setEnabled(!start);
-  mEditLocation.setEnabled(!start);
-  mEditUrl.setEnabled(!start);
-  mProfileImageView.setEnabled(!start);
-  mProfileImageView.setOnClickListener(start ? null : this);
-  mProfileBannerView.setEnabled(!start);
-  mProfileBannerView.setOnClickListener(start ? null : this);
-  invalidateOptionsMenu();
+  final FragmentManager fm=getChildFragmentManager();
+  final Fragment f=fm.findFragmentByTag(UPDATE_PROFILE_DIALOG_FRAGMENT_TAG);
+  if (!start && f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+ else   if (start) {
+    SupportProgressDialogFragment df=new SupportProgressDialogFragment();
+    df.show(fm,UPDATE_PROFILE_DIALOG_FRAGMENT_TAG);
+    df.setCancelable(false);
+  }
 }

@@ -1,3 +1,0 @@
-{
-  this(mime,charset,null,null,data);
-}

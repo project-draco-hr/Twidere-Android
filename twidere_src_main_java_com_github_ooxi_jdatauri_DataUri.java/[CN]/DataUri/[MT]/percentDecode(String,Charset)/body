@@ -1,8 +1,0 @@
-{
-  try {
-    return URLDecoder.decode(s,cs.name()).replace(' ','+');
-  }
- catch (  UnsupportedEncodingException e) {
-    throw new IllegalStateException("Charset `" + cs.name() + "' not supported",e);
-  }
-}
