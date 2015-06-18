@@ -1,0 +1,4 @@
+{
+  intentBuilder.takePhoto();
+  return this;
+}

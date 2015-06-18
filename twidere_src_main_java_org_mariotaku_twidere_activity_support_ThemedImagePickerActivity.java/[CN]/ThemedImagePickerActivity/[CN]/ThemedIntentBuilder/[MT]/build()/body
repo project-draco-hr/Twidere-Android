@@ -1,0 +1,5 @@
+{
+  final Intent intent=intentBuilder.build();
+  intent.setClass(context,ThemedImagePickerActivity.class);
+  return intent;
+}

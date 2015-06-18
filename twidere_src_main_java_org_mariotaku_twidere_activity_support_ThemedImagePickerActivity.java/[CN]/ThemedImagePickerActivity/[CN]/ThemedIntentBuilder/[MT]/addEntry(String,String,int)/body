@@ -1,0 +1,4 @@
+{
+  intentBuilder.addEntry(name,value,result);
+  return this;
+}

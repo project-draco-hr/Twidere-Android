@@ -19,10 +19,8 @@
   mEditDescription.setLengthChecker(lengthChecker);
   mProfileImageView.setOnClickListener(this);
   mProfileBannerView.setOnClickListener(this);
-  mProfileImageCamera.setOnClickListener(this);
-  mProfileImageGallery.setOnClickListener(this);
-  mProfileBannerGallery.setOnClickListener(this);
-  mProfileBannerRemove.setOnClickListener(this);
+  mEditProfileBanner.setOnClickListener(this);
+  mEditProfileImage.setOnClickListener(this);
   mSetLinkColor.setOnClickListener(this);
   mSetBackgroundColor.setOnClickListener(this);
   if (savedInstanceState != null && savedInstanceState.getParcelable(EXTRA_USER) != null) {

@@ -1,6 +1,0 @@
-{
-  super.onResumeFragments();
-  if (mImageSelectedRunnable != null) {
-    runOnUiThread(mImageSelectedRunnable);
-  }
-}

@@ -4,7 +4,12 @@ switch (requestCode) {
 case REQUEST_UPLOAD_PROFILE_BANNER_IMAGE:
 {
       if (mTask != null && mTask.getStatus() == Status.RUNNING)       return;
-      mTask=new UpdateProfileBannerImageTaskInternal(getActivity(),mAsyncTaskManager,mAccountId,data.getData(),true);
+      if (resultCode == RESULT_REMOVE_BANNER) {
+        mTask=new RemoveProfileBannerTaskInternal(mAccountId);
+      }
+ else {
+        mTask=new UpdateProfileBannerImageTaskInternal(getActivity(),mAsyncTaskManager,mAccountId,data.getData(),true);
+      }
       AsyncTaskUtils.executeTask(mTask);
       break;
     }

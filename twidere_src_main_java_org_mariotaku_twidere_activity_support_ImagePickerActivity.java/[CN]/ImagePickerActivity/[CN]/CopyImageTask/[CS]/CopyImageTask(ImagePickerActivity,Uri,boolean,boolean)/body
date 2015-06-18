@@ -1,6 +1,0 @@
-{
-  mActivity=activity;
-  mUri=uri;
-  mNeedsCrop=needsCrop;
-  mDeleteSource=deleteSource;
-}

@@ -8,10 +8,8 @@
   mEditDescription=(MaterialEditText)view.findViewById(R.id.description);
   mEditLocation=(MaterialEditText)view.findViewById(R.id.location);
   mEditUrl=(MaterialEditText)view.findViewById(R.id.url);
-  mProfileImageCamera=view.findViewById(R.id.profile_image_camera);
-  mProfileImageGallery=view.findViewById(R.id.profile_image_gallery);
-  mProfileBannerGallery=view.findViewById(R.id.profile_banner_gallery);
-  mProfileBannerRemove=view.findViewById(R.id.profile_banner_remove);
+  mEditProfileImage=view.findViewById(R.id.edit_profile_image);
+  mEditProfileBanner=view.findViewById(R.id.edit_profile_banner);
   mLinkColor=(ForegroundColorView)view.findViewById(R.id.link_color);
   mBackgroundColor=(ForegroundColorView)view.findViewById(R.id.background_color);
   mSetLinkColor=view.findViewById(R.id.set_link_color);

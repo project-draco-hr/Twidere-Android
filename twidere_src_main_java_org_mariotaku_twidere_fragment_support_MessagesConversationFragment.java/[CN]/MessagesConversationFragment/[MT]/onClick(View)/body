@@ -7,7 +7,7 @@ case R.id.send:
     }
 case R.id.add_image:
 {
-    final Intent intent=new Intent(getActivity(),ImagePickerActivity.class);
+    final Intent intent=ThemedImagePickerActivity.withThemed(getActivity()).build();
     startActivityForResult(intent,REQUEST_PICK_IMAGE);
     break;
   }

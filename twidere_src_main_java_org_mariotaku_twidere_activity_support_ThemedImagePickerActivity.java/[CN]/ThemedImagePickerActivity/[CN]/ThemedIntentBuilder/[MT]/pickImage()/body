@@ -1,0 +1,4 @@
+{
+  intentBuilder.pickImage();
+  return this;
+}

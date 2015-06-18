@@ -1,4 +1,0 @@
-{
-  mImageSelectedRunnable=null;
-  super.onStop();
-}

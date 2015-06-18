@@ -1,6 +1,5 @@
 {
-  final Intent intent=new Intent(this,ImagePickerActivity.class);
-  intent.setAction(ImagePickerActivity.INTENT_ACTION_PICK_IMAGE);
+  final Intent intent=ThemedImagePickerActivity.withThemed(this).pickImage().build();
   startActivityForResult(intent,REQUEST_PICK_IMAGE);
   return true;
 }

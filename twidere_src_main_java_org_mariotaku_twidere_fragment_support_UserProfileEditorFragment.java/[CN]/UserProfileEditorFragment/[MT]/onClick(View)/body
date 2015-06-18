@@ -10,43 +10,16 @@ case R.id.profile_banner:
 {
     break;
   }
-case R.id.profile_image_camera:
+case R.id.edit_profile_image:
 {
-  final Intent intent=new Intent(getActivity(),ImagePickerActivity.class);
-  intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_X,1);
-  intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_Y,1);
-  intent.putExtra(ImagePickerActivity.EXTRA_MAX_WIDTH,512);
-  intent.putExtra(ImagePickerActivity.EXTRA_MAX_HEIGHT,512);
-  intent.setAction(ImagePickerActivity.INTENT_ACTION_TAKE_PHOTO);
+  final Intent intent=ThemedImagePickerActivity.withThemed(getActivity()).aspectRatio(1,1).maximumSize(512,512).build();
   startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
   break;
 }
-case R.id.profile_image_gallery:
+case R.id.edit_profile_banner:
 {
-final Intent intent=new Intent(getActivity(),ImagePickerActivity.class);
-intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_X,3);
-intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_Y,1);
-intent.putExtra(ImagePickerActivity.EXTRA_MAX_WIDTH,1500);
-intent.putExtra(ImagePickerActivity.EXTRA_MAX_HEIGHT,500);
-intent.setAction(ImagePickerActivity.INTENT_ACTION_PICK_IMAGE);
-startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_IMAGE);
-break;
-}
-case R.id.profile_banner_gallery:
-{
-final Intent intent=new Intent(getActivity(),ImagePickerActivity.class);
-intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_X,1);
-intent.putExtra(ImagePickerActivity.EXTRA_ASPECT_Y,1);
-intent.putExtra(ImagePickerActivity.EXTRA_MAX_WIDTH,512);
-intent.putExtra(ImagePickerActivity.EXTRA_MAX_HEIGHT,512);
-intent.setAction(ImagePickerActivity.INTENT_ACTION_PICK_IMAGE);
+final Intent intent=ThemedImagePickerActivity.withThemed(getActivity()).aspectRatio(3,1).maximumSize(1500,500).addEntry(getString(R.string.remove),"remove_banner",RESULT_REMOVE_BANNER).build();
 startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_BANNER_IMAGE);
-break;
-}
-case R.id.profile_banner_remove:
-{
-mTask=new RemoveProfileBannerTaskInternal(user.account_id);
-AsyncTaskUtils.executeTask(mTask);
 break;
 }
 case R.id.set_link_color:

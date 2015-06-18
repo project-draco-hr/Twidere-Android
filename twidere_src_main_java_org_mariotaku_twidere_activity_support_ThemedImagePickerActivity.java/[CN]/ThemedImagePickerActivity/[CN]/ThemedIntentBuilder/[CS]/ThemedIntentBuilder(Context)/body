@@ -1,0 +1,6 @@
+{
+  this.context=context;
+  this.intentBuilder=new IntentBuilder(context);
+  intentBuilder.cropImageActivityClass(ImageCropperActivity.class);
+  intentBuilder.streamDownloaderClass(RestFuNetworkStreamDownloader.class);
+}

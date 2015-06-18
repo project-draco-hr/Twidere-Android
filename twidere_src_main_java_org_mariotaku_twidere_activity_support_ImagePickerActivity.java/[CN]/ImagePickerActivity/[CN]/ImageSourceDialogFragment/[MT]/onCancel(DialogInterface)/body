@@ -1,7 +1,0 @@
-{
-  super.onCancel(dialog);
-  final FragmentActivity a=getActivity();
-  if (a != null) {
-    a.finish();
-  }
-}

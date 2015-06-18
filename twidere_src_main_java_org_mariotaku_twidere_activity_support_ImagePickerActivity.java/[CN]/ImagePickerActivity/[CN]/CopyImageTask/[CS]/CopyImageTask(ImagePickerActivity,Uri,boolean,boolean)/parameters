@@ -1,4 +1,0 @@
-ImagePickerActivity activity
-Uri uri
-boolean needsCrop
-boolean deleteSource

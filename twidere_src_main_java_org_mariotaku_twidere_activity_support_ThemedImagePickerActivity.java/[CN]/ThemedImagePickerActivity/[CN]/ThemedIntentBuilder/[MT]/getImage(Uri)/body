@@ -1,0 +1,4 @@
+{
+  intentBuilder.getImage(uri);
+  return this;
+}
