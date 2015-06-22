@@ -9,6 +9,7 @@
   mHeaderErrorIcon=(ImageView)headerView.findViewById(R.id.error_icon);
   mProgressContainer=headerView.findViewById(R.id.progress_container);
   mProfileBannerView=(ProfileBannerImageView)view.findViewById(R.id.profile_banner);
+  mProfileBirthdayBannerView=view.findViewById(R.id.profile_birthday_banner);
   mProfileBannerContainer=view.findViewById(R.id.profile_banner_container);
   mNameView=(TextView)headerView.findViewById(R.id.name);
   mScreenNameView=(TextView)headerView.findViewById(R.id.screen_name);

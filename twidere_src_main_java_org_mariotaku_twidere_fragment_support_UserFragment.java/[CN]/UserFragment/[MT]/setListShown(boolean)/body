@@ -1,5 +1,4 @@
 {
   final TintedStatusFrameLayout tintedStatus=mTintedStatusContent;
   if (tintedStatus == null)   return;
-  tintedStatus.setDrawShadow(shown);
 }
