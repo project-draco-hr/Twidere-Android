@@ -8,5 +8,4 @@
   mProfileImageLoader=app.getMediaLoaderWrapper();
   mDatabase=app.getSQLiteDatabase();
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
-  mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
 }
