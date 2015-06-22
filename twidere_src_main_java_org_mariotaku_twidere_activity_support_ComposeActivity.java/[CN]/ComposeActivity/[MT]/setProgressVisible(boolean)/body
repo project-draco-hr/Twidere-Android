@@ -1,2 +1,12 @@
 {
+  final FragmentManager fm=getSupportFragmentManager();
+  final Fragment f=fm.findFragmentByTag(DISCARD_STATUS_DIALOG_FRAGMENT_TAG);
+  if (!visible && f instanceof DialogFragment) {
+    ((DialogFragment)f).dismiss();
+  }
+ else   if (visible) {
+    SupportProgressDialogFragment df=new SupportProgressDialogFragment();
+    df.show(fm,DISCARD_STATUS_DIALOG_FRAGMENT_TAG);
+    df.setCancelable(false);
+  }
 }
