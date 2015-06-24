@@ -1,3 +1,4 @@
 {
-  client.networkInterceptors().add(new StethoInterceptor());
+  final List<Interceptor> interceptors=client.networkInterceptors();
+  interceptors.add(new StethoInterceptor());
 }

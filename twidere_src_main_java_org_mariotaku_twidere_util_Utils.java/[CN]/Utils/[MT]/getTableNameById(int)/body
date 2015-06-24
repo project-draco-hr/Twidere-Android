@@ -40,6 +40,8 @@ case TABLE_ID_SAVED_SEARCHES:
 return SavedSearches.TABLE_NAME;
 case TABLE_ID_SEARCH_HISTORY:
 return SearchHistory.TABLE_NAME;
+case TABLE_ID_NETWORK_USAGES:
+return NetworkUsages.TABLE_NAME;
 default :
 return null;
 }

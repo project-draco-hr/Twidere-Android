@@ -1,0 +1,3 @@
+String name
+Columns columns
+OnConflict onConflict

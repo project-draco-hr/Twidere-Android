@@ -14,5 +14,5 @@
     client.setProxy(getProxy(prefs));
   }
   Internal.instance.setNetwork(client,TwidereApplication.getInstance(context).getNetwork());
-  return new OkHttpRestClient(client);
+  return new OkHttpRestClient(context,client);
 }

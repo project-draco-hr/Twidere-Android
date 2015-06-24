@@ -1,0 +1,28 @@
+{
+  if (newColNames == null || newColTypes == null || newColNames.length != newColTypes.length)   throw new IllegalArgumentException("Invalid parameters for upgrading table " + table + ", length of columns and types not match.");
+  final NewColumn[] newCols=NewColumn.createNewColumns(newColNames,newColTypes);
+  final String createQuery=createTable(true,table).columns(newCols).constraint(constraints).buildSQL();
+  db.execSQL(createQuery);
+  final String[] oldCols=getColumnNames(db,table);
+  if (oldCols == null || TwidereArrayUtils.contentMatch(newColNames,oldCols))   return;
+  if (dropDirectly) {
+    db.beginTransaction();
+    db.execSQL(dropTable(true,table).getSQL());
+    db.execSQL(createQuery);
+    db.setTransactionSuccessful();
+    db.endTransaction();
+    return;
+  }
+  final String tempTable=String.format(Locale.US,"temp_%s_%d",table,System.currentTimeMillis());
+  db.beginTransaction();
+  db.execSQL(alterTable(table).renameTo(tempTable).buildSQL());
+  db.execSQL(createQuery);
+  final String[] notNullCols=getNotNullColumns(newCols);
+  final String insertQuery=createInsertDataQuery(table,tempTable,newColNames,oldCols,colAliases,notNullCols,onConflict);
+  if (insertQuery != null) {
+    db.execSQL(insertQuery);
+  }
+  db.execSQL(dropTable(true,tempTable).getSQL());
+  db.setTransactionSuccessful();
+  db.endTransaction();
+}

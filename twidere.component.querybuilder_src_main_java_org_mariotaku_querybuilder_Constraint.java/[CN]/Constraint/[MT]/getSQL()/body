@@ -1,3 +1,12 @@
 {
-  return null;
+  final StringBuilder sb=new StringBuilder();
+  if (name != null) {
+    sb.append("CONSTRAINT ");
+    sb.append(name);
+    sb.append(" ");
+  }
+  sb.append(type);
+  sb.append(" ");
+  sb.append(constraint.getSQL());
+  return sb.toString();
 }

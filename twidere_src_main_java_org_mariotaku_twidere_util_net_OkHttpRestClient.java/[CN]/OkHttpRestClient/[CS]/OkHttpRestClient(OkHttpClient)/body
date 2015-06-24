@@ -1,4 +1,0 @@
-{
-  this.client=client;
-  DebugModeUtils.initForHttpClient(client);
-}

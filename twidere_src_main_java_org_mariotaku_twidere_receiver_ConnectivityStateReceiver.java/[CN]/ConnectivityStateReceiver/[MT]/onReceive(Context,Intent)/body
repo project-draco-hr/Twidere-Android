@@ -12,7 +12,9 @@
       SpiceProfilingUtil.profile(context,SpiceProfilingUtil.FILE_NAME_LOCATION,location.getTime() + "," + location.getLatitude()+ ","+ location.getLongitude()+ ","+ location.getProvider());
     }
   }
-  final boolean isWifi=Utils.isOnWifi(context.getApplicationContext());
+  final int networkType=Utils.getActiveNetworkType(context.getApplicationContext());
+  NetworkUsageUtils.setNetworkType(networkType);
+  final boolean isWifi=networkType == ConnectivityManager.TYPE_WIFI;
   final boolean isCharging=SpiceProfilingUtil.isCharging(context.getApplicationContext());
   if (isWifi && isCharging) {
     final long currentTime=System.currentTimeMillis();

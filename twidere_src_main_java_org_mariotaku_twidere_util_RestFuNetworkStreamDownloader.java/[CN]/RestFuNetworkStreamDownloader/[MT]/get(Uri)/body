@@ -3,6 +3,7 @@
   final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
   builder.method(GET.METHOD);
   builder.url(uri.toString());
+  builder.extra(RequestType.MEDIA);
   final RestHttpResponse response=client.execute(builder.build());
   if (response.isSuccessful()) {
     final TypedData body=response.getBody();

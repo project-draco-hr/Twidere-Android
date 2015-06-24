@@ -16,6 +16,7 @@
     final MultipartTypedBody body=new MultipartTypedBody();
     body.add("file",new FileTypedData(tmp));
     builder.body(body);
+    builder.extra(RequestType.USAGE_STATISTICS);
     final RestHttpResponse response=client.execute(builder.build());
     if (response.isSuccessful()) {
       SpiceProfilingUtil.log("server has already received file " + tmp.getName());

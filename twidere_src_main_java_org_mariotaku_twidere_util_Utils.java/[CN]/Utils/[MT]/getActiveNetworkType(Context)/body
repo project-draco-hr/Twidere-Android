@@ -1,0 +1,6 @@
+{
+  if (context == null)   return -1;
+  final ConnectivityManager conn=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+  final NetworkInfo networkInfo=conn.getActiveNetworkInfo();
+  return networkInfo != null && networkInfo.isConnected() ? networkInfo.getType() : -1;
+}

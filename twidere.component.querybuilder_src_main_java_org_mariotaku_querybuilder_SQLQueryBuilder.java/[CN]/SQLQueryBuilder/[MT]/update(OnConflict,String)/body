@@ -1,0 +1,3 @@
+{
+  return update(onConflict,new Table(table));
+}

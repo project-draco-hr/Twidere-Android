@@ -1,0 +1,3 @@
+{
+  return Constraint.unique(new Columns(NetworkUsages.TIME_IN_HOURS,NetworkUsages.REQUEST_NETWORK,NetworkUsages.REQUEST_TYPE),OnConflict.IGNORE);
+}

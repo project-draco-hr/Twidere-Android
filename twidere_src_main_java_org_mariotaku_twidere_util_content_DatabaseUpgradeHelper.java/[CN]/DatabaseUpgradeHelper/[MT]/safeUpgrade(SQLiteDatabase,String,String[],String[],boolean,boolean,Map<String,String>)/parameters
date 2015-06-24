@@ -1,7 +1,0 @@
-SQLiteDatabase db
-String table
-String[] newColNames
-String[] newColTypes
-boolean dropDirectly
-boolean strictMode
-Map<String,String> colAliases

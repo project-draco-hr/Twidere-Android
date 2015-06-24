@@ -9,6 +9,7 @@ switch (tableId) {
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
 case TABLE_ID_DIRECT_MESSAGES:
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+case TABLE_ID_NETWORK_USAGES:
         return 0;
     }
     result=mDatabaseWrapper.update(table,values,selection,selectionArgs);

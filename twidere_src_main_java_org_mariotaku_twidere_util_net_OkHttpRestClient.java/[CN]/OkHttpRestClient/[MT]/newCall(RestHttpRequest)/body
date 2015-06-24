@@ -8,5 +8,6 @@
       builder.addHeader(header.first,header.second);
     }
   }
+  builder.tag(restHttpRequest.getExtra());
   return client.newCall(builder.build());
 }

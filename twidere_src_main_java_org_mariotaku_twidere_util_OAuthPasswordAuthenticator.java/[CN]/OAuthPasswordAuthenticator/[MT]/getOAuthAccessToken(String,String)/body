@@ -4,6 +4,7 @@
     requestToken=oauth.getRequestToken(OAUTH_CALLBACK_OOB);
   }
  catch (  final TwitterException e) {
+    if (e.isCausedByNetworkIssue())     throw new AuthenticationException(e);
     throw new AuthenticityTokenException(e);
   }
   RestHttpResponse authorizePage=null, authorizeResult=null;
@@ -13,6 +14,7 @@
     final RestHttpRequest.Builder authorizePageBuilder=new RestHttpRequest.Builder();
     authorizePageBuilder.method(GET.METHOD);
     authorizePageBuilder.url(endpoint.construct("/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken())));
+    authorizePageBuilder.extra(RequestType.API);
     final RestHttpRequest authorizePageRequest=authorizePageBuilder.build();
     authorizePage=client.execute(authorizePageRequest);
     final String[] cookieHeaders=authorizePage.getHeaders("Set-Cookie");
@@ -44,6 +46,7 @@
     authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
     authorizeResultBuilder.headers(requestHeaders);
     authorizeResultBuilder.body(authorizationResultBody);
+    authorizeResultBuilder.extra(RequestType.API);
     authorizeResult=client.execute(authorizeResultBuilder.build());
     final String oauthPin=readOAuthPINFromHtml(BaseTypedData.reader(authorizeResult.getBody()));
     if (isEmpty(oauthPin))     throw new WrongUserPassException();

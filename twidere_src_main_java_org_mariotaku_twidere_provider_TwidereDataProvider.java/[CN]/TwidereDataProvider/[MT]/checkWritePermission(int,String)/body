@@ -31,5 +31,11 @@ case TABLE_ID_CACHED_HASHTAGS:
   if (!checkPermission(PERMISSION_WRITE))   throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_WRITE");
   break;
 }
+default :
+{
+if (!mPermissionsManager.checkSignature(Binder.getCallingUid())) {
+  throw new SecurityException("Internal database is not allowed for third-party applications");
+}
+}
 }
 }

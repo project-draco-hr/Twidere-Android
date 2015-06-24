@@ -1,0 +1,3 @@
+{
+  this.values=Utils.toString(values,',',false);
+}

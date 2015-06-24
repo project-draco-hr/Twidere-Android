@@ -6,5 +6,5 @@
     headers.add(Pair.create("Authorization",authorization.getHeader(endpoint,info)));
   }
   headers.add(Pair.create("User-Agent",userAgent));
-  return new RestHttpRequest(restMethod,url,headers,info.getBody(),null);
+  return new RestHttpRequest(restMethod,url,headers,info.getBody(),RequestType.API);
 }

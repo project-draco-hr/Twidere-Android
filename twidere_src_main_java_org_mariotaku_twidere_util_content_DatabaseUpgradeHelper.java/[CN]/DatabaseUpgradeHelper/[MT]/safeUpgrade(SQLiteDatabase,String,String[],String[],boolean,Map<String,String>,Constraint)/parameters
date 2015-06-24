@@ -1,0 +1,7 @@
+SQLiteDatabase db
+String table
+String[] newColNames
+String[] newColTypes
+boolean dropDirectly
+Map<String,String> colAliases
+Constraint constraints

@@ -1,0 +1,15 @@
+{
+  final Request request=chain.request();
+  final Object tag=request.tag();
+  if (!(tag instanceof RequestType))   return chain.proceed(request);
+  final ContentValues values=new ContentValues();
+  values.put(NetworkUsages.TIME_IN_HOURS,System.currentTimeMillis() / 1000 / 60/ 60);
+  values.put(NetworkUsages.KILOBYTES_SENT,getBodyLength(request.body()) / 1024.0);
+  values.put(NetworkUsages.REQUEST_TYPE,((RequestType)tag).getName());
+  values.put(NetworkUsages.REQUEST_NETWORK,sNetworkType);
+  final Response response=chain.proceed(request);
+  values.put(NetworkUsages.KILOBYTES_RECEIVED,getBodyLength(response.body()) / 1024.0);
+  final ContentResolver cr=context.getContentResolver();
+  cr.insert(NetworkUsages.CONTENT_URI,values);
+  return response;
+}

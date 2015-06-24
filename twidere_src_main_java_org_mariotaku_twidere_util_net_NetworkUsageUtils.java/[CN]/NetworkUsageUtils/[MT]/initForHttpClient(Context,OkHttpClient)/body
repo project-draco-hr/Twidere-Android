@@ -1,0 +1,3 @@
+{
+  client.networkInterceptors().add(new NetworkUsageInterceptor(context));
+}
