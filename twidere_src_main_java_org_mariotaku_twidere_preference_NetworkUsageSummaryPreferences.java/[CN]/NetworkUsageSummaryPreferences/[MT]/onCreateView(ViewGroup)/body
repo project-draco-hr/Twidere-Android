@@ -1,0 +1,8 @@
+{
+  final View view=super.onCreateView(parent);
+  mChartView=(StackBarChartView)view.findViewById(R.id.chart);
+  mTotalUsage=(TextView)view.findViewById(R.id.total_usage);
+  mChartView.setXLabels(AxisController.LabelPosition.NONE);
+  mChartView.setYLabels(AxisController.LabelPosition.NONE);
+  return view;
+}

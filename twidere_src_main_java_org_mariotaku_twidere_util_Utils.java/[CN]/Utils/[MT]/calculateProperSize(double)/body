@@ -1,0 +1,11 @@
+{
+  double value=bytes;
+  int index;
+  for (index=0; index < fileSizeUnits.length; index++) {
+    if (value < 1024) {
+      break;
+    }
+    value=value / 1024;
+  }
+  return String.format("%.2f %s",value,fileSizeUnits[index]);
+}

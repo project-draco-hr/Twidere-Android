@@ -1,0 +1,4 @@
+{
+  mUsage=usage;
+  notifyChanged();
+}

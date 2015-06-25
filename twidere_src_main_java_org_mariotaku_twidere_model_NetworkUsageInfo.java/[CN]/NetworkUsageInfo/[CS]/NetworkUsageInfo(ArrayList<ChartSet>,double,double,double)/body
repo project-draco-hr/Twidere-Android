@@ -1,0 +1,6 @@
+{
+  this.chartData=chartData;
+  this.totalReceived=totalReceived;
+  this.totalSent=totalSent;
+  this.dayMax=dayMax;
+}

@@ -3,7 +3,7 @@
   final SpannableStringBuilder text=SpannableStringBuilder.valueOf(textView.getText());
   final URLSpan[] spans=text.getSpans(0,text.length(),URLSpan.class);
   URLSpan found=null;
-  String findPattern="twitter.com/" + status.quoted_by_user_screen_name + "/status/"+ status.quote_id;
+  String findPattern="twitter.com/" + status.user_screen_name + "/status/"+ status.quote_id;
   for (  URLSpan span : spans) {
     if (span.getURL().contains(findPattern)) {
       found=span;

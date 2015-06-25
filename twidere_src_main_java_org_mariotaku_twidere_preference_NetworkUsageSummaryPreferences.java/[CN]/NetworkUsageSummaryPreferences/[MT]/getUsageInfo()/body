@@ -1,0 +1,20 @@
+{
+  final Calendar cal=Calendar.getInstance();
+  cal.set(Calendar.DAY_OF_MONTH,Calendar.getInstance().getActualMinimum(Calendar.DAY_OF_MONTH));
+  final Date start=cal.getTime();
+  cal.set(Calendar.DAY_OF_MONTH,Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH));
+  final Date end=cal.getTime();
+  TaskRunnable<Triple<Context,Date,Date>,NetworkUsageInfo,NetworkUsageSummaryPreferences> task;
+  task=new TaskRunnable<Triple<Context,Date,Date>,NetworkUsageInfo,NetworkUsageSummaryPreferences>(){
+    @Override public NetworkUsageInfo doLongOperation(    Triple<Context,Date,Date> params) throws InterruptedException {
+      return NetworkUsageInfo.get(params.getLeft(),params.getMiddle(),params.getRight());
+    }
+    @Override public void callback(    NetworkUsageSummaryPreferences handler,    NetworkUsageInfo result){
+      handler.setUsage(result);
+    }
+  }
+;
+  task.setResultHandler(this);
+  task.setParams(Triple.of(getContext(),start,end));
+  AsyncManager.runBackgroundTask(task);
+}

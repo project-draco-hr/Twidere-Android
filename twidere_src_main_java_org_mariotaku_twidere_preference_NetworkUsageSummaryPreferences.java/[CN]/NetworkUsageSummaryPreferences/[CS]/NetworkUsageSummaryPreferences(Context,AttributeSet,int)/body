@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyleAttr);
+  setLayoutResource(R.layout.layout_preference_network_usage);
+  getUsageInfo();
+}

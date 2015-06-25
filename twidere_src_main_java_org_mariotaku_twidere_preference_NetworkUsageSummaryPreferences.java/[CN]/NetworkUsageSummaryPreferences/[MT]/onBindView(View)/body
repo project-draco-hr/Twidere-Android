@@ -1,0 +1,11 @@
+{
+  super.onBindView(view);
+  final NetworkUsageInfo usage=mUsage;
+  if (usage == null)   return;
+  final ArrayList<ChartSet> chartData=usage.getChartData();
+  if (mChartView.getData() != chartData) {
+    mChartView.addData(chartData);
+    mChartView.show();
+  }
+  mTotalUsage.setText(Utils.calculateProperSize((usage.getTotalSent() + usage.getTotalReceived()) * 1024));
+}
