@@ -1,3 +1,5 @@
 {
-  mForegroundViewHelper.setForeground(drawable);
+  if (mForegroundViewHelper != null) {
+    mForegroundViewHelper.setForeground(drawable);
+  }
 }

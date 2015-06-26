@@ -1,6 +1,8 @@
 {
   super.onSizeChanged(w,h,oldw,oldh);
-  mForegroundViewHelper.dispatchOnSizeChanged(w,h,oldw,oldh);
+  if (mForegroundViewHelper != null) {
+    mForegroundViewHelper.dispatchOnSizeChanged(w,h,oldw,oldh);
+  }
   mColorRect.set(getPaddingLeft(),getPaddingTop(),w - getPaddingRight(),h - getPaddingBottom());
   mNumRectanglesHorizontal=(int)Math.ceil(w / mAlphaPatternSize);
   mNumRectanglesVertical=(int)Math.ceil(h / mAlphaPatternSize);

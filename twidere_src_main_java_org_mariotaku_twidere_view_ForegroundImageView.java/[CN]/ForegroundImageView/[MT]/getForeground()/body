@@ -1,3 +1,6 @@
 {
-  return mForegroundViewHelper.getForeground();
+  if (mForegroundViewHelper != null) {
+    return mForegroundViewHelper.getForeground();
+  }
+  return null;
 }

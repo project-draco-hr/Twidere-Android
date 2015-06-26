@@ -1,4 +1,6 @@
 {
   super.jumpDrawablesToCurrentState();
-  mForegroundViewHelper.jumpDrawablesToCurrentState();
+  if (mForegroundViewHelper != null) {
+    mForegroundViewHelper.jumpDrawablesToCurrentState();
+  }
 }

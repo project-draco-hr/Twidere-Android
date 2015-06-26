@@ -1,4 +1,6 @@
 {
   super.drawableHotspotChanged(x,y);
-  mForegroundViewHelper.dispatchDrawableHotspotChanged(x,y);
+  if (mForegroundViewHelper != null) {
+    mForegroundViewHelper.dispatchDrawableHotspotChanged(x,y);
+  }
 }
