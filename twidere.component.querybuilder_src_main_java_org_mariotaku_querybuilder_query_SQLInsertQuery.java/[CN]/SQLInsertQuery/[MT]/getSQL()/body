@@ -10,10 +10,7 @@
   sb.append("INTO ");
   sb.append(table);
   sb.append(" (");
-  sb.append(Utils.toString(columns,',',false));
-  sb.append(") ");
-  sb.append("VALUES (");
-  sb.append(values);
+  sb.append(Utils.toString(columns,',',true));
   sb.append(") ");
   return sb.toString();
 }
