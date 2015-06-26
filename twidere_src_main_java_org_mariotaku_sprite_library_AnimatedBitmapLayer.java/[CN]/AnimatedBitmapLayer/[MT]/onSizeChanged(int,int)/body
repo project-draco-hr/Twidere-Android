@@ -1,0 +1,4 @@
+{
+  mDisplayBounds.set(0,0,width,height);
+  updateDestination();
+}

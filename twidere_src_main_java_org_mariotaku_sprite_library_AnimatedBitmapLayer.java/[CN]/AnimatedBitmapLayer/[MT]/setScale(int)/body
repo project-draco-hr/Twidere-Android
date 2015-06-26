@@ -1,0 +1,5 @@
+{
+  mScaledSize.x=mFrameSize.x * scale;
+  mScaledSize.y=mFrameSize.y * scale;
+  updateDestination();
+}

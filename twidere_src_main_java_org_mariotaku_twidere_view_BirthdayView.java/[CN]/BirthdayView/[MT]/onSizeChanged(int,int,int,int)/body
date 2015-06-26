@@ -1,0 +1,7 @@
+{
+  super.onSizeChanged(w,h,oldw,oldh);
+  final Layer[] layers=getLayers();
+  ((AnimatedBitmapLayer)layers[0]).setScale(Math.max(1,w / 160));
+  ((AnimatedBitmapLayer)layers[1]).setScale(Math.max(1,w / 160));
+  ((AnimatedBitmapLayer)layers[2]).setScale(Math.max(1,w / 160));
+}

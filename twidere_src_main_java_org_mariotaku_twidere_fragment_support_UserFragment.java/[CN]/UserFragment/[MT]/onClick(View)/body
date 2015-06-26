@@ -66,5 +66,12 @@ if (user.account_id != user.id) return;
 Utils.openProfileEditor(getActivity(),user.account_id);
 break;
 }
+case R.id.profile_birthday_banner:
+{
+mHideBirthdayView=true;
+mProfileBirthdayBannerView.startAnimation(AnimationUtils.loadAnimation(getActivity(),android.R.anim.fade_out));
+mProfileBirthdayBannerView.setVisibility(View.GONE);
+break;
+}
 }
 }

@@ -1,3 +1,6 @@
 {
+  if (mProfileBirthdayBannerView.getVisibility() == View.VISIBLE) {
+    return mProfileBirthdayBannerView.dispatchTouchEvent(event);
+  }
   return mProfileBannerView.dispatchTouchEvent(event);
 }

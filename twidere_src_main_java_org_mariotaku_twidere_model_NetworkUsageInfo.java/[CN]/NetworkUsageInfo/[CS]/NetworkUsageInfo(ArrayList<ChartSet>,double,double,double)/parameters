@@ -1,4 +1,0 @@
-ArrayList<ChartSet> chartData
-double totalReceived
-double totalSent
-double dayMax

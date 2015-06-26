@@ -44,7 +44,7 @@
   mListedCount.setText(Utils.getLocalizedNumber(mLocale,user.listed_count));
   mFollowersCount.setText(Utils.getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(Utils.getLocalizedNumber(mLocale,user.friends_count));
-  mProfileImageLoader.displayProfileImage(mProfileImageView,Utils.getOriginalTwitterProfileImage(user.profile_image_url));
+  mMediaLoader.displayProfileImage(mProfileImageView,Utils.getOriginalTwitterProfileImage(user.profile_image_url));
   if (userColor != 0) {
     setUiColor(userColor);
   }
@@ -53,12 +53,21 @@
   }
   final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
-  mProfileImageLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
+  mMediaLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
   final Relationship relationship=mRelationship;
   if (relationship == null || relationship.getTargetUserId() != user.id) {
     getFriendship();
   }
   activity.setTitle(manager.getDisplayName(user,mNameFirst,true));
+  Calendar cal=Calendar.getInstance();
+  final int currentMonth=cal.get(Calendar.MONTH), currentDay=cal.get(Calendar.DAY_OF_MONTH);
+  cal.setTimeInMillis(user.created_at);
+  if (cal.get(Calendar.MONTH) == currentMonth && cal.get(Calendar.DAY_OF_MONTH) == currentDay && !mHideBirthdayView) {
+    mProfileBirthdayBannerView.setVisibility(View.VISIBLE);
+  }
+ else {
+    mProfileBirthdayBannerView.setVisibility(View.GONE);
+  }
   updateTitleAlpha();
   invalidateOptionsMenu();
   updateSubtitle();

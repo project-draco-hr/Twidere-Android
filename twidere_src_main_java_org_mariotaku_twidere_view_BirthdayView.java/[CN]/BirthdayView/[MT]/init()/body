@@ -1,0 +1,14 @@
+{
+  setBackgroundColor(0xFF203040);
+  final AnimatedBitmapLayer tableLayer=new AnimatedBitmapLayer(getResources(),R.drawable.sprite_birthday_table_frames,4,true);
+  final AnimatedBitmapLayer cakeLayer=new AnimatedBitmapLayer(getResources(),R.drawable.sprite_birthday_cake_frames,4,false);
+  final AnimatedBitmapLayer lightStripLayer=new AnimatedBitmapLayer(getResources(),R.drawable.sprite_birthday_light_strip_frames,4,true);
+  tableLayer.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+  tableLayer.setAntiAlias(false);
+  cakeLayer.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+  cakeLayer.setAntiAlias(false);
+  lightStripLayer.setGravity(Gravity.TOP | Gravity.FILL_HORIZONTAL);
+  lightStripLayer.setAntiAlias(false);
+  lightStripLayer.setTileMode(Shader.TileMode.REPEAT,null);
+  super.setLayers(new Layer[]{tableLayer,cakeLayer,lightStripLayer},1);
+}

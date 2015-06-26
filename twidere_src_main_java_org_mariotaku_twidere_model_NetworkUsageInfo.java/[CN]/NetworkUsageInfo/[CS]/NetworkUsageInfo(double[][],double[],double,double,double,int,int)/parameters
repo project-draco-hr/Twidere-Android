@@ -1,0 +1,7 @@
+double[][] chartUsage
+double[] usageTotal
+double totalReceived
+double totalSent
+double dayUsageMax
+int dayMin
+int dayMax

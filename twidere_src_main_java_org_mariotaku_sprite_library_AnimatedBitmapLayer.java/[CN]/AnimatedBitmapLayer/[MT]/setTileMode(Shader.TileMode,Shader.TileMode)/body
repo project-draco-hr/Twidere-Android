@@ -1,0 +1,4 @@
+{
+  mTileModeX=tileModeX;
+  mTileModeY=tileModeY;
+}

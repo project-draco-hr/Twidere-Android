@@ -1,0 +1,7 @@
+{
+  if (mLayers == null)   return;
+  final int width=getWidth(), height=getHeight();
+  for (  Layer layer : mLayers) {
+    layer.onSizeChanged(width,height);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  mLayers=layers;
+  if (layers == null || fps <= 0) {
+    removeCallbacks(mAnimateCallback);
+    return;
+  }
+  notifySizeChanged();
+  final long delay=1000 / fps;
+  post(mAnimateCallback=new Runnable(){
+    @Override public void run(){
+      invalidate();
+      postDelayed(this,delay);
+    }
+  }
+);
+}

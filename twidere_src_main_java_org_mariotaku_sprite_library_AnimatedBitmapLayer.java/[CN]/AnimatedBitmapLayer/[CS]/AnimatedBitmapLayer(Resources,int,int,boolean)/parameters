@@ -1,0 +1,4 @@
+Resources resources
+int bitmapRes
+int frames
+boolean verticalFrames

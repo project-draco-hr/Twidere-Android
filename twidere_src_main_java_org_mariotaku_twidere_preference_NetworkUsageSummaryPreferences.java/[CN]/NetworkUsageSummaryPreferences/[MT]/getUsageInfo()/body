@@ -1,13 +1,21 @@
 {
+  final Calendar now=Calendar.getInstance();
   final Calendar cal=Calendar.getInstance();
-  cal.set(Calendar.DAY_OF_MONTH,Calendar.getInstance().getActualMinimum(Calendar.DAY_OF_MONTH));
+  cal.clear();
+  cal.set(Calendar.YEAR,now.get(Calendar.YEAR));
+  cal.set(Calendar.MONTH,now.get(Calendar.MONTH));
+  final int dayMin=now.getActualMinimum(Calendar.DAY_OF_MONTH);
+  final int dayMax=now.getActualMaximum(Calendar.DAY_OF_MONTH);
+  cal.set(Calendar.DAY_OF_MONTH,dayMin);
+  cal.setTimeZone(now.getTimeZone());
   final Date start=cal.getTime();
-  cal.set(Calendar.DAY_OF_MONTH,Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH));
+  cal.set(Calendar.DAY_OF_MONTH,dayMax);
+  cal.add(Calendar.DATE,1);
   final Date end=cal.getTime();
-  TaskRunnable<Triple<Context,Date,Date>,NetworkUsageInfo,NetworkUsageSummaryPreferences> task;
-  task=new TaskRunnable<Triple<Context,Date,Date>,NetworkUsageInfo,NetworkUsageSummaryPreferences>(){
-    @Override public NetworkUsageInfo doLongOperation(    Triple<Context,Date,Date> params) throws InterruptedException {
-      return NetworkUsageInfo.get(params.getLeft(),params.getMiddle(),params.getRight());
+  final TaskRunnable<Object[],NetworkUsageInfo,NetworkUsageSummaryPreferences> task;
+  task=new TaskRunnable<Object[],NetworkUsageInfo,NetworkUsageSummaryPreferences>(){
+    @Override public NetworkUsageInfo doLongOperation(    Object[] params) throws InterruptedException {
+      return NetworkUsageInfo.get((Context)params[0],(Date)params[1],(Date)params[2],dayMin,dayMax);
     }
     @Override public void callback(    NetworkUsageSummaryPreferences handler,    NetworkUsageInfo result){
       handler.setUsage(result);
@@ -15,6 +23,6 @@
   }
 ;
   task.setResultHandler(this);
-  task.setParams(Triple.of(getContext(),start,end));
+  task.setParams(new Object[]{getContext(),start,end});
   AsyncManager.runBackgroundTask(task);
 }

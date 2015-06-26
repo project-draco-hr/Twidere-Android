@@ -1,0 +1,25 @@
+{
+  final int frame=mCurrentFrame++;
+  if (mVerticalFrames) {
+    final int top=mFrameSize.y * frame;
+    mSource.set(0,top,mFrameSize.x,top + mFrameSize.y);
+  }
+ else {
+    final int left=mFrameSize.x * frame;
+    mSource.set(left,0,left + mFrameSize.x,mFrameSize.y);
+  }
+  final int destWidth=mTileModeX == Shader.TileMode.REPEAT ? mScaledSize.x : mDestination.width();
+  final int destHeight=mTileModeY == Shader.TileMode.REPEAT ? mScaledSize.y : mDestination.height();
+  for (int l=mDestination.left, r=mDestination.right; l < r; l+=destWidth) {
+    for (int t=mDestination.top, b=mDestination.bottom; t < b; t+=destHeight) {
+      mTempDestination.left=l;
+      mTempDestination.right=l + destWidth;
+      mTempDestination.top=t;
+      mTempDestination.bottom=t + destHeight;
+      canvas.drawBitmap(mBitmap,mSource,mTempDestination,mPaint);
+    }
+  }
+  if (mCurrentFrame >= mFrames) {
+    mCurrentFrame=0;
+  }
+}

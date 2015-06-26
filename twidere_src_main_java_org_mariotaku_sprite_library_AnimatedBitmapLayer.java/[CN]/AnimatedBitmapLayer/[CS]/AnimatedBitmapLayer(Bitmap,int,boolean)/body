@@ -1,0 +1,11 @@
+{
+  mBitmap=bitmap;
+  mFrames=frames;
+  mVerticalFrames=verticalFrames;
+  final int bitmapWidth=bitmap.getWidth(), bitmapHeight=bitmap.getHeight();
+  mFrameSize.x=verticalFrames ? bitmapWidth : bitmapWidth / frames;
+  mFrameSize.y=verticalFrames ? bitmapHeight / frames : bitmapHeight;
+  setGravity(Gravity.NO_GRAVITY);
+  setAntiAlias(true);
+  setScale(1);
+}
