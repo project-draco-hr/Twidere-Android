@@ -19,13 +19,9 @@
   apiSet.setColor(Color.RED);
   mediaSet.setColor(Color.GREEN);
   usageStatisticsSet.setColor(Color.BLUE);
-  final ArrayList<ChartSet> data=new ArrayList<>();
-  data.add(apiSet);
-  data.add(mediaSet);
-  data.add(usageStatisticsSet);
-  mChartView.addData(data);
-  mChartView.show();
   mTotalUsage.setText(Utils.calculateProperSize((usage.getTotalSent() + usage.getTotalReceived()) * 1024));
+  mTotalUsageSent.setText(Utils.calculateProperSize(usage.getTotalSent() * 1024));
+  mTotalUsageReceived.setText(Utils.calculateProperSize(usage.getTotalReceived() * 1024));
   mDayUsageMax.setText(Utils.calculateProperSize((usage.getDayUsageMax()) * 1024));
   mDayMin.setText(String.valueOf(usage.getDayMin()));
   mDayMid.setText(String.valueOf((usage.getDayMin() + usage.getDayMax()) / 2));

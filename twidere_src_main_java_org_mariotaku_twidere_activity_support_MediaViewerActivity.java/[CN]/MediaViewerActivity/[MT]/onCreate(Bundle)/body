@@ -8,7 +8,7 @@
   mPagerAdapter=new MediaPagerAdapter(this);
   mViewPager.setAdapter(mPagerAdapter);
   mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.element_spacing_normal));
-  mViewPager.setOnPageChangeListener(this);
+  mViewPager.addOnPageChangeListener(this);
   final Intent intent=getIntent();
   final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
   final ParcelableMedia[] media=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);

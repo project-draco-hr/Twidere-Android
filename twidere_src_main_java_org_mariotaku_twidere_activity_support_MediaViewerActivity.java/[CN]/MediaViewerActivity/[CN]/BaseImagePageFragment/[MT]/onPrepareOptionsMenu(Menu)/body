@@ -23,13 +23,12 @@
       if (callback.first.isDetached())       return;
       final Menu menu=callback.second;
       final boolean hasImage=result.first;
-      MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
-      MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
-      MenuUtils.setMenuItemAvailability(menu,R.id.save,hasImage && !isLoading);
+      MenuUtils.setMenuItemAvailability(menu,MENU_REFRESH,!hasImage && !isLoading);
+      MenuUtils.setMenuItemAvailability(menu,MENU_SHARE,hasImage && !isLoading);
+      MenuUtils.setMenuItemAvailability(menu,MENU_SAVE,hasImage && !isLoading);
       if (!hasImage)       return;
-      final MenuItem shareItem=menu.findItem(R.id.share);
-      final ShareActionProvider shareProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
-      shareProvider.setShareIntent(result.second);
+      final MenuItem shareItem=menu.findItem(MENU_SHARE);
+      shareItem.setIntent(Intent.createChooser(result.second,callback.first.getString(R.string.share)));
     }
   }
 ;

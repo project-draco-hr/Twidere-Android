@@ -1,14 +1,11 @@
 {
   final View view=super.onCreateView(parent);
-  mChartView=(StackBarChartView)view.findViewById(R.id.chart);
   mTotalUsage=(TextView)view.findViewById(R.id.total_usage);
+  mTotalUsageSent=(TextView)view.findViewById(R.id.total_usage_sent);
+  mTotalUsageReceived=(TextView)view.findViewById(R.id.total_usage_received);
   mDayUsageMax=(TextView)view.findViewById(R.id.day_usage_max);
   mDayMin=(TextView)view.findViewById(R.id.day_min);
   mDayMid=(TextView)view.findViewById(R.id.day_mid);
   mDayMax=(TextView)view.findViewById(R.id.day_max);
-  Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  paint.setColor(0x20000000);
-  mChartView.setYLabels(AxisController.LabelPosition.NONE);
-  mChartView.setXLabels(AxisController.LabelPosition.NONE);
   return view;
 }

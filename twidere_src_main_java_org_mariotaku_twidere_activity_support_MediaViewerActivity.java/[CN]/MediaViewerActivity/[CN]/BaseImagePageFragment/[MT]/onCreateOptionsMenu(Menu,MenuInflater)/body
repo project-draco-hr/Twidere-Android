@@ -1,6 +1,3 @@
 {
   inflater.inflate(R.menu.menu_media_viewer_image_page,menu);
-  final MenuItem shareItem=menu.findItem(R.id.share);
-  final ShareActionProvider shareProvider=(ShareActionProvider)MenuItemCompat.getActionProvider(shareItem);
-  shareProvider.setShareHistoryFileName(null);
 }
