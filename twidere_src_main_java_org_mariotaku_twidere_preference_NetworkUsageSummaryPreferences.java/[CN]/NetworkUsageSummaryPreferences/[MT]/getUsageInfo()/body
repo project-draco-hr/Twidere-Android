@@ -15,7 +15,8 @@
   final TaskRunnable<Object[],NetworkUsageInfo,NetworkUsageSummaryPreferences> task;
   task=new TaskRunnable<Object[],NetworkUsageInfo,NetworkUsageSummaryPreferences>(){
     @Override public NetworkUsageInfo doLongOperation(    Object[] params) throws InterruptedException {
-      return NetworkUsageInfo.get((Context)params[0],(Date)params[1],(Date)params[2],dayMin,dayMax);
+      final int[] network={ConnectivityManager.TYPE_MOBILE};
+      return NetworkUsageInfo.get((Context)params[0],(Date)params[1],(Date)params[2],dayMin,dayMax,network);
     }
     @Override public void callback(    NetworkUsageSummaryPreferences handler,    NetworkUsageInfo result){
       handler.setUsage(result);

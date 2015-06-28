@@ -3,3 +3,4 @@ Date start
 Date end
 int dayMin
 int dayMax
+int[] networks

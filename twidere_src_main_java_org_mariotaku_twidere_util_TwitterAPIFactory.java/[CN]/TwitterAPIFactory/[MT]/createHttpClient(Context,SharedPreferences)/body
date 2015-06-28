@@ -4,11 +4,13 @@
   final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
   final OkHttpClient client=new OkHttpClient();
   client.setConnectTimeout(connectionTimeout,TimeUnit.SECONDS);
+  final long connectionTimeoutMillis=TimeUnit.MILLISECONDS.convert(connectionTimeout,TimeUnit.SECONDS);
+  final SSLSocketFactory sslSocketFactory;
   if (ignoreSslError) {
-    client.setSslSocketFactory(SSLCertificateSocketFactory.getInsecure(0,null));
-  }
- else {
-    client.setSslSocketFactory(SSLCertificateSocketFactory.getDefault(0,null));
+    sslSocketFactory=SSLCertificateSocketFactory.getInsecure((int)connectionTimeoutMillis,null);
+    if (sslSocketFactory instanceof SSLCertificateSocketFactory) {
+    }
+    client.setSslSocketFactory(sslSocketFactory);
   }
   if (enableProxy) {
     client.setProxy(getProxy(prefs));

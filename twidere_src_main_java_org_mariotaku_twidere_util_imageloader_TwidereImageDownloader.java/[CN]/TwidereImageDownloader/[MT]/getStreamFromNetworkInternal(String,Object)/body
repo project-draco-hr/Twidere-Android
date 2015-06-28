@@ -16,6 +16,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
     additionalHeaders.add(Pair.create("Accept","image/webp, */*"));
   }
+  additionalHeaders.add(Pair.create("User-Agent",mUserAgent));
   final String method=GET.METHOD;
   final String requestUri;
   if (auth != null && auth.hasAuthorization()) {

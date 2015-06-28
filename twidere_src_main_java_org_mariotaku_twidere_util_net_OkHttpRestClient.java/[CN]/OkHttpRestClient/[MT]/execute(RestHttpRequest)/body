@@ -1,4 +1,10 @@
 {
   final Call call=newCall(restHttpRequest);
-  return new OkRestHttpResponse(call.execute());
+  try {
+    return new OkRestHttpResponse(call.execute());
+  }
+ catch (  IOException e) {
+    Log.w(Constants.LOGTAG,e);
+    throw e;
+  }
 }
