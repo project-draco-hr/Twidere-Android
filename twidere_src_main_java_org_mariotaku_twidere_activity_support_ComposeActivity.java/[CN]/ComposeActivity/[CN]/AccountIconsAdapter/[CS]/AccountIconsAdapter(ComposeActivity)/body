@@ -1,9 +1,2 @@
 {
-  setHasStableIds(true);
-  mActivity=activity;
-  mInflater=activity.getLayoutInflater();
-  mImageLoader=TwidereApplication.getInstance(activity).getMediaLoaderWrapper();
-  mSelection=new LongSparseArray<>();
-  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
-  mNameFirst=preferences.getBoolean(KEY_NAME_FIRST);
 }
