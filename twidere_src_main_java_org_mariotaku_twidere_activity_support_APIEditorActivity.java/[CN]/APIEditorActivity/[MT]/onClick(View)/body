@@ -2,7 +2,6 @@
 switch (v.getId()) {
 case R.id.save:
 {
-      if (checkUrlErrors())       return;
       saveAndFinish();
       break;
     }

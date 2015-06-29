@@ -2,7 +2,7 @@
   final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
   if (prefs.contains(LAST_UPLOAD_TIME)) {
     final long lastUpload=prefs.getLong(LAST_UPLOAD_TIME,System.currentTimeMillis());
-    final double deltaDays=(System.currentTimeMillis() - lastUpload) / UPLOAD_INTERVAL_MILLIS;
+    final double deltaDays=(System.currentTimeMillis() - lastUpload) / (double)UPLOAD_INTERVAL_MILLIS;
     if (deltaDays < 1) {
       SpiceProfilingUtil.log("Last uploaded was conducted in 1 day ago.");
       return null;
