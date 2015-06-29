@@ -1,0 +1,3 @@
+{
+  return TwitterAPIFactory.verifyApiFormat(String.valueOf(mEditAPIUrlFormat.getText()));
+}

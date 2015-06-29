@@ -30,6 +30,7 @@
   }
   final String endpointUrl;
   endpointUrl=getApiUrl(apiUrlFormat,domain,versionSuffix);
+  if (endpointUrl == null || HttpUrl.parse(endpointUrl) == null)   throw new APIFormatException(apiUrlFormat);
   if (credentials.auth_type == ParcelableCredentials.AUTH_TYPE_XAUTH || credentials.auth_type == ParcelableCredentials.AUTH_TYPE_OAUTH) {
     final String signEndpointUrl;
     if (!sameOAuthSigningUrl) {
@@ -38,6 +39,7 @@
  else {
       signEndpointUrl=endpointUrl;
     }
+    if (signEndpointUrl == null || HttpUrl.parse(signEndpointUrl) == null)     throw new APIFormatException(apiUrlFormat);
     return new OAuthEndpoint(endpointUrl,signEndpointUrl);
   }
   return new Endpoint(endpointUrl);

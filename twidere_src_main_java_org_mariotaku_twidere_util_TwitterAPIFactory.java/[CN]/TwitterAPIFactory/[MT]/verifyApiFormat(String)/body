@@ -1,0 +1,3 @@
+{
+  return URLUtil.isValidUrl(getApiBaseUrl(format,"test"));
+}

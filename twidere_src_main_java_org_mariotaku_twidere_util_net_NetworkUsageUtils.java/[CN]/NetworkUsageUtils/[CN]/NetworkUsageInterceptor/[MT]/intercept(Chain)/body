@@ -10,6 +10,11 @@
   final Response response=chain.proceed(request);
   values.put(NetworkUsages.KILOBYTES_RECEIVED,getBodyLength(response.body()) / 1024.0);
   final ContentResolver cr=context.getContentResolver();
-  cr.insert(NetworkUsages.CONTENT_URI,values);
+  try {
+    cr.insert(NetworkUsages.CONTENT_URI,values);
+  }
+ catch (  IllegalStateException e) {
+    Log.e(LOGTAG,"Unable to log network usage",e);
+  }
   return response;
 }

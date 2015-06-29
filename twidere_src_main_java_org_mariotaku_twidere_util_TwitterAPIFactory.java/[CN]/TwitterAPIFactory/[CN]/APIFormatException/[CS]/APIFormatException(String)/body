@@ -1,0 +1,3 @@
+{
+  super("Wrong api format " + format);
+}

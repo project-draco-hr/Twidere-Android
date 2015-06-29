@@ -2,7 +2,12 @@
 switch (v.getId()) {
 case R.id.save:
 {
-      saveAndFinish();
+      if (checkApiUrl()) {
+        saveAndFinish();
+      }
+ else {
+        mEditAPIUrlFormat.setError(getString(R.string.wrong_url_format));
+      }
       break;
     }
 case R.id.api_url_format_help:
