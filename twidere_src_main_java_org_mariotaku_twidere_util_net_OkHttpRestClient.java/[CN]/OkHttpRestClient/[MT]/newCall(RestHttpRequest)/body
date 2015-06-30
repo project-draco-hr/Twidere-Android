@@ -1,7 +1,11 @@
 {
   final Request.Builder builder=new Request.Builder();
   builder.method(restHttpRequest.getMethod(),RestToOkBody.wrap(restHttpRequest.getBody()));
-  builder.url(restHttpRequest.getUrl());
+  final HttpUrl httpUrl=HttpUrl.parse(restHttpRequest.getUrl());
+  if (httpUrl == null) {
+    throw new MalformedURLException();
+  }
+  builder.url(httpUrl);
   final List<Pair<String,String>> headers=restHttpRequest.getHeaders();
   if (headers != null) {
     for (    Pair<String,String> header : headers) {
