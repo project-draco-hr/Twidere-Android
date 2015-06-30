@@ -1,0 +1,7 @@
+{
+  if (isMyRetweet(status))   return true;
+  if (status.is_quote) {
+    return status.account_id == status.quoted_by_user_id;
+  }
+  return status.account_id == status.user_id;
+}

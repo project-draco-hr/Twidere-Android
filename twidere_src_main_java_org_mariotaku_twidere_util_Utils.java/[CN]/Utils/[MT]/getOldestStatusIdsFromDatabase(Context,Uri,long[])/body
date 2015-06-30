@@ -1,11 +1,11 @@
 {
-  if (context == null || uri == null || account_ids == null)   return null;
+  if (context == null || uri == null || accountIds == null)   return null;
   final String[] cols=new String[]{Statuses.STATUS_ID};
   final ContentResolver resolver=context.getContentResolver();
-  final long[] status_ids=new long[account_ids.length];
+  final long[] status_ids=new long[accountIds.length];
   int idx=0;
-  for (  final long account_id : account_ids) {
-    final String where=Statuses.ACCOUNT_ID + " = " + account_id;
+  for (  final long accountId : accountIds) {
+    final String where=Expression.equals(Statuses.ACCOUNT_ID,accountId).getSQL();
     final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,Statuses.STATUS_ID);
     if (cur == null) {
       continue;

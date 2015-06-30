@@ -5,7 +5,7 @@
   final long[] messageIds=new long[accountIds.length];
   int idx=0;
   for (  final long accountId : accountIds) {
-    final String where=Statuses.ACCOUNT_ID + " = " + accountId;
+    final String where=Expression.equals(DirectMessages.ACCOUNT_ID,accountId).getSQL();
     final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,DirectMessages.DEFAULT_SORT_ORDER);
     if (cur == null) {
       continue;

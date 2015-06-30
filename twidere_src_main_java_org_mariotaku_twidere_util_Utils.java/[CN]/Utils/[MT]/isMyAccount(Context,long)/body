@@ -1,7 +1,7 @@
 {
   if (context == null)   return false;
   final ContentResolver resolver=context.getContentResolver();
-  final String where=Accounts.ACCOUNT_ID + " = " + account_id;
+  final String where=Expression.equals(Accounts.ACCOUNT_ID,accountId).getSQL();
   final Cursor cur=ContentResolverUtils.query(resolver,Accounts.CONTENT_URI,new String[0],where,null,null);
   try {
     return cur != null && cur.getCount() > 0;

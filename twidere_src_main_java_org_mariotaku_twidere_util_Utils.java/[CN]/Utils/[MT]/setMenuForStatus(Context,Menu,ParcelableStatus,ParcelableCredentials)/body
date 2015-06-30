@@ -6,7 +6,7 @@
   final boolean isMyRetweet=isMyRetweet(status);
   final MenuItem delete=menu.findItem(MENU_DELETE);
   if (delete != null) {
-    delete.setVisible(status.account_id == status.user_id && !isMyRetweet);
+    delete.setVisible(isMyStatus(status));
   }
   final MenuItem retweet=menu.findItem(MENU_RETWEET);
   if (retweet != null) {
