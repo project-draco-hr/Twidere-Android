@@ -42,4 +42,5 @@
   mPagesErrorText=(TextView)view.findViewById(R.id.pages_error_text);
   mProfileNameBackground=view.findViewById(R.id.profile_name_background);
   mProfileDetailsContainer=view.findViewById(R.id.profile_details_container);
+  mFollowingYouIndicator=view.findViewById(R.id.following_you_indicator);
 }

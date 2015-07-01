@@ -17,7 +17,7 @@
     args.putBundle(EXTRA_EXTRAS,ParseUtils.jsonToBundle(cur.getString(idxExtras)));
     final CustomTabConfiguration conf=getTabConfiguration(type);
     final Class<? extends Fragment> cls=conf != null ? conf.getFragmentClass() : InvalidTabFragment.class;
-    tabs.add(new SupportTabSpec(name != null ? name : getTabTypeName(context,type),getTabIconObject(iconType),type,cls,args,position,tag));
+    tabs.add(new SupportTabSpec(TextUtils.isEmpty(name) ? getTabTypeName(context,type) : name,getTabIconObject(iconType),type,cls,args,position,tag));
     cur.moveToNext();
   }
   cur.close();
