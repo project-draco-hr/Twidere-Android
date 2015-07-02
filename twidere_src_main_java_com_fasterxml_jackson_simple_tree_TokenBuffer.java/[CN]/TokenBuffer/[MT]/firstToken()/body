@@ -1,0 +1,6 @@
+{
+  if (_first != null) {
+    return _first.type(0);
+  }
+  return null;
+}

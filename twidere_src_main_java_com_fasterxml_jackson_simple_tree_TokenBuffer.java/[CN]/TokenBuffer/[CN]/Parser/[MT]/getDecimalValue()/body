@@ -1,0 +1,15 @@
+{
+  Number n=getNumberValue();
+  if (n instanceof BigDecimal) {
+    return (BigDecimal)n;
+  }
+switch (getNumberType()) {
+case INT:
+case LONG:
+    return BigDecimal.valueOf(n.longValue());
+case BIG_INTEGER:
+  return new BigDecimal((BigInteger)n);
+default :
+}
+return BigDecimal.valueOf(n.doubleValue());
+}

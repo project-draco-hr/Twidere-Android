@@ -1,0 +1,10 @@
+{
+  super(0);
+  _segment=firstSeg;
+  _segmentPtr=-1;
+  _codec=codec;
+  _parsingContext=JsonReadContext.createRootContext(null);
+  _hasNativeTypeIds=hasNativeTypeIds;
+  _hasNativeObjectIds=hasNativeObjectIds;
+  _hasNativeIds=(hasNativeTypeIds | hasNativeObjectIds);
+}

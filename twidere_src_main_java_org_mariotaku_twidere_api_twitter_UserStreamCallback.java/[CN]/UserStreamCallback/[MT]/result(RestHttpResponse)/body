@@ -5,7 +5,7 @@
     onException(cause);
     return;
   }
-  final ObjectMapper mapper=new ObjectMapper(LoganSquare.JSON_FACTORY);
+  final SimpleTreeCodec mapper=new SimpleTreeCodec();
   final CRLFLineReader reader=new CRLFLineReader(new InputStreamReader(response.getBody().stream(),"UTF-8"));
   try {
     for (String line; (line=reader.readLine()) != null && !disconnected; ) {
@@ -14,7 +14,7 @@
         connected=true;
       }
       if (line.isEmpty())       continue;
-      JsonNode rootNode=mapper.readTree(line);
+      TreeNode rootNode=mapper.readTree(LoganSquare.JSON_FACTORY.createParser(line));
 switch (JSONObjectType.determine(rootNode)) {
 case SENDER:
 {

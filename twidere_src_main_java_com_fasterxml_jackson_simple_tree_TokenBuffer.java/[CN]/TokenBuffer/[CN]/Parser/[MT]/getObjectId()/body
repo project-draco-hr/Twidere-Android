@@ -1,0 +1,3 @@
+{
+  return _segment.findObjectId(_segmentPtr);
+}

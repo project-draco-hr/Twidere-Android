@@ -1,0 +1,11 @@
+{
+  if (_nativeIds == null) {
+    _nativeIds=new TreeMap<Integer,Object>();
+  }
+  if (objectId != null) {
+    _nativeIds.put(_objectIdIndex(index),objectId);
+  }
+  if (typeId != null) {
+    _nativeIds.put(_typeIdIndex(index),typeId);
+  }
+}

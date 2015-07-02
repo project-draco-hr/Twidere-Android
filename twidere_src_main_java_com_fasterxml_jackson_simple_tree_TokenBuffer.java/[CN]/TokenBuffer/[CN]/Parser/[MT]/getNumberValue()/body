@@ -1,0 +1,18 @@
+{
+  _checkIsNumber();
+  Object value=_currentObject();
+  if (value instanceof Number) {
+    return (Number)value;
+  }
+  if (value instanceof String) {
+    String str=(String)value;
+    if (str.indexOf('.') >= 0) {
+      return Double.parseDouble(str);
+    }
+    return Long.parseLong(str);
+  }
+  if (value == null) {
+    return null;
+  }
+  throw new IllegalStateException("Internal error: entry should be a Number, but is of type " + value.getClass().getName());
+}

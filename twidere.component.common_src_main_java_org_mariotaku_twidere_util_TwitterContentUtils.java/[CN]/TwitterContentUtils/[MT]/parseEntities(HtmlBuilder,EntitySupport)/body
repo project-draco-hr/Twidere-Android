@@ -3,7 +3,7 @@
   if (mediaEntities != null) {
     for (    final MediaEntity mediaEntity : mediaEntities) {
       final int start=mediaEntity.getStart(), end=mediaEntity.getEnd();
-      final String mediaUrl=mediaEntity.getMediaUrl();
+      final String mediaUrl=TwitterContentUtils.getMediaUrl(mediaEntity);
       if (mediaUrl != null && start >= 0 && end >= 0) {
         builder.addLink(mediaUrl,mediaEntity.getDisplayUrl(),start,end);
       }

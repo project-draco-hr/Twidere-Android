@@ -1,0 +1,4 @@
+{
+  if (user == null)   return null;
+  return TextUtils.isEmpty(user.getProfileImageUrlHttps()) ? user.getProfileImageUrl() : user.getProfileImageUrlHttps();
+}

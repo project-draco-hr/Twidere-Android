@@ -1,0 +1,3 @@
+{
+  return (_nativeIds == null) ? null : _nativeIds.get(_typeIdIndex(index));
+}

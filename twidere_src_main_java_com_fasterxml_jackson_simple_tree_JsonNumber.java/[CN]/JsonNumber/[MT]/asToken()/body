@@ -1,0 +1,10 @@
+{
+switch (numberType()) {
+case BIG_DECIMAL:
+case DOUBLE:
+case FLOAT:
+    return VALUE_NUMBER_FLOAT;
+default :
+  return VALUE_NUMBER_INT;
+}
+}

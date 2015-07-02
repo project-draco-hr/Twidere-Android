@@ -1,0 +1,10 @@
+{
+  if (_closed)   return null;
+  Segment seg=_segment;
+  int ptr=_segmentPtr + 1;
+  if (ptr >= Segment.TOKENS_PER_SEGMENT) {
+    ptr=0;
+    seg=(seg == null) ? null : seg.next();
+  }
+  return (seg == null) ? null : seg.type(ptr);
+}

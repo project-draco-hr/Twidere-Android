@@ -1,0 +1,3 @@
+int index
+JsonToken tokenType
+Object value

@@ -1,0 +1,8 @@
+{
+  long l=_tokenTypes;
+  if (index > 0) {
+    l>>=(index << 2);
+  }
+  int ix=((int)l) & 0xF;
+  return TOKEN_TYPES_BY_INDEX[ix];
+}

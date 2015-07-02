@@ -1,0 +1,4 @@
+{
+  _append(JsonToken.START_OBJECT);
+  _writeContext=_writeContext.createChildObjectContext();
+}

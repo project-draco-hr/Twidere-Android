@@ -1,0 +1,24 @@
+{
+  if (_currToken == JsonToken.VALUE_EMBEDDED_OBJECT) {
+    Object ob=_currentObject();
+    if (ob instanceof byte[]) {
+      return (byte[])ob;
+    }
+  }
+  if (_currToken != JsonToken.VALUE_STRING) {
+    throw _constructError("Current token (" + _currToken + ") not VALUE_STRING (or VALUE_EMBEDDED_OBJECT with byte[]), can not access as binary");
+  }
+  final String str=getText();
+  if (str == null) {
+    return null;
+  }
+  ByteArrayBuilder builder=_byteBuilder;
+  if (builder == null) {
+    _byteBuilder=builder=new ByteArrayBuilder(100);
+  }
+ else {
+    _byteBuilder.reset();
+  }
+  _decodeBase64(str,builder,b64variant);
+  return builder.toByteArray();
+}

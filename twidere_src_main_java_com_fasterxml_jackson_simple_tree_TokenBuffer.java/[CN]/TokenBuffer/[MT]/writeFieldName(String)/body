@@ -1,0 +1,4 @@
+{
+  _append(JsonToken.FIELD_NAME,name);
+  _writeContext.writeFieldName(name);
+}

@@ -1,0 +1,3 @@
+{
+  _append(JsonToken.VALUE_NUMBER_INT,Short.valueOf(i));
+}

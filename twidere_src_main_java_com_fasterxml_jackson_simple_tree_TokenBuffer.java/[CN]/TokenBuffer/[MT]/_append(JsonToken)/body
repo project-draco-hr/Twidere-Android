@@ -1,0 +1,10 @@
+{
+  Segment next=_hasNativeId ? _last.append(_appendOffset,type,_objectId,_typeId) : _last.append(_appendOffset,type);
+  if (next == null) {
+    ++_appendOffset;
+  }
+ else {
+    _last=next;
+    _appendOffset=1;
+  }
+}

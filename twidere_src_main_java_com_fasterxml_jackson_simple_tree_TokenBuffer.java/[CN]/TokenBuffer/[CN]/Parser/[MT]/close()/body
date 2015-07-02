@@ -1,0 +1,5 @@
+{
+  if (!_closed) {
+    _closed=true;
+  }
+}

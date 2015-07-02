@@ -1,0 +1,3 @@
+{
+  return _segment.findTypeId(_segmentPtr);
+}

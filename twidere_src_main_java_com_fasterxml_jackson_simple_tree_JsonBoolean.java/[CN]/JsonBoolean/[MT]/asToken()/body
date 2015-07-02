@@ -1,0 +1,3 @@
+{
+  return this == TRUE ? JsonToken.VALUE_TRUE : JsonToken.VALUE_FALSE;
+}

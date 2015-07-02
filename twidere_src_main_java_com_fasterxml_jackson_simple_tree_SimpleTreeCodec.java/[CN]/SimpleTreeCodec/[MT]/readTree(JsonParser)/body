@@ -1,0 +1,3 @@
+{
+  return nodeFrom(JSON.std.anyFrom(jsonParser));
+}

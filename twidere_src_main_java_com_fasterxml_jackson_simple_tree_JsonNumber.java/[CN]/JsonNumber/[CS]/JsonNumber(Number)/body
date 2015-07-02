@@ -1,0 +1,5 @@
+{
+  if (!NUMBER_TYPES.containsKey(value.getClass()))   throw new IllegalArgumentException("Unsupported Number type");
+  this._value=value;
+  this._numberType=NUMBER_TYPES.get(value.getClass());
+}

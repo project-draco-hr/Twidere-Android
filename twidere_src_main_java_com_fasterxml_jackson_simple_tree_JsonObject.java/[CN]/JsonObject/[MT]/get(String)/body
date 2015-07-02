@@ -1,0 +1,3 @@
+{
+  return _values.containsKey(name) ? _values.get(name) : null;
+}

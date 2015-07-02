@@ -1,0 +1,7 @@
+{
+  _append(JsonToken.END_OBJECT);
+  JsonWriteContext c=_writeContext.getParent();
+  if (c != null) {
+    _writeContext=c;
+  }
+}

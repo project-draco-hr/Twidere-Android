@@ -1,0 +1,5 @@
+int index
+JsonToken tokenType
+Object value
+Object objectId
+Object typeId

@@ -3,8 +3,8 @@
   final ContentValues values=new ContentValues();
   final User sender=message.getSender(), recipient=message.getRecipient();
   if (sender == null || recipient == null)   return null;
-  final String sender_profile_image_url=sender.getProfileImageUrlHttps();
-  final String recipient_profile_image_url=recipient.getProfileImageUrlHttps();
+  final String sender_profile_image_url=TwitterContentUtils.getProfileImageUrl(sender);
+  final String recipient_profile_image_url=TwitterContentUtils.getProfileImageUrl(recipient);
   values.put(DirectMessages.ACCOUNT_ID,accountId);
   values.put(DirectMessages.MESSAGE_ID,message.getId());
   values.put(DirectMessages.MESSAGE_TIMESTAMP,message.getCreatedAt().getTime());

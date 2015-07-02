@@ -1,0 +1,3 @@
+{
+  return (_generatorFeatures & f.getMask()) != 0;
+}

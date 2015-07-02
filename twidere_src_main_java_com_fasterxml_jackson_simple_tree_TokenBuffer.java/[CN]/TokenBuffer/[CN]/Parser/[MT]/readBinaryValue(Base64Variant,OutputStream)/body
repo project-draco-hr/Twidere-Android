@@ -1,0 +1,8 @@
+{
+  byte[] data=getBinaryValue(b64variant);
+  if (data != null) {
+    out.write(data,0,data.length);
+    return data.length;
+  }
+  return 0;
+}

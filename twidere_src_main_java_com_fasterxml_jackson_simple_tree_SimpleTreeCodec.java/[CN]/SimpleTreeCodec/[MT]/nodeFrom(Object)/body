@@ -1,0 +1,28 @@
+{
+  TreeNode node=null;
+  if (value instanceof Boolean)   node=((Boolean)value ? JsonBoolean.TRUE : JsonBoolean.FALSE);
+ else   if (value instanceof Number)   node=new JsonNumber(((Number)value));
+ else   if (value instanceof String)   node=new JsonString((String)value);
+ else   if (value instanceof List) {
+    List<TreeNode> values=new ArrayList<>();
+    for (    Object el : (List)value) {
+      values.add(nodeFrom(el));
+    }
+    node=new JsonArray(values);
+  }
+ else   if (value instanceof Object[]) {
+    List<TreeNode> values=new ArrayList<>();
+    for (    Object el : (Object[])value) {
+      values.add(nodeFrom(el));
+    }
+    node=new JsonArray(values);
+  }
+ else   if (value instanceof Map) {
+    Map<String,TreeNode> values=new LinkedHashMap<>();
+    for (    Map.Entry entry : ((Map<?,?>)value).entrySet()) {
+      values.put(entry.getKey().toString(),nodeFrom(entry.getValue()));
+    }
+    node=new JsonObject(values);
+  }
+  return (T)node;
+}

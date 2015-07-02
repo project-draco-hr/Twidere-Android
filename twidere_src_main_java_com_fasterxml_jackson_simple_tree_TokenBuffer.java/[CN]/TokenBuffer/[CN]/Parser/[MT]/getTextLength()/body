@@ -1,0 +1,4 @@
+{
+  String str=getText();
+  return (str == null) ? 0 : str.length();
+}

@@ -1,0 +1,9 @@
+{
+  final TokenBuffer buffer=new TokenBuffer(null,false);
+  try {
+    writeTree(buffer,treeNode);
+  }
+ catch (  IOException e) {
+  }
+  return buffer.asParser();
+}

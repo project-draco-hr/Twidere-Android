@@ -1,6 +1,6 @@
 {
   if (user == null || user.getId() <= 0)   return null;
-  final String profile_image_url=user.getProfileImageUrlHttps();
+  final String profile_image_url=TwitterContentUtils.getProfileImageUrl(user);
   final String url=user.getUrl();
   final UrlEntity[] urls=user.getUrlEntities();
   final ContentValues values=new ContentValues();
