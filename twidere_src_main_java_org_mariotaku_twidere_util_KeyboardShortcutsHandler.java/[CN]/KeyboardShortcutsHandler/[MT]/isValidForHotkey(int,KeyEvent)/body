@@ -13,5 +13,5 @@ case KeyEvent.KEYCODE_TAB:
       break;
     }
 }
-return !event.isSystem() && !KeyEvent.isModifierKey(keyCode) && keyCode != KeyEvent.KEYCODE_UNKNOWN;
+return !isNavigationKey(keyCode) && !KeyEvent.isModifierKey(keyCode) && keyCode != KeyEvent.KEYCODE_UNKNOWN;
 }

@@ -12,5 +12,9 @@ break;
 case INTENT_ACTION_DISCARD_DRAFT:
 handleDiscardDraftIntent(intent);
 break;
+case INTENT_ACTION_SEND_DRAFT:
+{
+handleSendDraftIntent(intent);
+}
 }
 }

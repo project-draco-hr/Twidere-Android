@@ -1,5 +1,0 @@
-String title
-String message
-int icon
-Intent content_intent
-Intent deleteIntent

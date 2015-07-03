@@ -2,8 +2,8 @@
   final Uri data=intent.getData();
   if (data == null)   return;
   mNotificationManager.cancel(data.toString(),NOTIFICATION_ID_DRAFTS);
-  final ContentResolver contentResolver=getContentResolver();
+  final ContentResolver cr=getContentResolver();
   final long id=ParseUtils.parseLong(data.getLastPathSegment(),-1);
   final Expression where=Expression.equals(Drafts._ID,id);
-  contentResolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
+  cr.delete(Drafts.CONTENT_URI,where.getSQL(),null);
 }

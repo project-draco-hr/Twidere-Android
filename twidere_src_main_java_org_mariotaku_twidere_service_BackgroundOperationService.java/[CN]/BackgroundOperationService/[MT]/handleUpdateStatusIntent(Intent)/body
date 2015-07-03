@@ -1,5 +1,4 @@
 {
-  final NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
   final ParcelableStatusUpdate status=intent.getParcelableExtra(EXTRA_STATUS);
   final Parcelable[] status_parcelables=intent.getParcelableArrayExtra(EXTRA_STATUSES);
   final ParcelableStatusUpdate[] statuses;
@@ -14,76 +13,5 @@
     statuses[0]=status;
   }
  else   return;
-  startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,null));
-  for (  final ParcelableStatusUpdate item : statuses) {
-    mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
-    final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item,ParcelableAccount.getAccountIds(item.accounts));
-    final Uri draftUri=mResolver.insert(Drafts.CONTENT_URI,draftValues);
-    final long draftId=ParseUtils.parseLong(draftUri.getLastPathSegment(),-1);
-    mTwitter.addSendingDraftId(draftId);
-    final List<SingleResponse<ParcelableStatus>> result=updateStatus(builder,item);
-    boolean failed=false;
-    Exception exception=null;
-    final Expression where=Expression.equals(Drafts._ID,draftId);
-    final List<Long> failedAccountIds=ListUtils.fromArray(ParcelableAccount.getAccountIds(item.accounts));
-    for (    final SingleResponse<ParcelableStatus> response : result) {
-      if (response.getData() == null) {
-        failed=true;
-        if (exception == null) {
-          exception=response.getException();
-        }
-      }
- else       if (response.getData().account_id > 0) {
-        failedAccountIds.remove(response.getData().account_id);
-        if (response.getData().media == null) {
-          SpiceProfilingUtil.log(response.getData().id + ",Tweet," + response.getData().account_id+ ","+ response.getData().in_reply_to_user_id+ ","+ response.getData().in_reply_to_status_id);
-          SpiceProfilingUtil.profile(this.getBaseContext(),response.getData().account_id,response.getData().id + ",Tweet," + response.getData().account_id+ ","+ response.getData().in_reply_to_user_id+ ","+ response.getData().in_reply_to_status_id);
-        }
- else         for (        final ParcelableMedia spiceMedia : response.getData().media) {
-          SpiceProfilingUtil.log(response.getData().id + ",Media," + response.getData().account_id+ ","+ response.getData().in_reply_to_user_id+ ","+ response.getData().in_reply_to_status_id+ ","+ spiceMedia.media_url+ ","+ TypeMappingUtil.getMediaType(spiceMedia.type));
-          SpiceProfilingUtil.profile(this.getBaseContext(),response.getData().account_id,response.getData().id + ",Media," + response.getData().account_id+ ","+ response.getData().in_reply_to_user_id+ ","+ response.getData().in_reply_to_status_id+ ","+ spiceMedia.media_url+ ","+ TypeMappingUtil.getMediaType(spiceMedia.type));
-        }
-      }
-    }
-    if (result.isEmpty()) {
-      showErrorMessage(R.string.action_updating_status,getString(R.string.no_account_selected),false);
-    }
- else     if (failed) {
-      if (exception instanceof TwitterException && ((TwitterException)exception).getErrorCode() == StatusCodeMessageUtils.STATUS_IS_DUPLICATE) {
-        showErrorMessage(getString(R.string.status_is_duplicate),false);
-      }
- else {
-        final ContentValues accountIdsValues=new ContentValues();
-        accountIdsValues.put(Drafts.ACCOUNT_IDS,ListUtils.toString(failedAccountIds,',',false));
-        mResolver.update(Drafts.CONTENT_URI,accountIdsValues,where.getSQL(),null);
-        showErrorMessage(R.string.action_updating_status,exception,true);
-        displayTweetNotSendNotification();
-      }
-    }
- else {
-      showOkMessage(R.string.status_updated,false);
-      mResolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
-      if (item.media != null) {
-        for (        final ParcelableMediaUpdate media : item.media) {
-          final String path=getImagePathFromUri(this,Uri.parse(media.uri));
-          if (path != null) {
-            if (!new File(path).delete()) {
-              Log.d(LOGTAG,String.format("unable to delete %s",path));
-            }
-          }
-        }
-      }
-    }
-    mTwitter.removeSendingDraftId(draftId);
-    if (mPreferences.getBoolean(KEY_REFRESH_AFTER_TWEET,false)) {
-      mHandler.post(new Runnable(){
-        @Override public void run(){
-          mTwitter.refreshAll();
-        }
-      }
-);
-    }
-  }
-  stopForeground(false);
-  mNotificationManager.cancel(NOTIFICATION_ID_UPDATE_STATUS);
+  updateStatuses(statuses);
 }

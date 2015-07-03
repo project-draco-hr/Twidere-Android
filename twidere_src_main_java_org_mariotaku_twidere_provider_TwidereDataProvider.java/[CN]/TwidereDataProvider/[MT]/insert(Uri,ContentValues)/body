@@ -9,7 +9,6 @@ case TABLE_ID_DIRECT_MESSAGES:
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
       return null;
   }
-  if (table == null)   return null;
   final long rowId;
   if (tableId == TABLE_ID_CACHED_USERS) {
     final Expression where=Expression.equals(CachedUsers.USER_ID,values.getAsLong(CachedUsers.USER_ID));
@@ -55,11 +54,17 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
     mDatabaseWrapper.setTransactionSuccessful();
     mDatabaseWrapper.endTransaction();
   }
+ else   if (tableId == VIRTUAL_TABLE_ID_DRAFTS_NOTIFICATIONS) {
+    rowId=showDraftNotification(uri,values);
+  }
  else   if (shouldReplaceOnConflict(tableId)) {
     rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
   }
- else {
+ else   if (table != null) {
     rowId=mDatabaseWrapper.insert(table,null,values);
+  }
+ else {
+    return null;
   }
   onDatabaseUpdated(tableId,uri);
   onNewItemsInserted(uri,tableId,values,rowId);
