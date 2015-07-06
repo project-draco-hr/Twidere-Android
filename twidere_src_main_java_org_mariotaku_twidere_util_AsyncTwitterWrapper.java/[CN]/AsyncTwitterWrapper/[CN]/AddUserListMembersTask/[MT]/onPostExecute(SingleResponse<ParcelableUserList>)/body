@@ -14,10 +14,10 @@
       final Resources res=mContext.getResources();
       message=res.getQuantityString(R.plurals.added_N_users_to_list,users.length,users.length,result.getData().name);
     }
-    showOkMessage(mContext,message,false);
+    Utils.showOkMessage(mContext,message,false);
   }
  else {
-    showErrorMessage(mContext,R.string.action_adding_member,result.getException(),true);
+    Utils.showErrorMessage(mContext,R.string.action_adding_member,result.getException(),true);
   }
   final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_ADDED);
   intent.putExtra(EXTRA_USER_LIST,result.getData());

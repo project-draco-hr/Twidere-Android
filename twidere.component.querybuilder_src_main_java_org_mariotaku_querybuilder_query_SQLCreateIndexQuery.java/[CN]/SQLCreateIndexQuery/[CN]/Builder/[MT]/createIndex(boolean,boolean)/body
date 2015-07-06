@@ -1,6 +1,0 @@
-{
-  checkNotBuilt();
-  query.setUnique(unique);
-  query.setCreateIfNotExists(createIfNotExists);
-  return this;
-}

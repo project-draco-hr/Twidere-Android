@@ -1,3 +1,0 @@
-{
-  this(Columns.fromStrings(columns));
-}

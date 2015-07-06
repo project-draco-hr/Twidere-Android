@@ -1,6 +1,6 @@
 {
   final long[] accountIds=getAccountIds();
-  final AbsStatusesAdapter<Cursor> adapter=getAdapter();
+  final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
   if (adapter.getItemCount() > 0) {
     showContent();
   }

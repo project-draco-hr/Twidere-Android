@@ -1,4 +1,0 @@
-{
-  this.orderBy=new String[]{orderBy};
-  this.ascending=new boolean[]{ascending};
-}

@@ -4,7 +4,7 @@
   if (!mOmitIntentExtra && mExtras != null) {
     final ParcelableUser user=mExtras.getParcelable(EXTRA_USER);
     if (user != null) {
-      final ContentValues values=ParcelableUser.makeCachedUserContentValues(user);
+      final ContentValues values=ContentValuesCreator.makeCachedUserContentValues(user);
       resolver.insert(CachedUsers.CONTENT_URI,values);
       return SingleResponse.getInstance(user);
     }

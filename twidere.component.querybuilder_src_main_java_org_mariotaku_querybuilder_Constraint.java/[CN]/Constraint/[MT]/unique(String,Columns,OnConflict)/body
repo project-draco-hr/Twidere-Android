@@ -1,3 +1,0 @@
-{
-  return new Constraint(name,"UNIQUE",new ColumnConflictConstaint(columns,onConflict));
-}

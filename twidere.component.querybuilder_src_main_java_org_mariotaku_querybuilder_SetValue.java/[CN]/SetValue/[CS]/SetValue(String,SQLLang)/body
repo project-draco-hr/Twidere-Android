@@ -1,3 +1,0 @@
-{
-  this(new Columns.Column(column),expression);
-}

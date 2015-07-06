@@ -1,3 +1,0 @@
-{
-  return new Expression(String.format("%s IN(%s)",column.getSQL(),in.getSQL()));
-}

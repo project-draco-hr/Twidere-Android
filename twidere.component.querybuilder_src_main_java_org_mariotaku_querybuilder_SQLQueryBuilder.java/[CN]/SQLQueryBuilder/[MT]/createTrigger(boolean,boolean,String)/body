@@ -1,3 +1,0 @@
-{
-  return new SQLCreateTriggerQuery.Builder().createTrigger(temporary,createIfNotExists,name);
-}

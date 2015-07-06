@@ -5,10 +5,10 @@
     final UserColorNameManager manager=application.getUserColorNameManager();
     final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
     final String message=mContext.getString(R.string.denied_users_follow_request,manager.getDisplayName(user,nameFirst,true));
-    showOkMessage(mContext,message,false);
+    Utils.showOkMessage(mContext,message,false);
   }
  else {
-    showErrorMessage(mContext,R.string.action_denying_follow_request,result.getException(),false);
+    Utils.showErrorMessage(mContext,R.string.action_denying_follow_request,result.getException(),false);
   }
   final Intent intent=new Intent(BROADCAST_FRIENDSHIP_DENIED);
   intent.putExtra(EXTRA_USER_ID,mUserId);

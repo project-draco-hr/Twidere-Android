@@ -1,4 +1,0 @@
-{
-  this.orderBy=orderBy;
-  this.ascending=ascending;
-}

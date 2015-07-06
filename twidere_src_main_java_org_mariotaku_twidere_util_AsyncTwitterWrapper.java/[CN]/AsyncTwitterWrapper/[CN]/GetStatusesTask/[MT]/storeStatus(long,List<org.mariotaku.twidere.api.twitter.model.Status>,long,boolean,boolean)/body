@@ -3,14 +3,14 @@
     return;
   }
   final Uri uri=getDatabaseUri();
-  final boolean noItemsBefore=getStatusCountInDatabase(mContext,uri,accountId) <= 0;
+  final boolean noItemsBefore=Utils.getStatusCountInDatabase(mContext,uri,accountId) <= 0;
   final ContentValues[] values=new ContentValues[statuses.size()];
   final long[] statusIds=new long[statuses.size()];
   long minId=-1;
   int minIdx=-1;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final org.mariotaku.twidere.api.twitter.model.Status status=statuses.get(i);
-    values[i]=createStatus(status,accountId);
+    values[i]=ContentValuesCreator.createStatus(status,accountId);
     final long id=status.getId();
     if (minId == -1 || id < minId) {
       minId=id;
@@ -39,5 +39,5 @@
     values[minIdx].put(Statuses.IS_GAP,true);
   }
   final Uri insertUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,notify);
-  bulkInsert(mResolver,insertUri,values);
+  ContentResolverUtils.bulkInsert(mResolver,insertUri,values);
 }

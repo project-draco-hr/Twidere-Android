@@ -1,4 +1,0 @@
-{
-  currentInternalQuery=new InternalQuery();
-  internalQueries.add(currentInternalQuery);
-}

@@ -1,3 +1,0 @@
-{
-  return new SQLAlterTableQuery.Builder().alterTable(table);
-}

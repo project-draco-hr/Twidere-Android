@@ -1,16 +1,2 @@
 {
-  mDestroyingFavoriteIds.remove(account_id,status_id);
-  if (result.hasData()) {
-    final ParcelableStatus status=result.getData();
-    final Context context=getContext();
-    SpiceProfilingUtil.profile(context,status.account_id,status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-    SpiceProfilingUtil.log(status.id + ",Unfavor," + status.account_id+ ","+ status.user_id+ ","+ status.reply_count+ ","+ status.retweet_count+ ","+ status.favorite_count+ ","+ status.timestamp);
-    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-    bus.post(new FavoriteDestroyedEvent(status));
-    showInfoMessage(mContext,R.string.status_unfavorited,false);
-  }
- else {
-    showErrorMessage(mContext,R.string.action_unfavoriting,result.getException(),true);
-  }
-  super.onPostExecute(result);
 }

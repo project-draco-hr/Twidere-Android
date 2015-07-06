@@ -1,0 +1,7 @@
+Context context
+Class<? extends ObjectCursor.CursorIndices<T>> indicesClass
+Uri uri
+String[] projection
+String selection
+String[] selectionArgs
+String sortOrder

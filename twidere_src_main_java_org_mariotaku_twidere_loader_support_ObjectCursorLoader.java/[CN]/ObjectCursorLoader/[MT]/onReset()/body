@@ -1,0 +1,8 @@
+{
+  super.onReset();
+  onStopLoading();
+  if (mObjects != null && !mObjects.isClosed()) {
+    mObjects.close();
+  }
+  mObjects=null;
+}

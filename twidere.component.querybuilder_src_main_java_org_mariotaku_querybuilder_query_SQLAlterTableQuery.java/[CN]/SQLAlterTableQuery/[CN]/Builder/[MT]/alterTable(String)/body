@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setTable(table);
-  return this;
-}

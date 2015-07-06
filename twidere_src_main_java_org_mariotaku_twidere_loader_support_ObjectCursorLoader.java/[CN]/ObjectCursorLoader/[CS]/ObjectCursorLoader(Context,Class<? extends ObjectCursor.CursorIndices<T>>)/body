@@ -1,0 +1,5 @@
+{
+  super(context);
+  mIndicesClass=indicesClass;
+  mObserver=new ForceLoadContentObserver();
+}

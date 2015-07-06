@@ -1,7 +1,0 @@
-{
-  checkNotBuilt();
-  query.setTemporary(temporary);
-  query.setCreateIfNotExists(createIfNotExists);
-  query.setTable(table);
-  return this;
-}

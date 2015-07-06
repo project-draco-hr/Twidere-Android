@@ -1,0 +1,6 @@
+{
+  final ObjectCursor<T> cursor=(ObjectCursor<T>)data;
+  if (cursor != null && !cursor.isClosed()) {
+    cursor.close();
+  }
+}

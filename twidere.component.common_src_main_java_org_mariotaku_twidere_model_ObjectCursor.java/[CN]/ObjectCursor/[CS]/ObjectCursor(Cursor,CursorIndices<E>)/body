@@ -1,0 +1,5 @@
+{
+  mCursor=cursor;
+  mIndices=indies;
+  mCache=new SparseArray<>();
+}

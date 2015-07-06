@@ -1,4 +1,5 @@
 {
+  super(cursor);
   _id=cursor.getColumnIndex(Statuses._ID);
   account_id=cursor.getColumnIndex(Statuses.ACCOUNT_ID);
   status_id=cursor.getColumnIndex(Statuses.STATUS_ID);

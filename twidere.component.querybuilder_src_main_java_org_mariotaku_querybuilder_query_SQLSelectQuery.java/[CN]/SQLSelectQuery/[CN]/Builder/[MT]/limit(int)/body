@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setLimit(limit);
-  return this;
-}

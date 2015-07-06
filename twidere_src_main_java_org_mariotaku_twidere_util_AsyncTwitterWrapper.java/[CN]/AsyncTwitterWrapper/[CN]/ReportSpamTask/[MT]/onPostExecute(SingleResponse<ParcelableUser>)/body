@@ -1,15 +1,15 @@
 {
   if (result.hasData()) {
-    for (    final Uri uri : STATUSES_URIS) {
+    for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       final String where=Statuses.ACCOUNT_ID + " = " + mAccountId+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
       mResolver.delete(uri,where,null);
     }
-    showInfoMessage(mContext,R.string.reported_user_for_spam,false);
+    Utils.showInfoMessage(mContext,R.string.reported_user_for_spam,false);
     final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
     bus.post(new FriendshipUserUpdatedEvent(result.getData()));
   }
  else {
-    showErrorMessage(mContext,R.string.action_reporting_for_spam,result.getException(),true);
+    Utils.showErrorMessage(mContext,R.string.action_reporting_for_spam,result.getException(),true);
   }
   super.onPostExecute(result);
 }

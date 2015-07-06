@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setGroupBy(groupBy);
-  return this;
-}

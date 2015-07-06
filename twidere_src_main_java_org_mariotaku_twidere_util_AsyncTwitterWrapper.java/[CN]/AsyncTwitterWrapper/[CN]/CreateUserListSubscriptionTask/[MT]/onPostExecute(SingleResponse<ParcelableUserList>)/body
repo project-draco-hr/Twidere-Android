@@ -2,13 +2,13 @@
   final boolean succeed=result.hasData();
   if (succeed) {
     final String message=mContext.getString(R.string.subscribed_to_list,result.getData().name);
-    showOkMessage(mContext,message,false);
+    Utils.showOkMessage(mContext,message,false);
     final Intent intent=new Intent(BROADCAST_USER_LIST_SUBSCRIBED);
     intent.putExtra(EXTRA_USER_LIST,result.getData());
     mContext.sendBroadcast(intent);
   }
  else {
-    showErrorMessage(mContext,R.string.action_subscribing_to_list,result.getException(),true);
+    Utils.showErrorMessage(mContext,R.string.action_subscribing_to_list,result.getException(),true);
   }
   super.onPostExecute(result);
 }

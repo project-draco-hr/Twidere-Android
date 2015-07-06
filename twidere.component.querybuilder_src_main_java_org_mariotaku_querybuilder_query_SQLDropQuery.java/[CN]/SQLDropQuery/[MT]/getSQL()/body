@@ -1,4 +1,0 @@
-{
-  if (dropIfExists)   return String.format("DROP %s IF EXISTS %s",type,target);
-  return String.format("DROP %s %s",type,target);
-}

@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setUpdateOf(updateOf);
-  return this;
-}

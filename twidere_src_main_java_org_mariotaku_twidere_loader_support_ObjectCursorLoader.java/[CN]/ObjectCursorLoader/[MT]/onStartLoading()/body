@@ -1,0 +1,8 @@
+{
+  if (mObjects != null) {
+    deliverResult(mObjects);
+  }
+  if (takeContentChanged() || mObjects == null) {
+    forceLoad();
+  }
+}

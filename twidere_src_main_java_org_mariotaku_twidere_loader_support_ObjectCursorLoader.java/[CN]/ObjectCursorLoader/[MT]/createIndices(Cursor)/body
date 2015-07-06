@@ -1,0 +1,17 @@
+{
+  try {
+    return mIndicesClass.getConstructor(Cursor.class).newInstance(cursor);
+  }
+ catch (  NoSuchMethodException e) {
+    throw new RuntimeException(e);
+  }
+catch (  InvocationTargetException e) {
+    throw new RuntimeException(e);
+  }
+catch (  InstantiationException e) {
+    throw new RuntimeException(e);
+  }
+catch (  IllegalAccessException e) {
+    throw new RuntimeException(e);
+  }
+}

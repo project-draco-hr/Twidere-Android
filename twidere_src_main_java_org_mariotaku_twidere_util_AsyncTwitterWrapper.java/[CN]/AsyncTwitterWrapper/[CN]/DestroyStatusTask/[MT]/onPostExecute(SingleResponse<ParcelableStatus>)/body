@@ -1,18 +1,2 @@
 {
-  mDestroyingStatusIds.remove(account_id,status_id);
-  if (result.hasData()) {
-    final ParcelableStatus status=result.getData();
-    if (status.retweet_id > 0) {
-      showInfoMessage(mContext,R.string.retweet_cancelled,false);
-    }
- else {
-      showInfoMessage(mContext,R.string.status_deleted,false);
-    }
-    final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-    bus.post(new StatusDestroyedEvent(status));
-  }
- else {
-    showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);
-  }
-  super.onPostExecute(result);
 }

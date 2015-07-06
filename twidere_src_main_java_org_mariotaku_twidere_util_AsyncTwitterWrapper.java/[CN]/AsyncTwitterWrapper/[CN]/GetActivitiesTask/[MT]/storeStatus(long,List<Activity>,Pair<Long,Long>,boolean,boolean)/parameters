@@ -1,0 +1,5 @@
+long accountId
+List<Activity> statuses
+Pair<Long,Long> positions
+boolean truncated
+boolean notify

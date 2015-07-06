@@ -4,16 +4,16 @@
       final Object[] result=new Object[8];
       result[0]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS);
       if (Boolean.TRUE.equals(result[0]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS))) {
-        result[1]=getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
+        result[1]=Utils.getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
       }
       if (Boolean.TRUE.equals(result[2]=mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES))) {
-        result[3]=getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
+        result[3]=Utils.getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
       }
       if (Boolean.TRUE.equals(result[4]=mPreferences.getBoolean(KEY_HOME_REFRESH_TRENDS))) {
-        result[5]=getDefaultAccountId(mContext);
+        result[5]=Utils.getDefaultAccountId(mContext);
         result[6]=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
       }
-      result[7]=getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
+      result[7]=Utils.getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
       return result;
     }
     @Override protected void onPostExecute(    Object[] result){

@@ -1,0 +1,1 @@
+ManagedAsyncTask<Object,TwitterListResponse<Activity>,List<ActivityListResponse>>

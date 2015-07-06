@@ -1,3 +1,0 @@
-{
-  return new Expression(toExpr(expressions,"OR"));
-}

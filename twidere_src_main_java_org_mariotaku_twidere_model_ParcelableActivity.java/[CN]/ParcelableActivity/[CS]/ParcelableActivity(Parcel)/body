@@ -1,0 +1,3 @@
+{
+  ParcelableActivityParcelablePlease.readFromParcel(this,src);
+}

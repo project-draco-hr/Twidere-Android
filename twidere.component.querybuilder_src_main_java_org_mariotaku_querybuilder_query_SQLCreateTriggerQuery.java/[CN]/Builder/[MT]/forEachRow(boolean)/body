@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setForEachRow(forEachRow);
-  return this;
-}

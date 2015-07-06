@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setWhen(when);
-  return this;
-}

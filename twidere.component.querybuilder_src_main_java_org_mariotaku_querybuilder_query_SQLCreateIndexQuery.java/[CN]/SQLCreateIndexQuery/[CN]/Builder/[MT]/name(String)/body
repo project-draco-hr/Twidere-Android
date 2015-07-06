@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setIndexName(name);
-  return this;
-}

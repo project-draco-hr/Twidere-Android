@@ -1,3 +1,0 @@
-{
-  return new Expression(String.format("%s NOT NULL",column.getSQL()));
-}

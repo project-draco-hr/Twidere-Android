@@ -1,3 +1,0 @@
-{
-  throw new AssertionError("You can't create instance for this class");
-}

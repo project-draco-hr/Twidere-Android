@@ -1,6 +1,0 @@
-{
-  if (table == null)   throw new NullPointerException("table must not be null!");
-  if (renameTo == null && addColumn == null)   throw new NullPointerException();
-  if (renameTo != null)   return String.format("ALTER TABLE %s RENAME TO %s",table,renameTo);
-  return String.format("ALTER TABLE %s ADD COLUMN %s",table,addColumn.getSQL());
-}

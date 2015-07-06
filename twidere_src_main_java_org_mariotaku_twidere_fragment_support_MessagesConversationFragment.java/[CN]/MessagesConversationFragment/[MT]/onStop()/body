@@ -1,17 +1,2 @@
 {
-  mMessagesListView.removeOnScrollListener(mScrollListener);
-  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
-  bus.unregister(this);
-  if (mPopupMenu != null) {
-    mPopupMenu.dismiss();
-  }
-  final ParcelableCredentials account=mAccount;
-  final ParcelableUser recipient=mRecipient;
-  if (account != null && recipient != null) {
-    final String key=getDraftsTextKey(account.account_id,recipient.id);
-    final SharedPreferences.Editor editor=mMessageDrafts.edit();
-    editor.putString(key,ParseUtils.parseString(mEditText.getText()));
-    editor.apply();
-  }
-  super.onStop();
 }

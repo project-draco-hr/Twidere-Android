@@ -1,0 +1,6 @@
+long accountId
+long maxId
+long sinceId
+List<Activity> list
+boolean truncated
+Exception exception

@@ -1,3 +1,0 @@
-{
-  return new SQLCreateIndexQuery.Builder().createIndex(unique,createIfNotExists);
-}

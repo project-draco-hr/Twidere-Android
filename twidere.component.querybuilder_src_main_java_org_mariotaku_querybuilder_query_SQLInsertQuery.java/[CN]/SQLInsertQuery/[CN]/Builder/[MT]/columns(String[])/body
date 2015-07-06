@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setColumns(columns);
-  return this;
-}

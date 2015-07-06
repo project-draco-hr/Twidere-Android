@@ -1,5 +1,2 @@
 {
-  super.onPostExecute(result);
-  final Bus bus=TwidereApplication.getInstance(getContext()).getMessageBus();
-  bus.post(new GetMessagesTaskEvent(getDatabaseUri(),false,getException(result)));
 }

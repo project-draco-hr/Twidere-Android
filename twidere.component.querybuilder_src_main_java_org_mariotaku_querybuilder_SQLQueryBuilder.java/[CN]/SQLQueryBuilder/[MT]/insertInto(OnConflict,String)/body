@@ -1,3 +1,0 @@
-{
-  return new SQLInsertQuery.Builder().insertInto(onConflict,table);
-}

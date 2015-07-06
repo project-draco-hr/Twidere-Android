@@ -1,6 +1,0 @@
-{
-  this.natural=natural;
-  this.operation=operation;
-  this.source=source;
-  this.on=on;
-}

@@ -1,4 +1,0 @@
-{
-  mCursor.moveToPosition(position);
-  holder.displayStatus(mCursor,mIndices,isShowInReplyTo());
-}

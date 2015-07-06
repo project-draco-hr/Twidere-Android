@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setAs(selectStmt);
-  return this;
-}

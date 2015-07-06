@@ -1,1 +1,1 @@
-AbsStatusesFragment<Cursor>
+AbsStatusesFragment<List<ParcelableStatus>>

@@ -1,6 +1,0 @@
-{
-  checkNotBuilt();
-  query.setOnConflict(onConflict);
-  query.setTable(table);
-  return this;
-}

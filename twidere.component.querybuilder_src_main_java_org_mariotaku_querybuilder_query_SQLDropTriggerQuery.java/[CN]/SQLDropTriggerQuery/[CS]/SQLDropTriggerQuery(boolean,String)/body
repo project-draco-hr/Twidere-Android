@@ -1,3 +1,0 @@
-{
-  super(dropIfExists,"TRIGGER",table);
-}

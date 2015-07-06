@@ -1,6 +1,2 @@
 {
-  super.onPreExecute();
-  mCreatingRetweetIds.put(account_id,status_id);
-  final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
-  bus.post(new StatusListChangedEvent());
 }

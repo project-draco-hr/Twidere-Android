@@ -1,3 +1,0 @@
-{
-  return createView(true,createIfNotExists,name);
-}

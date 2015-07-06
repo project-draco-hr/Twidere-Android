@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setOrderBy(orderBy);
-  return this;
-}

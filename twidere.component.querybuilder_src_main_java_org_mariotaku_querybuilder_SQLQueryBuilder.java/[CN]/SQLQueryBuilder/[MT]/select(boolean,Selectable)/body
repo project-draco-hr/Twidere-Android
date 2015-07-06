@@ -1,3 +1,0 @@
-{
-  return new SQLSelectQuery.Builder().select(distinct,select);
-}

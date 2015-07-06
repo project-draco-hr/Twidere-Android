@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setJoin(join);
-  return this;
-}

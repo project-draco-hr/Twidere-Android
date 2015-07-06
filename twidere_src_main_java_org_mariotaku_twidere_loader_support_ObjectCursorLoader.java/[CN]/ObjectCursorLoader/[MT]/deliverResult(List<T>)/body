@@ -1,0 +1,17 @@
+{
+  final ObjectCursor<T> cursor=(ObjectCursor<T>)data;
+  if (isReset()) {
+    if (cursor != null) {
+      cursor.close();
+    }
+    return;
+  }
+  ObjectCursor<T> oldCursor=mObjects;
+  mObjects=cursor;
+  if (isStarted()) {
+    super.deliverResult(cursor);
+  }
+  if (oldCursor != null && oldCursor != cursor && !oldCursor.isClosed()) {
+    oldCursor.close();
+  }
+}

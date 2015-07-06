@@ -1,3 +1,0 @@
-{
-  return new Expression(String.format(Locale.ROOT,"%s > %s",column1.getSQL(),column2.getSQL()));
-}

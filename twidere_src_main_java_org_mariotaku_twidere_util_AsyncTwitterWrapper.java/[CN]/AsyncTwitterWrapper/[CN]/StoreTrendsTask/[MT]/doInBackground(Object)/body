@@ -4,7 +4,7 @@
   final ArrayList<String> hashtags=new ArrayList<>();
   final ArrayList<ContentValues> hashtagValues=new ArrayList<>();
   if (messages != null && messages.size() > 0) {
-    final ContentValues[] valuesArray=createTrends(messages);
+    final ContentValues[] valuesArray=ContentValuesCreator.createTrends(messages);
     for (    final ContentValues values : valuesArray) {
       final String hashtag=values.getAsString(CachedTrends.NAME).replaceFirst("#","");
       if (hashtags.contains(hashtag)) {
@@ -16,9 +16,9 @@
       hashtagValues.add(hashtagValue);
     }
     mResolver.delete(uri,null,null);
-    bulkInsert(mResolver,uri,valuesArray);
-    bulkDelete(mResolver,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
-    bulkInsert(mResolver,CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
+    ContentResolverUtils.bulkInsert(mResolver,uri,valuesArray);
+    ContentResolverUtils.bulkDelete(mResolver,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
+    ContentResolverUtils.bulkInsert(mResolver,CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
   }
   return SingleResponse.getInstance(true);
 }

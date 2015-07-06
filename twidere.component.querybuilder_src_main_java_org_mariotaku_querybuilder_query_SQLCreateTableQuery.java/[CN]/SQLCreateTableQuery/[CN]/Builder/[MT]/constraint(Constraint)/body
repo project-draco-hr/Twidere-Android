@@ -1,5 +1,0 @@
-{
-  checkNotBuilt();
-  query.setConstraints(constraints);
-  return this;
-}

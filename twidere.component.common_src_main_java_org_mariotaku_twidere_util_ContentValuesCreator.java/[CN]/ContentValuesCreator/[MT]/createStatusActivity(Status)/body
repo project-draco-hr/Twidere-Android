@@ -1,0 +1,34 @@
+{
+  if (orig == null)   throw new NullPointerException();
+  final ContentValues values=new ContentValues();
+  final Status status;
+  if (orig.isRetweet()) {
+    final Status retweetedStatus=orig.getRetweetedStatus();
+    final User retweetUser=orig.getUser();
+    final long retweetedById=retweetUser.getId();
+    values.put(Activities.STATUS_RETWEETED_BY_USER_ID,retweetedById);
+    status=retweetedStatus;
+  }
+ else   if (orig.isQuote()) {
+    final Status quotedStatus=orig.getQuotedStatus();
+    final User quoteUser=orig.getUser();
+    final long quotedById=quoteUser.getId();
+    final String textHtml=TwitterContentUtils.formatStatusText(orig);
+    values.put(Activities.STATUS_QUOTE_TEXT_HTML,textHtml);
+    values.put(Activities.STATUS_QUOTE_TEXT_PLAIN,TwitterContentUtils.unescapeTwitterStatusText(orig.getText()));
+    values.put(Activities.STATUS_QUOTE_SOURCE,orig.getSource());
+    values.put(Activities.STATUS_QUOTED_BY_USER_ID,quotedById);
+    status=quotedStatus;
+  }
+ else {
+    status=orig;
+  }
+  final User user=status.getUser();
+  final long userId=user.getId();
+  values.put(Activities.STATUS_USER_ID,userId);
+  final String textHtml=TwitterContentUtils.formatStatusText(status);
+  values.put(Activities.STATUS_TEXT_HTML,textHtml);
+  values.put(Activities.STATUS_TEXT_PLAIN,TwitterContentUtils.unescapeTwitterStatusText(status.getText()));
+  values.put(Activities.STATUS_SOURCE,status.getSource());
+  return values;
+}

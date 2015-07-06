@@ -81,7 +81,7 @@
   values.put(Statuses.IS_PROTECTED,user.isProtected());
   values.put(Statuses.IS_VERIFIED,user.isVerified());
   values.put(Statuses.USER_PROFILE_IMAGE_URL,profileImageUrl);
-  values.put(CachedUsers.IS_FOLLOWING,user.isFollowing());
+  values.put(Statuses.IS_FOLLOWING,user.isFollowing());
   final String textHtml=TwitterContentUtils.formatStatusText(status);
   values.put(Statuses.TEXT_HTML,textHtml);
   values.put(Statuses.TEXT_PLAIN,TwitterContentUtils.unescapeTwitterStatusText(status.getText()));

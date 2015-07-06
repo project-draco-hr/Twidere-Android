@@ -1,4 +1,0 @@
-{
-  if (where == null)   return String.format("DELETE FROM %s",table.getSQL());
-  return String.format("DELETE FROM %S WHERE %s",table.getSQL(),where.getSQL());
-}

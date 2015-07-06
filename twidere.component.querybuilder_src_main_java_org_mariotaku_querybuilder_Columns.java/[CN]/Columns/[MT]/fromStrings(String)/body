@@ -1,7 +1,0 @@
-{
-  final Column[] columns=new Column[columnsString.length];
-  for (int i=0, j=columnsString.length; i < j; i++) {
-    columns[i]=new Column(columnsString[i]);
-  }
-  return columns;
-}
