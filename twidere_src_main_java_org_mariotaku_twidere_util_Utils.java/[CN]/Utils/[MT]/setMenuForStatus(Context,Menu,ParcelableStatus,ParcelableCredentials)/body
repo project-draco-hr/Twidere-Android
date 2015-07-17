@@ -4,26 +4,26 @@
   final int retweetHighlight=resources.getColor(R.color.highlight_retweet);
   final int favoriteHighlight=resources.getColor(R.color.highlight_favorite);
   final boolean isMyRetweet=isMyRetweet(status);
-  final MenuItem delete=menu.findItem(MENU_DELETE);
+  final MenuItem delete=menu.findItem(R.id.delete);
   if (delete != null) {
     delete.setVisible(isMyStatus(status));
   }
-  final MenuItem retweet=menu.findItem(MENU_RETWEET);
+  final MenuItem retweet=menu.findItem(R.id.retweet);
   if (retweet != null) {
     ActionIconDrawable.setMenuHighlight(retweet,new TwidereMenuInfo(isMyRetweet,retweetHighlight));
     retweet.setTitle(isMyRetweet ? R.string.cancel_retweet : R.string.retweet);
   }
-  final MenuItem favorite=menu.findItem(MENU_FAVORITE);
+  final MenuItem favorite=menu.findItem(R.id.favorite);
   if (favorite != null) {
     ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(status.is_favorite,favoriteHighlight));
     favorite.setTitle(status.is_favorite ? R.string.unfavorite : R.string.favorite);
   }
-  final MenuItem translate=menu.findItem(MENU_TRANSLATE);
+  final MenuItem translate=menu.findItem(R.id.translate);
   if (translate != null) {
     final boolean isOfficialKey=isOfficialCredentials(context,account);
     final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
     final boolean forcePrivateApis=prefs.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false);
-    MenuUtils.setMenuItemAvailability(menu,MENU_TRANSLATE,forcePrivateApis || isOfficialKey);
+    MenuUtils.setMenuItemAvailability(menu,R.id.translate,forcePrivateApis || isOfficialKey);
   }
   menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);
   addIntentToMenuForExtension(context,menu,MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);

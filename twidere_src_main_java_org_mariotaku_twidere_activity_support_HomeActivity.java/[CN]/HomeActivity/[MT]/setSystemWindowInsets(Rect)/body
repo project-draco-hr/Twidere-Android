@@ -1,7 +1,0 @@
-{
-  final Fragment fragment=getLeftDrawerFragment();
-  if (fragment instanceof AccountsDashboardFragment) {
-    ((AccountsDashboardFragment)fragment).setStatusBarHeight(insets.top);
-  }
-  mColorStatusFrameLayout.setStatusBarHeight(insets.top);
-}

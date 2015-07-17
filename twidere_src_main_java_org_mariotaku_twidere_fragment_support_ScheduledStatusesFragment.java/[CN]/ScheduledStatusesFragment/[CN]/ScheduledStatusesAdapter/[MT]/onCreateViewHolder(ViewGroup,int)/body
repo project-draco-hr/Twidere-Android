@@ -1,0 +1,13 @@
+{
+switch (viewType) {
+case ITEM_VIEW_TYPE_SCHEDULED_STATUS:
+{
+      return new ScheduledStatusViewHolder(mInflater.inflate(R.layout.list_item_scheduled_status,parent,false));
+    }
+case ITEM_VIEW_TYPE_LOAD_INDICATOR:
+{
+    return new LoadIndicatorViewHolder(mInflater.inflate(R.layout.card_item_load_indicator,parent,false));
+  }
+}
+throw new UnsupportedOperationException();
+}

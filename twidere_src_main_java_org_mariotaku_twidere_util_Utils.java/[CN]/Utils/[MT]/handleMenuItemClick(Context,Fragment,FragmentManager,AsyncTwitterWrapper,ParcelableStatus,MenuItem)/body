@@ -1,14 +1,14 @@
 {
   final UserColorNameManager colorNameManager=UserColorNameManager.getInstance(context);
 switch (item.getItemId()) {
-case MENU_COPY:
+case R.id.copy:
 {
       if (ClipboardUtils.setText(context,status.text_plain)) {
         showOkMessage(context,R.string.text_copied,false);
       }
       break;
     }
-case MENU_RETWEET:
+case R.id.retweet:
 {
     if (isMyRetweet(status)) {
       twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
@@ -18,21 +18,21 @@ case MENU_RETWEET:
     }
     break;
   }
-case MENU_QUOTE:
+case R.id.quote:
 {
   final Intent intent=new Intent(INTENT_ACTION_QUOTE);
   intent.putExtra(EXTRA_STATUS,status);
   context.startActivity(intent);
   break;
 }
-case MENU_REPLY:
+case R.id.reply:
 {
 final Intent intent=new Intent(INTENT_ACTION_REPLY);
 intent.putExtra(EXTRA_STATUS,status);
 context.startActivity(intent);
 break;
 }
-case MENU_FAVORITE:
+case R.id.favorite:
 {
 if (status.is_favorite) {
 twitter.destroyFavoriteAsync(status.account_id,status.id);
@@ -42,17 +42,17 @@ twitter.createFavoriteAsync(status.account_id,status.id);
 }
 break;
 }
-case MENU_DELETE:
+case R.id.delete:
 {
 DestroyStatusDialogFragment.show(fm,status);
 break;
 }
-case MENU_ADD_TO_FILTER:
+case R.id.add_to_filter:
 {
 AddStatusFilterDialogFragment.show(fm,status);
 break;
 }
-case MENU_SET_COLOR:
+case R.id.set_color:
 {
 final Intent intent=new Intent(context,ColorPickerDialogActivity.class);
 final int color=colorNameManager.getUserColor(status.user_id,true);
@@ -69,18 +69,18 @@ fragment.startActivityForResult(intent,REQUEST_SET_COLOR);
 }
 break;
 }
-case MENU_CLEAR_NICKNAME:
+case R.id.clear_nickname:
 {
 colorNameManager.clearUserNickname(status.user_id);
 break;
 }
-case MENU_SET_NICKNAME:
+case R.id.set_nickname:
 {
 final String nick=colorNameManager.getUserNickname(status.user_id,true);
 SetUserNicknameDialogFragment.show(fm,status.user_id,nick);
 break;
 }
-case MENU_TRANSLATE:
+case R.id.translate:
 {
 final ParcelableCredentials account=ParcelableAccount.getCredentials(context,status.account_id);
 if (isOfficialCredentials(context,account)) {
@@ -104,7 +104,7 @@ context.startActivity(intent);
 }
 break;
 }
-case MENU_OPEN_WITH_ACCOUNT:
+case R.id.open_with_account:
 {
 final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
 intent.setClass(context,AccountSelectorActivity.class);

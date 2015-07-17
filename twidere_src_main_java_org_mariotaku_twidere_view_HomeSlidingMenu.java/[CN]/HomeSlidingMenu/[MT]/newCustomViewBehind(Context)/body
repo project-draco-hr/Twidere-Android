@@ -1,4 +1,0 @@
-{
-  if (isInEditMode())   return super.newCustomViewBehind(context);
-  return new MyCustomViewBehind(context,this);
-}

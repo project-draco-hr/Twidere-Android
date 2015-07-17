@@ -72,10 +72,6 @@
 switch (keyCode) {
 case KeyEvent.KEYCODE_MENU:
 {
-          if (mSlidingMenu != null) {
-            mSlidingMenu.toggle(true);
-            return true;
-          }
           break;
         }
     }

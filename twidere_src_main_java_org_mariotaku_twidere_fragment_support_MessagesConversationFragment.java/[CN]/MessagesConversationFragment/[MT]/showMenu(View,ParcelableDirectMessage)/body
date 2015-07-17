@@ -6,7 +6,7 @@
   mPopupMenu=new PopupMenu(context,view);
   mPopupMenu.inflate(R.menu.action_direct_message);
   final Menu menu=mPopupMenu.getMenu();
-  final MenuItem view_profile_item=menu.findItem(MENU_VIEW_PROFILE);
+  final MenuItem view_profile_item=menu.findItem(R.id.view_profile);
   if (view_profile_item != null && dm != null) {
     view_profile_item.setVisible(dm.account_id != dm.sender_id);
   }

@@ -1,0 +1,4 @@
+{
+  wrapped=new ScheduledStatusesListImpl();
+  wrapped.addAll(list);
+}

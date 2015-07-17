@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_DELETE:
+case R.id.delete:
 {
       final DeleteDraftsConfirmDialogFragment f=new DeleteDraftsConfirmDialogFragment();
       final Bundle args=new Bundle();
@@ -9,7 +9,7 @@ case MENU_DELETE:
       f.show(getChildFragmentManager(),"delete_drafts_confirm");
       break;
     }
-case MENU_SEND:
+case R.id.send:
 {
     final Cursor c=mAdapter.getCursor();
     if (c == null || c.isClosed())     return false;

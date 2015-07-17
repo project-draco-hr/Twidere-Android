@@ -1,0 +1,8 @@
+{
+  for (  ParcelableCredentials account : mAccountsAdapter.getSelectedAccounts()) {
+    if (TwitterContentUtils.getOfficialKeyType(this,account.consumer_key,account.consumer_secret) != ConsumerKeyType.TWEETDECK) {
+      return false;
+    }
+  }
+  return true;
+}

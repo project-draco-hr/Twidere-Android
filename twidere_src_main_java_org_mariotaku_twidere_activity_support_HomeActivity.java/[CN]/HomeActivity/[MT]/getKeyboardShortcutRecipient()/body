@@ -1,8 +1,8 @@
 {
-  if (mSlidingMenu.isMenuShowing()) {
+  if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
     return getLeftDrawerFragment();
   }
- else   if (mSlidingMenu.isSecondaryMenuShowing()) {
+ else   if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
     return null;
   }
  else {

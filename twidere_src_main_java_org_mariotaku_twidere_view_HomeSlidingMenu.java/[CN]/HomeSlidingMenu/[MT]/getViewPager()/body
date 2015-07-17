@@ -1,6 +1,0 @@
-{
-  if (isInEditMode())   return null;
-  final HomeActivity activity=(HomeActivity)getContext();
-  if (activity == null)   return null;
-  return activity.getViewPager();
-}

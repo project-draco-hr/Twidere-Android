@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_SAVE:
+case R.id.save:
 {
       final AsyncTwitterWrapper twitter=getTwitterWrapper();
       final Bundle args=getArguments();
@@ -9,7 +9,7 @@ case MENU_SAVE:
       }
       return true;
     }
-case MENU_COMPOSE:
+case R.id.compose:
 {
     final Intent intent=new Intent(getActivity(),ComposeActivity.class);
     intent.setAction(INTENT_ACTION_COMPOSE);

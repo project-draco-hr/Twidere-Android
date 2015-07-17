@@ -7,7 +7,7 @@
   final AsyncTwitterWrapper twitter=fragment.getTwitterWrapper();
   final FragmentActivity activity=fragment.getActivity();
   final FragmentManager fm=fragment.getFragmentManager();
-  if (item.getItemId() == MENU_RETWEET) {
+  if (item.getItemId() == R.id.retweet) {
     RetweetQuoteDialogFragment.show(fm,status);
     return true;
   }

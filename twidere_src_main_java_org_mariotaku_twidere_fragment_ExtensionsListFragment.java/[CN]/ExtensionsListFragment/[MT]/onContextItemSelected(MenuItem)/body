@@ -2,17 +2,17 @@
   final AdapterContextMenuInfo adapterMenuInfo=(AdapterContextMenuInfo)item.getMenuInfo();
   final ExtensionInfo extensionInfo=mAdapter.getItem(adapterMenuInfo.position);
 switch (item.getItemId()) {
-case MENU_SETTINGS:
+case R.id.settings:
 {
       openSettings(extensionInfo);
       break;
     }
-case MENU_DELETE:
+case R.id.delete:
 {
     uninstallExtension(extensionInfo);
     break;
   }
-case MENU_REVOKE:
+case R.id.revoke:
 {
   mPermissionsManager.revoke(extensionInfo.pname);
   mAdapter.notifyDataSetChanged();

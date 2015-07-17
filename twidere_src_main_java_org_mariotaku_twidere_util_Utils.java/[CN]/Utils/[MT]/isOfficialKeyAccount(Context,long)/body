@@ -1,13 +1,3 @@
 {
-  if (context == null)   return false;
-  final String[] projection={Accounts.CONSUMER_KEY,Accounts.CONSUMER_SECRET};
-  final String selection=Expression.equals(Accounts.ACCOUNT_ID,accountId).getSQL();
-  final Cursor c=context.getContentResolver().query(Accounts.CONTENT_URI,projection,selection,null,null);
-  try {
-    if (c.moveToPosition(0))     return TwitterContentUtils.isOfficialKey(context,c.getString(0),c.getString(1));
-  }
-  finally {
-    c.close();
-  }
-  return false;
+  return getOfficialKeyType(context,accountId) != ConsumerKeyType.UNKNOWN;
 }

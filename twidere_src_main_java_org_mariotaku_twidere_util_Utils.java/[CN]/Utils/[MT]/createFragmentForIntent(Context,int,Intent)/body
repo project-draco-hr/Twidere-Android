@@ -159,6 +159,11 @@ case LINK_ID_MUTES_USERS:
 fragment=new MutesUsersListFragment();
 break;
 }
+case LINK_ID_SCHEDULED_STATUSES:
+{
+fragment=new ScheduledStatusesFragment();
+break;
+}
 case LINK_ID_DIRECT_MESSAGES_CONVERSATION:
 {
 fragment=new MessagesConversationFragment();

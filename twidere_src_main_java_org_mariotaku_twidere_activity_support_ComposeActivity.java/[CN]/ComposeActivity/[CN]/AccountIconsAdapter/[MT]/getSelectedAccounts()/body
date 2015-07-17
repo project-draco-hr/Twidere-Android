@@ -1,13 +1,13 @@
 {
-  if (mAccounts == null)   return new ParcelableAccount[0];
-  final ParcelableAccount[] temp=new ParcelableAccount[mAccounts.length];
+  if (mAccounts == null)   return new ParcelableCredentials[0];
+  final ParcelableCredentials[] temp=new ParcelableCredentials[mAccounts.length];
   int selectedCount=0;
-  for (  ParcelableAccount account : mAccounts) {
+  for (  ParcelableCredentials account : mAccounts) {
     if (mSelection.get(account.account_id,false)) {
       temp[selectedCount++]=account;
     }
   }
-  final ParcelableAccount[] result=new ParcelableAccount[selectedCount];
+  final ParcelableCredentials[] result=new ParcelableCredentials[selectedCount];
   System.arraycopy(temp,0,result,0,result.length);
   return result;
 }

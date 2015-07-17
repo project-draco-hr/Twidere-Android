@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_ADD:
+case R.id.add:
 {
       final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
       intent.setClass(getActivity(),UserListSelectorActivity.class);

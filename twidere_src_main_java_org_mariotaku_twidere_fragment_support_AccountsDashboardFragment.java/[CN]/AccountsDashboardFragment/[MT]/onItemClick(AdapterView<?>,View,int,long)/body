@@ -6,7 +6,7 @@
     if (account == null || !(item instanceof OptionItem))     return;
     final OptionItem option=(OptionItem)item;
 switch (option.id) {
-case MENU_SEARCH:
+case R.id.search:
 {
         final Intent intent=new Intent(getActivity(),QuickSearchBarActivity.class);
         intent.putExtra(EXTRA_ACCOUNT_ID,account.account_id);
@@ -14,7 +14,7 @@ case MENU_SEARCH:
         closeAccountsDrawer();
         break;
       }
-case MENU_COMPOSE:
+case R.id.compose:
 {
       final Intent composeIntent=new Intent(INTENT_ACTION_COMPOSE);
       composeIntent.setClass(getActivity(),ComposeActivity.class);
@@ -22,17 +22,17 @@ case MENU_COMPOSE:
       startActivity(composeIntent);
       break;
     }
-case MENU_FAVORITES:
+case R.id.favorites:
 {
     openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
     break;
   }
-case MENU_LISTS:
+case R.id.lists:
 {
   openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
   break;
 }
-case MENU_EDIT:
+case R.id.edit:
 {
 Utils.openProfileEditor(getActivity(),account.account_id);
 break;
@@ -43,22 +43,22 @@ break;
 if (!(item instanceof OptionItem)) return;
 final OptionItem option=(OptionItem)item;
 switch (option.id) {
-case MENU_ACCOUNTS:
+case R.id.accounts:
 {
 Utils.openAccountsManager(getActivity());
 break;
 }
-case MENU_DRAFTS:
+case R.id.drafts:
 {
 Utils.openDrafts(getActivity());
 break;
 }
-case MENU_FILTERS:
+case R.id.filters:
 {
 Utils.openFilters(getActivity());
 break;
 }
-case MENU_SETTINGS:
+case R.id.settings:
 {
 final Intent intent=new Intent(getActivity(),SettingsActivity.class);
 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

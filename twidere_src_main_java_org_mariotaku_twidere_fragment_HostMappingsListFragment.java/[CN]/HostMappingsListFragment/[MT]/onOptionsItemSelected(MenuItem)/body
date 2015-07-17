@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_ADD:
+case R.id.add:
     final DialogFragment df=new AddMappingDialogFragment();
   df.show(getFragmentManager(),"add_mapping");
 break;

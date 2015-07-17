@@ -2,17 +2,18 @@
   if (mMenuBar == null)   return;
   final Menu menu=mMenuBar.getMenu();
   final boolean hasMedia=hasMedia(), hasInReplyTo=mInReplyToStatus != null;
-  MenuUtils.setMenuItemAvailability(menu,MENU_TAKE_PHOTO,!hasInReplyTo);
+  MenuUtils.setMenuItemAvailability(menu,R.id.take_photo,!hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.take_photo_sub_item,hasInReplyTo);
-  MenuUtils.setMenuItemAvailability(menu,MENU_ADD_IMAGE,!hasMedia && !hasInReplyTo);
-  MenuUtils.setMenuItemAvailability(menu,MENU_VIEW,hasInReplyTo);
+  MenuUtils.setMenuItemAvailability(menu,R.id.add_image,!hasMedia && !hasInReplyTo);
+  MenuUtils.setMenuItemAvailability(menu,R.id.view,hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.media_menu,hasMedia || hasInReplyTo);
-  MenuUtils.setMenuItemAvailability(menu,MENU_TOGGLE_SENSITIVE,hasMedia);
-  MenuUtils.setMenuItemAvailability(menu,MENU_EDIT_MEDIA,hasMedia);
+  MenuUtils.setMenuItemAvailability(menu,R.id.toggle_sensitive,hasMedia);
+  MenuUtils.setMenuItemAvailability(menu,R.id.edit_media,hasMedia);
   MenuUtils.setMenuItemAvailability(menu,R.id.link_to_quoted_status,isQuote());
+  MenuUtils.setMenuItemAvailability(menu,R.id.schedule,isScheduleSupported());
   menu.setGroupEnabled(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
   menu.setGroupVisible(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
-  MenuUtils.setMenuItemChecked(menu,MENU_TOGGLE_SENSITIVE,hasMedia && mIsPossiblySensitive);
+  MenuUtils.setMenuItemChecked(menu,R.id.toggle_sensitive,hasMedia && mIsPossiblySensitive);
   MenuUtils.setMenuItemChecked(menu,R.id.link_to_quoted_status,mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET));
   ThemeUtils.resetCheatSheet(mMenuBar);
 }

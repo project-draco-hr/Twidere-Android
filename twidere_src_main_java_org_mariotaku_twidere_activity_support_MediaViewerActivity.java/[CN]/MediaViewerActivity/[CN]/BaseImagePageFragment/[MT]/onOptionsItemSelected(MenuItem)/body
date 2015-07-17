@@ -1,16 +1,16 @@
 {
 switch (item.getItemId()) {
-case MENU_OPEN_IN_BROWSER:
+case R.id.open_in_browser:
 {
       openInBrowser();
       return true;
     }
-case MENU_SAVE:
+case R.id.save:
 {
     saveToGallery();
     return true;
   }
-case MENU_REFRESH:
+case R.id.refresh:
 {
   loadImage();
   return true;

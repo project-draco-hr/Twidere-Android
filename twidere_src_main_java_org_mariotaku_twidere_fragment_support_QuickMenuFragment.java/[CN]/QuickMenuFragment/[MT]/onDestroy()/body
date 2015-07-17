@@ -1,6 +1,0 @@
-{
-  super.onDestroy();
-  final SharedPreferences.Editor editor=mPreferences.edit();
-  editor.putBoolean(KEY_QUICK_MENU_EXPANDED,mSlidingUpPanel.getPanelState() == PanelState.EXPANDED);
-  editor.apply();
-}

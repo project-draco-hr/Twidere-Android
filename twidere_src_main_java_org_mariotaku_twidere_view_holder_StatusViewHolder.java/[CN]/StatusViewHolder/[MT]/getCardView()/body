@@ -1,3 +1,0 @@
-{
-  return (CardView)itemView.findViewById(R.id.card);
-}

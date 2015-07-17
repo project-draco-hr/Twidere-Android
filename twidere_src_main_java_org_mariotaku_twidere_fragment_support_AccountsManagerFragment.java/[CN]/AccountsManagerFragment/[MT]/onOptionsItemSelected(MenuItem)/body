@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_ADD_ACCOUNT:
+case R.id.add_account:
 {
       final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
       intent.setClass(getActivity(),SignInActivity.class);

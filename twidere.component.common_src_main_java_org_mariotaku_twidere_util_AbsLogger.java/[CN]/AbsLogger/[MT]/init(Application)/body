@@ -1,0 +1,4 @@
+{
+  if (sImplementation == null)   return;
+  sImplementation.initImpl(application);
+}

@@ -1,7 +1,0 @@
-{
-  if (mThemedContext != null)   return mThemedContext;
-  final Context context=getActivity();
-  final int currentThemeResource=ThemeUtils.getNoActionBarThemeResource(context);
-  final int themeResource=ThemeUtils.getDrawerThemeResource(currentThemeResource);
-  return mThemedContext=new ContextThemeWrapper(context,themeResource);
-}

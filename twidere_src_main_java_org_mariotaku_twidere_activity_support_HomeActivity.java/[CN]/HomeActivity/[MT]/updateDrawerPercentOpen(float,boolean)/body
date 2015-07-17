@@ -1,4 +1,0 @@
-{
-  if (mLeftDrawerContainer == null)   return;
-  mLeftDrawerContainer.setPercentOpen(percentOpen);
-}

@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_DELETE:
+case R.id.delete:
 {
       final long[] itemIds=mListView.getCheckedItemIds();
       final Expression where=Expression.in(new Column(Tabs._ID),new RawItemArray(itemIds));

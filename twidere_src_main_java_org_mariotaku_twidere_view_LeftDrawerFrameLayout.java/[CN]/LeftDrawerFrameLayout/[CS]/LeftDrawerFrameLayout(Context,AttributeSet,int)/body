@@ -1,6 +1,4 @@
 {
   super(context,attrs,defStyle);
   ThemeUtils.setupDrawerBackground(context,this);
-  setWillNotDraw(false);
-  mClipPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
 }

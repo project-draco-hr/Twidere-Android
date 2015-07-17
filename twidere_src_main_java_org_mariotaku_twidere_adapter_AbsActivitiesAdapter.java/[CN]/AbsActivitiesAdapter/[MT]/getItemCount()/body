@@ -1,3 +1,3 @@
 {
-  return getActivityCount() + (mLoadMoreIndicatorVisible ? 1 : 0);
+  return getActivityCount() + (isLoadMoreIndicatorVisible() ? 1 : 0);
 }

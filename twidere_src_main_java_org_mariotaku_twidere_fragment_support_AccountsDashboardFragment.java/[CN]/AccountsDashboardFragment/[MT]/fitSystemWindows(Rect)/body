@@ -1,2 +1,4 @@
 {
+  mSystemWindowsInsets.set(insets);
+  updateSystemWindowsInsets();
 }

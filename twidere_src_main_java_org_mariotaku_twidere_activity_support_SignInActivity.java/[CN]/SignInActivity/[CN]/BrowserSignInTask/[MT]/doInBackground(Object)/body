@@ -1,12 +1,13 @@
 {
   try {
     final String versionSuffix=noVersionSuffix ? null : "1.1";
-    final Endpoint endpoint=new Endpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
+    Endpoint endpoint=new OAuthEndpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",null));
     final TwitterOAuth oauth=TwitterAPIFactory.getInstance(context,endpoint,new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret()),TwitterOAuth.class);
     final OAuthToken accessToken=oauth.getAccessToken(requestToken,oauthVerifier);
     final long userId=accessToken.getUserId();
     if (userId <= 0)     return new SignInResponse(false,false,null);
     final OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
+    endpoint=new OAuthEndpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
     final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);
     final User user=twitter.verifyCredentials();
     final int color=analyseUserProfileColor(user);

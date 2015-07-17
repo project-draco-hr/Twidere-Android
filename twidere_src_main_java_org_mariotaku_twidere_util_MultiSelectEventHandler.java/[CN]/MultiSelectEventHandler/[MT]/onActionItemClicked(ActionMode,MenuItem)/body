@@ -2,7 +2,7 @@
   final List<Object> selectedItems=mMultiSelectManager.getSelectedItems();
   if (selectedItems.isEmpty())   return false;
 switch (item.getItemId()) {
-case MENU_REPLY:
+case R.id.reply:
 {
       final Extractor extractor=new Extractor();
       final Intent intent=new Intent(INTENT_ACTION_REPLY_MULTIPLE);
@@ -34,7 +34,7 @@ case MENU_REPLY:
       mode.finish();
       break;
     }
-case MENU_MUTE_USER:
+case R.id.mute_user:
 {
     final ContentResolver resolver=mActivity.getContentResolver();
     final ArrayList<ContentValues> valuesList=new ArrayList<>();
@@ -58,7 +58,7 @@ case MENU_MUTE_USER:
     mActivity.sendBroadcast(new Intent(BROADCAST_MULTI_MUTESTATE_CHANGED));
     break;
   }
-case MENU_BLOCK:
+case R.id.block:
 {
   final long accountId=mMultiSelectManager.getAccountId();
   final long[] userIds=MultiSelectManager.getSelectedUserIds(selectedItems);
@@ -68,7 +68,7 @@ case MENU_BLOCK:
   mode.finish();
   break;
 }
-case MENU_REPORT_SPAM:
+case R.id.report_spam:
 {
 final long accountId=mMultiSelectManager.getAccountId();
 final long[] userIds=MultiSelectManager.getSelectedUserIds(selectedItems);

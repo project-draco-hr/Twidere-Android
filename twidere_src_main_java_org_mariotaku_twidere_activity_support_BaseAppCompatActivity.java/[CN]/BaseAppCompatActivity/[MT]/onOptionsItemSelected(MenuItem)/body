@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_BACK:
+case R.id.back:
 {
       onBackPressed();
       return true;

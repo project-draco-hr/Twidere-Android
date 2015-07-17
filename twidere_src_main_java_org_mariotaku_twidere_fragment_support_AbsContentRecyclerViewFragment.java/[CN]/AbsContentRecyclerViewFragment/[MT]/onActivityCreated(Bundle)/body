@@ -27,7 +27,7 @@
     mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
     mRecyclerView.addItemDecoration(mItemDecoration);
   }
-  mRecyclerView.setAdapter((RecyclerView.Adapter)mAdapter);
+  mRecyclerView.setAdapter(mAdapter);
   mScrollListener=new ContentListScrollListener(this);
   mScrollListener.setTouchSlop(ViewConfiguration.get(context).getScaledTouchSlop());
 }

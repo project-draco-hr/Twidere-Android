@@ -1,0 +1,26 @@
+{
+  final ContentValues values;
+switch (authType) {
+case ParcelableCredentials.AUTH_TYPE_BASIC:
+{
+      values=createAccount(basicUsername,basicPassword,user,color,apiUrlFormat,noVersionSuffix);
+      break;
+    }
+case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
+{
+    values=ContentValuesCreator.createAccount(user,color,apiUrlFormat,noVersionSuffix);
+    break;
+  }
+case ParcelableCredentials.AUTH_TYPE_OAUTH:
+case ParcelableCredentials.AUTH_TYPE_XAUTH:
+{
+  values=ContentValuesCreator.createAccount(oauth,user,authType,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix);
+  break;
+}
+default :
+{
+values=null;
+}
+}
+return values;
+}

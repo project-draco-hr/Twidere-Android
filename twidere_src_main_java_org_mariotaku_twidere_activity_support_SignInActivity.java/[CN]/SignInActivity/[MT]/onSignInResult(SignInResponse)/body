@@ -5,8 +5,18 @@
     ((DialogFragment)f).dismiss();
   }
   if (result != null) {
-    if (result.succeed) {
-      insertAccount(result);
+    if (result.alreadyLoggedIn) {
+      final ContentValues values=result.toContentValues();
+      if (values != null) {
+        mResolver.update(Accounts.CONTENT_URI,values,Expression.equals(Accounts.ACCOUNT_ID,result.user.getId()).getSQL(),null);
+      }
+      Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
+    }
+ else     if (result.succeed) {
+      final ContentValues values=result.toContentValues();
+      if (values != null) {
+        mResolver.insert(Accounts.CONTENT_URI,values);
+      }
       final long loggedId=result.user.getId();
       final Intent intent=new Intent(this,HomeActivity.class);
       intent.putExtra(EXTRA_REFRESH_IDS,new long[]{loggedId});
@@ -14,11 +24,8 @@
       startActivity(intent);
       finish();
     }
- else     if (result.alreadyLoggedIn) {
-      Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
-    }
  else {
-      ErrorLogger.exception(result.exception);
+      AbsLogger.error(result.exception);
       if (result.exception instanceof AuthenticityTokenException) {
         Toast.makeText(this,R.string.wrong_api_key,Toast.LENGTH_SHORT).show();
       }

@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_DELETE:
+case R.id.delete:
 {
       final SharedPreferences.Editor editor=mPreferences.edit();
       final SparseBooleanArray array=mListView.getCheckedItemPositions();

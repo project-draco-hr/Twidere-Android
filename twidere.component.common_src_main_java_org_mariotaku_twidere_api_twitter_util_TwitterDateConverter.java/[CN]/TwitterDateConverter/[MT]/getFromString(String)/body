@@ -1,0 +1,15 @@
+{
+  final Date date;
+  try {
+    date=mDateFormat.parse(string);
+  }
+ catch (  ParseException e) {
+    AbsLogger.error("Unrecognized date: " + string,e);
+    return null;
+  }
+  final long currentTime=System.currentTimeMillis();
+  if (date.getTime() - currentTime > ONE_MINUTE) {
+    AbsLogger.error("Tweet date from future: " + string + ", current time is "+ currentTime);
+  }
+  return date;
+}

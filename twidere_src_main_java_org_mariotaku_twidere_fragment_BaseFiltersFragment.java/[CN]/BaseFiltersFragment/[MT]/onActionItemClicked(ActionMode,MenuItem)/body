@@ -1,13 +1,13 @@
 {
   final ListView listView=getListView();
 switch (item.getItemId()) {
-case MENU_DELETE:
+case R.id.delete:
 {
       final Expression where=Expression.in(new Column(Filters._ID),new RawItemArray(listView.getCheckedItemIds()));
       mResolver.delete(getContentUri(),where.getSQL(),null);
       break;
     }
-case MENU_INVERSE_SELECTION:
+case R.id.inverse_selection:
 {
     final SparseBooleanArray positions=listView.getCheckedItemPositions();
     for (int i=0, j=listView.getCount(); i < j; i++) {

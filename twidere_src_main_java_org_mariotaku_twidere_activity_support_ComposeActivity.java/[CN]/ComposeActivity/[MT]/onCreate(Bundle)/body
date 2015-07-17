@@ -53,7 +53,7 @@
 );
   mAccountsAdapter=new AccountIconsAdapter(this);
   mAccountSelector.setAdapter(mAccountsAdapter);
-  mAccountsAdapter.setAccounts(ParcelableAccount.getAccounts(this,false,false));
+  mAccountsAdapter.setAccounts(ParcelableCredentials.getCredentialsArray(this,false,false));
   mMediaPreviewAdapter=new MediaPreviewAdapter(this);
   mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
   final Intent intent=getIntent();

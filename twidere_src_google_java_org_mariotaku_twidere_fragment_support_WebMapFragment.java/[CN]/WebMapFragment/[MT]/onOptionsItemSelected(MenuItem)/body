@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_CENTER:
+case R.id.center:
 {
       center();
       break;

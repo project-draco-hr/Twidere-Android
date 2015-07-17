@@ -1,6 +1,6 @@
 {
   final Menu menu=mAccountsToggleMenu.getMenu();
-  mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(MENU_SELECT_ACCOUNT));
+  mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(R.id.select_account));
   final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(data);
   if (accounts.length > 0) {
     mNoAccountContainer.setVisibility(View.GONE);

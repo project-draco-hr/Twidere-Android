@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_ADD:
+case R.id.add:
 {
       final Bundle args=new Bundle();
       args.putParcelable(EXTRA_URI,getContentUri());

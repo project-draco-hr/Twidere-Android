@@ -1,6 +1,7 @@
 {
   final Uri uri=intent.getData();
   if (uri == null)   return;
+  mNotificationManager.cancel(uri.toString(),NOTIFICATION_ID_DRAFTS);
   final long draftId=ParseUtils.parseLong(uri.getLastPathSegment(),-1);
   if (draftId == -1)   return;
   final Expression where=Expression.equals(Drafts._ID,draftId);

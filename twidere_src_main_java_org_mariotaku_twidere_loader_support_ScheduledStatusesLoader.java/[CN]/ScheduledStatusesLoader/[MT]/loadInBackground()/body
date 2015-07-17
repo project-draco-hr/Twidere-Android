@@ -1,0 +1,16 @@
+{
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true);
+  final Paging paging=new Paging();
+  if (mSinceId > 0) {
+    paging.setSinceId(mSinceId);
+  }
+  if (mMaxId > 0) {
+    paging.setMaxId(mMaxId);
+  }
+  try {
+    return twitter.getScheduledStatusesList(paging,mStates);
+  }
+ catch (  TwitterException e) {
+    return null;
+  }
+}

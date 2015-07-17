@@ -4,7 +4,7 @@
   final Relationship relationship=mRelationship;
   if (user == null || twitter == null)   return false;
 switch (item.getItemId()) {
-case MENU_BLOCK:
+case R.id.block:
 {
       if (mRelationship != null) {
         if (mRelationship.isSourceBlockingTarget()) {
@@ -16,12 +16,12 @@ case MENU_BLOCK:
       }
       break;
     }
-case MENU_REPORT_SPAM:
+case R.id.report_spam:
 {
     ReportSpamDialogFragment.show(getFragmentManager(),user);
     break;
   }
-case MENU_ADD_TO_FILTER:
+case R.id.add_to_filter:
 {
   final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
   final ContentResolver cr=getContentResolver();
@@ -36,7 +36,7 @@ case MENU_ADD_TO_FILTER:
   }
   break;
 }
-case MENU_MUTE_USER:
+case R.id.mute_user:
 {
 if (mRelationship != null) {
   if (mRelationship.isSourceMutingTarget()) {
@@ -48,7 +48,7 @@ if (mRelationship != null) {
 }
 break;
 }
-case MENU_MENTION:
+case R.id.mention:
 {
 final Intent intent=new Intent(INTENT_ACTION_MENTION);
 final Bundle bundle=new Bundle();
@@ -57,7 +57,7 @@ intent.putExtras(bundle);
 startActivity(intent);
 break;
 }
-case MENU_SEND_DIRECT_MESSAGE:
+case R.id.send_direct_message:
 {
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
@@ -70,7 +70,7 @@ intent.putExtra(EXTRA_USER,user);
 startActivity(intent);
 break;
 }
-case MENU_SET_COLOR:
+case R.id.set_color:
 {
 final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
 intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.id,true));
@@ -79,19 +79,19 @@ intent.putExtra(EXTRA_CLEAR_BUTTON,true);
 startActivityForResult(intent,REQUEST_SET_COLOR);
 break;
 }
-case MENU_CLEAR_NICKNAME:
+case R.id.clear_nickname:
 {
 final UserColorNameManager manager=UserColorNameManager.getInstance(getActivity());
 manager.clearUserNickname(user.id);
 break;
 }
-case MENU_SET_NICKNAME:
+case R.id.set_nickname:
 {
 final String nick=mUserColorNameManager.getUserNickname(user.id,true);
 SetUserNicknameDialogFragment.show(getFragmentManager(),user.id,nick);
 break;
 }
-case MENU_ADD_TO_LIST:
+case R.id.add_to_list:
 {
 final Intent intent=new Intent(INTENT_ACTION_SELECT_USER_LIST);
 intent.setClass(getActivity(),UserListSelectorActivity.class);
@@ -100,7 +100,7 @@ intent.putExtra(EXTRA_SCREEN_NAME,Utils.getAccountScreenName(getActivity(),user.
 startActivityForResult(intent,REQUEST_ADD_TO_LIST);
 break;
 }
-case MENU_OPEN_WITH_ACCOUNT:
+case R.id.open_with_account:
 {
 final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
 intent.setClass(getActivity(),AccountSelectorActivity.class);
@@ -108,7 +108,7 @@ intent.putExtra(EXTRA_SINGLE_SELECTION,true);
 startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 break;
 }
-case MENU_FOLLOW:
+case R.id.follow:
 {
 if (relationship == null) return false;
 final boolean isFollowing=relationship.isSourceFollowingTarget();
@@ -124,7 +124,7 @@ twitter.createFriendshipAsync(user.account_id,user.id);
 }
 return true;
 }
-case MENU_ENABLE_RETWEETS:
+case R.id.enable_retweets:
 {
 final boolean newState=!item.isChecked();
 final FriendshipUpdate update=new FriendshipUpdate();
@@ -156,6 +156,11 @@ return true;
 case R.id.saved_searches:
 {
 Utils.openSavedSearches(getActivity(),user.account_id);
+return true;
+}
+case R.id.scheduled_statuses:
+{
+Utils.openScheduledStatuses(getActivity(),user.account_id);
 return true;
 }
 default :

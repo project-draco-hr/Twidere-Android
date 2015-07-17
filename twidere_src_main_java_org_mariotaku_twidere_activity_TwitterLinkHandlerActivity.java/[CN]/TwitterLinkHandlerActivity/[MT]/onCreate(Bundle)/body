@@ -14,7 +14,7 @@
     startActivity(handledIntent);
   }
  else {
-    ErrorLogger.exception(new TwitterLinkException("Unable to handle twitter uri " + uri));
+    AbsLogger.error(new TwitterLinkException("Unable to handle twitter uri " + uri));
     final String packageName=mPreferences.getString(KEY_FALLBACK_TWITTER_LINK_HANDLER,null);
     final Intent fallbackIntent=new Intent(Intent.ACTION_VIEW,uri);
     fallbackIntent.setPackage(packageName);

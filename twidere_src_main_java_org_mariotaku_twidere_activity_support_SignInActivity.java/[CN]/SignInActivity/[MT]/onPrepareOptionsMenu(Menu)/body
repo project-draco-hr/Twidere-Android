@@ -1,5 +1,5 @@
 {
-  final MenuItem itemBrowser=menu.findItem(MENU_OPEN_IN_BROWSER);
+  final MenuItem itemBrowser=menu.findItem(R.id.open_in_browser);
   if (itemBrowser != null) {
     final boolean is_oauth=mAuthType == ParcelableCredentials.AUTH_TYPE_OAUTH;
     itemBrowser.setVisible(is_oauth);

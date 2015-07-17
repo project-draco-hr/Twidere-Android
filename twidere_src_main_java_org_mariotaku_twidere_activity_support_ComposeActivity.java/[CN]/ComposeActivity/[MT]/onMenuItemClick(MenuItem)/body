@@ -1,33 +1,33 @@
 {
 switch (item.getItemId()) {
-case MENU_TAKE_PHOTO:
+case R.id.take_photo:
 case R.id.take_photo_sub_item:
 {
       takePhoto();
       break;
     }
-case MENU_ADD_IMAGE:
+case R.id.add_image:
 case R.id.add_image_sub_item:
 {
     pickImage();
     break;
   }
-case MENU_ADD_LOCATION:
+case R.id.add_location:
 {
   toggleLocation();
   break;
 }
-case MENU_DRAFTS:
+case R.id.drafts:
 {
 Utils.openDrafts(this);
 break;
 }
-case MENU_DELETE:
+case R.id.delete:
 {
 AsyncTaskUtils.executeTask(new DeleteImageTask(this));
 break;
 }
-case MENU_TOGGLE_SENSITIVE:
+case R.id.toggle_sensitive:
 {
 if (!hasMedia()) return false;
 mIsPossiblySensitive=!mIsPossiblySensitive;
@@ -35,7 +35,7 @@ setMenu();
 updateTextCount();
 break;
 }
-case MENU_VIEW:
+case R.id.view:
 {
 if (mInReplyToStatus == null) return false;
 final DialogFragment fragment=new ViewStatusDialogFragment();

@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_SAVE:
+case R.id.save:
 {
       final String name=ParseUtils.parseString(mEditName.getText());
       final String url=ParseUtils.parseString(mEditUrl.getText());

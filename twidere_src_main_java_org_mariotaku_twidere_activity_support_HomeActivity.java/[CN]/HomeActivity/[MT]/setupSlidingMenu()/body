@@ -1,30 +1,3 @@
 {
-  if (mSlidingMenu == null)   return;
-  final Resources res=getResources();
-  final int marginThreshold=res.getDimensionPixelSize(R.dimen.default_sliding_menu_margin_threshold);
-  final boolean relativeBehindWidth=res.getBoolean(R.bool.relative_behind_width);
-  mSlidingMenu.setMode(SlidingMenu.LEFT);
-  mSlidingMenu.setShadowWidthRes(R.dimen.default_sliding_menu_shadow_width);
-  mSlidingMenu.setShadowDrawable(R.drawable.shadow_left);
-  mSlidingMenu.setSecondaryShadowDrawable(R.drawable.shadow_right);
-  if (relativeBehindWidth) {
-    mSlidingMenu.setBehindOffsetRes(R.dimen.drawer_offset_home);
-  }
- else {
-    mSlidingMenu.setBehindWidthRes(R.dimen.drawer_width_home);
-  }
-  mSlidingMenu.setTouchmodeMarginThreshold(marginThreshold);
-  mSlidingMenu.setFadeDegree(0.5f);
-  mSlidingMenu.setMenu(R.layout.drawer_home_accounts);
-  mSlidingMenu.setOnOpenedListener(this);
-  mSlidingMenu.setOnClosedListener(this);
-  mLeftDrawerContainer=(LeftDrawerFrameLayout)mSlidingMenu.getMenu().findViewById(R.id.left_drawer_container);
-  final boolean isTransparentBackground=ThemeUtils.isTransparentBackground(getCurrentThemeBackgroundOption());
-  mLeftDrawerContainer.setClipEnabled(isTransparentBackground);
-  mLeftDrawerContainer.setScrollScale(mSlidingMenu.getBehindScrollScale());
-  mSlidingMenu.setBehindCanvasTransformer(new ListenerCanvasTransformer(this));
-  final Window window=getWindow();
-  ThemeUtils.applyWindowBackground(this,mSlidingMenu.getContent(),getCurrentThemeResourceId(),getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());
-  window.setBackgroundDrawable(new EmptyDrawable());
-  mSlidingMenu.addIgnoredView(mActionBarContainer);
+  mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow_left,GravityCompat.START);
 }

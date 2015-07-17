@@ -1,15 +1,15 @@
 {
   final ParcelableUserList userList=mUserList;
-  setMenuItemAvailability(menu,MENU_INFO,userList != null);
+  setMenuItemAvailability(menu,R.id.info,userList != null);
   menu.removeGroup(MENU_GROUP_USER_LIST_EXTENSION);
   if (userList != null) {
     final boolean isMyList=userList.user_id == userList.account_id;
     final boolean isFollowing=userList.is_following;
-    setMenuItemAvailability(menu,MENU_EDIT,isMyList);
-    setMenuItemAvailability(menu,MENU_FOLLOW,!isMyList);
-    setMenuItemAvailability(menu,MENU_ADD,isMyList);
-    setMenuItemAvailability(menu,MENU_DELETE,isMyList);
-    final MenuItem followItem=menu.findItem(MENU_FOLLOW);
+    setMenuItemAvailability(menu,R.id.edit,isMyList);
+    setMenuItemAvailability(menu,R.id.follow,!isMyList);
+    setMenuItemAvailability(menu,R.id.add,isMyList);
+    setMenuItemAvailability(menu,R.id.delete,isMyList);
+    final MenuItem followItem=menu.findItem(R.id.follow);
     if (isFollowing) {
       followItem.setIcon(R.drawable.ic_action_cancel);
       followItem.setTitle(R.string.unsubscribe);
@@ -24,9 +24,9 @@
     addIntentToMenu(getActivity(),menu,extensionsIntent,MENU_GROUP_USER_LIST_EXTENSION);
   }
  else {
-    setMenuItemAvailability(menu,MENU_EDIT,false);
-    setMenuItemAvailability(menu,MENU_FOLLOW,false);
-    setMenuItemAvailability(menu,MENU_ADD,false);
-    setMenuItemAvailability(menu,MENU_DELETE,false);
+    setMenuItemAvailability(menu,R.id.edit,false);
+    setMenuItemAvailability(menu,R.id.follow,false);
+    setMenuItemAvailability(menu,R.id.add,false);
+    setMenuItemAvailability(menu,R.id.delete,false);
   }
 }

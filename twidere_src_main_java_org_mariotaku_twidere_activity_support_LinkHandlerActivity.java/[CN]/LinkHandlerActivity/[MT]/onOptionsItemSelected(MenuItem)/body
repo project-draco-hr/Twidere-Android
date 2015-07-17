@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_HOME:
+case android.R.id.home:
 {
       if (mFinishOnly) {
         finish();

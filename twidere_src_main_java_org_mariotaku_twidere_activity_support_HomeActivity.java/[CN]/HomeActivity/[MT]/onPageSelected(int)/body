@@ -1,6 +1,6 @@
 {
-  if (mSlidingMenu.isMenuShowing()) {
-    mSlidingMenu.showContent();
+  if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+    mDrawerLayout.closeDrawers();
   }
   updateSlidingMenuTouchMode();
   updateActionsButton();

@@ -1,4 +1,4 @@
 {
-  ACRA.init(this);
-  ErrorLogger.setEnabled(BuildConfig.DEBUG);
+  AbsLogger.setImplementation(new TwidereLogger());
+  AbsLogger.init(this);
 }

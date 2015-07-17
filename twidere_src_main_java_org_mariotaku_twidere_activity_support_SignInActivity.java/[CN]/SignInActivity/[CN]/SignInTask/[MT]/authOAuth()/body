@@ -1,28 +1,12 @@
 {
-  String endpointUrl, signEndpointUrl;
-  endpointUrl=TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",null);
-  if (!sameOAuthSigningUrl) {
-    signEndpointUrl=TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",null);
-  }
- else {
-    signEndpointUrl=endpointUrl;
-  }
-  Endpoint endpoint=new OAuthEndpoint(endpointUrl,signEndpointUrl);
+  Endpoint endpoint=TwitterAPIFactory.getOAuthEndpoint(apiUrlFormat,sameOAuthSigningUrl);
   OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret());
   final TwitterOAuth oauth=TwitterAPIFactory.getInstance(context,endpoint,auth,TwitterOAuth.class);
   final OAuthPasswordAuthenticator authenticator=new OAuthPasswordAuthenticator(oauth);
   final OAuthToken accessToken=authenticator.getOAuthAccessToken(username,password);
   final long userId=accessToken.getUserId();
   if (userId <= 0)   return new SignInResponse(false,false,null);
-  final String versionSuffix=noVersionSuffix ? null : "1.1";
-  endpointUrl=TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix);
-  if (!sameOAuthSigningUrl) {
-    signEndpointUrl=TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",versionSuffix);
-  }
- else {
-    signEndpointUrl=endpointUrl;
-  }
-  endpoint=new OAuthEndpoint(endpointUrl,signEndpointUrl);
+  endpoint=TwitterAPIFactory.getRestEndpoint(apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix);
   auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
   final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);
   final User user=twitter.verifyCredentials();

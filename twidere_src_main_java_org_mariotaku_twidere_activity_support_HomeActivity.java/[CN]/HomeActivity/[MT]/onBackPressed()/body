@@ -1,6 +1,6 @@
 {
-  if (mSlidingMenu != null && mSlidingMenu.isMenuShowing()) {
-    mSlidingMenu.showContent();
+  if (mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+    mDrawerLayout.closeDrawers();
     return;
   }
   super.onBackPressed();

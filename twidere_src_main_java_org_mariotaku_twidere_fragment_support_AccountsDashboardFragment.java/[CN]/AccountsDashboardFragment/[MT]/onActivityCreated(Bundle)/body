@@ -55,4 +55,5 @@
   mListView.setOnItemClickListener(this);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   getLoaderManager().initLoader(0,null,this);
+  updateSystemWindowsInsets();
 }

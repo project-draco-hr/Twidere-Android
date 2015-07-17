@@ -1,4 +1,4 @@
 {
-  if (mSlidingMenu == null)   return;
-  mSlidingMenu.showMenu();
+  if (mDrawerLayout == null)   return;
+  mDrawerLayout.openDrawer(GravityCompat.START);
 }

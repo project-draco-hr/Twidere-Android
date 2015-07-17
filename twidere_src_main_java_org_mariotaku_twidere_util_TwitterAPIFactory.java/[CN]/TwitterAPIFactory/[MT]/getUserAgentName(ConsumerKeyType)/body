@@ -16,6 +16,10 @@ case TWITTER_FOR_MAC:
 {
 return "Twitter-Mac";
 }
+case TWEETDECK:
+{
+return "TweetDeck";
+}
 }
 return "Twitter";
 }

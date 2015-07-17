@@ -1,0 +1,4 @@
+{
+  final List<ParcelableCredentials> credentialsList=getCredentialsList(context,activatedOnly,officialKeyOnly);
+  return credentialsList.toArray(new ParcelableCredentials[credentialsList.size()]);
+}

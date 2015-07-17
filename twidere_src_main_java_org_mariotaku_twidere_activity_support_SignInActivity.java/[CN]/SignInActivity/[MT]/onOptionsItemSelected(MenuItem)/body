@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case MENU_HOME:
+case android.R.id.home:
 {
       final long[] account_ids=getActivatedAccountIds(this);
       if (account_ids.length > 0) {
@@ -8,14 +8,14 @@ case MENU_HOME:
       }
       break;
     }
-case MENU_SETTINGS:
+case R.id.settings:
 {
     if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)     return false;
     final Intent intent=new Intent(this,SettingsActivity.class);
     startActivity(intent);
     break;
   }
-case MENU_EDIT_API:
+case R.id.edit_api:
 {
   if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return false;
   setDefaultAPI();
@@ -29,7 +29,7 @@ case MENU_EDIT_API:
   startActivityForResult(intent,REQUEST_EDIT_API);
   break;
 }
-case MENU_OPEN_IN_BROWSER:
+case R.id.open_in_browser:
 {
 if (mAuthType != ParcelableCredentials.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
 saveEditedText();

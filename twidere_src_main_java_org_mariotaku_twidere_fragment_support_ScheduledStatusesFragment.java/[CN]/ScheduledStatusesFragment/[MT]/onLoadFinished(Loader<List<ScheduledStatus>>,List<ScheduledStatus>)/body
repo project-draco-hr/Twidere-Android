@@ -1,0 +1,4 @@
+{
+  getAdapter().setData(data);
+  showContent();
+}

@@ -5,13 +5,6 @@
 switch (action) {
 case ACTION_HOME_ACCOUNTS_DASHBOARD:
 {
-        if (mSlidingMenu.isMenuShowing()) {
-          mSlidingMenu.showContent(true);
-        }
- else {
-          mSlidingMenu.showMenu(true);
-          setControlBarVisibleAnimate(true);
-        }
         return true;
       }
   }
@@ -21,38 +14,10 @@ if (action != null) {
 switch (action) {
 case ACTION_NAVIGATION_PREVIOUS_TAB:
 {
-      final int previous=mViewPager.getCurrentItem() - 1;
-      final int mode=mSlidingMenu.getMode();
-      if (previous < 0 && (mode == SlidingMenu.LEFT || mode == SlidingMenu.LEFT_RIGHT)) {
-        mSlidingMenu.showMenu(true);
-        setControlBarVisibleAnimate(true);
-      }
- else       if (previous < mPagerAdapter.getCount()) {
-        if (mSlidingMenu.isSecondaryMenuShowing()) {
-          mSlidingMenu.showContent(true);
-        }
- else {
-          mViewPager.setCurrentItem(previous,true);
-        }
-      }
       return true;
     }
 case ACTION_NAVIGATION_NEXT_TAB:
 {
-    final int next=mViewPager.getCurrentItem() + 1;
-    final int mode=mSlidingMenu.getMode();
-    if (next >= mPagerAdapter.getCount() && (mode == SlidingMenu.RIGHT || mode == SlidingMenu.LEFT_RIGHT)) {
-      mSlidingMenu.showSecondaryMenu(true);
-      setControlBarVisibleAnimate(true);
-    }
- else     if (next >= 0) {
-      if (mSlidingMenu.isMenuShowing()) {
-        mSlidingMenu.showContent(true);
-      }
- else {
-        mViewPager.setCurrentItem(next,true);
-      }
-    }
     return true;
   }
 }

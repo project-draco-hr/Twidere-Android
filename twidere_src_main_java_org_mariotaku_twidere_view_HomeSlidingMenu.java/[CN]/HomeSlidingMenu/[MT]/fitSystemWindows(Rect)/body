@@ -1,6 +1,0 @@
-{
-  if (isInEditMode())   return false;
-  final HomeActivity activity=(HomeActivity)getContext();
-  activity.setSystemWindowInsets(insets);
-  return false;
-}

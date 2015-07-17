@@ -3,12 +3,12 @@
     final long message_id=mSelectedDirectMessage.id;
     final long account_id=mSelectedDirectMessage.account_id;
 switch (item.getItemId()) {
-case MENU_DELETE:
+case R.id.delete:
 {
         mTwitterWrapper.destroyDirectMessageAsync(account_id,message_id);
         break;
       }
-case MENU_COPY:
+case R.id.copy:
 {
       if (ClipboardUtils.setText(getActivity(),mSelectedDirectMessage.text_plain)) {
         showOkMessage(getActivity(),R.string.text_copied,false);
