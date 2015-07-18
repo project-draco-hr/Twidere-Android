@@ -37,7 +37,7 @@
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   int tabDisplayOptionInt=getTabDisplayOptionInt(this);
   mTabColumns=getResources().getInteger(R.integer.default_tab_columns);
-  mColorStatusFrameLayout.setOnFitSystemWindowsListener(this);
+  mHomeContent.setOnFitSystemWindowsListener(this);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,mTabColumns);
   mViewPager.setAdapter(mPagerAdapter);
   mTabIndicator.setViewPager(mViewPager);
@@ -72,6 +72,15 @@
 switch (keyCode) {
 case KeyEvent.KEYCODE_MENU:
 {
+          if (mDrawerLayout != null) {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+              mDrawerLayout.closeDrawers();
+            }
+ else {
+              mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+            return true;
+          }
           break;
         }
     }

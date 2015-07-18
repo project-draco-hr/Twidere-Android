@@ -4,5 +4,5 @@
   if (fragment instanceof AccountsDashboardFragment) {
     ((AccountsDashboardFragment)fragment).requestFitSystemWindows();
   }
-  mColorStatusFrameLayout.setStatusBarHeight(insets.top);
+  mHomeContent.setStatusBarHeight(insets.top);
 }

@@ -4,6 +4,14 @@ case android.R.id.home:
 {
       final FragmentManager fm=getSupportFragmentManager();
       final int count=fm.getBackStackEntryCount();
+      if (mDrawerLayout.isDrawerOpen(GravityCompat.START) || mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+        mDrawerLayout.closeDrawers();
+        return true;
+      }
+ else       if (count == 0) {
+        mDrawerLayout.openDrawer(GravityCompat.START);
+        return true;
+      }
       return true;
     }
 case R.id.search:

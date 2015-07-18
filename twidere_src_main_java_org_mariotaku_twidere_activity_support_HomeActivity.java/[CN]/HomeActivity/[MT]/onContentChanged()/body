@@ -9,5 +9,5 @@
   mActionsButton=findViewById(R.id.actions_button);
   mActionBarWithOverlay=findViewById(R.id.twidere_action_bar_with_overlay);
   mTabIndicator=(TabPagerIndicator)findViewById(R.id.main_tabs);
-  mColorStatusFrameLayout=(TintedStatusFrameLayout)findViewById(R.id.home_content);
+  mHomeContent=(TintedStatusFrameLayout)findViewById(R.id.home_content);
 }

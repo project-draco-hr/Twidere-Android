@@ -27,11 +27,11 @@
     mTabIndicator.setLabelColor(contrastColor);
     ActivitySupport.setTaskDescription(this,new TaskDescriptionCompat(null,null,themeColor));
   }
-  mColorStatusFrameLayout.setDrawColor(true);
-  mColorStatusFrameLayout.setDrawShadow(false);
-  mColorStatusFrameLayout.setColor(actionBarColor,actionBarAlpha);
+  mHomeContent.setDrawColor(true);
+  mHomeContent.setDrawShadow(false);
+  mHomeContent.setColor(actionBarColor,actionBarAlpha);
   StatusBarProxy.setStatusBarDarkIcon(getWindow(),TwidereColorUtils.getYIQLuminance(actionBarColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD);
-  mColorStatusFrameLayout.setFactor(1);
+  mHomeContent.setFactor(1);
   mActionBarWithOverlay.setAlpha(actionBarAlpha / 255f);
   mActionsButton.setAlpha(actionBarAlpha / 255f);
 }

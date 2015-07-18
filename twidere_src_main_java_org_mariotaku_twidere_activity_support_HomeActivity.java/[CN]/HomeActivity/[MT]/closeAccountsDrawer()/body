@@ -1,2 +1,4 @@
 {
+  if (mDrawerLayout == null)   return;
+  mDrawerLayout.closeDrawers();
 }

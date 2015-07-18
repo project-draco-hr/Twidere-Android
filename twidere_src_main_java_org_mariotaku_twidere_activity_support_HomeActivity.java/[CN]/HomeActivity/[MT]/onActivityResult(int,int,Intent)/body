@@ -1,9 +1,0 @@
-{
-switch (requestCode) {
-case REQUEST_SWIPEBACK_ACTIVITY:
-{
-      return;
-    }
-}
-super.onActivityResult(requestCode,resultCode,data);
-}
