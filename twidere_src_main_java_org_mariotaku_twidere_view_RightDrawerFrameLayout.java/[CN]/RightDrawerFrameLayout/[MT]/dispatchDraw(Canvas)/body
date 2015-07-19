@@ -1,7 +1,0 @@
-{
-  super.dispatchDraw(canvas);
-  if (mClipEnabled && mPercentOpen > 0 && mPercentOpen < 1) {
-    final int right=Math.round(getWidth() * (1 - mPercentOpen) * (1 - mScrollScale));
-    canvas.drawRect(getLeft(),getTop(),right,getBottom(),mClipPaint);
-  }
-}

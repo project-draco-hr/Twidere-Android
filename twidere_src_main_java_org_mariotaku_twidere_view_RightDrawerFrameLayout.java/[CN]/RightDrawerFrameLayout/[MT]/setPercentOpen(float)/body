@@ -1,8 +1,0 @@
-{
-  if (mPercentOpen == percentOpen)   return;
-  mPercentOpen=percentOpen;
-  if (mClipEnabled) {
-    setAlpha(1 - (1 - mPercentOpen) * (1.0f / 0xff));
-    invalidate();
-  }
-}
