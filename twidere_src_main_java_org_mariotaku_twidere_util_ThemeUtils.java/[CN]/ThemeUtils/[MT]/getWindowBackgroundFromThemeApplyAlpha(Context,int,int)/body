@@ -2,8 +2,8 @@
   @SuppressWarnings("ConstantConditions") final TypedArray a=context.obtainStyledAttributes(null,new int[]{android.R.attr.windowBackground},0,theme);
   final Drawable d=a.getDrawable(0);
   a.recycle();
-  if (d != null) {
-    d.setAlpha(MathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
-  }
+  if (d == null)   return null;
+  d.mutate();
+  d.setAlpha(MathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
   return d;
 }

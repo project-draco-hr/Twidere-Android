@@ -12,6 +12,7 @@
     d=getWindowBackgroundFromTheme(context,drawerThemeRes);
   }
   if (d == null)   throw new NullPointerException();
+  d.mutate();
   if (isTransparentBackground(backgroundOption)) {
     d.setAlpha(alpha);
   }

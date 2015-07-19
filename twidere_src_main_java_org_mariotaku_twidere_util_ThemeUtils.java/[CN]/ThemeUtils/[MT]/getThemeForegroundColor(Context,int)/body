@@ -14,8 +14,5 @@
   if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
     return value.data;
   }
- else   if (value.type == TypedValue.TYPE_REFERENCE) {
-    return theme.getResources().getColor(value.resourceId);
-  }
   return 0;
 }
