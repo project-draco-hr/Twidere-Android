@@ -10,6 +10,7 @@
   mListView.setAdapter(mAdapter);
   mListView.setDragEnabled(true);
   mListView.setDropListener(this);
+  mListView.setOnItemClickListener(this);
   mListView.setOnCreateContextMenuListener(this);
   mListView.setEmptyView(mEmptyView);
   mEmptyText.setText(R.string.no_account);

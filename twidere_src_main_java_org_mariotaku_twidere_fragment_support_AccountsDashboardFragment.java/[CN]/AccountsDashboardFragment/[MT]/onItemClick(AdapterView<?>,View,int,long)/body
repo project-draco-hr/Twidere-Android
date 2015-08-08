@@ -24,12 +24,12 @@ case R.id.compose:
     }
 case R.id.favorites:
 {
-    openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
+    Utils.openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
     break;
   }
 case R.id.lists:
 {
-  openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
+  Utils.openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
   break;
 }
 case R.id.edit:
