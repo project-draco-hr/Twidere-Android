@@ -9,11 +9,11 @@
   if (status.retweet_id > 0) {
     final String retweetedBy=manager.getDisplayName(status.retweeted_by_user_id,status.retweeted_by_user_name,status.retweeted_by_user_screen_name,nameFirst,false);
     retweetedByView.setText(context.getString(R.string.name_retweeted,retweetedBy));
-    retweetedByContainer.setVisibility(View.VISIBLE);
+    retweetedByView.setVisibility(View.VISIBLE);
   }
  else {
     retweetedByView.setText(null);
-    retweetedByContainer.setVisibility(View.GONE);
+    retweetedByView.setVisibility(View.GONE);
   }
   profileContainer.drawEnd(Utils.getAccountColor(context,status.account_id));
   final int typeIconRes, typeDescriptionRes;
@@ -26,10 +26,10 @@
     nameView.setText(manager.getUserNickname(status.quoted_by_user_id,status.quoted_by_user_name,false));
     screenNameView.setText("@" + status.quoted_by_user_screen_name);
     quoteTextView.setText(Html.fromHtml(status.quote_text_html));
-    Utils.applyOriginalTweetSpan(quoteTextView,status);
     linkify.applyAllLinks(quoteTextView,status.account_id,layoutPosition,status.is_possibly_sensitive);
     ThemeUtils.applyParagraphSpacing(quoteTextView,1.1f);
     loader.displayProfileImage(profileImageView,status.quoted_by_user_profile_image);
+    quoteOriginalLink.setVisibility(View.VISIBLE);
     quotedNameContainer.setVisibility(View.VISIBLE);
     quoteTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
@@ -44,13 +44,19 @@
     nameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
     screenNameView.setText("@" + status.user_screen_name);
     loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+    quoteOriginalLink.setVisibility(View.GONE);
     quotedNameContainer.setVisibility(View.GONE);
     quoteTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
     profileContainer.drawStart(manager.getUserColor(status.user_id,false));
     typeIconRes=Utils.getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
     typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.user_is_verified,status.user_is_protected);
-    timestamp=status.timestamp;
+    if (status.is_retweet) {
+      timestamp=status.retweet_timestamp;
+    }
+ else {
+      timestamp=status.timestamp;
+    }
     source=status.source;
   }
   if (typeIconRes != 0 && typeDescriptionRes != 0) {

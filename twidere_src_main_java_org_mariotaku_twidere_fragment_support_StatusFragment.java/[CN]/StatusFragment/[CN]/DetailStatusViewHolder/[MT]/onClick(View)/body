@@ -44,7 +44,7 @@ if (status.is_retweet) {
 }
 break;
 }
-case R.id.retweeted_by_container:
+case R.id.retweeted_by:
 {
 if (status.retweet_id > 0) {
 Utils.openUserProfile(adapter.getContext(),status.account_id,status.retweeted_by_user_id,status.retweeted_by_user_screen_name,null);

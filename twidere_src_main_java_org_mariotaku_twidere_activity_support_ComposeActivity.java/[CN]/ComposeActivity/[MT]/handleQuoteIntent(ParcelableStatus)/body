@@ -1,6 +1,11 @@
 {
   if (status == null || status.id <= 0)   return false;
-  mEditText.setText(Utils.getQuoteStatus(this,status.id,status.user_screen_name,status.text_plain));
+  if (status.is_quote) {
+    mEditText.setText(Utils.getQuoteStatus(this,status.quote_id,status.quoted_by_user_screen_name,status.quote_text_plain));
+  }
+ else {
+    mEditText.setText(Utils.getQuoteStatus(this,status.id,status.user_screen_name,status.text_plain));
+  }
   mEditText.setSelection(0);
   mAccountsAdapter.setSelectedAccountIds(status.account_id);
   return true;

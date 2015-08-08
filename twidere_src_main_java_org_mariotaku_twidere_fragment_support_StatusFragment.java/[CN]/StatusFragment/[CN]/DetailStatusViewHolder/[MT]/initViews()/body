@@ -10,7 +10,7 @@
   quotedNameContainer.setOnClickListener(this);
   retweetsContainer.setOnClickListener(this);
   favoritesContainer.setOnClickListener(this);
-  retweetedByContainer.setOnClickListener(this);
+  retweetedByView.setOnClickListener(this);
   locationView.setOnClickListener(this);
   final float defaultTextSize=adapter.getTextSize();
   nameView.setTextSize(defaultTextSize * 1.25f);

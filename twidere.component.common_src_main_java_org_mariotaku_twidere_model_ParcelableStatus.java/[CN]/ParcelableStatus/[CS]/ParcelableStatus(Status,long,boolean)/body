@@ -21,9 +21,6 @@
   quote_text_unescaped=HtmlEscapeHelper.toPlainText(quote_text_html);
   quote_timestamp=orig.getCreatedAt().getTime();
   quote_source=orig.getSource();
-  quote_retweet_count=orig.getRetweetCount();
-  quote_favorite_count=orig.getFavoriteCount();
-  quote_reply_count=orig.getReplyCount();
   quoted_by_user_id=quote_user != null ? quote_user.getId() : -1;
   quoted_by_user_name=quote_user != null ? quote_user.getName() : null;
   quoted_by_user_screen_name=quote_user != null ? quote_user.getScreenName() : null;
@@ -40,6 +37,9 @@
  else {
     status=orig;
   }
+  retweet_count=(retweeted != null ? retweeted : orig).getRetweetCount();
+  favorite_count=(retweeted != null ? retweeted : orig).getFavoriteCount();
+  reply_count=(retweeted != null ? retweeted : orig).getReplyCount();
   final User user=status.getUser();
   user_id=user.getId();
   user_name=user.getName();
@@ -52,9 +52,6 @@
   media=ParcelableMedia.fromStatus(status);
   quote_media=quoted != null ? ParcelableMedia.fromStatus(orig) : null;
   text_plain=TwitterContentUtils.unescapeTwitterStatusText(status.getText());
-  retweet_count=status.getRetweetCount();
-  favorite_count=status.getFavoriteCount();
-  reply_count=status.getReplyCount();
   in_reply_to_name=TwitterContentUtils.getInReplyToName(retweeted != null ? retweeted : orig);
   in_reply_to_screen_name=(retweeted != null ? retweeted : orig).getInReplyToScreenName();
   in_reply_to_status_id=(retweeted != null ? retweeted : orig).getInReplyToStatusId();

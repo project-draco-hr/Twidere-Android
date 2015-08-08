@@ -28,6 +28,14 @@
         s.delete(s.getSpanStart(delete),s.getSpanEnd(delete));
         s.removeSpan(delete);
       }
+      for (      Object span : s.getSpans(0,s.length(),CharacterStyle.class)) {
+        if (span instanceof URLSpan) {
+          s.removeSpan(span);
+        }
+ else         if (span instanceof MetricAffectingSpan) {
+          s.removeSpan(span);
+        }
+      }
     }
   }
 );

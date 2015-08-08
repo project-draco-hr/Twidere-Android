@@ -50,8 +50,5 @@
   quoted_by_user_is_protected=idx.quoted_by_user_is_protected != -1 && c.getShort(idx.quoted_by_user_is_protected) == 1;
   quoted_by_user_is_verified=idx.quoted_by_user_is_verified != -1 && c.getShort(idx.quoted_by_user_is_verified) == 1;
   quote_source=idx.quote_source != -1 ? c.getString(idx.quote_source) : null;
-  quote_retweet_count=idx.quote_retweet_count != -1 ? c.getLong(idx.quote_retweet_count) : -1;
-  quote_favorite_count=idx.quote_favorite_count != -1 ? c.getLong(idx.quote_favorite_count) : -1;
-  quote_reply_count=idx.quote_reply_count != -1 ? c.getLong(idx.quote_reply_count) : -1;
   card_name=card != null ? card.name : null;
 }
