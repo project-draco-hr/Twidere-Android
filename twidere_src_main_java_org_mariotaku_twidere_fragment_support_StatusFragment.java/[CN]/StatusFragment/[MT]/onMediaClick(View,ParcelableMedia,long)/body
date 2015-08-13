@@ -3,6 +3,6 @@
   if (status == null)   return;
   final Bundle options=Utils.createMediaViewerActivityOption(view);
   Utils.openMediaDirectly(getActivity(),accountId,status,media,status.media,options);
-  SpiceProfilingUtil.log(status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
-  SpiceProfilingUtil.profile(getActivity(),status.account_id,status.id + ",Clicked," + status.account_id+ ","+ status.user_id+ ","+ status.text_plain.length()+ ","+ media.preview_url+ ","+ media.media_url+ ","+ TypeMappingUtil.getMediaType(media.type)+ ","+ mStatusAdapter.isMediaPreviewEnabled()+ ","+ status.timestamp);
+  MediaEvent event=MediaEvent.create(getActivity(),status,media,0,mStatusAdapter.isMediaPreviewEnabled());
+  HotMobiLogger.getInstance(getActivity()).log(event);
 }

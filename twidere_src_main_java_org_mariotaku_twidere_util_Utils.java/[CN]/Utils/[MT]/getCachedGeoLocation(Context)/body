@@ -1,0 +1,5 @@
+{
+  final Location location=getCachedLocation(context);
+  if (location == null)   return null;
+  return new GeoLocation(location.getLatitude(),location.getLongitude());
+}

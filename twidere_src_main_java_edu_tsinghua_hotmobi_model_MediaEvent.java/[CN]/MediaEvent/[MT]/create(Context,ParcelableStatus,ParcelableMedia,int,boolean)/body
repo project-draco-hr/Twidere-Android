@@ -1,0 +1,12 @@
+{
+  final MediaEvent event=new MediaEvent();
+  event.markStart(context);
+  event.setId(status.id);
+  event.setUserId(status.user_id);
+  event.setMediaUrl(media.media_url);
+  event.setPreviewUrl(media.preview_url);
+  event.setPreviewEnabled(previewEnabled);
+  event.setTimelineType(timelineType);
+  event.setTweetType(HotMobiLogger.getTweetType(status));
+  return event;
+}

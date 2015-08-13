@@ -1,0 +1,7 @@
+{
+  final RefreshEvent event=new RefreshEvent();
+  event.markStart(context);
+  event.setIds(ids);
+  event.setTimelineType(timelineType);
+  return event;
+}
