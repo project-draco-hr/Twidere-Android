@@ -2,7 +2,7 @@
   final Context context=getContext();
   final ParcelableActivity activity=getActivity(position);
   final ParcelableStatus status;
-  if (activity.action == ParcelableActivity.ACTION_MENTION) {
+  if (activity.action == Activity.ACTION_MENTION) {
     status=activity.target_object_statuses[0];
   }
  else {

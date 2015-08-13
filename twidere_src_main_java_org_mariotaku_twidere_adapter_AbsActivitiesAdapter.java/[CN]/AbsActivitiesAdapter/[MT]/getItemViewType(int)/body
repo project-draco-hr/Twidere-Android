@@ -6,17 +6,18 @@
     return ITEM_VIEW_TYPE_GAP;
   }
 switch (getActivityAction(position)) {
-case ParcelableActivity.ACTION_MENTION:
-case ParcelableActivity.ACTION_REPLY:
+case Activity.ACTION_MENTION:
+case Activity.ACTION_REPLY:
+case Activity.ACTION_QUOTE:
 {
       return ITEM_VIEW_TYPE_STATUS;
     }
-case ParcelableActivity.ACTION_FOLLOW:
-case ParcelableActivity.ACTION_FAVORITE:
-case ParcelableActivity.ACTION_RETWEET:
-case ParcelableActivity.ACTION_FAVORITED_RETWEET:
-case ParcelableActivity.ACTION_RETWEETED_RETWEET:
-case ParcelableActivity.ACTION_LIST_MEMBER_ADDED:
+case Activity.ACTION_FOLLOW:
+case Activity.ACTION_FAVORITE:
+case Activity.ACTION_RETWEET:
+case Activity.ACTION_FAVORITED_RETWEET:
+case Activity.ACTION_RETWEETED_RETWEET:
+case Activity.ACTION_LIST_MEMBER_ADDED:
 {
     return ITEM_VIEW_TYPE_TITLE_SUMMARY;
   }

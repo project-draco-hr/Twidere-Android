@@ -10,5 +10,6 @@
   target_statuses=ParcelableStatus.fromStatuses(activity.getTargetStatuses(),account_id);
   target_object_statuses=ParcelableStatus.fromStatuses(activity.getTargetObjectStatuses(),account_id);
   target_object_user_lists=ParcelableUserList.fromUserLists(activity.getTargetObjectUserLists(),account_id);
+  target_object_users=ParcelableUser.fromUsers(activity.getTargetObjectUsers(),account_id);
   this.is_gap=is_gap;
 }
