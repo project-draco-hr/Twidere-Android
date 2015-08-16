@@ -1,0 +1,8 @@
+{
+  if (view.isInTouchMode()) {
+    view.requestFocusFromTouch();
+  }
+ else {
+    view.requestFocus();
+  }
+}

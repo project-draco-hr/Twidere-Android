@@ -1,0 +1,11 @@
+{
+  final String action=handler.getKeyAction(CONTEXT_TAG_STATUS,keyCode,event);
+  if (action == null)   return false;
+switch (action) {
+case ACTION_STATUS_REPLY:
+case ACTION_STATUS_RETWEET:
+case ACTION_STATUS_FAVORITE:
+    return true;
+}
+return mNavigationHelper.isKeyboardShortcutHandled(handler,keyCode,event);
+}

@@ -1,0 +1,12 @@
+{
+  if (isFragmentKeyboardShortcutHandled(handler,keyCode,event))   return true;
+  final String action=handler.getKeyAction(CONTEXT_TAG_NAVIGATION,keyCode,event);
+  if (action != null) {
+switch (action) {
+case ACTION_NAVIGATION_PREVIOUS_TAB:
+case ACTION_NAVIGATION_NEXT_TAB:
+      return true;
+  }
+}
+return false;
+}

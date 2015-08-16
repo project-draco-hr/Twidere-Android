@@ -23,7 +23,7 @@
   mStatusAdapter=new StatusAdapter(this,compact);
   mStatusAdapter.setEventListener(this);
   mRecyclerView.setAdapter(mStatusAdapter);
-  mRecyclerViewNavigationHelper=new RecyclerViewNavigationHelper(mRecyclerView,mLayoutManager,mStatusAdapter,null);
+  mNavigationHelper=new RecyclerViewNavigationHelper(mRecyclerView,mLayoutManager,mStatusAdapter,null);
   setState(STATE_LOADING);
   getLoaderManager().initLoader(LOADER_ID_DETAIL_STATUS,getArguments(),this);
 }

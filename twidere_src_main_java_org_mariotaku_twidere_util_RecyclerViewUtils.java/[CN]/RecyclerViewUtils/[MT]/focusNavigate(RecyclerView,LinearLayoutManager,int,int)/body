@@ -31,6 +31,6 @@
       focusFallback(layoutManager);
       return;
     }
-    viewToFocus.requestFocus();
+    focus(viewToFocus);
   }
 }
