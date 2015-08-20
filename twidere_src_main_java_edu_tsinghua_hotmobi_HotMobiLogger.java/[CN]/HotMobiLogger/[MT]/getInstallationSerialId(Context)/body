@@ -1,0 +1,13 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(Constants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final String persistedDeviceId=prefs.getString(Constants.KEY_DEVICE_SERIAL,null);
+  final String uuid;
+  if (!TextUtils.isEmpty(persistedDeviceId)) {
+    uuid=persistedDeviceId.replaceAll("[^\\w\\d]","");
+  }
+ else {
+    uuid=UUID.randomUUID().toString().replaceAll("[^\\w\\d]","");
+    prefs.edit().putString(Constants.KEY_DEVICE_SERIAL,uuid).apply();
+  }
+  return uuid;
+}

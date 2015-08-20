@@ -12,7 +12,7 @@
       mStatusAdapter.setReplies(null);
       loadReplies(status);
       loadConversation(status);
-      final TweetEvent event=TweetEvent.create(getActivity(),status,0);
+      final TweetEvent event=TweetEvent.create(getActivity(),status,TimelineType.OTHER);
       event.setAction(TweetEvent.Action.OPEN);
       mStatusEvent=event;
     }

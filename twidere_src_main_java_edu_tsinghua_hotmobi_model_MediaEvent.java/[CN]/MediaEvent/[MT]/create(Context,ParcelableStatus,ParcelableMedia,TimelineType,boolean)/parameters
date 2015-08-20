@@ -1,0 +1,5 @@
+Context context
+ParcelableStatus status
+ParcelableMedia media
+TimelineType timelineType
+boolean previewEnabled

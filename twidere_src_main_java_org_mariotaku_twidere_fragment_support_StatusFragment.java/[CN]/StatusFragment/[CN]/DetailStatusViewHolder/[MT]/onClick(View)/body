@@ -63,5 +63,9 @@ case R.id.quoted_name_container:
 Utils.openUserProfile(adapter.getContext(),status.account_id,status.user_id,status.user_screen_name,null);
 break;
 }
+case R.id.quote_original_link:
+{
+Utils.openStatus(adapter.getContext(),status.account_id,status.quote_id);
+}
 }
 }

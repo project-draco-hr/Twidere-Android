@@ -1,0 +1,8 @@
+{
+  final SessionEvent event=new SessionEvent();
+  event.markStart(context);
+  final Context appContext=context.getApplicationContext();
+  final Configuration conf=appContext.getResources().getConfiguration();
+  event.setConfiguration(conf.toString());
+  return event;
+}

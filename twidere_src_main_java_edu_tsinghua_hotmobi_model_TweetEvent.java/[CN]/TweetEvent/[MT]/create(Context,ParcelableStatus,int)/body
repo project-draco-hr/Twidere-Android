@@ -1,9 +1,0 @@
-{
-  final TweetEvent event=new TweetEvent();
-  event.markStart(context);
-  event.setId(status.id);
-  event.setUserId(status.user_id);
-  event.setTimelineType(timelineType);
-  event.setTweetType(HotMobiLogger.getTweetType(status));
-  return event;
-}

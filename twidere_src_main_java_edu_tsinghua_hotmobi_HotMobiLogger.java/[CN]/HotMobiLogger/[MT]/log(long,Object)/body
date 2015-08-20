@@ -1,0 +1,13 @@
+{
+  mExecutor.execute(new Runnable(){
+    @Override public void run(){
+      try {
+        Log.d(LOGTAG,LoganSquare.serialize(event));
+      }
+ catch (      IOException e) {
+        Log.w(LOGTAG,e);
+      }
+    }
+  }
+);
+}

@@ -1,8 +1,5 @@
 {
-  if (event instanceof FirstLaunchEvent) {
-    return "first_launch";
-  }
- else   if (event instanceof RefreshEvent) {
+  if (event instanceof RefreshEvent) {
     return "refresh";
   }
  else   if (event instanceof SessionEvent) {
@@ -10,6 +7,9 @@
   }
  else   if (event instanceof TweetEvent) {
     return "tweet";
+  }
+ else   if (event instanceof MediaEvent) {
+    return "media";
   }
   return null;
 }

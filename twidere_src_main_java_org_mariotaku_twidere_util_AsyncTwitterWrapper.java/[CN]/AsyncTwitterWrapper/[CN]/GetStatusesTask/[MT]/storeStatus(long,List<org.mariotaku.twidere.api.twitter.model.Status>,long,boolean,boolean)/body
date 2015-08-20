@@ -31,8 +31,8 @@
     rowsDeleted=0;
   }
   countCur.close();
-  final RefreshEvent event=RefreshEvent.create(mContext,statusIds,0);
-  HotMobiLogger.getInstance(mContext).log(event);
+  final RefreshEvent event=RefreshEvent.create(mContext,statusIds,getTimelineType());
+  HotMobiLogger.getInstance(mContext).log(accountId,event);
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,maxId);
   final boolean noRowsDeleted=rowsDeleted == 0;
   final boolean insertGap=minId > 0 && (noRowsDeleted || deletedOldGap) && !truncated && !noItemsBefore && statuses.size() > 1;

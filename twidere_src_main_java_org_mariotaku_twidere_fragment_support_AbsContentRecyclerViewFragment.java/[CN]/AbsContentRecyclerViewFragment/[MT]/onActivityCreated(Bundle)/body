@@ -14,15 +14,23 @@
   mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
   mRecyclerView.setLayoutManager(mLayoutManager);
   mRecyclerView.setHasFixedSize(true);
-  mRecyclerView.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-        updateRefreshProgressOffset();
+  if (mSwipeRefreshLayout instanceof AccentSwipeRefreshLayout) {
+    ((AccentSwipeRefreshLayout)mSwipeRefreshLayout).setTouchInterceptor(new IExtendedView.TouchInterceptor(){
+      @Override public boolean dispatchTouchEvent(      View view,      MotionEvent event){
+        return false;
       }
-      return false;
+      @Override public boolean onInterceptTouchEvent(      View view,      MotionEvent event){
+        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+          updateRefreshProgressOffset();
+        }
+        return false;
+      }
+      @Override public boolean onTouchEvent(      View view,      MotionEvent event){
+        return false;
+      }
     }
-  }
 );
+  }
   if (compact) {
     mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
     mRecyclerView.addItemDecoration(mItemDecoration);

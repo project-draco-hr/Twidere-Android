@@ -1,0 +1,4 @@
+{
+  if (timelineType == null)   return null;
+  return timelineType.value;
+}

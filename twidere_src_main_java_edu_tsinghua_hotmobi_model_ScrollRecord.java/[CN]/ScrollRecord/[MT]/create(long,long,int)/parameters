@@ -1,0 +1,3 @@
+long id
+long timestamp
+int scrollState
