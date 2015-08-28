@@ -2,8 +2,10 @@
   final File cacheDir=getBestCacheDir(this,dirName);
   final File fallbackCacheDir=getInternalCacheDir(this,dirName);
   final URLFileNameGenerator fileNameGenerator=new URLFileNameGenerator();
+  final SharedPreferences preferences=getSharedPreferences();
+  final int cacheSize=MathUtils.clamp(preferences.getInt(KEY_CACHE_SIZE_LIMIT,300),100,500);
   try {
-    return new LruDiskCache(cacheDir,fallbackCacheDir,fileNameGenerator,384 * 1024 * 1024,0);
+    return new LruDiskCache(cacheDir,fallbackCacheDir,fileNameGenerator,cacheSize * 1024 * 1024,0);
   }
  catch (  IOException e) {
     return new ReadOnlyDiskLRUNameCache(cacheDir,fallbackCacheDir,fileNameGenerator);
