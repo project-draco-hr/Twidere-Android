@@ -1,3 +1,0 @@
-{
-  profile(context,account_id + "_" + FILE_NAME_PROFILE,text);
-}

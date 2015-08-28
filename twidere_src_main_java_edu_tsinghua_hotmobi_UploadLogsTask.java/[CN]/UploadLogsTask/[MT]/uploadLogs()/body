@@ -1,0 +1,49 @@
+{
+  final String uuid=HotMobiLogger.getInstallationSerialId(context);
+  final File logsDir=HotMobiLogger.getLogsDir(context);
+  boolean hasErrors=false;
+  final String todayDir=HotMobiLogger.DATE_FORMAT.format(new Date());
+  final FilenameFilter filter=new FilenameFilter(){
+    @Override public boolean accept(    File dir,    String filename){
+      return !filename.equalsIgnoreCase(todayDir);
+    }
+  }
+;
+  for (  File dayLogsDir : logsDir.listFiles(filter)) {
+    boolean succeeded=true;
+    for (    File logFile : dayLogsDir.listFiles()) {
+      FileTypedData body=null;
+      RestHttpResponse response=null;
+      try {
+        final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
+        builder.method(POST.METHOD);
+        builder.url("http://oahu.hot-mobile.org/usage/upload");
+        final List<Pair<String,String>> headers=new ArrayList<>();
+        headers.add(Pair.create("X-HotMobi-UUID",uuid));
+        headers.add(Pair.create("X-HotMobi-Date",dayLogsDir.getName()));
+        headers.add(Pair.create("X-HotMobi-FileName",logFile.getName()));
+        builder.headers(headers);
+        body=new FileTypedData(logFile);
+        builder.body(body);
+        response=client.execute(builder.build());
+        if (response.isSuccessful()) {
+          succeeded&=logFile.delete();
+        }
+        response.close();
+      }
+ catch (      IOException e) {
+        Log.w(HotMobiLogger.LOGTAG,e);
+        succeeded=false;
+        hasErrors=true;
+      }
+ finally {
+        Utils.closeSilently(body);
+        Utils.closeSilently(response);
+      }
+    }
+    if (succeeded) {
+      dayLogsDir.delete();
+    }
+  }
+  return hasErrors;
+}

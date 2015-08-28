@@ -1,8 +1,8 @@
 {
   final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
-  if (prefs.contains(LAST_UPLOAD_TIME)) {
-    final long lastUpload=prefs.getLong(LAST_UPLOAD_TIME,System.currentTimeMillis());
-    final double deltaDays=(System.currentTimeMillis() - lastUpload) / (double)UPLOAD_INTERVAL_MILLIS;
+  if (prefs.contains(HotMobiLogger.LAST_UPLOAD_TIME)) {
+    final long lastUpload=prefs.getLong(HotMobiLogger.LAST_UPLOAD_TIME,System.currentTimeMillis());
+    final double deltaDays=(System.currentTimeMillis() - lastUpload) / (double)HotMobiLogger.UPLOAD_INTERVAL_MILLIS;
     if (deltaDays < 1) {
       SpiceProfilingUtil.log("Last uploaded was conducted in 1 day ago.");
       return null;
@@ -11,6 +11,6 @@
   final File root=context.getFilesDir();
   final File[] spiceFiles=root.listFiles(new SpiceFileFilter());
   uploadToServer(spiceFiles);
-  prefs.edit().putLong(LAST_UPLOAD_TIME,System.currentTimeMillis()).apply();
+  prefs.edit().putLong(HotMobiLogger.LAST_UPLOAD_TIME,System.currentTimeMillis()).apply();
   return null;
 }

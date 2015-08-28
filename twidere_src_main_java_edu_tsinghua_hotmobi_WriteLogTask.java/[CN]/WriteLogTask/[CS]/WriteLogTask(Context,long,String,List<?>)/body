@@ -1,0 +1,6 @@
+{
+  this.context=context;
+  this.accountId=accountId;
+  this.type=type;
+  this.events=events;
+}

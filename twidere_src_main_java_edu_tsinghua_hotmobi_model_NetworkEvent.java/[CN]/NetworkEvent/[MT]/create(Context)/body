@@ -1,0 +1,10 @@
+{
+  final NetworkEvent event=new NetworkEvent();
+  event.markStart(context);
+  ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+  final NetworkInfo activeNetworkInfo=cm.getActiveNetworkInfo();
+  if (activeNetworkInfo != null) {
+    event.setNetworkType(activeNetworkInfo.getType());
+  }
+  return event;
+}

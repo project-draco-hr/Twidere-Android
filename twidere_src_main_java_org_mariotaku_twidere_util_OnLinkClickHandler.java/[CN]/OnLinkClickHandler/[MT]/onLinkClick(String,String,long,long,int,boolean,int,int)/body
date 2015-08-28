@@ -1,7 +1,8 @@
 {
   if (manager != null && manager.isActive())   return;
   if (!isPrivateData()) {
-    SpiceProfilingUtil.profile(context,accountId,accountId + ",Visit," + link+ ","+ TypeMappingUtil.getLinkType(type));
+    final LinkEvent event=LinkEvent.create(context,link,type);
+    HotMobiLogger.getInstance(context).log(accountId,event);
   }
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:

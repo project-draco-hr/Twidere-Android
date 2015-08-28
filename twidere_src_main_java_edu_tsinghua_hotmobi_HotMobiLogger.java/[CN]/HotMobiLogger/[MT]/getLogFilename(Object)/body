@@ -1,0 +1,24 @@
+{
+  if (event instanceof RefreshEvent) {
+    return "refresh";
+  }
+ else   if (event instanceof SessionEvent) {
+    return "session";
+  }
+ else   if (event instanceof TweetEvent) {
+    return "tweet";
+  }
+ else   if (event instanceof MediaEvent) {
+    return "media";
+  }
+ else   if (event instanceof LinkEvent) {
+    return "link";
+  }
+ else   if (event instanceof NetworkEvent) {
+    return "network";
+  }
+ else   if (event instanceof ScrollRecord) {
+    return "scroll";
+  }
+  throw new UnsupportedOperationException("Unknown event type " + event);
+}

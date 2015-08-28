@@ -1,5 +1,11 @@
 {
   final File cacheDir=getBestCacheDir(this,dirName);
   final File fallbackCacheDir=getInternalCacheDir(this,dirName);
-  return new UnlimitedDiskCache(cacheDir,fallbackCacheDir,new URLFileNameGenerator());
+  final URLFileNameGenerator fileNameGenerator=new URLFileNameGenerator();
+  try {
+    return new LruDiskCache(cacheDir,fallbackCacheDir,fileNameGenerator,384 * 1024 * 1024,0);
+  }
+ catch (  IOException e) {
+    return new ReadOnlyDiskLRUNameCache(cacheDir,fallbackCacheDir,fileNameGenerator);
+  }
 }

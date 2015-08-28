@@ -1,0 +1,5 @@
+{
+  this.imageLoader=imageLoader;
+  this.pauseOnScroll=pauseOnScroll;
+  this.pauseOnFling=pauseOnFling;
+}

@@ -1,7 +1,0 @@
-{
-  final ScrollRecord record=new ScrollRecord();
-  record.setId(id);
-  record.setTimestamp(timestamp);
-  record.setScrollState(scrollState);
-  return record;
-}

@@ -1,4 +1,0 @@
-{
-  mItemColor=itemColor;
-  ThemeUtils.setActionBarContextViewColor(this,itemColor);
-}

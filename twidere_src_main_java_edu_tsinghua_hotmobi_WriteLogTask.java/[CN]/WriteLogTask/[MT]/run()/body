@@ -1,0 +1,38 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (!prefs.getBoolean(KEY_USAGE_STATISTICS,false))   return;
+  RandomAccessFile raf=null;
+  FileChannel fc=null;
+  try {
+    raf=new RandomAccessFile(HotMobiLogger.getLogFile(context,accountId,type),"rw");
+    fc=raf.getChannel();
+    final FileLock lock=fc.lock();
+    for (    Object event : events) {
+      final byte[] bytes=LoganSquare.serialize(event).getBytes("UTF-8");
+      final long start=raf.length();
+      final ByteBuffer bb;
+      if (start == 0) {
+        bb=ByteBuffer.allocate(bytes.length);
+      }
+ else {
+        bb=ByteBuffer.allocate(bytes.length + LF.length);
+        bb.put(LF);
+        bb.position(LF.length);
+      }
+      bb.put(bytes);
+      bb.rewind();
+      fc.position(start);
+      while (bb.hasRemaining()) {
+        fc.write(bb);
+      }
+    }
+    lock.release();
+  }
+ catch (  IOException e) {
+    Log.w(HotMobiLogger.LOGTAG,e);
+  }
+ finally {
+    Utils.closeSilently(fc);
+    Utils.closeSilently(raf);
+  }
+}

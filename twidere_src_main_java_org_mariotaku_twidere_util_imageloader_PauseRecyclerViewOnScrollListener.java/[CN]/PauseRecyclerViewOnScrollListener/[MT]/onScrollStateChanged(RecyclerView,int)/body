@@ -1,0 +1,17 @@
+{
+switch (newState) {
+case RecyclerView.SCROLL_STATE_IDLE:
+    this.imageLoader.resume();
+  break;
+case RecyclerView.SCROLL_STATE_DRAGGING:
+if (this.pauseOnScroll) {
+  this.imageLoader.pause();
+}
+break;
+case RecyclerView.SCROLL_STATE_SETTLING:
+if (this.pauseOnFling) {
+this.imageLoader.pause();
+}
+break;
+}
+}

@@ -1,0 +1,3 @@
+{
+  return Constraint.unique(new Columns(columns),OnConflict.IGNORE);
+}
