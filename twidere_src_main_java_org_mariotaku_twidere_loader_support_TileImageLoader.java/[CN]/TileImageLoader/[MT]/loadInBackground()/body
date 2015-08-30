@@ -6,38 +6,38 @@
   if ("http".equals(scheme) || "https".equals(scheme)) {
     final String url=mUri.toString();
     if (url == null)     return Result.nullInstance();
-    final File cacheFile=mDiskCache.get(url);
+    File cacheFile=mDiskCache.get(url);
     if (cacheFile != null) {
-      final File cacheDir=cacheFile.getParentFile();
-      if (cacheDir != null && !cacheDir.exists()) {
-        cacheDir.mkdirs();
-      }
-    }
- else     return Result.nullInstance();
-    try {
       final int cachedValidity=ImageValidator.checkImageValidity(cacheFile);
       if (ImageValidator.isValid(cachedValidity)) {
         return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(cachedValidity));
       }
+    }
+    try {
       final InputStream is=mDownloader.getStream(url,new AccountExtra(mAccountId));
       if (is == null)       return Result.nullInstance();
-      final long length=is.available();
-      mHandler.post(new DownloadStartRunnable(this,mListener,length));
-      final OutputStream os=new FileOutputStream(cacheFile);
       try {
-        dump(is,os);
+        final long length=is.available();
+        mHandler.post(new DownloadStartRunnable(this,mListener,length));
+        mDiskCache.save(url,is,new IoUtils.CopyListener(){
+          @Override public boolean onBytesCopied(          int current,          int total){
+            mHandler.post(new ProgressUpdateRunnable(mListener,current));
+            return !isAbandoned();
+          }
+        }
+);
         mHandler.post(new DownloadFinishRunnable(this,mListener));
       }
   finally {
         IoUtils.closeSilently(is);
-        IoUtils.closeSilently(os);
       }
+      cacheFile=mDiskCache.get(url);
       final int downloadedValidity=ImageValidator.checkImageValidity(cacheFile);
       if (ImageValidator.isValid(downloadedValidity)) {
         return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(downloadedValidity));
       }
  else {
-        cacheFile.delete();
+        mDiskCache.remove(url);
         throw new IOException();
       }
     }

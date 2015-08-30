@@ -1,4 +1,5 @@
 long id
 long accountId
 long timestamp
+long timeOffset
 int scrollState
