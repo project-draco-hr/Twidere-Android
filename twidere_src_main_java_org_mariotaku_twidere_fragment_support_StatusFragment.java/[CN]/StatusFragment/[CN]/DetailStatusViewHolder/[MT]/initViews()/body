@@ -17,12 +17,12 @@
   nameView.setTextSize(defaultTextSize * 1.25f);
   quotedNameView.setTextSize(defaultTextSize * 1.25f);
   textView.setTextSize(defaultTextSize * 1.25f);
-  quoteTextView.setTextSize(defaultTextSize * 1.25f);
+  quotedTextView.setTextSize(defaultTextSize * 1.25f);
   screenNameView.setTextSize(defaultTextSize * 0.85f);
   quotedScreenNameView.setTextSize(defaultTextSize * 0.85f);
   locationView.setTextSize(defaultTextSize * 0.85f);
   timeSourceView.setTextSize(defaultTextSize * 0.85f);
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-  quoteTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quoteTextView,activity));
+  quotedTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quotedTextView,activity));
   textView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(textView,activity));
 }

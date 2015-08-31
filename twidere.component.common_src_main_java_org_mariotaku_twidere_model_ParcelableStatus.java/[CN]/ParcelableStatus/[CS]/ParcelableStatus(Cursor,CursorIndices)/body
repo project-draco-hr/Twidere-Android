@@ -21,7 +21,7 @@
   retweeted_by_user_profile_image=idx.retweeted_by_user_profile_image != -1 ? c.getString(idx.retweeted_by_user_profile_image) : null;
   text_html=idx.text_html != -1 ? c.getString(idx.text_html) : null;
   media=idx.media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.media)) : null;
-  quote_media=idx.quote_media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.quote_media)) : null;
+  quoted_media=idx.quoted_media != -1 ? ParcelableMedia.fromSerializedJson(c.getString(idx.quoted_media)) : null;
   text_plain=idx.text_plain != -1 ? c.getString(idx.text_plain) : null;
   user_name=idx.user_name != -1 ? c.getString(idx.user_name) : null;
   user_screen_name=idx.user_screen_name != -1 ? c.getString(idx.user_screen_name) : null;
@@ -38,17 +38,17 @@
   card=idx.card != -1 ? ParcelableCardEntity.fromJSONString(c.getString(idx.card)) : null;
   place_full_name=idx.place_full_name != -1 ? c.getString(idx.place_full_name) : null;
   is_quote=idx.is_quote != -1 && c.getShort(idx.is_quote) == 1;
-  quote_id=idx.quote_id != -1 ? c.getLong(idx.quote_id) : -1;
-  quote_timestamp=idx.quote_timestamp != -1 ? c.getLong(idx.quote_timestamp) : -1;
-  quoted_by_user_id=idx.quoted_by_user_id != -1 ? c.getLong(idx.quoted_by_user_id) : -1;
-  quote_text_html=idx.quote_text_html != -1 ? c.getString(idx.quote_text_html) : null;
-  quote_text_plain=idx.quote_text_plain != -1 ? c.getString(idx.quote_text_plain) : null;
-  quote_text_unescaped=idx.quote_text_unescaped != -1 ? c.getString(idx.quote_text_unescaped) : null;
-  quoted_by_user_name=idx.quoted_by_user_name != -1 ? c.getString(idx.quoted_by_user_name) : null;
-  quoted_by_user_screen_name=idx.quoted_by_user_screen_name != -1 ? c.getString(idx.quoted_by_user_screen_name) : null;
-  quoted_by_user_profile_image=idx.quoted_by_user_profile_image != -1 ? c.getString(idx.quoted_by_user_profile_image) : null;
-  quoted_by_user_is_protected=idx.quoted_by_user_is_protected != -1 && c.getShort(idx.quoted_by_user_is_protected) == 1;
-  quoted_by_user_is_verified=idx.quoted_by_user_is_verified != -1 && c.getShort(idx.quoted_by_user_is_verified) == 1;
-  quote_source=idx.quote_source != -1 ? c.getString(idx.quote_source) : null;
+  quoted_id=idx.quoted_id != -1 ? c.getLong(idx.quoted_id) : -1;
+  quoted_timestamp=idx.quoted_timestamp != -1 ? c.getLong(idx.quoted_timestamp) : -1;
+  quoted_user_id=idx.quoted_user_id != -1 ? c.getLong(idx.quoted_user_id) : -1;
+  quoted_text_html=idx.quoted_text_html != -1 ? c.getString(idx.quoted_text_html) : null;
+  quoted_text_plain=idx.quoted_text_plain != -1 ? c.getString(idx.quoted_text_plain) : null;
+  quoted_text_unescaped=idx.quoted_text_unescaped != -1 ? c.getString(idx.quoted_text_unescaped) : null;
+  quoted_user_name=idx.quoted_user_name != -1 ? c.getString(idx.quoted_user_name) : null;
+  quoted_user_screen_name=idx.quoted_user_screen_name != -1 ? c.getString(idx.quoted_user_screen_name) : null;
+  quoted_user_profile_image=idx.quoted_user_profile_image != -1 ? c.getString(idx.quoted_user_profile_image) : null;
+  quoted_user_is_protected=idx.quoted_user_is_protected != -1 && c.getShort(idx.quoted_user_is_protected) == 1;
+  quoted_user_is_verified=idx.quoted_user_is_verified != -1 && c.getShort(idx.quoted_user_is_verified) == 1;
+  quoted_source=idx.quoted_source != -1 ? c.getString(idx.quoted_source) : null;
   card_name=card != null ? card.name : null;
 }

@@ -2,7 +2,7 @@
   nameView.setPrimaryTextSize(textSize);
   quotedNameView.setPrimaryTextSize(textSize);
   textView.setTextSize(textSize);
-  quoteTextView.setTextSize(textSize);
+  quotedTextView.setTextSize(textSize);
   nameView.setSecondaryTextSize(textSize * 0.85f);
   quotedNameView.setSecondaryTextSize(textSize * 0.85f);
   timeView.setTextSize(textSize * 0.85f);

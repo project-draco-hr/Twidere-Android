@@ -24,7 +24,7 @@
   quoteOriginalLink=(TextView)itemView.findViewById(R.id.quote_original_link);
   profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
-  quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
+  quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
   quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
   quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
   quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);

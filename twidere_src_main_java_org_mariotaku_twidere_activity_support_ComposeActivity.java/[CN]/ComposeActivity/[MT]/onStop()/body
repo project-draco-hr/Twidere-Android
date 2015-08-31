@@ -1,5 +1,7 @@
 {
   saveAccountSelection();
-  mLocationManager.removeUpdates(this);
+  if (ContextCompat.checkSelfPermission(this,Manifest.permission_group.LOCATION) == PackageManager.PERMISSION_GRANTED) {
+    mLocationManager.removeUpdates(this);
+  }
   super.onStop();
 }

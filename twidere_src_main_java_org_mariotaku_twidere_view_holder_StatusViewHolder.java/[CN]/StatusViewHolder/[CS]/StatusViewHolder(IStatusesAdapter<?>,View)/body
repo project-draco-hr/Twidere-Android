@@ -6,7 +6,7 @@
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   extraTypeView=(ImageView)itemView.findViewById(R.id.extra_type);
   textView=(TextView)itemView.findViewById(R.id.text);
-  quoteTextView=(TextView)itemView.findViewById(R.id.quote_text);
+  quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
   nameView=(NameView)itemView.findViewById(R.id.name);
   quotedNameView=(NameView)itemView.findViewById(R.id.quoted_name);
   replyRetweetIcon=(ImageView)itemView.findViewById(R.id.reply_retweet_icon);

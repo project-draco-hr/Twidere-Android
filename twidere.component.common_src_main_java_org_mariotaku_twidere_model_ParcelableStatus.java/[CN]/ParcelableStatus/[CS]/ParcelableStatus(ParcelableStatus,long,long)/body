@@ -26,7 +26,7 @@
   source=orig.source;
   user_profile_image_url=orig.user_profile_image_url;
   media=orig.media;
-  quote_media=orig.quote_media;
+  quoted_media=orig.quoted_media;
   location=orig.location;
   my_retweet_id=override_my_retweet_id;
   is_possibly_sensitive=orig.is_possibly_sensitive;
@@ -38,17 +38,17 @@
   card=orig.card;
   place_full_name=orig.place_full_name;
   is_quote=orig.is_quote;
-  quote_id=orig.quote_id;
-  quote_timestamp=orig.quote_timestamp;
-  quoted_by_user_id=orig.quoted_by_user_id;
-  quoted_by_user_name=orig.quoted_by_user_name;
-  quoted_by_user_screen_name=orig.quoted_by_user_screen_name;
-  quoted_by_user_profile_image=orig.quoted_by_user_profile_image;
-  quote_text_html=orig.quote_text_html;
-  quote_text_plain=orig.quote_text_plain;
-  quote_text_unescaped=orig.quote_text_unescaped;
-  quote_source=orig.quote_source;
-  quoted_by_user_is_protected=orig.quoted_by_user_is_protected;
-  quoted_by_user_is_verified=orig.quoted_by_user_is_verified;
+  quoted_id=orig.quoted_id;
+  quoted_timestamp=orig.quoted_timestamp;
+  quoted_user_id=orig.quoted_user_id;
+  quoted_user_name=orig.quoted_user_name;
+  quoted_user_screen_name=orig.quoted_user_screen_name;
+  quoted_user_profile_image=orig.quoted_user_profile_image;
+  quoted_text_html=orig.quoted_text_html;
+  quoted_text_plain=orig.quoted_text_plain;
+  quoted_text_unescaped=orig.quoted_text_unescaped;
+  quoted_source=orig.quoted_source;
+  quoted_user_is_protected=orig.quoted_user_is_protected;
+  quoted_user_is_verified=orig.quoted_user_is_verified;
   card_name=card != null ? card.name : null;
 }
