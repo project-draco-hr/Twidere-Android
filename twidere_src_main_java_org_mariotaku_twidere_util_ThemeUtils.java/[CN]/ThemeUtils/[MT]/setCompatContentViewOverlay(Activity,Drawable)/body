@@ -5,7 +5,7 @@
   if (contentLayout == null) {
     contentLayout=window.findViewById(android.R.id.content);
   }
-  if (contentLayout instanceof ContentFrameLayout) {
-    contentLayout.setForeground(overlay);
+  if (contentLayout instanceof FrameLayout) {
+    ViewSupport.setForeground(contentLayout,overlay);
   }
 }
