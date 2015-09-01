@@ -22,9 +22,9 @@
       }
  else       if (data.account_id > 0) {
         failedAccountIds.remove(data.account_id);
-        final TweetEvent event=TweetEvent.create(BackgroundOperationService.this,data,TimelineType.OTHER);
+        final TweetEvent event=TweetEvent.create(this,data,TimelineType.OTHER);
         event.setAction(TweetEvent.Action.TWEET);
-        HotMobiLogger.getInstance(BackgroundOperationService.this).log(data.account_id,event);
+        HotMobiLogger.getInstance(this).log(data.account_id,event);
       }
     }
     if (result.isEmpty()) {

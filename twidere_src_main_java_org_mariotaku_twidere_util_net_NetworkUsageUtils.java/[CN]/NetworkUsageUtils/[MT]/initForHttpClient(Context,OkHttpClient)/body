@@ -1,3 +1,4 @@
 {
-  client.networkInterceptors().add(new NetworkUsageInterceptor(context));
+  final List<Interceptor> interceptors=client.networkInterceptors();
+  interceptors.add(new NetworkUsageInterceptor(context));
 }
