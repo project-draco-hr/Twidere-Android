@@ -6,6 +6,6 @@
     contentLayout=window.findViewById(android.R.id.content);
   }
   if (contentLayout instanceof ContentFrameLayout) {
-    ((ContentFrameLayout)contentLayout).setForeground(overlay);
+    contentLayout.setForeground(overlay);
   }
 }
