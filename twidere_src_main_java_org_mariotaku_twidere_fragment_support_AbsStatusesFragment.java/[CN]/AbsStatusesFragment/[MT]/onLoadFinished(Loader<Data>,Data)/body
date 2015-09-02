@@ -13,7 +13,7 @@
  else {
     lastVisiblePos=layoutManager.findFirstVisibleItemPosition();
   }
-  if (lastVisiblePos != RecyclerView.NO_POSITION) {
+  if (lastVisiblePos != RecyclerView.NO_POSITION && lastVisiblePos < adapter.getItemCount()) {
     lastReadId=adapter.getStatusId(lastVisiblePos);
     final View positionView=layoutManager.findViewByPosition(lastVisiblePos);
     lastVisibleTop=positionView != null ? positionView.getTop() : 0;

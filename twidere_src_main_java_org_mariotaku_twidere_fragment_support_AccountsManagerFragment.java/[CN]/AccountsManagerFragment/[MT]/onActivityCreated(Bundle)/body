@@ -7,6 +7,8 @@
   mAdapter=new AccountsAdapter(activity);
   Utils.configBaseAdapter(activity,mAdapter);
   mAdapter.setSortEnabled(true);
+  mAdapter.setSwitchEnabled(true);
+  mAdapter.setOnAccountToggleListener(this);
   mListView.setAdapter(mAdapter);
   mListView.setDragEnabled(true);
   mListView.setDropListener(this);

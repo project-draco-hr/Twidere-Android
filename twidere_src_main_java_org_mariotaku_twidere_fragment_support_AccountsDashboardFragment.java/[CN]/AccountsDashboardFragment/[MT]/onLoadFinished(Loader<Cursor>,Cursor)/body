@@ -1,30 +1,3 @@
 {
-  final Menu menu=mAccountsToggleMenu.getMenu();
-  mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(R.id.select_account));
-  final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(data);
-  if (accounts.length > 0) {
-    mNoAccountContainer.setVisibility(View.GONE);
-    mAccountProfileContainer.setVisibility(View.VISIBLE);
-  }
- else {
-    mNoAccountContainer.setVisibility(View.VISIBLE);
-    mAccountProfileContainer.setVisibility(View.INVISIBLE);
-  }
-  long defaultId=-1;
-  for (  ParcelableAccount account : accounts) {
-    if (account.is_activated) {
-      defaultId=account.account_id;
-      break;
-    }
-  }
-  mAccountsAdapter.setAccounts(accounts);
-  mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
-  mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
-  if (mAccountActionProvider != null) {
-    mAccountActionProvider.setExclusive(false);
-    mAccountActionProvider.setAccounts(accounts);
-  }
-  initAccountActionsAdapter(accounts);
-  updateAccountOptionsSeparatorLabel(null);
-  updateDefaultAccountState();
+  updateAccountProviderData(data);
 }

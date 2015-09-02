@@ -1,0 +1,19 @@
+{
+  final Set<Long> trueIds=new CompactHashSet<>(), falseIds=new CompactHashSet<>();
+  for (int i=0, j=mActivatedState.size(); i < j; i++) {
+    if (mActivatedState.valueAt(i)) {
+      trueIds.add(mActivatedState.keyAt(i));
+    }
+ else {
+      falseIds.add(mActivatedState.keyAt(i));
+    }
+  }
+  final ContentResolver cr=getContentResolver();
+  final ContentValues values=new ContentValues();
+  values.put(Accounts.IS_ACTIVATED,true);
+  Expression where=Expression.in(new Columns.Column(Accounts.ACCOUNT_ID),new RawItemArray(trueIds.toArray()));
+  cr.update(Accounts.CONTENT_URI,values,where.getSQL(),null);
+  values.put(Accounts.IS_ACTIVATED,false);
+  where=Expression.in(new Columns.Column(Accounts.ACCOUNT_ID),new RawItemArray(falseIds.toArray()));
+  cr.update(Accounts.CONTENT_URI,values,where.getSQL(),null);
+}

@@ -1,8 +1,8 @@
 {
   content=(ColorLabelRelativeLayout)view;
   name=(TextView)view.findViewById(android.R.id.text1);
-  screen_name=(TextView)view.findViewById(android.R.id.text2);
-  profile_image=(ImageView)view.findViewById(android.R.id.icon);
-  checkbox=(CheckBox)view.findViewById(android.R.id.checkbox);
-  drag_handle=view.findViewById(R.id.drag_handle);
+  screenName=(TextView)view.findViewById(android.R.id.text2);
+  profileImage=(ImageView)view.findViewById(android.R.id.icon);
+  toggle=(CompoundButton)view.findViewById(android.R.id.toggle);
+  dragHandle=view.findViewById(R.id.drag_handle);
 }

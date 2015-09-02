@@ -1,0 +1,5 @@
+{
+  if (mSwitchEnabled == enabled)   return;
+  mSwitchEnabled=enabled;
+  notifyDataSetChanged();
+}

@@ -1,5 +1,0 @@
-{
-  if (mChoiceMode == mode)   return;
-  mChoiceMode=mode;
-  notifyDataSetChanged();
-}

@@ -1,16 +1,18 @@
 {
   final int color=cursor.getInt(mIndices.color);
   final AccountViewHolder holder=(AccountViewHolder)view.getTag();
-  holder.screen_name.setText("@" + cursor.getString(mIndices.screen_name));
+  holder.screenName.setText("@" + cursor.getString(mIndices.screen_name));
   holder.setAccountColor(color);
   if (mDisplayProfileImage) {
-    mImageLoader.displayProfileImage(holder.profile_image,cursor.getString(mIndices.profile_image_url));
+    mImageLoader.displayProfileImage(holder.profileImage,cursor.getString(mIndices.profile_image_url));
   }
  else {
-    mImageLoader.cancelDisplayTask(holder.profile_image);
+    mImageLoader.cancelDisplayTask(holder.profileImage);
   }
-  final boolean isMultipleChoice=mChoiceMode == ListView.CHOICE_MODE_MULTIPLE || mChoiceMode == ListView.CHOICE_MODE_MULTIPLE_MODAL;
-  holder.checkbox.setVisibility(isMultipleChoice ? View.VISIBLE : View.GONE);
+  holder.toggle.setChecked(cursor.getShort(mIndices.is_activated) == 1);
+  holder.toggle.setOnCheckedChangeListener(mCheckedChangeListener);
+  holder.toggle.setVisibility(mSwitchEnabled ? View.VISIBLE : View.GONE);
+  holder.toggle.setTag(cursor.getLong(mIndices.account_id));
   holder.setSortEnabled(mSortEnabled);
   super.bindView(view,context,cursor);
 }
