@@ -1,0 +1,3 @@
+{
+  if (id <= 0 || user == null || text == null)   throw new IOException("Malformed Status object");
+}

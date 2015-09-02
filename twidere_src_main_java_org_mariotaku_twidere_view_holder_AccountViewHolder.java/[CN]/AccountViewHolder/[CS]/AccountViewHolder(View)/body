@@ -4,5 +4,6 @@
   screenName=(TextView)view.findViewById(android.R.id.text2);
   profileImage=(ImageView)view.findViewById(android.R.id.icon);
   toggle=(CompoundButton)view.findViewById(android.R.id.toggle);
+  toggleContainer=view.findViewById(R.id.toggle_container);
   dragHandle=view.findViewById(R.id.drag_handle);
 }
