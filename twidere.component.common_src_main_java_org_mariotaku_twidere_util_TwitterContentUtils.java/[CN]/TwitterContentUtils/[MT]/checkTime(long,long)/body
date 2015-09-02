@@ -1,6 +1,0 @@
-{
-  if (that <= 0)   return;
-  if ((that - current) > ONE_MINUTE) {
-    AbsLogger.error(new Exception("Wrong timestamp " + that + ", current "+ current));
-  }
-}
