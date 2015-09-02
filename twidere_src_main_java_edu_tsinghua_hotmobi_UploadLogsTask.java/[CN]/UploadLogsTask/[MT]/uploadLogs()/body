@@ -9,9 +9,11 @@
     }
   }
 ;
-  for (  File dayLogsDir : logsDir.listFiles(filter)) {
+  for (  Object dayLogsDirObj : ArrayUtils.nullToEmpty(logsDir.listFiles(filter))) {
+    final File dayLogsDir=(File)dayLogsDirObj;
     boolean succeeded=true;
-    for (    File logFile : dayLogsDir.listFiles()) {
+    for (    Object logFileObj : ArrayUtils.nullToEmpty(dayLogsDir.listFiles())) {
+      File logFile=(File)logFileObj;
       FileTypedData body=null;
       RestHttpResponse response=null;
       try {
