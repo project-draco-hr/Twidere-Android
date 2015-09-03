@@ -1,5 +1,5 @@
 {
-  mDateFormat=new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy",Locale.ENGLISH);
+  mDateFormat=new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy",LOCALE);
   mDateFormat.setLenient(true);
-  mDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+  mDateFormat.setTimeZone(TIME_ZONE);
 }

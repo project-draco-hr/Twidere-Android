@@ -1,0 +1,5 @@
+{
+  int lastDotIdx=name.lastIndexOf('.');
+  if (lastDotIdx < 0)   return name + "." + extension;
+  return name.substring(0,lastDotIdx) + "." + extension;
+}

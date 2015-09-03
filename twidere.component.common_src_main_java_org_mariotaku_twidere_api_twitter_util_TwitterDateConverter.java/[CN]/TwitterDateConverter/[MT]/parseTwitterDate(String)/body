@@ -1,0 +1,29 @@
+{
+  final String[] segs=StringUtils.split(string,' ');
+  if (segs.length != 6) {
+    return null;
+  }
+  final String[] timeSegs=StringUtils.split(segs[3],':');
+  if (timeSegs.length != 3) {
+    return null;
+  }
+  final GregorianCalendar calendar=new GregorianCalendar(TIME_ZONE,LOCALE);
+  calendar.clear();
+  final int monthIdx=ArrayUtils.indexOf(MONTH_NAMES,segs[1]);
+  if (monthIdx < 0) {
+    return null;
+  }
+  calendar.set(Calendar.YEAR,Integer.parseInt(segs[5]));
+  calendar.set(Calendar.MONTH,monthIdx);
+  calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(segs[2]));
+  calendar.set(Calendar.HOUR_OF_DAY,Integer.parseInt(timeSegs[0]));
+  calendar.set(Calendar.MINUTE,Integer.parseInt(timeSegs[1]));
+  calendar.set(Calendar.SECOND,Integer.parseInt(timeSegs[2]));
+  calendar.set(Calendar.ZONE_OFFSET,SimpleTimeZone.getTimeZone("GMT" + segs[4]).getRawOffset());
+  final Date date=calendar.getTime();
+  if (!WEEK_NAMES[calendar.get(Calendar.DAY_OF_WEEK) - 1].equals(segs[0])) {
+    AbsLogger.error("Week mismatch " + string + " => "+ date);
+    return null;
+  }
+  return date;
+}
