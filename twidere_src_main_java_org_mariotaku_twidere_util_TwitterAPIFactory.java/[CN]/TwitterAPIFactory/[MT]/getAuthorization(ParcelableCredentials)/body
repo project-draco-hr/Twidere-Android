@@ -6,7 +6,8 @@ case ParcelableCredentials.AUTH_TYPE_XAUTH:
       final String consumerKey=TextUtils.isEmpty(credentials.consumer_key) ? TWITTER_CONSUMER_KEY_LEGACY : credentials.consumer_key;
       final String consumerSecret=TextUtils.isEmpty(credentials.consumer_secret) ? TWITTER_CONSUMER_SECRET_LEGACY : credentials.consumer_secret;
       final OAuthToken accessToken=new OAuthToken(credentials.oauth_token,credentials.oauth_token_secret);
-      return new OAuthAuthorization(consumerKey,consumerSecret,accessToken);
+      if (isValidConsumerKeySecret(consumerKey) && isValidConsumerKeySecret(consumerSecret))       return new OAuthAuthorization(consumerKey,consumerSecret,accessToken);
+      return new OAuthAuthorization(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,accessToken);
     }
 case ParcelableCredentials.AUTH_TYPE_BASIC:
 {

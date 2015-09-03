@@ -1,0 +1,6 @@
+{
+  for (int i=0, j=text.length(); i < j; i++) {
+    if (!isAsciiLetterOrDigit(text.charAt(i)))     return false;
+  }
+  return true;
+}

@@ -16,8 +16,10 @@
   final AlertDialog dialog=builder.create();
   dialog.setOnShowListener(new DialogInterface.OnShowListener(){
     @Override public void onShow(    DialogInterface dialog){
-      final EditText editConsumerKey=(EditText)((Dialog)dialog).findViewById(R.id.consumer_key);
-      final EditText editConsumerSecret=(EditText)((Dialog)dialog).findViewById(R.id.consumer_secret);
+      final MaterialEditText editConsumerKey=(MaterialEditText)((Dialog)dialog).findViewById(R.id.consumer_key);
+      final MaterialEditText editConsumerSecret=(MaterialEditText)((Dialog)dialog).findViewById(R.id.consumer_secret);
+      editConsumerKey.addValidator(new ConsumerKeySecretValidator(getString(R.string.invalid_consumer_key)));
+      editConsumerSecret.addValidator(new ConsumerKeySecretValidator(getString(R.string.invalid_consumer_secret)));
       final SharedPreferences prefs=SharedPreferencesWrapper.getInstance(getActivity(),SHARED_PREFERENCES_NAME,MODE_PRIVATE);
       editConsumerKey.setText(prefs.getString(KEY_CONSUMER_KEY,null));
       editConsumerSecret.setText(prefs.getString(KEY_CONSUMER_SECRET,null));

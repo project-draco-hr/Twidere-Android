@@ -1,0 +1,4 @@
+{
+  if (isValidConsumerKeySecret(consumerKey) && isValidConsumerKeySecret(consumerSecret))   return new OAuthToken(consumerKey,consumerSecret);
+  return new OAuthToken(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET);
+}
