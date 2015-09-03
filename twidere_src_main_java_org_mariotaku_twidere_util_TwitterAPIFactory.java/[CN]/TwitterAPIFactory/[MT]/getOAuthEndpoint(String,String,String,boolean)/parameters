@@ -1,2 +1,4 @@
 String apiUrlFormat
+String domain
+String versionSuffix
 boolean sameOAuthSigningUrl
