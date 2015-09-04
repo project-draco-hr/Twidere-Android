@@ -94,7 +94,14 @@
   repliesCountView.setText(Utils.getLocalizedNumber(locale,status.reply_count));
   retweetsCountView.setText(Utils.getLocalizedNumber(locale,status.retweet_count));
   favoritesCountView.setText(Utils.getLocalizedNumber(locale,status.favorite_count));
-  if (status.media == null) {
+  final ParcelableMedia[] media;
+  if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
+    media=status.quoted_media;
+  }
+ else {
+    media=status.media;
+  }
+  if (media == null) {
     mediaPreviewContainer.setVisibility(View.GONE);
     mediaPreview.setVisibility(View.GONE);
     mediaPreviewLoad.setVisibility(View.GONE);
@@ -104,7 +111,7 @@
     mediaPreviewContainer.setVisibility(View.VISIBLE);
     mediaPreview.setVisibility(View.VISIBLE);
     mediaPreviewLoad.setVisibility(View.GONE);
-    mediaPreview.displayMedia(status.media,loader,status.account_id,adapter.getFragment(),adapter.getMediaLoadingHandler());
+    mediaPreview.displayMedia(media,loader,status.account_id,adapter.getFragment(),adapter.getMediaLoadingHandler());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);

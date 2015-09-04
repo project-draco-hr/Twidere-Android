@@ -5,7 +5,6 @@
   super.onCreate();
   initDebugMode();
   initBugReport();
-  mDefaultUserAgent=UserAgentUtils.getDefaultUserAgentString(this);
   mHandler=new Handler();
   mMessageBus=new Bus();
   initializeAsyncTask();

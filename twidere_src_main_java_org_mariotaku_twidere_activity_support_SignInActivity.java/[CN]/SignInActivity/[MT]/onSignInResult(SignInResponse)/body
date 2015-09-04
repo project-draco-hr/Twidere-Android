@@ -25,7 +25,6 @@
       finish();
     }
  else {
-      AbsLogger.error(result.exception);
       if (result.exception instanceof AuthenticityTokenException) {
         Toast.makeText(this,R.string.wrong_api_key,Toast.LENGTH_SHORT).show();
       }
