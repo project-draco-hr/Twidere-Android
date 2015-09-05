@@ -1,0 +1,27 @@
+{
+switch (keyCode) {
+case KeyEvent.KEYCODE_MENU:
+{
+      final DrawerLayout drawer=mDrawerLayout;
+      if (isDrawerOpen()) {
+        drawer.closeDrawers();
+      }
+ else {
+        drawer.openDrawer(Gravity.LEFT);
+      }
+      return true;
+    }
+case KeyEvent.KEYCODE_BACK:
+{
+    final DrawerLayout drawer=mDrawerLayout;
+    if (isDrawerOpen()) {
+      drawer.closeDrawers();
+    }
+ else {
+      onBackPressed();
+    }
+    return true;
+  }
+}
+return super.onKeyUp(keyCode,event);
+}

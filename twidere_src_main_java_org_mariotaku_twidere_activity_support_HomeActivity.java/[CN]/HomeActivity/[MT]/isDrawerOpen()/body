@@ -1,0 +1,5 @@
+{
+  final DrawerLayout drawer=mDrawerLayout;
+  if (drawer == null)   return false;
+  return drawer.isDrawerOpen(GravityCompat.START) || drawer.isDrawerOpen(GravityCompat.END);
+}

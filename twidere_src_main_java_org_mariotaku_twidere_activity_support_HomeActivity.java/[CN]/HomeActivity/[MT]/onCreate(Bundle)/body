@@ -64,42 +64,18 @@
   initUnreadCount();
   updateActionsButton();
   updateSlidingMenuTouchMode();
-  getDelegate().setKeyListener(new ThemedAppCompatDelegateFactory.KeyListener(){
-    @Override public boolean onKeyDown(    int keyCode,    KeyEvent event){
-      return false;
+  if (savedInstanceState == null) {
+    if (refreshOnStart) {
+      mTwitterWrapper.refreshAll(getActivatedAccountIds());
     }
-    @Override public boolean onKeyUp(    int keyCode,    KeyEvent event){
-switch (keyCode) {
-case KeyEvent.KEYCODE_MENU:
-{
-          if (mDrawerLayout != null) {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-              mDrawerLayout.closeDrawers();
-            }
- else {
-              mDrawerLayout.openDrawer(GravityCompat.START);
-            }
-            return true;
-          }
-          break;
-        }
+    if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
+      openAccountsDrawer();
     }
-    return false;
   }
-}
-);
-if (savedInstanceState == null) {
-  if (refreshOnStart) {
-    mTwitterWrapper.refreshAll(getActivatedAccountIds());
+  setupHomeTabs();
+  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
+  setTabPosition(initialTabPosition);
+  if (Utils.isStreamingEnabled()) {
+    startService(new Intent(this,StreamingService.class));
   }
-  if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
-    openAccountsDrawer();
-  }
-}
-setupHomeTabs();
-final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
-setTabPosition(initialTabPosition);
-if (Utils.isStreamingEnabled()) {
-  startService(new Intent(this,StreamingService.class));
-}
 }
