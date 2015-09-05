@@ -7,7 +7,7 @@ case URI_CODE_TWITTER_STATUS:
       builder.scheme(SCHEME_TWIDERE);
       builder.authority(AUTHORITY_STATUS);
       builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,pathSegments.get(2));
-      return new Intent(Intent.ACTION_VIEW,builder.build());
+      return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
     }
 case URI_CODE_TWITTER_INTENT_TWEET:
 {
@@ -16,7 +16,7 @@ case URI_CODE_TWITTER_INTENT_TWEET:
     final String text=uri.getQueryParameter("text");
     final String url=uri.getQueryParameter("url");
     handledIntent.putExtra(Intent.EXTRA_TEXT,Utils.getShareStatus(this,text,url));
-    return handledIntent;
+    return Pair.create(handledIntent,true);
   }
 case URI_CODE_TWITTER_USER:
 {
@@ -29,7 +29,7 @@ case URI_CODE_TWITTER_USER:
     final String text=uri.getQueryParameter("text");
     final String url=uri.getQueryParameter("url");
     handledIntent.putExtra(Intent.EXTRA_TEXT,Utils.getShareStatus(this,text,url));
-    return handledIntent;
+    return Pair.create(handledIntent,true);
   }
  else   if ("following".equals(pathSegment)) {
     builder.authority(AUTHORITY_USER_FRIENDS);
@@ -47,8 +47,7 @@ case URI_CODE_TWITTER_USER:
     builder.authority(AUTHORITY_USER);
     builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,pathSegment);
   }
- else   return null;
-  return new Intent(Intent.ACTION_VIEW,builder.build());
+  return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_FOLLOWING:
 {
@@ -56,7 +55,7 @@ final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_FRIENDS);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,pathSegments.get(0));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_FOLLOWERS:
 {
@@ -64,7 +63,7 @@ final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_FOLLOWERS);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,pathSegments.get(0));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_FAVORITES:
 {
@@ -72,47 +71,47 @@ final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_FAVORITES);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,pathSegments.get(0));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_LIST:
 {
 final String firstSegment=pathSegments.get(0);
 if (ArrayUtils.contains(TWITTER_RESERVED_PATHS,firstSegment)) {
-return null;
+return Pair.create(null,true);
 }
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_LIST);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,firstSegment);
 builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_LIST_MEMBERS:
 {
 final String firstSegment=pathSegments.get(0);
 if (ArrayUtils.contains(TWITTER_RESERVED_PATHS,firstSegment)) {
-return null;
+return Pair.create(null,true);
 }
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_LIST_MEMBERS);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,firstSegment);
 builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case URI_CODE_TWITTER_USER_LIST_SUBSCRIBERS:
 {
 final String firstSegment=pathSegments.get(0);
 if (ArrayUtils.contains(TWITTER_RESERVED_PATHS,firstSegment)) {
-return null;
+return Pair.create(null,true);
 }
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_USER_LIST_SUBSCRIBERS);
 builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,firstSegment);
 builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
-return new Intent(Intent.ACTION_VIEW,builder.build());
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 }
-return null;
+return Pair.create(null,false);
 }

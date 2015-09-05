@@ -87,7 +87,7 @@
   final ParcelableMedia[] media=status.is_quote && ArrayUtils.isEmpty(status.media) ? status.quoted_media : status.media;
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    final boolean hasMedia=media != null && media.length > 0;
+    final boolean hasMedia=!ArrayUtils.isEmpty(media);
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
       mediaPreview.setVisibility(View.VISIBLE);
       mediaPreview.displayMedia(media,loader,status.account_id,this,adapter.getMediaLoadingHandler());

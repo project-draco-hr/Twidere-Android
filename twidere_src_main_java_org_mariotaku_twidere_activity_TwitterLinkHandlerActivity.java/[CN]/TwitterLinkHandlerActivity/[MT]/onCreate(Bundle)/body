@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  mPackageManager=getPackageManager();
+  final PackageManager packageManager=getPackageManager();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   final Intent intent=getIntent();
   final Uri data=intent.getData();
@@ -9,16 +9,18 @@
     return;
   }
   final Uri uri=regulateTwitterUri(data);
-  final Intent handledIntent=getHandledIntent(uri);
-  if (handledIntent != null) {
-    startActivity(handledIntent);
+  final Pair<Intent,Boolean> handled=getHandledIntent(uri);
+  if (handled.first != null) {
+    startActivity(handled.first);
   }
  else {
-    AbsLogger.error(new TwitterLinkException("Unable to handle twitter uri " + uri));
+    if (!handled.second) {
+      AbsLogger.error(new TwitterLinkException("Unable to handle twitter uri " + uri));
+    }
     final String packageName=mPreferences.getString(KEY_FALLBACK_TWITTER_LINK_HANDLER,null);
     final Intent fallbackIntent=new Intent(Intent.ACTION_VIEW,uri);
     fallbackIntent.setPackage(packageName);
-    if (TextUtils.isEmpty(packageName) || mPackageManager.queryIntentActivities(fallbackIntent,0).isEmpty()) {
+    if (TextUtils.isEmpty(packageName) || packageManager.queryIntentActivities(fallbackIntent,0).isEmpty()) {
       final Intent pickIntent=new Intent(INTENT_ACTION_PICK_ACTIVITY);
       pickIntent.putExtra(EXTRA_INTENT,new Intent(Intent.ACTION_VIEW,uri));
       pickIntent.putExtra(EXTRA_BLACKLIST,new String[]{getPackageName()});
