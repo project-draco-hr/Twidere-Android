@@ -25,5 +25,6 @@
     AbsLogger.error("Week mismatch " + string + " => "+ date);
     return null;
   }
+  checkTime(string,date);
   return date;
 }

@@ -9,14 +9,11 @@
   if (date != null)   return date;
   try {
     date=mDateFormat.parse(string);
+    checkTime(string,date);
   }
  catch (  ParseException e) {
     AbsLogger.error("Unrecognized date: " + string,e);
     return null;
-  }
-  final long currentTime=System.currentTimeMillis();
-  if (date.getTime() - currentTime > ONE_MINUTE) {
-    AbsLogger.error("Tweet date from future, raw string: " + string + ", date parsed: "+ date+ ", current time is "+ currentTime);
   }
   return date;
 }
