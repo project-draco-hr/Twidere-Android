@@ -1,4 +1,4 @@
 {
   this(message,cause);
-  this.statusCode=statusCode;
+  setStatusCode(statusCode);
 }
