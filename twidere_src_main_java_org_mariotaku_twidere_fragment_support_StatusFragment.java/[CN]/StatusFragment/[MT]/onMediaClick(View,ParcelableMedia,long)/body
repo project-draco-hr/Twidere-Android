@@ -2,7 +2,7 @@
   final ParcelableStatus status=mStatusAdapter.getStatus();
   if (status == null)   return;
   final Bundle options=Utils.createMediaViewerActivityOption(view);
-  Utils.openMediaDirectly(getActivity(),accountId,status,media,status.media,options);
+  Utils.openMediaDirectly(getActivity(),accountId,status,media,options);
   MediaEvent event=MediaEvent.create(getActivity(),status,media,TimelineType.OTHER,mStatusAdapter.isMediaPreviewEnabled());
   HotMobiLogger.getInstance(getActivity()).log(status.account_id,event);
 }

@@ -94,13 +94,7 @@
   repliesCountView.setText(Utils.getLocalizedNumber(locale,status.reply_count));
   retweetsCountView.setText(Utils.getLocalizedNumber(locale,status.retweet_count));
   favoritesCountView.setText(Utils.getLocalizedNumber(locale,status.favorite_count));
-  final ParcelableMedia[] media;
-  if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
-    media=status.quoted_media;
-  }
- else {
-    media=status.media;
-  }
+  final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
   if (media == null) {
     mediaPreviewContainer.setVisibility(View.GONE);
     mediaPreview.setVisibility(View.GONE);

@@ -10,7 +10,7 @@ case DialogInterface.BUTTON_POSITIVE:
       final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
       final Bundle option=args.getBundle(EXTRA_ACTIVITY_OPTIONS);
       final ParcelableMedia[] media=Utils.newParcelableArray(args.getParcelableArray(EXTRA_MEDIA),ParcelableMedia.CREATOR);
-      openMediaDirectly(context,accountId,status,current,media,option);
+      openMediaDirectly(context,accountId,status,null,current,media,option);
       break;
     }
 }
