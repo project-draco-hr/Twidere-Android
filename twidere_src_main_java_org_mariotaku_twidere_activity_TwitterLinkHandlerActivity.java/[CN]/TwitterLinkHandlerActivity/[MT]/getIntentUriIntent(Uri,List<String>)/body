@@ -1,0 +1,15 @@
+{
+  if (pathSegments.size() < 2)   return Pair.create(null,false);
+switch (pathSegments.get(1)) {
+case "tweet":
+{
+      final Intent handledIntent=new Intent(this,ComposeActivity.class);
+      handledIntent.setAction(Intent.ACTION_SEND);
+      final String text=uri.getQueryParameter("text");
+      final String url=uri.getQueryParameter("url");
+      handledIntent.putExtra(Intent.EXTRA_TEXT,Utils.getShareStatus(this,text,url));
+      return Pair.create(handledIntent,true);
+    }
+}
+return Pair.create(null,false);
+}

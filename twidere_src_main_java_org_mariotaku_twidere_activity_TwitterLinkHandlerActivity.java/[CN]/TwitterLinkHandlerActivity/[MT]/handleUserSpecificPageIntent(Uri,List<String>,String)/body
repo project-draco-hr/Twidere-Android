@@ -1,0 +1,79 @@
+{
+  final int segsSize=pathSegments.size();
+  if (segsSize == 1) {
+    final Uri.Builder builder=new Uri.Builder();
+    builder.scheme(SCHEME_TWIDERE);
+    builder.authority(AUTHORITY_USER);
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+    return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+  }
+ else   if (segsSize == 2) {
+switch (pathSegments.get(1)) {
+case "following":
+{
+        final Uri.Builder builder=new Uri.Builder();
+        builder.scheme(SCHEME_TWIDERE);
+        builder.authority(AUTHORITY_USER_FRIENDS);
+        builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+        return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+      }
+case "followers":
+{
+      final Uri.Builder builder=new Uri.Builder();
+      builder.scheme(SCHEME_TWIDERE);
+      builder.authority(AUTHORITY_USER_FOLLOWERS);
+      builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+      return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+    }
+case "favorites":
+{
+    final Uri.Builder builder=new Uri.Builder();
+    builder.scheme(SCHEME_TWIDERE);
+    builder.authority(AUTHORITY_USER_FAVORITES);
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+    return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+  }
+default :
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER_LIST);
+  builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+  builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
+  return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+}
+}
+}
+ else if (segsSize > 3) {
+if ("status".equals(pathSegments.get(1)) && ParseUtils.parseLong(pathSegments.get(2),-1) != -1) {
+final Uri.Builder builder=new Uri.Builder();
+builder.scheme(SCHEME_TWIDERE);
+builder.authority(AUTHORITY_STATUS);
+builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,pathSegments.get(2));
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+}
+ else {
+switch (pathSegments.get(2)) {
+case "members":
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER_LIST_MEMBERS);
+  builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+  builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
+  return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+}
+case "subscribers":
+{
+final Uri.Builder builder=new Uri.Builder();
+builder.scheme(SCHEME_TWIDERE);
+builder.authority(AUTHORITY_USER_LIST_SUBSCRIBERS);
+builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
+builder.appendQueryParameter(QUERY_PARAM_LIST_NAME,pathSegments.get(1));
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+}
+}
+}
+}
+return Pair.create(null,false);
+}

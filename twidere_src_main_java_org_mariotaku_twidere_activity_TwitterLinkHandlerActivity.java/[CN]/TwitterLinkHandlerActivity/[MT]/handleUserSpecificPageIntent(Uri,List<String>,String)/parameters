@@ -1,0 +1,3 @@
+Uri uri
+List<String> pathSegments
+String screenName

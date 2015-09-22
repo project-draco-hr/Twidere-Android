@@ -1,0 +1,6 @@
+{
+  for (  Pair<Pattern,Integer> item : patternsList) {
+    if (item.first.matcher(path).matches())     return item.second;
+  }
+  return defaultCode;
+}
