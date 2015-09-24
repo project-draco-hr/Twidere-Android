@@ -19,13 +19,21 @@ case "share":
     handledIntent.putExtra(Intent.EXTRA_TEXT,Utils.getShareStatus(this,text,url));
     return Pair.create(handledIntent,true);
   }
-case "following":
+case "search":
 {
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(SCHEME_TWIDERE);
-  builder.authority(AUTHORITY_USER_FRIENDS);
-  builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(getDefaultAccountId(this)));
+  builder.authority(AUTHORITY_SEARCH);
+  builder.appendQueryParameter(QUERY_PARAM_QUERY,uri.getQueryParameter("q"));
   return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
+}
+case "following":
+{
+final Uri.Builder builder=new Uri.Builder();
+builder.scheme(SCHEME_TWIDERE);
+builder.authority(AUTHORITY_USER_FRIENDS);
+builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(getDefaultAccountId(this)));
+return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }
 case "followers":
 {

@@ -3,6 +3,8 @@
   final Context context=fragment.getActivity();
   final Resources res=context.getResources();
   final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  mItemCounts=new int[ITEM_TYPES_SUM];
+  mItemCounts[ITEM_IDX_SPACE]=1;
   mFragment=fragment;
   mContext=context;
   mInflater=LayoutInflater.from(context);

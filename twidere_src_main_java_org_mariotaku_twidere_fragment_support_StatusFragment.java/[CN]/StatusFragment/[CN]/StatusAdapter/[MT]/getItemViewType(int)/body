@@ -1,15 +1,3 @@
 {
-  final int conversationCount=getConversationCount();
-  if (position == getItemCount() - 1) {
-    return VIEW_TYPE_SPACE;
-  }
- else   if (position < conversationCount) {
-    return mConversation != null ? VIEW_TYPE_LIST_STATUS : VIEW_TYPE_CONVERSATION_LOAD_INDICATOR;
-  }
- else   if (position > conversationCount) {
-    return mReplies != null ? VIEW_TYPE_LIST_STATUS : VIEW_TYPE_REPLIES_LOAD_INDICATOR;
-  }
- else {
-    return VIEW_TYPE_DETAIL_STATUS;
-  }
+  return getItemViewTypeByItemType(getItemType(position));
 }

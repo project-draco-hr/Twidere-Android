@@ -1,5 +1,6 @@
 {
   mConversation=conversation;
+  mItemCounts[ITEM_IDX_CONVERSATION]=conversation != null ? conversation.size() : 0;
   notifyDataSetChanged();
   updateItemDecoration();
 }

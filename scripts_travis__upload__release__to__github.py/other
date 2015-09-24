@@ -61,7 +61,6 @@ response = None
 try:
     response = urllib2.urlopen(request)
 except HTTPError as err:
-    print(err.code)
     if (err.code == 404):
         print(('Creating release for tag %s' % current_tag))
         request = urllib2.Request(uritemplate.expand('https://api.github.com/repos/{user}/{repo}/releases', {'user': github_user_name, 'repo': github_repo_name, }), data=json.dumps({'tag_name': current_tag, 'name': ('Version %s' % current_tag), 'body': current_tag_body, }), headers={'Accept': github_header_accept, 'Authorization': github_authorization_header, 'Content-Type': 'application/json', 'User-Agent': github_header_user_agent, })

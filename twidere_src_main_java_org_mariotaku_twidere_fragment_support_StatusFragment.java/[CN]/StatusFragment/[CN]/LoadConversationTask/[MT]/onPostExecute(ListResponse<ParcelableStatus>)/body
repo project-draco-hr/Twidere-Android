@@ -1,4 +1,5 @@
 {
+  fragment.getAdapter().setConversationsLoading(false);
   if (data.hasData()) {
     fragment.setConversation(data.getData());
   }

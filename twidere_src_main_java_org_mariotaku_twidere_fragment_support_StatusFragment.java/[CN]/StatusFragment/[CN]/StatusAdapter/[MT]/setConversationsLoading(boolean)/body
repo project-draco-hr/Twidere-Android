@@ -1,0 +1,4 @@
+{
+  mItemCounts[ITEM_IDX_CONVERSATION_LOAD_MORE]=loading ? 1 : 0;
+  notifyDataSetChanged();
+}

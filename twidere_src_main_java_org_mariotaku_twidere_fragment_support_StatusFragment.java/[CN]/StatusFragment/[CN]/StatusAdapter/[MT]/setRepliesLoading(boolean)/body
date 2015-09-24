@@ -1,0 +1,4 @@
+{
+  mItemCounts[ITEM_IDX_REPLY_LOAD_MORE]=loading ? 1 : 0;
+  notifyDataSetChanged();
+}

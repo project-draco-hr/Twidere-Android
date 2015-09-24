@@ -1,15 +1,5 @@
 {
-  final int conversationCount=getConversationCount();
-  if (position == getItemCount() - 1) {
-    return VIEW_TYPE_SPACE;
-  }
- else   if (position < conversationCount) {
-    return mConversation != null ? mConversation.get(position).id : VIEW_TYPE_CONVERSATION_LOAD_INDICATOR;
-  }
- else   if (position > conversationCount) {
-    return mReplies != null ? mReplies.get(position - conversationCount - 1).id : VIEW_TYPE_REPLIES_LOAD_INDICATOR;
-  }
- else {
-    return mStatus != null ? mStatus.id : VIEW_TYPE_DETAIL_STATUS;
-  }
+  final ParcelableStatus status=getStatus(position);
+  if (status != null)   return status.id;
+  return getItemType(position) * 100 + position;
 }

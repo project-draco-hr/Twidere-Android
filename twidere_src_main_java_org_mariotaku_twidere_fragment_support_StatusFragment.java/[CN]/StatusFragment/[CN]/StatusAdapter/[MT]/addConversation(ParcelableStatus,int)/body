@@ -3,6 +3,7 @@
     mConversation=new ArrayList<>();
   }
   mConversation.add(position,status);
+  mItemCounts[ITEM_IDX_CONVERSATION]=mConversation.size();
   notifyDataSetChanged();
   updateItemDecoration();
 }

@@ -1,0 +1,17 @@
+{
+switch (itemType) {
+case ITEM_IDX_CONVERSATION:
+{
+      return mConversation != null ? mConversation.get(position - itemStart) : null;
+    }
+case ITEM_IDX_REPLY:
+{
+    return mReplies != null ? mReplies.get(position - itemStart) : null;
+  }
+case ITEM_IDX_STATUS:
+{
+  return mStatus;
+}
+}
+return null;
+}
