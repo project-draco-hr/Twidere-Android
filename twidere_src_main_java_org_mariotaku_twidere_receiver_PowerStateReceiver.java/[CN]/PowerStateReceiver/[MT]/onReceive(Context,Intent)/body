@@ -1,3 +1,4 @@
 {
-  HotMobiLogger.logPowerBroadcast(context,intent);
+  if (serviceReceiverStarted)   return;
+  HotMobiLogger.logPowerBroadcast(context);
 }

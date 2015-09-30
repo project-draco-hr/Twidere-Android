@@ -17,11 +17,12 @@
   refreshFilter.addAction(BROADCAST_RESCHEDULE_DIRECT_MESSAGES_REFRESHING);
   registerReceiver(mStateReceiver,refreshFilter);
   final IntentFilter batteryFilter=new IntentFilter();
-  refreshFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
-  refreshFilter.addAction(Intent.ACTION_BATTERY_OKAY);
-  refreshFilter.addAction(Intent.ACTION_BATTERY_LOW);
-  refreshFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-  refreshFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-  registerReceiver(mBatteryReceiver,batteryFilter);
+  batteryFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+  batteryFilter.addAction(Intent.ACTION_BATTERY_OKAY);
+  batteryFilter.addAction(Intent.ACTION_BATTERY_LOW);
+  batteryFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+  batteryFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+  registerReceiver(mPowerStateReceiver,batteryFilter);
+  PowerStateReceiver.setServiceReceiverStarted(true);
   startAutoRefresh();
 }

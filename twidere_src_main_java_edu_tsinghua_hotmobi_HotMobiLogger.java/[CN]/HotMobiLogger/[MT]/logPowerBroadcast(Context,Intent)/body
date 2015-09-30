@@ -1,4 +1,5 @@
 {
+  if (intent == null)   return;
   if (!intent.hasExtra(BatteryManager.EXTRA_LEVEL) || !intent.hasExtra(BatteryManager.EXTRA_SCALE) || !intent.hasExtra(BatteryManager.EXTRA_STATUS))   return;
   final BatteryRecord record=new BatteryRecord();
   record.setLevel(intent.getIntExtra(BatteryManager.EXTRA_LEVEL,-1) / (float)intent.getIntExtra(BatteryManager.EXTRA_SCALE,-1));
