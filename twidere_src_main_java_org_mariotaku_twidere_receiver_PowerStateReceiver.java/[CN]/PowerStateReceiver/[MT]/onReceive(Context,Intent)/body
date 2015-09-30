@@ -1,0 +1,3 @@
+{
+  HotMobiLogger.logPowerBroadcast(context,intent);
+}

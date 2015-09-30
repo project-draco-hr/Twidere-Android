@@ -16,9 +16,10 @@
     mActionModeView.setContentHeight(height);
     ThemeUtils.setActionBarContextViewBackground(mActionModeView,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor(),mThemed.getCurrentThemeBackgroundOption(),false);
     mActionModePopup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+    final int actionModeOffset=getActionModeOffset();
     mShowActionModePopup=new Runnable(){
       @Override public void run(){
-        mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.FILL_HORIZONTAL,0,0);
+        mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.FILL_HORIZONTAL,0,actionModeOffset);
       }
     }
 ;

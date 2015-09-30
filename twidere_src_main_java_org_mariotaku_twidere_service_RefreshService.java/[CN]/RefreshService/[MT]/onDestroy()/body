@@ -1,4 +1,5 @@
 {
+  unregisterReceiver(mBatteryReceiver);
   unregisterReceiver(mStateReceiver);
   if (hasAutoRefreshAccounts(this)) {
     startService(new Intent(this,getClass()));

@@ -20,5 +20,8 @@
  else   if (event instanceof ScrollRecord) {
     return "scroll";
   }
+ else   if (event instanceof BatteryRecord) {
+    return "battery";
+  }
   throw new UnsupportedOperationException("Unknown event type " + event);
 }

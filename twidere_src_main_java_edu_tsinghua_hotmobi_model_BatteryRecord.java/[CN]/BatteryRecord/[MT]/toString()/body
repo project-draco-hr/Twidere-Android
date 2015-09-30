@@ -1,0 +1,3 @@
+{
+  return "BatteryRecord{" + "level=" + level + ", state="+ state+ ", timestamp="+ timestamp+ ", timeOffset="+ timeOffset+ '}';
+}
