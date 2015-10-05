@@ -1,6 +1,6 @@
 {
   super.onCreate();
-  DaggerRefreshServiceComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
+  DaggerGeneralComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
   mAlarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
   final TwidereApplication app=TwidereApplication.getInstance(this);
   mPreferences=SharedPreferencesWrapper.getInstance(app,SHARED_PREFERENCES_NAME,MODE_PRIVATE);
