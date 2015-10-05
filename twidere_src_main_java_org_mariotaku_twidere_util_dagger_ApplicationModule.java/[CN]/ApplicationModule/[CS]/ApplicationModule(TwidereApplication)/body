@@ -2,7 +2,10 @@
   activityTracker=new ActivityTracker();
   asyncTwitterWrapper=new AsyncTwitterWrapper(application);
   readStateManager=new ReadStateManager(application);
-  imageLoader=createImageLoader(application);
+  imageDownloader=new TwidereImageDownloader(application,true);
+  imageLoader=createImageLoader(application,imageDownloader);
   videoLoader=new VideoLoader(application);
   mediaLoaderWrapper=new MediaLoaderWrapper(imageLoader,videoLoader);
+  asyncTaskManager=AsyncTaskManager.getInstance();
+  network=new TwidereNetwork(application);
 }

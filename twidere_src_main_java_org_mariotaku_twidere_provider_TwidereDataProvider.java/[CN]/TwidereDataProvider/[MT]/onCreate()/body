@@ -1,10 +1,8 @@
 {
   final Context context=getContext();
   DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
-  final TwidereApplication app=TwidereApplication.getInstance(context);
   mHandler=new Handler(Looper.getMainLooper());
   mDatabaseWrapper=new SQLiteDatabaseWrapper(this);
-  mNetwork=app.getNetwork();
   mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   updatePreferences();

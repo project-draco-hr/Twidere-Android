@@ -14,7 +14,7 @@
       }
     }
     try {
-      final InputStream is=mDownloader.getStream(url,new AccountExtra(mAccountId));
+      final InputStream is=mDownloader.getStream(url,new AccountFullImageExtra(mAccountId));
       if (is == null)       return Result.nullInstance();
       try {
         final long length=is.available();

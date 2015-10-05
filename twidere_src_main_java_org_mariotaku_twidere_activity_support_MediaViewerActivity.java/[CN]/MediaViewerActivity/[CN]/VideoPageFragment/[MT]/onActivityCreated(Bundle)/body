@@ -1,7 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
-  mVideoLoader=TwidereApplication.getInstance(getActivity()).getVideoLoader();
   Handler handler=mVideoViewProgress.getHandler();
   if (handler == null) {
     handler=new Handler(getActivity().getMainLooper());

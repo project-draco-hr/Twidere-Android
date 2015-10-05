@@ -5,7 +5,7 @@
   cb.denyCacheImageMultipleSizesInMemory();
   cb.tasksProcessingOrder(QueueProcessingType.LIFO);
   cb.diskCache(application.getDiskCache());
-  cb.imageDownloader(application.getImageDownloader());
+  cb.imageDownloader(imageDownloader);
   L.writeDebugLogs(BuildConfig.DEBUG);
   loader.init(cb.build());
   return loader;

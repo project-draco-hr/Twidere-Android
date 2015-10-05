@@ -1,4 +1,0 @@
-{
-  if (mFullImageDownloader != null)   return mFullImageDownloader;
-  return mFullImageDownloader=new TwidereImageDownloader(this,true,true);
-}

@@ -1,7 +1,6 @@
 {
   mContext=context;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mAsyncTaskManager=app.getAsyncTaskManager();
+  mAsyncTaskManager=ApplicationModule.get(context).getAsyncTaskManager();
   mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   mResolver=context.getContentResolver();
 }
