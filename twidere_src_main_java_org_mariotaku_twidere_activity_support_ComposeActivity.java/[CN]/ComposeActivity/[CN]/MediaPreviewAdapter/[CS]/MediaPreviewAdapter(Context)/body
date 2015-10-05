@@ -1,4 +1,0 @@
-{
-  super(context,R.layout.grid_item_media_editor);
-  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
-}

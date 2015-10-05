@@ -1,11 +1,11 @@
 {
   super(context,R.layout.list_item_auto_complete,null,FROM,TO,0);
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
   mEditText=view;
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mUserColorNameManager=app.getUserColorNameManager();
   mResolver=context.getContentResolver();
-  mProfileImageLoader=app.getMediaLoaderWrapper();
   mDatabase=app.getSQLiteDatabase();
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
 }

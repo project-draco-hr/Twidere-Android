@@ -6,7 +6,6 @@
   if (view == null)   throw new AssertionError();
   final Context context=view.getContext();
   final TwidereApplication application=TwidereApplication.getInstance(context);
-  mImageLoader=application.getMediaLoaderWrapper();
   mListView.setItemsCanFocus(true);
   mAdapter=new MergeAdapter();
   final LayoutInflater inflater=getLayoutInflater(savedInstanceState);

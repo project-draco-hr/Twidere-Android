@@ -1,0 +1,4 @@
+{
+  super(activity,R.layout.grid_item_media_editor);
+  mImageLoader=activity.mImageLoader;
+}

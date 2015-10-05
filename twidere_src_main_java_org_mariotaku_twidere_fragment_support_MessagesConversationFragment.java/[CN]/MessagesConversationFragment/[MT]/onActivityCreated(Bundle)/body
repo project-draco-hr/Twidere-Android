@@ -4,7 +4,6 @@
   mPreferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   mUserColorNameManager=UserColorNameManager.getInstance(activity);
   mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mImageLoader=TwidereApplication.getInstance(activity).getMediaLoaderWrapper();
   mValidator=new TwidereValidator(activity);
   final View view=getView();
   if (view == null)   throw new AssertionError();

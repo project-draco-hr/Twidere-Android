@@ -9,7 +9,7 @@ case BROADCAST_NOTIFICATION_DELETED:
       final String tag=getPositionTag(uri.getLastPathSegment());
       if (tag == null)       return;
       final long accountId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
-      final ReadStateManager manager=TwidereApplication.getModule(context).getReadStateManager();
+      final ReadStateManager manager=ApplicationModule.get(context).getReadStateManager();
       final String paramReadPosition, paramReadPositions;
       if (!TextUtils.isEmpty(paramReadPosition=uri.getQueryParameter(QUERY_PARAM_READ_POSITION))) {
         manager.setPosition(Utils.getReadPositionTagWithAccounts(tag,accountId),ParseUtils.parseLong(paramReadPosition,-1));

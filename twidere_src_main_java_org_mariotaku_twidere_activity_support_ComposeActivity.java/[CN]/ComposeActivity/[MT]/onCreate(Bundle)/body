@@ -5,7 +5,6 @@
   final TwidereApplication app=TwidereApplication.getInstance(this);
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
-  mImageLoader=app.getMediaLoaderWrapper();
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
   final long[] defaultAccountIds=Utils.getAccountIds(this);

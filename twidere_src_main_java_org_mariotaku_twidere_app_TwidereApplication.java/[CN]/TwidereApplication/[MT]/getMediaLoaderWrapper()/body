@@ -1,4 +1,0 @@
-{
-  if (mMediaLoaderWrapper != null)   return mMediaLoaderWrapper;
-  return mMediaLoaderWrapper=new MediaLoaderWrapper(getImageLoader(),getVideoLoader());
-}

@@ -11,7 +11,6 @@
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(activity,ThemeUtils.getThemeBackgroundOption(activity),ThemeUtils.getUserThemeBackgroundAlpha(activity));
   mActionBarShadowColor=0xA0000000;
   final TwidereApplication app=TwidereApplication.getInstance(activity);
-  mMediaLoader=app.getMediaLoaderWrapper();
   final Bundle args=getArguments();
   long accountId=-1, userId=-1;
   String screenName=null;

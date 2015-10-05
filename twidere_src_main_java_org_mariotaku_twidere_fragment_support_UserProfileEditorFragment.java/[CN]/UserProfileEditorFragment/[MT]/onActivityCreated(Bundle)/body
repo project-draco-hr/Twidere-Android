@@ -3,7 +3,6 @@
   setHasOptionsMenu(true);
   final TwidereApplication application=TwidereApplication.getInstance(getActivity());
   mAsyncTaskManager=application.getAsyncTaskManager();
-  mLazyImageLoader=application.getMediaLoaderWrapper();
   final Bundle args=getArguments();
   final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
   mAccountId=accountId;

@@ -2,4 +2,7 @@
   activityTracker=new ActivityTracker();
   asyncTwitterWrapper=new AsyncTwitterWrapper(application);
   readStateManager=new ReadStateManager(application);
+  imageLoader=createImageLoader(application);
+  videoLoader=new VideoLoader(application);
+  mediaLoaderWrapper=new MediaLoaderWrapper(imageLoader,videoLoader);
 }

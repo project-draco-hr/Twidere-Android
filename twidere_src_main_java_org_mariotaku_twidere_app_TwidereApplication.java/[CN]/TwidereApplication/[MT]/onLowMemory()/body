@@ -1,6 +1,5 @@
 {
-  if (mMediaLoaderWrapper != null) {
-    mMediaLoaderWrapper.clearMemoryCache();
-  }
+  final ApplicationModule module=getApplicationModule();
+  module.getMediaLoaderWrapper().clearMemoryCache();
   super.onLowMemory();
 }

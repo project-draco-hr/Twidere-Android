@@ -1,4 +1,4 @@
 {
   if (mData == null)   return;
-  holder.setMedia(mImageLoader,mLoadingHandler,mData.get(position));
+  holder.setMedia(mMediaLoader,mLoadingHandler,mData.get(position));
 }

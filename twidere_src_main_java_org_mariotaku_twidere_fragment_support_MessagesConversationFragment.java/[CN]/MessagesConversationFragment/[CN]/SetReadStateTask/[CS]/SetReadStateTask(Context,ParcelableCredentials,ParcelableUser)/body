@@ -1,5 +1,5 @@
 {
-  mReadStateManager=TwidereApplication.getModule(context).getReadStateManager();
+  mReadStateManager=ApplicationModule.get(context).getReadStateManager();
   mContext=context;
   mAccount=account;
   mRecipient=recipient;

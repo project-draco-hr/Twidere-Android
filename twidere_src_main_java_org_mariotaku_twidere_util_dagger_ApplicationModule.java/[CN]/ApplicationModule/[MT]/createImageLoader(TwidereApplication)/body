@@ -1,13 +1,12 @@
 {
-  if (mImageLoader != null)   return mImageLoader;
   final ImageLoader loader=ImageLoader.getInstance();
-  final ImageLoaderConfiguration.Builder cb=new ImageLoaderConfiguration.Builder(this);
+  final ImageLoaderConfiguration.Builder cb=new ImageLoaderConfiguration.Builder(application);
   cb.threadPriority(Thread.NORM_PRIORITY - 2);
   cb.denyCacheImageMultipleSizesInMemory();
   cb.tasksProcessingOrder(QueueProcessingType.LIFO);
-  cb.diskCache(getDiskCache());
-  cb.imageDownloader(getImageDownloader());
+  cb.diskCache(application.getDiskCache());
+  cb.imageDownloader(application.getImageDownloader());
   L.writeDebugLogs(BuildConfig.DEBUG);
   loader.init(cb.build());
-  return mImageLoader=loader;
+  return loader;
 }

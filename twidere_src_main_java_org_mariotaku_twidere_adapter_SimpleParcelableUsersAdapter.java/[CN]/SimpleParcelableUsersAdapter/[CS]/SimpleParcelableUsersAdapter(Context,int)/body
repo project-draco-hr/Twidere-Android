@@ -2,7 +2,6 @@
   super(context,layoutRes);
   mContext=context;
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mImageLoader=app.getMediaLoaderWrapper();
   mUserColorNameManager=app.getUserColorNameManager();
   configBaseAdapter(context,this);
 }

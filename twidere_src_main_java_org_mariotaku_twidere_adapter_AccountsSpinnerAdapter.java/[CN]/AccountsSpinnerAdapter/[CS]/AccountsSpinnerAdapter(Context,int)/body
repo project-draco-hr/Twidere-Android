@@ -1,6 +1,6 @@
 {
   super(context,itemViewResource);
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
   mContext=context;
-  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
   mDisplayProfileImage=context.getSharedPreferences(MessagesConversationFragment.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getBoolean(MessagesConversationFragment.KEY_DISPLAY_PROFILE_IMAGE,true);
 }

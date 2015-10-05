@@ -1,4 +1,5 @@
 {
+  super(fragment.getContext());
   setHasStableIds(true);
   final Context context=fragment.getActivity();
   final Resources res=context.getResources();
@@ -8,7 +9,6 @@
   mFragment=fragment;
   mContext=context;
   mInflater=LayoutInflater.from(context);
-  mImageLoader=TwidereApplication.getInstance(context).getMediaLoaderWrapper();
   mUserColorNameManager=TwidereApplication.getInstance(context).getUserColorNameManager();
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
