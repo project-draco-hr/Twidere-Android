@@ -1,5 +1,4 @@
 {
-  mIsVisible=false;
   mActivityTracker.dispatchStop(this);
   super.onStop();
 }

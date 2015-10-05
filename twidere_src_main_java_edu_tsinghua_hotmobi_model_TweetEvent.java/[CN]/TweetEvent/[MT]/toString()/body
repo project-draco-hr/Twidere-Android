@@ -1,0 +1,3 @@
+{
+  return "TweetEvent{" + "id=" + id + ", accountId="+ accountId+ ", userId="+ userId+ ", tweetType="+ tweetType+ ", timelineType="+ timelineType+ ", action="+ action+ "} "+ super.toString();
+}

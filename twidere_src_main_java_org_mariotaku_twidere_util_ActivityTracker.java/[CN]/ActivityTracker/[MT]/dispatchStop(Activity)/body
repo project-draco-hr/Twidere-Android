@@ -1,0 +1,11 @@
+{
+  final int hashCode=System.identityHashCode(activity);
+  final SessionEvent event=mSessionEvent;
+  if (event != null && !isSwitchingInSameTask(hashCode)) {
+    event.dumpPreferences(activity);
+    event.markEnd();
+    HotMobiLogger.getInstance(activity).log(event);
+    mSessionEvent=null;
+  }
+  mInternalStack.removeElement(hashCode);
+}

@@ -1,3 +1,0 @@
-{
-  mInternalStack.add(System.identityHashCode(activity));
-}

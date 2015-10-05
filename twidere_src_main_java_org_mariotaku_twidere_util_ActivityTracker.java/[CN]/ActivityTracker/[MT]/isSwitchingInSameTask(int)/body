@@ -1,0 +1,3 @@
+{
+  return mInternalStack.lastIndexOf(hashCode) < mInternalStack.size() - 1;
+}

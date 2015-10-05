@@ -1,0 +1,3 @@
+{
+  return "BaseEvent{" + "startTime=" + startTime + ", endTime="+ endTime+ ", timeOffset="+ timeOffset+ ", location="+ location+ '}';
+}

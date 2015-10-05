@@ -1,5 +1,5 @@
 {
   super.onStart();
-  mActivityStack.dispatchStart(this);
+  mActivityTracker.dispatchStart(this);
   mIsVisible=true;
 }

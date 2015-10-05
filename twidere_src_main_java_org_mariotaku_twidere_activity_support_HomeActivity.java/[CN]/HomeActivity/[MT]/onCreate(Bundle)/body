@@ -76,7 +76,4 @@
   if (Utils.isStreamingEnabled()) {
     startService(new Intent(this,StreamingService.class));
   }
-  if (savedInstanceState != null) {
-    mSessionEvent=savedInstanceState.getParcelable(EXTRA_SESSION_EVENT);
-  }
 }

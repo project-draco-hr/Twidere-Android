@@ -1,0 +1,3 @@
+{
+  return "NetworkEvent{" + "networkType=" + networkType + "} "+ super.toString();
+}

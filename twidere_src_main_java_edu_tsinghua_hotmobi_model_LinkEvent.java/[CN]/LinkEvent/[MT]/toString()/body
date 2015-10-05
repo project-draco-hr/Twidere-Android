@@ -1,0 +1,3 @@
+{
+  return "LinkEvent{" + "link='" + link + '\''+ ", type='"+ type+ '\''+ "} "+ super.toString();
+}

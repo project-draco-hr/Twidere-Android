@@ -1,0 +1,3 @@
+{
+  return "ScrollRecord{" + "id=" + id + ", accountId="+ accountId+ ", timestamp="+ timestamp+ ", timeOffset="+ timeOffset+ ", scrollState="+ scrollState+ '}';
+}

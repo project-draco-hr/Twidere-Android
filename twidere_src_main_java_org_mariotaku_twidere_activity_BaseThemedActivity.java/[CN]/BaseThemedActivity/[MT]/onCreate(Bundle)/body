@@ -4,5 +4,6 @@
     StrictModeUtils.detectAllThreadPolicy();
   }
   super.onCreate(savedInstanceState);
+  DaggerGeneralComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
   setActionBarBackground();
 }

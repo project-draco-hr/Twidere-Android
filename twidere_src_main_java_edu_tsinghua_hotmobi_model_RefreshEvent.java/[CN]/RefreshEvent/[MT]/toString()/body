@@ -1,0 +1,3 @@
+{
+  return "RefreshEvent{" + "ids=" + Arrays.toString(ids) + ", timelineType="+ timelineType+ "} "+ super.toString();
+}
