@@ -1,4 +1,5 @@
 {
   super.onStart();
+  mActivityStack.dispatchStart(this);
   mIsVisible=true;
 }

@@ -10,9 +10,7 @@
     return;
   }
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mTwitterWrapper=getTwitterWrapper();
   final TwidereApplication app=TwidereApplication.getInstance(this);
-  mReadStateManager=app.getReadStateManager();
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
@@ -77,5 +75,8 @@
   setTabPosition(initialTabPosition);
   if (Utils.isStreamingEnabled()) {
     startService(new Intent(this,StreamingService.class));
+  }
+  if (savedInstanceState != null) {
+    mSessionEvent=savedInstanceState.getParcelable(EXTRA_SESSION_EVENT);
   }
 }

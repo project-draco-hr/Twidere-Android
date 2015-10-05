@@ -1,0 +1,3 @@
+{
+  mInternalStack.remove(System.identityHashCode(activity));
+}

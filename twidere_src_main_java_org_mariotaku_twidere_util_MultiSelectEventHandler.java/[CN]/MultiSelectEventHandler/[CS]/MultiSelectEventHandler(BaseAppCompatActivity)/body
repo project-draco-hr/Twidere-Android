@@ -1,3 +1,4 @@
 {
+  DaggerGeneralComponent.builder().applicationModule(TwidereApplication.getModule(activity)).build().inject(this);
   mActivity=activity;
 }

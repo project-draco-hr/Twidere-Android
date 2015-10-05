@@ -1,4 +1,5 @@
 {
   mIsVisible=false;
+  mActivityStack.dispatchStop(this);
   super.onStop();
 }

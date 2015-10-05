@@ -1,5 +1,4 @@
 {
-  mTwitterWrapper=getApplication().getTwitterWrapper();
   final Bundle bundle=savedInstanceState == null ? getArguments() : savedInstanceState;
   mAccountId=bundle != null ? bundle.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
   mListId=bundle != null ? bundle.getLong(EXTRA_LIST_ID,-1) : -1;

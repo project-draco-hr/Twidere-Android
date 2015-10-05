@@ -92,8 +92,7 @@ return c;
 }
 case VIRTUAL_TABLE_ID_DRAFTS_UNSENT:
 {
-final TwidereApplication app=TwidereApplication.getInstance(getContext());
-final AsyncTwitterWrapper twitter=app.getTwitterWrapper();
+final AsyncTwitterWrapper twitter=mTwitterWrapper;
 final RawItemArray sendingIds=new RawItemArray(twitter.getSendingDraftIds());
 final Expression where;
 if (selection != null) {

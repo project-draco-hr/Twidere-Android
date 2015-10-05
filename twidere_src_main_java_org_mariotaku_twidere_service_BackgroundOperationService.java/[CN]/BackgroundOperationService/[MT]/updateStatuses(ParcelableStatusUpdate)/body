@@ -5,7 +5,7 @@
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
     final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item,ParcelableAccount.getAccountIds(item.accounts));
     final Uri draftUri=mResolver.insert(Drafts.CONTENT_URI,draftValues);
-    final long draftId=ParseUtils.parseLong(draftUri.getLastPathSegment(),-1);
+    final long draftId=draftUri != null ? ParseUtils.parseLong(draftUri.getLastPathSegment(),-1) : -1;
     mTwitter.addSendingDraftId(draftId);
     final List<SingleResponse<ParcelableStatus>> result=updateStatus(builder,item);
     boolean failed=false;

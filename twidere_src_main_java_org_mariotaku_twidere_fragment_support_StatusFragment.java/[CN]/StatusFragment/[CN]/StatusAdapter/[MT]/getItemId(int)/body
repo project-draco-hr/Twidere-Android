@@ -1,5 +1,5 @@
 {
   final ParcelableStatus status=getStatus(position);
   if (status != null)   return status.id;
-  return getItemType(position) * 100 + position;
+  return getItemType(position);
 }

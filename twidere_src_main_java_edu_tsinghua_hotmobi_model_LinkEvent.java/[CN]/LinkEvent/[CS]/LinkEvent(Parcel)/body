@@ -1,0 +1,5 @@
+{
+  super(in);
+  link=in.readString();
+  type=in.readString();
+}

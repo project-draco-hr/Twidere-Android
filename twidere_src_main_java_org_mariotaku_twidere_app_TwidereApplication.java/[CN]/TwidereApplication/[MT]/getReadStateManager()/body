@@ -1,4 +1,0 @@
-{
-  if (mReadStateManager != null)   return mReadStateManager;
-  return mReadStateManager=new ReadStateManager(this);
-}

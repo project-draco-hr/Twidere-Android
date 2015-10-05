@@ -1,7 +1,6 @@
 {
   mContext=getContext();
-  final TwidereApplication app=TwidereApplication.getInstance(mContext);
+  DaggerTwidereCommandProviderComponent.builder().applicationModule(TwidereApplication.getModule(mContext)).build().inject(this);
   mPermissionsManager=new PermissionsManager(mContext);
-  mTwitterWrapper=app.getTwitterWrapper();
   return true;
 }

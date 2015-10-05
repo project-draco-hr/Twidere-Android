@@ -1,0 +1,4 @@
+{
+  super.onAttach(context);
+  DaggerGeneralComponent.builder().applicationModule(TwidereApplication.getModule(context)).build().inject(this);
+}

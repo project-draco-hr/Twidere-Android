@@ -19,7 +19,7 @@ case REQUEST_ADD_TO_LIST:
 {
     if (user == null)     return;
     if (resultCode == Activity.RESULT_OK && data != null) {
-      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      final AsyncTwitterWrapper twitter=mTwitterWrapper;
       final ParcelableUserList list=data.getParcelableExtra(EXTRA_USER_LIST);
       if (list == null || twitter == null)       return;
       twitter.addUserListMembersAsync(user.account_id,list.id,user);

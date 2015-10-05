@@ -1,0 +1,3 @@
+{
+  DaggerBaseAdapterComponent.builder().applicationModule(TwidereApplication.getModule(context)).build().inject((BaseAdapter<RecyclerView.ViewHolder>)this);
+}

@@ -3,7 +3,6 @@
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
   mPreferences=SharedPreferencesWrapper.getInstance(this,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   final TwidereApplication app=TwidereApplication.getInstance(this);
-  mTwitterWrapper=app.getTwitterWrapper();
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
   mImageLoader=app.getMediaLoaderWrapper();

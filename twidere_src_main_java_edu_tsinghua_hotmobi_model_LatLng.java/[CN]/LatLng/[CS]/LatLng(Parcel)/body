@@ -1,0 +1,3 @@
+{
+  LatLngParcelablePlease.readFromParcel(this,in);
+}

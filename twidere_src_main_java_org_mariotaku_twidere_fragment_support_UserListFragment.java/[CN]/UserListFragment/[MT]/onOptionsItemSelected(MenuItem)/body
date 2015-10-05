@@ -1,5 +1,5 @@
 {
-  final AsyncTwitterWrapper twitter=getTwitterWrapper();
+  final AsyncTwitterWrapper twitter=mTwitterWrapper;
   final ParcelableUserList userList=mUserList;
   if (twitter == null || userList == null)   return false;
 switch (item.getItemId()) {

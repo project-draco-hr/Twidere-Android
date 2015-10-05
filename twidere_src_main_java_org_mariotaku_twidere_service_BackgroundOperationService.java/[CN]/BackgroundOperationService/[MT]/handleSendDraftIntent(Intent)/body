@@ -7,6 +7,7 @@
   final Expression where=Expression.equals(Drafts._ID,draftId);
   final ContentResolver cr=getContentResolver();
   final Cursor c=cr.query(Drafts.CONTENT_URI,Drafts.COLUMNS,where.getSQL(),null,null);
+  if (c == null)   return;
   final DraftItem.CursorIndices i=new DraftItem.CursorIndices(c);
   final DraftItem item;
   try {

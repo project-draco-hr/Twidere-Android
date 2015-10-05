@@ -1,8 +1,8 @@
 {
   super.onCreate();
+  DaggerRefreshServiceComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
   mAlarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
   final TwidereApplication app=TwidereApplication.getInstance(this);
-  mTwitterWrapper=app.getTwitterWrapper();
   mPreferences=SharedPreferencesWrapper.getInstance(app,SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mPendingRefreshHomeTimelineIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_HOME_TIMELINE),0);
   mPendingRefreshMentionsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_MENTIONS),0);

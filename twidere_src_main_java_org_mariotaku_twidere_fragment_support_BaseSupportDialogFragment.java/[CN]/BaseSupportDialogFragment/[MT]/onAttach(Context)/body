@@ -1,0 +1,4 @@
+{
+  super.onAttach(context);
+  DaggerBaseSupportDialogFragmentComponent.builder().applicationModule(TwidereApplication.getModule(context)).build().inject(this);
+}

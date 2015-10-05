@@ -1,0 +1,5 @@
+{
+  activityStack=new ActivityStack();
+  asyncTwitterWrapper=new AsyncTwitterWrapper(application);
+  readStateManager=new ReadStateManager(application);
+}

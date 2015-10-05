@@ -2,9 +2,11 @@
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
-      final ParcelableCredentials account=getArguments().getParcelable(EXTRA_ACCOUNT);
-      final ParcelableUser user=getArguments().getParcelable(EXTRA_USER);
-      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      final Bundle args=getArguments();
+      final ParcelableCredentials account=args.getParcelable(EXTRA_ACCOUNT);
+      final ParcelableUser user=args.getParcelable(EXTRA_USER);
+      if (account == null || user == null)       return;
+      final AsyncTwitterWrapper twitter=mTwitterWrapper;
       twitter.destroyMessageConversationAsync(account.account_id,user.id);
       break;
     }

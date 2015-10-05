@@ -1,5 +1,8 @@
 {
-  if (mEditComment.length() > 0) {
+  final Dialog dialog=getDialog();
+  if (dialog == null)   return;
+  final EditText editComment=((EditText)dialog.findViewById(R.id.edit_comment));
+  if (editComment.length() > 0) {
     final Menu menu=mPopupMenu.getMenu();
     final MenuItem quoteOriginalStatus=menu.findItem(R.id.quote_original_status);
     final MenuItem linkToQuotedStatus=menu.findItem(R.id.link_to_quoted_status);
@@ -13,7 +16,7 @@
       inReplyToStatusId=status.quoted_id;
       statusLink=LinkCreator.getTwitterStatusLink(status.quoted_user_screen_name,status.quoted_id);
     }
-    final String commentText=mEditComment.getText() + " " + statusLink;
+    final String commentText=editComment.getText() + " " + statusLink;
     twitter.updateStatusAsync(new long[]{status.account_id},commentText,null,null,linkToQuotedStatus.isChecked() ? inReplyToStatusId : -1,status.is_possibly_sensitive);
   }
  else   if (isMyRetweet(status)) {

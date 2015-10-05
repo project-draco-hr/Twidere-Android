@@ -1,4 +1,0 @@
-{
-  final TwidereApplication application=TwidereApplication.getInstance(context);
-  return application.getTwitterWrapper();
-}

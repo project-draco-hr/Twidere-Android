@@ -2,7 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   final FragmentActivity activity=getActivity();
   final TwidereApplication application=TwidereApplication.getInstance(activity);
-  mTwitterWrapper=application.getTwitterWrapper();
   mProfileImageLoader=application.getMediaLoaderWrapper();
   mUserColorNameManager=application.getUserColorNameManager();
   mPreferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);

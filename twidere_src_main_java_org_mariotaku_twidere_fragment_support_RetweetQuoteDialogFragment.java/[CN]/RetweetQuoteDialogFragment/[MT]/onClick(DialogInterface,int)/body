@@ -4,7 +4,7 @@
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
-      final AsyncTwitterWrapper twitter=getTwitterWrapper();
+      final AsyncTwitterWrapper twitter=mTwitterWrapper;
       if (twitter == null)       return;
       retweetOrQuote(twitter,status);
       break;

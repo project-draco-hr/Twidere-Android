@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mReadStateManager=getReadStateManager();
   final AbsStatusesAdapter<Data> adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();

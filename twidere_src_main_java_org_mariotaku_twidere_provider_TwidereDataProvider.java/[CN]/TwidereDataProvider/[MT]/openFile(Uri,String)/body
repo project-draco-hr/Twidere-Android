@@ -1,5 +1,4 @@
 {
-  if (uri == null || mode == null)   throw new IllegalArgumentException();
   final int table_id=getTableId(uri);
   final String table=getTableNameById(table_id);
   final int mode_code;

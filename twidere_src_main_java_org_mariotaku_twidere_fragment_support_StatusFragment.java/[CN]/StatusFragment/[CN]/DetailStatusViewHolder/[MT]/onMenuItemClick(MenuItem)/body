@@ -4,7 +4,7 @@
   final StatusFragment fragment=adapter.getFragment();
   final ParcelableStatus status=adapter.getStatus(layoutPosition);
   if (status == null || fragment == null)   return false;
-  final AsyncTwitterWrapper twitter=fragment.getTwitterWrapper();
+  final AsyncTwitterWrapper twitter=fragment.mTwitterWrapper;
   final FragmentActivity activity=fragment.getActivity();
   final FragmentManager fm=fragment.getFragmentManager();
   if (item.getItemId() == R.id.retweet) {

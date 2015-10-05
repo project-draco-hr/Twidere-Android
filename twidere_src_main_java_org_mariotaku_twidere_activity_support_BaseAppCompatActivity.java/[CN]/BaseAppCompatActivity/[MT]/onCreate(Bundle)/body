@@ -1,4 +1,5 @@
 {
   super.onCreate(savedInstanceState);
+  DaggerBaseAppCompatActivityComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
   mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

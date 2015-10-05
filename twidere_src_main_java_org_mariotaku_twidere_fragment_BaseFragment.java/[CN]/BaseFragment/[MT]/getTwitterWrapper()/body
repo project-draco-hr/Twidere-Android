@@ -1,4 +1,0 @@
-{
-  final TwidereApplication app=getApplication();
-  return app != null ? app.getTwitterWrapper() : null;
-}

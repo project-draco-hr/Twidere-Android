@@ -4,5 +4,6 @@
     StrictModeUtils.detectAllThreadPolicy();
   }
   super.onCreate(savedInstanceState);
+  DaggerThemedFragmentActivityComponent.builder().applicationModule(TwidereApplication.getModule(this)).build().inject(this);
   mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

@@ -1,4 +1,5 @@
 {
+  super(context);
   mContext=context;
   mInflater=LayoutInflater.from(context);
   setLoadMoreSupported(false);

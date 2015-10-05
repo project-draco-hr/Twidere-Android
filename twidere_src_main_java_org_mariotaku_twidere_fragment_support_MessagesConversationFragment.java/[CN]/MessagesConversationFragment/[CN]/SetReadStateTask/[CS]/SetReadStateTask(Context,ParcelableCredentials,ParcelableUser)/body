@@ -1,6 +1,6 @@
 {
+  mReadStateManager=TwidereApplication.getModule(context).getReadStateManager();
   mContext=context;
-  mReadStateManager=TwidereApplication.getInstance(context).getReadStateManager();
   mAccount=account;
   mRecipient=recipient;
 }

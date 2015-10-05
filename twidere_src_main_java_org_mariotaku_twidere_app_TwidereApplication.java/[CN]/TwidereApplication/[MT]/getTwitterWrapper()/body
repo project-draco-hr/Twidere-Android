@@ -1,4 +1,0 @@
-{
-  if (mTwitterWrapper != null)   return mTwitterWrapper;
-  return mTwitterWrapper=new AsyncTwitterWrapper(this);
-}
