@@ -1,5 +1,5 @@
 {
-  super(mContext,mAsyncTaskManager);
+  super(mContext);
   this.accountId=accountId;
   this.userId=userId;
 }

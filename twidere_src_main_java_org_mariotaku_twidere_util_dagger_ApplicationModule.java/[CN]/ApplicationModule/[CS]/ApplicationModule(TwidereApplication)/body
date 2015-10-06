@@ -1,13 +1,17 @@
 {
+  if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+    throw new RuntimeException("Module must be created inside main thread");
+  }
   sharedPreferences=SharedPreferencesWrapper.getInstance(application,Constants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   activityTracker=new ActivityTracker();
+  bus=new Bus(ThreadEnforcer.MAIN);
   asyncTaskManager=AsyncTaskManager.getInstance();
-  asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager);
   readStateManager=new ReadStateManager(application);
   network=new TwidereNetwork(application);
+  asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,bus);
   restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,network);
   imageDownloader=new TwidereImageDownloader(application,restHttpClient,true);
   imageLoader=createImageLoader(application,imageDownloader);
-  videoLoader=new VideoLoader(application,imageDownloader,asyncTaskManager);
+  videoLoader=new VideoLoader(application,restHttpClient,asyncTaskManager,bus);
   mediaLoaderWrapper=new MediaLoaderWrapper(imageLoader,videoLoader);
 }

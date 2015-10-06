@@ -2,5 +2,7 @@
   mMediaPlayer=null;
   mVideoViewProgress.removeCallbacks(mVideoProgressRunnable);
   mVideoViewProgress.setVisibility(View.GONE);
+  mMediaPlayerError=what;
+  invalidateOptionsMenu();
   return true;
 }

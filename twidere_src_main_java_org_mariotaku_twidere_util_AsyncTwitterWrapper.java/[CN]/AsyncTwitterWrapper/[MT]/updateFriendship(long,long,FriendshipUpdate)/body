@@ -1,5 +1,5 @@
 {
-  final Bus bus=TwidereApplication.getInstance(mContext).getMessageBus();
+  final Bus bus=mBus;
   if (bus == null)   return null;
   return AsyncManager.runBackgroundTask(new TaskRunnable<Object,SingleResponse<Relationship>,Bus>(){
     @Override public SingleResponse<Relationship> doLongOperation(    Object param) throws InterruptedException {

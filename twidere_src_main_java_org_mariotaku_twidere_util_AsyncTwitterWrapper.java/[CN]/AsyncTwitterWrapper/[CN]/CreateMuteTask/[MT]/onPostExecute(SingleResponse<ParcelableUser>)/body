@@ -1,2 +1,14 @@
 {
+  if (result.hasData()) {
+    final TwidereApplication application=TwidereApplication.getInstance(mContext);
+    final UserColorNameManager manager=application.getUserColorNameManager();
+    final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+    final String message=mContext.getString(R.string.muted_user,manager.getDisplayName(result.getData(),nameFirst,true));
+    Utils.showInfoMessage(mContext,message,false);
+    bus.post(new FriendshipUserUpdatedEvent(result.getData()));
+  }
+ else {
+    Utils.showErrorMessage(mContext,R.string.action_muting,result.getException(),true);
+  }
+  super.onPostExecute(result);
 }

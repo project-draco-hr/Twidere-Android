@@ -1,0 +1,5 @@
+Context context
+VideoLoader preLoader
+VideoLoadingListener listener
+String uri
+boolean forceReload

@@ -1,2 +1,4 @@
 {
+  mBus.unregister(mStatusesBusCallback);
+  super.onStop();
 }

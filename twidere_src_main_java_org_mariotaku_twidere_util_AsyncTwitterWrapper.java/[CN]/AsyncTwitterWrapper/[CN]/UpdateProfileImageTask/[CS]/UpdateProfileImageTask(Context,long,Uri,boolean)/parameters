@@ -1,0 +1,4 @@
+Context context
+long account_id
+Uri image_uri
+boolean delete_image

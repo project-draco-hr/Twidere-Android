@@ -1,0 +1,6 @@
+{
+  if (mTaskManager.hasRunningTasksForTag(uri)) {
+    return 0;
+  }
+  return mTaskManager.add(new PreLoadVideoTask(mContext,this,listener,uri,forceReload),true);
+}

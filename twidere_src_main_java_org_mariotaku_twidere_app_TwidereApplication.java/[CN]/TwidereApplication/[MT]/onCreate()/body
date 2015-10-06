@@ -6,7 +6,6 @@
   initDebugMode();
   initBugReport();
   mHandler=new Handler();
-  mMessageBus=new Bus();
   initializeAsyncTask();
   initAccountColor(this);
   final PackageManager pm=getPackageManager();

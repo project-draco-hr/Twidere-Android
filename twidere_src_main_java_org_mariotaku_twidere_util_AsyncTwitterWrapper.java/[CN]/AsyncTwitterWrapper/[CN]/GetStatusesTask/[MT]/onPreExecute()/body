@@ -1,2 +1,4 @@
 {
+  super.onPreExecute();
+  bus.post(new GetStatusesTaskEvent(getDatabaseUri(),true,null));
 }

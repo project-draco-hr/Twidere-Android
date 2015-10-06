@@ -1,7 +1,9 @@
 {
   if (getUserVisibleHint()) {
     mMediaPlayer=mp;
+    mMediaPlayerError=0;
     mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+    mp.setScreenOnWhilePlaying(true);
     updateVolume();
     mp.setLooping(isLoopEnabled());
     mp.start();
@@ -9,5 +11,6 @@
     mVideoViewProgress.post(mVideoProgressRunnable);
     updatePlayerState();
     mVideoControl.setVisibility(View.VISIBLE);
+    invalidateOptionsMenu();
   }
 }

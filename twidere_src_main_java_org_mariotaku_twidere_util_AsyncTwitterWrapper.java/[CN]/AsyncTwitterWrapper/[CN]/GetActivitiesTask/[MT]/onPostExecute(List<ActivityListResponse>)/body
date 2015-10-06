@@ -1,2 +1,4 @@
 {
+  super.onPostExecute(result);
+  bus.post(new GetStatusesTaskEvent(getDatabaseUri(),false,getException(result)));
 }

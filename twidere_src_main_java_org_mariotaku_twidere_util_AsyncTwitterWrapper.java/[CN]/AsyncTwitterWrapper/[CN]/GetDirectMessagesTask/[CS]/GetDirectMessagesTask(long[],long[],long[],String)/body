@@ -1,5 +1,5 @@
 {
-  super(mContext,mAsyncTaskManager,tag);
+  super(mContext,tag);
   this.account_ids=account_ids;
   this.max_ids=max_ids;
   this.since_ids=since_ids;

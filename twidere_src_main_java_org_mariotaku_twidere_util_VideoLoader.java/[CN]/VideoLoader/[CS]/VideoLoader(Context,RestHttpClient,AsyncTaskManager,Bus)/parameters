@@ -1,0 +1,4 @@
+Context context
+RestHttpClient client
+AsyncTaskManager manager
+Bus bus

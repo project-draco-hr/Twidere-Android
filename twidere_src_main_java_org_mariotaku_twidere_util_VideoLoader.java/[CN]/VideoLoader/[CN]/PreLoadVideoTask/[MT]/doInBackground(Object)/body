@@ -1,7 +1,7 @@
 {
   final DiskCache diskCache=mPreLoader.mDiskCache;
   final File cachedFile=diskCache.get(mUri);
-  if (cachedFile != null && cachedFile.isFile() && cachedFile.length() > 0)   return SingleResponse.getInstance(cachedFile);
+  if (!mForceReload && cachedFile != null && cachedFile.isFile() && cachedFile.length() > 0)   return SingleResponse.getInstance(cachedFile);
   InputStream is=null;
   try {
     is=mPreLoader.mImageDownloader.getStream(mUri,null);

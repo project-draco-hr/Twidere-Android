@@ -1,0 +1,5 @@
+{
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject((ManagedAsyncTask<Object,Object,Object>)this);
+  this.context=context;
+  this.tag=tag;
+}

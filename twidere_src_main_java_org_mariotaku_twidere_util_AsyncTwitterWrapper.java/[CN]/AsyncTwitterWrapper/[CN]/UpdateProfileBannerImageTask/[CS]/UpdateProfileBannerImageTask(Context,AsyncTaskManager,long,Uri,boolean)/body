@@ -1,5 +1,5 @@
 {
-  super(context,manager);
+  super(context);
   mContext=context;
   mAccountId=account_id;
   mImageUri=image_uri;

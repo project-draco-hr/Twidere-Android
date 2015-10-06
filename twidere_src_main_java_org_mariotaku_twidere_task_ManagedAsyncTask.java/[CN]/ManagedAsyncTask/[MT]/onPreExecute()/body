@@ -1,5 +1,4 @@
 {
   super.onPreExecute();
-  final Bus bus=TwidereApplication.getInstance(context).getMessageBus();
   bus.post(new TaskStateChangedEvent());
 }

@@ -1,2 +1,21 @@
 {
+  mCreatingRetweetIds.remove(account_id,status_id);
+  if (result.hasData()) {
+    final ContentValues values=new ContentValues();
+    final ParcelableStatus status=result.getData();
+    values.put(Statuses.MY_RETWEET_ID,status.id);
+    final Expression where=Expression.or(Expression.equals(Statuses.STATUS_ID,status_id),Expression.equals(Statuses.RETWEET_ID,status_id));
+    for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
+      mResolver.update(uri,values,where.getSQL(),null);
+    }
+    final TweetEvent event=TweetEvent.create(getContext(),status,TimelineType.OTHER);
+    event.setAction(TweetEvent.Action.RETWEET);
+    HotMobiLogger.getInstance(getContext()).log(account_id,event);
+    bus.post(new StatusRetweetedEvent(status));
+    Utils.showOkMessage(mContext,R.string.status_retweeted,false);
+  }
+ else {
+    Utils.showErrorMessage(mContext,R.string.action_retweeting,result.getException(),true);
+  }
+  super.onPostExecute(result);
 }

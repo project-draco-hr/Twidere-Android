@@ -2,8 +2,7 @@
   super.onStart();
   final ContentResolver resolver=getContentResolver();
   resolver.registerContentObserver(Accounts.CONTENT_URI,true,mReloadContentObserver);
-  final Bus bus=TwidereApplication.getInstance(getActivity()).getMessageBus();
-  bus.register(this);
+  mBus.register(this);
   final MessageEntriesAdapter adapter=getAdapter();
   adapter.updateReadState();
   updateRefreshState();

@@ -1,2 +1,5 @@
 {
+  super.onStart();
+  getLoaderManager().restartLoader(0,null,this);
+  mBus.register(this);
 }

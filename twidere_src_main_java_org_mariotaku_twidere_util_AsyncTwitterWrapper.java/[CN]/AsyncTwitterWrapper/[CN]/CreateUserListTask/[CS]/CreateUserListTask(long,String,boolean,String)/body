@@ -1,5 +1,5 @@
 {
-  super(mContext,mAsyncTaskManager);
+  super(mContext);
   this.account_id=account_id;
   this.list_name=list_name;
   this.description=description;
