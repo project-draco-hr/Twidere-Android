@@ -1,0 +1,7 @@
+{
+  imageDownloader.reloadConnectivitySettings();
+  if (restHttpClient instanceof OkHttpRestClient) {
+    final OkHttpClient okHttpClient=((OkHttpRestClient)restHttpClient).getClient();
+    TwitterAPIFactory.updateHttpClientConfiguration(sharedPreferences,okHttpClient);
+  }
+}

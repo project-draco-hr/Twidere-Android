@@ -1,3 +1,5 @@
 {
+  final ApplicationModule module=getApplicationModule();
+  module.onLowMemory();
   super.onLowMemory();
 }
