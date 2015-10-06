@@ -1,76 +1,16 @@
 {
   try {
-    final int tableId=getTableId(uri);
-    final String table=getTableNameById(tableId);
-    checkWritePermission(tableId,table);
-switch (tableId) {
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
-case TABLE_ID_DIRECT_MESSAGES:
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
-      return null;
+    return insertInternal(uri,values);
   }
-  final long rowId;
-  if (tableId == TABLE_ID_CACHED_USERS) {
-    final Expression where=Expression.equals(CachedUsers.USER_ID,values.getAsLong(CachedUsers.USER_ID));
-    mDatabaseWrapper.update(table,values,where.getSQL(),null);
-    rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
-  }
- else   if (tableId == TABLE_ID_SEARCH_HISTORY) {
-    values.put(SearchHistory.RECENT_QUERY,System.currentTimeMillis());
-    final Expression where=Expression.equalsArgs(SearchHistory.QUERY);
-    final String[] args={values.getAsString(SearchHistory.QUERY)};
-    mDatabaseWrapper.update(table,values,where.getSQL(),args);
-    rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
-  }
- else   if (tableId == TABLE_ID_CACHED_RELATIONSHIPS) {
-    final long accountId=values.getAsLong(CachedRelationships.ACCOUNT_ID);
-    final long userId=values.getAsLong(CachedRelationships.USER_ID);
-    final Expression where=Expression.and(Expression.equals(CachedRelationships.ACCOUNT_ID,accountId),Expression.equals(CachedRelationships.USER_ID,userId));
-    if (mDatabaseWrapper.update(table,values,where.getSQL(),null) > 0) {
-      final String[] projection={CachedRelationships._ID};
-      final Cursor c=mDatabaseWrapper.query(table,projection,where.getSQL(),null,null,null,null);
-      if (c.moveToFirst()) {
-        rowId=c.getLong(0);
+ catch (  final SQLException e) {
+    if (handleSQLException(e)) {
+      try {
+        return insertInternal(uri,values);
       }
- else {
-        rowId=0;
+ catch (      SQLException e1) {
+        throw new IllegalStateException(e1);
       }
-      c.close();
     }
- else {
-      rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
-    }
+    throw new IllegalStateException(e);
   }
- else   if (tableId == TABLE_ID_NETWORK_USAGES) {
-    rowId=0;
-    final long timeInHours=values.getAsLong(NetworkUsages.TIME_IN_HOURS);
-    final String requestNetwork=values.getAsString(NetworkUsages.REQUEST_NETWORK);
-    final String requestType=values.getAsString(NetworkUsages.REQUEST_TYPE);
-    final SQLInsertQuery insertOrIgnore=SQLQueryBuilder.insertInto(OnConflict.IGNORE,table).columns(new String[]{NetworkUsages.TIME_IN_HOURS,NetworkUsages.REQUEST_NETWORK,NetworkUsages.REQUEST_TYPE,NetworkUsages.KILOBYTES_RECEIVED,NetworkUsages.KILOBYTES_SENT}).values("?, ?, ?, ?, ?").build();
-    final SQLUpdateQuery updateIncremental=SQLQueryBuilder.update(OnConflict.REPLACE,table).set(new SetValue(NetworkUsages.KILOBYTES_RECEIVED,new RawSQLLang(NetworkUsages.KILOBYTES_RECEIVED + " + ?")),new SetValue(NetworkUsages.KILOBYTES_SENT,new RawSQLLang(NetworkUsages.KILOBYTES_SENT + " + ?"))).where(Expression.and(Expression.equals(NetworkUsages.TIME_IN_HOURS,timeInHours),Expression.equalsArgs(NetworkUsages.REQUEST_NETWORK),Expression.equalsArgs(NetworkUsages.REQUEST_TYPE))).build();
-    mDatabaseWrapper.beginTransaction();
-    mDatabaseWrapper.execSQL(insertOrIgnore.getSQL(),new Object[]{timeInHours,requestNetwork,requestType,0.0,0.0});
-    mDatabaseWrapper.execSQL(updateIncremental.getSQL(),new Object[]{values.getAsDouble(NetworkUsages.KILOBYTES_RECEIVED),values.getAsDouble(NetworkUsages.KILOBYTES_SENT),requestNetwork,requestType});
-    mDatabaseWrapper.setTransactionSuccessful();
-    mDatabaseWrapper.endTransaction();
-  }
- else   if (tableId == VIRTUAL_TABLE_ID_DRAFTS_NOTIFICATIONS) {
-    rowId=showDraftNotification(uri,values);
-  }
- else   if (shouldReplaceOnConflict(tableId)) {
-    rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
-  }
- else   if (table != null) {
-    rowId=mDatabaseWrapper.insert(table,null,values);
-  }
- else {
-    return null;
-  }
-  onDatabaseUpdated(tableId,uri);
-  onNewItemsInserted(uri,tableId,values,rowId);
-  return Uri.withAppendedPath(uri,String.valueOf(rowId));
-}
- catch (final SQLException e) {
-  throw new IllegalStateException(e);
-}
 }

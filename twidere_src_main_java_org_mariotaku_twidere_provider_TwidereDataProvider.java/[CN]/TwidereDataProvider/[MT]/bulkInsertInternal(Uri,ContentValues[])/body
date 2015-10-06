@@ -1,0 +1,50 @@
+{
+  final int tableId=getTableId(uri);
+  final String table=getTableNameById(tableId);
+  checkWritePermission(tableId,table);
+switch (tableId) {
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
+case TABLE_ID_DIRECT_MESSAGES:
+case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
+case TABLE_ID_NETWORK_USAGES:
+    return 0;
+}
+int result=0;
+final long[] newIds=new long[valuesArray.length];
+if (table != null) {
+  mDatabaseWrapper.beginTransaction();
+  if (tableId == TABLE_ID_CACHED_USERS) {
+    for (    final ContentValues values : valuesArray) {
+      final Expression where=Expression.equals(CachedUsers.USER_ID,values.getAsLong(CachedUsers.USER_ID));
+      mDatabaseWrapper.update(table,values,where.getSQL(),null);
+      newIds[result++]=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
+    }
+  }
+ else   if (tableId == TABLE_ID_SEARCH_HISTORY) {
+    for (    final ContentValues values : valuesArray) {
+      values.put(SearchHistory.RECENT_QUERY,System.currentTimeMillis());
+      final Expression where=Expression.equalsArgs(SearchHistory.QUERY);
+      final String[] args={values.getAsString(SearchHistory.QUERY)};
+      mDatabaseWrapper.update(table,values,where.getSQL(),args);
+      newIds[result++]=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+    }
+  }
+ else   if (shouldReplaceOnConflict(tableId)) {
+    for (    final ContentValues values : valuesArray) {
+      newIds[result++]=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);
+    }
+  }
+ else {
+    for (    final ContentValues values : valuesArray) {
+      newIds[result++]=mDatabaseWrapper.insert(table,null,values);
+    }
+  }
+  mDatabaseWrapper.setTransactionSuccessful();
+  mDatabaseWrapper.endTransaction();
+}
+if (result > 0) {
+  onDatabaseUpdated(tableId,uri);
+}
+onNewItemsInserted(uri,tableId,valuesArray,newIds);
+return result;
+}

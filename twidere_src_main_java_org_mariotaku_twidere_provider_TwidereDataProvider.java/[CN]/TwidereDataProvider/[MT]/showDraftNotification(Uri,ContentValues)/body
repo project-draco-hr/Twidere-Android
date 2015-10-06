@@ -1,9 +1,11 @@
 {
-  if (values == null)   return -1;
+  final Context context=getContext();
+  if (values == null || context == null)   return -1;
   final Long draftId=values.getAsLong(BaseColumns._ID);
   if (draftId == null)   return -1;
   final Expression where=Expression.equals(Drafts._ID,draftId);
   final Cursor c=getContentResolver().query(Drafts.CONTENT_URI,Drafts.COLUMNS,where.getSQL(),null,null);
+  if (c == null)   return -1;
   final DraftItem.CursorIndices i=new DraftItem.CursorIndices(c);
   final DraftItem item;
   try {
@@ -13,7 +15,6 @@
   finally {
     c.close();
   }
-  final Context context=getContext();
   final String title=context.getString(R.string.status_not_updated);
   final String message=context.getString(R.string.status_not_updated_summary);
   final Intent intent=new Intent();

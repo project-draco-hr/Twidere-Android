@@ -1,25 +1,16 @@
 {
   try {
-    final int tableId=getTableId(uri);
-    final String table=getTableNameById(tableId);
-    checkWritePermission(tableId,table);
-    int result=0;
-    if (table != null) {
-switch (tableId) {
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
-case TABLE_ID_DIRECT_MESSAGES:
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
-case TABLE_ID_NETWORK_USAGES:
-        return 0;
+    return updateInternal(uri,values,selection,selectionArgs);
+  }
+ catch (  final SQLException e) {
+    if (handleSQLException(e)) {
+      try {
+        return updateInternal(uri,values,selection,selectionArgs);
+      }
+ catch (      SQLException e1) {
+        throw new IllegalStateException(e1);
+      }
     }
-    result=mDatabaseWrapper.update(table,values,selection,selectionArgs);
+    throw new IllegalStateException(e);
   }
-  if (result > 0) {
-    onDatabaseUpdated(tableId,uri);
-  }
-  return result;
-}
- catch (final SQLException e) {
-  throw new IllegalStateException(e);
-}
 }

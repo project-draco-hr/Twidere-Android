@@ -1,7 +1,7 @@
 {
   if (name == null)   return null;
-  final Context mContext=getContext();
-  final File cacheDir=mContext.getCacheDir();
+  final Context context=getContext();
+  final File cacheDir=context.getCacheDir();
   final File file=new File(cacheDir,name);
   if (!file.exists())   return null;
   return ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);

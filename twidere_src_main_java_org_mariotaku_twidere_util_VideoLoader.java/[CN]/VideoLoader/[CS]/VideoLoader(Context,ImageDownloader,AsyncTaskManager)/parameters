@@ -1,0 +1,3 @@
+Context context
+ImageDownloader downloader
+AsyncTaskManager manager

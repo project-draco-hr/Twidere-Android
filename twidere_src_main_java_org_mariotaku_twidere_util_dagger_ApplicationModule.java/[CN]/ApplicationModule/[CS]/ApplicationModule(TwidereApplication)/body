@@ -1,11 +1,12 @@
 {
   activityTracker=new ActivityTracker();
-  asyncTwitterWrapper=new AsyncTwitterWrapper(application);
-  readStateManager=new ReadStateManager(application);
-  imageDownloader=new TwidereImageDownloader(application,true);
-  imageLoader=createImageLoader(application,imageDownloader);
-  videoLoader=new VideoLoader(application);
-  mediaLoaderWrapper=new MediaLoaderWrapper(imageLoader,videoLoader);
   asyncTaskManager=AsyncTaskManager.getInstance();
+  asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager);
+  readStateManager=new ReadStateManager(application);
   network=new TwidereNetwork(application);
+  restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,network);
+  imageDownloader=new TwidereImageDownloader(application,network,true);
+  imageLoader=createImageLoader(application,imageDownloader);
+  videoLoader=new VideoLoader(application,imageDownloader,asyncTaskManager);
+  mediaLoaderWrapper=new MediaLoaderWrapper(imageLoader,videoLoader);
 }

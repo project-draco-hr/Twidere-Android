@@ -1,43 +1,16 @@
 {
   try {
-    final int tableId=getTableId(uri);
-    final String table=getTableNameById(tableId);
-    checkWritePermission(tableId,table);
-switch (tableId) {
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
-case TABLE_ID_DIRECT_MESSAGES:
-case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
-      return 0;
-case VIRTUAL_TABLE_ID_NOTIFICATIONS:
-{
-      final List<String> segments=uri.getPathSegments();
-      if (segments.size() == 1) {
-        clearNotification();
-      }
- else       if (segments.size() == 2) {
-        final int notificationType=ParseUtils.parseInt(segments.get(1));
-        clearNotification(notificationType,0);
-      }
- else       if (segments.size() == 3) {
-        final int notificationType=ParseUtils.parseInt(segments.get(1));
-        final long accountId=ParseUtils.parseLong(segments.get(2));
-        clearNotification(notificationType,accountId);
-      }
-      return 1;
-    }
-case VIRTUAL_TABLE_ID_UNREAD_COUNTS:
-{
-    return 0;
+    return deleteInternal(uri,selection,selectionArgs);
   }
-}
-if (table == null) return 0;
-final int result=mDatabaseWrapper.delete(table,selection,selectionArgs);
-if (result > 0) {
-onDatabaseUpdated(tableId,uri);
-}
-return result;
-}
- catch (final SQLException e) {
-throw new IllegalStateException(e);
-}
+ catch (  final SQLException e) {
+    if (handleSQLException(e)) {
+      try {
+        return deleteInternal(uri,selection,selectionArgs);
+      }
+ catch (      SQLException e1) {
+        throw new IllegalStateException(e1);
+      }
+    }
+    throw new IllegalStateException(e);
+  }
 }

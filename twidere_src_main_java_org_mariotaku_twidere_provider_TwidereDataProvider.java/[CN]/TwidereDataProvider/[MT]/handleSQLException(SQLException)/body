@@ -1,0 +1,15 @@
+{
+  try {
+    if (e instanceof SQLiteFullException) {
+      mDatabaseWrapper.delete(CachedUsers.TABLE_NAME,null,null);
+      mDatabaseWrapper.delete(CachedStatuses.TABLE_NAME,null,null);
+      mDatabaseWrapper.delete(CachedHashtags.TABLE_NAME,null,null);
+      mDatabaseWrapper.execSQL("VACUUM");
+      return true;
+    }
+  }
+ catch (  SQLException ee) {
+    throw new IllegalStateException(ee);
+  }
+  throw new IllegalStateException(e);
+}
