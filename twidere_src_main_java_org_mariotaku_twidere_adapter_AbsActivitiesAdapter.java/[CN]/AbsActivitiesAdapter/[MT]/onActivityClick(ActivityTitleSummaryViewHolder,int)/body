@@ -1,0 +1,4 @@
+{
+  if (mActivityAdapterListener == null)   return;
+  mActivityAdapterListener.onActivityClick(holder,position);
+}

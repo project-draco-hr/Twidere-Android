@@ -30,6 +30,7 @@ case ITEM_VIEW_TYPE_TITLE_SUMMARY:
       cardView.setCardBackgroundColor(mCardBackgroundColor);
     }
     final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view);
+    holder.setOnClickListeners();
     holder.setTextSize(getTextSize());
     return holder;
   }

@@ -1,6 +1,5 @@
 {
   final Context context=adapter.getContext();
-  final Resources resources=adapter.getContext().getResources();
 switch (activity.action) {
 case Activity.ACTION_FOLLOW:
 {

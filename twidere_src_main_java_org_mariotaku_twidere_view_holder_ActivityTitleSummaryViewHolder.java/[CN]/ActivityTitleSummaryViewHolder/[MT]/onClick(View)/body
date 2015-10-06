@@ -1,0 +1,11 @@
+{
+  if (activityClickListener == null)   return;
+  final int position=getLayoutPosition();
+switch (v.getId()) {
+case R.id.item_content:
+{
+      activityClickListener.onActivityClick(this,position);
+      break;
+    }
+}
+}
