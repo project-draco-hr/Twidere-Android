@@ -5,7 +5,7 @@ switch (activity.action) {
 case Activity.ACTION_FOLLOW:
 {
       activityTypeView.setImageResource(R.drawable.ic_activity_action_follow);
-      activityTypeView.setColorFilter(resources.getColor(R.color.highlight_follow),Mode.SRC_ATOP);
+      activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_follow),Mode.SRC_ATOP);
       titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_follow,R.string.activity_about_me_follow_multi,activity.sources));
       displayUserProfileImages(activity.sources);
       summaryView.setVisibility(View.GONE);
@@ -14,7 +14,7 @@ case Activity.ACTION_FOLLOW:
 case Activity.ACTION_FAVORITE:
 {
     activityTypeView.setImageResource(R.drawable.ic_activity_action_favorite);
-    activityTypeView.setColorFilter(resources.getColor(R.color.highlight_favorite),Mode.SRC_ATOP);
+    activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_favorite),Mode.SRC_ATOP);
     titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_favorite,R.string.activity_about_me_favorite_multi,activity.sources));
     displayUserProfileImages(activity.sources);
     summaryView.setText(activity.target_statuses[0].text_unescaped);
@@ -24,7 +24,7 @@ case Activity.ACTION_FAVORITE:
 case Activity.ACTION_RETWEET:
 {
   activityTypeView.setImageResource(R.drawable.ic_activity_action_retweet);
-  activityTypeView.setColorFilter(resources.getColor(R.color.highlight_retweet),Mode.SRC_ATOP);
+  activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_retweet),Mode.SRC_ATOP);
   titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_retweet,R.string.activity_about_me_retweet_multi,activity.sources));
   displayUserProfileImages(activity.sources);
   summaryView.setText(activity.target_statuses[0].text_unescaped);
@@ -34,7 +34,7 @@ case Activity.ACTION_RETWEET:
 case Activity.ACTION_FAVORITED_RETWEET:
 {
 activityTypeView.setImageResource(R.drawable.ic_activity_action_favorite);
-activityTypeView.setColorFilter(resources.getColor(R.color.highlight_favorite),Mode.SRC_ATOP);
+activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_favorite),Mode.SRC_ATOP);
 titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_favorited_retweet,R.string.activity_about_me_favorited_retweet_multi,activity.sources));
 displayUserProfileImages(activity.sources);
 summaryView.setText(activity.target_statuses[0].text_unescaped);
@@ -44,7 +44,7 @@ break;
 case Activity.ACTION_RETWEETED_RETWEET:
 {
 activityTypeView.setImageResource(R.drawable.ic_activity_action_retweet);
-activityTypeView.setColorFilter(resources.getColor(R.color.highlight_retweet),Mode.SRC_ATOP);
+activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_retweet),Mode.SRC_ATOP);
 titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_retweeted_retweet,R.string.activity_about_me_retweeted_retweet_multi,activity.sources));
 displayUserProfileImages(activity.sources);
 summaryView.setText(activity.target_statuses[0].text_unescaped);
@@ -54,7 +54,7 @@ break;
 case Activity.ACTION_RETWEETED_MENTION:
 {
 activityTypeView.setImageResource(R.drawable.ic_activity_action_retweet);
-activityTypeView.setColorFilter(resources.getColor(R.color.highlight_retweet),Mode.SRC_ATOP);
+activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_retweet),Mode.SRC_ATOP);
 titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_retweeted_mention,R.string.activity_about_me_retweeted_mention_multi,activity.sources));
 displayUserProfileImages(activity.sources);
 summaryView.setText(activity.target_statuses[0].text_unescaped);
@@ -64,7 +64,7 @@ break;
 case Activity.ACTION_FAVORITED_MENTION:
 {
 activityTypeView.setImageResource(R.drawable.ic_activity_action_favorite);
-activityTypeView.setColorFilter(resources.getColor(R.color.highlight_favorite),Mode.SRC_ATOP);
+activityTypeView.setColorFilter(ContextCompat.getColor(context,R.color.highlight_favorite),Mode.SRC_ATOP);
 titleView.setText(getTitleStringAboutMe(R.string.activity_about_me_favorited_mention,R.string.activity_about_me_favorited_mention_multi,activity.sources));
 displayUserProfileImages(activity.sources);
 summaryView.setText(activity.target_statuses[0].text_unescaped);

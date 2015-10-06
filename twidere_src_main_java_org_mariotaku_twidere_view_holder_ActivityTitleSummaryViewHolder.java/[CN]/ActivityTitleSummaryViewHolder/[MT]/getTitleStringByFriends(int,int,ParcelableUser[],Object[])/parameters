@@ -1,4 +1,4 @@
 int stringRes
 int stringResMulti
 ParcelableUser[] sources
-ParcelableUser[] targets
+Object[] targets
