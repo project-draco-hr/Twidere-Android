@@ -8,15 +8,11 @@ case HEADER_TYPE_CATEGORY:
       bindCategoryHeader(view,position,header);
       break;
     }
-case HEADER_TYPE_SPACE:
-{
-    break;
-  }
 default :
 {
-  bindHeader(view,position,header);
-  break;
-}
+    bindHeader(view,position,header);
+    break;
+  }
 }
 return view;
 }

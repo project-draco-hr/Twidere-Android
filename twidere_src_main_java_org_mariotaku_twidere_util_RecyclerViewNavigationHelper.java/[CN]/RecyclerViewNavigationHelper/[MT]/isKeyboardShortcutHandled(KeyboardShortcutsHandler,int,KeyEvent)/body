@@ -5,6 +5,8 @@ switch (action) {
 case ACTION_NAVIGATION_PREVIOUS:
 case ACTION_NAVIGATION_NEXT:
 case ACTION_NAVIGATION_TOP:
+case ACTION_NAVIGATION_PAGE_DOWN:
+case ACTION_NAVIGATION_PAGE_UP:
     return true;
 }
 return false;

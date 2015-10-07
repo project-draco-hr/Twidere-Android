@@ -1,4 +1,0 @@
-{
-  mFirstItemIsCategory=!mHeaders.isEmpty() && getHeaderType(mHeaders.get(0)) == HEADER_TYPE_CATEGORY;
-  mCategoriesCount=getCategoriesCount(0,mHeaders.size());
-}

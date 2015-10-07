@@ -13,16 +13,25 @@ case ACTION_NAVIGATION_NEXT:
     direction=1;
     break;
   }
+case ACTION_NAVIGATION_PAGE_DOWN:
+{
+  RecyclerViewUtils.pageScroll(view,manager,1);
+  return true;
+}
+case ACTION_NAVIGATION_PAGE_UP:
+{
+RecyclerViewUtils.pageScroll(view,manager,-1);
+return true;
+}
 default :
 {
-  return false;
+return false;
 }
 }
-final LinearLayoutManager layoutManager=this.manager;
-final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(view,layoutManager.getFocusedChild());
+final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(view,manager.getFocusedChild());
 final int position;
-final int firstVisibleItemPosition=layoutManager.findFirstVisibleItemPosition();
-final int lastVisibleItemPosition=layoutManager.findLastVisibleItemPosition();
+final int firstVisibleItemPosition=manager.findFirstVisibleItemPosition();
+final int lastVisibleItemPosition=manager.findLastVisibleItemPosition();
 final int itemCount=adapter.getItemCount();
 final boolean backupOutsideRange=positionBackup > lastVisibleItemPosition || positionBackup < firstVisibleItemPosition;
 if (focusedChild != null) {
@@ -44,6 +53,6 @@ position=lastVisibleItemPosition;
 position=positionBackup;
 }
 positionBackup=position;
-RecyclerViewUtils.focusNavigate(view,layoutManager,position,direction);
+RecyclerViewUtils.focusNavigate(view,manager,position,direction);
 return true;
 }

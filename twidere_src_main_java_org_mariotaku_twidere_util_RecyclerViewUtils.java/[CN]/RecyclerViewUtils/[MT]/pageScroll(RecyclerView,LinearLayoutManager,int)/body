@@ -1,0 +1,4 @@
+{
+  final int contentHeight=layoutManager.getHeight() - layoutManager.getPaddingTop() - layoutManager.getPaddingBottom();
+  recyclerView.smoothScrollBy(0,direction > 0 ? contentHeight : -contentHeight);
+}

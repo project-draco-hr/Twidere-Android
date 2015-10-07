@@ -6,16 +6,11 @@ case HEADER_TYPE_CATEGORY:
       layoutRes=R.layout.list_item_preference_header_category;
       break;
     }
-case HEADER_TYPE_SPACE:
-{
-    layoutRes=R.layout.list_item_preference_header_space;
-    break;
-  }
 default :
 {
-  layoutRes=R.layout.list_item_preference_header_item;
-  break;
-}
+    layoutRes=R.layout.list_item_preference_header_item;
+    break;
+  }
 }
 return mInflater.inflate(layoutRes,parent,false);
 }

@@ -1,15 +1,3 @@
 {
-  if (position == getCount() - 1)   return new Header();
-  final int realPosition=mFirstItemIsCategory ? position + 1 : position;
-  int categoriesCount=0;
-  int i;
-  for (i=0; i + categoriesCount < realPosition; i++) {
-    if (getHeaderType(mHeaders.get(i)) == HEADER_TYPE_CATEGORY) {
-      categoriesCount++;
-    }
-  }
-  if (i + categoriesCount == realPosition && getHeaderType(mHeaders.get(i)) == HEADER_TYPE_CATEGORY) {
-    return new Header();
-  }
-  return mHeaders.get(realPosition - categoriesCount);
+  return mHeaders.get(position);
 }
