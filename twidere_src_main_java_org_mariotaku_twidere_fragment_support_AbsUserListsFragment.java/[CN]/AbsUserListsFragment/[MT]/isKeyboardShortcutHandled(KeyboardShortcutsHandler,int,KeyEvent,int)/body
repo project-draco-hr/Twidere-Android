@@ -1,0 +1,3 @@
+{
+  return mNavigationHelper.isKeyboardShortcutHandled(handler,keyCode,event,metaState);
+}

@@ -1,0 +1,4 @@
+{
+  final String action=handler.getKeyAction(CONTEXT_TAG_NAVIGATION,keyCode,event,metaState);
+  return ACTION_NAVIGATION_BACK.equals(action);
+}

@@ -1,0 +1,3 @@
+{
+  mControlBarShowHideHelper.setControlBarVisibleAnimate(visible,listener);
+}

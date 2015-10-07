@@ -1,6 +1,16 @@
 {
-  if (event.getAction() != KeyEvent.ACTION_UP)   return false;
-  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(mContextTag,keyCode,event);
+  if (event.getAction() == KeyEvent.ACTION_DOWN) {
+    if (KeyEvent.isModifierKey(keyCode)) {
+      mModifierStates|=KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+    }
+  }
+ else   if (event.getAction() != KeyEvent.ACTION_UP) {
+    return false;
+  }
+  if (KeyEvent.isModifierKey(keyCode)) {
+    mModifierStates&=~KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+  }
+  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(mContextTag,keyCode,event,KeyEvent.normalizeMetaState(mModifierStates | event.getMetaState()));
   if (spec == null || !spec.isValid()) {
     Log.d(LOGTAG,String.format("Invalid key %s",event),new Exception());
     return false;

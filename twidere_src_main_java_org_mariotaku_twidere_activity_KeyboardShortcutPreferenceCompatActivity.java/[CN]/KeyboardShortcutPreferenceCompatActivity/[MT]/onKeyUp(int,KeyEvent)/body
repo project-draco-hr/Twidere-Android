@@ -1,7 +1,10 @@
 {
+  if (KeyEvent.isModifierKey(keyCode)) {
+    mMetaState&=~KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+  }
   final String keyAction=getKeyAction();
   if (keyAction == null)   return false;
-  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(getContextTag(),keyCode,event);
+  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(getContextTag(),keyCode,event,KeyEvent.normalizeMetaState(mMetaState | event.getMetaState()));
   if (spec == null || !spec.isValid()) {
     return super.onKeyUp(keyCode,event);
   }

@@ -1,0 +1,7 @@
+{
+  final Fragment fragment=getKeyboardShortcutRecipient();
+  if (fragment instanceof KeyboardShortcutCallback) {
+    return ((KeyboardShortcutCallback)fragment).isKeyboardShortcutHandled(handler,keyCode,event,metaState);
+  }
+  return false;
+}

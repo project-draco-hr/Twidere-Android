@@ -1,0 +1,4 @@
+{
+  if (isFragmentKeyboardShortcutHandled(handler,keyCode,event,metaState))   return true;
+  return super.isKeyboardShortcutHandled(handler,keyCode,event,metaState);
+}

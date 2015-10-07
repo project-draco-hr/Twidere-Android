@@ -1,0 +1,23 @@
+{
+switch (keyCode) {
+case KeyEvent.KEYCODE_CTRL_LEFT:
+    return KeyEvent.META_CTRL_LEFT_ON;
+case KeyEvent.KEYCODE_CTRL_RIGHT:
+  return KeyEvent.META_CTRL_RIGHT_ON;
+case KeyEvent.KEYCODE_SHIFT_LEFT:
+return KeyEvent.META_SHIFT_LEFT_ON;
+case KeyEvent.KEYCODE_SHIFT_RIGHT:
+return KeyEvent.META_SHIFT_RIGHT_ON;
+case KeyEvent.KEYCODE_ALT_LEFT:
+return KeyEvent.META_ALT_LEFT_ON;
+case KeyEvent.KEYCODE_ALT_RIGHT:
+return KeyEvent.META_ALT_RIGHT_ON;
+case KeyEvent.KEYCODE_META_LEFT:
+return KeyEvent.META_META_LEFT_ON;
+case KeyEvent.KEYCODE_META_RIGHT:
+return KeyEvent.META_META_RIGHT_ON;
+case KeyEvent.KEYCODE_FUNCTION:
+return KeyEvent.META_FUNCTION_ON;
+}
+return 0;
+}

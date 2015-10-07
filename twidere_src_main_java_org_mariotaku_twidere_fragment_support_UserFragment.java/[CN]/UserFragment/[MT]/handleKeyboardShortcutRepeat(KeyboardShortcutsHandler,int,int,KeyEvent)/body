@@ -1,3 +1,0 @@
-{
-  return handleFragmentKeyboardShortcutRepeat(handler,keyCode,repeatCount,event);
-}

@@ -1,4 +1,7 @@
 {
-  if (handleKeyboardShortcutRepeat(mKeyboardShortcutsHandler,keyCode,event.getRepeatCount(),event))   return true;
-  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event) || super.onKeyDown(keyCode,event);
+  if (KeyEvent.isModifierKey(keyCode)) {
+    mMetaState|=KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+  }
+  if (handleKeyboardShortcutRepeat(mKeyboardShortcutsHandler,keyCode,event.getRepeatCount(),event,mMetaState))   return true;
+  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event,mMetaState) || super.onKeyDown(keyCode,event);
 }

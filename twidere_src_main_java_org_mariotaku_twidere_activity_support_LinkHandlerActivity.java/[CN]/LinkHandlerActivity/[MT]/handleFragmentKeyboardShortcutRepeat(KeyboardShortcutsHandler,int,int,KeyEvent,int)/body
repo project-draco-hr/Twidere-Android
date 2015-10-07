@@ -1,0 +1,7 @@
+{
+  final Fragment fragment=getCurrentVisibleFragment();
+  if (fragment instanceof KeyboardShortcutCallback) {
+    return ((KeyboardShortcutCallback)fragment).handleKeyboardShortcutRepeat(handler,keyCode,repeatCount,event,metaState);
+  }
+  return false;
+}
