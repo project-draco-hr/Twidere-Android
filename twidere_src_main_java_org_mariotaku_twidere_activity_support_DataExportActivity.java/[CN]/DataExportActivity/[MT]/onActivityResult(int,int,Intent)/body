@@ -1,0 +1,28 @@
+{
+switch (requestCode) {
+case REQUEST_PICK_DIRECTORY:
+{
+      mResumeFragmentsRunnable=new Runnable(){
+        @Override public void run(){
+          if (resultCode == RESULT_OK) {
+            final String path=data.getData().getPath();
+            final DialogFragment df=new DataExportImportTypeSelectorDialogFragment();
+            final Bundle args=new Bundle();
+            args.putString(EXTRA_PATH,path);
+            args.putString(EXTRA_TITLE,getString(R.string.export_settings_type_dialog_title));
+            df.setArguments(args);
+            df.show(getSupportFragmentManager(),"select_export_type");
+          }
+ else {
+            if (!isFinishing()) {
+              finish();
+            }
+          }
+        }
+      }
+;
+      return;
+    }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}
