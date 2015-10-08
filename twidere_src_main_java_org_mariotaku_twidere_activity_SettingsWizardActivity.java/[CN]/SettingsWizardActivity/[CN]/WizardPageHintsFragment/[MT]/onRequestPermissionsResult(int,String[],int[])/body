@@ -1,0 +1,4 @@
+{
+  super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+  super.gotoNextPage();
+}

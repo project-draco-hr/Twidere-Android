@@ -1,6 +1,8 @@
 {
-  if (textWatchers == null)   return;
-  for (  TextWatcher textWatcher : textWatchers) {
-    textWatcher.onTextChanged(s,start,before,count);
+  if (textWatchers != null) {
+    for (    TextWatcher textWatcher : textWatchers) {
+      textWatcher.onTextChanged(s,start,before,count);
+    }
   }
+  appendText=count > before;
 }

@@ -1,9 +1,6 @@
 {
   if (keyCode == KeyEvent.KEYCODE_ENTER && enabled && event.getAction() == KeyEvent.ACTION_DOWN) {
-    if (listener != null) {
-      listener.onHitEnter();
-    }
-    return true;
+    if (shouldCallListener())     return dispatchHitEnter();
   }
   return false;
 }

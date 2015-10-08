@@ -1,0 +1,8 @@
+{
+  if (isQuotingProtectedStatus()) {
+    new RetweetProtectedStatusWarnFragment().show(getSupportFragmentManager(),"retweet_protected_status_warning_message");
+  }
+ else {
+    updateStatus();
+  }
+}

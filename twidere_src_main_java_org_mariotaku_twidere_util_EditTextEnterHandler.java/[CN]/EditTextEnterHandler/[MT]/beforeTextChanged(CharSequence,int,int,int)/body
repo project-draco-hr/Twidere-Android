@@ -1,6 +1,7 @@
 {
-  if (textWatchers == null)   return;
-  for (  TextWatcher textWatcher : textWatchers) {
-    textWatcher.beforeTextChanged(s,start,count,after);
+  if (textWatchers != null) {
+    for (    TextWatcher textWatcher : textWatchers) {
+      textWatcher.beforeTextChanged(s,start,count,after);
+    }
   }
 }

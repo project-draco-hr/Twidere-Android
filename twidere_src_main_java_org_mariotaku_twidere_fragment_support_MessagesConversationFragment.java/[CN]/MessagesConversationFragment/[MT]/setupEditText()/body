@@ -1,7 +1,11 @@
 {
   EditTextEnterHandler.attach(mEditText,new EnterListener(){
-    @Override public void onHitEnter(){
+    @Override public boolean shouldCallListener(){
+      return true;
+    }
+    @Override public boolean onHitEnter(){
       sendDirectMessage();
+      return true;
     }
   }
 ,mPreferences.getBoolean(KEY_QUICK_SEND,false));

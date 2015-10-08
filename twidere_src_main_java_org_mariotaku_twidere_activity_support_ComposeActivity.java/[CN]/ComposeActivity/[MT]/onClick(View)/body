@@ -2,12 +2,7 @@
 switch (view.getId()) {
 case R.id.send:
 {
-      if (isQuotingProtectedStatus()) {
-        new RetweetProtectedStatusWarnFragment().show(getSupportFragmentManager(),"retweet_protected_status_warning_message");
-      }
- else {
-        updateStatus();
-      }
+      confirmAndUpdateStatus();
       break;
     }
 case R.id.account_selector_container:

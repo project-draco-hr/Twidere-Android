@@ -1,8 +1,12 @@
 {
   final boolean sendByEnter=mPreferences.getBoolean(KEY_QUICK_SEND);
   EditTextEnterHandler.attach(mEditText,new EnterListener(){
-    @Override public void onHitEnter(){
-      updateStatus();
+    @Override public boolean shouldCallListener(){
+      return mKeyMetaState == 0;
+    }
+    @Override public boolean onHitEnter(){
+      confirmAndUpdateStatus();
+      return true;
     }
   }
 ,sendByEnter);

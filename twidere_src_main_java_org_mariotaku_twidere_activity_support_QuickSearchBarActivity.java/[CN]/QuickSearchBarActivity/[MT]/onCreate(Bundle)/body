@@ -23,8 +23,12 @@
   mSuggestionsList.setOnScrollListener(listener.makeScrollListener());
   mSearchSubmit.setOnClickListener(this);
   EditTextEnterHandler.attach(mSearchQuery,new EnterListener(){
-    @Override public void onHitEnter(){
+    @Override public boolean shouldCallListener(){
+      return true;
+    }
+    @Override public boolean onHitEnter(){
       doSearch();
+      return true;
     }
   }
 ,true);
