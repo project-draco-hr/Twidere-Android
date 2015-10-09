@@ -1,4 +1,3 @@
 {
-  final TwidereApplication application=TwidereApplication.getInstance(context);
-  return application.getUserColorNameManager();
+  return ApplicationModule.get(context).getUserColorNameManager();
 }

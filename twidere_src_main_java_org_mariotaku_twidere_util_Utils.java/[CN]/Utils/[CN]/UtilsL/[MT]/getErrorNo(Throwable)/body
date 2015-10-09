@@ -1,0 +1,7 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)   return 0;
+  if (t instanceof ErrnoException) {
+    return ((ErrnoException)t).errno;
+  }
+  return 0;
+}

@@ -3,13 +3,10 @@
   mContext=context;
   mInflater=LayoutInflater.from(context);
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mMultiSelectManager=app.getMultiSelectManager();
-  final SharedPreferencesWrapper preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mProfileImageStyle=Utils.getProfileImageStyle(preferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
-  mMediaPreviewStyle=Utils.getMediaPreviewStyle(preferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
-  mDisplayProfileImage=preferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
-  mTextSize=preferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
-  mUserColorNameManager=app.getUserColorNameManager();
+  mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+  mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
   mReadStateChangeListener=new OnSharedPreferenceChangeListener(){
     @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
       updateReadState();

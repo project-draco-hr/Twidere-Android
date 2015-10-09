@@ -6,5 +6,4 @@
   setupWindow();
   super.onCreate(savedInstanceState);
   DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(this)).build().inject(this);
-  mKeyboardShortcutsHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
 }

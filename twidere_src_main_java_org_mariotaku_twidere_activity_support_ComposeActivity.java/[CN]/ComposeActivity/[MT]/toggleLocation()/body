@@ -1,7 +1,7 @@
 {
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
   mPreferences.edit().putBoolean(KEY_ATTACH_LOCATION,!attachLocation).apply();
-  startLocationUpdateIfEnabled();
+  requestOrUpdateLocation();
   updateLocationState();
   setMenu();
   updateTextCount();

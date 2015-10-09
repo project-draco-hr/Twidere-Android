@@ -1,15 +1,14 @@
 {
   final String action=intent.getAction();
-  final UserColorNameManager manager=UserColorNameManager.getInstance(this);
   final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
   if (INTENT_ACTION_REPLY.equals(action)) {
     if (mInReplyToStatus == null)     return false;
-    final String displayName=manager.getDisplayName(mInReplyToStatus.user_id,mInReplyToStatus.user_name,mInReplyToStatus.user_screen_name,nameFirst,false);
+    final String displayName=mUserColorNameManager.getDisplayName(mInReplyToStatus.user_id,mInReplyToStatus.user_name,mInReplyToStatus.user_screen_name,nameFirst,false);
     setTitle(getString(R.string.reply_to,displayName));
   }
  else   if (INTENT_ACTION_QUOTE.equals(action)) {
     if (mInReplyToStatus == null)     return false;
-    final String displayName=manager.getDisplayName(mInReplyToStatus.user_id,mInReplyToStatus.user_name,mInReplyToStatus.user_screen_name,nameFirst,false);
+    final String displayName=mUserColorNameManager.getDisplayName(mInReplyToStatus.user_id,mInReplyToStatus.user_name,mInReplyToStatus.user_screen_name,nameFirst,false);
     setTitle(getString(R.string.quote_user,displayName));
   }
  else   if (INTENT_ACTION_EDIT_DRAFT.equals(action)) {
@@ -18,7 +17,7 @@
   }
  else   if (INTENT_ACTION_MENTION.equals(action)) {
     if (mMentionUser == null)     return false;
-    final String displayName=manager.getDisplayName(mMentionUser.id,mMentionUser.name,mMentionUser.screen_name,nameFirst,false);
+    final String displayName=mUserColorNameManager.getDisplayName(mMentionUser.id,mMentionUser.name,mMentionUser.screen_name,nameFirst,false);
     setTitle(getString(R.string.mention_user,displayName));
   }
  else   if (INTENT_ACTION_REPLY_MULTIPLE.equals(action)) {

@@ -1,6 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  mKeyboardShortcutHandler=TwidereApplication.getInstance(this).getKeyboardShortcutsHandler();
   setContentView(R.layout.activity_keyboard_shortcut_input);
   setTitle(KeyboardShortcutsHandler.getActionLabel(this,getKeyAction()));
   mButtonPositive.setOnClickListener(this);

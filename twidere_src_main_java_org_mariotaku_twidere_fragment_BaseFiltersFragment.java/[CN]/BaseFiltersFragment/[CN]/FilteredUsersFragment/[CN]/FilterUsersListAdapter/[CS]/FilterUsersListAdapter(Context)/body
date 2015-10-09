@@ -1,6 +1,6 @@
 {
   super(context,android.R.layout.simple_list_item_activated_1,null,new String[0],new int[0],0);
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mNameFirst=prefs.getBoolean(KEY_NAME_FIRST,true);
-  mUserColorNameManager=TwidereApplication.getInstance(context).getUserColorNameManager();
 }

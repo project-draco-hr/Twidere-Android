@@ -1,3 +1,3 @@
 {
-  return ((TwidereApplication)context.getApplicationContext()).getHotMobiLogger();
+  return ApplicationModule.get(context).getHotMobiLogger();
 }

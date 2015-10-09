@@ -1,16 +1,2 @@
 {
-  final Context context=getContext();
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
-  mHandler=new Handler(Looper.getMainLooper());
-  mDatabaseWrapper=new SQLiteDatabaseWrapper(this);
-  mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mPreferences.registerOnSharedPreferenceChangeListener(this);
-  updatePreferences();
-  mPermissionsManager=new PermissionsManager(context);
-  mImagePreloader=new ImagePreloader(context,mMediaLoader);
-  final IntentFilter filter=new IntentFilter();
-  filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTART);
-  filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTOP);
-  context.registerReceiver(mHomeActivityStateReceiver,filter);
-  return true;
 }

@@ -11,9 +11,8 @@
   final Activity activity=getActivity();
   final Intent intent=activity.getIntent();
   if (account != null && intent.hasExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT)) {
-    final UserColorNameManager manager=UserColorNameManager.getInstance(activity);
     final boolean nameFirst=prefs.getBoolean(KEY_NAME_FIRST,true);
-    final String name=manager.getDisplayName(account.account_id,account.name,account.screen_name,nameFirst,false);
+    final String name=mUserColorNameManager.getDisplayName(account.account_id,account.name,account.screen_name,nameFirst,false);
     activity.setTitle(name);
   }
   updatePreferenceScreen();

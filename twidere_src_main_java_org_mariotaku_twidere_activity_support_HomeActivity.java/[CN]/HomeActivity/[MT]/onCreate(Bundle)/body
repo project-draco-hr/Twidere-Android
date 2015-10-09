@@ -10,7 +10,6 @@
     return;
   }
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final TwidereApplication app=TwidereApplication.getInstance(this);
   mNotificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();

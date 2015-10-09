@@ -2,6 +2,7 @@
   final Bundle args=getArguments();
   if (args == null || !args.containsKey(EXTRA_STATUS))   return new FilterItemInfo[0];
   final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
+  if (status == null)   return new FilterItemInfo[0];
   final ArrayList<FilterItemInfo> list=new ArrayList<>();
   if (status.is_retweet) {
     list.add(new FilterItemInfo(FilterItemInfo.FILTER_TYPE_USER,new UserItem(status.retweeted_by_user_id,status.retweeted_by_user_name,status.retweeted_by_user_screen_name)));

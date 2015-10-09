@@ -3,7 +3,6 @@
   final View view=getView();
   if (view == null)   throw new AssertionError();
   final Context viewContext=view.getContext();
-  mMultiSelectManager=getMultiSelectManager();
   final MessageEntriesAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();

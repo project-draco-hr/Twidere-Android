@@ -1,0 +1,8 @@
+{
+  super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+  if (PermissionUtils.getPermission(permissions,grantResults,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || PermissionUtils.getPermission(permissions,grantResults,Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+    startLocationUpdateIfEnabled();
+  }
+ else {
+  }
+}

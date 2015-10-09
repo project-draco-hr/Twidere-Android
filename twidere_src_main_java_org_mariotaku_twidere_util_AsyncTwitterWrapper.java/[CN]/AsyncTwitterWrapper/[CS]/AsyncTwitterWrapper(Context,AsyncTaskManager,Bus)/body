@@ -1,7 +1,0 @@
-{
-  mContext=context;
-  mAsyncTaskManager=manager;
-  mPreferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
-  mResolver=context.getContentResolver();
-  mBus=bus;
-}

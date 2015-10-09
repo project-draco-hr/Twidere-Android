@@ -24,13 +24,17 @@
   final String[] projection={SQLFunctions.COUNT()};
   final int rowsDeleted;
   final Cursor countCur=mResolver.query(uri,projection,countWhere,null,null);
-  if (countCur.moveToFirst()) {
-    rowsDeleted=countCur.getInt(0);
-  }
+  try {
+    if (countCur != null && countCur.moveToFirst()) {
+      rowsDeleted=countCur.getInt(0);
+    }
  else {
-    rowsDeleted=0;
+      rowsDeleted=0;
+    }
   }
-  countCur.close();
+  finally {
+    Utils.closeSilently(countCur);
+  }
   final RefreshEvent event=RefreshEvent.create(mContext,statusIds,getTimelineType());
   HotMobiLogger.getInstance(mContext).log(accountId,event);
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,maxId);

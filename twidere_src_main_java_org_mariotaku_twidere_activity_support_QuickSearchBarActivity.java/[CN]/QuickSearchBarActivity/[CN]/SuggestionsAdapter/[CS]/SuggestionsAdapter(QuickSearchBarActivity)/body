@@ -1,7 +1,6 @@
 {
   mActivity=activity;
   mImageLoader=activity.mImageLoader;
+  mUserColorNameManager=activity.mUserColorNameManager;
   mInflater=LayoutInflater.from(activity);
-  final TwidereApplication application=TwidereApplication.getInstance(activity);
-  mUserColorNameManager=application.getUserColorNameManager();
 }

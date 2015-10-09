@@ -1,2 +1,8 @@
 {
+  super(activity);
+  setHasStableIds(true);
+  mActivity=activity;
+  mInflater=activity.getLayoutInflater();
+  mSelection=new LongSparseArray<>();
+  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
 }

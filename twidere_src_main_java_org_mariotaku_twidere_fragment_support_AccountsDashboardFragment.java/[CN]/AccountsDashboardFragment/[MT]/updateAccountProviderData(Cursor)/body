@@ -1,4 +1,5 @@
 {
+  if (cursor == null)   return;
   final Menu menu=mAccountsToggleMenu.getMenu();
   mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(R.id.select_account));
   final ParcelableAccount[] accounts=ParcelableAccount.getAccounts(cursor);

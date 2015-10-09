@@ -1,4 +1,0 @@
-{
-  if (mUserColorNameManager != null)   return mUserColorNameManager;
-  return mUserColorNameManager=new UserColorNameManager(this);
-}

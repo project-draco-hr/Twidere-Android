@@ -1,4 +1,0 @@
-{
-  if (mHotMobiLogger != null)   return mHotMobiLogger;
-  return mHotMobiLogger=new HotMobiLogger(this);
-}

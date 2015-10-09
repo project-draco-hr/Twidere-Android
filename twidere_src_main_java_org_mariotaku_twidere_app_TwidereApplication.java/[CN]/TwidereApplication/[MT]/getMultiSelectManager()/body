@@ -1,4 +1,0 @@
-{
-  if (mMultiSelectManager != null)   return mMultiSelectManager;
-  return mMultiSelectManager=new MultiSelectManager();
-}

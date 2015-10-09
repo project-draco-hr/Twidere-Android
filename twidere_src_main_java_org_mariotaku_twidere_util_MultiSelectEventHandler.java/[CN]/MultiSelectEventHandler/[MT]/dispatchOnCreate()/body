@@ -1,4 +1,2 @@
 {
-  mApplication=mActivity.getTwidereApplication();
-  mMultiSelectManager=mApplication.getMultiSelectManager();
 }

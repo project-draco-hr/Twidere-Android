@@ -81,8 +81,7 @@ break;
 }
 case R.id.clear_nickname:
 {
-final UserColorNameManager manager=UserColorNameManager.getInstance(getActivity());
-manager.clearUserNickname(user.id);
+mUserColorNameManager.clearUserNickname(user.id);
 break;
 }
 case R.id.set_nickname:

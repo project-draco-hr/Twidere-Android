@@ -1,0 +1,6 @@
+{
+  super.onAttach(context);
+  if (context instanceof FragmentActivity) {
+    mTintedStatusContent=(TintedStatusFrameLayout)((FragmentActivity)context).findViewById(R.id.main_content);
+  }
+}

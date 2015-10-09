@@ -1,1 +1,1 @@
-Adapter<AccountIconViewHolder>
+BaseRecyclerViewAdapter<AccountIconViewHolder>

@@ -2,7 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   final BaseAppCompatActivity activity=(BaseAppCompatActivity)getActivity();
   mPreferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
-  mUserColorNameManager=UserColorNameManager.getInstance(activity);
   mMessageDrafts=getSharedPreferences(MESSAGE_DRAFTS_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mValidator=new TwidereValidator(activity);
   final View view=getView();

@@ -1,9 +1,0 @@
-{
-  super(context,getItemResource(compactCards));
-  mContext=context;
-  mLocale=context.getResources().getConfiguration().locale;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mMultiSelectManager=app.getMultiSelectManager();
-  mUserColorNameManager=app.getUserColorNameManager();
-  configBaseCardAdapter(context,this);
-}

@@ -1,6 +1,5 @@
 {
   final ParcelableUser user=getUser();
-  final UserColorNameManager manager=UserColorNameManager.getInstance(getActivity());
 switch (requestCode) {
 case REQUEST_SET_COLOR:
 {
@@ -8,10 +7,10 @@ case REQUEST_SET_COLOR:
       if (resultCode == Activity.RESULT_OK) {
         if (data == null)         return;
         final int color=data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT);
-        manager.setUserColor(mUser.id,color);
+        mUserColorNameManager.setUserColor(mUser.id,color);
       }
  else       if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
-        manager.clearUserColor(mUser.id);
+        mUserColorNameManager.clearUserColor(mUser.id);
       }
       break;
     }

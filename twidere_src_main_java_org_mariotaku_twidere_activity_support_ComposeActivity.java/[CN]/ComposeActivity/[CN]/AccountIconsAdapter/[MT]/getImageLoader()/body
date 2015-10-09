@@ -1,3 +1,3 @@
 {
-  return mImageLoader;
+  return mMediaLoader;
 }

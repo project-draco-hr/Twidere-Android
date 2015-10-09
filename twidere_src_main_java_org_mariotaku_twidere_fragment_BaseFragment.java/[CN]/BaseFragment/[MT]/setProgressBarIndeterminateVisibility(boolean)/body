@@ -1,6 +1,0 @@
-{
-  final Activity activity=getActivity();
-  if (activity instanceof BaseAppCompatActivity) {
-    activity.setProgressBarIndeterminateVisibility(visible);
-  }
-}

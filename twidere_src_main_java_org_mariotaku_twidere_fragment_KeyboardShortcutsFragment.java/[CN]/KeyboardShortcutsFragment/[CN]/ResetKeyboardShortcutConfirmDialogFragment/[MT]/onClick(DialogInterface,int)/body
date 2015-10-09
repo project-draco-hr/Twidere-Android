@@ -2,8 +2,7 @@
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
-      TwidereApplication app=TwidereApplication.getInstance(getActivity());
-      app.getKeyboardShortcutsHandler().reset();
+      mKeyboardShortcutsHandler.reset();
       break;
     }
 }

@@ -1,20 +1,17 @@
 {
   Location location=null;
+  final LocationManager lm=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+  if (lm == null)   return null;
   try {
-    final LocationManager lm=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-    try {
-      location=lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-    }
- catch (    Exception ignore) {
-    }
-    if (location != null)     return location;
-    try {
-      location=lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-    }
- catch (    Exception ignore) {
-    }
+    location=lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
   }
- catch (  Exception ignore) {
+ catch (  SecurityException ignore) {
+  }
+  if (location != null)   return location;
+  try {
+    location=lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+  }
+ catch (  SecurityException ignore) {
   }
   return location;
 }

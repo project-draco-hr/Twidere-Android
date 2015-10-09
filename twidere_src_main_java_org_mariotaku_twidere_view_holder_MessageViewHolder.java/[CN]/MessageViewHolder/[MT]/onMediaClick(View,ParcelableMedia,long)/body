@@ -1,4 +1,4 @@
 {
-  Bundle options=null;
+  final Bundle options=Utils.createMediaViewerActivityOption(view);
   Utils.openMedia(adapter.getContext(),adapter.getDirectMessage(getAdapterPosition()),media,options);
 }

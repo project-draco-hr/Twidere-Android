@@ -1,3 +1,4 @@
 {
-  getActivity().gotoLastPage();
+  final SettingsWizardActivity activity=getActivity();
+  activity.gotoPage(activity.getPageCount() - 3);
 }

@@ -1,4 +1,5 @@
 {
   super(context,R.layout.list_item_dashboard_menu);
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
   mActionIconColor=ThemeUtils.getThemeForegroundColor(context);
 }

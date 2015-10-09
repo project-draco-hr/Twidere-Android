@@ -1,7 +1,5 @@
 {
   super(context,R.layout.list_item_two_line);
   mContext=context;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mUserColorNameManager=app.getUserColorNameManager();
   configBaseAdapter(context,this);
 }

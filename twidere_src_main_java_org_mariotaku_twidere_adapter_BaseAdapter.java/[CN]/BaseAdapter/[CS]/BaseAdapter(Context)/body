@@ -1,3 +1,0 @@
-{
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject((BaseAdapter<RecyclerView.ViewHolder>)this);
-}

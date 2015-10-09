@@ -4,8 +4,6 @@
   setHasOptionsMenu(true);
   getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
   getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
-  mUserColorNameManager=UserColorNameManager.getInstance(activity);
-  mPreferences=SharedPreferencesWrapper.getInstance(activity,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
   mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
   mLocale=getResources().getConfiguration().locale;
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(activity,ThemeUtils.getThemeBackgroundOption(activity),ThemeUtils.getUserThemeBackgroundAlpha(activity));
