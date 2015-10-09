@@ -1,5 +1,4 @@
 {
-  final ErrorReporter errorReporter=ACRA.getErrorReporter();
   if (throwable == null && message == null) {
     throw new NullPointerException("Message and Throwable can't be both null");
   }

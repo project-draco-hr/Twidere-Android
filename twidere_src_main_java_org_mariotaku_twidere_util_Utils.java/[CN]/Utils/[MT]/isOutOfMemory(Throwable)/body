@@ -1,0 +1,7 @@
+{
+  if (ex == null)   return false;
+  final Throwable cause=ex.getCause();
+  if (cause == null || cause == ex)   return false;
+  if (cause instanceof OutOfMemoryError)   return true;
+  return isOutOfMemory(cause);
+}
