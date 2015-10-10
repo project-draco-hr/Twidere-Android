@@ -1,0 +1,8 @@
+AccountPreferences pref
+long accountId
+Context context
+Resources resources
+NotificationManager nm
+String filteredSelection
+Cursor statusCursor
+int statusesCount

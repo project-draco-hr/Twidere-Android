@@ -91,7 +91,7 @@
     builder.setContentText(notificationContent);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
     builder.setContentIntent(getContentIntent(context,AUTHORITY_DIRECT_MESSAGES,accountId));
-    builder.setDeleteIntent(getDeleteIntent(context,AUTHORITY_DIRECT_MESSAGES,accountId,positions));
+    builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_DIRECT_MESSAGES,accountId,positions));
     builder.setNumber(messagesCount);
     builder.setWhen(when);
     builder.setStyle(style);

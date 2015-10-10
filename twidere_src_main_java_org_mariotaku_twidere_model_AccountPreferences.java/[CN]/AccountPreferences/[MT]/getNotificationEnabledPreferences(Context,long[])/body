@@ -1,5 +1,5 @@
 {
-  if (context == null || accountIds == null)   return null;
+  if (context == null || accountIds == null)   return new AccountPreferences[0];
   final AccountPreferences[] temp=new AccountPreferences[accountIds.length];
   int i=0;
   for (  final long accountId : accountIds) {

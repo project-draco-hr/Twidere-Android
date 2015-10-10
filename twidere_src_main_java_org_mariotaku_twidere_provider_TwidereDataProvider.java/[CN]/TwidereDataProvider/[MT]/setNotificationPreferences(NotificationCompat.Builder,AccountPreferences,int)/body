@@ -18,5 +18,6 @@
  else {
     notificationDefaults&=~(NotificationCompat.DEFAULT_VIBRATE | NotificationCompat.DEFAULT_SOUND);
   }
+  builder.setColor(pref.getNotificationLightColor());
   builder.setDefaults(notificationDefaults);
 }

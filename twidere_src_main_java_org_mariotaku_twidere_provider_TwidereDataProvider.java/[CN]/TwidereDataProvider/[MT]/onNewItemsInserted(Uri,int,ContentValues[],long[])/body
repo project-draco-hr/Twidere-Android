@@ -1,2 +1,44 @@
 {
+  final Context context=getContext();
+  if (uri == null || valuesArray == null || valuesArray.length == 0 || context == null)   return;
+  preloadImages(valuesArray);
+  if (!uri.getBooleanQueryParameter(QUERY_PARAM_NOTIFY,true))   return;
+switch (tableId) {
+case TABLE_ID_STATUSES:
+{
+      final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+      for (      final AccountPreferences pref : prefs) {
+        if (!pref.isHomeTimelineNotificationEnabled())         continue;
+        showTimelineNotification(pref,getPositionTag(TAB_TYPE_HOME_TIMELINE,pref.getAccountId()));
+      }
+      notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
+      break;
+    }
+case TABLE_ID_MENTIONS:
+{
+    final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+    final boolean combined=mPreferences.getBoolean(KEY_COMBINED_NOTIFICATIONS);
+    for (    final AccountPreferences pref : prefs) {
+      if (!pref.isMentionsNotificationEnabled())       continue;
+      showMentionsNotification(pref,getPositionTag(TAB_TYPE_MENTIONS_TIMELINE,pref.getAccountId()),combined);
+    }
+    notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS_TIMELINE);
+    break;
+  }
+case TABLE_ID_DIRECT_MESSAGES_INBOX:
+{
+  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+  for (  final AccountPreferences pref : prefs) {
+    if (!pref.isDirectMessagesNotificationEnabled())     continue;
+    final StringLongPair[] pairs=mReadStateManager.getPositionPairs(TAB_TYPE_DIRECT_MESSAGES);
+    showMessagesNotification(pref,pairs,valuesArray);
+  }
+  notifyUnreadCountChanged(NOTIFICATION_ID_DIRECT_MESSAGES);
+  break;
+}
+case TABLE_ID_DRAFTS:
+{
+break;
+}
+}
 }

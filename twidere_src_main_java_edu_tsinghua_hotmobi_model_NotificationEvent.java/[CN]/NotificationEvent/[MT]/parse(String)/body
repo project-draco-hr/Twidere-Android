@@ -1,0 +1,9 @@
+{
+  if (OPEN.value.equalsIgnoreCase(action)) {
+    return OPEN;
+  }
+ else   if (DELETE.value.equalsIgnoreCase(action)) {
+    return DELETE;
+  }
+  return UNKNOWN;
+}

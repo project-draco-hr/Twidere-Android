@@ -2,16 +2,13 @@
   if (context == null || TextUtils.isEmpty(message))   return;
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (prefs.getBoolean(KEY_PEBBLE_NOTIFICATIONS,false)) {
-    final String app_name=context.getString(R.string.app_name);
-    final HashMap<String,String> data=new HashMap<>();
-    data.put("title",app_name);
-    data.put("body",message);
-    final JSONObject jsonData=new JSONObject(data);
-    final String notificationData=new JSONArray().put(jsonData).toString();
+    final String appName=context.getString(R.string.app_name);
+    final List<PebbleMessage> messages=new ArrayList<>();
+    messages.add(new PebbleMessage(appName,message));
     final Intent intent=new Intent(INTENT_ACTION_PEBBLE_NOTIFICATION);
     intent.putExtra("messageType","PEBBLE_ALERT");
-    intent.putExtra("sender",app_name);
-    intent.putExtra("notificationData",notificationData);
+    intent.putExtra("sender",appName);
+    intent.putExtra("notificationData",JsonSerializer.serialize(messages,PebbleMessage.class));
     context.getApplicationContext().sendBroadcast(intent);
   }
 }

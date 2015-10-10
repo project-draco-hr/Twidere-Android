@@ -23,5 +23,8 @@
  else   if (event instanceof BatteryRecord) {
     return "battery";
   }
+ else   if (event instanceof NotificationEvent) {
+    return "notification";
+  }
   throw new UnsupportedOperationException("Unknown event type " + event);
 }
