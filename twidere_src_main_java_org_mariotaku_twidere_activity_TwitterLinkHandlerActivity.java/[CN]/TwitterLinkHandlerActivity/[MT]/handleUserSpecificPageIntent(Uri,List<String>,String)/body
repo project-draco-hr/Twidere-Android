@@ -44,7 +44,7 @@ default :
 }
 }
 }
- else if (segsSize > 3) {
+ else if (segsSize >= 3) {
 if ("status".equals(pathSegments.get(1)) && ParseUtils.parseLong(pathSegments.get(2),-1) != -1) {
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
