@@ -1,7 +1,4 @@
 {
-  if (KeyEvent.isModifierKey(keyCode)) {
-    mMetaState&=~KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
-  }
-  if (handleKeyboardShortcutSingle(mKeyboardShortcutsHandler,keyCode,event,mMetaState))   return true;
-  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event,mMetaState) || super.onKeyUp(keyCode,event);
+  if (handleKeyboardShortcutSingle(mKeyboardShortcutsHandler,keyCode,event,mKeyMetaState))   return true;
+  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event,mKeyMetaState) || super.onKeyUp(keyCode,event);
 }

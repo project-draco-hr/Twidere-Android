@@ -18,6 +18,6 @@
     client.setProxy(getProxy(prefs));
   }
  else {
-    client.setProxy(Proxy.NO_PROXY);
+    client.setProxy(null);
   }
 }

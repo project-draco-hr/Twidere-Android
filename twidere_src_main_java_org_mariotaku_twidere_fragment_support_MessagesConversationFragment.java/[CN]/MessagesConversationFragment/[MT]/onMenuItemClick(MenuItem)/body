@@ -11,7 +11,7 @@ case R.id.delete:
 case R.id.copy:
 {
       if (ClipboardUtils.setText(getActivity(),mSelectedDirectMessage.text_plain)) {
-        showOkMessage(getActivity(),R.string.text_copied,false);
+        Utils.showOkMessage(getActivity(),R.string.text_copied,false);
       }
       break;
     }

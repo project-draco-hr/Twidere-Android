@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.save:
 {
-      saveToGallery();
+      requestAndSaveToGallery();
       return true;
     }
 case R.id.refresh:

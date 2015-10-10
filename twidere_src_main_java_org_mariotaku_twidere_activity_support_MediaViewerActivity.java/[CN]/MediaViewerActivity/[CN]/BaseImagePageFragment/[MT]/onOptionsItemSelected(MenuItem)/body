@@ -7,7 +7,7 @@ case R.id.open_in_browser:
     }
 case R.id.save:
 {
-    saveToGallery();
+    requestAndSaveToGallery();
     return true;
   }
 case R.id.refresh:
