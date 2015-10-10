@@ -1,4 +1,0 @@
-{
-  super.onAttach(context);
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
-}
