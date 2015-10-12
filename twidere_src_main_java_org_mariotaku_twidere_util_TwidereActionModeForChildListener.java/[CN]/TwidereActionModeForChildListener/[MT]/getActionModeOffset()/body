@@ -1,9 +1,0 @@
-{
-  if (mActivity instanceof IBaseFragment.SystemWindowsInsetsCallback) {
-    final Rect insets=new Rect();
-    if (((IBaseFragment.SystemWindowsInsetsCallback)mActivity).getSystemWindowsInsets(insets)) {
-      return Utils.getInsetsTopWithoutActionBarHeight(mActivity,insets.top);
-    }
-  }
-  return 0;
-}

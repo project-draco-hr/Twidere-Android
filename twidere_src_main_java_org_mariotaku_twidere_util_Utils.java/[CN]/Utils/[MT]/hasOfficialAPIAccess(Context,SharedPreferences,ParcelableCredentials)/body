@@ -1,0 +1,4 @@
+{
+  if (preferences.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false))   return true;
+  return isOfficialCredentials(context,account);
+}

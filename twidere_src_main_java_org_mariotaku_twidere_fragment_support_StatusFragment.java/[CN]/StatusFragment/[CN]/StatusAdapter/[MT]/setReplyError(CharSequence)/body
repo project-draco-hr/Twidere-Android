@@ -1,0 +1,6 @@
+{
+  mReplyError=error;
+  mItemCounts[ITEM_IDX_REPLY_ERROR]=error != null ? 1 : 0;
+  notifyDataSetChanged();
+  updateItemDecoration();
+}

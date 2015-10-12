@@ -1,25 +1,24 @@
 {
   if (data.hasData()) {
-    final int firstVisibleItemPosition=mLayoutManager.findFirstVisibleItemPosition();
+    final Pair<Long,Integer> readPosition=saveReadPosition();
     final ParcelableStatus status=data.getData();
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
     if (mStatusAdapter.setStatus(status,credentials)) {
-      mLayoutManager.scrollToPositionWithOffset(1,0);
       mStatusAdapter.setConversation(null);
       mStatusAdapter.setReplies(null);
-      loadReplies(status);
       loadConversation(status);
+      loadReplies(status);
+      final int position=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
+      if (position != RecyclerView.NO_POSITION) {
+        mLayoutManager.scrollToPositionWithOffset(position,0);
+      }
       final TweetEvent event=TweetEvent.create(getActivity(),status,TimelineType.OTHER);
       event.setAction(TweetEvent.Action.OPEN);
       mStatusEvent=event;
     }
- else     if (firstVisibleItemPosition >= 0) {
-      final long itemId=mStatusAdapter.getItemId(firstVisibleItemPosition);
-      final View firstChild=mLayoutManager.getChildAt(0);
-      final int top=firstChild != null ? firstChild.getTop() : 0;
-      final int position=mStatusAdapter.findPositionById(itemId);
-      mLayoutManager.scrollToPositionWithOffset(position,top);
+ else     if (readPosition != null) {
+      restoreReadPosition(readPosition);
     }
     setState(STATE_LOADED);
   }

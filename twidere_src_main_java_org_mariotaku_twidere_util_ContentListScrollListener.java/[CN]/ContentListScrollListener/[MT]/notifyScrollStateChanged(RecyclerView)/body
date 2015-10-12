@@ -3,7 +3,12 @@
   if (!(adapter instanceof ILoadMoreSupportAdapter))   return;
   final ILoadMoreSupportAdapter loadMoreAdapter=(ILoadMoreSupportAdapter)adapter;
   final LinearLayoutManager layoutManager=(LinearLayoutManager)recyclerView.getLayoutManager();
-  if (!mContentListSupport.isRefreshing() && loadMoreAdapter.isLoadMoreSupported() && !loadMoreAdapter.isLoadMoreIndicatorVisible()&& layoutManager.findLastVisibleItemPosition() == layoutManager.getItemCount() - 1) {
-    mContentListSupport.onLoadMoreContents();
+  if (!mContentListSupport.isRefreshing() && loadMoreAdapter.isLoadMoreSupported() && !loadMoreAdapter.isLoadMoreIndicatorVisible()) {
+    if (layoutManager.findLastVisibleItemPosition() == layoutManager.getItemCount() - 1) {
+      mContentListSupport.onLoadMoreContents(false);
+    }
+ else     if (layoutManager.findFirstVisibleItemPosition() == 0) {
+      mContentListSupport.onLoadMoreContents(true);
+    }
   }
 }

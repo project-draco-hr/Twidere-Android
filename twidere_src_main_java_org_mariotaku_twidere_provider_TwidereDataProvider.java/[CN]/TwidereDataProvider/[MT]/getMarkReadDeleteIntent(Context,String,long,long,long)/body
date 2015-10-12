@@ -1,14 +1,15 @@
 {
-  final Intent recvIntent=new Intent(context,NotificationReceiver.class);
-  recvIntent.setAction(BROADCAST_NOTIFICATION_DELETED);
-  final Uri.Builder recvLinkBuilder=new Uri.Builder();
-  recvLinkBuilder.scheme(SCHEME_TWIDERE);
-  recvLinkBuilder.authority(AUTHORITY_NOTIFICATIONS);
-  recvLinkBuilder.appendPath(type);
-  recvLinkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
-  recvLinkBuilder.appendQueryParameter(QUERY_PARAM_READ_POSITION,String.valueOf(position));
-  recvLinkBuilder.appendQueryParameter(QUERY_PARAM_EXTRA_ID,String.valueOf(extraId));
-  recvLinkBuilder.appendQueryParameter(QUERY_PARAM_TIMESTAMP,String.valueOf(System.currentTimeMillis()));
-  recvIntent.setData(recvLinkBuilder.build());
-  return PendingIntent.getBroadcast(context,0,recvIntent,0);
+  final Intent intent=new Intent(context,NotificationReceiver.class);
+  intent.setAction(BROADCAST_NOTIFICATION_DELETED);
+  final Uri.Builder linkBuilder=new Uri.Builder();
+  linkBuilder.scheme(SCHEME_TWIDERE);
+  linkBuilder.authority(AUTHORITY_NOTIFICATIONS);
+  linkBuilder.appendPath(type);
+  linkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_READ_POSITION,String.valueOf(position));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_EXTRA_ID,String.valueOf(extraId));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_TIMESTAMP,String.valueOf(System.currentTimeMillis()));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE,type);
+  intent.setData(linkBuilder.build());
+  return PendingIntent.getBroadcast(context,0,intent,0);
 }

@@ -1,9 +1,6 @@
 {
   if (!uri.getBooleanQueryParameter(QUERY_PARAM_FROM_NOTIFICATION,false))   return;
-  String type=uri.getLastPathSegment();
-  if (type == null) {
-    type=uri.getAuthority();
-  }
+  final String type=uri.getQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE);
   final long accountId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
   final long extraId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_EXTRA_ID),-1);
   final long timestamp=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_TIMESTAMP),-1);

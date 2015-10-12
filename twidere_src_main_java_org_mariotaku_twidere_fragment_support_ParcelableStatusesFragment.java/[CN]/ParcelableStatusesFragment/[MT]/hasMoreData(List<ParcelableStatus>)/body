@@ -1,4 +1,4 @@
 {
-  if (data == null || data.isEmpty())   return false;
-  return (mLastId != (mLastId=data.get(data.size() - 1).id));
+  if (list == null || list.isEmpty())   return false;
+  return (mLastId != (mLastId=list.get(list.size() - 1).id));
 }

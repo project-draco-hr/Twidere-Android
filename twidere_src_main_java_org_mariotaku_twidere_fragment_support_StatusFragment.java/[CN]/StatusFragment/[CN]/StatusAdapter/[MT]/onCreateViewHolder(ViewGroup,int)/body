@@ -40,6 +40,11 @@ case VIEW_TYPE_SPACE:
 {
 return new SpaceViewHolder(new Space(mContext));
 }
+case VIEW_TYPE_REPLY_ERROR:
+{
+final View view=mInflater.inflate(R.layout.adapter_item_status_error,parent,false);
+return new StatusErrorItemViewHolder(view);
+}
 }
 return null;
 }

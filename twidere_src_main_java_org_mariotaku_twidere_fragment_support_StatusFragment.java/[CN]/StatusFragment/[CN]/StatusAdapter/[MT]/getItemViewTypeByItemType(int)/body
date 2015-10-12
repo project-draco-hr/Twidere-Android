@@ -11,6 +11,8 @@ case ITEM_IDX_STATUS:
 return VIEW_TYPE_DETAIL_STATUS;
 case ITEM_IDX_SPACE:
 return VIEW_TYPE_SPACE;
+case ITEM_IDX_REPLY_ERROR:
+return VIEW_TYPE_REPLY_ERROR;
 }
 throw new IllegalStateException();
 }

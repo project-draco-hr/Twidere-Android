@@ -19,7 +19,7 @@
   windowOverlay.setAlpha(actionBarAlpha / 255f);
   toolbar.setNavigationOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      navigateUp();
+      onBackPressed();
     }
   }
 );

@@ -1,3 +1,0 @@
-{
-  return mReplies != null ? mReplies.size() : 1;
-}

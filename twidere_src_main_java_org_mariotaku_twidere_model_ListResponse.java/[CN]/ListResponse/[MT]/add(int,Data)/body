@@ -1,0 +1,4 @@
+{
+  if (list == null)   throw new NullPointerException();
+  list.add(location,object);
+}

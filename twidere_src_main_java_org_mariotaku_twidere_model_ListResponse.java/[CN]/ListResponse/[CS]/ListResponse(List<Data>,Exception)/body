@@ -1,4 +1,3 @@
 {
-  super(list,exception);
-  this.list=list;
+  this(list,exception,new Bundle());
 }

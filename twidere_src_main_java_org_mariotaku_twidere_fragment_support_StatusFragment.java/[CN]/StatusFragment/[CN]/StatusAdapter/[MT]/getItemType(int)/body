@@ -6,5 +6,5 @@
     if (position >= typeStart && position < typeEnd)     return type;
     typeStart=typeEnd;
   }
-  throw new IllegalStateException();
+  throw new IllegalStateException("Unknown position " + position);
 }

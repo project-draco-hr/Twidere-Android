@@ -1,9 +1,11 @@
 {
 switch (item.getItemId()) {
 case R.id.add:
-    final DialogFragment df=new AddMappingDialogFragment();
-  df.show(getFragmentManager(),"add_mapping");
-break;
+{
+      final DialogFragment df=new AddMappingDialogFragment();
+      df.show(getFragmentManager(),"add_mapping");
+      break;
+    }
 }
 return super.onOptionsItemSelected(item);
 }

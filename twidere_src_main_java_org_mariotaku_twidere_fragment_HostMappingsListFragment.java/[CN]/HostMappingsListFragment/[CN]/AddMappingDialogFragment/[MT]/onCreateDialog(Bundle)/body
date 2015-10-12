@@ -10,7 +10,8 @@
   mEditAddress.addTextChangedListener(this);
   mCheckExclude.setOnCheckedChangeListener(this);
   final Bundle args=getArguments();
-  if (savedInstanceState == null && args != null) {
+  mEditHost.setEnabled(!args.getBoolean(EXTRA_EDIT_MODE,false));
+  if (savedInstanceState == null) {
     mEditHost.setText(args.getCharSequence(EXTRA_HOST));
     mEditAddress.setText(args.getCharSequence(EXTRA_ADDRESS));
     mCheckExclude.setChecked(args.getBoolean(EXTRA_EXCLUDED));

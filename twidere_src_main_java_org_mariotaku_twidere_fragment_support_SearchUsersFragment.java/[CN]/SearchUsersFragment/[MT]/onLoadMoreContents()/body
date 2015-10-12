@@ -1,7 +1,0 @@
-{
-  super.onLoadMoreContents();
-  final Bundle loaderArgs=new Bundle(getArguments());
-  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
-  loaderArgs.putInt(EXTRA_PAGE,mPage + 1);
-  getLoaderManager().restartLoader(0,loaderArgs,this);
-}

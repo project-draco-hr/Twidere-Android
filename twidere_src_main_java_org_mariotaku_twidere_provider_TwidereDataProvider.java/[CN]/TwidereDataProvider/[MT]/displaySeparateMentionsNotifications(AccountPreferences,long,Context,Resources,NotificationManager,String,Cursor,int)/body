@@ -15,7 +15,7 @@
     builder.setContentTitle(resources.getString(R.string.user_mentioned_you,manager.getDisplayName(statusCursor.getLong(indices.user_id),statusCursor.getString(indices.user_name),statusCursor.getString(indices.user_screen_name),mNameFirst,false)));
     builder.setContentText(text);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
-    builder.setContentIntent(getStatusContentIntent(context,accountId,statusId));
+    builder.setContentIntent(getStatusContentIntent(context,AUTHORITY_MENTIONS,accountId,statusId));
     builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_MENTIONS,accountId,statusId,statusId));
     builder.setWhen(statusCursor.getLong(indices.status_timestamp));
     builder.setStyle(style);

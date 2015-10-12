@@ -4,8 +4,8 @@
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
   final String key=getItem(position);
   text1.setText(key);
-  final String value=mPreferences.getString(key,null);
-  if (key.equals(value)) {
+  final String value=getAddress(key);
+  if (StringUtils.equals(key,value)) {
     text2.setText(R.string.excluded);
   }
  else {

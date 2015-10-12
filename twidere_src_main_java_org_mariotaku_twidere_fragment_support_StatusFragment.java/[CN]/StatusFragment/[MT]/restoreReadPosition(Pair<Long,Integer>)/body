@@ -1,6 +1,6 @@
 {
   if (position == null)   return;
-  final int adapterPosition=mStatusAdapter.findPositionById(position.first);
-  if (adapterPosition == RecyclerView.NO_POSITION)   return;
+  final int adapterPosition=mStatusAdapter.findPositionById(position.first) - 1;
+  if (adapterPosition < 0)   return;
   mLayoutManager.scrollToPositionWithOffset(adapterPosition,position.second);
 }

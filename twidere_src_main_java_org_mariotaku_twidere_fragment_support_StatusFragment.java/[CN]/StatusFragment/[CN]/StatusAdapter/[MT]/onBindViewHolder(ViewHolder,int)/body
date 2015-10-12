@@ -16,5 +16,11 @@ case VIEW_TYPE_LIST_STATUS:
     statusHolder.displayStatus(status,itemType == ITEM_IDX_CONVERSATION && (position - getItemTypeStart(position)) == 0);
     break;
   }
+case VIEW_TYPE_REPLY_ERROR:
+{
+  final StatusErrorItemViewHolder errorHolder=(StatusErrorItemViewHolder)holder;
+  errorHolder.showError(mReplyError);
+  break;
+}
 }
 }

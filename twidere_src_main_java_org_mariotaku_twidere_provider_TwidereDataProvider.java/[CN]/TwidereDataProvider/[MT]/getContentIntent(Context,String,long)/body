@@ -6,6 +6,7 @@
   homeLinkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
   homeLinkBuilder.appendQueryParameter(QUERY_PARAM_FROM_NOTIFICATION,String.valueOf(true));
   homeLinkBuilder.appendQueryParameter(QUERY_PARAM_TIMESTAMP,String.valueOf(System.currentTimeMillis()));
+  homeLinkBuilder.appendQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE,type);
   homeIntent.setData(homeLinkBuilder.build());
   return PendingIntent.getActivity(context,0,homeIntent,0);
 }

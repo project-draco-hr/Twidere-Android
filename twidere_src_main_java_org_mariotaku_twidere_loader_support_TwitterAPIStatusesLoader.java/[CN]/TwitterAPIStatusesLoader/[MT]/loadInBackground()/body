@@ -14,10 +14,10 @@
  else {
         Collections.sort(data);
       }
-      return new CopyOnWriteArrayList<>(data);
+      return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data));
     }
   }
-  if (!isFromUser())   return data;
+  if (!isFromUser())   return ListResponse.getListInstance(data);
   final Twitter twitter=getTwitter();
   if (twitter == null)   return null;
   final List<Status> statuses;
@@ -43,7 +43,7 @@
   }
  catch (  final TwitterException e) {
     Log.w(LOGTAG,e);
-    return new CopyOnWriteArrayList<>(data);
+    return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data),e);
   }
   final long[] statusIds=new long[statuses.size()];
   long minId=-1;
@@ -83,5 +83,5 @@
     Collections.sort(data);
   }
   saveCachedData(serializationFile,data);
-  return new CopyOnWriteArrayList<>(data);
+  return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data));
 }

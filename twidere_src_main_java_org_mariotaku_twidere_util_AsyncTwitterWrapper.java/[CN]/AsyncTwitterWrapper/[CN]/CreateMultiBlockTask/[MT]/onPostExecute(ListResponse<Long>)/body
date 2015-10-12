@@ -1,5 +1,5 @@
 {
-  if (result.list != null) {
+  if (result.hasData()) {
     Utils.showInfoMessage(mContext,R.string.users_blocked,false);
   }
  else {

@@ -1,5 +1,5 @@
 {
   clear();
-  final Map<String,?> all=mPreferences.getAll();
+  final Map<String,?> all=mHostMapping.getAll();
   addAll(all.keySet());
 }

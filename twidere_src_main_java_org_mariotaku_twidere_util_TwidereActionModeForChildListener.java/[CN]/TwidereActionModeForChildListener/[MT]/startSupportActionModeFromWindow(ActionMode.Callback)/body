@@ -9,17 +9,27 @@
     mActionModeView=new ActionBarContextView(actionBarContext);
     mActionModePopup=new PopupWindow(actionBarContext,null,android.support.v7.appcompat.R.attr.actionModePopupWindowStyle);
     mActionModePopup.setContentView(mActionModeView);
-    mActionModePopup.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
     final TypedValue outValue=new TypedValue();
     actionBarContext.getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize,outValue,true);
     final int height=TypedValue.complexToDimensionPixelSize(outValue.data,actionBarContext.getResources().getDisplayMetrics());
     mActionModeView.setContentHeight(height);
     ThemeUtils.setActionBarContextViewBackground(mActionModeView,mThemed.getCurrentThemeResourceId(),mThemed.getCurrentThemeColor(),mThemed.getCurrentThemeBackgroundOption(),false);
     mActionModePopup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-    final int actionModeOffset=getActionModeOffset();
+    final Rect actionModeBounds=getActionModeBounds();
+    if (actionModeBounds != null) {
+      mActionModePopup.setWidth(actionModeBounds.width());
+    }
+ else {
+      mActionModePopup.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+    }
     mShowActionModePopup=new Runnable(){
       @Override public void run(){
-        mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.FILL_HORIZONTAL,0,actionModeOffset);
+        if (actionModeBounds != null) {
+          mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.LEFT,actionModeBounds.left,actionModeBounds.top);
+        }
+ else {
+          mActionModePopup.showAtLocation(mWindow.getDecorView(),Gravity.TOP | Gravity.LEFT,0,0);
+        }
       }
     }
 ;

@@ -1,1 +1,1 @@
-SingleResponse<List<Data>>
+AbstractList<Data>

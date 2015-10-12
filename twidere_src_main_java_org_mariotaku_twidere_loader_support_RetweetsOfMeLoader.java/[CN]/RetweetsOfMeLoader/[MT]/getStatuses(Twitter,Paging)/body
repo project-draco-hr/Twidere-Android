@@ -1,11 +1,3 @@
 {
-  if (twitter == null)   return null;
-  final ResponseList<Status> statuses=twitter.getRetweetsOfMe(paging);
-  if (mTotalItemsCount == -1 && !statuses.isEmpty()) {
-    final User user=statuses.get(0).getUser();
-    if (user != null) {
-      mTotalItemsCount=user.getStatusesCount();
-    }
-  }
-  return statuses;
+  return twitter.getRetweetsOfMe(paging);
 }

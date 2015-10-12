@@ -1,0 +1,7 @@
+{
+  if (fromStart)   return;
+  super.onLoadMoreContents(fromStart);
+  final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+  final long[] maxIds=new long[]{adapter.getStatusId(adapter.getStatusesCount() - 1)};
+  getStatuses(null,maxIds,null);
+}

@@ -2,8 +2,10 @@
   final List<ParcelableStatus> data=getData();
   if (mExtras != null && mExtras.containsKey(EXTRA_STATUSES)) {
     final List<ParcelableStatus> users=mExtras.getParcelableArrayList(EXTRA_STATUSES);
-    data.addAll(users);
-    Collections.sort(data);
+    if (data != null && users != null) {
+      data.addAll(users);
+      Collections.sort(data);
+    }
   }
-  return data;
+  return ListResponse.getListInstance(data);
 }
