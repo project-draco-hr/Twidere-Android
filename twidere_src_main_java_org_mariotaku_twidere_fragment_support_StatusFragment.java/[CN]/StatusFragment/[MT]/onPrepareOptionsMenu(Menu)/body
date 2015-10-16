@@ -1,0 +1,4 @@
+{
+  MenuUtils.setMenuItemAvailability(menu,R.id.current_status,mStatusAdapter.getStatus() != null);
+  super.onPrepareOptionsMenu(menu);
+}

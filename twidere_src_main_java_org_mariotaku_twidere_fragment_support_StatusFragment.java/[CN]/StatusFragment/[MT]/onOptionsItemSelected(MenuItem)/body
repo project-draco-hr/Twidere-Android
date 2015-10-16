@@ -1,0 +1,13 @@
+{
+switch (item.getItemId()) {
+case R.id.current_status:
+{
+      if (mStatusAdapter.getStatus() != null) {
+        final int position=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
+        mRecyclerView.smoothScrollToPosition(position);
+      }
+      return true;
+    }
+}
+return super.onOptionsItemSelected(item);
+}

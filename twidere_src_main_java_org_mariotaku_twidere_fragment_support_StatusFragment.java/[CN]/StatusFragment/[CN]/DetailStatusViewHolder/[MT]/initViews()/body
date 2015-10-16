@@ -3,7 +3,7 @@
   final StatusFragment fragment=adapter.getFragment();
   final FragmentActivity activity=fragment.getActivity();
   final MenuInflater inflater=activity.getMenuInflater();
-  inflater.inflate(R.menu.menu_status,menuBar.getMenu());
+  inflater.inflate(R.menu.menu_detail_status,menuBar.getMenu());
   ThemeUtils.wrapMenuIcon(menuBar,MENU_GROUP_STATUS_SHARE);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);

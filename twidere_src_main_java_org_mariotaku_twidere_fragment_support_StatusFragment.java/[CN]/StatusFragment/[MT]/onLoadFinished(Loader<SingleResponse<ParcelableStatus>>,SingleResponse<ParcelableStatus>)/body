@@ -25,4 +25,5 @@
  else {
     setState(STATE_ERROR);
   }
+  invalidateOptionsMenu();
 }
