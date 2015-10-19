@@ -1,4 +1,0 @@
-{
-  if (string == null)   return 0;
-  return TwidereArrayUtils.toStringArray(string).length;
-}

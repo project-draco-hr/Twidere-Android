@@ -2,4 +2,9 @@
   for (  final Uri uri : TwidereDataStore.STATUSES_URIS) {
     ContentResolverUtils.bulkDelete(mResolver,uri,Statuses.USER_ID,list,Statuses.ACCOUNT_ID + " = " + account_id,false);
   }
+  final ContentValues values=new ContentValues();
+  values.put(CachedRelationships.BLOCKING,true);
+  values.put(CachedRelationships.FOLLOWING,false);
+  values.put(CachedRelationships.FOLLOWED_BY,false);
+  mResolver.update(CachedRelationships.CONTENT_URI,values,Expression.inArgs(CachedRelationships.USER_ID,list.size()).getSQL(),TwidereArrayUtils.toStringArray(list));
 }

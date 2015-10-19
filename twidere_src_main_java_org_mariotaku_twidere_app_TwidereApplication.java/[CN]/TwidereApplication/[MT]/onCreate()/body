@@ -27,4 +27,5 @@
   migrateUsageStatisticsPreferences();
   startRefreshServiceIfNeeded(this);
   reloadConnectivitySettings();
+  registerActivityLifecycleCallbacks(getApplicationModule().getActivityTracker());
 }

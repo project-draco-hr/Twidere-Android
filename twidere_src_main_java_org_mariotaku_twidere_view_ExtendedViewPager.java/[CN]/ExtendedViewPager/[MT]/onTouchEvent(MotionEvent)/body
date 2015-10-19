@@ -1,4 +1,9 @@
 {
   if (!isEnabled())   return false;
-  return super.onTouchEvent(event);
+  try {
+    return super.onTouchEvent(ev);
+  }
+ catch (  IllegalArgumentException ex) {
+  }
+  return false;
 }

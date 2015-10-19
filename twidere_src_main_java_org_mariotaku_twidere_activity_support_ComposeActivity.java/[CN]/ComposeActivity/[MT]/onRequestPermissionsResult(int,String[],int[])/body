@@ -4,5 +4,6 @@
     startLocationUpdateIfEnabled();
   }
  else {
+    Toast.makeText(this,R.string.cannot_get_location,Toast.LENGTH_SHORT).show();
   }
 }

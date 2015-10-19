@@ -1,3 +1,8 @@
 {
-  return isIPv6StdAddress(input) || isIPv6HexCompressedAddress(input);
+  try {
+    return Inet6Address.getByName(input) != null;
+  }
+ catch (  UnknownHostException ex) {
+    return false;
+  }
 }

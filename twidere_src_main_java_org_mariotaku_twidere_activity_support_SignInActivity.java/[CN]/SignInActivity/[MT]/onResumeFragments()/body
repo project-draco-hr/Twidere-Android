@@ -1,8 +1,5 @@
 {
-  super.onResume();
-  if (mTask != null && mTask.getStatus() == Status.PENDING) {
-    AsyncTaskUtils.executeTask(mTask);
-  }
+  super.onResumeFragments();
   if (!mFragmentsResumed && mResumeFragmentRunnable != null) {
     mResumeFragmentRunnable.run();
   }

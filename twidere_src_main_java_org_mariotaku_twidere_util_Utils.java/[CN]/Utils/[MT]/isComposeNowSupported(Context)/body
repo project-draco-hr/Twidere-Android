@@ -1,4 +1,4 @@
 {
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)   return false;
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN || context == null)   return false;
   return hasNavBar(context);
 }

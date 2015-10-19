@@ -6,7 +6,10 @@
     final Bitmap drawingCache=Bitmap.createBitmap(viewDrawingCache);
     return ActivityOptionsCompat.makeThumbnailScaleUpAnimation(view,drawingCache,0,0).toBundle();
   }
-  finally {
+ catch (  NullPointerException e) {
+    return null;
+  }
+ finally {
     view.destroyDrawingCache();
   }
 }

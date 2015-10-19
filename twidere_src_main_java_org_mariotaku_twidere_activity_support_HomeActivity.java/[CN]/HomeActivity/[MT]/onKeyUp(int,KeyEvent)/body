@@ -16,11 +16,8 @@ case KeyEvent.KEYCODE_BACK:
     final DrawerLayout drawer=mDrawerLayout;
     if (isDrawerOpen()) {
       drawer.closeDrawers();
+      return true;
     }
- else {
-      onBackPressed();
-    }
-    return true;
   }
 }
 return super.onKeyUp(keyCode,event);

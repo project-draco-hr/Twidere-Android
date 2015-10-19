@@ -1,3 +1,8 @@
 {
-  return IPV4_PATTERN.matcher(input).matches();
+  try {
+    return Inet4Address.getByName(input) != null;
+  }
+ catch (  UnknownHostException ex) {
+    return false;
+  }
 }

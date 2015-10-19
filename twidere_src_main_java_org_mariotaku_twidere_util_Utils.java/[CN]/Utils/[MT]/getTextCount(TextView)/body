@@ -1,5 +1,0 @@
-{
-  if (view == null)   return 0;
-  final String string=ParseUtils.parseString(view.getText());
-  return getTextCount(string);
-}

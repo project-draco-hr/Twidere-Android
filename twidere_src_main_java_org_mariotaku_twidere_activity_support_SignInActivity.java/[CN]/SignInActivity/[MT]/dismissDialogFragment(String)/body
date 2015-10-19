@@ -1,0 +1,16 @@
+{
+  mResumeFragmentRunnable=new Runnable(){
+    @Override public void run(){
+      final FragmentManager fm=getSupportFragmentManager();
+      final Fragment f=fm.findFragmentByTag(tag);
+      if (f instanceof DialogFragment) {
+        ((DialogFragment)f).dismiss();
+      }
+      mResumeFragmentRunnable=null;
+    }
+  }
+;
+  if (mFragmentsResumed) {
+    mResumeFragmentRunnable.run();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  mFragmentsResumed=false;
+  super.onPause();
+}

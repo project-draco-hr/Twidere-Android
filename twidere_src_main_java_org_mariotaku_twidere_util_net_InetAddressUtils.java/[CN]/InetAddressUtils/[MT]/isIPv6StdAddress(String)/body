@@ -1,3 +1,0 @@
-{
-  return IPV6_STD_PATTERN.matcher(input).matches();
-}

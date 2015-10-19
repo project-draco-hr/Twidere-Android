@@ -1,4 +1,0 @@
-{
-  mActivityTracker.dispatchStop(this);
-  super.onStop();
-}

@@ -1,6 +1,6 @@
 {
   final ManagedAsyncTask<T,?,?> task=(ManagedAsyncTask<T,?,?>)findTask(hashCode);
-  if (task != null) {
+  if (task != null && task.getStatus() == AsyncTask.Status.PENDING) {
     task.executeOnExecutor(mExecutor,params);
     return true;
   }

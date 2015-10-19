@@ -1,9 +1,5 @@
 {
-  final FragmentManager fm=getSupportFragmentManager();
-  final Fragment f=fm.findFragmentByTag(FRAGMENT_TAG_SIGN_IN_PROGRESS);
-  if (f instanceof DialogFragment) {
-    ((DialogFragment)f).dismiss();
-  }
+  dismissDialogFragment(FRAGMENT_TAG_SIGN_IN_PROGRESS);
   if (result != null) {
     if (result.alreadyLoggedIn) {
       final ContentValues values=result.toContentValues();
