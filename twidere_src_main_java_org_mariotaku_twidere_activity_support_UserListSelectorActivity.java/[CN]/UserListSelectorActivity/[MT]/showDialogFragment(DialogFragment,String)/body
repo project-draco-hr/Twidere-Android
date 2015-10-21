@@ -1,0 +1,12 @@
+{
+  mResumeFragmentRunnable=new Runnable(){
+    @Override public void run(){
+      df.show(getSupportFragmentManager(),tag);
+      mResumeFragmentRunnable=null;
+    }
+  }
+;
+  if (mFragmentsResumed) {
+    mResumeFragmentRunnable.run();
+  }
+}

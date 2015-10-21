@@ -1,8 +1,5 @@
 {
-  final Fragment f=mActivity.getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG_SEARCH_USERS);
-  if (f instanceof DialogFragment) {
-    ((DialogFragment)f).dismiss();
-  }
+  mActivity.dismissDialogFragment(FRAGMENT_TAG_SEARCH_USERS);
   if (result.getData() != null) {
     mActivity.setUsersData(result.getData());
   }

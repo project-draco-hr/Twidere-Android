@@ -1,0 +1,7 @@
+{
+  super.onResumeFragments();
+  if (!mFragmentsResumed && mResumeFragmentRunnable != null) {
+    mResumeFragmentRunnable.run();
+  }
+  mFragmentsResumed=true;
+}

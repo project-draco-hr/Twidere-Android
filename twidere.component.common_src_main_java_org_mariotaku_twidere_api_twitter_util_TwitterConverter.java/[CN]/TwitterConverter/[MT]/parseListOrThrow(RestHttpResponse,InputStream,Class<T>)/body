@@ -1,6 +1,6 @@
 {
   try {
-    return LoganSquare.parseList(stream,elementCls);
+    return LoganSquareWrapper.parseList(stream,elementCls);
   }
  catch (  JsonParseException e) {
     throw new TwitterException("Malformed JSON Data",resp);

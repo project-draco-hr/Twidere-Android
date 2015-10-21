@@ -1,0 +1,9 @@
+{
+  for (  String extra : extras) {
+    final int i=extra.indexOf(key + "=");
+    if (i == 0) {
+      return extra.substring(i);
+    }
+  }
+  return null;
+}

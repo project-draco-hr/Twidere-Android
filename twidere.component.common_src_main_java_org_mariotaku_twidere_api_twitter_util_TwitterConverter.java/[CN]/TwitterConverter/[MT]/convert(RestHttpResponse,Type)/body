@@ -8,9 +8,9 @@
   try {
     if (type instanceof Class<?>) {
       final Class<?> cls=(Class<?>)type;
-      final Class<?> wrapperCls=wrapperMap.get(cls);
+      final Class<?> wrapperCls=LoganSquareWrapper.getWrapperClass(cls);
       if (wrapperCls != null) {
-        final Wrapper<?> wrapper=(Wrapper<?>)parseOrThrow(response,stream,wrapperCls);
+        final TwitterModelWrapper<?> wrapper=(TwitterModelWrapper<?>)parseOrThrow(response,stream,wrapperCls);
         wrapper.processResponseHeader(response);
         return wrapper.getWrapped(null);
       }
@@ -42,9 +42,9 @@
       final Type rawType=((ParameterizedType)type).getRawType();
       if (rawType instanceof Class<?>) {
         final Class<?> rawClass=(Class<?>)rawType;
-        final Class<?> wrapperCls=wrapperMap.get(rawClass);
+        final Class<?> wrapperCls=LoganSquareWrapper.getWrapperClass(rawClass);
         if (wrapperCls != null) {
-          final Wrapper<?> wrapper=(Wrapper<?>)parseOrThrow(response,stream,wrapperCls);
+          final TwitterModelWrapper<?> wrapper=(TwitterModelWrapper<?>)parseOrThrow(response,stream,wrapperCls);
           wrapper.processResponseHeader(response);
           return wrapper.getWrapped(((ParameterizedType)type).getActualTypeArguments());
         }

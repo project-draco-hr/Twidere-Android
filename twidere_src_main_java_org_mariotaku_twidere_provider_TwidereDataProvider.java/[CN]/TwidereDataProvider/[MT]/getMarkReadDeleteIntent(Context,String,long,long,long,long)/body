@@ -1,0 +1,16 @@
+{
+  final Intent intent=new Intent(context,NotificationReceiver.class);
+  intent.setAction(BROADCAST_NOTIFICATION_DELETED);
+  final Uri.Builder linkBuilder=new Uri.Builder();
+  linkBuilder.scheme(SCHEME_TWIDERE);
+  linkBuilder.authority(AUTHORITY_NOTIFICATIONS);
+  linkBuilder.appendPath(type);
+  linkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_READ_POSITION,String.valueOf(position));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_TIMESTAMP,String.valueOf(System.currentTimeMillis()));
+  linkBuilder.appendQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE,type);
+  UriExtraUtils.addExtra(linkBuilder,"item_id",extraId);
+  UriExtraUtils.addExtra(linkBuilder,"item_user_id",extraUserId);
+  intent.setData(linkBuilder.build());
+  return PendingIntent.getBroadcast(context,0,intent,0);
+}

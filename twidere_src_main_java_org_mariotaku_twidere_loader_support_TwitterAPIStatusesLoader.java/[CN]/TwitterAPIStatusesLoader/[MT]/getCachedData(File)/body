@@ -1,7 +1,7 @@
 {
   if (file == null)   return null;
   try {
-    return LoganSquareWrapper.parseList(file,ParcelableStatus.class);
+    return JsonSerializer.parseList(file,ParcelableStatus.class);
   }
  catch (  final IOException e) {
     Log.w(LOGTAG,e);

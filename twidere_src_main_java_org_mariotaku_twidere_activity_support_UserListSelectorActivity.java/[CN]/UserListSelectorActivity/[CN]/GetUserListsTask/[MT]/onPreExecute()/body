@@ -1,9 +1,5 @@
 {
-  mHandler.post(new Runnable(){
-    @Override public void run(){
-      final SupportProgressDialogFragment df=SupportProgressDialogFragment.show(mActivity,FRAGMENT_TAG_GET_USER_LISTS);
-      df.setCancelable(false);
-    }
-  }
-);
+  final SupportProgressDialogFragment df=new SupportProgressDialogFragment();
+  df.setCancelable(false);
+  mActivity.showDialogFragment(df,FRAGMENT_TAG_GET_USER_LISTS);
 }

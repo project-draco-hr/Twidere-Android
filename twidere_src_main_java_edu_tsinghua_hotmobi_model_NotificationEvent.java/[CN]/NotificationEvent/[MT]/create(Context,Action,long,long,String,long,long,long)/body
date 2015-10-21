@@ -1,0 +1,13 @@
+{
+  final NotificationEvent event=new NotificationEvent();
+  event.setAction(action);
+  event.setStartTime(postTime);
+  event.setEndTime(respondTime);
+  event.setTimeOffset(TimeZone.getDefault().getOffset(postTime));
+  event.setLocation(HotMobiLogger.getCachedLatLng(context));
+  event.setType(type);
+  event.setAccountId(accountId);
+  event.setItemId(itemId);
+  event.setItemUserId(itemUserId);
+  return event;
+}

@@ -1,0 +1,11 @@
+{
+  if ("ids".equals(fieldName)) {
+    parseIDsArray(instance,jsonParser);
+  }
+ else   if ("previous_cursor".equals(fieldName)) {
+    instance.previousCursor=jsonParser.getValueAsLong();
+  }
+ else   if ("next_cursor".equals(fieldName)) {
+    instance.nextCursor=jsonParser.getValueAsLong();
+  }
+}

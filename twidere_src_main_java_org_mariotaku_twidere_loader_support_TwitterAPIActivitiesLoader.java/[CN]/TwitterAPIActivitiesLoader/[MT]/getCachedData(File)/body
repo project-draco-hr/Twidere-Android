@@ -1,7 +1,7 @@
 {
   if (file == null)   return null;
   try {
-    return LoganSquareWrapper.parseList(file,ParcelableActivity.class);
+    return JsonSerializer.parseList(file,ParcelableActivity.class);
   }
  catch (  final IOException e) {
     if (BuildConfig.DEBUG) {

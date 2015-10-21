@@ -1,7 +1,0 @@
-Context context
-Action action
-long postTime
-long respondTime
-String type
-long accountId
-long itemId

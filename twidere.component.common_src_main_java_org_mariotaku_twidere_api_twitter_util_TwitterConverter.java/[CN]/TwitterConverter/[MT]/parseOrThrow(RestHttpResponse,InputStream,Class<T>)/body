@@ -1,6 +1,6 @@
 {
   try {
-    final T parse=LoganSquare.parse(stream,cls);
+    final T parse=LoganSquareWrapper.parse(stream,cls);
     if (TwitterException.class.isAssignableFrom(cls) && parse == null) {
       throw new TwitterException();
     }
