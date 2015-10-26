@@ -1,0 +1,3 @@
+{
+  setTextSize(adapter.getTextSize());
+}

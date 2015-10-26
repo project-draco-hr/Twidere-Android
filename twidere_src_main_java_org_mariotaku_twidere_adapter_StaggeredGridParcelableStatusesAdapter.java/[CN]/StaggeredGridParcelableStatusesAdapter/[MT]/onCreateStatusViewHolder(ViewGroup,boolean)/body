@@ -1,4 +1,7 @@
 {
   final View view=getInflater().inflate(R.layout.adapter_item_media_status,parent,false);
-  return new MediaTimelineViewHolder(this,view);
+  final MediaStatusViewHolder holder=new MediaStatusViewHolder(this,view);
+  holder.setOnClickListeners();
+  holder.setupViewOptions();
+  return holder;
 }
