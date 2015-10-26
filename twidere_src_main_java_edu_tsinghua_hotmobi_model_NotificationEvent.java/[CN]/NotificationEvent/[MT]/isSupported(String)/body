@@ -1,0 +1,11 @@
+{
+  if (type == null)   return false;
+switch (type) {
+case "status":
+case "statuses":
+case "mention":
+case "mentions":
+    return true;
+}
+return false;
+}

@@ -1,0 +1,4 @@
+{
+  final View view=getInflater().inflate(R.layout.adapter_item_media_status,parent,false);
+  return new MediaTimelineViewHolder(this,view);
+}

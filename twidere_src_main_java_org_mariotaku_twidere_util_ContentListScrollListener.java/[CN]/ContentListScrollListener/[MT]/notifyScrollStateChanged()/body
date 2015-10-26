@@ -1,0 +1,13 @@
+{
+  final Object adapter=mContentListSupport.getAdapter();
+  if (!(adapter instanceof ILoadMoreSupportAdapter))   return;
+  final ILoadMoreSupportAdapter loadMoreAdapter=(ILoadMoreSupportAdapter)adapter;
+  if (!mContentListSupport.isRefreshing() && loadMoreAdapter.isLoadMoreSupported() && !loadMoreAdapter.isLoadMoreIndicatorVisible()) {
+    if (reachedEnd()) {
+      mContentListSupport.onLoadMoreContents(false);
+    }
+ else     if (reachedStart()) {
+      mContentListSupport.onLoadMoreContents(true);
+    }
+  }
+}

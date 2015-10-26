@@ -5,6 +5,7 @@
   event.setEndTime(respondTime);
   event.setTimeOffset(TimeZone.getDefault().getOffset(postTime));
   event.setLocation(HotMobiLogger.getCachedLatLng(context));
+  event.setRingerMode(((AudioManager)context.getSystemService(Context.AUDIO_SERVICE)).getRingerMode());
   event.setType(type);
   event.setAccountId(accountId);
   event.setItemId(itemId);

@@ -10,8 +10,7 @@
   mSwipeRefreshLayout.setOnRefreshListener(this);
   mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(colorRes);
   mAdapter=onCreateAdapter(context,compact);
-  mLayoutManager=new FixedLinearLayoutManager(context);
-  mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+  mLayoutManager=onCreateLayoutManager(context);
   mRecyclerView.setLayoutManager(mLayoutManager);
   mRecyclerView.setHasFixedSize(true);
   if (mSwipeRefreshLayout instanceof AccentSwipeRefreshLayout) {
@@ -31,10 +30,7 @@
     }
 );
   }
-  if (compact) {
-    mItemDecoration=new DividerItemDecoration(context,mLayoutManager.getOrientation());
-    mRecyclerView.addItemDecoration(mItemDecoration);
-  }
+  setupRecyclerView(context,compact);
   mRecyclerView.setAdapter(mAdapter);
   mScrollListener=new ContentListScrollListener(this);
   mScrollListener.setTouchSlop(ViewConfiguration.get(context).getScaledTouchSlop());

@@ -1,8 +1,6 @@
 {
   super(context);
-  mContext=context;
   mInflater=LayoutInflater.from(context);
-  final TwidereApplication app=TwidereApplication.getInstance(context);
   mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);

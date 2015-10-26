@@ -1,6 +1,6 @@
 {
   if (mScrollState != RecyclerView.SCROLL_STATE_IDLE) {
-    notifyScrollStateChanged(recyclerView);
+    notifyScrollStateChanged();
   }
   mScrollState=newState;
 }

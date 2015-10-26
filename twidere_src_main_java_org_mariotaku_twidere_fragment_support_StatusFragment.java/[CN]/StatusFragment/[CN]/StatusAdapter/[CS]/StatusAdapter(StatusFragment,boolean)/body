@@ -6,7 +6,6 @@
   mItemCounts=new int[ITEM_TYPES_SUM];
   mItemCounts[ITEM_IDX_SPACE]=1;
   mFragment=fragment;
-  mContext=context;
   mInflater=LayoutInflater.from(context);
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));

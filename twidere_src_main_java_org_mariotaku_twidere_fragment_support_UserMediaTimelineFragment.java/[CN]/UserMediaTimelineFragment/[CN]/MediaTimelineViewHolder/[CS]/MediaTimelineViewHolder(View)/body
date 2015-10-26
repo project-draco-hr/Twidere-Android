@@ -1,6 +1,0 @@
-{
-  super(itemView);
-  mediaImageView=(MediaSizeImageView)itemView.findViewById(R.id.media_image);
-  mediaProfileImageView=(ImageView)itemView.findViewById(R.id.media_profile_image);
-  mediaTextView=(TextView)itemView.findViewById(R.id.media_text);
-}

@@ -1,0 +1,19 @@
+{
+  final View view;
+  final int backgroundColor=getCardBackgroundColor();
+  final LayoutInflater inflater=getInflater();
+  if (compact) {
+    view=inflater.inflate(R.layout.card_item_status_compact,parent,false);
+    final View itemContent=view.findViewById(R.id.item_content);
+    itemContent.setBackgroundColor(backgroundColor);
+  }
+ else {
+    view=inflater.inflate(R.layout.card_item_status,parent,false);
+    final CardView cardView=(CardView)view.findViewById(R.id.card);
+    cardView.setCardBackgroundColor(backgroundColor);
+  }
+  final StatusViewHolder holder=new StatusViewHolder(this,view);
+  holder.setOnClickListeners();
+  holder.setupViewOptions();
+  return holder;
+}

@@ -1,1 +1,1 @@
-BaseSupportFragment
+AbsContentRecyclerViewFragment<StaggeredGridParcelableStatusesAdapter,StaggeredGridLayoutManager>

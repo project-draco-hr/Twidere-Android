@@ -1,0 +1,3 @@
+{
+  return ArrayUtils.contains(mContentListSupport.findLastVisibleItemPositions(),mContentListSupport.getItemCount() - 1);
+}

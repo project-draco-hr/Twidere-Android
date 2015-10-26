@@ -10,8 +10,8 @@ case ITEM_VIEW_TYPE_STATUS:
  else {
         status=activity.target_statuses[0];
       }
-      final StatusViewHolder statusViewHolder=(StatusViewHolder)holder;
-      statusViewHolder.displayStatus(status,null,true,true);
+      final IStatusViewHolder IStatusViewHolder=(IStatusViewHolder)holder;
+      IStatusViewHolder.displayStatus(status,null,true,true);
       break;
     }
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:

@@ -1,0 +1,4 @@
+ParcelableStatus status
+TranslationResult translation
+boolean displayInReplyTo
+boolean shouldDisplayExtraType

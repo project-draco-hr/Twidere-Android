@@ -1,0 +1,3 @@
+{
+  getLayoutManager().scrollToPositionWithOffset(0,0);
+}

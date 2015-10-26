@@ -9,7 +9,7 @@ case R.id.media_preview:
       final ParcelableDirectMessage message=getDirectMessage(position);
       if (message == null || message.media == null)       return;
       final Bundle options=Utils.createMediaViewerActivityOption(view);
-      Utils.openMedia(mContext,message,null,options);
+      Utils.openMedia(getContext(),message,null,options);
     }
 }
 }

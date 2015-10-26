@@ -38,7 +38,7 @@ case VIEW_TYPE_REPLIES_LOAD_INDICATOR:
 }
 case VIEW_TYPE_SPACE:
 {
-return new SpaceViewHolder(new Space(mContext));
+return new SpaceViewHolder(new Space(getContext()));
 }
 case VIEW_TYPE_REPLY_ERROR:
 {

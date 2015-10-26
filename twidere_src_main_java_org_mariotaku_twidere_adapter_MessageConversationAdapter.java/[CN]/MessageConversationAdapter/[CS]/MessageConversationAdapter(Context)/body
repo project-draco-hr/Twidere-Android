@@ -1,6 +1,5 @@
 {
   super(context);
-  mContext=context;
   mInflater=LayoutInflater.from(context);
   mLinkify=new TwidereLinkify(new DirectMessageOnLinkClickHandler(context,null));
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);

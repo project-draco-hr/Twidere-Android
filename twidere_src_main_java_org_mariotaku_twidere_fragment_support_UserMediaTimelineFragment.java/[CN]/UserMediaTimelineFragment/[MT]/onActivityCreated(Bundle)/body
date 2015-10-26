@@ -1,14 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final View view=getView();
-  if (view == null)   throw new AssertionError();
-  final Context context=view.getContext();
-  mAdapter=new MediaTimelineAdapter(context);
-  final StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-  mDrawerCallback=new SimpleDrawerCallback(mRecyclerView);
-  mRecyclerView.setLayoutManager(layoutManager);
-  mRecyclerView.setAdapter(mAdapter);
-  mRecyclerView.setOnScrollListener(mOnScrollListener);
-  getLoaderManager().initLoader(0,getArguments(),this);
-  setListShown(false);
+  final Bundle loaderArgs=new Bundle(getArguments());
+  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
+  getLoaderManager().initLoader(0,loaderArgs,this);
+  showProgress();
 }

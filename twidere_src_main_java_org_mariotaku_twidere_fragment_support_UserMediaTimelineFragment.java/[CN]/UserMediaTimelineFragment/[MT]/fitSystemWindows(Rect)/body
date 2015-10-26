@@ -1,6 +1,0 @@
-{
-  if (mRecyclerView != null) {
-    mRecyclerView.setClipToPadding(false);
-    mRecyclerView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  }
-}

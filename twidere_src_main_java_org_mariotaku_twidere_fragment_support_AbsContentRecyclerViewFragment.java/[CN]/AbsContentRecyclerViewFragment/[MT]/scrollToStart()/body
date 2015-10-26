@@ -1,5 +1,5 @@
 {
-  mLayoutManager.scrollToPositionWithOffset(0,0);
+  scrollToPositionWithOffset(0,0);
   mRecyclerView.stopScroll();
   setControlVisible(true);
   return true;

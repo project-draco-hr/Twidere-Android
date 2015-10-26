@@ -12,7 +12,7 @@ case VIEW_TYPE_DETAIL_STATUS:
 case VIEW_TYPE_LIST_STATUS:
 {
     final ParcelableStatus status=getStatus(position);
-    final StatusViewHolder statusHolder=(StatusViewHolder)holder;
+    final IStatusViewHolder statusHolder=(IStatusViewHolder)holder;
     statusHolder.displayStatus(status,itemType == ITEM_IDX_CONVERSATION && (position - getItemTypeStart(position)) == 0);
     break;
   }

@@ -1,0 +1,3 @@
+{
+  return new int[]{R.id.media_image_progress};
+}

@@ -1,9 +1,8 @@
 {
   super(context);
-  mContext=context;
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mInflater=LayoutInflater.from(context);
-  mLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
+  mLoadingHandler=new MediaLoadingHandler(getProgressViewIds());
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
   mCompactCards=compact;
   mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
