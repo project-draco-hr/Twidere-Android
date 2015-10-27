@@ -1,4 +1,3 @@
 {
   super(context,compact);
-  setHasStableIds(true);
 }
