@@ -1,8 +1,0 @@
-{
-  try {
-    return is.read(buf,0,length) == length;
-  }
- catch (  final IOException ex) {
-    return false;
-  }
-}

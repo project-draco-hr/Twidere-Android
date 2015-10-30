@@ -3,7 +3,7 @@
   final Bitmap bm=BitmapFactory.decodeFile(path,opts);
   if (bm == null)   return null;
   final Matrix m=new Matrix();
-  final int orientation=Exif.getOrientation(path);
+  final int orientation=ImageValidator.getOrientation(path);
 switch (orientation) {
 case 270:
 case 90:

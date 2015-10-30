@@ -1,0 +1,4 @@
+{
+  mItemCounts[idx]=size;
+  notifyDataSetChanged();
+}

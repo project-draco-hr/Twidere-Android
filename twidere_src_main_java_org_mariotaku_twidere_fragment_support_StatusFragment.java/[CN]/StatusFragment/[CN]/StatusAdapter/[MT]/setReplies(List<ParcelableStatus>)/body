@@ -1,6 +1,5 @@
 {
   mReplies=replies;
-  mItemCounts[ITEM_IDX_REPLY]=replies != null ? replies.size() : 0;
-  notifyDataSetChanged();
+  setCount(ITEM_IDX_REPLY,replies != null ? replies.size() : 0);
   updateItemDecoration();
 }
