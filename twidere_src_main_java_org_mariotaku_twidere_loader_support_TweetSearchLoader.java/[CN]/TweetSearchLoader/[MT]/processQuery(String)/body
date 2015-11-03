@@ -1,3 +1,6 @@
 {
-  return String.format("%s -RT",query);
+  if (mTwitterOptimizedSearches) {
+    return String.format("%s exclude:retweets",query);
+  }
+  return query;
 }

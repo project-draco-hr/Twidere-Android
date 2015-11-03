@@ -1,3 +1,0 @@
-{
-  super(context,accountId,screenName,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser,makeGap);
-}

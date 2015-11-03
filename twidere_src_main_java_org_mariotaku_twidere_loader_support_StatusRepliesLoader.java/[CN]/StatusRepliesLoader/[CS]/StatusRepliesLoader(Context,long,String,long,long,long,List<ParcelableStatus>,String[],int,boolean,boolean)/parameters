@@ -1,10 +1,11 @@
 Context context
 long accountId
 String screenName
+long statusId
 long maxId
 long sinceId
 List<ParcelableStatus> data
 String[] savedStatusesArgs
 int tabPosition
 boolean fromUser
-boolean makeGap
+boolean twitterOptimizedSearches
