@@ -1,6 +1,6 @@
 {
   super(context,attrs,defStyle);
-  setTokenizer(new ScreenNameTokenizer());
+  setTokenizer(new StatusTextTokenizer());
   setMovementMethod(ArrowKeyMovementMethod.getInstance());
   setupComposeInputType();
 }

@@ -1,0 +1,11 @@
+{
+  int i=cursor;
+  int len=text.length();
+  while (i > 0 && !isStartSymbol(text.charAt(i - 1))) {
+    i--;
+  }
+  while (i < len && !isSpace(text.charAt(i))) {
+    i++;
+  }
+  return i;
+}

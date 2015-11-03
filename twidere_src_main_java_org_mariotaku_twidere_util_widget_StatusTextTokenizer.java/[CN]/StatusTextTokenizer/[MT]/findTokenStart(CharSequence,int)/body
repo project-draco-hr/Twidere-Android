@@ -1,0 +1,7 @@
+{
+  int i=cursor;
+  while (i > 0 && !isStartSymbol(text.charAt(i - 1))) {
+    i--;
+  }
+  return i;
+}

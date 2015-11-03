@@ -1,0 +1,4 @@
+{
+  final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
+  return JsonSerializer.parse(prefs.getString(FALLBACK_CACHED_LOCATION,null),LatLng.class);
+}
