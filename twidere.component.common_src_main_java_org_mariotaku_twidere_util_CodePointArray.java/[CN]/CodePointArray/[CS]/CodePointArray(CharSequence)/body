@@ -1,0 +1,12 @@
+{
+  final int inputLength=cs.length();
+  final int[] temp=new int[inputLength];
+  int codePointsLength=0;
+  for (int offset=0; offset < inputLength; ) {
+    final int codePoint=Character.codePointAt(cs,offset);
+    temp[codePointsLength++]=codePoint;
+    offset+=Character.charCount(codePoint);
+  }
+  codePoints=new int[codePointsLength];
+  System.arraycopy(temp,0,codePoints,0,codePointsLength);
+}

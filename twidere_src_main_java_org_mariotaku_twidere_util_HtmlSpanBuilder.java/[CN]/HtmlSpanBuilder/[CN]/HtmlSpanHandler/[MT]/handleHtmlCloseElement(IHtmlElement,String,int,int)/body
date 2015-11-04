@@ -1,0 +1,8 @@
+{
+  final int lastIndex=lastIndexOfTag(tagInfo,elementName);
+  if (lastIndex != -1) {
+    TagInfo info=tagInfo.get(lastIndex);
+    applyTag(sb,info.start,sb.length(),info);
+    tagInfo.remove(lastIndex);
+  }
+}

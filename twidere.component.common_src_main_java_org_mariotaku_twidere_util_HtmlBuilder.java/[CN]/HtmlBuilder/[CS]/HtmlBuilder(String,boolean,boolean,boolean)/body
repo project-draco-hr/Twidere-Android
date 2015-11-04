@@ -1,18 +1,9 @@
 {
   if (source == null)   throw new NullPointerException();
   this.source=source;
-  final int length=source.length();
-  final int[] codepointsTemp=new int[length];
-  int codePointsLength=0;
-  for (int offset=0; offset < length; ) {
-    final int codepoint=source.codePointAt(offset);
-    codepointsTemp[codePointsLength++]=codepoint;
-    offset+=Character.charCount(codepoint);
-  }
-  codePoints=new int[codePointsLength];
-  System.arraycopy(codepointsTemp,0,codePoints,0,codePointsLength);
-  throwExceptions=strict;
+  this.codePoints=new CodePointArray(source);
+  this.throwExceptions=strict;
   this.sourceIsEscaped=sourceIsEscaped;
   this.shouldReEscape=shouldReEscape;
-  this.codePointsLength=codePointsLength;
+  this.codePointsLength=codePoints.length();
 }

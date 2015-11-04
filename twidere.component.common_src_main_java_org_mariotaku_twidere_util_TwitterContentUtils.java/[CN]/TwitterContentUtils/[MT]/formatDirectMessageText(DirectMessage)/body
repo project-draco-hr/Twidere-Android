@@ -2,5 +2,5 @@
   if (message == null)   return null;
   final HtmlBuilder builder=new HtmlBuilder(message.getText(),false,true,true);
   TwitterContentUtils.parseEntities(builder,message);
-  return builder.build().replace("\n","<br/>");
+  return builder.build();
 }

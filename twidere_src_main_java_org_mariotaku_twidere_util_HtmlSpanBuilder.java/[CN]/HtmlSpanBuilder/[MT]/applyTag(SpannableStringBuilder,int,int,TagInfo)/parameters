@@ -1,0 +1,4 @@
+SpannableStringBuilder sb
+int start
+int end
+TagInfo info

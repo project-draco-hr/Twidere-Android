@@ -22,7 +22,7 @@ case LINK_ID_USER_TIMELINE:
 }
 case LINK_ID_USER_FAVORITES:
 {
-setTitle(R.string.favorites);
+setTitle(R.string.likes);
 break;
 }
 case LINK_ID_USER_FOLLOWERS:

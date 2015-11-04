@@ -1,13 +1,13 @@
 {
   if (sourceIsEscaped == shouldReEscape) {
     for (int i=start; i < end; i++) {
-      builder.appendCodePoint(codePoints[i]);
+      builder.appendCodePoint(codePoints.get(i));
     }
   }
  else   if (shouldReEscape) {
-    builder.append(escape(subString(start,end)));
+    builder.append(escape(codePoints.substring(start,end)));
   }
  else {
-    builder.append(unescape(subString(start,end)));
+    builder.append(unescape(codePoints.substring(start,end)));
   }
 }

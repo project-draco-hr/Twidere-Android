@@ -7,7 +7,7 @@
     if (other.display != null)     return false;
   }
  else   if (!display.equals(other.display))   return false;
-  if (display_is_html != other.display_is_html)   return false;
+  if (displayIsHtml != other.displayIsHtml)   return false;
   if (end != other.end)   return false;
   if (link == null) {
     if (other.link != null)     return false;

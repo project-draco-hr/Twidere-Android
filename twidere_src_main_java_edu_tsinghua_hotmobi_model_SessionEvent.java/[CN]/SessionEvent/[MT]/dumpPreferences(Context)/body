@@ -6,4 +6,7 @@
     preferences.put("notification_" + accountId + "_interactions",String.valueOf(pref.isMentionsNotificationEnabled()));
   }
   setPreferences(preferences);
+  final HashMap<String,String> devicePreferences=new HashMap<>();
+  devicePreferences.put("device_secure",isDeviceSecure(context));
+  setDevicePreferences(devicePreferences);
 }

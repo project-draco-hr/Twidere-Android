@@ -24,7 +24,7 @@
     builder.append(spec.link);
     builder.append("\">");
     if (start >= 0 && start <= end && end <= codePointsLength) {
-      builder.append(!isEmpty(spec.display) ? spec.display_is_html ? spec.display : toHtml(spec.display) : spec.link);
+      builder.append(!isEmpty(spec.display) ? spec.displayIsHtml ? spec.display : toHtml(spec.display) : spec.link);
     }
     builder.append("</a>");
     if (i == linksSize - 1 && end >= 0 && end <= codePointsLength) {

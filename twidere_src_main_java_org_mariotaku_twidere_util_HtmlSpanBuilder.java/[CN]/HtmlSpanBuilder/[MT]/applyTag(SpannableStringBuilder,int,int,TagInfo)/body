@@ -1,0 +1,5 @@
+{
+  final Object span=createSpan(info);
+  if (span == null)   return;
+  sb.setSpan(span,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+}

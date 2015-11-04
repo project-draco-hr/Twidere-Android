@@ -1,0 +1,3 @@
+{
+  sb.append(HtmlEscapeHelper.unescape(new String(buffer,offset,len)));
+}

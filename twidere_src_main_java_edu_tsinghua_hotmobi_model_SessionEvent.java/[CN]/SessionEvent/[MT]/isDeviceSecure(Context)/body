@@ -1,0 +1,12 @@
+{
+  KeyguardManager km=(KeyguardManager)context.getSystemService(Context.KEYGUARD_SERVICE);
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    return String.valueOf(false);
+  }
+ else   if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+    return String.valueOf(km.isKeyguardSecure());
+  }
+ else {
+    return String.valueOf(km.isDeviceSecure());
+  }
+}

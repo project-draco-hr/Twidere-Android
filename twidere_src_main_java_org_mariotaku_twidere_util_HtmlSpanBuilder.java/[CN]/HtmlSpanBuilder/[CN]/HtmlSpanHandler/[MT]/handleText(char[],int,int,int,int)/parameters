@@ -1,0 +1,5 @@
+char[] buffer
+int offset
+int len
+int line
+int col

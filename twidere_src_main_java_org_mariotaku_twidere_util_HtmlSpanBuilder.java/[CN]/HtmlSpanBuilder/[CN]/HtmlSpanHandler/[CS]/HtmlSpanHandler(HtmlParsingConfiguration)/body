@@ -1,0 +1,5 @@
+{
+  super(conf);
+  this.sb=new SpannableStringBuilder();
+  tagInfo=new ArrayList<>();
+}

@@ -1,0 +1,9 @@
+{
+switch (info.name) {
+case "a":
+{
+      return new URLSpan(info.getAttribute("href"));
+    }
+}
+return null;
+}

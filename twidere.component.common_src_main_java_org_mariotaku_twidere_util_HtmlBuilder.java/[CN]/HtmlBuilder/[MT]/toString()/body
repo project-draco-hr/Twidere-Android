@@ -1,3 +1,3 @@
 {
-  return "HtmlBuilder{orig=" + source + ", codePoints="+ Arrays.toString(codePoints)+ ", string_length="+ codePointsLength+ ", throw_exceptions="+ throwExceptions+ ", source_is_escaped="+ sourceIsEscaped+ ", should_re_escape="+ shouldReEscape+ ", links="+ links+ "}";
+  return "HtmlBuilder{" + "source='" + source + '\''+ ", codePoints="+ codePoints+ ", codePointsLength="+ codePointsLength+ ", throwExceptions="+ throwExceptions+ ", sourceIsEscaped="+ sourceIsEscaped+ ", shouldReEscape="+ shouldReEscape+ ", links="+ links+ '}';
 }

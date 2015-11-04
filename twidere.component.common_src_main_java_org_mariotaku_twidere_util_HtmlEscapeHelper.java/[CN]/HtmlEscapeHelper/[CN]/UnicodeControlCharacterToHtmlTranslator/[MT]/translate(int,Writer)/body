@@ -1,0 +1,12 @@
+{
+  if (Character.isISOControl(codePoint)) {
+    out.append("&#x");
+    final char[] chars=Character.toChars(codePoint);
+    for (    char c : chars) {
+      out.append(Integer.toHexString(c));
+    }
+    out.append(';');
+    return true;
+  }
+  return false;
+}

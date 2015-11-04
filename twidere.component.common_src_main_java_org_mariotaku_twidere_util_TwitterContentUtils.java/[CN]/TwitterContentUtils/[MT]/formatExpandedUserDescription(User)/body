@@ -12,5 +12,5 @@
       }
     }
   }
-  return toPlainText(builder.build().replace("\n","<br/>"));
+  return toPlainText(builder.build());
 }

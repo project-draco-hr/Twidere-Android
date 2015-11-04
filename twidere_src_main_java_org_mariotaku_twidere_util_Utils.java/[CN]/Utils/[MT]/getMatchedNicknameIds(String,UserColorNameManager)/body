@@ -7,7 +7,7 @@
     if (key == -1 || isEmpty(value)) {
       continue;
     }
-    if (StringUtils.startsWithIgnoreCase(value,str)) {
+    if (TwidereStringUtils.startsWithIgnoreCase(value,str)) {
       list.add(key);
     }
   }

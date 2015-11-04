@@ -12,5 +12,5 @@
       }
     }
   }
-  return builder.build().replace("\n","<br/>");
+  return builder.build();
 }
