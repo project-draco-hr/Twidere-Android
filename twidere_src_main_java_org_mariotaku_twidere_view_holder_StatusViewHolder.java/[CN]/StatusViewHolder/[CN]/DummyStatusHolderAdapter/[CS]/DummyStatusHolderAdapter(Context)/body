@@ -2,7 +2,6 @@
   DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
   this.context=context;
   preferences=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final TwidereApplication app=TwidereApplication.getInstance(context);
   handler=new MediaLoadingHandler(R.id.media_preview_progress);
   linkify=new TwidereLinkify(null);
   updateOptions();

@@ -1,5 +1,6 @@
 {
   super(itemView);
+  this.fragment=fragment;
   this.linkClickHandler=new StatusLinkClickHandler(adapter.getContext(),null);
   this.linkify=new TwidereLinkify(linkClickHandler,false);
   this.adapter=adapter;
@@ -24,6 +25,7 @@
   quoteOriginalLink=(TextView)itemView.findViewById(R.id.quote_original_link);
   profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
+  favoritesLabel=(TextView)itemView.findViewById(R.id.favorites_label);
   quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
   quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
   quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);

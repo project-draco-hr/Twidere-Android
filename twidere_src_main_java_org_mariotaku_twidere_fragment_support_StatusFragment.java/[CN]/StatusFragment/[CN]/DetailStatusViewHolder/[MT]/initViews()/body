@@ -25,4 +25,7 @@
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());
   quotedTextView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(quotedTextView,activity));
   textView.setCustomSelectionActionModeCallback(new StatusActionModeCallback(textView,activity));
+  if (adapter.shouldUseStarsForLikes()) {
+    favoritesLabel.setText(R.string.favorites);
+  }
 }

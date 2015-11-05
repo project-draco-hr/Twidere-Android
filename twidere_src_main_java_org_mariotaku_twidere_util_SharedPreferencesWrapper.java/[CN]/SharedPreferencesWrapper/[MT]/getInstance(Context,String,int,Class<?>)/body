@@ -1,5 +1,6 @@
 {
-  final SharedPreferences prefs=context.getSharedPreferences(name,mode);
+  final Context app=context.getApplicationContext();
+  final SharedPreferences prefs=app.getSharedPreferences(name,mode);
   if (prefs == null)   return null;
-  return new SharedPreferencesWrapper(prefs,keysClass);
+  return new SharedPreferencesWrapper(app,prefs,keysClass);
 }

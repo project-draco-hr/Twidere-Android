@@ -16,9 +16,9 @@
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);
   actionButtons=itemView.findViewById(R.id.action_buttons);
-  replyCountView=(TextView)itemView.findViewById(R.id.reply_count);
-  retweetCountView=(TextView)itemView.findViewById(R.id.retweet_count);
-  favoriteCountView=(TextView)itemView.findViewById(R.id.favorite_count);
+  replyCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.reply_count);
+  retweetCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.retweet_count);
+  favoriteCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.favorite_count);
   if (adapter.isMediaPreviewEnabled()) {
     View.inflate(mediaPreview.getContext(),R.layout.layout_card_media_preview,mediaPreview);
   }

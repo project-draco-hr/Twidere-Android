@@ -136,7 +136,7 @@
  else {
     twitterCard.setVisibility(View.GONE);
   }
-  Utils.setMenuForStatus(context,menuBar.getMenu(),status,adapter.getStatusAccount());
+  Utils.setMenuForStatus(context,fragment.mPreferences,menuBar.getMenu(),status,adapter.getStatusAccount());
   textView.setTextIsSelectable(true);
   quotedTextView.setTextIsSelectable(true);
   textView.setMovementMethod(ArrowKeyMovementMethod.getInstance());

@@ -1,0 +1,7 @@
+{
+  final Preference annotation=mMap.get(key);
+  if (annotation == null || !annotation.hasDefault())   return false;
+  final int resId=annotation.defaultResource();
+  if (resId != 0)   return mContext.getResources().getBoolean(resId);
+  return annotation.defaultBoolean();
+}

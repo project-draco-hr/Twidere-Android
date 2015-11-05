@@ -1,4 +1,5 @@
 {
+  mContext=context;
   mPreferences=preferences;
   mMap=new HashMap<>();
   if (keysClass != null) {

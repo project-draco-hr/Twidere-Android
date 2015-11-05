@@ -22,7 +22,12 @@ case TAB_TYPE_MEDIA:
   }
 case TAB_TYPE_FAVORITES:
 {
-  actionBar.setSubtitle(getResources().getQuantityString(R.plurals.N_favorites,(int)user.favorites_count,user.favorites_count));
+  if (mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK)) {
+    actionBar.setSubtitle(getResources().getQuantityString(R.plurals.N_favorites,(int)user.favorites_count,user.favorites_count));
+  }
+ else {
+    actionBar.setSubtitle(getResources().getQuantityString(R.plurals.N_likes,(int)user.favorites_count,user.favorites_count));
+  }
   break;
 }
 default :

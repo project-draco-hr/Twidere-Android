@@ -1,2 +1,3 @@
+StatusFragment fragment
 StatusAdapter adapter
 View itemView
