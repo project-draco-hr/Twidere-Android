@@ -18,7 +18,7 @@
     }
     @Override public void onTextChanged(    final CharSequence s,    final int start,    final int before,    final int count){
       if (mSendButton == null || s == null)       return;
-      mSendButton.setEnabled(mValidator.isValidTweet(s.toString()));
+      mSendButton.setEnabled(mValidator.isValidDirectMessage(s.toString()));
     }
   }
 );
