@@ -1,4 +1,5 @@
 {
+  super(activity,null,0);
   mActivity=activity;
   mImageLoader=activity.mImageLoader;
   mUserColorNameManager=activity.mUserColorNameManager;

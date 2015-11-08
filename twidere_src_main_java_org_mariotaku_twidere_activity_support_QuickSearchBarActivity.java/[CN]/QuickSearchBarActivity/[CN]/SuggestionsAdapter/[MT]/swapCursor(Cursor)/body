@@ -1,0 +1,9 @@
+{
+  if (newCursor != null) {
+    mIndices=new Indices(newCursor);
+  }
+ else {
+    mIndices=null;
+  }
+  return super.swapCursor(newCursor);
+}

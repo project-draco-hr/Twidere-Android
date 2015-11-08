@@ -1,9 +1,0 @@
-{
-  super(context,R.layout.list_item_auto_complete,null,FROM,TO,0);
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
-  mEditText=view;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mResolver=context.getContentResolver();
-  mDatabase=app.getSQLiteDatabase();
-  mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
-}

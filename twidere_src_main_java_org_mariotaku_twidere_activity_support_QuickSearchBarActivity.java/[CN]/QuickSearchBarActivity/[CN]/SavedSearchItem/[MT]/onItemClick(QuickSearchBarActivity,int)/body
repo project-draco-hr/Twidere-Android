@@ -1,4 +1,0 @@
-{
-  Utils.openSearch(activity,activity.getAccountId(),mQuery);
-  activity.finish();
-}

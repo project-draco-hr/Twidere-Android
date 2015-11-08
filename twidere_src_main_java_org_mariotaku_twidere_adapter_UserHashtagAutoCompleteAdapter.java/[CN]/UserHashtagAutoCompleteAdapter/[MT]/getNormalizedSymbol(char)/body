@@ -1,0 +1,11 @@
+{
+switch (character) {
+case '\uff20':
+case '@':
+    return '@';
+case '\uff03':
+case '#':
+  return '#';
+}
+return '\0';
+}

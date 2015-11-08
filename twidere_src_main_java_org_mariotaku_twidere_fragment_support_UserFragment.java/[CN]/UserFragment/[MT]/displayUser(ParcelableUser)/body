@@ -27,7 +27,7 @@
   }
   mScreenNameView.setText("@" + user.screen_name);
   mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
-  mDescriptionView.setText(user.description_html != null ? Html.fromHtml(user.description_html) : user.description_plain);
+  mDescriptionView.setText(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain);
   final TwidereLinkify linkify=new TwidereLinkify(this);
   linkify.applyAllLinks(mDescriptionView,user.account_id,false);
   mDescriptionView.setMovementMethod(null);

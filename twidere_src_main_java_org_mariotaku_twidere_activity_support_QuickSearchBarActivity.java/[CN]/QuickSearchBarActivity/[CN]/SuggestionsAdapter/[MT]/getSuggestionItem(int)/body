@@ -1,0 +1,4 @@
+{
+  final Cursor cursor=(Cursor)super.getItem(position);
+  return new SuggestionItem(cursor,mIndices);
+}

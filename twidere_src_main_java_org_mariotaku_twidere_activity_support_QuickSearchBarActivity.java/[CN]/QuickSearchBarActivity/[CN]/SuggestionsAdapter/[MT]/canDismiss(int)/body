@@ -1,3 +1,0 @@
-{
-  return getItemViewType(position) == SearchHistoryItem.ITEM_VIEW_TYPE;
-}

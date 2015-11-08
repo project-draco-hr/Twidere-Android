@@ -33,7 +33,7 @@
     quotedNameView.setName(manager.getUserNickname(status.quoted_user_id,status.quoted_user_name,false));
     quotedNameView.setScreenName("@" + status.quoted_user_screen_name);
     if (adapter.getLinkHighlightingStyle() != VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE && !TextUtils.isEmpty(status.quoted_text_html)) {
-      final Spanned text=Html.fromHtml(status.quoted_text_html);
+      final Spanned text=HtmlSpanBuilder.fromHtml(status.quoted_text_html);
       quotedTextView.setText(text);
       linkify.applyAllLinks(quotedTextView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
       quotedTextView.setMovementMethod(null);
@@ -106,7 +106,7 @@
     textView.setText(status.text_unescaped);
   }
  else {
-    textView.setText(Html.fromHtml(status.text_html));
+    textView.setText(HtmlSpanBuilder.fromHtml(status.text_html));
     linkify.applyAllLinks(textView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
     textView.setMovementMethod(null);
   }

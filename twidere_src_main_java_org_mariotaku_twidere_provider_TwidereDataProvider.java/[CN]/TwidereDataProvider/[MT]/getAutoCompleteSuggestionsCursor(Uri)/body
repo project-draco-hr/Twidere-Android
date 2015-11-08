@@ -1,0 +1,21 @@
+{
+  final String query=uri.getQueryParameter(QUERY_PARAM_QUERY);
+  final String type=uri.getQueryParameter(QUERY_PARAM_TYPE);
+  final String accountId=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID);
+  if (query == null || type == null)   return null;
+  final String queryEscaped=query.replace("_","^_");
+  if (Suggestions.AutoComplete.TYPE_USERS.equals(type)) {
+    final long[] nicknameIds=Utils.getMatchedNicknameIds(query,mUserColorNameManager);
+    final Expression where=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
+    final String[] whereArgs={queryEscaped,queryEscaped};
+    final String[] mappedProjection={new Column(CachedUsers._ID,Suggestions._ID).getSQL(),new Column("'" + Suggestions.AutoComplete.TYPE_USERS + "'",Suggestions.TYPE).getSQL(),new Column(CachedUsers.NAME,Suggestions.TITLE).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.SUMMARY).getSQL(),new Column(CachedUsers.USER_ID,Suggestions.EXTRA_ID).getSQL(),new Column(CachedUsers.PROFILE_IMAGE_URL,Suggestions.ICON).getSQL()};
+    return query(Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,accountId),mappedProjection,where.getSQL(),whereArgs,new OrderBy(new String[]{"score",CachedUsers.LAST_SEEN},new boolean[]{false,false}).getSQL());
+  }
+ else   if (Suggestions.AutoComplete.TYPE_HASHTAGS.equals(type)) {
+    final Expression where=Expression.likeRaw(new Column(CachedHashtags.NAME),"?||'%'","^");
+    final String[] whereArgs=new String[]{queryEscaped};
+    final String[] mappedProjection={new Column(CachedHashtags._ID,Suggestions._ID).getSQL(),new Column("'" + Suggestions.AutoComplete.TYPE_HASHTAGS + "'",Suggestions.TYPE).getSQL(),new Column(CachedHashtags.NAME,Suggestions.TITLE).getSQL(),new Column("NULL",Suggestions.SUMMARY).getSQL(),new Column("0",Suggestions.EXTRA_ID).getSQL(),new Column("NULL",Suggestions.ICON).getSQL()};
+    return query(CachedHashtags.CONTENT_URI,mappedProjection,where.getSQL(),whereArgs,null);
+  }
+  return null;
+}

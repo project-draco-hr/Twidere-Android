@@ -1,9 +1,0 @@
-{
-  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
-  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
-  text1.setText(mQuery);
-  icon.setImageResource(R.drawable.ic_action_save);
-  final View editQuery=view.findViewById(R.id.edit_query);
-  editQuery.setTag(position);
-  editQuery.setOnClickListener(adapter);
-}

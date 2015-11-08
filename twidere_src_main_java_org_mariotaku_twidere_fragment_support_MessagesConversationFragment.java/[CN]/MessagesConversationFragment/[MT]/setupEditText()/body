@@ -11,7 +11,6 @@
 ,mPreferences.getBoolean(KEY_QUICK_SEND,false));
   mEditText.addTextChangedListener(new TextWatcher(){
     @Override public void afterTextChanged(    final Editable s){
-      Utils.removeLineBreaks(s);
       mTextChanged=s.length() == 0;
     }
     @Override public void beforeTextChanged(    final CharSequence s,    final int start,    final int count,    final int after){

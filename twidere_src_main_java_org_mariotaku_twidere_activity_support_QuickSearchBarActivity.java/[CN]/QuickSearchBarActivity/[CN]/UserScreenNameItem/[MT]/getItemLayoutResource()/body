@@ -1,3 +1,0 @@
-{
-  return R.layout.list_item_suggestion_user;
-}

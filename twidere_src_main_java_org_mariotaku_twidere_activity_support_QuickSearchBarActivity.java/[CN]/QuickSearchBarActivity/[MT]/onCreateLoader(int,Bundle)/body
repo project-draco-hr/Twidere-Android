@@ -1,3 +1,7 @@
 {
-  return new SuggestionsLoader(this,mAccountSpinner.getSelectedItemId(),mSearchQuery.getText().toString());
+  final long accountId=getAccountId();
+  final Uri.Builder builder=Suggestions.Search.CONTENT_URI.buildUpon();
+  builder.appendQueryParameter(QUERY_PARAM_QUERY,ParseUtils.parseString(mSearchQuery.getText()));
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,ParseUtils.parseString(accountId));
+  return new CursorLoader(this,builder.build(),Suggestions.Search.COLUMNS,null,null,null);
 }

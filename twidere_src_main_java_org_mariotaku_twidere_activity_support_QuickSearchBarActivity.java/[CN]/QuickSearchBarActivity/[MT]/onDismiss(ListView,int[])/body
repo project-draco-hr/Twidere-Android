@@ -1,13 +1,2 @@
 {
-  final long[] ids=new long[reverseSortedPositions.length];
-  for (int i=0, j=reverseSortedPositions.length; i < j; i++) {
-    final int position=reverseSortedPositions[i];
-    final SearchHistoryItem item=(SearchHistoryItem)mUsersSearchAdapter.getItem(position);
-    mUsersSearchAdapter.removeItemAt(position);
-    ids[i]=item.getCursorId();
-  }
-  final ContentResolver cr=getContentResolver();
-  final Long[] idsObject=ArrayUtils.toObject(ids);
-  ContentResolverUtils.bulkDelete(cr,SearchHistory.CONTENT_URI,SearchHistory._ID,idsObject,null,false);
-  getSupportLoaderManager().restartLoader(0,null,this);
 }

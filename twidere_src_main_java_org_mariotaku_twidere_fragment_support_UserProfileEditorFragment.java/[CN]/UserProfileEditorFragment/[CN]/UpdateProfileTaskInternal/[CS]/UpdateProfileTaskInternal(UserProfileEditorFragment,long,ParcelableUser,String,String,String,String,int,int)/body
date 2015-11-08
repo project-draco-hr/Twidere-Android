@@ -9,4 +9,5 @@
   mLocation=location;
   mDescription=description;
   mLinkColor=linkColor;
+  mBackgroundColor=backgroundColor;
 }

@@ -1,0 +1,5 @@
+{
+  title=cursor.getString(indices.title);
+  summary=cursor.getString(indices.summary);
+  extra_id=cursor.getLong(indices.extra_id);
+}

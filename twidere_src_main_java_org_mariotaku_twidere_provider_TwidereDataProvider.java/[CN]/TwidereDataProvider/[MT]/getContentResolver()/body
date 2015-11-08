@@ -1,5 +1,2 @@
 {
-  if (mContentResolver != null)   return mContentResolver;
-  final Context context=getContext();
-  return mContentResolver=context.getContentResolver();
 }

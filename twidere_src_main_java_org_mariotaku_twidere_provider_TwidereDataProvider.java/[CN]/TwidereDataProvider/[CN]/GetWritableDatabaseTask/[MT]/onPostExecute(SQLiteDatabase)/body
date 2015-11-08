@@ -1,6 +1,0 @@
-{
-  mWrapper.setSQLiteDatabase(result);
-  if (result != null) {
-    mContext.sendBroadcast(new Intent(BROADCAST_DATABASE_READY));
-  }
-}

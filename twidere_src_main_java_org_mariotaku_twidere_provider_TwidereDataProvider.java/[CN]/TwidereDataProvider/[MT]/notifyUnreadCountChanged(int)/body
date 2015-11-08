@@ -1,5 +1,4 @@
 {
-  final Context context=getContext();
   mHandler.post(new Runnable(){
     @Override public void run(){
       mBus.post(new UnreadCountUpdatedEvent(position));

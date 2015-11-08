@@ -1,3 +1,0 @@
-{
-  return getContrastYIQ(color,threshold,Color.BLACK,Color.WHITE);
-}

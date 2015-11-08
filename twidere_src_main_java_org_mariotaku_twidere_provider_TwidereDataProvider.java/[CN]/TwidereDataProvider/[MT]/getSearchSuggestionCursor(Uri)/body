@@ -1,0 +1,46 @@
+{
+  final String query=uri.getQueryParameter(QUERY_PARAM_QUERY);
+  final long accountId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
+  if (query == null || accountId <= 0)   return null;
+  final ContentResolver resolver=getContentResolver();
+  final boolean emptyQuery=TextUtils.isEmpty(query);
+  final String queryEscaped=query.replace("_","^_");
+  final Cursor[] cursors;
+  final String[] historyProjection={new Column(SearchHistory._ID,Suggestions.Search._ID).getSQL(),new Column("'" + Suggestions.Search.TYPE_SEARCH_HISTORY + "'",Suggestions.Search.TYPE).getSQL(),new Column(SearchHistory.QUERY,Suggestions.Search.TITLE).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.SUMMARY).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.ICON).getSQL(),new Column("0",Suggestions.Search.EXTRA_ID).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.EXTRA).getSQL()};
+  final Expression historySelection=Expression.likeRaw(new Column(SearchHistory.QUERY),"?||'%'","^");
+  @SuppressLint("Recycle") final Cursor historyCursor=mDatabaseWrapper.query(true,SearchHistory.TABLE_NAME,historyProjection,historySelection.getSQL(),new String[]{queryEscaped},null,null,SearchHistory.DEFAULT_SORT_ORDER,TextUtils.isEmpty(query) ? "3" : "2");
+  if (emptyQuery) {
+    final String[] savedSearchesProjection={new Column(SavedSearches._ID,Suggestions.Search._ID).getSQL(),new Column("'" + Suggestions.Search.TYPE_SAVED_SEARCH + "'",Suggestions.Search.TYPE).getSQL(),new Column(SavedSearches.QUERY,Suggestions.Search.TITLE).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.SUMMARY).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.ICON).getSQL(),new Column("0",Suggestions.Search.EXTRA_ID).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.EXTRA).getSQL()};
+    final Expression savedSearchesWhere=Expression.equals(SavedSearches.ACCOUNT_ID,accountId);
+    @SuppressLint("Recycle") final Cursor savedSearchesCursor=mDatabaseWrapper.query(true,SavedSearches.TABLE_NAME,savedSearchesProjection,savedSearchesWhere.getSQL(),null,null,null,SavedSearches.DEFAULT_SORT_ORDER,null);
+    cursors=new Cursor[2];
+    cursors[1]=savedSearchesCursor;
+  }
+ else {
+    final String[] usersProjection={new Column(CachedUsers._ID,Suggestions.Search._ID).getSQL(),new Column("'" + Suggestions.Search.TYPE_USER + "'",Suggestions.Search.TYPE).getSQL(),new Column(CachedUsers.NAME,Suggestions.Search.TITLE).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.Search.SUMMARY).getSQL(),new Column(CachedUsers.PROFILE_IMAGE_URL,Suggestions.Search.ICON).getSQL(),new Column(CachedUsers.USER_ID,Suggestions.Search.EXTRA_ID).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.EXTRA).getSQL()};
+    final long[] nicknameIds=Utils.getMatchedNicknameIds(query,mUserColorNameManager);
+    final Expression usersSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
+    final String[] selectionArgs=new String[]{queryEscaped,queryEscaped};
+    final String[] order={CachedUsers.LAST_SEEN,"score",CachedUsers.SCREEN_NAME,CachedUsers.NAME};
+    final boolean[] ascending={false,false,true,true};
+    final OrderBy orderBy=new OrderBy(order,ascending);
+    final SQLSelectQuery usersQuery=CachedUsersQueryBuilder.withScore(usersProjection,usersSelection.getSQL(),orderBy.getSQL(),accountId,0);
+    @SuppressLint("Recycle") final Cursor usersCursor=mDatabaseWrapper.rawQuery(usersQuery.getSQL(),selectionArgs);
+    final Expression exactUserSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?","^"));
+    final Cursor exactUserCursor=mDatabaseWrapper.query(CachedUsers.TABLE_NAME,new String[]{SQLFunctions.COUNT()},exactUserSelection.getSQL(),new String[]{queryEscaped},null,null,null,"1");
+    final boolean hasName=exactUserCursor.moveToPosition(0) && exactUserCursor.getInt(0) > 0;
+    exactUserCursor.close();
+    final MatrixCursor screenNameCursor=new MatrixCursor(Suggestions.Search.COLUMNS);
+    if (!hasName) {
+      final Matcher m=PATTERN_SCREEN_NAME.matcher(query);
+      if (m.matches()) {
+        screenNameCursor.addRow(new Object[]{0,Suggestions.Search.TYPE_SCREEN_NAME,query,null,null,0,null});
+      }
+    }
+    cursors=new Cursor[3];
+    cursors[1]=screenNameCursor;
+    cursors[2]=usersCursor;
+  }
+  cursors[0]=historyCursor;
+  return new MergeCursor(cursors);
+}

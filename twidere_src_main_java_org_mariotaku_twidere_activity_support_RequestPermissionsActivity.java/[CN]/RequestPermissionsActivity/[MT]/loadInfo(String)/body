@@ -41,7 +41,7 @@
  else {
       appendPermission(builder,getString(R.string.permission_description_none),false);
     }
-    mMessageView.setText(Html.fromHtml(builder.toString()));
+    mMessageView.setText(HtmlSpanBuilder.fromHtml(builder.toString()));
   }
  catch (  final NameNotFoundException e) {
     setResult(RESULT_CANCELED);

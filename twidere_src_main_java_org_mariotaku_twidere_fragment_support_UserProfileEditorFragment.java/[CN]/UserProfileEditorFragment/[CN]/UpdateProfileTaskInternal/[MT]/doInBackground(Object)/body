@@ -4,11 +4,12 @@
     User user=null;
     if (isProfileChanged()) {
       final ProfileUpdate profileUpdate=new ProfileUpdate();
-      profileUpdate.name(mName);
+      profileUpdate.name(HtmlEscapeHelper.escapeBasic(mName));
+      profileUpdate.location(HtmlEscapeHelper.escapeBasic(mLocation));
+      profileUpdate.description(HtmlEscapeHelper.escapeBasic(mDescription));
       profileUpdate.url(mUrl);
-      profileUpdate.location(mLocation);
-      profileUpdate.description(mDescription);
       profileUpdate.linkColor(mLinkColor);
+      profileUpdate.backgroundColor(mBackgroundColor);
       user=twitter.updateProfile(profileUpdate);
     }
     if (user == null) {

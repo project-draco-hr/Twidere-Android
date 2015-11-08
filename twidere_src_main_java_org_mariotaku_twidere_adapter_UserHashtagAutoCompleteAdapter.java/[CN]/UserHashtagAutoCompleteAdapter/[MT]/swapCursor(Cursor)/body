@@ -1,9 +1,10 @@
 {
   if (cursor != null) {
-    mNameIdx=cursor.getColumnIndex(CachedValues.NAME);
-    mScreenNameIdx=cursor.getColumnIndex(CachedUsers.SCREEN_NAME);
-    mUserIdIdx=cursor.getColumnIndex(CachedUsers.USER_ID);
-    mProfileImageUrlIdx=cursor.getColumnIndex(CachedUsers.PROFILE_IMAGE_URL);
+    mTypeIdx=cursor.getColumnIndex(Suggestions.AutoComplete.TYPE);
+    mTitleIdx=cursor.getColumnIndex(Suggestions.AutoComplete.TITLE);
+    mSummaryIdx=cursor.getColumnIndex(Suggestions.AutoComplete.SUMMARY);
+    mExtraIdIdx=cursor.getColumnIndex(Suggestions.AutoComplete.EXTRA_ID);
+    mIconIdx=cursor.getColumnIndex(Suggestions.AutoComplete.ICON);
   }
   return super.swapCursor(cursor);
 }

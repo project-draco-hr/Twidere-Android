@@ -4,18 +4,11 @@
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
   final ProfileImageView icon=(ProfileImageView)view.findViewById(android.R.id.icon);
   icon.setImageDrawable(null);
-  if (mScreenNameIdx != -1 && mNameIdx != -1 && mUserIdIdx != -1) {
-    text1.setText(mUserColorNameManager.getUserNickname(cursor.getLong(mUserIdIdx),cursor.getString(mNameIdx)));
-    text2.setText("@" + cursor.getString(mScreenNameIdx));
-  }
- else {
-    text1.setText("#" + cursor.getString(mNameIdx));
-    text2.setText(R.string.hashtag);
-  }
-  icon.setVisibility(mDisplayProfileImage ? View.VISIBLE : View.GONE);
-  if (mProfileImageUrlIdx != -1) {
+  if (Suggestions.AutoComplete.TYPE_USERS.equals(cursor.getString(mTypeIdx))) {
+    text1.setText(mUserColorNameManager.getUserNickname(cursor.getLong(mExtraIdIdx),cursor.getString(mTitleIdx)));
+    text2.setText("@" + cursor.getString(mSummaryIdx));
     if (mDisplayProfileImage) {
-      final String profileImageUrl=cursor.getString(mProfileImageUrlIdx);
+      final String profileImageUrl=cursor.getString(mIconIdx);
       mProfileImageLoader.displayProfileImage(icon,profileImageUrl);
     }
  else {
@@ -24,8 +17,11 @@
     icon.clearColorFilter();
   }
  else {
+    text1.setText("#" + cursor.getString(mTitleIdx));
+    text2.setText(R.string.hashtag);
     icon.setImageResource(R.drawable.ic_action_hashtag);
     icon.setColorFilter(text1.getCurrentTextColor(),Mode.SRC_ATOP);
   }
+  icon.setVisibility(mDisplayProfileImage ? View.VISIBLE : View.GONE);
   super.bindView(view,context,cursor);
 }

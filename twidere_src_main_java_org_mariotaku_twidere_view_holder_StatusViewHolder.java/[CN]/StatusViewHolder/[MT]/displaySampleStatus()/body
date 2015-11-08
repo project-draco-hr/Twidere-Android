@@ -5,7 +5,7 @@
   nameView.setScreenName("@" + TWIDERE_PREVIEW_SCREEN_NAME);
   nameView.updateText();
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
-    textView.setText(Html.fromHtml(TWIDERE_PREVIEW_TEXT_HTML));
+    textView.setText(HtmlSpanBuilder.fromHtml(TWIDERE_PREVIEW_TEXT_HTML));
     adapter.getTwidereLinkify().applyAllLinks(textView,-1,-1,false,adapter.getLinkHighlightingStyle());
   }
  else {

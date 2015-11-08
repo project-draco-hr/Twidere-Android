@@ -1,6 +1,0 @@
-{
-  super(context);
-  mUserColorNameManager=context.mUserColorNameManager;
-  mAccountId=accountId;
-  mQuery=query;
-}

@@ -1,37 +1,29 @@
 {
-  char token=mToken;
-  if (mEditText != null && constraint != null) {
-    final CharSequence text=mEditText.getText();
-    token=text.charAt(mEditText.getSelectionEnd() - constraint.length() - 1);
-  }
-  if (isAtSymbol(token) == isAtSymbol(mToken)) {
+  if (TextUtils.isEmpty(constraint))   return null;
+  char token=constraint.charAt(0);
+  if (getNormalizedSymbol(token) == getNormalizedSymbol(mToken)) {
     final FilterQueryProvider filter=getFilterQueryProvider();
     if (filter != null)     return filter.runQuery(constraint);
   }
   mToken=token;
-  final String constraintEscaped=constraint != null ? constraint.toString().replaceAll("_","^_") : null;
-  if (isAtSymbol(token)) {
-    final Expression selection;
-    final String[] selectionArgs;
-    if (constraintEscaped != null) {
-      final long[] nicknameIds=Utils.getMatchedNicknameIds(ParseUtils.parseString(constraint),mUserColorNameManager);
-      selection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
-      selectionArgs=new String[]{constraintEscaped,constraintEscaped};
+  final Uri.Builder builder=Suggestions.AutoComplete.CONTENT_URI.buildUpon();
+  builder.appendQueryParameter(QUERY_PARAM_QUERY,String.valueOf(constraint.subSequence(1,constraint.length())));
+switch (getNormalizedSymbol(token)) {
+case '#':
+{
+      builder.appendQueryParameter(QUERY_PARAM_TYPE,Suggestions.AutoComplete.TYPE_HASHTAGS);
+      break;
     }
- else {
-      selection=null;
-      selectionArgs=null;
-    }
-    final OrderBy orderBy=new OrderBy(new String[]{CachedUsers.LAST_SEEN,"score",CachedUsers.SCREEN_NAME,CachedUsers.NAME},new boolean[]{false,false,true,true});
-    final Cursor cursor=mResolver.query(Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,String.valueOf(mAccountId)),CachedUsers.BASIC_COLUMNS,selection != null ? selection.getSQL() : null,selectionArgs,orderBy.getSQL());
-    if (BuildConfig.DEBUG && cursor == null)     throw new NullPointerException();
-    return cursor;
+case '@':
+{
+    builder.appendQueryParameter(QUERY_PARAM_TYPE,Suggestions.AutoComplete.TYPE_USERS);
+    break;
   }
- else {
-    final String selection=constraintEscaped != null ? CachedHashtags.NAME + " LIKE ?||'%' ESCAPE '^'" : null;
-    final String[] selectionArgs=constraintEscaped != null ? new String[]{constraintEscaped} : null;
-    final Cursor cursor=mDatabase.query(true,CachedHashtags.TABLE_NAME,CachedHashtags.COLUMNS,selection,selectionArgs,null,null,CachedHashtags.NAME,null);
-    if (BuildConfig.DEBUG && cursor == null)     throw new NullPointerException();
-    return cursor;
-  }
+default :
+{
+  return null;
+}
+}
+builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(mAccountId));
+return mContext.getContentResolver().query(builder.build(),Suggestions.AutoComplete.COLUMNS,null,null,null);
 }

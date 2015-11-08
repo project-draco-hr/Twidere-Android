@@ -1,5 +1,0 @@
-{
-  mContext=context;
-  mHelper=helper;
-  mWrapper=wrapper;
-}

@@ -1,0 +1,4 @@
+{
+  setBackgroundColor(linkColor);
+  return this;
+}

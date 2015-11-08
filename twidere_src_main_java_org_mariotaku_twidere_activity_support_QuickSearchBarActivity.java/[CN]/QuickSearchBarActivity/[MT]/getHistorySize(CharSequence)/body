@@ -1,3 +1,0 @@
-{
-  return TextUtils.isEmpty(query) ? 3 : 2;
-}
