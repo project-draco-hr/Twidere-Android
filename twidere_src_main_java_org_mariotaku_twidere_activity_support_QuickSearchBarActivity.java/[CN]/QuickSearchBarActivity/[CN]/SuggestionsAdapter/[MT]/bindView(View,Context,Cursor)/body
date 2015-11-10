@@ -1,5 +1,5 @@
 {
-switch (getItemViewType(cursor.getPosition())) {
+switch (getActualItemViewType(cursor.getPosition())) {
 case VIEW_TYPE_SEARCH_HISTORY:
 {
       final SearchViewHolder holder=(SearchViewHolder)view.getTag();

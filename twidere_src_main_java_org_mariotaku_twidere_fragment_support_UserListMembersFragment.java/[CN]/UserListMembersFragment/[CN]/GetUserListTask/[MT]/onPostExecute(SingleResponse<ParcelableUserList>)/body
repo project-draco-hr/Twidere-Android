@@ -1,4 +1,4 @@
 {
   if (mUserList != null)   return;
-  mUserList=result;
+  mUserList=result.getData();
 }

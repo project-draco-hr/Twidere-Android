@@ -1,0 +1,8 @@
+{
+  incrModCount();
+  if (size < data.length) {
+    int[] olddata=data;
+    data=new int[size];
+    System.arraycopy(olddata,0,data,0,size);
+  }
+}

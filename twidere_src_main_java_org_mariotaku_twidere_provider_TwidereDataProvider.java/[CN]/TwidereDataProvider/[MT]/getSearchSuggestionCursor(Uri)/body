@@ -2,7 +2,6 @@
   final String query=uri.getQueryParameter(QUERY_PARAM_QUERY);
   final long accountId=ParseUtils.parseLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
   if (query == null || accountId <= 0)   return null;
-  final ContentResolver resolver=getContentResolver();
   final boolean emptyQuery=TextUtils.isEmpty(query);
   final String queryEscaped=query.replace("_","^_");
   final Cursor[] cursors;
@@ -18,16 +17,17 @@
   }
  else {
     final String[] usersProjection={new Column(CachedUsers._ID,Suggestions.Search._ID).getSQL(),new Column("'" + Suggestions.Search.TYPE_USER + "'",Suggestions.Search.TYPE).getSQL(),new Column(CachedUsers.NAME,Suggestions.Search.TITLE).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.Search.SUMMARY).getSQL(),new Column(CachedUsers.PROFILE_IMAGE_URL,Suggestions.Search.ICON).getSQL(),new Column(CachedUsers.USER_ID,Suggestions.Search.EXTRA_ID).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.EXTRA).getSQL()};
+    String queryTrimmed=queryEscaped.startsWith("@") ? queryEscaped.substring(1) : queryEscaped;
     final long[] nicknameIds=Utils.getMatchedNicknameIds(query,mUserColorNameManager);
     final Expression usersSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
-    final String[] selectionArgs=new String[]{queryEscaped,queryEscaped};
+    final String[] selectionArgs=new String[]{queryTrimmed,queryTrimmed};
     final String[] order={CachedUsers.LAST_SEEN,"score",CachedUsers.SCREEN_NAME,CachedUsers.NAME};
     final boolean[] ascending={false,false,true,true};
     final OrderBy orderBy=new OrderBy(order,ascending);
     final SQLSelectQuery usersQuery=CachedUsersQueryBuilder.withScore(usersProjection,usersSelection.getSQL(),orderBy.getSQL(),accountId,0);
     @SuppressLint("Recycle") final Cursor usersCursor=mDatabaseWrapper.rawQuery(usersQuery.getSQL(),selectionArgs);
     final Expression exactUserSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?","^"));
-    final Cursor exactUserCursor=mDatabaseWrapper.query(CachedUsers.TABLE_NAME,new String[]{SQLFunctions.COUNT()},exactUserSelection.getSQL(),new String[]{queryEscaped},null,null,null,"1");
+    final Cursor exactUserCursor=mDatabaseWrapper.query(CachedUsers.TABLE_NAME,new String[]{SQLFunctions.COUNT()},exactUserSelection.getSQL(),new String[]{queryTrimmed},null,null,null,"1");
     final boolean hasName=exactUserCursor.moveToPosition(0) && exactUserCursor.getInt(0) > 0;
     exactUserCursor.close();
     final MatrixCursor screenNameCursor=new MatrixCursor(Suggestions.Search.COLUMNS);

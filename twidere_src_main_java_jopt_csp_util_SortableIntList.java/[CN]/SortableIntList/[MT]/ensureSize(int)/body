@@ -1,0 +1,5 @@
+{
+  if (potentialSize > size) {
+    size=potentialSize;
+  }
+}

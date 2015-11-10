@@ -1,0 +1,7 @@
+{
+  if (initialCapacity < 0) {
+    throw new IllegalArgumentException("capacity " + initialCapacity + " cannot be negative");
+  }
+  data=new int[initialCapacity];
+  size=0;
+}

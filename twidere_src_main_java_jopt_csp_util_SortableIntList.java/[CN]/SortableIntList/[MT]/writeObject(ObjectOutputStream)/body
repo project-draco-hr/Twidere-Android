@@ -1,0 +1,7 @@
+{
+  out.defaultWriteObject();
+  out.writeInt(data.length);
+  for (int i=0; i < size; i++) {
+    out.writeInt(data[i]);
+  }
+}

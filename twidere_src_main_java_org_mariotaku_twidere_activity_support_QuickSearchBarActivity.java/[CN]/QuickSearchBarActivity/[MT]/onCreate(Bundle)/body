@@ -18,6 +18,9 @@
   mUsersSearchAdapter=new SuggestionsAdapter(this);
   mSuggestionsList.setAdapter(mUsersSearchAdapter);
   mSuggestionsList.setOnItemClickListener(this);
+  final SwipeDismissListViewTouchListener listener=new SwipeDismissListViewTouchListener(mSuggestionsList,this);
+  mSuggestionsList.setOnTouchListener(listener);
+  mSuggestionsList.setOnScrollListener(listener.makeScrollListener());
   mSearchSubmit.setOnClickListener(this);
   EditTextEnterHandler.attach(mSearchQuery,new EnterListener(){
     @Override public boolean shouldCallListener(){

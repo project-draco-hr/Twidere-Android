@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  ClipboardUtils.setText(this,getIntent().getDataString());
+  Toast.makeText(this,R.string.link_copied_to_clipboard,Toast.LENGTH_SHORT).show();
+  finish();
+}

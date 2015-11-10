@@ -59,6 +59,8 @@
   }
  else {
     final Intent shareIntent=createStatusShareIntent(context,status);
-    shareItem.setIntent(Intent.createChooser(shareIntent,context.getString(R.string.share_status)));
+    final Intent chooserIntent=Intent.createChooser(shareIntent,context.getString(R.string.share_status));
+    addCopyLinkIntent(context,chooserIntent,LinkCreator.getTwitterStatusLink(status));
+    shareItem.setIntent(chooserIntent);
   }
 }

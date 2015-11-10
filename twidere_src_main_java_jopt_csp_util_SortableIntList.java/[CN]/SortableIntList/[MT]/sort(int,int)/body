@@ -1,0 +1,4 @@
+{
+  trimToSize();
+  Arrays.sort(data,fromIndex,toIndex);
+}

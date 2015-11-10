@@ -1,0 +1,7 @@
+{
+  in.defaultReadObject();
+  data=new int[in.readInt()];
+  for (int i=0; i < size; i++) {
+    data[i]=in.readInt();
+  }
+}

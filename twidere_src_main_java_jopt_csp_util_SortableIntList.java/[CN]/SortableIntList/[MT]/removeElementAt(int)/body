@@ -1,0 +1,11 @@
+{
+  checkRange(index);
+  incrModCount();
+  int oldval=data[index];
+  int numtomove=size - index - 1;
+  if (numtomove > 0) {
+    System.arraycopy(data,index + 1,data,index,numtomove);
+  }
+  size--;
+  return oldval;
+}

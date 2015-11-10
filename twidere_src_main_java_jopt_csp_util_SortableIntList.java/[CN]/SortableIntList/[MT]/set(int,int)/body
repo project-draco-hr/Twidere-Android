@@ -1,0 +1,8 @@
+{
+  ensureCapacity(index + 1);
+  ensureSize(index + 1);
+  incrModCount();
+  int oldval=data[index];
+  data[index]=element;
+  return oldval;
+}

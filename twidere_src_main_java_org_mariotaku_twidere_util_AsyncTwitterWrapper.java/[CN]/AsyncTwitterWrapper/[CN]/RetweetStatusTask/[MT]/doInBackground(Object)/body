@@ -5,9 +5,9 @@
     return SingleResponse.getInstance();
   }
   try {
-    final org.mariotaku.twidere.api.twitter.model.Status status=twitter.retweetStatus(status_id);
-    Utils.setLastSeen(mContext,status.getUserMentionEntities(),System.currentTimeMillis());
-    return SingleResponse.getInstance(new ParcelableStatus(status,account_id,false));
+    final ParcelableStatus status=new ParcelableStatus(twitter.retweetStatus(status_id),account_id,false);
+    Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
+    return SingleResponse.getInstance(status);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

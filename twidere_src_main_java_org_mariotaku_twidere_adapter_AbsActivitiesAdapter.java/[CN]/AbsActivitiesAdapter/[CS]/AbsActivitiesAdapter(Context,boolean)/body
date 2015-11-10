@@ -4,6 +4,7 @@
   mInflater=LayoutInflater.from(context);
   mLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
+  mShouldUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
   mCompactCards=compact;
   mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));

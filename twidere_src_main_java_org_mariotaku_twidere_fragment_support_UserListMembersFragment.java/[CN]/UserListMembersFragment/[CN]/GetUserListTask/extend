@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,ParcelableUserList>
+AsyncTask<Object,Object,SingleResponse<ParcelableUserList>>

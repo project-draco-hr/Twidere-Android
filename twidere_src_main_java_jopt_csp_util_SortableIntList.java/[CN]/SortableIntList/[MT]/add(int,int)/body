@@ -1,0 +1,13 @@
+{
+  if (index >= size) {
+    set(index,element);
+  }
+ else {
+    incrModCount();
+    ensureCapacity(size + 1);
+    int numtomove=size - index;
+    System.arraycopy(data,index,data,index + 1,numtomove);
+    data[index]=element;
+    size++;
+  }
+}

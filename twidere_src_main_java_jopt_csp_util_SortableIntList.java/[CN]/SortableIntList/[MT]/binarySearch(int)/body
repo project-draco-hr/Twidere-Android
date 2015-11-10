@@ -1,0 +1,4 @@
+{
+  trimToSize();
+  return Arrays.binarySearch(data,key);
+}

@@ -13,10 +13,9 @@
       list=twitter.showUserList(listName,screenName);
     }
  else     return null;
-    return new ParcelableUserList(list,accountId);
+    return SingleResponse.getInstance(new ParcelableUserList(list,accountId));
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
-    return null;
+    return SingleResponse.getInstance(e);
   }
 }

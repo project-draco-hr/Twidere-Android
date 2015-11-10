@@ -1,0 +1,9 @@
+{
+  incrModCount();
+  if (mincap > data.length) {
+    int newcap=(data.length * 3) / 2 + 1;
+    int[] olddata=data;
+    data=new int[newcap < mincap ? mincap : newcap];
+    System.arraycopy(olddata,0,data,0,size);
+  }
+}

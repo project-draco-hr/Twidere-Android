@@ -1,0 +1,6 @@
+{
+  final Intent copyLinkIntent=new Intent(context,CopyLinkActivity.class);
+  copyLinkIntent.setData(uri);
+  final Intent[] alternateIntents={copyLinkIntent};
+  chooserIntent.putExtra(Intent.EXTRA_ALTERNATE_INTENTS,alternateIntents);
+}

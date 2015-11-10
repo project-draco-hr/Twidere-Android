@@ -25,9 +25,7 @@
     }
     final MenuItem muteItem=menu.findItem(R.id.mute_user);
     if (muteItem != null) {
-      final boolean muting=relationship.isSourceMutingTarget();
-      ActionIconDrawable.setMenuHighlight(muteItem,new TwidereMenuInfo(muting));
-      muteItem.setTitle(muting ? R.string.unmute : R.string.mute);
+      muteItem.setChecked(relationship.isSourceMutingTarget());
     }
     final MenuItem filterItem=menu.findItem(R.id.add_to_filter);
     if (filterItem != null) {

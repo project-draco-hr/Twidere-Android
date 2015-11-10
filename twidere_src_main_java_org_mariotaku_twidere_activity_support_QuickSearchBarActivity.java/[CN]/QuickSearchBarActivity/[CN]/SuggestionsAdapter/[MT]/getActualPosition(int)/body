@@ -1,0 +1,10 @@
+{
+  if (mRemovedPositions == null)   return position;
+  int skipped=0;
+  for (int i=0, j=mRemovedPositions.size(); i < j; i++) {
+    if (position + skipped >= mRemovedPositions.get(i)) {
+      skipped++;
+    }
+  }
+  return position + skipped;
+}

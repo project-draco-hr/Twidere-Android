@@ -1,0 +1,4 @@
+{
+  this(that.size());
+  addAll(that);
+}
