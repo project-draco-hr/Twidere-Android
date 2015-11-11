@@ -1,5 +1,6 @@
 {
   PowerStateReceiver.setServiceReceiverStarted(false);
+  unregisterReceiver(mScreenStateReceiver);
   unregisterReceiver(mPowerStateReceiver);
   unregisterReceiver(mStateReceiver);
   if (hasAutoRefreshAccounts(this)) {

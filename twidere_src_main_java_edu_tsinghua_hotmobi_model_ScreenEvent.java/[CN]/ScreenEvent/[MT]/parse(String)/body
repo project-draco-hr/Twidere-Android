@@ -1,0 +1,9 @@
+{
+  if (ON.value.equalsIgnoreCase(action)) {
+    return ON;
+  }
+ else   if (OFF.value.equalsIgnoreCase(action)) {
+    return OFF;
+  }
+  return UNKNOWN;
+}

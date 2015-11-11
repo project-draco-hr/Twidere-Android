@@ -1,5 +1,0 @@
-{
-  final GeoPoint geoPoint=LoganSquare.mapperFor(GeoPoint.class).parse(jsonParser);
-  if (geoPoint == null)   return null;
-  return geoPoint.getGeoLocation();
-}

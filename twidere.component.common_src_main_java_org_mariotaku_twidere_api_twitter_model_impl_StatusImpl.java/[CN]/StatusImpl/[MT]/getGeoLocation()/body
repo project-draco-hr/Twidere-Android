@@ -1,3 +1,4 @@
 {
-  return geo;
+  if (geo == null)   return null;
+  return geo.getGeoLocation();
 }

@@ -21,7 +21,11 @@
   batteryFilter.addAction(Intent.ACTION_BATTERY_LOW);
   batteryFilter.addAction(Intent.ACTION_POWER_CONNECTED);
   batteryFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+  final IntentFilter screenFilter=new IntentFilter();
+  screenFilter.addAction(Intent.ACTION_SCREEN_ON);
+  screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
   registerReceiver(mPowerStateReceiver,batteryFilter);
+  registerReceiver(mScreenStateReceiver,screenFilter);
   PowerStateReceiver.setServiceReceiverStarted(true);
   startAutoRefresh();
 }

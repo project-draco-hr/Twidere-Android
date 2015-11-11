@@ -1,0 +1,4 @@
+Indices instance
+String fieldName
+boolean writeFieldNameForObject
+JsonGenerator jsonGenerator

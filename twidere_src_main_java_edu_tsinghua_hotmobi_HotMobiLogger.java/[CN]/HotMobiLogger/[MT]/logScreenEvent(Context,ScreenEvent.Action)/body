@@ -1,0 +1,3 @@
+{
+  getInstance(context).log(ScreenEvent.create(context,action));
+}
