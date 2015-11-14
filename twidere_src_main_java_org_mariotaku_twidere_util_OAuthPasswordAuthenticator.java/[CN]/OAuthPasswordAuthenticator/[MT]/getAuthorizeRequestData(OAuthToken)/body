@@ -1,0 +1,27 @@
+{
+  RestHttpResponse response=null;
+  try {
+    final AuthorizeRequestData data=new AuthorizeRequestData();
+    final RestHttpRequest.Builder authorizePageBuilder=new RestHttpRequest.Builder();
+    authorizePageBuilder.method(GET.METHOD);
+    authorizePageBuilder.url(endpoint.construct("/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken())));
+    data.referer=Endpoint.constructUrl("https://api.twitter.com/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken()));
+    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
+    requestHeaders.add(Pair.create("User-Agent",userAgent));
+    authorizePageBuilder.headers(requestHeaders);
+    authorizePageBuilder.extra(RequestType.API);
+    final RestHttpRequest authorizePageRequest=authorizePageBuilder.build();
+    response=client.execute(authorizePageRequest);
+    parseAuthorizeRequestData(response,data);
+    if (TextUtils.isEmpty(data.authenticityToken)) {
+      throw new AuthenticationException();
+    }
+    return data;
+  }
+ catch (  AttoParseException e) {
+    throw new AuthenticationException(e);
+  }
+ finally {
+    Utils.closeSilently(response);
+  }
+}

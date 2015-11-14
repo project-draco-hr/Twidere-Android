@@ -2,7 +2,7 @@
   final long accountId=pref.getAccountId();
   final Context context=getContext();
   final Resources resources=context.getResources();
-  final NotificationManager nm=getNotificationManager();
+  final NotificationManagerWrapper nm=mNotificationManager;
   final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
   final String filteredSelection=Utils.buildStatusFilterWhereClause(Statuses.TABLE_NAME,selection).getSQL();
   final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
@@ -45,7 +45,7 @@
     builder.setColor(pref.getNotificationLightColor());
     setNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     try {
-      nm.notify("home_" + accountId,NOTIFICATION_ID_HOME_TIMELINE,builder.build());
+      nm.notify("home_" + accountId,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountId),builder.build());
       Utils.sendPebbleNotification(context,notificationContent);
     }
  catch (    SecurityException e) {

@@ -1,4 +1,0 @@
-{
-  final List<String> values=response.headers(name);
-  return values.toArray(new String[values.size()]);
-}

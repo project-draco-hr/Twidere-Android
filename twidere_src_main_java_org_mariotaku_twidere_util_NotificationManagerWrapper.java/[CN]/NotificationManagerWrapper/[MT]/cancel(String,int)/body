@@ -1,0 +1,4 @@
+{
+  notificationManager.cancel(tag,id);
+  notifications.removeAll(find(tag,id));
+}

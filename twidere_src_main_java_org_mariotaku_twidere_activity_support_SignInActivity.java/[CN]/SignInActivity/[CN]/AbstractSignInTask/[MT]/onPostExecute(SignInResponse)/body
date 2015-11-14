@@ -1,5 +1,5 @@
 {
-  if (callback != null) {
-    callback.onSignInResult(result);
+  if (activity != null) {
+    activity.onSignInResult(result);
   }
 }

@@ -1,5 +1,4 @@
 {
-  if (format == null)   return null;
   final Matcher matcher=Pattern.compile("\\[(\\.?)DOMAIN(\\.?)\\]",Pattern.CASE_INSENSITIVE).matcher(format);
   if (!matcher.find()) {
     format=substituteLegacyApiBaseUrl(format,domain);

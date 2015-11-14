@@ -1,0 +1,9 @@
+{
+  final ArrayList<PostedNotification> result=new ArrayList<>();
+  for (  PostedNotification notification : notifications) {
+    if ((tag != null ? tag.equals(notification.tag) : null == notification.tag)) {
+      result.add(notification);
+    }
+  }
+  return result;
+}

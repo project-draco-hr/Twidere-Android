@@ -1,0 +1,35 @@
+{
+  publishProgress(new Runnable(){
+    @Override public void run(){
+      activity.dismissDialogFragment(FRAGMENT_TAG_SIGN_IN_PROGRESS);
+    }
+  }
+);
+  publishProgress(new Runnable(){
+    @Override public void run(){
+      activity.postAfterFragmentResumed(new Runnable(){
+        @Override public void run(){
+          InputLoginVerificationDialogFragment df=new InputLoginVerificationDialogFragment();
+          df.setCallback(InputLoginVerificationCallback.this);
+          df.show(activity.getSupportFragmentManager(),null);
+        }
+      }
+);
+    }
+  }
+);
+  while (!isChallengeFinished) {
+    try {
+      Thread.sleep(50);
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+  publishProgress(new Runnable(){
+    @Override public void run(){
+      activity.showSignInProgressDialog();
+    }
+  }
+);
+  return challengeResponse;
+}

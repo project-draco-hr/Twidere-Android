@@ -1,0 +1,8 @@
+{
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+  builder.setTitle(R.string.login_verification);
+  builder.setView(R.layout.dialog_login_verification_code);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  return builder.create();
+}

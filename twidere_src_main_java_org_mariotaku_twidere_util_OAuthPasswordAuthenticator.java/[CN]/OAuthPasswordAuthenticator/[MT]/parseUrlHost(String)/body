@@ -1,4 +1,0 @@
-{
-  final int startOfHost=url.indexOf("://") + 3, endOfHost=url.indexOf('/',startOfHost);
-  return url.substring(startOfHost,endOfHost);
-}

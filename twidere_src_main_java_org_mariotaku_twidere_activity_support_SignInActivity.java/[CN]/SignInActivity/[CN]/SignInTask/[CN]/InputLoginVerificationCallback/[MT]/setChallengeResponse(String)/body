@@ -1,0 +1,4 @@
+{
+  isChallengeFinished=true;
+  this.challengeResponse=challengeResponse;
+}

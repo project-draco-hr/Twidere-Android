@@ -7,60 +7,23 @@
     if (e.isCausedByNetworkIssue())     throw new AuthenticationException(e);
     throw new AuthenticityTokenException(e);
   }
-  RestHttpResponse authorizePage=null, authorizeResult=null;
   try {
-    final String oauthToken=requestToken.getOauthToken();
-    final HashMap<String,String> inputMap=new HashMap<>();
-    final RestHttpRequest.Builder authorizePageBuilder=new RestHttpRequest.Builder();
-    authorizePageBuilder.method(GET.METHOD);
-    authorizePageBuilder.url(endpoint.construct("/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken())));
-    authorizePageBuilder.extra(RequestType.API);
-    final RestHttpRequest authorizePageRequest=authorizePageBuilder.build();
-    authorizePage=client.execute(authorizePageRequest);
-    final String[] cookieHeaders=authorizePage.getHeaders("Set-Cookie");
-    readInputFromHtml(BaseTypedData.reader(authorizePage.getBody()),inputMap,INPUT_AUTHENTICITY_TOKEN,INPUT_REDIRECT_AFTER_LOGIN);
-    final List<Pair<String,String>> params=new ArrayList<>();
-    params.add(Pair.create("oauth_token",oauthToken));
-    params.add(Pair.create(INPUT_AUTHENTICITY_TOKEN,inputMap.get(INPUT_AUTHENTICITY_TOKEN)));
-    if (inputMap.containsKey(INPUT_REDIRECT_AFTER_LOGIN)) {
-      params.add(Pair.create(INPUT_REDIRECT_AFTER_LOGIN,inputMap.get(INPUT_REDIRECT_AFTER_LOGIN)));
+    final AuthorizeRequestData authorizeRequestData=getAuthorizeRequestData(requestToken);
+    AuthorizeResponseData authorizeResponseData=getAuthorizeResponseData(requestToken,authorizeRequestData,username,password);
+    if (!TextUtils.isEmpty(authorizeResponseData.oauthPin)) {
+      return oauth.getAccessToken(requestToken,authorizeResponseData.oauthPin);
     }
-    params.add(Pair.create("session[username_or_email]",username));
-    params.add(Pair.create("session[password]",password));
-    final FormTypedBody authorizationResultBody=new FormTypedBody(params);
-    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
-    requestHeaders.add(Pair.create("Origin","https://twitter.com"));
-    requestHeaders.add(Pair.create("Referer",Endpoint.constructUrl("https://twitter.com/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken()))));
-    final String host=parseUrlHost(endpoint.getUrl());
-    for (    String cookieHeader : cookieHeaders) {
-      for (      HttpCookie cookie : HttpCookie.parse(cookieHeader)) {
-        if (HttpCookie.domainMatches(cookie.getDomain(),host)) {
-          cookie.setVersion(1);
-          cookie.setDomain("twitter.com");
-        }
-        requestHeaders.add(Pair.create("Cookie",cookie.toString()));
-      }
+ else     if (authorizeResponseData.verification == null) {
+      throw new WrongUserPassException();
     }
-    final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
-    authorizeResultBuilder.method(POST.METHOD);
-    authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
-    authorizeResultBuilder.headers(requestHeaders);
-    authorizeResultBuilder.body(authorizationResultBody);
-    authorizeResultBuilder.extra(RequestType.API);
-    authorizeResult=client.execute(authorizeResultBuilder.build());
-    final String oauthPin=readOAuthPINFromHtml(BaseTypedData.reader(authorizeResult.getBody()));
-    if (isEmpty(oauthPin))     throw new WrongUserPassException();
-    return oauth.getAccessToken(requestToken,oauthPin);
+    final AuthorizeRequestData verificationData=getVerificationData(authorizeResponseData,loginVerificationCallback.getLoginVerification());
+    authorizeResponseData=getAuthorizeResponseData(requestToken,verificationData,username,password);
+    if (TextUtils.isEmpty(authorizeResponseData.oauthPin)) {
+      throw new VerificationCodeException();
+    }
+    return oauth.getAccessToken(requestToken,authorizeResponseData.oauthPin);
   }
- catch (  final IOException|NullPointerException|XmlPullParserException|TwitterException e) {
+ catch (  final IOException|NullPointerException|TwitterException e) {
     throw new AuthenticationException(e);
-  }
- finally {
-    if (authorizePage != null) {
-      IoUtils.closeSilently(authorizePage);
-    }
-    if (authorizeResult != null) {
-      IoUtils.closeSilently(authorizeResult);
-    }
   }
 }

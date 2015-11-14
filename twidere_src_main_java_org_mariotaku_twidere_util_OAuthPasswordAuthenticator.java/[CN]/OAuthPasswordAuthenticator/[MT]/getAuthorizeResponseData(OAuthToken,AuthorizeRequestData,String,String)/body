@@ -1,0 +1,133 @@
+{
+  RestHttpResponse response=null;
+  try {
+    final AuthorizeResponseData data=new AuthorizeResponseData();
+    final List<Pair<String,String>> params=new ArrayList<>();
+    params.add(Pair.create("oauth_token",requestToken.getOauthToken()));
+    params.add(Pair.create("authenticity_token",authorizeRequestData.authenticityToken));
+    params.add(Pair.create("redirect_after_login",authorizeRequestData.redirectAfterLogin));
+    if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+      params.add(Pair.create("session[username_or_email]",username));
+      params.add(Pair.create("session[password]",password));
+    }
+    final FormTypedBody authorizationResultBody=new FormTypedBody(params);
+    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
+    requestHeaders.add(Pair.create("User-Agent",userAgent));
+    data.referer=authorizeRequestData.referer;
+    final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
+    authorizeResultBuilder.method(POST.METHOD);
+    authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
+    authorizeResultBuilder.headers(requestHeaders);
+    authorizeResultBuilder.body(authorizationResultBody);
+    authorizeResultBuilder.extra(RequestType.API);
+    response=client.execute(authorizeResultBuilder.build());
+    final HtmlParsingConfiguration conf=new HtmlParsingConfiguration();
+    final IAttoHandler handler=new AbstractStandardNonValidatingHtmlAttoHandler(conf){
+      boolean isOAuthPinDivOpened;
+      boolean isLoginVerificationFormOpened;
+      @Override public void handleHtmlStandaloneElement(      IHtmlElement element,      boolean minimized,      String elementName,      Map<String,String> attributes,      int line,      int col) throws AttoParseException {
+        handleHtmlOpenElement(element,elementName,attributes,line,col);
+        handleHtmlCloseElement(element,elementName,line,col);
+      }
+      @Override public void handleHtmlCloseElement(      IHtmlElement element,      String elementName,      int line,      int col) throws AttoParseException {
+switch (elementName) {
+case "div":
+{
+            isOAuthPinDivOpened=false;
+            break;
+          }
+case "form":
+{
+          isLoginVerificationFormOpened=false;
+          break;
+        }
+    }
+  }
+  @Override public void handleHtmlOpenElement(  IHtmlElement element,  String elementName,  Map<String,String> attributes,  int line,  int col) throws AttoParseException {
+switch (elementName) {
+case "div":
+{
+        if (attributes != null && "oauth_pin".equals(attributes.get("id"))) {
+          isOAuthPinDivOpened=true;
+        }
+        break;
+      }
+case "form":
+{
+      if (attributes != null && "login-verification-form".equals(attributes.get("id"))) {
+        isLoginVerificationFormOpened=true;
+      }
+      break;
+    }
+case "input":
+  if (isLoginVerificationFormOpened && attributes != null) {
+    final String name=attributes.get("name");
+    if (TextUtils.isEmpty(name))     break;
+    final String value=attributes.get("value");
+switch (name) {
+case "authenticity_token":
+{
+        ensureVerification();
+        data.verification.authenticityToken=value;
+        break;
+      }
+case "challenge_id":
+{
+      ensureVerification();
+      data.verification.challengeId=value;
+      break;
+    }
+case "challenge_type":
+{
+    ensureVerification();
+    data.verification.challengeType=value;
+    break;
+  }
+case "platform":
+{
+  ensureVerification();
+  data.verification.platform=value;
+  break;
+}
+case "user_id":
+{
+ensureVerification();
+data.verification.userId=value;
+break;
+}
+case "redirect_after_login":
+{
+ensureVerification();
+data.verification.redirectAfterLogin=value;
+break;
+}
+}
+}
+break;
+}
+}
+private void ensureVerification(){
+if (data.verification == null) {
+data.verification=new AuthorizeResponseData.Verification();
+}
+}
+@Override public void handleText(char[] buffer,int offset,int len,int line,int col) throws AttoParseException {
+if (isOAuthPinDivOpened) {
+final String s=new String(buffer,offset,len);
+if (TextUtils.isDigitsOnly(s)) {
+data.oauthPin=s;
+}
+}
+}
+}
+;
+PARSER.parse(BaseTypedData.reader(response.getBody()),handler);
+return data;
+}
+ catch (AttoParseException e) {
+throw new AuthenticationException(e);
+}
+ finally {
+Utils.closeSilently(response);
+}
+}

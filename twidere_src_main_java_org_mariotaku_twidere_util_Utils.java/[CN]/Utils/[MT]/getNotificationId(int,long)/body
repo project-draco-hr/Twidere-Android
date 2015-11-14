@@ -1,0 +1,5 @@
+{
+  int result=baseId;
+  result=31 * result + (int)(accountId ^ (accountId >>> 32));
+  return result;
+}

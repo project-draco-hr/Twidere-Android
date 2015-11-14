@@ -1,8 +1,10 @@
 {
   try {
-    return OAuthPasswordAuthenticator.readOAuthPINFromHtml(new StringReader(html));
+    OAuthPasswordAuthenticator.OAuthPinData data=new OAuthPasswordAuthenticator.OAuthPinData();
+    OAuthPasswordAuthenticator.readOAuthPINFromHtml(new StringReader(html),data);
+    return data.oauthPin;
   }
- catch (  final XmlPullParserException|IOException e) {
+ catch (  final AttoParseException|IOException e) {
     e.printStackTrace();
   }
   return null;

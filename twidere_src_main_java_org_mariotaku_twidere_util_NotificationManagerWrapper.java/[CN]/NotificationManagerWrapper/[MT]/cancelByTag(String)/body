@@ -1,0 +1,7 @@
+{
+  final List<PostedNotification> collection=findByTag(tag);
+  for (  PostedNotification notification : collection) {
+    notificationManager.cancel(notification.tag,notification.id);
+  }
+  notifications.removeAll(collection);
+}

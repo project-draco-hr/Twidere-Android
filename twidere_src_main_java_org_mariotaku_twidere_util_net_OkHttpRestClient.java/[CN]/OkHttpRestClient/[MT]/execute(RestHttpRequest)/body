@@ -1,4 +1,0 @@
-{
-  final Call call=newCall(restHttpRequest);
-  return new OkRestHttpResponse(call.execute());
-}

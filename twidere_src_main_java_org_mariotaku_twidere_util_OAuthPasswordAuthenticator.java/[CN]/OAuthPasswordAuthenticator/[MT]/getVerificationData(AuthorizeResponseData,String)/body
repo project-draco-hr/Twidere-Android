@@ -1,0 +1,33 @@
+{
+  RestHttpResponse response=null;
+  try {
+    final AuthorizeRequestData data=new AuthorizeRequestData();
+    final List<Pair<String,String>> params=new ArrayList<>();
+    final AuthorizeResponseData.Verification verification=authorizeResponseData.verification;
+    params.add(Pair.create("authenticity_token",verification.authenticityToken));
+    params.add(Pair.create("user_id",verification.userId));
+    params.add(Pair.create("challenge_id",verification.challengeId));
+    params.add(Pair.create("challenge_type",verification.challengeType));
+    params.add(Pair.create("platform",verification.platform));
+    params.add(Pair.create("redirect_after_login",verification.redirectAfterLogin));
+    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
+    requestHeaders.add(Pair.create("User-Agent",userAgent));
+    params.add(Pair.create("challenge_response",challengeResponse));
+    final FormTypedBody authorizationResultBody=new FormTypedBody(params);
+    final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
+    authorizeResultBuilder.method(POST.METHOD);
+    authorizeResultBuilder.url(endpoint.construct("/account/login_verification"));
+    authorizeResultBuilder.headers(requestHeaders);
+    authorizeResultBuilder.body(authorizationResultBody);
+    authorizeResultBuilder.extra(RequestType.API);
+    response=client.execute(authorizeResultBuilder.build());
+    parseAuthorizeRequestData(response,data);
+    return data;
+  }
+ catch (  AttoParseException e) {
+    throw new VerificationCodeException();
+  }
+ finally {
+    Utils.closeSilently(response);
+  }
+}

@@ -44,7 +44,7 @@
       }
     }
     if (succeeded) {
-      dayLogsDir.delete();
+      AbsLogger.logIfFalse(dayLogsDir.delete(),"Unable to delete log dir");
     }
   }
   return hasErrors;

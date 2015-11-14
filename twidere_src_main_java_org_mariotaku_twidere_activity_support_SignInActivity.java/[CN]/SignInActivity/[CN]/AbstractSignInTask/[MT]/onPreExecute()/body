@@ -1,5 +1,5 @@
 {
-  if (callback != null) {
-    callback.onSignInStart();
+  if (activity != null) {
+    activity.onSignInStart();
   }
 }

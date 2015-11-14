@@ -1,0 +1,4 @@
+OAuthToken requestToken
+AuthorizeRequestData authorizeRequestData
+String username
+String password

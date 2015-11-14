@@ -1,0 +1,5 @@
+{
+  int result=tag != null ? tag.hashCode() : 0;
+  result=31 * result + id;
+  return result;
+}

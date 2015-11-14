@@ -1,0 +1,9 @@
+{
+  final ArrayList<PostedNotification> result=new ArrayList<>();
+  for (  PostedNotification notification : notifications) {
+    if (id == notification.id) {
+      result.add(notification);
+    }
+  }
+  return result;
+}

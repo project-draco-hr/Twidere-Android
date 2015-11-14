@@ -1,6 +1,5 @@
 {
-  super(context);
-  this.context=context;
+  super(activity);
   this.username=username;
   this.password=password;
   this.authType=authType;
@@ -8,4 +7,6 @@
   this.apiUrlFormat=apiUrlFormat;
   this.sameOAuthSigningUrl=sameOAuthSigningUrl;
   this.noVersionSuffix=noVersionSuffix;
+  verificationCallback=new InputLoginVerificationCallback();
+  userAgent=UserAgentUtils.getDefaultUserAgentString(activity);
 }

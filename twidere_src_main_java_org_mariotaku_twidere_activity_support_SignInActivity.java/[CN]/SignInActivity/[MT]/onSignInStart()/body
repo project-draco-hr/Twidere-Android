@@ -1,17 +1,3 @@
 {
-  mResumeFragmentRunnable=new Runnable(){
-    @Override public void run(){
-      if (isFinishing())       return;
-      final FragmentManager fm=getSupportFragmentManager();
-      final FragmentTransaction ft=fm.beginTransaction();
-      final SupportProgressDialogFragment fragment=new SupportProgressDialogFragment();
-      fragment.setCancelable(false);
-      fragment.show(ft,FRAGMENT_TAG_SIGN_IN_PROGRESS);
-      mResumeFragmentRunnable=null;
-    }
-  }
-;
-  if (mFragmentsResumed) {
-    mResumeFragmentRunnable.run();
-  }
+  showSignInProgressDialog();
 }

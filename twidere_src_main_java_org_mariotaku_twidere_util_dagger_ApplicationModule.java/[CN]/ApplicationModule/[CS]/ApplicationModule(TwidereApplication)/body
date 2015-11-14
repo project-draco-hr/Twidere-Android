@@ -11,6 +11,7 @@
   asyncTaskManager=AsyncTaskManager.getInstance();
   readStateManager=new ReadStateManager(application);
   network=new TwidereNetwork(application);
+  notificationManagerWrapper=new NotificationManagerWrapper(application);
   asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,sharedPreferences,bus);
   restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,network);
   imageDownloader=new TwidereImageDownloader(application,restHttpClient,true);

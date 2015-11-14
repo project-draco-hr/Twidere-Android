@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,SignInResponse>
+AsyncTask<Object,Runnable,SignInResponse>

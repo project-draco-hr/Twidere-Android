@@ -1,0 +1,3 @@
+{
+  return id == this.id && (tag != null ? tag.equals(this.tag) : this.tag == null);
+}

@@ -1,6 +1,0 @@
-{
-  final RestClient restClient=RestAPIFactory.getRestClient(oauth);
-  this.oauth=oauth;
-  this.client=restClient.getRestClient();
-  this.endpoint=restClient.getEndpoint();
-}

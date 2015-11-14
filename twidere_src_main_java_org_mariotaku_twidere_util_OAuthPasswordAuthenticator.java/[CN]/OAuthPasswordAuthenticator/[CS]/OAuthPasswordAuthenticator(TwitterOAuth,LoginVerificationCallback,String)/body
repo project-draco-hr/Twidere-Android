@@ -1,0 +1,40 @@
+{
+  final RestClient restClient=RestAPIFactory.getRestClient(oauth);
+  this.oauth=oauth;
+  this.client=(OkHttpRestClient)restClient.getRestClient();
+  final OkHttpClient okhttp=client.getClient();
+  okhttp.setCookieHandler(new CookieManager());
+  okhttp.networkInterceptors().add(new Interceptor(){
+    @Override public Response intercept(    Chain chain) throws IOException {
+      final Response response=chain.proceed(chain.request());
+      if (!response.isRedirect()) {
+        return response;
+      }
+      final String location=response.header("Location");
+      final Response.Builder builder=response.newBuilder();
+      if (!TextUtils.isEmpty(location)) {
+        final HttpUrl originalLocation=HttpUrl.parse(location);
+        final HttpUrl.Builder locationBuilder=HttpUrl.parse(endpoint.getUrl()).newBuilder();
+        for (        String pathSegments : originalLocation.pathSegments()) {
+          locationBuilder.addPathSegment(pathSegments);
+        }
+        for (int i=0, j=originalLocation.querySize(); i < j; i++) {
+          final String name=originalLocation.queryParameterName(i);
+          final String value=originalLocation.queryParameterValue(i);
+          locationBuilder.addQueryParameter(name,value);
+        }
+        final String encodedFragment=originalLocation.encodedFragment();
+        if (encodedFragment != null) {
+          locationBuilder.encodedFragment(encodedFragment);
+        }
+        final HttpUrl newLocation=locationBuilder.build();
+        builder.header("Location",newLocation.toString());
+      }
+      return builder.build();
+    }
+  }
+);
+  this.endpoint=restClient.getEndpoint();
+  this.loginVerificationCallback=loginVerificationCallback;
+  this.userAgent=userAgent;
+}

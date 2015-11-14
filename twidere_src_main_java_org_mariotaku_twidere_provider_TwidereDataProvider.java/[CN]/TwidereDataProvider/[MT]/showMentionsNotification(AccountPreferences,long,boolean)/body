@@ -2,7 +2,7 @@
   final long accountId=pref.getAccountId();
   final Context context=getContext();
   final Resources resources=context.getResources();
-  final NotificationManager nm=getNotificationManager();
+  final NotificationManagerWrapper nm=mNotificationManager;
   final Expression selection;
   if (pref.isNotificationFollowingOnly()) {
     selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position),Expression.equals(Statuses.IS_FOLLOWING,1));

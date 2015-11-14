@@ -1,0 +1,4 @@
+{
+  notificationManager.notify(id,notification);
+  notifications.add(new PostedNotification(null,id));
+}

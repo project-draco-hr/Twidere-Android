@@ -2,11 +2,11 @@
   final String versionSuffix=noVersionSuffix ? null : "1.1";
   final Endpoint endpoint=new Endpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
   final Authorization auth=new BasicAuthorization(username,password);
-  final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);
+  final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
   final User user=twitter.verifyCredentials();
   final long userId=user.getId();
   if (userId <= 0)   return new SignInResponse(false,false,null);
-  if (isUserLoggedIn(context,userId))   return new SignInResponse(true,false,null);
+  if (isUserLoggedIn(activity,userId))   return new SignInResponse(true,false,null);
   final int color=analyseUserProfileColor(user);
-  return new SignInResponse(isUserLoggedIn(context,userId),username,password,user,color,apiUrlFormat,noVersionSuffix);
+  return new SignInResponse(isUserLoggedIn(activity,userId),username,password,user,color,apiUrlFormat,noVersionSuffix);
 }

@@ -1,2 +1,3 @@
 {
+  mNotificationManager.cancelById(Utils.getNotificationId(notificationType,accountId));
 }

@@ -1,0 +1,6 @@
+String oauthToken
+String oauthTokenSecret
+String method
+String url
+List<Pair<String,String>> queries
+List<Pair<String,String>> forms
