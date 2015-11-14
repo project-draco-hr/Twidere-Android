@@ -11,6 +11,7 @@
         @Override public void run(){
           InputLoginVerificationDialogFragment df=new InputLoginVerificationDialogFragment();
           df.setCallback(InputLoginVerificationCallback.this);
+          df.setChallengeType(challengeType);
           df.show(activity.getSupportFragmentManager(),null);
         }
       }

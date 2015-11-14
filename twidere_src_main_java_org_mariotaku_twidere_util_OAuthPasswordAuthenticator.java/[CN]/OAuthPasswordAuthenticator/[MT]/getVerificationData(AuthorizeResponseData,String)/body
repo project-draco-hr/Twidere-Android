@@ -12,7 +12,9 @@
     params.add(Pair.create("redirect_after_login",verification.redirectAfterLogin));
     final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
     requestHeaders.add(Pair.create("User-Agent",userAgent));
-    params.add(Pair.create("challenge_response",challengeResponse));
+    if (!TextUtils.isEmpty(challengeResponse)) {
+      params.add(Pair.create("challenge_response",challengeResponse));
+    }
     final FormTypedBody authorizationResultBody=new FormTypedBody(params);
     final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
     authorizeResultBuilder.method(POST.METHOD);
@@ -22,10 +24,13 @@
     authorizeResultBuilder.extra(RequestType.API);
     response=client.execute(authorizeResultBuilder.build());
     parseAuthorizeRequestData(response,data);
+    if (TextUtils.isEmpty(data.authenticityToken)) {
+      throw new LoginVerificationException();
+    }
     return data;
   }
  catch (  AttoParseException e) {
-    throw new VerificationCodeException();
+    throw new LoginVerificationException();
   }
  finally {
     Utils.closeSilently(response);

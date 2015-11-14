@@ -12,8 +12,8 @@
       }
       final String location=response.header("Location");
       final Response.Builder builder=response.newBuilder();
-      if (!TextUtils.isEmpty(location)) {
-        final HttpUrl originalLocation=HttpUrl.parse(location);
+      if (!TextUtils.isEmpty(location) && !endpoint.checkEndpoint(location)) {
+        final HttpUrl originalLocation=HttpUrl.get(URI.create("https://api.twitter.com/").resolve(location));
         final HttpUrl.Builder locationBuilder=HttpUrl.parse(endpoint.getUrl()).newBuilder();
         for (        String pathSegments : originalLocation.pathSegments()) {
           locationBuilder.addPathSegment(pathSegments);

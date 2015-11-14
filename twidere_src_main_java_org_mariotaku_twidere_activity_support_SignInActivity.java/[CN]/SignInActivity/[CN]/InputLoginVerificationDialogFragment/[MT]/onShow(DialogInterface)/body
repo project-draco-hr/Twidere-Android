@@ -1,0 +1,13 @@
+{
+  final AlertDialog alertDialog=(AlertDialog)dialog;
+  final TextView verificationHint=(TextView)alertDialog.findViewById(R.id.verification_hint);
+  final EditText editVerification=(EditText)alertDialog.findViewById(R.id.edit_verification_code);
+  if ("Push".equalsIgnoreCase(challengeType)) {
+    verificationHint.setText(R.string.login_verification_push_hint);
+    editVerification.setVisibility(View.GONE);
+  }
+ else {
+    verificationHint.setText(R.string.login_verification_pin_hint);
+    editVerification.setVisibility(View.VISIBLE);
+  }
+}
