@@ -5,5 +5,8 @@
  else   if (OFF.value.equalsIgnoreCase(action)) {
     return OFF;
   }
+ else   if (PRESENT.value.equalsIgnoreCase(action)) {
+    return PRESENT;
+  }
   return UNKNOWN;
 }

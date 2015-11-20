@@ -2,5 +2,6 @@
   final ScreenEvent event=new ScreenEvent();
   event.markStart(context);
   event.setAction(action);
+  event.setPresentDuration(presentDuration);
   return event;
 }

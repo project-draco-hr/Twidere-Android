@@ -23,6 +23,7 @@
   final IntentFilter screenFilter=new IntentFilter();
   screenFilter.addAction(Intent.ACTION_SCREEN_ON);
   screenFilter.addAction(Intent.ACTION_SCREEN_OFF);
+  screenFilter.addAction(Intent.ACTION_USER_PRESENT);
   registerReceiver(mPowerStateReceiver,batteryFilter);
   registerReceiver(mScreenStateReceiver,screenFilter);
   PowerStateReceiver.setServiceReceiverStarted(true);
