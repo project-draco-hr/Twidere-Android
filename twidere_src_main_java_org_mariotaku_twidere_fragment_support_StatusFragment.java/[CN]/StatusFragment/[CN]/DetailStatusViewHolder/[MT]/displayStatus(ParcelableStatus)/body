@@ -24,7 +24,10 @@
     quoteIndicator.setVisibility(View.VISIBLE);
     quotedNameView.setText(manager.getUserNickname(status.quoted_user_id,status.quoted_user_name,false));
     quotedScreenNameView.setText("@" + status.quoted_user_screen_name);
-    quotedTextView.setText(HtmlSpanBuilder.fromHtml(status.quoted_text_html));
+    final Spanned quotedText=HtmlSpanBuilder.fromHtml(status.quoted_text_html);
+    if (!TextUtils.equals(quotedTextView.getText(),quotedText)) {
+      quotedTextView.setText(quotedText);
+    }
     linkify.applyAllLinks(quotedTextView,status.account_id,layoutPosition,status.is_possibly_sensitive);
     ThemeUtils.applyParagraphSpacing(quotedTextView,1.1f);
     quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
@@ -70,7 +73,8 @@
     timeSourceView.setText(timeString);
   }
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
-  textView.setText(HtmlSpanBuilder.fromHtml(status.text_html));
+  final Spanned text=HtmlSpanBuilder.fromHtml(status.text_html);
+  if (!TextUtils.equals(textView.getText(),text))   textView.setText(text);
   linkify.applyAllLinks(textView,status.account_id,layoutPosition,status.is_possibly_sensitive);
   ThemeUtils.applyParagraphSpacing(textView,1.1f);
   if (!TextUtils.isEmpty(status.place_full_name)) {
@@ -139,6 +143,6 @@
   Utils.setMenuForStatus(context,fragment.mPreferences,menuBar.getMenu(),status,adapter.getStatusAccount());
   textView.setTextIsSelectable(true);
   quotedTextView.setTextIsSelectable(true);
-  textView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
-  quotedTextView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
+  textView.setMovementMethod(LinkMovementMethod.getInstance());
+  quotedTextView.setMovementMethod(LinkMovementMethod.getInstance());
 }

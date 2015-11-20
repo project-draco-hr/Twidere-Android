@@ -1,5 +1,4 @@
 {
   super(context,attrs,defStyle);
-  setEditableFactory(new SafeEditableFactory());
-  setSpannableFactory(new SafeSpannableFactory());
+  init();
 }

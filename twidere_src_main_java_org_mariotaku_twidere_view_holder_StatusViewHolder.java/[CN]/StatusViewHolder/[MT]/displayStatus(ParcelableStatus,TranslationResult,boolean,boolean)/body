@@ -36,7 +36,6 @@
       final Spanned text=HtmlSpanBuilder.fromHtml(status.quoted_text_html);
       quotedTextView.setText(text);
       linkify.applyAllLinks(quotedTextView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
-      quotedTextView.setMovementMethod(null);
     }
  else {
       final String text=status.quoted_text_unescaped;
@@ -108,7 +107,6 @@
  else {
     textView.setText(HtmlSpanBuilder.fromHtml(status.text_html));
     linkify.applyAllLinks(textView,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle());
-    textView.setMovementMethod(null);
   }
   final Locale locale=Locale.getDefault();
   if (reply_count > 0) {
