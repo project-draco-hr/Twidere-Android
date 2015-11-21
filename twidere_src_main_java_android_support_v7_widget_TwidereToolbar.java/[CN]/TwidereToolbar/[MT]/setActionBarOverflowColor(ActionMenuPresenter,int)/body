@@ -2,5 +2,5 @@
   if (presenter == null)   return;
   final View view=(View)Utils.findFieldOfTypes(presenter,ActionMenuPresenter.class,ActionMenuView.ActionMenuChildView.class,View.class);
   if (!(view instanceof ImageView))   return;
-  ((ImageView)view).setColorFilter(itemColor,Mode.SRC_ATOP);
+  ((ImageView)view).setColorFilter(itemColor,PorterDuff.Mode.SRC_ATOP);
 }

@@ -60,12 +60,11 @@
     }
   }
  else   if (view instanceof TwidereToolbar) {
-    final Context context=viewContext;
-    if (context instanceof android.support.v7.internal.view.ContextThemeWrapper) {
-      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(context,((ContextThemeWrapper)context).getThemeResId()));
+    if (viewContext instanceof ContextThemeWrapper) {
+      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(viewContext,((ContextThemeWrapper)viewContext).getThemeResId()));
     }
  else {
-      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(context));
+      ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(viewContext));
     }
   }
  else   if (view instanceof EditText) {

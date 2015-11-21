@@ -5,7 +5,7 @@
   if (menuView != null) {
     final ActionMenuPresenter presenter=(ActionMenuPresenter)Utils.findFieldOfTypes(menuView,ActionMenuView.class,ActionMenuPresenter.class);
     if (presenter != null) {
-      ThemeUtils.setActionBarOverflowColor(presenter,mItemColor);
+      setActionBarOverflowColor(presenter,mItemColor);
     }
   }
   return menu;
