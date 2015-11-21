@@ -7,7 +7,7 @@
   if (savedInstanceState != null) {
     mEditText.setText(savedInstanceState.getCharSequence(EXTRA_TEXT));
   }
-  mUserAutoCompleteAdapter=new UserHashtagAutoCompleteAdapter(wrapped);
+  mUserAutoCompleteAdapter=new ComposeAutoCompleteAdapter(wrapped);
   final Bundle args=getArguments();
   mUserAutoCompleteAdapter.setAccountId(args.getLong(EXTRA_ACCOUNT_ID));
   mEditText.setAdapter(mUserAutoCompleteAdapter);

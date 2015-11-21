@@ -1,0 +1,5 @@
+{
+  super(context,R.layout.list_item_auto_complete,null,FROM,TO,0);
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
+  mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+}

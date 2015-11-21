@@ -1,0 +1,11 @@
+{
+  if (cursor != null) {
+    mTypeIdx=cursor.getColumnIndex(Suggestions.AutoComplete.TYPE);
+    mTitleIdx=cursor.getColumnIndex(Suggestions.AutoComplete.TITLE);
+    mSummaryIdx=cursor.getColumnIndex(Suggestions.AutoComplete.SUMMARY);
+    mExtraIdIdx=cursor.getColumnIndex(Suggestions.AutoComplete.EXTRA_ID);
+    mIconIdx=cursor.getColumnIndex(Suggestions.AutoComplete.ICON);
+    mValueIdx=cursor.getColumnIndex(Suggestions.AutoComplete.VALUE);
+  }
+  return super.swapCursor(cursor);
+}

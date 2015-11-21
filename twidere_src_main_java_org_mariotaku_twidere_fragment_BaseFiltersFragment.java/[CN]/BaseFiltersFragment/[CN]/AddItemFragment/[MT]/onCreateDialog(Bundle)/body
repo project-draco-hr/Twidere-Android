@@ -13,7 +13,7 @@
       mUserAutoCompleteAdapter=new SourceAutoCompleteAdapter(activity);
     }
  else {
-      final UserHashtagAutoCompleteAdapter adapter=new UserHashtagAutoCompleteAdapter(activity);
+      final ComposeAutoCompleteAdapter adapter=new ComposeAutoCompleteAdapter(activity);
       adapter.setAccountId(Utils.getDefaultAccountId(activity));
       mUserAutoCompleteAdapter=adapter;
     }

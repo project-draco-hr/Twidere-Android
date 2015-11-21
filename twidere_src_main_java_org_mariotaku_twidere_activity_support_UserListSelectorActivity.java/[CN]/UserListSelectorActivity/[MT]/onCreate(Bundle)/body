@@ -22,7 +22,7 @@
       getUserLists(mScreenName);
     }
   }
-  final UserHashtagAutoCompleteAdapter adapter=new UserHashtagAutoCompleteAdapter(this);
+  final UserAutoCompleteAdapter adapter=new UserAutoCompleteAdapter(this);
   adapter.setAccountId(getAccountId());
   mEditScreenName.setAdapter(adapter);
   mEditScreenName.setText(mScreenName);

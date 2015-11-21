@@ -1,4 +1,0 @@
-{
-  super.replaceText(text);
-  append(" ");
-}

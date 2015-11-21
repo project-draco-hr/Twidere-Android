@@ -1,6 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  setTokenizer(new StatusTextTokenizer());
-  setMovementMethod(ArrowKeyMovementMethod.getInstance());
-  setupComposeInputType();
-}

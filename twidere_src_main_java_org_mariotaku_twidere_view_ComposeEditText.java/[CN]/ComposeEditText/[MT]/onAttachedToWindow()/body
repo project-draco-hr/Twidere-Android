@@ -1,7 +1,7 @@
 {
   super.onAttachedToWindow();
   if (!isInEditMode() && mAdapter == null) {
-    mAdapter=new UserHashtagAutoCompleteAdapter(getContext());
+    mAdapter=new ComposeAutoCompleteAdapter(getContext());
   }
   setAdapter(mAdapter);
   updateAccountId();

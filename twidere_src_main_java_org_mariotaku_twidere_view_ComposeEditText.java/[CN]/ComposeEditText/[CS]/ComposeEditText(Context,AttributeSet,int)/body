@@ -1,5 +1,11 @@
 {
   super(context,attrs,defStyle);
   setTokenizer(new StatusTextTokenizer());
-  setMovementMethod(ArrowKeyMovementMethod.getInstance());
+  setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      removeIMESuggestions();
+    }
+  }
+);
+  setRawInputType(getInputType() & ~InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE);
 }

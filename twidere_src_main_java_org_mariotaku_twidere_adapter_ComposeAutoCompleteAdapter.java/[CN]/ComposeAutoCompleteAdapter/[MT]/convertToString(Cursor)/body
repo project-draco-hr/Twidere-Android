@@ -1,0 +1,13 @@
+{
+switch (StringUtils.defaultIfEmpty(cursor.getString(mTypeIdx),"")) {
+case Suggestions.AutoComplete.TYPE_HASHTAGS:
+{
+      return '#' + cursor.getString(mValueIdx);
+    }
+case Suggestions.AutoComplete.TYPE_USERS:
+{
+    return '@' + cursor.getString(mValueIdx);
+  }
+}
+return cursor.getString(mValueIdx);
+}

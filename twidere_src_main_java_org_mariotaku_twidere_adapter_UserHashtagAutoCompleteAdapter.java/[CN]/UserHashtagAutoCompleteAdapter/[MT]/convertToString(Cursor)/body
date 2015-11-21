@@ -1,4 +1,0 @@
-{
-  if (isCursorClosed())   return null;
-  return cursor.getString(mSummaryIdx != -1 ? mSummaryIdx : mTitleIdx);
-}
