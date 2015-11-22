@@ -1,28 +1,2 @@
 {
-  super.onActivityCreated(savedInstanceState);
-  setHasOptionsMenu(true);
-  mResolver=getContentResolver();
-  final View view=getView();
-  if (view == null)   throw new AssertionError();
-  final Context context=view.getContext();
-  mAdapter=new CustomTabsAdapter(context);
-  mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-  mListView.setMultiChoiceModeListener(this);
-  mListView.setOnItemClickListener(this);
-  mListView.setAdapter(mAdapter);
-  mListView.setEmptyView(mEmptyView);
-  mListView.setDropListener(new DropListener(){
-    @Override public void drop(    final int from,    final int to){
-      mAdapter.drop(from,to);
-      if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
-        mListView.moveCheckState(from,to);
-      }
-      saveTabPositions();
-    }
-  }
-);
-  mEmptyText.setText(R.string.no_tab);
-  mEmptyIcon.setImageResource(R.drawable.ic_info_tab);
-  getLoaderManager().initLoader(0,null,this);
-  setListShown(false);
 }

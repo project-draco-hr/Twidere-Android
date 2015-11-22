@@ -1,3 +1,6 @@
 {
+  if (errors != null && errorMessage != null && requestPath != null) {
+    return new ErrorInfo[]{new SingleErrorInfo(errorMessage,requestPath)};
+  }
   return errors;
 }

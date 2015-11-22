@@ -1,5 +1,5 @@
 {
-  response=res;
+  httpResponse=res;
   if (res != null) {
     rateLimitStatus=RateLimitStatusJSONImpl.createFromResponseHeader(res);
     statusCode=res.getStatus();

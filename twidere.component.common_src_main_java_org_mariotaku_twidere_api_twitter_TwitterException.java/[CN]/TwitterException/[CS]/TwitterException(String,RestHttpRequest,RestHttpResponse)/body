@@ -1,5 +1,5 @@
 {
   this(message);
-  setResponse(res);
-  setRequest(req);
+  setHttpResponse(res);
+  setHttpRequest(req);
 }

@@ -1,5 +1,4 @@
 {
-  view.setMovementMethod(LinkMovementMethod.getInstance());
   final SpannableString string=SpannableString.valueOf(view.getText());
   final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
   for (  final URLSpan span : spans) {
@@ -11,8 +10,5 @@
  else   if (screenName != null) {
     applyLink(screenName,0,string.length(),string,accountId,extraId,LINK_TYPE_MENTION,false,highlightOption,listener);
   }
-  view.setText(string);
-  if (mAddMovementMethod) {
-    addLinkMovementMethod(view);
-  }
+  view.setText(string,TextView.BufferType.SPANNABLE);
 }

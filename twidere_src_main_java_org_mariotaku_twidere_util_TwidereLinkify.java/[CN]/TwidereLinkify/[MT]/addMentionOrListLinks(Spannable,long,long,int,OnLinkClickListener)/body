@@ -9,7 +9,7 @@
     final String username=matcherGroup(matcher,Regex.VALID_MENTION_OR_LIST_GROUP_USERNAME);
     final String list=matcherGroup(matcher,Regex.VALID_MENTION_OR_LIST_GROUP_LIST);
     applyLink(username,start,username_end,spannable,accountId,extraId,LINK_TYPE_MENTION,false,highlightOption,listener);
-    if (listStart >= 0 && listEnd >= 0) {
+    if (listStart >= 0 && listEnd >= 0 && list != null) {
       applyLink(String.format("%s/%s",username,list.substring(list.startsWith("/") ? 1 : 0)),listStart,listEnd,spannable,accountId,extraId,LINK_TYPE_LIST,false,highlightOption,listener);
     }
     hasMatches=true;

@@ -1,10 +1,2 @@
 {
-  super.onActivityCreated(savedInstanceState);
-  final AbsActivitiesAdapter<Data> adapter=getAdapter();
-  mNavigationHelper=new RecyclerViewNavigationHelper(getRecyclerView(),getLayoutManager(),adapter,this);
-  final View view=getView();
-  if (view == null)   throw new AssertionError();
-  adapter.setListener(this);
-  getLoaderManager().initLoader(0,getArguments(),this);
-  showProgress();
 }

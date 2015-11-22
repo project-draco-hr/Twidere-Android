@@ -1,5 +1,0 @@
-{
-  mOnLinkClickListener=listener;
-  mAddMovementMethod=addMovementMethod;
-  setHighlightOption(highlightOption);
-}

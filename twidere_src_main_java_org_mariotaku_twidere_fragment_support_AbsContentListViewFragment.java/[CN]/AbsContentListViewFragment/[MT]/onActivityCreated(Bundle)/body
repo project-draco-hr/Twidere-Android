@@ -1,22 +1,2 @@
 {
-  super.onActivityCreated(savedInstanceState);
-  final View view=getView();
-  if (view == null)   throw new AssertionError();
-  final Context context=view.getContext();
-  final boolean compact=Utils.isCompactCards(context);
-  final int backgroundColor=ThemeUtils.getThemeBackgroundColor(context);
-  final int colorRes=TwidereColorUtils.getContrastYIQ(backgroundColor,R.color.bg_refresh_progress_color_light,R.color.bg_refresh_progress_color_dark);
-  mSwipeRefreshLayout.setOnRefreshListener(this);
-  mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(colorRes);
-  mAdapter=onCreateAdapter(context,compact);
-  mListView.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-        updateRefreshProgressOffset();
-      }
-      return false;
-    }
-  }
-);
-  mListView.setAdapter(mAdapter);
 }

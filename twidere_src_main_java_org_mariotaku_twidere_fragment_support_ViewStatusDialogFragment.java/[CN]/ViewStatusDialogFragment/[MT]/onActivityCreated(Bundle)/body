@@ -1,20 +1,2 @@
 {
-  super.onActivityCreated(savedInstanceState);
-  final Bundle args=getArguments();
-  if (args == null || args.getParcelable(EXTRA_STATUS) == null) {
-    dismiss();
-    return;
-  }
-  final View view=getView();
-  if (view == null)   throw new AssertionError();
-  final FragmentActivity activity=getActivity();
-  mAdapter=new DummyStatusHolderAdapter(activity);
-  mHolder=new StatusViewHolder(mAdapter,getView());
-  final ParcelableStatus status=args.getParcelable(EXTRA_STATUS);
-  if (args.containsKey(EXTRA_SHOW_MEDIA_PREVIEW)) {
-    mAdapter.setMediaPreviewEnabled(args.getBoolean(EXTRA_SHOW_MEDIA_PREVIEW));
-  }
-  mHolder.displayStatus(status,null,false,true);
-  mStatusContainer.findViewById(R.id.item_menu).setVisibility(View.GONE);
-  mStatusContainer.findViewById(R.id.action_buttons).setVisibility(View.GONE);
 }

@@ -1,0 +1,14 @@
+{
+  if (text == null)   return false;
+  if (end < start) {
+    return false;
+  }
+  int len=text.length();
+  if (start > len || end > len) {
+    return false;
+  }
+  if (start < 0 || end < 0) {
+    return false;
+  }
+  return true;
+}

@@ -1,7 +1,7 @@
 {
   if (!response.isSuccessful()) {
     final TwitterException cause=new TwitterException();
-    cause.setResponse(response);
+    cause.setHttpResponse(response);
     onException(cause);
     return;
   }
