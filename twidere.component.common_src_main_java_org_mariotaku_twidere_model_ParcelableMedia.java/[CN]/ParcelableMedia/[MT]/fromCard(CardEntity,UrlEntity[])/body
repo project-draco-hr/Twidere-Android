@@ -15,8 +15,8 @@
     final BindingValue player_width=card.getBindingValue("player_width");
     final BindingValue player_height=card.getBindingValue("player_height");
     if (player_width instanceof StringValue && player_height instanceof StringValue) {
-      media.width=ParseUtils.parseInt(((StringValue)player_width).getValue());
-      media.height=ParseUtils.parseInt(((StringValue)player_height).getValue());
+      media.width=NumberUtils.toInt(((StringValue)player_width).getValue(),-1);
+      media.height=NumberUtils.toInt(((StringValue)player_height).getValue(),-1);
     }
     if (entities != null) {
       for (      UrlEntity entity : entities) {

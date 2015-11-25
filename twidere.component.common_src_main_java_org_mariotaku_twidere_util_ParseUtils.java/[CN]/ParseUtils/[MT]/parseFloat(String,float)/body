@@ -1,9 +1,0 @@
-{
-  if (source == null)   return def;
-  try {
-    return Float.parseFloat(source);
-  }
- catch (  final NumberFormatException e) {
-  }
-  return def;
-}

@@ -7,7 +7,8 @@
     for (int i=entities.length - 1; i >= 0; i--) {
       final Matcher m=PATTERN_TWITTER_STATUS_LINK.matcher(entities[i].getExpandedUrl());
       if (!m.matches())       continue;
-      final long quoteId=ParseUtils.parseLong(m.group(3),-1);
+      final long def=-1;
+      final long quoteId=NumberUtils.toLong(m.group(3),def);
       if (quoteId > 0) {
         quotes.put(quoteId,status);
       }

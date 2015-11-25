@@ -2,7 +2,7 @@
 switch (v.getId()) {
 case R.id.screen_name_confirm:
 {
-      final String screen_name=parseString(mEditScreenName.getText());
+      final String screen_name=ParseUtils.parseString(mEditScreenName.getText());
       if (isEmpty(screen_name))       return;
       searchUser(screen_name);
       break;

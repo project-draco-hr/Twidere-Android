@@ -6,7 +6,7 @@ case VIEW_TYPE_DETAIL_STATUS:
 {
       final ParcelableStatus status=getStatus(position);
       final DetailStatusViewHolder detailHolder=(DetailStatusViewHolder)holder;
-      detailHolder.displayStatus(status);
+      detailHolder.displayStatus(status,mTwitterWrapper);
       break;
     }
 case VIEW_TYPE_LIST_STATUS:

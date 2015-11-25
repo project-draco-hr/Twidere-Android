@@ -1,0 +1,35 @@
+{
+  super(itemView);
+  this.linkClickHandler=new StatusLinkClickHandler(adapter.getContext(),null);
+  this.linkify=new TwidereLinkify(linkClickHandler);
+  this.adapter=adapter;
+  menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
+  nameView=(TextView)itemView.findViewById(R.id.name);
+  screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
+  textView=(StatusTextView)itemView.findViewById(R.id.text);
+  profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
+  profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
+  timeSourceView=(TextView)itemView.findViewById(R.id.time_source);
+  retweetedByView=(TextView)itemView.findViewById(R.id.retweeted_by);
+  repliesContainer=itemView.findViewById(R.id.replies_container);
+  retweetsContainer=itemView.findViewById(R.id.retweets_container);
+  favoritesContainer=itemView.findViewById(R.id.favorites_container);
+  repliesCountView=(TextView)itemView.findViewById(R.id.replies_count);
+  retweetsCountView=(TextView)itemView.findViewById(R.id.retweets_count);
+  favoritesCountView=(TextView)itemView.findViewById(R.id.favorites_count);
+  mediaPreviewContainer=itemView.findViewById(R.id.media_preview_container);
+  mediaPreviewLoad=itemView.findViewById(R.id.media_preview_load);
+  mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
+  locationView=(TextView)itemView.findViewById(R.id.location_view);
+  quoteOriginalLink=(TextView)itemView.findViewById(R.id.quote_original_link);
+  profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
+  twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
+  favoritesLabel=(TextView)itemView.findViewById(R.id.favorites_label);
+  quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
+  quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
+  quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
+  quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);
+  quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
+  setIsRecyclable(false);
+  initViews();
+}

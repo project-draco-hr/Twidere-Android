@@ -1,0 +1,7 @@
+{
+  final StatusAdapter adapter=getAdapter();
+  final ParcelableStatus status=adapter.findStatusById(event.status.account_id,event.status.id);
+  if (status != null) {
+    status.is_favorite=true;
+  }
+}

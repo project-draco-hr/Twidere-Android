@@ -1,0 +1,5 @@
+{
+  ensureCursor();
+  mCursor.moveToPosition(position);
+  return mCursor;
+}

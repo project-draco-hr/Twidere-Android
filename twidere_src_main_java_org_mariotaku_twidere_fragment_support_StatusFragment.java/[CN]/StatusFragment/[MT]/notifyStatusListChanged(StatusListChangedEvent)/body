@@ -1,0 +1,4 @@
+{
+  final StatusAdapter adapter=getAdapter();
+  adapter.notifyDataSetChanged();
+}

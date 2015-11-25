@@ -13,7 +13,7 @@ case VIEW_TYPE_DETAIL_STATUS:
         final CardView cardView=(CardView)view.findViewById(R.id.card);
         cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
-      return new DetailStatusViewHolder(mFragment,this,view);
+      return new DetailStatusViewHolder(this,view);
     }
 case VIEW_TYPE_LIST_STATUS:
 {

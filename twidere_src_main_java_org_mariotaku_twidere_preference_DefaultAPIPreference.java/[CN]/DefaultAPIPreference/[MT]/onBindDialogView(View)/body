@@ -1,4 +1,5 @@
 {
+  super.onBindDialogView(view);
   final SharedPreferences pref=getSharedPreferences();
   final String apiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_TWITTER_API_URL_FORMAT);
   final int authType=pref.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_OAUTH);

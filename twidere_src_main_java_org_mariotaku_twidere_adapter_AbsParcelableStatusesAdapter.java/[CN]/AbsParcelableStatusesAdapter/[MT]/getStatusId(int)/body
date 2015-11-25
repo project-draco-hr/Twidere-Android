@@ -1,4 +1,9 @@
 {
   if (position == getStatusesCount())   return -1;
+  if (mData instanceof ObjectCursor) {
+    final Cursor cursor=((ObjectCursor)mData).getCursor(position);
+    final ParcelableStatus.CursorIndices indices=(ParcelableStatus.CursorIndices)((ObjectCursor)mData).getIndices();
+    return cursor.getLong(indices.status_id);
+  }
   return mData.get(position).id;
 }

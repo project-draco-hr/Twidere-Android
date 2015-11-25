@@ -10,7 +10,7 @@
     longitude=Double.NaN;
   }
  else {
-    latitude=ParseUtils.parseDouble(longlat[0],Double.NaN);
-    longitude=ParseUtils.parseDouble(longlat[1],Double.NaN);
+    latitude=NumberUtils.toDouble(longlat[0],Double.NaN);
+    longitude=NumberUtils.toDouble(longlat[1],Double.NaN);
   }
 }

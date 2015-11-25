@@ -35,8 +35,8 @@ break;
 case LINK_ID_MAP:
 {
 if (!args.containsKey(EXTRA_LATITUDE) && !args.containsKey(EXTRA_LONGITUDE)) {
-final double lat=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LAT),Double.NaN);
-final double lng=ParseUtils.parseDouble(uri.getQueryParameter(QUERY_PARAM_LNG),Double.NaN);
+final double lat=NumberUtils.toDouble(uri.getQueryParameter(QUERY_PARAM_LAT),Double.NaN);
+final double lng=NumberUtils.toDouble(uri.getQueryParameter(QUERY_PARAM_LNG),Double.NaN);
 if (Double.isNaN(lat) || Double.isNaN(lng)) return null;
 args.putDouble(EXTRA_LATITUDE,lat);
 args.putDouble(EXTRA_LONGITUDE,lng);
@@ -49,7 +49,7 @@ case LINK_ID_STATUS:
 fragment=new StatusFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String param_status_id=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,ParseUtils.parseLong(param_status_id));
+args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(param_status_id,-1));
 }
 break;
 }
@@ -62,7 +62,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(param_user_id));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
 }
 break;
 }
@@ -75,7 +75,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
 break;
 }
@@ -88,7 +88,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -102,7 +102,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -116,7 +116,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
 if (!args.containsKey(EXTRA_SCREEN_NAME) && !args.containsKey(EXTRA_USER_ID)) return null;
 break;
@@ -130,7 +130,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(param_user_id));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
 }
 if (isEmpty(paramScreenName) && isEmpty(param_user_id)) return null;
 break;
@@ -144,7 +144,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(param_user_id));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
 }
 if (isEmpty(paramScreenName) && isEmpty(param_user_id)) return null;
 break;
@@ -169,7 +169,7 @@ case LINK_ID_DIRECT_MESSAGES_CONVERSATION:
 fragment=new MessagesConversationFragment();
 final String paramRecipientId=uri.getQueryParameter(QUERY_PARAM_RECIPIENT_ID);
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final long conversationId=ParseUtils.parseLong(paramRecipientId);
+final long conversationId=NumberUtils.toLong(paramRecipientId,-1);
 if (conversationId > 0) {
 args.putLong(EXTRA_RECIPIENT_ID,conversationId);
 }
@@ -186,8 +186,8 @@ final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
-args.putLong(EXTRA_LIST_ID,ParseUtils.parseLong(paramListId));
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -201,7 +201,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -214,8 +214,8 @@ final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
-args.putLong(EXTRA_LIST_ID,ParseUtils.parseLong(paramListId));
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -228,8 +228,8 @@ final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
-args.putLong(EXTRA_LIST_ID,ParseUtils.parseLong(paramListId));
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -242,8 +242,8 @@ final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
-args.putLong(EXTRA_LIST_ID,ParseUtils.parseLong(paramListId));
-args.putLong(EXTRA_USER_ID,ParseUtils.parseLong(paramUserId));
+args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -283,7 +283,7 @@ case LINK_ID_STATUS_RETWEETERS:
 fragment=new StatusRetweetersListFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,ParseUtils.parseLong(paramStatusId));
+args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(paramStatusId,-1));
 }
 break;
 }
@@ -292,7 +292,7 @@ case LINK_ID_STATUS_FAVORITERS:
 fragment=new StatusFavoritersListFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,ParseUtils.parseLong(paramStatusId));
+args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(paramStatusId,-1));
 }
 break;
 }
@@ -301,7 +301,7 @@ case LINK_ID_STATUS_REPLIES:
 fragment=new StatusRepliesListFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,ParseUtils.parseLong(paramStatusId));
+args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(paramStatusId,-1));
 }
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
@@ -328,7 +328,7 @@ return null;
 }
 final String paramAccountId=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID);
 if (paramAccountId != null) {
-args.putLong(EXTRA_ACCOUNT_ID,ParseUtils.parseLong(paramAccountId));
+args.putLong(EXTRA_ACCOUNT_ID,NumberUtils.toLong(paramAccountId,-1));
 }
  else {
 final String paramAccountName=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_NAME);

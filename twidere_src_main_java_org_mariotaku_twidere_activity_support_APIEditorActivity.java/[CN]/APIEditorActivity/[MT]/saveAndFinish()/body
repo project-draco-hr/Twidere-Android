@@ -1,10 +1,10 @@
 {
-  final String apiUrlFormat=parseString(mEditAPIUrlFormat.getText());
+  final String apiUrlFormat=ParseUtils.parseString(mEditAPIUrlFormat.getText());
   final int authType=getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
   final boolean sameOAuthSigningUrl=mEditSameOAuthSigningUrl.isChecked();
   final boolean noVersionSuffix=mEditNoVersionSuffix.isChecked();
-  final String consumerKey=parseString(mEditConsumerKey.getText());
-  final String consumerSecret=parseString(mEditConsumerSecret.getText());
+  final String consumerKey=ParseUtils.parseString(mEditConsumerKey.getText());
+  final String consumerSecret=ParseUtils.parseString(mEditConsumerSecret.getText());
   final Intent intent=new Intent();
   intent.putExtra(Accounts.API_URL_FORMAT,apiUrlFormat);
   intent.putExtra(Accounts.AUTH_TYPE,authType);

@@ -41,12 +41,12 @@ break;
 }
 case TwidereLinkify.LINK_TYPE_USER_ID:
 {
-openUserProfile(context,accountId,ParseUtils.parseLong(link),null,null);
+openUserProfile(context,accountId,NumberUtils.toLong(link,-1),null,null);
 break;
 }
 case TwidereLinkify.LINK_TYPE_STATUS:
 {
-openStatus(context,accountId,ParseUtils.parseLong(link));
+openStatus(context,accountId,NumberUtils.toLong(link,-1));
 break;
 }
 }

@@ -7,7 +7,7 @@
   popupMenu.setOnMenuItemClickListener(mOnStatusMenuItemClickListener);
   popupMenu.inflate(R.menu.action_status);
   final ParcelableStatus status=adapter.getStatus(position);
-  setMenuForStatus(adapter.getContext(),mPreferences,popupMenu.getMenu(),status);
+  Utils.setMenuForStatus(adapter.getContext(),mPreferences,popupMenu.getMenu(),status,mTwitterWrapper);
   popupMenu.show();
   mPopupMenu=popupMenu;
   mSelectedStatus=status;

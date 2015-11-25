@@ -3,7 +3,8 @@
   final List<Long> list=new ArrayList<>();
   for (  final Entry<String,?> entry : manager.getNameEntries()) {
     final String value=ParseUtils.parseString(entry.getValue());
-    final long key=ParseUtils.parseLong(entry.getKey(),-1);
+    final long def=-1;
+    final long key=NumberUtils.toLong(entry.getKey(),def);
     if (key == -1 || isEmpty(value)) {
       continue;
     }

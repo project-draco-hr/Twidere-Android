@@ -33,10 +33,7 @@
       }
     }
   }
- catch (  final JSONException e) {
-    e.printStackTrace();
-  }
-catch (  final ClassCastException e) {
+ catch (  final JSONException|ClassCastException e) {
     e.printStackTrace();
   }
   return bundle;

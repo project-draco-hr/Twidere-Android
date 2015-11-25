@@ -3,7 +3,7 @@
   mValidator=new Validator();
   if (prefs != null) {
     final String textLimit=prefs.getString(KEY_STATUS_TEXT_LIMIT,null);
-    mMaxTweetLength=ParseUtils.parseInt(textLimit,Validator.MAX_TWEET_LENGTH);
+    mMaxTweetLength=NumberUtils.toInt(textLimit,Validator.MAX_TWEET_LENGTH);
   }
  else {
     mMaxTweetLength=Validator.MAX_TWEET_LENGTH;

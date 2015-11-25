@@ -1,0 +1,3 @@
+StatusViewHolder holder
+int id
+int position

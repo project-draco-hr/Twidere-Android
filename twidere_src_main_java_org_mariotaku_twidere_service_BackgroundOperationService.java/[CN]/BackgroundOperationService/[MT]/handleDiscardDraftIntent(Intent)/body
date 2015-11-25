@@ -3,7 +3,8 @@
   if (data == null)   return;
   mNotificationManager.cancel(data.toString(),NOTIFICATION_ID_DRAFTS);
   final ContentResolver cr=getContentResolver();
-  final long id=ParseUtils.parseLong(data.getLastPathSegment(),-1);
+  final long def=-1;
+  final long id=NumberUtils.toLong(data.getLastPathSegment(),def);
   final Expression where=Expression.equals(Drafts._ID,id);
   cr.delete(Drafts.CONTENT_URI,where.getSQL(),null);
 }
