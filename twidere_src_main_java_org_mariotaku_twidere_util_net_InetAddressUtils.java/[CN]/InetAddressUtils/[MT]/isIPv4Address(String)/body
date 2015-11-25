@@ -1,3 +1,0 @@
-{
-  return getInetAddressType(input) == 2;
-}

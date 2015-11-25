@@ -1,0 +1,4 @@
+{
+  adapter.onStartDrag(this);
+  return true;
+}

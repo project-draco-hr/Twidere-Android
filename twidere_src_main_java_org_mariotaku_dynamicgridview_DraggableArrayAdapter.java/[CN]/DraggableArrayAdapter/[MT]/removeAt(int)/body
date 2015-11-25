@@ -1,4 +1,0 @@
-{
-  super.removeAt(position);
-  rebuildIdMap();
-}

@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ParcelableMediaUpdate that=(ParcelableMediaUpdate)o;
+  if (type != that.type)   return false;
+  return uri.equals(that.uri);
+}

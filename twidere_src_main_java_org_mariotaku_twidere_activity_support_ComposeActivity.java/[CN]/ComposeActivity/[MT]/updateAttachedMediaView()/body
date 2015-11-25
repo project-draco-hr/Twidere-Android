@@ -1,0 +1,4 @@
+{
+  mAttachedMediaPreview.setVisibility(hasMedia() ? View.VISIBLE : View.GONE);
+  setMenu();
+}

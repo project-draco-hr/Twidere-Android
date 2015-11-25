@@ -1,0 +1,5 @@
+{
+  mData.remove(position);
+  notifyItemRemoved(position);
+  ((ComposeActivity)getContext()).updateAttachedMediaView();
+}

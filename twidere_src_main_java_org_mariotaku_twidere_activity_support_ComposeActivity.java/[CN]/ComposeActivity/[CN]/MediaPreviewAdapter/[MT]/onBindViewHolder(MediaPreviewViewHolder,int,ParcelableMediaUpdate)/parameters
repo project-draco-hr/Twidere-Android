@@ -1,0 +1,3 @@
+MediaPreviewViewHolder holder
+int position
+ParcelableMediaUpdate item

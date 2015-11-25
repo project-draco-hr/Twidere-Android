@@ -27,8 +27,25 @@
   mAccountsAdapter=new AccountIconsAdapter(this);
   mAccountSelector.setAdapter(mAccountsAdapter);
   mAccountsAdapter.setAccounts(ParcelableCredentials.getCredentialsArray(this,false,false));
-  mMediaPreviewAdapter=new MediaPreviewAdapter(this);
-  mMediaPreviewGrid.setAdapter(mMediaPreviewAdapter);
+  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new SimpleItemTouchHelperCallback.OnStartDragListener(){
+    @Override public void onStartDrag(    ViewHolder viewHolder){
+      mItemTouchHelper.startDrag(viewHolder);
+    }
+  }
+);
+  mItemTouchHelper=new ItemTouchHelper(new AttachedMediaItemTouchHelperCallback(mMediaPreviewAdapter));
+  final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+  layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+  mAttachedMediaPreview.setLayoutManager(layoutManager);
+  mAttachedMediaPreview.setAdapter(mMediaPreviewAdapter);
+  mItemTouchHelper.attachToRecyclerView(mAttachedMediaPreview);
+  final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
+  mAttachedMediaPreview.addItemDecoration(new ItemDecoration(){
+    @Override public void getItemOffsets(    Rect outRect,    View view,    RecyclerView parent,    State state){
+      outRect.left=outRect.right=previewGridSpacing;
+    }
+  }
+);
   final Intent intent=getIntent();
   if (savedInstanceState != null) {
     mAccountsAdapter.setSelectedAccountIds(savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS));
@@ -78,7 +95,7 @@
   }
   setMenu();
   updateLocationState();
-  updateMediaPreview();
   notifyAccountSelectionChanged();
   mTextChanged=false;
+  updateAttachedMediaView();
 }

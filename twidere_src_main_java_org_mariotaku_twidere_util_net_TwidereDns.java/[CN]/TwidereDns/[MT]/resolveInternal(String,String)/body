@@ -1,10 +1,4 @@
 {
-  try {
-    Log.d(LOGTAG,"Test Resolved " + Arrays.toString(mResolver.resolve("localhost")));
-    Log.d(LOGTAG,"Test Resolved " + Arrays.toString(mResolver.resolve("ip6-localhost")));
-  }
- catch (  IOException e) {
-  }
   if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
   final InetAddress[] cachedHostAddr=mHostCache.get(host);
   if (cachedHostAddr != null) {

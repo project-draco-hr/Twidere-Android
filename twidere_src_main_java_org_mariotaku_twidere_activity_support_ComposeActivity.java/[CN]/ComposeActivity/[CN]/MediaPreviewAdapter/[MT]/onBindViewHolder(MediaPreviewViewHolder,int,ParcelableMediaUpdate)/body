@@ -1,0 +1,4 @@
+{
+  final ParcelableMediaUpdate media=getItem(position);
+  holder.displayMedia(this,media);
+}

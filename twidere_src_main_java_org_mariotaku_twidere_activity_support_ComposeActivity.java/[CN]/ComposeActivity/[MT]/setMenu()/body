@@ -8,7 +8,6 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.view,hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.media_menu,hasMedia || hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.toggle_sensitive,hasMedia);
-  MenuUtils.setMenuItemAvailability(menu,R.id.edit_media,hasMedia);
   MenuUtils.setMenuItemAvailability(menu,R.id.link_to_quoted_status,isQuote());
   MenuUtils.setMenuItemAvailability(menu,R.id.schedule,isScheduleSupported());
   menu.setGroupEnabled(MENU_GROUP_IMAGE_EXTENSION,hasMedia);

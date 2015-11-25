@@ -2,7 +2,6 @@
   if (mMedia == null)   return false;
   try {
     for (    final ParcelableMediaUpdate media : mMedia) {
-      if (media.uri == null)       continue;
       final Uri uri=Uri.parse(media.uri);
       if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
         final File file=new File(uri.getPath());

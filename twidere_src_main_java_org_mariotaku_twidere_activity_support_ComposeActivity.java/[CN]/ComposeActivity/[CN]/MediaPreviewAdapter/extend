@@ -1,1 +1,1 @@
-DraggableArrayAdapter<ParcelableMediaUpdate>
+ArrayRecyclerAdapter<ParcelableMediaUpdate,MediaPreviewViewHolder>
