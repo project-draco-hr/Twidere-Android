@@ -1,8 +1,3 @@
 {
-  try {
-    return Inet4Address.getByName(input) != null;
-  }
- catch (  UnknownHostException ex) {
-    return false;
-  }
+  return getInetAddressType(input) == 2;
 }

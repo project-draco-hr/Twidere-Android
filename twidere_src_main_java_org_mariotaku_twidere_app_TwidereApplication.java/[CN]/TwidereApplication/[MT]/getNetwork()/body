@@ -1,4 +1,0 @@
-{
-  if (mNetwork != null)   return mNetwork;
-  return mNetwork=new TwidereNetwork(this);
-}

@@ -1,0 +1,25 @@
+{
+  BufferedReader br=null;
+  try {
+    br=new BufferedReader(new FileReader(HOSTS_PATH));
+    String line;
+    while ((line=br.readLine()) != null) {
+      Scanner scanner=new Scanner(line);
+      if (!scanner.hasNext())       continue;
+      String address=scanner.next();
+      if (address.startsWith("#"))       continue;
+      while (scanner.hasNext()) {
+        final String host=scanner.next();
+        if (host.startsWith("#"))         break;
+        if (TextUtils.equals(hostToResolve,host)) {
+          final InetAddress resolved=InetAddressUtils.getResolvedIPAddress(host,address);
+          if (resolved != null)           return new InetAddress[]{resolved};
+        }
+      }
+    }
+  }
+  finally {
+    Utils.closeSilently(br);
+  }
+  throw new UnknownHostException(hostToResolve);
+}

@@ -1,3 +1,0 @@
-{
-  return mHosts.get(host);
-}

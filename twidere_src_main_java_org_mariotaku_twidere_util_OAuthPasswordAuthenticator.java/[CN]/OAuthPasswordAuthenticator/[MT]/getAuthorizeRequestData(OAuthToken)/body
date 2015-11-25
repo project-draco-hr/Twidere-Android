@@ -19,7 +19,7 @@
     return data;
   }
  catch (  AttoParseException e) {
-    throw new AuthenticationException(e);
+    throw new AuthenticationException("Malformed HTML",e);
   }
  finally {
     Utils.closeSilently(response);

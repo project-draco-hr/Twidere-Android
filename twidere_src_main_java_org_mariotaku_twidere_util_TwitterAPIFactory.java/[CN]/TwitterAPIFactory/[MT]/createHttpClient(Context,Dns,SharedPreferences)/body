@@ -1,0 +1,6 @@
+{
+  final OkHttpClient client=new OkHttpClient();
+  updateHttpClientConfiguration(prefs,client);
+  client.setDns(dns);
+  return new OkHttpRestClient(client);
+}

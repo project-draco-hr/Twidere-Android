@@ -25,11 +25,11 @@
     final IAttoHandler handler=new AbstractStandardNonValidatingHtmlAttoHandler(conf){
       boolean isOAuthPinDivOpened;
       boolean isLoginVerificationFormOpened;
-      @Override public void handleHtmlStandaloneElement(      IHtmlElement element,      boolean minimized,      String elementName,      Map<String,String> attributes,      int line,      int col) throws AttoParseException {
+      @Override public void handleHtmlStandaloneElement(      IHtmlElement element,      boolean minimized,      String elementName,      Map<String,String> attributes,      int line,      int col){
         handleHtmlOpenElement(element,elementName,attributes,line,col);
         handleHtmlCloseElement(element,elementName,line,col);
       }
-      @Override public void handleHtmlCloseElement(      IHtmlElement element,      String elementName,      int line,      int col) throws AttoParseException {
+      @Override public void handleHtmlCloseElement(      IHtmlElement element,      String elementName,      int line,      int col){
 switch (elementName) {
 case "div":
 {
@@ -43,7 +43,7 @@ case "form":
         }
     }
   }
-  @Override public void handleHtmlOpenElement(  IHtmlElement element,  String elementName,  Map<String,String> attributes,  int line,  int col) throws AttoParseException {
+  @Override public void handleHtmlOpenElement(  IHtmlElement element,  String elementName,  Map<String,String> attributes,  int line,  int col){
 switch (elementName) {
 case "div":
 {
@@ -125,7 +125,7 @@ PARSER.parse(BaseTypedData.reader(response.getBody()),handler);
 return data;
 }
  catch (AttoParseException e) {
-throw new AuthenticationException(e);
+throw new AuthenticationException("Malformed HTML",e);
 }
  finally {
 Utils.closeSilently(response);

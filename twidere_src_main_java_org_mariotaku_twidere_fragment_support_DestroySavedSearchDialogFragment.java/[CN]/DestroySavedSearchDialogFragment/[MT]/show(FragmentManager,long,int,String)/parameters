@@ -1,4 +1,0 @@
-FragmentManager fm
-long accountId
-int searchId
-String name

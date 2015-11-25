@@ -30,7 +30,7 @@
     return data;
   }
  catch (  AttoParseException e) {
-    throw new LoginVerificationException();
+    throw new LoginVerificationException("Login verification challenge failed",e);
   }
  finally {
     Utils.closeSilently(response);

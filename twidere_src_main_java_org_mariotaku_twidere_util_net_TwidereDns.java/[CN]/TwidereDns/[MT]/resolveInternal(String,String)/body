@@ -1,0 +1,86 @@
+{
+  try {
+    Log.d(LOGTAG,"Test Resolved " + Arrays.toString(mResolver.resolve("localhost")));
+    Log.d(LOGTAG,"Test Resolved " + Arrays.toString(mResolver.resolve("ip6-localhost")));
+  }
+ catch (  IOException e) {
+  }
+  if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
+  final InetAddress[] cachedHostAddr=mHostCache.get(host);
+  if (cachedHostAddr != null) {
+    if (BuildConfig.DEBUG) {
+      Log.d(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(cachedHostAddr));
+      return cachedHostAddr;
+    }
+  }
+  if (mHostMapping.contains(host)) {
+    final String mappedAddr=mHostMapping.getString(host,null);
+    if (mappedAddr != null) {
+      final InetAddress[] hostAddr=fromAddressString(originalHost,mappedAddr);
+      mHostCache.put(originalHost,hostAddr);
+      if (BuildConfig.DEBUG) {
+        Log.d(RESOLVER_LOGTAG,"Got mapped " + Arrays.toString(hostAddr));
+      }
+      return hostAddr;
+    }
+  }
+  try {
+    final InetAddress[] hostAddr=mResolver.resolve(host);
+    mHostCache.put(originalHost,hostAddr);
+    if (BuildConfig.DEBUG) {
+      Log.d(RESOLVER_LOGTAG,"Got hosts " + Arrays.toString(hostAddr));
+    }
+    return hostAddr;
+  }
+ catch (  UnknownHostException e) {
+  }
+  final String customMappedHost=findHost(host);
+  if (customMappedHost != null) {
+    final InetAddress[] hostAddr=fromAddressString(originalHost,customMappedHost);
+    mHostCache.put(originalHost,hostAddr);
+    if (BuildConfig.DEBUG) {
+      Log.d(RESOLVER_LOGTAG,"Got mapped address " + customMappedHost + " for host "+ host);
+    }
+    return hostAddr;
+  }
+  final Resolver dns=getResolver();
+  if (dns != null && mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false)) {
+    final Lookup lookup=new Lookup(new Name(host),Type.A,DClass.IN);
+    final Record[] records;
+    lookup.setResolver(dns);
+    lookup.run();
+    final int result=lookup.getResult();
+    if (result != Lookup.SUCCESSFUL) {
+      throw new UnknownHostException("Unable to resolve " + host + ", "+ lookup.getErrorString());
+    }
+    records=lookup.getAnswers();
+    final ArrayList<InetAddress> resolvedAddresses=new ArrayList<>();
+    for (    final Record record : records) {
+      if (record instanceof ARecord) {
+        final InetAddress ipv4Addr=((ARecord)record).getAddress();
+        resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv4Addr.getAddress()));
+      }
+ else       if (record instanceof AAAARecord) {
+        final InetAddress ipv6Addr=((AAAARecord)record).getAddress();
+        resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv6Addr.getAddress()));
+      }
+    }
+    if (!resolvedAddresses.isEmpty()) {
+      final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
+      mHostCache.put(originalHost,hostAddr);
+      if (BuildConfig.DEBUG) {
+        Log.d(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(hostAddr));
+      }
+      return hostAddr;
+    }
+    for (    final Record record : records) {
+      if (record instanceof CNAMERecord)       return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString());
+    }
+  }
+  if (BuildConfig.DEBUG) {
+    Log.w(RESOLVER_LOGTAG,"Resolve address " + host + " failed, using original host");
+  }
+  final InetAddress[] defaultAddresses=InetAddress.getAllByName(host);
+  mHostCache.put(host,defaultAddresses);
+  return defaultAddresses;
+}

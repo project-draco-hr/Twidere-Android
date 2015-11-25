@@ -1,6 +1,0 @@
-{
-  final OkHttpClient client=new OkHttpClient();
-  updateHttpClientConfiguration(prefs,client);
-  Internal.instance.setNetwork(client,network);
-  return new OkHttpRestClient(client);
-}

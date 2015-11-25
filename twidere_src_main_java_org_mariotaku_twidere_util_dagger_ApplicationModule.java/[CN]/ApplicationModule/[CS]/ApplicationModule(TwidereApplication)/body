@@ -10,10 +10,10 @@
   bus=new Bus(ThreadEnforcer.MAIN);
   asyncTaskManager=AsyncTaskManager.getInstance();
   readStateManager=new ReadStateManager(application);
-  network=new TwidereNetwork(application);
+  dns=new TwidereDns(application);
   notificationManagerWrapper=new NotificationManagerWrapper(application);
   asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,sharedPreferences,bus);
-  restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,network);
+  restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,dns);
   imageDownloader=new TwidereImageDownloader(application,restHttpClient,true);
   imageLoader=createImageLoader(application,imageDownloader);
   videoLoader=new VideoLoader(application,restHttpClient,asyncTaskManager,bus);
