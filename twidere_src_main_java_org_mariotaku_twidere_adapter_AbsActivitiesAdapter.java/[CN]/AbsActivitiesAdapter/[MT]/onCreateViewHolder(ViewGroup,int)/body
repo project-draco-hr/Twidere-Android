@@ -14,7 +14,7 @@ case ITEM_VIEW_TYPE_STATUS:
         cardView.setCardBackgroundColor(mCardBackgroundColor);
       }
       final StatusViewHolder holder=new StatusViewHolder(mStatusAdapterDelegate,view);
-      holder.setTextSize(getTextSize());
+      holder.setupViewOptions();
       holder.setStatusClickListener(this);
       return holder;
     }

@@ -1,3 +1,3 @@
 {
-  return mDisplayProfileImage;
+  return mStatusAdapterDelegate.isProfileImageEnabled();
 }
