@@ -53,12 +53,6 @@
       ((IThemeBackgroundTintView)view).setBackgroundTintColor(ColorStateList.valueOf(backgroundTintColor));
     }
   }
- else   if (view instanceof TintableBackgroundView) {
-    final TintableBackgroundView tintable=(TintableBackgroundView)view;
-    if (isAccentOptimal || !isColorTint) {
-      applyTintableBackgroundViewTint(tintable,accentColor,noTintColor,backgroundTintColor,isColorTint);
-    }
-  }
  else   if (view instanceof TwidereToolbar) {
     if (viewContext instanceof ContextThemeWrapper) {
       ((TwidereToolbar)view).setItemColor(ThemeUtils.getThemeForegroundColor(viewContext,((ContextThemeWrapper)viewContext).getThemeResId()));
@@ -71,12 +65,23 @@
     if (isAccentOptimal || !isColorTint) {
       ViewCompat.setBackgroundTintList(view,ColorStateList.valueOf(backgroundTintColor));
     }
+    if (view instanceof MaterialEditText) {
+      if (isAccentOptimal || !isColorTint) {
+        ((MaterialEditText)view).setPrimaryColor(backgroundTintColor);
+      }
+    }
   }
  else   if (view instanceof ProgressBar) {
     if (isAccentOptimal || !isColorTint) {
       ViewSupport.setIndeterminateTintList((ProgressBar)view,ColorStateList.valueOf(accentColor));
       ViewSupport.setProgressTintList((ProgressBar)view,ColorStateList.valueOf(accentColor));
       ViewSupport.setProgressBackgroundTintList((ProgressBar)view,ColorStateList.valueOf(accentColor));
+    }
+  }
+ else   if (view instanceof TintableBackgroundView) {
+    final TintableBackgroundView tintable=(TintableBackgroundView)view;
+    if (isAccentOptimal || !isColorTint) {
+      applyTintableBackgroundViewTint(tintable,accentColor,noTintColor,backgroundTintColor,isColorTint);
     }
   }
 }
