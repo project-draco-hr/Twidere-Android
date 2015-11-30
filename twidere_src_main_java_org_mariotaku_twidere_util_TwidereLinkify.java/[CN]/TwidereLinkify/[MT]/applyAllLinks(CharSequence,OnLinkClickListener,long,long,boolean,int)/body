@@ -1,0 +1,7 @@
+{
+  final SpannableString string=SpannableString.valueOf(text);
+  for (  final int type : ALL_LINK_TYPES) {
+    addLinks(string,accountId,extraId,type,sensitive,listener,highlightOption);
+  }
+  return string;
+}

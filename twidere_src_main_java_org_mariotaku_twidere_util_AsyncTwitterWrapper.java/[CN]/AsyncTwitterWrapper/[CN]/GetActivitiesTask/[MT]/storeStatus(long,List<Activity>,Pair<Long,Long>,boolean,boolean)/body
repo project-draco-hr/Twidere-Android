@@ -1,5 +1,0 @@
-{
-  if (statuses == null || statuses.isEmpty() || accountId <= 0) {
-    return;
-  }
-}

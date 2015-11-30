@@ -1,4 +1,3 @@
 {
-  dest.writeString(uri);
-  dest.writeInt(type);
+  ParcelableMediaUpdateParcelablePlease.writeToParcel(this,dest,flags);
 }

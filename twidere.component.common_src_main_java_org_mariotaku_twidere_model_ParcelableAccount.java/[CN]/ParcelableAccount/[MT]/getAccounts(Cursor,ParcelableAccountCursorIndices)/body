@@ -1,0 +1,15 @@
+{
+  if (cursor == null || indices == null)   return new ParcelableAccount[0];
+  try {
+    cursor.moveToFirst();
+    final ParcelableAccount[] names=new ParcelableAccount[cursor.getCount()];
+    while (!cursor.isAfterLast()) {
+      names[cursor.getPosition()]=indices.newObject(cursor);
+      cursor.moveToNext();
+    }
+    return names;
+  }
+  finally {
+    cursor.close();
+  }
+}

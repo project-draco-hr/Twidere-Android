@@ -1,0 +1,5 @@
+{
+  final String tag=getReadPositionTagWithAccounts();
+  if (tag == null)   return null;
+  return tag + "_current";
+}

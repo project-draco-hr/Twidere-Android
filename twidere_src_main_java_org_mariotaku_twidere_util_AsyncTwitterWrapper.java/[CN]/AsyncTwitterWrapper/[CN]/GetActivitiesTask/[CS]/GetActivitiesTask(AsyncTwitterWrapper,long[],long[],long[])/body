@@ -1,0 +1,7 @@
+{
+  super(twitterWrapper.getContext(),"");
+  this.twitterWrapper=twitterWrapper;
+  this.accountIds=accountIds;
+  this.maxIds=maxIds;
+  this.sinceIds=sinceIds;
+}

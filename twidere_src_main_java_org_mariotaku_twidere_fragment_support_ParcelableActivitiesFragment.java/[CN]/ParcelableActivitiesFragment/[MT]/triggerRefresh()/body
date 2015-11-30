@@ -1,6 +1,0 @@
-{
-  final IActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
-  final long[] accountIds=getAccountIds();
-  getActivities(accountIds,null,null);
-  return true;
-}

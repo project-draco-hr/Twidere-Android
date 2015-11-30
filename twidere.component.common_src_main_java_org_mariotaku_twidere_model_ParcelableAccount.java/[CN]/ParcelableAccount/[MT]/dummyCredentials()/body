@@ -1,3 +1,5 @@
 {
-  return new ParcelableCredentials();
+  final ParcelableCredentials credentials=new ParcelableCredentials();
+  credentials.is_dummy=true;
+  return credentials;
 }

@@ -1,2 +1,13 @@
 {
+  super.onActivityCreated(savedInstanceState);
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final RecyclerView recyclerView=getRecyclerView();
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter,this);
+  adapter.setListener(this);
+  mPauseOnScrollListener=new PauseRecyclerViewOnScrollListener(adapter.getMediaLoader().getImageLoader(),false,true);
+  final Bundle loaderArgs=new Bundle(getArguments());
+  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
+  getLoaderManager().initLoader(0,loaderArgs,this);
+  showProgress();
 }

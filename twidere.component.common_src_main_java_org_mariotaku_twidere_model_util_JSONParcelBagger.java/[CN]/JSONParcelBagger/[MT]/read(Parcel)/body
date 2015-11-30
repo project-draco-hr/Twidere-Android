@@ -1,0 +1,12 @@
+{
+  final String s=in.readString();
+  if (s != null) {
+    try {
+      return new JSONObject(s);
+    }
+ catch (    JSONException e) {
+      return null;
+    }
+  }
+  return null;
+}

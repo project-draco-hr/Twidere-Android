@@ -1,0 +1,3 @@
+{
+  return applyAllLinks(text,mOnLinkClickListener,accountId,extraId,sensitive,highlightOption);
+}

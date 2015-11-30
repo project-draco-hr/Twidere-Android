@@ -1,0 +1,3 @@
+{
+  mAsyncTaskManager.add(new GetActivitiesTask(this,accountIds,maxIds,sinceIds),true);
+}

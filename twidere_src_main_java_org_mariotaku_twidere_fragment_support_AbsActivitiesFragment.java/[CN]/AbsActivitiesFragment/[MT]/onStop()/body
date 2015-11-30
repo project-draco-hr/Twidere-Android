@@ -1,4 +1,11 @@
 {
   mBus.unregister(mStatusesBusCallback);
+  final RecyclerView recyclerView=getRecyclerView();
+  if (mActiveHotMobiScrollTracker != null) {
+    recyclerView.removeOnScrollListener(mActiveHotMobiScrollTracker);
+  }
+  mActiveHotMobiScrollTracker=null;
+  recyclerView.removeOnScrollListener(mPauseOnScrollListener);
+  recyclerView.removeOnScrollListener(mOnScrollListener);
   super.onStop();
 }

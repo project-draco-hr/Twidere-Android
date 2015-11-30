@@ -1,3 +1,4 @@
 {
-  return getAdapter().getData();
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  return adapter.getData();
 }

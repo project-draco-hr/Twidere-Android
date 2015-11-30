@@ -1,0 +1,16 @@
+{
+  final Context context=adapter.getContext();
+  final TwidereLinkify linkify=adapter.getLinkify();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
+  final long accountId=cursor.getLong(indices.account_id);
+  final long timestamp=cursor.getLong(indices.timestamp);
+  final ParcelableMedia[] media=JsonSerializer.parseArray(cursor.getString(indices.media),ParcelableMedia.class);
+  final Spanned text=HtmlSpanBuilder.fromHtml(cursor.getString(indices.text_html));
+  textView.setText(linkify.applyAllLinks(text,accountId,false));
+  time.setText(Utils.formatToLongTimeString(context,timestamp));
+  mediaContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
+  mediaContainer.displayMedia(media,loader,accountId,true,this,adapter.getMediaLoadingHandler());
+  textView.setTextIsSelectable(true);
+  textView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
+  textView.setCustomSelectionActionModeCallback(callback);
+}

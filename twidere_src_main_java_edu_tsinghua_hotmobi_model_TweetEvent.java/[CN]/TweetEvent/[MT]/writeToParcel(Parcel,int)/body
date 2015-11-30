@@ -1,0 +1,3 @@
+{
+  TweetEventParcelablePlease.writeToParcel(this,dest,flags);
+}

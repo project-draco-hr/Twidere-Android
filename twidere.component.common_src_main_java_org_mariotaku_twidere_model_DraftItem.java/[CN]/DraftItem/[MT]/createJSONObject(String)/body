@@ -1,10 +1,9 @@
 {
-  if (TextUtils.isEmpty(json))   return new JSONObject();
+  if (TextUtils.isEmpty(json))   return null;
   try {
     return new JSONObject(json);
   }
- catch (  final JSONException e) {
-    e.printStackTrace();
+ catch (  JSONException e) {
   }
-  return new JSONObject();
+  return null;
 }

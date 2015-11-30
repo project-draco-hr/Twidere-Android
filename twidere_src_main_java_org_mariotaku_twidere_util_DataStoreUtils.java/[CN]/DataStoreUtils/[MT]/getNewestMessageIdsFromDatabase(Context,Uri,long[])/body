@@ -1,0 +1,21 @@
+{
+  if (context == null || uri == null || accountIds == null)   return null;
+  final String[] cols=new String[]{TwidereDataStore.DirectMessages.MESSAGE_ID};
+  final ContentResolver resolver=context.getContentResolver();
+  final long[] messageIds=new long[accountIds.length];
+  int idx=0;
+  for (  final long accountId : accountIds) {
+    final String where=Expression.equals(TwidereDataStore.DirectMessages.ACCOUNT_ID,accountId).getSQL();
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,TwidereDataStore.DirectMessages.DEFAULT_SORT_ORDER);
+    if (cur == null) {
+      continue;
+    }
+    if (cur.getCount() > 0) {
+      cur.moveToFirst();
+      messageIds[idx]=cur.getLong(cur.getColumnIndexOrThrow(TwidereDataStore.DirectMessages.MESSAGE_ID));
+    }
+    cur.close();
+    idx++;
+  }
+  return messageIds;
+}

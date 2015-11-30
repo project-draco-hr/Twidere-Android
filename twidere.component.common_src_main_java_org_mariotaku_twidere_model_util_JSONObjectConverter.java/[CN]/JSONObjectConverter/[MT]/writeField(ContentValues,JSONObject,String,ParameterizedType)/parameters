@@ -1,0 +1,4 @@
+ContentValues values
+JSONObject object
+String columnName
+ParameterizedType fieldType

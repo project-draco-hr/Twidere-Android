@@ -2,7 +2,7 @@
   if (context == null)   return null;
   final ContentResolver resolver=context.getContentResolver();
   ParcelableStatus status=null;
-  final String where=Statuses.ACCOUNT_ID + " = " + accountId+ " AND "+ Statuses.STATUS_ID+ " = "+ statusId;
+  final String where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,statusId)).getSQL();
   for (  final Uri uri : STATUSES_URIS) {
     final Cursor cur=ContentResolverUtils.query(resolver,uri,Statuses.COLUMNS,where,null,null);
     if (cur == null) {
@@ -10,7 +10,7 @@
     }
     if (cur.getCount() > 0) {
       cur.moveToFirst();
-      status=new ParcelableStatus(cur,new ParcelableStatus.CursorIndices(cur));
+      status=ParcelableStatusCursorIndices.fromCursor(cur);
     }
     cur.close();
   }

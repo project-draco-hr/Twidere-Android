@@ -1,0 +1,3 @@
+{
+  RefreshEventParcelablePlease.writeToParcel(this,dest,flags);
+}

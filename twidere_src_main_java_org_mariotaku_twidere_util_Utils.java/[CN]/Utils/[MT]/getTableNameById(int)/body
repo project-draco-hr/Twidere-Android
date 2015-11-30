@@ -6,6 +6,10 @@ case TABLE_ID_STATUSES:
   return Statuses.TABLE_NAME;
 case TABLE_ID_MENTIONS:
 return Mentions.TABLE_NAME;
+case TABLE_ID_ACTIVITIES_ABOUT_ME:
+return Activities.AboutMe.TABLE_NAME;
+case TABLE_ID_ACTIVITIES_BY_FRIENDS:
+return Activities.ByFriends.TABLE_NAME;
 case TABLE_ID_DRAFTS:
 return Drafts.TABLE_NAME;
 case TABLE_ID_FILTERED_USERS:

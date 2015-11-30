@@ -1,0 +1,3 @@
+{
+  return ParcelableLocation.fromString(cursor.getString(columnIndex));
+}

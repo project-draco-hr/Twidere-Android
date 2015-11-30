@@ -1,3 +1,5 @@
 {
-  return new ParcelableAccount();
+  final ParcelableAccount account=new ParcelableAccount();
+  account.is_dummy=true;
+  return account;
 }

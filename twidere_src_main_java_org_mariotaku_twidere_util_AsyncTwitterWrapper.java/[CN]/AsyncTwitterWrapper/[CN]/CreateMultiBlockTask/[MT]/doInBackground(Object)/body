@@ -12,10 +12,10 @@
       }
  catch (      final TwitterException e) {
         deleteCaches(blocked_users);
-        return new ListResponse<>(null,e,null);
+        return ListResponse.getListInstance(e);
       }
     }
   }
   deleteCaches(blocked_users);
-  return new ListResponse<>(blocked_users,null,null);
+  return ListResponse.getListInstance(blocked_users);
 }

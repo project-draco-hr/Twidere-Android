@@ -1,0 +1,3 @@
+{
+  NetworkEventParcelablePlease.writeToParcel(this,dest,flags);
+}

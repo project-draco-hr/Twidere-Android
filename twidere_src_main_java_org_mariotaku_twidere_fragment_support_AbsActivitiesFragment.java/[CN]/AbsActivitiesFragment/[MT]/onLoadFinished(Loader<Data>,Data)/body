@@ -1,5 +1,37 @@
 {
-  setRefreshing(false);
-  getAdapter().setData(data);
-  showContent();
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final boolean rememberPosition=mPreferences.getBoolean(KEY_REMEMBER_POSITION,false);
+  final boolean readFromBottom=mPreferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
+  final long lastReadId;
+  final int lastVisiblePos, lastVisibleTop;
+  final String tag=getCurrentReadPositionTag();
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  if (readFromBottom) {
+    lastVisiblePos=layoutManager.findLastVisibleItemPosition();
+  }
+ else {
+    lastVisiblePos=layoutManager.findFirstVisibleItemPosition();
+  }
+  if (lastVisiblePos != RecyclerView.NO_POSITION && lastVisiblePos < adapter.getItemCount()) {
+    final View positionView=layoutManager.findViewByPosition(lastVisiblePos);
+    lastVisibleTop=positionView != null ? positionView.getTop() : 0;
+  }
+ else   if (rememberPosition && tag != null) {
+    lastReadId=mReadStateManager.getPosition(tag);
+    lastVisibleTop=0;
+  }
+ else {
+    lastReadId=-1;
+    lastVisibleTop=0;
+  }
+  adapter.setData(data);
+  setRefreshEnabled(true);
+  if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
+    adapter.setLoadMoreSupported(hasMoreData(data));
+    int pos=-1;
+  }
+  if (loader instanceof IExtendedLoader) {
+    ((IExtendedLoader)loader).setFromUser(false);
+  }
+  onLoadingFinished();
 }

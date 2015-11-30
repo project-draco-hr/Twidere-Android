@@ -1,3 +1,0 @@
-{
-  return mSinceIds != null && mSinceIds.length == mAccountIds.length;
-}

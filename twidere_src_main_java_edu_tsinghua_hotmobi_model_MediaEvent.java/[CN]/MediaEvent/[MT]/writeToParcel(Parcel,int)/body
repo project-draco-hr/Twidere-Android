@@ -1,0 +1,3 @@
+{
+  MediaEventParcelablePlease.writeToParcel(this,dest,flags);
+}

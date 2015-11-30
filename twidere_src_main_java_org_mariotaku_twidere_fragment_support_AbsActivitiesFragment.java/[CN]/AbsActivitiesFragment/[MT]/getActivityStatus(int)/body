@@ -1,0 +1,4 @@
+{
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  return getActivityStatus(adapter.getActivity(position));
+}

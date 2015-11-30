@@ -1,4 +1,3 @@
 {
-  super.writeToParcel(dest,flags);
   NotificationEventParcelablePlease.writeToParcel(this,dest,flags);
 }

@@ -1,1 +1,1 @@
-ManagedAsyncTask<Object,TwitterListResponse<Activity>,List<ActivityListResponse>>
+ManagedAsyncTask<Object,Object,Object>

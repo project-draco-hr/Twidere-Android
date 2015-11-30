@@ -1,6 +1,6 @@
 {
   if (cursor != null) {
-    mIndices=new CursorIndices(cursor);
+    mIndices=new ParcelableDirectMessageCursorIndices(cursor);
   }
  else {
     mIndices=null;

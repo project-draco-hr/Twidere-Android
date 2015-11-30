@@ -3,5 +3,5 @@
   final String where=accountIds != null ? Expression.in(new Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL() : null;
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS_NO_CREDENTIALS,where,null,null);
   if (cur == null)   return new ParcelableAccount[0];
-  return getAccounts(cur,new Indices(cur));
+  return getAccounts(cur,new ParcelableAccountCursorIndices(cur));
 }

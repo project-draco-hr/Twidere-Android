@@ -1,17 +1,9 @@
 {
   if (context == null)   return null;
-  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Accounts.ACCOUNT_ID + " = " + accountId,null,null);
-  if (cur != null) {
-    try {
-      if (cur.getCount() > 0 && cur.moveToFirst()) {
-        final Indices indices=new Indices(cur);
-        cur.moveToFirst();
-        return new ParcelableCredentials(cur,indices);
-      }
+  try (Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Accounts.ACCOUNT_ID + " = " + accountId,null,null)){
+    if (cur != null && cur.moveToFirst()) {
+      return ParcelableCredentialsCursorIndices.fromCursor(cur);
     }
-  finally {
-      cur.close();
-    }
+    return null;
   }
-  return null;
-}
+ }

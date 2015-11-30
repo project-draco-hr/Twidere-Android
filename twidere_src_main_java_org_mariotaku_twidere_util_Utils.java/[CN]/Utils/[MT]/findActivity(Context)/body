@@ -1,9 +1,0 @@
-{
-  if (context instanceof Activity) {
-    return (Activity)context;
-  }
- else   if (context instanceof ContextWrapper) {
-    return findActivity(((ContextWrapper)context).getBaseContext());
-  }
-  return null;
-}

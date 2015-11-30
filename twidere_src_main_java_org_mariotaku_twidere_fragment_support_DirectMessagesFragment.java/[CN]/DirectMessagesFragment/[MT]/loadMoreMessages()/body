@@ -6,8 +6,8 @@
     @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[3][];
       result[0]=Utils.getActivatedAccountIds(getActivity());
-      result[1]=Utils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);
-      result[2]=Utils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Outbox.CONTENT_URI);
+      result[1]=DataStoreUtils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);
+      result[2]=DataStoreUtils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Outbox.CONTENT_URI);
       return result;
     }
     @Override protected void onPostExecute(    final long[][] result){

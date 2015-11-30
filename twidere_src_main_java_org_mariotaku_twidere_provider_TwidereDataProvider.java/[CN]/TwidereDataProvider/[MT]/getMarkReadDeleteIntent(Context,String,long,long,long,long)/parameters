@@ -1,6 +1,0 @@
-Context context
-String type
-long accountId
-long position
-long extraId
-long extraUserId

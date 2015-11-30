@@ -3,7 +3,7 @@
     return;
   }
   final Uri uri=getDatabaseUri();
-  final boolean noItemsBefore=Utils.getStatusCountInDatabase(mContext,uri,accountId) <= 0;
+  final boolean noItemsBefore=DataStoreUtils.getStatusCountInDatabase(mContext,uri,accountId) <= 0;
   final ContentValues[] values=new ContentValues[statuses.size()];
   final long[] statusIds=new long[statuses.size()];
   long minId=-1;

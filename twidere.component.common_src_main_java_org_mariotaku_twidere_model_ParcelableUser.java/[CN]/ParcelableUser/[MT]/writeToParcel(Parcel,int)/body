@@ -1,32 +1,3 @@
 {
-  out.writeLong(position);
-  out.writeLong(account_id);
-  out.writeLong(id);
-  out.writeLong(created_at);
-  out.writeByte((byte)(is_protected ? 1 : 0));
-  out.writeByte((byte)(is_verified ? 1 : 0));
-  out.writeString(name);
-  out.writeString(screen_name);
-  out.writeString(description_plain);
-  out.writeString(description_html);
-  out.writeString(description_expanded);
-  out.writeString(description_unescaped);
-  out.writeString(location);
-  out.writeString(profile_image_url);
-  out.writeString(profile_banner_url);
-  out.writeString(url);
-  out.writeByte((byte)(is_follow_request_sent ? 1 : 0));
-  out.writeLong(followers_count);
-  out.writeLong(friends_count);
-  out.writeLong(statuses_count);
-  out.writeLong(favorites_count);
-  out.writeLong(listed_count);
-  out.writeLong(media_count);
-  out.writeString(url_expanded);
-  out.writeByte((byte)(is_following ? 1 : 0));
-  out.writeInt(background_color);
-  out.writeInt(link_color);
-  out.writeInt(text_color);
-  out.writeByte((byte)(is_cache ? 1 : 0));
-  out.writeByte((byte)(is_basic ? 1 : 0));
+  ParcelableUserParcelablePlease.writeToParcel(this,dest,flags);
 }

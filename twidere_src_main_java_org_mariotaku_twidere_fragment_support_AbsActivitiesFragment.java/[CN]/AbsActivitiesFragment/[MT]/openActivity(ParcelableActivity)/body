@@ -1,0 +1,8 @@
+{
+  final ParcelableStatus status=getActivityStatus(activity);
+  if (status != null) {
+    Utils.openStatus(getContext(),status,null);
+  }
+ else {
+  }
+}

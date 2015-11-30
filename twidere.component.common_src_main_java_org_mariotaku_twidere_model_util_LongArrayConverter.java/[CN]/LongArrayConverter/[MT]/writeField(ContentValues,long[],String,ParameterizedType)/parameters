@@ -1,0 +1,4 @@
+ContentValues values
+long[] object
+String columnName
+ParameterizedType fieldType

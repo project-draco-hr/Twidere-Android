@@ -6,11 +6,11 @@
   final Expression where=Expression.equals(Drafts._ID,draftId);
   final Cursor c=getContentResolver().query(Drafts.CONTENT_URI,Drafts.COLUMNS,where.getSQL(),null,null);
   if (c == null)   return -1;
-  final DraftItem.CursorIndices i=new DraftItem.CursorIndices(c);
+  final DraftItemCursorIndices i=new DraftItemCursorIndices(c);
   final DraftItem item;
   try {
     if (!c.moveToFirst())     return -1;
-    item=new DraftItem(c,i);
+    item=i.newObject(c);
   }
   finally {
     c.close();

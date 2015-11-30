@@ -1,3 +1,0 @@
-{
-  if (mCursor.isClosed())   throw new IllegalStateException("Cursor is closed");
-}

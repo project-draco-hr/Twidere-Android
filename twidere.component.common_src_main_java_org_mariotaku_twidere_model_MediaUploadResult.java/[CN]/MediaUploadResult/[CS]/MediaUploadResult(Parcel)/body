@@ -1,5 +1,0 @@
-{
-  media_uris=src.createStringArray();
-  error_code=src.readInt();
-  error_message=src.readString();
-}

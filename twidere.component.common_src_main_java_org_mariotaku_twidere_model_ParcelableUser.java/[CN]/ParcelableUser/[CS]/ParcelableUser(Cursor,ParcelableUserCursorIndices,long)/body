@@ -1,0 +1,6 @@
+{
+  indices.callBeforeCreated(this);
+  indices.parseFields(this,cursor);
+  indices.callAfterCreated(this);
+  this.account_id=accountId;
+}

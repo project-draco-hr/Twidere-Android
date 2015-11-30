@@ -1,11 +1,7 @@
 {
   final boolean result=super.scrollToStart();
   if (result) {
-    final AsyncTwitterWrapper twitter=mTwitterWrapper;
-    final int tabPosition=getTabPosition();
-    if (twitter != null && tabPosition != -1) {
-      twitter.clearUnreadCountAsync(tabPosition);
-    }
+    saveReadPosition(0);
   }
-  return true;
+  return result;
 }

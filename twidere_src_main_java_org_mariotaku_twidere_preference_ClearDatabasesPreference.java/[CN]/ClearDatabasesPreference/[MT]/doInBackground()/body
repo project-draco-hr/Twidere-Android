@@ -14,6 +14,8 @@
   for (  final Uri uri : CACHE_URIS) {
     resolver.delete(uri,null,null);
   }
+  resolver.delete(Activities.AboutMe.CONTENT_URI,null,null);
+  resolver.delete(Activities.ByFriends.CONTENT_URI,null,null);
   resolver.delete(Notifications.CONTENT_URI,null,null);
   resolver.delete(UnreadCounts.CONTENT_URI,null,null);
   resolver.delete(SavedSearches.CONTENT_URI,null,null);

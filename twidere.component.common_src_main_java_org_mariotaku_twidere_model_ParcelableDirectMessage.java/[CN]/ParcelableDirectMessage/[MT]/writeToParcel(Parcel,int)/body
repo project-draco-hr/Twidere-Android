@@ -1,18 +1,3 @@
 {
-  out.writeLong(account_id);
-  out.writeLong(id);
-  out.writeLong(timestamp);
-  out.writeLong(sender_id);
-  out.writeLong(recipient_id);
-  out.writeInt(is_outgoing ? 1 : 0);
-  out.writeString(text_html);
-  out.writeString(text_plain);
-  out.writeString(sender_name);
-  out.writeString(recipient_name);
-  out.writeString(sender_screen_name);
-  out.writeString(recipient_screen_name);
-  out.writeString(sender_profile_image_url);
-  out.writeString(recipient_profile_image_url);
-  out.writeString(text_unescaped);
-  out.writeTypedArray(media,flags);
+  ParcelableDirectMessageParcelablePlease.writeToParcel(this,dest,flags);
 }

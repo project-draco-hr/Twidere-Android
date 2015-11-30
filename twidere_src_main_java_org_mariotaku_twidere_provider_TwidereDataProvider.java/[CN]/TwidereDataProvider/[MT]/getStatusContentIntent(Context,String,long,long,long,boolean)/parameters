@@ -1,0 +1,6 @@
+Context context
+String type
+long accountId
+long statusId
+long userId
+boolean userFollowing

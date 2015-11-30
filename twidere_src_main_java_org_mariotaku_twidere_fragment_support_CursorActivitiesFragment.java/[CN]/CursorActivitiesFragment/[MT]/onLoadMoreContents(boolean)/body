@@ -1,0 +1,16 @@
+{
+  if (fromStart)   return;
+  super.onLoadMoreContents(fromStart);
+  AsyncManager.runBackgroundTask(new TaskRunnable<Object,long[][],CursorActivitiesFragment>(){
+    @Override public long[][] doLongOperation(    Object o) throws InterruptedException {
+      final long[][] result=new long[3][];
+      result[0]=getAccountIds();
+      result[1]=getOldestStatusIds(result[0]);
+      return result;
+    }
+    @Override public void callback(    CursorActivitiesFragment fragment,    long[][] result){
+      fragment.getActivities(result[0],result[1],result[2]);
+    }
+  }
+.setResultHandler(this));
+}

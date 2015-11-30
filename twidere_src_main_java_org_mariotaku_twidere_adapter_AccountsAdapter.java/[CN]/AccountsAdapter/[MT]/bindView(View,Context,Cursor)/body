@@ -1,7 +1,7 @@
 {
   final int color=cursor.getInt(mIndices.color);
   final AccountViewHolder holder=(AccountViewHolder)view.getTag();
-  holder.screenName.setText("@" + cursor.getString(mIndices.screen_name));
+  holder.screenName.setText(String.format("@%s",cursor.getString(mIndices.screen_name)));
   holder.setAccountColor(color);
   if (mDisplayProfileImage) {
     mImageLoader.displayProfileImage(holder.profileImage,cursor.getString(mIndices.profile_image_url));

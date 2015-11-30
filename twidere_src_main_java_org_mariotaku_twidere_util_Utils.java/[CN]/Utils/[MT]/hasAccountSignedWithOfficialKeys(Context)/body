@@ -3,7 +3,7 @@
   final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,null,null,null);
   if (cur == null)   return false;
   final String[] keySecrets=context.getResources().getStringArray(R.array.values_official_consumer_secret_crc32);
-  final ParcelableAccount.Indices indices=new ParcelableAccount.Indices(cur);
+  final ParcelableCredentialsCursorIndices indices=new ParcelableCredentialsCursorIndices(cur);
   cur.moveToFirst();
   final CRC32 crc32=new CRC32();
   try {

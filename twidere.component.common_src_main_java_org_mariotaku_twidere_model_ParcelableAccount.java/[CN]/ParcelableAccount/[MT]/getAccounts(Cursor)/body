@@ -1,4 +1,4 @@
 {
   if (cursor == null)   return new ParcelableAccount[0];
-  return getAccounts(cursor,new Indices(cursor));
+  return getAccounts(cursor,new ParcelableAccountCursorIndices(cursor));
 }

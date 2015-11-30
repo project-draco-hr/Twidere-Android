@@ -1,0 +1,4 @@
+{
+  final String where=Expression.equals(TwidereDataStore.Statuses.ACCOUNT_ID,accountId).getSQL();
+  return queryCount(context,uri,where,null);
+}

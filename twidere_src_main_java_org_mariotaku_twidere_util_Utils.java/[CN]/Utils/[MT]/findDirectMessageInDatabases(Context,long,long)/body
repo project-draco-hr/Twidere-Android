@@ -8,9 +8,8 @@
     if (cur == null) {
       continue;
     }
-    if (cur.getCount() > 0) {
-      cur.moveToFirst();
-      message=new ParcelableDirectMessage(cur,new ParcelableDirectMessage.CursorIndices(cur));
+    if (cur.getCount() > 0 && cur.moveToFirst()) {
+      message=ParcelableDirectMessageCursorIndices.fromCursor(cur);
     }
     cur.close();
   }

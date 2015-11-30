@@ -21,10 +21,10 @@
     final boolean[] ascending={false,true,true};
     final OrderBy orderBy=new OrderBy(order,ascending);
     final Cursor c=context.getContentResolver().query(CachedUsers.CONTENT_URI,CachedUsers.BASIC_COLUMNS,selection != null ? selection.getSQL() : null,selectionArgs,orderBy.getSQL());
-    final CachedIndices i=new CachedIndices(c);
+    final ParcelableUserCursorIndices i=new ParcelableUserCursorIndices(c);
     c.moveToFirst();
     while (!c.isAfterLast()) {
-      cachedList.add(new ParcelableUser(c,i,-1));
+      cachedList.add(i.newObject(c));
       c.moveToNext();
     }
     c.close();

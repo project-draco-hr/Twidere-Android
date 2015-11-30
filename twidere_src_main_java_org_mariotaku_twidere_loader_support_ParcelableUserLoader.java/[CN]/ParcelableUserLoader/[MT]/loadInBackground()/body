@@ -26,7 +26,7 @@
     final int count=cur.getCount();
     try {
       if (count > 0) {
-        final CachedIndices indices=new CachedIndices(cur);
+        final ParcelableUserCursorIndices indices=new ParcelableUserCursorIndices(cur);
         cur.moveToFirst();
         return SingleResponse.getInstance(new ParcelableUser(cur,indices,mAccountId));
       }

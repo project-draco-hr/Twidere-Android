@@ -1,0 +1,4 @@
+ContentValues values
+ParcelableLocation object
+String columnName
+ParameterizedType fieldType

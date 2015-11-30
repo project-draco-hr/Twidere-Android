@@ -1,0 +1,4 @@
+CharSequence text
+long accountId
+long extraId
+boolean sensitive

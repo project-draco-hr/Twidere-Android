@@ -1,0 +1,3 @@
+{
+  values.put(columnName,ParcelableLocation.toString(object));
+}

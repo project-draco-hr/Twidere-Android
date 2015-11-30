@@ -1,0 +1,6 @@
+CharSequence text
+long accountId
+long extraId
+long userId
+String screenName
+int highlightOption

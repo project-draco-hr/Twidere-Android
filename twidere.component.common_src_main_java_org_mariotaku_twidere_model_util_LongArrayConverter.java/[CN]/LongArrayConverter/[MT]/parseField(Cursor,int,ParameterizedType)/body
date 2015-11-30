@@ -1,0 +1,3 @@
+{
+  return TwidereArrayUtils.parseLongArray(cursor.getString(columnIndex),',');
+}

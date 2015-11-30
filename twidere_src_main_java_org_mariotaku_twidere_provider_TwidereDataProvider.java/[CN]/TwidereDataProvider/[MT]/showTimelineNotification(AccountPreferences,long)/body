@@ -40,7 +40,7 @@
     builder.setContentText(notificationContent);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
     builder.setContentIntent(getContentIntent(context,AUTHORITY_HOME,accountId));
-    builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_HOME,accountId,statusId));
+    builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_HOME,accountId,statusId,false));
     builder.setNumber(statusesCount);
     builder.setColor(pref.getNotificationLightColor());
     setNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());

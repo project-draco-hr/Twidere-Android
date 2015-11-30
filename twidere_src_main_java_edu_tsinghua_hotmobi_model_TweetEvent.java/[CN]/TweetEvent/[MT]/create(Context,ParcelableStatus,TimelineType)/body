@@ -6,5 +6,6 @@
   event.setUserId(status.user_id);
   event.setTimelineType(timelineType);
   event.setTweetType(TweetType.getTweetType(status));
+  event.setFollowing(status.user_is_following);
   return event;
 }

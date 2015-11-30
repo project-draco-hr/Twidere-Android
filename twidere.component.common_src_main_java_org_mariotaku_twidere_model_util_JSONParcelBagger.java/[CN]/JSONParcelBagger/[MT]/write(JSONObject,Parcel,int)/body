@@ -1,0 +1,8 @@
+{
+  if (value != null) {
+    out.writeString(value.toString());
+  }
+ else {
+    out.writeString(null);
+  }
+}

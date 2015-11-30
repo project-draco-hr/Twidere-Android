@@ -1,4 +1,3 @@
 {
-  super.writeToParcel(out,flags);
-  ParcelableCredentialsParcelablePlease.writeToParcel(this,out,flags);
+  ParcelableCredentialsParcelablePlease.writeToParcel(this,dest,flags);
 }

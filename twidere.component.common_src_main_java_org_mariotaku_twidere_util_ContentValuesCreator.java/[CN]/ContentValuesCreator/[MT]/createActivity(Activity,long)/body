@@ -17,15 +17,6 @@ default :
   break;
 }
 }
-values.put(Activities.ACCOUNT_ID,accountId);
-values.put(Activities.TIMESTAMP,activity.getCreatedAt().getTime());
-values.put(Activities.MIN_POSITION,activity.getMinPosition());
-values.put(Activities.MAX_POSITION,activity.getMaxPosition());
-values.put(Activities.SOURCES,SerializeUtils.serializeArray(User.class,activity.getSources()));
-values.put(Activities.TARGET_STATUSES,SerializeUtils.serializeArray(Status.class,activity.getTargetStatuses()));
-values.put(Activities.TARGET_USERS,SerializeUtils.serializeArray(User.class,activity.getTargetUsers()));
-values.put(Activities.TARGET_USER_LISTS,SerializeUtils.serializeArray(UserList.class,activity.getTargetUserLists()));
-values.put(Activities.TARGET_OBJECT_STATUSES,SerializeUtils.serializeArray(Status.class,activity.getTargetObjectStatuses()));
-values.put(Activities.TARGET_OBJECT_USER_LISTS,SerializeUtils.serializeArray(UserList.class,activity.getTargetObjectUserLists()));
+ParcelableActivityValuesCreator.writeTo(new ParcelableActivity(activity,accountId,false),values);
 return values;
 }

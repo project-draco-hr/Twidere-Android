@@ -1,0 +1,8 @@
+{
+  super.setUserVisibleHint(isVisibleToUser);
+  if (isVisibleToUser) {
+    for (    long accountId : getAccountIds()) {
+      mTwitterWrapper.clearNotificationAsync(getNotificationType(),accountId);
+    }
+  }
+}

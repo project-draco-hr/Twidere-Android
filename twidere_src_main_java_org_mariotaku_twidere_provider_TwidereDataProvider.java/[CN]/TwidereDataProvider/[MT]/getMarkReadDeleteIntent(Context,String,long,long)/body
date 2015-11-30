@@ -1,3 +1,0 @@
-{
-  return getMarkReadDeleteIntent(context,type,accountId,position,-1,-1);
-}

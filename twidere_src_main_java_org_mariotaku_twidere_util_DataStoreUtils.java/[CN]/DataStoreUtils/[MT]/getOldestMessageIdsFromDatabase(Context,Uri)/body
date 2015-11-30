@@ -1,0 +1,4 @@
+{
+  final long[] account_ids=Utils.getActivatedAccountIds(context);
+  return getOldestMessageIdsFromDatabase(context,uri,account_ids);
+}

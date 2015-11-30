@@ -1,0 +1,7 @@
+Context context
+long postTime
+String type
+long accountId
+long itemId
+long itemUserId
+boolean itemUserFollowing

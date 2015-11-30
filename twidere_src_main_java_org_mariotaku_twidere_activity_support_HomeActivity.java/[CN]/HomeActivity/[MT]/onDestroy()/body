@@ -1,6 +1,13 @@
 {
   stopService(new Intent(this,StreamingService.class));
-  cleanDatabasesByItemLimit(this);
+  final Context context=getApplicationContext();
+  AsyncManager.runBackgroundTask(new TaskRunnable(){
+    @Override public Object doLongOperation(    Object o) throws InterruptedException {
+      cleanDatabasesByItemLimit(context);
+      return null;
+    }
+  }
+);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONDESTROY));
   super.onDestroy();
 }

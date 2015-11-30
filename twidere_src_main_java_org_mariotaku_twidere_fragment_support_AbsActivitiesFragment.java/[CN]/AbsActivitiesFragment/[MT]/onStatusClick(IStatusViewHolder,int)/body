@@ -1,0 +1,4 @@
+{
+  final ParcelableStatus status=getActivityStatus(position);
+  Utils.openStatus(getContext(),status,null);
+}

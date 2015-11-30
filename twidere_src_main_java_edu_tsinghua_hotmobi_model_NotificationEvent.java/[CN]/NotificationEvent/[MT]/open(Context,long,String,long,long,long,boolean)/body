@@ -1,0 +1,3 @@
+{
+  return create(context,Action.OPEN,System.currentTimeMillis(),postTime,type,accountId,itemId,itemUserId,itemUserFollowing);
+}

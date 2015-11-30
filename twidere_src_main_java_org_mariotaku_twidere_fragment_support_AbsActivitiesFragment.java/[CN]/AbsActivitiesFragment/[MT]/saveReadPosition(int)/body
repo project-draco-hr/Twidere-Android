@@ -1,0 +1,8 @@
+{
+  final String readPositionTag=getReadPositionTagWithAccounts();
+  if (readPositionTag == null)   return;
+  if (position == RecyclerView.NO_POSITION)   return;
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final ParcelableActivity status=adapter.getActivity(position);
+  if (status == null)   return;
+}
