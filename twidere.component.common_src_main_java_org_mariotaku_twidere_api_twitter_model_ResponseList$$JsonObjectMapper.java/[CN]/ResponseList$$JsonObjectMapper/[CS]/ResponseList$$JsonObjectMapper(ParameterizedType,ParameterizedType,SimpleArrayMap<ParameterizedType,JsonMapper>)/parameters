@@ -1,0 +1,3 @@
+ParameterizedType type
+ParameterizedType TType
+SimpleArrayMap<ParameterizedType,JsonMapper> partialMappers

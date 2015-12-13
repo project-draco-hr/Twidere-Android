@@ -1,0 +1,15 @@
+{
+  if (object == null) {
+    jsonGenerator.writeNull();
+    return;
+  }
+  if (writeStartAndEnd) {
+    jsonGenerator.writeStartArray();
+  }
+  for (  T t : object) {
+    m84ClassJsonMapper.serialize(t,jsonGenerator,true);
+  }
+  if (writeStartAndEnd) {
+    jsonGenerator.writeEndArray();
+  }
+}

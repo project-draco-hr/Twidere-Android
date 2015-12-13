@@ -1,0 +1,4 @@
+{
+  partialMappers.put(type,this);
+  m84ClassJsonMapper=LoganSquare.mapperFor(TType,partialMappers);
+}

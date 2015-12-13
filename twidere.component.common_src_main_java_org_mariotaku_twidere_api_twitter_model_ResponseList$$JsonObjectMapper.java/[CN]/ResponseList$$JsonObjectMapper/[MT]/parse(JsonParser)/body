@@ -1,0 +1,10 @@
+{
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() != JsonToken.START_ARRAY) {
+    jsonParser.skipChildren();
+    return null;
+  }
+  return new ResponseList<T>(m84ClassJsonMapper.parseList(jsonParser));
+}
