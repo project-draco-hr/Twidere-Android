@@ -1,0 +1,22 @@
+{
+  IDs instance=new IDs();
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() == JsonToken.START_ARRAY) {
+    parseIDsArray(instance,jsonParser);
+  }
+ else   if (jsonParser.getCurrentToken() == JsonToken.START_OBJECT) {
+    while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+      String fieldName=jsonParser.getCurrentName();
+      jsonParser.nextToken();
+      parseField(instance,fieldName,jsonParser);
+      jsonParser.skipChildren();
+    }
+  }
+ else {
+    jsonParser.skipChildren();
+    return null;
+  }
+  return instance;
+}

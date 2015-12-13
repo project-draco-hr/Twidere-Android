@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  RateLimitStatusJSONImpl that=(RateLimitStatusJSONImpl)o;
-  if (creationTimeInMillis != that.creationTimeInMillis)   return false;
-  if (remaining != that.remaining)   return false;
-  if (limit != that.limit)   return false;
-  return resetTimeInSeconds == that.resetTimeInSeconds;
-}

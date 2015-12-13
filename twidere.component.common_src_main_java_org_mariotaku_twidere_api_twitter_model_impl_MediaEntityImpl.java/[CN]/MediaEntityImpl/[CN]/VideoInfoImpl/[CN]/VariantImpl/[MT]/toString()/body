@@ -1,3 +1,0 @@
-{
-  return "VariantImpl{" + "bitrate=" + bitrate + ", contentType='"+ contentType+ '\''+ ", url='"+ url+ '\''+ '}';
-}

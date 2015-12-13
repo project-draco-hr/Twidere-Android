@@ -11,8 +11,8 @@
     final InputStream stream=body.stream();
     final Object object=parseOrThrow(response,stream,type);
     checkResponse(type,object,response);
-    if (object instanceof TwitterResponseImpl) {
-      ((TwitterResponseImpl)object).processResponseHeader(response);
+    if (object instanceof TwitterResponseObject) {
+      ((TwitterResponseObject)object).processResponseHeader(response);
     }
     return object;
   }

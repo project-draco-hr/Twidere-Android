@@ -1,3 +1,0 @@
-{
-  return "SizeImpl{" + "width=" + width + ", height="+ height+ ", resize='"+ resize+ '\''+ '}';
-}

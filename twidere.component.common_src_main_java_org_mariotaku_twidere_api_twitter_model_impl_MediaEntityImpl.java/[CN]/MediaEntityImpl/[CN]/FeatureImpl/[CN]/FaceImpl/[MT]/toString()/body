@@ -1,3 +1,0 @@
-{
-  return "FaceImpl{" + "x=" + x + ", y="+ y+ ", height="+ height+ ", width="+ width+ '}';
-}

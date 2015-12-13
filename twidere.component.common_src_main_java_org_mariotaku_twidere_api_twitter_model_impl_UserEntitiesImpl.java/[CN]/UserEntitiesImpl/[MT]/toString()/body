@@ -1,3 +1,0 @@
-{
-  return "UserEntitiesImpl{" + "url=" + url + ", description="+ description+ '}';
-}

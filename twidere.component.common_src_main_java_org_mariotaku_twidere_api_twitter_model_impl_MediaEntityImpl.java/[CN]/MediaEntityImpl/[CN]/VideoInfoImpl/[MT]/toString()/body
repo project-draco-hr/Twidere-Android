@@ -1,3 +1,0 @@
-{
-  return "VideoInfoImpl{" + "duration=" + duration + ", variants="+ Arrays.toString(variants)+ ", aspectRatio="+ Arrays.toString(aspectRatio)+ '}';
-}

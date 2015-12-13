@@ -2,7 +2,7 @@
   try {
     final TypedData body=resp.getBody();
     if (body == null)     return new TwitterException(resp);
-    final TwitterException parse=LoganSquareExtension.parse(body.stream(),TwitterException.class);
+    final TwitterException parse=LoganSquare.parse(body.stream(),TwitterException.class);
     if (parse != null)     return parse;
     return new TwitterException(resp);
   }

@@ -1,7 +1,7 @@
 {
   final FileInputStream is=new FileInputStream(file);
   try {
-    return LoganSquareExtension.parseList(is,jsonObjectClass);
+    return LoganSquare.parseList(is,jsonObjectClass);
   }
   finally {
     is.close();

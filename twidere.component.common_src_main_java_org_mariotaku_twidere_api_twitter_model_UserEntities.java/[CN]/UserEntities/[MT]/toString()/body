@@ -1,0 +1,3 @@
+{
+  return "UserEntities{" + "url=" + url + ", description="+ description+ '}';
+}

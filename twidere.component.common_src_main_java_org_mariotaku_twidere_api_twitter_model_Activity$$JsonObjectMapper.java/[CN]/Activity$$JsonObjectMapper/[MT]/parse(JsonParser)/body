@@ -1,0 +1,17 @@
+{
+  Activity instance=new Activity();
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() != JsonToken.START_OBJECT) {
+    jsonParser.skipChildren();
+    return null;
+  }
+  while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+    String fieldName=jsonParser.getCurrentName();
+    jsonParser.nextToken();
+    parseField(instance,fieldName,jsonParser);
+    jsonParser.skipChildren();
+  }
+  return instance;
+}

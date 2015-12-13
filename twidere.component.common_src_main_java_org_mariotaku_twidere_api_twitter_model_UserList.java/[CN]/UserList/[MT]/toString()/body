@@ -1,0 +1,3 @@
+{
+  return "UserList{" + "id=" + id + ", name='"+ name+ '\''+ ", uri='"+ uri+ '\''+ ", subscriberCount="+ subscriberCount+ ", memberCount="+ memberCount+ ", mode="+ mode+ ", description='"+ description+ '\''+ ", slug='"+ slug+ '\''+ ", fullName='"+ fullName+ '\''+ ", createdAt="+ createdAt+ ", following="+ following+ ", user="+ user+ "} "+ super.toString();
+}

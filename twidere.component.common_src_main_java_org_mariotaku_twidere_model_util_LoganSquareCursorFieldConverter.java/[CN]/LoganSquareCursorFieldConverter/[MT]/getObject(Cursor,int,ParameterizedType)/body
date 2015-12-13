@@ -5,15 +5,15 @@
   final String string=cursor.getString(columnIndex);
   if (TextUtils.isEmpty(string))   return null;
   if (List.class.isAssignableFrom(rawCls)) {
-    return LoganSquareExtension.parseList(string,(Class)fieldType.getActualTypeArguments()[0]);
+    return LoganSquare.parseList(string,(Class)fieldType.getActualTypeArguments()[0]);
   }
  else   if (Map.class.isAssignableFrom(rawCls)) {
-    return LoganSquareExtension.parseMap(string,(Class)fieldType.getActualTypeArguments()[1]);
+    return LoganSquare.parseMap(string,(Class)fieldType.getActualTypeArguments()[1]);
   }
  else   if (rawCls.isArray()) {
     final Class componentType=rawCls.getComponentType();
-    List<?> list=LoganSquareExtension.parseList(string,componentType);
+    List<?> list=LoganSquare.parseList(string,componentType);
     return list.toArray((Object[])Array.newInstance(componentType,list.size()));
   }
-  return LoganSquareExtension.parse(string,rawCls);
+  return LoganSquare.parse(string,rawCls);
 }

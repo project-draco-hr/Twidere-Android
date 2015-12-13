@@ -1,4 +1,0 @@
-{
-  if (lists == null)   return 0;
-  return lists.size();
-}

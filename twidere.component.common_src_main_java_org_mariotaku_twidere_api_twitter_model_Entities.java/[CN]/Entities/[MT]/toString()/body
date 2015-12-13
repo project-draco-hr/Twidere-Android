@@ -1,0 +1,3 @@
+{
+  return "Entities{" + "hashtags=" + Arrays.toString(hashtags) + ", userMentions="+ Arrays.toString(userMentions)+ ", urls="+ Arrays.toString(urls)+ ", media="+ Arrays.toString(media)+ '}';
+}

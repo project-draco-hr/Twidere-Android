@@ -1,7 +1,7 @@
 {
   if (object == null)   return null;
   try {
-    return LoganSquareExtension.mapperFor(cls).serialize(object);
+    return LoganSquare.mapperFor(cls).serialize(object);
   }
  catch (  IOException e) {
     return null;

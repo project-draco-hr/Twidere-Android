@@ -1,4 +1,0 @@
-{
-  if (user == null)   return 0;
-  return user.size();
-}

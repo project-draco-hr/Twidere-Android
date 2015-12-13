@@ -1,3 +1,0 @@
-{
-  return "RateLimitStatusJSONImpl{" + "creationTimeInMillis=" + creationTimeInMillis + ", remaining="+ remaining+ ", limit="+ limit+ ", resetTimeInSeconds="+ resetTimeInSeconds+ '}';
-}

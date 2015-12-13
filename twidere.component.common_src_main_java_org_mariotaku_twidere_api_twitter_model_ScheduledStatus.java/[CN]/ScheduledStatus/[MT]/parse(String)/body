@@ -1,0 +1,12 @@
+{
+  if (SCHEDULED.value.equalsIgnoreCase(value)) {
+    return SCHEDULED;
+  }
+ else   if (FAILED.value.equalsIgnoreCase(value)) {
+    return FAILED;
+  }
+ else   if (CANCELED.value.equalsIgnoreCase(value)) {
+    return CANCELED;
+  }
+  return null;
+}

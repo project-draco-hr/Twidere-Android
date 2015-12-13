@@ -1,0 +1,3 @@
+{
+  return "UrlEntity{" + "indices=" + indices + ", displayUrl='"+ displayUrl+ '\''+ ", expandedUrl='"+ expandedUrl+ '\''+ ", url='"+ url+ '\''+ '}';
+}

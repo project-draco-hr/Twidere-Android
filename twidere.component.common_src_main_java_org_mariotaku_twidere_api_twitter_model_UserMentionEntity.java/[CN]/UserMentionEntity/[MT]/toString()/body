@@ -1,0 +1,3 @@
+{
+  return "UserMentionEntity{" + "indices=" + indices + ", id="+ id+ ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ '}';
+}

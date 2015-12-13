@@ -4,9 +4,9 @@
       if (Utils.isOfficialKeyAccount(getContext(),accountId)) {
         return twitter.getActivitiesAboutMe(paging);
       }
-      final ResponseList<Activity> activities=new ResponseArrayList<Activity>();
+      final ResponseList<Activity> activities=new ResponseList<Activity>();
       for (      org.mariotaku.twidere.api.twitter.model.Status status : twitter.getMentionsTimeline(paging)) {
-        activities.add(ActivityImpl.fromMention(accountId,status));
+        activities.add(Activity.fromMention(accountId,status));
       }
       return activities;
     }

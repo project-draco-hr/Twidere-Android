@@ -1,0 +1,4 @@
+{
+  rateLimitStatus=RateLimitStatus.createFromResponseHeader(resp);
+  accessLevel=InternalParseUtil.toAccessLevel(resp);
+}

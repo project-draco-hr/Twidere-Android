@@ -1,3 +1,0 @@
-{
-  return LoganSquare.mapperFor(cls).parse(jsonParser);
-}

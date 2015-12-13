@@ -1,0 +1,3 @@
+{
+  return "Variant{" + "bitrate=" + bitrate + ", contentType='"+ contentType+ '\''+ ", url='"+ url+ '\''+ '}';
+}

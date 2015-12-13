@@ -1,0 +1,5 @@
+{
+  if ("mutualfollow".equals(s))   return MUTUALFOLLOW;
+  if ("public".equals(s))   return PUBLIC;
+  return UNKNOWN;
+}

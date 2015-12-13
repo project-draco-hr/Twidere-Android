@@ -1,0 +1,3 @@
+{
+  return "Trend{" + "name='" + name + '\''+ ", url='"+ url+ '\''+ ", query='"+ query+ '\''+ '}';
+}

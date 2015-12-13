@@ -1,7 +1,7 @@
 {
   httpResponse=res;
   if (res != null) {
-    rateLimitStatus=RateLimitStatusJSONImpl.createFromResponseHeader(res);
+    rateLimitStatus=RateLimitStatus.createFromResponseHeader(res);
     statusCode=res.getStatus();
   }
  else {

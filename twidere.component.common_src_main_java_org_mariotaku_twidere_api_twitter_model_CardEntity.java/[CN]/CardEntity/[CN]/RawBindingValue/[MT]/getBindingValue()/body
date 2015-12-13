@@ -1,0 +1,22 @@
+{
+  if (type == null)   return null;
+switch (type) {
+case BindingValue.TYPE_BOOLEAN:
+{
+      return new BooleanValue(booleanValue);
+    }
+case BindingValue.TYPE_STRING:
+{
+    return new StringValue(stringValue);
+  }
+case BindingValue.TYPE_IMAGE:
+{
+  return imageValue;
+}
+case BindingValue.TYPE_USER:
+{
+return userValue;
+}
+}
+return null;
+}

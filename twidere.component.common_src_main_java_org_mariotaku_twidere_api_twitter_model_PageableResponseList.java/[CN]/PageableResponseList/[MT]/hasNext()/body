@@ -1,0 +1,3 @@
+{
+  return getNextCursor() != 0;
+}
