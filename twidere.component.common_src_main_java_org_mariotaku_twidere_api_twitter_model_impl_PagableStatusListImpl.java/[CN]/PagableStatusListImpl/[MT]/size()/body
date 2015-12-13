@@ -1,0 +1,4 @@
+{
+  if (statuses == null)   return 0;
+  return statuses.size();
+}

@@ -24,10 +24,9 @@
     }
   }
   if (statuses.length > profileImageViews.length) {
-    final Context context=adapter.getContext();
     final int moreNumber=statuses.length - profileImageViews.length;
     profileImageMoreNumber.setVisibility(View.VISIBLE);
-    profileImageMoreNumber.setText(context.getString(R.string.and_more,moreNumber));
+    profileImageMoreNumber.setText(String.valueOf(moreNumber));
   }
  else {
     profileImageMoreNumber.setVisibility(View.GONE);

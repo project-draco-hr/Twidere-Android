@@ -1,6 +1,8 @@
 {
+  final String string=cursor.getString(columnIndex);
+  if (TextUtils.isEmpty(string))   return null;
   try {
-    return new JSONObject(cursor.getString(columnIndex));
+    return new JSONObject(string);
   }
  catch (  JSONException e) {
     return null;

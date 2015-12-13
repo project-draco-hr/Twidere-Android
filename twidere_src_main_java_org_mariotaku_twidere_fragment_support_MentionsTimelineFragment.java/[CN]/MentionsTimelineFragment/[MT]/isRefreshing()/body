@@ -1,4 +1,0 @@
-{
-  final AsyncTwitterWrapper twitter=mTwitterWrapper;
-  return twitter != null && twitter.isMentionsTimelineRefreshing();
-}

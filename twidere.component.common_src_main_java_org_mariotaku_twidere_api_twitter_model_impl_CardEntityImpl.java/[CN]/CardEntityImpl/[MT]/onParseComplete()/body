@@ -1,0 +1,8 @@
+{
+  if (rawBindingValues != null) {
+    bindingValues=new ArrayMap<>();
+    for (    Map.Entry<String,RawBindingValue> entry : rawBindingValues.entrySet()) {
+      bindingValues.put(entry.getKey(),entry.getValue().getBindingValue());
+    }
+  }
+}

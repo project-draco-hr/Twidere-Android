@@ -7,8 +7,14 @@ case ITEM_VIEW_TYPE_STATUS:
       if (activity.action == Activity.ACTION_MENTION) {
         status=activity.target_object_statuses[0];
       }
- else {
+ else       if (activity.action == Activity.ACTION_REPLY) {
         status=activity.target_statuses[0];
+      }
+ else       if (activity.action == Activity.ACTION_QUOTE) {
+        status=activity.target_statuses[0];
+      }
+ else {
+        throw new UnsupportedOperationException();
       }
       final IStatusViewHolder IStatusViewHolder=(IStatusViewHolder)holder;
       IStatusViewHolder.displayStatus(status,null,true,true);

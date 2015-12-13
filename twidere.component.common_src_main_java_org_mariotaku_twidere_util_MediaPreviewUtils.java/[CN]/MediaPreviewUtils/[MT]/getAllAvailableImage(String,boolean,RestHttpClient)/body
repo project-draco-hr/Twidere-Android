@@ -11,8 +11,6 @@
   if (m.matches())   return getGoogleProxyImage(RegexUtils.matcherGroup(m,GOOGLE_PROXY_IMAGES_GROUP_SERVER),RegexUtils.matcherGroup(m,GOOGLE_PROXY_IMAGES_GROUP_ID),fullImage);
   m=PATTERN_SINA_WEIBO_IMAGES.matcher(link);
   if (m.matches())   return getSinaWeiboImage(link,fullImage);
-  m=PATTERN_TWITPIC.matcher(link);
-  if (m.matches())   return getTwitpicImage(RegexUtils.matcherGroup(m,TWITPIC_GROUP_ID),link,fullImage);
   m=PATTERN_IMGUR.matcher(link);
   if (m.matches())   return getImgurImage(RegexUtils.matcherGroup(m,IMGUR_GROUP_ID),link,fullImage);
   m=PATTERN_IMGLY.matcher(link);

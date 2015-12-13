@@ -24,7 +24,7 @@
       final Set<Status> orig=quotes.get(quoted.getId());
       if (orig == null)       continue;
       for (      Status status : orig) {
-        StatusImpl.setQuotedStatus(status,quoted);
+        Status.setQuotedStatus(status,quoted);
       }
     }
   }

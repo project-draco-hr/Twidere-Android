@@ -1,7 +1,7 @@
 {
   if (string == null)   return null;
   try {
-    final List<T> list=LoganSquareWrapper.mapperFor(cls).parseList(string);
+    final List<T> list=LoganSquareExtension.mapperFor(cls).parseList(string);
     return list.toArray((T[])Array.newInstance(cls,list.size()));
   }
  catch (  IOException e) {

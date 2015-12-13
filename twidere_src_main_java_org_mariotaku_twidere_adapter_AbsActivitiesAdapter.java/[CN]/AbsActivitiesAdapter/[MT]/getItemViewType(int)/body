@@ -1,4 +1,5 @@
 {
+  final ParcelableActivity activity=getActivity(position);
   if (position == getActivityCount()) {
     return ITEM_VIEW_TYPE_LOAD_INDICATOR;
   }
@@ -7,11 +8,26 @@
   }
 switch (getActivityAction(position)) {
 case Activity.ACTION_MENTION:
-case Activity.ACTION_REPLY:
-case Activity.ACTION_QUOTE:
 {
+      if (ArrayUtils.isEmpty(activity.target_object_statuses)) {
+        return ITEM_VIEW_TYPE_STUB;
+      }
       return ITEM_VIEW_TYPE_STATUS;
     }
+case Activity.ACTION_REPLY:
+{
+    if (ArrayUtils.isEmpty(activity.target_statuses)) {
+      return ITEM_VIEW_TYPE_STUB;
+    }
+    return ITEM_VIEW_TYPE_STATUS;
+  }
+case Activity.ACTION_QUOTE:
+{
+  if (ArrayUtils.isEmpty(activity.target_statuses)) {
+    return ITEM_VIEW_TYPE_STUB;
+  }
+  return ITEM_VIEW_TYPE_STATUS;
+}
 case Activity.ACTION_FOLLOW:
 case Activity.ACTION_FAVORITE:
 case Activity.ACTION_RETWEET:
@@ -22,8 +38,8 @@ case Activity.ACTION_FAVORITED_MENTION:
 case Activity.ACTION_LIST_CREATED:
 case Activity.ACTION_LIST_MEMBER_ADDED:
 {
-    return ITEM_VIEW_TYPE_TITLE_SUMMARY;
-  }
+return ITEM_VIEW_TYPE_TITLE_SUMMARY;
+}
 }
 return ITEM_VIEW_TYPE_STUB;
 }

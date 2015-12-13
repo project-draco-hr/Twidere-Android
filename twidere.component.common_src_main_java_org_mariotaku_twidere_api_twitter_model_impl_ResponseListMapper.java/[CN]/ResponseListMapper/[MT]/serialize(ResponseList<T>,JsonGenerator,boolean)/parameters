@@ -1,0 +1,3 @@
+ResponseList<T> object
+JsonGenerator generator
+boolean writeStartAndEnd

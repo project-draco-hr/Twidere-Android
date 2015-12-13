@@ -1,0 +1,12 @@
+{
+  try {
+    final T parse=LoganSquareExtension.parse(stream,ParameterizedTypeTrojan.<T>create(type));
+    if (TwitterException.class.equals(type) && parse == null) {
+      throw new TwitterException();
+    }
+    return parse;
+  }
+ catch (  JsonParseException e) {
+    throw new TwitterException("Malformed JSON Data",resp);
+  }
+}

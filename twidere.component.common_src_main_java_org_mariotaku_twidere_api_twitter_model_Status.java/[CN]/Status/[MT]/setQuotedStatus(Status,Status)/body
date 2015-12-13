@@ -1,0 +1,4 @@
+{
+  if (!(status instanceof Status))   return;
+  ((Status)status).quotedStatus=quoted;
+}

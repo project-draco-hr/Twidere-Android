@@ -1,3 +1,18 @@
 {
-  mAsyncTaskManager.add(new GetActivitiesTask(this,accountIds,maxIds,sinceIds),true);
+  mAsyncTaskManager.add(new GetActivitiesTask(this,accountIds,maxIds,sinceIds){
+    @Override protected ResponseList<Activity> getActivities(    long accountId,    Twitter twitter,    Paging paging) throws TwitterException {
+      if (Utils.isOfficialKeyAccount(getContext(),accountId)) {
+        return twitter.getActivitiesAboutMe(paging);
+      }
+      final ResponseList<Activity> activities=new ResponseArrayList<Activity>();
+      for (      org.mariotaku.twidere.api.twitter.model.Status status : twitter.getMentionsTimeline(paging)) {
+        activities.add(ActivityImpl.fromMention(accountId,status));
+      }
+      return activities;
+    }
+    @Override protected Uri getContentUri(){
+      return Activities.AboutMe.CONTENT_URI;
+    }
+  }
+,true);
 }

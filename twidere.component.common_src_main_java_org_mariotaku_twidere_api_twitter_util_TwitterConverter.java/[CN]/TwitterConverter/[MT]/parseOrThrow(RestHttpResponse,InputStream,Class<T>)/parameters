@@ -1,3 +1,0 @@
-RestHttpResponse resp
-InputStream stream
-Class<T> cls

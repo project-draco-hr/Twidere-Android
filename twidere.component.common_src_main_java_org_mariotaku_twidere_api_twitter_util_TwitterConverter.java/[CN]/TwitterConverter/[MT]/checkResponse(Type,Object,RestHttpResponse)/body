@@ -1,0 +1,5 @@
+{
+  if (User.class.equals(type)) {
+    if (object == null)     throw new TwitterException("User is null");
+  }
+}

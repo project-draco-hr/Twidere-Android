@@ -3,7 +3,7 @@
   final ContentResolver cr=context.getContentResolver();
   for (int i=0; i < accountIds.length; i++) {
     final long accountId=accountIds[i];
-    final boolean noItemsBefore=DataStoreUtils.getActivityCountInDatabase(context,Activities.AboutMe.CONTENT_URI,accountId) <= 0;
+    final boolean noItemsBefore=DataStoreUtils.getActivityCountInDatabase(context,getContentUri(),accountId) <= 0;
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
     final Paging paging=new Paging();
     if (maxIds != null && maxIds[i] > 0) {
@@ -16,7 +16,7 @@
     Arrays.fill(deleteBound,-1);
     try {
       List<ContentValues> valuesList=new ArrayList<>();
-      for (      Activity activity : twitter.getActivitiesAboutMe(paging)) {
+      for (      Activity activity : getActivities(accountId,twitter,paging)) {
         final ParcelableActivity parcelableActivity=new ParcelableActivity(activity,accountId,false);
         if (deleteBound[0] < 0) {
           deleteBound[0]=parcelableActivity.min_position;
@@ -33,14 +33,14 @@
         valuesList.add(ParcelableActivityValuesCreator.create(parcelableActivity));
       }
       if (deleteBound[0] > 0 && deleteBound[1] > 0) {
-        Expression where=Expression.and(Expression.equals(Activities.AboutMe.ACCOUNT_ID,accountId),Expression.greaterThan(Activities.AboutMe.MIN_POSITION,deleteBound[1]),Expression.lesserThan(Activities.AboutMe.MAX_POSITION,deleteBound[0]));
-        int rowsDeleted=cr.delete(Activities.AboutMe.CONTENT_URI,where.getSQL(),null);
+        Expression where=Expression.and(Expression.equals(Activities.ACCOUNT_ID,accountId),Expression.greaterEquals(Activities.MIN_POSITION,deleteBound[0]),Expression.lesserEquals(Activities.MAX_POSITION,deleteBound[1]));
+        int rowsDeleted=cr.delete(getContentUri(),where.getSQL(),null);
         boolean insertGap=!noItemsBefore && rowsDeleted <= 0;
         if (insertGap && !valuesList.isEmpty()) {
           valuesList.get(valuesList.size() - 1).put(Activities.IS_GAP,true);
         }
       }
-      ContentResolverUtils.bulkInsert(cr,Activities.AboutMe.CONTENT_URI,valuesList);
+      ContentResolverUtils.bulkInsert(cr,getContentUri(),valuesList);
     }
  catch (    TwitterException e) {
     }

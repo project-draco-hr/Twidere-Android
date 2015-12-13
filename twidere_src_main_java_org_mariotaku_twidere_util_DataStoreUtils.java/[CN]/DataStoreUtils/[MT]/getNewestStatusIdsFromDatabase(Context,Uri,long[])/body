@@ -1,18 +1,18 @@
 {
   if (context == null || uri == null || accountIds == null)   return null;
-  final String[] cols=new String[]{TwidereDataStore.Statuses.STATUS_ID};
+  final String[] cols=new String[]{Statuses.STATUS_ID};
   final ContentResolver resolver=context.getContentResolver();
   final long[] status_ids=new long[accountIds.length];
   int idx=0;
   for (  final long accountId : accountIds) {
-    final String where=Expression.equals(TwidereDataStore.Statuses.ACCOUNT_ID,accountId).getSQL();
-    final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,TwidereDataStore.Statuses.DEFAULT_SORT_ORDER);
+    final String where=Expression.equals(Statuses.ACCOUNT_ID,accountId).getSQL();
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,Statuses.DEFAULT_SORT_ORDER);
     if (cur == null) {
       continue;
     }
     if (cur.getCount() > 0) {
       cur.moveToFirst();
-      status_ids[idx]=cur.getLong(cur.getColumnIndexOrThrow(TwidereDataStore.Statuses.STATUS_ID));
+      status_ids[idx]=cur.getLong(cur.getColumnIndexOrThrow(Statuses.STATUS_ID));
     }
     cur.close();
     idx++;

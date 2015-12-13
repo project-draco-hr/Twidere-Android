@@ -1,7 +1,7 @@
 {
   if (list == null)   return null;
   try {
-    return LoganSquareWrapper.serialize(list,cls);
+    return LoganSquareExtension.serialize(list,cls);
   }
  catch (  IOException e) {
     return null;

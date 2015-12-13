@@ -1,3 +1,0 @@
-{
-  return DataStoreUtils.getOldestStatusIdsFromDatabase(getActivity(),getContentUri(),accountIds);
-}

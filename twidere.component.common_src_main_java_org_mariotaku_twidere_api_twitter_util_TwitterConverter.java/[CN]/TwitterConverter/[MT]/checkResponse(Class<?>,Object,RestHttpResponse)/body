@@ -1,5 +1,0 @@
-{
-  if (User.class.isAssignableFrom(cls)) {
-    if (object == null)     throw new TwitterException("User is null");
-  }
-}

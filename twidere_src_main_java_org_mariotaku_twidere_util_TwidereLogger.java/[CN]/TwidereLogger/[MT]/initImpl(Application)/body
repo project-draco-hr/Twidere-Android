@@ -1,7 +1,5 @@
 {
   ACRA.init(application);
-  final ACRAConfiguration conf=ACRA.getNewDefaultConfig(application);
-  ACRA.setConfig(conf);
   final Thread.UncaughtExceptionHandler handler=Thread.getDefaultUncaughtExceptionHandler();
   Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(){
     @Override public void uncaughtException(    Thread thread,    Throwable ex){

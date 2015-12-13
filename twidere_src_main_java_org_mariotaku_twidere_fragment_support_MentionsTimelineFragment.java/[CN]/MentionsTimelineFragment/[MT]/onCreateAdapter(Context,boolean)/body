@@ -1,5 +1,0 @@
-{
-  final ListParcelableStatusesAdapter adapter=super.onCreateAdapter(context,compact);
-  adapter.setShowInReplyTo(false);
-  return adapter;
-}

@@ -1,4 +1,0 @@
-{
-  addAll(statuses);
-  this.metadata=metadata;
-}

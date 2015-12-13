@@ -2,33 +2,33 @@
   AsyncTaskUtils.executeTask(new AsyncTask<long[],Object,Object[]>(){
     @Override protected Object[] doInBackground(    long[][] params){
       final Object[] result=new Object[8];
-      result[0]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS);
-      if (Boolean.TRUE.equals(result[0]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS))) {
-        result[1]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
+      result[0]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
+      if (Boolean.TRUE.equals(result[1]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS))) {
+        result[2]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
       }
-      if (Boolean.TRUE.equals(result[2]=mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES))) {
-        result[3]=DataStoreUtils.getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
+      if (Boolean.TRUE.equals(result[3]=mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES))) {
+        result[4]=DataStoreUtils.getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
       }
-      if (Boolean.TRUE.equals(result[4]=mPreferences.getBoolean(KEY_HOME_REFRESH_TRENDS))) {
-        result[5]=Utils.getDefaultAccountId(mContext);
-        result[6]=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
+      if (Boolean.TRUE.equals(result[5]=mPreferences.getBoolean(KEY_HOME_REFRESH_TRENDS))) {
+        result[6]=Utils.getDefaultAccountId(mContext);
+        result[7]=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
       }
-      result[7]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
       return result;
     }
     @Override protected void onPostExecute(    Object[] result){
-      if (Boolean.TRUE.equals(result[0])) {
-        getMentionsTimelineAsync(accountIds,null,(long[])result[1]);
+      getHomeTimelineAsync(accountIds,null,(long[])result[0]);
+      if (Boolean.TRUE.equals(result[1])) {
+        getMentionsTimelineAsync(accountIds,null,(long[])result[2]);
+        getActivitiesAboutMeAsync(accountIds,null,null);
       }
-      if (Boolean.TRUE.equals(result[2])) {
-        getReceivedDirectMessagesAsync(accountIds,null,(long[])result[3]);
+      if (Boolean.TRUE.equals(result[3])) {
+        getReceivedDirectMessagesAsync(accountIds,null,(long[])result[4]);
         getSentDirectMessagesAsync(accountIds,null,null);
       }
-      if (Boolean.TRUE.equals(result[4])) {
-        getLocalTrendsAsync((Long)result[5],(Integer)result[6]);
+      if (Boolean.TRUE.equals(result[5])) {
+        getLocalTrendsAsync((Long)result[6],(Integer)result[7]);
       }
       getSavedSearchesAsync(accountIds);
-      getHomeTimelineAsync(accountIds,null,(long[])result[7]);
     }
   }
 ,accountIds);

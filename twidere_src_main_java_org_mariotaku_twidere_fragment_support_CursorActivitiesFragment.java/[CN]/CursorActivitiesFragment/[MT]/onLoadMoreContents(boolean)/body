@@ -5,7 +5,7 @@
     @Override public long[][] doLongOperation(    Object o) throws InterruptedException {
       final long[][] result=new long[3][];
       result[0]=getAccountIds();
-      result[1]=getOldestStatusIds(result[0]);
+      result[1]=getOldestActivityIds(result[0]);
       return result;
     }
     @Override public void callback(    CursorActivitiesFragment fragment,    long[][] result){

@@ -1,12 +1,13 @@
 {
-switch (type) {
+switch (getTabTypeAlias(tabType)) {
 case TAB_TYPE_HOME_TIMELINE:
 {
       return TAB_TYPE_HOME_TIMELINE;
     }
-case TAB_TYPE_MENTIONS_TIMELINE:
+case "mentions_timeline":
+case TAB_TYPE_NOTIFICATIONS_TIMELINE:
 {
-    return TAB_TYPE_MENTIONS_TIMELINE;
+    return TAB_TYPE_NOTIFICATIONS_TIMELINE;
   }
 case TAB_TYPE_DIRECT_MESSAGES:
 {
