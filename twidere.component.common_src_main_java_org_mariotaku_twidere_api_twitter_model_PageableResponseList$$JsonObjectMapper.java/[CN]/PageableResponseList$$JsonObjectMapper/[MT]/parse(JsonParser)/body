@@ -1,0 +1,19 @@
+{
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  PageableResponseList<T> instance=new PageableResponseList<>();
+  final JsonToken currentToken=jsonParser.getCurrentToken();
+  if (currentToken == JsonToken.START_OBJECT) {
+    while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+      String fieldName=jsonParser.getCurrentName();
+      jsonParser.nextToken();
+      parseField(instance,fieldName,jsonParser);
+      jsonParser.skipChildren();
+    }
+  }
+ else   if (currentToken == JsonToken.START_ARRAY) {
+    instance.addAll(m84ClassJsonMapper.parseList(jsonParser));
+  }
+  return instance;
+}

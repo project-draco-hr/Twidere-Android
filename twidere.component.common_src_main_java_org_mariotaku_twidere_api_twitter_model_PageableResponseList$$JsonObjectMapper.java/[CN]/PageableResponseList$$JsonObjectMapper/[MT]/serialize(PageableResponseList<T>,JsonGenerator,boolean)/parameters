@@ -1,0 +1,3 @@
+PageableResponseList<T> object
+JsonGenerator jsonGenerator
+boolean writeStartAndEnd

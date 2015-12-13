@@ -1,11 +1,11 @@
 {
-  if (SCHEDULED.value.equalsIgnoreCase(value)) {
+  if (SCHEDULED.literal.equalsIgnoreCase(value)) {
     return SCHEDULED;
   }
- else   if (FAILED.value.equalsIgnoreCase(value)) {
+ else   if (FAILED.literal.equalsIgnoreCase(value)) {
     return FAILED;
   }
- else   if (CANCELED.value.equalsIgnoreCase(value)) {
+ else   if (CANCELED.literal.equalsIgnoreCase(value)) {
     return CANCELED;
   }
   return null;

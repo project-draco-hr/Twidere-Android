@@ -2,9 +2,19 @@
   if (jsonParser.getCurrentToken() == null) {
     jsonParser.nextToken();
   }
-  if (jsonParser.getCurrentToken() != JsonToken.START_ARRAY) {
+  if (m84ClassJsonMapper instanceof ScheduledStatus$$JsonObjectMapper) {
+    ResponseList<T> instance=new ResponseList<>();
+    while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+      String fieldName=jsonParser.getCurrentName();
+      jsonParser.nextToken();
+      parseField(instance,fieldName,jsonParser);
+      jsonParser.skipChildren();
+    }
+    return instance;
+  }
+ else   if (jsonParser.getCurrentToken() != JsonToken.START_ARRAY) {
     jsonParser.skipChildren();
     return null;
   }
-  return new ResponseList<T>(m84ClassJsonMapper.parseList(jsonParser));
+  return new ResponseList<>(m84ClassJsonMapper.parseList(jsonParser));
 }

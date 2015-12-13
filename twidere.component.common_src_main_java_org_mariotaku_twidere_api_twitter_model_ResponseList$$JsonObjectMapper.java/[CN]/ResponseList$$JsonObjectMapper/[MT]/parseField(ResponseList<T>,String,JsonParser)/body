@@ -1,2 +1,9 @@
 {
+switch (fieldName) {
+case "results":
+{
+      instance.addAll(m84ClassJsonMapper.parseList(jsonParser));
+      break;
+    }
+}
 }

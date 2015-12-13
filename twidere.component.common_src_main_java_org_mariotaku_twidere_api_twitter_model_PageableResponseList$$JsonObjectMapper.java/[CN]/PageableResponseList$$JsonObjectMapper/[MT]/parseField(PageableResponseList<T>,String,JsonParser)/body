@@ -1,0 +1,19 @@
+{
+switch (fieldName) {
+case "users":
+case "statuses":
+case "lists":
+{
+      instance.addAll(m84ClassJsonMapper.parseList(jsonParser));
+      break;
+    }
+case "previous_cursor":
+{
+    instance.previousCursor=jsonParser.getValueAsLong();
+  }
+case "next_cursor":
+{
+  instance.nextCursor=jsonParser.getValueAsLong();
+}
+}
+}
