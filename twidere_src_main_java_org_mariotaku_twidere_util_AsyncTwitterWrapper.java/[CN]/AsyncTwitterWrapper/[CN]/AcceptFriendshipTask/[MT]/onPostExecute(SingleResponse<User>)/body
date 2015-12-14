@@ -1,10 +1,8 @@
 {
   if (result.hasData()) {
     final User user=result.getData();
-    final TwidereApplication application=TwidereApplication.getInstance(mContext);
-    final UserColorNameManager manager=ApplicationModule.get(mContext).getUserColorNameManager();
     final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
-    final String message=mContext.getString(R.string.accepted_users_follow_request,manager.getDisplayName(user,nameFirst,true));
+    final String message=mContext.getString(R.string.accepted_users_follow_request,mUserColorNameManager.getDisplayName(user,nameFirst,true));
     Utils.showOkMessage(mContext,message,false);
   }
  else {

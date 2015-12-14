@@ -1,9 +1,8 @@
 {
   if (result.hasData()) {
     final User user=result.getData();
-    final UserColorNameManager manager=ApplicationModule.get(mContext).getUserColorNameManager();
     final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
-    final String message=mContext.getString(R.string.denied_users_follow_request,manager.getDisplayName(user,nameFirst,true));
+    final String message=mContext.getString(R.string.denied_users_follow_request,mUserColorNameManager.getDisplayName(user,nameFirst,true));
     Utils.showOkMessage(mContext,message,false);
   }
  else {

@@ -1,8 +1,7 @@
 {
   if (result.hasData()) {
-    final UserColorNameManager manager=ApplicationModule.get(mContext).getUserColorNameManager();
     final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
-    final String message=mContext.getString(R.string.muted_user,manager.getDisplayName(result.getData(),nameFirst,true));
+    final String message=mContext.getString(R.string.muted_user,mUserColorNameManager.getDisplayName(result.getData(),nameFirst,true));
     Utils.showInfoMessage(mContext,message,false);
     bus.post(new FriendshipUserUpdatedEvent(result.getData()));
   }

@@ -1,6 +1,7 @@
 {
   if (mDivider == null)   return;
   final int childPos=parent.getChildAdapterPosition(view);
+  if (!isDividerEnabled(childPos))   return;
   final int start=getDecorationStart(), end=getDecorationEnd(parent);
   if (start >= 0 && childPos < start || end >= 0 && childPos > end) {
     outRect.setEmpty();

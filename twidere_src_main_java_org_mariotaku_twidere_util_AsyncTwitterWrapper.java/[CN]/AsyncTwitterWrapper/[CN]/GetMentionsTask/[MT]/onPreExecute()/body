@@ -1,5 +1,0 @@
-{
-  final Intent intent=new Intent(BROADCAST_RESCHEDULE_MENTIONS_REFRESHING);
-  mContext.sendBroadcast(intent);
-  super.onPreExecute();
-}

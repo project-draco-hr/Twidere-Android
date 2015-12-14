@@ -4,9 +4,8 @@
   if (succeed) {
     if (users.length == 1) {
       final ParcelableUser user=users[0];
-      final UserColorNameManager manager=ApplicationModule.get(mContext).getUserColorNameManager();
       final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
-      final String displayName=manager.getDisplayName(user.id,user.name,user.screen_name,nameFirst,false);
+      final String displayName=mUserColorNameManager.getDisplayName(user.id,user.name,user.screen_name,nameFirst,false);
       message=mContext.getString(R.string.deleted_user_from_list,displayName,result.getData().name);
     }
  else {

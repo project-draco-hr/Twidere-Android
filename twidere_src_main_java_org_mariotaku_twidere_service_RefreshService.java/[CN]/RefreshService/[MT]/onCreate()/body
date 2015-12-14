@@ -3,12 +3,12 @@
   DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(this)).build().inject(this);
   mAlarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
   mPendingRefreshHomeTimelineIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_HOME_TIMELINE),0);
-  mPendingRefreshMentionsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_MENTIONS),0);
+  mPendingRefreshMentionsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_NOTIFICATIONS),0);
   mPendingRefreshDirectMessagesIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_DIRECT_MESSAGES),0);
   mPendingRefreshTrendsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_TRENDS),0);
   final IntentFilter refreshFilter=new IntentFilter(BROADCAST_NOTIFICATION_DELETED);
   refreshFilter.addAction(BROADCAST_REFRESH_HOME_TIMELINE);
-  refreshFilter.addAction(BROADCAST_REFRESH_MENTIONS);
+  refreshFilter.addAction(BROADCAST_REFRESH_NOTIFICATIONS);
   refreshFilter.addAction(BROADCAST_REFRESH_DIRECT_MESSAGES);
   refreshFilter.addAction(BROADCAST_RESCHEDULE_HOME_TIMELINE_REFRESHING);
   refreshFilter.addAction(BROADCAST_RESCHEDULE_MENTIONS_REFRESHING);

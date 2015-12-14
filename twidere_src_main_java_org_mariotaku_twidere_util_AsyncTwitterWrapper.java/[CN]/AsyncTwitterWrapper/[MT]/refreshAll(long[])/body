@@ -18,7 +18,6 @@
     @Override protected void onPostExecute(    Object[] result){
       getHomeTimelineAsync(accountIds,null,(long[])result[0]);
       if (Boolean.TRUE.equals(result[1])) {
-        getMentionsTimelineAsync(accountIds,null,(long[])result[2]);
         getActivitiesAboutMeAsync(accountIds,null,null);
       }
       if (Boolean.TRUE.equals(result[3])) {

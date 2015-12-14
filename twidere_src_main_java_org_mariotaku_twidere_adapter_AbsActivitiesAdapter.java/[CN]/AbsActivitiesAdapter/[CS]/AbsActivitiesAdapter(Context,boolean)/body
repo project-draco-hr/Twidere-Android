@@ -5,6 +5,6 @@
   mInflater=LayoutInflater.from(context);
   mLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mCompactCards=compact;
-  mLinkify=new TwidereLinkify(this);
+  mLinkify=new TwidereLinkify(new OnLinkClickHandler(context,null));
   mStatusAdapterDelegate.updateOptions();
 }

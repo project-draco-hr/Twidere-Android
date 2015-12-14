@@ -1,0 +1,22 @@
+{
+  if (compact) {
+    super.setupRecyclerView(context,true);
+    return;
+  }
+  final RecyclerView recyclerView=getRecyclerView();
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  recyclerView.addItemDecoration(new DividerItemDecoration(context,getLayoutManager().getOrientation()){
+    @Override protected boolean isDividerEnabled(    int childPos){
+      if (childPos == RecyclerView.NO_POSITION || childPos == adapter.getItemCount() - 1) {
+        return false;
+      }
+      if (adapter.getItemViewType(childPos) != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
+        if (adapter.getItemViewType(childPos + 1) != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+);
+}

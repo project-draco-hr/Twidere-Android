@@ -1,5 +1,5 @@
 {
-  mAsyncTaskManager.add(new GetActivitiesTask(this,accountIds,maxIds,sinceIds){
+  mAsyncTaskManager.add(new GetActivitiesTask(this,TASK_TAG_GET_MENTIONS,accountIds,maxIds,sinceIds){
     @Override protected ResponseList<Activity> getActivities(    long accountId,    Twitter twitter,    Paging paging) throws TwitterException {
       if (Utils.isOfficialKeyAccount(getContext(),accountId)) {
         return twitter.getActivitiesAboutMe(paging);

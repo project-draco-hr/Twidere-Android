@@ -12,7 +12,6 @@
   readStateManager=new ReadStateManager(application);
   dns=new TwidereDns(application);
   notificationManagerWrapper=new NotificationManagerWrapper(application);
-  asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,sharedPreferences,bus);
   restHttpClient=TwitterAPIFactory.getDefaultHttpClient(application,dns);
   imageDownloader=new TwidereImageDownloader(application,restHttpClient,true);
   imageLoader=createImageLoader(application,imageDownloader);
@@ -22,4 +21,5 @@
   userColorNameManager=new UserColorNameManager(application);
   keyboardShortcutsHandler=new KeyboardShortcutsHandler(application);
   hotMobiLogger=new HotMobiLogger(application);
+  asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,sharedPreferences,bus,userColorNameManager);
 }
