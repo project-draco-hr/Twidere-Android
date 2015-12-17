@@ -1,0 +1,4 @@
+{
+  viewRef=new WeakReference<>(view);
+  this.delay=delay;
+}

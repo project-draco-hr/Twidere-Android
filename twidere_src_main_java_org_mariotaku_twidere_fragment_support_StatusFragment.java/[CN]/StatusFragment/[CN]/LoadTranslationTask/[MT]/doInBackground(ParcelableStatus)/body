@@ -1,0 +1,24 @@
+{
+  final ParcelableStatus status=params[0];
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,status.account_id,true);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final String prefDest=prefs.getString(KEY_TRANSLATION_DESTINATION,null);
+    final String dest;
+    if (TextUtils.isEmpty(prefDest)) {
+      dest=twitter.getAccountSettings().getLanguage();
+      final SharedPreferences.Editor editor=prefs.edit();
+      editor.putString(KEY_TRANSLATION_DESTINATION,dest);
+      editor.apply();
+    }
+ else {
+      dest=prefDest;
+    }
+    final long statusId=status.is_retweet ? status.retweet_id : status.id;
+    return SingleResponse.getInstance(twitter.showTranslation(statusId,dest));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

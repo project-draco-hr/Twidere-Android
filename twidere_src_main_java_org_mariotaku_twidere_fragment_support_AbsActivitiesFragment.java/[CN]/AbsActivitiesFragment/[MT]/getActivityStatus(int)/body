@@ -1,4 +1,4 @@
 {
   final AbsActivitiesAdapter<Data> adapter=getAdapter();
-  return getActivityStatus(adapter.getActivity(position));
+  return ParcelableActivity.getActivityStatus(adapter.getActivity(position));
 }

@@ -1,0 +1,4 @@
+{
+  super.onDestroy();
+  DebugModeUtils.watchReferenceLeak(this);
+}

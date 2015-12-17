@@ -1,10 +1,15 @@
 {
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
-  ParcelableMedia that=(ParcelableMedia)o;
-  if (end != that.end)   return false;
-  if (start != that.start)   return false;
-  if (type != that.type)   return false;
-  if (!media_url.equals(that.media_url))   return false;
-  return true;
+  ParcelableMedia media=(ParcelableMedia)o;
+  if (start != media.start)   return false;
+  if (end != media.end)   return false;
+  if (type != media.type)   return false;
+  if (width != media.width)   return false;
+  if (height != media.height)   return false;
+  if (media_url != null ? !media_url.equals(media.media_url) : media.media_url != null)   return false;
+  if (page_url != null ? !page_url.equals(media.page_url) : media.page_url != null)   return false;
+  if (preview_url != null ? !preview_url.equals(media.preview_url) : media.preview_url != null)   return false;
+  if (video_info != null ? !video_info.equals(media.video_info) : media.video_info != null)   return false;
+  return !(card != null ? !card.equals(media.card) : media.card != null);
 }

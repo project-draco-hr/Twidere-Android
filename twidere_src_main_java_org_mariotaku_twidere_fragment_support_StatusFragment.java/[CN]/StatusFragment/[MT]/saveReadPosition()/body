@@ -1,6 +1,6 @@
 {
   final int position=mLayoutManager.findFirstVisibleItemPosition();
-  if (position < 0)   return null;
+  if (position == RecyclerView.NO_POSITION)   return null;
   final int itemType=mStatusAdapter.getItemType(position);
   long itemId=mStatusAdapter.getItemId(position);
   final View positionView;
@@ -12,5 +12,5 @@
  else {
     positionView=mLayoutManager.findViewByPosition(position);
   }
-  return new Pair<>(itemId,positionView != null ? positionView.getTop() : -1);
+  return new Pair<>(itemId,positionView != null ? positionView.getTop() : 0);
 }

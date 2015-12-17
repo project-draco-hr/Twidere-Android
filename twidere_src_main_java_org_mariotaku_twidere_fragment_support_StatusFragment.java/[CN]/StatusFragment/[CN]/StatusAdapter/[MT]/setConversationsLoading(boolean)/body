@@ -1,4 +1,5 @@
 {
-  setCount(ITEM_IDX_CONVERSATION_LOAD_MORE,loading ? 1 : 0);
+  mConversationsLoading=loading;
+  notifyItemChanged(getFirstPositionOfItem(ITEM_IDX_CONVERSATION_LOAD_MORE));
   updateItemDecoration();
 }

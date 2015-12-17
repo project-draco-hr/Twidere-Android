@@ -1,6 +1,6 @@
 {
   if (result != null) {
-    final String user_id_where=ListUtils.toString(result.getData(),',',false);
+    final String user_id_where=TwidereListUtils.toString(result.getData(),',',false);
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,account_id),new Expression(String.format(Locale.ROOT,"%s IN (%s)",Statuses.USER_ID,user_id_where)));
       mResolver.delete(uri,where.getSQL(),null);

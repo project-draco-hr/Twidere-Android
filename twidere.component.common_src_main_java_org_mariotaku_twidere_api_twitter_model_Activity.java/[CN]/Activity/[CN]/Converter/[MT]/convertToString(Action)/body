@@ -1,3 +1,4 @@
 {
-  return object.name().toLowerCase(Locale.US);
+  if (object == null)   return null;
+  return object.literal;
 }

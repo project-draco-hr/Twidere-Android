@@ -10,12 +10,15 @@
       if (childPos == RecyclerView.NO_POSITION || childPos == adapter.getItemCount() - 1) {
         return false;
       }
-      if (adapter.getItemViewType(childPos) != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
-        if (adapter.getItemViewType(childPos + 1) != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
+      if (shouldUseDividerFor(adapter.getItemViewType(childPos))) {
+        if (shouldUseDividerFor(adapter.getItemViewType(childPos + 1))) {
           return true;
         }
       }
       return false;
+    }
+    private boolean shouldUseDividerFor(    int itemViewType){
+      return itemViewType != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS && itemViewType != AbsActivitiesAdapter.ITEM_VIEW_TYPE_EMPTY;
     }
   }
 );

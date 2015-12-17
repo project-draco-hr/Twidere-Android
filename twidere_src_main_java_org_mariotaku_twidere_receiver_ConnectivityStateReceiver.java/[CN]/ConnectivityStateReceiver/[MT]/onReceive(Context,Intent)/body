@@ -10,7 +10,7 @@
     final NetworkEvent event=NetworkEvent.create(context);
     HotMobiLogger.getInstance(context).log(event);
   }
-  final int networkType=Utils.getActiveNetworkType(context.getApplicationContext());
+  final int networkType=ConnectivityUtils.getActiveNetworkType(context.getApplicationContext());
   NetworkUsageUtils.setNetworkType(networkType);
   final boolean isWifi=networkType == ConnectivityManager.TYPE_WIFI;
   final boolean isCharging=SpiceProfilingUtil.isCharging(context.getApplicationContext());

@@ -11,7 +11,6 @@
   draftsAlias.put(Drafts.MEDIA,"medias");
   safeUpgrade(db,Accounts.TABLE_NAME,Accounts.COLUMNS,Accounts.TYPES,false,accountsAlias);
   safeUpgrade(db,Statuses.TABLE_NAME,Statuses.COLUMNS,Statuses.TYPES,true,null);
-  safeUpgrade(db,Mentions.TABLE_NAME,Mentions.COLUMNS,Mentions.TYPES,true,null);
   safeUpgrade(db,Activities.AboutMe.TABLE_NAME,Activities.AboutMe.COLUMNS,Activities.AboutMe.TYPES,true,null);
   safeUpgrade(db,Activities.ByFriends.TABLE_NAME,Activities.ByFriends.COLUMNS,Activities.ByFriends.TYPES,true,null);
   safeUpgrade(db,Drafts.TABLE_NAME,Drafts.COLUMNS,Drafts.TYPES,false,draftsAlias);

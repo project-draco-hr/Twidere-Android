@@ -1,3 +1,0 @@
-{
-  return inflater.inflate(R.layout.dialog_translate_status,parent,false);
-}

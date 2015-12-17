@@ -1,7 +1,7 @@
 {
   if (statusCursor.getCount() == 0 || statusesCount == 0)   return;
   final String accountName=Utils.getAccountName(context,accountId);
-  final String accountScreenName=Utils.getAccountScreenName(context,accountId);
+  final String accountScreenName=DataStoreUtils.getAccountScreenName(context,accountId);
   final ParcelableStatusCursorIndices indices=new ParcelableStatusCursorIndices(statusCursor);
   final UserColorNameManager manager=mUserColorNameManager;
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);

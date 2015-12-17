@@ -3,5 +3,5 @@
   if (fragment instanceof AccountsDashboardFragment) {
     return ((AccountsDashboardFragment)fragment).getActivatedAccountIds();
   }
-  return Utils.getActivatedAccountIds(this);
+  return DataStoreUtils.getActivatedAccountIds(this);
 }

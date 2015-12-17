@@ -1,6 +1,6 @@
 {
   if (context == null)   return null;
-  final long[] account_ids=getActivatedAccountIds(context);
+  final long[] account_ids=DataStoreUtils.getActivatedAccountIds(context);
   final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(account_ids));
   final Expression where;
   if (selection != null) {

@@ -1,0 +1,3 @@
+{
+  return "RawBindingValue{" + "type='" + type + '\''+ ", booleanValue="+ booleanValue+ ", stringValue='"+ stringValue+ '\''+ ", imageValue="+ imageValue+ ", userValue="+ userValue+ '}';
+}

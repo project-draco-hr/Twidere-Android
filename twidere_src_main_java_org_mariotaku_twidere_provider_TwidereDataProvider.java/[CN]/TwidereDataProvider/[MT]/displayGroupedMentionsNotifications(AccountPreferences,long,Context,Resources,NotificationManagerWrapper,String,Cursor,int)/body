@@ -5,7 +5,7 @@
     final int usersCount=DatabaseQueryUtils.count(mDatabaseWrapper.getSQLiteDatabase(),Mentions.TABLE_NAME,filteredSelection,null,Statuses.USER_ID,null,null);
     if (statusesCount == 0 || usersCount == 0)     return;
     final String accountName=Utils.getAccountName(context,accountId);
-    final String accountScreenName=Utils.getAccountScreenName(context,accountId);
+    final String accountScreenName=DataStoreUtils.getAccountScreenName(context,accountId);
     final int idxStatusText=statusCursor.getColumnIndex(Statuses.TEXT_UNESCAPED), idxStatusId=statusCursor.getColumnIndex(Statuses.STATUS_ID), idxStatusTimestamp=statusCursor.getColumnIndex(Statuses.STATUS_TIMESTAMP), idxStatusUserId=statusCursor.getColumnIndex(Statuses.USER_ID), idxStatusUserName=statusCursor.getColumnIndex(Statuses.USER_NAME), idxStatusUserScreenName=statusCursor.getColumnIndex(Statuses.USER_SCREEN_NAME), idxStatusUserFollowing=statusCursor.getColumnIndex(Statuses.IS_FOLLOWING), idxUserName=userCursor.getColumnIndex(Statuses.USER_NAME), idxUserScreenName=userCursor.getColumnIndex(Statuses.USER_SCREEN_NAME), idxUserId=userCursor.getColumnIndex(Statuses.USER_ID);
     final CharSequence notificationTitle=resources.getQuantityString(R.plurals.N_new_mentions,statusesCount,statusesCount);
     final String notificationContent;

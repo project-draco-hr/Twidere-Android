@@ -7,7 +7,7 @@
       if (CachedStatuses.CONTENT_URI.equals(uri)) {
         continue;
       }
-      final String table=getTableNameByUri(uri);
+      final String table=DataStoreUtils.getTableNameByUri(uri);
       final Expression account_where=new Expression(Statuses.ACCOUNT_ID + " = " + accountId);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(Statuses._ID)).from(new Tables(table));
@@ -18,7 +18,7 @@
       resolver.delete(uri,where.getSQL(),null);
     }
     for (    final Uri uri : DIRECT_MESSAGES_URIS) {
-      final String table=getTableNameByUri(uri);
+      final String table=DataStoreUtils.getTableNameByUri(uri);
       final Expression account_where=new Expression(DirectMessages.ACCOUNT_ID + " = " + accountId);
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(DirectMessages._ID)).from(new Tables(table));
@@ -30,7 +30,7 @@
     }
   }
   for (  final Uri uri : CACHE_URIS) {
-    final String table=getTableNameByUri(uri);
+    final String table=DataStoreUtils.getTableNameByUri(uri);
     if (table == null)     continue;
     final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
     qb.select(new Column(BaseColumns._ID));

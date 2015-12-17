@@ -3,6 +3,8 @@
   if (readPositionTag == null)   return;
   if (position == RecyclerView.NO_POSITION)   return;
   final AbsActivitiesAdapter<Data> adapter=getAdapter();
-  final ParcelableActivity status=adapter.getActivity(position);
-  if (status == null)   return;
+  final ParcelableActivity activity=adapter.getActivity(position);
+  if (activity == null)   return;
+  mReadStateManager.setPosition(readPositionTag,activity.timestamp);
+  mReadStateManager.setPosition(getCurrentReadPositionTag(),activity.timestamp,true);
 }

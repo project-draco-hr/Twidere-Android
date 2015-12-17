@@ -1,3 +1,4 @@
 {
+  if (mStatus == null)   return 0;
   return MathUtils.sum(mItemCounts);
 }

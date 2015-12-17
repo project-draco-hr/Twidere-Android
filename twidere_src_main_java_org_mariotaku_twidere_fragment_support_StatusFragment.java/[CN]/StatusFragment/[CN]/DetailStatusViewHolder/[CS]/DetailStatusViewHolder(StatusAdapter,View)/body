@@ -30,6 +30,9 @@
   quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
   quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
+  translateLabelView=(TextView)itemView.findViewById(R.id.translate_label);
+  translateContainer=itemView.findViewById(R.id.translate_container);
+  translateResultView=(TextView)itemView.findViewById(R.id.translate_result);
   setIsRecyclable(false);
   initViews();
 }

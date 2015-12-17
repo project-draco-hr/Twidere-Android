@@ -4,7 +4,7 @@
     name=getAccountName(context,accountId);
   }
  else {
-    name=String.format("@%s",getAccountScreenName(context,accountId));
+    name=String.format("@%s",DataStoreUtils.getAccountScreenName(context,accountId));
   }
   return name;
 }

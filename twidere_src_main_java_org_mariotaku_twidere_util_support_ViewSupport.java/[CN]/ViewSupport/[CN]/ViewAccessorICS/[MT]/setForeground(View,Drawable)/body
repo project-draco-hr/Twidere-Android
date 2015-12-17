@@ -3,4 +3,7 @@
   if (view instanceof FrameLayout) {
     ((FrameLayout)view).setForeground(foreground);
   }
+ else   if (view instanceof IForegroundView) {
+    view.setForeground(foreground);
+  }
 }

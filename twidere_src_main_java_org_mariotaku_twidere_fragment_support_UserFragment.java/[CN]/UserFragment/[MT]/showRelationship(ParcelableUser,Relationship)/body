@@ -10,11 +10,9 @@
  else   if (relationship != null) {
     mFollowButton.setEnabled(!relationship.isSourceBlockedByTarget());
     if (relationship.isSourceBlockedByTarget()) {
-      mPagesErrorContainer.setVisibility(View.VISIBLE);
-      final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
-      mPagesErrorText.setText(getString(R.string.blocked_by_user_summary,displayName));
-      mPagesErrorIcon.setImageResource(R.drawable.ic_info_error_generic);
-      mPagesContent.setVisibility(View.GONE);
+      mPagesErrorContainer.setVisibility(View.GONE);
+      mPagesErrorText.setText(null);
+      mPagesContent.setVisibility(View.VISIBLE);
     }
  else     if (!relationship.isSourceFollowingTarget() && user.is_protected) {
       mPagesErrorContainer.setVisibility(View.VISIBLE);

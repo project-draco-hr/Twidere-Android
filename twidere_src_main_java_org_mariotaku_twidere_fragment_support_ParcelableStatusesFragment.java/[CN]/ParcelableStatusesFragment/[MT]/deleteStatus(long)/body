@@ -8,7 +8,8 @@
       dataToRemove.add(status);
     }
  else     if (status.my_retweet_id == statusId) {
-      list.set(i,new ParcelableStatus(status,-1,status.retweet_count - 1));
+      status.my_retweet_id=-1;
+      status.retweet_count=status.retweet_count - 1;
     }
   }
   list.removeAll(dataToRemove);

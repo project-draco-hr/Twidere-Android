@@ -1,20 +1,6 @@
 {
-  if ("favorite".equalsIgnoreCase(string))   return FAVORITE;
-  if ("follow".equalsIgnoreCase(string))   return FOLLOW;
-  if ("mention".equalsIgnoreCase(string))   return MENTION;
-  if ("reply".equalsIgnoreCase(string))   return REPLY;
-  if ("retweet".equalsIgnoreCase(string))   return RETWEET;
-  if ("list_member_added".equalsIgnoreCase(string))   return LIST_MEMBER_ADDED;
-  if ("list_created".equalsIgnoreCase(string))   return LIST_CREATED;
-  if ("favorited_retweet".equalsIgnoreCase(string))   return FAVORITED_RETWEET;
-  if ("retweeted_retweet".equalsIgnoreCase(string))   return RETWEETED_RETWEET;
-  if ("quote".equalsIgnoreCase(string))   return QUOTE;
-  if ("retweeted_mention".equalsIgnoreCase(string))   return RETWEETED_MENTION;
-  if ("favorited_mention".equalsIgnoreCase(string))   return FAVORITED_MENTION;
-  if ("joined_twitter".equalsIgnoreCase(string))   return JOINED_TWITTER;
-  if ("media_tagged".equalsIgnoreCase(string))   return MEDIA_TAGGED;
-  if ("favorited_media_tagged".equalsIgnoreCase(string))   return FAVORITED_MEDIA_TAGGED;
-  if ("retweeted_media_tagged".equalsIgnoreCase(string))   return RETWEETED_MEDIA_TAGGED;
-  AbsLogger.error("Unknown Twitter activity action " + string);
+  for (  Action action : values()) {
+    if (StringUtils.equalsIgnoreCase(action.literal,string))     return action;
+  }
   return UNKNOWN;
 }

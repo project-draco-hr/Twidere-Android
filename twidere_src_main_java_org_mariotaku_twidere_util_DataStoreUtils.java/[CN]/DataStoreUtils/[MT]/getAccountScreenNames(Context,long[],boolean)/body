@@ -1,0 +1,20 @@
+{
+  if (context == null)   return new String[0];
+  final String[] cols=new String[]{Accounts.SCREEN_NAME};
+  final String where=accountIds != null ? Expression.in(new Columns.Column(Accounts.ACCOUNT_ID),new RawItemArray(accountIds)).getSQL() : null;
+  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,cols,where,null,null);
+  if (cur == null)   return new String[0];
+  try {
+    cur.moveToFirst();
+    final String[] screen_names=new String[cur.getCount()];
+    int i=0;
+    while (!cur.isAfterLast()) {
+      screen_names[i++]=cur.getString(0);
+      cur.moveToNext();
+    }
+    return screen_names;
+  }
+  finally {
+    cur.close();
+  }
+}

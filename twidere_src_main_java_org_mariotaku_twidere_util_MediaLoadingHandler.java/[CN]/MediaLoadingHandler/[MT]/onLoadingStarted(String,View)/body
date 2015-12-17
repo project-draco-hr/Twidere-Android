@@ -2,7 +2,7 @@
   if (view == null || imageUri == null || imageUri.equals(mLoadingUris.get(view)))   return;
   ViewGroup parent=(ViewGroup)view.getParent();
   if (view instanceof ForegroundImageView) {
-    ((ForegroundImageView)view).setForeground(null);
+    ViewSupport.setForeground(view,null);
   }
   mLoadingUris.put(view,imageUri);
   final ProgressBar progress=findProgressBar(parent);

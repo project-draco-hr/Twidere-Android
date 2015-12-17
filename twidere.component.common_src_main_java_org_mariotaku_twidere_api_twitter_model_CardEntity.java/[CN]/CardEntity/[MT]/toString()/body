@@ -1,0 +1,3 @@
+{
+  return "CardEntity{" + "name='" + name + '\''+ ", url='"+ url+ '\''+ ", bindingValues="+ bindingValues+ '}';
+}

@@ -5,6 +5,9 @@
   final Resources res=context.getResources();
   mItemCounts=new int[ITEM_TYPES_SUM];
   mItemCounts[ITEM_IDX_SPACE]=1;
+  mItemCounts[ITEM_IDX_STATUS]=1;
+  mItemCounts[ITEM_IDX_CONVERSATION_LOAD_MORE]=1;
+  mItemCounts[ITEM_IDX_REPLY_LOAD_MORE]=1;
   mFragment=fragment;
   mInflater=LayoutInflater.from(context);
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);

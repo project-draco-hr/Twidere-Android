@@ -1,0 +1,3 @@
+{
+  return new ActivityCursor(cursor,indices,DataStoreUtils.getFilteredUserIds(getContext()));
+}

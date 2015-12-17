@@ -1,20 +1,5 @@
 {
   final ParcelableActivity activity=getAdapter().getActivity(position);
   if (activity == null)   return;
-switch (activity.action) {
-case Activity.ACTION_FAVORITE:
-case Activity.ACTION_FAVORITED_MEDIA_TAGGED:
-case Activity.ACTION_FAVORITED_MENTION:
-case Activity.ACTION_FAVORITED_RETWEET:
-case Activity.ACTION_RETWEET:
-case Activity.ACTION_RETWEETED_MEDIA_TAGGED:
-case Activity.ACTION_RETWEETED_MENTION:
-case Activity.ACTION_RETWEETED_RETWEET:
-case Activity.ACTION_FOLLOW:
-case Activity.ACTION_JOINED_TWITTER:
-{
-      Utils.openUsers(getActivity(),Arrays.asList(activity.sources));
-      break;
-    }
-}
+  Utils.openUsers(getActivity(),Arrays.asList(activity.sources));
 }

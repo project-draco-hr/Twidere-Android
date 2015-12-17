@@ -2,7 +2,7 @@
   final ParcelableStatus old=mStatus;
   mStatus=status;
   mStatusAccount=credentials;
-  setCount(ITEM_IDX_STATUS,status != null ? 1 : 0);
+  notifyDataSetChanged();
   updateItemDecoration();
   return !CompareUtils.objectEquals(old,status);
 }

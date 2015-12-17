@@ -1,4 +1,4 @@
 {
   this.context=context;
-  setNetworkType(Utils.getActiveNetworkType(context));
+  setNetworkType(ConnectivityUtils.getActiveNetworkType(context));
 }

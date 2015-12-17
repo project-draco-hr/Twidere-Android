@@ -65,4 +65,5 @@
   card=ParcelableCardEntity.fromCardEntity(status.getCard(),account_id);
   place_full_name=getPlaceFullName(status.getPlace());
   card_name=card != null ? card.name : null;
+  lang=status.getLang();
 }

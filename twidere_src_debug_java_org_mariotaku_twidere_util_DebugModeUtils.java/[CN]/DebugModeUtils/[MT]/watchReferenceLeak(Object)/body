@@ -1,0 +1,4 @@
+{
+  if (sRefWatcher == null)   return;
+  sRefWatcher.watch(object);
+}

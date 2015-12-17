@@ -1,0 +1,3 @@
+{
+  super(context,ParcelableActivityCursorIndices.class,uri,projection,selection,selectionArgs,sortOrder,fromUser);
+}

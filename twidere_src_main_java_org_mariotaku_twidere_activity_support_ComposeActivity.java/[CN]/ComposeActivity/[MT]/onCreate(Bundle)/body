@@ -1,6 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+  mLocationListener=new ComposeLocationListener(this);
   mResolver=getContentResolver();
   mValidator=new TwidereValidator(this);
   setContentView(R.layout.activity_compose);

@@ -1,0 +1,3 @@
+List<T> list
+char delimiter
+boolean includeSpace

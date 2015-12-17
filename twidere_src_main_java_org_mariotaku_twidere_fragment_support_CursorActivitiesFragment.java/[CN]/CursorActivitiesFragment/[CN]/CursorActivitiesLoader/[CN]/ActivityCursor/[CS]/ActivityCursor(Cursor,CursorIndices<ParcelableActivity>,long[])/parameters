@@ -1,0 +1,3 @@
+Cursor cursor
+CursorIndices<ParcelableActivity> indies
+long[] filteredUserIds

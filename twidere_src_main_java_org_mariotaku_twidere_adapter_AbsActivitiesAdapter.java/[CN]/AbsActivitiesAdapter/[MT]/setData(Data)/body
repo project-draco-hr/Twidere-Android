@@ -1,0 +1,6 @@
+{
+  if (data instanceof CursorActivitiesFragment.CursorActivitiesLoader.ActivityCursor) {
+    mFilteredUserIds=((CursorActivitiesFragment.CursorActivitiesLoader.ActivityCursor)data).getFilteredUserIds();
+  }
+  onSetData(data);
+}

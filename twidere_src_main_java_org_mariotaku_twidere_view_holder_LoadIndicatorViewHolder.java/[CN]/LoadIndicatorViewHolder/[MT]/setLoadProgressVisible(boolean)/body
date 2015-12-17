@@ -1,0 +1,3 @@
+{
+  loadProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+}

@@ -5,7 +5,7 @@
   AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
     @Override protected long[][] doInBackground(    final Object... params){
       final long[][] result=new long[3][];
-      result[0]=Utils.getActivatedAccountIds(getActivity());
+      result[0]=DataStoreUtils.getActivatedAccountIds(getActivity());
       result[1]=DataStoreUtils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Inbox.CONTENT_URI);
       result[2]=DataStoreUtils.getOldestMessageIdsFromDatabase(getActivity(),DirectMessages.Outbox.CONTENT_URI);
       return result;

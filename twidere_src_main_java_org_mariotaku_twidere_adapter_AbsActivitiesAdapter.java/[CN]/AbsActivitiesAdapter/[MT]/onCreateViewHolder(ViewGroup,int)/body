@@ -37,10 +37,18 @@ case ITEM_VIEW_TYPE_LOAD_INDICATOR:
 final View view=mInflater.inflate(R.layout.card_item_load_indicator,parent,false);
 return new LoadIndicatorViewHolder(view);
 }
-default :
+case ITEM_VIEW_TYPE_STUB:
 {
 final View view=mInflater.inflate(R.layout.list_item_two_line,parent,false);
 return new StubViewHolder(view);
 }
+case ITEM_VIEW_TYPE_EMPTY:
+{
+final View view=new Space(getContext());
+return new ViewHolder(view){
 }
+;
+}
+}
+throw new UnsupportedOperationException("Unsupported viewType " + viewType);
 }

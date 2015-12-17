@@ -1,3 +1,0 @@
-{
-  setRecentLocation(ParcelableLocation.fromLocation(location));
-}

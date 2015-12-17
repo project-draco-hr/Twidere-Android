@@ -6,7 +6,7 @@
   }
  else   if ("created_at".equals(fieldName)) {
     try {
-      instance.createdAt=Activity.DATE_FORMAT.parse(jsonParser.getValueAsString());
+      instance.createdAt=DATE_FORMAT.parse(jsonParser.getValueAsString());
     }
  catch (    ParseException e) {
       throw new IOException(e);

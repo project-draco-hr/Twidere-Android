@@ -1,0 +1,4 @@
+{
+  mStatusAdapterDelegate.setShouldShowAccountsColor(showAccountsColor);
+  notifyDataSetChanged();
+}

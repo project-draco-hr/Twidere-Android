@@ -1,2 +1,0 @@
-Loader<SingleResponse<TranslationResult>> loader
-SingleResponse<TranslationResult> data

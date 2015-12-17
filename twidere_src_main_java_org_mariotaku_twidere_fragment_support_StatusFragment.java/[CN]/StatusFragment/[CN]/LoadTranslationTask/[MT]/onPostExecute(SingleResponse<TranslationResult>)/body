@@ -1,0 +1,8 @@
+{
+  if (result.hasData()) {
+    fragment.displayTranslation(result.getData());
+  }
+ else   if (result.hasException()) {
+    Utils.showErrorMessage(context,R.string.translate,result.getException(),false);
+  }
+}

@@ -10,7 +10,8 @@
     mediaTextView.setText(status.text_unescaped);
   }
   aspectRatioSource.setSize(firstMedia.width,firstMedia.height);
+  mediaImageContainer.setTag(firstMedia);
   mediaImageContainer.requestLayout();
   loader.displayProfileImage(mediaProfileImageView,status.user_profile_image_url);
-  loader.displayPreviewImageWithCredentials(mediaImageView,firstMedia.media_url,status.account_id,adapter.getMediaLoadingHandler());
+  loader.displayPreviewImageWithCredentials(mediaImageView,firstMedia.preview_url,status.account_id,adapter.getMediaLoadingHandler());
 }

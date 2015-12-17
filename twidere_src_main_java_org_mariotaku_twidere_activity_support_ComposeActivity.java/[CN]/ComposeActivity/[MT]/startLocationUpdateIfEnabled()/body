@@ -1,7 +1,7 @@
 {
   final LocationManager lm=mLocationManager;
   try {
-    lm.removeUpdates(this);
+    lm.removeUpdates(mLocationListener);
   }
  catch (  SecurityException ignore) {
   }
@@ -15,10 +15,10 @@
   if (provider != null) {
     try {
       mLocationText.setText(R.string.getting_location);
-      lm.requestLocationUpdates(provider,0,0,this);
+      lm.requestLocationUpdates(provider,0,0,mLocationListener);
       final Location location=Utils.getCachedLocation(this);
       if (location != null) {
-        onLocationChanged(location);
+        mLocationListener.onLocationChanged(location);
       }
     }
  catch (    SecurityException e) {

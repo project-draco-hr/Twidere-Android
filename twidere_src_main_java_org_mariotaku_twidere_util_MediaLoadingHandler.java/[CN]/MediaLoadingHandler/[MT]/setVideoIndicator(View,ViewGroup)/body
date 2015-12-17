@@ -7,6 +7,6 @@
  else {
       foreground=null;
     }
-    ((ForegroundImageView)view).setForeground(foreground);
+    ViewSupport.setForeground(view,foreground);
   }
 }

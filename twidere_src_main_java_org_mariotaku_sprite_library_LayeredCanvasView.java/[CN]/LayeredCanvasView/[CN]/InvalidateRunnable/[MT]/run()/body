@@ -1,0 +1,6 @@
+{
+  final View view=viewRef.get();
+  if (view == null)   return;
+  view.invalidate();
+  view.postDelayed(this,delay);
+}

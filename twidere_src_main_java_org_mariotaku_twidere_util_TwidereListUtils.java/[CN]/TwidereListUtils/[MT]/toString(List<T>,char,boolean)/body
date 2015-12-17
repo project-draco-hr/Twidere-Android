@@ -1,0 +1,14 @@
+{
+  final StringBuilder builder=new StringBuilder();
+  final int size=list.size();
+  for (int i=0; i < size; i++) {
+    if (i > 0) {
+      builder.append(delimiter);
+      if (includeSpace) {
+        builder.append(" ");
+      }
+    }
+    builder.append(list.get(i));
+  }
+  return builder.toString();
+}

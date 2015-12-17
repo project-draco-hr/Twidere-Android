@@ -1,3 +1,3 @@
 {
-  refreshAll(Utils.getActivatedAccountIds(mContext));
+  refreshAll(DataStoreUtils.getActivatedAccountIds(mContext));
 }
