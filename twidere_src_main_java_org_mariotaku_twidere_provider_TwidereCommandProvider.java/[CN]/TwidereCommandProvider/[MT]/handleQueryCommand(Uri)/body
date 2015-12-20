@@ -16,7 +16,7 @@ return null;
 }
 }
  catch (final RuntimeException e) {
-e.printStackTrace();
+Log.w(LOGTAG,e);
 if (Thread.currentThread().getId() != 1) throw new IllegalStateException("This method cannot be called from non-UI thread");
 }
 return null;

@@ -1,0 +1,8 @@
+{
+  final int textSizePx=Math.round(paint.getTextSize());
+  final Drawable drawable=getDrawable();
+  if (drawable != null) {
+    drawable.setBounds(0,0,textSizePx,textSizePx);
+  }
+  return textSizePx + textSizePx / 16;
+}

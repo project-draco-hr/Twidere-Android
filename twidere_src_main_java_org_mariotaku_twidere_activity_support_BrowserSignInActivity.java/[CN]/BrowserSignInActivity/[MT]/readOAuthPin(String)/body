@@ -5,7 +5,7 @@
     return data.oauthPin;
   }
  catch (  final AttoParseException|IOException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

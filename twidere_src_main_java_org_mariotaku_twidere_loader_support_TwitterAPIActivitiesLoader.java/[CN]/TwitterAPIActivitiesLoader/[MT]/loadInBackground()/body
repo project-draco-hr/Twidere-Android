@@ -32,7 +32,7 @@
     truncated=truncateActivities(getActivities(getTwitter(),paging),activities,mSinceId);
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
     return new CopyOnWriteArrayList<>(data);
   }
   final Pair<Long,Long> position;

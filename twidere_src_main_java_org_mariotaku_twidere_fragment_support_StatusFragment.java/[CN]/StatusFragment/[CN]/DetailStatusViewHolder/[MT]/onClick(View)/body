@@ -24,7 +24,12 @@ case R.id.profile_container:
 case R.id.retweets_container:
 {
   final FragmentActivity activity=fragment.getActivity();
-  Utils.openStatusRetweeters(activity,status.account_id,status.id);
+  if (status.is_retweet) {
+    Utils.openStatusRetweeters(activity,status.account_id,status.retweet_id);
+  }
+ else {
+    Utils.openStatusRetweeters(activity,status.account_id,status.id);
+  }
   break;
 }
 case R.id.favorites_container:

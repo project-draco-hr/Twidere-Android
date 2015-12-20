@@ -1,0 +1,6 @@
+{
+  if (writeFieldNameForObject) {
+    jsonGenerator.writeFieldName(fieldName);
+  }
+  LoganSquare.mapperFor(IDs.class).serialize(object,jsonGenerator,true);
+}

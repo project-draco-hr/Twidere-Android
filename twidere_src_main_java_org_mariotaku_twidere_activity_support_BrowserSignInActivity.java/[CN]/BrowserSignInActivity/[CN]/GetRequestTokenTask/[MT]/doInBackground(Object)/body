@@ -17,7 +17,7 @@
     return twitter.getRequestToken(OAUTH_CALLBACK_OOB);
   }
  catch (  final Exception e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

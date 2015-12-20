@@ -35,16 +35,6 @@ setMenu();
 updateTextCount();
 break;
 }
-case R.id.view:
-{
-if (mInReplyToStatus == null) return false;
-final DialogFragment fragment=new ViewStatusDialogFragment();
-final Bundle args=new Bundle();
-args.putParcelable(EXTRA_STATUS,mInReplyToStatus);
-fragment.setArguments(args);
-fragment.show(getSupportFragmentManager(),"view_status");
-break;
-}
 case R.id.link_to_quoted_status:
 {
 final boolean newValue=!item.isChecked();

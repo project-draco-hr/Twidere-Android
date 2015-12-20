@@ -1,0 +1,4 @@
+{
+  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(textView.getContext())).build().inject(this);
+  this.textView=textView;
+}

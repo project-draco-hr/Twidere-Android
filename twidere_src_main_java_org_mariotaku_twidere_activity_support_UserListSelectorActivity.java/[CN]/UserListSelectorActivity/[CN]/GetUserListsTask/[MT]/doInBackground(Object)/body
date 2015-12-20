@@ -19,7 +19,7 @@
     return result;
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
     return SingleResponse.getInstance(e);
   }
 }

@@ -5,7 +5,7 @@
     return twitter.getSavedSearches();
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

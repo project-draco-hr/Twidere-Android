@@ -15,7 +15,7 @@
     return twitter.getLanguages();
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

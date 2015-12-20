@@ -5,7 +5,7 @@
     return twitter.getAvailableTrends();
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

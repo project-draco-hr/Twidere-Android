@@ -5,7 +5,7 @@
     return iface.shorten(status,overrideStatusText);
   }
  catch (  final RemoteException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

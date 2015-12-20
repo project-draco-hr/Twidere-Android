@@ -1,12 +1,14 @@
 {
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true);
+  if (twitter == null)   return null;
   final List<ParcelableUser> data=getData();
   final List<User> users;
   try {
-    users=getUsers(TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true));
+    users=getUsers(twitter);
     if (users == null)     return data;
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
     return data;
   }
   int pos=data.size();

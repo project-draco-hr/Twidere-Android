@@ -1,4 +1,4 @@
 {
-  if (entity == null || entity.values == null || key == null)   return null;
-  return entity.values.get(key);
+  if (entity == null)   return null;
+  return entity.getValue(key);
 }

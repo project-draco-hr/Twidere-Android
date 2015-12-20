@@ -1,0 +1,4 @@
+{
+  if (ArrayUtils.isEmpty(addresses) || ArrayUtils.contains(addresses,null))   return;
+  mHostCache.put(host,addresses);
+}

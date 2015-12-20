@@ -1,0 +1,8 @@
+{
+  this.packageName=packageName;
+  try {
+    this.resources=application.getPackageManager().getResourcesForApplication(packageName);
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+  }
+}

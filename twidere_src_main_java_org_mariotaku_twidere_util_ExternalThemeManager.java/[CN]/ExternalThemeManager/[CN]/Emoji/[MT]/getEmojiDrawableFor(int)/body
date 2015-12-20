@@ -1,0 +1,9 @@
+{
+  int cached=identifierCache.get(codePoint,-1);
+  if (cached == 0)   return null;
+ else   if (cached != -1)   return ResourcesCompat.getDrawable(resources,cached,null);
+  final int identifier=resources.getIdentifier("emoji_u" + Integer.toHexString(codePoint),"mipmap",packageName);
+  identifierCache.put(codePoint,identifier);
+  if (identifier == 0)   return null;
+  return ResourcesCompat.getDrawable(resources,identifier,null);
+}

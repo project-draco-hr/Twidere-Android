@@ -22,7 +22,7 @@
   calendar.set(Calendar.ZONE_OFFSET,SimpleTimeZone.getTimeZone("GMT" + segs[4]).getRawOffset());
   final Date date=calendar.getTime();
   if (!WEEK_NAMES[calendar.get(Calendar.DAY_OF_WEEK) - 1].equals(segs[0])) {
-    AbsLogger.error("Week mismatch " + string + " => "+ date);
+    BugReporter.error("Week mismatch " + string + " => "+ date);
     return null;
   }
   return date;

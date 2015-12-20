@@ -13,11 +13,11 @@ return authTwipOMode();
 return authOAuth();
 }
  catch (final TwitterException e) {
-e.printStackTrace();
+Log.w(LOGTAG,e);
 return new SignInResponse(false,false,e);
 }
 catch (final AuthenticationException e) {
-e.printStackTrace();
+Log.w(LOGTAG,e);
 return new SignInResponse(false,false,e);
 }
 }

@@ -5,7 +5,7 @@
     return iface.upload(status,media);
   }
  catch (  final RemoteException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   return null;
 }

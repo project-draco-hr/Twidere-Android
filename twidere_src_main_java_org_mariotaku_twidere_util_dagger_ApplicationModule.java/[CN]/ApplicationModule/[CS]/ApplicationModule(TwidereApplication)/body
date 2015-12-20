@@ -22,4 +22,5 @@
   keyboardShortcutsHandler=new KeyboardShortcutsHandler(application);
   hotMobiLogger=new HotMobiLogger(application);
   asyncTwitterWrapper=new AsyncTwitterWrapper(application,asyncTaskManager,sharedPreferences,bus,userColorNameManager);
+  externalThemeManager=new ExternalThemeManager(application);
 }

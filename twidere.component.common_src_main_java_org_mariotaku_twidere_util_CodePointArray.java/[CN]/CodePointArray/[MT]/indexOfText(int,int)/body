@@ -1,0 +1,9 @@
+{
+  int index=0;
+  for (int i=0; i < length; i++) {
+    final int current=codePoints[i];
+    if (current == codePoint && i >= start)     return index;
+    index+=Character.charCount(current);
+  }
+  return -1;
+}

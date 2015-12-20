@@ -10,5 +10,8 @@ case CARD_NAME_AUDIO:
     return true;
   }
 }
+if (CardPollFragment.isPoll(card.name)) {
+return true;
+}
 return false;
 }

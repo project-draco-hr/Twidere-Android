@@ -1,0 +1,4 @@
+{
+  super.onBaseViewCreated(view,savedInstanceState);
+  mPollChoices=(LinearLayout)view.findViewById(R.id.poll_choices);
+}

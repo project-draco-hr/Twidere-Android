@@ -5,7 +5,7 @@
     listLoaded=getUserLists(twitter);
   }
  catch (  final TwitterException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
   }
   if (listLoaded != null) {
     final int listSize=listLoaded.size();

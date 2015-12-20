@@ -7,6 +7,5 @@
     LoganSquare.serialize(statuses,new FileOutputStream(file),ParcelableStatus.class);
   }
  catch (  final IOException e) {
-    e.printStackTrace();
   }
 }

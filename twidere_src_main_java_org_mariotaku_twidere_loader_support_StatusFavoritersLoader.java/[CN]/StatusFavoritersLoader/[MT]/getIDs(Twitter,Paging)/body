@@ -1,5 +1,3 @@
 {
-  if (twitter == null)   return null;
-  if (mStatusId > 0)   return twitter.getStatusActivitySummary(mStatusId).getFavoriters();
-  return null;
+  return twitter.getStatusActivitySummary(mStatusId).getFavoriters();
 }

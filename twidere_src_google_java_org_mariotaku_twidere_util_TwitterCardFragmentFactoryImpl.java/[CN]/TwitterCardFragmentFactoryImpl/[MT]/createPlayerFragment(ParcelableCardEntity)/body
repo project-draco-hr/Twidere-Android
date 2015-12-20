@@ -1,3 +1,26 @@
 {
+  if (Boolean.parseBoolean("true"))   return null;
+  final ParcelableBindingValue appUrlResolved=ParcelableCardEntity.getValue(card,"app_url_resolved");
+  final ParcelableBindingValue domain=ParcelableCardEntity.getValue(card,"domain");
+  if (domain != null && appUrlResolved != null) {
+    final Uri uri=Uri.parse(appUrlResolved.value);
+    final String paramV=uri.getQueryParameter("v");
+    if ("www.youtube.com".equals(domain.value) && paramV != null) {
+      final YouTubePlayerSupportFragment fragment=YouTubePlayerSupportFragment.newInstance();
+      fragment.initialize(YOUTUBE_DATA_API_KEY,new YouTubePlayer.OnInitializedListener(){
+        @Override public void onInitializationSuccess(        YouTubePlayer.Provider provider,        YouTubePlayer player,        boolean wasRestored){
+          if (!wasRestored) {
+            player.cueVideo(paramV);
+          }
+        }
+        @Override public void onInitializationFailure(        YouTubePlayer.Provider provider,        YouTubeInitializationResult errorReason){
+          final FragmentActivity activity=fragment.getActivity();
+          if (activity == null)           return;
+        }
+      }
+);
+      return fragment;
+    }
+  }
   return null;
 }

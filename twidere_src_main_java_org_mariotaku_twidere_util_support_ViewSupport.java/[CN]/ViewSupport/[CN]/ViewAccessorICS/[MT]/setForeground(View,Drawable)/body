@@ -4,6 +4,6 @@
     ((FrameLayout)view).setForeground(foreground);
   }
  else   if (view instanceof IForegroundView) {
-    view.setForeground(foreground);
+    ((IForegroundView)view).setForeground(foreground);
   }
 }

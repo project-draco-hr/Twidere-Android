@@ -9,7 +9,7 @@
     return true;
   }
  catch (  final IOException e) {
-    e.printStackTrace();
+    Log.w(LOGTAG,e);
+    return false;
   }
-  return false;
 }
