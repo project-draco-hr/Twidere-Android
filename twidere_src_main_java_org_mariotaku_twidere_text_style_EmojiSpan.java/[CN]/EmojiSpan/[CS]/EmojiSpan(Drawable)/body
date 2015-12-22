@@ -1,0 +1,4 @@
+{
+  super(ALIGN_BOTTOM);
+  this.drawable=drawable;
+}

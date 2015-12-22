@@ -1,0 +1,17 @@
+{
+  if (packageName == null) {
+    useMipmap=false;
+    resources=null;
+    return;
+  }
+  try {
+    final PackageManager pm=application.getPackageManager();
+    final ApplicationInfo info=pm.getApplicationInfo(packageName,PackageManager.GET_META_DATA);
+    if (info.metaData != null) {
+      this.useMipmap=info.metaData.getBoolean("org.mariotaku.twidere.extension.emoji.mipmap");
+    }
+    this.resources=pm.getResourcesForApplication(info);
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+  }
+}

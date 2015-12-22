@@ -18,10 +18,14 @@
       updateTextCount();
       if (s instanceof Spannable && count == 1 && before == 0) {
         final ImageSpan[] imageSpans=((Spannable)s).getSpans(start,start + count,ImageSpan.class);
-        if (imageSpans.length == 1) {
-          final Intent intent=ThemedImagePickerActivity.withThemed(ComposeActivity.this).getImage(Uri.parse(imageSpans[0].getSource())).build();
-          startActivityForResult(intent,REQUEST_PICK_IMAGE);
+        List<String> imageSources=new ArrayList<>();
+        for (        ImageSpan imageSpan : imageSpans) {
+          imageSources.add(imageSpan.getSource());
           ((Spannable)s).setSpan(new MarkForDeleteSpan(),start,start + count,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        }
+        if (!imageSources.isEmpty()) {
+          final Intent intent=ThemedImagePickerActivity.withThemed(ComposeActivity.this).getImage(Uri.parse(imageSources.get(0))).build();
+          startActivityForResult(intent,REQUEST_PICK_IMAGE);
         }
       }
     }
@@ -32,14 +36,14 @@
         s.delete(s.getSpanStart(delete),s.getSpanEnd(delete));
         s.removeSpan(delete);
       }
-      for (      Object span : s.getSpans(0,s.length(),CharacterStyle.class)) {
-        if (span instanceof URLSpan) {
-          s.removeSpan(span);
-        }
- else         if (span instanceof MetricAffectingSpan) {
-          s.removeSpan(span);
-        }
+      for (      Object span : s.getSpans(0,s.length(),UpdateAppearance.class)) {
+        trimSpans(s,span);
       }
+    }
+    private void trimSpans(    Editable s,    Object span){
+      if (span instanceof EmojiSpan)       return;
+      if (span instanceof SuggestionSpan)       return;
+      s.removeSpan(span);
     }
   }
 );

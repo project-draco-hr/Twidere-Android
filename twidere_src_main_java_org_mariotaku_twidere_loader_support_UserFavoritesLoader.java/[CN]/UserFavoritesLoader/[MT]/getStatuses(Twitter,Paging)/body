@@ -1,5 +1,5 @@
 {
   if (mUserId != -1)   return twitter.getFavorites(mUserId,paging);
  else   if (mUserScreenName != null)   return twitter.getFavorites(mUserScreenName,paging);
-  return null;
+  throw new IllegalArgumentException();
 }

@@ -1,6 +1,5 @@
 {
   final Spannable spannable=super.newSpannable(source);
   EmojiSupportUtils.applyEmoji(externalThemeManager,spannable);
-  System.identityHashCode(spannable);
   return spannable;
 }

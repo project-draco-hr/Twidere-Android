@@ -1,7 +1,6 @@
 {
 switch (item.getItemId()) {
 case R.id.take_photo:
-case R.id.take_photo_sub_item:
 {
       takePhoto();
       break;

@@ -2,8 +2,7 @@
   if (mMenuBar == null)   return;
   final Menu menu=mMenuBar.getMenu();
   final boolean hasMedia=hasMedia(), hasInReplyTo=mInReplyToStatus != null;
-  MenuUtils.setMenuItemAvailability(menu,R.id.take_photo,!hasInReplyTo);
-  MenuUtils.setMenuItemAvailability(menu,R.id.take_photo_sub_item,hasInReplyTo);
+  MenuUtils.setMenuItemAvailability(menu,R.id.take_photo,hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.add_image,!hasMedia && !hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.media_menu,hasMedia || hasInReplyTo);
   MenuUtils.setMenuItemAvailability(menu,R.id.toggle_sensitive,hasMedia);

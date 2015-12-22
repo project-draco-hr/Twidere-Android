@@ -1,5 +1,8 @@
 {
-  if (isValidIpAddress(host))   return fromAddressString(originalHost,host);
+  if (isValidIpAddress(host)) {
+    final InetAddress[] inetAddresses=fromAddressString(originalHost,host);
+    if (inetAddresses != null)     return inetAddresses;
+  }
   final InetAddress[] cachedHostAddr=mHostCache.get(host);
   if (cachedHostAddr != null) {
     if (BuildConfig.DEBUG) {
@@ -15,7 +18,9 @@
       if (BuildConfig.DEBUG) {
         Log.d(RESOLVER_LOGTAG,"Got mapped " + Arrays.toString(hostAddr));
       }
-      return hostAddr;
+      if (hostAddr != null) {
+        return hostAddr;
+      }
     }
   }
   try {
@@ -35,7 +40,9 @@
     if (BuildConfig.DEBUG) {
       Log.d(RESOLVER_LOGTAG,"Got mapped address " + customMappedHost + " for host "+ host);
     }
-    return hostAddr;
+    if (hostAddr != null) {
+      return hostAddr;
+    }
   }
   final Resolver dns=getResolver();
   if (dns != null && mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false)) {

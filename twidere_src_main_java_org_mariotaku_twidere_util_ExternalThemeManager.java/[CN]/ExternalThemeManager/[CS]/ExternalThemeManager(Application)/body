@@ -1,3 +1,0 @@
-{
-  emoji=new Emoji(application,"org.mariotaku.twidere.extension.emoji.noto");
-}

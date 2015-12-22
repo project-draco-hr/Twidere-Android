@@ -1,0 +1,3 @@
+{
+  return packageManager.queryIntentServices(queryIntent,0);
+}

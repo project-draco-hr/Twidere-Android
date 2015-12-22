@@ -1,0 +1,16 @@
+{
+  final Editable editable=super.newEditable(source);
+  EmojiSupportUtils.applyEmoji(externalThemeManager,editable);
+  editable.setSpan(new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+      if (count <= 0)       return;
+      EmojiSupportUtils.applyEmoji(externalThemeManager,editable,start,count);
+    }
+    @Override public void afterTextChanged(    Editable s){
+    }
+  }
+,0,editable.length(),Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+  return editable;
+}

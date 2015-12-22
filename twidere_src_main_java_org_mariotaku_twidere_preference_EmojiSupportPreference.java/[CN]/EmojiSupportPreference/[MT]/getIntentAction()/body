@@ -1,0 +1,3 @@
+{
+  return IntentConstants.INTENT_ACTION_EMOJI_SUPPORT_ABOUT;
+}
