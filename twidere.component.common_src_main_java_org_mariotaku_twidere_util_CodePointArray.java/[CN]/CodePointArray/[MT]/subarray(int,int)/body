@@ -1,0 +1,3 @@
+{
+  return ArrayUtils.subarray(codePoints,start,end);
+}
