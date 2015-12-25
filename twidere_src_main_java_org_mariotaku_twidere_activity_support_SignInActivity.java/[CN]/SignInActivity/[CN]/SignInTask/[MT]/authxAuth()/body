@@ -1,4 +1,6 @@
 {
+  final SignInActivity activity=activityRef.get();
+  if (activity == null)   return new SignInResponse(false,false,null);
   Endpoint endpoint=TwitterAPIFactory.getOAuthEndpoint(apiUrlFormat,"api",null,sameOAuthSigningUrl);
   OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret());
   final TwitterOAuth oauth=TwitterAPIFactory.getInstance(activity,endpoint,auth,TwitterOAuth.class);

@@ -3,15 +3,18 @@
   this.account_id=account_id;
   id=orig.getId();
   timestamp=getTime(orig.getCreatedAt());
-  final Status retweeted=orig.getRetweetedStatus();
-  final User retweet_user=retweeted != null ? orig.getUser() : null;
+  final Status retweetedStatus=orig.getRetweetedStatus();
+  final User retweetUser=retweetedStatus != null ? orig.getUser() : null;
   is_retweet=orig.isRetweet();
-  retweet_id=retweeted != null ? retweeted.getId() : -1;
-  retweet_timestamp=retweeted != null ? getTime(retweeted.getCreatedAt()) : -1;
-  retweeted_by_user_id=retweet_user != null ? retweet_user.getId() : -1;
-  retweeted_by_user_name=retweet_user != null ? retweet_user.getName() : null;
-  retweeted_by_user_screen_name=retweet_user != null ? retweet_user.getScreenName() : null;
-  retweeted_by_user_profile_image=TwitterContentUtils.getProfileImageUrl(retweet_user);
+  retweeted=orig.wasRetweeted();
+  if (retweetedStatus != null) {
+    retweet_id=retweetedStatus.getId();
+    retweet_timestamp=getTime(retweetedStatus.getCreatedAt());
+    retweeted_by_user_id=retweetUser.getId();
+    retweeted_by_user_name=retweetUser.getName();
+    retweeted_by_user_screen_name=retweetUser.getScreenName();
+    retweeted_by_user_profile_image=TwitterContentUtils.getProfileImageUrl(retweetUser);
+  }
   final Status quoted=orig.getQuotedStatus();
   is_quote=orig.isQuote();
   if (quoted != null) {
@@ -31,15 +34,26 @@
     quoted_user_is_verified=quoted_user.isVerified();
   }
   final Status status;
-  if (retweeted != null) {
-    status=retweeted;
+  if (retweetedStatus != null) {
+    status=retweetedStatus;
+    reply_count=retweetedStatus.getReplyCount();
+    retweet_count=retweetedStatus.getRetweetCount();
+    favorite_count=retweetedStatus.getFavoriteCount();
+    in_reply_to_name=TwitterContentUtils.getInReplyToName(retweetedStatus);
+    in_reply_to_screen_name=retweetedStatus.getInReplyToScreenName();
+    in_reply_to_status_id=retweetedStatus.getInReplyToStatusId();
+    in_reply_to_user_id=retweetedStatus.getInReplyToUserId();
   }
  else {
     status=orig;
+    reply_count=orig.getReplyCount();
+    retweet_count=orig.getRetweetCount();
+    favorite_count=orig.getFavoriteCount();
+    in_reply_to_name=TwitterContentUtils.getInReplyToName(orig);
+    in_reply_to_screen_name=orig.getInReplyToScreenName();
+    in_reply_to_status_id=orig.getInReplyToStatusId();
+    in_reply_to_user_id=orig.getInReplyToUserId();
   }
-  retweet_count=(retweeted != null ? retweeted : orig).getRetweetCount();
-  favorite_count=(retweeted != null ? retweeted : orig).getFavoriteCount();
-  reply_count=(retweeted != null ? retweeted : orig).getReplyCount();
   final User user=status.getUser();
   user_id=user.getId();
   user_name=user.getName();
@@ -51,10 +65,6 @@
   text_html=TwitterContentUtils.formatStatusText(status);
   media=ParcelableMedia.fromStatus(status);
   text_plain=TwitterContentUtils.unescapeTwitterStatusText(status.getText());
-  in_reply_to_name=TwitterContentUtils.getInReplyToName(retweeted != null ? retweeted : orig);
-  in_reply_to_screen_name=(retweeted != null ? retweeted : orig).getInReplyToScreenName();
-  in_reply_to_status_id=(retweeted != null ? retweeted : orig).getInReplyToStatusId();
-  in_reply_to_user_id=(retweeted != null ? retweeted : orig).getInReplyToUserId();
   source=status.getSource();
   location=ParcelableLocation.fromGeoLocation(status.getGeoLocation());
   is_favorite=status.isFavorited();

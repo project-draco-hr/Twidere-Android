@@ -31,7 +31,6 @@
         if (response.isSuccessful()) {
           succeeded&=logFile.delete();
         }
-        response.close();
       }
  catch (      IOException e) {
         Log.w(HotMobiLogger.LOGTAG,e);

@@ -6,5 +6,5 @@
   record.setState(intent.getIntExtra(BatteryManager.EXTRA_STATUS,-1));
   record.setTimestamp(System.currentTimeMillis());
   record.setTimeOffset(TimeZone.getDefault().getRawOffset());
-  getInstance(context).log(record);
+  getInstance(context).log(record,null);
 }

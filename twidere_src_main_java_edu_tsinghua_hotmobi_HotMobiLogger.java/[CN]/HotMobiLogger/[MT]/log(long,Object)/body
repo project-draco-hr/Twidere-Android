@@ -1,3 +1,0 @@
-{
-  mExecutor.execute(new WriteLogTask(mApplication,accountId,event));
-}

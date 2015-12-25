@@ -1,0 +1,3 @@
+{
+  logList(events,accountId,type,null);
+}

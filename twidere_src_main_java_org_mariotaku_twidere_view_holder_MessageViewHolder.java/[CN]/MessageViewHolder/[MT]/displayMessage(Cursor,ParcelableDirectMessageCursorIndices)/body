@@ -10,7 +10,4 @@
   time.setText(Utils.formatToLongTimeString(context,timestamp));
   mediaContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
   mediaContainer.displayMedia(media,loader,accountId,true,this,adapter.getMediaLoadingHandler());
-  textView.setTextIsSelectable(true);
-  textView.setMovementMethod(ArrowKeyMovementMethod.getInstance());
-  textView.setCustomSelectionActionModeCallback(callback);
 }

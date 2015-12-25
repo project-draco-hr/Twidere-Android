@@ -1,0 +1,3 @@
+{
+  this(context,accountId,HotMobiLogger.getLogFilename(event),Collections.singletonList(event),preProcessing);
+}

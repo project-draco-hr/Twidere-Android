@@ -1,12 +1,16 @@
 {
   publishProgress(new Runnable(){
     @Override public void run(){
+      final SignInActivity activity=activityRef.get();
+      if (activity == null)       return;
       activity.dismissDialogFragment(FRAGMENT_TAG_SIGN_IN_PROGRESS);
     }
   }
 );
   publishProgress(new Runnable(){
     @Override public void run(){
+      final SignInActivity activity=activityRef.get();
+      if (activity == null)       return;
       activity.postAfterFragmentResumed(new Runnable(){
         @Override public void run(){
           InputLoginVerificationDialogFragment df=new InputLoginVerificationDialogFragment();
@@ -28,6 +32,8 @@
   }
   publishProgress(new Runnable(){
     @Override public void run(){
+      final SignInActivity activity=activityRef.get();
+      if (activity == null)       return;
       activity.showSignInProgressDialog();
     }
   }

@@ -1,0 +1,3 @@
+{
+  mExecutor.execute(new WriteLogTask<>(mApplication,accountId,type,events,preProcessing));
+}

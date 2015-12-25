@@ -1,0 +1,5 @@
+{
+  mConversationError=error;
+  setCount(ITEM_IDX_CONVERSATION_ERROR,error != null ? 1 : 0);
+  updateItemDecoration();
+}

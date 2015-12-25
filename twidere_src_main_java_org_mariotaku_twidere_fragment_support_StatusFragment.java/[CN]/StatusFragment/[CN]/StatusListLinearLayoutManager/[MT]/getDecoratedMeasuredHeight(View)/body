@@ -1,5 +1,4 @@
 {
-  final int height=super.getDecoratedMeasuredHeight(child);
   int heightBeforeSpace=0;
   if (getItemViewType(child) == StatusAdapter.VIEW_TYPE_SPACE) {
     for (int i=0, j=getChildCount(); i < j; i++) {
@@ -18,5 +17,5 @@
       return Math.max(0,spaceHeight);
     }
   }
-  return height;
+  return super.getDecoratedMeasuredHeight(child);
 }

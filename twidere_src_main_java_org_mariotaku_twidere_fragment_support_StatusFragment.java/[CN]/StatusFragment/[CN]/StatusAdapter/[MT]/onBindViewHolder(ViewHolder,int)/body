@@ -22,6 +22,12 @@ case VIEW_TYPE_REPLY_ERROR:
   errorHolder.showError(mReplyError);
   break;
 }
+case VIEW_TYPE_CONVERSATION_ERROR:
+{
+final StatusErrorItemViewHolder errorHolder=(StatusErrorItemViewHolder)holder;
+errorHolder.showError(mReplyError);
+break;
+}
 case VIEW_TYPE_CONVERSATION_LOAD_INDICATOR:
 {
 LoadIndicatorViewHolder indicatorHolder=((LoadIndicatorViewHolder)holder);

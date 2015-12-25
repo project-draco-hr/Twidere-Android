@@ -7,7 +7,10 @@
     raf=new RandomAccessFile(HotMobiLogger.getLogFile(context,accountId,type),"rw");
     fc=raf.getChannel();
     final FileLock lock=fc.lock();
-    for (    Object event : events) {
+    for (    T event : events) {
+      if (preProcessing != null) {
+        preProcessing.process(event,context);
+      }
       if (BuildConfig.DEBUG) {
         if (accountId > 0) {
           Log.v(HotMobiLogger.LOGTAG,"Log " + type + " for account "+ accountId+ ": "+ event);

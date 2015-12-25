@@ -9,12 +9,17 @@
   values.put(NetworkUsages.REQUEST_NETWORK,sNetworkType);
   final Response response=chain.proceed(request);
   values.put(NetworkUsages.KILOBYTES_RECEIVED,getBodyLength(response.body()) / 1024.0);
-  final ContentResolver cr=context.getContentResolver();
-  try {
-    cr.insert(NetworkUsages.CONTENT_URI,values);
+  sNetworkUsageExecutor.execute(new Runnable(){
+    @Override public void run(){
+      final ContentResolver cr=context.getContentResolver();
+      try {
+        cr.insert(NetworkUsages.CONTENT_URI,values);
+      }
+ catch (      IllegalStateException e) {
+        Log.e(LOGTAG,"Unable to log network usage",e);
+      }
+    }
   }
- catch (  IllegalStateException e) {
-    Log.e(LOGTAG,"Unable to log network usage",e);
-  }
+);
   return response;
 }

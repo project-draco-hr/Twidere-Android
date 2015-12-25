@@ -2,9 +2,13 @@
   final int hashCode=System.identityHashCode(activity);
   final SessionEvent event=mSessionEvent;
   if (event != null && !isSwitchingInSameTask(hashCode)) {
-    event.dumpPreferences(activity);
     event.markEnd();
-    HotMobiLogger.getInstance(activity).log(event);
+    HotMobiLogger.getInstance(activity).log(event,new PreProcessing<SessionEvent>(){
+      @Override public void process(      SessionEvent event,      Context appContext){
+        event.dumpPreferences(appContext);
+      }
+    }
+);
     mSessionEvent=null;
   }
   mInternalStack.removeElement(hashCode);

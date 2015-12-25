@@ -13,5 +13,4 @@
   time=(TextView)itemView.findViewById(R.id.time);
   mediaContainer=(CardMediaContainer)itemView.findViewById(R.id.media_preview_container);
   mediaContainer.setStyle(adapter.getMediaPreviewStyle());
-  callback=new StatusActionModeCallback(textView,adapter.getContext());
 }

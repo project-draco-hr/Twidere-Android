@@ -9,7 +9,8 @@
       }
       final Intent intent=new Intent(Intent.ACTION_SEND);
       final Uri fileUri=Uri.fromFile(file);
-      intent.setDataAndType(fileUri,Utils.getImageMimeType(file));
+      final String imageMimeType=Utils.getImageMimeType(file);
+      intent.setDataAndType(fileUri,imageMimeType);
       intent.putExtra(Intent.EXTRA_STREAM,fileUri);
       final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
       if (activity.hasStatus()) {
