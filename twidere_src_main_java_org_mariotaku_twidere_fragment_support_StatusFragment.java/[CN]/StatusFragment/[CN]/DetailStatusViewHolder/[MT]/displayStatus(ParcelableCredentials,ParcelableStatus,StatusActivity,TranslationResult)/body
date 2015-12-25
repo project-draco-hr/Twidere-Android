@@ -86,13 +86,31 @@
     locationView.setVisibility(View.GONE);
     locationView.setText(null);
   }
-  retweetsContainer.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
-  repliesContainer.setVisibility(status.reply_count < 0 ? View.GONE : View.VISIBLE);
-  favoritesContainer.setVisibility(status.favorite_count < 0 ? View.GONE : View.VISIBLE);
+  final long retweetCount, favoriteCount;
+  if (statusActivity != null) {
+    retweetCount=statusActivity.getRetweetCount();
+    favoriteCount=statusActivity.getFavoriteCount();
+  }
+ else {
+    retweetCount=status.retweet_count;
+    favoriteCount=status.favorite_count;
+  }
+  retweetsContainer.setVisibility(!status.user_is_protected && retweetCount > 0 ? View.VISIBLE : View.GONE);
+  favoritesContainer.setVisibility(favoriteCount > 0 ? View.VISIBLE : View.GONE);
+  if (retweetsContainer.getVisibility() == View.VISIBLE || favoritesContainer.getVisibility() == View.VISIBLE) {
+    countsContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    countsContainer.setVisibility(View.GONE);
+  }
   final Locale locale=context.getResources().getConfiguration().locale;
-  repliesCountView.setText(Utils.getLocalizedNumber(locale,status.reply_count));
-  retweetsCountView.setText(Utils.getLocalizedNumber(locale,status.retweet_count));
-  favoritesCountView.setText(Utils.getLocalizedNumber(locale,status.favorite_count));
+  retweetsCountView.setText(Utils.getLocalizedNumber(locale,retweetCount));
+  favoritesCountView.setText(Utils.getLocalizedNumber(locale,favoriteCount));
+  final UserProfileImagesAdapter interactUsersAdapter=(UserProfileImagesAdapter)interactUsersView.getAdapter();
+  interactUsersAdapter.clear();
+  if (statusActivity != null && statusActivity.retweeters != null) {
+    interactUsersAdapter.addAll(statusActivity.retweeters);
+  }
   final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
   if (media == null) {
     mediaPreviewContainer.setVisibility(View.GONE);

@@ -1,0 +1,3 @@
+{
+  adapter.getMediaLoader().displayProfileImage(profileImageView,item.profile_image_url);
+}

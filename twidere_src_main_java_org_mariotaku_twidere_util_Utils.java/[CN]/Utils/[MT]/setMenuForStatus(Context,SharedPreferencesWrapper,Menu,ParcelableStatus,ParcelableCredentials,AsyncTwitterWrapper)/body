@@ -12,7 +12,7 @@
     isMyRetweet=false;
   }
  else {
-    isMyRetweet=isMyRetweet(status);
+    isMyRetweet=status.retweeted || isMyRetweet(status);
   }
   final MenuItem delete=menu.findItem(R.id.delete);
   if (delete != null) {

@@ -1,0 +1,3 @@
+{
+  ((ProfileImageViewHolder)holder).displayUser(item);
+}

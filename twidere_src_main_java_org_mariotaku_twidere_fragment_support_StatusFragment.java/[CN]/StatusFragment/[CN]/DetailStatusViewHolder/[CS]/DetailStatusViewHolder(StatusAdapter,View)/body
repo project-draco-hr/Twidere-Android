@@ -11,10 +11,8 @@
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   timeSourceView=(TextView)itemView.findViewById(R.id.time_source);
   retweetedByView=(TextView)itemView.findViewById(R.id.retweeted_by);
-  repliesContainer=itemView.findViewById(R.id.replies_container);
   retweetsContainer=itemView.findViewById(R.id.retweets_container);
   favoritesContainer=itemView.findViewById(R.id.favorites_container);
-  repliesCountView=(TextView)itemView.findViewById(R.id.replies_count);
   retweetsCountView=(TextView)itemView.findViewById(R.id.retweets_count);
   favoritesCountView=(TextView)itemView.findViewById(R.id.favorites_count);
   mediaPreviewContainer=itemView.findViewById(R.id.media_preview_container);
@@ -24,7 +22,9 @@
   quoteOriginalLink=(TextView)itemView.findViewById(R.id.quote_original_link);
   profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
+  retweetsLabel=(TextView)itemView.findViewById(R.id.retweets_label);
   favoritesLabel=(TextView)itemView.findViewById(R.id.favorites_label);
+  countsContainer=itemView.findViewById(R.id.counts_container);
   quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
   quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
   quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
@@ -33,6 +33,6 @@
   translateLabelView=(TextView)itemView.findViewById(R.id.translate_label);
   translateContainer=itemView.findViewById(R.id.translate_container);
   translateResultView=(TextView)itemView.findViewById(R.id.translate_result);
-  setIsRecyclable(false);
+  interactUsersView=(RecyclerView)itemView.findViewById(R.id.interact_users);
   initViews();
 }

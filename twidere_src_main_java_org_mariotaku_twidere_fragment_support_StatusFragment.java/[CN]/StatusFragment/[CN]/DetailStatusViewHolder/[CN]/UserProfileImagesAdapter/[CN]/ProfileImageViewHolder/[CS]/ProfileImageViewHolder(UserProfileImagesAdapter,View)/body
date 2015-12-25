@@ -1,0 +1,5 @@
+{
+  super(itemView);
+  profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
+  this.adapter=adapter;
+}
