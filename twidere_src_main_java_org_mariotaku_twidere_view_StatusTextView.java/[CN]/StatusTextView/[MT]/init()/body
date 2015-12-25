@@ -1,4 +1,0 @@
-{
-  setEditableFactory(new EmojiEditableFactory(this));
-  setSpannableFactory(new EmojiSpannableFactory(this));
-}

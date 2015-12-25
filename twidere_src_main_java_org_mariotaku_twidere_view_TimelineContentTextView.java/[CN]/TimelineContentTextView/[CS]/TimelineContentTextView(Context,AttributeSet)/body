@@ -1,4 +1,4 @@
 {
   super(context,attrs);
-  setSpannableFactory(new EmojiSpannableFactory(this));
+  EmojiSupportUtils.initForTextView(this);
 }
