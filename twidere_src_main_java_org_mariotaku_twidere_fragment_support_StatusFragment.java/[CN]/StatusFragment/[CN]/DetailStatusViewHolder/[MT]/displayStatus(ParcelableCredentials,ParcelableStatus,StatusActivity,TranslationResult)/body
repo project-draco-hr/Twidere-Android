@@ -107,9 +107,11 @@
   retweetsCountView.setText(Utils.getLocalizedNumber(locale,retweetCount));
   favoritesCountView.setText(Utils.getLocalizedNumber(locale,favoriteCount));
   final UserProfileImagesAdapter interactUsersAdapter=(UserProfileImagesAdapter)interactUsersView.getAdapter();
-  interactUsersAdapter.clear();
-  if (statusActivity != null && statusActivity.retweeters != null) {
-    interactUsersAdapter.addAll(statusActivity.retweeters);
+  if (interactUsersAdapter != null) {
+    interactUsersAdapter.clear();
+    if (statusActivity != null && statusActivity.retweeters != null) {
+      interactUsersAdapter.addAll(statusActivity.retweeters);
+    }
   }
   final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
   if (media == null) {

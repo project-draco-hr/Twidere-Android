@@ -1,26 +1,3 @@
 {
-  final RestAPIFactory factory=new RestAPIFactory();
-  final String userAgent;
-  if (auth instanceof OAuthAuthorization) {
-    final String consumerKey=((OAuthAuthorization)auth).getConsumerKey();
-    final String consumerSecret=((OAuthAuthorization)auth).getConsumerSecret();
-    final ConsumerKeyType officialKeyType=TwitterContentUtils.getOfficialKeyType(context,consumerKey,consumerSecret);
-    if (officialKeyType != ConsumerKeyType.UNKNOWN) {
-      userAgent=getUserAgentName(officialKeyType);
-    }
- else {
-      userAgent=getTwidereUserAgent(context);
-    }
-  }
- else {
-    userAgent=getTwidereUserAgent(context);
-  }
-  factory.setClient(ApplicationModule.get(context).getRestHttpClient());
-  factory.setConverter(new TwitterConverter());
-  factory.setEndpoint(endpoint);
-  factory.setAuthorization(auth);
-  factory.setRequestInfoFactory(new TwidereRequestInfoFactory());
-  factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
-  factory.setExceptionFactory(new TwidereExceptionFactory());
-  return factory.build(cls);
+  return getInstance(context,endpoint,auth,null,cls);
 }

@@ -1,0 +1,4 @@
+Context context
+ParcelableCredentials credentials
+Map<String,String> extraRequestParams
+Class<T> cls

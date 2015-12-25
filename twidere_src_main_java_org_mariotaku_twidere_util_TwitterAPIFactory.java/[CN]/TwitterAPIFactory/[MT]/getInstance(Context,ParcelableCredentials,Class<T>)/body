@@ -1,4 +1,3 @@
 {
-  if (credentials == null)   return null;
-  return TwitterAPIFactory.getInstance(context,getEndpoint(credentials,cls),credentials,cls);
+  return getInstance(context,credentials,null,cls);
 }

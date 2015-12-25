@@ -13,12 +13,22 @@
     if (parts.isEmpty()) {
       final List<Pair<String,String>> params=method.hasBody() ? forms : queries;
       for (      String key : extraParamKeys) {
-        addParameter(params,key,sExtraParams.get(key));
+        if (extraRequestParams != null && extraRequestParams.containsKey(key)) {
+          addParam(params,key,extraRequestParams.get(key));
+        }
+ else {
+          addParam(params,key,sDefaultRequestParams.get(key));
+        }
       }
     }
  else {
       for (      String key : extraParamKeys) {
-        addPart(parts,key,sExtraParams.get(key));
+        if (extraRequestParams != null && extraRequestParams.containsKey(key)) {
+          addPart(parts,key,extraRequestParams.get(key));
+        }
+ else {
+          addPart(parts,key,sDefaultRequestParams.get(key));
+        }
       }
     }
   }
