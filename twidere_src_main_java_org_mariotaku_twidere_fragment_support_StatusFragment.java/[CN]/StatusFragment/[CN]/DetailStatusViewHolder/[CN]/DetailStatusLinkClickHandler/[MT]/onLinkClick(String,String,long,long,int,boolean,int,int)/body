@@ -1,0 +1,12 @@
+{
+  final ParcelableStatus status=adapter.getStatus();
+  if (status.media != null) {
+    for (    final ParcelableMedia media : status.media) {
+      if (media.start == start && media.end == end) {
+        adapter.setDetailMediaExpanded(true);
+        return;
+      }
+    }
+  }
+  super.onLinkClick(link,orig,accountId,extraId,type,sensitive,start,end);
+}

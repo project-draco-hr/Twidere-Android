@@ -1,5 +1,5 @@
 {
-  if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException();
+  if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException("User-Agent cannot be fetched from worker thread");
   try {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
       return NewApiWrapper.getDefaultUserAgent(context);

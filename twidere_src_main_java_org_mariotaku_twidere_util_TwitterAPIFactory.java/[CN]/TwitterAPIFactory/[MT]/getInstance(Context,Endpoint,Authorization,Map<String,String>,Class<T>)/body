@@ -6,7 +6,7 @@
     final String consumerSecret=((OAuthAuthorization)auth).getConsumerSecret();
     final ConsumerKeyType officialKeyType=TwitterContentUtils.getOfficialKeyType(context,consumerKey,consumerSecret);
     if (officialKeyType != ConsumerKeyType.UNKNOWN) {
-      userAgent=getUserAgentName(officialKeyType);
+      userAgent=getUserAgentName(context,officialKeyType);
     }
  else {
       userAgent=getTwidereUserAgent(context);

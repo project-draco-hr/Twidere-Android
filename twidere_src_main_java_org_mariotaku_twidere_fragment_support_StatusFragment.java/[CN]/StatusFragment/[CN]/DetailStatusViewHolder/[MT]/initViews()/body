@@ -37,7 +37,7 @@
   layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
   interactUsersView.setLayoutManager(layoutManager);
   if (adapter.isProfileImageEnabled()) {
-    interactUsersView.setAdapter(new UserProfileImagesAdapter(adapter.getContext()));
+    interactUsersView.setAdapter(new UserProfileImagesAdapter(fragment,adapter.getContext()));
   }
  else {
     interactUsersView.setAdapter(null);

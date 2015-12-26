@@ -1,10 +1,10 @@
 {
   final PackageManager pm=context.getPackageManager();
   try {
-    final PackageInfo pi=pm.getPackageInfo(TWIDERE_PACKAGE_NAME,0);
-    return TWIDERE_APP_NAME + " " + TWIDERE_PROJECT_URL+ " / "+ pi.versionName;
+    final PackageInfo pi=pm.getPackageInfo(context.getPackageName(),0);
+    return String.format("%s %s / %s",TWIDERE_APP_NAME,TWIDERE_PROJECT_URL,pi.versionName);
   }
  catch (  final PackageManager.NameNotFoundException e) {
-    return TWIDERE_APP_NAME + " " + TWIDERE_PROJECT_URL;
+    throw new AssertionError(e);
   }
 }

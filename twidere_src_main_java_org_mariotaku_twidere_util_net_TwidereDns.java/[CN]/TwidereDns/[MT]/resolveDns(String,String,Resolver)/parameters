@@ -1,0 +1,3 @@
+String originalHost
+String host
+Resolver dns

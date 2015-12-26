@@ -1,6 +1,4 @@
 {
   if (mDns != null)   return mDns;
-  mDns=new SimpleResolver(mDnsAddress);
-  mDns.setTCP(mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false));
-  return mDns;
+  return mDns=new SimpleResolver(mDnsAddress);
 }

@@ -1,6 +1,5 @@
 {
   final String urlBase=getApiBaseUrl(pattern,domain);
-  if (urlBase == null)   return null;
   if (appendPath == null)   return urlBase.endsWith("/") ? urlBase : urlBase + "/";
   final StringBuilder sb=new StringBuilder(urlBase);
   if (urlBase.endsWith("/")) {

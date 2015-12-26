@@ -1,0 +1,34 @@
+{
+  final Lookup lookup=new Lookup(new Name(host),Type.A,DClass.IN);
+  final Record[] records;
+  lookup.setResolver(dns);
+  lookup.run();
+  final int result=lookup.getResult();
+  if (result != Lookup.SUCCESSFUL) {
+    throw new UnknownHostException("Unable to resolve " + host + ", "+ lookup.getErrorString());
+  }
+  records=lookup.getAnswers();
+  final ArrayList<InetAddress> resolvedAddresses=new ArrayList<>();
+  for (  final Record record : records) {
+    if (record instanceof ARecord) {
+      final InetAddress ipv4Addr=((ARecord)record).getAddress();
+      resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv4Addr.getAddress()));
+    }
+ else     if (record instanceof AAAARecord) {
+      final InetAddress ipv6Addr=((AAAARecord)record).getAddress();
+      resolvedAddresses.add(InetAddress.getByAddress(originalHost,ipv6Addr.getAddress()));
+    }
+  }
+  if (!resolvedAddresses.isEmpty()) {
+    final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
+    putCache(originalHost,hostAddr);
+    if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
+      Log.v(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(hostAddr));
+    }
+    return hostAddr;
+  }
+  for (  final Record record : records) {
+    if (record instanceof CNAMERecord)     return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString());
+  }
+  return null;
+}

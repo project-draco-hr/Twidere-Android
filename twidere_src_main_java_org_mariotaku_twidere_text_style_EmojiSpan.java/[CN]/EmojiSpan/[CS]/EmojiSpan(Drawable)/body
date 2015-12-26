@@ -1,4 +1,5 @@
 {
   super(ALIGN_BOTTOM);
   this.drawable=drawable;
+  this.fontMetrics=new Paint.FontMetrics();
 }

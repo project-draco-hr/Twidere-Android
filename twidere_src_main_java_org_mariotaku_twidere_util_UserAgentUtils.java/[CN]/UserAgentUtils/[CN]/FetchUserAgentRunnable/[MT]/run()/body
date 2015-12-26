@@ -1,0 +1,4 @@
+{
+  userAgent=getDefaultUserAgentString(context);
+  userAgentSet=true;
+}

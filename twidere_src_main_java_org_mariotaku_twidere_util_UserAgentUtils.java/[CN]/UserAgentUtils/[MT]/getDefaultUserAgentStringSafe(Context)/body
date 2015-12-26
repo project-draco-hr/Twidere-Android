@@ -1,0 +1,12 @@
+{
+  final Handler handler=new Handler(Looper.getMainLooper());
+  final FetchUserAgentRunnable runnable=new FetchUserAgentRunnable(context);
+  handler.post(runnable);
+  runnable.waitForExecution();
+  try {
+    return runnable.getUserAgent();
+  }
+  finally {
+    handler.removeCallbacksAndMessages(null);
+  }
+}
