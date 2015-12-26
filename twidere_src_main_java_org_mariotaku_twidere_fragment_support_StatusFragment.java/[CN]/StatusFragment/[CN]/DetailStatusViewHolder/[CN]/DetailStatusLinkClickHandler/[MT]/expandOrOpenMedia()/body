@@ -1,0 +1,6 @@
+{
+  if (adapter.isDetailMediaExpanded()) {
+    return;
+  }
+  adapter.setDetailMediaExpanded(true);
+}

@@ -2,11 +2,15 @@
   final ParcelableStatus status=adapter.getStatus();
   if (status.media != null) {
     for (    final ParcelableMedia media : status.media) {
-      if (media.start == start && media.end == end) {
-        adapter.setDetailMediaExpanded(true);
+      if (link.equals(media.page_url)) {
+        expandOrOpenMedia();
         return;
       }
     }
+  }
+  if (type == TwidereLinkify.LINK_TYPE_STATUS && status.id == NumberUtils.toLong(link)) {
+    expandOrOpenMedia();
+    return;
   }
   super.onLinkClick(link,orig,accountId,extraId,type,sensitive,start,end);
 }

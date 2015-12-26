@@ -1,5 +1,5 @@
 {
-  final ParcelableStatus status=mStatusAdapter.getStatus(position);
+  final ParcelableStatus status=mStatusAdapter.getStatus(statusPosition);
   if (status == null)   return;
   final Bundle options=Utils.createMediaViewerActivityOption(view);
   Utils.openMedia(getActivity(),status,media,options);

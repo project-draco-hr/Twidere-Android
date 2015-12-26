@@ -1,40 +1,45 @@
 {
-  if (isValidIpAddress(host)) {
-    final InetAddress[] inetAddresses=fromAddressString(originalHost,host);
-    if (inetAddresses != null)     return inetAddresses;
-  }
-  final InetAddress[] cachedHostAddr=mHostCache.get(host);
-  if (cachedHostAddr != null) {
-    if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
-      Log.v(RESOLVER_LOGTAG,"Got cached " + Arrays.toString(cachedHostAddr));
-      return cachedHostAddr;
+  mLogger.reset();
+  final InetAddress[] fromAddressString=fromAddressString(originalHost,host);
+  if (fromAddressString != null) {
+    if (BuildConfig.DEBUG) {
+      mLogger.dumpToLog();
     }
+    return fromAddressString;
   }
-  final String customMappedHost=findHost(host);
-  if (customMappedHost != null) {
-    final InetAddress[] hostAddr=fromAddressString(originalHost,customMappedHost);
-    putCache(originalHost,hostAddr);
-    if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
-      Log.v(RESOLVER_LOGTAG,"Got mapped address " + customMappedHost + " for host "+ host);
+  final InetAddress[] fromCache=getCached(host);
+  if (fromCache != null) {
+    if (BuildConfig.DEBUG) {
+      mLogger.dumpToLog();
     }
-    if (hostAddr != null) {
-      return hostAddr;
+    return fromCache;
+  }
+  mLogger.addSplit("start custom mappong resolve");
+  final InetAddress[] fromMapping=getFromMapping(host);
+  mLogger.addSplit("end custom mappong resolve");
+  if (fromMapping != null) {
+    putCache(originalHost,fromMapping);
+    if (BuildConfig.DEBUG) {
+      mLogger.dumpToLog();
     }
+    return fromMapping;
   }
-  try {
-    final InetAddress[] hostAddr=mResolver.resolve(host);
-    putCache(originalHost,hostAddr);
-    if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
-      Log.v(RESOLVER_LOGTAG,"Got hosts " + Arrays.toString(hostAddr));
+  mLogger.addSplit("start /etc/hosts resolve");
+  final InetAddress[] fromSystemHosts=fromSystemHosts(host);
+  mLogger.addSplit("end /etc/hosts resolve");
+  if (fromSystemHosts != null) {
+    putCache(originalHost,fromSystemHosts);
+    if (BuildConfig.DEBUG) {
+      mLogger.dumpToLog();
     }
-    return hostAddr;
+    return fromSystemHosts;
   }
- catch (  UnknownHostException e) {
-  }
-  if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
-    Log.v(RESOLVER_LOGTAG,"Resolve address " + host + " failed, using original host");
-  }
+  mLogger.addSplit("start system default resolve");
   final InetAddress[] defaultAddresses=InetAddress.getAllByName(host);
+  mLogger.addSplit("end system default resolve");
   putCache(host,defaultAddresses);
+  if (BuildConfig.DEBUG) {
+    mLogger.dumpToLog();
+  }
   return defaultAddresses;
 }

@@ -1,0 +1,8 @@
+{
+  try {
+    return mSystemHosts.resolve(host);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

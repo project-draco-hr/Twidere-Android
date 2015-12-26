@@ -28,6 +28,7 @@
   translateResultView.setTextSize(defaultTextSize * 1.05f);
   retweetsCountView.setTextSize(defaultTextSize * 1.25f);
   favoritesCountView.setTextSize(defaultTextSize * 1.25f);
+  repliesLabel.setTextSize(defaultTextSize * 0.85f);
   retweetsLabel.setTextSize(defaultTextSize * 0.85f);
   favoritesLabel.setTextSize(defaultTextSize * 0.85f);
   mediaPreview.setStyle(adapter.getMediaPreviewStyle());

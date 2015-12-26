@@ -22,7 +22,7 @@
   if (!resolvedAddresses.isEmpty()) {
     final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
     putCache(originalHost,hostAddr);
-    if (BuildConfig.DEBUG && Log.isLoggable(RESOLVER_LOGTAG,Log.VERBOSE)) {
+    if (BuildConfig.DEBUG) {
       Log.v(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(hostAddr));
     }
     return hostAddr;

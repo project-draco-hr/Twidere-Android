@@ -1,4 +1,4 @@
 IStatusViewHolder holder
 View view
 ParcelableMedia media
-int position
+int statusPosition

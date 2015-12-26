@@ -1,5 +1,5 @@
 {
   if (rule == null || host == null)   return false;
-  if (rule.startsWith("."))   return host.matches("(?i).*" + Pattern.quote(rule));
+  if (rule.startsWith("."))   return StringUtils.endsWithIgnoreCase(host,rule);
   return host.equalsIgnoreCase(rule);
 }

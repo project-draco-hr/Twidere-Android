@@ -1,6 +1,0 @@
-{
-  for (  final Entry<String,?> entry : mHostMapping.getAll().entrySet()) {
-    if (hostMatches(host,entry.getKey()))     return (String)entry.getValue();
-  }
-  return null;
-}

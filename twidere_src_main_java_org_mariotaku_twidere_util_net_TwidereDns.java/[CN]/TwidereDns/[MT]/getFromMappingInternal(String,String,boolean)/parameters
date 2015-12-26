@@ -1,0 +1,3 @@
+String host
+String origHost
+boolean checkRecursive

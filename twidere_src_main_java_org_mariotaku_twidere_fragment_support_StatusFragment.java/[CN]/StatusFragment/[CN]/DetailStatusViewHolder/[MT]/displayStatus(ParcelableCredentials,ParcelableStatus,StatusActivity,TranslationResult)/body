@@ -86,24 +86,28 @@
     locationView.setVisibility(View.GONE);
     locationView.setText(null);
   }
-  final long retweetCount, favoriteCount;
+  final long repliesCount, retweetCount, favoriteCount;
   if (statusActivity != null) {
+    repliesCount=statusActivity.getReplyCount();
     retweetCount=statusActivity.getRetweetCount();
     favoriteCount=statusActivity.getFavoriteCount();
   }
  else {
+    repliesCount=status.reply_count;
     retweetCount=status.retweet_count;
     favoriteCount=status.favorite_count;
   }
+  repliesContainer.setVisibility(repliesCount > 0 ? View.VISIBLE : View.GONE);
   retweetsContainer.setVisibility(!status.user_is_protected && retweetCount > 0 ? View.VISIBLE : View.GONE);
   favoritesContainer.setVisibility(favoriteCount > 0 ? View.VISIBLE : View.GONE);
-  if (retweetsContainer.getVisibility() == View.VISIBLE || favoritesContainer.getVisibility() == View.VISIBLE) {
+  if (retweetsContainer.getVisibility() == View.VISIBLE || favoritesContainer.getVisibility() == View.VISIBLE || repliesContainer.getVisibility() == View.VISIBLE) {
     countsContainer.setVisibility(View.VISIBLE);
   }
  else {
     countsContainer.setVisibility(View.GONE);
   }
   final Locale locale=context.getResources().getConfiguration().locale;
+  repliesCountView.setText(Utils.getLocalizedNumber(locale,repliesCount));
   retweetsCountView.setText(Utils.getLocalizedNumber(locale,retweetCount));
   favoritesCountView.setText(Utils.getLocalizedNumber(locale,favoriteCount));
   final UserProfileImagesAdapter interactUsersAdapter=(UserProfileImagesAdapter)interactUsersView.getAdapter();
