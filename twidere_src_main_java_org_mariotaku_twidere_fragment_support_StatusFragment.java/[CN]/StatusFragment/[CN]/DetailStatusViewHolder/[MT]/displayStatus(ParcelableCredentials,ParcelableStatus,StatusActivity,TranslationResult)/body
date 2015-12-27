@@ -136,7 +136,7 @@
     mediaPreviewLoad.setVisibility(View.VISIBLE);
     mediaPreview.displayMedia();
   }
-  if (TwitterCardUtils.isCardSupported(status.card)) {
+  if (TwitterCardUtils.isCardSupported(status)) {
     final Point size=TwitterCardUtils.getCardSize(status.card);
     twitterCard.setVisibility(View.VISIBLE);
     if (size != null) {
@@ -145,7 +145,7 @@
  else {
       twitterCard.setCardSize(0,0);
     }
-    final Fragment cardFragment=TwitterCardUtils.createCardFragment(status.card);
+    final Fragment cardFragment=TwitterCardUtils.createCardFragment(status);
     final FragmentManager fm=fragment.getChildFragmentManager();
     if (cardFragment != null && !FragmentManagerTrojan.isStateSaved(fm)) {
       final FragmentTransaction ft=fm.beginTransaction();

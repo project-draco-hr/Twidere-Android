@@ -1,0 +1,7 @@
+{
+  mPercent=percent;
+  mRadius=radius;
+  mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  mPaint.setColor(color);
+  mBounds=new RectF();
+}

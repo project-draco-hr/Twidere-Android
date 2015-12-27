@@ -28,4 +28,20 @@
   startRefreshServiceIfNeeded(this);
   reloadConnectivitySettings();
   registerActivityLifecycleCallbacks(getApplicationModule().getActivityTracker());
+  final IntentFilter packageFilter=new IntentFilter();
+  packageFilter.addAction(Intent.ACTION_PACKAGE_CHANGED);
+  packageFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+  packageFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+  packageFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
+  registerReceiver(new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      final int uid=intent.getIntExtra(Intent.EXTRA_UID,-1);
+      final String[] packages=getPackageManager().getPackagesForUid(uid);
+      final ExternalThemeManager manager=getApplicationModule().getExternalThemeManager();
+      if (ArrayUtils.contains(packages,manager.getEmojiPackageName())) {
+        manager.reloadEmojiPreferences();
+      }
+    }
+  }
+,packageFilter);
 }

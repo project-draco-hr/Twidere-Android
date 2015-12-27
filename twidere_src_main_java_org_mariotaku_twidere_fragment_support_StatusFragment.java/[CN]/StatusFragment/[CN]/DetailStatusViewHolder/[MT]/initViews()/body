@@ -26,6 +26,7 @@
   timeSourceView.setTextSize(defaultTextSize * 0.85f);
   translateLabelView.setTextSize(defaultTextSize * 0.85f);
   translateResultView.setTextSize(defaultTextSize * 1.05f);
+  repliesCountView.setTextSize(defaultTextSize * 1.25f);
   retweetsCountView.setTextSize(defaultTextSize * 1.25f);
   favoritesCountView.setTextSize(defaultTextSize * 1.25f);
   repliesLabel.setTextSize(defaultTextSize * 0.85f);

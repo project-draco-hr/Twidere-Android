@@ -1,0 +1,17 @@
+{
+  if (status.card == null || status.card.name == null)   return false;
+switch (status.card.name) {
+case CARD_NAME_PLAYER:
+{
+      return ParcelableCardEntity.getValue(status.card,"player_stream_url") == null;
+    }
+case CARD_NAME_AUDIO:
+{
+    return true;
+  }
+}
+if (CardPollFragment.isPoll(status.card.name)) {
+return true;
+}
+return false;
+}

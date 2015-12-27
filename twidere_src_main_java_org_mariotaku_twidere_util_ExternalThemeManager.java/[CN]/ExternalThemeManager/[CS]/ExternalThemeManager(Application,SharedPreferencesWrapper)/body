@@ -1,11 +1,5 @@
 {
-  final String emojiComponentName=preferences.getString(KEY_EMOJI_SUPPORT,null);
-  String packageName=null;
-  if (emojiComponentName != null) {
-    final ComponentName componentName=ComponentName.unflattenFromString(emojiComponentName);
-    if (componentName != null) {
-      packageName=componentName.getPackageName();
-    }
-  }
-  emoji=new Emoji(application,packageName);
+  this.application=application;
+  this.preferences=preferences;
+  reloadEmojiPreferences();
 }

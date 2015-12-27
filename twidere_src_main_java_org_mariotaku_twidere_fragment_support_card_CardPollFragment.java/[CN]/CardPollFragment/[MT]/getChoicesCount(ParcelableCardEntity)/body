@@ -1,0 +1,5 @@
+{
+  final Matcher matcher=PATTERN_POLL_TEXT_ONLY.matcher(card.name);
+  if (!matcher.matches())   throw new IllegalStateException();
+  return NumberUtils.toInt(matcher.group(1));
+}

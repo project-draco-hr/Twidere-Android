@@ -1,0 +1,7 @@
+{
+  if (emojiPackageName == null) {
+    emojiPackageName=null;
+    return;
+  }
+  emoji=new Emoji(application,emojiPackageName);
+}

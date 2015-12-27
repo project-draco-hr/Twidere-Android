@@ -1,0 +1,10 @@
+{
+  final String emojiComponentName=preferences.getString(KEY_EMOJI_SUPPORT,null);
+  if (emojiComponentName != null) {
+    final ComponentName componentName=ComponentName.unflattenFromString(emojiComponentName);
+    if (componentName != null) {
+      emojiPackageName=componentName.getPackageName();
+    }
+  }
+  initEmojiSupport();
+}

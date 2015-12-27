@@ -1,4 +1,6 @@
 {
   super.onBaseViewCreated(view,savedInstanceState);
-  mPollChoices=(LinearLayout)view.findViewById(R.id.poll_choices);
+  mPollContainer=(TableLayout)view.findViewById(R.id.poll_container);
+  mVoteButton=(Button)view.findViewById(R.id.vote);
+  mPollSummary=(TextView)view.findViewById(R.id.poll_summary);
 }
