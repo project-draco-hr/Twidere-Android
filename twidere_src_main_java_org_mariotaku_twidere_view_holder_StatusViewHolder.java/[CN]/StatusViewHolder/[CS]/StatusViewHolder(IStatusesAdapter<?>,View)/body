@@ -9,8 +9,8 @@
   quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
   nameView=(NameView)itemView.findViewById(R.id.name);
   quotedNameView=(NameView)itemView.findViewById(R.id.quoted_name);
-  replyRetweetIcon=(ImageView)itemView.findViewById(R.id.reply_retweet_icon);
-  replyRetweetView=(TextView)itemView.findViewById(R.id.reply_retweet_status);
+  statusInfoIcon=(ImageView)itemView.findViewById(R.id.status_info_icon);
+  statusInfoLabel=(TextView)itemView.findViewById(R.id.status_info_label);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);

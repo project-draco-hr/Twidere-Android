@@ -6,7 +6,7 @@
   nameView.setSecondaryTextSize(textSize * 0.85f);
   quotedNameView.setSecondaryTextSize(textSize * 0.85f);
   timeView.setTextSize(textSize * 0.85f);
-  replyRetweetView.setTextSize(textSize * 0.75f);
+  statusInfoLabel.setTextSize(textSize * 0.75f);
   replyCountView.setTextSize(textSize);
   retweetCountView.setTextSize(textSize);
   favoriteCountView.setTextSize(textSize);
