@@ -1,5 +1,0 @@
-{
-  Parser p=new Parser(_first,src.getCodec(),_hasNativeTypeIds,_hasNativeObjectIds);
-  p.setLocation(src.getTokenLocation());
-  return p;
-}

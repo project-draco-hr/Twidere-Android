@@ -1,4 +1,0 @@
-{
-  _generatorFeatures|=f.getMask();
-  return this;
-}

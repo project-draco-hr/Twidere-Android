@@ -1,5 +1,0 @@
-{
-  if (_currToken == null || !_currToken.isNumeric()) {
-    throw _constructError("Current token (" + _currToken + ") not numeric, can not use numeric value accessors");
-  }
-}

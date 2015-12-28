@@ -1,3 +1,0 @@
-{
-  return (_location == null) ? JsonLocation.NA : _location;
-}

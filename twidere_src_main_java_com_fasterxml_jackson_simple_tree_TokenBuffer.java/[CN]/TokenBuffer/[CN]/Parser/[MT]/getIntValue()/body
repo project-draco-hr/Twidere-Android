@@ -1,6 +1,0 @@
-{
-  if (_currToken == JsonToken.VALUE_NUMBER_INT) {
-    return ((Number)_currentObject()).intValue();
-  }
-  return getNumberValue().intValue();
-}

@@ -1,9 +1,0 @@
-{
-  if (index < TOKENS_PER_SEGMENT) {
-    set(index,rawTokenType,value,objectId,typeId);
-    return null;
-  }
-  _next=new Segment();
-  _next.set(0,rawTokenType,value,objectId,typeId);
-  return _next;
-}

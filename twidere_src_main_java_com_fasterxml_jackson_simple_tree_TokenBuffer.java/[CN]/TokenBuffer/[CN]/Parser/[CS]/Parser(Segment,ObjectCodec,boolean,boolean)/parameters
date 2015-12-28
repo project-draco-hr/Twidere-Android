@@ -1,4 +1,0 @@
-Segment firstSeg
-ObjectCodec codec
-boolean hasNativeTypeIds
-boolean hasNativeObjectIds

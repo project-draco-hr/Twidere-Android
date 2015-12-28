@@ -1,8 +1,0 @@
-{
-  _tokens[index]=value;
-  long typeCode=tokenType.ordinal();
-  if (index > 0) {
-    typeCode<<=(index << 2);
-  }
-  _tokenTypes|=typeCode;
-}

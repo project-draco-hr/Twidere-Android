@@ -1,8 +1,0 @@
-{
-  if ((_typeId=jp.getTypeId()) != null) {
-    _hasNativeId=true;
-  }
-  if ((_objectId=jp.getObjectId()) != null) {
-    _hasNativeId=true;
-  }
-}

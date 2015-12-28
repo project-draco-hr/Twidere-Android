@@ -1,3 +1,0 @@
-{
-  return 0 <= i && i < values.size() ? values.get(i) : MISSING;
-}

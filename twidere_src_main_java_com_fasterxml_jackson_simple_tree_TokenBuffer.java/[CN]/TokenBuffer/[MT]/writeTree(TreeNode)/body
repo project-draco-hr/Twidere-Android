@@ -1,3 +1,0 @@
-{
-  _append(JsonToken.VALUE_EMBEDDED_OBJECT,rootNode);
-}

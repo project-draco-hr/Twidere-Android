@@ -1,3 +1,0 @@
-{
-  _append(state ? JsonToken.VALUE_TRUE : JsonToken.VALUE_FALSE);
-}

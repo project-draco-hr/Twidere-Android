@@ -1,5 +1,0 @@
-{
-  byte[] copy=new byte[len];
-  System.arraycopy(data,offset,copy,0,len);
-  writeObject(copy);
-}

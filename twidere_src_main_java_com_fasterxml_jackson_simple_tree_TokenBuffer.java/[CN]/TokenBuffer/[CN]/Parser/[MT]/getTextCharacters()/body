@@ -1,4 +1,0 @@
-{
-  String str=getText();
-  return (str == null) ? null : str.toCharArray();
-}

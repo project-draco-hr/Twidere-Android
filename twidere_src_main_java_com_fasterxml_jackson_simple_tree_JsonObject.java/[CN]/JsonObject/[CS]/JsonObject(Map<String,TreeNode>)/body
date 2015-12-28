@@ -1,3 +1,0 @@
-{
-  this._values=Collections.unmodifiableMap(values);
-}

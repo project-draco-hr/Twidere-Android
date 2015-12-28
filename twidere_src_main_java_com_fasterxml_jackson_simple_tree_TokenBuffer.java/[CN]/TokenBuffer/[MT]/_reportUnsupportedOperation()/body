@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("Called operation not supported for TokenBuffer");
-}

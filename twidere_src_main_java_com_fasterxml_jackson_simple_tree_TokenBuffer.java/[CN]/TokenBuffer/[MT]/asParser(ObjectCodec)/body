@@ -1,3 +1,0 @@
-{
-  return new Parser(_first,codec,_hasNativeTypeIds,_hasNativeObjectIds);
-}

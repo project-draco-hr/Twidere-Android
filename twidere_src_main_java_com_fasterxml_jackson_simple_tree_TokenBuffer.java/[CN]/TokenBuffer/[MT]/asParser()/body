@@ -1,3 +1,0 @@
-{
-  return asParser(_objectCodec);
-}
