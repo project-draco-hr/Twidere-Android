@@ -1,9 +1,0 @@
-{
-  final String mimeType=Utils.getImageMimeType(source);
-  final MimeTypeMap map=MimeTypeMap.getSingleton();
-  final String extension=map.getExtensionFromMimeType(mimeType);
-  if (extension == null)   return null;
-  final File pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-  final File saveDir=new File(pubDir,"Twidere");
-  return new SaveFileTask(activity,source,mimeType,saveDir);
-}

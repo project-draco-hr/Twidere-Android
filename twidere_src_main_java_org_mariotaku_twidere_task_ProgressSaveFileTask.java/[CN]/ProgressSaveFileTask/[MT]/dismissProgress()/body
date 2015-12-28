@@ -1,0 +1,14 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  ((IExtendedActivity)context).executeAfterFragmentResumed(new IExtendedActivity.Action(){
+    @Override public void execute(    IExtendedActivity activity){
+      final FragmentManager fm=((Activity)activity).getFragmentManager();
+      final DialogFragment fragment=(DialogFragment)fm.findFragmentByTag(PROGRESS_FRAGMENT_TAG);
+      if (fragment != null) {
+        fragment.dismiss();
+      }
+    }
+  }
+);
+}

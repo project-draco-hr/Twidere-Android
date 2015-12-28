@@ -1,4 +1,0 @@
-{
-  if (source == null)   return null;
-  return saveFile(activity,source,mimeType,destination);
-}

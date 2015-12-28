@@ -13,5 +13,9 @@
   if (extension == null)   return;
   final File pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
   final File saveDir=new File(pubDir,"Twidere");
-  mSaveFileTask=AsyncTaskUtils.executeTask(new SaveFileTask(getActivity(),file,mimeType,saveDir));
+  mSaveFileTask=AsyncTaskUtils.executeTask(new ProgressSaveFileTask(getActivity(),file,saveDir,new SaveFileTask.StringMimeTypeCallback(mimeType)){
+    @Override protected void onFileSaved(    File savedFile,    String mimeType){
+    }
+  }
+);
 }

@@ -5,7 +5,7 @@
   }
   final LayoutInflater inflater=activity.getLayoutInflater().cloneInContext(getThemedContext());
   getChildFragmentManager();
-  final LayoutInflaterFactory delegate=FragmentManagerTrojan.getLayoutInflaterFactory(getChildFragmentManager());
+  final LayoutInflaterFactory delegate=FragmentManagerAccessor.getLayoutInflaterFactory(getChildFragmentManager());
   LayoutInflaterCompat.setFactory(inflater,new ThemedLayoutInflaterFactory((IThemedActivity)activity,delegate));
   return inflater;
 }

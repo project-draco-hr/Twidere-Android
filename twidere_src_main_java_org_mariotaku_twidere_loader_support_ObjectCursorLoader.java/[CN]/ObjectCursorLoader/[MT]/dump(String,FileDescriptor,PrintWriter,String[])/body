@@ -20,5 +20,5 @@
   writer.println(mObjects);
   writer.print(prefix);
   writer.print("mContentChanged=");
-  writer.println(LoaderTrojan.isContentChanged(this));
+  writer.println(LoaderAccessor.isContentChanged(this));
 }

@@ -147,7 +147,7 @@
     }
     final Fragment cardFragment=TwitterCardUtils.createCardFragment(status);
     final FragmentManager fm=fragment.getChildFragmentManager();
-    if (cardFragment != null && !FragmentManagerTrojan.isStateSaved(fm)) {
+    if (cardFragment != null && !FragmentManagerAccessor.isStateSaved(fm)) {
       final FragmentTransaction ft=fm.beginTransaction();
       ft.replace(R.id.twitter_card,cardFragment);
       ft.commit();

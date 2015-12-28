@@ -1,6 +1,6 @@
 {
   final Fragment f=(Fragment)super.instantiateItem(container,position);
-  final Bundle savedFragmentState=f != null ? FragmentTrojan.getSavedFragmentState(f) : null;
+  final Bundle savedFragmentState=f != null ? FragmentAccessor.getSavedFragmentState(f) : null;
   if (savedFragmentState != null) {
     savedFragmentState.setClassLoader(f.getClass().getClassLoader());
   }

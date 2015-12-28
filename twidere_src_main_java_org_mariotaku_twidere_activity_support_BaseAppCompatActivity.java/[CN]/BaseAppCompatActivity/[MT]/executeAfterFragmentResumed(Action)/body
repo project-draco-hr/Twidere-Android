@@ -1,0 +1,4 @@
+{
+  mActionQueue.add(action);
+  executePending();
+}

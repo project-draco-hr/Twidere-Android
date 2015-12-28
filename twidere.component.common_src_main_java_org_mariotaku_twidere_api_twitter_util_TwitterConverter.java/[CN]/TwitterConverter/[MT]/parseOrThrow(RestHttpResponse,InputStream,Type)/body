@@ -1,6 +1,6 @@
 {
   try {
-    final ParameterizedType<T> parameterizedType=ParameterizedTypeTrojan.create(type);
+    final ParameterizedType<T> parameterizedType=ParameterizedTypeAccessor.create(type);
     final T parse=LoganSquare.parse(stream,parameterizedType);
     if (TwitterException.class == type && parse == null) {
       throw new TwitterException();

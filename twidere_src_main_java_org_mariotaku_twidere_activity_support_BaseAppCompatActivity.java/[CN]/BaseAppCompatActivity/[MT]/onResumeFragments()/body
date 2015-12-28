@@ -1,0 +1,5 @@
+{
+  super.onResumeFragments();
+  mFragmentResumed=true;
+  executePending();
+}

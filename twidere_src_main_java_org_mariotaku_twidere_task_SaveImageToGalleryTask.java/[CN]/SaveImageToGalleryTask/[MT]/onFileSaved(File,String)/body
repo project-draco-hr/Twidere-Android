@@ -1,0 +1,11 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  if (savedFile != null && savedFile.exists()) {
+    MediaScannerConnection.scanFile(context,new String[]{savedFile.getPath()},new String[]{mimeType},null);
+    Toast.makeText(context,R.string.saved_to_gallery,Toast.LENGTH_SHORT).show();
+  }
+ else {
+    Toast.makeText(context,R.string.error_occurred,Toast.LENGTH_SHORT).show();
+  }
+}

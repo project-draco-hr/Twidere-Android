@@ -1,39 +1,8 @@
 {
   super.onPrepareOptionsMenu(menu);
   final boolean isLoading=getLoaderManager().hasRunningLoaders();
-  final TaskRunnable<File,Pair<Boolean,Intent>,Pair<Fragment,Menu>> checkState=new TaskRunnable<File,Pair<Boolean,Intent>,Pair<Fragment,Menu>>(){
-    @Override public Pair<Boolean,Intent> doLongOperation(    File file) throws InterruptedException {
-      final boolean hasImage=file != null && file.exists();
-      if (!hasImage) {
-        return Pair.create(false,null);
-      }
-      final Intent intent=new Intent(Intent.ACTION_SEND);
-      final Uri fileUri=Uri.fromFile(file);
-      final String imageMimeType=Utils.getImageMimeType(file);
-      intent.setDataAndType(fileUri,imageMimeType);
-      intent.putExtra(Intent.EXTRA_STREAM,fileUri);
-      final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
-      if (activity.hasStatus()) {
-        final ParcelableStatus status=activity.getStatus();
-        intent.putExtra(Intent.EXTRA_TEXT,Utils.getStatusShareText(activity,status));
-        intent.putExtra(Intent.EXTRA_SUBJECT,Utils.getStatusShareSubject(activity,status));
-      }
-      return Pair.create(true,intent);
-    }
-    @Override public void callback(    Pair<Fragment,Menu> callback,    Pair<Boolean,Intent> result){
-      if (callback.first.isDetached() || callback.first.getActivity() == null)       return;
-      final Menu menu=callback.second;
-      final boolean hasImage=result.first;
-      MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
-      MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
-      MenuUtils.setMenuItemAvailability(menu,R.id.save,hasImage && !isLoading);
-      if (!hasImage)       return;
-      final MenuItem shareItem=menu.findItem(R.id.share);
-      shareItem.setIntent(Intent.createChooser(result.second,callback.first.getString(R.string.share)));
-    }
-  }
-;
-  checkState.setParams(mImageFile);
-  checkState.setResultHandler(Pair.<Fragment,Menu>create(this,menu));
-  AsyncManager.runBackgroundTask(checkState);
+  final boolean hasImage=mImageFile != null;
+  MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
+  MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
+  MenuUtils.setMenuItemAvailability(menu,R.id.save,hasImage && !isLoading);
 }

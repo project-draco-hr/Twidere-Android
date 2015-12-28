@@ -12,6 +12,7 @@
   final Intent intent=new Intent(Intent.ACTION_SEND);
   final Uri fileUri=Uri.fromFile(file);
   intent.setDataAndType(fileUri,linkAndType.second);
+  intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
   intent.putExtra(Intent.EXTRA_STREAM,fileUri);
   final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
   if (activity.hasStatus()) {
