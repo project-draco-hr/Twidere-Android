@@ -1,4 +1,14 @@
 {
-  if (mDns != null)   return mDns;
-  return mDns=new SimpleResolver(mDnsAddress);
+  if (mResolver != null)   return mResolver;
+  final boolean tcp=mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false);
+  final String address=mPreferences.getString(KEY_DNS_SERVER,null);
+  final SimpleResolver resolver;
+  if (isValidIpAddress(address)) {
+    resolver=new SimpleResolver(address);
+  }
+ else {
+    resolver=new SimpleResolver();
+  }
+  resolver.setTCP(tcp);
+  return mResolver=resolver;
 }

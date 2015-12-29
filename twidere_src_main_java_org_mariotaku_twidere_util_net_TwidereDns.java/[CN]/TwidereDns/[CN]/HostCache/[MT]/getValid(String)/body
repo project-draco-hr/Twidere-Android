@@ -1,0 +1,4 @@
+{
+  cleanExpired();
+  return get(host);
+}

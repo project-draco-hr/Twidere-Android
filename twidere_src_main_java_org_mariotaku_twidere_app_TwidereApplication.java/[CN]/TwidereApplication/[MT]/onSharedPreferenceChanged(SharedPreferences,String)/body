@@ -10,6 +10,10 @@ case KEY_PROXY_HOST:
 case KEY_PROXY_PORT:
 reloadConnectivitySettings();
 break;
+case KEY_DNS_SERVER:
+case KEY_TCP_DNS_QUERY:
+reloadDnsSettings();
+break;
 case KEY_CONSUMER_KEY:
 case KEY_CONSUMER_SECRET:
 case KEY_API_URL_FORMAT:

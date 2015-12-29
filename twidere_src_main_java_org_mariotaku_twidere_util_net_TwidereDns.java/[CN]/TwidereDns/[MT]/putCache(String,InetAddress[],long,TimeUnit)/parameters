@@ -1,2 +1,4 @@
 String host
 InetAddress[] addresses
+long ttl
+TimeUnit unit

@@ -1,5 +1,10 @@
 {
   final byte[] input=new byte[32];
   secureRandom.nextBytes(input);
-  return Base64.encodeToString(input,Base64.NO_WRAP).replaceAll("[^\\w\\d]","");
+  final ByteString byteString=ByteString.of(input);
+  final String encodedString=byteString.base64Url();
+  if (encodedString == null) {
+    throw new IllegalStateException("Bad nonce " + byteString.hex());
+  }
+  return encodedString.replaceAll("[^\\w\\d]","");
 }

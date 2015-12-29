@@ -1,0 +1,4 @@
+String originalHost
+String host
+String message
+int depth

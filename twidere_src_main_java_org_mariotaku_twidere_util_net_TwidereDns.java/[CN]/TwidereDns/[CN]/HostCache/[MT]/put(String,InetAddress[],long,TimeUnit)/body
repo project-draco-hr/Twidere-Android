@@ -1,0 +1,7 @@
+{
+  if (ttl == 0)   return;
+  put(host,addresses);
+  if (ttl > 0) {
+    ttlMap.put(host,SystemClock.elapsedRealtime() + unit.toMillis(ttl));
+  }
+}
