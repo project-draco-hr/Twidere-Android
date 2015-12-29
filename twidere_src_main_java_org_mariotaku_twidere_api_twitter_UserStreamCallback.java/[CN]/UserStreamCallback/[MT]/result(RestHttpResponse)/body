@@ -5,7 +5,7 @@
     onException(cause);
     return;
   }
-  final SimpleTreeCodec mapper=new SimpleTreeCodec();
+  final JacksonJrSimpleTreeCodec mapper=new JacksonJrSimpleTreeCodec();
   final CRLFLineReader reader=new CRLFLineReader(new InputStreamReader(response.getBody().stream(),"UTF-8"));
   try {
     for (String line; (line=reader.readLine()) != null && !disconnected; ) {

@@ -10,6 +10,22 @@ case R.id.refresh:
     loadVideo(true);
     return true;
   }
+case R.id.share:
+{
+  if (mVideoFile == null || mVideoUrlAndType == null)   return true;
+  final Intent intent=new Intent(Intent.ACTION_SEND);
+  final Uri fileUri=Uri.fromFile(mVideoFile);
+  intent.setDataAndType(fileUri,mVideoUrlAndType.second);
+  intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+  intent.putExtra(Intent.EXTRA_STREAM,fileUri);
+  final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
+  if (activity.hasStatus()) {
+    final ParcelableStatus status=activity.getStatus();
+    intent.putExtra(Intent.EXTRA_TEXT,Utils.getStatusShareText(activity,status));
+    intent.putExtra(Intent.EXTRA_SUBJECT,Utils.getStatusShareSubject(activity,status));
+  }
+  Intent.createChooser(intent,getString(R.string.share));
+}
 }
 return super.onOptionsItemSelected(item);
 }

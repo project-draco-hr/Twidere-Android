@@ -1,7 +1,7 @@
 {
   if (mData instanceof ObjectCursor) {
     final ParcelableActivityCursorIndices indices=(ParcelableActivityCursorIndices)((ObjectCursor)mData).getIndices();
-    return ((ObjectCursor)mData).getCursor(position).getString(indices.action);
+    return ((ObjectCursor)mData).getCursor(position).getLong(indices.timestamp);
   }
-  return mData.get(position).action;
+  return mData.get(position).timestamp;
 }

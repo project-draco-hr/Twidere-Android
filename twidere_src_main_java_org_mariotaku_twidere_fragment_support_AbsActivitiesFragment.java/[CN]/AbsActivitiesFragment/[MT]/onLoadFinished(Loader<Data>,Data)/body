@@ -13,6 +13,7 @@
     lastVisiblePos=layoutManager.findFirstVisibleItemPosition();
   }
   if (lastVisiblePos != RecyclerView.NO_POSITION && lastVisiblePos < adapter.getItemCount()) {
+    lastReadId=adapter.getTimestamp(lastVisiblePos);
     final View positionView=layoutManager.findViewByPosition(lastVisiblePos);
     lastVisibleTop=positionView != null ? positionView.getTop() : 0;
   }
@@ -29,6 +30,20 @@
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
     adapter.setLoadMoreSupported(hasMoreData(data));
     int pos=-1;
+    for (int i=0, j=adapter.getItemCount(); i < j; i++) {
+      if (lastReadId != -1 && lastReadId == adapter.getTimestamp(i)) {
+        pos=i;
+        break;
+      }
+    }
+    if (pos != -1 && adapter.isActivity(pos) && (readFromBottom || lastVisiblePos != 0)) {
+      if (layoutManager.getHeight() == 0) {
+        layoutManager.scrollToPositionWithOffset(pos,lastVisibleTop);
+      }
+ else {
+        layoutManager.scrollToPositionWithOffset(pos,lastVisibleTop - layoutManager.getPaddingTop());
+      }
+    }
   }
   if (loader instanceof IExtendedLoader) {
     ((IExtendedLoader)loader).setFromUser(false);
