@@ -1,0 +1,7 @@
+{
+  for (  final ManagedAsyncTask<?,?,?> task : getTaskSpecList()) {
+    if (tag.equals(task.getTag())) {
+      task.cancel(true);
+    }
+  }
+}

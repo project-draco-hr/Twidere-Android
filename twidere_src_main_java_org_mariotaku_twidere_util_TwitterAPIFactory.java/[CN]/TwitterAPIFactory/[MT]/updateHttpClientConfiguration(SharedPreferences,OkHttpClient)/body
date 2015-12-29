@@ -3,10 +3,11 @@
   final boolean ignoreSslError=prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false);
   final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
   client.setConnectTimeout(connectionTimeout,TimeUnit.SECONDS);
-  final long connectionTimeoutMillis=TimeUnit.MILLISECONDS.convert(connectionTimeout,TimeUnit.SECONDS);
+  client.setReadTimeout(0,TimeUnit.SECONDS);
+  client.setWriteTimeout(0,TimeUnit.SECONDS);
   final SSLSocketFactory sslSocketFactory;
   if (ignoreSslError) {
-    sslSocketFactory=SSLCertificateSocketFactory.getInsecure((int)connectionTimeoutMillis,null);
+    sslSocketFactory=SSLCertificateSocketFactory.getInsecure(0,null);
     if (sslSocketFactory instanceof SSLCertificateSocketFactory) {
     }
     client.setSslSocketFactory(sslSocketFactory);

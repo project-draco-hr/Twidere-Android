@@ -1,8 +1,3 @@
 {
-  AsyncTask.execute(new Runnable(){
-    @Override public void run(){
-      ACRA.getErrorReporter().handleSilentException(throwable);
-    }
-  }
-);
+  Crashlytics.logException(throwable);
 }

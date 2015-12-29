@@ -33,7 +33,7 @@
     return hostAddr;
   }
   for (  final Record record : records) {
-    if (record instanceof CNAMERecord)     return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString(),+1);
+    if (record instanceof CNAMERecord)     return resolveInternal(originalHost,((CNAMERecord)record).getTarget().toString(),depth + 1);
   }
   return null;
 }

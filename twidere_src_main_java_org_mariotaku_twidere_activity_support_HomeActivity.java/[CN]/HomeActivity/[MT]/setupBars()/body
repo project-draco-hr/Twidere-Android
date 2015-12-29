@@ -25,7 +25,6 @@
     mTabIndicator.setStripColor(contrastColor);
     mTabIndicator.setIconColor(contrastColor);
     mTabIndicator.setLabelColor(contrastColor);
-    ActivitySupport.setTaskDescription(this,new TaskDescriptionCompat(null,null,themeColor));
   }
   mHomeContent.setDrawColor(true);
   mHomeContent.setDrawShadow(false);

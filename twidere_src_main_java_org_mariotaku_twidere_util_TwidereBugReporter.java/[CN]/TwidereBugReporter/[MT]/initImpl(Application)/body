@@ -1,11 +1,3 @@
 {
-  ACRA.init(application);
-  final Thread.UncaughtExceptionHandler handler=Thread.getDefaultUncaughtExceptionHandler();
-  Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(){
-    @Override public void uncaughtException(    Thread thread,    Throwable ex){
-      if (Utils.isOutOfMemory(ex))       return;
-      handler.uncaughtException(thread,ex);
-    }
-  }
-);
+  Fabric.with(application,new Crashlytics());
 }
