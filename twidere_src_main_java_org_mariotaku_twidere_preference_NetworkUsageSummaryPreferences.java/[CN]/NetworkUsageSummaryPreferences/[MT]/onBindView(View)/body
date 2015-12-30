@@ -14,7 +14,7 @@
     apiSet.addBar(day,(float)dayUsage[RequestType.API.getValue()]);
     mediaSet.addBar(day,(float)dayUsage[RequestType.MEDIA.getValue()]);
     usageStatisticsSet.addBar(day,(float)dayUsage[RequestType.USAGE_STATISTICS.getValue()]);
-    dayUsageMax=Math.max(dayUsageMax,MathUtils.sum(dayUsage));
+    dayUsageMax=Math.max(dayUsageMax,TwidereMathUtils.sum(dayUsage));
   }
   apiSet.setColor(Color.RED);
   mediaSet.setColor(Color.GREEN);

@@ -2,7 +2,7 @@
   final int[] location=new int[2];
   mNameView.getLocationInWindow(location);
   final float nameShowingRatio=(mHeaderDrawerLayout.getPaddingTop() - location[1]) / (float)mNameView.getHeight();
-  final float textAlpha=MathUtils.clamp(nameShowingRatio,0,1);
+  final float textAlpha=TwidereMathUtils.clamp(nameShowingRatio,0,1);
   final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
   final Toolbar actionBarView=activity.getActionBarToolbar();
   if (actionBarView != null) {

@@ -1,10 +1,10 @@
 {
   final boolean rememberPosition=mPreferences.getBoolean(KEY_REMEMBER_POSITION,true);
   if (initialTab >= 0) {
-    mViewPager.setCurrentItem(MathUtils.clamp(initialTab,mPagerAdapter.getCount(),0));
+    mViewPager.setCurrentItem(TwidereMathUtils.clamp(initialTab,mPagerAdapter.getCount(),0));
   }
  else   if (rememberPosition) {
     final int position=mPreferences.getInt(KEY_SAVED_TAB_POSITION,0);
-    mViewPager.setCurrentItem(MathUtils.clamp(position,mPagerAdapter.getCount(),0));
+    mViewPager.setCurrentItem(TwidereMathUtils.clamp(position,mPagerAdapter.getCount(),0));
   }
 }

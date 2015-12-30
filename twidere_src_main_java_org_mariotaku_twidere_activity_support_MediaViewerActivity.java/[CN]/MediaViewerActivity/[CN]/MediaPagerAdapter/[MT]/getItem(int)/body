@@ -14,12 +14,17 @@ case ParcelableMedia.TYPE_VIDEO:
 {
     return Fragment.instantiate(mActivity,VideoPageFragment.class.getName(),args);
   }
-default :
+case ParcelableMedia.TYPE_IMAGE:
 {
   if (ANIMATED_GIF_SUPPORTED) {
     return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
   }
   return Fragment.instantiate(mActivity,BaseImagePageFragment.class.getName(),args);
 }
+case ParcelableMedia.TYPE_EXTERNAL_PLAYER:
+{
+return TwitterCardFragmentFactory.createGenericPlayerFragment(media.card);
 }
+}
+return new UnsupportedPageFragment();
 }

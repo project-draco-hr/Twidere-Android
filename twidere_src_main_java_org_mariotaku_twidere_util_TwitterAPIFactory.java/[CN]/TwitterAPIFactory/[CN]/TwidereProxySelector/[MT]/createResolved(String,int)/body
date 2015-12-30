@@ -1,0 +1,11 @@
+{
+  try {
+    for (    InetAddress inetAddress : dns.lookup(host)) {
+      return new InetSocketAddress(inetAddress,port);
+    }
+  }
+ catch (  IOException e) {
+    return InetSocketAddress.createUnresolved(host,port);
+  }
+  return InetSocketAddress.createUnresolved(host,port);
+}

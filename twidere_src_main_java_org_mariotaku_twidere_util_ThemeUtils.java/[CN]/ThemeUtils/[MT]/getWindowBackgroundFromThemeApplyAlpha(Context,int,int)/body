@@ -4,6 +4,6 @@
   a.recycle();
   if (d == null)   return null;
   d.mutate();
-  d.setAlpha(MathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
+  d.setAlpha(TwidereMathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
   return d;
 }

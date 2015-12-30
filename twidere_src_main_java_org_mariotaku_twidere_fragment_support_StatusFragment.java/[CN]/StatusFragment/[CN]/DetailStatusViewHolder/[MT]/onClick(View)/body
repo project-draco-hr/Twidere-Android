@@ -66,6 +66,7 @@ break;
 case R.id.quote_original_link:
 {
 Utils.openStatus(adapter.getContext(),status.account_id,status.quoted_id);
+break;
 }
 case R.id.translate_label:
 {

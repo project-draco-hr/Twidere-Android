@@ -4,10 +4,10 @@
   final float[] hsv=new float[3];
   Color.colorToHSV(themeColor,hsv);
   if (isDarkTheme(context)) {
-    hsv[2]=MathUtils.clamp(hsv[2],1,0.5f);
+    hsv[2]=TwidereMathUtils.clamp(hsv[2],1,0.5f);
   }
  else {
-    hsv[2]=MathUtils.clamp(hsv[2],0.1f,0.75f);
+    hsv[2]=TwidereMathUtils.clamp(hsv[2],0.1f,0.75f);
   }
   return Color.HSVToColor(hsv);
 }

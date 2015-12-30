@@ -20,5 +20,5 @@
     mDrawer.scrollByCallback(-dy);
   }
   mScrollingHeaderByHelper=true;
-  return MathUtils.clamp(top,min,max);
+  return TwidereMathUtils.clamp(top,min,max);
 }

@@ -1,0 +1,4 @@
+{
+  map.put("twitter:card",name);
+  map.put("twitter:api:api:endpoint",endpoint);
+}

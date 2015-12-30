@@ -31,7 +31,7 @@
   double dayUsageMax=0;
   for (int i=0; i < days; i++) {
     final double[] dayUsage=chartUsage[i];
-    dayUsageMax=Math.max(dayUsageMax,MathUtils.sum(dayUsage));
+    dayUsageMax=Math.max(dayUsageMax,TwidereMathUtils.sum(dayUsage));
   }
   return new NetworkUsageInfo(chartUsage,usageTotal,totalReceived,totalSent,dayUsageMax,dayMin,dayMax);
 }

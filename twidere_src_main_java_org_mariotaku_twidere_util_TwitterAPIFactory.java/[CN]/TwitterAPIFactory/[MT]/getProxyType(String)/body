@@ -1,0 +1,4 @@
+{
+  if ("socks".equalsIgnoreCase(proxyType))   return Proxy.Type.SOCKS;
+  return Proxy.Type.HTTP;
+}

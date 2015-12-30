@@ -1,9 +1,10 @@
 {
+  final String proxyType=prefs.getString(KEY_PROXY_TYPE,null);
   final String proxyHost=prefs.getString(KEY_PROXY_HOST,null);
-  final int proxyPort=NumberUtils.toInt(prefs.getString(KEY_PROXY_PORT,"-1"),-1);
-  if (!isEmpty(proxyHost) && proxyPort >= 0 && proxyPort < 65535) {
+  final int proxyPort=NumberUtils.toInt(prefs.getString(KEY_PROXY_PORT,null),-1);
+  if (!isEmpty(proxyHost) && TwidereMathUtils.inRangeInclusiveInclusive(proxyPort,0,65535)) {
     final SocketAddress addr=InetSocketAddress.createUnresolved(proxyHost,proxyPort);
-    return new Proxy(Proxy.Type.HTTP,addr);
+    return new Proxy(getProxyType(proxyType),addr);
   }
   return Proxy.NO_PROXY;
 }

@@ -1,6 +1,6 @@
 {
   mFactor=f;
-  mShadowDrawable.setAlpha(Math.round(mAlpha * MathUtils.clamp(1 - f,0,1)));
+  mShadowDrawable.setAlpha(Math.round(mAlpha * TwidereMathUtils.clamp(1 - f,0,1)));
   final boolean hasColor=mColor != 0;
-  mColorDrawable.setAlpha(hasColor ? Math.round(mAlpha * MathUtils.clamp(f,0,1)) : 0);
+  mColorDrawable.setAlpha(hasColor ? Math.round(mAlpha * TwidereMathUtils.clamp(f,0,1)) : 0);
 }
