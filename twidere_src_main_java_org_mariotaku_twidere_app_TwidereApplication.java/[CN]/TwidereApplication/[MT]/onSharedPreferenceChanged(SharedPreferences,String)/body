@@ -8,6 +8,9 @@ case KEY_ENABLE_PROXY:
 case KEY_CONNECTION_TIMEOUT:
 case KEY_PROXY_HOST:
 case KEY_PROXY_PORT:
+case KEY_PROXY_TYPE:
+case KEY_PROXY_USERNAME:
+case KEY_PROXY_PASSWORD:
 reloadConnectivitySettings();
 break;
 case KEY_DNS_SERVER:

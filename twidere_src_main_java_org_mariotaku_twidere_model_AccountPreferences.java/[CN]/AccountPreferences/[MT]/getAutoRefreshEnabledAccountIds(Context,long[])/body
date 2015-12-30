@@ -1,5 +1,5 @@
 {
-  if (context == null || accountIds == null)   return null;
+  if (context == null || accountIds == null)   return new long[0];
   final long[] temp=new long[accountIds.length];
   int i=0;
   for (  final long accountId : accountIds) {

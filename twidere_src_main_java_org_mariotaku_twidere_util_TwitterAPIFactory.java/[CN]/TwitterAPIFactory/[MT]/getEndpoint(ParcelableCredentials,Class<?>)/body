@@ -25,6 +25,10 @@
     domain="userstream";
     versionSuffix=noVersionSuffix ? null : "/1.1/";
   }
+ else   if (TwitterCaps.class.isAssignableFrom(cls)) {
+    domain="caps";
+    versionSuffix=null;
+  }
  else {
     throw new TwitterConverter.UnsupportedTypeException(cls);
   }
