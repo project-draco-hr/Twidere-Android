@@ -1,4 +1,4 @@
 {
-  if (status.card_name == null)   return false;
-  return CardPollFragment.isPoll(status.card_name);
+  if (status.card_name == null || status.card == null)   return false;
+  return CardPollFragment.isPoll(status.card);
 }

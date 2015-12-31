@@ -1,11 +1,11 @@
 {
   super(context);
+  GeneralComponentHelper.build(context).inject(this);
   mHandler=new Handler();
   mAccountId=accountId;
   mUri=uri;
   mListener=listener;
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mDownloader=ApplicationModule.get(context).getImageDownloader();
   mDiskCache=app.getFullDiskCache();
   final Resources res=context.getResources();
   final DisplayMetrics dm=res.getDisplayMetrics();

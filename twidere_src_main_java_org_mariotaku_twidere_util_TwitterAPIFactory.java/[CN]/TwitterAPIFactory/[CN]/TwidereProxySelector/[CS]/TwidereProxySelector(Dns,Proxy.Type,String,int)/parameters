@@ -1,4 +1,0 @@
-Dns dns
-Proxy.Type type
-String host
-int port

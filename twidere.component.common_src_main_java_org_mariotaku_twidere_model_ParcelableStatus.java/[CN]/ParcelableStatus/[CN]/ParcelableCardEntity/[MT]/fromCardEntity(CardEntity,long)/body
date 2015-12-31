@@ -1,4 +1,0 @@
-{
-  if (card == null)   return null;
-  return new ParcelableCardEntity(card,account_id);
-}

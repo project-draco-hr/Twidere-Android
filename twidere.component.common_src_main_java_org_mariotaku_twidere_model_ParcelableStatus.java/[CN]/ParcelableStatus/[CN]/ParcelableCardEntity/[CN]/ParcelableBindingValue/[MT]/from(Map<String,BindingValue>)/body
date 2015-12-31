@@ -1,8 +1,0 @@
-{
-  if (bindingValues == null)   return null;
-  final Map<String,ParcelableBindingValue> map=new HashMap<>();
-  for (  Entry<String,BindingValue> entry : bindingValues.entrySet()) {
-    map.put(entry.getKey(),new ParcelableBindingValue(entry.getValue()));
-  }
-  return map;
-}

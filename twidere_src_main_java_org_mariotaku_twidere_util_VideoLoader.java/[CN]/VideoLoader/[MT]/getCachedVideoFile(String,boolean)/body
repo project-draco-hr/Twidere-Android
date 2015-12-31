@@ -1,9 +1,0 @@
-{
-  if (url == null)   return null;
-  final File cache=mDiskCache.get(url);
-  if (cache.exists())   return cache;
- else   if (loadIfNotFound) {
-    loadVideo(url,null);
-  }
-  return null;
-}

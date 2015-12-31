@@ -1,5 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mVoteButton.setOnClickListener(this);
   initChoiceView(savedInstanceState);
+  getLoaderManager().initLoader(0,null,this);
 }

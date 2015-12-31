@@ -2,7 +2,7 @@
   super.onPrepareOptionsMenu(menu);
   final File file=mVideoFile;
   final Pair<String,String> linkAndType=mVideoUrlAndType;
-  final boolean isLoading=linkAndType != null && mVideoLoader.isLoading(linkAndType.first);
+  final boolean isLoading=linkAndType != null;
   final boolean hasVideo=file != null && file.exists() && linkAndType != null && mMediaPlayerError == 0;
   MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasVideo && !isLoading);
   MenuUtils.setMenuItemAvailability(menu,R.id.share,hasVideo && !isLoading);

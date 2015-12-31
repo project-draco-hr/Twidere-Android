@@ -1,0 +1,35 @@
+{
+  mImageLoader=loader;
+  final DisplayImageOptions.Builder profileOptsBuilder=new DisplayImageOptions.Builder();
+  profileOptsBuilder.cacheInMemory(true);
+  profileOptsBuilder.cacheOnDisk(true);
+  profileOptsBuilder.bitmapConfig(Bitmap.Config.ARGB_8888);
+  profileOptsBuilder.resetViewBeforeLoading(true);
+  final DisplayImageOptions.Builder ovalProfileOptsBuilder=new DisplayImageOptions.Builder();
+  ovalProfileOptsBuilder.cacheInMemory(true);
+  ovalProfileOptsBuilder.cacheOnDisk(true);
+  ovalProfileOptsBuilder.bitmapConfig(Bitmap.Config.ARGB_8888);
+  ovalProfileOptsBuilder.displayer(new OvalBitmapDisplayer());
+  ovalProfileOptsBuilder.resetViewBeforeLoading(true);
+  final DisplayImageOptions.Builder imageOptsBuilder=new DisplayImageOptions.Builder();
+  imageOptsBuilder.cacheInMemory(true);
+  imageOptsBuilder.cacheOnDisk(true);
+  imageOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
+  imageOptsBuilder.resetViewBeforeLoading(true);
+  final DisplayImageOptions.Builder bannerOptsBuilder=new DisplayImageOptions.Builder();
+  bannerOptsBuilder.resetViewBeforeLoading(true);
+  bannerOptsBuilder.showImageOnLoading(android.R.color.transparent);
+  bannerOptsBuilder.cacheInMemory(true);
+  bannerOptsBuilder.cacheOnDisk(true);
+  bannerOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
+  bannerOptsBuilder.displayer(new FadeInBitmapDisplayer(200,true,true,true));
+  final DisplayImageOptions.Builder dashboardProfileOptsBuilder=new DisplayImageOptions.Builder();
+  dashboardProfileOptsBuilder.cacheInMemory(true);
+  dashboardProfileOptsBuilder.cacheOnDisk(true);
+  dashboardProfileOptsBuilder.bitmapConfig(Bitmap.Config.RGB_565);
+  mProfileImageDisplayOptions=profileOptsBuilder.build();
+  mOvalProfileImageDisplayOptions=ovalProfileOptsBuilder.build();
+  mImageDisplayOptions=imageOptsBuilder.build();
+  mBannerDisplayOptions=bannerOptsBuilder.build();
+  mDashboardProfileImageDisplayOptions=dashboardProfileOptsBuilder.build();
+}

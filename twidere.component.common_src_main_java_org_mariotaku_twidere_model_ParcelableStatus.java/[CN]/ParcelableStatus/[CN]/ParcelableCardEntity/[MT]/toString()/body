@@ -1,3 +1,0 @@
-{
-  return "ParcelableCardEntity{" + "name='" + name + '\''+ ", users="+ Arrays.toString(users)+ ", values="+ values+ '}';
-}

@@ -4,7 +4,6 @@
     return JsonSerializer.parseList(file,ParcelableStatus.class);
   }
  catch (  final IOException e) {
-    Log.w(LOGTAG,e);
   }
   return null;
 }

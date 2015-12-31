@@ -1,0 +1,4 @@
+Context context
+Proxy.Type type
+String host
+int port

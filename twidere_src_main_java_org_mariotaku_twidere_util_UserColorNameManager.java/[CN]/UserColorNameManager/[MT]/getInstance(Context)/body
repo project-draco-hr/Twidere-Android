@@ -1,3 +1,0 @@
-{
-  return ApplicationModule.get(context).getUserColorNameManager();
-}

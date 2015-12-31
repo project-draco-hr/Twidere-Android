@@ -1,0 +1,3 @@
+{
+  ParcelableCardEntityParcelablePlease.writeToParcel(this,dest,flags);
+}

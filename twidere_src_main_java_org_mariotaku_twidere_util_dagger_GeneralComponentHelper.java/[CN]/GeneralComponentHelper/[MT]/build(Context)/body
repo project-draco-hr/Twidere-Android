@@ -1,0 +1,3 @@
+{
+  return DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build();
+}

@@ -8,8 +8,7 @@
     final Expression selection;
     final String[] selectionArgs;
     if (queryEscaped != null) {
-      final UserColorNameManager nicknamePrefs=UserColorNameManager.getInstance(context);
-      final long[] nicknameIds=Utils.getMatchedNicknameIds(query,nicknamePrefs);
+      final long[] nicknameIds=Utils.getMatchedNicknameIds(query,mUserColorNameManager);
       selection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_ID),new RawItemArray(nicknameIds)));
       selectionArgs=new String[]{queryEscaped,queryEscaped};
     }

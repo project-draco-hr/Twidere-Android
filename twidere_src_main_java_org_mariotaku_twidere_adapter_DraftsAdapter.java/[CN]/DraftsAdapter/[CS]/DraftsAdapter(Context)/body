@@ -1,6 +1,6 @@
 {
   super(context,R.layout.list_item_draft,null,new String[0],new int[0],0);
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject(this);
+  GeneralComponentHelper.build(context).inject(this);
   mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
 }

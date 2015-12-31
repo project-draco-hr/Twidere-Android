@@ -1,8 +1,8 @@
 {
   super(context);
+  GeneralComponentHelper.build(context).inject(this);
   final String switchPreferenceName=ACCOUNT_PREFERENCES_NAME_PREFIX + account.account_id;
   mAccount=account;
   mSwitchPreference=context.getSharedPreferences(switchPreferenceName,Context.MODE_PRIVATE);
-  mImageLoader=ApplicationModule.get(context).getMediaLoaderWrapper();
   mSwitchPreference.registerOnSharedPreferenceChangeListener(this);
 }

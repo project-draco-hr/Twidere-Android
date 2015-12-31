@@ -1,0 +1,4 @@
+Context context
+SharedPreferencesWrapper preferences
+RestHttpClient client
+boolean useThumbor

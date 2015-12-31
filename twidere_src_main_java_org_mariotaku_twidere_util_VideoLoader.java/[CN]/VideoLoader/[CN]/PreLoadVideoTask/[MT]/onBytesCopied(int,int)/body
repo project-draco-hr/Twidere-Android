@@ -1,5 +1,0 @@
-{
-  if (isCancelled())   return false;
-  publishProgress(current,total);
-  return true;
-}

@@ -1,5 +1,6 @@
 {
-  final Dns dns=getApplicationModule().getDns();
+  DependencyHolder holder=DependencyHolder.get(this);
+  final Dns dns=holder.getDns();
   if (dns instanceof TwidereDns) {
     ((TwidereDns)dns).reloadDnsSettings();
   }

@@ -27,7 +27,8 @@
   migrateUsageStatisticsPreferences();
   startRefreshServiceIfNeeded(this);
   reloadConnectivitySettings();
-  registerActivityLifecycleCallbacks(getApplicationModule().getActivityTracker());
+  DependencyHolder holder=DependencyHolder.get(this);
+  registerActivityLifecycleCallbacks(holder.getActivityTracker());
   final IntentFilter packageFilter=new IntentFilter();
   packageFilter.addAction(Intent.ACTION_PACKAGE_CHANGED);
   packageFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
@@ -37,7 +38,8 @@
     @Override public void onReceive(    Context context,    Intent intent){
       final int uid=intent.getIntExtra(Intent.EXTRA_UID,-1);
       final String[] packages=getPackageManager().getPackagesForUid(uid);
-      final ExternalThemeManager manager=getApplicationModule().getExternalThemeManager();
+      DependencyHolder holder=DependencyHolder.get(context);
+      final ExternalThemeManager manager=holder.getExternalThemeManager();
       if (ArrayUtils.contains(packages,manager.getEmojiPackageName())) {
         manager.reloadEmojiPreferences();
       }

@@ -15,7 +15,8 @@
  else {
     userAgent=getTwidereUserAgent(context);
   }
-  factory.setClient(ApplicationModule.get(context).getRestHttpClient());
+  DependencyHolder holder=new DependencyHolder(context);
+  factory.setClient(holder.getRestHttpClient());
   factory.setConverter(new TwitterConverter());
   factory.setEndpoint(endpoint);
   factory.setAuthorization(auth);

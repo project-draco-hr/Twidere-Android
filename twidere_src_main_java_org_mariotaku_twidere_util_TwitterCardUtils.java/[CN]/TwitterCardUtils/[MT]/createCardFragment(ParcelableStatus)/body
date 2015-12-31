@@ -16,7 +16,7 @@
     if (playerFragment != null)     return playerFragment;
     return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
   }
- else   if (CardPollFragment.isPoll(card.name)) {
+ else   if (CardPollFragment.isPoll(card)) {
     return TwitterCardFragmentFactory.createCardPollFragment(status);
   }
   return null;

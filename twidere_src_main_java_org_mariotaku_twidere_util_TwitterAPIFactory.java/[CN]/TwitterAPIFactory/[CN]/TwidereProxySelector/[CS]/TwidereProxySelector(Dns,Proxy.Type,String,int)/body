@@ -1,6 +1,0 @@
-{
-  this.dns=dns;
-  this.type=type;
-  this.host=host;
-  this.port=port;
-}

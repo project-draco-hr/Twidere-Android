@@ -1,6 +1,6 @@
 {
   super.onCreate();
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(this)).build().inject(this);
+  GeneralComponentHelper.build(this).inject(this);
   mAlarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
   mPendingRefreshHomeTimelineIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_HOME_TIMELINE),0);
   mPendingRefreshMentionsIntent=PendingIntent.getBroadcast(this,0,new Intent(BROADCAST_REFRESH_NOTIFICATIONS),0);

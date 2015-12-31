@@ -1,0 +1,13 @@
+{
+  if (map != null) {
+    final int size=map.size();
+    out.writeInt(size);
+    for (    Map.Entry<String,ParcelableBindingValue> entry : map.entrySet()) {
+      out.writeString(entry.getKey());
+      out.writeParcelable(entry.getValue(),flags);
+    }
+  }
+ else {
+    out.writeInt(-1);
+  }
+}

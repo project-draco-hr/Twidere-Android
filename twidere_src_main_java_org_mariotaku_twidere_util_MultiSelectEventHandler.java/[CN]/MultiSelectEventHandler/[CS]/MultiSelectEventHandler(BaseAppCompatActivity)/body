@@ -1,4 +1,4 @@
 {
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(activity)).build().inject(this);
+  GeneralComponentHelper.build(activity).inject(this);
   mActivity=activity;
 }

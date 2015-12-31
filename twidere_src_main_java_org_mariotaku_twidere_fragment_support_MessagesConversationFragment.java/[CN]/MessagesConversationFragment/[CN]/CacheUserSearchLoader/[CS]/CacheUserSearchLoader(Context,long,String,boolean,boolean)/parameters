@@ -1,5 +1,0 @@
-Context context
-long accountId
-String query
-boolean fromCache
-boolean fromUser

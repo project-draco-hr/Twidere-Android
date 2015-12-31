@@ -4,7 +4,7 @@
   if ("animated_gif".equals(name) || "player".equals(name)) {
     final ParcelableMedia media=new ParcelableMedia();
     final BindingValue playerStreamUrl=card.getBindingValue("player_stream_url");
-    media.card=ParcelableStatus.ParcelableCardEntity.fromCardEntity(card,-1);
+    media.card=ParcelableCardEntity.fromCardEntity(card,-1);
     if ("animated_gif".equals(name)) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
       media.type=ParcelableMedia.TYPE_CARD_ANIMATED_GIF;
@@ -44,7 +44,7 @@
     final BindingValue photoImageFullSize=card.getBindingValue("photo_image_full_size");
     if (!(photoImageFullSize instanceof ImageValue))     return null;
     final ParcelableMedia media=new ParcelableMedia();
-    media.card=ParcelableStatus.ParcelableCardEntity.fromCardEntity(card,-1);
+    media.card=ParcelableCardEntity.fromCardEntity(card,-1);
     media.type=ParcelableMedia.TYPE_IMAGE;
     media.media_url=((ImageValue)photoImageFullSize).getUrl();
     media.width=((ImageValue)photoImageFullSize).getWidth();

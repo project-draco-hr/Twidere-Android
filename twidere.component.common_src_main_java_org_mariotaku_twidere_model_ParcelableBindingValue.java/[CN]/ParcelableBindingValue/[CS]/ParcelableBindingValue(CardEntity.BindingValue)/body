@@ -1,0 +1,18 @@
+{
+  if (value instanceof CardEntity.ImageValue) {
+    this.type=CardEntity.BindingValue.TYPE_IMAGE;
+    this.value=((CardEntity.ImageValue)value).getUrl();
+  }
+ else   if (value instanceof CardEntity.StringValue) {
+    this.type=CardEntity.BindingValue.TYPE_STRING;
+    this.value=((CardEntity.StringValue)value).getValue();
+  }
+ else   if (value instanceof CardEntity.BooleanValue) {
+    this.type=CardEntity.BindingValue.TYPE_BOOLEAN;
+    this.value=String.valueOf(((CardEntity.BooleanValue)value).getValue());
+  }
+ else   if (value instanceof CardEntity.UserValue) {
+    this.type=CardEntity.BindingValue.TYPE_USER;
+    this.value=String.valueOf(((CardEntity.UserValue)value).getUserId());
+  }
+}

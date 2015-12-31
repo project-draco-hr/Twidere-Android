@@ -1,6 +1,6 @@
 {
   mContext=getContext();
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(mContext)).build().inject(this);
+  GeneralComponentHelper.build(mContext).inject(this);
   mPermissionsManager=new PermissionsManager(mContext);
   return true;
 }

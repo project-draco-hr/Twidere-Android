@@ -1,5 +1,0 @@
-Context context
-AsyncTaskManager manager
-SharedPreferencesWrapper preferences
-Bus bus
-UserColorNameManager userColorNameManager

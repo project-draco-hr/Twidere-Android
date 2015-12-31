@@ -1,9 +1,0 @@
-{
-  if (TextUtils.isEmpty(json))   return null;
-  try {
-    return LoganSquare.parse(json,ParcelableCardEntity.class);
-  }
- catch (  final IOException e) {
-    return null;
-  }
-}

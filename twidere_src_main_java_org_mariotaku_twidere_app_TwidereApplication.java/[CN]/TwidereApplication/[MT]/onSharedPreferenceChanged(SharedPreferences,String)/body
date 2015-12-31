@@ -30,7 +30,7 @@ editor.putLong(KEY_API_LAST_CHANGE,System.currentTimeMillis());
 editor.apply();
 break;
 case KEY_EMOJI_SUPPORT:
-getApplicationModule().getExternalThemeManager().initEmojiSupport();
+DependencyHolder.get(this).getExternalThemeManager().initEmojiSupport();
 break;
 }
 }

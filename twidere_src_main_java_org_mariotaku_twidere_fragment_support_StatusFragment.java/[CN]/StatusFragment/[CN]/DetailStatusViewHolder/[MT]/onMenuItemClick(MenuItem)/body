@@ -5,11 +5,12 @@
   final ParcelableStatus status=adapter.getStatus(layoutPosition);
   if (status == null || fragment == null)   return false;
   final AsyncTwitterWrapper twitter=fragment.mTwitterWrapper;
+  final UserColorNameManager manager=fragment.mUserColorNameManager;
   final FragmentActivity activity=fragment.getActivity();
   final FragmentManager fm=fragment.getFragmentManager();
   if (item.getItemId() == R.id.retweet) {
     RetweetQuoteDialogFragment.show(fm,status);
     return true;
   }
-  return Utils.handleMenuItemClick(activity,fragment,fm,twitter,status,item);
+  return Utils.handleMenuItemClick(activity,fragment,fm,manager,twitter,status,item);
 }

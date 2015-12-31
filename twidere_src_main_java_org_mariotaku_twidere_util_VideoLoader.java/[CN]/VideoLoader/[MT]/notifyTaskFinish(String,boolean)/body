@@ -1,3 +1,0 @@
-{
-  mBus.post(new VideoLoadFinishedEvent());
-}

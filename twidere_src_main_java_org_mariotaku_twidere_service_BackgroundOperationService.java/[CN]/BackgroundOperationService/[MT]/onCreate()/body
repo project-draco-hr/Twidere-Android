@@ -1,6 +1,6 @@
 {
   super.onCreate();
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(this)).build().inject(this);
+  GeneralComponentHelper.build(this).inject(this);
   final TwidereApplication app=TwidereApplication.getInstance(this);
   mHandler=new Handler();
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);

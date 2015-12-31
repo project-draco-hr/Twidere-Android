@@ -1,0 +1,117 @@
+{
+switch (item.getItemId()) {
+case R.id.copy:
+{
+      if (ClipboardUtils.setText(context,status.text_plain)) {
+        showOkMessage(context,R.string.text_copied,false);
+      }
+      break;
+    }
+case R.id.retweet:
+{
+    if (isMyRetweet(status)) {
+      twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);
+    }
+ else {
+      twitter.retweetStatusAsync(status.account_id,status.id);
+    }
+    break;
+  }
+case R.id.quote:
+{
+  final Intent intent=new Intent(INTENT_ACTION_QUOTE);
+  intent.putExtra(EXTRA_STATUS,status);
+  context.startActivity(intent);
+  break;
+}
+case R.id.reply:
+{
+final Intent intent=new Intent(INTENT_ACTION_REPLY);
+intent.putExtra(EXTRA_STATUS,status);
+context.startActivity(intent);
+break;
+}
+case R.id.favorite:
+{
+if (status.is_favorite) {
+twitter.destroyFavoriteAsync(status.account_id,status.id);
+}
+ else {
+twitter.createFavoriteAsync(status.account_id,status.id);
+}
+break;
+}
+case R.id.delete:
+{
+DestroyStatusDialogFragment.show(fm,status);
+break;
+}
+case R.id.add_to_filter:
+{
+AddStatusFilterDialogFragment.show(fm,status);
+break;
+}
+case R.id.set_color:
+{
+final Intent intent=new Intent(context,ColorPickerDialogActivity.class);
+final int color=colorNameManager.getUserColor(status.user_id,true);
+if (color != 0) {
+intent.putExtra(EXTRA_COLOR,color);
+}
+intent.putExtra(EXTRA_CLEAR_BUTTON,color != 0);
+intent.putExtra(EXTRA_ALPHA_SLIDER,false);
+if (fragment != null) {
+fragment.startActivityForResult(intent,REQUEST_SET_COLOR);
+}
+ else if (context instanceof Activity) {
+((Activity)context).startActivityForResult(intent,REQUEST_SET_COLOR);
+}
+break;
+}
+case R.id.clear_nickname:
+{
+colorNameManager.clearUserNickname(status.user_id);
+break;
+}
+case R.id.set_nickname:
+{
+final String nick=colorNameManager.getUserNickname(status.user_id,true);
+SetUserNicknameDialogFragment.show(fm,status.user_id,nick);
+break;
+}
+case R.id.open_with_account:
+{
+final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
+intent.setClass(context,AccountSelectorActivity.class);
+intent.putExtra(EXTRA_SINGLE_SELECTION,true);
+if (fragment != null) {
+fragment.startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
+}
+ else if (context instanceof Activity) {
+((Activity)context).startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
+}
+break;
+}
+case R.id.open_in_browser:
+{
+final Intent intent=new Intent(Intent.ACTION_VIEW,LinkCreator.getTwitterStatusLink(status));
+intent.addCategory(Intent.CATEGORY_BROWSABLE);
+context.startActivity(intent);
+break;
+}
+default :
+{
+if (item.getIntent() != null) {
+try {
+context.startActivity(item.getIntent());
+}
+ catch (final ActivityNotFoundException e) {
+Log.w(LOGTAG,e);
+return false;
+}
+}
+break;
+}
+}
+return true;
+}

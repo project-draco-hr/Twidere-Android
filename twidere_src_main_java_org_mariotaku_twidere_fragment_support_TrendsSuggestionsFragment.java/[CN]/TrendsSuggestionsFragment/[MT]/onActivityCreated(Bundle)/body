@@ -1,5 +1,4 @@
 {
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   super.onActivityCreated(savedInstanceState);
   mAccountId=getDefaultAccountId(getActivity());
   getListView().setOnItemClickListener(this);

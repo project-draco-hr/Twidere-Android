@@ -1,6 +1,0 @@
-{
-  super.onProgressUpdate(values);
-  if (mListener != null) {
-    mListener.onVideoLoadingProgressUpdate(mUri,mListener,values[0],values[1]);
-  }
-}

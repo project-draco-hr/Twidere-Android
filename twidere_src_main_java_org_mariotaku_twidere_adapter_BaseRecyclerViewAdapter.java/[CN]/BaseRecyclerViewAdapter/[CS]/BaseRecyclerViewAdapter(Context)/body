@@ -1,4 +1,4 @@
 {
   mContext=context;
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject((BaseRecyclerViewAdapter<RecyclerView.ViewHolder>)this);
+  GeneralComponentHelper.build(context).inject((BaseRecyclerViewAdapter<RecyclerView.ViewHolder>)this);
 }

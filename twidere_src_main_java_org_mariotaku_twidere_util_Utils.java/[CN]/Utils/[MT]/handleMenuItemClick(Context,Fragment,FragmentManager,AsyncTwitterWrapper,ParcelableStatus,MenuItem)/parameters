@@ -1,6 +1,0 @@
-Context context
-Fragment fragment
-FragmentManager fm
-AsyncTwitterWrapper twitter
-ParcelableStatus status
-MenuItem item

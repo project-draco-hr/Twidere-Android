@@ -1,7 +1,0 @@
-{
-  super(context,uri);
-  mPreLoader=preLoader;
-  mListener=listener;
-  mUri=uri;
-  mForceReload=forceReload;
-}

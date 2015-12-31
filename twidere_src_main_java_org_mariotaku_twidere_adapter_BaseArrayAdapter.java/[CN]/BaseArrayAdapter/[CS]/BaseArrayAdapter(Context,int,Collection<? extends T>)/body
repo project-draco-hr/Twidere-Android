@@ -1,6 +1,6 @@
 {
   super(context,layoutRes,collection);
-  DaggerGeneralComponent.builder().applicationModule(ApplicationModule.get(context)).build().inject((BaseArrayAdapter<Object>)this);
+  GeneralComponentHelper.build(context).inject((BaseArrayAdapter<Object>)this);
   final TwidereApplication app=TwidereApplication.getInstance(context);
   mLinkify=new TwidereLinkify(new OnLinkClickHandler(context,mMultiSelectManager));
   mNicknamePrefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);

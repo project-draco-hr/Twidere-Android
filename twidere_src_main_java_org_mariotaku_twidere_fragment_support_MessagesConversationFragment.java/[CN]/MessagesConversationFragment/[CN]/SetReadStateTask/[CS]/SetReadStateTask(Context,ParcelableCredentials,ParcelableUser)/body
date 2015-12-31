@@ -1,5 +1,5 @@
 {
-  mReadStateManager=ApplicationModule.get(context).getReadStateManager();
+  GeneralComponentHelper.build(context).inject(this);
   mContext=context;
   mAccount=account;
   mRecipient=recipient;

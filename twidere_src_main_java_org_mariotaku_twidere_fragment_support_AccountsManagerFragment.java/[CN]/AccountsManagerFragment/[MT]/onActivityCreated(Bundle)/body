@@ -2,7 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   final FragmentActivity activity=getActivity();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mPreferences.registerOnSharedPreferenceChangeListener(this);
   mAdapter=new AccountsAdapter(activity);
   Utils.configBaseAdapter(activity,mAdapter);
