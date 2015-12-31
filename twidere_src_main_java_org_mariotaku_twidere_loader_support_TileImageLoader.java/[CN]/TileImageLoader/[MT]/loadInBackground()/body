@@ -3,57 +3,53 @@
     return Result.nullInstance();
   }
   final String scheme=mUri.getScheme();
+  SimpleDiskCache.InputStreamEntry cacheEntry=null;
   if ("http".equals(scheme) || "https".equals(scheme)) {
-    final String url=mUri.toString();
-    if (url == null)     return Result.nullInstance();
-    File cacheFile=mDiskCache.get(url);
-    if (cacheFile != null) {
-      final int cachedValidity=ImageValidator.checkImageValidity(cacheFile);
-      if (ImageValidator.isValid(cachedValidity)) {
-        return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(cachedValidity));
-      }
+    final String uriString=mUri.toString();
+    if (uriString == null)     return Result.nullInstance();
+    try {
+      cacheEntry=mDiskCache.getInputStream(uriString);
+    }
+ catch (    IOException e) {
+    }
+    if (isValid(cacheEntry)) {
+      return Result.getInstance(Uri.fromParts("cache",ByteString.encodeUtf8(uriString).base64Url(),null));
     }
     try {
-      final InputStream is=mDownloader.getStream(url,new AccountFullImageExtra(mAccountId));
+      ContentLengthInputStream cis=null;
+      final InputStream is=mDownloader.getStream(uriString,new AccountFullImageExtra(mAccountId));
       if (is == null)       return Result.nullInstance();
       try {
         final long length=is.available();
         mHandler.post(new DownloadStartRunnable(this,mListener,length));
-        mDiskCache.save(url,is,new IoUtils.CopyListener(){
-          @Override public boolean onBytesCopied(          int current,          int total){
-            mHandler.post(new ProgressUpdateRunnable(mListener,current));
-            return !isAbandoned();
+        final Map<String,String> metadata=new HashMap<>();
+        metadata.put("length",String.valueOf(length));
+        cis=new ContentLengthInputStream(is,length);
+        cis.setReadListener(new ContentLengthInputStream.ReadListener(){
+          @Override public void onRead(          long length,          long position){
+            mHandler.post(new ProgressUpdateRunnable(mListener,position));
           }
         }
 );
+        mDiskCache.put(uriString,cis,metadata);
         mHandler.post(new DownloadFinishRunnable(this,mListener));
       }
   finally {
         IoUtils.closeSilently(is);
       }
-      cacheFile=mDiskCache.get(url);
-      final int downloadedValidity=ImageValidator.checkImageValidity(cacheFile);
-      if (ImageValidator.isValid(downloadedValidity)) {
-        return decodeBitmapOnly(cacheFile,ImageValidator.isValidForRegionDecoder(downloadedValidity));
+      cacheEntry=mDiskCache.getInputStream(uriString);
+      if (isValid(cacheEntry)) {
+        return Result.getInstance(Uri.fromParts("cache",ByteString.encodeUtf8(uriString).base64Url(),null));
       }
  else {
-        mDiskCache.remove(url);
+        mDiskCache.remove(uriString);
         throw new IOException();
       }
     }
  catch (    final Exception e) {
       mHandler.post(new DownloadErrorRunnable(this,mListener,e));
-      return Result.getInstance(cacheFile,e);
+      return Result.getInstance(e);
     }
   }
- else   if (ContentResolver.SCHEME_FILE.equals(scheme)) {
-    final File file=new File(mUri.getPath());
-    try {
-      return decodeBitmapOnly(file,ImageValidator.isValidForRegionDecoder(ImageValidator.checkImageValidity(file)));
-    }
- catch (    final Exception e) {
-      return Result.getInstance(file,e);
-    }
-  }
-  return Result.nullInstance();
+  return Result.getInstance(mUri);
 }

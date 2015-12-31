@@ -1,8 +1,0 @@
-{
-  this.bitmap=bitmap;
-  this.options=options;
-  this.file=file;
-  this.useDecoder=useDecoder;
-  this.orientation=orientation;
-  this.exception=exception;
-}

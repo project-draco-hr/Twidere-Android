@@ -1,0 +1,9 @@
+{
+  try {
+    super.write(buffer,offset,length);
+  }
+ catch (  IOException e) {
+    failed=true;
+    throw e;
+  }
+}

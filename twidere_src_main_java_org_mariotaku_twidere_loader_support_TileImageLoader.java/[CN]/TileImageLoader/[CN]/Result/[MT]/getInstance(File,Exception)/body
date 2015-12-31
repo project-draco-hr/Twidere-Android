@@ -1,3 +1,0 @@
-{
-  return new Result(false,null,null,0,file,e);
-}

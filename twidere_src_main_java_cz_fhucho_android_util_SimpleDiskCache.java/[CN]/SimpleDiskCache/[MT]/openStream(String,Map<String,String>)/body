@@ -1,0 +1,12 @@
+{
+  DiskLruCache.Editor editor=diskLruCache.edit(toInternalKey(key));
+  try {
+    writeMetadata(metadata,editor);
+    BufferedOutputStream bos=new BufferedOutputStream(editor.newOutputStream(VALUE_IDX));
+    return new CacheOutputStream(bos,editor);
+  }
+ catch (  IOException e) {
+    editor.abort();
+    throw e;
+  }
+}

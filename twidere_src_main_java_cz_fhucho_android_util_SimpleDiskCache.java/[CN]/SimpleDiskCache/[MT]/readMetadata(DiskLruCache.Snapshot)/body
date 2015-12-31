@@ -1,0 +1,10 @@
+{
+  InputStream is=null;
+  try {
+    is=new BufferedInputStream(snapshot.getInputStream(METADATA_IDX));
+    return LoganSquare.parseMap(is,String.class);
+  }
+  finally {
+    Utils.closeSilently(is);
+  }
+}

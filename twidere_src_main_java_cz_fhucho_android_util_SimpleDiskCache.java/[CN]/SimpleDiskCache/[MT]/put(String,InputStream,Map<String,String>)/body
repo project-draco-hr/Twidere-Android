@@ -1,0 +1,10 @@
+{
+  OutputStream os=null;
+  try {
+    os=openStream(key,annotations);
+    Utils.copyStream(is,os);
+  }
+  finally {
+    if (os != null)     os.close();
+  }
+}

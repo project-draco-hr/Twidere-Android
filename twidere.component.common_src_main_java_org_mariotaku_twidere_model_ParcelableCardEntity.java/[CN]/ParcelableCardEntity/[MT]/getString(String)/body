@@ -1,0 +1,5 @@
+{
+  final ParcelableBindingValue value=getValue(key);
+  if (value == null || !CardEntity.BindingValue.TYPE_STRING.equals(value.type))   return null;
+  return value.value;
+}

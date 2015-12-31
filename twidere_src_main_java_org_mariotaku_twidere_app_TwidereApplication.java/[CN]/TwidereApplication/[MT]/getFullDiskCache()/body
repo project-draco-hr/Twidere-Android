@@ -1,4 +1,0 @@
-{
-  if (mFullDiskCache != null)   return mFullDiskCache;
-  return mFullDiskCache=createDiskCache(DIR_NAME_FULL_IMAGE_CACHE);
-}

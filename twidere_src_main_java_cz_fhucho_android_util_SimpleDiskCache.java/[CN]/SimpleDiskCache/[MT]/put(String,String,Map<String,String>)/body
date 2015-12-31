@@ -1,0 +1,10 @@
+{
+  OutputStream cos=null;
+  try {
+    cos=openStream(key,annotations);
+    cos.write(value.getBytes());
+  }
+  finally {
+    if (cos != null)     cos.close();
+  }
+}

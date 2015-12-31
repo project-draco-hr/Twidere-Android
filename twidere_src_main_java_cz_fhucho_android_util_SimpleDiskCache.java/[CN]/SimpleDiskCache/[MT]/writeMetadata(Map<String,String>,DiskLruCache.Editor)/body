@@ -1,0 +1,10 @@
+{
+  OutputStream os=null;
+  try {
+    os=new BufferedOutputStream(editor.newOutputStream(METADATA_IDX));
+    LoganSquare.serialize(metadata,os,String.class);
+  }
+  finally {
+    Utils.closeSilently(os);
+  }
+}

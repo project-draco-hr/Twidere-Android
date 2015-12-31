@@ -1,0 +1,8 @@
+{
+  try {
+    return diskLruCache.remove(toInternalKey(key));
+  }
+ catch (  IOException e) {
+    return false;
+  }
+}

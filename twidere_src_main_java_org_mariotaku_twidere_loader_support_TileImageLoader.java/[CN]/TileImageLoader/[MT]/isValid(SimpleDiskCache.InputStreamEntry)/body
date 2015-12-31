@@ -1,0 +1,6 @@
+{
+  if (entry == null)   return false;
+  final Map<String,String> metadata=entry.getMetadata();
+  final long length=NumberUtils.toLong(metadata.get("length"),-1);
+  return length == -1 || entry.getLength() == length;
+}

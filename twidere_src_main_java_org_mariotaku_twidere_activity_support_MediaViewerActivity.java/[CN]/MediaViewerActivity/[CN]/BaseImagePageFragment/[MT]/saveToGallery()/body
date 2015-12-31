@@ -1,8 +1,3 @@
 {
   if (mSaveFileTask != null && mSaveFileTask.getStatus() == Status.RUNNING)   return;
-  final File file=mImageFile;
-  final boolean hasImage=file != null && file.exists();
-  if (!hasImage)   return;
-  mSaveFileTask=SaveImageToGalleryTask.create(getActivity(),file);
-  AsyncTaskUtils.executeTask(mSaveFileTask);
 }

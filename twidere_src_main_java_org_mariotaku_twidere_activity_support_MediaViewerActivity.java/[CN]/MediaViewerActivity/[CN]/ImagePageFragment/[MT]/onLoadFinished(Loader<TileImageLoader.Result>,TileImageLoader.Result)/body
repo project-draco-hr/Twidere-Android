@@ -1,12 +1,3 @@
 {
-  if (data.hasData() && "image/gif".equals(data.options.outMimeType)) {
-    mGifImageView.setVisibility(View.VISIBLE);
-    setImageViewVisibility(View.GONE);
-    mGifImageView.setInputSource(new FileSource(data.file));
-    setLoadProgressVisibility(View.GONE);
-    setLoadProgress(0);
-    invalidateOptionsMenu();
-    return;
-  }
   super.onLoadFinished(loader,data);
 }

@@ -1,18 +1,10 @@
 {
-  if (data.hasData()) {
-    mImageFile=data.file;
-    if (data.useDecoder) {
-      setImageViewVisibility(View.VISIBLE);
-      mImageView.setImage(ImageSource.uri(Uri.fromFile(data.file)));
-    }
- else {
-      setImageViewVisibility(View.VISIBLE);
-      mImageView.setImage(ImageSource.bitmap(data.bitmap));
-    }
+  if (data.cacheUri != null) {
+    setImageViewVisibility(View.VISIBLE);
+    mImageView.setImage(ImageSource.uri(data.cacheUri));
   }
  else {
     mImageView.recycle();
-    mImageFile=null;
     setImageViewVisibility(View.GONE);
     Utils.showErrorMessage(getActivity(),null,data.exception,true);
   }

@@ -5,8 +5,6 @@
   mAccountId=accountId;
   mUri=uri;
   mListener=listener;
-  final TwidereApplication app=TwidereApplication.getInstance(context);
-  mDiskCache=app.getFullDiskCache();
   final Resources res=context.getResources();
   final DisplayMetrics dm=res.getDisplayMetrics();
   mFallbackSize=Math.max(dm.heightPixels,dm.widthPixels);

@@ -1,3 +1,0 @@
-{
-  return new Result(useDecoder,bitmap,options,orientation,file,null);
-}

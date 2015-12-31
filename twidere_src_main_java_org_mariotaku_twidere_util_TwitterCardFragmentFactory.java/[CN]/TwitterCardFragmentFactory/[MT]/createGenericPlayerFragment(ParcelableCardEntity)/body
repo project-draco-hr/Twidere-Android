@@ -1,5 +1,5 @@
 {
-  final ParcelableBindingValue player_url=ParcelableCardEntity.getValue(card,"player_url");
-  if (player_url == null || !BindingValue.TYPE_STRING.equals(player_url.type))   return null;
-  return CardBrowserFragment.show(player_url.value);
+  final String playerUrl=card.getString("player_url");
+  if (playerUrl == null)   return null;
+  return CardBrowserFragment.show(playerUrl);
 }
