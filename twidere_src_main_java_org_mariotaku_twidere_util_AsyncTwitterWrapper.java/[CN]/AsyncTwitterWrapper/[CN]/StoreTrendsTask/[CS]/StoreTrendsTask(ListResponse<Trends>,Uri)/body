@@ -1,5 +1,0 @@
-{
-  super(mContext,TASK_TAG_STORE_TRENDS);
-  response=result;
-  this.uri=uri;
-}

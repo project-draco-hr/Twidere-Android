@@ -1,10 +1,19 @@
 {
   mAsyncTaskManager.add(new GetActivitiesTask(this,TASK_TAG_GET_MENTIONS,accountIds,maxIds,sinceIds){
+    @Override protected void getReadPosition(    long accountId,    Twitter twitter){
+      try {
+        CursorTimestampResponse response=twitter.getActivitiesAboutMeUnread(true);
+        final String tag=Utils.getReadPositionTagWithAccounts(READ_POSITION_TAG_ACTIVITIES_ABOUT_ME,accountIds);
+        mReadStateManager.setPosition(tag,response.getCursor(),false);
+      }
+ catch (      TwitterException e) {
+      }
+    }
     @Override protected ResponseList<Activity> getActivities(    long accountId,    Twitter twitter,    Paging paging) throws TwitterException {
       if (Utils.isOfficialKeyAccount(getContext(),accountId)) {
         return twitter.getActivitiesAboutMe(paging);
       }
-      final ResponseList<Activity> activities=new ResponseList<Activity>();
+      final ResponseList<Activity> activities=new ResponseList<>();
       for (      org.mariotaku.twidere.api.twitter.model.Status status : twitter.getMentionsTimeline(paging)) {
         activities.add(Activity.fromMention(accountId,status));
       }

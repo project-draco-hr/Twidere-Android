@@ -41,6 +41,7 @@
         }
       }
       ContentResolverUtils.bulkInsert(cr,getContentUri(),valuesList);
+      getReadPosition(accountId,twitter);
     }
  catch (    TwitterException e) {
     }

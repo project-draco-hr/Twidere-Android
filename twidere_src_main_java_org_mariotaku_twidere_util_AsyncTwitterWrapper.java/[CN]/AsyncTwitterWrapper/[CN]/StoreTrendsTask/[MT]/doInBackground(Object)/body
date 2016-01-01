@@ -1,5 +1,6 @@
 {
   if (response == null)   return SingleResponse.getInstance(false);
+  ContentResolver cr=context.getContentResolver();
   final List<Trends> messages=response.getData();
   final ArrayList<String> hashtags=new ArrayList<>();
   final ArrayList<ContentValues> hashtagValues=new ArrayList<>();
@@ -15,10 +16,10 @@
       hashtagValue.put(CachedHashtags.NAME,hashtag);
       hashtagValues.add(hashtagValue);
     }
-    mResolver.delete(uri,null,null);
-    ContentResolverUtils.bulkInsert(mResolver,uri,valuesArray);
-    ContentResolverUtils.bulkDelete(mResolver,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
-    ContentResolverUtils.bulkInsert(mResolver,CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
+    cr.delete(uri,null,null);
+    ContentResolverUtils.bulkInsert(cr,uri,valuesArray);
+    ContentResolverUtils.bulkDelete(cr,CachedHashtags.CONTENT_URI,CachedHashtags.NAME,hashtags,null,true);
+    ContentResolverUtils.bulkInsert(cr,CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
   }
   return SingleResponse.getInstance(true);
 }

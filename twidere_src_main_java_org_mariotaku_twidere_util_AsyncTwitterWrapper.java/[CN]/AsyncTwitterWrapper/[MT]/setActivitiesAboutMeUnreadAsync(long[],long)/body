@@ -1,0 +1,21 @@
+{
+  TaskRunnable<Object,Object,AsyncTwitterWrapper> task=new TaskRunnable<Object,Object,AsyncTwitterWrapper>(){
+    @Override public Object doLongOperation(    Object o) throws InterruptedException {
+      for (      long accountId : accountIds) {
+        Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
+        if (Utils.isOfficialTwitterInstance(mContext,twitter))         continue;
+        try {
+          twitter.setActivitiesAboutMeUnread(cursor);
+        }
+ catch (        TwitterException e) {
+          if (BuildConfig.DEBUG) {
+            Log.w(LOGTAG,e);
+          }
+        }
+      }
+      return null;
+    }
+  }
+;
+  AsyncManager.runBackgroundTask(task);
+}

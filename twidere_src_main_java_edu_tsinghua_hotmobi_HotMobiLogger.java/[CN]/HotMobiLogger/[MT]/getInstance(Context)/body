@@ -1,4 +1,3 @@
 {
-  final DependencyHolder holder=new DependencyHolder(context);
-  return holder.getHotMobiLogger();
+  return DependencyHolder.get(context).getHotMobiLogger();
 }

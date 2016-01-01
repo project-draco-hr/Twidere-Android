@@ -1,0 +1,6 @@
+{
+  super(context,TASK_TAG_STORE_TRENDS);
+  this.response=response;
+  this.uri=uri;
+  this.context=context;
+}

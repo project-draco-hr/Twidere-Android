@@ -1,6 +1,7 @@
 {
-  super(mContext);
+  super(context);
   this.accountId=accountId;
   this.listId=listId;
   this.update=update;
+  this.mContext=context;
 }
