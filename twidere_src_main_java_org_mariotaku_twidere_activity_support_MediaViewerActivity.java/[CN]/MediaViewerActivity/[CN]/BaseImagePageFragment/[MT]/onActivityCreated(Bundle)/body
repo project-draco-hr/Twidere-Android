@@ -2,18 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   mImageView.setOnClickListener(this);
-  mImageView.setRegionDecoderFactory(new DecoderFactory<ImageRegionDecoder>(){
-    @Override public ImageRegionDecoder make(){
-      return new TwidereSkiaImageRegionDecoder(getContext());
-    }
-  }
-);
-  mImageView.setBitmapDecoderFactory(new DecoderFactory<ImageDecoder>(){
-    @Override public ImageDecoder make(){
-      return new TwidereSkiaImageDecoder(getContext());
-    }
-  }
-);
   mImageView.setOnGenericMotionListener(new OnGenericMotionListener(){
     @Override public boolean onGenericMotion(    View v,    MotionEvent event){
       final SubsamplingScaleImageView iv=(SubsamplingScaleImageView)v;

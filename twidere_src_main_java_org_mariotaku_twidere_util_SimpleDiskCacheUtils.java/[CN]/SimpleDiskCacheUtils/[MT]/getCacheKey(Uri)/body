@@ -1,0 +1,5 @@
+{
+  if (!ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()))   throw new IllegalArgumentException(uri.toString());
+  if (!AUTHORITY_TWIDERE_CACHE.equals(uri.getAuthority()))   throw new IllegalArgumentException(uri.toString());
+  return ByteString.decodeBase64(uri.getLastPathSegment()).utf8();
+}

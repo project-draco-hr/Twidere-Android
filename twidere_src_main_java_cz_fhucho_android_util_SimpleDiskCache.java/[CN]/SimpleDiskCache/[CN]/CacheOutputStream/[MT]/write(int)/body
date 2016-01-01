@@ -1,9 +1,0 @@
-{
-  try {
-    super.write(oneByte);
-  }
- catch (  IOException e) {
-    failed=true;
-    throw e;
-  }
-}

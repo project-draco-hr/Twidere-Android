@@ -1,6 +1,0 @@
-{
-  if (isEmpty(url))   return null;
-  final String full=(url + ":large").replaceFirst("https?://","https://");
-  final String preview=fullImage ? full : (url + ":medium").replaceFirst("https?://","https://");
-  return ParcelableMedia.newImage(preview,full);
-}

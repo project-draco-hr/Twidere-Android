@@ -1,0 +1,5 @@
+{
+  mVideoView.setVideoURI(data.cacheUri);
+  mProgressBar.setVisibility(View.GONE);
+  mProgressBar.setProgress(0);
+}

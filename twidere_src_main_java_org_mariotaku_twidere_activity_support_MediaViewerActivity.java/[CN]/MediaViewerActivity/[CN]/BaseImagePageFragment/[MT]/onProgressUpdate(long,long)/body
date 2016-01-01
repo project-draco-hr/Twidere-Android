@@ -1,0 +1,9 @@
+{
+  if (mContentLength <= 0) {
+    if (!mProgressBar.isSpinning()) {
+      mProgressBar.spin();
+    }
+    return;
+  }
+  setLoadProgress(current / mContentLength);
+}

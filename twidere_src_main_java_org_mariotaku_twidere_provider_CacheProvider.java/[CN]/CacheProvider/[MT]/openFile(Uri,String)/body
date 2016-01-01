@@ -1,0 +1,9 @@
+{
+  try {
+    final File file=mSimpleDiskCache.get(SimpleDiskCacheUtils.getCacheKey(uri));
+    return ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);
+  }
+ catch (  IOException e) {
+    throw new FileNotFoundException();
+  }
+}

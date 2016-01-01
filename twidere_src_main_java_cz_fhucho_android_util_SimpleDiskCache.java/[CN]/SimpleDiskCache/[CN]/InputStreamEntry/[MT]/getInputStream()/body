@@ -1,3 +1,0 @@
-{
-  return snapshot.getInputStream(VALUE_IDX);
-}

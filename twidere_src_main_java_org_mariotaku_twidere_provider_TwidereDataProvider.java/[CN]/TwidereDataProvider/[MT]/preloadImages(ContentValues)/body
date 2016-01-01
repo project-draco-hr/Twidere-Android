@@ -8,9 +8,6 @@
     }
     if (mPreferences.getBoolean(KEY_PRELOAD_PREVIEW_IMAGES,false)) {
       final String textHtml=v.getAsString(Statuses.TEXT_HTML);
-      for (      final String link : MediaPreviewUtils.getSupportedLinksInStatus(textHtml)) {
-        mImagePreloader.preloadImage(link);
-      }
     }
   }
 }

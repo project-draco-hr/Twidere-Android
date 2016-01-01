@@ -1,0 +1,3 @@
+CacheDownloadLoader loader
+DownloadListener listener
+Throwable t

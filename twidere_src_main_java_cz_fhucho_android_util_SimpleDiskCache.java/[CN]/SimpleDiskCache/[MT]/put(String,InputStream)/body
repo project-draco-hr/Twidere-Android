@@ -1,3 +1,0 @@
-{
-  put(key,is,new HashMap<String,String>());
-}

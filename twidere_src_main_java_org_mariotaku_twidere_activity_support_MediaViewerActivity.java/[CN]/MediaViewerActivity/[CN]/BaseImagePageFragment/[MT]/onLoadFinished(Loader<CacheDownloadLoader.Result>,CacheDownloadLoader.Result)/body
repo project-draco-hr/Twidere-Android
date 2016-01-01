@@ -1,0 +1,14 @@
+{
+  if (data.cacheUri != null) {
+    setImageViewVisibility(View.VISIBLE);
+    mImageView.setImage(ImageSource.uri(data.cacheUri));
+  }
+ else {
+    recycleImageView();
+    setImageViewVisibility(View.GONE);
+    Utils.showErrorMessage(getActivity(),null,data.exception,true);
+  }
+  setLoadProgressVisibility(View.GONE);
+  setLoadProgress(0);
+  invalidateOptionsMenu();
+}

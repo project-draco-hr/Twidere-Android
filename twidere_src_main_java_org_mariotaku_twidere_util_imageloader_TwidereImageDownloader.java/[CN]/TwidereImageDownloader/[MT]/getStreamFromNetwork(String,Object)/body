@@ -1,6 +1,6 @@
 {
   if (uriString == null)   return null;
-  final ParcelableMedia media=MediaPreviewUtils.getAllAvailableImage(uriString,extras instanceof FullImageExtra,mClient);
+  final ParcelableMedia media=PreviewMediaExtractor.fromLink(uriString);
   try {
     final String mediaUrl=media != null ? media.media_url : uriString;
     if (isTwitterProfileImage(uriString)) {

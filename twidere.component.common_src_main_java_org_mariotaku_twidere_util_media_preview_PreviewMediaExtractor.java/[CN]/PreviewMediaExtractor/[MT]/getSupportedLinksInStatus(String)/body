@@ -1,0 +1,12 @@
+{
+  if (statusString == null)   return Collections.emptyList();
+  final List<String> links=new ArrayList<>();
+  final HtmlLinkExtractor extractor=new HtmlLinkExtractor();
+  for (  final HtmlLinkExtractor.HtmlLink link : extractor.grabLinks(statusString)) {
+    final String linkString=link.getLink();
+    if (isSupported(linkString)) {
+      links.add(linkString);
+    }
+  }
+  return links;
+}

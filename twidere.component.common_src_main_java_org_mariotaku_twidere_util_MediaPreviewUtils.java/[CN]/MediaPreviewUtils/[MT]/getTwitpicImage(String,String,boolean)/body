@@ -1,5 +1,0 @@
-{
-  if (isEmpty(id))   return null;
-  final String preview=String.format("http://twitpic.com/show/%s/%s",fullImage ? "large" : "thumb",id);
-  return ParcelableMedia.newImage(preview,orig);
-}

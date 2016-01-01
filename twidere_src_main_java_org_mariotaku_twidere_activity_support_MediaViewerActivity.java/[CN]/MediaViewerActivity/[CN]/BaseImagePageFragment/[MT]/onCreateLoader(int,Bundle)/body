@@ -4,5 +4,5 @@
   invalidateOptionsMenu();
   final ParcelableMedia media=getMedia();
   final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
-  return new TileImageLoader(getActivity(),this,accountId,Uri.parse(media.media_url));
+  return new FullImageDownloadLoader(getActivity(),this,Uri.parse(media.media_url),accountId);
 }

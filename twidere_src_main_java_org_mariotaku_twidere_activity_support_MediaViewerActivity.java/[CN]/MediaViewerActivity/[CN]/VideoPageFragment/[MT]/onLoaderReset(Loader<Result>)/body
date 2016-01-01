@@ -1,0 +1,5 @@
+{
+  mProgressBar.setVisibility(View.GONE);
+  mProgressBar.setProgress(0);
+  invalidateOptionsMenu();
+}

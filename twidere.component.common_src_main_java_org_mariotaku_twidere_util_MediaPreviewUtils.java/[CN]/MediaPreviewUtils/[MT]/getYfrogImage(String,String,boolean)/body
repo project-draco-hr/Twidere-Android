@@ -1,5 +1,0 @@
-{
-  if (isEmpty(id))   return null;
-  final String preview=String.format("http://yfrog.com/%s:%s",id,fullImage ? "medium" : "iphone");
-  return ParcelableMedia.newImage(preview,orig);
-}

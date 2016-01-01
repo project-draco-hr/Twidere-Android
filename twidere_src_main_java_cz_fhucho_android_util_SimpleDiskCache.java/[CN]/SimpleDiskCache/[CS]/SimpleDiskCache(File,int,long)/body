@@ -1,4 +1,0 @@
-{
-  mAppVersion=appVersion;
-  diskLruCache=DiskLruCache.open(dir,appVersion,2,maxSize);
-}

@@ -1,7 +1,0 @@
-{
-  mVideoView.setVideoURI(Uri.fromFile(file));
-  mVideoFile=file;
-  mProgressBar.setVisibility(View.GONE);
-  mProgressBar.setProgress(0);
-  invalidateOptionsMenu();
-}

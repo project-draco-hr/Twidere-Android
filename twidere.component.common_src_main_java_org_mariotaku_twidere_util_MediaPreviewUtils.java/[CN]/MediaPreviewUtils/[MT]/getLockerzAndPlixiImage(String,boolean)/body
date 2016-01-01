@@ -1,5 +1,0 @@
-{
-  if (isEmpty(url))   return null;
-  final String preview=String.format("https://api.plixi.com/api/tpapi.svc/imagefromurl?url=%s&size=%s",url,fullImage ? "big" : "small");
-  return ParcelableMedia.newImage(preview,url);
-}

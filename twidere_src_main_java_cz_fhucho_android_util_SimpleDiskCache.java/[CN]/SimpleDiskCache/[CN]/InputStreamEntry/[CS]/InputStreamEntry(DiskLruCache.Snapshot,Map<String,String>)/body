@@ -1,5 +1,0 @@
-{
-  this.metadata=metadata;
-  this.snapshot=snapshot;
-  this.length=snapshot.getLength(VALUE_IDX);
-}

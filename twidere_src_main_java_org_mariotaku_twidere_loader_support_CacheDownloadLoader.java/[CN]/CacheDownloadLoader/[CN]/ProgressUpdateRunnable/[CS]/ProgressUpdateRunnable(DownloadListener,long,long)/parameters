@@ -1,0 +1,3 @@
+DownloadListener listener
+long current
+long total

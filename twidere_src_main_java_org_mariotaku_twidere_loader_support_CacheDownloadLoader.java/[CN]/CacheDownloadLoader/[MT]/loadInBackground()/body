@@ -1,0 +1,49 @@
+{
+  if (mUri == null) {
+    return Result.nullInstance();
+  }
+  final String scheme=mUri.getScheme();
+  File cacheFile=null;
+  if ("http".equals(scheme) || "https".equals(scheme)) {
+    final String uriString=mUri.toString();
+    if (uriString == null)     return Result.nullInstance();
+    cacheFile=mDiskCache.get(uriString);
+    if (isValid(cacheFile)) {
+      return Result.getInstance(SimpleDiskCacheUtils.getCacheUri(uriString));
+    }
+    try {
+      ContentLengthInputStream cis;
+      final InputStream is=getStreamFromNetwork(uriString);
+      if (is == null)       return Result.nullInstance();
+      try {
+        final long length=is.available();
+        mHandler.post(new DownloadStartRunnable(this,mListener,length));
+        cis=new ContentLengthInputStream(is,length);
+        mDiskCache.save(uriString,cis,new IoUtils.CopyListener(){
+          @Override public boolean onBytesCopied(          int length,          int position){
+            mHandler.post(new ProgressUpdateRunnable(mListener,position,length));
+            return !isAbandoned();
+          }
+        }
+);
+        mHandler.post(new DownloadFinishRunnable(this,mListener));
+      }
+  finally {
+        Utils.closeSilently(is);
+      }
+      cacheFile=mDiskCache.get(uriString);
+      if (isValid(cacheFile)) {
+        return Result.getInstance(SimpleDiskCacheUtils.getCacheUri(uriString));
+      }
+ else {
+        mDiskCache.remove(uriString);
+        throw new IOException();
+      }
+    }
+ catch (    final Exception e) {
+      mHandler.post(new DownloadErrorRunnable(this,mListener,e));
+      return Result.getInstance(e);
+    }
+  }
+  return Result.getInstance(mUri);
+}

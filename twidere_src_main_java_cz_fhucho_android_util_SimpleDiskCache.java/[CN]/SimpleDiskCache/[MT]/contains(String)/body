@@ -1,6 +1,0 @@
-{
-  DiskLruCache.Snapshot snapshot=diskLruCache.get(toInternalKey(key));
-  if (snapshot == null)   return false;
-  snapshot.close();
-  return true;
-}

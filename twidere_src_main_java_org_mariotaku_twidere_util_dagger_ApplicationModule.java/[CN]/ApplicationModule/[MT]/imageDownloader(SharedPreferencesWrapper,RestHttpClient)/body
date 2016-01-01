@@ -1,3 +1,0 @@
-{
-  return new TwidereImageDownloader(application,preferences,client,true);
-}

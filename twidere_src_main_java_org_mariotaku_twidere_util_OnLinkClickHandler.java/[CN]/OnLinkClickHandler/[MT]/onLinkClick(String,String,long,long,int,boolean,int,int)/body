@@ -17,7 +17,7 @@ case TwidereLinkify.LINK_TYPE_HASHTAG:
   }
 case TwidereLinkify.LINK_TYPE_LINK:
 {
-  if (MediaPreviewUtils.isLinkSupported(link)) {
+  if (PreviewMediaExtractor.isSupported(link)) {
     openMedia(accountId,extraId,sensitive,link,start,end);
   }
  else {

@@ -1,3 +1,0 @@
-{
-  GeneralComponentHelper.build(context).inject(this);
-}

@@ -1,7 +1,0 @@
-{
-  if (usedDirs.contains(dir)) {
-    throw new IllegalStateException("Cache dir " + dir.getAbsolutePath() + " was used before.");
-  }
-  usedDirs.add(dir);
-  return new SimpleDiskCache(dir,appVersion,maxSize);
-}

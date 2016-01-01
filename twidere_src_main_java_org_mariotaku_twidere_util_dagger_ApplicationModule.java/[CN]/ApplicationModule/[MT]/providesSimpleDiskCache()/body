@@ -1,5 +1,0 @@
-{
-  final File cacheDir=new File(application.getCacheDir(),"files");
-  final File reserveCacheDir=new File(application.getExternalCacheDir(),"files");
-  return openCache(cacheDir,reserveCacheDir);
-}

@@ -7,7 +7,7 @@ case R.id.save:
     }
 case R.id.refresh:
 {
-    loadVideo(true);
+    loadVideo();
     return true;
   }
 case R.id.share:

@@ -1,6 +1,0 @@
-{
-  File dir=diskLruCache.getDirectory();
-  long maxSize=diskLruCache.getMaxSize();
-  diskLruCache.delete();
-  diskLruCache=DiskLruCache.open(dir,mAppVersion,2,maxSize);
-}
