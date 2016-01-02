@@ -1,0 +1,4 @@
+{
+  mFollowingOnly=followingOnly;
+  notifyDataSetChanged();
+}

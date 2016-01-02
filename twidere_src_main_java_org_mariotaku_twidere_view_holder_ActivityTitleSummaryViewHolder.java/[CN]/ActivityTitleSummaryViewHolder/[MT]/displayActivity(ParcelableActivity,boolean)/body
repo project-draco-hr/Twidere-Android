@@ -1,6 +1,6 @@
 {
   final Context context=adapter.getContext();
-  final ParcelableUser[] sources=activity.getUnfilteredSources();
+  final ParcelableUser[] sources=ParcelableActivityUtils.getAfterFilteredSources(activity);
   final ActivityTitleSummaryMessage message=ActivityTitleSummaryMessage.get(context,adapter.getUserColorNameManager(),activity,sources,activityTypeView.getDefaultColor(),byFriends,adapter.shouldUseStarsForLikes(),adapter.isNameFirst());
   if (message == null) {
     showNotSupported();
