@@ -1,0 +1,5 @@
+{
+  final String cacheKey=getCacheKey(source);
+  if (cacheKey == null)   return null;
+  return cacheKey.replaceAll("[^\\w\\d_]","_");
+}

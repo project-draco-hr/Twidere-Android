@@ -1,0 +1,1 @@
+ManagedAsyncTask<Object,TwitterWrapper.TwitterListResponse<Status>,List<TwitterWrapper.StatusListResponse>>

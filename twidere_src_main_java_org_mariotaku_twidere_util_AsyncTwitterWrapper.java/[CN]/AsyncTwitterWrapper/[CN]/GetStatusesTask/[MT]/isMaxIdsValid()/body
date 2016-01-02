@@ -1,3 +1,0 @@
-{
-  return mMaxIds != null && mMaxIds.length == mAccountIds.length;
-}

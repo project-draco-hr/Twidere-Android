@@ -54,7 +54,7 @@ if (tableId == TABLE_ID_CACHED_USERS) {
   mDatabaseWrapper.endTransaction();
 }
  else if (tableId == VIRTUAL_TABLE_ID_DRAFTS_NOTIFICATIONS) {
-  rowId=showDraftNotification(uri,values);
+  rowId=showDraftNotification(values);
 }
  else if (shouldReplaceOnConflict(tableId)) {
   rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_REPLACE);

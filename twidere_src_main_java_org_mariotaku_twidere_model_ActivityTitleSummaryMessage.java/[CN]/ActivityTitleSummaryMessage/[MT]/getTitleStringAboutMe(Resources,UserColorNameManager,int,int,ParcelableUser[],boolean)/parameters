@@ -1,0 +1,6 @@
+Resources resources
+UserColorNameManager manager
+int stringRes
+int stringResMulti
+ParcelableUser[] sources
+boolean nameFirst

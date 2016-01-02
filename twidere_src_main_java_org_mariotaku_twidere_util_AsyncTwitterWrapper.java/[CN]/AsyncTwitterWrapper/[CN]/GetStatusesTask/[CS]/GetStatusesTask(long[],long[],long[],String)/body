@@ -1,6 +1,0 @@
-{
-  super(mContext,tag);
-  mAccountIds=account_ids;
-  mMaxIds=max_ids;
-  mSinceIds=since_ids;
-}

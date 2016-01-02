@@ -1,0 +1,3 @@
+{
+  put("latest_results",latestResults);
+}

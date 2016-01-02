@@ -1,7 +1,10 @@
 {
   try {
-    final File file=mSimpleDiskCache.get(SimpleDiskCacheUtils.getCacheKey(uri));
-    return ParcelFileDescriptor.open(file,ParcelFileDescriptor.MODE_READ_ONLY);
+    final File file=mSimpleDiskCache.get(getCacheKey(uri));
+    if (file == null)     throw new FileNotFoundException();
+    final int modeBits=modeToMode(mode);
+    if (modeBits != ParcelFileDescriptor.MODE_READ_ONLY)     throw new IllegalArgumentException("Cache can't be opened for write");
+    return ParcelFileDescriptor.open(file,modeBits);
   }
  catch (  IOException e) {
     throw new FileNotFoundException();

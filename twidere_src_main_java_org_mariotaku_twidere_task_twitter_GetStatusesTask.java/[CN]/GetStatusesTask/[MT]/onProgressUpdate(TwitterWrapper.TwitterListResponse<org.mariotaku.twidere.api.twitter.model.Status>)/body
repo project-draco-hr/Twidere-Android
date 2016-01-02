@@ -1,0 +1,3 @@
+{
+  AsyncTaskUtils.executeTask(new CacheUsersStatusesTask(twitterWrapper.getContext()),values);
+}

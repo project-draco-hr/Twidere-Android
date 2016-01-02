@@ -14,15 +14,15 @@ case TABLE_ID_STATUSES:
       notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
       break;
     }
-case TABLE_ID_MENTIONS:
+case TABLE_ID_ACTIVITIES_ABOUT_ME:
 {
     final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
     final boolean combined=mPreferences.getBoolean(KEY_COMBINED_NOTIFICATIONS);
     for (    final AccountPreferences pref : prefs) {
-      if (!pref.isMentionsNotificationEnabled())       continue;
-      showMentionsNotification(pref,getPositionTag(TAB_TYPE_NOTIFICATIONS_TIMELINE,pref.getAccountId()),combined);
+      if (!pref.isInteractionsNotificationEnabled())       continue;
+      showInteractionsNotification(pref,getPositionTag(READ_POSITION_TAG_ACTIVITIES_ABOUT_ME,pref.getAccountId()),combined);
     }
-    notifyUnreadCountChanged(NOTIFICATION_ID_MENTIONS_TIMELINE);
+    notifyUnreadCountChanged(NOTIFICATION_ID_INTERACTIONS_TIMELINE);
     break;
   }
 case TABLE_ID_DIRECT_MESSAGES_INBOX:

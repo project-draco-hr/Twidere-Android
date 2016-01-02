@@ -1,3 +1,0 @@
-{
-  if (mSaveFileTask != null && mSaveFileTask.getStatus() == Status.RUNNING)   return;
-}

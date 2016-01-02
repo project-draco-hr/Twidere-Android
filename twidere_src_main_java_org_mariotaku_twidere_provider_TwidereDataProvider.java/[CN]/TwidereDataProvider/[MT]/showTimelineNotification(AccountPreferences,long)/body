@@ -43,7 +43,7 @@
     builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_HOME,accountId,statusId,false));
     builder.setNumber(statusesCount);
     builder.setColor(pref.getNotificationLightColor());
-    setNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
+    applyNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     try {
       nm.notify("home_" + accountId,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountId),builder.build());
       Utils.sendPebbleNotification(context,notificationContent);

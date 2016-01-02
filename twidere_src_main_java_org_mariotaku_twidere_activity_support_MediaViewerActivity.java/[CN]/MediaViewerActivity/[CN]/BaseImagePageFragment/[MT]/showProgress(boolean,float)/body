@@ -1,0 +1,11 @@
+{
+  mProgressBar.setVisibility(View.VISIBLE);
+  if (indeterminate) {
+    if (mProgressBar.isSpinning()) {
+      mProgressBar.spin();
+    }
+  }
+ else {
+    mProgressBar.setProgress(progress);
+  }
+}

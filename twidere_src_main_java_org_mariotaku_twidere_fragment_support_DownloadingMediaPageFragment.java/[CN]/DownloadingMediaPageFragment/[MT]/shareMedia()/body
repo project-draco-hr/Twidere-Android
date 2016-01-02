@@ -1,0 +1,51 @@
+{
+  if (mData == null)   return;
+  final FragmentActivity activity=getActivity();
+  final File destination=new File(activity.getCacheDir(),"shared_files");
+  final SaveFileTask task=new SaveFileTask(activity,mData.cacheUri,destination,new CacheProvider.CacheFileTypeCallback(activity)){
+    private static final String PROGRESS_FRAGMENT_TAG="progress";
+    protected void dismissProgress(){
+      final IExtendedActivity activity=(IExtendedActivity)getActivity();
+      if (activity == null)       return;
+      activity.executeAfterFragmentResumed(new IExtendedActivity.Action(){
+        @Override public void execute(        IExtendedActivity activity){
+          final FragmentManager fm=((Activity)activity).getFragmentManager();
+          final DialogFragment fragment=(DialogFragment)fm.findFragmentByTag(PROGRESS_FRAGMENT_TAG);
+          if (fragment != null) {
+            fragment.dismiss();
+          }
+        }
+      }
+);
+    }
+    protected void showProgress(){
+      final IExtendedActivity activity=(IExtendedActivity)getActivity();
+      if (activity == null)       return;
+      activity.executeAfterFragmentResumed(new IExtendedActivity.Action(){
+        @Override public void execute(        IExtendedActivity activity){
+          final DialogFragment fragment=new ProgressDialogFragment();
+          fragment.setCancelable(false);
+          fragment.show(((Activity)activity).getFragmentManager(),PROGRESS_FRAGMENT_TAG);
+        }
+      }
+);
+    }
+    protected void onFileSaved(    File savedFile,    String mimeType){
+      final IExtendedActivity activity=(IExtendedActivity)getActivity();
+      if (activity == null)       return;
+      final Context context=(Context)activity;
+      mShareFile=savedFile;
+      final Uri fileUri=FileProvider.getUriForFile(context,AUTHORITY_TWIDERE_FILE,savedFile);
+      final Intent intent=new Intent(Intent.ACTION_SEND);
+      intent.setDataAndType(fileUri,mimeType);
+      intent.putExtra(Intent.EXTRA_STREAM,fileUri);
+      intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+      if (activity instanceof ShareIntentProcessor) {
+        ((ShareIntentProcessor)activity).processShareIntent(intent);
+      }
+      startActivityForResult(Intent.createChooser(intent,context.getString(R.string.share)),REQUEST_SHARE_MEDIA);
+    }
+  }
+;
+  task.execute();
+}

@@ -1,0 +1,4 @@
+{
+  super.onPostExecute(result);
+  bus.post(new GetStatusesTaskEvent(getDatabaseUri(),false,AsyncTwitterWrapper.getException(result)));
+}

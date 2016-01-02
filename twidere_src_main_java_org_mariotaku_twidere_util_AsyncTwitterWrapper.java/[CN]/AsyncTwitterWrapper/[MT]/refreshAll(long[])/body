@@ -4,7 +4,7 @@
       final Object[] result=new Object[8];
       result[0]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Statuses.CONTENT_URI,accountIds);
       if (Boolean.TRUE.equals(result[1]=mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS))) {
-        result[2]=DataStoreUtils.getNewestStatusIdsFromDatabase(mContext,Mentions.CONTENT_URI,accountIds);
+        result[2]=DataStoreUtils.getActivityMaxPositionsFromDatabase(mContext,Activities.AboutMe.CONTENT_URI,accountIds);
       }
       if (Boolean.TRUE.equals(result[3]=mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES))) {
         result[4]=DataStoreUtils.getNewestMessageIdsFromDatabase(mContext,DirectMessages.Inbox.CONTENT_URI,accountIds);
@@ -18,7 +18,7 @@
     @Override protected void onPostExecute(    Object[] result){
       getHomeTimelineAsync(accountIds,null,(long[])result[0]);
       if (Boolean.TRUE.equals(result[1])) {
-        getActivitiesAboutMeAsync(accountIds,null,null);
+        getActivitiesAboutMeAsync(accountIds,null,(long[])result[2]);
       }
       if (Boolean.TRUE.equals(result[3])) {
         getReceivedDirectMessagesAsync(accountIds,null,(long[])result[4]);

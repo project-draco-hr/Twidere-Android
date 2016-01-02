@@ -1,5 +1,0 @@
-{
-  super(context,listener,uri);
-  GeneralComponentHelper.build(context).inject(this);
-  mAccountId=accountId;
-}

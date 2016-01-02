@@ -3,7 +3,7 @@
   for (  AccountPreferences pref : AccountPreferences.getAccountPreferences(context,Utils.getAccountIds(context))) {
     final long accountId=pref.getAccountId();
     preferences.put("notification_" + accountId + "_home",String.valueOf(pref.isHomeTimelineNotificationEnabled()));
-    preferences.put("notification_" + accountId + "_interactions",String.valueOf(pref.isMentionsNotificationEnabled()));
+    preferences.put("notification_" + accountId + "_interactions",String.valueOf(pref.isInteractionsNotificationEnabled()));
   }
   setPreferences(preferences);
   final HashMap<String,String> devicePreferences=new HashMap<>();

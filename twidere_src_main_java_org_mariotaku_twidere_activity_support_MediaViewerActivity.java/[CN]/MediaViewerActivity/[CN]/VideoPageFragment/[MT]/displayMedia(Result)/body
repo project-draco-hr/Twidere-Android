@@ -1,0 +1,3 @@
+{
+  mVideoView.setVideoURI(data.cacheUri);
+}

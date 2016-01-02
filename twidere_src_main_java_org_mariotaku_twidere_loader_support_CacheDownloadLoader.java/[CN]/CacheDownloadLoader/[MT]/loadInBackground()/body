@@ -9,19 +9,19 @@
     if (uriString == null)     return Result.nullInstance();
     cacheFile=mDiskCache.get(uriString);
     if (isValid(cacheFile)) {
-      return Result.getInstance(SimpleDiskCacheUtils.getCacheUri(uriString));
+      return Result.getInstance(CacheProvider.getCacheUri(uriString));
     }
     try {
       ContentLengthInputStream cis;
-      final InputStream is=getStreamFromNetwork(uriString);
+      final InputStream is=mDownloader.get(uriString);
       if (is == null)       return Result.nullInstance();
       try {
         final long length=is.available();
         mHandler.post(new DownloadStartRunnable(this,mListener,length));
         cis=new ContentLengthInputStream(is,length);
         mDiskCache.save(uriString,cis,new IoUtils.CopyListener(){
-          @Override public boolean onBytesCopied(          int length,          int position){
-            mHandler.post(new ProgressUpdateRunnable(mListener,position,length));
+          @Override public boolean onBytesCopied(          int current,          int total){
+            mHandler.post(new ProgressUpdateRunnable(mListener,current,total));
             return !isAbandoned();
           }
         }
@@ -33,7 +33,7 @@
       }
       cacheFile=mDiskCache.get(uriString);
       if (isValid(cacheFile)) {
-        return Result.getInstance(SimpleDiskCacheUtils.getCacheUri(uriString));
+        return Result.getInstance(CacheProvider.getCacheUri(uriString));
       }
  else {
         mDiskCache.remove(uriString);

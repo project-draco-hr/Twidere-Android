@@ -1,3 +1,10 @@
 {
-  return null;
+  final File file=mSimpleDiskCache.get(getCacheKey(uri));
+  if (file == null)   return null;
+  try {
+    return mContentInfoUtil.findMatch(file).getMimeType();
+  }
+ catch (  IOException e) {
+    return null;
+  }
 }

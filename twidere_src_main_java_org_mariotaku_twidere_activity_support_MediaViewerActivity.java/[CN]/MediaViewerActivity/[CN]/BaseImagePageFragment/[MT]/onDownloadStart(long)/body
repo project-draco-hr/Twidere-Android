@@ -1,4 +1,0 @@
-{
-  mContentLength=total;
-  mProgressBar.spin();
-}

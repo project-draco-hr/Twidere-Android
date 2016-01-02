@@ -1,0 +1,9 @@
+{
+  if (mData == null)   return;
+  if (mSaveFileTask != null && mSaveFileTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  final Uri cacheUri=mData.cacheUri;
+  final boolean hasImage=cacheUri != null;
+  if (!hasImage)   return;
+  mSaveFileTask=SaveImageToGalleryTask.create(getActivity(),cacheUri);
+  AsyncTaskUtils.executeTask(mSaveFileTask);
+}

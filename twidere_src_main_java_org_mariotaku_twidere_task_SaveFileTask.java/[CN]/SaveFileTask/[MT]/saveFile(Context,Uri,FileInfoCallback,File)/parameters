@@ -1,0 +1,4 @@
+Context context
+Uri source
+FileInfoCallback fileInfoCallback
+File destinationDir

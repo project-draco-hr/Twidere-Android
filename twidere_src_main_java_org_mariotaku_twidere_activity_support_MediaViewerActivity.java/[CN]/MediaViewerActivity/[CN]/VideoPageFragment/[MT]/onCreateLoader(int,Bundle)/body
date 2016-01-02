@@ -1,4 +1,0 @@
-{
-  final Uri uri=args.getParcelable(EXTRA_URI);
-  return new FullImageDownloadLoader(getContext(),this,uri,0);
-}

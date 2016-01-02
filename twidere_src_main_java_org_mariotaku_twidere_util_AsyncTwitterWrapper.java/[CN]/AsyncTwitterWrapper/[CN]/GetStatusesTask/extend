@@ -1,1 +1,0 @@
-ManagedAsyncTask<Object,TwitterListResponse<Status>,List<StatusListResponse>>

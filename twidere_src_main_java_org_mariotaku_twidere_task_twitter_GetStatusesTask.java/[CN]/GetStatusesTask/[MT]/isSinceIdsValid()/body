@@ -1,0 +1,3 @@
+{
+  return sinceIds != null && sinceIds.length == accountIds.length;
+}

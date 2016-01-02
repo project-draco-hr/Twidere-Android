@@ -1,0 +1,8 @@
+{
+  super(context);
+  GeneralComponentHelper.build(context).inject(this);
+  mHandler=new Handler(Looper.getMainLooper());
+  mUri=uri;
+  mDownloader=downloader;
+  mListener=listener;
+}

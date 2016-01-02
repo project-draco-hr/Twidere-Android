@@ -1,0 +1,4 @@
+Context context
+Uri source
+File destination
+FileInfoCallback getMimeType

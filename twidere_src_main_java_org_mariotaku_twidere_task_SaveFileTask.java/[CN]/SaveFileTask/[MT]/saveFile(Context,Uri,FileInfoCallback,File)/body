@@ -1,0 +1,29 @@
+{
+  final ContentResolver cr=context.getContentResolver();
+  Source ioSrc=null;
+  BufferedSink sink=null;
+  try {
+    final String name=fileInfoCallback.getFilename(source);
+    if (isEmpty(name))     return null;
+    final String mimeType=fileInfoCallback.getMimeType(source);
+    final String extension=fileInfoCallback.getExtension(mimeType);
+    final String nameToSave=getFileNameWithExtension(name,extension);
+    if (!destinationDir.isDirectory() && !destinationDir.mkdirs())     return null;
+    final File saveFile=new File(destinationDir,nameToSave);
+    final InputStream in=cr.openInputStream(source);
+    if (in == null)     return null;
+    ioSrc=Okio.source(in);
+    sink=Okio.buffer(Okio.sink(saveFile));
+    sink.writeAll(ioSrc);
+    sink.flush();
+    return new SaveFileResult(saveFile,mimeType);
+  }
+ catch (  final IOException e) {
+    Log.w(LOGTAG,"Failed to save file",e);
+    return null;
+  }
+ finally {
+    Utils.closeSilently(sink);
+    Utils.closeSilently(ioSrc);
+  }
+}

@@ -1,0 +1,5 @@
+AsyncTwitterWrapper twitterWrapper
+long[] accountIds
+long[] maxIds
+long[] sinceIds
+String tag

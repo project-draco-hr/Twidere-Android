@@ -1,0 +1,8 @@
+Context context
+UserColorNameManager manager
+ParcelableActivity activity
+ParcelableUser[] sources
+int defaultColor
+boolean byFriends
+boolean shouldUseStarsForLikes
+boolean nameFirst

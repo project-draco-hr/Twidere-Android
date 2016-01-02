@@ -1,0 +1,7 @@
+{
+  super(twitterWrapper.getContext(),tag);
+  this.accountIds=accountIds;
+  this.maxIds=maxIds;
+  this.sinceIds=sinceIds;
+  this.twitterWrapper=twitterWrapper;
+}

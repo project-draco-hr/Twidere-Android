@@ -1,0 +1,4 @@
+int icon
+int color
+CharSequence title
+CharSequence summary
