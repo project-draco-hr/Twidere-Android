@@ -1,4 +1,0 @@
-{
-  super.onPreExecute();
-  fragment.getAdapter().setConversationsLoading(true);
-}

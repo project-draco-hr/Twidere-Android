@@ -1,7 +1,3 @@
 {
-  int sum=0;
-  for (  int i : ints) {
-    sum+=i;
-  }
-  return sum;
+  return sum(array,0,array.length - 1);
 }

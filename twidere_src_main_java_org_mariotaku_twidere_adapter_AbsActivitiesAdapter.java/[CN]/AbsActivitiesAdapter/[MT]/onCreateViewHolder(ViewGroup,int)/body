@@ -44,8 +44,7 @@ return new StubViewHolder(view);
 }
 case ITEM_VIEW_TYPE_EMPTY:
 {
-final View view=new Space(getContext());
-return new EmptyViewHolder(view);
+return new EmptyViewHolder(new Space(getContext()));
 }
 }
 throw new UnsupportedOperationException("Unsupported viewType " + viewType);

@@ -1,2 +1,31 @@
 {
+  final ParcelableStatus status=mStatus;
+  if (status == null)   return;
+  mData=data;
+  if (data == null) {
+    setCount(ITEM_IDX_CONVERSATION,0);
+    setCount(ITEM_IDX_REPLY,0);
+  }
+ else {
+    int conversationCount=0, replyCount=0;
+    boolean containsStatus=false;
+    for (    ParcelableStatus item : data) {
+      if (item.id < status.id) {
+        conversationCount++;
+      }
+ else       if (item.id > status.id) {
+        replyCount++;
+      }
+ else {
+        containsStatus=true;
+      }
+    }
+    if (!containsStatus) {
+      throw new IllegalArgumentException("Conversation data must contains original status");
+    }
+    setCount(ITEM_IDX_CONVERSATION,conversationCount);
+    setCount(ITEM_IDX_REPLY,replyCount);
+  }
+  notifyDataSetChanged();
+  updateItemDecoration();
 }

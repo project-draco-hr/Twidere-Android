@@ -1,9 +1,6 @@
 {
   if (mStatus != null && accountId == mStatus.account_id && statusId == mStatus.id)   return mStatus;
-  for (  ParcelableStatus status : Nullables.list(mConversation)) {
-    if (accountId == status.account_id && status.id == statusId)     return status;
-  }
-  for (  ParcelableStatus status : Nullables.list(mReplies)) {
+  for (  ParcelableStatus status : Nullables.list(mData)) {
     if (accountId == status.account_id && status.id == statusId)     return status;
   }
   return null;

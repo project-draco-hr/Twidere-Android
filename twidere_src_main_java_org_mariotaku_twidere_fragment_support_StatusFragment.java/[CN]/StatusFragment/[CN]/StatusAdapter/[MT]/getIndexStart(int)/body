@@ -1,0 +1,4 @@
+{
+  if (index == 0)   return 0;
+  return TwidereMathUtils.sum(mItemCounts,0,index - 1);
+}

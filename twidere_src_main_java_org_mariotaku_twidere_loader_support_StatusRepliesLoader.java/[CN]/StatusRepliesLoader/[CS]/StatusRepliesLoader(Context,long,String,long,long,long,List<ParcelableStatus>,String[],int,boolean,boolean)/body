@@ -1,4 +1,0 @@
-{
-  super(context,accountId,screenName,maxId,sinceId,data,savedStatusesArgs,tabPosition,fromUser,false,twitterOptimizedSearches);
-  mInReplyToStatusId=statusId;
-}

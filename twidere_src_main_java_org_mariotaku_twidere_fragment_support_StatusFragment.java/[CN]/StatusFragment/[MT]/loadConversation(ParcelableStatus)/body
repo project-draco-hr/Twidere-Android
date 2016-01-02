@@ -1,7 +1,13 @@
 {
-  if (AsyncTaskUtils.isTaskRunning(mLoadConversationTask)) {
-    mLoadConversationTask.cancel(true);
+  if (status == null)   return;
+  final Bundle args=new Bundle();
+  args.putLong(EXTRA_ACCOUNT_ID,status.account_id);
+  args.putLong(EXTRA_STATUS_ID,status.is_retweet ? status.retweet_id : status.id);
+  args.putString(EXTRA_SCREEN_NAME,status.is_retweet ? status.retweeted_by_user_screen_name : status.user_screen_name);
+  if (mConversationLoaderInitialized) {
+    getLoaderManager().restartLoader(LOADER_ID_STATUS_CONVERSATIONS,args,mConversationsLoaderCallback);
+    return;
   }
-  mLoadConversationTask=new LoadConversationTask(this);
-  AsyncTaskUtils.executeTask(mLoadConversationTask,status);
+  getLoaderManager().initLoader(LOADER_ID_STATUS_CONVERSATIONS,args,mConversationsLoaderCallback);
+  mConversationLoaderInitialized=true;
 }

@@ -1,0 +1,8 @@
+{
+  int sum=0;
+  for (int i=start; i <= end; i++) {
+    int num=array[i];
+    sum+=num;
+  }
+  return sum;
+}

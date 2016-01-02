@@ -5,10 +5,8 @@
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
     if (mStatusAdapter.setStatus(status,credentials)) {
-      mStatusAdapter.setConversation(null);
-      mStatusAdapter.setReplies(null);
+      mStatusAdapter.setData(null);
       loadConversation(status);
-      loadReplies(status);
       loadActivity(status);
       final int position=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
       if (position != RecyclerView.NO_POSITION) {

@@ -1,5 +1,16 @@
 {
-  final int itemStart=getItemTypeStart(position);
   final int itemType=getItemType(position);
-  return getStatusByItemType(position,itemStart,itemType);
+switch (itemType) {
+case ITEM_IDX_CONVERSATION:
+case ITEM_IDX_REPLY:
+{
+      if (mData == null)       return null;
+      return mData.get(position - getIndexStart(ITEM_IDX_CONVERSATION));
+    }
+case ITEM_IDX_STATUS:
+{
+    return mStatus;
+  }
+}
+return null;
 }
