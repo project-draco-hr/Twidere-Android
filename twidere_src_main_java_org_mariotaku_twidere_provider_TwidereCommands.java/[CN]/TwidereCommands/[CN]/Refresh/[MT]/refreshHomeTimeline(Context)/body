@@ -1,3 +1,0 @@
-{
-  Utils.sendInsertCommand(context,ACTION_REFRESH_HOME_TIMELINE,null);
-}

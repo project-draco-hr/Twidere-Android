@@ -1,8 +1,0 @@
-Context context
-long[] account_ids
-String content
-ParcelableLocation location
-Uri image_uri
-long in_reply_to_status_id
-boolean is_possibly_sensitive
-boolean delete_image

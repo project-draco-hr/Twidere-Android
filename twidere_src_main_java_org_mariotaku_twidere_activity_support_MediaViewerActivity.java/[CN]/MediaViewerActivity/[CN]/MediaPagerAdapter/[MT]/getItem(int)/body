@@ -17,9 +17,9 @@ case ParcelableMedia.TYPE_VIDEO:
 case ParcelableMedia.TYPE_IMAGE:
 {
   if (ANIMATED_GIF_SUPPORTED) {
-    return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
+    return Fragment.instantiate(mActivity,GifSupportedImagePageFragment.class.getName(),args);
   }
-  return Fragment.instantiate(mActivity,BaseImagePageFragment.class.getName(),args);
+  return Fragment.instantiate(mActivity,ImagePageFragment.class.getName(),args);
 }
 case ParcelableMedia.TYPE_EXTERNAL_PLAYER:
 {

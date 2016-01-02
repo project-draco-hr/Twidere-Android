@@ -12,6 +12,6 @@
   mVideoView.setOnCompletionListener(this);
   mPlayPauseButton.setOnClickListener(this);
   mVolumeButton.setOnClickListener(this);
-  loadMedia();
+  startLoading();
   updateVolume();
 }

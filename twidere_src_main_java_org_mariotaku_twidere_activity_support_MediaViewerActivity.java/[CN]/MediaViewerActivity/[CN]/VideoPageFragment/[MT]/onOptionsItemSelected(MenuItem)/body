@@ -2,12 +2,12 @@
 switch (item.getItemId()) {
 case R.id.save:
 {
-      requestAndSaveToGallery();
+      requestAndSaveToStorage();
       return true;
     }
 case R.id.refresh:
 {
-    loadMedia();
+    startLoading();
     return true;
   }
 case R.id.share:

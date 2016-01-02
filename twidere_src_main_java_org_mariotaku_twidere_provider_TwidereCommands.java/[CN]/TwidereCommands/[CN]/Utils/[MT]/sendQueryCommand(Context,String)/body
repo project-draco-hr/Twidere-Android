@@ -1,5 +1,0 @@
-{
-  final ContentResolver resolver=context.getContentResolver();
-  final Uri uri=Uri.withAppendedPath(BASE_CONTENT_URI,action);
-  return resolver.query(uri,null,null,null,null);
-}

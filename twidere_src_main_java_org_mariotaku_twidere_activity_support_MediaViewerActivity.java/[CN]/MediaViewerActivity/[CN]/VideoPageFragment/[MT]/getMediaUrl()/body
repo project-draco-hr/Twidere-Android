@@ -1,4 +1,0 @@
-{
-  final Pair<String,String> bestVideoUrlAndType=getBestVideoUrlAndType(getMedia());
-  return Uri.parse(bestVideoUrlAndType.first);
-}

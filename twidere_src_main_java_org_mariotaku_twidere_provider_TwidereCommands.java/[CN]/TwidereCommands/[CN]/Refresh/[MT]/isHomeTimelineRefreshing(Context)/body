@@ -1,3 +1,0 @@
-{
-  return Utils.isQueryCommandTrue(context,ACTION_REFRESH_HOME_TIMELINE);
-}

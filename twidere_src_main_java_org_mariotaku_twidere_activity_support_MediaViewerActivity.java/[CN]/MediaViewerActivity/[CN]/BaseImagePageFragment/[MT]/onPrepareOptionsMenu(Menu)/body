@@ -1,8 +1,0 @@
-{
-  super.onPrepareOptionsMenu(menu);
-  final boolean isLoading=getLoaderManager().hasRunningLoaders();
-  final boolean hasImage=hasValidMedia();
-  MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!hasImage && !isLoading);
-  MenuUtils.setMenuItemAvailability(menu,R.id.share,hasImage && !isLoading);
-  MenuUtils.setMenuItemAvailability(menu,R.id.save,hasImage && !isLoading);
-}

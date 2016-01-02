@@ -1,6 +1,6 @@
 {
   if (activity.after_filtered_source_ids != null)   return;
-  if (!ArrayUtils.isEmpty(filteredUserIds)) {
+  if (followingOnly || !ArrayUtils.isEmpty(filteredUserIds)) {
     ArrayLongList list=new ArrayLongList();
     for (    ParcelableUser user : activity.sources) {
       if (followingOnly && !user.is_following) {

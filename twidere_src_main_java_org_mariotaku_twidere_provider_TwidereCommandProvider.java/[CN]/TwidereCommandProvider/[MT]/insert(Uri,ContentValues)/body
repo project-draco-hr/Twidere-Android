@@ -1,4 +1,0 @@
-{
-  if (handleInsertCommand(uri,values))   return uri;
-  return null;
-}

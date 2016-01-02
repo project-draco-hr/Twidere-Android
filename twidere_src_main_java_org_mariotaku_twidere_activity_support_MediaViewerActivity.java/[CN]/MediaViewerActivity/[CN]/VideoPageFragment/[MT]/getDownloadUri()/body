@@ -1,0 +1,5 @@
+{
+  final Pair<String,String> bestVideoUrlAndType=getBestVideoUrlAndType(getMedia());
+  if (bestVideoUrlAndType == null || bestVideoUrlAndType.first == null)   return null;
+  return Uri.parse(bestVideoUrlAndType.first);
+}

@@ -1,0 +1,7 @@
+{
+  final boolean isLoading=getLoaderManager().hasRunningLoaders();
+  final boolean isDownloaded=hasDownloadedData();
+  MenuUtils.setMenuItemAvailability(menu,R.id.save,!isLoading && isDownloaded);
+  MenuUtils.setMenuItemAvailability(menu,R.id.share,!isLoading && isDownloaded);
+  MenuUtils.setMenuItemAvailability(menu,R.id.refresh,!isLoading && !isDownloaded);
+}

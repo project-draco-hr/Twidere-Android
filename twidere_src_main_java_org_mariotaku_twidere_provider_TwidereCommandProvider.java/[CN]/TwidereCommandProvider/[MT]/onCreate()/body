@@ -1,6 +1,0 @@
-{
-  mContext=getContext();
-  GeneralComponentHelper.build(mContext).inject(this);
-  mPermissionsManager=new PermissionsManager(mContext);
-  return true;
-}

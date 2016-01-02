@@ -1,5 +1,0 @@
-{
-  mData=data;
-  hideProgress();
-  displayMedia(data);
-}
