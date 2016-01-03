@@ -1,0 +1,7 @@
+{
+  UploadLogEvent event=new UploadLogEvent();
+  event.markStart(context);
+  event.setFileLength(file.length());
+  event.setFileName(file.getName());
+  return event;
+}

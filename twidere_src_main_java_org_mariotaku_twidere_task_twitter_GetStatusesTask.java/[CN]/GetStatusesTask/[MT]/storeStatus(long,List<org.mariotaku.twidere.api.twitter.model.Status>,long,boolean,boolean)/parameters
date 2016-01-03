@@ -1,5 +1,0 @@
-long accountId
-List<org.mariotaku.twidere.api.twitter.model.Status> statuses
-long maxId
-boolean truncated
-boolean notify

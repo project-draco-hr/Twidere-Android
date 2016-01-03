@@ -333,7 +333,7 @@ args.putLong(EXTRA_ACCOUNT_ID,NumberUtils.toLong(paramAccountId,-1));
  else {
 final String paramAccountName=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_NAME);
 if (paramAccountName != null) {
-args.putLong(EXTRA_ACCOUNT_ID,getAccountId(context,paramAccountName));
+args.putLong(EXTRA_ACCOUNT_ID,DataStoreUtils.getAccountId(context,paramAccountName));
 }
  else {
 final long accountId=getDefaultAccountId(context);

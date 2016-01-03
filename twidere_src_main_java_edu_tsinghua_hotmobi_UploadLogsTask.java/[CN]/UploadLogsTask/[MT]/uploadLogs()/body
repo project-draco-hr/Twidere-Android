@@ -27,8 +27,13 @@
         builder.headers(headers);
         body=new FileTypedData(logFile);
         builder.body(body);
+        final UploadLogEvent uploadLogEvent=UploadLogEvent.create(context,logFile);
         response=client.execute(builder.build());
         if (response.isSuccessful()) {
+          uploadLogEvent.markEnd();
+          if (!uploadLogEvent.shouldSkip()) {
+            HotMobiLogger.getInstance(context).log(uploadLogEvent);
+          }
           succeeded&=logFile.delete();
         }
       }

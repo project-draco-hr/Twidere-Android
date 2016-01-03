@@ -1,4 +1,3 @@
 {
   super.onPostExecute(result);
-  mGetHomeTimelineTaskId=-1;
 }

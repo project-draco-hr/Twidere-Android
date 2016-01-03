@@ -15,7 +15,7 @@
  else {
     holder.media_preview_container.setVisibility(View.GONE);
   }
-  holder.content.drawEnd(getAccountColors(context,accountIds));
+  holder.content.drawEnd(DataStoreUtils.getAccountColors(context,accountIds));
   holder.setTextSize(mTextSize);
   final boolean emptyContent=TextUtils.isEmpty(text);
   if (emptyContent) {

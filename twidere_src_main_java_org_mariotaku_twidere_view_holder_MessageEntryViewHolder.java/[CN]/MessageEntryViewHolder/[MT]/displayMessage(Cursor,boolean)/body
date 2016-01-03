@@ -22,7 +22,7 @@
   screenNameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   textView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   if (adapter.shouldShowAccountsColor()) {
-    content.drawEnd(Utils.getAccountColor(context,accountId));
+    content.drawEnd(DataStoreUtils.getAccountColor(context,accountId));
   }
  else {
     content.drawEnd();

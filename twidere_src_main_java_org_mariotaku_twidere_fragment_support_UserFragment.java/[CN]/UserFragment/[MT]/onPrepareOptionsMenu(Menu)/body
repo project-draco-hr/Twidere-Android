@@ -12,7 +12,7 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.mention,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.incoming_friendships,isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.saved_searches,isMyself);
-  MenuUtils.setMenuItemAvailability(menu,R.id.scheduled_statuses,isMyself && Utils.getOfficialKeyType(getActivity(),user.account_id) == ConsumerKeyType.TWEETDECK);
+  MenuUtils.setMenuItemAvailability(menu,R.id.scheduled_statuses,isMyself && TwitterAPIFactory.getOfficialKeyType(getActivity(),user.account_id) == ConsumerKeyType.TWEETDECK);
   if (!isMyself && relationship != null) {
     MenuUtils.setMenuItemAvailability(menu,R.id.send_direct_message,relationship.canSourceDMTarget());
     MenuUtils.setMenuItemAvailability(menu,R.id.block,true);

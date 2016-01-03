@@ -1,4 +1,0 @@
-{
-  if (twitter == null)   return null;
-  return twitter.getActivitiesAboutMe(paging);
-}

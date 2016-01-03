@@ -1,3 +1,39 @@
 {
-  return twitter.showConversation(mInReplyToStatusId,paging);
+  final ParcelableStatus status=mStatus;
+  if (Utils.shouldForceUsingPrivateAPIs(getContext()) || TwitterAPIFactory.isOfficialTwitterInstance(getContext(),twitter)) {
+    return twitter.showConversation(status.id,paging);
+  }
+  final List<Status> statuses=new ArrayList<>();
+  final long maxId=getMaxId(), sinceId=getSinceId();
+  boolean getConversations=maxId < status.id || (maxId <= 0 && sinceId <= 0);
+  boolean getReplies=sinceId > status.id || (maxId <= 0 && sinceId <= 0);
+  if (getConversations) {
+    long inReplyToId=status.in_reply_to_status_id;
+    int count=0;
+    while (inReplyToId > 0 && count < 10) {
+      final Status item=twitter.showStatus(inReplyToId);
+      inReplyToId=item.getInReplyToStatusId();
+      statuses.add(item);
+      count++;
+    }
+  }
+  if ((sinceId <= 0 && maxId <= 0) || (sinceId > 0 && sinceId < status.id) || (maxId > 0 && maxId >= status.id)) {
+    statuses.add(StatusUtils.fromParcelableStatus(status));
+  }
+  if (getReplies) {
+    SearchQuery query=new SearchQuery();
+    if (mTwitterOptimizedSearches) {
+      query.query("to:" + status.user_screen_name);
+    }
+ else {
+      query.query("@" + status.user_screen_name);
+    }
+    query.sinceId(status.id);
+    for (    Status item : twitter.search(query)) {
+      if (item.getInReplyToStatusId() == status.id) {
+        statuses.add(item);
+      }
+    }
+  }
+  return statuses;
 }

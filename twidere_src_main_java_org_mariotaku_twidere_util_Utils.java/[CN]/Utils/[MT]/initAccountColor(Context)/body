@@ -5,7 +5,7 @@
   final int id_idx=cur.getColumnIndex(Accounts.ACCOUNT_ID), color_idx=cur.getColumnIndex(Accounts.COLOR);
   cur.moveToFirst();
   while (!cur.isAfterLast()) {
-    sAccountColors.put(cur.getLong(id_idx),cur.getInt(color_idx));
+    DataStoreUtils.sAccountColors.put(cur.getLong(id_idx),cur.getInt(color_idx));
     cur.moveToNext();
   }
   cur.close();

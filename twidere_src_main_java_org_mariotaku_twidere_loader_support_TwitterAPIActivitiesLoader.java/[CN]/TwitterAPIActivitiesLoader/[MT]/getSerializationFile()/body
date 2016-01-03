@@ -1,9 +1,0 @@
-{
-  if (mSavedStatusesFileArgs == null)   return null;
-  try {
-    return JsonSerializer.getSerializationFile(mContext,mSavedStatusesFileArgs);
-  }
- catch (  final IOException e) {
-    return null;
-  }
-}

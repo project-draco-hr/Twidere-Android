@@ -1,0 +1,3 @@
+{
+  UploadLogEventParcelablePlease.writeToParcel(this,dest,flags);
+}

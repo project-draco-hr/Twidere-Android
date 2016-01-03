@@ -1,3 +1,0 @@
-{
-  return DataStoreUtils.getAccountScreenNames(context,null);
-}

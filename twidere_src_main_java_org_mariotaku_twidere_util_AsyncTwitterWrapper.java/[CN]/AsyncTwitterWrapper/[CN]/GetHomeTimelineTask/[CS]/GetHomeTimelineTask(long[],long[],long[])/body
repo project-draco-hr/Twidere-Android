@@ -1,3 +1,0 @@
-{
-  super(AsyncTwitterWrapper.this,accountIds,maxIds,sinceIds,TASK_TAG_GET_HOME_TIMELINE);
-}

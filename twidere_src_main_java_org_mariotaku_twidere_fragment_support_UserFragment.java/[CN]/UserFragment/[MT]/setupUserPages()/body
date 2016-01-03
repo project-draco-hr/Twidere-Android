@@ -15,7 +15,7 @@
     tabArgs.putString(EXTRA_SCREEN_NAME,args.getString(EXTRA_SCREEN_NAME));
   }
   mPagerAdapter.addTab(UserTimelineFragment.class,tabArgs,getString(R.string.statuses),R.drawable.ic_action_quote,TAB_TYPE_STATUSES,TAB_POSITION_STATUSES,null);
-  if (Utils.isOfficialKeyAccount(context,accountId)) {
+  if (TwitterAPIFactory.isOfficialKeyAccount(context,accountId)) {
     mPagerAdapter.addTab(UserMediaTimelineFragment.class,tabArgs,getString(R.string.media),R.drawable.ic_action_gallery,TAB_TYPE_MEDIA,TAB_POSITION_MEDIA,null);
   }
   if (mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK)) {

@@ -1,0 +1,4 @@
+AsyncTwitterWrapper asyncTwitterWrapper
+long[] accountIds
+long[] maxIds
+long[] sinceIds

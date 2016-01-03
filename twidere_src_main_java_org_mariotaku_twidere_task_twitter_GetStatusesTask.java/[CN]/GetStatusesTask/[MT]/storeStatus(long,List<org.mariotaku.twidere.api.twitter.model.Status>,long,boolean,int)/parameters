@@ -1,0 +1,5 @@
+long accountId
+List<org.mariotaku.twidere.api.twitter.model.Status> statuses
+long maxId
+boolean notify
+int loadItemLimit

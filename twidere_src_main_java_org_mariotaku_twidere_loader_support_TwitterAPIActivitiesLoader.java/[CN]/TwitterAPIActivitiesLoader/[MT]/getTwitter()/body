@@ -1,3 +1,0 @@
-{
-  return TwitterAPIFactory.getTwitterInstance(mContext,mAccountIds,true,true);
-}

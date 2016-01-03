@@ -4,7 +4,7 @@
     final long lastUpload=prefs.getLong(HotMobiLogger.LAST_UPLOAD_TIME,System.currentTimeMillis());
     final double deltaDays=(System.currentTimeMillis() - lastUpload) / (double)HotMobiLogger.UPLOAD_INTERVAL_MILLIS;
     if (deltaDays < 1) {
-      SpiceProfilingUtil.log("Last uploaded was conducted in 1 day ago.");
+      HotMobiLogger.log("Last uploaded was conducted in 1 day ago.");
       return;
     }
   }

@@ -29,5 +29,8 @@
  else   if (event instanceof ScreenEvent) {
     return "screen";
   }
+ else   if (event instanceof UploadLogEvent) {
+    return "upload_log";
+  }
   throw new UnsupportedOperationException("Unknown event type " + event);
 }

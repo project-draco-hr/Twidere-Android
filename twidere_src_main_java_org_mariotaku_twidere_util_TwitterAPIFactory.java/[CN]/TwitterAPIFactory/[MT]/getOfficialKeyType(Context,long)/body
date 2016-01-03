@@ -1,0 +1,13 @@
+{
+  if (context == null)   return ConsumerKeyType.UNKNOWN;
+  final String[] projection={TwidereDataStore.Accounts.CONSUMER_KEY,TwidereDataStore.Accounts.CONSUMER_SECRET};
+  final String selection=Expression.equals(TwidereDataStore.Accounts.ACCOUNT_ID,accountId).getSQL();
+  final Cursor c=context.getContentResolver().query(TwidereDataStore.Accounts.CONTENT_URI,projection,selection,null,null);
+  try {
+    if (c.moveToPosition(0))     return TwitterContentUtils.getOfficialKeyType(context,c.getString(0),c.getString(1));
+  }
+  finally {
+    c.close();
+  }
+  return ConsumerKeyType.UNKNOWN;
+}

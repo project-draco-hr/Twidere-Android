@@ -33,11 +33,14 @@
       paging.setMaxId(mMaxId);
     }
     if (mSinceId > 0) {
-      paging.setSinceId(mSinceId - 1);
+      paging.setSinceId(mSinceId);
+      if (mMaxId <= 0) {
+        paging.setLatestResults(true);
+      }
     }
     statuses=new ArrayList<>();
     truncated=Utils.truncateStatuses(getStatuses(twitter,paging),statuses,mSinceId);
-    if (!Utils.isOfficialTwitterInstance(context,twitter)) {
+    if (!TwitterAPIFactory.isOfficialTwitterInstance(context,twitter)) {
       TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }
   }

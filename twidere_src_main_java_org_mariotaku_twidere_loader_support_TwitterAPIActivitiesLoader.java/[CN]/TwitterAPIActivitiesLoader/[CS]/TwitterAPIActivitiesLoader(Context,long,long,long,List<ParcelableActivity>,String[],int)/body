@@ -1,8 +1,0 @@
-{
-  super(context,data,tabPosition);
-  mContext=context;
-  mAccountIds=accountId;
-  mSinceId=sinceId;
-  mMaxId=maxId;
-  mSavedStatusesFileArgs=savedStatusesArgs;
-}

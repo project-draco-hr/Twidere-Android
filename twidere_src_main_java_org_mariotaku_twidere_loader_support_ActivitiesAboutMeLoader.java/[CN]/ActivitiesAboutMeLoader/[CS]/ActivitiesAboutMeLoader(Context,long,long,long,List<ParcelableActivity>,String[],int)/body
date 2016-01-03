@@ -1,3 +1,0 @@
-{
-  super(context,accountId,sinceId,maxId,data,saveFileArgs,position);
-}

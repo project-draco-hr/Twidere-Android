@@ -6,7 +6,7 @@
 switch (tableId) {
 case TABLE_ID_STATUSES:
 {
-      final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+      final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
       for (      final AccountPreferences pref : prefs) {
         if (!pref.isHomeTimelineNotificationEnabled())         continue;
         showTimelineNotification(pref,getPositionTag(TAB_TYPE_HOME_TIMELINE,pref.getAccountId()));
@@ -16,7 +16,7 @@ case TABLE_ID_STATUSES:
     }
 case TABLE_ID_ACTIVITIES_ABOUT_ME:
 {
-    final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+    final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
     final boolean combined=mPreferences.getBoolean(KEY_COMBINED_NOTIFICATIONS);
     for (    final AccountPreferences pref : prefs) {
       if (!pref.isInteractionsNotificationEnabled())       continue;
@@ -27,7 +27,7 @@ case TABLE_ID_ACTIVITIES_ABOUT_ME:
   }
 case TABLE_ID_DIRECT_MESSAGES_INBOX:
 {
-  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,getAccountIds(context));
+  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
   for (  final AccountPreferences pref : prefs) {
     if (!pref.isDirectMessagesNotificationEnabled())     continue;
     final StringLongPair[] pairs=mReadStateManager.getPositionPairs(TAB_TYPE_DIRECT_MESSAGES);

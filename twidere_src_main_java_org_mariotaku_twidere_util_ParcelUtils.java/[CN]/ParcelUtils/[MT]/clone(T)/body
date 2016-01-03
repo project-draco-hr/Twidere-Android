@@ -1,0 +1,20 @@
+{
+  if (object == null)   return null;
+  final Parcel parcel=Parcel.obtain();
+  try {
+    object.writeToParcel(parcel,0);
+    parcel.setDataPosition(0);
+    final Field creatorField=object.getClass().getDeclaredField("CREATOR");
+    final Parcelable.Creator<T> creator=(Parcelable.Creator<T>)creatorField.get(null);
+    return creator.createFromParcel(parcel);
+  }
+ catch (  NoSuchFieldException e) {
+    throw new NoSuchFieldError("Missing CREATOR field");
+  }
+catch (  IllegalAccessException e) {
+    throw new IllegalAccessError("Can't access CREATOR field");
+  }
+ finally {
+    parcel.recycle();
+  }
+}
