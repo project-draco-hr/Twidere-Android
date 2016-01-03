@@ -1,4 +1,3 @@
 {
-  if (twitter == null)   return null;
   return twitter.getMutesUsersList(paging);
 }

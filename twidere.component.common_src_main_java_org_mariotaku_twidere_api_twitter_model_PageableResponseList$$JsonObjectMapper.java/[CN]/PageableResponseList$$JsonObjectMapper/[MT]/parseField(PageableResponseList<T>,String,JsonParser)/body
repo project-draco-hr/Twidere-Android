@@ -10,10 +10,12 @@ case "lists":
 case "previous_cursor":
 {
     instance.previousCursor=jsonParser.getValueAsLong();
+    break;
   }
 case "next_cursor":
 {
   instance.nextCursor=jsonParser.getValueAsLong();
+  break;
 }
 }
 }
