@@ -1,0 +1,4 @@
+{
+  final String nick=getUserNickname(id,true);
+  return TextUtils.isEmpty(nick) ? name : nick;
+}
