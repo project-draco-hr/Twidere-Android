@@ -1,0 +1,6 @@
+{
+  if (holder == mStatusViewHolder) {
+    mStatusViewHolder=null;
+  }
+  super.onViewAttachedToWindow(holder);
+}

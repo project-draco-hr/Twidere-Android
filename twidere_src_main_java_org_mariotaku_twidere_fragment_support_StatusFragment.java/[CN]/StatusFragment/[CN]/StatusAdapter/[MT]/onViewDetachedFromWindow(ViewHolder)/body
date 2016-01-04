@@ -1,0 +1,6 @@
+{
+  if (holder instanceof DetailStatusViewHolder) {
+    mStatusViewHolder=(DetailStatusViewHolder)holder;
+  }
+  super.onViewDetachedFromWindow(holder);
+}
