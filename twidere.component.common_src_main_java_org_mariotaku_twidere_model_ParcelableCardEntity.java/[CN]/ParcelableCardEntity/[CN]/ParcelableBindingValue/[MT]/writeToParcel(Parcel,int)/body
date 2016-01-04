@@ -1,0 +1,3 @@
+{
+  ParcelableCardEntity$ParcelableBindingValueParcelablePlease.writeToParcel(this,dest,flags);
+}

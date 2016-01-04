@@ -35,7 +35,8 @@
     if (!hasName) {
       final Matcher m=PATTERN_SCREEN_NAME.matcher(query);
       if (m.matches()) {
-        screenNameCursor.addRow(new Object[]{0,Suggestions.Search.TYPE_SCREEN_NAME,query,null,null,0,null,query});
+        final String screenName=m.group(1);
+        screenNameCursor.addRow(new Object[]{0,Suggestions.Search.TYPE_SCREEN_NAME,screenName,null,null,0,null,screenName});
       }
     }
     cursors=new Cursor[3];

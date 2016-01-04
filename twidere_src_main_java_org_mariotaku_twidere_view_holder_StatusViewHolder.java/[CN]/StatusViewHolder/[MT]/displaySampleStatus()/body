@@ -3,7 +3,7 @@
   profileImageView.setImageResource(R.mipmap.ic_launcher);
   nameView.setName(TWIDERE_PREVIEW_NAME);
   nameView.setScreenName("@" + TWIDERE_PREVIEW_SCREEN_NAME);
-  nameView.updateText();
+  nameView.updateText(adapter.getBidiFormatter());
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
     final TwidereLinkify linkify=adapter.getTwidereLinkify();
     final Spanned text=HtmlSpanBuilder.fromHtml(TWIDERE_PREVIEW_TEXT_HTML);

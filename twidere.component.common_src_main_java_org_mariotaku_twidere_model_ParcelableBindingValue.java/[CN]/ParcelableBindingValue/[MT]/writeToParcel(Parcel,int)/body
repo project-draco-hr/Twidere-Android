@@ -1,3 +1,0 @@
-{
-  ParcelableBindingValueParcelablePlease.writeToParcel(this,dest,flags);
-}

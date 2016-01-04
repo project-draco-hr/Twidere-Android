@@ -1,24 +1,3 @@
 {
-  if (isInEditMode())   return;
-  final SpannableStringBuilder sb=new SpannableStringBuilder();
-  final String primaryText=mNameFirst ? mName : mScreenName;
-  final String secondaryText=mNameFirst ? mScreenName : mName;
-  if (primaryText != null) {
-    int start=sb.length();
-    sb.append(primaryText);
-    int end=sb.length();
-    sb.setSpan(mPrimaryTextColor,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-    sb.setSpan(mPrimaryTextStyle,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-    sb.setSpan(mPrimaryTextSize,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-  }
-  sb.append(" ");
-  if (secondaryText != null) {
-    int start=sb.length();
-    sb.append(secondaryText);
-    int end=sb.length();
-    sb.setSpan(mSecondaryTextColor,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-    sb.setSpan(mSecondaryTextStyle,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-    sb.setSpan(mSecondaryTextSize,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-  }
-  setText(sb);
+  updateText(null);
 }
