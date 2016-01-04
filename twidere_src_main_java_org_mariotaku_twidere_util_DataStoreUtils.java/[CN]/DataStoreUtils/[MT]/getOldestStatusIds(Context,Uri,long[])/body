@@ -1,0 +1,23 @@
+{
+  final String[] cols=new String[]{Statuses.STATUS_ID};
+  final ContentResolver resolver=context.getContentResolver();
+  final long[] statusIds=new long[accountIds.length];
+  Arrays.fill(statusIds,-1);
+  for (int i=0, j=accountIds.length; i < j; i++) {
+    long accountId=accountIds[i];
+    final String where=Expression.equals(Statuses.ACCOUNT_ID,accountId).getSQL();
+    final Cursor cur=ContentResolverUtils.query(resolver,uri,cols,where,null,Statuses.STATUS_ID);
+    if (cur == null) {
+      continue;
+    }
+    try {
+      if (cur.moveToFirst()) {
+        statusIds[i]=cur.getLong(cur.getColumnIndexOrThrow(Statuses.STATUS_ID));
+      }
+    }
+  finally {
+      cur.close();
+    }
+  }
+  return statusIds;
+}

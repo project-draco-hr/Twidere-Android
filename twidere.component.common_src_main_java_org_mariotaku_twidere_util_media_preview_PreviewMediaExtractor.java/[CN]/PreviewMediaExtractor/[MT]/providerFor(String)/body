@@ -1,0 +1,9 @@
+{
+  if (TextUtils.isEmpty(link))   return null;
+  for (  Provider provider : sProviders) {
+    if (provider.supports(link)) {
+      return provider;
+    }
+  }
+  return null;
+}

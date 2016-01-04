@@ -1,0 +1,5 @@
+{
+  if (this.page_url != null) {
+    this.url=this.page_url;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  VideoInfo videoInfo=(VideoInfo)o;
+  return new EqualsBuilder().append(duration,videoInfo.duration).append(variants,videoInfo.variants).isEquals();
+}

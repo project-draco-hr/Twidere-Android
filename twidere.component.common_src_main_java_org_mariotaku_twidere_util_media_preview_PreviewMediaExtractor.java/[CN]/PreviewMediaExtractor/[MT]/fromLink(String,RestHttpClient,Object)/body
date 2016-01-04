@@ -1,0 +1,5 @@
+{
+  final Provider provider=providerFor(link);
+  if (provider == null)   return null;
+  return provider.from(link,client,extra);
+}

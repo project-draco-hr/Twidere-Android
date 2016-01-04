@@ -1,0 +1,4 @@
+{
+  setMaxPosition(maxPosition);
+  return this;
+}

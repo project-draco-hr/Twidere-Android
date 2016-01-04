@@ -1,4 +1,0 @@
-{
-  variants=in.createTypedArray(Variant.CREATOR);
-  duration=in.readLong();
-}

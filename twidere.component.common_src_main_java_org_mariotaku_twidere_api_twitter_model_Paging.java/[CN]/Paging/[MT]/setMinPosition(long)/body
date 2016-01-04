@@ -1,0 +1,3 @@
+{
+  put("min_position",minPosition);
+}

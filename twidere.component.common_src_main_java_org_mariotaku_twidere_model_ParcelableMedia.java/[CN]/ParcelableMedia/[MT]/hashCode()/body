@@ -1,13 +1,3 @@
 {
-  int result=media_url != null ? media_url.hashCode() : 0;
-  result=31 * result + (page_url != null ? page_url.hashCode() : 0);
-  result=31 * result + (preview_url != null ? preview_url.hashCode() : 0);
-  result=31 * result + start;
-  result=31 * result + end;
-  result=31 * result + type;
-  result=31 * result + width;
-  result=31 * result + height;
-  result=31 * result + (video_info != null ? video_info.hashCode() : 0);
-  result=31 * result + (card != null ? card.hashCode() : 0);
-  return result;
+  return new HashCodeBuilder(17,37).append(media_url).append(url).append(preview_url).append(start).append(end).append(type).append(width).append(height).append(video_info).append(card).toHashCode();
 }

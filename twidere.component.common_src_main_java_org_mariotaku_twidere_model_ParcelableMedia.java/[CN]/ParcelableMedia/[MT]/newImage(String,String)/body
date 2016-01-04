@@ -1,3 +1,0 @@
-{
-  return new ParcelableMedia(media_url,url,media_url,0,0,TYPE_IMAGE);
-}

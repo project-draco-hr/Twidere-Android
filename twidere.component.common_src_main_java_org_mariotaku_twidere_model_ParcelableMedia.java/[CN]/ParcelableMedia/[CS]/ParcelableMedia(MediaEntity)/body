@@ -1,5 +1,5 @@
 {
-  page_url=TwitterContentUtils.getMediaUrl(entity);
+  url=TwitterContentUtils.getMediaUrl(entity);
   media_url=TwitterContentUtils.getMediaUrl(entity);
   preview_url=TwitterContentUtils.getMediaUrl(entity);
   start=entity.getStart();

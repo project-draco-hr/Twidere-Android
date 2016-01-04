@@ -1,0 +1,6 @@
+{
+  ParcelableMedia media=new ParcelableMedia();
+  media.type=Type.TYPE_VARIABLE_TYPE;
+  media.url=link;
+  return media;
+}

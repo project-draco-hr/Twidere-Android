@@ -19,16 +19,16 @@
   final CharSequence extraText=intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
   final Uri extraStream=intent.getParcelableExtra(Intent.EXTRA_STREAM);
   if (extraStream != null) {
-    AsyncTaskUtils.executeTask(new AddMediaTask(this,extraStream,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,false));
+    AsyncTaskUtils.executeTask(new AddMediaTask(this,extraStream,createTempImageUri(),ParcelableMedia.Type.TYPE_IMAGE,false));
   }
  else   if (data != null) {
-    AsyncTaskUtils.executeTask(new AddMediaTask(this,data,createTempImageUri(),ParcelableMedia.TYPE_IMAGE,false));
+    AsyncTaskUtils.executeTask(new AddMediaTask(this,data,createTempImageUri(),ParcelableMedia.Type.TYPE_IMAGE,false));
   }
  else   if (intent.hasExtra(EXTRA_SHARE_SCREENSHOT) && Utils.useShareScreenshot()) {
     final Bitmap bitmap=intent.getParcelableExtra(EXTRA_SHARE_SCREENSHOT);
     if (bitmap != null) {
       try {
-        AsyncTaskUtils.executeTask(new AddBitmapTask(this,bitmap,createTempImageUri(),ParcelableMedia.TYPE_IMAGE));
+        AsyncTaskUtils.executeTask(new AddBitmapTask(this,bitmap,createTempImageUri(),ParcelableMedia.Type.TYPE_IMAGE));
       }
  catch (      IOException e) {
         bitmap.recycle();

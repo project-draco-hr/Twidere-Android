@@ -5,18 +5,18 @@
     final ParcelableMedia media=new ParcelableMedia();
     final BindingValue playerStreamUrl=card.getBindingValue("player_stream_url");
     media.card=ParcelableCardEntity.fromCardEntity(card,-1);
+    media.url=card.getUrl();
     if ("animated_gif".equals(name)) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
-      media.type=ParcelableMedia.TYPE_CARD_ANIMATED_GIF;
+      media.type=Type.TYPE_CARD_ANIMATED_GIF;
     }
  else     if (playerStreamUrl instanceof StringValue) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
-      media.type=ParcelableMedia.TYPE_VIDEO;
+      media.type=Type.TYPE_VIDEO;
     }
  else {
-      media.type=ParcelableMedia.TYPE_EXTERNAL_PLAYER;
+      media.type=Type.TYPE_EXTERNAL_PLAYER;
     }
-    media.page_url=card.getUrl();
     final BindingValue playerImage=card.getBindingValue("player_image");
     if (playerImage instanceof ImageValue) {
       media.preview_url=((ImageValue)playerImage).getUrl();
@@ -31,7 +31,7 @@
     }
     if (entities != null) {
       for (      UrlEntity entity : entities) {
-        if (entity.getUrl().equals(media.page_url)) {
+        if (entity.getUrl().equals(media.url)) {
           media.start=entity.getStart();
           media.end=entity.getEnd();
           break;
@@ -44,19 +44,19 @@
     final BindingValue photoImageFullSize=card.getBindingValue("photo_image_full_size");
     if (!(photoImageFullSize instanceof ImageValue))     return null;
     final ParcelableMedia media=new ParcelableMedia();
+    media.url=card.getUrl();
     media.card=ParcelableCardEntity.fromCardEntity(card,-1);
-    media.type=ParcelableMedia.TYPE_IMAGE;
+    media.type=Type.TYPE_IMAGE;
     media.media_url=((ImageValue)photoImageFullSize).getUrl();
     media.width=((ImageValue)photoImageFullSize).getWidth();
     media.height=((ImageValue)photoImageFullSize).getHeight();
-    media.page_url=card.getUrl();
     final BindingValue summaryPhotoImage=card.getBindingValue("summary_photo_image");
     if (summaryPhotoImage instanceof ImageValue) {
       media.preview_url=((ImageValue)summaryPhotoImage).getUrl();
     }
     if (entities != null) {
       for (      UrlEntity entity : entities) {
-        if (entity.getUrl().equals(media.page_url)) {
+        if (entity.getUrl().equals(media.url)) {
           media.start=entity.getStart();
           media.end=entity.getEnd();
           break;

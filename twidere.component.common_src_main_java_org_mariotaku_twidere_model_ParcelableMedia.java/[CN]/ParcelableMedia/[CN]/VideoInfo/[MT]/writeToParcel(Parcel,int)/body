@@ -1,4 +1,3 @@
 {
-  dest.writeTypedArray(variants,flags);
-  dest.writeLong(duration);
+  ParcelableMedia$VideoInfoParcelablePlease.writeToParcel(this,dest,flags);
 }

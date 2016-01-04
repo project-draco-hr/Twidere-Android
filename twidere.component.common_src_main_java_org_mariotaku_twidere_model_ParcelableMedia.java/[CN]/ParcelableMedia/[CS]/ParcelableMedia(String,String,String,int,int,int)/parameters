@@ -1,6 +1,0 @@
-String media_url
-String page_url
-String preview_url
-int start
-int end
-int type

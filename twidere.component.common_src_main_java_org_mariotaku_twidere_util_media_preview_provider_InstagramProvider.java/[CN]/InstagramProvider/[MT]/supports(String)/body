@@ -1,0 +1,4 @@
+{
+  final String authority=PreviewMediaExtractor.getAuthority(link);
+  return "instagr.am".equals(authority) || "instagram.com".equals(authority) || "www.instagram.com".equals(authority);
+}

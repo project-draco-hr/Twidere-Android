@@ -38,8 +38,7 @@
         paging.setLatestResults(true);
       }
     }
-    statuses=new ArrayList<>();
-    truncated=Utils.truncateStatuses(getStatuses(twitter,paging),statuses,mSinceId);
+    statuses=getStatuses(twitter,paging);
     if (!TwitterAPIFactory.isOfficialTwitterInstance(context,twitter)) {
       TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }
@@ -66,7 +65,7 @@
   }
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,mMaxId);
   final boolean noRowsDeleted=rowsDeleted == 0;
-  final boolean insertGap=minId > 0 && (noRowsDeleted || deletedOldGap) && !truncated && !noItemsBefore && statuses.size() > 1;
+  final boolean insertGap=minId > 0 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
     data.add(new ParcelableStatus(status,mAccountId,insertGap && isGapEnabled() && minIdx == i));

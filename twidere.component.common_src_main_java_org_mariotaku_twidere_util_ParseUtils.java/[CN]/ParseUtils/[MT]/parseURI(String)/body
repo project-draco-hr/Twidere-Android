@@ -1,9 +1,0 @@
-{
-  if (uriString == null)   return null;
-  try {
-    return new URI(uriString);
-  }
- catch (  final URISyntaxException e) {
-  }
-  return null;
-}

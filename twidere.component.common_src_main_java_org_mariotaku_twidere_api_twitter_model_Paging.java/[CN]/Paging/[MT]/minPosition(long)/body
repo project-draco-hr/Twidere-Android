@@ -1,0 +1,4 @@
+{
+  setMinPosition(minPosition);
+  return this;
+}

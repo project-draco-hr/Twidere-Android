@@ -1,9 +1,3 @@
 {
-  if (TextUtils.isEmpty(link))   return false;
-  for (  Provider provider : sProviders) {
-    if (provider.supportsAuthority(getAuthority(link))) {
-      return true;
-    }
-  }
-  return false;
+  return providerFor(link) != null;
 }

@@ -8,5 +8,6 @@
  else   if ("animated_gif".equalsIgnoreCase(typeString)) {
     return ANIMATED_GIF;
   }
+  BugReporter.error("Unknown MediaEntity.Type " + typeString);
   return UNKNOWN;
 }

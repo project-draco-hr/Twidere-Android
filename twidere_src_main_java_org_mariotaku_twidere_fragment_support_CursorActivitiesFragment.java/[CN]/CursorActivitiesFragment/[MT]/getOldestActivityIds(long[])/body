@@ -1,3 +1,3 @@
 {
-  return DataStoreUtils.getOldestActivityIdsFromDatabase(getActivity(),getContentUri(),accountIds);
+  return DataStoreUtils.getOldestActivityMinPositions(getActivity(),getContentUri(),accountIds);
 }

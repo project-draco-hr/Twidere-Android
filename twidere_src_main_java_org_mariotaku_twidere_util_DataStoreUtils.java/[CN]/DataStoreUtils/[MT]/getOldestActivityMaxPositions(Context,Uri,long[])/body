@@ -1,0 +1,3 @@
+{
+  return getOldestActivityLongField(context,uri,accountIds,Activities.MAX_POSITION);
+}
