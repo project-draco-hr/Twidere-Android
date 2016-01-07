@@ -3,12 +3,12 @@
   final ContentResolver cr=getContentResolver();
   mContentObserver=new ContentObserver(new Handler()){
     @Override public void onChange(    boolean selfChange){
-      reloadStatuses();
+      reloadActivities();
     }
   }
 ;
   cr.registerContentObserver(Accounts.CONTENT_URI,true,mContentObserver);
   cr.registerContentObserver(Filters.CONTENT_URI,true,mContentObserver);
   updateRefreshState();
-  reloadStatuses();
+  reloadActivities();
 }

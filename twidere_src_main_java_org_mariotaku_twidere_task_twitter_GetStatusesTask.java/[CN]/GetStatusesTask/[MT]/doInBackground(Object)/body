@@ -21,7 +21,7 @@
       }
       if (sinceIds != null && sinceIds[idx] > 0) {
         sinceId=sinceIds[idx];
-        paging.sinceId(sinceId);
+        paging.sinceId(sinceId - 1);
         if (maxIds == null || sinceIds[idx] <= 0) {
           paging.setLatestResults(true);
         }
@@ -31,7 +31,7 @@
       }
       final List<org.mariotaku.twidere.api.twitter.model.Status> statuses=getStatuses(twitter,paging);
       TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
-      storeStatus(accountId,statuses,maxId,true,loadItemLimit);
+      storeStatus(accountId,statuses,sinceId,maxId,true,loadItemLimit);
       publishProgress(new TwitterWrapper.StatusListResponse(accountId,statuses));
     }
  catch (    final TwitterException e) {
