@@ -1,0 +1,22 @@
+{
+  if (status.media != null) {
+    boolean hasImage=false;
+    for (    ParcelableMedia media : status.media) {
+switch (media.type) {
+case ParcelableMedia.Type.TYPE_ANIMATED_GIF:
+case ParcelableMedia.Type.TYPE_CARD_ANIMATED_GIF:
+case ParcelableMedia.Type.TYPE_VIDEO:
+        return TweetType.VIDEO;
+case ParcelableMedia.Type.TYPE_IMAGE:
+{
+        hasImage=true;
+        break;
+      }
+  }
+}
+if (hasImage) {
+  return TweetType.PHOTO;
+}
+}
+return TweetType.TEXT;
+}

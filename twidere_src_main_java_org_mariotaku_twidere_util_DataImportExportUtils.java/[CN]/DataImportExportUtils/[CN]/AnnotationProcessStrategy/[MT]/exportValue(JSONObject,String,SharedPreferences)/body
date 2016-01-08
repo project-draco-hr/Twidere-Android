@@ -3,19 +3,19 @@
   if (preference == null || !preference.exportable())   return false;
   try {
 switch (preference.type()) {
-case BOOLEAN:
+case Type.BOOLEAN:
       json.put(key,preferences.getBoolean(key,preference.defaultBoolean()));
     break;
-case INT:
+case Type.INT:
   json.put(key,preferences.getInt(key,preference.defaultInt()));
 break;
-case LONG:
+case Type.LONG:
 json.put(key,preferences.getLong(key,preference.defaultLong()));
 break;
-case FLOAT:
+case Type.FLOAT:
 json.put(key,preferences.getFloat(key,preference.defaultFloat()));
 break;
-case STRING:
+case Type.STRING:
 json.put(key,preferences.getString(key,preference.defaultString()));
 break;
 default :

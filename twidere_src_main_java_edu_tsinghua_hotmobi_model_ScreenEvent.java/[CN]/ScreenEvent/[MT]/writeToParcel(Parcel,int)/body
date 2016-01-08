@@ -1,0 +1,3 @@
+{
+  ScreenEventParcelablePlease.writeToParcel(this,dest,flags);
+}

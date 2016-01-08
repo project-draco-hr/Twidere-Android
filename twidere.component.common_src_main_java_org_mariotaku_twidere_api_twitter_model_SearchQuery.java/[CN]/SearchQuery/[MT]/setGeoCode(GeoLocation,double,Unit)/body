@@ -1,3 +1,0 @@
-{
-  put("geocode",location.getLatitude() + "," + location.getLongitude()+ ","+ radius+ unit.getValue());
-}

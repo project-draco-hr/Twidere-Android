@@ -1,4 +1,0 @@
-{
-  if (tweetType == null)   return null;
-  return tweetType.value;
-}

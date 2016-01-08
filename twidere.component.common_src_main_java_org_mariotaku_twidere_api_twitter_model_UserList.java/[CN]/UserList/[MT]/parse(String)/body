@@ -1,9 +1,0 @@
-{
-switch (str) {
-case "public":
-    return PUBLIC;
-case "private":
-  return PRIVATE;
-}
-throw new UnsupportedOperationException();
-}
