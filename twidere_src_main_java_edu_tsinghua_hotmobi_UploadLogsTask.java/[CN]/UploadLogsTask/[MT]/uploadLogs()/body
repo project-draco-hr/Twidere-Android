@@ -24,13 +24,14 @@
         headers.add(Pair.create("X-HotMobi-UUID",uuid));
         headers.add(Pair.create("X-HotMobi-Date",dayLogsDir.getName()));
         headers.add(Pair.create("X-HotMobi-FileName",logFile.getName()));
+        headers.add(Pair.create("User-Agent",String.format(Locale.ROOT,"HotMobi (Twidere %s %d)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE)));
         builder.headers(headers);
         body=new FileTypedData(logFile);
         builder.body(body);
         final UploadLogEvent uploadLogEvent=UploadLogEvent.create(context,logFile);
         response=client.execute(builder.build());
         if (response.isSuccessful()) {
-          uploadLogEvent.markEnd();
+          uploadLogEvent.finish(response);
           if (!uploadLogEvent.shouldSkip()) {
             HotMobiLogger.getInstance(context).log(uploadLogEvent);
           }

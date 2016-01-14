@@ -1,4 +1,5 @@
 {
+  if (card == null)   return null;
   final String playerUrl=card.getString("player_url");
   if (playerUrl == null)   return null;
   return CardBrowserFragment.show(playerUrl);

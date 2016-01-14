@@ -1,0 +1,12 @@
+{
+  if (value == null) {
+    out.writeInt(-1);
+  }
+ else {
+    out.writeInt(value.size());
+    for (    Map.Entry<String,String> entry : value.entrySet()) {
+      out.writeString(entry.getKey());
+      out.writeString(entry.getValue());
+    }
+  }
+}

@@ -2,15 +2,19 @@
   final int itemType=getItemType(position);
 switch (itemType) {
 case ITEM_IDX_CONVERSATION:
-case ITEM_IDX_REPLY:
 {
       if (mData == null)       return null;
       return mData.get(position - getIndexStart(ITEM_IDX_CONVERSATION));
     }
+case ITEM_IDX_REPLY:
+{
+    if (mData == null || mReplyStart < 0)     return null;
+    return mData.get(position - getIndexStart(ITEM_IDX_CONVERSATION) - mItemCounts[ITEM_IDX_CONVERSATION]- mItemCounts[ITEM_IDX_STATUS] + mReplyStart);
+  }
 case ITEM_IDX_STATUS:
 {
-    return mStatus;
-  }
+  return mStatus;
+}
 }
 return null;
 }
