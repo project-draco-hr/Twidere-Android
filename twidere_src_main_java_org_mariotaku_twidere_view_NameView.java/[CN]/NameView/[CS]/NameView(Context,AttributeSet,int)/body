@@ -9,4 +9,9 @@
   mSecondaryTextStyle=new StyleSpan(a.getInt(R.styleable.NameView_nv_secondaryTextStyle,0));
   a.recycle();
   setNameFirst(true);
+  if (isInEditMode()) {
+    setName("Name");
+    setScreenName("@screenname");
+    updateText();
+  }
 }

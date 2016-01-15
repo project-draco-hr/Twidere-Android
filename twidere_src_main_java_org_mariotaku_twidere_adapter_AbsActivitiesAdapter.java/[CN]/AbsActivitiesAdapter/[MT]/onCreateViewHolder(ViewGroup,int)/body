@@ -21,8 +21,13 @@ case ITEM_VIEW_TYPE_STATUS:
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:
 {
     final View view;
-    view=mInflater.inflate(R.layout.card_item_activity_summary_compact,parent,false);
-    final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view);
+    if (mCompactCards) {
+      view=mInflater.inflate(R.layout.card_item_activity_summary_common,parent,false);
+    }
+ else {
+      view=mInflater.inflate(R.layout.card_item_activity_summary,parent,false);
+    }
+    final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view,mCompactCards);
     holder.setOnClickListeners();
     holder.setTextSize(getTextSize());
     return holder;

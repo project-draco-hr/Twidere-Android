@@ -71,6 +71,12 @@
   nameView.setScreenName("@" + status.user_screen_name);
   if (adapter.isProfileImageEnabled()) {
     profileImageView.setVisibility(View.VISIBLE);
+    if (profileImageSpace != null) {
+      profileImageSpace.setVisibility(View.VISIBLE);
+    }
+    if (statusInfoSpace != null) {
+      statusInfoSpace.setVisibility(View.VISIBLE);
+    }
     final String user_profile_image_url=status.user_profile_image_url;
     loader.displayProfileImage(profileImageView,user_profile_image_url);
     profileTypeView.setImageResource(getUserTypeIconRes(status.user_is_verified,status.user_is_protected));
@@ -79,6 +85,12 @@
  else {
     profileTypeView.setVisibility(View.GONE);
     profileImageView.setVisibility(View.GONE);
+    if (profileImageSpace != null) {
+      profileImageSpace.setVisibility(View.GONE);
+    }
+    if (statusInfoSpace != null) {
+      statusInfoSpace.setVisibility(View.GONE);
+    }
     loader.cancelDisplayTask(profileImageView);
     profileTypeView.setImageDrawable(null);
     profileTypeView.setVisibility(View.GONE);

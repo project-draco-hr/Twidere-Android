@@ -1,4 +1,8 @@
 {
+  final boolean shouldDisplayImages=adapter.isProfileImageEnabled();
+  profileImagesContainer.setVisibility(shouldDisplayImages ? View.VISIBLE : View.GONE);
+  profileImageSpace.setVisibility(shouldDisplayImages ? View.VISIBLE : View.GONE);
+  if (!shouldDisplayImages)   return;
   final MediaLoaderWrapper imageLoader=adapter.getMediaLoader();
   if (statuses == null) {
     for (    final ImageView view : profileImageViews) {
@@ -8,9 +12,6 @@
     return;
   }
   final int length=Math.min(profileImageViews.length,statuses.length);
-  final boolean shouldDisplayImages=adapter.isProfileImageEnabled();
-  profileImagesContainer.setVisibility(shouldDisplayImages ? View.VISIBLE : View.GONE);
-  if (!shouldDisplayImages)   return;
   for (int i=0, j=profileImageViews.length; i < j; i++) {
     final ImageView view=profileImageViews[i];
     view.setImageDrawable(null);

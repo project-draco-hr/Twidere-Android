@@ -12,6 +12,8 @@
   statusInfoIcon=(ImageView)itemView.findViewById(R.id.status_info_icon);
   statusInfoLabel=(TextView)itemView.findViewById(R.id.status_info_label);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
+  profileImageSpace=itemView.findViewById(R.id.profile_image_space);
+  statusInfoSpace=itemView.findViewById(R.id.status_info_space);
   mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);

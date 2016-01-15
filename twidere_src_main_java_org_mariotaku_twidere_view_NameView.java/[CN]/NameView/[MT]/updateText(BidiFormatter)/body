@@ -1,11 +1,10 @@
 {
-  if (isInEditMode())   return;
   final SpannableStringBuilder sb=new SpannableStringBuilder();
   final String primaryText=mNameFirst ? mName : mScreenName;
   final String secondaryText=mNameFirst ? mScreenName : mName;
   if (primaryText != null) {
     int start=sb.length();
-    if (formatter != null) {
+    if (formatter != null && !isInEditMode()) {
       sb.append(formatter.unicodeWrap(primaryText));
     }
  else {
@@ -19,7 +18,7 @@
   sb.append(" ");
   if (secondaryText != null) {
     int start=sb.length();
-    if (formatter != null) {
+    if (formatter != null && !isInEditMode()) {
       sb.append(formatter.unicodeWrap(secondaryText));
     }
  else {
