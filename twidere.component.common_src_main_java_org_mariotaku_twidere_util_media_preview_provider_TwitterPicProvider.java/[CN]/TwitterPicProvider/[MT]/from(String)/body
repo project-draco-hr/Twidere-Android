@@ -1,0 +1,16 @@
+{
+  Log.i("image viewer","from() called with: " + "link = [" + link + "]");
+  final Uri uri=Uri.parse(link);
+  final ParcelableMedia media=new ParcelableMedia();
+  media.type=ParcelableMedia.Type.TYPE_IMAGE;
+  media.url=link;
+  if (link.contains("profile")) {
+    media.preview_url=link;
+    media.media_url=link;
+  }
+ else {
+    media.preview_url=String.format(Locale.ROOT,"%s:medium",link);
+    media.media_url=String.format(Locale.ROOT,"%s:orig",link);
+  }
+  return media;
+}
