@@ -1,0 +1,9 @@
+String method
+String url
+String oauthNonce
+long timestamp
+String oauthToken
+String oauthTokenSecret
+MultiValueMap<String> queries
+MultiValueMap<Body> params
+String bodyType

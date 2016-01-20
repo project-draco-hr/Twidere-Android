@@ -1,0 +1,10 @@
+{
+  HashMap<String,String> extraHeaders=new HashMap<>();
+  for (  Pair<String,String> pair : response.getHeaders().toList()) {
+    if (StringUtils.startsWithIgnoreCase(pair.first,"X-Dnext")) {
+      extraHeaders.put(pair.first,pair.second);
+    }
+  }
+  setExtraHeaders(extraHeaders);
+  markEnd();
+}

@@ -8,7 +8,7 @@
     paging.setMaxId(mMaxId);
   }
   try {
-    return twitter.getScheduledStatusesList(paging,mStates);
+    return twitter.getScheduledStatuses(paging,mStates);
   }
  catch (  TwitterException e) {
     return null;

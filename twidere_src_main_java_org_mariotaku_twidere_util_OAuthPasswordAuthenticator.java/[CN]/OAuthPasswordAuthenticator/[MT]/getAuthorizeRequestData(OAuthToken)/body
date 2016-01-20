@@ -1,17 +1,17 @@
 {
-  RestHttpResponse response=null;
+  HttpResponse response=null;
   try {
     final AuthorizeRequestData data=new AuthorizeRequestData();
-    final RestHttpRequest.Builder authorizePageBuilder=new RestHttpRequest.Builder();
+    final HttpRequest.Builder authorizePageBuilder=new HttpRequest.Builder();
     authorizePageBuilder.method(GET.METHOD);
-    authorizePageBuilder.url(endpoint.construct("/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken())));
-    data.referer=Endpoint.constructUrl("https://api.twitter.com/oauth/authorize",Pair.create("oauth_token",requestToken.getOauthToken()));
-    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
-    requestHeaders.add(Pair.create("User-Agent",userAgent));
+    authorizePageBuilder.url(endpoint.construct("/oauth/authorize",new String[]{"oauth_token",requestToken.getOauthToken()}));
+    data.referer=Endpoint.constructUrl("https://api.twitter.com/oauth/authorize",new String[]{"oauth_token",requestToken.getOauthToken()});
+    final MultiValueMap<String> requestHeaders=new MultiValueMap<>();
+    requestHeaders.add("User-Agent",userAgent);
     authorizePageBuilder.headers(requestHeaders);
-    authorizePageBuilder.extra(RequestType.API);
-    final RestHttpRequest authorizePageRequest=authorizePageBuilder.build();
-    response=client.execute(authorizePageRequest);
+    authorizePageBuilder.tag(RequestType.API);
+    final HttpRequest authorizePageRequest=authorizePageBuilder.build();
+    response=client.newCall(authorizePageRequest).execute();
     parseAuthorizeRequestData(response,data);
     if (TextUtils.isEmpty(data.authenticityToken)) {
       throw new AuthenticationException();

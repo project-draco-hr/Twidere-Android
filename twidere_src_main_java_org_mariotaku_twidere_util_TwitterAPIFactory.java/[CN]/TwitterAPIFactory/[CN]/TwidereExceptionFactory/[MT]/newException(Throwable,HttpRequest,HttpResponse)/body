@@ -1,0 +1,11 @@
+{
+  final TwitterException te;
+  if (cause != null) {
+    te=new TwitterException(cause);
+  }
+ else {
+    te=TwitterConverterFactory.parseTwitterException(response);
+  }
+  te.setHttpResponse(response);
+  return te;
+}

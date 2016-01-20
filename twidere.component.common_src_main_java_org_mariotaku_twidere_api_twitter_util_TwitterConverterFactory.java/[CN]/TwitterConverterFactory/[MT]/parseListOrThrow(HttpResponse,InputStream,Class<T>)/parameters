@@ -1,0 +1,3 @@
+HttpResponse resp
+InputStream stream
+Class<T> elementCls

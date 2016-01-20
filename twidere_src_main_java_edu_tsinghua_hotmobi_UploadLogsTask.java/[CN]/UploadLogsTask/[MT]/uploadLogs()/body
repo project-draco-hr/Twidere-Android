@@ -14,22 +14,22 @@
     boolean succeeded=true;
     for (    Object logFileObj : ArrayUtils.nullToEmpty(dayLogsDir.listFiles())) {
       File logFile=(File)logFileObj;
-      FileTypedData body=null;
-      RestHttpResponse response=null;
+      FileBody body=null;
+      HttpResponse response=null;
       try {
-        final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
+        final HttpRequest.Builder builder=new HttpRequest.Builder();
         builder.method(POST.METHOD);
         builder.url("http://www.dnext.xyz/usage/upload");
-        final List<Pair<String,String>> headers=new ArrayList<>();
-        headers.add(Pair.create("X-HotMobi-UUID",uuid));
-        headers.add(Pair.create("X-HotMobi-Date",dayLogsDir.getName()));
-        headers.add(Pair.create("X-HotMobi-FileName",logFile.getName()));
-        headers.add(Pair.create("User-Agent",String.format(Locale.ROOT,"HotMobi (Twidere %s %d)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE)));
+        final MultiValueMap<String> headers=new MultiValueMap<>();
+        headers.add("X-HotMobi-UUID",uuid);
+        headers.add("X-HotMobi-Date",dayLogsDir.getName());
+        headers.add("X-HotMobi-FileName",logFile.getName());
+        headers.add("User-Agent",String.format(Locale.ROOT,"HotMobi (Twidere %s %d)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE));
         builder.headers(headers);
-        body=new FileTypedData(logFile);
+        body=new FileBody(logFile);
         builder.body(body);
         final UploadLogEvent uploadLogEvent=UploadLogEvent.create(context,logFile);
-        response=client.execute(builder.build());
+        response=client.newCall(builder.build()).execute();
         if (response.isSuccessful()) {
           uploadLogEvent.finish(response);
           if (!uploadLogEvent.shouldSkip()) {

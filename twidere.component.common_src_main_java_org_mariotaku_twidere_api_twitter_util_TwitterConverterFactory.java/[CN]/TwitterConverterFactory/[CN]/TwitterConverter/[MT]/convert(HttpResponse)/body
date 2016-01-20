@@ -1,0 +1,15 @@
+{
+  try {
+    final Body body=httpResponse.getBody();
+    final InputStream stream=body.stream();
+    final Object object=parseOrThrow(httpResponse,stream,type);
+    checkResponse(type,object,httpResponse);
+    if (object instanceof TwitterResponseObject) {
+      ((TwitterResponseObject)object).processResponseHeader(httpResponse);
+    }
+    return object;
+  }
+ catch (  TwitterException e) {
+    throw new IOException(e);
+  }
+}

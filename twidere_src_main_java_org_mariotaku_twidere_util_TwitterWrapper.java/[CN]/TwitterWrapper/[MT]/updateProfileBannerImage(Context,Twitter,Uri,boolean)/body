@@ -2,7 +2,7 @@
   InputStream is=null;
   try {
     is=context.getContentResolver().openInputStream(imageUri);
-    twitter.updateProfileBannerImage(new FileTypedData(is,"image",-1,null));
+    twitter.updateProfileBannerImage(new FileBody(is,"image",-1,null));
   }
   finally {
     Utils.closeSilently(is);

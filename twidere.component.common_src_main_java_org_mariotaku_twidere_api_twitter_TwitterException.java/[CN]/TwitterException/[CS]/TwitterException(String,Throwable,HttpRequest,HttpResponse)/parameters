@@ -1,0 +1,4 @@
+String message
+Throwable cause
+HttpRequest req
+HttpResponse res

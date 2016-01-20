@@ -1,0 +1,32 @@
+{
+  if (!(endpoint instanceof OAuthEndpoint))   throw new IllegalArgumentException("OAuthEndpoint required");
+  final Map<String,Object> extras=request.getExtras();
+  final String oauthToken, oauthTokenSecret;
+  if (this.oauthToken != null) {
+    oauthToken=this.oauthToken.getOauthToken();
+    oauthTokenSecret=this.oauthToken.getOauthTokenSecret();
+  }
+ else {
+    oauthToken=(String)extras.get("oauth_token");
+    oauthTokenSecret=(String)extras.get("oauth_token_secret");
+  }
+  final OAuthEndpoint oauthEndpoint=(OAuthEndpoint)endpoint;
+  final String method=request.getMethod();
+  final String url=Endpoint.constructUrl(oauthEndpoint.getSignUrl(),request);
+  final MultiValueMap<String> queries=request.getQueries();
+  final MultiValueMap<Body> params=request.getParams();
+  final List<Pair<String,String>> encodeParams=generateOAuthParams(oauthToken,oauthTokenSecret,method,url,queries,params,request.getBodyType());
+  final StringBuilder headerBuilder=new StringBuilder();
+  headerBuilder.append("OAuth ");
+  for (int i=0, j=encodeParams.size(); i < j; i++) {
+    if (i != 0) {
+      headerBuilder.append(", ");
+    }
+    final Pair<String,String> keyValuePair=encodeParams.get(i);
+    headerBuilder.append(keyValuePair.first);
+    headerBuilder.append("=\"");
+    headerBuilder.append(keyValuePair.second);
+    headerBuilder.append('\"');
+  }
+  return headerBuilder.toString();
+}

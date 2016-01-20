@@ -1,0 +1,7 @@
+{
+  RestConverter<HttpResponse,?> converter=sResponseConverters.get(type);
+  if (converter != null) {
+    return converter;
+  }
+  return new TwitterConverter(type);
+}

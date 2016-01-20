@@ -1,5 +1,4 @@
 {
-  final ApplicationModule module=getApplicationModule();
-  module.onLowMemory();
+  final DependencyHolder holder=DependencyHolder.get(this);
   super.onLowMemory();
 }

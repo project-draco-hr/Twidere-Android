@@ -30,7 +30,7 @@
     versionSuffix=null;
   }
  else {
-    throw new TwitterConverter.UnsupportedTypeException(cls);
+    throw new TwitterConverterFactory.UnsupportedTypeException(cls);
   }
   final String endpointUrl;
   endpointUrl=getApiUrl(apiUrlFormat,domain,versionSuffix);

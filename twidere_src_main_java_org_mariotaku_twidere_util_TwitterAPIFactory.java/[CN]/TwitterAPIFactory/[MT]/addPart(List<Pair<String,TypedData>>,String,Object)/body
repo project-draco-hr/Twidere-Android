@@ -1,4 +1,0 @@
-{
-  final TypedData typedData=new StringTypedData(String.valueOf(value),Charset.defaultCharset());
-  params.add(Pair.create(name,typedData));
-}

@@ -1,30 +1,31 @@
 {
-  List<Pair<String,String>> params=new ArrayList<>();
-  Utils.parseGetParameters(body,params,charset.name());
-  for (  Pair<String,String> param : params) {
-switch (param.first) {
+  Utils.parseQuery(body,charset.name(),new Utils.KeyValueConsumer(){
+    @Override public void consume(    String key,    String value){
+switch (key) {
 case "oauth_token":
 {
-        oauthToken=param.second;
-        break;
-      }
+          oauthToken=value;
+          break;
+        }
 case "oauth_token_secret":
 {
-      oauthTokenSecret=param.second;
-      break;
-    }
+        oauthTokenSecret=value;
+        break;
+      }
 case "user_id":
 {
-    userId=Long.parseLong(param.second);
-    break;
-  }
+      userId=Long.parseLong(value);
+      break;
+    }
 case "screen_name":
 {
-  screenName=param.second;
-  break;
+    screenName=value;
+    break;
+  }
 }
 }
 }
+);
 if (oauthToken == null || oauthTokenSecret == null) {
 throw new ParseException("Unable to parse request token",-1);
 }

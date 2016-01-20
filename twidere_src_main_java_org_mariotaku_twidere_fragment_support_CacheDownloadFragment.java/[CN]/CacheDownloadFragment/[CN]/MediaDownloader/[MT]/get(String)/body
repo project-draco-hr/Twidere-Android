@@ -1,6 +1,6 @@
 {
-  final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
+  final HttpRequest.Builder builder=new HttpRequest.Builder();
   builder.method(GET.METHOD);
   builder.url(url);
-  return mRestHttpClient.execute(builder.build()).getBody().stream();
+  return mRestHttpClient.newCall(builder.build()).execute().getBody().stream();
 }

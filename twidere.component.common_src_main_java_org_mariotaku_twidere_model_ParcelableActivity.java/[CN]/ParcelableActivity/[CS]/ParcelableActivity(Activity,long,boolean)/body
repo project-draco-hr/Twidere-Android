@@ -1,7 +1,7 @@
 {
   this.account_id=accountId;
   timestamp=activity.getCreatedAt().getTime();
-  action=activity.getRawAction();
+  action=activity.getAction();
   max_position=activity.getMaxPosition();
   min_position=activity.getMinPosition();
   sources=ParcelableUser.fromUsers(activity.getSources(),accountId);

@@ -1,0 +1,5 @@
+{
+  updateHttpClientConfiguration(context,prefs,client);
+  DebugModeUtils.initForHttpClient(client);
+  NetworkUsageUtils.initForHttpClient(context,client);
+}

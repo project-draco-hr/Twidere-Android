@@ -1,10 +1,10 @@
 {
   if (ex instanceof TwitterException) {
     Log.w(LOGTAG,String.format("Error %d",((TwitterException)ex).getStatusCode()),ex);
-    final RestHttpResponse response=((TwitterException)ex).getHttpResponse();
+    final HttpResponse response=((TwitterException)ex).getHttpResponse();
     if (response != null) {
       try {
-        final TypedData body=response.getBody();
+        final Body body=response.getBody();
         if (body != null) {
           final ByteArrayOutputStream os=new ByteArrayOutputStream();
           body.writeTo(os);

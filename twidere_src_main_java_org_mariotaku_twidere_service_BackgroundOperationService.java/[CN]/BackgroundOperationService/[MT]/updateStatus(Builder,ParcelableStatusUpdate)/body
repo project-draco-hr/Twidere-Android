@@ -100,7 +100,7 @@
  else {
               contentType=ContentType.parse(o.outMimeType);
             }
-            final MediaUploadResponse uploadResp=upload.uploadMedia(new FileTypedData(is,file.getName(),file.length(),contentType));
+            final MediaUploadResponse uploadResp=upload.uploadMedia(new FileBody(is,file.getName(),file.length(),contentType));
             mediaIds[i]=uploadResp.getId();
           }
         }

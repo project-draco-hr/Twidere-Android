@@ -1,0 +1,21 @@
+{
+  final Body body=response.getBody();
+  try {
+    final ContentType contentType=body.contentType();
+    final ByteArrayOutputStream os=new ByteArrayOutputStream();
+    body.writeTo(os);
+    Charset charset=contentType != null ? contentType.getCharset() : null;
+    if (charset == null) {
+      charset=Charset.defaultCharset();
+    }
+    try {
+      return new OAuthToken(os.toString(charset.name()),charset);
+    }
+ catch (    ParseException e) {
+      throw new IOException(e);
+    }
+  }
+  finally {
+    Utils.closeSilently(body);
+  }
+}

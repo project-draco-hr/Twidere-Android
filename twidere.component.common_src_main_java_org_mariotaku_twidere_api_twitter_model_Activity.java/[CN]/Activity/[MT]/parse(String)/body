@@ -1,6 +1,0 @@
-{
-  for (  Action action : values()) {
-    if (StringUtils.equalsIgnoreCase(action.literal,string))     return action;
-  }
-  return UNKNOWN;
-}

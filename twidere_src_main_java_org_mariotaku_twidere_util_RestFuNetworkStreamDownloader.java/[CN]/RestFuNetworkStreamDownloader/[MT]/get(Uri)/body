@@ -1,12 +1,12 @@
 {
   final RestHttpClient client=TwitterAPIFactory.getDefaultHttpClient(getContext());
-  final RestHttpRequest.Builder builder=new RestHttpRequest.Builder();
+  final HttpRequest.Builder builder=new HttpRequest.Builder();
   builder.method(GET.METHOD);
   builder.url(uri.toString());
-  builder.extra(RequestType.MEDIA);
-  final RestHttpResponse response=client.execute(builder.build());
+  builder.tag(RequestType.MEDIA);
+  final HttpResponse response=client.newCall(builder.build()).execute();
   if (response.isSuccessful()) {
-    final TypedData body=response.getBody();
+    final Body body=response.getBody();
     final ContentType contentType=body.contentType();
     return DownloadResult.get(body.stream(),contentType != null ? contentType.getContentType() : "image/*");
   }

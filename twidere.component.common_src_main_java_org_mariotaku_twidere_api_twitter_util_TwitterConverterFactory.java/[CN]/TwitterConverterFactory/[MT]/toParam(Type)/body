@@ -1,0 +1,7 @@
+{
+  final RestConverter<?,Body> converter=sBodyConverters.get(type);
+  if (converter != null) {
+    return converter;
+  }
+  return super.toParam(type);
+}

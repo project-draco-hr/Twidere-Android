@@ -16,12 +16,13 @@
     userAgent=getTwidereUserAgent(context);
   }
   DependencyHolder holder=DependencyHolder.get(context);
-  factory.setClient(holder.getRestHttpClient());
-  factory.setConverter(new TwitterConverter());
+  factory.setHttpClient(holder.getRestHttpClient());
+  final TwitterConverterFactory restConverterFactory=new TwitterConverterFactory();
+  factory.setRestConverterFactory(restConverterFactory);
   factory.setEndpoint(endpoint);
   factory.setAuthorization(auth);
-  factory.setRequestInfoFactory(new TwidereRequestInfoFactory(extraRequestParams));
   factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
+  factory.setConstantPool(sConstantPoll);
   factory.setExceptionFactory(new TwidereExceptionFactory());
   return factory.build(cls);
 }

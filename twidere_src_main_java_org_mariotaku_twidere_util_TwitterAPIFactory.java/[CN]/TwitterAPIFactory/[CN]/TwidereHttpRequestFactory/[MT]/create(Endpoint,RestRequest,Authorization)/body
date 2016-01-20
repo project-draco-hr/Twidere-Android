@@ -1,0 +1,13 @@
+{
+  final String restMethod=info.getMethod();
+  final String url=Endpoint.constructUrl(endpoint.getUrl(),info);
+  MultiValueMap<String> headers=info.getHeaders();
+  if (headers == null) {
+    headers=new MultiValueMap<>();
+  }
+  if (authorization != null && authorization.hasAuthorization()) {
+    headers.add("Authorization",authorization.getHeader(endpoint,info));
+  }
+  headers.add("User-Agent",userAgent);
+  return new HttpRequest(restMethod,url,headers,info.getBody(),RequestType.API);
+}

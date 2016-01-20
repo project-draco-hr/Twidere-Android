@@ -1,26 +1,26 @@
 {
-  RestHttpResponse response=null;
+  HttpResponse response=null;
   try {
     final AuthorizeResponseData data=new AuthorizeResponseData();
-    final List<Pair<String,String>> params=new ArrayList<>();
-    params.add(Pair.create("oauth_token",requestToken.getOauthToken()));
-    params.add(Pair.create("authenticity_token",authorizeRequestData.authenticityToken));
-    params.add(Pair.create("redirect_after_login",authorizeRequestData.redirectAfterLogin));
+    final MultiValueMap<String> params=new MultiValueMap<>();
+    params.add("oauth_token",requestToken.getOauthToken());
+    params.add("authenticity_token",authorizeRequestData.authenticityToken);
+    params.add("redirect_after_login",authorizeRequestData.redirectAfterLogin);
     if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-      params.add(Pair.create("session[username_or_email]",username));
-      params.add(Pair.create("session[password]",password));
+      params.add("session[username_or_email]",username);
+      params.add("session[password]",password);
     }
-    final FormTypedBody authorizationResultBody=new FormTypedBody(params);
-    final ArrayList<Pair<String,String>> requestHeaders=new ArrayList<>();
-    requestHeaders.add(Pair.create("User-Agent",userAgent));
+    final FormBody authorizationResultBody=new FormBody(params);
+    final MultiValueMap<String> requestHeaders=new MultiValueMap<>();
+    requestHeaders.add("User-Agent",userAgent);
     data.referer=authorizeRequestData.referer;
-    final RestHttpRequest.Builder authorizeResultBuilder=new RestHttpRequest.Builder();
+    final HttpRequest.Builder authorizeResultBuilder=new HttpRequest.Builder();
     authorizeResultBuilder.method(POST.METHOD);
     authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
     authorizeResultBuilder.headers(requestHeaders);
     authorizeResultBuilder.body(authorizationResultBody);
-    authorizeResultBuilder.extra(RequestType.API);
-    response=client.execute(authorizeResultBuilder.build());
+    authorizeResultBuilder.tag(RequestType.API);
+    response=client.newCall(authorizeResultBuilder.build()).execute();
     final HtmlParsingConfiguration conf=new HtmlParsingConfiguration();
     final IAttoHandler handler=new AbstractStandardNonValidatingHtmlAttoHandler(conf){
       boolean isOAuthPinDivOpened;
@@ -121,7 +121,7 @@ data.oauthPin=s;
 }
 }
 ;
-PARSER.parse(BaseTypedData.reader(response.getBody()),handler);
+PARSER.parse(BaseBody.reader(response.getBody()),handler);
 return data;
 }
  catch (AttoParseException e) {

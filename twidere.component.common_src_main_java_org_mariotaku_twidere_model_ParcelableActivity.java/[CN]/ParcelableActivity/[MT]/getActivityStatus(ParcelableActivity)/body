@@ -1,11 +1,11 @@
 {
-  if (Activity.Action.MENTION.literal.equals(activity.action)) {
+  if (Activity.Action.MENTION.equals(activity.action)) {
     return activity.target_object_statuses[0];
   }
- else   if (Activity.Action.REPLY.literal.equals(activity.action)) {
+ else   if (Activity.Action.REPLY.equals(activity.action)) {
     return activity.target_statuses[0];
   }
- else   if (Activity.Action.QUOTE.literal.equals(activity.action)) {
+ else   if (Activity.Action.QUOTE.equals(activity.action)) {
     return activity.target_statuses[0];
   }
   return null;
