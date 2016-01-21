@@ -1,0 +1,4 @@
+{
+  mMouseScrollDirectionDecider.detach();
+  super.onDetachedFromWindow();
+}

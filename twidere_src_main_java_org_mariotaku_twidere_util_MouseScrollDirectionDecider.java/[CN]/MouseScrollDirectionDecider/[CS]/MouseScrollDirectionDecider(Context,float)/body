@@ -1,5 +1,0 @@
-{
-  this.factor=factor;
-  this.verticalView=new InternalScrollView(context,this);
-  this.horizontalView=new InternalHorizontalScrollView(context,this);
-}

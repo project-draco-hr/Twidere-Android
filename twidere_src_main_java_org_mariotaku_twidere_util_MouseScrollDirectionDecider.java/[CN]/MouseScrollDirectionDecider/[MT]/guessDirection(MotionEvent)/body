@@ -1,4 +1,5 @@
 {
+  if (verticalView == null || horizontalView == null)   return false;
   if ((event.getSource() & InputDevice.SOURCE_CLASS_POINTER) == 0) {
     return false;
   }

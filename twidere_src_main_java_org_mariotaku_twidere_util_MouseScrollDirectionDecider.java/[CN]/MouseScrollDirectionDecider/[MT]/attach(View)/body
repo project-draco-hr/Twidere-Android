@@ -1,0 +1,5 @@
+{
+  final Context context=view.getContext();
+  verticalView=new InternalScrollView(context,this);
+  horizontalView=new InternalHorizontalScrollView(context,this);
+}

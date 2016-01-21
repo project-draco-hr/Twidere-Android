@@ -2,6 +2,8 @@
   mErrorContainer.setVisibility(View.VISIBLE);
   mProgressContainer.setVisibility(View.GONE);
   mSwipeRefreshLayout.setVisibility(View.GONE);
-  mErrorIconView.setImageResource(icon);
-  mErrorTextView.setText(text);
+  final ImageView errorIconView=(ImageView)mErrorContainer.findViewById(R.id.error_icon);
+  final TextView errorTextView=(TextView)mErrorContainer.findViewById(R.id.error_text);
+  errorIconView.setImageResource(icon);
+  errorTextView.setText(text);
 }

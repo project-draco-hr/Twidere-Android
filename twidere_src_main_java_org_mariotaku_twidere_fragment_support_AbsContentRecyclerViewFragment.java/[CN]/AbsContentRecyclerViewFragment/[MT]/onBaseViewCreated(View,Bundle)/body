@@ -4,6 +4,4 @@
   mSwipeRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipe_layout);
   mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
   mErrorContainer=view.findViewById(R.id.error_container);
-  mErrorIconView=(ImageView)view.findViewById(R.id.error_icon);
-  mErrorTextView=(TextView)view.findViewById(R.id.error_text);
 }

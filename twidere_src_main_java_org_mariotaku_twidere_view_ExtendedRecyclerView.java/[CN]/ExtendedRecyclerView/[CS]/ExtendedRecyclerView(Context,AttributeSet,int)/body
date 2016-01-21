@@ -1,4 +1,4 @@
 {
   super(context,attrs,defStyle);
-  mMouseScrollDirectionDecider=new MouseScrollDirectionDecider(context,getScrollFactorBackport());
+  mMouseScrollDirectionDecider=new MouseScrollDirectionDecider(getScrollFactorBackport());
 }
