@@ -26,6 +26,8 @@
     quoted_timestamp=quoted.getCreatedAt().getTime();
     quoted_source=quoted.getSource();
     quoted_media=ParcelableMedia.fromStatus(quoted);
+    quoted_location=ParcelableLocation.fromGeoLocation(quoted.getGeoLocation());
+    quoted_place_full_name=getPlaceFullName(quoted.getPlace());
     quoted_user_id=quoted_user.getId();
     quoted_user_name=quoted_user.getName();
     quoted_user_screen_name=quoted_user.getScreenName();
