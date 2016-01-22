@@ -1,0 +1,31 @@
+{
+  StatusViewHolder holder=holderRef.get();
+  if (holder == null)   return;
+  StatusClickListener listener=holder.statusClickListener;
+  if (listener == null)   return;
+  final int position=holder.getLayoutPosition();
+switch (v.getId()) {
+case R.id.item_content:
+{
+      listener.onStatusClick(holder,position);
+      break;
+    }
+case R.id.item_menu:
+{
+    listener.onItemMenuClick(holder,v,position);
+    break;
+  }
+case R.id.profile_image:
+{
+  listener.onUserProfileClick(holder,position);
+  break;
+}
+case R.id.reply_count:
+case R.id.retweet_count:
+case R.id.favorite_count:
+{
+listener.onItemActionClick(holder,v.getId(),position);
+break;
+}
+}
+}

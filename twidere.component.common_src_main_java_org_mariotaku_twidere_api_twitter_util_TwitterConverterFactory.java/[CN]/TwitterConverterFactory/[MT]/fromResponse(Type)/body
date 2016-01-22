@@ -1,5 +1,5 @@
 {
-  RestConverter<HttpResponse,?> converter=sResponseConverters.get(type);
+  RestConverter<HttpResponse,?,TwitterException> converter=sResponseConverters.get(type);
   if (converter != null) {
     return converter;
   }

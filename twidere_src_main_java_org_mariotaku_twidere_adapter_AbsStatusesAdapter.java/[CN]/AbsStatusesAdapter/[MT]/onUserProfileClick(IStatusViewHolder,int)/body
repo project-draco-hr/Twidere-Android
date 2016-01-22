@@ -1,6 +1,0 @@
-{
-  if (mStatusAdapterListener == null)   return;
-  final ParcelableStatus status=getStatus(position);
-  if (status == null)   return;
-  mStatusAdapterListener.onUserProfileClick(holder,status,position);
-}

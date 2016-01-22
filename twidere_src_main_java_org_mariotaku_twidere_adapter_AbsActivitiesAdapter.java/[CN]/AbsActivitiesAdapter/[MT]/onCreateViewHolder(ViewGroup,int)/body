@@ -15,7 +15,7 @@ case ITEM_VIEW_TYPE_STATUS:
       }
       final StatusViewHolder holder=new StatusViewHolder(mStatusAdapterDelegate,view);
       holder.setupViewOptions();
-      holder.setStatusClickListener(this);
+      holder.setStatusClickListener(mEventListener);
       return holder;
     }
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:

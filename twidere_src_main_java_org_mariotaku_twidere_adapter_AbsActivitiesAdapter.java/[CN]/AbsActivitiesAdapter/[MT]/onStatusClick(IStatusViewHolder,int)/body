@@ -1,5 +1,0 @@
-{
-  if (mActivityAdapterListener != null) {
-    mActivityAdapterListener.onStatusClick(holder,position);
-  }
-}

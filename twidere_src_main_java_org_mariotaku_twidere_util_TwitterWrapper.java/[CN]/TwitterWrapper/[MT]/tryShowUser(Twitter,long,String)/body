@@ -3,7 +3,7 @@
     return showUser(twitter,id,screenName);
   }
  catch (  final TwitterException e) {
-    if (e.getCause() instanceof IOException)     throw e;
+    if (e.isCausedByNetworkIssue())     throw e;
   }
   return showUserAlternative(twitter,id,screenName);
 }

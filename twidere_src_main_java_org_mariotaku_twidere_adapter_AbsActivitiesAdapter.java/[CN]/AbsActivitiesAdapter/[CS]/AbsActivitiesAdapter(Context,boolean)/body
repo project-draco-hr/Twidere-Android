@@ -4,6 +4,7 @@
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mInflater=LayoutInflater.from(context);
   mLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
+  mEventListener=new EventListener(this);
   mCompactCards=compact;
   mStatusAdapterDelegate.updateOptions();
 }

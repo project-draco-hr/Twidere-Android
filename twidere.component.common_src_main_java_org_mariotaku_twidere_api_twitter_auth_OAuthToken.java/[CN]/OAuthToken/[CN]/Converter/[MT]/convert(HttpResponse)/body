@@ -12,7 +12,7 @@
       return new OAuthToken(os.toString(charset.name()),charset);
     }
  catch (    ParseException e) {
-      throw new IOException(e);
+      throw new ConvertException(e);
     }
   }
   finally {

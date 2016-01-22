@@ -1,5 +1,5 @@
 {
-  final RestAPIFactory factory=new RestAPIFactory();
+  final RestAPIFactory<TwitterException> factory=new RestAPIFactory<>();
   final String userAgent;
   if (auth instanceof OAuthAuthorization) {
     final String consumerKey=((OAuthAuthorization)auth).getConsumerKey();
@@ -17,12 +17,11 @@
   }
   DependencyHolder holder=DependencyHolder.get(context);
   factory.setHttpClient(holder.getRestHttpClient());
-  final TwitterConverterFactory restConverterFactory=new TwitterConverterFactory();
-  factory.setRestConverterFactory(restConverterFactory);
-  factory.setEndpoint(endpoint);
   factory.setAuthorization(auth);
-  factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
+  factory.setEndpoint(endpoint);
   factory.setConstantPool(sConstantPoll);
+  factory.setRestConverterFactory(new TwitterConverterFactory());
+  factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
   factory.setExceptionFactory(new TwidereExceptionFactory());
   return factory.build(cls);
 }

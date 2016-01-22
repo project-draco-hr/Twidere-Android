@@ -1,0 +1,3 @@
+{
+  this.holderRef=new WeakReference<>(holder);
+}

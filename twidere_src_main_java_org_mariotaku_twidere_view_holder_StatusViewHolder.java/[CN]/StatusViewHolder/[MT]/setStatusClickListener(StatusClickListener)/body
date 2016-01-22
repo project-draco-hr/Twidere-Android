@@ -1,10 +1,10 @@
 {
   statusClickListener=listener;
-  ((View)itemContent).setOnClickListener(this);
-  ((View)itemContent).setOnLongClickListener(this);
-  itemMenu.setOnClickListener(this);
-  profileImageView.setOnClickListener(this);
-  replyCountView.setOnClickListener(this);
-  retweetCountView.setOnClickListener(this);
-  favoriteCountView.setOnClickListener(this);
+  ((View)itemContent).setOnClickListener(eventListener);
+  ((View)itemContent).setOnLongClickListener(eventListener);
+  itemMenu.setOnClickListener(eventListener);
+  profileImageView.setOnClickListener(eventListener);
+  replyCountView.setOnClickListener(eventListener);
+  retweetCountView.setOnClickListener(eventListener);
+  favoriteCountView.setOnClickListener(eventListener);
 }

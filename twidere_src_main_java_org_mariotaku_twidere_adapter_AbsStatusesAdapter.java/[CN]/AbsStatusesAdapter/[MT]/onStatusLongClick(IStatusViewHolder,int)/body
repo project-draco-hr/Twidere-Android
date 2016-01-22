@@ -1,3 +1,0 @@
-{
-  return mStatusAdapterListener != null && mStatusAdapterListener.onStatusLongClick(holder,position);
-}

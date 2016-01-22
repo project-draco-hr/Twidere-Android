@@ -1,3 +1,5 @@
 {
-  adapter.onGapClick(this,getLayoutPosition());
+  final IGapSupportedAdapter.GapClickListener listener=adapter.getGapClickListener();
+  if (listener == null)   return;
+  listener.onGapClick(this,getLayoutPosition());
 }

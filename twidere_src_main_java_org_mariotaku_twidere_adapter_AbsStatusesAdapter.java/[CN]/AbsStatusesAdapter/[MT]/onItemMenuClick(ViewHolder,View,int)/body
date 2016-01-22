@@ -1,4 +1,0 @@
-{
-  if (mStatusAdapterListener == null)   return;
-  mStatusAdapterListener.onStatusMenuClick((IStatusViewHolder)holder,menuView,position);
-}

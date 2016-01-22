@@ -1,4 +1,0 @@
-{
-  if (mStatusAdapterListener == null)   return;
-  mStatusAdapterListener.onStatusClick(holder,position);
-}

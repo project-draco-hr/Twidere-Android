@@ -1,5 +1,5 @@
 {
-  final RestConverter<?,Body> converter=sBodyConverters.get(type);
+  final RestConverter<?,Body,TwitterException> converter=sBodyConverters.get(type);
   if (converter != null) {
     return converter;
   }

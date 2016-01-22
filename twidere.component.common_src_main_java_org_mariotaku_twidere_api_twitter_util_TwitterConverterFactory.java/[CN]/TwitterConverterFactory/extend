@@ -1,1 +1,1 @@
-RestConverter.SimpleFactory
+RestConverter.SimpleFactory<TwitterException>

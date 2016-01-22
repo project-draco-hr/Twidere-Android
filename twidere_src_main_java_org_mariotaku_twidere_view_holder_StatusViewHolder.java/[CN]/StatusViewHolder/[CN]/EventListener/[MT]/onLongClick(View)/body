@@ -1,0 +1,14 @@
+{
+  StatusViewHolder holder=holderRef.get();
+  if (holder == null)   return false;
+  StatusClickListener listener=holder.statusClickListener;
+  if (listener == null)   return false;
+  final int position=holder.getLayoutPosition();
+switch (v.getId()) {
+case R.id.item_content:
+{
+      return listener.onStatusLongClick(holder,position);
+    }
+}
+return false;
+}

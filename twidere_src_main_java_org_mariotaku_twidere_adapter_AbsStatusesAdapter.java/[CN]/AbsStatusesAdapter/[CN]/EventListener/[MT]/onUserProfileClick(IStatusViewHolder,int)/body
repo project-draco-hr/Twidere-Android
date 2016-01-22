@@ -1,0 +1,9 @@
+{
+  final IStatusesAdapter<?> adapter=adapterRef.get();
+  if (adapter == null)   return;
+  final StatusAdapterListener listener=adapter.getStatusAdapterListener();
+  if (listener == null)   return;
+  final ParcelableStatus status=adapter.getStatus(position);
+  if (status == null)   return;
+  listener.onUserProfileClick(holder,status,position);
+}
