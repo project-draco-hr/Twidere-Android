@@ -1,0 +1,25 @@
+{
+switch (ev.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+{
+      final float x=ev.getRawX(), y=ev.getRawY();
+      if (isAccountSelectorVisible()) {
+        if (!TwidereViewUtils.hitView(x,y,mAccountSelectorButton)) {
+          for (int i=0, j=mAccountSelector.getChildCount(); i < j; i++) {
+            if (TwidereViewUtils.hitView(x,y,mAccountSelector.getChildAt(i))) {
+              break;
+            }
+          }
+          setAccountSelectorVisible(false);
+          return true;
+        }
+      }
+ else       if (!TwidereViewUtils.hitView(x,y,getWindow().getDecorView())) {
+        onBackPressed();
+        return true;
+      }
+      break;
+    }
+}
+return super.dispatchTouchEvent(ev);
+}

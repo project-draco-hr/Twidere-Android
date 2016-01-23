@@ -1,0 +1,4 @@
+{
+  this.mActivity=new WeakReference<>(activity);
+  this.mMedia=media;
+}

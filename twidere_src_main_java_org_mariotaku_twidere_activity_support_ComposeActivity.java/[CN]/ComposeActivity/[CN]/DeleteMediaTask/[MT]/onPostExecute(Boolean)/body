@@ -1,0 +1,10 @@
+{
+  final ComposeActivity activity=mActivity.get();
+  if (activity == null)   return;
+  activity.setProgressVisible(false);
+  activity.removeAllMedia(Arrays.asList(mMedia));
+  activity.setMenu();
+  if (!result) {
+    Toast.makeText(activity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
+  }
+}

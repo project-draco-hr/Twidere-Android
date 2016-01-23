@@ -23,7 +23,7 @@ break;
 }
 case R.id.delete:
 {
-AsyncTaskUtils.executeTask(new DeleteImageTask(this));
+AsyncTaskUtils.executeTask(new DeleteMediaTask(this));
 break;
 }
 case R.id.toggle_sensitive:

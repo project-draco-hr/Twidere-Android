@@ -1,0 +1,5 @@
+{
+  super(itemView);
+  itemView.setOnLongClickListener(this);
+  image=(ImageView)itemView.findViewById(R.id.image);
+}

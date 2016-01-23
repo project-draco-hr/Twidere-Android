@@ -1,5 +1,5 @@
 ComposeActivity activity
 Uri src
 Uri dst
-int media_type
-boolean delete_src
+int mediaType
+boolean deleteSrc

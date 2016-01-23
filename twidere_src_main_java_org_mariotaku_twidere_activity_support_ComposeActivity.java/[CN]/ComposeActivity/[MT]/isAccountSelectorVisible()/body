@@ -1,0 +1,3 @@
+{
+  return mAccountSelectorContainer.getVisibility() == View.VISIBLE;
+}

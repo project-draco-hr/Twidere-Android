@@ -1,4 +1,6 @@
 {
-  mActivity.setProgressVisible(false);
-  mActivity.finish();
+  final ComposeActivity activity=mActivity.get();
+  if (activity == null)   return;
+  activity.setProgressVisible(false);
+  activity.finish();
 }

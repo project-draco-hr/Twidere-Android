@@ -1,4 +1,6 @@
 {
+  final ComposeActivity activity=this.mActivityRef.get();
+  if (activity == null)   return false;
   InputStream is=null;
   OutputStream os=null;
   try {
@@ -6,7 +8,7 @@
     is=resolver.openInputStream(src);
     os=resolver.openOutputStream(dst);
     Utils.copyStream(is,os);
-    if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && delete_src) {
+    if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && mDeleteSrc) {
       final File file=new File(src.getPath());
       if (!file.delete()) {
         Log.d(LOGTAG,String.format("Unable to delete %s",file));

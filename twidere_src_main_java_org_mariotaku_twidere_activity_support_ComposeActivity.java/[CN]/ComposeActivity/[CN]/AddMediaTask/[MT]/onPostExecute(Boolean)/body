@@ -1,6 +1,8 @@
 {
+  final ComposeActivity activity=mActivityRef.get();
+  if (activity == null)   return;
   activity.setProgressVisible(false);
-  activity.addMedia(new ParcelableMediaUpdate(dst.toString(),media_type));
+  activity.addMedia(new ParcelableMediaUpdate(dst.toString(),mMediaType));
   activity.setMenu();
   activity.updateTextCount();
   if (!result) {

@@ -1,4 +1,0 @@
-{
-  this.mActivity=activity;
-  this.mMedia=media;
-}

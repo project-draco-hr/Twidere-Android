@@ -1,6 +1,0 @@
-{
-  super(itemView);
-  this.adapter=adapter;
-  itemView.setOnLongClickListener(this);
-  image=(ImageView)itemView.findViewById(R.id.image);
-}

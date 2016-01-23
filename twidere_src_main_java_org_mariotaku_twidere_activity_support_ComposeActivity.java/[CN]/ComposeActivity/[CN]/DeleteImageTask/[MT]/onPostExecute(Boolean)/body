@@ -1,8 +1,0 @@
-{
-  mActivity.setProgressVisible(false);
-  mActivity.removeAllMedia(Arrays.asList(mMedia));
-  mActivity.setMenu();
-  if (!result) {
-    Toast.makeText(mActivity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
-  }
-}

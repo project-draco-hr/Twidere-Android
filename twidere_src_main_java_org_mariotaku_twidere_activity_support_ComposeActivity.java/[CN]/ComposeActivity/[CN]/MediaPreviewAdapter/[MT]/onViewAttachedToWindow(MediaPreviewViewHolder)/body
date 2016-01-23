@@ -1,0 +1,4 @@
+{
+  super.onViewAttachedToWindow(holder);
+  holder.setAdapter(this);
+}

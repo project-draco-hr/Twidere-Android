@@ -1,3 +1,3 @@
 {
-  return TwidereMathUtils.inRangeInclusiveInclusive(codePoint,0x1f1e6,0x1f1ff);
+  return TwidereMathUtils.inRange(codePoint,0x1f1e6,0x1f1ff,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE);
 }

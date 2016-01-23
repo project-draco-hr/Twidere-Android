@@ -1,5 +1,5 @@
 {
   super(activity);
   mInflater=LayoutInflater.from(activity);
-  mDragStartListener=dragStartListener;
+  mDragStartListener=listener;
 }

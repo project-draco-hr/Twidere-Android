@@ -1,0 +1,3 @@
+{
+  return ((flag & MASK_LEFT_BOUND) == 0 ? num > from : num >= from) && ((flag & MASK_RIGHT_BOUND) == 0 ? num < to : num <= to);
+}

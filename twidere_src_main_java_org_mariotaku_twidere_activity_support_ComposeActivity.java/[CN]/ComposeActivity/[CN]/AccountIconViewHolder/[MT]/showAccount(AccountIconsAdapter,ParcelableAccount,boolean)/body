@@ -1,7 +1,10 @@
 {
   itemView.setAlpha(isSelected ? 1 : 0.33f);
   final MediaLoaderWrapper loader=adapter.getImageLoader();
-  loader.displayProfileImage(iconView,account.profile_image_url);
+  if (ObjectUtils.notEqual(account.profile_image_url,iconView.getTag()) || iconView.getDrawable() == null) {
+    loader.displayProfileImage(iconView,account.profile_image_url);
+  }
   iconView.setBorderColor(account.color);
+  iconView.setTag(account.profile_image_url);
   nameView.setText(adapter.isNameFirst() ? account.name : ("@" + account.screen_name));
 }
