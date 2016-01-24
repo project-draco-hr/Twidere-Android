@@ -5,4 +5,5 @@
     Log.d(Constants.LOGTAG,"Stream service stopped.");
   }
   super.onDestroy();
+  DebugModeUtils.watchReferenceLeak(this);
 }

@@ -1,11 +1,10 @@
 {
-  final File serializationFile=getSerializationFile();
   List<ParcelableStatus> data=getData();
   if (data == null) {
     data=new CopyOnWriteArrayList<>();
   }
-  if (isFirstLoad() && getTabPosition() >= 0 && serializationFile != null) {
-    final List<ParcelableStatus> cached=getCachedData(serializationFile);
+  if (isFirstLoad() && getTabPosition() >= 0) {
+    final List<ParcelableStatus> cached=getCachedData();
     if (cached != null) {
       data.addAll(cached);
       if (mComparator != null) {
@@ -84,6 +83,6 @@
  else {
     Collections.sort(data);
   }
-  saveCachedData(serializationFile,data);
+  saveCachedData(data);
   return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data));
 }

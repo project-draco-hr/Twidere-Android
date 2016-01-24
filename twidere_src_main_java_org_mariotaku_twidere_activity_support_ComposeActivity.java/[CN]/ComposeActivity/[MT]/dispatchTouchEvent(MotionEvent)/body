@@ -14,10 +14,6 @@ case MotionEvent.ACTION_DOWN:
           return true;
         }
       }
- else       if (!TwidereViewUtils.hitView(x,y,getWindow().getDecorView())) {
-        onBackPressed();
-        return true;
-      }
       break;
     }
 }

@@ -7,4 +7,5 @@
     startService(new Intent(this,getClass()));
   }
   super.onDestroy();
+  DebugModeUtils.watchReferenceLeak(this);
 }

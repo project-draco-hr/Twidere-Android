@@ -1,5 +1,6 @@
 {
   super(context,data,tabPosition,fromUser);
+  GeneralComponentHelper.build(context).inject(this);
   mContext=context;
   mAccountId=accountId;
   mMaxId=maxId;

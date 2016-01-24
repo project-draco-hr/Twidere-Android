@@ -1,5 +1,5 @@
 {
-  final ComposeActivity activity=mActivity.get();
+  final ComposeActivity activity=activityRef.get();
   if (activity == null)   return null;
   for (  final ParcelableMediaUpdate media : activity.getMediaList()) {
     final Uri uri=Uri.parse(media.uri);

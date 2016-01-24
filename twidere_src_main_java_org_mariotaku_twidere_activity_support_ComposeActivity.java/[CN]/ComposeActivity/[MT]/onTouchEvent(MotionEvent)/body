@@ -1,0 +1,11 @@
+{
+  if (event.getAction() == MotionEvent.ACTION_DOWN) {
+    final float x=event.getRawX(), y=event.getRawY();
+    final Window window=getWindow();
+    if (!TwidereViewUtils.hitView(x,y,window.getDecorView()) && window.peekDecorView() != null) {
+      onBackPressed();
+      return true;
+    }
+  }
+  return super.onTouchEvent(event);
+}
