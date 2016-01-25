@@ -1,31 +1,37 @@
 {
   if (database == null)   return false;
-  if (text_plain == null && text_html == null && user_id <= 0 && source == null)   return false;
+  if (textPlain == null && textHtml == null && userId <= 0 && source == null)   return false;
   final StringBuilder builder=new StringBuilder();
   final List<String> selection_args=new ArrayList<>();
   builder.append("SELECT NULL WHERE");
-  if (text_plain != null) {
-    selection_args.add(text_plain);
+  if (textPlain != null) {
+    selection_args.add(textPlain);
     builder.append("(SELECT 1 IN (SELECT ? LIKE '%'||" + Filters.Keywords.TABLE_NAME + "."+ Filters.VALUE+ "||'%' FROM "+ Filters.Keywords.TABLE_NAME+ "))");
   }
-  if (text_html != null) {
+  if (textHtml != null) {
     if (!selection_args.isEmpty()) {
       builder.append(" OR ");
     }
-    selection_args.add(text_html);
+    selection_args.add(textHtml);
     builder.append("(SELECT 1 IN (SELECT ? LIKE '%<a href=\"%'||" + Filters.Links.TABLE_NAME + "."+ Filters.VALUE+ "||'%\">%' FROM "+ Filters.Links.TABLE_NAME+ "))");
   }
-  if (user_id > 0) {
+  if (userId > 0) {
     if (!selection_args.isEmpty()) {
       builder.append(" OR ");
     }
-    builder.append("(SELECT ").append(user_id).append(" IN (SELECT ").append(Users.USER_ID).append(" FROM ").append(Users.TABLE_NAME).append("))");
+    builder.append("(SELECT ").append(userId).append(" IN (SELECT ").append(Users.USER_ID).append(" FROM ").append(Users.TABLE_NAME).append("))");
   }
-  if (retweeted_by_id > 0) {
+  if (retweetedById > 0) {
     if (!selection_args.isEmpty()) {
       builder.append(" OR ");
     }
-    builder.append("(SELECT ").append(retweeted_by_id).append(" IN (SELECT ").append(Users.USER_ID).append(" FROM ").append(Users.TABLE_NAME).append("))");
+    builder.append("(SELECT ").append(retweetedById).append(" IN (SELECT ").append(Users.USER_ID).append(" FROM ").append(Users.TABLE_NAME).append("))");
+  }
+  if (quotedUserId > 0) {
+    if (!selection_args.isEmpty()) {
+      builder.append(" OR ");
+    }
+    builder.append("(SELECT ").append(quotedUserId).append(" IN (SELECT ").append(Users.USER_ID).append(" FROM ").append(Users.TABLE_NAME).append("))");
   }
   if (source != null) {
     if (!selection_args.isEmpty()) {

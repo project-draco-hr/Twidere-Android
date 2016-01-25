@@ -3,5 +3,5 @@
   if (converter != null) {
     return converter;
   }
-  return super.toParam(type);
+  return super.forRequest(type);
 }

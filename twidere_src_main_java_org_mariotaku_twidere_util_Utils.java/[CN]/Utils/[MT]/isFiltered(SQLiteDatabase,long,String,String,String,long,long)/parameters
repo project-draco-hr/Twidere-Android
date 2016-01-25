@@ -4,4 +4,4 @@ String text_plain
 String text_html
 String source
 long retweeted_by_id
-boolean filter_rts
+long quotedUserId

@@ -1,3 +1,4 @@
 {
-  return !mIsMyTimeline && isFiltered(database,-1,status.text_plain,status.text_html,status.source,-1);
+  final long retweetUserId=status.is_retweet ? status.user_id : -1;
+  return !mIsMyTimeline && Utils.isFiltered(database,retweetUserId,status.text_plain,status.text_html,status.source,-1,status.quoted_user_id);
 }
