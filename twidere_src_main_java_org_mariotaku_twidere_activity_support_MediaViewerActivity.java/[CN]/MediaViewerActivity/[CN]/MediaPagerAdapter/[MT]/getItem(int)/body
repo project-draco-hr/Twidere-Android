@@ -23,7 +23,7 @@ case ParcelableMedia.Type.TYPE_IMAGE:
 }
 case ParcelableMedia.Type.TYPE_EXTERNAL_PLAYER:
 {
-return TwitterCardFragmentFactory.createGenericPlayerFragment(media.card);
+return CardBrowserFragment.show(media.media_url != null ? media.media_url : media.url,args);
 }
 }
 return new UnsupportedPageFragment();

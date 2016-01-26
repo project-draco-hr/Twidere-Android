@@ -4,17 +4,17 @@
   if (CARD_NAME_PLAYER.equals(card.name)) {
     final Fragment playerFragment=sFactory.createPlayerFragment(card);
     if (playerFragment != null)     return playerFragment;
-    return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
+    return TwitterCardFragmentFactory.createGenericPlayerFragment(card,null);
   }
  else   if (CARD_NAME_AUDIO.equals(card.name)) {
     final Fragment playerFragment=sFactory.createAudioFragment(card);
     if (playerFragment != null)     return playerFragment;
-    return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
+    return TwitterCardFragmentFactory.createGenericPlayerFragment(card,null);
   }
  else   if (CARD_NAME_ANIMATED_GIF.equals(card.name)) {
     final Fragment playerFragment=sFactory.createAnimatedGifFragment(card);
     if (playerFragment != null)     return playerFragment;
-    return TwitterCardFragmentFactory.createGenericPlayerFragment(card);
+    return TwitterCardFragmentFactory.createGenericPlayerFragment(card,null);
   }
  else   if (CardPollFragment.isPoll(card)) {
     return TwitterCardFragmentFactory.createCardPollFragment(status);
