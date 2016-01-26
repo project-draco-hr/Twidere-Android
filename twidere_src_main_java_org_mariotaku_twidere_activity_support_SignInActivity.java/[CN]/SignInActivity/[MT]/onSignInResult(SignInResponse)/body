@@ -27,6 +27,9 @@
  else       if (result.exception instanceof WrongUserPassException) {
         Toast.makeText(this,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
       }
+ else       if (result.exception instanceof SignInTask.WrongBasicCredentialException) {
+        Toast.makeText(this,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
+      }
  else       if (result.exception instanceof LoginVerificationException) {
         Toast.makeText(this,R.string.login_verification_failed,Toast.LENGTH_SHORT).show();
       }

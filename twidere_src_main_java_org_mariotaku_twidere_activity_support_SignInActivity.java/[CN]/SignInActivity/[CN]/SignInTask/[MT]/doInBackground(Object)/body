@@ -20,4 +20,8 @@ catch (final AuthenticationException e) {
 Log.w(LOGTAG,e);
 return new SignInResponse(false,false,e);
 }
+catch (final WrongBasicCredentialException e) {
+Log.w(LOGTAG,e);
+return new SignInResponse(false,false,e);
+}
 }
