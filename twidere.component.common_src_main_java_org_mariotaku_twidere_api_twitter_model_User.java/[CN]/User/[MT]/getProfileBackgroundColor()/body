@@ -1,3 +1,4 @@
 {
-  return profileBackgroundColor;
+  if (profileBackgroundColor != null)   return profileBackgroundColor;
+  return backgroundcolor;
 }

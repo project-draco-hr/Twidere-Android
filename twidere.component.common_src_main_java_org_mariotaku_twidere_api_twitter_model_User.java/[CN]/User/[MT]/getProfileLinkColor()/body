@@ -1,3 +1,4 @@
 {
-  return profileLinkColor;
+  if (profileLinkColor != null)   return profileLinkColor;
+  return linkcolor;
 }
