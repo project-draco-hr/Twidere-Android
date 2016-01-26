@@ -1,0 +1,22 @@
+{
+  final Attachment[] attachments=status.getAttachments();
+  if (attachments == null)   return new ParcelableMedia[0];
+  final ParcelableMedia[] temp=new ParcelableMedia[attachments.length];
+  final String externalUrl=status.getExternalUrl();
+  int i=0;
+  for (  Attachment attachment : attachments) {
+    final String mimetype=attachment.getMimetype();
+    if (mimetype != null && mimetype.startsWith("image/")) {
+      ParcelableMedia media=new ParcelableMedia();
+      media.type=Type.TYPE_IMAGE;
+      media.width=attachment.getWidth();
+      media.height=attachment.getHeight();
+      media.url=TextUtils.isEmpty(externalUrl) ? attachment.getUrl() : externalUrl;
+      media.page_url=TextUtils.isEmpty(externalUrl) ? attachment.getUrl() : externalUrl;
+      media.media_url=attachment.getUrl();
+      media.preview_url=attachment.getLargeThumbUrl();
+      temp[i++]=media;
+    }
+  }
+  return ArrayUtils.subarray(temp,0,i);
+}

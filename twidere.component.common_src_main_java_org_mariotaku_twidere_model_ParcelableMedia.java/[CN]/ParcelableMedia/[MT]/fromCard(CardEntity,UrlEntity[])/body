@@ -1,5 +1,5 @@
 {
-  if (card == null)   return null;
+  if (card == null)   return new ParcelableMedia[0];
   final String name=card.getName();
   if ("animated_gif".equals(name) || "player".equals(name)) {
     final ParcelableMedia media=new ParcelableMedia();
@@ -47,7 +47,7 @@
   }
  else   if ("summary_large_image".equals(name)) {
     final BindingValue photoImageFullSize=card.getBindingValue("photo_image_full_size");
-    if (!(photoImageFullSize instanceof ImageValue))     return null;
+    if (!(photoImageFullSize instanceof ImageValue))     return new ParcelableMedia[0];
     final ParcelableMedia media=new ParcelableMedia();
     media.url=card.getUrl();
     media.card=ParcelableCardEntity.fromCardEntity(card,-1);
@@ -70,5 +70,5 @@
     }
     return new ParcelableMedia[]{media};
   }
-  return null;
+  return new ParcelableMedia[0];
 }

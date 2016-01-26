@@ -1,5 +1,5 @@
 {
-  if (entities == null)   return null;
+  if (entities == null)   return new ParcelableMedia[0];
   final List<ParcelableMedia> list=new ArrayList<>();
   final MediaEntity[] mediaEntities;
   if (entities instanceof ExtendedEntitySupport) {
@@ -30,6 +30,5 @@
       }
     }
   }
-  if (list.isEmpty())   return null;
   return list.toArray(new ParcelableMedia[list.size()]);
 }
