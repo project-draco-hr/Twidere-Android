@@ -107,7 +107,7 @@
     final boolean hasMedia=!ArrayUtils.isEmpty(media);
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
       mediaPreview.setVisibility(View.VISIBLE);
-      mediaPreview.displayMedia(media,loader,status.account_id,this,adapter.getMediaLoadingHandler());
+      mediaPreview.displayMedia(media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
     }
  else {
       mediaPreview.setVisibility(View.GONE);

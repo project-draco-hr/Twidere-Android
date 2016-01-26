@@ -1,3 +1,0 @@
-{
-  displayMedia(mediaArray,loader,accountId,false,mediaClickListener,loadingHandler);
-}

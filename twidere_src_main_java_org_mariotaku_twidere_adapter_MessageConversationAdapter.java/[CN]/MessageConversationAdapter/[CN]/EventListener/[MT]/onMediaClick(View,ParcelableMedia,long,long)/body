@@ -1,0 +1,5 @@
+{
+  final MessageConversationAdapter adapter=adapterRef.get();
+  final Bundle options=Utils.createMediaViewerActivityOption(view);
+  Utils.openMedia(adapter.getContext(),adapter.getDirectMessage((int)extraId),media,options);
+}

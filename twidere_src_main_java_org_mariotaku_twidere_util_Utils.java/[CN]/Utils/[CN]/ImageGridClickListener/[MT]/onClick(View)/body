@@ -1,4 +1,0 @@
-{
-  if (mListener == null)   return;
-  mListener.onMediaClick(v,(ParcelableMedia)v.getTag(),mAccountId);
-}

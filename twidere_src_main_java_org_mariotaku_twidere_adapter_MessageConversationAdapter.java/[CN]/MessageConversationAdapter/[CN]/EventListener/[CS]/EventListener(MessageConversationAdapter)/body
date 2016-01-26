@@ -1,0 +1,3 @@
+{
+  this.adapterRef=new WeakReference<>(adapter);
+}

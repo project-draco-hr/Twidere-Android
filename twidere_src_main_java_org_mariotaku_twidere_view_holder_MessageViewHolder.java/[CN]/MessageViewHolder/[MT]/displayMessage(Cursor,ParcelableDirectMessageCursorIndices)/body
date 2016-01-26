@@ -9,5 +9,5 @@
   textView.setText(linkify.applyAllLinks(text,accountId,false));
   time.setText(Utils.formatToLongTimeString(context,timestamp));
   mediaContainer.setVisibility(media != null && media.length > 0 ? View.VISIBLE : View.GONE);
-  mediaContainer.displayMedia(media,loader,accountId,true,this,adapter.getMediaLoadingHandler());
+  mediaContainer.displayMedia(media,loader,accountId,getLayoutPosition(),true,adapter.getOnMediaClickListener(),adapter.getMediaLoadingHandler());
 }

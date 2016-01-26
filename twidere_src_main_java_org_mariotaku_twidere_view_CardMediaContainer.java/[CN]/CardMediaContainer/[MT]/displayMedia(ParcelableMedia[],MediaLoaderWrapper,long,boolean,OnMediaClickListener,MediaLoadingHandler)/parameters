@@ -1,6 +1,0 @@
-ParcelableMedia[] mediaArray
-MediaLoaderWrapper loader
-long accountId
-boolean withCredentials
-OnMediaClickListener mediaClickListener
-MediaLoadingHandler loadingHandler
