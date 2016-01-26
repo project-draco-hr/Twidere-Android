@@ -1,8 +1,7 @@
 {
   final String key=getSerializationKey();
   if (key == null || data == null)   return;
-  final SharedPreferences prefs=mContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final int databaseItemLimit=prefs.getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
+  final int databaseItemLimit=mPreferences.getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
   try {
     final List<ParcelableStatus> statuses=data.subList(0,Math.min(databaseItemLimit,data.size()));
     final PipedOutputStream pos=new PipedOutputStream();
