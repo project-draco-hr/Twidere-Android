@@ -1,7 +1,7 @@
 {
   try {
-    final int tableId=getTableId(uri);
-    final String table=getTableNameById(tableId);
+    final int tableId=DataStoreUtils.getTableId(uri);
+    final String table=DataStoreUtils.getTableNameById(tableId);
     checkReadPermission(tableId,table,projection);
 switch (tableId) {
 case VIRTUAL_TABLE_ID_DATABASE_READY:
@@ -11,7 +11,7 @@ case VIRTUAL_TABLE_ID_DATABASE_READY:
       }
 case VIRTUAL_TABLE_ID_PERMISSIONS:
 {
-      final MatrixCursor c=new MatrixCursor(TwidereDataStore.Permissions.MATRIX_COLUMNS);
+      final MatrixCursor c=new MatrixCursor(Permissions.MATRIX_COLUMNS);
       final Map<String,String> map=mPermissionsManager.getAll();
       for (      final Map.Entry<String,String> item : map.entrySet()) {
         c.addRow(new Object[]{item.getKey(),item.getValue()});
@@ -110,7 +110,7 @@ where=Expression.and(new Expression(selection),Expression.notIn(new Column(Draft
 where=Expression.and(Expression.notIn(new Column(Drafts._ID),sendingIds));
 }
 final Cursor c=mDatabaseWrapper.query(Drafts.TABLE_NAME,projection,where.getSQL(),selectionArgs,null,null,sortOrder);
-setNotificationUri(c,getNotificationUri(tableId,uri));
+setNotificationUri(c,Utils.getNotificationUri(tableId,uri));
 return c;
 }
 case VIRTUAL_TABLE_ID_SUGGESTIONS_AUTO_COMPLETE:
@@ -128,7 +128,7 @@ return new MatrixCursor(projection);
 }
 if (table == null) return null;
 final Cursor c=mDatabaseWrapper.query(table,projection,selection,selectionArgs,null,null,sortOrder);
-setNotificationUri(c,getNotificationUri(tableId,uri));
+setNotificationUri(c,Utils.getNotificationUri(tableId,uri));
 return c;
 }
  catch (final SQLException e) {

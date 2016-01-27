@@ -1,4 +1,44 @@
 {
-  final long accountId=pref.getAccountId();
   final Context context=getContext();
+  if (context == null)   return;
+  final long accountId=pref.getAccountId();
+  final String where=Expression.and(Expression.equals(Activities.ACCOUNT_ID,pref.getAccountId()),Expression.greaterEquals(Activities.TIMESTAMP,position)).getSQL();
+  Cursor c=query(Activities.AboutMe.CONTENT_URI,Activities.COLUMNS,where,null,new OrderBy(Activities.TIMESTAMP,false).getSQL());
+  if (c == null)   return;
+  final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+  try {
+    final int count=c.getCount();
+    if (count == 0)     return;
+    c.moveToFirst();
+    builder.setSmallIcon(R.drawable.ic_stat_mention);
+    final Resources resources=context.getResources();
+    final String title=resources.getQuantityString(R.plurals.N_new_interactions,count,count);
+    final String accountName=DataStoreUtils.getAccountDisplayName(context,accountId,mNameFirst);
+    builder.setContentTitle(title);
+    builder.setContentText(accountName);
+    InboxStyle style=new InboxStyle();
+    builder.setStyle(style);
+    style.setBigContentTitle(title);
+    style.setSummaryText(accountName);
+    final ParcelableActivityCursorIndices ci=new ParcelableActivityCursorIndices(c);
+    int messageLines=0;
+    while (!c.isAfterLast()) {
+      if (messageLines == 5) {
+        style.setSummaryText(resources.getString(R.string.N_more,count - c.getPosition()));
+        break;
+      }
+      final ParcelableActivity activity=ci.newObject(c);
+      final ActivityTitleSummaryMessage message=ActivityTitleSummaryMessage.get(context,mUserColorNameManager,activity,activity.sources,0,false,mUseStarForLikes,mNameFirst);
+      if (message != null) {
+        style.addLine(message.getTitle());
+        messageLines++;
+      }
+      c.moveToNext();
+    }
+  }
+  finally {
+    c.close();
+  }
+  final int notificationId=Utils.getNotificationId(NOTIFICATION_ID_INTERACTIONS_TIMELINE,accountId);
+  mNotificationManager.notify("interactions",notificationId,builder.build());
 }

@@ -12,7 +12,6 @@
     HotMobiLogger.getInstance(context).log(event);
   }
   final int networkType=ConnectivityUtils.getActiveNetworkType(context.getApplicationContext());
-  NetworkUsageUtils.setNetworkType(networkType);
   final boolean isWifi=networkType == ConnectivityManager.TYPE_WIFI;
   final boolean isCharging=Utils.isCharging(context.getApplicationContext());
   if (isWifi && isCharging) {

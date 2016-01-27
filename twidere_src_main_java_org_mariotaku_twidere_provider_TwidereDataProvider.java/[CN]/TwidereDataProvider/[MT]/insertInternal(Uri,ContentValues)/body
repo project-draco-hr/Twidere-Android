@@ -1,6 +1,6 @@
 {
-  final int tableId=getTableId(uri);
-  final String table=getTableNameById(tableId);
+  final int tableId=DataStoreUtils.getTableId(uri);
+  final String table=DataStoreUtils.getTableNameById(tableId);
   checkWritePermission(tableId,table);
 switch (tableId) {
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
@@ -39,19 +39,6 @@ if (tableId == TABLE_ID_CACHED_USERS) {
  else {
     rowId=mDatabaseWrapper.insertWithOnConflict(table,null,values,SQLiteDatabase.CONFLICT_IGNORE);
   }
-}
- else if (tableId == TABLE_ID_NETWORK_USAGES) {
-  rowId=0;
-  final long timeInHours=values.getAsLong(NetworkUsages.TIME_IN_HOURS);
-  final String requestNetwork=values.getAsString(NetworkUsages.REQUEST_NETWORK);
-  final String requestType=values.getAsString(NetworkUsages.REQUEST_TYPE);
-  final SQLInsertQuery insertOrIgnore=SQLQueryBuilder.insertInto(OnConflict.IGNORE,table).columns(new String[]{NetworkUsages.TIME_IN_HOURS,NetworkUsages.REQUEST_NETWORK,NetworkUsages.REQUEST_TYPE,NetworkUsages.KILOBYTES_RECEIVED,NetworkUsages.KILOBYTES_SENT}).values("?, ?, ?, ?, ?").build();
-  final SQLUpdateQuery updateIncremental=SQLQueryBuilder.update(OnConflict.REPLACE,table).set(new SetValue(NetworkUsages.KILOBYTES_RECEIVED,new RawSQLLang(NetworkUsages.KILOBYTES_RECEIVED + " + ?")),new SetValue(NetworkUsages.KILOBYTES_SENT,new RawSQLLang(NetworkUsages.KILOBYTES_SENT + " + ?"))).where(Expression.and(Expression.equals(NetworkUsages.TIME_IN_HOURS,timeInHours),Expression.equalsArgs(NetworkUsages.REQUEST_NETWORK),Expression.equalsArgs(NetworkUsages.REQUEST_TYPE))).build();
-  mDatabaseWrapper.beginTransaction();
-  mDatabaseWrapper.execSQL(insertOrIgnore.getSQL(),new Object[]{timeInHours,requestNetwork,requestType,0.0,0.0});
-  mDatabaseWrapper.execSQL(updateIncremental.getSQL(),new Object[]{values.getAsDouble(NetworkUsages.KILOBYTES_RECEIVED),values.getAsDouble(NetworkUsages.KILOBYTES_SENT),requestNetwork,requestType});
-  mDatabaseWrapper.setTransactionSuccessful();
-  mDatabaseWrapper.endTransaction();
 }
  else if (tableId == VIRTUAL_TABLE_ID_DRAFTS_NOTIFICATIONS) {
   rowId=showDraftNotification(values);

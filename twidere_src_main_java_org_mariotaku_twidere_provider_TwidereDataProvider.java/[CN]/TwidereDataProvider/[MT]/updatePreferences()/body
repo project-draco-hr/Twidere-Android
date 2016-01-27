@@ -1,3 +1,4 @@
 {
-  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST,false);
+  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+  mUseStarForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
 }

@@ -1,4 +1,4 @@
 {
-  final MatrixCursor c=new MatrixCursor(TwidereDataStore.UnreadCounts.MATRIX_COLUMNS);
+  final MatrixCursor c=new MatrixCursor(UnreadCounts.MATRIX_COLUMNS);
   return c;
 }

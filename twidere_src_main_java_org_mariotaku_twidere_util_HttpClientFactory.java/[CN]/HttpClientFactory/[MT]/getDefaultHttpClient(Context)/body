@@ -1,0 +1,5 @@
+{
+  if (context == null)   return null;
+  final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(context,TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return createHttpClient(context,prefs);
+}

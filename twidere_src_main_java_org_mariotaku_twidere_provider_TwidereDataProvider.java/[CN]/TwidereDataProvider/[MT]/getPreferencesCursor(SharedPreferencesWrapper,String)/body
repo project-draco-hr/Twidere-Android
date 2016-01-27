@@ -1,5 +1,5 @@
 {
-  final MatrixCursor c=new MatrixCursor(TwidereDataStore.Preferences.MATRIX_COLUMNS);
+  final MatrixCursor c=new MatrixCursor(Preferences.MATRIX_COLUMNS);
   final Map<String,Object> map=new HashMap<>();
   final Map<String,?> all=preferences.getAll();
   if (key == null) {

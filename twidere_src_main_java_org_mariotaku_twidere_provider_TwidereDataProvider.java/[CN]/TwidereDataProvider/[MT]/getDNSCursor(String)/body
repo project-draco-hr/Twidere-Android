@@ -1,5 +1,5 @@
 {
-  final MatrixCursor c=new MatrixCursor(TwidereDataStore.DNS.MATRIX_COLUMNS);
+  final MatrixCursor c=new MatrixCursor(DNS.MATRIX_COLUMNS);
   try {
     final List<InetAddress> addresses=mNetwork.lookup(host);
     for (    InetAddress address : addresses) {

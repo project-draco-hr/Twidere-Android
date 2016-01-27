@@ -1,6 +1,6 @@
 {
-  final int tableId=getTableId(uri);
-  final String table=getTableNameById(tableId);
+  final int tableId=DataStoreUtils.getTableId(uri);
+  final String table=DataStoreUtils.getTableNameById(tableId);
   checkWritePermission(tableId,table);
 switch (tableId) {
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:

@@ -19,7 +19,6 @@
   db.execSQL(createTable(Tabs.TABLE_NAME,Tabs.COLUMNS,Tabs.TYPES,true));
   db.execSQL(createTable(SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true));
   db.execSQL(createTable(SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true));
-  db.execSQL(createTable(NetworkUsages.TABLE_NAME,NetworkUsages.COLUMNS,NetworkUsages.TYPES,true,createConflictReplaceConstraint(NetworkUsages.TIME_IN_HOURS,NetworkUsages.REQUEST_NETWORK,NetworkUsages.REQUEST_TYPE)));
   createViews(db);
   createTriggers(db);
   createIndices(db);

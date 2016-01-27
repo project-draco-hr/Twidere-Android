@@ -1,0 +1,5 @@
+{
+  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  adapter.setListener(null);
+  super.onDestroy();
+}

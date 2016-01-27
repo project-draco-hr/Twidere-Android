@@ -3,10 +3,10 @@
 switch (tableId) {
 case TABLE_ID_ACCOUNTS:
 {
-      clearAccountColor();
-      clearAccountName();
+      Utils.clearAccountColor();
+      Utils.clearAccountName();
       break;
     }
 }
-notifyContentObserver(getNotificationUri(tableId,uri));
+notifyContentObserver(Utils.getNotificationUri(tableId,uri));
 }

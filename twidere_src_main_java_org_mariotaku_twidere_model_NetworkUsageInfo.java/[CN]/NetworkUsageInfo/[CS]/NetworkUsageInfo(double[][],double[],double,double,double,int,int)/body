@@ -1,9 +1,0 @@
-{
-  this.chartUsage=chartUsage;
-  this.usageTotal=usageTotal;
-  this.totalReceived=totalReceived;
-  this.totalSent=totalSent;
-  this.dayUsageMax=dayUsageMax;
-  this.dayMin=dayMin;
-  this.dayMax=dayMax;
-}

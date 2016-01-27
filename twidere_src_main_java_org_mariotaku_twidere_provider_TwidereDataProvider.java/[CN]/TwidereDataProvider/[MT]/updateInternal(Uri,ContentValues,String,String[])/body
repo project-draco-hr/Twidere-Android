@@ -1,6 +1,6 @@
 {
-  final int tableId=getTableId(uri);
-  final String table=getTableNameById(tableId);
+  final int tableId=DataStoreUtils.getTableId(uri);
+  final String table=DataStoreUtils.getTableNameById(tableId);
   checkWritePermission(tableId,table);
   int result=0;
   if (table != null) {
@@ -8,7 +8,6 @@ switch (tableId) {
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
 case TABLE_ID_DIRECT_MESSAGES:
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
-case TABLE_ID_NETWORK_USAGES:
       return 0;
   }
   result=mDatabaseWrapper.update(table,values,selection,selectionArgs);

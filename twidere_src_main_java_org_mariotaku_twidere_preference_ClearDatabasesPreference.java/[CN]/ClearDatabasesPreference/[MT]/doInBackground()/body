@@ -19,4 +19,8 @@
   resolver.delete(Notifications.CONTENT_URI,null,null);
   resolver.delete(UnreadCounts.CONTENT_URI,null,null);
   resolver.delete(SavedSearches.CONTENT_URI,null,null);
+  final SharedPreferences prefs=context.getSharedPreferences(TIMELINE_POSITIONS_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final SharedPreferences.Editor editor=prefs.edit();
+  editor.clear();
+  editor.apply();
 }

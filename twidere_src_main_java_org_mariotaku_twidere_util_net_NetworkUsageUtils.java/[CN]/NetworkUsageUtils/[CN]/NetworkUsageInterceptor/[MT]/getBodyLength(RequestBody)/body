@@ -1,5 +1,0 @@
-{
-  if (body == null)   return 0;
-  final long length=body.contentLength();
-  return length > 0 ? length : 0;
-}
