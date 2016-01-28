@@ -1,5 +1,0 @@
-{
-  super.onBaseViewCreated(view,savedInstanceState);
-  mImageView=(SubsamplingScaleImageView)view.findViewById(R.id.image_view);
-  mProgressBar=(ProgressWheel)view.findViewById(R.id.load_progress);
-}

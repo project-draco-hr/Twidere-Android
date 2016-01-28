@@ -1,0 +1,3 @@
+{
+  return inflater.inflate(R.layout.layout_media_viewer_texture_video_view,container,false);
+}

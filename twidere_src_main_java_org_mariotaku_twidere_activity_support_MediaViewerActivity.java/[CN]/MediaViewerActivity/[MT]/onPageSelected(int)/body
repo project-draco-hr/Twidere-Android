@@ -1,4 +1,0 @@
-{
-  updatePositionTitle();
-  setBarVisibility(true);
-}

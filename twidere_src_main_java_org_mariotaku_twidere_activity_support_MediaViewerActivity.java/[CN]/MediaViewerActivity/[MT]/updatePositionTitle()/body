@@ -1,3 +1,0 @@
-{
-  setTitle(String.format("%d / %d",mViewPager.getCurrentItem() + 1,mPagerAdapter.getCount()));
-}

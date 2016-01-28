@@ -8,7 +8,7 @@ case ParcelableMedia.Type.TYPE_ANIMATED_GIF:
         return Pair.create(media.media_url,null);
       }
       for (      String supportedType : SUPPORTED_VIDEO_TYPES) {
-        for (        Variant variant : media.video_info.variants) {
+        for (        ParcelableMedia.VideoInfo.Variant variant : media.video_info.variants) {
           if (supportedType.equalsIgnoreCase(variant.content_type))           return Pair.create(variant.url,variant.content_type);
         }
       }

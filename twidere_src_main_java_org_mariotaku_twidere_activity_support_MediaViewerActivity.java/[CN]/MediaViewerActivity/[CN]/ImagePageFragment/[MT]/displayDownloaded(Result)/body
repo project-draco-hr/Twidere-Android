@@ -1,3 +1,0 @@
-{
-  mImageView.setImage(ImageSource.uri(data.cacheUri));
-}

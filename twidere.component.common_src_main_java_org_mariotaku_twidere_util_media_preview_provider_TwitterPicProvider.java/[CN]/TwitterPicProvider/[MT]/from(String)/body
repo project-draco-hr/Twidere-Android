@@ -1,5 +1,4 @@
 {
-  final Uri uri=Uri.parse(link);
   final ParcelableMedia media=new ParcelableMedia();
   media.type=ParcelableMedia.Type.TYPE_IMAGE;
   media.url=link;

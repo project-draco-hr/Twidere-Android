@@ -1,0 +1,7 @@
+{
+  mContext=context;
+  mPreferences=preferences;
+  mClient=client;
+  mUserAgent=UserAgentUtils.getDefaultUserAgentStringSafe(context);
+  reloadConnectivitySettings();
+}

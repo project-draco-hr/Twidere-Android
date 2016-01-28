@@ -1,4 +1,4 @@
 {
   final String authority=PreviewMediaExtractor.getAuthority(link);
-  return "pbs.twimg.com".equals(authority) || "abs.twimg.com".equals(authority);
+  return (".twimg.com".equals(authority) || ".twimg.com".equals(authority)) && !link.contains("/tweet_video");
 }

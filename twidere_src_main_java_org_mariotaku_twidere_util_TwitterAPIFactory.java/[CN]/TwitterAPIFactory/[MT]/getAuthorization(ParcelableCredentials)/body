@@ -1,4 +1,5 @@
 {
+  if (credentials == null)   return null;
 switch (credentials.auth_type) {
 case ParcelableCredentials.AUTH_TYPE_OAUTH:
 case ParcelableCredentials.AUTH_TYPE_XAUTH:

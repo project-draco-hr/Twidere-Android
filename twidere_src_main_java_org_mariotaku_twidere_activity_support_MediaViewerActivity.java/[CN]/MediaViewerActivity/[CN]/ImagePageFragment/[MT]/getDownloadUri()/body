@@ -1,3 +1,0 @@
-{
-  return Uri.parse(getMedia().media_url);
-}

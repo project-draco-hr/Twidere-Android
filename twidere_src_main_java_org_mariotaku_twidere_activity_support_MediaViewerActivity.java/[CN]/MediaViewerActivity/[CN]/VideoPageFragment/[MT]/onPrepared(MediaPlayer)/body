@@ -11,6 +11,5 @@
     mVideoViewProgress.post(mVideoProgressRunnable);
     updatePlayerState();
     mVideoControl.setVisibility(View.VISIBLE);
-    invalidateOptionsMenu();
   }
 }

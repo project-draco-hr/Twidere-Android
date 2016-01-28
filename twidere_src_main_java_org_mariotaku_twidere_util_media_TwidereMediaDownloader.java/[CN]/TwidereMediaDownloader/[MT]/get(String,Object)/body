@@ -1,0 +1,4 @@
+{
+  final ParcelableMedia media=PreviewMediaExtractor.fromLink(url,mClient,extra);
+  return getInternal(media != null && media.media_url != null ? media.media_url : url,extra);
+}

@@ -1,5 +1,7 @@
 {
-  if (query == null)   return null;
-  final String screenName=query.startsWith("@") ? query : String.format("@%s",query);
-  return String.format("%s exclude:retweets",screenName);
+  final String screenName=query.startsWith("@") ? query.substring(1) : query;
+  if (isTwitterOptimizedSearches()) {
+    return String.format(Locale.ROOT,"to:%s exclude:retweets",screenName);
+  }
+  return String.format(Locale.ROOT,"@%s -RT",screenName);
 }

@@ -1,0 +1,5 @@
+{
+  super(context);
+  mMediaDownloader=downloader;
+  mTwitterProfileImageSize=context.getString(R.string.profile_image_size);
+}

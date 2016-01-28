@@ -1,4 +1,0 @@
-{
-  super(activity.getSupportFragmentManager());
-  mActivity=activity;
-}

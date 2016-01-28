@@ -1,5 +1,0 @@
-{
-  super.onContentChanged();
-  mViewPager=(ViewPager)findViewById(R.id.view_pager);
-  mMediaStatusContainer=findViewById(R.id.media_status_container);
-}

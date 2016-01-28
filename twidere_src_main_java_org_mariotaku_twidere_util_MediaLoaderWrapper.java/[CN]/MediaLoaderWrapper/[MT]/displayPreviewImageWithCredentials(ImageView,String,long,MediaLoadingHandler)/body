@@ -5,6 +5,8 @@
   }
   final DisplayImageOptions.Builder b=new DisplayImageOptions.Builder();
   b.cloneFrom(mImageDisplayOptions);
-  b.extraForDownloader(new AccountExtra(accountId));
+  MediaExtra extra=new MediaExtra();
+  extra.setAccountId(accountId);
+  b.extraForDownloader(extra);
   mImageLoader.displayImage(url,view,b.build(),loadingHandler,loadingHandler);
 }

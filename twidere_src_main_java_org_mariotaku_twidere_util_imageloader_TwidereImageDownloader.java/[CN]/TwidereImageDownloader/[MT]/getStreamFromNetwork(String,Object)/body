@@ -1,13 +1,11 @@
 {
   if (uriString == null)   return null;
-  final ParcelableMedia media=PreviewMediaExtractor.fromLink(uriString,mClient,extras);
   try {
-    final String mediaUrl=media != null ? media.media_url : uriString;
     if (isTwitterProfileImage(uriString)) {
-      final String replaced=Utils.getTwitterProfileImageOfSize(mediaUrl,mTwitterProfileImageSize);
+      final String replaced=Utils.getTwitterProfileImageOfSize(uriString,mTwitterProfileImageSize);
       return getStreamFromNetworkInternal(replaced,extras);
     }
- else     return getStreamFromNetworkInternal(mediaUrl,extras);
+ else     return getStreamFromNetworkInternal(uriString,extras);
   }
  catch (  final FileNotFoundException e) {
     if (isTwitterProfileImage(uriString) && !uriString.contains("_normal.")) {

@@ -1,4 +1,0 @@
-{
-  final Bundle args=getArguments();
-  return args.getParcelable(EXTRA_MEDIA);
-}

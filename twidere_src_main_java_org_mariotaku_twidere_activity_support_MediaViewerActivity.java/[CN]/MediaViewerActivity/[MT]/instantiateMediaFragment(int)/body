@@ -1,0 +1,26 @@
+{
+  final ParcelableMedia media=getMedia()[position];
+switch (media.type) {
+case ParcelableMedia.Type.TYPE_IMAGE:
+{
+      final Bundle args=new Bundle();
+      args.putParcelable(ImagePageFragment.EXTRA_MEDIA_URI,Uri.parse(media.media_url));
+      return (MediaViewerFragment)Fragment.instantiate(this,ImagePageFragment.class.getName(),args);
+    }
+case ParcelableMedia.Type.TYPE_ANIMATED_GIF:
+case ParcelableMedia.Type.TYPE_CARD_ANIMATED_GIF:
+{
+    final Bundle args=new Bundle();
+    args.putBoolean(VideoPageFragment.EXTRA_LOOP,true);
+    args.putParcelable(EXTRA_MEDIA,media);
+    return (MediaViewerFragment)Fragment.instantiate(this,VideoPageFragment.class.getName(),args);
+  }
+case ParcelableMedia.Type.TYPE_VIDEO:
+{
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_MEDIA,media);
+  return (MediaViewerFragment)Fragment.instantiate(this,VideoPageFragment.class.getName(),args);
+}
+}
+throw new UnsupportedOperationException();
+}
