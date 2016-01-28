@@ -14,7 +14,7 @@
     for (    final Entry<String,CustomTabConfiguration> entry : tabs) {
       final String type=entry.getKey();
       final CustomTabConfiguration conf=entry.getValue();
-      final boolean isOfficialKeyAccountRequired=TAB_TYPE_ACTIVITIES_ABOUT_ME.equals(type) || TAB_TYPE_ACTIVITIES_BY_FRIENDS.equals(type);
+      final boolean isOfficialKeyAccountRequired=CustomTabType.ACTIVITIES_BY_FRIENDS.equals(type);
       final boolean accountIdRequired=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_REQUIRED;
       final Intent intent=new Intent(INTENT_ACTION_ADD_TAB);
       intent.setClass(getActivity(),CustomTabEditorActivity.class);

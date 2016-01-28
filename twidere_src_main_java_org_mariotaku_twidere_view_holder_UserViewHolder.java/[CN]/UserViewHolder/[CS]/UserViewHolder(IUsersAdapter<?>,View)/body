@@ -4,8 +4,7 @@
   itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
-  nameView=(TextView)itemView.findViewById(R.id.name);
-  screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
+  nameView=(NameView)itemView.findViewById(R.id.name);
   descriptionView=(TextView)itemView.findViewById(R.id.description);
   locationView=(TextView)itemView.findViewById(R.id.location);
   urlView=(TextView)itemView.findViewById(R.id.url);

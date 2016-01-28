@@ -1,9 +1,0 @@
-{
-  final Bundle args=new Bundle();
-  args.putLong(EXTRA_ACCOUNT_ID,accountId);
-  args.putLong(EXTRA_LIST_ID,listId);
-  final AddUserListMemberDialogFragment f=new AddUserListMemberDialogFragment();
-  f.setArguments(args);
-  f.show(fm,FRAGMENT_TAG);
-  return f;
-}

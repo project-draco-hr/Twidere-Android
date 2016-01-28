@@ -1,3 +1,4 @@
 Context context
 String type
+String notificationType
 long accountId

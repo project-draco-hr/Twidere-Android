@@ -1,17 +1,13 @@
 {
+  if (type == null)   return null;
 switch (type) {
-case AUTHORITY_HOME:
+case NotificationType.HOME_TIMELINE:
+    return ReadPositionTag.HOME_TIMELINE;
+case NotificationType.INTERACTIONS:
+  return ReadPositionTag.ACTIVITIES_ABOUT_ME;
+case NotificationType.DIRECT_MESSAGES:
 {
-      return TAB_TYPE_HOME_TIMELINE;
-    }
-case AUTHORITY_ACTIVITIES_ABOUT_ME:
-case AUTHORITY_MENTIONS:
-{
-    return TAB_TYPE_NOTIFICATIONS_TIMELINE;
-  }
-case AUTHORITY_DIRECT_MESSAGES:
-{
-  return TAB_TYPE_DIRECT_MESSAGES;
+  return ReadPositionTag.DIRECT_MESSAGES;
 }
 }
 return null;

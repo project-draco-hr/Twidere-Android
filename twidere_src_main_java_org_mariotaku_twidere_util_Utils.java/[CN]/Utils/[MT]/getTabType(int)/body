@@ -2,15 +2,15 @@
 switch (code) {
 case TAB_CODE_HOME_TIMELINE:
 {
-      return TAB_TYPE_HOME_TIMELINE;
+      return CustomTabType.HOME_TIMELINE;
     }
 case TAB_CODE_NOTIFICATIONS_TIMELINE:
 {
-    return TAB_TYPE_NOTIFICATIONS_TIMELINE;
+    return CustomTabType.NOTIFICATIONS_TIMELINE;
   }
 case TAB_CODE_DIRECT_MESSAGES:
 {
-  return TAB_TYPE_DIRECT_MESSAGES;
+  return CustomTabType.DIRECT_MESSAGES;
 }
 }
 return null;

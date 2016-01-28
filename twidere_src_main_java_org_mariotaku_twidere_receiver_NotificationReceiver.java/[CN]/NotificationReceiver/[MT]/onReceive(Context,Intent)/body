@@ -7,19 +7,19 @@ case BROADCAST_NOTIFICATION_DELETED:
       final Uri uri=intent.getData();
       if (uri == null)       return;
       DependencyHolder holder=DependencyHolder.get(context);
-      final String type=uri.getQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE);
+      @NotificationType final String notificationType=uri.getQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE);
       final long accountId=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
       final long itemId=NumberUtils.toLong(UriExtraUtils.getExtra(uri,"item_id"),-1);
       final long itemUserId=NumberUtils.toLong(UriExtraUtils.getExtra(uri,"item_user_id"),-1);
       final boolean itemUserFollowing=Boolean.parseBoolean(UriExtraUtils.getExtra(uri,"item_user_following"));
       final long timestamp=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_TIMESTAMP),-1);
-      if (AUTHORITY_MENTIONS.equals(type) && accountId != -1 && itemId != -1 && timestamp != -1) {
+      if (CustomTabType.NOTIFICATIONS_TIMELINE.equals(CustomTabUtils.getTabTypeAlias(notificationType)) && accountId != -1 && itemId != -1 && timestamp != -1) {
         final HotMobiLogger logger=holder.getHotMobiLogger();
-        logger.log(accountId,NotificationEvent.deleted(context,timestamp,type,accountId,itemId,itemUserId,itemUserFollowing));
+        logger.log(accountId,NotificationEvent.deleted(context,timestamp,notificationType,accountId,itemId,itemUserId,itemUserFollowing));
       }
       final ReadStateManager manager=holder.getReadStateManager();
       final String paramReadPosition, paramReadPositions;
-      final String tag=getPositionTag(type);
+      @ReadPositionTag final String tag=getPositionTag(notificationType);
       if (tag != null && !TextUtils.isEmpty(paramReadPosition=uri.getQueryParameter(QUERY_PARAM_READ_POSITION))) {
         final long def=-1;
         manager.setPosition(Utils.getReadPositionTagWithAccounts(tag,accountId),NumberUtils.toLong(paramReadPosition,def));

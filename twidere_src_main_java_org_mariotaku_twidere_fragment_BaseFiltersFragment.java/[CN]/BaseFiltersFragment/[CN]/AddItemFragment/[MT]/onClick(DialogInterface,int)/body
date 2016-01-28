@@ -1,12 +1,2 @@
 {
-switch (which) {
-case DialogInterface.BUTTON_POSITIVE:
-    if (mEditText.length() <= 0)     return;
-  final ContentValues values=new ContentValues();
-values.put(Filters.VALUE,getText());
-final Bundle args=getArguments();
-final Uri uri=args.getParcelable(EXTRA_URI);
-getContentResolver().insert(uri,values);
-break;
-}
 }

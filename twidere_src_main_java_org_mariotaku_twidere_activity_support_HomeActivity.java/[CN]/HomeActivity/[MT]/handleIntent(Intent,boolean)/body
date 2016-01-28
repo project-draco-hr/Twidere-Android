@@ -38,8 +38,6 @@
       }
     }
   }
-  if (initialTab != -1 && mViewPager != null) {
-  }
   final Intent extraIntent=intent.getParcelableExtra(EXTRA_EXTRA_INTENT);
   if (extraIntent != null && firstCreate) {
     extraIntent.setExtrasClassLoader(getClassLoader());

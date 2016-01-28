@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,Map<SupportTabSpec,Integer>>
+AsyncTask<Object,Object,SparseIntArray>

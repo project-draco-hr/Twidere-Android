@@ -1,13 +1,18 @@
 {
-  if (mAccountId <= 0)   return;
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
-      mName=ParseUtils.parseString(mEditName.getText());
-      mDescription=ParseUtils.parseString(mEditDescription.getText());
-      mIsPublic=mPublicCheckBox.isChecked();
-      if (mName == null || mName.length() <= 0)       return;
-      mTwitterWrapper.createUserListAsync(mAccountId,mName,mIsPublic,mDescription);
+      final AlertDialog alertDialog=(AlertDialog)dialog;
+      final Bundle args=getArguments();
+      final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+      final MaterialEditText mEditName=(MaterialEditText)alertDialog.findViewById(R.id.name);
+      final MaterialEditText mEditDescription=(MaterialEditText)alertDialog.findViewById(R.id.description);
+      final CheckBox mPublicCheckBox=(CheckBox)alertDialog.findViewById(R.id.is_public);
+      final String name=ParseUtils.parseString(mEditName.getText());
+      final String description=ParseUtils.parseString(mEditDescription.getText());
+      final boolean isPublic=mPublicCheckBox.isChecked();
+      if (TextUtils.isEmpty(name))       return;
+      mTwitterWrapper.createUserListAsync(accountId,name,isPublic,description);
       break;
     }
 }

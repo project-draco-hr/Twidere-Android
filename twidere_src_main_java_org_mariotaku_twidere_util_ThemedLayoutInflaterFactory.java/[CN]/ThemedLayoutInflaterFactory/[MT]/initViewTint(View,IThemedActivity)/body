@@ -25,7 +25,6 @@
   }
  else {
     final int actionBarColor=activity.getCurrentThemeColor();
-    final int actionBarTheme=ThemeUtils.getActionBarThemeResource(activity.getThemeResourceId(),actionBarColor);
     accentColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorForeground,0);
     noTintColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorBackground,0);
     backgroundTintColor=accentColor;

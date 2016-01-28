@@ -1,7 +1,7 @@
 {
-  if (TextUtils.isEmpty(key) || !acceptOlder && getPosition(key) >= id)   return false;
+  if (TextUtils.isEmpty(key) || !acceptOlder && getPosition(key) >= position)   return false;
   final SharedPreferences.Editor editor=mPreferences.edit();
-  editor.putLong(key,id);
+  editor.putLong(key,position);
   editor.apply();
   return true;
 }

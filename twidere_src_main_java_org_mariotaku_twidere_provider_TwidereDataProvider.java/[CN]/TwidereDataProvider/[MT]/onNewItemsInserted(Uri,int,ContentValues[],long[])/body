@@ -9,7 +9,7 @@ case TABLE_ID_STATUSES:
       final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
       for (      final AccountPreferences pref : prefs) {
         if (!pref.isHomeTimelineNotificationEnabled())         continue;
-        showTimelineNotification(pref,getPositionTag(TAB_TYPE_HOME_TIMELINE,pref.getAccountId()));
+        showTimelineNotification(pref,getPositionTag(CustomTabType.HOME_TIMELINE,pref.getAccountId()));
       }
       notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
       break;
@@ -20,7 +20,7 @@ case TABLE_ID_ACTIVITIES_ABOUT_ME:
     final boolean combined=mPreferences.getBoolean(KEY_COMBINED_NOTIFICATIONS);
     for (    final AccountPreferences pref : prefs) {
       if (!pref.isInteractionsNotificationEnabled())       continue;
-      showInteractionsNotification(pref,getPositionTag(READ_POSITION_TAG_ACTIVITIES_ABOUT_ME,pref.getAccountId()),combined);
+      showInteractionsNotification(pref,getPositionTag(ReadPositionTag.ACTIVITIES_ABOUT_ME,pref.getAccountId()),combined);
     }
     notifyUnreadCountChanged(NOTIFICATION_ID_INTERACTIONS_TIMELINE);
     break;
@@ -30,7 +30,7 @@ case TABLE_ID_DIRECT_MESSAGES_INBOX:
   final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
   for (  final AccountPreferences pref : prefs) {
     if (!pref.isDirectMessagesNotificationEnabled())     continue;
-    final StringLongPair[] pairs=mReadStateManager.getPositionPairs(TAB_TYPE_DIRECT_MESSAGES);
+    final StringLongPair[] pairs=mReadStateManager.getPositionPairs(CustomTabType.DIRECT_MESSAGES);
     showMessagesNotification(pref,pairs,valuesArray);
   }
   notifyUnreadCountChanged(NOTIFICATION_ID_DIRECT_MESSAGES);

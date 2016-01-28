@@ -1,0 +1,10 @@
+{
+  if (notificationType == null)   return null;
+switch (notificationType) {
+case NotificationType.INTERACTIONS:
+{
+      return ReadPositionTag.ACTIVITIES_ABOUT_ME;
+    }
+}
+return null;
+}

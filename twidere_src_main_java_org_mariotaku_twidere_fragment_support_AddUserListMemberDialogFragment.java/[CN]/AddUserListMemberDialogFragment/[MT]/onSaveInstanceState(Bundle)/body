@@ -1,4 +1,0 @@
-{
-  outState.putCharSequence(EXTRA_TEXT,mEditText.getText());
-  super.onSaveInstanceState(outState);
-}

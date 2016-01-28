@@ -5,7 +5,6 @@
     paging.setCursor(getCursor());
   }
   final IDs ids=getIDs(twitter,paging);
-  if (ids == null)   return null;
   setCursorIds(ids);
   return twitter.lookupUsers(ids.getIDs());
 }

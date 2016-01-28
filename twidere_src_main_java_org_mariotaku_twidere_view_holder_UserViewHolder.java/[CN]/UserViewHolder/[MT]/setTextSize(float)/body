@@ -1,7 +1,6 @@
 {
   descriptionView.setTextSize(textSize);
   nameView.setTextSize(textSize);
-  screenNameView.setTextSize(textSize * 0.75f);
   locationView.setTextSize(textSize);
   urlView.setTextSize(textSize);
   statusesCountView.setTextSize(textSize);

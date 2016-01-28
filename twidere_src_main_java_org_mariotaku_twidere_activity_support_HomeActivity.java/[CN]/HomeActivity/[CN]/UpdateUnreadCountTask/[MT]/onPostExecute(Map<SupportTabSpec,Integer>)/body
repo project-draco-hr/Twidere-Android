@@ -1,7 +1,0 @@
-{
-  mIndicator.clearBadge();
-  for (  Entry<SupportTabSpec,Integer> entry : result.entrySet()) {
-    final SupportTabSpec key=entry.getKey();
-    mIndicator.setBadge(key.position,entry.getValue());
-  }
-}

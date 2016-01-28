@@ -3,7 +3,7 @@
 switch (key) {
 case "mentions_timeline":
 case "activities_about_me":
-    return TAB_TYPE_NOTIFICATIONS_TIMELINE;
+    return CustomTabType.NOTIFICATIONS_TIMELINE;
 }
 return key;
 }

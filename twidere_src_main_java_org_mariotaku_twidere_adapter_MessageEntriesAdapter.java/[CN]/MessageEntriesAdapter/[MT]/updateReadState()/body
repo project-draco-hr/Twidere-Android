@@ -1,4 +1,4 @@
 {
-  mPositionPairs=mReadStateManager.getPositionPairs(TAB_TYPE_DIRECT_MESSAGES);
+  mPositionPairs=mReadStateManager.getPositionPairs(CustomTabType.DIRECT_MESSAGES);
   notifyDataSetChanged();
 }

@@ -10,7 +10,7 @@
     final int count=c.getCount();
     if (count == 0)     return;
     c.moveToFirst();
-    builder.setSmallIcon(R.drawable.ic_stat_mention);
+    builder.setSmallIcon(R.drawable.ic_stat_notification);
     builder.setNumber(count);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
     applyNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
@@ -49,9 +49,9 @@
       }
       c.moveToNext();
     }
-    builder.setContentIntent(getContentIntent(context,AUTHORITY_ACTIVITIES_ABOUT_ME,accountId));
+    builder.setContentIntent(getContentIntent(context,CustomTabType.NOTIFICATIONS_TIMELINE,NotificationType.INTERACTIONS,accountId));
     if (timestamp != -1) {
-      builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_ACTIVITIES_ABOUT_ME,accountId,timestamp,false));
+      builder.setDeleteIntent(getMarkReadDeleteIntent(context,NotificationType.INTERACTIONS,accountId,timestamp,false));
     }
   }
   finally {

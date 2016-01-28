@@ -1,0 +1,6 @@
+{
+  mIndicator.clearBadge();
+  for (int i=0, j=result.size(); i < j; i++) {
+    mIndicator.setBadge(result.keyAt(i),result.valueAt(i));
+  }
+}
