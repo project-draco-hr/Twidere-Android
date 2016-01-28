@@ -42,6 +42,7 @@
     builder.setContentIntent(getContentIntent(context,AUTHORITY_HOME,accountId));
     builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_HOME,accountId,statusId,false));
     builder.setNumber(statusesCount);
+    builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
     applyNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     try {
       nm.notify("home_" + accountId,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountId),builder.build());

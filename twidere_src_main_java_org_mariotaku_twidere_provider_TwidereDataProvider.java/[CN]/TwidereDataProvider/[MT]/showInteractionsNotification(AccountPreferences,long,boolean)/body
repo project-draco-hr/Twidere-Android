@@ -19,18 +19,23 @@
     final String accountName=DataStoreUtils.getAccountDisplayName(context,accountId,mNameFirst);
     builder.setContentTitle(title);
     builder.setContentText(accountName);
-    InboxStyle style=new InboxStyle();
+    final InboxStyle style=new InboxStyle();
     builder.setStyle(style);
+    builder.setAutoCancel(true);
     style.setBigContentTitle(title);
     style.setSummaryText(accountName);
     final ParcelableActivityCursorIndices ci=new ParcelableActivityCursorIndices(c);
     int messageLines=0;
+    long timestamp=-1;
     while (!c.isAfterLast()) {
       if (messageLines == 5) {
         style.addLine(resources.getString(R.string.and_N_more,count - c.getPosition()));
         break;
       }
       final ParcelableActivity activity=ci.newObject(c);
+      if (timestamp == -1) {
+        timestamp=activity.timestamp;
+      }
       final ActivityTitleSummaryMessage message=ActivityTitleSummaryMessage.get(context,mUserColorNameManager,activity,activity.sources,0,false,mUseStarForLikes,mNameFirst);
       if (message != null) {
         final CharSequence summary=message.getSummary();
@@ -43,6 +48,10 @@
         messageLines++;
       }
       c.moveToNext();
+    }
+    builder.setContentIntent(getContentIntent(context,AUTHORITY_ACTIVITIES_ABOUT_ME,accountId));
+    if (timestamp != -1) {
+      builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_ACTIVITIES_ABOUT_ME,accountId,timestamp,false));
     }
   }
   finally {
