@@ -1,0 +1,6 @@
+{
+  final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
+  final boolean textChanged=text != null && !text.isEmpty() && !text.equals(mOriginalText);
+  final boolean isEditingDraft=INTENT_ACTION_EDIT_DRAFT.equals(getIntent().getAction());
+  return textChanged || hasMedia() || isEditingDraft;
+}

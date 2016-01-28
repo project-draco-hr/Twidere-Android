@@ -42,7 +42,6 @@
     builder.setContentIntent(getContentIntent(context,AUTHORITY_HOME,accountId));
     builder.setDeleteIntent(getMarkReadDeleteIntent(context,AUTHORITY_HOME,accountId,statusId,false));
     builder.setNumber(statusesCount);
-    builder.setColor(pref.getNotificationLightColor());
     applyNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     try {
       nm.notify("home_" + accountId,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountId),builder.build());

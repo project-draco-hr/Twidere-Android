@@ -45,7 +45,7 @@ case Activity.Action.FAVORITE:
       if (!first) {
         summaryBuilder.append('\n');
       }
-      summaryBuilder.append(status.text_unescaped);
+      summaryBuilder.append(status.text_unescaped.replace('\n',' '));
       first=false;
     }
     return new ActivityTitleSummaryMessage(typeIcon,color,title,summaryBuilder.toString());
@@ -131,7 +131,7 @@ for (ParcelableUserList item : activity.target_object_user_lists) {
 if (!firstLine) {
 sb.append("\n");
 }
-sb.append(item.description);
+sb.append(item.description.replace('\n',' '));
 firstLine=false;
 }
 return new ActivityTitleSummaryMessage(typeIcon,defaultColor,title,sb);
@@ -161,8 +161,9 @@ case Activity.Action.QUOTE:
 {
 final ParcelableStatus status=ParcelableActivity.getActivityStatus(activity);
 if (status == null) return null;
-final String text=status.text_unescaped;
-return new ActivityTitleSummaryMessage(0,0,text,text);
+final SpannableString title=new SpannableString(manager.getDisplayName(status,nameFirst,false));
+title.setSpan(new StyleSpan(Typeface.BOLD),0,title.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+return new ActivityTitleSummaryMessage(0,0,title,status.text_unescaped);
 }
 }
 return null;
