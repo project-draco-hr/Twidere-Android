@@ -1,0 +1,6 @@
+{
+  super.drawableStateChanged();
+  if (mForegroundViewHelper != null) {
+    mForegroundViewHelper.drawableStateChanged();
+  }
+}

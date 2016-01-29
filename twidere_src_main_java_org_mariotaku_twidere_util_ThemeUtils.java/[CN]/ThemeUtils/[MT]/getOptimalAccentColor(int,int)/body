@@ -1,0 +1,14 @@
+{
+  final int[] yiq=new int[3];
+  TwidereColorUtils.colorToYIQ(foregroundColor,yiq);
+  final int foregroundColorY=yiq[0];
+  TwidereColorUtils.colorToYIQ(accentColor,yiq);
+  if (foregroundColorY < DARK_COLOR_THRESHOLD && yiq[0] <= ACCENT_COLOR_THRESHOLD) {
+    return accentColor;
+  }
+ else   if (foregroundColorY > ACCENT_COLOR_THRESHOLD && yiq[0] > DARK_COLOR_THRESHOLD) {
+    return accentColor;
+  }
+  yiq[0]=yiq[0] + (foregroundColorY - yiq[0]) / 2;
+  return TwidereColorUtils.YIQToColor(Color.alpha(accentColor),yiq);
+}

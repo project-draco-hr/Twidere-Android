@@ -1,3 +1,4 @@
 {
-  this(context,null);
+  super(context);
+  mForegroundViewHelper=new ForegroundViewHelper(this,context,null,0);
 }

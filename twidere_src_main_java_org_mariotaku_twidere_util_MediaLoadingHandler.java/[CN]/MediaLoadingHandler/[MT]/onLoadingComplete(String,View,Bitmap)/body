@@ -2,7 +2,6 @@
   if (view == null)   return;
   mLoadingUris.remove(System.identityHashCode(view));
   final ViewGroup parent=(ViewGroup)view.getParent();
-  setVideoIndicator(view,parent);
   final ProgressBar progress=findProgressBar(parent);
   if (progress != null) {
     progress.setVisibility(View.GONE);

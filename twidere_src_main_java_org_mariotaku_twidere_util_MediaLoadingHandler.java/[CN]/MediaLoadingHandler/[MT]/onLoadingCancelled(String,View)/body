@@ -1,10 +1,7 @@
 {
   final int viewHashCode=System.identityHashCode(view);
-  if (view == null || imageUri == null || imageUri.equals(mLoadingUris.get(viewHashCode)))   return;
+  if (view == null || imageUri == null || imageUri.equals(getLoadingUri(view)))   return;
   mLoadingUris.remove(viewHashCode);
-  if (view instanceof ForegroundImageView) {
-    ViewSupport.setForeground(view,null);
-  }
   final ProgressBar progress=findProgressBar(view.getParent());
   if (progress != null) {
     progress.setVisibility(View.GONE);

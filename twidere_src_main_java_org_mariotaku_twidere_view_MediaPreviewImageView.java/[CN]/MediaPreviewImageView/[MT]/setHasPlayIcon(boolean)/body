@@ -1,0 +1,4 @@
+{
+  mHasPlayIcon=hasPlayIcon;
+  updatePlayIcon();
+}

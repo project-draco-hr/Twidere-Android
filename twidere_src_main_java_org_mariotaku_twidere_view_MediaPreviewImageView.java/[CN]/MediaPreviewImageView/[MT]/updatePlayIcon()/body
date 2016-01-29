@@ -1,0 +1,8 @@
+{
+  if (mHasPlayIcon && getDrawable() != null) {
+    mForegroundViewHelper.setForeground(ContextCompat.getDrawable(getContext(),R.drawable.ic_card_media_play));
+  }
+ else {
+    mForegroundViewHelper.setForeground(null);
+  }
+}

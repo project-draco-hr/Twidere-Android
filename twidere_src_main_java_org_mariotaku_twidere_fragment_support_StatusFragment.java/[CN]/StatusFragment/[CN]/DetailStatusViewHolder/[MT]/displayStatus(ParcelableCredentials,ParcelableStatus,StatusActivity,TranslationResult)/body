@@ -171,7 +171,7 @@
   }
   Utils.setMenuForStatus(context,fragment.mPreferences,menuBar.getMenu(),status,adapter.getStatusAccount(),twitter);
   final String lang=status.lang;
-  if (!Utils.isOfficialCredentials(context,account) || TextUtils.isEmpty(lang)) {
+  if (!Utils.isOfficialCredentials(context,account) || !CheckUtils.isValidLocale(lang)) {
     translateLabelView.setText(R.string.unknown_language);
     translateContainer.setVisibility(View.GONE);
   }
@@ -188,6 +188,7 @@
   }
   textView.setTextIsSelectable(true);
   quotedTextView.setTextIsSelectable(true);
+  translateResultView.setTextIsSelectable(true);
   textView.setMovementMethod(LinkMovementMethod.getInstance());
   quotedTextView.setMovementMethod(LinkMovementMethod.getInstance());
 }

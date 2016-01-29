@@ -40,7 +40,7 @@
       mPagerIndicator.setIconColor(tabContrastColor);
       mPagerIndicator.setLabelColor(tabContrastColor);
       if (ThemeUtils.isDarkTheme(themeId)) {
-        mPagerIndicator.setStripColor(mUiColor);
+        mPagerIndicator.setStripColor(ThemeUtils.getOptimalAccentColor(mUiColor,tabContrastColor));
       }
  else {
         mPagerIndicator.setStripColor(tabContrastColor);

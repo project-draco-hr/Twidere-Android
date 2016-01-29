@@ -1,0 +1,3 @@
+{
+  return !TextUtils.isEmpty(locale) && !"und".equals(locale);
+}

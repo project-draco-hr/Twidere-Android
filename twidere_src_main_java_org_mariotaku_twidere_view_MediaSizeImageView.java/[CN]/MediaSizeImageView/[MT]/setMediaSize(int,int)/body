@@ -1,5 +1,0 @@
-{
-  mMediaWidth=width;
-  mMediaHeight=height;
-  requestLayout();
-}

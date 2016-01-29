@@ -13,5 +13,6 @@
   mPlayPauseButton.setOnClickListener(this);
   mVolumeButton.setOnClickListener(this);
   startLoading();
+  setMediaViewVisible(false);
   updateVolume();
 }
