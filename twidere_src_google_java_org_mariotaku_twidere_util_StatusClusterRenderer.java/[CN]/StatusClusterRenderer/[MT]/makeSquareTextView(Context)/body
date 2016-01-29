@@ -1,9 +1,0 @@
-{
-  SquareTextView squareTextView=new SquareTextView(context);
-  ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-  squareTextView.setLayoutParams(layoutParams);
-  squareTextView.setId(R.id.text);
-  int twelveDpi=(int)(12 * mDensity);
-  squareTextView.setPadding(twelveDpi,twelveDpi,twelveDpi,twelveDpi);
-  return squareTextView;
-}

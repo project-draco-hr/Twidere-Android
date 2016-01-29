@@ -7,6 +7,6 @@
   event.setPreviewUrl(media.preview_url);
   event.setPreviewEnabled(previewEnabled);
   event.setTimelineType(timelineType);
-  event.setTweetType(HotMobiLogger.getTweetType(status));
+  event.setTweetType(TwidereDataUtils.getTweetType(status));
   return event;
 }

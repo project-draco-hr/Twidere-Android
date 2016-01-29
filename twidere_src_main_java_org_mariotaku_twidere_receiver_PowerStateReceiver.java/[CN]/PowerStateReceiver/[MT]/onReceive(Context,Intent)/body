@@ -1,4 +1,4 @@
 {
   if (serviceReceiverStarted)   return;
-  HotMobiLogger.logPowerBroadcast(context);
+  BatteryRecord.log(context);
 }

@@ -1,3 +1,0 @@
-{
-  return mClusterToMarker.get(cluster);
-}

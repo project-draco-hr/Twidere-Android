@@ -1,4 +1,0 @@
-{
-  this.mMapZoom=zoom;
-  this.mSphericalMercatorProjection=new SphericalMercatorProjection(256 * Math.pow(2,Math.min(zoom,mZoom)));
-}

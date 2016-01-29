@@ -1,9 +1,0 @@
-{
-  try {
-    lock.lock();
-    return !(mCreateMarkerTasks.isEmpty() && mOnScreenCreateMarkerTasks.isEmpty() && mOnScreenRemoveMarkerTasks.isEmpty()&& mRemoveMarkerTasks.isEmpty()&& mAnimationTasks.isEmpty());
-  }
-  finally {
-    lock.unlock();
-  }
-}

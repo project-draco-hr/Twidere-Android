@@ -1,4 +1,4 @@
 {
   this.context=context;
-  this.client=HttpClientFactory.getDefaultHttpClient(context);
+  this.client=new OkHttpClient();
 }

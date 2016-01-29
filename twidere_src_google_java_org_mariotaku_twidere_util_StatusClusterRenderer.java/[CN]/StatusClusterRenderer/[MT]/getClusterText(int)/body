@@ -1,6 +1,0 @@
-{
-  if (bucket < BUCKETS[0]) {
-    return String.valueOf(bucket);
-  }
-  return String.valueOf(bucket) + "+";
-}

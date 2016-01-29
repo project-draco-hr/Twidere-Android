@@ -1,6 +1,0 @@
-{
-  this.markerWithPosition=markerWithPosition;
-  this.marker=markerWithPosition.marker;
-  this.from=from;
-  this.to=to;
-}

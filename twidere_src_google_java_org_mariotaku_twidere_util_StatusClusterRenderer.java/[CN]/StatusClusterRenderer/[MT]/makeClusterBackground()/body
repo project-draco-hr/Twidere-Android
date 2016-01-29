@@ -1,9 +1,0 @@
-{
-  mColoredCircleBackground=new ShapeDrawable(new OvalShape());
-  ShapeDrawable outline=new ShapeDrawable(new OvalShape());
-  outline.getPaint().setColor(0x80ffffff);
-  LayerDrawable background=new LayerDrawable(new Drawable[]{outline,mColoredCircleBackground});
-  int strokeWidth=(int)(mDensity * 3);
-  background.setLayerInset(1,strokeWidth,strokeWidth,strokeWidth,strokeWidth);
-  return background;
-}

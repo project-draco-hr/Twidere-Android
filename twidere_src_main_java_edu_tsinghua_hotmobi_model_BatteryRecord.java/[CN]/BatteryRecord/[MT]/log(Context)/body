@@ -1,0 +1,4 @@
+{
+  final Context app=context.getApplicationContext();
+  log(context,app.registerReceiver(null,new IntentFilter(Intent.ACTION_BATTERY_CHANGED)));
+}

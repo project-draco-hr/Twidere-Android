@@ -1,5 +1,0 @@
-{
-  lock.lock();
-  mAnimationTasks.add(new AnimationTask(marker,from,to));
-  lock.unlock();
-}

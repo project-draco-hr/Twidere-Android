@@ -1,5 +1,5 @@
 {
   setStartTime(System.currentTimeMillis());
   setTimeOffset(TimeZone.getDefault().getOffset(startTime));
-  setLocation(HotMobiLogger.getCachedLatLng(context));
+  setLocation(LocationUtils.getCachedLatLng(context));
 }

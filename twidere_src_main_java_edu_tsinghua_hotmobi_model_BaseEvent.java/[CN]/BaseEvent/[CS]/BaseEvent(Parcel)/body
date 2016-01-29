@@ -1,3 +1,0 @@
-{
-  BaseEventParcelablePlease.readFromParcel(this,in);
-}

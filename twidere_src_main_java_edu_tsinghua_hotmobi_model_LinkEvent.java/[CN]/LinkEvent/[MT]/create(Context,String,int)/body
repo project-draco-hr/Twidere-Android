@@ -2,6 +2,6 @@
   final LinkEvent event=new LinkEvent();
   event.markStart(context);
   event.setLink(link);
-  event.setType(TypeMappingUtil.getLinkType(typeInt));
+  event.setType(TwidereDataUtils.getLinkType(typeInt));
   return event;
 }

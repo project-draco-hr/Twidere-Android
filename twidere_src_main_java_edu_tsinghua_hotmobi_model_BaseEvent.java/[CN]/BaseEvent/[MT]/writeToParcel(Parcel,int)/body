@@ -1,3 +1,0 @@
-{
-  BaseEventParcelablePlease.writeToParcel(this,dest,flags);
-}

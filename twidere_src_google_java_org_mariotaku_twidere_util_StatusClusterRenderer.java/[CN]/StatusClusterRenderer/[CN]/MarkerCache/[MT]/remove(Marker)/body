@@ -1,5 +1,0 @@
-{
-  T item=mCacheReverse.get(m);
-  mCacheReverse.remove(m);
-  mCache.remove(item);
-}

@@ -1,5 +1,5 @@
 {
-  if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
+  if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
     return new GoogleMapFragment();
   }
   return new WebMapFragment();

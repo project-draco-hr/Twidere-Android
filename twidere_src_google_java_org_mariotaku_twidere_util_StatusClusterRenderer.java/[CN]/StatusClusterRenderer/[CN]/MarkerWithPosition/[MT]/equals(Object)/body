@@ -1,6 +1,0 @@
-{
-  if (other instanceof MarkerWithPosition) {
-    return marker.equals(((MarkerWithPosition)other).marker);
-  }
-  return false;
-}

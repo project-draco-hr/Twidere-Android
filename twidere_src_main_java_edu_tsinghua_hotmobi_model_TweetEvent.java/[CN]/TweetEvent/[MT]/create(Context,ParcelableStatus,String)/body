@@ -5,7 +5,7 @@
   event.setAccountId(status.account_id);
   event.setUserId(status.user_id);
   event.setTimelineType(timelineType);
-  event.setTweetType(HotMobiLogger.getTweetType(status));
+  event.setTweetType(TwidereDataUtils.getTweetType(status));
   event.setFollowing(status.user_is_following);
   return event;
 }

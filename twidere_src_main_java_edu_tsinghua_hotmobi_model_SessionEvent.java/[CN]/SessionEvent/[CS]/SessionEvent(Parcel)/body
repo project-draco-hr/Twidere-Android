@@ -1,4 +1,3 @@
 {
-  super(in);
   SessionEventParcelablePlease.readFromParcel(this,in);
 }

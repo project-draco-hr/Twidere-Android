@@ -1,3 +1,0 @@
-{
-  return mMarkerCache.get(clusterItem);
-}
