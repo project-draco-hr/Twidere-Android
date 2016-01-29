@@ -3,10 +3,11 @@
   mVideoView=(TextureVideoView)view.findViewById(R.id.video_view);
   mVideoViewOverlay=view.findViewById(R.id.video_view_overlay);
   mVideoViewProgress=(ProgressBar)view.findViewById(R.id.video_view_progress);
-  mProgressBar=(ProgressWheel)view.findViewById(R.id.load_progress);
   mDurationLabel=(TextView)view.findViewById(R.id.duration_label);
   mPositionLabel=(TextView)view.findViewById(R.id.position_label);
   mPlayPauseButton=(ImageButton)view.findViewById(R.id.play_pause_button);
   mVolumeButton=(ImageButton)view.findViewById(R.id.volume_button);
   mVideoControl=view.findViewById(R.id.video_control);
+  final ProgressWheel progressWheel=(ProgressWheel)view.findViewById(org.mariotaku.mediaviewer.library.R.id.load_progress);
+  progressWheel.setBarColor(ThemeUtils.getUserAccentColor(getContext()));
 }

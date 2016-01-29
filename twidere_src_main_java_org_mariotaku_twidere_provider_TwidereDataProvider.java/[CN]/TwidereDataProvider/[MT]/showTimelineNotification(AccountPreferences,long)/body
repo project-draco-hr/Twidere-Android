@@ -1,6 +1,7 @@
 {
   final long accountId=pref.getAccountId();
   final Context context=getContext();
+  if (context == null)   return;
   final Resources resources=context.getResources();
   final NotificationManagerWrapper nm=mNotificationManager;
   final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
