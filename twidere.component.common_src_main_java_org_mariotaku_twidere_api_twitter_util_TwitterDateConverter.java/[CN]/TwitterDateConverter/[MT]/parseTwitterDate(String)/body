@@ -19,7 +19,7 @@
   calendar.set(Calendar.HOUR_OF_DAY,Integer.parseInt(timeSegs[0]));
   calendar.set(Calendar.MINUTE,Integer.parseInt(timeSegs[1]));
   calendar.set(Calendar.SECOND,Integer.parseInt(timeSegs[2]));
-  calendar.set(Calendar.ZONE_OFFSET,SimpleTimeZone.getTimeZone("GMT" + segs[4]).getRawOffset());
+  calendar.setTimeZone(SimpleTimeZone.getTimeZone(getTimezoneText(segs[4])));
   final Date date=calendar.getTime();
   if (!WEEK_NAMES[calendar.get(Calendar.DAY_OF_WEEK) - 1].equals(segs[0])) {
     BugReporter.error("Week mismatch " + string + " => "+ date);
