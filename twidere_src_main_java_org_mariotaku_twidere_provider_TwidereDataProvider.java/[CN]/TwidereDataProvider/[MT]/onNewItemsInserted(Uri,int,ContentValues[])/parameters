@@ -1,4 +1,3 @@
 Uri uri
 int tableId
 ContentValues[] valuesArray
-long[] newIds

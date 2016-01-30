@@ -6,6 +6,6 @@
     finish();
   }
  else {
-    mTask=AsyncTaskUtils.executeTask(new DiscardTweetTask(this));
+    discardTweet();
   }
 }

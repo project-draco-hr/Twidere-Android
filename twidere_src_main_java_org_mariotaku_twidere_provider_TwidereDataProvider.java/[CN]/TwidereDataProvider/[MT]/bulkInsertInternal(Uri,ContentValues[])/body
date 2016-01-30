@@ -44,6 +44,6 @@ if (table != null && valuesArray.length > 0) {
 if (result > 0) {
   onDatabaseUpdated(tableId,uri);
 }
-onNewItemsInserted(uri,tableId,valuesArray,newIds);
+onNewItemsInserted(uri,tableId,valuesArray);
 return result;
 }

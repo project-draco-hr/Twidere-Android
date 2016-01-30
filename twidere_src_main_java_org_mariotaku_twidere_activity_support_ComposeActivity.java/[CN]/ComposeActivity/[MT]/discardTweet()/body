@@ -1,0 +1,4 @@
+{
+  if (isFinishing() || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  mTask=AsyncTaskUtils.executeTask(new DiscardTweetTask(this));
+}

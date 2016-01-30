@@ -1,8 +1,6 @@
 {
-  final ComposeActivity activity=activityRef.get();
-  if (activity == null)   return null;
-  for (  final ParcelableMediaUpdate media : activity.getMediaList()) {
-    final Uri uri=Uri.parse(media.uri);
+  for (  final ParcelableMediaUpdate item : media) {
+    final Uri uri=Uri.parse(item.uri);
     if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
       final File file=new File(uri.getPath());
       if (!file.delete()) {

@@ -53,6 +53,6 @@ if (tableId == TABLE_ID_CACHED_USERS) {
   return null;
 }
 onDatabaseUpdated(tableId,uri);
-onNewItemsInserted(uri,tableId,values,rowId);
+onNewItemsInserted(uri,tableId,values);
 return Uri.withAppendedPath(uri,String.valueOf(rowId));
 }
