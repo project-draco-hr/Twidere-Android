@@ -1,2 +1,10 @@
 {
+  ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  if (visible) {
+    actionBar.show();
+  }
+ else {
+    actionBar.hide();
+  }
 }

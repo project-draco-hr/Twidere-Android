@@ -1,3 +1,0 @@
-{
-  inflater.inflate(R.menu.menu_media_viewer_video_page,menu);
-}
