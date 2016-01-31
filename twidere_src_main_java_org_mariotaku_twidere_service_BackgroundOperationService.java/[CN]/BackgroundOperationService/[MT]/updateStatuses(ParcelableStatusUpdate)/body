@@ -32,7 +32,7 @@
       showErrorMessage(R.string.action_updating_status,getString(R.string.no_account_selected),false);
     }
  else     if (failed) {
-      if (exception instanceof TwitterException && ((TwitterException)exception).getErrorCode() == StatusCodeMessageUtils.STATUS_IS_DUPLICATE) {
+      if (exception instanceof TwitterException && ((TwitterException)exception).getErrorCode() == ErrorInfo.STATUS_IS_DUPLICATE) {
         showErrorMessage(getString(R.string.status_is_duplicate),false);
       }
  else {

@@ -1,3 +1,0 @@
-{
-  return new AsyncTwitterWrapper(application,userColorNameManager,readStateManager,bus,preferences,asyncTaskManager);
-}

@@ -1,6 +1,0 @@
-Context context
-UserColorNameManager userColorNameManager
-ReadStateManager readStateManager
-Bus bus
-SharedPreferencesWrapper preferences
-AsyncTaskManager asyncTaskManager

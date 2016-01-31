@@ -1,5 +1,5 @@
 {
   if (TextUtils.isEmpty(url))   return;
-  if (!isOnWifi(mContext) && mPreferences.getBoolean(KEY_PRELOAD_WIFI_ONLY,true))   return;
+  if (ConnectivityManagerCompat.isActiveNetworkMetered(mConnectivityManager) && mPreferences.getBoolean(KEY_PRELOAD_WIFI_ONLY,true))   return;
   mImageLoader.loadImage(url,null);
 }

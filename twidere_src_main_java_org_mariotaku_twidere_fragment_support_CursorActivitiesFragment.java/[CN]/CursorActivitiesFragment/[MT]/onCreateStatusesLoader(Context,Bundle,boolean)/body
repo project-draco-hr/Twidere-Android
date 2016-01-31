@@ -11,9 +11,10 @@
  else {
     where=accountWhere;
   }
-  final String selection=processWhere(where).getSQL();
+  final Where expression=processWhere(where,new String[0]);
+  final String selection=expression.getSQL();
   final AbsActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
   adapter.setShowAccountsColor(accountIds.length > 1);
   final String[] projection=Activities.COLUMNS;
-  return new CursorActivitiesLoader(context,uri,projection,selection,null,sortOrder,fromUser);
+  return new CursorActivitiesLoader(context,uri,projection,selection,expression.whereArgs,sortOrder,fromUser);
 }

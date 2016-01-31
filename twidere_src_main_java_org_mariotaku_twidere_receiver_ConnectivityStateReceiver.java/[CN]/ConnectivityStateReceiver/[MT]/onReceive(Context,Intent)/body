@@ -11,14 +11,15 @@
     final NetworkEvent event=NetworkEvent.create(context);
     HotMobiLogger.getInstance(context).log(event);
   }
-  final int networkType=ConnectivityUtils.getActiveNetworkType(context.getApplicationContext());
-  final boolean isWifi=networkType == ConnectivityManager.TYPE_WIFI;
-  final boolean isCharging=Utils.isCharging(context.getApplicationContext());
-  if (isWifi && isCharging) {
+  final Context appContext=context.getApplicationContext();
+  final ConnectivityManager cm=(ConnectivityManager)appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+  final boolean isNetworkMetered=ConnectivityManagerCompat.isActiveNetworkMetered(cm);
+  final boolean isCharging=Utils.isCharging(appContext);
+  if (!isNetworkMetered && isCharging) {
     final long currentTime=System.currentTimeMillis();
-    final long lastSuccessfulTime=HotMobiLogger.getLastUploadTime(context);
+    final long lastSuccessfulTime=HotMobiLogger.getLastUploadTime(appContext);
     if ((currentTime - lastSuccessfulTime) > HotMobiLogger.UPLOAD_INTERVAL_MILLIS) {
-      AsyncTask.execute(new UploadLogsTask(context.getApplicationContext()));
+      AsyncTask.execute(new UploadLogsTask(appContext));
     }
   }
 }

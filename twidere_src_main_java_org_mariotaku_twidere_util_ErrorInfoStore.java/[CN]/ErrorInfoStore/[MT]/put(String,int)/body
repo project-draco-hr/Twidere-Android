@@ -1,0 +1,3 @@
+{
+  mPreferences.edit().putInt(key,code).apply();
+}

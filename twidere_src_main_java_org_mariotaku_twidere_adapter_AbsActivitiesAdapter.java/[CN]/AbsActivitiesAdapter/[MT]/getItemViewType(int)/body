@@ -7,33 +7,48 @@
     return ITEM_VIEW_TYPE_GAP;
   }
   final String action=getActivityAction(position);
-  if (Activity.Action.MENTION.equals(action)) {
-    if (ArrayUtils.isEmpty(activity.target_object_statuses)) {
-      return ITEM_VIEW_TYPE_STUB;
+switch (action) {
+case Activity.Action.MENTION:
+{
+      if (ArrayUtils.isEmpty(activity.target_object_statuses)) {
+        return ITEM_VIEW_TYPE_STUB;
+      }
+      if (mFollowingOnly && !activity.status_user_following)       return ITEM_VIEW_TYPE_EMPTY;
+      return ITEM_VIEW_TYPE_STATUS;
     }
-    if (mFollowingOnly && !activity.status_user_following)     return ITEM_VIEW_TYPE_EMPTY;
-    return ITEM_VIEW_TYPE_STATUS;
-  }
- else   if (Activity.Action.REPLY.equals(action)) {
+case Activity.Action.REPLY:
+{
     if (ArrayUtils.isEmpty(activity.target_statuses)) {
       return ITEM_VIEW_TYPE_STUB;
     }
     if (mFollowingOnly && !activity.status_user_following)     return ITEM_VIEW_TYPE_EMPTY;
     return ITEM_VIEW_TYPE_STATUS;
   }
- else   if (Activity.Action.QUOTE.equals(action)) {
-    if (ArrayUtils.isEmpty(activity.target_statuses)) {
-      return ITEM_VIEW_TYPE_STUB;
-    }
-    if (mFollowingOnly && !activity.status_user_following)     return ITEM_VIEW_TYPE_EMPTY;
-    return ITEM_VIEW_TYPE_STATUS;
+case Activity.Action.QUOTE:
+{
+  if (ArrayUtils.isEmpty(activity.target_statuses)) {
+    return ITEM_VIEW_TYPE_STUB;
   }
- else   if (Activity.Action.FOLLOW.equals(action) || Activity.Action.FAVORITE.equals(action) || Activity.Action.RETWEET.equals(action)|| Activity.Action.FAVORITED_RETWEET.equals(action)|| Activity.Action.RETWEETED_RETWEET.equals(action)|| Activity.Action.RETWEETED_MENTION.equals(action)|| Activity.Action.FAVORITED_MENTION.equals(action)|| Activity.Action.LIST_CREATED.equals(action)|| Activity.Action.LIST_MEMBER_ADDED.equals(action)) {
-    ParcelableActivityUtils.getAfterFilteredSourceIds(activity,mFilteredUserIds,mFollowingOnly);
-    if (ArrayUtils.isEmpty(activity.after_filtered_source_ids)) {
-      return ITEM_VIEW_TYPE_EMPTY;
-    }
-    return ITEM_VIEW_TYPE_TITLE_SUMMARY;
-  }
-  return ITEM_VIEW_TYPE_STUB;
+  if (mFollowingOnly && !activity.status_user_following)   return ITEM_VIEW_TYPE_EMPTY;
+  return ITEM_VIEW_TYPE_STATUS;
+}
+case Activity.Action.FOLLOW:
+case Activity.Action.FAVORITE:
+case Activity.Action.RETWEET:
+case Activity.Action.FAVORITED_RETWEET:
+case Activity.Action.RETWEETED_RETWEET:
+case Activity.Action.RETWEETED_MENTION:
+case Activity.Action.FAVORITED_MENTION:
+case Activity.Action.LIST_CREATED:
+case Activity.Action.LIST_MEMBER_ADDED:
+{
+if (mMentionsOnly) return ITEM_VIEW_TYPE_EMPTY;
+ParcelableActivityUtils.initAfterFilteredSourceIds(activity,mFilteredUserIds,mFollowingOnly);
+if (ArrayUtils.isEmpty(activity.after_filtered_source_ids)) {
+  return ITEM_VIEW_TYPE_EMPTY;
+}
+return ITEM_VIEW_TYPE_TITLE_SUMMARY;
+}
+}
+return ITEM_VIEW_TYPE_STUB;
 }

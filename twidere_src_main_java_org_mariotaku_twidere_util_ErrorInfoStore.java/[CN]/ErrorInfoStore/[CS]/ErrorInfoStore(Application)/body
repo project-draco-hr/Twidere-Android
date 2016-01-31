@@ -1,0 +1,3 @@
+{
+  mPreferences=application.getSharedPreferences("error_info",Context.MODE_PRIVATE);
+}

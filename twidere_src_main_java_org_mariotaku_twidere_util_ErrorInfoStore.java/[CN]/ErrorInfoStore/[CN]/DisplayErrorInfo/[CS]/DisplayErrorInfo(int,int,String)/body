@@ -1,0 +1,5 @@
+{
+  this.code=code;
+  this.icon=icon;
+  this.message=message;
+}

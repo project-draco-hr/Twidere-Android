@@ -1,0 +1,9 @@
+{
+switch (code) {
+case CODE_NO_DM_PERMISSION:
+{
+      return new DisplayErrorInfo(code,R.drawable.ic_info_error_generic,context.getString(R.string.error_no_dm_permission));
+    }
+}
+return null;
+}

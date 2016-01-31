@@ -1,0 +1,3 @@
+{
+  mPreferences.edit().remove(key).apply();
+}

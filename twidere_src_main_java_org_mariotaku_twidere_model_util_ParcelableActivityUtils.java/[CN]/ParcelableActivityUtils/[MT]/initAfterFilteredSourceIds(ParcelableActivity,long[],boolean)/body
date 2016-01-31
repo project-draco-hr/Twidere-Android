@@ -1,0 +1,20 @@
+{
+  if (activity.after_filtered_source_ids != null)   return false;
+  if (followingOnly || !ArrayUtils.isEmpty(filteredUserIds)) {
+    ArrayLongList list=new ArrayLongList();
+    for (    ParcelableUser user : activity.sources) {
+      if (followingOnly && !user.is_following) {
+        continue;
+      }
+      if (!ArrayUtils.contains(filteredUserIds,user.id)) {
+        list.add(user.id);
+      }
+    }
+    activity.after_filtered_source_ids=list.toArray();
+    return true;
+  }
+ else {
+    activity.after_filtered_source_ids=activity.source_ids;
+    return false;
+  }
+}
