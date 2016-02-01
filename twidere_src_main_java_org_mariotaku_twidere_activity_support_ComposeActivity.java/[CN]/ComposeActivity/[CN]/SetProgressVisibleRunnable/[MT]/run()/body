@@ -1,4 +1,6 @@
 {
+  final ComposeActivity activity=activityRef.get();
+  if (activity == null)   return;
   final FragmentManager fm=activity.getSupportFragmentManager();
   final Fragment f=fm.findFragmentByTag(DISCARD_STATUS_DIALOG_FRAGMENT_TAG);
   if (!visible && f instanceof DialogFragment) {

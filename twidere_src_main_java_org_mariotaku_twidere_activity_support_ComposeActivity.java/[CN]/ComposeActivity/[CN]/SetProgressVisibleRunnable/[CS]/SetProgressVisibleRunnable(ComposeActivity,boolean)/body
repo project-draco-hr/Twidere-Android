@@ -1,4 +1,4 @@
 {
-  this.activity=activity;
+  this.activityRef=new WeakReference<>(activity);
   this.visible=visible;
 }

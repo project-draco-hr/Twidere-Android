@@ -1,0 +1,3 @@
+{
+  mNicknamePreferences.registerOnSharedPreferenceChangeListener(new OnNickPreferenceChangeListener(listener));
+}

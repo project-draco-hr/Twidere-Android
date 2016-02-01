@@ -1,0 +1,55 @@
+{
+  if (user == null) {
+    mRelationship=null;
+    return;
+  }
+ else   if (userRelationship != null && userRelationship.check(user)) {
+    mRelationship=userRelationship;
+  }
+ else {
+    mRelationship=null;
+  }
+  invalidateOptionsMenu();
+  if (mRelationship == null && user.account_id == user.id) {
+    mFollowButton.setText(R.string.edit);
+    mFollowButton.setVisibility(View.VISIBLE);
+    return;
+  }
+  final Relationship relationship=mRelationship.relationship;
+  mFollowButton.setEnabled(relationship.isSourceBlockingTarget() || !relationship.isSourceBlockedByTarget());
+  if (relationship.isSourceBlockedByTarget()) {
+    mPagesErrorContainer.setVisibility(View.GONE);
+    mPagesErrorText.setText(null);
+    mPagesContent.setVisibility(View.VISIBLE);
+  }
+ else   if (!relationship.isSourceFollowingTarget() && user.is_protected) {
+    mPagesErrorContainer.setVisibility(View.VISIBLE);
+    final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
+    mPagesErrorText.setText(getString(R.string.user_protected_summary,displayName));
+    mPagesErrorIcon.setImageResource(R.drawable.ic_info_locked);
+    mPagesContent.setVisibility(View.GONE);
+  }
+ else {
+    mPagesErrorContainer.setVisibility(View.GONE);
+    mPagesErrorText.setText(null);
+    mPagesContent.setVisibility(View.VISIBLE);
+  }
+  if (relationship.isSourceBlockingTarget()) {
+    mFollowButton.setText(R.string.unblock);
+  }
+ else   if (relationship.isSourceFollowingTarget()) {
+    mFollowButton.setText(R.string.unfollow);
+  }
+ else   if (user.is_follow_request_sent) {
+    mFollowButton.setText(R.string.requested);
+  }
+ else {
+    mFollowButton.setText(R.string.follow);
+  }
+  mFollowButton.setCompoundDrawablePadding(Math.round(mFollowButton.getTextSize() * 0.25f));
+  mFollowingYouIndicator.setVisibility(relationship.isTargetFollowingSource() ? View.VISIBLE : View.GONE);
+  final CacheUserInfoRunnable task=new CacheUserInfoRunnable(getContext().getApplicationContext());
+  task.setParams(Pair.create(user,relationship));
+  AsyncManager.runBackgroundTask(task);
+  mFollowButton.setVisibility(View.VISIBLE);
+}

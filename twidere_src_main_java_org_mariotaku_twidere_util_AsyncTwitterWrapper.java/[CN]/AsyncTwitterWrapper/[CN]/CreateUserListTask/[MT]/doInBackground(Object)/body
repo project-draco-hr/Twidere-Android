@@ -1,13 +1,13 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,false);
-  if (twitter == null || list_name == null)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),accountId,false);
+  if (twitter == null || listName == null)   return SingleResponse.getInstance();
   try {
     final UserListUpdate userListUpdate=new UserListUpdate();
-    userListUpdate.setName(list_name);
-    userListUpdate.setMode(is_public ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
+    userListUpdate.setName(listName);
+    userListUpdate.setMode(isPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
     userListUpdate.setDescription(description);
     final UserList list=twitter.createUserList(userListUpdate);
-    return SingleResponse.getInstance(list,null);
+    return SingleResponse.getInstance(new ParcelableUserList(list,accountId),null);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(null,e);

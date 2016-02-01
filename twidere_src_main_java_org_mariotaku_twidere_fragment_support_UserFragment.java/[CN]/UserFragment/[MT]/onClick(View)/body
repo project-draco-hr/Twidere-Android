@@ -14,13 +14,13 @@ case R.id.follow:
       Utils.openProfileEditor(getActivity(),user.account_id);
       break;
     }
-    final Relationship relationship=mRelationship;
+    final UserRelationship userRelationship=mRelationship;
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
-    if (relationship == null || twitter == null)     return;
-    if (relationship.isSourceBlockingTarget()) {
+    if (userRelationship == null || twitter == null)     return;
+    if (userRelationship.relationship.isSourceBlockingTarget()) {
       twitter.destroyBlockAsync(user.account_id,user.id);
     }
- else     if (relationship.isSourceFollowingTarget()) {
+ else     if (userRelationship.relationship.isSourceFollowingTarget()) {
       DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
     }
  else {

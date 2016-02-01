@@ -1,0 +1,3 @@
+{
+  removeUserList(event.userList.id);
+}

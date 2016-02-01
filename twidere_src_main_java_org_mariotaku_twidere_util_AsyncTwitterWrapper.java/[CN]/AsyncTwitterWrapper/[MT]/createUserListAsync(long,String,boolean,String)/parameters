@@ -1,4 +1,4 @@
 long accountId
-String list_name
-boolean is_public
+String listName
+boolean isPublic
 String description

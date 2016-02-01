@@ -1,0 +1,5 @@
+{
+  final ItemTouchHelper helper=helperRef.get();
+  if (helper == null)   return;
+  helper.startDrag(viewHolder);
+}

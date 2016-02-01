@@ -11,7 +11,7 @@
     extraTypeView.setImageResource(sensitive ? R.drawable.ic_action_warning : R.drawable.ic_action_play_circle);
     extraTypeView.setVisibility(View.VISIBLE);
   }
- else   if (media != null && media.length > 0) {
+ else   if (!ArrayUtils.isEmpty(media)) {
     if (hasVideo(media)) {
       extraTypeView.setImageResource(sensitive ? R.drawable.ic_action_warning : R.drawable.ic_action_movie);
     }

@@ -1,18 +1,18 @@
 {
   super.onCreate(savedInstanceState);
+  GeneralComponentHelper.build(this).inject(this);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-  mResolver=getContentResolver();
-  mValidator=new TwidereValidator(this);
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
-  final long[] defaultAccountIds=DataStoreUtils.getAccountIds(this);
-  if (defaultAccountIds.length <= 0) {
+  final ParcelableCredentials[] accounts=ParcelableCredentials.getCredentialsArray(this,false,false);
+  if (accounts.length <= 0) {
     final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
     intent.setClass(this,SignInActivity.class);
     startActivity(intent);
     finish();
     return;
   }
+  final long[] defaultAccountIds=ParcelableAccount.getAccountIds(accounts);
   mMenuBar.setOnMenuItemClickListener(this);
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);
@@ -26,13 +26,8 @@
   mAccountSelector.setItemAnimator(new DefaultItemAnimator());
   mAccountsAdapter=new AccountIconsAdapter(this);
   mAccountSelector.setAdapter(mAccountsAdapter);
-  mAccountsAdapter.setAccounts(ParcelableCredentials.getCredentialsArray(this,false,false));
-  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new SimpleItemTouchHelperCallback.OnStartDragListener(){
-    @Override public void onStartDrag(    ViewHolder viewHolder){
-      mItemTouchHelper.startDrag(viewHolder);
-    }
-  }
-);
+  mAccountsAdapter.setAccounts(accounts);
+  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new PreviewGridOnStartDragListener(mItemTouchHelper));
   mItemTouchHelper=new ItemTouchHelper(new AttachedMediaItemTouchHelperCallback(mMediaPreviewAdapter));
   final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
   layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -40,12 +35,7 @@
   mAttachedMediaPreview.setAdapter(mMediaPreviewAdapter);
   mItemTouchHelper.attachToRecyclerView(mAttachedMediaPreview);
   final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
-  mAttachedMediaPreview.addItemDecoration(new ItemDecoration(){
-    @Override public void getItemOffsets(    Rect outRect,    View view,    RecyclerView parent,    State state){
-      outRect.left=outRect.right=previewGridSpacing;
-    }
-  }
-);
+  mAttachedMediaPreview.addItemDecoration(new PreviewGridItemDecoration(previewGridSpacing));
   final Intent intent=getIntent();
   if (savedInstanceState != null) {
     mAccountsAdapter.setSelectedAccountIds(savedInstanceState.getLongArray(EXTRA_ACCOUNT_IDS));
@@ -70,8 +60,8 @@
     if (!handleIntent(intent)) {
       handleDefaultIntent(intent);
     }
-    final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
-    if (accountIds.length == 0) {
+    final long[] selectedAccountIds=mAccountsAdapter.getSelectedAccountIds();
+    if (selectedAccountIds.length == 0) {
       final long[] idsInPrefs=TwidereArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
       final long[] intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
       mAccountsAdapter.setSelectedAccountIds(intersection.length > 0 ? intersection : defaultAccountIds);

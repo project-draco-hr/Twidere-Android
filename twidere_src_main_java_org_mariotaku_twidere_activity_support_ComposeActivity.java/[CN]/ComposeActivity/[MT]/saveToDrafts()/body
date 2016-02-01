@@ -10,6 +10,6 @@
     builder.media(getMedia());
   }
   final ContentValues values=ContentValuesCreator.createStatusDraft(builder.build());
-  final Uri draftUri=mResolver.insert(Drafts.CONTENT_URI,values);
+  final Uri draftUri=getContentResolver().insert(Drafts.CONTENT_URI,values);
   displayNewDraftNotification(text,draftUri);
 }

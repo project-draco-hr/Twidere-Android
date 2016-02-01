@@ -1,5 +1,7 @@
 {
   mUiColor=color;
+  mPreviousActionBarItemIsDark=0;
+  mPreviousTabItemIsDark=0;
   if (mActionBarBackground == null) {
     setupBaseActionBar();
   }

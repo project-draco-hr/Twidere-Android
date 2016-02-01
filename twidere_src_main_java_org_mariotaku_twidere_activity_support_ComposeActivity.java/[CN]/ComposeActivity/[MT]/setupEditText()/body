@@ -1,15 +1,6 @@
 {
   final boolean sendByEnter=mPreferences.getBoolean(KEY_QUICK_SEND);
-  EditTextEnterHandler.attach(mEditText,new EnterListener(){
-    @Override public boolean shouldCallListener(){
-      return mKeyMetaState == 0;
-    }
-    @Override public boolean onHitEnter(){
-      confirmAndUpdateStatus();
-      return true;
-    }
-  }
-,sendByEnter);
+  EditTextEnterHandler.attach(mEditText,new ComposeEnterListener(this),sendByEnter);
   mEditText.addTextChangedListener(new TextWatcher(){
     @Override public void beforeTextChanged(    final CharSequence s,    final int start,    final int count,    final int after){
     }

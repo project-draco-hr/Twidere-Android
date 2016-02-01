@@ -1,6 +1,6 @@
 {
   final ArrayList<ContentValues> hashTagValues=new ArrayList<>();
-  final Collection<String> hashTags=extractor.extractHashtags(statusUpdate.text);
+  final Collection<String> hashTags=mExtractor.extractHashtags(statusUpdate.text);
   for (  final String hashTag : hashTags) {
     final ContentValues values=new ContentValues();
     values.put(CachedHashtags.NAME,hashTag);
@@ -9,7 +9,8 @@
   final boolean hasEasterEggTriggerText=statusUpdate.text.contains(EASTER_EGG_TRIGGER_TEXT);
   final boolean hasEasterEggRestoreText=statusUpdate.text.contains(EASTER_EGG_RESTORE_TEXT_PART1) && statusUpdate.text.contains(EASTER_EGG_RESTORE_TEXT_PART2) && statusUpdate.text.contains(EASTER_EGG_RESTORE_TEXT_PART3);
   boolean mentionedHondaJOJO=false, notReplyToOther=false;
-  mResolver.bulkInsert(CachedHashtags.CONTENT_URI,hashTagValues.toArray(new ContentValues[hashTagValues.size()]));
+  final ContentResolver resolver=getContentResolver();
+  resolver.bulkInsert(CachedHashtags.CONTENT_URI,hashTagValues.toArray(new ContentValues[hashTagValues.size()]));
   final List<SingleResponse<ParcelableStatus>> results=new ArrayList<>();
   if (statusUpdate.accounts.length == 0)   return Collections.emptyList();
   try {
@@ -86,8 +87,8 @@
           for (int i=0, j=mediaIds.length; i < j; i++) {
             final ParcelableMediaUpdate media=statusUpdate.media[i];
             final Uri mediaUri=Uri.parse(media.uri);
-            final String mediaType=mResolver.getType(mediaUri);
-            final InputStream is=mResolver.openInputStream(mediaUri);
+            final String mediaType=resolver.getType(mediaUri);
+            final InputStream is=resolver.openInputStream(mediaUri);
             final long length=is.available();
             cis=new ContentLengthInputStream(is,length);
             cis.setReadListener(new StatusMediaUploadListener(this,mNotificationManager,builder,statusUpdate));

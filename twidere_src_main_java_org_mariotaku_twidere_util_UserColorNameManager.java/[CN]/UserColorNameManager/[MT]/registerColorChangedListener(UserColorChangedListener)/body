@@ -1,0 +1,3 @@
+{
+  mColorPreferences.registerOnSharedPreferenceChangeListener(new OnColorPreferenceChangeListener(listener));
+}

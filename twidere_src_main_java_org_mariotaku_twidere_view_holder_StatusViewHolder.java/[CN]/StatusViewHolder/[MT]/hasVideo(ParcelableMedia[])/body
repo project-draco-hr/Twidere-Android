@@ -1,6 +1,10 @@
 {
   for (  ParcelableMedia mediaItem : media) {
-    if (mediaItem.type == ParcelableMedia.Type.TYPE_VIDEO || mediaItem.type == ParcelableMedia.Type.TYPE_ANIMATED_GIF)     return true;
+switch (mediaItem.type) {
+case ParcelableMedia.Type.TYPE_VIDEO:
+case ParcelableMedia.Type.TYPE_ANIMATED_GIF:
+      return true;
   }
-  return false;
+}
+return false;
 }

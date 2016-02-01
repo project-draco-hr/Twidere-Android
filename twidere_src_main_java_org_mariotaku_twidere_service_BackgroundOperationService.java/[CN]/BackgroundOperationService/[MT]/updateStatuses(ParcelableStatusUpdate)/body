@@ -4,7 +4,8 @@
   for (  final ParcelableStatusUpdate item : statuses) {
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
     final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item,ParcelableAccount.getAccountIds(item.accounts));
-    final Uri draftUri=mResolver.insert(Drafts.CONTENT_URI,draftValues);
+    final ContentResolver resolver=getContentResolver();
+    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,draftValues);
     final long def=-1;
     final long draftId=draftUri != null ? NumberUtils.toLong(draftUri.getLastPathSegment(),def) : -1;
     mTwitter.addSendingDraftId(draftId);
@@ -38,16 +39,16 @@
  else {
         final ContentValues accountIdsValues=new ContentValues();
         accountIdsValues.put(Drafts.ACCOUNT_IDS,TwidereListUtils.toString(failedAccountIds,',',false));
-        mResolver.update(Drafts.CONTENT_URI,accountIdsValues,where.getSQL(),null);
+        resolver.update(Drafts.CONTENT_URI,accountIdsValues,where.getSQL(),null);
         showErrorMessage(R.string.action_updating_status,exception,true);
         final ContentValues notifValues=new ContentValues();
         notifValues.put(BaseColumns._ID,draftId);
-        mResolver.insert(Drafts.CONTENT_URI_NOTIFICATIONS,notifValues);
+        resolver.insert(Drafts.CONTENT_URI_NOTIFICATIONS,notifValues);
       }
     }
  else {
       showOkMessage(R.string.status_updated,false);
-      mResolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
+      resolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
       if (item.media != null) {
         for (        final ParcelableMediaUpdate media : item.media) {
           final String path=getImagePathFromUri(this,Uri.parse(media.uri));

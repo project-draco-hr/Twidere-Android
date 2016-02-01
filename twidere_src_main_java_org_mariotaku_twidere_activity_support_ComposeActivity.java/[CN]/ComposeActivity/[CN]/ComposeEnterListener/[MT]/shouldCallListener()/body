@@ -1,0 +1,4 @@
+{
+  final ComposeActivity activity=activityRef.get();
+  return activity != null && activity.mKeyMetaState == 0;
+}

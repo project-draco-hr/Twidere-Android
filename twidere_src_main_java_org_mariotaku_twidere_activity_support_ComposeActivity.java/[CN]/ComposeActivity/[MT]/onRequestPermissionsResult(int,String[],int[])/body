@@ -1,7 +1,11 @@
 {
   super.onRequestPermissionsResult(requestCode,permissions,grantResults);
   if (PermissionUtils.getPermission(permissions,grantResults,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || PermissionUtils.getPermission(permissions,grantResults,Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-    startLocationUpdateIfEnabled();
+    try {
+      startLocationUpdateIfEnabled();
+    }
+ catch (    SecurityException e) {
+    }
   }
  else {
     Toast.makeText(this,R.string.cannot_get_location,Toast.LENGTH_SHORT).show();

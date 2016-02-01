@@ -1,0 +1,3 @@
+{
+  return relationship.getSourceUserId() == user.account_id && relationship.getTargetUserId() == user.id;
+}

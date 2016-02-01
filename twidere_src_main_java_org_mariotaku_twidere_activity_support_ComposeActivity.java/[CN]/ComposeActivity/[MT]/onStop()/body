@@ -1,7 +1,10 @@
 {
   saveAccountSelection();
   try {
-    mLocationManager.removeUpdates(mLocationListener);
+    if (mLocationListener != null) {
+      mLocationManager.removeUpdates(mLocationListener);
+      mLocationListener=null;
+    }
   }
  catch (  SecurityException ignore) {
   }

@@ -1,6 +1,6 @@
 {
   super(context,attrs,defStyle);
-  mValidator=new TwidereValidator(context);
+  mValidator=DependencyHolder.get(context).getValidator();
   if (isInEditMode()) {
     mTextColor=0;
     mLocale=Locale.getDefault();

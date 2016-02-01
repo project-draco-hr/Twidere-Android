@@ -1,0 +1,13 @@
+{
+  final Context context=getContext();
+  if (result.hasData()) {
+    final ParcelableUserList userList=result.getData();
+    final String message=context.getString(R.string.created_list,userList.name);
+    Utils.showOkMessage(context,message,false);
+    bus.post(new UserListCreatedEvent(userList));
+  }
+ else {
+    Utils.showErrorMessage(context,R.string.action_creating_list,result.getException(),true);
+  }
+  super.onPostExecute(result);
+}

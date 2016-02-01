@@ -1,0 +1,20 @@
+{
+  final boolean isFiltering=Utils.isFilteringUser(context,userId);
+  if (accountId == userId)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,false);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final Relationship relationship=twitter.showFriendship(userId);
+    if (relationship.isSourceBlockingTarget() || relationship.isSourceBlockedByTarget()) {
+      Utils.setLastSeen(context,userId,-1);
+    }
+ else {
+      Utils.setLastSeen(context,userId,System.currentTimeMillis());
+    }
+    Utils.updateRelationship(context,relationship,accountId);
+    return SingleResponse.getInstance(new UserRelationship(relationship,isFiltering));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

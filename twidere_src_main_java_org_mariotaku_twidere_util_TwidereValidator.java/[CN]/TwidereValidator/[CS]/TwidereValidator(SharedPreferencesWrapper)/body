@@ -1,0 +1,5 @@
+{
+  mValidator=new Validator();
+  final String textLimit=preferences.getString(KEY_STATUS_TEXT_LIMIT,null);
+  mMaxTweetLength=NumberUtils.toInt(textLimit,Validator.MAX_TWEET_LENGTH);
+}

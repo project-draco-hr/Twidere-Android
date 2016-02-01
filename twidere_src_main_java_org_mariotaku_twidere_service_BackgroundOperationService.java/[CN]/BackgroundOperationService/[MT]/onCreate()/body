@@ -3,9 +3,6 @@
   GeneralComponentHelper.build(this).inject(this);
   final TwidereApplication app=TwidereApplication.getInstance(this);
   mHandler=new Handler();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
-  mValidator=new TwidereValidator(this);
-  mResolver=getContentResolver();
   final String uploaderComponent=mPreferences.getString(KEY_MEDIA_UPLOADER,null);
   final String shortenerComponent=mPreferences.getString(KEY_STATUS_SHORTENER,null);
   mUseUploader=!ServicePickerPreference.isNoneValue(uploaderComponent);

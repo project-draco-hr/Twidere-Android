@@ -1,0 +1,3 @@
+{
+  getUserLists(mScreenName);
+}

@@ -1,3 +1,4 @@
 {
+  ((CheckableLinearLayout)itemView).toggle();
   adapter.toggleSelection(getAdapterPosition());
 }

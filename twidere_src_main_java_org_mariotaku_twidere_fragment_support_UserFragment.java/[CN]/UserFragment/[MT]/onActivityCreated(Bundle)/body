@@ -2,13 +2,12 @@
   super.onActivityCreated(savedInstanceState);
   final FragmentActivity activity=getActivity();
   setHasOptionsMenu(true);
-  getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
-  getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
+  mUserColorNameManager.registerColorChangedListener(this);
+  mUserColorNameManager.registerNicknameChangedListener(this);
   mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
   mLocale=getResources().getConfiguration().locale;
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(activity,ThemeUtils.getThemeBackgroundOption(activity),ThemeUtils.getUserThemeBackgroundAlpha(activity));
   mActionBarShadowColor=0xA0000000;
-  final TwidereApplication app=TwidereApplication.getInstance(activity);
   final Bundle args=getArguments();
   long accountId=-1, userId=-1;
   String screenName=null;
@@ -79,13 +78,11 @@
   mPagerIndicator.setBackgroundColor(mCardBackgroundColor);
   final float actionBarElevation=ThemeUtils.getSupportActionBarElevation(activity);
   ViewCompat.setElevation(mPagerIndicator,actionBarElevation);
-  if (activity instanceof IThemedActivity) {
-    ViewSupport.setBackground(mPagerOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
-    ViewSupport.setBackground(mErrorOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
-  }
   setupBaseActionBar();
   setupUserPages();
   if (activity instanceof IThemedActivity) {
+    ViewSupport.setBackground(mPagerOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
+    ViewSupport.setBackground(mErrorOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
     setUiColor(((IThemedActivity)activity).getCurrentThemeColor());
   }
   getUserInfo(accountId,userId,screenName,false);

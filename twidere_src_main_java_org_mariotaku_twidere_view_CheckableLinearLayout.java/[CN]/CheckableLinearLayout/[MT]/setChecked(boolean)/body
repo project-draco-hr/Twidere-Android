@@ -1,0 +1,4 @@
+{
+  mChecked=checked;
+  sendAccessibilityEvent(AccessibilityEventCompat.CONTENT_CHANGE_TYPE_UNDEFINED);
+}

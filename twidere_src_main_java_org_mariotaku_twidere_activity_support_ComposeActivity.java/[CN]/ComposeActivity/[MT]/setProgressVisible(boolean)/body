@@ -1,4 +1,5 @@
 {
+  if (isFinishing())   return;
   mSetProgressVisibleRunnable=new SetProgressVisibleRunnable(this,visible);
   if (mFragmentResumed) {
     runOnUiThread(mSetProgressVisibleRunnable);

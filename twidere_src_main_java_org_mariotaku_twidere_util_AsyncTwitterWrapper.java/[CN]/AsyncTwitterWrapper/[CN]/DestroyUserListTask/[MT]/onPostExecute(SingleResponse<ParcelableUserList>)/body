@@ -1,14 +1,13 @@
 {
   final boolean succeed=result.hasData();
+  final Context context=getContext();
   if (succeed) {
-    final String message=mContext.getString(R.string.deleted_list,result.getData().name);
-    Utils.showInfoMessage(mContext,message,false);
-    final Intent intent=new Intent(BROADCAST_USER_LIST_DELETED);
-    intent.putExtra(EXTRA_USER_LIST,result.getData());
-    mContext.sendBroadcast(intent);
+    final String message=context.getString(R.string.deleted_list,result.getData().name);
+    Utils.showInfoMessage(context,message,false);
+    bus.post(new UserListDestroyedEvent(result.getData()));
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_deleting,result.getException(),true);
   }
   super.onPostExecute(result);
 }

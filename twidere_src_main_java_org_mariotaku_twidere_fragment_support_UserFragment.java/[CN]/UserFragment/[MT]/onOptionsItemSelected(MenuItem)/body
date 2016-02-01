@@ -1,18 +1,17 @@
 {
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   final ParcelableUser user=getUser();
-  final Relationship relationship=mRelationship;
+  final UserRelationship userRelationship=mRelationship;
   if (user == null || twitter == null)   return false;
 switch (item.getItemId()) {
 case R.id.block:
 {
-      if (mRelationship != null) {
-        if (mRelationship.isSourceBlockingTarget()) {
-          twitter.destroyBlockAsync(user.account_id,user.id);
-        }
+      if (userRelationship == null)       return true;
+      if (userRelationship.relationship.isSourceBlockingTarget()) {
+        twitter.destroyBlockAsync(user.account_id,user.id);
+      }
  else {
-          CreateUserBlockDialogFragment.show(getFragmentManager(),user);
-        }
+        CreateUserBlockDialogFragment.show(getFragmentManager(),user);
       }
       break;
     }
@@ -23,9 +22,9 @@ case R.id.report_spam:
   }
 case R.id.add_to_filter:
 {
-  final boolean filtering=Utils.isFilteringUser(getActivity(),user.id);
+  if (userRelationship == null)   return true;
   final ContentResolver cr=getContentResolver();
-  if (filtering) {
+  if (userRelationship.isFiltering) {
     final Expression where=Expression.equals(Filters.Users.USER_ID,user.id);
     cr.delete(Filters.Users.CONTENT_URI,where.getSQL(),null);
     Utils.showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
@@ -38,13 +37,12 @@ case R.id.add_to_filter:
 }
 case R.id.mute_user:
 {
-if (mRelationship != null) {
-  if (mRelationship.isSourceMutingTarget()) {
-    twitter.destroyMuteAsync(user.account_id,user.id);
-  }
+if (userRelationship == null) return true;
+if (userRelationship.relationship.isSourceMutingTarget()) {
+  twitter.destroyMuteAsync(user.account_id,user.id);
+}
  else {
-    CreateUserMuteDialogFragment.show(getFragmentManager(),user);
-  }
+  CreateUserMuteDialogFragment.show(getFragmentManager(),user);
 }
 break;
 }
@@ -109,8 +107,8 @@ break;
 }
 case R.id.follow:
 {
-if (relationship == null) return false;
-final boolean isFollowing=relationship.isSourceFollowingTarget();
+if (userRelationship == null) return true;
+final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
 final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
 final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
 if (!isCreatingFriendship && !isDestroyingFriendship) {
