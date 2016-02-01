@@ -1,3 +1,4 @@
 Endpoint endpoint
 RestRequest info
 Authorization authorization
+RestConverter.Factory<E> converterFactory

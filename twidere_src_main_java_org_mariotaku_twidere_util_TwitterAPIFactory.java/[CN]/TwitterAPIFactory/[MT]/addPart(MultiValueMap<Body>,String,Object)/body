@@ -1,4 +1,0 @@
-{
-  final Body typedData=BaseBody.wrap(value);
-  params.add(name,typedData);
-}

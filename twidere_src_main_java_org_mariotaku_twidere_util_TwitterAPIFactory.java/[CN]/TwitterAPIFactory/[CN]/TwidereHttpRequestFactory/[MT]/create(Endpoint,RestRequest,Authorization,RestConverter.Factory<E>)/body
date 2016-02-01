@@ -9,5 +9,5 @@
     headers.add("Authorization",authorization.getHeader(endpoint,info));
   }
   headers.add("User-Agent",userAgent);
-  return new HttpRequest(restMethod,url,headers,info.getBody(),RequestType.API);
+  return new HttpRequest(restMethod,url,headers,info.getBody(converterFactory),null);
 }
