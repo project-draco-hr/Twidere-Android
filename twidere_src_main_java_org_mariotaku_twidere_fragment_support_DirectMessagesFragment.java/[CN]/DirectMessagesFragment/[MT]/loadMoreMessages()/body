@@ -1,6 +1,6 @@
 {
   if (isRefreshing())   return;
-  setLoadMoreIndicatorVisible(true);
+  setLoadMoreIndicatorPosition(IndicatorPosition.END);
   setRefreshEnabled(false);
   AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
     @Override protected long[][] doInBackground(    final Object... params){

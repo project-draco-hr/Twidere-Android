@@ -1,0 +1,4 @@
+{
+  if (context == null)   return null;
+  return createHttpClient(context,prefs,dns);
+}

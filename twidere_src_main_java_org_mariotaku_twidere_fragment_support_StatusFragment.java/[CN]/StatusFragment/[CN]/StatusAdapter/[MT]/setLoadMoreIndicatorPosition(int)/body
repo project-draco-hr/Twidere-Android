@@ -1,0 +1,5 @@
+{
+  setConversationsLoading((position & IndicatorPosition.START) != 0);
+  setRepliesLoading((position & IndicatorPosition.END) != 0);
+  updateItemDecoration();
+}

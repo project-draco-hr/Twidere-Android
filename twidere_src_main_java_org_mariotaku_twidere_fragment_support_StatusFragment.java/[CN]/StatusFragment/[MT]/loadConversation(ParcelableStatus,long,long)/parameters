@@ -1,0 +1,3 @@
+ParcelableStatus status
+long sinceId
+long maxId

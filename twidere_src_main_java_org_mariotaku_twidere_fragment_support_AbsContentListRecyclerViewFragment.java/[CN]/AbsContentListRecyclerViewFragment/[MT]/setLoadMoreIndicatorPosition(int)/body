@@ -1,0 +1,7 @@
+{
+  if (mItemDecoration != null) {
+    mItemDecoration.setDecorationStart((position & IndicatorPosition.START) != 0 ? 1 : 0);
+    mItemDecoration.setDecorationEndOffset((position & IndicatorPosition.END) != 0 ? 1 : 0);
+  }
+  super.setLoadMoreIndicatorPosition(position);
+}

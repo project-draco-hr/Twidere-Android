@@ -1,0 +1,9 @@
+{
+  if ((position & IndicatorPosition.START) != 0)   return;
+  super.onLoadMoreContents(position);
+  if (position == 0)   return;
+  final Bundle loaderArgs=new Bundle(getArguments());
+  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
+  loaderArgs.putLong(EXTRA_NEXT_CURSOR,mNextCursor);
+  getLoaderManager().restartLoader(0,loaderArgs,this);
+}

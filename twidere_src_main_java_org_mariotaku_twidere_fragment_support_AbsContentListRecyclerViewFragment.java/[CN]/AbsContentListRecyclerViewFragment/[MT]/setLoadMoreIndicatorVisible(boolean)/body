@@ -1,6 +1,0 @@
-{
-  if (mItemDecoration != null) {
-    mItemDecoration.setDecorationEndOffset(visible ? 1 : 0);
-  }
-  super.setLoadMoreIndicatorVisible(visible);
-}

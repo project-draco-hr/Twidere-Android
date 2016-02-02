@@ -1,8 +1,0 @@
-{
-  if (fromStart)   return;
-  super.onLoadMoreContents(fromStart);
-  final Bundle loaderArgs=new Bundle(getArguments());
-  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
-  loaderArgs.putLong(EXTRA_NEXT_CURSOR,mNextCursor);
-  getLoaderManager().restartLoader(0,loaderArgs,this);
-}

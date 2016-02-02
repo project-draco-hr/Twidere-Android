@@ -1,0 +1,7 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final WebSettings webSettings=mWebView.getSettings();
+  webSettings.setJavaScriptEnabled(true);
+  webSettings.setLoadsImagesAutomatically(true);
+  mWebView.loadUrl(getArguments().getString(EXTRA_URL));
+}

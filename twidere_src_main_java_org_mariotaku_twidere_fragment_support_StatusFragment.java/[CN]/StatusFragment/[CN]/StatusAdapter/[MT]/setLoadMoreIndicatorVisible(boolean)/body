@@ -1,6 +1,0 @@
-{
-  if (mLoadMoreIndicatorVisible == enabled)   return;
-  mLoadMoreIndicatorVisible=enabled && mLoadMoreSupported;
-  updateItemDecoration();
-  notifyDataSetChanged();
-}

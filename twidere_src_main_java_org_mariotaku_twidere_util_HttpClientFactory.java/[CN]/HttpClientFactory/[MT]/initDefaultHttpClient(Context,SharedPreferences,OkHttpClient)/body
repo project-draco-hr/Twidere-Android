@@ -1,4 +1,0 @@
-{
-  updateHttpClientConfiguration(context,prefs,client);
-  DebugModeUtils.initForHttpClient(client);
-}

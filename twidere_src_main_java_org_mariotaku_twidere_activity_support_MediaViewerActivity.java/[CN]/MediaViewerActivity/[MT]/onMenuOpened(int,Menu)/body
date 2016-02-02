@@ -1,3 +1,0 @@
-{
-  return super.onMenuOpened(featureId,menu);
-}

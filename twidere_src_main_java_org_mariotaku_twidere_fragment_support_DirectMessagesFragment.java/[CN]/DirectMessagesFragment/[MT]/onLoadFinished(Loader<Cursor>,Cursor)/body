@@ -4,7 +4,7 @@
   mFirstVisibleItem=-1;
   final MessageEntriesAdapter adapter=getAdapter();
   adapter.setCursor(cursor);
-  adapter.setLoadMoreIndicatorVisible(false);
+  adapter.setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
   adapter.setLoadMoreSupported(!isEmpty);
   adapter.setLoadMoreSupported(hasMoreData(cursor));
   final long[] accountIds=getAccountIds();

@@ -1,0 +1,5 @@
+{
+  final OkHttpClient client=new OkHttpClient();
+  initDefaultHttpClient(context,prefs,client,dns);
+  return new OkHttpRestClient(client);
+}

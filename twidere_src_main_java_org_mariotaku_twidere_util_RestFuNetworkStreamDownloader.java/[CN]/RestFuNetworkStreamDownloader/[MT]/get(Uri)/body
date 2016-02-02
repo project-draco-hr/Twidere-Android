@@ -1,5 +1,5 @@
 {
-  final RestHttpClient client=HttpClientFactory.getDefaultHttpClient(getContext());
+  final RestHttpClient client=DependencyHolder.get(getContext()).getRestHttpClient();
   final HttpRequest.Builder builder=new HttpRequest.Builder();
   builder.method(GET.METHOD);
   builder.url(uri.toString());

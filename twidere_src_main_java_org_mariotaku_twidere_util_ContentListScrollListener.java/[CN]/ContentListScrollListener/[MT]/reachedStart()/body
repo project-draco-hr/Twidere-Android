@@ -1,3 +1,0 @@
-{
-  return ArrayUtils.contains(mContentListSupport.findFirstVisibleItemPositions(),0);
-}

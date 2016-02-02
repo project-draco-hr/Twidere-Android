@@ -1,0 +1,4 @@
+{
+  setLoadMoreIndicatorPosition(position);
+  setRefreshEnabled(false);
+}

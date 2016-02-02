@@ -1,0 +1,5 @@
+{
+  if (mLoadMoreIndicatorPosition == position)   return;
+  mLoadMoreIndicatorPosition=mLoadMoreSupported ? position : IndicatorPosition.NONE;
+  notifyDataSetChanged();
+}

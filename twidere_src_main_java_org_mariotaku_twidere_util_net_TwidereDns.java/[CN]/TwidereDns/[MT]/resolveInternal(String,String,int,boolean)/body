@@ -1,0 +1,56 @@
+{
+  resetLog(originalHost);
+  final InetAddress[] fromAddressString=fromAddressString(originalHost,host);
+  if (fromAddressString != null) {
+    if (BuildConfig.DEBUG) {
+      addLogSplit(originalHost,host,"valid ip address",depth);
+      dumpLog(fromAddressString);
+    }
+    return fromAddressString;
+  }
+  final InetAddress[] fromCache=getCached(host);
+  if (fromCache != null) {
+    if (BuildConfig.DEBUG) {
+      addLogSplit(originalHost,host,"hit cache",depth);
+      dumpLog(fromCache);
+    }
+    return fromCache;
+  }
+  addLogSplit(originalHost,host,"start custom mapping resolve",depth);
+  final InetAddress[] fromMapping=getFromMapping(host);
+  addLogSplit(originalHost,host,"end custom mapping resolve",depth);
+  if (fromMapping != null) {
+    putCache(originalHost,fromMapping,-1,TimeUnit.SECONDS);
+    if (BuildConfig.DEBUG) {
+      dumpLog(fromMapping);
+    }
+    return fromMapping;
+  }
+  addLogSplit(originalHost,host,"start /etc/hosts resolve",depth);
+  final InetAddress[] fromSystemHosts=fromSystemHosts(host);
+  addLogSplit(originalHost,host,"end /etc/hosts resolve",depth);
+  if (fromSystemHosts != null) {
+    putCache(originalHost,fromSystemHosts,60,TimeUnit.SECONDS);
+    if (BuildConfig.DEBUG) {
+      dumpLog(fromSystemHosts);
+    }
+    return fromSystemHosts;
+  }
+  addLogSplit(originalHost,host,"start resolver resolve",depth);
+  final InetAddress[] fromResolver=fromResolver(originalHost,host,depth);
+  addLogSplit(originalHost,host,"end resolver resolve",depth);
+  if (!ArrayUtils.isEmpty(fromResolver)) {
+    if (BuildConfig.DEBUG) {
+      dumpLog(fromResolver);
+    }
+    return fromResolver;
+  }
+  addLogSplit(originalHost,host,"start system default resolve",depth);
+  final InetAddress[] fromDefault=InetAddress.getAllByName(host);
+  addLogSplit(originalHost,host,"end system default resolve",depth);
+  putCache(host,fromDefault,60,TimeUnit.SECONDS);
+  if (BuildConfig.DEBUG) {
+    dumpLog(fromDefault);
+  }
+  return fromDefault;
+}

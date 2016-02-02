@@ -1,0 +1,22 @@
+{
+switch (event.getAction()) {
+case MotionEvent.ACTION_DOWN:
+{
+      listener.resetScrollDirection();
+      mLastY=Float.NaN;
+      break;
+    }
+case MotionEvent.ACTION_MOVE:
+{
+    if (!Float.isNaN(mLastY)) {
+      float delta=mLastY - event.getRawY();
+      listener.setScrollDirection(delta < 0 ? -1 : 1);
+    }
+ else {
+      mLastY=event.getRawY();
+    }
+    break;
+  }
+}
+return false;
+}

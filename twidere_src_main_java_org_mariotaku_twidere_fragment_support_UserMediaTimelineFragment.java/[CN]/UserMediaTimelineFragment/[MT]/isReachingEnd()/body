@@ -1,0 +1,4 @@
+{
+  final StaggeredGridLayoutManager lm=getLayoutManager();
+  return ArrayUtils.contains(lm.findLastCompletelyVisibleItemPositions(null),lm.getItemCount() - 1);
+}

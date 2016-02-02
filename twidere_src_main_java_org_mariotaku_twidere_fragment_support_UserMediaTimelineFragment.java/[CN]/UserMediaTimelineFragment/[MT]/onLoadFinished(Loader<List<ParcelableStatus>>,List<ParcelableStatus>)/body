@@ -8,5 +8,5 @@
     ((IExtendedLoader)loader).setFromUser(false);
   }
   showContent();
-  setLoadMoreIndicatorVisible(false);
+  setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
 }

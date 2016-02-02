@@ -1,7 +1,7 @@
 {
   mLoadMoreSupported=supported;
   if (!supported) {
-    mLoadMoreIndicatorVisible=false;
+    mLoadMoreIndicatorPosition=IndicatorPosition.NONE;
   }
   notifyDataSetChanged();
 }

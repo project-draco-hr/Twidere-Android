@@ -2,7 +2,7 @@
   if (!event.uri.equals(getContentUri()))   return;
   setRefreshing(event.running);
   if (!event.running) {
-    setLoadMoreIndicatorVisible(false);
+    setLoadMoreIndicatorPosition(IndicatorPosition.END);
     setRefreshEnabled(true);
   }
 }

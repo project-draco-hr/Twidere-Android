@@ -1,0 +1,4 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mWebView=(WebView)view.findViewById(R.id.webview);
+}

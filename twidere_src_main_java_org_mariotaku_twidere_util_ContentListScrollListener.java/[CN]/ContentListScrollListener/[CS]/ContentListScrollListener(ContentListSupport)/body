@@ -1,3 +1,4 @@
 {
   mContentListSupport=contentListSupport;
+  mTouchListener=new TouchListener(this);
 }

@@ -1,0 +1,4 @@
+Context context
+SharedPreferences prefs
+Dns dns
+OkHttpClient client

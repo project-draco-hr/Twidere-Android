@@ -1,6 +1,9 @@
 {
   final ParcelableActivity activity=getActivity(position);
-  if (position == getActivityCount()) {
+  if ((getLoadMoreIndicatorPosition() & IndicatorPosition.START) != 0 && position == 0) {
+    return ITEM_VIEW_TYPE_LOAD_INDICATOR;
+  }
+ else   if (position == getActivityCount()) {
     return ITEM_VIEW_TYPE_LOAD_INDICATOR;
   }
  else   if (isGapItem(position)) {

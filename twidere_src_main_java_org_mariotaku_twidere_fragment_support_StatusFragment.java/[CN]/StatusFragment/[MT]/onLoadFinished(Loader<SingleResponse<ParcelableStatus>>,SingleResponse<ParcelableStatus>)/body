@@ -4,9 +4,10 @@
     final ParcelableStatus status=data.getData();
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
+    mStatusAdapter.setLoadMoreSupported(true);
     if (mStatusAdapter.setStatus(status,credentials)) {
       mStatusAdapter.setData(null);
-      loadConversation(status);
+      loadConversation(status,-1,-1);
       loadActivity(status);
       final int position=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
       if (position != RecyclerView.NO_POSITION) {
@@ -22,6 +23,7 @@
     setState(STATE_LOADED);
   }
  else {
+    mStatusAdapter.setLoadMoreSupported(false);
     setState(STATE_ERROR);
   }
   invalidateOptionsMenu();

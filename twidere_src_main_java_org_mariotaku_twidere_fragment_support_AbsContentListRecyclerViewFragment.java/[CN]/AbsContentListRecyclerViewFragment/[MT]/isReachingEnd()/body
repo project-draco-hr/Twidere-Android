@@ -1,0 +1,3 @@
+{
+  return getLayoutManager().findLastCompletelyVisibleItemPosition() >= getLayoutManager().getItemCount() - 1;
+}
