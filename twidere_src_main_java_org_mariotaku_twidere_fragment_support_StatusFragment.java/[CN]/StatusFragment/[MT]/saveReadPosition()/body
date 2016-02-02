@@ -5,12 +5,11 @@
   long itemId=mStatusAdapter.getItemId(position);
   final View positionView;
   if (itemType == StatusAdapter.ITEM_IDX_CONVERSATION_LOAD_MORE) {
-    final int statusPosition=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
-    positionView=mLayoutManager.findViewByPosition(statusPosition);
-    itemId=mStatusAdapter.getItemId(statusPosition);
+    positionView=mLayoutManager.findViewByPosition(position + 1);
+    itemId=mStatusAdapter.getItemId(position + 1);
   }
  else {
     positionView=mLayoutManager.findViewByPosition(position);
   }
-  return new Pair<>(itemId,positionView != null ? positionView.getTop() : 0);
+  return new ReadPosition(itemId,positionView != null ? positionView.getTop() : 0);
 }

@@ -1,0 +1,4 @@
+{
+  this.statusId=statusId;
+  this.offsetTop=offsetTop;
+}

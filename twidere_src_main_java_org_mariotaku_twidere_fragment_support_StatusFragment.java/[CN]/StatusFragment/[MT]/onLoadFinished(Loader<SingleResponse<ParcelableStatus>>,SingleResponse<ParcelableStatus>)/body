@@ -1,6 +1,6 @@
 {
   if (data.hasData()) {
-    final Pair<Long,Integer> readPosition=saveReadPosition();
+    final ReadPosition readPosition=saveReadPosition();
     final ParcelableStatus status=data.getData();
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);

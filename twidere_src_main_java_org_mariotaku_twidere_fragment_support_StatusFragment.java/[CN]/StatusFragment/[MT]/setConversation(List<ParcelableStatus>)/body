@@ -1,5 +1,5 @@
 {
-  final Pair<Long,Integer> readPosition=saveReadPosition();
+  final ReadPosition readPosition=saveReadPosition();
   mStatusAdapter.setData(data);
   restoreReadPosition(readPosition);
 }
