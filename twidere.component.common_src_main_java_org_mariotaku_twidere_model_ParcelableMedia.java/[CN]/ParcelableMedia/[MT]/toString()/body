@@ -1,3 +1,3 @@
 {
-  return new ToStringBuilder(this).append("media_url",media_url).append("page_url",url).append("preview_url",preview_url).append("start",start).append("end",end).append("type",type).append("width",width).append("height",height).append("video_info",video_info).append("card",card).toString();
+  return "ParcelableMedia{" + "url='" + url + '\''+ ", media_url='"+ media_url+ '\''+ ", preview_url='"+ preview_url+ '\''+ ", start="+ start+ ", end="+ end+ ", type="+ type+ ", width="+ width+ ", height="+ height+ ", video_info="+ video_info+ ", card="+ card+ ", page_url='"+ page_url+ '\''+ '}';
 }

@@ -1,3 +1,6 @@
 {
-  return new HashCodeBuilder(17,37).append(content_type).append(url).append(bitrate).toHashCode();
+  int result=content_type != null ? content_type.hashCode() : 0;
+  result=31 * result + (url != null ? url.hashCode() : 0);
+  result=31 * result + (int)(bitrate ^ (bitrate >>> 32));
+  return result;
 }

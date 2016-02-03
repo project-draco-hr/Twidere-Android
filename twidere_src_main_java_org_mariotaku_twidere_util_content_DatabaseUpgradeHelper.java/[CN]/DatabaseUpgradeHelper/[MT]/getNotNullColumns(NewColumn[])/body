@@ -7,5 +7,5 @@
       notNullCols[count++]=column.getName();
     }
   }
-  return TwidereArrayUtils.subArray(notNullCols,0,count);
+  return ArrayUtils.subarray(notNullCols,0,count);
 }

@@ -1,5 +1,5 @@
 {
-  final ItemTouchHelper helper=helperRef.get();
+  final ItemTouchHelper helper=activity.mItemTouchHelper;
   if (helper == null)   return;
   helper.startDrag(viewHolder);
 }

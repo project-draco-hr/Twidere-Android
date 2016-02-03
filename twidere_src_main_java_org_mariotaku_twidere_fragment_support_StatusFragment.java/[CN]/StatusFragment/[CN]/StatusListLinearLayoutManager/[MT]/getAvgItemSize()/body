@@ -1,0 +1,7 @@
+{
+  final int firstVisiblePosition=findFirstVisibleItemPosition();
+  final int lastVisiblePosition=findLastVisibleItemPosition();
+  final View firstVisibleView=findViewByPosition(firstVisiblePosition);
+  final View lastVisibleView=findViewByPosition(lastVisiblePosition);
+  return (lastVisibleView.getBottom() - firstVisibleView.getTop()) / (lastVisiblePosition - firstVisiblePosition);
+}

@@ -2,7 +2,7 @@
   final Object adapter=mContentListSupport.getAdapter();
   if (!(adapter instanceof ILoadMoreSupportAdapter))   return;
   final ILoadMoreSupportAdapter loadMoreAdapter=(ILoadMoreSupportAdapter)adapter;
-  if (!mContentListSupport.isRefreshing() && loadMoreAdapter.isLoadMoreSupported() && loadMoreAdapter.getLoadMoreIndicatorPosition() == IndicatorPosition.NONE) {
+  if (!mContentListSupport.isRefreshing() && loadMoreAdapter.getLoadMoreSupportedPosition() != IndicatorPosition.NONE && loadMoreAdapter.getLoadMoreIndicatorPosition() == IndicatorPosition.NONE) {
     int position=0;
     if (mContentListSupport.isReachingEnd() && mScrollDirection >= 0) {
       position|=IndicatorPosition.END;
@@ -10,6 +10,7 @@
     if (mContentListSupport.isReachingStart() && mScrollDirection <= 0) {
       position|=IndicatorPosition.START;
     }
+    resetScrollDirection();
     mContentListSupport.onLoadMoreContents(position);
   }
 }

@@ -5,8 +5,7 @@
   final MessageEntriesAdapter adapter=getAdapter();
   adapter.setCursor(cursor);
   adapter.setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
-  adapter.setLoadMoreSupported(!isEmpty);
-  adapter.setLoadMoreSupported(hasMoreData(cursor));
+  adapter.setLoadMoreSupportedPosition(hasMoreData(cursor) ? IndicatorPosition.END : IndicatorPosition.NONE);
   final long[] accountIds=getAccountIds();
   adapter.setShowAccountsColor(accountIds.length > 1);
   setRefreshEnabled(true);

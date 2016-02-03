@@ -3,8 +3,8 @@
 switch (tableId) {
 case TABLE_ID_ACCOUNTS:
 {
-      Utils.clearAccountColor();
-      Utils.clearAccountName();
+      DataStoreUtils.clearAccountColor();
+      DataStoreUtils.clearAccountName();
       break;
     }
 }

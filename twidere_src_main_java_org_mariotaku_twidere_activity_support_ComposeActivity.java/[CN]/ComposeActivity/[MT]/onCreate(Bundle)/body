@@ -27,7 +27,7 @@
   mAccountsAdapter=new AccountIconsAdapter(this);
   mAccountSelector.setAdapter(mAccountsAdapter);
   mAccountsAdapter.setAccounts(accounts);
-  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new PreviewGridOnStartDragListener(mItemTouchHelper));
+  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new PreviewGridOnStartDragListener(this));
   mItemTouchHelper=new ItemTouchHelper(new AttachedMediaItemTouchHelperCallback(mMediaPreviewAdapter));
   final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
   layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

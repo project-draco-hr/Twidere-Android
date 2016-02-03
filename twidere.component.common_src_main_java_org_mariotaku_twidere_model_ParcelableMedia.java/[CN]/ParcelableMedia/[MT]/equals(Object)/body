@@ -2,5 +2,15 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableMedia media=(ParcelableMedia)o;
-  return new EqualsBuilder().append(start,media.start).append(end,media.end).append(type,media.type).append(width,media.width).append(height,media.height).append(media_url,media.media_url).append(url,media.url).append(preview_url,media.preview_url).append(video_info,media.video_info).append(card,media.card).isEquals();
+  if (start != media.start)   return false;
+  if (end != media.end)   return false;
+  if (type != media.type)   return false;
+  if (width != media.width)   return false;
+  if (height != media.height)   return false;
+  if (!url.equals(media.url))   return false;
+  if (media_url != null ? !media_url.equals(media.media_url) : media.media_url != null)   return false;
+  if (preview_url != null ? !preview_url.equals(media.preview_url) : media.preview_url != null)   return false;
+  if (video_info != null ? !video_info.equals(media.video_info) : media.video_info != null)   return false;
+  if (card != null ? !card.equals(media.card) : media.card != null)   return false;
+  return !(page_url != null ? !page_url.equals(media.page_url) : media.page_url != null);
 }

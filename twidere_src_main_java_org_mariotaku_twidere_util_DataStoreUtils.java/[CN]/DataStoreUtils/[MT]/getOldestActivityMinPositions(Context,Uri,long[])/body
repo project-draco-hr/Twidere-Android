@@ -1,3 +1,0 @@
-{
-  return getOldestActivityLongField(context,uri,accountIds,Activities.MIN_POSITION);
-}

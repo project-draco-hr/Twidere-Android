@@ -1,5 +1,4 @@
 {
-  final ComposeActivity activity=activityRef.get();
   if (activity == null)   return false;
   activity.confirmAndUpdateStatus();
   return true;

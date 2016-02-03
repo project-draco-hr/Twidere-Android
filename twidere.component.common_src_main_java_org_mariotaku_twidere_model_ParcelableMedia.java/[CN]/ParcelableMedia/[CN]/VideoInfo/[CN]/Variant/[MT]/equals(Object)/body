@@ -2,5 +2,7 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   Variant variant=(Variant)o;
-  return new EqualsBuilder().append(bitrate,variant.bitrate).append(content_type,variant.content_type).append(url,variant.url).isEquals();
+  if (bitrate != variant.bitrate)   return false;
+  if (content_type != null ? !content_type.equals(variant.content_type) : variant.content_type != null)   return false;
+  return !(url != null ? !url.equals(variant.url) : variant.url != null);
 }

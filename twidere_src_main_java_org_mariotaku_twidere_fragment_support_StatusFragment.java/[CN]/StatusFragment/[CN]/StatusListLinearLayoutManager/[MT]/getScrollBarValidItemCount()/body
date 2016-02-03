@@ -1,0 +1,16 @@
+{
+  final StatusAdapter adapter=(StatusAdapter)recyclerView.getAdapter();
+  int count=0;
+  if (adapter.isConversationsLoading()) {
+    count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_CONVERSATION_LOAD_MORE);
+  }
+  count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_CONVERSATION_ERROR);
+  count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_CONVERSATION);
+  count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_STATUS);
+  count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY);
+  count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY_ERROR);
+  if (adapter.isRepliesLoading() && mSpaceHeight <= 0) {
+    count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY_LOAD_MORE);
+  }
+  return count;
+}

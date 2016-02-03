@@ -15,7 +15,7 @@
  else {
     expressions=new Expression[3];
   }
-  expressions[0]=Expression.in(new Columns.Column(Activities.ACCOUNT_ID),idsIn);
+  expressions[0]=Expression.in(new Column(Activities.ACCOUNT_ID),idsIn);
   expressions[1]=Expression.greaterThan(Activities.TIMESTAMP,sinceTimestamp);
   expressions[2]=buildActivityFilterWhereClause(getTableNameByUri(uri),null);
   final Expression selection=Expression.and(expressions);

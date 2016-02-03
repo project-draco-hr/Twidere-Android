@@ -1,3 +1,5 @@
 {
-  return new HashCodeBuilder(17,37).append(variants).append(duration).toHashCode();
+  int result=variants != null ? Arrays.hashCode(variants) : 0;
+  result=31 * result + (int)(duration ^ (duration >>> 32));
+  return result;
 }

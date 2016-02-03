@@ -31,13 +31,13 @@ break;
 case VIEW_TYPE_CONVERSATION_LOAD_INDICATOR:
 {
 LoadIndicatorViewHolder indicatorHolder=((LoadIndicatorViewHolder)holder);
-indicatorHolder.setLoadProgressVisible(mConversationsLoading);
+indicatorHolder.setLoadProgressVisible(isConversationsLoading());
 break;
 }
 case VIEW_TYPE_REPLIES_LOAD_INDICATOR:
 {
 LoadIndicatorViewHolder indicatorHolder=((LoadIndicatorViewHolder)holder);
-indicatorHolder.setLoadProgressVisible(mRepliesLoading);
+indicatorHolder.setLoadProgressVisible(isRepliesLoading());
 break;
 }
 }

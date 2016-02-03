@@ -4,8 +4,8 @@
     final ParcelableStatus status=data.getData();
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
-    mStatusAdapter.setLoadMoreSupported(true);
     if (mStatusAdapter.setStatus(status,credentials)) {
+      mStatusAdapter.setLoadMoreSupportedPosition(IndicatorPosition.BOTH);
       mStatusAdapter.setData(null);
       loadConversation(status,-1,-1);
       loadActivity(status);
@@ -23,7 +23,7 @@
     setState(STATE_LOADED);
   }
  else {
-    mStatusAdapter.setLoadMoreSupported(false);
+    mStatusAdapter.setLoadMoreSupportedPosition(IndicatorPosition.NONE);
     setState(STATE_ERROR);
   }
   invalidateOptionsMenu();

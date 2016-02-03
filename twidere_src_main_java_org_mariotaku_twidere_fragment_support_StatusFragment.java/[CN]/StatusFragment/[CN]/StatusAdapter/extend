@@ -1,1 +1,1 @@
-BaseRecyclerViewAdapter<ViewHolder>
+LoadMoreSupportAdapter<ViewHolder>

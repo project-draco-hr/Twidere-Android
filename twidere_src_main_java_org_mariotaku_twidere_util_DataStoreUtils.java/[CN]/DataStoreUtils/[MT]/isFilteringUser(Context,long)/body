@@ -1,0 +1,12 @@
+{
+  final ContentResolver cr=context.getContentResolver();
+  final Expression where=Expression.equals(Filters.Users.USER_ID,userId);
+  final Cursor c=cr.query(Filters.Users.CONTENT_URI,new String[0],where.getSQL(),null,null);
+  if (c == null)   return false;
+  try {
+    return c.getCount() > 0;
+  }
+  finally {
+    c.close();
+  }
+}

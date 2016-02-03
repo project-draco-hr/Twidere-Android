@@ -1,6 +1,5 @@
 {
   if (context == null)   return 0;
-  final ContentResolver resolver=context.getContentResolver();
   final RawItemArray idsIn;
   if (accountIds == null || accountIds.length == 0 || (accountIds.length == 1 && accountIds[0] < 0)) {
     idsIn=new RawItemArray(getActivatedAccountIds(context));
@@ -8,6 +7,6 @@
  else {
     idsIn=new RawItemArray(accountIds);
   }
-  final Expression selection=Expression.and(Expression.in(new Columns.Column(Statuses.ACCOUNT_ID),idsIn),Expression.greaterThan(Statuses.STATUS_ID,sinceId),buildStatusFilterWhereClause(getTableNameByUri(uri),null));
+  final Expression selection=Expression.and(Expression.in(new Column(Statuses.ACCOUNT_ID),idsIn),Expression.greaterThan(Statuses.STATUS_ID,sinceId),buildStatusFilterWhereClause(getTableNameByUri(uri),null));
   return queryCount(context,uri,selection.getSQL(),null);
 }

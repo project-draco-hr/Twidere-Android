@@ -125,6 +125,13 @@ case VIRTUAL_TABLE_ID_EMPTY:
 {
 return new MatrixCursor(projection);
 }
+case VIRTUAL_TABLE_ID_RAW_QUERY:
+{
+if (projection != null || selection != null || sortOrder != null) {
+throw new IllegalArgumentException();
+}
+return mDatabaseWrapper.rawQuery(uri.getLastPathSegment(),selectionArgs);
+}
 }
 if (table == null) return null;
 final Cursor c=mDatabaseWrapper.query(table,projection,selection,selectionArgs,null,null,sortOrder);

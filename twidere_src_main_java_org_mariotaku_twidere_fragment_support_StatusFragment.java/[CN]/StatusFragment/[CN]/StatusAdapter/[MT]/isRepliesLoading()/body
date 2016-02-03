@@ -1,0 +1,3 @@
+{
+  return IndicatorPositionUtils.has(getLoadMoreIndicatorPosition(),IndicatorPosition.END);
+}

@@ -1,0 +1,8 @@
+{
+  final StatusAdapter adapter=(StatusAdapter)recyclerView.getAdapter();
+  int offset=0;
+  if (!adapter.isConversationsLoading()) {
+    offset=adapter.getTypeCount(StatusAdapter.ITEM_IDX_CONVERSATION_LOAD_MORE);
+  }
+  return offset;
+}

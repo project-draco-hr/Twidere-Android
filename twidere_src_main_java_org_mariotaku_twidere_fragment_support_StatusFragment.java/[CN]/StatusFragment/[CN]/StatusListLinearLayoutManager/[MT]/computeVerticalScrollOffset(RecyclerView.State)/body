@@ -1,0 +1,8 @@
+{
+  int offset=getScrollBarStartOffset();
+  final int firstVisiblePosition=findFirstVisibleItemPosition();
+  final View firstVisibleView=findViewByPosition(firstVisiblePosition);
+  final float decoratedTop=getDecoratedTop(firstVisibleView), decoratedBottom=getDecoratedBottom(firstVisibleView);
+  final float heightRatio=decoratedTop / (decoratedBottom - decoratedTop);
+  return Math.round((Math.max(0,firstVisiblePosition - offset) - heightRatio) * getAvgItemSize());
+}

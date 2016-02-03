@@ -1,0 +1,19 @@
+{
+  final ContentResolver resolver=context.getContentResolver();
+  final long[] messageIds=new long[keys.length];
+  Arrays.fill(messageIds,-1);
+  final String[] selectionArgs=TwidereArrayUtils.toStringArray(keys);
+  final SQLSelectQuery.Builder builder=SQLQueryBuilder.select(new Columns(keyField,valueField)).from(new Table(getTableNameByUri(uri))).groupBy(new Column(keyField)).having(Expression.in(new Column(keyField),new ArgsArray(keys.length)));
+  if (sortExpression != null) {
+    builder.orderBy(sortExpression);
+  }
+  final Cursor cur=ContentResolverUtils.query(resolver,Uri.withAppendedPath(TwidereDataStore.CONTENT_URI_DATABASE_READY,builder.buildSQL()),null,null,selectionArgs,null);
+  if (cur == null)   return messageIds;
+  while (cur.moveToNext()) {
+    final long accountId=cur.getLong(0);
+    int idx=ArrayUtils.indexOf(keys,accountId);
+    if (idx < 0)     continue;
+    messageIds[idx]=cur.getLong(1);
+  }
+  return messageIds;
+}

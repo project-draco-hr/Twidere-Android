@@ -1,5 +1,9 @@
 {
-  mConversationsLoading=loading;
-  notifyItemChanged(getFirstPositionOfItem(ITEM_IDX_CONVERSATION_LOAD_MORE));
+  if (loading) {
+    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() | IndicatorPosition.START);
+  }
+ else {
+    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() & ~IndicatorPosition.START);
+  }
   updateItemDecoration();
 }

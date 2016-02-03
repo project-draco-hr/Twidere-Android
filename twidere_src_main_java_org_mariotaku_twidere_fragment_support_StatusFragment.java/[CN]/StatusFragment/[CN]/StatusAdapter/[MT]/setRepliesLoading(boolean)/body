@@ -1,5 +1,9 @@
 {
-  mRepliesLoading=loading;
-  notifyItemChanged(getFirstPositionOfItem(ITEM_IDX_REPLY_LOAD_MORE));
+  if (loading) {
+    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() | IndicatorPosition.END);
+  }
+ else {
+    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() & ~IndicatorPosition.END);
+  }
   updateItemDecoration();
 }

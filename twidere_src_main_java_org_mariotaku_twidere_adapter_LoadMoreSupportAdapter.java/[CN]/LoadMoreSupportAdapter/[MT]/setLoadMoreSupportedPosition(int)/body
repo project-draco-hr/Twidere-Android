@@ -1,0 +1,5 @@
+{
+  mLoadMoreSupportedPosition=supportedPosition;
+  mLoadMoreIndicatorPosition=IndicatorPositionUtils.apply(mLoadMoreIndicatorPosition,supportedPosition);
+  notifyDataSetChanged();
+}

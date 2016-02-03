@@ -28,5 +28,5 @@ args.putString(EXTRA_URL,TextUtils.isEmpty(media.media_url) ? media.url : media.
 return (MediaViewerFragment)Fragment.instantiate(this,ExternalBrowserPageFragment.class.getName(),args);
 }
 }
-throw new UnsupportedOperationException();
+throw new UnsupportedOperationException(String.valueOf(media));
 }

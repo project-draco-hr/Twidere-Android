@@ -1,7 +1,7 @@
 {
   int typeStart=0;
   for (int type=0; type < ITEM_TYPES_SUM; type++) {
-    int typeCount=mItemCounts[type];
+    int typeCount=getTypeCount(type);
     final int typeEnd=typeStart + typeCount;
     if (position >= typeStart && position < typeEnd)     return type;
     typeStart=typeEnd;

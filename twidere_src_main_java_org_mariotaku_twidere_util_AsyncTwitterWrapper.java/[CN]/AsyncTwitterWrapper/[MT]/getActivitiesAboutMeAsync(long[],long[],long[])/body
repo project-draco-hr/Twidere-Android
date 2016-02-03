@@ -1,6 +1,6 @@
 {
   mAsyncTaskManager.add(new GetActivitiesTask(this,TASK_TAG_GET_MENTIONS,accountIds,maxIds,sinceIds){
-    @Override protected void getReadPosition(    long accountId,    Twitter twitter){
+    @Override protected void saveReadPosition(    long accountId,    Twitter twitter){
       try {
         CursorTimestampResponse response=twitter.getActivitiesAboutMeUnread(true);
         final String tag=Utils.getReadPositionTagWithAccounts(ReadPositionTag.ACTIVITIES_ABOUT_ME,accountIds);

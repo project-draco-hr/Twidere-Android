@@ -1,0 +1,6 @@
+Context context
+Uri uri
+long[] keys
+String keyField
+String valueField
+OrderBy sortExpression
