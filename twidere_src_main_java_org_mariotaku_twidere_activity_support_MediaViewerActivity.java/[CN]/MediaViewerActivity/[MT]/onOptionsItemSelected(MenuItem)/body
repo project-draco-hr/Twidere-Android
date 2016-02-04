@@ -1,0 +1,33 @@
+{
+  final ViewPager viewPager=findViewPager();
+  final PagerAdapter adapter=viewPager.getAdapter();
+  final int currentItem=viewPager.getCurrentItem();
+  final Object object=adapter.instantiateItem(viewPager,currentItem);
+  if (!(object instanceof MediaViewerFragment))   return false;
+switch (item.getItemId()) {
+case R.id.refresh:
+{
+      if (object instanceof CacheDownloadMediaViewerFragment) {
+        ((CacheDownloadMediaViewerFragment)object).startLoading(true);
+      }
+      return true;
+    }
+case R.id.share:
+{
+    shareMedia();
+    return true;
+  }
+case R.id.save:
+{
+  requestAndSaveToStorage(currentItem);
+  return true;
+}
+case R.id.open_in_browser:
+{
+final ParcelableMedia media=getMedia()[currentItem];
+startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(media.media_url)));
+return true;
+}
+}
+return super.onOptionsItemSelected(item);
+}

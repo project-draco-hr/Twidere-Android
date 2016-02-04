@@ -1,0 +1,16 @@
+{
+  if (mSaveToStoragePosition == -1)   return;
+  final ViewPager viewPager=findViewPager();
+  final PagerAdapter adapter=viewPager.getAdapter();
+  final Object object=adapter.instantiateItem(viewPager,mSaveToStoragePosition);
+  if (!(object instanceof CacheDownloadMediaViewerFragment))   return;
+  final CacheDownloadMediaViewerFragment f=(CacheDownloadMediaViewerFragment)object;
+  final CacheDownloadLoader.Result result=f.getDownloadResult();
+  if (result == null)   return;
+  if (mSaveFileTask != null && mSaveFileTask.getStatus() == AsyncTask.Status.RUNNING)   return;
+  final Uri cacheUri=result.cacheUri;
+  final boolean hasImage=cacheUri != null;
+  if (!hasImage)   return;
+  mSaveFileTask=SaveImageToGalleryTask.create(this,cacheUri);
+  AsyncTaskUtils.executeTask(mSaveFileTask);
+}

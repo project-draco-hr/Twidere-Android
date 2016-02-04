@@ -1,7 +1,0 @@
-{
-  if (!mFragmentResumed)   return;
-  Action action;
-  while ((action=mActionQueue.poll()) != null) {
-    action.execute(this);
-  }
-}

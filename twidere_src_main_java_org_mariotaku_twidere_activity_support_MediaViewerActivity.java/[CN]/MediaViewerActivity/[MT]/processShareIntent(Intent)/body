@@ -1,0 +1,6 @@
+{
+  if (!hasStatus())   return;
+  final ParcelableStatus status=getStatus();
+  intent.putExtra(Intent.EXTRA_SUBJECT,IntentUtils.getStatusShareSubject(this,status));
+  intent.putExtra(Intent.EXTRA_TEXT,IntentUtils.getStatusShareText(this,status));
+}

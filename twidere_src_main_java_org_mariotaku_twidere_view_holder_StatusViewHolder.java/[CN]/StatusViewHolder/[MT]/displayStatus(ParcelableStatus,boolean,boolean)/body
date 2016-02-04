@@ -6,9 +6,9 @@
   final BidiFormatter formatter=adapter.getBidiFormatter();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();
-  final long reply_count=status.reply_count;
+  final long replyCount=status.reply_count;
   final long retweetCount;
-  final long favorite_count;
+  final long favoriteCount;
   if (TwitterCardUtils.isPoll(status)) {
     statusInfoLabel.setText(R.string.label_poll);
     statusInfoIcon.setImageResource(R.drawable.ic_activity_action_poll);
@@ -123,9 +123,8 @@
     final Spanned text=HtmlSpanBuilder.fromHtml(status.text_html);
     textView.setText(linkify.applyAllLinks(text,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle()));
   }
-  final Locale locale=Locale.getDefault();
-  if (reply_count > 0) {
-    replyCountView.setText(Utils.getLocalizedNumber(locale,reply_count));
+  if (replyCount > 0) {
+    replyCountView.setText(UnitConvertUtils.calculateProperCount(replyCount));
   }
  else {
     replyCountView.setText(null);
@@ -140,22 +139,22 @@
     retweetCount=status.retweet_count + (creatingRetweet ? 1 : 0);
   }
   if (retweetCount > 0) {
-    retweetCountView.setText(Utils.getLocalizedNumber(locale,retweetCount));
+    retweetCountView.setText(UnitConvertUtils.calculateProperCount(retweetCount));
   }
  else {
     retweetCountView.setText(null);
   }
   if (twitter.isDestroyingFavorite(status.account_id,status.id)) {
     favoriteCountView.setActivated(false);
-    favorite_count=Math.max(0,status.favorite_count - 1);
+    favoriteCount=Math.max(0,status.favorite_count - 1);
   }
  else {
     final boolean creatingFavorite=twitter.isCreatingFavorite(status.account_id,status.id);
     favoriteCountView.setActivated(creatingFavorite || status.is_favorite);
-    favorite_count=status.favorite_count + (creatingFavorite ? 1 : 0);
+    favoriteCount=status.favorite_count + (creatingFavorite ? 1 : 0);
   }
-  if (favorite_count > 0) {
-    favoriteCountView.setText(Utils.getLocalizedNumber(locale,favorite_count));
+  if (favoriteCount > 0) {
+    favoriteCountView.setText(UnitConvertUtils.calculateProperCount(favoriteCount));
   }
  else {
     favoriteCountView.setText(null);
