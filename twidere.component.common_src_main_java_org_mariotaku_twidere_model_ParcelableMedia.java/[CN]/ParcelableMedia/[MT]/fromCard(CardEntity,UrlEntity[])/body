@@ -6,7 +6,7 @@
     final BindingValue playerStreamUrl=card.getBindingValue("player_stream_url");
     media.card=ParcelableCardEntity.fromCardEntity(card,-1);
     StringValue appUrlResolved=(StringValue)card.getBindingValue("app_url_resolved");
-    media.url=appUrlResolved != null ? appUrlResolved.getValue() : card.getUrl();
+    media.url=checkUrl(appUrlResolved) ? appUrlResolved.getValue() : card.getUrl();
     if ("animated_gif".equals(name)) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
       media.type=Type.TYPE_CARD_ANIMATED_GIF;

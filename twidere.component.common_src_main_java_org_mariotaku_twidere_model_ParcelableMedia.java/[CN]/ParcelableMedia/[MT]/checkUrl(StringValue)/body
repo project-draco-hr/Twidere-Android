@@ -1,0 +1,5 @@
+{
+  if (value == null)   return false;
+  final String valueString=value.getValue();
+  return valueString != null && (valueString.startsWith("http://") || valueString.startsWith("https://"));
+}

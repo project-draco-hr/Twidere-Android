@@ -24,7 +24,7 @@ case ParcelableMedia.Type.TYPE_VIDEO:
 case ParcelableMedia.Type.TYPE_EXTERNAL_PLAYER:
 {
 final Bundle args=new Bundle();
-args.putString(EXTRA_URL,TextUtils.isEmpty(media.media_url) ? media.url : media.media_url);
+args.putParcelable(EXTRA_MEDIA,media);
 return (MediaViewerFragment)Fragment.instantiate(this,ExternalBrowserPageFragment.class.getName(),args);
 }
 }

@@ -25,7 +25,11 @@ case R.id.save:
 case R.id.open_in_browser:
 {
 final ParcelableMedia media=getMedia()[currentItem];
-startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(media.media_url)));
+try {
+  startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(media.url)));
+}
+ catch (ActivityNotFoundException e) {
+}
 return true;
 }
 }
