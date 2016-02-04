@@ -1,4 +1,4 @@
 {
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  return prefs.getLong(LAST_UPLOAD_TIME,-1);
+  return prefs.getLong(KEY_LAST_UPLOAD_TIME,-1);
 }

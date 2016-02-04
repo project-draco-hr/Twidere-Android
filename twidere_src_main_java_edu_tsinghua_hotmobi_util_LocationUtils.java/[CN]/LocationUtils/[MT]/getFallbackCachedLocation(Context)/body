@@ -1,4 +1,4 @@
 {
-  final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
-  return JsonSerializer.parse(prefs.getString(HotMobiLogger.FALLBACK_CACHED_LOCATION,null),LatLng.class);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  return JsonSerializer.parse(prefs.getString(KEY_FALLBACK_CACHED_LOCATION,null),LatLng.class);
 }

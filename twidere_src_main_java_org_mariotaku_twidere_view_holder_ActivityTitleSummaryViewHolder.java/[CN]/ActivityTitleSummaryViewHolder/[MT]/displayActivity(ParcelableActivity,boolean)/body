@@ -11,5 +11,6 @@
   titleView.setText(message.getTitle());
   summaryView.setText(message.getSummary());
   summaryView.setVisibility(summaryView.length() > 0 ? View.VISIBLE : View.GONE);
+  timeView.setTime(activity.timestamp);
   displayUserProfileImages(sources);
 }

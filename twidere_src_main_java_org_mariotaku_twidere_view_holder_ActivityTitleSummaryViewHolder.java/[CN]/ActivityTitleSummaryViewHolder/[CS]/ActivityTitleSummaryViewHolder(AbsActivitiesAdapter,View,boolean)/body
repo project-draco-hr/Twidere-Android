@@ -4,14 +4,8 @@
   itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
   activityTypeView=(ActionIconView)itemView.findViewById(R.id.activity_type);
   titleView=(TextView)itemView.findViewById(R.id.title);
-  if (isCompact) {
-    final Resources resources=adapter.getContext().getResources();
-    final ViewGroup.MarginLayoutParams lp=(ViewGroup.MarginLayoutParams)titleView.getLayoutParams();
-    final int spacing=resources.getDimensionPixelSize(R.dimen.element_spacing_small);
-    lp.leftMargin=spacing;
-    MarginLayoutParamsCompat.setMarginStart(lp,spacing);
-  }
   summaryView=(TextView)itemView.findViewById(R.id.summary);
+  timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   profileImageSpace=itemView.findViewById(R.id.profile_image_space);
   profileImagesContainer=(ViewGroup)itemView.findViewById(R.id.profile_images_container);
   profileImageViews=new ImageView[5];
@@ -21,4 +15,12 @@
   profileImageViews[3]=(ImageView)itemView.findViewById(R.id.activity_profile_image_3);
   profileImageViews[4]=(ImageView)itemView.findViewById(R.id.activity_profile_image_4);
   profileImageMoreNumber=(BadgeView)itemView.findViewById(R.id.activity_profile_image_more_number);
+  if (isCompact) {
+    final Resources resources=adapter.getContext().getResources();
+    final ViewGroup.MarginLayoutParams lp=(ViewGroup.MarginLayoutParams)titleView.getLayoutParams();
+    final int spacing=resources.getDimensionPixelSize(R.dimen.element_spacing_small);
+    lp.leftMargin=spacing;
+    MarginLayoutParamsCompat.setMarginStart(lp,spacing);
+  }
+  timeView.setShowAbsoluteTime(adapter.isShowAbsoluteTime());
 }

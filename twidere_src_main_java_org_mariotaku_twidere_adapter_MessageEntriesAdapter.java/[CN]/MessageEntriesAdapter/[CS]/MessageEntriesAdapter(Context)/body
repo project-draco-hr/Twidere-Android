@@ -5,6 +5,7 @@
   mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
+  mShowAbsoluteTime=mPreferences.getBoolean(KEY_SHOW_ABSOLUTE_TIME,false);
   mReadStateChangeListener=new OnSharedPreferenceChangeListener(){
     @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
       updateReadState();

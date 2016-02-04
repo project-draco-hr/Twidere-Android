@@ -1,5 +1,4 @@
 {
-  mAsyncTaskManager.cancel(mGetLocalTrendsTaskId);
   final GetLocalTrendsTask task=new GetLocalTrendsTask(accountId,woeid);
-  return mGetLocalTrendsTaskId=mAsyncTaskManager.add(task,true);
+  return mAsyncTaskManager.add(task,true);
 }

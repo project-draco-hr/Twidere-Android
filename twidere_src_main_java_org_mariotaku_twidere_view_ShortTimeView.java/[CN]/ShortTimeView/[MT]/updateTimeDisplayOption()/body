@@ -1,4 +1,0 @@
-{
-  if (mPreferences == null)   return;
-  mShowAbsoluteTime=mPreferences.getBoolean(KEY_SHOW_ABSOLUTE_TIME,false);
-}

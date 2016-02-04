@@ -1,7 +1,13 @@
 {
   final int firstVisiblePosition=findFirstVisibleItemPosition();
   final int lastVisiblePosition=findLastVisibleItemPosition();
+  if (firstVisiblePosition == RecyclerView.NO_POSITION || lastVisiblePosition == RecyclerView.NO_POSITION) {
+    return 1;
+  }
   final View firstVisibleView=findViewByPosition(firstVisiblePosition);
   final View lastVisibleView=findViewByPosition(lastVisiblePosition);
+  if (firstVisiblePosition == lastVisiblePosition) {
+    return firstVisibleView.getHeight();
+  }
   return (lastVisibleView.getBottom() - firstVisibleView.getTop()) / (lastVisiblePosition - firstVisiblePosition);
 }

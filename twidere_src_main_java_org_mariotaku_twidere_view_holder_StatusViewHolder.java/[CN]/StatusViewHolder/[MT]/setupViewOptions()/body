@@ -10,4 +10,5 @@
     favoriteCountView.setActivatedColor(ContextCompat.getColor(adapter.getContext(),R.color.highlight_favorite));
     TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(favoriteCountView,R.drawable.ic_action_star,0,0,0);
   }
+  timeView.setShowAbsoluteTime(adapter.isShowAbsoluteTime());
 }

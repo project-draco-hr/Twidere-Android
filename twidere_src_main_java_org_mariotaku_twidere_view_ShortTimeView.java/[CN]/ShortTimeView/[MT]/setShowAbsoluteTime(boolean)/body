@@ -1,0 +1,4 @@
+{
+  mShowAbsoluteTime=showAbsoluteTime;
+  invalidateTime();
+}

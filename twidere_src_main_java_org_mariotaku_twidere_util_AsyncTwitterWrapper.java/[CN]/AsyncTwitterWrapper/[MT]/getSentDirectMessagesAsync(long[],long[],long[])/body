@@ -1,5 +1,4 @@
 {
-  mAsyncTaskManager.cancel(mGetSentDirectMessagesTaskId);
   final GetSentDirectMessagesTask task=new GetSentDirectMessagesTask(accountIds,max_ids,since_ids);
-  return mGetSentDirectMessagesTaskId=mAsyncTaskManager.add(task,true);
+  return mAsyncTaskManager.add(task,true);
 }

@@ -1,10 +1,18 @@
 {
-  final Location location=Utils.getCachedLocation(context);
+  final Context appContext=context.getApplicationContext();
+  final Location location=Utils.getCachedLocation(appContext);
   if (location == null) {
-    return getFallbackCachedLocation(context);
+    return getFallbackCachedLocation(appContext);
   }
   final LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
-  final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
-  prefs.edit().putString(HotMobiLogger.FALLBACK_CACHED_LOCATION,JsonSerializer.serialize(latLng,LatLng.class)).apply();
+  AsyncTask.execute(new Runnable(){
+    @Override public void run(){
+      final SharedPreferences prefs=appContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+      final SharedPreferences.Editor editor=prefs.edit();
+      editor.putString(KEY_FALLBACK_CACHED_LOCATION,JsonSerializer.serialize(latLng,LatLng.class));
+      editor.apply();
+    }
+  }
+);
   return latLng;
 }
