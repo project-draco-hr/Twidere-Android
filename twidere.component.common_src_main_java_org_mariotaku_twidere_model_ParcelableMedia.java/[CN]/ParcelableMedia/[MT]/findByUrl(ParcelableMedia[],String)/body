@@ -1,0 +1,7 @@
+{
+  if (media == null || url == null)   return null;
+  for (  ParcelableMedia item : media) {
+    if (url.equals(item.url))     return item;
+  }
+  return null;
+}

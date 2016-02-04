@@ -24,7 +24,7 @@
  else {
       continue;
     }
-    if (mConnnectTimeout == 0 || inetAddress.isReachable(TwidereMathUtils.clamp((int)mConnnectTimeout / 2,1000,3000))) {
+    if (mConnnectTimeout == 0 || checkAddress(inetAddress)) {
       resolvedAddresses.add(InetAddress.getByAddress(originalHost,inetAddress.getAddress()));
     }
   }
