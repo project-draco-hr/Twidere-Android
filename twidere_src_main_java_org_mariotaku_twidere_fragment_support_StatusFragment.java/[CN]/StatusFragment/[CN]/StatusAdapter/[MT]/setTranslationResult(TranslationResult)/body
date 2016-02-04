@@ -1,7 +1,9 @@
 {
-  if (mStatus == null || (translation != null && mStatus.id != translation.getId())) {
-    return;
+  if (mStatus == null || translation == null || TwitterContentUtils.getOriginalId(mStatus) != translation.getId()) {
+    mTranslationResult=null;
   }
-  mTranslationResult=translation;
+ else {
+    mTranslationResult=translation;
+  }
   notifyDataSetChanged();
 }

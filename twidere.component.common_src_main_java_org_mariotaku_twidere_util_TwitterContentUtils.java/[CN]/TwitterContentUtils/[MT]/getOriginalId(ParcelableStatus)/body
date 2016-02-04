@@ -1,0 +1,3 @@
+{
+  return status.is_retweet ? status.retweet_id : status.id;
+}
