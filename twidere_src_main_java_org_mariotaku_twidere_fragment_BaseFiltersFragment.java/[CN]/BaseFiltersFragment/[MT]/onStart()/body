@@ -1,5 +1,0 @@
-{
-  super.onStart();
-  final IntentFilter filter=new IntentFilter(BROADCAST_FILTERS_UPDATED);
-  registerReceiver(mStateReceiver,filter);
-}
