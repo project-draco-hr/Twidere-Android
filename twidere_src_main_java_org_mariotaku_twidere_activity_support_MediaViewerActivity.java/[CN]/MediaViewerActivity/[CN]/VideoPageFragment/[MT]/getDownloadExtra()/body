@@ -1,3 +1,5 @@
 {
-  return null;
+  final MediaExtra extra=new MediaExtra();
+  extra.setUseThumbor(false);
+  return extra;
 }

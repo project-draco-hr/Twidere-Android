@@ -22,11 +22,14 @@ case R.id.play_pause_button:
   }
 case R.id.video_view_overlay:
 {
+  final MediaViewerActivity activity=(MediaViewerActivity)getActivity();
   if (mVideoControl.getVisibility() == View.VISIBLE) {
     mVideoControl.setVisibility(View.GONE);
+    activity.setBarVisibility(false);
   }
  else {
     mVideoControl.setVisibility(View.VISIBLE);
+    activity.setBarVisibility(true);
   }
   break;
 }

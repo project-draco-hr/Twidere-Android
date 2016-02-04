@@ -8,7 +8,10 @@ switch (item.getItemId()) {
 case R.id.refresh:
 {
       if (object instanceof CacheDownloadMediaViewerFragment) {
-        ((CacheDownloadMediaViewerFragment)object).startLoading(true);
+        final CacheDownloadMediaViewerFragment fragment=(CacheDownloadMediaViewerFragment)object;
+        fragment.startLoading(true);
+        fragment.showProgress(true,0);
+        fragment.setMediaViewVisible(false);
       }
       return true;
     }

@@ -1,4 +1,4 @@
 Context context
 SharedPreferences prefs
-OkHttpClient client
 Dns dns
+OkHttpClient.Builder builder

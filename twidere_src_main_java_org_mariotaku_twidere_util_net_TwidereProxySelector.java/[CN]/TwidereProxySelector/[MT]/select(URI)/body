@@ -1,11 +1,16 @@
 {
   if (proxy != null)   return proxy;
-  final InetSocketAddress unresolved;
+  final InetSocketAddress address;
   if (Looper.myLooper() != Looper.getMainLooper()) {
-    unresolved=createResolved(host,port);
+    address=createResolved(host,port);
   }
  else {
-    unresolved=InetSocketAddress.createUnresolved(host,port);
+    if (InetAddressUtils.getInetAddressType(host) != 0) {
+      address=new InetSocketAddress(InetAddressUtils.getResolvedIPAddress(host,host),port);
+    }
+ else {
+      address=new InetSocketAddress(host,port);
+    }
   }
-  return proxy=Collections.singletonList(new Proxy(type,unresolved));
+  return proxy=Collections.singletonList(new Proxy(type,address));
 }

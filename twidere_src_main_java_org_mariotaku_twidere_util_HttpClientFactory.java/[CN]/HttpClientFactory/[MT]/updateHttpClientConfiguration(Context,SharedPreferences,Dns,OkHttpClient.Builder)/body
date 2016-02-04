@@ -1,0 +1,42 @@
+{
+  final int connectionTimeoutSeconds=prefs.getInt(KEY_CONNECTION_TIMEOUT,10);
+  final boolean ignoreSslError=prefs.getBoolean(KEY_IGNORE_SSL_ERROR,false);
+  final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
+  builder.connectTimeout(connectionTimeoutSeconds,TimeUnit.SECONDS);
+  if (ignoreSslError) {
+    final int sslConnectTimeout=((int)TimeUnit.SECONDS.toMillis(connectionTimeoutSeconds));
+    builder.sslSocketFactory(SSLCertificateSocketFactory.getInsecure(sslConnectTimeout,new SSLSessionCache(context)));
+  }
+  if (enableProxy) {
+    final String proxyType=prefs.getString(KEY_PROXY_TYPE,null);
+    final String proxyHost=prefs.getString(KEY_PROXY_HOST,null);
+    final int proxyPort=NumberUtils.toInt(prefs.getString(KEY_PROXY_PORT,null),-1);
+    if (!isEmpty(proxyHost) && TwidereMathUtils.inRange(proxyPort,0,65535,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE)) {
+      final Proxy.Type type=getProxyType(proxyType);
+      if (InetAddressUtils.getInetAddressType(proxyHost) != 0) {
+        builder.proxy(new Proxy(type,InetSocketAddress.createUnresolved(proxyHost,proxyPort)));
+      }
+ else {
+        builder.proxySelector(new TwidereProxySelector(context,type,proxyHost,proxyPort));
+      }
+    }
+    final String username=prefs.getString(KEY_PROXY_USERNAME,null);
+    final String password=prefs.getString(KEY_PROXY_PASSWORD,null);
+    builder.authenticator(new Authenticator(){
+      @Override public Request authenticate(      Route route,      Response response) throws IOException {
+        final Request.Builder builder=response.request().newBuilder();
+        if (response.code() == 407) {
+          if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+            final String credential=Credentials.basic(username,password);
+            builder.header("Proxy-Authorization",credential);
+          }
+        }
+        return builder.build();
+      }
+    }
+);
+  }
+  if (dns != null) {
+    builder.dns(dns);
+  }
+}

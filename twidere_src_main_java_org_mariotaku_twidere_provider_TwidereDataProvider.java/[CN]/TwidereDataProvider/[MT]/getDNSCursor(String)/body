@@ -1,7 +1,7 @@
 {
   final MatrixCursor c=new MatrixCursor(DNS.MATRIX_COLUMNS);
   try {
-    final List<InetAddress> addresses=mNetwork.lookup(host);
+    final List<InetAddress> addresses=mDns.lookup(host);
     for (    InetAddress address : addresses) {
       c.addRow(new String[]{host,address.getHostAddress()});
     }

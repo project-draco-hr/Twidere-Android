@@ -2,9 +2,9 @@
   final RestClient restClient=RestAPIFactory.getRestClient(oauth);
   this.oauth=oauth;
   this.client=(OkHttpRestClient)restClient.getRestClient();
-  final OkHttpClient okhttp=client.getClient();
-  okhttp.setCookieHandler(new CookieManager());
-  okhttp.networkInterceptors().add(new Interceptor(){
+  final OkHttpClient.Builder builder=client.getClient().newBuilder();
+  builder.cookieJar(new JavaNetCookieJar(new CookieManager()));
+  builder.addNetworkInterceptor(new Interceptor(){
     @Override public Response intercept(    Chain chain) throws IOException {
       final Response response=chain.proceed(chain.request());
       if (!response.isRedirect()) {
