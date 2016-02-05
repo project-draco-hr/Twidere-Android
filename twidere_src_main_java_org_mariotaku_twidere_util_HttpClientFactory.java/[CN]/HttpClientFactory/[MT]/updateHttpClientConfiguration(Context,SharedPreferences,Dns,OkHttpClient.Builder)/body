@@ -19,11 +19,13 @@
     final int proxyPort=NumberUtils.toInt(prefs.getString(KEY_PROXY_PORT,null),-1);
     if (!isEmpty(proxyHost) && TwidereMathUtils.inRange(proxyPort,0,65535,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE)) {
       final Proxy.Type type=getProxyType(proxyType);
-      if (InetAddressUtils.getInetAddressType(proxyHost) != 0) {
-        builder.proxy(new Proxy(type,InetSocketAddress.createUnresolved(proxyHost,proxyPort)));
-      }
+      if (type != Proxy.Type.DIRECT) {
+        if (InetAddressUtils.getInetAddressType(proxyHost) != 0) {
+          builder.proxy(new Proxy(type,InetSocketAddress.createUnresolved(proxyHost,proxyPort)));
+        }
  else {
-        builder.proxySelector(new TwidereProxySelector(context,type,proxyHost,proxyPort));
+          builder.proxySelector(new TwidereProxySelector(context,type,proxyHost,proxyPort));
+        }
       }
     }
     final String username=prefs.getString(KEY_PROXY_USERNAME,null);
