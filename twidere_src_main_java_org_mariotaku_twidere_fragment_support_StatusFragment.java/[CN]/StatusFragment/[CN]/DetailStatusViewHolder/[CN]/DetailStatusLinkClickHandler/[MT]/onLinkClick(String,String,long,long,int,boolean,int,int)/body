@@ -1,6 +1,6 @@
 {
   final ParcelableStatus status=adapter.getStatus();
-  ParcelableMedia current=null;
+  ParcelableMedia current;
   if ((current=ParcelableMedia.findByUrl(status.media,link)) != null) {
     expandOrOpenMedia(current);
     return;
@@ -10,7 +10,7 @@
     return;
   }
   if (type == TwidereLinkify.LINK_TYPE_STATUS && status.id == NumberUtils.toLong(link)) {
-    expandOrOpenMedia(current);
+    expandOrOpenMedia(null);
     return;
   }
   super.onLinkClick(link,orig,accountId,extraId,type,sensitive,start,end);

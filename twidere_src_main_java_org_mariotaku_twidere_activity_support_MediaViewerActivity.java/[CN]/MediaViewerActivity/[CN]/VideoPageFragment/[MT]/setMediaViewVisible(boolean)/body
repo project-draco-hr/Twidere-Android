@@ -1,4 +1,0 @@
-{
-  super.setMediaViewVisible(visible);
-  getActivity().supportInvalidateOptionsMenu();
-}

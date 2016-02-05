@@ -1,4 +1,0 @@
-{
-  super.displayMedia(data);
-  getActivity().supportInvalidateOptionsMenu();
-}

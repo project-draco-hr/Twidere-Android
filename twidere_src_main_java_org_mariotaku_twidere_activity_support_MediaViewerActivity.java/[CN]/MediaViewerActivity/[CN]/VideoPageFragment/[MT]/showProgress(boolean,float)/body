@@ -1,4 +1,0 @@
-{
-  super.showProgress(indeterminate,progress);
-  getActivity().supportInvalidateOptionsMenu();
-}
