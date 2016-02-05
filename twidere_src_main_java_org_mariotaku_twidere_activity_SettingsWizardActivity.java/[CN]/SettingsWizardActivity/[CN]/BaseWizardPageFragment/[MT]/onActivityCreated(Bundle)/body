@@ -17,4 +17,18 @@
     nextPage.setOnPreferenceClickListener(this);
     screen.addPreference(nextPage);
   }
+  final Preference.OnPreferenceChangeListener listener=new Preference.OnPreferenceChangeListener(){
+    @Override public boolean onPreferenceChange(    Preference preference,    Object newValue){
+      final Bundle extras=preference.getExtras();
+      if (extras != null && extras.getBoolean(EXTRA_RESTART_ACTIVITY)) {
+        ((SettingsWizardActivity)getActivity()).restartWithCurrentPage();
+        return true;
+      }
+      return true;
+    }
+  }
+;
+  for (int i=0, j=screen.getPreferenceCount(); i < j; i++) {
+    screen.getPreference(i).setOnPreferenceChangeListener(listener);
+  }
 }

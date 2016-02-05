@@ -1,0 +1,12 @@
+{
+  final LayoutInflater inflater=super.getLayoutInflater();
+  if (inflater.getFactory() == null) {
+    LayoutInflaterCompat.setFactory(inflater,new ThemedLayoutInflaterFactory(this,new LayoutInflaterFactory(){
+      @Override public View onCreateView(      View parent,      String name,      Context context,      AttributeSet attrs){
+        return SettingsWizardActivity.this.onCreateView(parent,name,context,attrs);
+      }
+    }
+));
+  }
+  return inflater;
+}

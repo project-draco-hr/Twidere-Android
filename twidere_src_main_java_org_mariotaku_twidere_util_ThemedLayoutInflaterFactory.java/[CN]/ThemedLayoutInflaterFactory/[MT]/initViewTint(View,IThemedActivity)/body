@@ -1,14 +1,14 @@
 {
   final int noTintColor, accentColor, backgroundTintColor;
   final boolean isColorTint;
-  final Resources resources=((Activity)activity).getResources();
   final Context viewContext=view.getContext();
   final boolean isActionBarContext=isActionBarContext(viewContext,getActionBarContext((Activity)activity));
   final int themeResourceId=activity.getCurrentThemeResourceId();
   final boolean isDarkTheme=ThemeUtils.isDarkTheme(themeResourceId);
   final int backgroundColorApprox;
+  final int currentThemeColor=activity.getCurrentThemeColor();
   if (!isActionBarContext) {
-    accentColor=activity.getCurrentThemeColor();
+    accentColor=currentThemeColor;
     final int[] darkLightColors=new int[2];
     ThemeUtils.getDarkLightForegroundColors((Context)activity,activity.getCurrentThemeResourceId(),darkLightColors);
     noTintColor=TwidereColorUtils.getContrastYIQ(accentColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,darkLightColors[0],darkLightColors[1]);
@@ -18,13 +18,12 @@
   }
  else   if (isDarkTheme) {
     noTintColor=Color.WHITE;
-    accentColor=activity.getCurrentThemeColor();
+    accentColor=currentThemeColor;
     backgroundTintColor=noTintColor;
     backgroundColorApprox=Color.BLACK;
     isColorTint=true;
   }
  else {
-    final int actionBarColor=activity.getCurrentThemeColor();
     accentColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorForeground,0);
     noTintColor=ThemeUtils.getColorFromAttribute(viewContext,android.R.attr.colorBackground,0);
     backgroundTintColor=accentColor;
@@ -38,12 +37,15 @@
       textView.setLinkTextColor(accentColor);
     }
   }
+  if (view instanceof WizardHighlightTextView) {
+    ((WizardHighlightTextView)view).setTextColor(ThemeUtils.getOptimalAccentColor((Context)activity,currentThemeColor,isActionBarContext,themeResourceId));
+  }
   if (view instanceof IThemeAccentView) {
     if (isAccentOptimal || !isColorTint) {
       ((IThemeAccentView)view).setAccentTintColor(ColorStateList.valueOf(accentColor));
     }
  else {
-      final int defaultAccentColor=ThemeUtils.getColorFromAttribute(viewContext,R.attr.colorAccent,resources.getColor(R.color.branding_color));
+      final int defaultAccentColor=ThemeUtils.getColorFromAttribute(viewContext,R.attr.colorAccent,ContextCompat.getColor(viewContext,R.color.branding_color));
       ((IThemeAccentView)view).setAccentTintColor(ColorStateList.valueOf(defaultAccentColor));
     }
   }
