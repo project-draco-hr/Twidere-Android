@@ -21,7 +21,6 @@
     authorizeResultBuilder.url(endpoint.construct("/account/login_verification"));
     authorizeResultBuilder.headers(requestHeaders);
     authorizeResultBuilder.body(authorizationResultBody);
-    authorizeResultBuilder.tag(RequestType.API);
     response=client.newCall(authorizeResultBuilder.build()).execute();
     parseAuthorizeRequestData(response,data);
     if (TextUtils.isEmpty(data.authenticityToken)) {

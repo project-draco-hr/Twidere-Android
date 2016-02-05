@@ -1,5 +1,5 @@
 {
-  if (context == null)   return null;
+  if (context == null || accountId < 0)   return null;
   Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,Expression.equals(Accounts.ACCOUNT_ID,accountId).getSQL(),null,null);
   if (cur == null)   return null;
   try {

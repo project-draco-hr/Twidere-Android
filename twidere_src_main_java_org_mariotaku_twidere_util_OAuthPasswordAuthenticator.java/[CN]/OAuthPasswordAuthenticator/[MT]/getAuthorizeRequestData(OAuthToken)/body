@@ -9,7 +9,6 @@
     final MultiValueMap<String> requestHeaders=new MultiValueMap<>();
     requestHeaders.add("User-Agent",userAgent);
     authorizePageBuilder.headers(requestHeaders);
-    authorizePageBuilder.tag(RequestType.API);
     final HttpRequest authorizePageRequest=authorizePageBuilder.build();
     response=client.newCall(authorizePageRequest).execute();
     parseAuthorizeRequestData(response,data);

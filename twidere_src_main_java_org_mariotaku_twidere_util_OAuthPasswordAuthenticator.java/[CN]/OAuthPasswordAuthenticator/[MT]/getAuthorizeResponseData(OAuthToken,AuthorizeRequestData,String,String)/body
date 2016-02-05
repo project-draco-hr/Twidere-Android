@@ -19,7 +19,6 @@
     authorizeResultBuilder.url(endpoint.construct("/oauth/authorize"));
     authorizeResultBuilder.headers(requestHeaders);
     authorizeResultBuilder.body(authorizationResultBody);
-    authorizeResultBuilder.tag(RequestType.API);
     response=client.newCall(authorizeResultBuilder.build()).execute();
     final HtmlParsingConfiguration conf=new HtmlParsingConfiguration();
     final IAttoHandler handler=new AbstractStandardNonValidatingHtmlAttoHandler(conf){

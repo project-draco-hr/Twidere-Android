@@ -1,0 +1,8 @@
+{
+  if (credentials == null)   return false;
+  final String host=uri.getHost();
+  if (credentials.api_url_format != null && credentials.api_url_format.contains(host)) {
+    return true;
+  }
+  return "ton.twitter.com".equalsIgnoreCase(host);
+}

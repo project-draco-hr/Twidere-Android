@@ -3,7 +3,6 @@
   final HttpRequest.Builder builder=new HttpRequest.Builder();
   builder.method(GET.METHOD);
   builder.url(uri.toString());
-  builder.tag(RequestType.MEDIA);
   final HttpResponse response=client.newCall(builder.build()).execute();
   if (response.isSuccessful()) {
     final Body body=response.getBody();
