@@ -1,0 +1,3 @@
+{
+  allCookies.addAll(cookies);
+}

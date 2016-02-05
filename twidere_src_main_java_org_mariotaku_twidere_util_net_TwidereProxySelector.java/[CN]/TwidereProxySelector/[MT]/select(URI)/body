@@ -6,7 +6,7 @@
   }
  else {
     if (InetAddressUtils.getInetAddressType(host) != 0) {
-      address=new InetSocketAddress(InetAddressUtils.getResolvedIPAddress(host,host),port);
+      address=InetSocketAddress.createUnresolved(host,port);
     }
  else {
       address=new InetSocketAddress(host,port);

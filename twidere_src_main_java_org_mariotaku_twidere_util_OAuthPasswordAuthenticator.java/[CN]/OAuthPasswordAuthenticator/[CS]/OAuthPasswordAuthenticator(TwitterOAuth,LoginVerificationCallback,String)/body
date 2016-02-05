@@ -3,7 +3,7 @@
   this.oauth=oauth;
   this.client=(OkHttpRestClient)restClient.getRestClient();
   final OkHttpClient.Builder builder=client.getClient().newBuilder();
-  builder.cookieJar(new JavaNetCookieJar(new CookieManager()));
+  builder.cookieJar(new SimpleCookieJar());
   builder.addNetworkInterceptor(new Interceptor(){
     @Override public Response intercept(    Chain chain) throws IOException {
       final Response response=chain.proceed(chain.request());

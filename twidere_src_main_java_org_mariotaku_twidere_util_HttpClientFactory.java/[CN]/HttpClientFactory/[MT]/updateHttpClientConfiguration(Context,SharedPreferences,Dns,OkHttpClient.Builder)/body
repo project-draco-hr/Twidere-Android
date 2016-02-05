@@ -5,7 +5,13 @@
   builder.connectTimeout(connectionTimeoutSeconds,TimeUnit.SECONDS);
   if (ignoreSslError) {
     final int sslConnectTimeout=((int)TimeUnit.SECONDS.toMillis(connectionTimeoutSeconds));
-    builder.sslSocketFactory(SSLCertificateSocketFactory.getInsecure(sslConnectTimeout,new SSLSessionCache(context)));
+    builder.sslSocketFactory(SSLCertificateSocketFactory.getInsecure(sslConnectTimeout,null));
+    builder.hostnameVerifier(new HostnameVerifier(){
+      @Override public boolean verify(      String hostname,      SSLSession session){
+        return true;
+      }
+    }
+);
   }
   if (enableProxy) {
     final String proxyType=prefs.getString(KEY_PROXY_TYPE,null);

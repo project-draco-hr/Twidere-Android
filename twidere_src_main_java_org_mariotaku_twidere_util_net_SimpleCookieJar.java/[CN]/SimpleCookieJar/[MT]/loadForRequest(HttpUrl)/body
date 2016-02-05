@@ -1,0 +1,9 @@
+{
+  List<Cookie> result=new ArrayList<>();
+  for (  Cookie cookie : allCookies) {
+    if (cookie.matches(url)) {
+      result.add(cookie);
+    }
+  }
+  return result;
+}
