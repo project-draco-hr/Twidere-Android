@@ -1,3 +1,0 @@
-{
-  return (mPage + 1) * 20 + index;
-}

@@ -4,6 +4,10 @@ case CODE_NO_DM_PERMISSION:
 {
       return new DisplayErrorInfo(code,R.drawable.ic_info_error_generic,context.getString(R.string.error_no_dm_permission));
     }
+case CODE_NO_ACCESS_FOR_CREDENTIALS:
+{
+    return new DisplayErrorInfo(code,R.drawable.ic_info_error_generic,context.getString(R.string.error_no_access_for_credentials));
+  }
 }
 return null;
 }

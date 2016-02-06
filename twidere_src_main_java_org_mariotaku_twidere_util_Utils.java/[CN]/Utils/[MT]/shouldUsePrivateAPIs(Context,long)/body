@@ -1,0 +1,4 @@
+{
+  if (shouldForceUsingPrivateAPIs(context))   return true;
+  return TwitterAPIFactory.isOfficialKeyAccount(context,accountId);
+}
