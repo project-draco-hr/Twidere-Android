@@ -5,6 +5,7 @@ case ITEM_VIEW_TYPE_MESSAGE_INCOMING:
       final View view=mInflater.inflate(R.layout.card_item_message_conversation_incoming,parent,false);
       final MessageViewHolder holder=new IncomingMessageViewHolder(this,view);
       holder.setMessageColor(mIncomingMessageColor);
+      holder.setTextSize(getTextSize());
       return holder;
     }
 case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
@@ -12,8 +13,9 @@ case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
     final View view=mInflater.inflate(R.layout.card_item_message_conversation_outgoing,parent,false);
     final MessageViewHolder holder=new MessageViewHolder(this,view);
     holder.setMessageColor(mOutgoingMessageColor);
+    holder.setTextSize(getTextSize());
     return holder;
   }
 }
-return null;
+throw new UnsupportedOperationException("Unknown viewType " + viewType);
 }
