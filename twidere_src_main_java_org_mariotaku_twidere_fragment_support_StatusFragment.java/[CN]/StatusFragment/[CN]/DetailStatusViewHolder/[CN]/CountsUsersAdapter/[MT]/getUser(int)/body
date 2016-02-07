@@ -1,0 +1,5 @@
+{
+  final int countItemsCount=getCountItemsCount();
+  if (mUsers == null || position < countItemsCount)   return null;
+  return mUsers.get(position - countItemsCount);
+}

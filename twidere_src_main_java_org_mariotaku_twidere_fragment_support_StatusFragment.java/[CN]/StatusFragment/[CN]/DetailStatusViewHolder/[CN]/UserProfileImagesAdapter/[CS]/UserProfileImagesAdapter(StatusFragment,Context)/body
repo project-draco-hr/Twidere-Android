@@ -1,5 +1,0 @@
-{
-  super(context);
-  mFragment=fragment;
-  mInflater=LayoutInflater.from(context);
-}

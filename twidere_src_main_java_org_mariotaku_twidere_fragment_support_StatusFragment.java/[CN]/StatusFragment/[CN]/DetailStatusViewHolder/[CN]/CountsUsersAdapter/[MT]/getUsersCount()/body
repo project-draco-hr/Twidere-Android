@@ -1,0 +1,4 @@
+{
+  if (mUsers == null)   return 0;
+  return mUsers.size();
+}

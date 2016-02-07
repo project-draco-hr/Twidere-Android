@@ -1,0 +1,22 @@
+{
+  if (activity != null) {
+    ArrayList<LabeledCount> counts=new ArrayList<>();
+    final long replyCount=activity.getReplyCount();
+    if (replyCount > 0) {
+      counts.add(new LabeledCount(KEY_REPLY_COUNT,replyCount));
+    }
+    final long retweetCount=activity.getRetweetCount();
+    if (retweetCount > 0) {
+      counts.add(new LabeledCount(KEY_RETWEET_COUNT,retweetCount));
+    }
+    final long favoriteCount=activity.getFavoriteCount();
+    if (favoriteCount > 0) {
+      counts.add(new LabeledCount(KEY_FAVORITE_COUNT,favoriteCount));
+    }
+    mCounts=counts;
+  }
+ else {
+    mCounts=null;
+  }
+  notifyDataSetChanged();
+}

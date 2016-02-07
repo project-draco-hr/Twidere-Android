@@ -1,0 +1,9 @@
+{
+  super(itemView);
+  countView=(TextView)itemView.findViewById(R.id.count);
+  labelView=(TextView)itemView.findViewById(R.id.label);
+  this.adapter=adapter;
+  final float textSize=adapter.getTextSize();
+  countView.setTextSize(textSize * 1.25f);
+  labelView.setTextSize(textSize * 0.85f);
+}

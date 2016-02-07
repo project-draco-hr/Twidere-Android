@@ -1,13 +1,17 @@
 {
   final Context appContext=context.getApplicationContext();
+  final SharedPreferences prefs=DependencyHolder.get(context).getPreferences();
+  if (!prefs.getBoolean(KEY_USAGE_STATISTICS,false))   return null;
+  if (BuildConfig.DEBUG) {
+    Log.d(HotMobiLogger.LOGTAG,"getting cached location");
+  }
   final Location location=Utils.getCachedLocation(appContext);
   if (location == null) {
-    return getFallbackCachedLocation(appContext);
+    return JsonSerializer.parse(prefs.getString(KEY_FALLBACK_CACHED_LOCATION,null),LatLng.class);
   }
   final LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
   AsyncTask.execute(new Runnable(){
     @Override public void run(){
-      final SharedPreferences prefs=appContext.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
       final SharedPreferences.Editor editor=prefs.edit();
       editor.putString(KEY_FALLBACK_CACHED_LOCATION,JsonSerializer.serialize(latLng,LatLng.class));
       editor.apply();

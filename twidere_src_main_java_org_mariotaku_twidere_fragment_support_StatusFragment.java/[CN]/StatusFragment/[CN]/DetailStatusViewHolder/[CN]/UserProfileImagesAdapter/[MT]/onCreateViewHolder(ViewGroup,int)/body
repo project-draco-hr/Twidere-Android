@@ -1,3 +1,0 @@
-{
-  return new ProfileImageViewHolder(this,mInflater.inflate(R.layout.adapter_item_status_interact_user,parent,false));
-}

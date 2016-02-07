@@ -1,0 +1,26 @@
+{
+  final String label;
+switch (count.type) {
+case KEY_REPLY_COUNT:
+{
+      label=adapter.getContext().getString(R.string.replies);
+      break;
+    }
+case KEY_RETWEET_COUNT:
+{
+    label=adapter.getContext().getString(R.string.retweets);
+    break;
+  }
+case KEY_FAVORITE_COUNT:
+{
+  label=adapter.getContext().getString(R.string.favorites);
+  break;
+}
+default :
+{
+throw new UnsupportedOperationException("Unsupported type " + count.type);
+}
+}
+countView.setText(Utils.getLocalizedNumber(Locale.getDefault(),count.count));
+labelView.setText(label);
+}

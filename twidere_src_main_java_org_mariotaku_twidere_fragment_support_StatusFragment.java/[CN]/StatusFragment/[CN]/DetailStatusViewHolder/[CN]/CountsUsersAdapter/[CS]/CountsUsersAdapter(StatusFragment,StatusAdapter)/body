@@ -1,0 +1,6 @@
+{
+  super(statusAdapter.getContext());
+  mFragment=fragment;
+  mInflater=LayoutInflater.from(statusAdapter.getContext());
+  mStatusAdapter=statusAdapter;
+}

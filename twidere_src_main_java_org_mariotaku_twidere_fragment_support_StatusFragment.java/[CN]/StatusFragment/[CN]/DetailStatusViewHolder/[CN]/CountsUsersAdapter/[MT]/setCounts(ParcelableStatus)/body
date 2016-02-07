@@ -1,0 +1,19 @@
+{
+  if (status != null) {
+    ArrayList<LabeledCount> counts=new ArrayList<>();
+    if (status.reply_count > 0) {
+      counts.add(new LabeledCount(KEY_REPLY_COUNT,status.reply_count));
+    }
+    if (status.retweet_count > 0) {
+      counts.add(new LabeledCount(KEY_RETWEET_COUNT,status.retweet_count));
+    }
+    if (status.favorite_count > 0) {
+      counts.add(new LabeledCount(KEY_FAVORITE_COUNT,status.favorite_count));
+    }
+    mCounts=counts;
+  }
+ else {
+    mCounts=null;
+  }
+  notifyDataSetChanged();
+}

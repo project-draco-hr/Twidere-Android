@@ -1,0 +1,14 @@
+{
+switch (getItemViewType(position)) {
+case ITEM_VIEW_TYPE_USER:
+{
+      ((ProfileImageViewHolder)holder).displayUser(getUser(position));
+      break;
+    }
+case ITEM_VIEW_TYPE_COUNT:
+{
+    ((CountViewHolder)holder).displayCount(getCount(position));
+    break;
+  }
+}
+}

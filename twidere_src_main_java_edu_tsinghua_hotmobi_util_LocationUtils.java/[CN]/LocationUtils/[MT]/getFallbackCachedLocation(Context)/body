@@ -1,4 +1,0 @@
-{
-  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  return JsonSerializer.parse(prefs.getString(KEY_FALLBACK_CACHED_LOCATION,null),LatLng.class);
-}

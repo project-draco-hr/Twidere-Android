@@ -1,3 +1,0 @@
-{
-  mFragment.onUserClick(getItem(position));
-}
