@@ -1,4 +1,4 @@
 {
   super.onPageStarted(view,url,favicon);
-  mActivity.setLoadProgressShown(true);
+  ((BrowserSignInActivity)getActivity()).setLoadProgressShown(true);
 }

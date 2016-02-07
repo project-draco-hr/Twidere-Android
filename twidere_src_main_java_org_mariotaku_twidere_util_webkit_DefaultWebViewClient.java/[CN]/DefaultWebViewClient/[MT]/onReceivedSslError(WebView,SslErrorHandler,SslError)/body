@@ -1,8 +1,0 @@
-{
-  if (mPreferences.getBoolean(BaseWebViewFragment.KEY_IGNORE_SSL_ERROR,false)) {
-    handler.proceed();
-  }
- else {
-    handler.cancel();
-  }
-}
