@@ -107,9 +107,11 @@
   }
   if (interactUsersAdapter.getItemCount() > 0) {
     countsUsersView.setVisibility(View.VISIBLE);
+    countsUsersHeightHolder.setVisibility(View.VISIBLE);
   }
  else {
     countsUsersView.setVisibility(View.GONE);
+    countsUsersHeightHolder.setVisibility(View.GONE);
   }
   final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
   if (ArrayUtils.isEmpty(media)) {

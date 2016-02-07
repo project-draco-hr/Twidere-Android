@@ -1,0 +1,5 @@
+{
+  final View space=findViewByPosition(getItemCount() - 1);
+  if (space == null)   return mSpaceHeight;
+  return getDecoratedMeasuredHeight(space);
+}

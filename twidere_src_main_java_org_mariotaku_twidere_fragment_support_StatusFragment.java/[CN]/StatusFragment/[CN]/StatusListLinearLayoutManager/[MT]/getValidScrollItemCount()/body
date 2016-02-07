@@ -9,8 +9,12 @@
   count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_STATUS);
   count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY);
   count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY_ERROR);
-  if (adapter.isRepliesLoading() && mSpaceHeight <= 0) {
+  final int spaceHeight=getSpaceHeight();
+  if (adapter.isRepliesLoading()) {
     count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_REPLY_LOAD_MORE);
+  }
+  if (spaceHeight > 0) {
+    count+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_SPACE);
   }
   return count;
 }

@@ -33,7 +33,7 @@
           cardData.putString("selected_choice",String.valueOf(i + 1));
           TaskRunnable<CardDataMap,ParcelableCardEntity,CardPollFragment> task=new TaskRunnable<CardDataMap,ParcelableCardEntity,CardPollFragment>(){
             @Override public void callback(            CardPollFragment handler,            ParcelableCardEntity result){
-              handler.displayPoll(result,status);
+              handler.displayAndReloadPoll(result,status);
             }
             @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap) throws InterruptedException {
               final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),card.account_id,true,true,TwitterCaps.class);

@@ -1,0 +1,4 @@
+{
+  displayPoll(result,status);
+  getLoaderManager().restartLoader(0,null,this);
+}

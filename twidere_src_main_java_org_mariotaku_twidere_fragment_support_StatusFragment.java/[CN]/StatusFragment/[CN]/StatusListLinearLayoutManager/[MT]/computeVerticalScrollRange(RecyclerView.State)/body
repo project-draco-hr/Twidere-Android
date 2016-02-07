@@ -1,5 +1,10 @@
 {
-  final int count=getScrollBarValidItemCount();
-  final int avgItemSize=getAvgItemSize();
-  return count * avgItemSize;
+  int result;
+  if (isSmoothScrollbarEnabled()) {
+    result=Math.max(getValidScrollItemCount() * 100,0);
+  }
+ else {
+    result=getValidScrollItemCount();
+  }
+  return result;
 }

@@ -1,8 +1,32 @@
 {
-  int offset=getScrollBarStartOffset();
-  final int firstVisiblePosition=findFirstVisibleItemPosition();
-  final View firstVisibleView=findViewByPosition(firstVisiblePosition);
-  final float decoratedTop=getDecoratedTop(firstVisibleView), decoratedBottom=getDecoratedBottom(firstVisibleView);
-  final float heightRatio=decoratedTop / (decoratedBottom - decoratedTop);
-  return Math.round((Math.max(0,firstVisiblePosition - offset) - heightRatio) * getAvgItemSize());
+  final int firstPosition=findFirstVisibleItemPosition();
+  final int lastPosition=Math.min(getValidScrollItemCount() - 1,findLastVisibleItemPosition());
+  if (firstPosition < 0 || lastPosition < 0)   return 0;
+  int childCount=lastPosition - firstPosition + 1;
+  final int skippedCount=getSkippedScrollItemCount();
+  if (firstPosition >= skippedCount && childCount > 0) {
+    if (isSmoothScrollbarEnabled()) {
+      final View view=findViewByPosition(firstPosition);
+      final int top=view.getTop();
+      int height=view.getHeight();
+      if (height > 0) {
+        return Math.max((firstPosition - skippedCount) * 100 - (top * 100) / height,0);
+      }
+    }
+ else {
+      int index;
+      final int count=getValidScrollItemCount();
+      if (firstPosition == 0) {
+        index=0;
+      }
+ else       if (firstPosition + childCount == count) {
+        index=count;
+      }
+ else {
+        index=firstPosition + childCount / 2;
+      }
+      return (int)(firstPosition + childCount * (index / (float)count));
+    }
+  }
+  return 0;
 }
