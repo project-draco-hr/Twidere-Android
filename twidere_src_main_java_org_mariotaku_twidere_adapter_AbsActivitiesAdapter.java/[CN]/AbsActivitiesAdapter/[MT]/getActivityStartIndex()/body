@@ -1,0 +1,8 @@
+{
+  final int position=getLoadMoreIndicatorPosition();
+  int start=0;
+  if ((position & IndicatorPosition.START) != 0) {
+    start+=1;
+  }
+  return start;
+}

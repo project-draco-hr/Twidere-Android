@@ -1,11 +1,12 @@
 {
   final int position=getLoadMoreIndicatorPosition();
-  int count=getActivityCount();
+  int count=0;
   if ((position & IndicatorPosition.START) != 0) {
-    count++;
+    count+=1;
   }
+  count+=getActivityCount();
   if ((position & IndicatorPosition.END) != 0) {
-    count++;
+    count+=1;
   }
   return count;
 }

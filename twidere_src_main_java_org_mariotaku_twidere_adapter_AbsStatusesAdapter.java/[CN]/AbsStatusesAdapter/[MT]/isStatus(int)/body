@@ -1,3 +1,3 @@
 {
-  return position < getStatusesCount();
+  return position < getStatusCount();
 }

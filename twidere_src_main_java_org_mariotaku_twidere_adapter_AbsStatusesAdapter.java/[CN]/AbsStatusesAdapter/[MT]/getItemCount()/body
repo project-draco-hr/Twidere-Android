@@ -1,11 +1,12 @@
 {
   final int position=getLoadMoreIndicatorPosition();
-  int count=getStatusesCount();
+  int count=0;
   if ((position & IndicatorPosition.START) != 0) {
-    count++;
+    count+=1;
   }
+  count+=getStatusCount();
   if ((position & IndicatorPosition.END) != 0) {
-    count++;
+    count+=1;
   }
   return count;
 }

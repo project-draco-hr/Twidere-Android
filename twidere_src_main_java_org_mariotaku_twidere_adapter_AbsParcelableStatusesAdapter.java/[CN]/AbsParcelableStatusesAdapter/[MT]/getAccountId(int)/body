@@ -1,5 +1,5 @@
 {
-  if (position == getStatusesCount())   return RecyclerView.NO_ID;
+  if (position == getStatusCount())   return RecyclerView.NO_ID;
   if (mData instanceof ObjectCursor) {
     final Cursor cursor=((ObjectCursor)mData).getCursor(position);
     final ParcelableStatusCursorIndices indices=(ParcelableStatusCursorIndices)((ObjectCursor)mData).getIndices();

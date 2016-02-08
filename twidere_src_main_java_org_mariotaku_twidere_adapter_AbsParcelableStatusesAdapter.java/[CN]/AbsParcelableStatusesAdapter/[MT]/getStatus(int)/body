@@ -1,4 +1,4 @@
 {
-  if (position == getStatusesCount())   return null;
+  if (position == getStatusCount())   return null;
   return mData.get(position);
 }

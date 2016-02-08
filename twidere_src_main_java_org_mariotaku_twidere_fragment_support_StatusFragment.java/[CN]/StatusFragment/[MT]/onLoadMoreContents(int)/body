@@ -7,7 +7,7 @@
   }
  else   if ((position & IndicatorPosition.END) != 0) {
     final int start=mStatusAdapter.getIndexStart(StatusAdapter.ITEM_IDX_CONVERSATION);
-    final ParcelableStatus status=mStatusAdapter.getStatus(start + mStatusAdapter.getStatusesCount() - 1);
+    final ParcelableStatus status=mStatusAdapter.getStatus(start + mStatusAdapter.getStatusCount() - 1);
     if (status == null)     return;
     loadConversation(getStatus(),status.id,-1);
   }
