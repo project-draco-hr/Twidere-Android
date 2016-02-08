@@ -39,7 +39,7 @@
       }
     }
     if (succeeded) {
-      BugReporter.logIfFalse(dayLogsDir.delete(),"Unable to delete log dir");
+      dayLogsDir.delete();
     }
   }
   return hasErrors;
