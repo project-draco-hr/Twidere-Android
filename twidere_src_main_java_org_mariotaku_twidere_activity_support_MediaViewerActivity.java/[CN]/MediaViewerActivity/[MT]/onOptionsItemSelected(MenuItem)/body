@@ -2,6 +2,7 @@
   final ViewPager viewPager=findViewPager();
   final PagerAdapter adapter=viewPager.getAdapter();
   final int currentItem=viewPager.getCurrentItem();
+  if (currentItem < 0 || currentItem >= adapter.getCount())   return false;
   final Object object=adapter.instantiateItem(viewPager,currentItem);
   if (!(object instanceof MediaViewerFragment))   return false;
 switch (item.getItemId()) {
