@@ -1,0 +1,17 @@
+{
+switch (requestCode) {
+case REQUEST_USAGE_STATISTICS:
+{
+      DependencyHolder holder=DependencyHolder.get(this);
+      final SharedPreferencesWrapper prefs=holder.getPreferences();
+      if (!prefs.contains(KEY_USAGE_STATISTICS)) {
+        final SharedPreferences.Editor editor=prefs.edit();
+        editor.putBoolean(KEY_USAGE_STATISTICS,prefs.getBoolean(KEY_USAGE_STATISTICS));
+        editor.apply();
+      }
+      finish();
+      return;
+    }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

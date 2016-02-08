@@ -7,6 +7,5 @@
   intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT,SettingsDetailsFragment.class.getName());
   intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS,fragmentArgs);
   intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_TITLE,R.string.usage_statistics);
-  startActivity(intent);
-  finish();
+  startActivityForResult(intent,REQUEST_USAGE_STATISTICS);
 }
