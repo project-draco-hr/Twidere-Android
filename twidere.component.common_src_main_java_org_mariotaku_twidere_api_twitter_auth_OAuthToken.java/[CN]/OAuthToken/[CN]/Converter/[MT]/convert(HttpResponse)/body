@@ -16,6 +16,6 @@
     }
   }
   finally {
-    Utils.closeSilently(body);
+    RestFuUtils.closeSilently(body);
   }
 }

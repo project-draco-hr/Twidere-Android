@@ -42,6 +42,6 @@
     return null;
   }
  finally {
-    Utils.closeSilently(json);
+    RestFuUtils.closeSilently(json);
   }
 }

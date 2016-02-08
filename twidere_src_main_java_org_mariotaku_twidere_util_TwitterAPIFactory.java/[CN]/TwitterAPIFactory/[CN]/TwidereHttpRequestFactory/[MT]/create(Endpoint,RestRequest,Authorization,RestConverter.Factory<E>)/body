@@ -6,8 +6,8 @@
     headers=new MultiValueMap<>();
   }
   if (authorization != null && authorization.hasAuthorization()) {
-    headers.add("Authorization",authorization.getHeader(endpoint,info));
+    headers.add("Authorization",RestFuUtils.sanitizeHeader(authorization.getHeader(endpoint,info)));
   }
-  headers.add("User-Agent",userAgent);
+  headers.add("User-Agent",RestFuUtils.sanitizeHeader(userAgent));
   return new HttpRequest(restMethod,url,headers,info.getBody(converterFactory),null);
 }

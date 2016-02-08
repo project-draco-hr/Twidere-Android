@@ -1,5 +1,5 @@
 {
-  Utils.parseQuery(body,charset.name(),new Utils.KeyValueConsumer(){
+  RestFuUtils.parseQuery(body,charset.name(),new RestFuUtils.KeyValueConsumer(){
     @Override public void consume(    String key,    String value){
 switch (key) {
 case "oauth_token":

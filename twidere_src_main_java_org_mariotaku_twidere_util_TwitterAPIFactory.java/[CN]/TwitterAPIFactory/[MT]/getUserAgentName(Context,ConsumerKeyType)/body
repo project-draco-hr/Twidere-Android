@@ -11,7 +11,7 @@ case TWITTER_FOR_ANDROID:
       final String brand=Build.BRAND;
       final String product=Build.PRODUCT;
       final int debug=BuildConfig.DEBUG ? 1 : 0;
-      return String.format(Locale.ROOT,"TwitterAndroid/%s (%s) %s/%d (%s;%s;%s;%s;%d)",versionName,internalVersionName,model,sdkInt,manufacturer,device,brand,product,debug);
+      return String.format(Locale.ROOT,"TwitterAndroid /%s (%s) %s/%d (%s;%s;%s;%s;%d)",versionName,internalVersionName,model,sdkInt,manufacturer,device,brand,product,debug);
     }
 case TWITTER_FOR_IPHONE:
 {
