@@ -3,7 +3,7 @@ switch (key) {
 case KEY_REFRESH_INTERVAL:
 {
       stopService(new Intent(this,RefreshService.class));
-      startRefreshServiceIfNeeded(this);
+      Utils.startRefreshServiceIfNeeded(this);
       break;
     }
 case KEY_ENABLE_PROXY:

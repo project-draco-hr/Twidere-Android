@@ -1,5 +1,7 @@
 {
+  final Activity activity=getActivity();
+  if (activity == null)   return;
   if (KEY_AUTO_REFRESH.equals(key)) {
-    Utils.startRefreshServiceIfNeeded(getActivity());
+    Utils.startRefreshServiceIfNeeded(activity);
   }
 }

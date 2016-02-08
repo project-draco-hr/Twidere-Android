@@ -25,7 +25,7 @@
     pm.setComponentEnabledSetting(assist,PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP);
   }
   migrateUsageStatisticsPreferences();
-  startRefreshServiceIfNeeded(this);
+  Utils.startRefreshServiceIfNeeded(this);
   reloadConnectivitySettings();
   DependencyHolder holder=DependencyHolder.get(this);
   registerActivityLifecycleCallbacks(holder.getActivityTracker());
