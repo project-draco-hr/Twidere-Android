@@ -7,5 +7,5 @@
   builder.appendQueryParameter(QUERY_PARAM_LNG,String.valueOf(longitude));
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   intent.setPackage(BuildConfig.APPLICATION_ID);
-  context.startActivity(Intent.createChooser(intent,null));
+  context.startActivity(intent);
 }

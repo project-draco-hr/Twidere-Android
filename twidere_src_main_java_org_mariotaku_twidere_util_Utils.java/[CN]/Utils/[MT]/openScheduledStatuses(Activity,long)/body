@@ -5,5 +5,6 @@
   builder.authority(AUTHORITY_SCHEDULED_STATUSES);
   builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  intent.setPackage(BuildConfig.APPLICATION_ID);
   activity.startActivity(intent);
 }
