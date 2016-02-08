@@ -1,4 +1,4 @@
 Activity activity
-long account_id
-long user_id
-String screen_name
+long accountId
+long userId
+String screenName

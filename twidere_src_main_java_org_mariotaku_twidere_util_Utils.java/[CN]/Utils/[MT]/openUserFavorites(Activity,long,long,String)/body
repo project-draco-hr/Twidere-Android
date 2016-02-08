@@ -3,12 +3,12 @@
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_USER_FAVORITES);
-  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(account_id));
-  if (user_id > 0) {
-    builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user_id));
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  if (userId > 0) {
+    builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(userId));
   }
-  if (screen_name != null) {
-    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screen_name);
+  if (screenName != null) {
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
   }
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   activity.startActivity(intent);
