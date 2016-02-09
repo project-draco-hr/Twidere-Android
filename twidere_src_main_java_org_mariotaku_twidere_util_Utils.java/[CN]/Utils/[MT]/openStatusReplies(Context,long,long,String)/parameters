@@ -1,4 +1,4 @@
-Activity activity
+Context context
 long accountId
 long statusId
 String screenName

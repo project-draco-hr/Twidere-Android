@@ -1,5 +1,5 @@
 {
-  if (activity == null || statuses == null)   return;
+  if (context == null || statuses == null)   return;
   final Bundle extras=new Bundle();
   extras.putParcelableArrayList(EXTRA_STATUSES,new ArrayList<>(statuses));
   final Uri.Builder builder=new Uri.Builder();
@@ -7,5 +7,5 @@
   builder.authority(AUTHORITY_STATUSES);
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   intent.putExtras(extras);
-  activity.startActivity(intent);
+  context.startActivity(intent);
 }

@@ -1,0 +1,3 @@
+{
+  return "StatusActivity{" + "retweeters=" + retweeters + ", statusId="+ statusId+ ", favoriteCount="+ favoriteCount+ ", replyCount="+ replyCount+ ", retweetCount="+ retweetCount+ '}';
+}

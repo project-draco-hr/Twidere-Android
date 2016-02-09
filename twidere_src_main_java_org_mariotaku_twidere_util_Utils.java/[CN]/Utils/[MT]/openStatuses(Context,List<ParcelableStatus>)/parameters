@@ -1,2 +1,2 @@
-Activity activity
+Context context
 List<ParcelableStatus> statuses

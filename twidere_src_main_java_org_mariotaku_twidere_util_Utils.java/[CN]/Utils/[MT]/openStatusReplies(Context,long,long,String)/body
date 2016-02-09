@@ -1,5 +1,5 @@
 {
-  if (activity == null)   return;
+  if (context == null)   return;
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_STATUS_REPLIES);
@@ -7,5 +7,5 @@
   builder.appendQueryParameter(QUERY_PARAM_STATUS_ID,String.valueOf(statusId));
   builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,screenName);
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-  activity.startActivity(intent);
+  context.startActivity(intent);
 }

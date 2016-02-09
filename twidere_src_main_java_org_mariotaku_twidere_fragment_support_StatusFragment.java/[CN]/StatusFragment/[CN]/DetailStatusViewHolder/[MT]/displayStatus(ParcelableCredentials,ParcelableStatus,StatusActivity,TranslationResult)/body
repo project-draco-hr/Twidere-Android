@@ -98,7 +98,7 @@
   }
   final CountsUsersAdapter interactUsersAdapter=(CountsUsersAdapter)countsUsersView.getAdapter();
   if (statusActivity != null) {
-    interactUsersAdapter.setUsers(statusActivity.retweeters);
+    interactUsersAdapter.setUsers(statusActivity.getRetweeters());
     interactUsersAdapter.setCounts(statusActivity);
   }
  else {
