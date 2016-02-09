@@ -10,6 +10,7 @@
     return ITEM_VIEW_TYPE_GAP;
   }
   final String action=getActivityAction(position);
+  if (action == null)   throw new NullPointerException();
 switch (action) {
 case Activity.Action.MENTION:
 {

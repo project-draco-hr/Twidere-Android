@@ -1,9 +1,10 @@
 {
-  if (position == getStatusCount())   return RecyclerView.NO_ID;
+  int dataPosition=adapterPosition - getStatusStartIndex();
+  if (dataPosition < 0 || dataPosition >= getStatusCount())   return RecyclerView.NO_ID;
   if (mData instanceof ObjectCursor) {
-    final Cursor cursor=((ObjectCursor)mData).getCursor(position);
+    final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
     final ParcelableStatusCursorIndices indices=(ParcelableStatusCursorIndices)((ObjectCursor)mData).getIndices();
     return cursor.getLong(indices.id);
   }
-  return mData.get(position).id;
+  return mData.get(dataPosition).id;
 }

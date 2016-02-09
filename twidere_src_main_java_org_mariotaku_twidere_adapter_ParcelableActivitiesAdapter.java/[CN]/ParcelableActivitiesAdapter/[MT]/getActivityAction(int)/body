@@ -1,7 +1,9 @@
 {
+  int dataPosition=adapterPosition - getActivityStartIndex();
+  if (dataPosition < 0 || dataPosition >= getActivityCount())   return null;
   if (mData instanceof ObjectCursor) {
     final ParcelableActivityCursorIndices indices=(ParcelableActivityCursorIndices)((ObjectCursor)mData).getIndices();
-    return ((ObjectCursor)mData).getCursor(position).getString(indices.action);
+    return ((ObjectCursor)mData).getCursor(dataPosition).getString(indices.action);
   }
-  return mData.get(position).action;
+  return mData.get(dataPosition).action;
 }

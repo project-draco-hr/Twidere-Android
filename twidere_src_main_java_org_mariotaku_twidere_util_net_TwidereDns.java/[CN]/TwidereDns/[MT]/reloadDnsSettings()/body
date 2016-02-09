@@ -1,4 +1,4 @@
 {
   mResolver=null;
-  mConnnectTimeout=TimeUnit.SECONDS.toMillis(mPreferences.getInt(KEY_CONNECTION_TIMEOUT,10));
+  mConnectTimeout=TimeUnit.SECONDS.toMillis(mPreferences.getInt(KEY_CONNECTION_TIMEOUT,10));
 }
