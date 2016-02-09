@@ -1,7 +1,4 @@
 {
   final FragmentActivity activity=getActivity();
-  final View profileImageView=holder.getProfileImageView();
-  final View profileTypeView=holder.getProfileTypeView();
-  final Bundle options=Utils.makeSceneTransitionOption(activity,new Pair<>(profileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE),new Pair<>(profileTypeView,UserFragment.TRANSITION_NAME_PROFILE_TYPE));
-  Utils.openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,options);
+  IntentUtils.openUserProfile(activity,status.account_id,status.user_id,status.user_screen_name,null,true);
 }

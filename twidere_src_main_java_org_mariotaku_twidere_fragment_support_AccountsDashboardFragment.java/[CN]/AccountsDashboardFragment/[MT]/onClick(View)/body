@@ -6,7 +6,7 @@ case R.id.profile_container:
       if (account == null)       return;
       final FragmentActivity activity=getActivity();
       final Bundle activityOption=Utils.makeSceneTransitionOption(activity,new Pair<View,String>(mAccountProfileImageView,UserFragment.TRANSITION_NAME_PROFILE_IMAGE));
-      Utils.openUserProfile(activity,account.account_id,account.account_id,account.screen_name,activityOption);
+      IntentUtils.openUserProfile(activity,account.account_id,account.account_id,account.screen_name,activityOption,true);
       break;
     }
 }

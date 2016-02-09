@@ -17,7 +17,13 @@
   if (mActionBarBackground != null) {
     mActionBarBackground.setColor(actionBarColor);
   }
-  ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
+  if (mUser != null) {
+    final String displayName=mUserColorNameManager.getDisplayName(mUser,mNameFirst,false);
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(displayName,null,actionBarColor));
+  }
+ else {
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
+  }
   final int optimalAccentColor=ThemeUtils.getOptimalAccentColor(color,mDescriptionView.getCurrentTextColor());
   mDescriptionView.setLinkTextColor(optimalAccentColor);
   mLocationView.setLinkTextColor(optimalAccentColor);

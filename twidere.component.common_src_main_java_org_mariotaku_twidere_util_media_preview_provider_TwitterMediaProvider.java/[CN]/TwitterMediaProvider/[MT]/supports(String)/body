@@ -1,0 +1,4 @@
+{
+  final String authority=PreviewMediaExtractor.getAuthority(link);
+  return authority != null && authority.endsWith(".twimg.com");
+}

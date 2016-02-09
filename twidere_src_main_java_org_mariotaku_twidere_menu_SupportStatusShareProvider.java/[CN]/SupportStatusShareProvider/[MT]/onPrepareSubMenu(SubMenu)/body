@@ -3,5 +3,5 @@
   if (status == null)   return;
   final Intent shareIntent=createStatusShareIntent(mContext,status);
   subMenu.removeGroup(MENU_GROUP_STATUS_SHARE);
-  addIntentToMenu(mContext,subMenu,shareIntent,MENU_GROUP_STATUS_SHARE);
+  MenuUtils.addIntentToMenu(mContext,subMenu,shareIntent,MENU_GROUP_STATUS_SHARE);
 }

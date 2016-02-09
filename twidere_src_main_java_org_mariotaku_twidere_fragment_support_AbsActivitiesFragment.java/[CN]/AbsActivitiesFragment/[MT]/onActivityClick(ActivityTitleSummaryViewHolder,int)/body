@@ -1,5 +1,5 @@
 {
   final ParcelableActivity activity=getAdapter().getActivity(position);
   if (activity == null)   return;
-  Utils.openUsers(getActivity(),Arrays.asList(ParcelableActivityUtils.getAfterFilteredSources(activity)));
+  IntentUtils.openUsers(getActivity(),Arrays.asList(ParcelableActivityUtils.getAfterFilteredSources(activity)));
 }

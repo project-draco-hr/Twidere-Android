@@ -147,7 +147,7 @@ return true;
 }
 case R.id.user_mentions:
 {
-Utils.openUserMentions(getActivity(),user.account_id,user.screen_name);
+IntentUtils.openUserMentions(getActivity(),user.account_id,user.screen_name);
 return true;
 }
 case R.id.saved_searches:

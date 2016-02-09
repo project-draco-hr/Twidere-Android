@@ -1,5 +1,0 @@
-{
-  final String authority=PreviewMediaExtractor.getAuthority(link);
-  if (authority == null)   return false;
-  return authority.endsWith(".twimg.com") && !link.contains("/tweet_video");
-}

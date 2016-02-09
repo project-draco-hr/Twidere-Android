@@ -1,0 +1,6 @@
+{
+  assertEquals("/",PreviewMediaExtractor.getPath("http://www.example.com/"));
+  assertEquals("",PreviewMediaExtractor.getPath("http://www.example.com"));
+  assertEquals("/test/path",PreviewMediaExtractor.getPath("https://example.com/test/path"));
+  assertEquals("/test/path",PreviewMediaExtractor.getPath("https://example.com/test/path?with=query"));
+}

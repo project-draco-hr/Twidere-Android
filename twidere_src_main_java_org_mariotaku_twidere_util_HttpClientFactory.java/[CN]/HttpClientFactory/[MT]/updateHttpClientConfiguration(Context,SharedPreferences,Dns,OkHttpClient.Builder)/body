@@ -1,7 +1,7 @@
 {
-  final long connectionTimeoutMillis=TimeUnit.SECONDS.toMillis(prefs.getInt(KEY_CONNECTION_TIMEOUT,10));
+  final long connectionTimeout=prefs.getInt(KEY_CONNECTION_TIMEOUT,10);
   final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
-  builder.connectTimeout(connectionTimeoutMillis,TimeUnit.MILLISECONDS);
+  builder.connectTimeout(connectionTimeout,TimeUnit.SECONDS);
   if (enableProxy) {
     final String proxyType=prefs.getString(KEY_PROXY_TYPE,null);
     final String proxyHost=prefs.getString(KEY_PROXY_HOST,null);
@@ -9,12 +9,7 @@
     if (!isEmpty(proxyHost) && TwidereMathUtils.inRange(proxyPort,0,65535,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE)) {
       final Proxy.Type type=getProxyType(proxyType);
       if (type != Proxy.Type.DIRECT) {
-        if (InetAddressUtils.getInetAddressType(proxyHost) != 0) {
-          builder.proxy(new Proxy(type,InetSocketAddress.createUnresolved(proxyHost,proxyPort)));
-        }
- else {
-          builder.proxySelector(new TwidereProxySelector(context,type,proxyHost,proxyPort));
-        }
+        builder.proxySelector(new TwidereProxySelector(context,type,proxyHost,proxyPort));
       }
     }
     final String username=prefs.getString(KEY_PROXY_USERNAME,null);
