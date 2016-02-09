@@ -36,7 +36,7 @@
       }
 );
     }
-    protected void onFileSaved(    File savedFile,    String mimeType){
+    protected void onFileSaved(    @NonNull File savedFile,    @Nullable String mimeType){
       final MediaViewerActivity activity=(MediaViewerActivity)getContext();
       if (activity == null)       return;
       activity.mShareFile=savedFile;
@@ -47,6 +47,11 @@
       intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
       activity.processShareIntent(intent);
       startActivityForResult(Intent.createChooser(intent,activity.getString(R.string.share)),REQUEST_SHARE_MEDIA);
+    }
+    @Override protected void onFileSaveFailed(){
+      final MediaViewerActivity activity=(MediaViewerActivity)getContext();
+      if (activity == null)       return;
+      Toast.makeText(activity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
     }
   }
 ;

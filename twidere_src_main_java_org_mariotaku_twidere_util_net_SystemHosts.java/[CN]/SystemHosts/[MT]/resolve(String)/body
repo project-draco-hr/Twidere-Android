@@ -12,7 +12,7 @@
         final String host=scanner.next();
         if (host.startsWith("#"))         break;
         if (TextUtils.equals(hostToResolve,host)) {
-          final InetAddress resolved=InetAddressUtils.getResolvedIPAddress(host,address);
+          final InetAddress resolved=TwidereDns.getResolvedIPAddress(host,address);
           if (resolved != null)           return new InetAddress[]{resolved};
         }
       }

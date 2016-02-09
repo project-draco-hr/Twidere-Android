@@ -1,0 +1,5 @@
+{
+  mFragmentRef=new WeakReference<>(fragment);
+  mContext=fragment.getActivity().getApplicationContext();
+  mConnectivityManager=(ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+}

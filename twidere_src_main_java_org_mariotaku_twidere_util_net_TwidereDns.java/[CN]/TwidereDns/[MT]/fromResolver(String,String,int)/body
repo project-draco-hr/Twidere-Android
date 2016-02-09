@@ -1,37 +1,15 @@
 {
-  final Resolver dns=getResolver();
-  final Lookup lookup=new Lookup(new Name(host),Type.A,DClass.IN);
-  lookup.setResolver(dns);
-  lookup.run();
-  final int result=lookup.getResult();
-  if (result != Lookup.SUCCESSFUL) {
-    throw new UnknownHostException("Unable to resolve " + host + ", "+ lookup.getErrorString());
+  addLogSplit(originalHost,host,"start get resolver",depth);
+  final Resolver resolver=getResolver();
+  addLogSplit(originalHost,host,"end get resolver",depth);
+  addLogSplit(originalHost,host,"start lookup host name",depth);
+  final Record[] records=lookupHostName(resolver,host,true);
+  addLogSplit(originalHost,host,"end lookup host name",depth);
+  addLogSplit(originalHost,host,"start convert record",depth);
+  InetAddress[] addrs=new InetAddress[records.length];
+  for (int i=0; i < records.length; i++) {
+    addrs[i]=addrFromRecord(originalHost,records[i]);
   }
-  final Record[] records=lookup.getAnswers();
-  final ArrayList<InetAddress> resolvedAddresses=new ArrayList<>();
-  long ttl=-1;
-  for (  final Record record : records) {
-    if (ttl == -1) {
-      ttl=record.getTTL();
-    }
-    final InetAddress inetAddress;
-    if (record instanceof ARecord) {
-      inetAddress=((ARecord)record).getAddress();
-    }
- else     if (record instanceof AAAARecord) {
-      inetAddress=((AAAARecord)record).getAddress();
-    }
- else {
-      continue;
-    }
-    if (mConnectTimeout == 0 || checkAddress(inetAddress)) {
-      resolvedAddresses.add(InetAddress.getByAddress(originalHost,inetAddress.getAddress()));
-    }
-  }
-  if (!resolvedAddresses.isEmpty()) {
-    final InetAddress[] hostAddr=resolvedAddresses.toArray(new InetAddress[resolvedAddresses.size()]);
-    putCache(originalHost,hostAddr,ttl,TimeUnit.SECONDS);
-    return hostAddr;
-  }
-  return null;
+  addLogSplit(originalHost,host,"end convert record",depth);
+  return addrs;
 }

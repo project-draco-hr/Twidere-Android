@@ -1,6 +1,6 @@
 {
 switch (requestCode) {
-case REQUEST_REQUEST_PERMISSIONS:
+case REQUEST_PERMISSION_SAVE_MEDIA:
 {
       if (PermissionUtils.hasPermission(permissions,grantResults,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
         saveToStorage();

@@ -1,5 +1,8 @@
 {
   mAsyncTaskManager.add(new GetActivitiesTask(this,TASK_TAG_GET_MENTIONS,accountIds,maxIds,sinceIds){
+    @NonNull @Override protected String getErrorInfoKey(){
+      return ErrorInfoStore.KEY_INTERACTIONS;
+    }
     @Override protected void saveReadPosition(    long accountId,    Twitter twitter){
       try {
         CursorTimestampResponse response=twitter.getActivitiesAboutMeUnread(true);

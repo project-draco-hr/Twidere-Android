@@ -1,3 +1,0 @@
-{
-  mHostCache.remove(host);
-}

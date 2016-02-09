@@ -1,7 +1,7 @@
 {
   if (mHolder == null)   return;
   if (KEY_COMPACT_CARDS.equals(key)) {
-    mCompactModeChanged=true;
+    setLayoutResources(preferences);
   }
   mAdapter.updateOptions();
   notifyChanged();

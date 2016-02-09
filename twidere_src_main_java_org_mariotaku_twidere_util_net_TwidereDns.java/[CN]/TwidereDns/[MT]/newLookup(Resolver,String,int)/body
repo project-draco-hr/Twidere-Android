@@ -1,0 +1,5 @@
+{
+  final Lookup lookup=new Lookup(name,type);
+  lookup.setResolver(resolver);
+  return lookup;
+}

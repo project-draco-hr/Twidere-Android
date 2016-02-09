@@ -1,0 +1,4 @@
+{
+  mStartDiagnosticsButton.setText(R.string.please_wait);
+  mStartDiagnosticsButton.setEnabled(false);
+}

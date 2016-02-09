@@ -1,0 +1,7 @@
+{
+  NetworkDiagnosticsFragment fragment=mFragmentRef.get();
+  if (fragment == null)   return;
+  for (  LogText value : values) {
+    fragment.appendMessage(value.message);
+  }
+}

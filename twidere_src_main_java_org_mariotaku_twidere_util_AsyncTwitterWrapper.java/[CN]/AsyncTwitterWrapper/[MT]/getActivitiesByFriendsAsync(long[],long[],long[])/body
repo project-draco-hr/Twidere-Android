@@ -1,5 +1,8 @@
 {
   mAsyncTaskManager.add(new GetActivitiesTask(this,"get_activities_by_friends",accountIds,maxIds,sinceIds){
+    @NonNull @Override protected String getErrorInfoKey(){
+      return ErrorInfoStore.KEY_ACTIVITIES_BY_FRIENDS;
+    }
     @Override protected void saveReadPosition(    long accountId,    Twitter twitter){
     }
     @Override protected ResponseList<Activity> getActivities(    long accountId,    Twitter twitter,    Paging paging) throws TwitterException {

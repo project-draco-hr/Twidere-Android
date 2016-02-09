@@ -1,6 +1,0 @@
-{
-  final HttpRequest.Builder builder=new HttpRequest.Builder();
-  builder.method(GET.METHOD);
-  builder.url(url);
-  return mRestHttpClient.newCall(builder.build()).execute().getBody().stream();
-}

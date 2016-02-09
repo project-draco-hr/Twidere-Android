@@ -5,7 +5,7 @@
     address=createResolved(host,port);
   }
  else {
-    if (InetAddressUtils.getInetAddressType(host) != 0) {
+    if (TwidereDns.isValidIpAddress(host)) {
       address=InetSocketAddress.createUnresolved(host,port);
     }
  else {

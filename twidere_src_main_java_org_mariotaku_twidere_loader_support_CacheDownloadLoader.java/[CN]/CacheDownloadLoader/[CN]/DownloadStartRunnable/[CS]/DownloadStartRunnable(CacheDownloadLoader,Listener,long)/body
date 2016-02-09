@@ -1,5 +1,0 @@
-{
-  this.loader=loader;
-  this.listener=listener;
-  this.total=total;
-}

@@ -1,4 +1,0 @@
-{
-  this.cacheUri=cacheUri;
-  this.exception=exception;
-}

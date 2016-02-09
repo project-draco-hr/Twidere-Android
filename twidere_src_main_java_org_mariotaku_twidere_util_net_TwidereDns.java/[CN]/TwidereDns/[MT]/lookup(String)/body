@@ -1,6 +1,6 @@
 {
   try {
-    return Arrays.asList(resolveInternal(hostname,hostname,0,true));
+    return Arrays.asList(resolveInternal(hostname,hostname,0,true,mUseResolver));
   }
  catch (  IOException e) {
     if (e instanceof UnknownHostException)     throw (UnknownHostException)e;

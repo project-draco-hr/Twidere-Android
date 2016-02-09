@@ -1,0 +1,6 @@
+{
+  NetworkDiagnosticsFragment fragment=mFragmentRef.get();
+  if (fragment == null)   return;
+  fragment.diagStart();
+  super.onPreExecute();
+}

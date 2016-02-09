@@ -1,4 +1,0 @@
-String originalHost
-String host
-int depth
-boolean putCache

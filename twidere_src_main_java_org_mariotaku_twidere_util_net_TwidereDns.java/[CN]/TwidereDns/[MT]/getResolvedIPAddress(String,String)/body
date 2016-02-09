@@ -1,0 +1,8 @@
+{
+  byte[] bytes;
+  bytes=Address.toByteArray(address,Address.IPv4);
+  if (bytes != null)   return InetAddress.getByAddress(host,bytes);
+  bytes=Address.toByteArray(address,Address.IPv6);
+  if (bytes != null)   return InetAddress.getByAddress(host,bytes);
+  return null;
+}

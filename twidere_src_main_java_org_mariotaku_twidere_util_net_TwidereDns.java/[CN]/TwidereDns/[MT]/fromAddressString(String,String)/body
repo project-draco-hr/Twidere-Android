@@ -1,5 +1,5 @@
 {
-  final InetAddress resolved=InetAddressUtils.getResolvedIPAddress(host,address);
+  final InetAddress resolved=getResolvedIPAddress(host,address);
   if (resolved == null)   return null;
   return new InetAddress[]{resolved};
 }

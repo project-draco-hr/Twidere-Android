@@ -1,8 +1,7 @@
 {
   super(context,attrs,defStyle);
-  mInflater=LayoutInflater.from(context);
-  mLinkify=new TwidereLinkify(null);
-  mPreferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mPreferences.registerOnSharedPreferenceChangeListener(this);
+  final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  setLayoutResources(preferences);
+  preferences.registerOnSharedPreferenceChangeListener(this);
   mAdapter=new DummyStatusHolderAdapter(context);
 }

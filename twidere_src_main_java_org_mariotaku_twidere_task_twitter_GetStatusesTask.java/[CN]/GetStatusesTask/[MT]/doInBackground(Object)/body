@@ -4,6 +4,7 @@
   int idx=0;
   final SharedPreferencesWrapper preferences=twitterWrapper.getPreferences();
   final Context context=twitterWrapper.getContext();
+  final ErrorInfoStore errorInfoStore=twitterWrapper.getErrorInfoStore();
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   for (  final long accountId : accountIds) {
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
@@ -33,9 +34,15 @@
       TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
       storeStatus(accountId,statuses,sinceId,maxId,true,loadItemLimit);
       publishProgress(new TwitterWrapper.StatusListResponse(accountId,statuses));
+      errorInfoStore.remove(getErrorInfoKey(),accountId);
     }
  catch (    final TwitterException e) {
-      Log.w(LOGTAG,e);
+      if (BuildConfig.DEBUG) {
+        Log.w(LOGTAG,e);
+      }
+      if (e.isCausedByNetworkIssue()) {
+        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
+      }
       result.add(new TwitterWrapper.StatusListResponse(accountId,e));
     }
     idx++;

@@ -1,0 +1,12 @@
+{
+  publishProgress(new LogText(String.format("Testing %s...",name)));
+  try {
+    final long start=SystemClock.uptimeMillis();
+    test.execute(twitter);
+    publishProgress(new LogText(String.format("OK (%d ms)",SystemClock.uptimeMillis() - start)));
+  }
+ catch (  TwitterException e) {
+    publishProgress(new LogText("ERROR: " + e.getMessage()));
+  }
+  publishProgress(LogText.LINEBREAK);
+}

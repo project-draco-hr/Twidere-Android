@@ -3,10 +3,10 @@
     StrictModeUtils.detectAllVmPolicy();
   }
   super.onCreate();
+  initializeAsyncTask();
   initDebugMode();
   initBugReport();
   mHandler=new Handler();
-  initializeAsyncTask();
   initAccountColor(this);
   final PackageManager pm=getPackageManager();
   final ComponentName main=new ComponentName(this,MainActivity.class);

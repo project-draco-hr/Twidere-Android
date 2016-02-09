@@ -1,0 +1,14 @@
+{
+  mStartDiagnosticsButton.setText(R.string.send);
+  mStartDiagnosticsButton.setEnabled(true);
+  mStartDiagnosticsButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      final Intent intent=new Intent(Intent.ACTION_SEND);
+      intent.setType("text/plain");
+      intent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Twidere Network Diagnostics");
+      intent.putExtra(android.content.Intent.EXTRA_TEXT,mLogTextView.getText());
+      startActivity(Intent.createChooser(intent,getString(R.string.send)));
+    }
+  }
+);
+}

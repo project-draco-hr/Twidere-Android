@@ -1,0 +1,66 @@
+{
+  publishProgress(new LogText("Basic system information: "));
+  publishProgress(new LogText(String.valueOf(mContext.getResources().getConfiguration())));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  publishProgress(new LogText("Active network info: "));
+  publishProgress(new LogText(String.valueOf(mConnectivityManager.getActiveNetworkInfo())));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  publishProgress(new LogText("**** NOTICE ****"));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  publishProgress(new LogText("Text below may have personal information, BE CAREFUL TO MAKE IT PUBLIC"));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  DependencyHolder holder=DependencyHolder.get(mContext);
+  Dns dns=holder.getDns();
+  for (  long accountId : DataStoreUtils.getAccountIds(mContext)) {
+    final ParcelableCredentials credentials=ParcelableCredentials.getCredentials(mContext,accountId);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
+    if (credentials == null || twitter == null)     continue;
+    publishProgress(new LogText("Testing connection for account " + accountId));
+    publishProgress(LogText.LINEBREAK);
+    publishProgress(new LogText("api_url_format: " + credentials.api_url_format),LogText.LINEBREAK);
+    publishProgress(new LogText("same_oauth_signing_url: " + credentials.same_oauth_signing_url),LogText.LINEBREAK);
+    publishProgress(new LogText("auth_type: " + credentials.auth_type));
+    publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+    publishProgress(new LogText("Testing DNS functionality"));
+    publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+    final Endpoint endpoint=TwitterAPIFactory.getEndpoint(credentials,Twitter.class);
+    final Uri uri=Uri.parse(endpoint.getUrl());
+    final String host=uri.getHost();
+    if (host != null) {
+      testDns(dns,host);
+      testNativeLookup(host);
+    }
+ else {
+      publishProgress(new LogText("API URL format is invalid"));
+      publishProgress(LogText.LINEBREAK);
+    }
+    publishProgress(LogText.LINEBREAK);
+    publishProgress(new LogText("Testing API functionality"));
+    publishProgress(LogText.LINEBREAK);
+    testTwitter("verify_credentials",twitter,new TwitterTest(){
+      @Override public void execute(      Twitter twitter) throws TwitterException {
+        twitter.verifyCredentials();
+      }
+    }
+);
+    testTwitter("get_home_timeline",twitter,new TwitterTest(){
+      @Override public void execute(      Twitter twitter) throws TwitterException {
+        twitter.getHomeTimeline(new Paging().count(1));
+      }
+    }
+);
+    publishProgress(LogText.LINEBREAK);
+  }
+  publishProgress(LogText.LINEBREAK);
+  publishProgress(new LogText("Testing common host names"));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  testDns(dns,"www.google.com");
+  testNativeLookup("www.google.com");
+  publishProgress(LogText.LINEBREAK);
+  testDns(dns,"github.com");
+  testNativeLookup("github.com");
+  publishProgress(LogText.LINEBREAK);
+  testDns(dns,"twitter.com");
+  testNativeLookup("twitter.com");
+  return null;
+}

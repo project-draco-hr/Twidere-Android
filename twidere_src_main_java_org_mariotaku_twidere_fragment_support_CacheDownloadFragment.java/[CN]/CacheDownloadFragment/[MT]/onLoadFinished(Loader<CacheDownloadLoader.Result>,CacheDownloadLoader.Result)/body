@@ -1,6 +1,0 @@
-{
-  mData=data;
-  hideProgress();
-  displayDownloaded(data);
-  invalidateOptionsMenu();
-}

@@ -28,6 +28,9 @@
       if (e.getErrorCode() == 93) {
         mErrorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId,ErrorInfoStore.CODE_NO_DM_PERMISSION);
       }
+ else       if (e.isCausedByNetworkIssue()) {
+        mErrorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
+      }
       if (BuildConfig.DEBUG) {
         Log.w(LOGTAG,e);
       }

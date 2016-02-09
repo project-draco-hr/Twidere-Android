@@ -26,14 +26,17 @@
       if (saveReadPosition) {
         saveReadPosition(accountId,twitter);
       }
-      errorInfoStore.remove(ErrorInfoStore.KEY_INTERACTIONS,accountId);
+      errorInfoStore.remove(getErrorInfoKey(),accountId);
     }
  catch (    TwitterException e) {
       if (BuildConfig.DEBUG) {
         Log.w(LOGTAG,e);
       }
       if (e.getErrorCode() == 220) {
-        errorInfoStore.put(ErrorInfoStore.KEY_INTERACTIONS,accountId,ErrorInfoStore.CODE_NO_ACCESS_FOR_CREDENTIALS);
+        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NO_ACCESS_FOR_CREDENTIALS);
+      }
+ else       if (e.isCausedByNetworkIssue()) {
+        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
       }
     }
   }

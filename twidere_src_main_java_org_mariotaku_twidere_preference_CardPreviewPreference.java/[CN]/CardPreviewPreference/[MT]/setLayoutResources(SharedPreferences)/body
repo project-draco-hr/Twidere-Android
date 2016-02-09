@@ -1,0 +1,8 @@
+{
+  if (preferences.getBoolean(KEY_COMPACT_CARDS,false)) {
+    setLayoutResource(R.layout.card_item_status_compact);
+  }
+ else {
+    setLayoutResource(R.layout.card_item_status);
+  }
+}

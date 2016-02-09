@@ -1,0 +1,23 @@
+{
+  try {
+    Lookup lookup=newLookup(resolver,name,Type.A);
+    Record[] a=lookup.run();
+    if (a == null) {
+      if (lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
+        Record[] aaaa=newLookup(resolver,name,Type.AAAA).run();
+        if (aaaa != null)         return aaaa;
+      }
+      throw new UnknownHostException("unknown host");
+    }
+    if (!all)     return a;
+    Record[] aaaa=newLookup(resolver,name,Type.AAAA).run();
+    if (aaaa == null)     return a;
+    Record[] merged=new Record[a.length + aaaa.length];
+    System.arraycopy(a,0,merged,0,a.length);
+    System.arraycopy(aaaa,0,merged,a.length,aaaa.length);
+    return merged;
+  }
+ catch (  TextParseException e) {
+    throw new UnknownHostException("invalid name");
+  }
+}

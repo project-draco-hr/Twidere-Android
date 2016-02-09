@@ -1,0 +1,11 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  mStartDiagnosticsButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      mLogTextView.setText(null);
+      new DiagnosticsTask(NetworkDiagnosticsFragment.this).execute();
+    }
+  }
+);
+  mLogTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
+}

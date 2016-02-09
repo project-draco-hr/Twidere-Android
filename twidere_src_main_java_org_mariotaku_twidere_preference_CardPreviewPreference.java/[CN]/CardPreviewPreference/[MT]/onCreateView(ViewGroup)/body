@@ -1,11 +1,5 @@
 {
-  final View statusView;
-  if (mPreferences != null && mPreferences.getBoolean(KEY_COMPACT_CARDS,false)) {
-    statusView=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
-  }
- else {
-    statusView=mInflater.inflate(R.layout.card_item_status,parent,false);
-  }
+  final View statusView=super.onCreateView(parent);
   mHolder=new StatusViewHolder(mAdapter,statusView);
   return statusView;
 }

@@ -1,0 +1,12 @@
+{
+  publishProgress(new LogText(String.format("Native lookup %s...",host)));
+  try {
+    final long start=SystemClock.uptimeMillis();
+    publishProgress(new LogText(Arrays.toString(InetAddress.getAllByName(host))));
+    publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start)));
+  }
+ catch (  UnknownHostException e) {
+    publishProgress(new LogText("ERROR: " + e.getMessage()));
+  }
+  publishProgress(LogText.LINEBREAK);
+}

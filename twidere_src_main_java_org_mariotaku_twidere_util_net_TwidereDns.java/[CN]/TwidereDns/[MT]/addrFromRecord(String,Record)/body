@@ -1,0 +1,10 @@
+{
+  InetAddress addr;
+  if (r instanceof ARecord) {
+    addr=((ARecord)r).getAddress();
+  }
+ else {
+    addr=((AAAARecord)r).getAddress();
+  }
+  return InetAddress.getByAddress(name,addr.getAddress());
+}

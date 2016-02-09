@@ -1,3 +1,3 @@
 {
-  return InetAddressUtils.getInetAddressType(address) != 0;
+  return getInetAddressType(address) != 0;
 }
