@@ -11,5 +11,5 @@
     return format.substring(0,lastIndex) + format.substring(lastIndex + suffixLength);
   }
   if (TextUtils.isEmpty(domain))   return matcher.replaceAll("");
-  return matcher.replaceAll(String.format("$1%s$2",domain));
+  return matcher.replaceAll("$1" + domain + "$2");
 }

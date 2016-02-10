@@ -1,18 +1,14 @@
 {
-  final String urlBase=getApiBaseUrl(pattern,domain);
-  if (appendPath == null)   return urlBase.endsWith("/") ? urlBase : urlBase + "/";
-  final StringBuilder sb=new StringBuilder(urlBase);
+  String urlBase=getApiBaseUrl(pattern,domain);
   if (urlBase.endsWith("/")) {
-    sb.append(appendPath.startsWith("/") ? appendPath.substring(1) : appendPath);
+    urlBase=urlBase.substring(0,urlBase.length() - 1);
   }
- else {
-    if (appendPath.startsWith("/")) {
-      sb.append(appendPath);
-    }
- else {
-      sb.append('/');
-      sb.append(appendPath);
-    }
+  if (appendPath == null)   return urlBase + "/";
+  if (appendPath.startsWith("/")) {
+    appendPath=appendPath.substring(1);
   }
-  return sb.toString();
+  if (appendPath.endsWith("/")) {
+    appendPath=appendPath.substring(0,appendPath.length() - 1);
+  }
+  return urlBase + "/" + appendPath+ "/";
 }

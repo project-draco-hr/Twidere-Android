@@ -1,5 +1,5 @@
 {
-  if (resolver == null || uri == null || isEmpty(inColumn) || colValues == null || colValues.length == 0)   return 0;
+  if (colValues == null || colValues.length == 0)   return 0;
   final int colValuesLength=colValues.length, blocks_count=colValuesLength / MAX_BULK_COUNT + 1;
   int rowsDeleted=0;
   for (int i=0; i < blocks_count; i++) {
@@ -7,14 +7,14 @@
     final String[] block=TwidereArrayUtils.toStringArray(ArrayUtils.subarray(colValues,start,end));
     if (valuesIsString) {
       final StringBuilder where=new StringBuilder(inColumn + " IN(" + TwidereArrayUtils.toStringForSQL(block)+ ")");
-      if (!isEmpty(extraWhere)) {
+      if (!TextUtils.isEmpty(extraWhere)) {
         where.append("AND ").append(extraWhere);
       }
       rowsDeleted+=resolver.delete(uri,where.toString(),block);
     }
  else {
       final StringBuilder where=new StringBuilder(inColumn + " IN(" + TwidereArrayUtils.toString(block,',',true)+ ")");
-      if (!isEmpty(extraWhere)) {
+      if (!TextUtils.isEmpty(extraWhere)) {
         where.append("AND ").append(extraWhere);
       }
       rowsDeleted+=resolver.delete(uri,where.toString(),null);

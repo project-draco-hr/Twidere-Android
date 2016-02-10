@@ -1,4 +1,3 @@
 {
-  if (values == null)   return 0;
   return bulkInsert(resolver,uri,values.toArray(new ContentValues[values.size()]));
 }

@@ -1,0 +1,3 @@
+{
+  assertEquals("https://media.twitter.com",TwitterAPIFactory.getApiBaseUrl("https://api.twitter.com","media"));
+}
