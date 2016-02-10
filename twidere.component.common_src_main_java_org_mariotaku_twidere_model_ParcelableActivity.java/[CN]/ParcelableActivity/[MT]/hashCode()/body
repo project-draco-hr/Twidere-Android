@@ -1,0 +1,3 @@
+{
+  return calculateHashCode(account_id,timestamp,max_position,min_position);
+}

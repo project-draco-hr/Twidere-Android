@@ -1,0 +1,7 @@
+{
+  int result=(int)(account_id ^ (account_id >>> 32));
+  result=31 * result + (int)(timestamp ^ (timestamp >>> 32));
+  result=31 * result + (int)(max_position ^ (max_position >>> 32));
+  result=31 * result + (int)(min_position ^ (min_position >>> 32));
+  return result;
+}

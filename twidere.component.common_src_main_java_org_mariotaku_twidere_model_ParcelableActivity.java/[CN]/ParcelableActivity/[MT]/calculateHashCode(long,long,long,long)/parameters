@@ -1,0 +1,4 @@
+long account_id
+long timestamp
+long max_position
+long min_position
