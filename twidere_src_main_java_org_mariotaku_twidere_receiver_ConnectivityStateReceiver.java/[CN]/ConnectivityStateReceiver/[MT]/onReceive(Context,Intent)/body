@@ -19,7 +19,7 @@
     final long currentTime=System.currentTimeMillis();
     final long lastSuccessfulTime=HotMobiLogger.getLastUploadTime(appContext);
     if ((currentTime - lastSuccessfulTime) > HotMobiLogger.UPLOAD_INTERVAL_MILLIS) {
-      AsyncTask.execute(new UploadLogsTask(appContext));
+      appContext.startService(new Intent(appContext,UploadLogsService.class));
     }
   }
 }

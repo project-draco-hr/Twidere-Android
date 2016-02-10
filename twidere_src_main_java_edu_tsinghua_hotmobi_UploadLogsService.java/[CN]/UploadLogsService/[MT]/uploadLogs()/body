@@ -1,0 +1,4 @@
+{
+  final UploadLogsTask task=new UploadLogsTask(this);
+  task.run();
+}

@@ -3,7 +3,7 @@
   final boolean tcp=mPreferences.getBoolean(KEY_TCP_DNS_QUERY,false);
   final String address=mPreferences.getString(KEY_DNS_SERVER,null);
   final SimpleResolver resolver;
-  if (isValidIpAddress(address)) {
+  if (!TextUtils.isEmpty(address) && isValidIpAddress(address)) {
     resolver=new SimpleResolver(address);
   }
  else {

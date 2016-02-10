@@ -1,7 +1,7 @@
 {
   mLogger=new TimingLogger(RESOLVER_LOGTAG,"resolve");
   mHostMapping=SharedPreferencesWrapper.getInstance(context,HOST_MAPPING_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  mPreferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mSystemHosts=new SystemHosts();
+  mPreferences=preferences;
   reloadDnsSettings();
 }

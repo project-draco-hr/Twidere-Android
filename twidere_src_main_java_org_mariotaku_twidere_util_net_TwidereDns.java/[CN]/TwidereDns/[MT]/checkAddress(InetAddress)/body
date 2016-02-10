@@ -1,4 +1,0 @@
-{
-  if (!CHECK_ADDRESS)   return true;
-  return inetAddress.isReachable(TwidereMathUtils.clamp((int)mConnectTimeout / 2,1000,3000));
-}

@@ -1,0 +1,18 @@
+{
+  if (BuildConfig.DEBUG) {
+    final NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+    builder.setTicker("Uploading logs");
+    builder.setContentTitle("HotMobi research project");
+    builder.setContentText("Uploading logs");
+    builder.setProgress(0,0,true);
+    builder.setSmallIcon(R.drawable.ic_stat_info,0);
+    builder.setOngoing(true);
+    final NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+    nm.notify(NOTIFICATION_ID_UPLOAD_LOG,builder.build());
+    uploadLogs();
+    nm.cancel(NOTIFICATION_ID_UPLOAD_LOG);
+  }
+ else {
+    uploadLogs();
+  }
+}

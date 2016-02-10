@@ -2,5 +2,5 @@
   final Context context=getContext();
   final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
   prefs.edit().remove(HotMobiConstants.KEY_LAST_UPLOAD_TIME).apply();
-  AsyncTask.execute(new UploadLogsTask(context.getApplicationContext()));
+  context.startService(new Intent(context,UploadLogsService.class));
 }

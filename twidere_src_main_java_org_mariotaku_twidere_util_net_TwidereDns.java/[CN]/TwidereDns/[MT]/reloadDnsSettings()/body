@@ -1,5 +1,4 @@
 {
   mResolver=null;
-  mUseResolver=!TextUtils.isEmpty(mPreferences.getString(KEY_DNS_SERVER,null));
-  mConnectTimeout=TimeUnit.SECONDS.toMillis(mPreferences.getInt(KEY_CONNECTION_TIMEOUT,10));
+  mUseResolver=mPreferences.getBoolean(KEY_BUILTIN_DNS_RESOLVER);
 }

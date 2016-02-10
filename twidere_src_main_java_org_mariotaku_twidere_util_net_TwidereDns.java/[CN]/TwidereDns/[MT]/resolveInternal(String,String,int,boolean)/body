@@ -17,16 +17,16 @@
     }
     return fromMapping;
   }
-  addLogSplit(originalHost,host,"start /etc/hosts resolve",depth);
-  final InetAddress[] fromSystemHosts=fromSystemHosts(host);
-  addLogSplit(originalHost,host,"end /etc/hosts resolve",depth);
-  if (fromSystemHosts != null) {
-    if (BuildConfig.DEBUG) {
-      dumpLog(fromSystemHosts);
-    }
-    return fromSystemHosts;
-  }
   if (useResolver) {
+    addLogSplit(originalHost,host,"start /etc/hosts resolve",depth);
+    final InetAddress[] fromSystemHosts=fromSystemHosts(host);
+    addLogSplit(originalHost,host,"end /etc/hosts resolve",depth);
+    if (fromSystemHosts != null) {
+      if (BuildConfig.DEBUG) {
+        dumpLog(fromSystemHosts);
+      }
+      return fromSystemHosts;
+    }
     addLogSplit(originalHost,host,"start resolver resolve",depth);
     final InetAddress[] fromResolver=fromResolver(originalHost,host,depth);
     addLogSplit(originalHost,host,"end resolver resolve",depth);
