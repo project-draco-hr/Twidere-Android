@@ -5,10 +5,9 @@
   }
   final List<Status> statuses=new ArrayList<>();
   final long maxId=getMaxId(), sinceId=getSinceId();
-  boolean getConversations=maxId < status.id || (maxId <= 0 && sinceId <= 0);
-  boolean getReplies=sinceId > status.id || (maxId <= 0 && sinceId <= 0);
-  if (getConversations) {
-    long inReplyToId=status.in_reply_to_status_id;
+  final boolean noSinceMaxId=maxId <= 0 && sinceId <= 0;
+  if ((maxId > 0 && maxId < status.id) || noSinceMaxId) {
+    long inReplyToId=maxId > 0 ? maxId : status.in_reply_to_status_id;
     int count=0;
     while (inReplyToId > 0 && count < 10) {
       final Status item=twitter.showStatus(inReplyToId);
@@ -17,9 +16,7 @@
       count++;
     }
   }
-  if ((sinceId <= 0 && maxId <= 0) || (sinceId > 0 && sinceId < status.id) || (maxId > 0 && maxId >= status.id)) {
-  }
-  if (getReplies) {
+  if ((sinceId > 0 && sinceId > status.id) || noSinceMaxId) {
     SearchQuery query=new SearchQuery();
     if (mTwitterOptimizedSearches) {
       query.query("to:" + status.user_screen_name);
@@ -27,7 +24,7 @@
  else {
       query.query("@" + status.user_screen_name);
     }
-    query.sinceId(status.id);
+    query.sinceId(sinceId > 0 ? sinceId : status.id);
     try {
       for (      Status item : twitter.search(query)) {
         if (item.getInReplyToStatusId() == status.id) {
