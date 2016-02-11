@@ -1,4 +1,0 @@
-{
-  super.onPostExecute(result);
-  bus.post(new GetActivitiesTaskEvent(getContentUri(),false,null));
-}

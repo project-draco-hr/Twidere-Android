@@ -26,7 +26,6 @@
   }
   migrateUsageStatisticsPreferences();
   Utils.startRefreshServiceIfNeeded(this);
-  reloadConnectivitySettings();
   DependencyHolder holder=DependencyHolder.get(this);
   registerActivityLifecycleCallbacks(holder.getActivityTracker());
   final IntentFilter packageFilter=new IntentFilter();

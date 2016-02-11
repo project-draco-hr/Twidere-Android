@@ -1,0 +1,4 @@
+{
+  this.context=context;
+  GeneralComponentHelper.build(context).inject(this);
+}

@@ -1,14 +1,16 @@
 {
   AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
     @Override protected long[][] doInBackground(    final Object... params){
+      final Context context=getContext();
+      if (context == null)       return null;
       final long[][] result=new long[2][];
       result[0]=getAccountIds();
-      result[1]=DataStoreUtils.getNewestMessageIds(getActivity(),DirectMessages.Inbox.CONTENT_URI,result[0]);
+      result[1]=DataStoreUtils.getNewestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,result[0]);
       return result;
     }
     @Override protected void onPostExecute(    final long[][] result){
       final AsyncTwitterWrapper twitter=mTwitterWrapper;
-      if (twitter == null)       return;
+      if (twitter == null || result == null)       return;
       twitter.getReceivedDirectMessagesAsync(result[0],null,result[1]);
       twitter.getSentDirectMessagesAsync(result[0],null,null);
     }

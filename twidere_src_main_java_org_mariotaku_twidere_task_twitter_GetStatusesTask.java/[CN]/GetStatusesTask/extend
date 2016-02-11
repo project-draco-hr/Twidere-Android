@@ -1,1 +1,1 @@
-ManagedAsyncTask<Object,TwitterWrapper.TwitterListResponse<Status>,List<TwitterWrapper.StatusListResponse>>
+TaskRunnable<RefreshTaskParam,List<TwitterWrapper.StatusListResponse>,Object>

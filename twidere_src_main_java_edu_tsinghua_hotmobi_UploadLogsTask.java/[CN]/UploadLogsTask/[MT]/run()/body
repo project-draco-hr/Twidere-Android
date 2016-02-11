@@ -1,10 +1,10 @@
 {
-  final SharedPreferences prefs=context.getSharedPreferences("spice_data_profiling",Context.MODE_PRIVATE);
+  final SharedPreferences prefs=context.getSharedPreferences(HotMobiConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (prefs.contains(HotMobiConstants.KEY_LAST_UPLOAD_TIME)) {
     final long lastUpload=prefs.getLong(HotMobiConstants.KEY_LAST_UPLOAD_TIME,System.currentTimeMillis());
     final double deltaDays=(System.currentTimeMillis() - lastUpload) / (double)HotMobiLogger.UPLOAD_INTERVAL_MILLIS;
     if (deltaDays < 1) {
-      HotMobiLogger.log("Last uploaded was conducted in 1 day ago.");
+      HotMobiLogger.printLog("Last uploaded was conducted in 1 day ago.");
       return;
     }
   }

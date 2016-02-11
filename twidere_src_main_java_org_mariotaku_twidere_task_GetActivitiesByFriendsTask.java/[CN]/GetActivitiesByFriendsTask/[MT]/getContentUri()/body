@@ -1,0 +1,3 @@
+{
+  return TwidereDataStore.Activities.ByFriends.CONTENT_URI;
+}

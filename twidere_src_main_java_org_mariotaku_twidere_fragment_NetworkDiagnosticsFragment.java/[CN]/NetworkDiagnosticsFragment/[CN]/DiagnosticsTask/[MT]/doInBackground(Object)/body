@@ -51,7 +51,7 @@
       testNativeLookup(host);
     }
  else {
-      publishProgress(new LogText("API URL format is invalid"));
+      publishProgress(new LogText("API URL format is invalid",LogText.State.BAD));
       publishProgress(LogText.LINEBREAK);
     }
     publishProgress(LogText.LINEBREAK);

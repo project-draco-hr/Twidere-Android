@@ -9,23 +9,30 @@
     }
   }
 ;
-  for (  Object dayLogsDirObj : ArrayUtils.nullToEmpty(logsDir.listFiles(filter))) {
-    final File dayLogsDir=(File)dayLogsDirObj;
+  File[] dayLogsDirs=logsDir.listFiles(filter);
+  if (dayLogsDirs == null)   return false;
+  for (  File dayLogsDir : dayLogsDirs) {
+    File[] logFiles=dayLogsDir.listFiles();
+    if (logFiles == null)     continue;
     boolean succeeded=true;
-    for (    Object logFileObj : ArrayUtils.nullToEmpty(dayLogsDir.listFiles())) {
-      File logFile=(File)logFileObj;
+    for (    File logFile : logFiles) {
+      OutputStream os=null;
+      InputStream is=null;
       try {
-        final Request.Builder builder=new Request.Builder();
-        builder.url("http://www.dnext.xyz/usage/upload");
-        builder.header("X-HotMobi-UUID",uuid);
-        builder.header("X-HotMobi-Date",dayLogsDir.getName());
-        builder.header("X-HotMobi-FileName",logFile.getName());
-        builder.header("User-Agent",String.format(Locale.ROOT,"HotMobi (Twidere %s %d)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE));
-        builder.method("POST",RequestBody.create(MediaType.parse("text/plain"),logFile));
         final UploadLogEvent uploadLogEvent=UploadLogEvent.create(context,logFile);
-        final Response response=client.newCall(builder.build()).execute();
-        if (response.isSuccessful()) {
-          uploadLogEvent.finish(response);
+        HttpURLConnection conn=(HttpURLConnection)new URL("http://www.dnext.xyz/usage/upload").openConnection();
+        conn.setRequestProperty("X-HotMobi-UUID",uuid);
+        conn.setRequestProperty("X-HotMobi-Date",dayLogsDir.getName());
+        conn.setRequestProperty("X-HotMobi-FileName",logFile.getName());
+        conn.setRequestProperty("User-Agent",String.format(Locale.ROOT,"HotMobi (Twidere %s %d)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE));
+        conn.setRequestMethod("POST");
+        conn.setDoOutput(true);
+        os=conn.getOutputStream();
+        is=new FileInputStream(logFile);
+        Utils.copyStream(is,os);
+        final int responseCode=conn.getResponseCode();
+        if (responseCode >= 200 && responseCode < 300) {
+          uploadLogEvent.finish(conn);
           if (!uploadLogEvent.shouldSkip()) {
             HotMobiLogger.getInstance(context).log(uploadLogEvent);
           }
@@ -36,6 +43,10 @@
         Log.w(HotMobiLogger.LOGTAG,e);
         succeeded=false;
         hasErrors=true;
+      }
+ finally {
+        Utils.closeSilently(is);
+        Utils.closeSilently(os);
       }
     }
     if (succeeded) {

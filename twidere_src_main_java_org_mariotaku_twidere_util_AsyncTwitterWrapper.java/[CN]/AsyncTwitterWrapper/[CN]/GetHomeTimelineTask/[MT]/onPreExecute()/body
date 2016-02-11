@@ -1,5 +1,0 @@
-{
-  final Intent intent=new Intent(BROADCAST_RESCHEDULE_HOME_TIMELINE_REFRESHING);
-  twitterWrapper.getContext().sendBroadcast(intent);
-  super.onPreExecute();
-}

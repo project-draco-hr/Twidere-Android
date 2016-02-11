@@ -1,3 +1,3 @@
 {
-  return HttpClientFactory.getDefaultHttpClient(application,prefs,dns);
+  return HttpClientFactory.createRestHttpClient(application,prefs,dns);
 }

@@ -1,1 +1,1 @@
-ManagedAsyncTask<Object,Object,Object>
+TaskRunnable<RefreshTaskParam,Object,Object>

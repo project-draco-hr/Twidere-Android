@@ -1,0 +1,10 @@
+{
+  if (Utils.shouldUsePrivateAPIs(context,accountId)) {
+    return twitter.getActivitiesAboutMe(paging);
+  }
+  final ResponseList<Activity> activities=new ResponseList<>();
+  for (  Status status : twitter.getMentionsTimeline(paging)) {
+    activities.add(Activity.fromMention(accountId,status));
+  }
+  return activities;
+}

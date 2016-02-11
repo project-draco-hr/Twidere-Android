@@ -1,0 +1,16 @@
+{
+  SpannableString coloredText=SpannableString.valueOf(message.message);
+switch (message.state) {
+case LogText.State.GOOD:
+{
+      coloredText.setSpan(new ForegroundColorSpan(Color.GREEN),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      break;
+    }
+case LogText.State.BAD:
+{
+    coloredText.setSpan(new ForegroundColorSpan(Color.RED),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    break;
+  }
+}
+mLogTextView.append(coloredText);
+}

@@ -1,0 +1,3 @@
+{
+  bus.post(new GetActivitiesTaskEvent(getContentUri(),false,null));
+}

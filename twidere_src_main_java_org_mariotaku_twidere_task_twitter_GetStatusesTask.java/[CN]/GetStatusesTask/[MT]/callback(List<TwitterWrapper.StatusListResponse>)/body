@@ -1,0 +1,3 @@
+{
+  bus.post(new GetStatusesTaskEvent(getContentUri(),false,AsyncTwitterWrapper.getException(result)));
+}

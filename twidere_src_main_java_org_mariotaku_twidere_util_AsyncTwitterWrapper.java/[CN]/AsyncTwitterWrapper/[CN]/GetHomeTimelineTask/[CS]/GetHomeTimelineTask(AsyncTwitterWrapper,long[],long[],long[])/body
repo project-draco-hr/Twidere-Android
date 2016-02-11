@@ -1,4 +1,0 @@
-{
-  super(asyncTwitterWrapper,accountIds,maxIds,sinceIds,TASK_TAG_GET_HOME_TIMELINE);
-  this.twitterWrapper=asyncTwitterWrapper;
-}

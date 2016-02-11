@@ -1,0 +1,51 @@
+{
+  final long[] accountIds=param.getAccountIds(), maxIds=param.getMaxIds(), sinceIds=param.getSinceIds();
+  final List<TwitterWrapper.StatusListResponse> result=new ArrayList<>();
+  if (accountIds == null)   return result;
+  int idx=0;
+  final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
+  for (  final long accountId : accountIds) {
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
+    if (twitter == null)     continue;
+    try {
+      final Paging paging=new Paging();
+      paging.count(loadItemLimit);
+      final long maxId, sinceId;
+      if (maxIds != null && maxIds[idx] > 0) {
+        maxId=maxIds[idx];
+        paging.maxId(maxId);
+      }
+ else {
+        maxId=-1;
+      }
+      if (sinceIds != null && sinceIds[idx] > 0) {
+        sinceId=sinceIds[idx];
+        paging.sinceId(sinceId - 1);
+        if (maxIds == null || sinceIds[idx] <= 0) {
+          paging.setLatestResults(true);
+        }
+      }
+ else {
+        sinceId=-1;
+      }
+      final List<Status> statuses=getStatuses(twitter,paging);
+      TwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
+      storeStatus(accountId,statuses,sinceId,maxId,true);
+      final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
+      cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountId,statuses));
+      AsyncManager.runBackgroundTask(cacheTask);
+      errorInfoStore.remove(getErrorInfoKey(),accountId);
+    }
+ catch (    final TwitterException e) {
+      if (BuildConfig.DEBUG) {
+        Log.w(LOGTAG,e);
+      }
+      if (e.isCausedByNetworkIssue()) {
+        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
+      }
+      result.add(new TwitterWrapper.StatusListResponse(accountId,e));
+    }
+    idx++;
+  }
+  return result;
+}

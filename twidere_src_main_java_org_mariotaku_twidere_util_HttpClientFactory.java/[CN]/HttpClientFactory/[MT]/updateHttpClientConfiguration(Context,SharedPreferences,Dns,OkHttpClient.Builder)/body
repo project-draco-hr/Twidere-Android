@@ -2,7 +2,7 @@
   final long connectionTimeout=prefs.getInt(KEY_CONNECTION_TIMEOUT,10);
   final boolean enableProxy=prefs.getBoolean(KEY_ENABLE_PROXY,false);
   builder.connectTimeout(connectionTimeout,TimeUnit.SECONDS);
-  builder.connectionPool(new ConnectionPool(0,1,TimeUnit.MINUTES));
+  builder.connectionPool(new ConnectionPool(5,30,TimeUnit.SECONDS));
   if (enableProxy) {
     final String proxyType=prefs.getString(KEY_PROXY_TYPE,null);
     final String proxyHost=prefs.getString(KEY_PROXY_HOST,null);

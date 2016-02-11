@@ -1,1 +1,1 @@
-AsyncTask<TwitterListResponse<Status>,Object,Object>
+TaskRunnable<TwitterListResponse<Status>,Object,Object>

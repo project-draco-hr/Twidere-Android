@@ -3,10 +3,10 @@
   try {
     final long start=SystemClock.uptimeMillis();
     publishProgress(new LogText(Arrays.toString(InetAddress.getAllByName(host))));
-    publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start)));
+    publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start),LogText.State.GOOD));
   }
  catch (  UnknownHostException e) {
-    publishProgress(new LogText("ERROR: " + e.getMessage()));
+    publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.BAD));
   }
   publishProgress(LogText.LINEBREAK);
 }

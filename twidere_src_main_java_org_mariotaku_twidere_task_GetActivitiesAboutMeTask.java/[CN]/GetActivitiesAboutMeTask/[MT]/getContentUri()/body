@@ -1,0 +1,3 @@
+{
+  return TwidereDataStore.Activities.AboutMe.CONTENT_URI;
+}

@@ -1,5 +1,7 @@
 {
-  final GetHomeTimelineTask task=new GetHomeTimelineTask(this,accountIds,max_ids,since_ids);
-  mAsyncTaskManager.add(task,true);
+  final GetHomeTimelineTask task=new GetHomeTimelineTask(getContext());
+  task.setParams(new RefreshTaskParam(accountIds,maxIds,sinceIds));
+  task.notifyStart();
+  AsyncManager.runBackgroundTask(task);
   return true;
 }

@@ -1,0 +1,5 @@
+{
+  this.accountIds=accountIds;
+  this.maxIds=maxIds;
+  this.sinceIds=sinceIds;
+}

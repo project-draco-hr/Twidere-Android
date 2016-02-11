@@ -1,5 +1,0 @@
-AsyncTwitterWrapper twitterWrapper
-String tag
-long[] accountIds
-long[] maxIds
-long[] sinceIds

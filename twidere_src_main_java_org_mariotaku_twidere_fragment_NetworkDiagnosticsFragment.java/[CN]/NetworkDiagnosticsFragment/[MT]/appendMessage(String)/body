@@ -1,3 +1,0 @@
-{
-  mLogTextView.append(message);
-}
