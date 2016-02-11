@@ -5,11 +5,9 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.add_image,!hasMedia);
   MenuUtils.setMenuItemAvailability(menu,R.id.media_menu,hasMedia);
   MenuUtils.setMenuItemAvailability(menu,R.id.toggle_sensitive,hasMedia);
-  MenuUtils.setMenuItemAvailability(menu,R.id.link_to_quoted_status,isQuote());
   MenuUtils.setMenuItemAvailability(menu,R.id.schedule,isScheduleSupported());
   menu.setGroupEnabled(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
   menu.setGroupVisible(MENU_GROUP_IMAGE_EXTENSION,hasMedia);
   MenuUtils.setMenuItemChecked(menu,R.id.toggle_sensitive,hasMedia && mIsPossiblySensitive);
-  MenuUtils.setMenuItemChecked(menu,R.id.link_to_quoted_status,mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET));
   ThemeUtils.resetCheatSheet(mMenuBar);
 }

@@ -34,13 +34,6 @@ setMenu();
 updateTextCount();
 break;
 }
-case R.id.link_to_quoted_status:
-{
-final boolean newValue=!item.isChecked();
-item.setChecked(newValue);
-mPreferences.edit().putBoolean(KEY_LINK_TO_QUOTED_TWEET,newValue).apply();
-break;
-}
 default :
 {
 final Intent intent=item.getIntent();
@@ -52,16 +45,16 @@ final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
 intent.putExtra(EXTRA_TEXT,ParseUtils.parseString(mEditText.getText()));
 intent.putExtra(EXTRA_ACCOUNT_IDS,accountIds);
 if (accountIds.length > 0) {
-final long account_id=accountIds[0];
-intent.putExtra(EXTRA_NAME,DataStoreUtils.getAccountName(this,account_id));
-intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(this,account_id));
+  final long account_id=accountIds[0];
+  intent.putExtra(EXTRA_NAME,DataStoreUtils.getAccountName(this,account_id));
+  intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(this,account_id));
 }
 if (mInReplyToStatusId > 0) {
-intent.putExtra(EXTRA_IN_REPLY_TO_ID,mInReplyToStatusId);
+  intent.putExtra(EXTRA_IN_REPLY_TO_ID,mInReplyToStatusId);
 }
 if (mInReplyToStatus != null) {
-intent.putExtra(EXTRA_IN_REPLY_TO_NAME,mInReplyToStatus.user_name);
-intent.putExtra(EXTRA_IN_REPLY_TO_SCREEN_NAME,mInReplyToStatus.user_screen_name);
+  intent.putExtra(EXTRA_IN_REPLY_TO_NAME,mInReplyToStatus.user_name);
+  intent.putExtra(EXTRA_IN_REPLY_TO_SCREEN_NAME,mInReplyToStatus.user_screen_name);
 }
 startActivityForResult(intent,REQUEST_EXTENSION_COMPOSE);
 }

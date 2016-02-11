@@ -1,3 +1,0 @@
-{
-  mLogger.reset(RESOLVER_LOGTAG,originalHost);
-}

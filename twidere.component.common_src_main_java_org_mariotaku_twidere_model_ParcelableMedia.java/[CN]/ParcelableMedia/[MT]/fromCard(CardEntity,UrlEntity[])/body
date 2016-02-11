@@ -9,18 +9,18 @@
     media.url=checkUrl(appUrlResolved) ? appUrlResolved.getValue() : card.getUrl();
     if ("animated_gif".equals(name)) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
-      media.type=Type.TYPE_CARD_ANIMATED_GIF;
+      media.type=Type.CARD_ANIMATED_GIF;
     }
  else     if (playerStreamUrl instanceof StringValue) {
       media.media_url=((StringValue)playerStreamUrl).getValue();
-      media.type=Type.TYPE_VIDEO;
+      media.type=Type.VIDEO;
     }
  else {
       StringValue playerUrl=(StringValue)card.getBindingValue("player_url");
       if (playerUrl != null) {
         media.media_url=playerUrl.getValue();
       }
-      media.type=Type.TYPE_EXTERNAL_PLAYER;
+      media.type=Type.EXTERNAL_PLAYER;
     }
     final BindingValue playerImage=card.getBindingValue("player_image");
     if (playerImage instanceof ImageValue) {
@@ -51,7 +51,7 @@
     final ParcelableMedia media=new ParcelableMedia();
     media.url=card.getUrl();
     media.card=ParcelableCardEntity.fromCardEntity(card,-1);
-    media.type=Type.TYPE_IMAGE;
+    media.type=Type.IMAGE;
     media.media_url=((ImageValue)photoImageFullSize).getUrl();
     media.width=((ImageValue)photoImageFullSize).getWidth();
     media.height=((ImageValue)photoImageFullSize).getHeight();

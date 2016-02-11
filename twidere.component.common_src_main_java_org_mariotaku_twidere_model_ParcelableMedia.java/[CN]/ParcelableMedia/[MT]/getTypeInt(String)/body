@@ -1,11 +1,11 @@
 {
 switch (type) {
 case MediaEntity.Type.PHOTO:
-    return Type.TYPE_IMAGE;
+    return Type.IMAGE;
 case MediaEntity.Type.VIDEO:
-  return Type.TYPE_VIDEO;
+  return Type.VIDEO;
 case MediaEntity.Type.ANIMATED_GIF:
-return Type.TYPE_ANIMATED_GIF;
+return Type.ANIMATED_GIF;
 }
-return Type.TYPE_UNKNOWN;
+return Type.UNKNOWN;
 }

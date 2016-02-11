@@ -8,7 +8,7 @@
     final String mimetype=attachment.getMimetype();
     if (mimetype != null && mimetype.startsWith("image/")) {
       ParcelableMedia media=new ParcelableMedia();
-      media.type=Type.TYPE_IMAGE;
+      media.type=Type.IMAGE;
       media.width=attachment.getWidth();
       media.height=attachment.getHeight();
       media.url=TextUtils.isEmpty(externalUrl) ? attachment.getUrl() : externalUrl;

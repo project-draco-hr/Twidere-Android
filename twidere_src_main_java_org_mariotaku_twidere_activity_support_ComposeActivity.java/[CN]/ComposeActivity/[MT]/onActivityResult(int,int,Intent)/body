@@ -6,7 +6,7 @@ case REQUEST_OPEN_DOCUMENT:
 {
       if (resultCode == Activity.RESULT_OK) {
         final Uri src=intent.getData();
-        mTask=AsyncTaskUtils.executeTask(new AddMediaTask(this,src,createTempImageUri(),ParcelableMedia.Type.TYPE_IMAGE,true));
+        mTask=AsyncTaskUtils.executeTask(new AddMediaTask(this,src,createTempImageUri(),ParcelableMedia.Type.IMAGE,true));
       }
       break;
     }

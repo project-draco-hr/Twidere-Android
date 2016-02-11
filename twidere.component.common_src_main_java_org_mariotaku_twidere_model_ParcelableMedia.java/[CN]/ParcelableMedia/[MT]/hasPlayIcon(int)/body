@@ -1,9 +1,9 @@
 {
 switch (type) {
-case Type.TYPE_VIDEO:
-case Type.TYPE_ANIMATED_GIF:
-case Type.TYPE_CARD_ANIMATED_GIF:
-case Type.TYPE_EXTERNAL_PLAYER:
+case Type.VIDEO:
+case Type.ANIMATED_GIF:
+case Type.CARD_ANIMATED_GIF:
+case Type.EXTERNAL_PLAYER:
     return true;
 }
 return false;

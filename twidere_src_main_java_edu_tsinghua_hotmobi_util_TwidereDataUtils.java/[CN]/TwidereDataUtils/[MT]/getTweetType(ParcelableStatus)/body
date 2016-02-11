@@ -3,11 +3,11 @@
     boolean hasImage=false;
     for (    ParcelableMedia media : status.media) {
 switch (media.type) {
-case ParcelableMedia.Type.TYPE_ANIMATED_GIF:
-case ParcelableMedia.Type.TYPE_CARD_ANIMATED_GIF:
-case ParcelableMedia.Type.TYPE_VIDEO:
+case ParcelableMedia.Type.ANIMATED_GIF:
+case ParcelableMedia.Type.CARD_ANIMATED_GIF:
+case ParcelableMedia.Type.VIDEO:
         return TweetType.VIDEO;
-case ParcelableMedia.Type.TYPE_IMAGE:
+case ParcelableMedia.Type.IMAGE:
 {
         hasImage=true;
         break;

@@ -19,10 +19,8 @@
   }
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
   final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
-  final boolean isQuote=isQuote();
   final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;
-  final boolean linkToQuotedTweet=mPreferences.getBoolean(KEY_LINK_TO_QUOTED_TWEET,true);
-  final long inReplyToStatusId=!isQuote || linkToQuotedTweet ? mInReplyToStatusId : -1;
+  final long inReplyToStatusId=mInReplyToStatusId;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
   mTwitterWrapper.updateStatusAsync(accountIds,text,statusLocation,getMedia(),inReplyToStatusId,isPossiblySensitive);
   if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {

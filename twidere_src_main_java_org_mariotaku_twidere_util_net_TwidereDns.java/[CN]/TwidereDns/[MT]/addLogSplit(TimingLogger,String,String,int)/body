@@ -7,5 +7,5 @@
   sb.append(host);
   sb.append(": ");
   sb.append(message);
-  mLogger.addSplit(sb.toString());
+  logger.addSplit(sb.toString());
 }

@@ -1,5 +1,4 @@
 {
   final ParcelableMedia[] media={ParcelableMedia.image(link)};
-  Bundle options=null;
-  Utils.openMedia(context,accountId,sensitive,null,media,options);
+  Utils.openMedia(context,accountId,sensitive,null,media,null);
 }
