@@ -1,9 +1,9 @@
 {
-  DependencyHolder holder=DependencyHolder.get(this);
+  DependencyHolder holder=DependencyHolder.get(context);
   final RestHttpClient client=holder.getRestHttpClient();
   if (client instanceof OkHttpRestClient) {
     final OkHttpClient.Builder builder=new OkHttpClient.Builder();
-    HttpClientFactory.initOkHttpClient(this,holder.getPreferences(),builder,holder.getDns());
+    initOkHttpClient(context,holder.getPreferences(),builder,holder.getDns());
     final OkHttpRestClient restClient=(OkHttpRestClient)client;
     restClient.getClient().connectionPool().evictAll();
     restClient.setClient(builder.build());

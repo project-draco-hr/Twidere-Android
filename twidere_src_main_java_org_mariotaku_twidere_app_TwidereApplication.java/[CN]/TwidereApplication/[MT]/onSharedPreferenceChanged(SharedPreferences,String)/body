@@ -14,7 +14,7 @@ case KEY_PROXY_TYPE:
 case KEY_PROXY_USERNAME:
 case KEY_PROXY_PASSWORD:
 {
-    reloadConnectivitySettings();
+    HttpClientFactory.reloadConnectivitySettings(this);
     break;
   }
 case KEY_DNS_SERVER:

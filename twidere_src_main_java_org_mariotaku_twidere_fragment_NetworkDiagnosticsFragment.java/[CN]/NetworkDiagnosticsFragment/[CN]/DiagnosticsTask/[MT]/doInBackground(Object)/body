@@ -15,7 +15,7 @@
   publishProgress(new LogText("Text below may have personal information, BE CAREFUL TO MAKE IT PUBLIC"));
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
   DependencyHolder holder=DependencyHolder.get(mContext);
-  final Dns dns=holder.getDns();
+  final TwidereDns dns=holder.getDns();
   final SharedPreferencesWrapper prefs=holder.getPreferences();
   publishProgress(new LogText("Network preferences"),LogText.LINEBREAK);
   publishProgress(new LogText("using_resolver: " + prefs.getBoolean(KEY_BUILTIN_DNS_RESOLVER)),LogText.LINEBREAK);
