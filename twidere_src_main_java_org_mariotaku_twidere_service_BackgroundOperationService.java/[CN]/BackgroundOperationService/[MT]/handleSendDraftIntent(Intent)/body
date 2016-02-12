@@ -20,7 +20,7 @@
   }
   cr.delete(Drafts.CONTENT_URI,where.getSQL(),null);
   if (item.action_type == Drafts.ACTION_UPDATE_STATUS || item.action_type <= 0) {
-    updateStatuses(new ParcelableStatusUpdate(this,item));
+    updateStatuses(ParcelableStatusUpdateUtils.fromDraftItem(this,item));
   }
  else   if (item.action_type == Drafts.ACTION_SEND_DIRECT_MESSAGE) {
     final long recipientId=item.action_extras != null ? item.action_extras.optLong(EXTRA_RECIPIENT_ID) : -1;

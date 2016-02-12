@@ -5,7 +5,7 @@
   final boolean useThumbor;
   if (extra instanceof MediaExtra) {
     useThumbor=((MediaExtra)extra).isUseThumbor();
-    account=ParcelableAccount.getCredentials(mContext,((MediaExtra)extra).getAccountId());
+    account=DataStoreUtils.getCredentials(mContext,((MediaExtra)extra).getAccountId());
     auth=TwitterAPIFactory.getAuthorization(account);
   }
  else {

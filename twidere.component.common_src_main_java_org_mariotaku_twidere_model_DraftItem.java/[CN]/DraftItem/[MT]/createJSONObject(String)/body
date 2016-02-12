@@ -4,6 +4,6 @@
     return new JSONObject(json);
   }
  catch (  JSONException e) {
+    return null;
   }
-  return null;
 }

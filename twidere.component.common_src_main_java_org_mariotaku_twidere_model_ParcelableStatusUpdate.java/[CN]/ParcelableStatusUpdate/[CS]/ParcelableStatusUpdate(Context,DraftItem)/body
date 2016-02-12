@@ -1,8 +1,0 @@
-{
-  accounts=ParcelableAccount.getAccounts(context,draft.account_ids);
-  text=draft.text;
-  location=draft.location;
-  media=draft.media;
-  in_reply_to_status_id=draft.in_reply_to_status_id;
-  is_possibly_sensitive=draft.is_possibly_sensitive;
-}

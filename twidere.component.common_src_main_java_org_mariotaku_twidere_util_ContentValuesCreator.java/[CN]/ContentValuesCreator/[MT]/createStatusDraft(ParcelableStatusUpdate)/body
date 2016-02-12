@@ -1,3 +1,0 @@
-{
-  return createStatusDraft(status,ParcelableAccount.getAccountIds(status.accounts));
-}

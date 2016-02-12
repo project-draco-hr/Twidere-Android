@@ -4,7 +4,7 @@
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
-  final ParcelableCredentials[] accounts=ParcelableCredentials.getCredentialsArray(this,false,false);
+  final ParcelableCredentials[] accounts=DataStoreUtils.getCredentialsArray(this,false,false);
   if (accounts.length <= 0) {
     final Intent intent=new Intent(INTENT_ACTION_TWITTER_LOGIN);
     intent.setClass(this,SignInActivity.class);
@@ -12,7 +12,7 @@
     finish();
     return;
   }
-  final long[] defaultAccountIds=ParcelableAccount.getAccountIds(accounts);
+  final long[] defaultAccountIds=DataStoreUtils.getAccountIds(accounts);
   mMenuBar.setOnMenuItemClickListener(this);
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);

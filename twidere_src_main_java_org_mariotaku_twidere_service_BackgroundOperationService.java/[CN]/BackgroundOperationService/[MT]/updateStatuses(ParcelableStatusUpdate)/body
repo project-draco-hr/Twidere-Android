@@ -3,7 +3,7 @@
   startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
-    final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item,ParcelableAccount.getAccountIds(item.accounts));
+    final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item);
     final ContentResolver resolver=getContentResolver();
     final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,draftValues);
     final long def=-1;
@@ -13,7 +13,7 @@
     boolean failed=false;
     Exception exception=null;
     final Expression where=Expression.equals(Drafts._ID,draftId);
-    final List<Long> failedAccountIds=TwidereListUtils.fromArray(ParcelableAccount.getAccountIds(item.accounts));
+    final List<Long> failedAccountIds=TwidereListUtils.fromArray(DataStoreUtils.getAccountIds(item.accounts));
     for (    final SingleResponse<ParcelableStatus> response : result) {
       final ParcelableStatus data=response.getData();
       if (data == null) {

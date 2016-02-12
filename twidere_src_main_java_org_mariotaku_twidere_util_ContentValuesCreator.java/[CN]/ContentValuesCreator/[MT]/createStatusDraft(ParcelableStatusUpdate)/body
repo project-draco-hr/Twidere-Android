@@ -1,0 +1,6 @@
+{
+  final ContentValues values=new ContentValues();
+  DraftItem item=new DraftItem(status);
+  DraftItemValuesCreator.writeTo(item,values);
+  return values;
+}

@@ -1,4 +1,4 @@
 {
-  final ParcelableAccount a=ParcelableAccount.getAccount(mContext,mAccountId);
+  final ParcelableAccount a=DataStoreUtils.getAccount(mContext,mAccountId);
   return a != null ? a.color : mContext.getResources().getColor(R.color.branding_color);
 }

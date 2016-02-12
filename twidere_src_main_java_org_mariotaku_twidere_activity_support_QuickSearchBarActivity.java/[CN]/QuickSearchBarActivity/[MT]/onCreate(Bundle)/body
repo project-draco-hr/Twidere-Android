@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_quick_search_bar);
-  final List<ParcelableCredentials> accounts=ParcelableAccount.getCredentialsList(this,false);
+  final List<ParcelableCredentials> accounts=DataStoreUtils.getCredentialsList(this,false);
   final AccountsSpinnerAdapter accountsSpinnerAdapter=new AccountsSpinnerAdapter(this,R.layout.spinner_item_account_icon);
   accountsSpinnerAdapter.setDropDownViewResource(R.layout.list_item_user);
   accountsSpinnerAdapter.addAll(accounts);

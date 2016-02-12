@@ -1,8 +1,3 @@
 {
-  dest.writeTypedArray(accounts,flags);
-  dest.writeString(text);
-  dest.writeParcelable(location,flags);
-  dest.writeTypedArray(media,flags);
-  dest.writeLong(in_reply_to_status_id);
-  dest.writeInt(is_possibly_sensitive ? 1 : 0);
+  ParcelableStatusUpdateParcelablePlease.writeToParcel(this,dest,flags);
 }
