@@ -2,6 +2,10 @@
   if (extraId == RecyclerView.NO_POSITION)   return;
   final ParcelableStatus status=adapter.getStatus((int)extraId);
   final ParcelableMedia current=StatusLinkClickHandler.findByLink(status.media,link);
-  Bundle options=null;
-  Utils.openMedia(context,status,current,options);
+  if (current != null && current.open_browser) {
+    openLink(link);
+  }
+ else {
+    Utils.openMedia(context,status,current,null);
+  }
 }
