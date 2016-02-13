@@ -1,4 +1,0 @@
-{
-  call.setEstablished(true);
-  body.writeTo(sink.outputStream());
-}

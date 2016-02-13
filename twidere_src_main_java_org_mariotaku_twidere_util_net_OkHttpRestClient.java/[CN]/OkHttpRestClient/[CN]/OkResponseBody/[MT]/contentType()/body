@@ -1,5 +1,0 @@
-{
-  final MediaType mediaType=body.contentType();
-  if (mediaType == null)   return null;
-  return ContentType.parse(mediaType.toString());
-}

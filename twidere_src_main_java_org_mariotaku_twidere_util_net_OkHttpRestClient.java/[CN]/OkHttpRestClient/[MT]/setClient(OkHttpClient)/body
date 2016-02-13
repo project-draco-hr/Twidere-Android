@@ -1,4 +1,0 @@
-{
-  if (client == null)   throw new NullPointerException();
-  this.client=client;
-}

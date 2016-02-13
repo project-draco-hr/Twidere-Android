@@ -1,4 +1,0 @@
-{
-  if (body == null)   return null;
-  return new OkRequestBody(body);
-}
