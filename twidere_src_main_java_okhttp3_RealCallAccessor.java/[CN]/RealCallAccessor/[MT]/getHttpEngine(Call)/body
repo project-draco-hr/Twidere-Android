@@ -1,0 +1,6 @@
+{
+  if (call instanceof RealCall) {
+    return ((RealCall)call).engine;
+  }
+  return null;
+}
