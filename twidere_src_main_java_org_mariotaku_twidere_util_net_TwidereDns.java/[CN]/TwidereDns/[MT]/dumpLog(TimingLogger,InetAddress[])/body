@@ -1,4 +1,0 @@
-{
-  Log.v(RESOLVER_LOGTAG,"Resolved " + Arrays.toString(addresses));
-  logger.dumpToLog();
-}

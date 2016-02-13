@@ -9,5 +9,5 @@
   final ContentResolver resolver=context.getContentResolver();
   resolver.delete(CachedStatuses.CONTENT_URI,where,null);
   resolver.insert(CachedStatuses.CONTENT_URI,ContentValuesCreator.createStatus(status,accountId));
-  return new ParcelableStatus(status,accountId,false);
+  return ParcelableStatusUtils.fromStatus(status,accountId,false);
 }

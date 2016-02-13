@@ -3,7 +3,7 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,true);
   if (twitter != null) {
     try {
-      final ParcelableStatus status=new ParcelableStatus(twitter.destroyFavorite(status_id),account_id,false);
+      final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.destroyFavorite(status_id),account_id,false);
       final ContentValues values=new ContentValues();
       values.put(Statuses.IS_FAVORITE,false);
       values.put(Statuses.FAVORITE_COUNT,status.favorite_count - 1);

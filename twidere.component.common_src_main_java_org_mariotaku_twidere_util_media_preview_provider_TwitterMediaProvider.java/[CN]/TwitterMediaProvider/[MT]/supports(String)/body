@@ -1,4 +1,12 @@
 {
   final String authority=PreviewMediaExtractor.getAuthority(link);
-  return authority != null && authority.endsWith(".twimg.com");
+  if (authority == null || !authority.endsWith(".twimg.com")) {
+    return false;
+  }
+  final String path=PreviewMediaExtractor.getPath(link);
+  if (path == null)   return false;
+  if (path.startsWith("/media/")) {
+    return true;
+  }
+  return false;
 }

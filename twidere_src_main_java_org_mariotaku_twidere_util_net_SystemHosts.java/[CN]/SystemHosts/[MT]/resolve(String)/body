@@ -13,7 +13,7 @@
         if (host.startsWith("#"))         break;
         if (TextUtils.equals(hostToResolve,host)) {
           final InetAddress resolved=TwidereDns.getResolvedIPAddress(host,address);
-          if (resolved != null)           return new InetAddress[]{resolved};
+          if (resolved != null)           return Collections.singletonList(resolved);
         }
       }
     }

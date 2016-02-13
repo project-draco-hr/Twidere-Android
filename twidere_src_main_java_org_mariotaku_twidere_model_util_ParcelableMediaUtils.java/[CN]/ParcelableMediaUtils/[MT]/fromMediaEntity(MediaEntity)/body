@@ -1,0 +1,20 @@
+{
+  final ParcelableMedia media=new ParcelableMedia();
+  media.url=TwitterContentUtils.getMediaUrl(entity);
+  media.media_url=TwitterContentUtils.getMediaUrl(entity);
+  media.preview_url=TwitterContentUtils.getMediaUrl(entity);
+  media.start=entity.getStart();
+  media.end=entity.getEnd();
+  media.type=ParcelableMediaUtils.getTypeInt(entity.getType());
+  final MediaEntity.Size size=entity.getSizes().get(MediaEntity.Size.LARGE);
+  if (size != null) {
+    media.width=size.getWidth();
+    media.height=size.getHeight();
+  }
+ else {
+    media.width=0;
+    media.height=0;
+  }
+  media.video_info=ParcelableMedia.VideoInfo.fromMediaEntityInfo(entity.getVideoInfo());
+  return media;
+}

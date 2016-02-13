@@ -27,7 +27,7 @@
   values.put(DirectMessages.RECIPIENT_SCREEN_NAME,recipient.getScreenName());
   values.put(DirectMessages.SENDER_PROFILE_IMAGE_URL,sender_profile_image_url);
   values.put(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL,recipient_profile_image_url);
-  final ParcelableMedia[] mediaArray=ParcelableMedia.fromEntities(message);
+  final ParcelableMedia[] mediaArray=ParcelableMediaUtils.fromEntities(message);
   try {
     values.put(DirectMessages.MEDIA_JSON,LoganSquare.serialize(Arrays.asList(mediaArray),ParcelableMedia.class));
   }

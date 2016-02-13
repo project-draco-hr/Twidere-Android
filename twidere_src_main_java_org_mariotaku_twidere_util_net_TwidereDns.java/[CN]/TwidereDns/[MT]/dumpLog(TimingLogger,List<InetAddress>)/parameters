@@ -1,0 +1,2 @@
+TimingLogger logger
+List<InetAddress> addresses

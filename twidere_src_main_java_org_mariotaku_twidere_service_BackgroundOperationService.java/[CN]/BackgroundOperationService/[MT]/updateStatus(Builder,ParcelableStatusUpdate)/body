@@ -141,7 +141,7 @@ catch (        final TwitterException e) {
             notReplyToOther=true;
           }
         }
-        final ParcelableStatus result=new ParcelableStatus(resultStatus,account.account_id,false);
+        final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,false);
         results.add(SingleResponse.getInstance(result));
       }
  catch (      final TwitterException e) {

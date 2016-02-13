@@ -9,7 +9,7 @@
       if (resolved == null) {
         return getFromMappingInternal(value,origHost,true);
       }
-      return new InetAddress[]{resolved};
+      return Collections.singletonList(resolved);
     }
   }
   return null;

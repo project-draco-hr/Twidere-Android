@@ -34,7 +34,7 @@ if (i < k) {
     loader.displayPreviewImage(imageView,url,loadingHandler);
   }
   if (imageView instanceof MediaPreviewImageView) {
-    ((MediaPreviewImageView)imageView).setHasPlayIcon(ParcelableMedia.hasPlayIcon(media.type));
+    ((MediaPreviewImageView)imageView).setHasPlayIcon(ParcelableMediaUtils.hasPlayIcon(media.type));
   }
   child.setTag(media);
   child.setVisibility(VISIBLE);

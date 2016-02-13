@@ -1,0 +1,74 @@
+{
+  if (card == null)   return new ParcelableMedia[0];
+  final String name=card.getName();
+  if ("animated_gif".equals(name) || "player".equals(name)) {
+    final ParcelableMedia media=new ParcelableMedia();
+    final CardEntity.BindingValue playerStreamUrl=card.getBindingValue("player_stream_url");
+    media.card=ParcelableCardEntity.fromCardEntity(card,-1);
+    CardEntity.StringValue appUrlResolved=(CardEntity.StringValue)card.getBindingValue("app_url_resolved");
+    media.url=checkUrl(appUrlResolved) ? appUrlResolved.getValue() : card.getUrl();
+    if ("animated_gif".equals(name)) {
+      media.media_url=((CardEntity.StringValue)playerStreamUrl).getValue();
+      media.type=ParcelableMedia.Type.CARD_ANIMATED_GIF;
+    }
+ else     if (playerStreamUrl instanceof CardEntity.StringValue) {
+      media.media_url=((CardEntity.StringValue)playerStreamUrl).getValue();
+      media.type=ParcelableMedia.Type.VIDEO;
+    }
+ else {
+      CardEntity.StringValue playerUrl=(CardEntity.StringValue)card.getBindingValue("player_url");
+      if (playerUrl != null) {
+        media.media_url=playerUrl.getValue();
+      }
+      media.type=ParcelableMedia.Type.EXTERNAL_PLAYER;
+    }
+    final CardEntity.BindingValue playerImage=card.getBindingValue("player_image");
+    if (playerImage instanceof CardEntity.ImageValue) {
+      media.preview_url=((CardEntity.ImageValue)playerImage).getUrl();
+      media.width=((CardEntity.ImageValue)playerImage).getWidth();
+      media.height=((CardEntity.ImageValue)playerImage).getHeight();
+    }
+    final CardEntity.BindingValue playerWidth=card.getBindingValue("player_width");
+    final CardEntity.BindingValue playerHeight=card.getBindingValue("player_height");
+    if (playerWidth instanceof CardEntity.StringValue && playerHeight instanceof CardEntity.StringValue) {
+      media.width=NumberUtils.toInt(((CardEntity.StringValue)playerWidth).getValue(),-1);
+      media.height=NumberUtils.toInt(((CardEntity.StringValue)playerHeight).getValue(),-1);
+    }
+    if (entities != null) {
+      for (      UrlEntity entity : entities) {
+        if (entity.getUrl().equals(media.url)) {
+          media.start=entity.getStart();
+          media.end=entity.getEnd();
+          break;
+        }
+      }
+    }
+    return new ParcelableMedia[]{media};
+  }
+ else   if ("summary_large_image".equals(name)) {
+    final CardEntity.BindingValue photoImageFullSize=card.getBindingValue("photo_image_full_size");
+    if (!(photoImageFullSize instanceof CardEntity.ImageValue))     return new ParcelableMedia[0];
+    final ParcelableMedia media=new ParcelableMedia();
+    media.url=card.getUrl();
+    media.card=ParcelableCardEntity.fromCardEntity(card,-1);
+    media.type=ParcelableMedia.Type.IMAGE;
+    media.media_url=((CardEntity.ImageValue)photoImageFullSize).getUrl();
+    media.width=((CardEntity.ImageValue)photoImageFullSize).getWidth();
+    media.height=((CardEntity.ImageValue)photoImageFullSize).getHeight();
+    final CardEntity.BindingValue summaryPhotoImage=card.getBindingValue("summary_photo_image");
+    if (summaryPhotoImage instanceof CardEntity.ImageValue) {
+      media.preview_url=((CardEntity.ImageValue)summaryPhotoImage).getUrl();
+    }
+    if (entities != null) {
+      for (      UrlEntity entity : entities) {
+        if (entity.getUrl().equals(media.url)) {
+          media.start=entity.getStart();
+          media.end=entity.getEnd();
+          break;
+        }
+      }
+    }
+    return new ParcelableMedia[]{media};
+  }
+  return new ParcelableMedia[0];
+}

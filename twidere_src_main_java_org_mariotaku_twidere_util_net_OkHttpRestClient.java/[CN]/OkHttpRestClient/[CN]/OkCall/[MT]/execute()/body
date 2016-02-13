@@ -1,0 +1,14 @@
+{
+  final RequestRunnable runnable=new RequestRunnable(this,client.client.connectTimeoutMillis());
+  final Thread thread=new Thread(runnable);
+  thread.setPriority(Thread.currentThread().getPriority());
+  thread.start();
+  while (runnable.shouldWait()) {
+    try {
+      Thread.sleep(10);
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+  return new OkResponse(runnable.getResponse());
+}

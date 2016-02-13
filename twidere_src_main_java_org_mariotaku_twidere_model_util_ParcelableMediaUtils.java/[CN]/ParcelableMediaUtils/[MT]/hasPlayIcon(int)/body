@@ -1,0 +1,10 @@
+{
+switch (type) {
+case ParcelableMedia.Type.VIDEO:
+case ParcelableMedia.Type.ANIMATED_GIF:
+case ParcelableMedia.Type.CARD_ANIMATED_GIF:
+case ParcelableMedia.Type.EXTERNAL_PLAYER:
+    return true;
+}
+return false;
+}

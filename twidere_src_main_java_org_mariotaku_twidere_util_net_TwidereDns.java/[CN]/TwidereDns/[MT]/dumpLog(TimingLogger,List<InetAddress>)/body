@@ -1,0 +1,4 @@
+{
+  Log.v(RESOLVER_LOGTAG,"Resolved " + addresses);
+  logger.dumpToLog();
+}

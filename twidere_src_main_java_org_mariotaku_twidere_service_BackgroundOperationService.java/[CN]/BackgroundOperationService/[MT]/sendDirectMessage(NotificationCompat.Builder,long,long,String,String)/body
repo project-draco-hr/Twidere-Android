@@ -15,13 +15,13 @@
       final ContentLengthInputStream is=new ContentLengthInputStream(file);
       is.setReadListener(new MessageMediaUploadListener(this,mNotificationManager,builder,text));
       final MediaUploadResponse uploadResp=twitterUpload.uploadMedia(file);
-      directMessage=new ParcelableDirectMessage(twitter.sendDirectMessage(recipientId,text,uploadResp.getId()),accountId,true);
+      directMessage=ParcelableDirectMessageUtils.fromDirectMessage(twitter.sendDirectMessage(recipientId,text,uploadResp.getId()),accountId,true);
       if (!file.delete()) {
         Log.d(LOGTAG,String.format("unable to delete %s",path));
       }
     }
  else {
-      directMessage=new ParcelableDirectMessage(twitter.sendDirectMessage(recipientId,text),accountId,true);
+      directMessage=ParcelableDirectMessageUtils.fromDirectMessage(twitter.sendDirectMessage(recipientId,text),accountId,true);
     }
     Utils.setLastSeen(this,recipientId,System.currentTimeMillis());
     return SingleResponse.getInstance(directMessage);

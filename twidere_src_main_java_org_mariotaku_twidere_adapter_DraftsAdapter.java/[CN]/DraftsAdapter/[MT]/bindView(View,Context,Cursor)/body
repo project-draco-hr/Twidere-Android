@@ -8,7 +8,7 @@
   final String actionName=getActionName(context,actionType);
   holder.media_preview_container.setStyle(mMediaPreviewStyle);
   if (actionType == Drafts.ACTION_UPDATE_STATUS) {
-    final ParcelableMedia[] media=ParcelableMedia.fromMediaUpdates(mediaUpdates);
+    final ParcelableMedia[] media=ParcelableMediaUtils.fromMediaUpdates(mediaUpdates);
     holder.media_preview_container.setVisibility(View.VISIBLE);
     holder.media_preview_container.displayMedia(media,mImageLoader,-1,-1,null,mMediaLoadingHandler);
   }

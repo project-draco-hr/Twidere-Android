@@ -1,6 +1,6 @@
 {
   final TimingLogger logger=new TimingLogger(RESOLVER_LOGTAG,"resolve");
-  final InetAddress[] fromAddressString=fromAddressString(originalHost,host);
+  final List<InetAddress> fromAddressString=fromAddressString(originalHost,host);
   if (fromAddressString != null) {
     if (BuildConfig.DEBUG) {
       addLogSplit(logger,host,"valid ip address",depth);
@@ -9,7 +9,7 @@
     return fromAddressString;
   }
   addLogSplit(logger,host,"start custom mapping resolve",depth);
-  final InetAddress[] fromMapping=getFromMapping(host);
+  final List<InetAddress> fromMapping=getFromMapping(host);
   addLogSplit(logger,host,"end custom mapping resolve",depth);
   if (fromMapping != null) {
     if (BuildConfig.DEBUG) {
@@ -19,7 +19,7 @@
   }
   if (useResolver) {
     addLogSplit(logger,host,"start /etc/hosts resolve",depth);
-    final InetAddress[] fromSystemHosts=fromSystemHosts(host);
+    final List<InetAddress> fromSystemHosts=fromSystemHosts(host);
     addLogSplit(logger,host,"end /etc/hosts resolve",depth);
     if (fromSystemHosts != null) {
       if (BuildConfig.DEBUG) {
@@ -28,9 +28,9 @@
       return fromSystemHosts;
     }
     addLogSplit(logger,host,"start resolver resolve",depth);
-    final InetAddress[] fromResolver=fromResolver(originalHost,host);
+    final List<InetAddress> fromResolver=fromResolver(originalHost,host);
     addLogSplit(logger,host,"end resolver resolve",depth);
-    if (!ArrayUtils.isEmpty(fromResolver)) {
+    if (fromResolver != null) {
       if (BuildConfig.DEBUG) {
         dumpLog(logger,fromResolver);
       }
@@ -38,7 +38,7 @@
     }
   }
   addLogSplit(logger,host,"start system default resolve",depth);
-  final InetAddress[] fromDefault=InetAddress.getAllByName(host);
+  final List<InetAddress> fromDefault=Arrays.asList(InetAddress.getAllByName(host));
   addLogSplit(logger,host,"end system default resolve",depth);
   if (BuildConfig.DEBUG) {
     dumpLog(logger,fromDefault);

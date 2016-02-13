@@ -1,4 +1,0 @@
-Context context
-SharedPreferences prefs
-OkHttpClient.Builder builder
-Dns dns

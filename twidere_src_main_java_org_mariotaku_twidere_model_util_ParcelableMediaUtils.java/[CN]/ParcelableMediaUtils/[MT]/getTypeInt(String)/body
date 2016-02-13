@@ -1,0 +1,11 @@
+{
+switch (type) {
+case MediaEntity.Type.PHOTO:
+    return ParcelableMedia.Type.IMAGE;
+case MediaEntity.Type.VIDEO:
+  return ParcelableMedia.Type.VIDEO;
+case MediaEntity.Type.ANIMATED_GIF:
+return ParcelableMedia.Type.ANIMATED_GIF;
+}
+return ParcelableMedia.Type.UNKNOWN;
+}

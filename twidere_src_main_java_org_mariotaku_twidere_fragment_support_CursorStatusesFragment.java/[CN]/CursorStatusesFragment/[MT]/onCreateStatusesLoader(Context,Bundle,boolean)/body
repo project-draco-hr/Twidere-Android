@@ -1,7 +1,7 @@
 {
   final Uri uri=getContentUri();
   final String table=getTableNameByUri(uri);
-  final String sortOrder=getSortOrder();
+  final String sortOrder=Statuses.DEFAULT_SORT_ORDER;
   final long[] accountIds=getAccountIds();
   final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountIds));
   final Expression filterWhere=getFiltersWhere(table), where;

@@ -1,0 +1,34 @@
+{
+  if (entities == null)   return new ParcelableMedia[0];
+  final List<ParcelableMedia> list=new ArrayList<>();
+  final MediaEntity[] mediaEntities;
+  if (entities instanceof ExtendedEntitySupport) {
+    final ExtendedEntitySupport extendedEntities=(ExtendedEntitySupport)entities;
+    final MediaEntity[] extendedMediaEntities=extendedEntities.getExtendedMediaEntities();
+    mediaEntities=extendedMediaEntities != null ? extendedMediaEntities : entities.getMediaEntities();
+  }
+ else {
+    mediaEntities=entities.getMediaEntities();
+  }
+  if (mediaEntities != null) {
+    for (    final MediaEntity media : mediaEntities) {
+      final String mediaURL=TwitterContentUtils.getMediaUrl(media);
+      if (mediaURL != null) {
+        list.add(ParcelableMediaUtils.fromMediaEntity(media));
+      }
+    }
+  }
+  final UrlEntity[] urlEntities=entities.getUrlEntities();
+  if (urlEntities != null) {
+    for (    final UrlEntity url : urlEntities) {
+      final String expanded=url.getExpandedUrl();
+      final ParcelableMedia media=PreviewMediaExtractor.fromLink(expanded);
+      if (media != null) {
+        media.start=url.getStart();
+        media.end=url.getEnd();
+        list.add(media);
+      }
+    }
+  }
+  return list.toArray(new ParcelableMedia[list.size()]);
+}

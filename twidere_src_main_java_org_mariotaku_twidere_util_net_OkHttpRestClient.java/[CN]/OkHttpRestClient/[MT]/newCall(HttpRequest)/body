@@ -1,0 +1,17 @@
+{
+  final Request.Builder builder=new Request.Builder();
+  final OkRequestBody requestBody=OkRequestBody.wrap(httpRequest.getBody());
+  builder.method(httpRequest.getMethod(),requestBody);
+  builder.url(httpRequest.getUrl());
+  final MultiValueMap<String> headers=httpRequest.getHeaders();
+  if (headers != null) {
+    for (    Pair<String,String> header : headers.toList()) {
+      builder.addHeader(header.first,header.second);
+    }
+  }
+  final OkCall call=new OkCall(this,client.newCall(builder.build()));
+  if (requestBody != null) {
+    requestBody.setCall(call);
+  }
+  return call;
+}

@@ -1,0 +1,4 @@
+{
+  final Headers headers=response.headers();
+  return new MultiValueMap<>(headers.toMultimap(),true);
+}

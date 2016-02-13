@@ -1,11 +1,11 @@
 {
   DependencyHolder holder=DependencyHolder.get(context);
+  holder.getConnectionPoll().evictAll();
   final RestHttpClient client=holder.getRestHttpClient();
   if (client instanceof OkHttpRestClient) {
     final OkHttpClient.Builder builder=new OkHttpClient.Builder();
-    initOkHttpClient(context,holder.getPreferences(),builder,holder.getDns());
+    initOkHttpClient(context,holder.getPreferences(),builder,holder.getDns(),holder.getConnectionPoll());
     final OkHttpRestClient restClient=(OkHttpRestClient)client;
-    restClient.getClient().connectionPool().evictAll();
     restClient.setClient(builder.build());
   }
 }

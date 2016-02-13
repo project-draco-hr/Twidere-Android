@@ -1,9 +1,10 @@
 {
   final Resolver resolver=getResolver();
   final Record[] records=lookupHostName(resolver,host,true);
-  InetAddress[] addrs=new InetAddress[records.length];
-  for (int i=0; i < records.length; i++) {
-    addrs[i]=addrFromRecord(originalHost,records[i]);
+  final List<InetAddress> addrs=new ArrayList<>(records.length);
+  for (  Record record : records) {
+    addrs.add(addrFromRecord(originalHost,record));
   }
+  if (addrs.isEmpty())   return null;
   return addrs;
 }

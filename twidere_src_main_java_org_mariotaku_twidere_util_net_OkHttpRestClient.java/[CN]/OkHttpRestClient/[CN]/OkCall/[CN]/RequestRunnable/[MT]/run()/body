@@ -1,0 +1,12 @@
+{
+  finished=false;
+  call.setEstablished(false);
+  start=System.currentTimeMillis();
+  try {
+    response=call.call.execute();
+  }
+ catch (  IOException e) {
+    exception=e;
+  }
+  finished=true;
+}

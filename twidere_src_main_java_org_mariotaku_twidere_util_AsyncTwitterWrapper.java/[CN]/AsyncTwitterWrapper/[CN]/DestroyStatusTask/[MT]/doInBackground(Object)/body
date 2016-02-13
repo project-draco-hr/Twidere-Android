@@ -4,7 +4,7 @@
   ParcelableStatus status=null;
   TwitterException exception=null;
   try {
-    status=new ParcelableStatus(twitter.destroyStatus(status_id),account_id,false);
+    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(status_id),account_id,false);
   }
  catch (  final TwitterException e) {
     exception=e;

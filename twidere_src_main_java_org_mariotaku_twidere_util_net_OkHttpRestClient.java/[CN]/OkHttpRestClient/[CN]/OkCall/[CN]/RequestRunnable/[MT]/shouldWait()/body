@@ -1,0 +1,3 @@
+{
+  return !finished && (start < 0 || call.isEstablished() || !reachedTimeout());
+}

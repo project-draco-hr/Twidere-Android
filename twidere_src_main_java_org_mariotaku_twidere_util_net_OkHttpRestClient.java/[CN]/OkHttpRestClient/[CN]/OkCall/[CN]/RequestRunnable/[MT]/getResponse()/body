@@ -1,0 +1,17 @@
+{
+  if (exception != null)   throw exception;
+  if (response == null) {
+    if (!call.isCanceled()) {
+      call.cancel();
+    }
+    if (reachedTimeout()) {
+      ConnectionPool pool=call.client.client.connectionPool();
+      pool.evictAll();
+      throw new SocketTimeoutException("Request timed out after " + timeout + " ms");
+    }
+ else {
+      throw new IOException("Request cancelled");
+    }
+  }
+  return response;
+}

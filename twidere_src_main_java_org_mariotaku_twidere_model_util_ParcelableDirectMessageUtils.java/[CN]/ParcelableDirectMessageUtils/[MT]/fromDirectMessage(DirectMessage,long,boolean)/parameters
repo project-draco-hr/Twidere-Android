@@ -1,0 +1,3 @@
+DirectMessage message
+long accountId
+boolean isOutgoing

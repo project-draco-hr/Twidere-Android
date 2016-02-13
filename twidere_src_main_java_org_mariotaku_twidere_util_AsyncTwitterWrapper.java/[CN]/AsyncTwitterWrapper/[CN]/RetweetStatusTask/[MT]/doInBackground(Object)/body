@@ -5,7 +5,7 @@
     return SingleResponse.getInstance();
   }
   try {
-    final ParcelableStatus status=new ParcelableStatus(twitter.retweetStatus(status_id),account_id,false);
+    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(status_id),account_id,false);
     Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
     return SingleResponse.getInstance(status);
   }

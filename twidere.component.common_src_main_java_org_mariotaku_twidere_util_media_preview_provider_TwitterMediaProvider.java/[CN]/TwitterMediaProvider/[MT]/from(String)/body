@@ -3,18 +3,16 @@
   if (path == null)   return null;
   final ParcelableMedia media=new ParcelableMedia();
   media.url=link;
-  if (path.startsWith("/tweet_video/")) {
-    return null;
-  }
- else   if (path.startsWith("/media/")) {
+  if (path.startsWith("/media/")) {
     media.type=ParcelableMedia.Type.IMAGE;
     media.preview_url=String.format(Locale.ROOT,"%s:medium",link);
     media.media_url=String.format(Locale.ROOT,"%s:orig",link);
   }
+ else   if (path.startsWith("/tweet_video/")) {
+    return null;
+  }
  else {
-    media.type=ParcelableMedia.Type.IMAGE;
-    media.preview_url=link;
-    media.media_url=link;
+    return null;
   }
   return media;
 }
