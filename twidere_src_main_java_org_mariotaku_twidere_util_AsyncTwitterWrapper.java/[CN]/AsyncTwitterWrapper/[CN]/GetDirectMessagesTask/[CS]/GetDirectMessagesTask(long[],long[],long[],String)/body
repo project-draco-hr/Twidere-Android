@@ -1,6 +1,6 @@
 {
   super(mContext,tag);
-  this.account_ids=account_ids;
-  this.max_ids=max_ids;
-  this.since_ids=since_ids;
+  this.accountIds=accountIds;
+  this.maxIds=maxIds;
+  this.sinceIds=sinceIds;
 }

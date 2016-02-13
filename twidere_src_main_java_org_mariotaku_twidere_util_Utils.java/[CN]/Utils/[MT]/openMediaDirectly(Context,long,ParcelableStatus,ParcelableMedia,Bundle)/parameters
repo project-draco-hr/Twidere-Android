@@ -1,5 +1,0 @@
-Context context
-long accountId
-ParcelableStatus status
-ParcelableMedia current
-Bundle options

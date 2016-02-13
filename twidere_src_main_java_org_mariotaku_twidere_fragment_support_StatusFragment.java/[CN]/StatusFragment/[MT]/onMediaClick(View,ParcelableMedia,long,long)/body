@@ -1,8 +1,7 @@
 {
   final ParcelableStatus status=mStatusAdapter.getStatus();
   if (status == null)   return;
-  final Bundle options=Utils.createMediaViewerActivityOption(view);
-  Utils.openMediaDirectly(getActivity(),accountId,status,media,options);
+  IntentUtils.openMediaDirectly(getActivity(),accountId,status,media,null,true);
   MediaEvent event=MediaEvent.create(getActivity(),status,media,TimelineType.OTHER,mStatusAdapter.isMediaPreviewEnabled());
   HotMobiLogger.getInstance(getActivity()).log(status.account_id,event);
 }

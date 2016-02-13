@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
-  mCreatingRetweetIds.put(account_id,status_id);
+  mCreatingRetweetIds.put(accountId,statusId);
   bus.post(new StatusListChangedEvent());
 }

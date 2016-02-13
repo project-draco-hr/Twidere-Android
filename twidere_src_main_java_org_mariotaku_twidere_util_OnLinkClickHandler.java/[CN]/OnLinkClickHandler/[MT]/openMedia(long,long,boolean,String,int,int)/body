@@ -1,4 +1,4 @@
 {
   final ParcelableMedia[] media={ParcelableMediaUtils.image(link)};
-  Utils.openMedia(context,accountId,sensitive,null,media,null);
+  IntentUtils.openMedia(context,accountId,sensitive,null,media,null,true);
 }

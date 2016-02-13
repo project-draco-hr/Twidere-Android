@@ -1,6 +1,6 @@
 {
   if (adapter.isDetailMediaExpanded()) {
-    Utils.openMedia(adapter.getContext(),adapter.getStatus(),current,null);
+    IntentUtils.openMedia(adapter.getContext(),adapter.getStatus(),current,null,true);
     return;
   }
   adapter.setDetailMediaExpanded(true);

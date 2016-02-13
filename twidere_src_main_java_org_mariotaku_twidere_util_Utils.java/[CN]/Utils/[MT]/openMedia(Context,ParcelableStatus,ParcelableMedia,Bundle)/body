@@ -1,3 +1,0 @@
-{
-  openMedia(context,status.account_id,status.is_possibly_sensitive,status,null,current,getPrimaryMedia(status),options);
-}

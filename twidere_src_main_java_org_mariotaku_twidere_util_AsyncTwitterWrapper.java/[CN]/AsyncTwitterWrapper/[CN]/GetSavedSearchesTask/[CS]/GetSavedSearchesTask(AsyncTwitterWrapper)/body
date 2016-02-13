@@ -1,4 +1,0 @@
-{
-  super(twitter.getContext());
-  this.mContext=twitter.getContext();
-}

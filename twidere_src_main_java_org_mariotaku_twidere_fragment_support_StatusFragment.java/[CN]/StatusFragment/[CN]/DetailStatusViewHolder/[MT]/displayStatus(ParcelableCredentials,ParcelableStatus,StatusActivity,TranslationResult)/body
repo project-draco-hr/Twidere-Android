@@ -113,7 +113,7 @@
     countsUsersView.setVisibility(View.GONE);
     countsUsersHeightHolder.setVisibility(View.GONE);
   }
-  final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
+  final ParcelableMedia[] media=IntentUtils.getPrimaryMedia(status);
   if (ArrayUtils.isEmpty(media)) {
     mediaPreviewContainer.setVisibility(View.GONE);
     mediaPreview.setVisibility(View.GONE);

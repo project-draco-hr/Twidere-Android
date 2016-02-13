@@ -15,7 +15,7 @@
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   intent.setExtrasClassLoader(context.getClassLoader());
   intent.putExtras(extras);
-  if (BuildConfig.NEW_DOCUMENT_INTENT && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && newDocument) {
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && newDocument) {
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
   }
   if (context instanceof Activity) {

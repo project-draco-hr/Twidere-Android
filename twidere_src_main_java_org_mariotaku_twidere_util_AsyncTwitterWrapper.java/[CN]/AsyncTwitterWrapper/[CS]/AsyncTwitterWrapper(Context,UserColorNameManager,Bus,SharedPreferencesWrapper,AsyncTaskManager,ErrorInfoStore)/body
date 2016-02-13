@@ -1,0 +1,9 @@
+{
+  mContext=context;
+  mResolver=context.getContentResolver();
+  mUserColorNameManager=userColorNameManager;
+  mBus=bus;
+  mPreferences=preferences;
+  mAsyncTaskManager=asyncTaskManager;
+  mErrorInfoStore=errorInfoStore;
+}

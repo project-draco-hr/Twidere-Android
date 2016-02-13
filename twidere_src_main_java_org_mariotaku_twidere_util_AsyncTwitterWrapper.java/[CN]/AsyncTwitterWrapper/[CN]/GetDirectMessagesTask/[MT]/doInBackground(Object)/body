@@ -1,21 +1,21 @@
 {
   final List<MessageListResponse> result=new ArrayList<>();
-  if (account_ids == null)   return result;
+  if (accountIds == null)   return result;
   int idx=0;
   final int loadItemLimit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
-  for (  final long accountId : account_ids) {
+  for (  final long accountId : accountIds) {
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();
       paging.setCount(loadItemLimit);
       long max_id=-1, since_id=-1;
-      if (isMaxIdsValid() && max_ids[idx] > 0) {
-        max_id=max_ids[idx];
+      if (isMaxIdsValid() && maxIds[idx] > 0) {
+        max_id=maxIds[idx];
         paging.setMaxId(max_id);
       }
-      if (isSinceIdsValid() && since_ids[idx] > 0) {
-        since_id=since_ids[idx];
+      if (isSinceIdsValid() && sinceIds[idx] > 0) {
+        since_id=sinceIds[idx];
         paging.setSinceId(since_id - 1);
       }
       final List<DirectMessage> messages=new ArrayList<>();
@@ -25,7 +25,7 @@
       mErrorInfoStore.remove(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId);
     }
  catch (    final TwitterException e) {
-      if (e.getErrorCode() == 93) {
+      if (e.getErrorCode() == TwitterErrorCode.NO_DM_PERMISSION) {
         mErrorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId,ErrorInfoStore.CODE_NO_DM_PERMISSION);
       }
  else       if (e.isCausedByNetworkIssue()) {

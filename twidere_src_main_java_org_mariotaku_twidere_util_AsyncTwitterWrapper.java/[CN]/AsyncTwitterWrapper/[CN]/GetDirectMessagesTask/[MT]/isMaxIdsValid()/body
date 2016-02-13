@@ -1,3 +1,3 @@
 {
-  return max_ids != null && max_ids.length == account_ids.length;
+  return maxIds != null && maxIds.length == accountIds.length;
 }

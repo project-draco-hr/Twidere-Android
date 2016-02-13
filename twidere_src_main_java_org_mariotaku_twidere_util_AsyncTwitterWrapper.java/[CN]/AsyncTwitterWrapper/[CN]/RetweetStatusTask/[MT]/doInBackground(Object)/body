@@ -1,12 +1,19 @@
 {
-  if (account_id < 0)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,true);
+  if (accountId < 0)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
   if (twitter == null) {
     return SingleResponse.getInstance();
   }
   try {
-    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(status_id),account_id,false);
+    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(statusId),accountId,false);
     Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
+    final ContentValues values=new ContentValues();
+    values.put(Statuses.MY_RETWEET_ID,status.id);
+    values.put(Statuses.RETWEET_COUNT,status.retweet_count);
+    final Expression where=Expression.or(Expression.equals(Statuses.STATUS_ID,statusId),Expression.equals(Statuses.RETWEET_ID,statusId));
+    for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
+      mResolver.update(uri,values,where.getSQL(),null);
+    }
     return SingleResponse.getInstance(status);
   }
  catch (  final TwitterException e) {

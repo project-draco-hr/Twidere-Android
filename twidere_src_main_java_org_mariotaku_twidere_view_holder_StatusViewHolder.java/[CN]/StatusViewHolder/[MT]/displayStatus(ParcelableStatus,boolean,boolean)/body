@@ -101,7 +101,7 @@
  else {
     itemContent.drawEnd();
   }
-  final ParcelableMedia[] media=Utils.getPrimaryMedia(status);
+  final ParcelableMedia[] media=IntentUtils.getPrimaryMedia(status);
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setStyle(adapter.getMediaPreviewStyle());
     final boolean hasMedia=!ArrayUtils.isEmpty(media);

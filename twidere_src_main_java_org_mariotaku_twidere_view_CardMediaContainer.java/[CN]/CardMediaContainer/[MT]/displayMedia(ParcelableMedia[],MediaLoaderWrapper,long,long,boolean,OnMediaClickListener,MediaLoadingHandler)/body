@@ -27,12 +27,15 @@ case VALUE_MEDIA_PREVIEW_STYLE_CODE_SCALE:
 if (i < k) {
   final ParcelableMedia media=mediaArray[i];
   final String url=TextUtils.isEmpty(media.preview_url) ? media.media_url : media.preview_url;
-  if (withCredentials) {
-    loader.displayPreviewImageWithCredentials(imageView,url,accountId,loadingHandler);
-  }
+  if (ObjectUtils.notEqual(url,imageView.getTag()) || imageView.getDrawable() == null) {
+    if (withCredentials) {
+      loader.displayPreviewImageWithCredentials(imageView,url,accountId,loadingHandler);
+    }
  else {
-    loader.displayPreviewImage(imageView,url,loadingHandler);
+      loader.displayPreviewImage(imageView,url,loadingHandler);
+    }
   }
+  imageView.setTag(url);
   if (imageView instanceof MediaPreviewImageView) {
     ((MediaPreviewImageView)imageView).setHasPlayIcon(ParcelableMediaUtils.hasPlayIcon(media.type));
   }
@@ -52,6 +55,7 @@ if (i < k) {
 }
  else {
   loader.cancelDisplayTask(imageView);
+  imageView.setTag(null);
   child.setVisibility(GONE);
 }
 }

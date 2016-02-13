@@ -51,7 +51,6 @@
     final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
     final boolean actionItemIsDark=TwidereColorUtils.getYIQLuminance(barColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
     if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
-      StatusBarProxy.setStatusBarDarkIcon(activity.getWindow(),actionItemIsDark);
       final int contrastForegroundColor=ThemeUtils.getContrastForegroundColor(activity,themeId,barColor);
       final Toolbar actionBarView=activity.getActionBarToolbar();
       if (actionBarView != null) {

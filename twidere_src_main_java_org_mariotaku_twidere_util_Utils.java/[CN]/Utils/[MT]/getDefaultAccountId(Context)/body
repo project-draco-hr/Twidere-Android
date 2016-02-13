@@ -3,7 +3,7 @@
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final long accountId=prefs.getLong(KEY_DEFAULT_ACCOUNT_ID,-1);
   final long[] accountIds=DataStoreUtils.getAccountIds(context);
-  if (accountIds.length > 0 && !ArrayUtils.contains(accountIds,accountId) && accountIds.length > 0) {
+  if (accountIds.length > 0 && !ArrayUtils.contains(accountIds,accountId)) {
     return accountIds[0];
   }
   return accountId;
