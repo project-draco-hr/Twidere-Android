@@ -6,5 +6,4 @@
   mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
   mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE);
   mShowAbsoluteTime=mPreferences.getBoolean(KEY_SHOW_ABSOLUTE_TIME);
-  mCompactCards=compact;
 }
