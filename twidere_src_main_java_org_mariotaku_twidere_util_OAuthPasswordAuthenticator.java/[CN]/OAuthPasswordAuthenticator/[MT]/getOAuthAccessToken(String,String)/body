@@ -13,10 +13,10 @@
     if (!TextUtils.isEmpty(authorizeResponseData.oauthPin)) {
       return oauth.getAccessToken(requestToken,authorizeResponseData.oauthPin);
     }
- else     if (authorizeResponseData.verification == null) {
+ else     if (authorizeResponseData.challenge == null) {
       throw new WrongUserPassException();
     }
-    final String challengeType=authorizeResponseData.verification.challengeType;
+    final String challengeType=authorizeResponseData.challenge.challengeType;
     final String loginVerification=loginVerificationCallback.getLoginVerification(challengeType);
     final AuthorizeRequestData verificationData=getVerificationData(authorizeResponseData,loginVerification);
     authorizeResponseData=getAuthorizeResponseData(requestToken,verificationData,username,password);

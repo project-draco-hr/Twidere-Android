@@ -6,6 +6,10 @@
     verificationHint.setText(R.string.login_verification_push_hint);
     editVerification.setVisibility(View.GONE);
   }
+ else   if ("RetypePhoneNumber".equalsIgnoreCase(challengeType)) {
+    verificationHint.setText(R.string.login_challenge_retype_phone_hint);
+    editVerification.setVisibility(View.VISIBLE);
+  }
  else {
     verificationHint.setText(R.string.login_verification_pin_hint);
     editVerification.setVisibility(View.VISIBLE);

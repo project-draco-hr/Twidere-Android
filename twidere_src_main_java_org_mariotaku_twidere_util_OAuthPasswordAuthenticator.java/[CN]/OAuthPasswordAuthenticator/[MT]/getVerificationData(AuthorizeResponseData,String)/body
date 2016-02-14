@@ -3,7 +3,7 @@
   try {
     final AuthorizeRequestData data=new AuthorizeRequestData();
     final MultiValueMap<String> params=new MultiValueMap<>();
-    final AuthorizeResponseData.Verification verification=authorizeResponseData.verification;
+    final AuthorizeResponseData.Verification verification=authorizeResponseData.challenge;
     params.add("authenticity_token",verification.authenticityToken);
     params.add("user_id",verification.userId);
     params.add("challenge_id",verification.challengeId);

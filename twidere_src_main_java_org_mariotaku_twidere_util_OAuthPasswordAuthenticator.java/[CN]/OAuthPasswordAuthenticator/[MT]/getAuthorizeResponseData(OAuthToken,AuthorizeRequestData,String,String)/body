@@ -23,7 +23,7 @@
     final HtmlParsingConfiguration conf=new HtmlParsingConfiguration();
     final IAttoHandler handler=new AbstractStandardNonValidatingHtmlAttoHandler(conf){
       boolean isOAuthPinDivOpened;
-      boolean isLoginVerificationFormOpened;
+      boolean isChallengeFormOpened;
       @Override public void handleHtmlStandaloneElement(      IHtmlElement element,      boolean minimized,      String elementName,      Map<String,String> attributes,      int line,      int col){
         handleHtmlOpenElement(element,elementName,attributes,line,col);
         handleHtmlCloseElement(element,elementName,line,col);
@@ -37,7 +37,7 @@ case "div":
           }
 case "form":
 {
-          isLoginVerificationFormOpened=false;
+          isChallengeFormOpened=false;
           break;
         }
     }
@@ -46,58 +46,68 @@ case "form":
 switch (elementName) {
 case "div":
 {
-        if (attributes != null && "oauth_pin".equals(attributes.get("id"))) {
+        if (attributes == null)         break;
+        if ("oauth_pin".equals(attributes.get("id"))) {
           isOAuthPinDivOpened=true;
         }
         break;
       }
 case "form":
 {
-      if (attributes != null && "login-verification-form".equals(attributes.get("id"))) {
-        isLoginVerificationFormOpened=true;
-      }
-      break;
+      if (attributes == null)       break;
+      final String id=attributes.get("id");
+      if (id == null)       break;
+switch (id) {
+case "login-verification-form":
+case "login-challenge-form":
+{
+          isChallengeFormOpened=true;
+          break;
+        }
     }
+    break;
+  }
 case "input":
-  if (isLoginVerificationFormOpened && attributes != null) {
-    final String name=attributes.get("name");
-    if (TextUtils.isEmpty(name))     break;
-    final String value=attributes.get("value");
+if (attributes == null) break;
+if (isChallengeFormOpened) {
+final String name=attributes.get("name");
+if (TextUtils.isEmpty(name)) break;
+final String value=attributes.get("value");
 switch (name) {
 case "authenticity_token":
 {
-        ensureVerification();
-        data.verification.authenticityToken=value;
-        break;
-      }
-case "challenge_id":
-{
-      ensureVerification();
-      data.verification.challengeId=value;
-      break;
-    }
-case "challenge_type":
-{
     ensureVerification();
-    data.verification.challengeType=value;
+    data.challenge.authenticityToken=value;
     break;
   }
-case "platform":
+case "challenge_id":
 {
   ensureVerification();
-  data.verification.platform=value;
+  data.challenge.challengeId=value;
   break;
+}
+case "challenge_type":
+{
+ensureVerification();
+data.challenge.challengeType=value;
+break;
+}
+case "platform":
+{
+ensureVerification();
+data.challenge.platform=value;
+break;
 }
 case "user_id":
 {
 ensureVerification();
-data.verification.userId=value;
+data.challenge.userId=value;
 break;
 }
 case "redirect_after_login":
 {
 ensureVerification();
-data.verification.redirectAfterLogin=value;
+data.challenge.redirectAfterLogin=value;
 break;
 }
 }
@@ -106,8 +116,8 @@ break;
 }
 }
 private void ensureVerification(){
-if (data.verification == null) {
-data.verification=new AuthorizeResponseData.Verification();
+if (data.challenge == null) {
+data.challenge=new AuthorizeResponseData.Verification();
 }
 }
 @Override public void handleText(char[] buffer,int offset,int len,int line,int col) throws AttoParseException {

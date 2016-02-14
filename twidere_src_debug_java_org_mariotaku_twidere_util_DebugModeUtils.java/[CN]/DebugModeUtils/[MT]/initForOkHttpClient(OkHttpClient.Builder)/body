@@ -1,3 +1,12 @@
 {
-  builder.addNetworkInterceptor(new StethoInterceptor());
+  final StethoInterceptor interceptor=new StethoInterceptor();
+  builder.addNetworkInterceptor(new Interceptor(){
+    @Override public Response intercept(    Chain chain) throws IOException {
+      if (chain.request().tag() == NoIntercept.INSTANCE) {
+        return chain.proceed(chain.request());
+      }
+      return interceptor.intercept(chain);
+    }
+  }
+);
 }
