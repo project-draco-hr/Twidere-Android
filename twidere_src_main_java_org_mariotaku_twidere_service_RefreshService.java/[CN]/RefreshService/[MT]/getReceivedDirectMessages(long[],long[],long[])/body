@@ -1,3 +1,0 @@
-{
-  return mTwitterWrapper.getReceivedDirectMessagesAsync(accountIds,maxIds,sinceIds);
-}

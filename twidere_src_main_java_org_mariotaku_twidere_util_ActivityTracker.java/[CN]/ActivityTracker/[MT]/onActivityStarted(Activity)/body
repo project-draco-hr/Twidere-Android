@@ -1,5 +1,8 @@
 {
   mInternalStack.add(System.identityHashCode(activity));
+  if (activity instanceof HomeActivity) {
+    mHomeActivityStarted=true;
+  }
   if (mSessionEvent == null) {
     mSessionEvent=SessionEvent.create(activity);
   }

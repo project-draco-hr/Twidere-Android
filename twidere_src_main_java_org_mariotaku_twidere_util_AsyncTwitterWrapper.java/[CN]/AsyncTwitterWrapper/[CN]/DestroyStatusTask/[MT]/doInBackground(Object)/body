@@ -9,7 +9,7 @@
  catch (  final TwitterException e) {
     exception=e;
   }
-  if (status != null || exception.getErrorCode() == HttpResponseCode.NOT_FOUND) {
+  if (status != null || (exception != null && exception.getErrorCode() == HttpResponseCode.NOT_FOUND)) {
     final ContentValues values=new ContentValues();
     values.put(Statuses.MY_RETWEET_ID,-1);
     if (status != null) {

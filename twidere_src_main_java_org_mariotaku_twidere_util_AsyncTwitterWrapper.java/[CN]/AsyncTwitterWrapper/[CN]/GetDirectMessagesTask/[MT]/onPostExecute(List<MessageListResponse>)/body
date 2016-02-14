@@ -1,4 +1,0 @@
-{
-  super.onPostExecute(result);
-  bus.post(new GetMessagesTaskEvent(getDatabaseUri(),false,getException(result)));
-}

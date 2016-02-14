@@ -1,0 +1,7 @@
+{
+  final GetHomeTimelineTask task=new GetHomeTimelineTask(getContext());
+  task.setParams(param);
+  task.notifyStart();
+  AsyncManager.runBackgroundTask(task);
+  return true;
+}

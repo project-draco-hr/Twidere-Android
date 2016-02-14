@@ -1,4 +1,0 @@
-{
-  super.onPreExecute();
-  bus.post(new GetMessagesTaskEvent(getDatabaseUri(),true,null));
-}

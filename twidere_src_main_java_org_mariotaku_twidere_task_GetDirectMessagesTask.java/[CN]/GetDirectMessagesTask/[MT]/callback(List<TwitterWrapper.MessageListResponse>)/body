@@ -1,0 +1,3 @@
+{
+  bus.post(new GetMessagesTaskEvent(getDatabaseUri(),false,AsyncTwitterWrapper.getException(result)));
+}

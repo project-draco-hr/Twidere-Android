@@ -1,7 +1,6 @@
 {
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   super.onCreate(savedInstanceState);
-  mPermissionsManager=new PermissionsManager(this);
   setContentView(R.layout.activity_request_permissions);
   mAcceptButton.setOnClickListener(this);
   mDenyButton.setOnClickListener(this);

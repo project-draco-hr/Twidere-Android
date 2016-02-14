@@ -1,5 +1,8 @@
 {
   final int hashCode=System.identityHashCode(activity);
+  if (activity instanceof HomeActivity) {
+    mHomeActivityStarted=false;
+  }
   final SessionEvent event=mSessionEvent;
   if (event != null && !isSwitchingInSameTask(hashCode)) {
     event.markEnd();

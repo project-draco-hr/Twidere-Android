@@ -1,3 +1,3 @@
 {
-  return mHomeActivityInBackground && !Utils.isNotificationsSilent(getContext());
+  return !mActivityTracker.isHomeActivityStarted() && !Utils.isNotificationsSilent(getContext());
 }

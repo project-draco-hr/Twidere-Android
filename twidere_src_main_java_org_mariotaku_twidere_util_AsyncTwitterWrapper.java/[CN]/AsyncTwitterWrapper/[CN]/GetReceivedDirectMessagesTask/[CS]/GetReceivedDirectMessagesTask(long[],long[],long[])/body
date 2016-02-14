@@ -1,3 +1,0 @@
-{
-  super(account_ids,max_ids,since_ids,TASK_TAG_GET_RECEIVED_DIRECT_MESSAGES);
-}

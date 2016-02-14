@@ -1,6 +1,6 @@
 {
   final GetActivitiesTask task=new GetActivitiesByFriendsTask(getContext());
-  task.setParams(new RefreshTaskParam(accountIds,maxIds,sinceIds));
+  task.setParams(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
   task.notifyStart();
   AsyncManager.runBackgroundTask(task);
 }

@@ -1,0 +1,6 @@
+{
+  final GetReceivedDirectMessagesTask task=new GetReceivedDirectMessagesTask(mContext);
+  task.setParams(param);
+  task.notifyStart();
+  AsyncManager.runBackgroundTask(task);
+}

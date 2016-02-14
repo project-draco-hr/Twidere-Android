@@ -1,4 +1,3 @@
 {
-  final GetReceivedDirectMessagesTask task=new GetReceivedDirectMessagesTask(accountIds,max_ids,since_ids);
-  return mAsyncTaskManager.add(task,true);
+  getActivitiesAboutMeAsync(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
 }

@@ -1,7 +1,6 @@
 {
   super.onStart();
   mMultiSelectHandler.dispatchOnStart();
-  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONSTART));
   final ContentResolver resolver=getContentResolver();
   resolver.registerContentObserver(Accounts.CONTENT_URI,true,mAccountChangeObserver);
   mBus.register(this);
