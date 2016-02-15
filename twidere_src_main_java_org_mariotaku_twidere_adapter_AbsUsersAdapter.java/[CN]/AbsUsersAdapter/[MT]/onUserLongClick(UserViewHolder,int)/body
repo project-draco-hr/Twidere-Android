@@ -1,3 +1,0 @@
-{
-  return mUserAdapterListener != null && mUserAdapterListener.onUserLongClick(holder,position);
-}

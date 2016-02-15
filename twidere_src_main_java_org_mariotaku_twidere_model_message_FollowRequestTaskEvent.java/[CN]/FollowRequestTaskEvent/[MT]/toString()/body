@@ -1,0 +1,3 @@
+{
+  return "FollowRequestTaskEvent{" + "action=" + action + ", finished="+ finished+ ", accountId="+ accountId+ ", userId="+ userId+ '}';
+}

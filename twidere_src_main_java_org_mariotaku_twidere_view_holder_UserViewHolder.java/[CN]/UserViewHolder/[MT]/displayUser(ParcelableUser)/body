@@ -1,6 +1,7 @@
 {
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final UserColorNameManager manager=adapter.getUserColorNameManager();
+  final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
   itemContent.drawStart(manager.getUserColor(user.id,false));
   final int userTypeRes=getUserTypeIconRes(user.is_verified,user.is_protected);
   if (userTypeRes != 0) {
@@ -29,5 +30,15 @@
  else {
     profileImageView.setVisibility(View.GONE);
     loader.cancelDisplayTask(profileImageView);
+  }
+  if (twitter.isProcessingFollowRequest(user.account_id,user.id)) {
+    processingRequestProgress.setVisibility(View.VISIBLE);
+    acceptRequestButton.setVisibility(View.GONE);
+    denyRequestButton.setVisibility(View.GONE);
+  }
+ else {
+    processingRequestProgress.setVisibility(View.GONE);
+    acceptRequestButton.setVisibility(View.VISIBLE);
+    denyRequestButton.setVisibility(View.VISIBLE);
   }
 }

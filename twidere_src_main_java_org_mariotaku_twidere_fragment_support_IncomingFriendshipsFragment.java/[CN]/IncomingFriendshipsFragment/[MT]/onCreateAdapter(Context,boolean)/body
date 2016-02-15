@@ -1,0 +1,5 @@
+{
+  final ParcelableUsersAdapter adapter=super.onCreateAdapter(context,compact);
+  adapter.setRequestClickListener(this);
+  return adapter;
+}

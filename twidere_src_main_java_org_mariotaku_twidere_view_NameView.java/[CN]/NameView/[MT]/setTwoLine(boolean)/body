@@ -1,0 +1,10 @@
+{
+  mTwoLine=twoLine;
+  if (twoLine) {
+    setSingleLine(false);
+    setMaxLines(2);
+  }
+ else {
+    setSingleLine(true);
+  }
+}

@@ -1,3 +1,3 @@
 {
-  return position < getUsersCount();
+  return position < getUserCount();
 }

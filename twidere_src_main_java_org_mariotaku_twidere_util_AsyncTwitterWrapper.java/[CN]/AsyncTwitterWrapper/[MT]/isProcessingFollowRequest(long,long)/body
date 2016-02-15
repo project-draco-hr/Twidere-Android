@@ -1,0 +1,3 @@
+{
+  return mProcessingFriendshipRequestIds.contains(ParcelableUser.calculateHashCode(accountId,userId));
+}

@@ -1,6 +1,6 @@
 {
   final int position=getLoadMoreIndicatorPosition();
-  int count=getUsersCount();
+  int count=getUserCount();
   if ((position & IndicatorPosition.START) != 0) {
     count++;
   }

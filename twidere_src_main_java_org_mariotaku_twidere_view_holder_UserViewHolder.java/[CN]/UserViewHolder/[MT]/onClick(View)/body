@@ -1,10 +1,22 @@
 {
-  if (userClickListener == null)   return;
 switch (v.getId()) {
 case R.id.item_content:
 {
+      if (userClickListener == null)       return;
       userClickListener.onUserClick(this,getLayoutPosition());
       break;
     }
+case R.id.accept_request:
+{
+    if (requestClickListener == null)     return;
+    requestClickListener.onAcceptClicked(this,getLayoutPosition());
+    break;
+  }
+case R.id.deny_request:
+{
+  if (requestClickListener == null)   return;
+  requestClickListener.onDenyClicked(this,getLayoutPosition());
+  break;
+}
 }
 }

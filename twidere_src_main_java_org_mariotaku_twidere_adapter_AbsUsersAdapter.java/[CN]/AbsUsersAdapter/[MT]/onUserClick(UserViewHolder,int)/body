@@ -1,4 +1,0 @@
-{
-  if (mUserAdapterListener == null)   return;
-  mUserAdapterListener.onUserClick(holder,position);
-}

@@ -1,0 +1,14 @@
+{
+  requestClickListener=listener;
+  if (listener != null) {
+    nameView.setTwoLine(true);
+    followRequestContainer.setVisibility(View.VISIBLE);
+  }
+ else {
+    nameView.setTwoLine(false);
+    followRequestContainer.setVisibility(View.GONE);
+  }
+  nameView.updateText();
+  acceptRequestButton.setOnClickListener(this);
+  denyRequestButton.setOnClickListener(this);
+}

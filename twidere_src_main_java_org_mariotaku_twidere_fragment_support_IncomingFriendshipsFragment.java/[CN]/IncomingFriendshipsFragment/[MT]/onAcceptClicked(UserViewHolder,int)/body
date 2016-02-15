@@ -1,0 +1,6 @@
+{
+  final AbsUsersAdapter<List<ParcelableUser>> adapter=getAdapter();
+  final ParcelableUser user=adapter.getUser(position);
+  if (user == null)   return;
+  mTwitterWrapper.acceptFriendshipAsync(user.account_id,user.id);
+}

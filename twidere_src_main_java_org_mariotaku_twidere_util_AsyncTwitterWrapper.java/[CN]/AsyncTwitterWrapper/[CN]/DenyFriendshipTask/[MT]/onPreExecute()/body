@@ -1,0 +1,7 @@
+{
+  addProcessingFriendshipRequestId(mAccountId,mUserId);
+  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountId,mUserId);
+  event.setFinished(false);
+  bus.post(event);
+  super.onPreExecute();
+}

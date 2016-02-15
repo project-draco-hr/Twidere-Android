@@ -1,0 +1,3 @@
+{
+  return (ParcelableUsersAdapter)super.getAdapter();
+}

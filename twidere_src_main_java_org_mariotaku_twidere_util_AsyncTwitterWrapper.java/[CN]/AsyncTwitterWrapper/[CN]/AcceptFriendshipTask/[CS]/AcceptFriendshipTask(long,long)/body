@@ -1,5 +1,0 @@
-{
-  super(mContext);
-  mAccountId=account_id;
-  mUserId=user_id;
-}
