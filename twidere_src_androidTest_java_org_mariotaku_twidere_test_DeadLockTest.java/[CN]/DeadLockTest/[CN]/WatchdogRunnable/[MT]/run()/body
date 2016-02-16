@@ -1,0 +1,10 @@
+{
+  try {
+    Thread.sleep(100L);
+  }
+ catch (  InterruptedException e) {
+  }
+  if (!finished) {
+    throw new RuntimeException("Too long waiting: " + TwidereTypeUtils.toSimpleName(cls));
+  }
+}

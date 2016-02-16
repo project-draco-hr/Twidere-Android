@@ -1,15 +1,20 @@
 {
   try {
     if (BuildConfig.DEBUG) {
-      Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " <---");
+      Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " ---> ?");
     }
     final ParameterizedType<T> parameterizedType=ParameterizedTypeAccessor.create(type);
-    final JsonMapper<T> mapper=LoganSquare.mapperFor(parameterizedType);
+    final WatchdogRunnable runnable=new WatchdogRunnable(new Exception());
+    sWatchDogExecutor.execute(runnable);
+    final JsonMapper<T> mapper;
+synchronized (TwitterConverterFactory.class) {
+      mapper=LoganSquare.mapperFor(parameterizedType);
+    }
+    runnable.finished();
     if (BuildConfig.DEBUG) {
       Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " ---> " + TwidereTypeUtils.toSimpleName(mapper.getClass()));
     }
-    final Reader reader=SimpleBody.reader(body);
-    final T parsed=mapper.parse(LoganSquare.JSON_FACTORY.createParser(reader));
+    final T parsed=mapper.parse(body.stream());
     if (BuildConfig.DEBUG) {
       Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " Finished");
     }

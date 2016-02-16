@@ -1,0 +1,5 @@
+{
+  for (  Class testClass : TEST_CLASSES) {
+    new Thread(new RunnableWithoutSynchronization(testClass)).start();
+  }
+}

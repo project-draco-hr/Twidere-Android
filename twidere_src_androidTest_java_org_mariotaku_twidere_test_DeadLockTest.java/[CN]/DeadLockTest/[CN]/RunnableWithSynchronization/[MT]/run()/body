@@ -1,0 +1,15 @@
+{
+  final WatchdogRunnable runnable=new WatchdogRunnable(cls);
+  sWatchDogExecutor.execute(runnable);
+  try {
+synchronized (RunnableWithSynchronization.class) {
+      Class.forName(cls.getName() + Constants.MAPPER_CLASS_SUFFIX);
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    throw new RuntimeException(e);
+  }
+ finally {
+    runnable.finished();
+  }
+}
