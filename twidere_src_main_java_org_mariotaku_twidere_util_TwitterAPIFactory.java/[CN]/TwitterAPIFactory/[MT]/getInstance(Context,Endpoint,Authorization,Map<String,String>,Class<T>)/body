@@ -22,6 +22,6 @@
   factory.setConstantPool(sConstantPoll);
   factory.setRestConverterFactory(new TwitterConverterFactory());
   factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
-  factory.setExceptionFactory(new TwidereExceptionFactory(holder.getDns()));
+  factory.setExceptionFactory(new TwidereExceptionFactory());
   return factory.build(cls);
 }

@@ -1,16 +1,22 @@
 {
   SpannableString coloredText=SpannableString.valueOf(message.message);
 switch (message.state) {
-case LogText.State.GOOD:
+case LogText.State.OK:
 {
-      coloredText.setSpan(new ForegroundColorSpan(Color.GREEN),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_light_green)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       break;
     }
-case LogText.State.BAD:
+case LogText.State.ERROR:
 {
-    coloredText.setSpan(new ForegroundColorSpan(Color.RED),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_red)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     break;
   }
+case LogText.State.WARNING:
+{
+  coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_amber)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  break;
+}
 }
 mLogTextView.append(coloredText);
+Selection.setSelection(mLogTextView.getEditableText(),mLogTextView.length());
 }

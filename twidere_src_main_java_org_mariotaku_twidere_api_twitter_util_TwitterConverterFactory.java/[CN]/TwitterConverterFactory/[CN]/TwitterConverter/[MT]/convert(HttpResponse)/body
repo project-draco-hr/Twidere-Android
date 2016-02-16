@@ -1,0 +1,15 @@
+{
+  final TimingLogger logger=new TimingLogger("TwitterConverter",TwidereTypeUtils.toSimpleName(type));
+  logger.addSplit("Status code: " + httpResponse.getStatus());
+  final Body body=httpResponse.getBody();
+  logger.addSplit("Start parsing");
+  final Object object=parseOrThrow(body,type);
+  logger.addSplit("End parsing");
+  if (object instanceof TwitterResponse) {
+    ((TwitterResponse)object).processResponseHeader(httpResponse);
+  }
+  if (BuildConfig.DEBUG) {
+    logger.dumpToLog();
+  }
+  return object;
+}

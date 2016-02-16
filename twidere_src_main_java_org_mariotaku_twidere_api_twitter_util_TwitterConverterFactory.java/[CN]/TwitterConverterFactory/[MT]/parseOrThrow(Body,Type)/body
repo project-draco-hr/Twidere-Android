@@ -1,0 +1,24 @@
+{
+  try {
+    if (BuildConfig.DEBUG) {
+      Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " <---");
+    }
+    final ParameterizedType<T> parameterizedType=ParameterizedTypeAccessor.create(type);
+    final JsonMapper<T> mapper=LoganSquare.mapperFor(parameterizedType);
+    if (BuildConfig.DEBUG) {
+      Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " ---> " + TwidereTypeUtils.toSimpleName(mapper.getClass()));
+    }
+    final Reader reader=SimpleBody.reader(body);
+    final T parsed=mapper.parse(LoganSquare.JSON_FACTORY.createParser(reader));
+    if (BuildConfig.DEBUG) {
+      Log.d("TwitterConverter",TwidereTypeUtils.toSimpleName(type) + " Finished");
+    }
+    if (parsed == null) {
+      throw new TwitterException("Empty data");
+    }
+    return parsed;
+  }
+ catch (  JsonParseException e) {
+    throw new RestConverter.ConvertException("Malformed JSON Data");
+  }
+}

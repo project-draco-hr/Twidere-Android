@@ -3,10 +3,10 @@
   try {
     final long start=SystemClock.uptimeMillis();
     publishProgress(new LogText(String.valueOf(dns.lookupResolver(host))));
-    publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start),LogText.State.GOOD));
+    publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start),LogText.State.OK));
   }
  catch (  UnknownHostException e) {
-    publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.BAD));
+    publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.ERROR));
   }
   publishProgress(LogText.LINEBREAK);
 }

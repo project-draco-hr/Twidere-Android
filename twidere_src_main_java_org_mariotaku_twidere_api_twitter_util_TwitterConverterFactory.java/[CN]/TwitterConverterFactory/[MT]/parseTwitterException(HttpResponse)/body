@@ -1,0 +1,17 @@
+{
+  try {
+    final Body body=resp.getBody();
+    if (body == null)     return new TwitterException(resp);
+    final JsonMapper<TwitterException> mapper=LoganSquare.mapperFor(TwitterException.class);
+    final Reader reader=SimpleBody.reader(body);
+    final TwitterException parse=mapper.parse(LoganSquare.JSON_FACTORY.createParser(reader));
+    if (parse != null)     return parse;
+    return new TwitterException(resp);
+  }
+ catch (  JsonParseException e) {
+    return new TwitterException("Malformed JSON Data",e,resp);
+  }
+catch (  IOException e) {
+    return new TwitterException("IOException while throwing exception",e,resp);
+  }
+}

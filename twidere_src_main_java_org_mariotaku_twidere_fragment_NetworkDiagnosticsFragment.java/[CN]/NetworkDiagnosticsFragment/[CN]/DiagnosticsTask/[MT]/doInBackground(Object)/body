@@ -1,19 +1,7 @@
 {
-  publishProgress(new LogText("Build information: "));
-  publishProgress(new LogText("version_code: " + BuildConfig.VERSION_CODE),LogText.LINEBREAK);
-  publishProgress(new LogText("version_name: " + BuildConfig.VERSION_NAME),LogText.LINEBREAK);
-  publishProgress(new LogText("flavor: " + BuildConfig.FLAVOR),LogText.LINEBREAK);
-  publishProgress(new LogText("debug: " + BuildConfig.DEBUG),LogText.LINEBREAK);
-  publishProgress(LogText.LINEBREAK);
-  publishProgress(new LogText("Basic system information: "));
-  publishProgress(new LogText(String.valueOf(mContext.getResources().getConfiguration())));
+  publishProgress(new LogText("**** NOTICE ****",LogText.State.WARNING));
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
-  publishProgress(new LogText("Active network info: "));
-  publishProgress(new LogText(String.valueOf(mConnectivityManager.getActiveNetworkInfo())));
-  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
-  publishProgress(new LogText("**** NOTICE ****"));
-  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
-  publishProgress(new LogText("Text below may have personal information, BE CAREFUL TO MAKE IT PUBLIC"));
+  publishProgress(new LogText("Text below may have personal information, BE CAREFUL TO MAKE IT PUBLIC",LogText.State.WARNING));
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
   DependencyHolder holder=DependencyHolder.get(mContext);
   final TwidereDns dns=holder.getDns();
@@ -52,10 +40,44 @@
       testNativeLookup(host);
     }
  else {
-      publishProgress(new LogText("API URL format is invalid",LogText.State.BAD));
+      publishProgress(new LogText("API URL format is invalid",LogText.State.ERROR));
       publishProgress(LogText.LINEBREAK);
     }
     publishProgress(LogText.LINEBREAK);
+    publishProgress(new LogText("Testing Network connectivity"));
+    publishProgress(LogText.LINEBREAK);
+    final String baseUrl=TwitterAPIFactory.getApiBaseUrl(credentials.api_url_format,"api");
+    RestHttpClient client=RestAPIFactory.getRestClient(twitter).getRestClient();
+    HttpResponse response=null;
+    try {
+      publishProgress(new LogText("Connecting to " + baseUrl + "..."));
+      HttpRequest.Builder builder=new HttpRequest.Builder();
+      builder.method(GET.METHOD);
+      builder.url(baseUrl);
+      final long start=SystemClock.uptimeMillis();
+      response=client.newCall(builder.build()).execute();
+      publishProgress(new LogText(String.format(" OK (%d ms)",SystemClock.uptimeMillis() - start),LogText.State.OK));
+    }
+ catch (    IOException e) {
+      publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.ERROR));
+    }
+    publishProgress(LogText.LINEBREAK);
+    try {
+      if (response != null) {
+        publishProgress(new LogText("Reading response..."));
+        final long start=SystemClock.uptimeMillis();
+        final CountOutputStream os=new CountOutputStream();
+        response.getBody().writeTo(os);
+        publishProgress(new LogText(String.format(" %d bytes (%d ms)",os.getTotal(),SystemClock.uptimeMillis() - start),LogText.State.OK));
+      }
+    }
+ catch (    IOException e) {
+      publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.ERROR));
+    }
+ finally {
+      Utils.closeSilently(response);
+    }
+    publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
     publishProgress(new LogText("Testing API functionality"));
     publishProgress(LogText.LINEBREAK);
     testTwitter("verify_credentials",twitter,new TwitterTest(){
@@ -83,6 +105,18 @@
   publishProgress(LogText.LINEBREAK);
   testDns(dns,"twitter.com");
   testNativeLookup("twitter.com");
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  publishProgress(new LogText("Build information: "));
+  publishProgress(new LogText("version_code: " + BuildConfig.VERSION_CODE),LogText.LINEBREAK);
+  publishProgress(new LogText("version_name: " + BuildConfig.VERSION_NAME),LogText.LINEBREAK);
+  publishProgress(new LogText("flavor: " + BuildConfig.FLAVOR),LogText.LINEBREAK);
+  publishProgress(new LogText("debug: " + BuildConfig.DEBUG),LogText.LINEBREAK);
+  publishProgress(LogText.LINEBREAK);
+  publishProgress(new LogText("Basic system information: "));
+  publishProgress(new LogText(String.valueOf(mContext.getResources().getConfiguration())));
+  publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
+  publishProgress(new LogText("Active network info: "));
+  publishProgress(new LogText(String.valueOf(mConnectivityManager.getActiveNetworkInfo())));
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
   publishProgress(new LogText("Done. You can send this log to me, and I'll contact you to solve related issue."));
   return null;

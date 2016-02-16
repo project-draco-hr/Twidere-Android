@@ -1,0 +1,5 @@
+{
+  assertEquals("CursorTimestampResponse",TwidereTypeUtils.toSimpleName(CursorTimestampResponse.class));
+  assertEquals("ResponseList<Status>",TwidereTypeUtils.toSimpleName(TypeUtils.parameterize(ResponseList.class,Status.class)));
+  assertEquals("List<List<Object>>",TwidereTypeUtils.toSimpleName(TypeUtils.parameterize(List.class,TypeUtils.parameterize(List.class,Object.class))));
+}
