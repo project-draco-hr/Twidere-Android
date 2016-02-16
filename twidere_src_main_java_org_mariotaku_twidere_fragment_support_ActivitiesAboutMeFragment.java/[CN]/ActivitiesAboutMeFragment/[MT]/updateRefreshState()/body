@@ -1,3 +1,2 @@
 {
-  setRefreshing(mTwitterWrapper.isMentionsTimelineRefreshing());
 }

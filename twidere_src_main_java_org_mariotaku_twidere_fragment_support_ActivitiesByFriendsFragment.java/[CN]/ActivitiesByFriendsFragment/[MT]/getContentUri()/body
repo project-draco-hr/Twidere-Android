@@ -1,3 +1,3 @@
 {
-  return TwidereDataStore.CONTENT_URI_EMPTY;
+  return Activities.ByFriends.CONTENT_URI;
 }

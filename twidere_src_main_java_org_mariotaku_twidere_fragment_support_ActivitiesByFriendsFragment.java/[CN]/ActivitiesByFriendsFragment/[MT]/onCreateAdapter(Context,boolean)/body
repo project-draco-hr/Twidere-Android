@@ -1,5 +1,5 @@
 {
-  final ParcelableActivitiesAdapter adapter=new ParcelableActivitiesAdapter(context,compact,false);
+  final ParcelableActivitiesAdapter adapter=new ParcelableActivitiesAdapter(context,compact,true);
   final Bundle arguments=getArguments();
   if (arguments != null) {
     final Bundle extras=arguments.getBundle(EXTRA_EXTRAS);

@@ -1,0 +1,21 @@
+{
+  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
+  final int position=contextMenuInfo.getPosition();
+switch (adapter.getItemViewType(position)) {
+case AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS:
+{
+      final ParcelableStatus status=getActivityStatus(position);
+      if (status == null)       return false;
+      if (item.getItemId() == R.id.share) {
+        final Intent shareIntent=Utils.createStatusShareIntent(getActivity(),status);
+        final Intent chooser=Intent.createChooser(shareIntent,getString(R.string.share_status));
+        Utils.addCopyLinkIntent(getContext(),chooser,LinkCreator.getTwitterStatusLink(status));
+        startActivity(chooser);
+        return true;
+      }
+      return Utils.handleMenuItemClick(getActivity(),this,getFragmentManager(),mUserColorNameManager,mTwitterWrapper,status,item);
+    }
+}
+return false;
+}

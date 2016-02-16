@@ -1,0 +1,13 @@
+{
+  final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
+  final ParcelableStatus status=mStatusAdapter.getStatus(contextMenuInfo.getPosition());
+  if (status == null)   return false;
+  if (item.getItemId() == R.id.share) {
+    final Intent shareIntent=Utils.createStatusShareIntent(getActivity(),status);
+    final Intent chooser=Intent.createChooser(shareIntent,getString(R.string.share_status));
+    Utils.addCopyLinkIntent(getContext(),chooser,LinkCreator.getTwitterStatusLink(status));
+    startActivity(chooser);
+    return true;
+  }
+  return Utils.handleMenuItemClick(getActivity(),this,getFragmentManager(),mUserColorNameManager,mTwitterWrapper,status,item);
+}

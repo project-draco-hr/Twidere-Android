@@ -1,15 +1,7 @@
 {
-  if (mPopupMenu != null) {
-    mPopupMenu.dismiss();
-  }
   if (getActivity() == null)   return;
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
-  final PopupMenu popupMenu=new PopupMenu(adapter.getContext(),menuView,Gravity.NO_GRAVITY,R.attr.actionOverflowMenuStyle,0);
-  popupMenu.setOnMenuItemClickListener(mOnStatusMenuItemClickListener);
-  popupMenu.inflate(R.menu.action_status);
-  final ParcelableStatus status=adapter.getStatus(position);
-  Utils.setMenuForStatus(adapter.getContext(),mPreferences,popupMenu.getMenu(),status,mTwitterWrapper);
-  popupMenu.show();
-  mPopupMenu=popupMenu;
-  mSelectedStatus=status;
+  final LinearLayoutManager lm=getLayoutManager();
+  final View view=lm.findViewByPosition(position);
+  if (view == null)   return;
+  getRecyclerView().showContextMenuForChild(view);
 }
