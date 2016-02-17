@@ -1,0 +1,38 @@
+{
+  final JsonToken token=jsonParser.nextToken();
+  if (token == null)   return false;
+  final Preference preference=supportedMap.get(key);
+  if (preference == null || !preference.exportable())   return false;
+switch (preference.type()) {
+case PreferenceType.BOOLEAN:
+{
+      editor.putBoolean(key,jsonParser.getValueAsBoolean());
+      break;
+    }
+case PreferenceType.INT:
+{
+    editor.putInt(key,jsonParser.getValueAsInt());
+    break;
+  }
+case PreferenceType.LONG:
+{
+  editor.putLong(key,jsonParser.getValueAsLong());
+  break;
+}
+case PreferenceType.FLOAT:
+{
+editor.putFloat(key,(float)jsonParser.getValueAsDouble());
+break;
+}
+case PreferenceType.STRING:
+{
+editor.putString(key,jsonParser.getValueAsString());
+break;
+}
+default :
+{
+break;
+}
+}
+return true;
+}

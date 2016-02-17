@@ -1,5 +1,0 @@
-{
-  this(message);
-  setHttpResponse(res);
-  setHttpRequest(req);
-}

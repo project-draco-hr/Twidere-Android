@@ -1,3 +1,0 @@
-{
-  return llm.findOneVisibleChild(fromIndex,toIndex,completelyVisible,acceptPartiallyVisible);
-}

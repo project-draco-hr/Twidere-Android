@@ -5,7 +5,7 @@
     PARSER.parse(html,handler);
   }
  catch (  AttoParseException e) {
-    throw new RuntimeException(e);
+    throw new ParseException(e);
   }
   return handler.getText();
 }

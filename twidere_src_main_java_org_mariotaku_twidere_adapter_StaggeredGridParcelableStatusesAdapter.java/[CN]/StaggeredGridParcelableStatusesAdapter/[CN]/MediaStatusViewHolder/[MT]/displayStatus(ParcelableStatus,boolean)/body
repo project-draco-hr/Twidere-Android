@@ -12,6 +12,7 @@
   aspectRatioSource.setSize(firstMedia.width,firstMedia.height);
   mediaImageContainer.setTag(firstMedia);
   mediaImageContainer.requestLayout();
+  mediaImageView.setHasPlayIcon(ParcelableMediaUtils.hasPlayIcon(firstMedia.type));
   loader.displayProfileImage(mediaProfileImageView,status.user_profile_image_url);
   loader.displayPreviewImageWithCredentials(mediaImageView,firstMedia.preview_url,status.account_id,adapter.getMediaLoadingHandler());
 }

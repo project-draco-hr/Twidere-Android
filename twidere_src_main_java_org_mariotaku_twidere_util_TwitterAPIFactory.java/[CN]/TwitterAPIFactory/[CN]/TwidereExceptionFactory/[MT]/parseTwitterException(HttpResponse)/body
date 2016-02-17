@@ -1,0 +1,17 @@
+{
+  try {
+    return (TwitterException)converterFactory.forResponse(TwitterException.class).convert(resp);
+  }
+ catch (  JsonParseException e) {
+    return new TwitterException("Malformed JSON Data",e);
+  }
+catch (  IOException e) {
+    return new TwitterException("IOException while throwing exception",e);
+  }
+catch (  RestConverter.ConvertException e) {
+    return new TwitterException(e);
+  }
+catch (  TwitterException e) {
+    return e;
+  }
+}

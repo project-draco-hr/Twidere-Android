@@ -1,3 +1,0 @@
-{
-  Log.d(LOGTAG,message,throwable);
-}

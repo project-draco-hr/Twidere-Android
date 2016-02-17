@@ -12,8 +12,10 @@
   nameView.updateText(adapter.getBidiFormatter());
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
     final TwidereLinkify linkify=adapter.getTwidereLinkify();
-    final Spanned text=HtmlSpanBuilder.fromHtml(TWIDERE_PREVIEW_TEXT_HTML);
-    textView.setText(linkify.applyAllLinks(text,-1,-1,false,adapter.getLinkHighlightingStyle()));
+    final CharSequence text=HtmlSpanBuilder.fromHtml(TWIDERE_PREVIEW_TEXT_HTML,TWIDERE_PREVIEW_TEXT_UNESCAPED);
+    if (text instanceof Spanned) {
+      textView.setText(linkify.applyAllLinks(text,-1,-1,false,adapter.getLinkHighlightingStyle()));
+    }
   }
  else {
     textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));

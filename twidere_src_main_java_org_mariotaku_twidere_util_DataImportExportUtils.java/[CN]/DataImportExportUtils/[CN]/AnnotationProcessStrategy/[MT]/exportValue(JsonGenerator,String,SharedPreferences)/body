@@ -1,0 +1,29 @@
+{
+  final Preference preference=supportedMap.get(key);
+  if (preference == null || !preference.exportable())   return false;
+  try {
+switch (preference.type()) {
+case PreferenceType.BOOLEAN:
+      jsonGenerator.writeBooleanField(key,preferences.getBoolean(key,preference.defaultBoolean()));
+    break;
+case PreferenceType.INT:
+  jsonGenerator.writeNumberField(key,preferences.getInt(key,preference.defaultInt()));
+break;
+case PreferenceType.LONG:
+jsonGenerator.writeNumberField(key,preferences.getLong(key,preference.defaultLong()));
+break;
+case PreferenceType.FLOAT:
+jsonGenerator.writeNumberField(key,preferences.getFloat(key,preference.defaultFloat()));
+break;
+case PreferenceType.STRING:
+jsonGenerator.writeStringField(key,preferences.getString(key,preference.defaultString()));
+break;
+default :
+break;
+}
+}
+ catch (ClassCastException e) {
+return false;
+}
+return true;
+}

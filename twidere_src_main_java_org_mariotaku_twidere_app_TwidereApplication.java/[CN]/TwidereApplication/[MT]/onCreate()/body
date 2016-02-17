@@ -1,4 +1,5 @@
 {
+  sInstance=this;
   if (BuildConfig.DEBUG) {
     StrictModeUtils.detectAllVmPolicy();
   }

@@ -1,9 +1,0 @@
-{
-  if (object == null)   return null;
-  try {
-    return LoganSquare.mapperFor(cls).serialize(Arrays.asList(object));
-  }
- catch (  IOException e) {
-    return null;
-  }
-}

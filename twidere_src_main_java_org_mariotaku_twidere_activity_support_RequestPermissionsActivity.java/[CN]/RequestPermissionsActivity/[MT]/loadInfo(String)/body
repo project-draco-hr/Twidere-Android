@@ -16,8 +16,9 @@
     final String[] permissions=PermissionsManager.parsePermissions(meta.getString(METADATA_KEY_EXTENSION_PERMISSIONS));
     mPermissions=permissions;
     mCallingPackage=pname;
-    final StringBuilder builder=new StringBuilder();
-    builder.append(HtmlEscapeHelper.escape(getString(R.string.permissions_request_message))).append("<br/>");
+    final SpannableStringBuilder builder=new SpannableStringBuilder();
+    builder.append(HtmlEscapeHelper.escape(getString(R.string.permissions_request_message)));
+    builder.append("\n");
     if (PermissionsManager.isPermissionValid(permissions)) {
       if (PermissionsManager.hasPermissions(permissions,PERMISSION_PREFERENCES)) {
         appendPermission(builder,getString(R.string.permission_description_preferences),true);
@@ -41,7 +42,7 @@
  else {
       appendPermission(builder,getString(R.string.permission_description_none),false);
     }
-    mMessageView.setText(HtmlSpanBuilder.fromHtml(builder.toString()));
+    mMessageView.setText(builder);
   }
  catch (  final NameNotFoundException e) {
     setResult(RESULT_CANCELED);

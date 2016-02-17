@@ -1,0 +1,9 @@
+{
+  if (mUserId > 0) {
+    return getAccountId() == mUserId;
+  }
+ else {
+    final String accountScreenName=DataStoreUtils.getAccountScreenName(getContext(),getAccountId());
+    return accountScreenName != null && accountScreenName.equalsIgnoreCase(mUserScreenName);
+  }
+}

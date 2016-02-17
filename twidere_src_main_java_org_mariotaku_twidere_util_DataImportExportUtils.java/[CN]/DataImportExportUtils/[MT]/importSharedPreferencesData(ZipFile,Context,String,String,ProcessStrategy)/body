@@ -1,12 +1,19 @@
 {
   final ZipEntry entry=zipFile.getEntry(entryName);
   if (entry == null)   return;
-  final JSONObject json=JsonSerializer.convertJSONObject(zipFile.getInputStream(entry));
-  final Iterator<String> keys=json.keys();
+  final JsonParser jsonParser=LoganSquare.JSON_FACTORY.createParser(zipFile.getInputStream(entry));
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() != JsonToken.START_OBJECT) {
+    jsonParser.skipChildren();
+    return;
+  }
   final SharedPreferences preferences=context.getSharedPreferences(preferencesName,Context.MODE_PRIVATE);
   final SharedPreferences.Editor editor=preferences.edit();
-  while (keys.hasNext()) {
-    strategy.importValue(json,keys.next(),editor);
+  while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+    String key=jsonParser.getCurrentName();
+    strategy.importValue(jsonParser,key,editor);
   }
   editor.apply();
 }

@@ -1,3 +1,5 @@
 {
-  return ((MediaViewerActivity)getActivity()).getDownloadExtra();
+  final MediaExtra mediaExtra=new MediaExtra();
+  mediaExtra.setAccountId(getArguments().getLong(EXTRA_ACCOUNT_ID,-1));
+  return mediaExtra;
 }

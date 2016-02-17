@@ -13,6 +13,9 @@
     if (e.getStatusCode() == 401) {
       throw new WrongBasicCredentialException();
     }
+ else     if (e.getStatusCode() == 404) {
+      throw new WrongAPIURLFormatException();
+    }
     throw e;
   }
   final long userId=user.getId();

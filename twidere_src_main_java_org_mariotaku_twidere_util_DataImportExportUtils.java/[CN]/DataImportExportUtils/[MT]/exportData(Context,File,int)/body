@@ -1,25 +1,28 @@
 {
-  if (dst == null)   throw new FileNotFoundException();
   dst.delete();
   final FileOutputStream fos=new FileOutputStream(dst);
-  final ZipOutputStream zos=new ZipOutputStream(new BufferedOutputStream(fos));
-  if (hasFlag(flags,FLAG_PREFERENCES)) {
-    exportSharedPreferencesData(zos,context,SHARED_PREFERENCES_NAME,ENTRY_PREFERENCES,new AnnotationProcessStrategy(SharedPreferenceConstants.class));
+  final ZipOutputStream zos=new ZipOutputStream(fos);
+  try {
+    if (hasFlag(flags,FLAG_PREFERENCES)) {
+      exportSharedPreferencesData(zos,context,SHARED_PREFERENCES_NAME,ENTRY_PREFERENCES,new AnnotationProcessStrategy(SharedPreferenceConstants.class));
+    }
+    if (hasFlag(flags,FLAG_NICKNAMES)) {
+      exportSharedPreferencesData(zos,context,USER_NICKNAME_PREFERENCES_NAME,ENTRY_NICKNAMES,ConvertToStringProcessStrategy.SINGLETON);
+    }
+    if (hasFlag(flags,FLAG_USER_COLORS)) {
+      exportSharedPreferencesData(zos,context,USER_COLOR_PREFERENCES_NAME,ENTRY_USER_COLORS,ConvertToIntProcessStrategy.SINGLETON);
+    }
+    if (hasFlag(flags,FLAG_HOST_MAPPING)) {
+      exportSharedPreferencesData(zos,context,HOST_MAPPING_PREFERENCES_NAME,ENTRY_HOST_MAPPING,ConvertToStringProcessStrategy.SINGLETON);
+    }
+    if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
+      exportSharedPreferencesData(zos,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS,ConvertToStringProcessStrategy.SINGLETON);
+    }
+    zos.finish();
+    zos.flush();
   }
-  if (hasFlag(flags,FLAG_NICKNAMES)) {
-    exportSharedPreferencesData(zos,context,USER_NICKNAME_PREFERENCES_NAME,ENTRY_NICKNAMES,ConvertToStringProcessStrategy.SINGLETON);
+  finally {
+    Utils.closeSilently(zos);
+    Utils.closeSilently(fos);
   }
-  if (hasFlag(flags,FLAG_USER_COLORS)) {
-    exportSharedPreferencesData(zos,context,USER_COLOR_PREFERENCES_NAME,ENTRY_USER_COLORS,ConvertToIntProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_HOST_MAPPING)) {
-    exportSharedPreferencesData(zos,context,HOST_MAPPING_PREFERENCES_NAME,ENTRY_HOST_MAPPING,ConvertToStringProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
-    exportSharedPreferencesData(zos,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS,ConvertToStringProcessStrategy.SINGLETON);
-  }
-  zos.finish();
-  zos.flush();
-  Utils.closeSilently(zos);
-  Utils.closeSilently(fos);
 }

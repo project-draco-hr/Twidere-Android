@@ -7,8 +7,5 @@
   if (appendPath.startsWith("/")) {
     appendPath=appendPath.substring(1);
   }
-  if (appendPath.endsWith("/")) {
-    appendPath=appendPath.substring(0,appendPath.length() - 1);
-  }
-  return urlBase + "/" + appendPath+ "/";
+  return urlBase + "/" + appendPath;
 }

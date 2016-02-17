@@ -4,8 +4,9 @@
     te=new TwitterException(cause);
   }
  else {
-    te=TwitterConverterFactory.parseTwitterException(response);
+    te=parseTwitterException(response);
   }
+  te.setHttpRequest(request);
   te.setHttpResponse(response);
   return te;
 }

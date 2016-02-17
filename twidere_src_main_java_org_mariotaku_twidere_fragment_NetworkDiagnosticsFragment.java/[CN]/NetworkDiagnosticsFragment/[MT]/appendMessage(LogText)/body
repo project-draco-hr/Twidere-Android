@@ -1,19 +1,21 @@
 {
+  final Activity activity=getActivity();
+  if (activity == null)   return;
   SpannableString coloredText=SpannableString.valueOf(message.message);
 switch (message.state) {
 case LogText.State.OK:
 {
-      coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_light_green)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(activity,R.color.material_light_green)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       break;
     }
 case LogText.State.ERROR:
 {
-    coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_red)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(activity,R.color.material_red)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     break;
   }
 case LogText.State.WARNING:
 {
-  coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.material_amber)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(activity,R.color.material_amber)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   break;
 }
 }

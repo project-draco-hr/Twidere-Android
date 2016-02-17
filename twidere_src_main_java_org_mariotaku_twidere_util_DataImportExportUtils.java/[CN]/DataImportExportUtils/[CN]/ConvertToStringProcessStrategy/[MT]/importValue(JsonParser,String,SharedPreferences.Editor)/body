@@ -1,0 +1,6 @@
+{
+  final JsonToken token=jsonParser.nextToken();
+  if (token == null)   return false;
+  editor.putString(key,jsonParser.getValueAsString());
+  return true;
+}

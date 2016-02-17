@@ -1,0 +1,12 @@
+{
+  if (danger) {
+    final int start=sb.length();
+    sb.append(name);
+    final int end=sb.length();
+    sb.setSpan(new ForegroundColorSpan(0xffff8000),start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    sb.setSpan(new StyleSpan(Typeface.BOLD),start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  }
+ else {
+    sb.append(name);
+  }
+}

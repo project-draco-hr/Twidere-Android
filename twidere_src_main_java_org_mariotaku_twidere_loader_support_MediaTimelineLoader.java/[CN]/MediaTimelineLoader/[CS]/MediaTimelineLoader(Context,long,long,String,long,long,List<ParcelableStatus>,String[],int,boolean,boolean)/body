@@ -1,0 +1,6 @@
+{
+  super(context,accountId,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser);
+  mUserId=userId;
+  mUserScreenName=screenName;
+  mTwitterOptimizedSearches=twitterOptimizedSearches;
+}

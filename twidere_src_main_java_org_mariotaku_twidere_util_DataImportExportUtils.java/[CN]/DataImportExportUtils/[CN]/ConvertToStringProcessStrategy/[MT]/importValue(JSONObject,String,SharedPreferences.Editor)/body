@@ -1,5 +1,0 @@
-{
-  if (!json.has(key))   return false;
-  editor.putString(key,json.optString(key));
-  return true;
-}

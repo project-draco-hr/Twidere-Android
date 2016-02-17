@@ -40,8 +40,10 @@
     quotedNameView.setName(manager.getUserNickname(status.quoted_user_id,status.quoted_user_name,false));
     quotedNameView.setScreenName("@" + status.quoted_user_screen_name);
     if (adapter.getLinkHighlightingStyle() != VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE && !TextUtils.isEmpty(status.quoted_text_html)) {
-      final Spanned text=HtmlSpanBuilder.fromHtml(status.quoted_text_html);
-      quotedTextView.setText(linkify.applyAllLinks(text,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle()));
+      final CharSequence text=HtmlSpanBuilder.fromHtml(status.quoted_text_html,status.quoted_text_unescaped);
+      if (text instanceof Spanned) {
+        quotedTextView.setText(linkify.applyAllLinks(text,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle()));
+      }
     }
  else {
       final String text=status.quoted_text_unescaped;
@@ -120,8 +122,10 @@
     textView.setText(status.text_unescaped);
   }
  else {
-    final Spanned text=HtmlSpanBuilder.fromHtml(status.text_html);
-    textView.setText(linkify.applyAllLinks(text,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle()));
+    final CharSequence text=HtmlSpanBuilder.fromHtml(status.text_html,status.text_unescaped);
+    if (text instanceof Spanned) {
+      textView.setText(linkify.applyAllLinks(text,status.account_id,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle()));
+    }
   }
   if (replyCount > 0) {
     replyCountView.setText(UnitConvertUtils.calculateProperCount(replyCount));

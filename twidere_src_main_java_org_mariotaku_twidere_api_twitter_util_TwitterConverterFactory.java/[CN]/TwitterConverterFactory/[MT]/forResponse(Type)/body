@@ -3,5 +3,34 @@
   if (converter != null) {
     return converter;
   }
-  return new TwitterConverter(type);
+  final ParameterizedType<?> parameterizedType=ParameterizedTypeAccessor.create(type);
+  final Future<JsonMapper<?>> future=pool.submit(new Callable<JsonMapper<?>>(){
+    @Override public JsonMapper<?> call(){
+      return LoganSquare.mapperFor(parameterizedType);
+    }
+  }
+);
+  final JsonMapper<?> mapper;
+  try {
+    mapper=future.get(1,TimeUnit.SECONDS);
+  }
+ catch (  InterruptedException e) {
+    throw new RuntimeException(e);
+  }
+catch (  ExecutionException e) {
+    final Throwable cause=e.getCause();
+    if (cause instanceof RuntimeException) {
+      throw ((RuntimeException)cause);
+    }
+ else     if (cause instanceof Error) {
+      throw ((Error)cause);
+    }
+ else {
+      throw new RuntimeException(e);
+    }
+  }
+catch (  TimeoutException e) {
+    throw new RuntimeException(e);
+  }
+  return new JsonConverter(mapper);
 }

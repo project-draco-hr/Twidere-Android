@@ -1,0 +1,10 @@
+{
+  if (!preferences.contains(key))   return false;
+  try {
+    jsonGenerator.writeStringField(key,preferences.getString(key,null));
+  }
+ catch (  Exception ignore) {
+    return false;
+  }
+  return true;
+}

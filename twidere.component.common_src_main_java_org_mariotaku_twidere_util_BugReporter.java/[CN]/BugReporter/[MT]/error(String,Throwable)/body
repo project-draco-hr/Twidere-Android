@@ -1,4 +1,0 @@
-{
-  if (sImplementation == null)   return;
-  sImplementation.errorImpl(message,throwable);
-}

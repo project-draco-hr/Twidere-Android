@@ -1,5 +1,4 @@
 {
-  if (src == null)   return 0;
   final ZipFile zipFile=new ZipFile(src);
   int flags=0;
   if (zipFile.getEntry(ENTRY_PREFERENCES) != null) {

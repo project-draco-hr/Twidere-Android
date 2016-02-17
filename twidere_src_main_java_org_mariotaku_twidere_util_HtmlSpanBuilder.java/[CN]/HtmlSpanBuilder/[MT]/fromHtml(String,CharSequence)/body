@@ -1,0 +1,8 @@
+{
+  try {
+    return fromHtml(html);
+  }
+ catch (  ParseException e) {
+    return fallback;
+  }
+}

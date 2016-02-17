@@ -20,8 +20,9 @@
   factory.setAuthorization(auth);
   factory.setEndpoint(endpoint);
   factory.setConstantPool(sConstantPoll);
-  factory.setRestConverterFactory(new TwitterConverterFactory());
+  final TwitterConverterFactory converterFactory=new TwitterConverterFactory();
+  factory.setRestConverterFactory(converterFactory);
   factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
-  factory.setExceptionFactory(new TwidereExceptionFactory());
+  factory.setExceptionFactory(new TwidereExceptionFactory(converterFactory));
   return factory.build(cls);
 }

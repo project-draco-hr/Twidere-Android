@@ -11,7 +11,6 @@
     date=mDateFormat.parse(string);
   }
  catch (  ParseException e) {
-    BugReporter.error("Unrecognized date: " + string,e);
     return null;
   }
   return date;

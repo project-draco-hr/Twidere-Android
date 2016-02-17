@@ -1,0 +1,3 @@
+{
+  Crashlytics.log(priority,tag,msg);
+}

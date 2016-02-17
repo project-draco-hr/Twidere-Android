@@ -1,0 +1,3 @@
+SpannableStringBuilder sb
+String name
+boolean danger

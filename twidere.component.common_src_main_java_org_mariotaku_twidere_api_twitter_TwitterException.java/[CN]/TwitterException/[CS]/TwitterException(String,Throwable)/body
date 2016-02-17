@@ -1,4 +1,6 @@
 {
-  super(message,cause);
-  setCausedByNetworkIssue(cause instanceof IOException);
+  super(detailMessage,cause);
+  if (cause instanceof TwitterException) {
+    ((TwitterException)cause).setNested();
+  }
 }

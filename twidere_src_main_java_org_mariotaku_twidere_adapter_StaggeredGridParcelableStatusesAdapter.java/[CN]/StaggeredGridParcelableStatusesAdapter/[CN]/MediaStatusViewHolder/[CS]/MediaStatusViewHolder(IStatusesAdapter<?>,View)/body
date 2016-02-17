@@ -3,7 +3,7 @@
   this.adapter=adapter;
   mediaImageContainer=(AspectLockedFrameLayout)itemView.findViewById(R.id.media_image_container);
   mediaImageContainer.setAspectRatioSource(aspectRatioSource);
-  mediaImageView=(ImageView)itemView.findViewById(R.id.media_image);
+  mediaImageView=(MediaPreviewImageView)itemView.findViewById(R.id.media_image);
   mediaProfileImageView=(ImageView)itemView.findViewById(R.id.media_profile_image);
   mediaTextView=(TextView)itemView.findViewById(R.id.media_text);
 }
