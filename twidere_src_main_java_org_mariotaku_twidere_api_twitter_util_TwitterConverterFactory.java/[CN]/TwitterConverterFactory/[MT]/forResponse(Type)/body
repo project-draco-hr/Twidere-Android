@@ -30,7 +30,13 @@ catch (  ExecutionException e) {
     }
   }
 catch (  TimeoutException e) {
-    throw new RuntimeException(e);
+    if (BuildConfig.DEBUG) {
+      throw new RuntimeException(e);
+    }
+ else {
+      BugReporter.logException(e);
+      throw new RestConverter.ConvertException(e);
+    }
   }
   return new JsonConverter(mapper);
 }
