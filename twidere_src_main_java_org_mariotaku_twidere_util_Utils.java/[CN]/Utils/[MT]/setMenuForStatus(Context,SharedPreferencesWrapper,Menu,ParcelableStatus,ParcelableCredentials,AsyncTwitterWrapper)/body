@@ -25,31 +25,41 @@
   }
   final MenuItem favorite=menu.findItem(R.id.favorite);
   if (favorite != null) {
-    final boolean is_favorite;
+    final boolean isFavorite;
     if (twitter.isCreatingFavorite(status.account_id,status.id)) {
-      is_favorite=true;
+      isFavorite=true;
     }
  else     if (twitter.isDestroyingFavorite(status.account_id,status.id)) {
-      is_favorite=false;
+      isFavorite=false;
     }
  else {
-      is_favorite=status.is_favorite;
+      isFavorite=status.is_favorite;
     }
-    if (preferences.getBoolean(KEY_I_WANT_MY_STARS_BACK)) {
-      final Drawable oldIcon=favorite.getIcon();
-      if (oldIcon instanceof ActionIconDrawable) {
-        final Drawable starIcon=ContextCompat.getDrawable(context,R.drawable.ic_action_star);
-        favorite.setIcon(new ActionIconDrawable(starIcon,((ActionIconDrawable)oldIcon).getDefaultColor()));
+    ActionProvider provider=MenuItemCompat.getActionProvider(favorite);
+    final boolean useStar=preferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
+    if (provider instanceof FavoriteItemProvider) {
+    }
+ else {
+      if (useStar) {
+        final Drawable oldIcon=favorite.getIcon();
+        if (oldIcon instanceof ActionIconDrawable) {
+          final Drawable starIcon=ContextCompat.getDrawable(context,R.drawable.ic_action_star);
+          favorite.setIcon(new ActionIconDrawable(starIcon,((ActionIconDrawable)oldIcon).getDefaultColor()));
+        }
+ else {
+          favorite.setIcon(R.drawable.ic_action_star);
+        }
+        ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(isFavorite,favoriteHighlight));
       }
  else {
-        favorite.setIcon(R.drawable.ic_action_star);
+        ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(isFavorite,likeHighlight));
       }
-      ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(is_favorite,favoriteHighlight));
-      favorite.setTitle(is_favorite ? R.string.unfavorite : R.string.favorite);
+    }
+    if (useStar) {
+      favorite.setTitle(isFavorite ? R.string.unfavorite : R.string.favorite);
     }
  else {
-      ActionIconDrawable.setMenuHighlight(favorite,new TwidereMenuInfo(is_favorite,likeHighlight));
-      favorite.setTitle(is_favorite ? R.string.undo_like : R.string.like);
+      favorite.setTitle(isFavorite ? R.string.undo_like : R.string.like);
     }
   }
   final MenuItem translate=menu.findItem(R.id.translate);

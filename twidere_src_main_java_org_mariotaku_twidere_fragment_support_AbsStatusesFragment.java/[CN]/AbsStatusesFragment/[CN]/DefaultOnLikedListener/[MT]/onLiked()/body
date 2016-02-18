@@ -1,0 +1,5 @@
+{
+  if (mStatus.is_favorite)   return false;
+  mTwitter.createFavoriteAsync(mStatus.account_id,mStatus.id);
+  return true;
+}

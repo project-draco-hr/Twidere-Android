@@ -1,0 +1,3 @@
+{
+  return (Integer)evaluator.evaluate(progress,0xFFFF9C00,0xFFFFB024);
+}

@@ -1,6 +1,7 @@
 {
-  final int itemBackgroundColor=ThemeUtils.getThemeBackgroundColor(view.getContext());
-  final int popupItemBackgroundColor=ThemeUtils.getThemeBackgroundColor(view.getContext(),view.getPopupTheme());
+  final Context context=view.getContext();
+  final int itemBackgroundColor=ThemeUtils.getThemeBackgroundColor(context);
+  final int popupItemBackgroundColor=ThemeUtils.getThemeBackgroundColor(context,view.getPopupTheme());
   final int itemColor=TwidereColorUtils.getContrastYIQ(itemBackgroundColor,colorDark,colorLight);
   final int popupItemColor=TwidereColorUtils.getContrastYIQ(popupItemBackgroundColor,colorDark,colorLight);
   final Menu menu=view.getMenu();

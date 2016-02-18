@@ -1,0 +1,3 @@
+{
+  getIconLayer().setColorFilter(colorFilter);
+}

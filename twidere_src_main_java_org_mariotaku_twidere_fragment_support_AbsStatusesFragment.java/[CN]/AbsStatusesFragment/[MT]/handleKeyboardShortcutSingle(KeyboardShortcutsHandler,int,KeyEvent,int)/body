@@ -43,7 +43,8 @@ case ACTION_STATUS_FAVORITE:
       twitter.destroyFavoriteAsync(status.account_id,status.id);
     }
  else {
-      twitter.createFavoriteAsync(status.account_id,status.id);
+      final IStatusViewHolder holder=(IStatusViewHolder)recyclerView.findViewHolderForLayoutPosition(position);
+      holder.playLikeAnimation(new DefaultOnLikedListener(twitter,status));
     }
     return true;
   }

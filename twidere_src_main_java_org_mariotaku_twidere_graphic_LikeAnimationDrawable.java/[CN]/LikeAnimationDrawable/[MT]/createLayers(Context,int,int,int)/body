@@ -1,0 +1,27 @@
+{
+  final IconLayer iconDrawable=new IconLayer(ContextCompat.getDrawable(context,likeIcon));
+  iconDrawable.setColorFilter(defaultColor,PorterDuff.Mode.SRC_ATOP);
+  final AbsLayer particleLayer;
+  final Palette palette;
+switch (style) {
+case Style.FAVORITE:
+{
+      palette=new FavoritePalette();
+      particleLayer=new ShineLayer(iconDrawable.getIntrinsicWidth(),iconDrawable.getIntrinsicHeight(),palette);
+      break;
+    }
+case Style.LIKE:
+{
+    palette=new LikePalette();
+    particleLayer=new ParticleLayer(iconDrawable.getIntrinsicWidth(),iconDrawable.getIntrinsicHeight(),palette);
+    break;
+  }
+default :
+{
+  throw new IllegalArgumentException();
+}
+}
+particleLayer.setProgress(-1);
+final Drawable circleLayer=new CircleLayer(iconDrawable.getIntrinsicWidth(),iconDrawable.getIntrinsicHeight(),palette);
+return new Drawable[]{circleLayer,particleLayer,iconDrawable};
+}

@@ -1,0 +1,5 @@
+{
+  calcPhase2(startEnd,0.5f);
+  final float length=(startEnd[1] - startEnd[0]) * (1 - (progress - 0.5f) * 4);
+  startEnd[0]=startEnd[1] - length;
+}

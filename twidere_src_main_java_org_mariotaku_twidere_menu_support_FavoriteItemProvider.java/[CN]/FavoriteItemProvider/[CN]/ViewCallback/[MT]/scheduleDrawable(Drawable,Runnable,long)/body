@@ -1,0 +1,5 @@
+{
+  final View view=mViewRef.get();
+  if (view == null)   return;
+  view.postDelayed(what,when);
+}

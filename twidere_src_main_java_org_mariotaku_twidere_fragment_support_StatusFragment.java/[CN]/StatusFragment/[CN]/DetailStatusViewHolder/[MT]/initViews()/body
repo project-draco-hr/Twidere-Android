@@ -3,7 +3,22 @@
   final StatusFragment fragment=adapter.getFragment();
   final FragmentActivity activity=fragment.getActivity();
   final MenuInflater inflater=activity.getMenuInflater();
-  inflater.inflate(R.menu.menu_detail_status,menuBar.getMenu());
+  final Menu menu=menuBar.getMenu();
+  inflater.inflate(R.menu.menu_detail_status,menu);
+  final MenuItem favoriteItem=menu.findItem(R.id.favorite);
+  final ActionProvider provider=MenuItemCompat.getActionProvider(favoriteItem);
+  if (provider instanceof FavoriteItemProvider) {
+    final int defaultColor=ThemeUtils.getActionIconColor(activity);
+    final FavoriteItemProvider itemProvider=(FavoriteItemProvider)provider;
+    itemProvider.setDefaultColor(defaultColor);
+    final int favoriteHighlight=ContextCompat.getColor(activity,R.color.highlight_favorite);
+    final int likeHighlight=ContextCompat.getColor(activity,R.color.highlight_like);
+    final boolean useStar=adapter.shouldUseStarsForLikes();
+    itemProvider.setActivatedColor(useStar ? favoriteHighlight : likeHighlight);
+    itemProvider.setIcon(useStar ? R.drawable.ic_action_star : R.drawable.ic_action_heart);
+    itemProvider.setUseStar(useStar);
+    itemProvider.init(menuBar,favoriteItem);
+  }
   ThemeUtils.wrapMenuIcon(menuBar,MENU_GROUP_STATUS_SHARE);
   mediaPreviewLoad.setOnClickListener(this);
   profileContainer.setOnClickListener(this);

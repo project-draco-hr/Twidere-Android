@@ -1,6 +1,6 @@
 {
-  final Resources resources=view.getResources();
-  final int colorDark=resources.getColor(R.color.action_icon_dark);
-  final int colorLight=resources.getColor(R.color.action_icon_light);
+  final Context context=view.getContext();
+  final int colorDark=ContextCompat.getColor(context,R.color.action_icon_dark);
+  final int colorLight=ContextCompat.getColor(context,R.color.action_icon_light);
   wrapMenuIcon(view,colorDark,colorLight,excludeGroups);
 }

@@ -1,0 +1,4 @@
+Context context
+int likeIcon
+int defaultColor
+int style

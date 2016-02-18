@@ -1,0 +1,4 @@
+{
+  startEnd[0]=mFullRadius / 3;
+  startEnd[1]=startEnd[0] + (mFullRadius / 4 * progress * 4);
+}

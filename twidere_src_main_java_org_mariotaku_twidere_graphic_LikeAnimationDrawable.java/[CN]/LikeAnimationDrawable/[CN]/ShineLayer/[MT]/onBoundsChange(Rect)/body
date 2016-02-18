@@ -1,0 +1,5 @@
+{
+  super.onBoundsChange(bounds);
+  mFullRadius=Math.min(bounds.width(),bounds.height()) / 2;
+  mLineWidth=mFullRadius / 10f;
+}

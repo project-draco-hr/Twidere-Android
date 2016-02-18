@@ -1,0 +1,4 @@
+{
+  super(intrinsicWidth,intrinsicHeight,palette);
+  mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+}

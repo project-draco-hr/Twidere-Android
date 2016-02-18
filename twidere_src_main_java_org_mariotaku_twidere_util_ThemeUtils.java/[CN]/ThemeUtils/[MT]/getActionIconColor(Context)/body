@@ -1,0 +1,6 @@
+{
+  final int colorDark=ContextCompat.getColor(context,R.color.action_icon_dark);
+  final int colorLight=ContextCompat.getColor(context,R.color.action_icon_light);
+  final int itemBackgroundColor=ThemeUtils.getThemeBackgroundColor(context);
+  return TwidereColorUtils.getContrastYIQ(itemBackgroundColor,colorDark,colorLight);
+}

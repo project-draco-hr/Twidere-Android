@@ -8,11 +8,11 @@
   final LinearLayoutManager layoutManager=getLayoutManager();
   if (recyclerView == null || layoutManager == null)   return false;
   final View focusedChild=RecyclerViewUtils.findRecyclerViewChild(recyclerView,layoutManager.getFocusedChild());
-  int position=-1;
+  int position=RecyclerView.NO_POSITION;
   if (focusedChild != null && focusedChild.getParent() == recyclerView) {
     position=recyclerView.getChildLayoutPosition(focusedChild);
   }
-  if (position != -1) {
+  if (position != RecyclerView.NO_POSITION) {
     final ParcelableActivity activity=getAdapter().getActivity(position);
     if (activity == null)     return false;
     if (keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -45,7 +45,8 @@ case ACTION_STATUS_FAVORITE:
       twitter.destroyFavoriteAsync(activity.account_id,status.id);
     }
  else {
-      twitter.createFavoriteAsync(activity.account_id,status.id);
+      final IStatusViewHolder holder=(IStatusViewHolder)recyclerView.findViewHolderForLayoutPosition(position);
+      holder.playLikeAnimation(new DefaultOnLikedListener(twitter,status));
     }
     return true;
   }

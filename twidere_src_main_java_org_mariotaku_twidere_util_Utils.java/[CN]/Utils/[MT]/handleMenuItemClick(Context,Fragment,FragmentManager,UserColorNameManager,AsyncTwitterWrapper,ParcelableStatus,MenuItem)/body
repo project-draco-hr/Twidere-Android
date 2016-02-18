@@ -37,7 +37,13 @@ if (status.is_favorite) {
 twitter.destroyFavoriteAsync(status.account_id,status.id);
 }
  else {
-twitter.createFavoriteAsync(status.account_id,status.id);
+ActionProvider provider=MenuItemCompat.getActionProvider(item);
+if (provider instanceof FavoriteItemProvider) {
+  ((FavoriteItemProvider)provider).invokeItem(item,new DefaultOnLikedListener(twitter,status));
+}
+ else {
+  twitter.createFavoriteAsync(status.account_id,status.id);
+}
 }
 break;
 }

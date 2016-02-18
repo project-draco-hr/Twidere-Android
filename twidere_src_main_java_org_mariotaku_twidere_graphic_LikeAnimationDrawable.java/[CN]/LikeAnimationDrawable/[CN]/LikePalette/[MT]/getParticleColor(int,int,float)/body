@@ -1,0 +1,7 @@
+{
+  final double degree=360.0 / count * index;
+  hsv[0]=(float)degree;
+  hsv[1]=0.4f;
+  hsv[2]=1f;
+  return Color.HSVToColor(hsv);
+}

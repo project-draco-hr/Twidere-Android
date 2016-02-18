@@ -6,9 +6,18 @@
   final boolean nameFirst=adapter.isNameFirst();
   nameView.setNameFirst(nameFirst);
   quotedNameView.setNameFirst(nameFirst);
+  final int likeIcon, likeStyle;
   if (adapter.shouldUseStarsForLikes()) {
     favoriteCountView.setActivatedColor(ContextCompat.getColor(adapter.getContext(),R.color.highlight_favorite));
-    TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(favoriteCountView,R.drawable.ic_action_star,0,0,0);
+    likeIcon=R.drawable.ic_action_star;
+    likeStyle=LikeAnimationDrawable.Style.FAVORITE;
   }
+ else {
+    likeIcon=R.drawable.ic_action_heart;
+    likeStyle=LikeAnimationDrawable.Style.LIKE;
+  }
+  final LikeAnimationDrawable drawable=new LikeAnimationDrawable(adapter.getContext(),likeIcon,favoriteCountView.getColor(),favoriteCountView.getActivatedColor(),likeStyle);
+  TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(favoriteCountView,drawable,null,null,null);
+  drawable.setCallback(favoriteCountView);
   timeView.setShowAbsoluteTime(adapter.isShowAbsoluteTime());
 }

@@ -1,7 +1,7 @@
 {
   if (ArrayUtils.contains(excludeGroups,item.getGroupId()))   return;
   final Drawable icon=item.getIcon();
-  if (icon == null)   return;
+  if (icon == null || icon instanceof DoNotWrapDrawable)   return;
   if (icon instanceof ActionIconDrawable) {
     ((ActionIconDrawable)icon).setDefaultColor(itemColor);
     item.setIcon(icon);

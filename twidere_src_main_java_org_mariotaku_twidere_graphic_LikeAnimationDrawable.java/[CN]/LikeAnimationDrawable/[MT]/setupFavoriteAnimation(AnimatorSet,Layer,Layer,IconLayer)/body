@@ -1,0 +1,3 @@
+{
+  setupLikeAnimation(animatorSet,particleLayer,circleLayer,iconLayer);
+}

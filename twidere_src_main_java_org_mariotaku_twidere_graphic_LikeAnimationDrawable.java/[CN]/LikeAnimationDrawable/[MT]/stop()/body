@@ -1,0 +1,4 @@
+{
+  if (mCurrentAnimator == null)   return;
+  mCurrentAnimator.cancel();
+}

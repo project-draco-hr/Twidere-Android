@@ -1,0 +1,6 @@
+{
+  super(createLayers(context,likeIcon,defaultColor,style));
+  mDefaultColor=defaultColor;
+  mLikeColor=likeColor;
+  mStyle=style;
+}

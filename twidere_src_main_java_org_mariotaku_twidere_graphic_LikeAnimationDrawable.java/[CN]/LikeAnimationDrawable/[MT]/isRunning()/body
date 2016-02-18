@@ -1,0 +1,3 @@
+{
+  return mCurrentAnimator != null && mCurrentAnimator.isRunning();
+}

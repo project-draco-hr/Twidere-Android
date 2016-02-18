@@ -1,0 +1,7 @@
+{
+  if (!mMutated && super.mutate() == this) {
+    mDrawable.mutate();
+    mMutated=true;
+  }
+  return this;
+}

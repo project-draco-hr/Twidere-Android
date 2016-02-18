@@ -24,7 +24,7 @@ case R.id.favorite_count:
     twitter.destroyFavoriteAsync(status.account_id,status.id);
   }
  else {
-    twitter.createFavoriteAsync(status.account_id,status.id);
+    holder.playLikeAnimation(new DefaultOnLikedListener(twitter,status));
   }
   break;
 }
