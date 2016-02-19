@@ -2,6 +2,7 @@
   super.onCreate(savedInstanceState);
   GeneralComponentHelper.build(this).inject(this);
   mLocationManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
   setContentView(R.layout.activity_compose);
   setFinishOnTouchOutside(false);
   final ParcelableCredentials[] accounts=DataStoreUtils.getCredentialsArray(this,false,false);
