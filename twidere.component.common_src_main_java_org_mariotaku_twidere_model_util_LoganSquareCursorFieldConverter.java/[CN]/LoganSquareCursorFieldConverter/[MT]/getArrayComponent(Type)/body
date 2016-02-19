@@ -1,0 +1,11 @@
+{
+  if (type instanceof Class) {
+    if (((Class)type).isArray()) {
+      return ((Class)type).getComponentType();
+    }
+  }
+ else   if (type instanceof ParameterizedType) {
+    return getArrayComponent(((ParameterizedType)type).getRawType());
+  }
+  throw new UnsupportedOperationException();
+}

@@ -1,0 +1,26 @@
+{
+  final Future<JsonMapper<T>> future=pool.submit(new Callable<JsonMapper<T>>(){
+    @Override public JsonMapper<T> call(){
+      return LoganSquare.mapperFor(type);
+    }
+  }
+);
+  final JsonMapper<T> mapper;
+  try {
+    mapper=future.get(1,TimeUnit.SECONDS);
+  }
+ catch (  InterruptedException e) {
+    throw new RuntimeException(e);
+  }
+catch (  ExecutionException e) {
+    throw new RuntimeException(e);
+  }
+catch (  TimeoutException e) {
+    if (BuildConfig.DEBUG) {
+      throw new RuntimeException(e);
+    }
+    BugReporter.logException(e);
+    throw new ClassLoaderDeadLockException(e);
+  }
+  return mapper;
+}

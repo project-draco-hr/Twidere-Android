@@ -6,11 +6,7 @@
   values.put(Drafts.TIMESTAMP,System.currentTimeMillis());
   if (imageUri != null) {
     final ParcelableMediaUpdate[] mediaArray={new ParcelableMediaUpdate(imageUri,0)};
-    try {
-      values.put(Drafts.MEDIA,LoganSquare.serialize(Arrays.asList(mediaArray),ParcelableMediaUpdate.class));
-    }
- catch (    IOException ignored) {
-    }
+    values.put(Drafts.MEDIA,JsonSerializer.serialize(Arrays.asList(mediaArray),ParcelableMediaUpdate.class));
   }
   final JSONObject extras=new JSONObject();
   try {

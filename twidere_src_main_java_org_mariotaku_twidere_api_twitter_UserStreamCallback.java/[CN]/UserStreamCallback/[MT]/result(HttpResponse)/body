@@ -22,12 +22,12 @@ case SENDER:
         }
 case STATUS:
 {
-        onStatus(LoganSquare.mapperFor(Status.class).parse(rootNode.traverse()));
+        onStatus(LoganSquareMapperFinder.mapperFor(Status.class).parse(rootNode.traverse()));
         break;
       }
 case DIRECT_MESSAGE:
 {
-      onDirectMessage(LoganSquare.mapperFor(DirectMessage.class).parse(rootNode.traverse()));
+      onDirectMessage(LoganSquareMapperFinder.mapperFor(DirectMessage.class).parse(rootNode.traverse()));
       break;
     }
 case DELETE:

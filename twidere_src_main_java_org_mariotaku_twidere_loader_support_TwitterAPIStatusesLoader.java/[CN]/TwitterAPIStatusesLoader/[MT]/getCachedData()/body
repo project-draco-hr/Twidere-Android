@@ -3,10 +3,5 @@
   if (key == null)   return null;
   final File file=mFileCache.get(key);
   if (file == null)   return null;
-  try {
-    return JsonSerializer.parseList(file,ParcelableStatus.class);
-  }
- catch (  final IOException e) {
-  }
-  return null;
+  return JsonSerializer.parseList(file,ParcelableStatus.class);
 }

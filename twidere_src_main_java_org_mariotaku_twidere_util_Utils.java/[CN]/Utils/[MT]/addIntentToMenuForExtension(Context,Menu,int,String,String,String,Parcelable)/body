@@ -1,5 +1,5 @@
 {
-  if (context == null || menu == null || action == null || parelableKey == null || parcelable == null)   return;
+  if (context == null || menu == null || action == null || parcelableKey == null || parcelable == null)   return;
   final PackageManager pm=context.getPackageManager();
   final Resources res=context.getResources();
   final float density=res.getDisplayMetrics().density;
@@ -7,19 +7,14 @@
   final Intent queryIntent=new Intent(action);
   queryIntent.setExtrasClassLoader(context.getClassLoader());
   final List<ResolveInfo> activities=pm.queryIntentActivities(queryIntent,PackageManager.GET_META_DATA);
-  String parcelableJson=null;
-  try {
-    parcelableJson=LoganSquare.serialize(parcelable);
-  }
- catch (  IOException ignored) {
-  }
+  final String parcelableJson=JsonSerializer.serialize(parcelable);
   for (  final ResolveInfo info : activities) {
     final Intent intent=new Intent(queryIntent);
     if (isExtensionUseJSON(info) && parcelableJson != null) {
-      intent.putExtra(parelableJSONKey,parcelableJson);
+      intent.putExtra(parcelableJSONKey,parcelableJson);
     }
  else {
-      intent.putExtra(parelableKey,parcelable);
+      intent.putExtra(parcelableKey,parcelable);
     }
     intent.setClassName(info.activityInfo.packageName,info.activityInfo.name);
     final MenuItem item=menu.add(groupId,Menu.NONE,Menu.NONE,info.loadLabel(pm));

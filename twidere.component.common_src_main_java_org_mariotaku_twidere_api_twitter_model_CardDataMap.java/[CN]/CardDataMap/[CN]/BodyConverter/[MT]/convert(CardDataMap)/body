@@ -1,0 +1,11 @@
+{
+  final StringWriter sw=new StringWriter();
+  final JsonGenerator generator=LoganSquare.JSON_FACTORY.createGenerator(sw);
+  generator.writeStartObject();
+  for (  Map.Entry<String,String> entry : obj.map.entrySet()) {
+    generator.writeStringField(entry.getKey(),entry.getValue());
+  }
+  generator.writeEndObject();
+  generator.flush();
+  return new StringBody(sw.toString(),Charset.defaultCharset());
+}

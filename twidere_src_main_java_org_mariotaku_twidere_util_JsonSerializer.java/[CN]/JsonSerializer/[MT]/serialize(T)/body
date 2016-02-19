@@ -1,4 +1,10 @@
 {
-  if (obj == null)   return null;
-  return serialize(obj,(Class<T>)obj.getClass());
+  if (object == null)   return null;
+  try {
+    final JsonMapper<T> mapper=(JsonMapper<T>)LoganSquareMapperFinder.mapperFor(object.getClass());
+    return mapper.serialize(object);
+  }
+ catch (  IOException e) {
+    return null;
+  }
 }

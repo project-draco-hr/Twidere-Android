@@ -1,9 +1,13 @@
 {
-  final FileInputStream is=new FileInputStream(file);
+  FileInputStream is=null;
   try {
-    return LoganSquare.parseList(is,jsonObjectClass);
+    is=new FileInputStream(file);
+    return LoganSquareMapperFinder.mapperFor(cls).parseList(is);
   }
-  finally {
-    is.close();
+ catch (  IOException e) {
+    return null;
+  }
+ finally {
+    Utils.closeSilently(is);
   }
 }

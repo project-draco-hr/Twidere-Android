@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  Model model=(Model)o;
+  return !(field != null ? !field.equals(model.field) : model.field != null);
+}

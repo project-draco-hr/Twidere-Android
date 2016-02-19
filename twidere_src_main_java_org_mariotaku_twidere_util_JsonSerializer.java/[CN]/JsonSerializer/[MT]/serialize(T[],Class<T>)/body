@@ -1,0 +1,9 @@
+{
+  if (array == null)   return null;
+  try {
+    return LoganSquareMapperFinder.mapperFor(cls).serialize(Arrays.asList(array));
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

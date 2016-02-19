@@ -3,40 +3,12 @@
   if (converter != null) {
     return converter;
   }
-  final ParameterizedType<?> parameterizedType=ParameterizedTypeAccessor.create(type);
-  final Future<JsonMapper<?>> future=pool.submit(new Callable<JsonMapper<?>>(){
-    @Override public JsonMapper<?> call(){
-      return LoganSquare.mapperFor(parameterizedType);
-    }
-  }
-);
   final JsonMapper<?> mapper;
   try {
-    mapper=future.get(1,TimeUnit.SECONDS);
+    mapper=LoganSquareMapperFinder.mapperFor(type);
   }
- catch (  InterruptedException e) {
-    throw new RuntimeException(e);
-  }
-catch (  ExecutionException e) {
-    final Throwable cause=e.getCause();
-    if (cause instanceof RuntimeException) {
-      throw ((RuntimeException)cause);
-    }
- else     if (cause instanceof Error) {
-      throw ((Error)cause);
-    }
- else {
-      throw new RuntimeException(e);
-    }
-  }
-catch (  TimeoutException e) {
-    if (BuildConfig.DEBUG) {
-      throw new RuntimeException(e);
-    }
- else {
-      BugReporter.logException(e);
-      throw new RestConverter.ConvertException(e);
-    }
+ catch (  LoganSquareMapperFinder.ClassLoaderDeadLockException e) {
+    throw new RestConverter.ConvertException(e);
   }
   return new JsonConverter(mapper);
 }

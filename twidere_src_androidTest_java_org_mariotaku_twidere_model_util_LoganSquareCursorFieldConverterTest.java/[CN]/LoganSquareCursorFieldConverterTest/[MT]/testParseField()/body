@@ -1,0 +1,10 @@
+{
+  final String[] columns={"json_object","json_array","json_list","json_map"};
+  MatrixCursor cursor=new MatrixCursor(columns);
+  cursor.addRow(new String[]{JsonSerializer.serialize(jsonObject,Model.class),JsonSerializer.serialize(jsonArray,Model.class),JsonSerializer.serialize(jsonList,Model.class),JsonSerializer.serialize(jsonMap,Model.class)});
+  cursor.moveToFirst();
+  assertEquals(jsonObject,converter.parseField(cursor,0,TypeUtils.parameterize(Model.class)));
+  assertArrayEquals(jsonArray,(Model[])converter.parseField(cursor,1,TypeUtils.parameterize(Model[].class)));
+  assertEquals((Object)jsonList,converter.parseField(cursor,2,TypeUtils.parameterize(List.class,Model.class)));
+  assertEquals((Object)jsonMap,converter.parseField(cursor,3,TypeUtils.parameterize(Map.class,String.class,Model.class)));
+}

@@ -1,0 +1,11 @@
+{
+  final ContentValues contentValues=new ContentValues();
+  converter.writeField(contentValues,jsonObject,"json_object",TypeUtils.parameterize(Model.class));
+  converter.writeField(contentValues,jsonArray,"json_array",TypeUtils.parameterize(Model[].class));
+  converter.writeField(contentValues,jsonList,"json_list",TypeUtils.parameterize(List.class,Model.class));
+  converter.writeField(contentValues,jsonMap,"json_map",TypeUtils.parameterize(Map.class,String.class,Model.class));
+  assertEquals(JsonSerializer.serialize(jsonObject,Model.class),contentValues.getAsString("json_object"));
+  assertEquals(JsonSerializer.serialize(jsonArray,Model.class),contentValues.getAsString("json_array"));
+  assertEquals(JsonSerializer.serialize(jsonList,Model.class),contentValues.getAsString("json_list"));
+  assertEquals(JsonSerializer.serialize(jsonMap,Model.class),contentValues.getAsString("json_map"));
+}

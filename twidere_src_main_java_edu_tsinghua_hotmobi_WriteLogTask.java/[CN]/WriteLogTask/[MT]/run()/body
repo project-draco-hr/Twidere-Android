@@ -19,7 +19,9 @@
           Log.v(HotMobiLogger.LOGTAG,"Log " + type + ": "+ event);
         }
       }
-      final byte[] bytes=LoganSquare.serialize(event).getBytes("UTF-8");
+      final String serialize=JsonSerializer.serialize(event);
+      if (TextUtils.isEmpty(serialize))       continue;
+      final byte[] bytes=serialize.getBytes("UTF-8");
       final long start=raf.length();
       final ByteBuffer bb;
       if (start == 0) {

@@ -6,19 +6,26 @@
     final List<ParcelableStatus> statuses=data.subList(0,Math.min(databaseItemLimit,data.size()));
     final PipedOutputStream pos=new PipedOutputStream();
     final PipedInputStream pis=new PipedInputStream(pos);
-    new Thread(new Runnable(){
-      @Override public void run(){
-        try {
-          LoganSquare.mapperFor(ParcelableStatus.class).serialize(statuses,pos);
-        }
- catch (        IOException e) {
-          e.printStackTrace();
-        }
+    final Future<Object> future=pool.submit(new Callable<Object>(){
+      @Override public Object call() throws Exception {
+        LoganSquareMapperFinder.mapperFor(ParcelableStatus.class).serialize(statuses,pos);
+        return null;
       }
     }
-).start();
-    mFileCache.save(key,pis,null);
+);
+    final boolean saved=mFileCache.save(key,pis,new IoUtils.CopyListener(){
+      @Override public boolean onBytesCopied(      int current,      int total){
+        return !future.isDone();
+      }
+    }
+);
+    if (BuildConfig.DEBUG) {
+      Log.v(LOGTAG,key + " saved: " + saved);
+    }
   }
- catch (  final IOException e) {
+ catch (  final Exception e) {
+    if (BuildConfig.DEBUG && !(e instanceof IOException)) {
+      Log.w(LOGTAG,e);
+    }
   }
 }

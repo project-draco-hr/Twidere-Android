@@ -2,6 +2,6 @@ Context context
 Menu menu
 int groupId
 String action
-String parelableKey
-String parelableJSONKey
+String parcelableKey
+String parcelableJSONKey
 Parcelable parcelable

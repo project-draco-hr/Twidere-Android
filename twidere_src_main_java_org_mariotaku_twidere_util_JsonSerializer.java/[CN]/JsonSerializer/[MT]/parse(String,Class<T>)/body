@@ -1,7 +1,7 @@
 {
   if (string == null)   return null;
   try {
-    return LoganSquare.mapperFor(cls).parse(string);
+    return LoganSquareMapperFinder.mapperFor(cls).parse(string);
   }
  catch (  IOException e) {
     return null;

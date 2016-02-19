@@ -1,8 +1,3 @@
 {
-  try {
-    return LoganSquare.serialize(map);
-  }
- catch (  IOException e) {
-    throw new AssertionError(e);
-  }
+  return "CardDataMap{" + "map=" + map + '}';
 }
