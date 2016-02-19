@@ -11,7 +11,6 @@
       notificationDefaults&=~NotificationCompat.DEFAULT_VIBRATE;
     }
     if (AccountPreferences.isNotificationHasRingtone(defaultFlags)) {
-      notificationDefaults|=NotificationCompat.DEFAULT_SOUND;
       builder.setSound(pref.getNotificationRingtone(),AudioManager.STREAM_NOTIFICATION);
     }
   }

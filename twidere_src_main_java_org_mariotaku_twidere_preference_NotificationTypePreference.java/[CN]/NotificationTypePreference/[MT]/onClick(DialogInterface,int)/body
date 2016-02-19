@@ -12,4 +12,5 @@
     }
   }
   persistInt(value);
+  notifyChanged();
 }

@@ -1,0 +1,14 @@
+{
+  final StringBuilder sb=new StringBuilder();
+  String[] entries=getEntries();
+  boolean[] states=getCheckedItems(getPersistedInt(mDefaultValue));
+  for (int i=0, j=entries.length; i < j; i++) {
+    if (states[i]) {
+      if (sb.length() != 0) {
+        sb.append(", ");
+      }
+      sb.append(entries[i]);
+    }
+  }
+  return sb;
+}
