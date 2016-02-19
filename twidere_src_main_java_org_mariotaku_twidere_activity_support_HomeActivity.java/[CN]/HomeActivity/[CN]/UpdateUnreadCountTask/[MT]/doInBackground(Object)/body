@@ -1,6 +1,7 @@
 {
   final SparseIntArray result=new SparseIntArray();
-  for (  SupportTabSpec spec : mTabs) {
+  for (int i=0, count=mTabs.size(); i < count; i++) {
+    SupportTabSpec spec=mTabs.get(i);
     if (spec.type == null)     continue;
 switch (spec.type) {
 case CustomTabType.HOME_TIMELINE:
@@ -8,7 +9,7 @@ case CustomTabType.HOME_TIMELINE:
         final long[] accountIds=Utils.getAccountIds(spec.args);
         final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(mContext,true,spec.tag,accountIds);
         final long position=mReadStateManager.getPosition(tagWithAccounts);
-        result.put(spec.position,DataStoreUtils.getStatusesCount(mContext,Statuses.CONTENT_URI,position,accountIds));
+        result.put(i,DataStoreUtils.getStatusesCount(mContext,Statuses.CONTENT_URI,position,accountIds));
         break;
       }
 case CustomTabType.NOTIFICATIONS_TIMELINE:
@@ -25,7 +26,7 @@ case CustomTabType.NOTIFICATIONS_TIMELINE:
           extraWhereArgs=new String[]{Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE};
         }
       }
-      result.put(spec.position,DataStoreUtils.getActivitiesCount(mContext,Activities.AboutMe.CONTENT_URI,extraWhere,extraWhereArgs,position,accountIds));
+      result.put(i,DataStoreUtils.getActivitiesCount(mContext,Activities.AboutMe.CONTENT_URI,extraWhere,extraWhereArgs,position,accountIds));
       break;
     }
 case CustomTabType.DIRECT_MESSAGES:
