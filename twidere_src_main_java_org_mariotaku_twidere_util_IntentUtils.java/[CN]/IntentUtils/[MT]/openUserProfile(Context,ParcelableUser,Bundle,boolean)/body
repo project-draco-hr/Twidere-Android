@@ -1,7 +1,7 @@
 {
   if (context == null || user == null)   return;
   final Bundle extras=new Bundle();
-  extras.putParcelable(IntentConstants.EXTRA_USER,user);
+  extras.putParcelable(EXTRA_USER,user);
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(TwidereConstants.SCHEME_TWIDERE);
   builder.authority(TwidereConstants.AUTHORITY_USER);

@@ -1,0 +1,9 @@
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority("media");
+  builder.appendPath(type);
+  builder.appendPath(String.valueOf(id));
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountId));
+  return builder.build();
+}

@@ -1,16 +1,17 @@
 {
   if (context == null || media == null)   return;
-  final Intent intent=new Intent(IntentConstants.INTENT_ACTION_VIEW_MEDIA);
-  intent.putExtra(IntentConstants.EXTRA_ACCOUNT_ID,accountId);
-  intent.putExtra(IntentConstants.EXTRA_CURRENT_MEDIA,current);
-  intent.putExtra(IntentConstants.EXTRA_MEDIA,media);
+  final Intent intent=new Intent(context,MediaViewerActivity.class);
+  intent.putExtra(EXTRA_ACCOUNT_ID,accountId);
+  intent.putExtra(EXTRA_CURRENT_MEDIA,current);
+  intent.putExtra(EXTRA_MEDIA,media);
   if (status != null) {
-    intent.putExtra(IntentConstants.EXTRA_STATUS,status);
+    intent.putExtra(EXTRA_STATUS,status);
+    intent.setData(getMediaViewerUri("status",status.id,accountId));
   }
   if (message != null) {
-    intent.putExtra(IntentConstants.EXTRA_MESSAGE,message);
+    intent.putExtra(EXTRA_MESSAGE,message);
+    intent.setData(getMediaViewerUri("message",message.id,accountId));
   }
-  intent.setClass(context,MediaViewerActivity.class);
   if (newDocument && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
   }

@@ -6,18 +6,18 @@
     final FragmentManager fm=activity.getSupportFragmentManager();
     final DialogFragment fragment=new SensitiveContentWarningDialogFragment();
     final Bundle args=new Bundle();
-    args.putLong(IntentConstants.EXTRA_ACCOUNT_ID,accountId);
-    args.putParcelable(IntentConstants.EXTRA_CURRENT_MEDIA,current);
+    args.putLong(EXTRA_ACCOUNT_ID,accountId);
+    args.putParcelable(EXTRA_CURRENT_MEDIA,current);
     if (status != null) {
-      args.putParcelable(IntentConstants.EXTRA_STATUS,status);
+      args.putParcelable(EXTRA_STATUS,status);
     }
     if (message != null) {
-      args.putParcelable(IntentConstants.EXTRA_MESSAGE,message);
+      args.putParcelable(EXTRA_MESSAGE,message);
     }
-    args.putParcelableArray(IntentConstants.EXTRA_MEDIA,media);
-    args.putBundle(IntentConstants.EXTRA_ACTIVITY_OPTIONS,options);
-    args.putBundle(IntentConstants.EXTRA_ACTIVITY_OPTIONS,options);
-    args.putBoolean(IntentConstants.EXTRA_NEW_DOCUMENT,newDocument);
+    args.putParcelableArray(EXTRA_MEDIA,media);
+    args.putBundle(EXTRA_ACTIVITY_OPTIONS,options);
+    args.putBundle(EXTRA_ACTIVITY_OPTIONS,options);
+    args.putBoolean(EXTRA_NEW_DOCUMENT,newDocument);
     fragment.setArguments(args);
     fragment.show(fm,"sensitive_content_warning");
   }
