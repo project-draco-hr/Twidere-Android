@@ -1,5 +1,4 @@
 {
-  final ContentResolver resolver=context.getContentResolver();
   final PackageManager pm=context.getPackageManager();
   final String pname=context.getPackageName();
   final ApplicationInfo info;
@@ -7,27 +6,16 @@
     info=pm.getPackageInfo(pname,PackageManager.GET_META_DATA).applicationInfo;
   }
  catch (  final PackageManager.NameNotFoundException e) {
-    return false;
+    return Permission.NONE;
   }
-  if (info.metaData == null)   return false;
+  if (info.metaData == null)   return Permission.NONE;
   final String[] required=parsePermissions(info.metaData.getString(METADATA_KEY_EXTENSION_PERMISSIONS));
-  final Cursor c=resolver.query(TwidereDataStore.Permissions.CONTENT_URI,null,null,null,null);
-  if (c == null)   return false;
-  try {
-    c.moveToFirst();
-    final int idxPackageName=c.getColumnIndex(TwidereDataStore.Permissions.PACKAGE_NAME), idxPermissions=c.getColumnIndex(TwidereDataStore.Permissions.PERMISSION);
-    while (!c.isAfterLast()) {
-      if (pname.equals(c.getString(idxPackageName))) {
-        final String[] permissions=parsePermissions(c.getString(idxPermissions));
-        return TwidereArrayUtils.contains(permissions,required);
-      }
-      c.moveToNext();
-    }
+  final String[] permissions=getPermissions(context,pname);
+  if (ArrayUtils.contains(permissions,PERMISSION_DENIED)) {
+    return Permission.DENIED;
   }
- catch (  final SecurityException ignore) {
+ else   if (TwidereArrayUtils.contains(permissions,required)) {
+    return Permission.GRANTED;
   }
- finally {
-    c.close();
-  }
-  return false;
+  return Permission.NONE;
 }

@@ -1,15 +1,16 @@
 {
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
-  final ParcelableStatusUpdate.Builder builder=new ParcelableStatusUpdate.Builder();
-  builder.accounts(DataStoreUtils.getAccounts(this,mAccountsAdapter.getSelectedAccountIds()));
-  builder.text(text);
-  builder.inReplyToStatusId(mInReplyToStatusId);
-  builder.location(mRecentLocation);
-  builder.isPossiblySensitive(mIsPossiblySensitive);
-  if (hasMedia()) {
-    builder.media(getMedia());
+  final DraftItem draftItem=new DraftItem();
+  draftItem.account_ids=mAccountsAdapter.getSelectedAccountIds();
+  draftItem.text=text;
+  Bundle extras=new Bundle();
+  if (mInReplyToStatus != null) {
+    extras.putParcelable(EXTRA_IN_REPLY_TO_STATUS,mInReplyToStatus);
   }
-  final ContentValues values=ContentValuesCreator.createStatusDraft(builder.build());
+  extras.putBoolean(EXTRA_IS_POSSIBLY_SENSITIVE,mIsPossiblySensitive);
+  draftItem.media=getMedia();
+  draftItem.location=mRecentLocation;
+  final ContentValues values=DraftItemValuesCreator.create(draftItem);
   final Uri draftUri=getContentResolver().insert(Drafts.CONTENT_URI,values);
   displayNewDraftNotification(text,draftUri);
 }

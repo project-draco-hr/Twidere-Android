@@ -1,7 +1,0 @@
-{
-  this.id=id;
-  this.content=content;
-  this.link=link;
-  this.short_link=short_link;
-  this.user=user;
-}

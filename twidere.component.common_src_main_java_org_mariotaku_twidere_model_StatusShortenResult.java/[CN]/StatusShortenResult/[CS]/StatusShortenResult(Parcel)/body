@@ -1,5 +1,0 @@
-{
-  shortened=src.readString();
-  error_code=src.readInt();
-  error_message=src.readString();
-}

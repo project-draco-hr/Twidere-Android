@@ -1,4 +1,0 @@
-{
-  outState.putString(Intent.EXTRA_TEXT,mResult);
-  super.onSaveInstanceState(outState);
-}

@@ -1,4 +1,5 @@
 {
+  if (Binder.getCallingPid() == Process.myPid())   return;
 switch (id) {
 case TABLE_ID_ACCOUNTS:
 {

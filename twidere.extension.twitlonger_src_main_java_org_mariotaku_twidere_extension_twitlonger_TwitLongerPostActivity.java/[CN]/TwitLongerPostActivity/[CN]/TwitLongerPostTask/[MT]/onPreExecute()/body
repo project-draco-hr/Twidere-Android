@@ -1,5 +1,0 @@
-{
-  mProgress.setVisibility(View.VISIBLE);
-  mActionButton.setVisibility(View.GONE);
-  super.onPreExecute();
-}

@@ -1,0 +1,12 @@
+{
+  ParcelableCredentials credentials=Twidere.getCredentials(this,account.account_id);
+  if (credentials == null)   return null;
+switch (credentials.auth_type) {
+case ParcelableCredentials.AUTH_TYPE_OAUTH:
+case ParcelableCredentials.AUTH_TYPE_XAUTH:
+{
+      return credentials;
+    }
+}
+return null;
+}

@@ -1,12 +1,5 @@
 {
   super.onCreate();
   GeneralComponentHelper.build(this).inject(this);
-  final TwidereApplication app=TwidereApplication.getInstance(this);
   mHandler=new Handler();
-  final String uploaderComponent=mPreferences.getString(KEY_MEDIA_UPLOADER,null);
-  final String shortenerComponent=mPreferences.getString(KEY_STATUS_SHORTENER,null);
-  mUseUploader=!ServicePickerPreference.isNoneValue(uploaderComponent);
-  mUseShortener=!ServicePickerPreference.isNoneValue(shortenerComponent);
-  mUploader=mUseUploader ? MediaUploaderInterface.getInstance(app,uploaderComponent) : null;
-  mShortener=mUseShortener ? StatusShortenerInterface.getInstance(app,shortenerComponent) : null;
 }

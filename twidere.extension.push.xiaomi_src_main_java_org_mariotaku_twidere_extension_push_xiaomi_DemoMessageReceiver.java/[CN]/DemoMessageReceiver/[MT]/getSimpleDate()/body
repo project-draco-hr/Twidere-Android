@@ -1,3 +1,0 @@
-{
-  return new SimpleDateFormat("MM-dd hh:mm:ss").format(new Date());
-}

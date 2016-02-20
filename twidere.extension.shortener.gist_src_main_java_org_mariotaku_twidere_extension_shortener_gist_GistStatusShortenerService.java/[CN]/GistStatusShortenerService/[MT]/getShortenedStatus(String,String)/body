@@ -1,0 +1,5 @@
+{
+  final int codePointCount=content.codePointCount(0,content.length());
+  final int offset=content.offsetByCodePoints(0,Math.min(99,codePointCount));
+  return content.substring(0,offset) + " " + htmlUrl;
+}

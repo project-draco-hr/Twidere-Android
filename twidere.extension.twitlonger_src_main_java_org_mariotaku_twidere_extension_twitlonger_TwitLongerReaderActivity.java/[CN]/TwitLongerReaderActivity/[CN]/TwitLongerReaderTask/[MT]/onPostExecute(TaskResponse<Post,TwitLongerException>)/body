@@ -1,0 +1,11 @@
+{
+  mProgress.setVisibility(View.GONE);
+  mActionButton.setVisibility(View.VISIBLE);
+  if (result.hasError()) {
+    mActionButton.setImageResource(R.drawable.ic_menu_send);
+  }
+ else {
+    mActionButton.setImageResource(R.drawable.ic_menu_share);
+  }
+  super.onPostExecute(result);
+}

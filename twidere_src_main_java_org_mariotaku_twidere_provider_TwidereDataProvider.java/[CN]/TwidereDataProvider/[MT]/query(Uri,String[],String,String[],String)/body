@@ -11,10 +11,25 @@ case VIRTUAL_TABLE_ID_DATABASE_READY:
       }
 case VIRTUAL_TABLE_ID_PERMISSIONS:
 {
+      final Context context=getContext();
+      if (context == null)       return null;
       final MatrixCursor c=new MatrixCursor(Permissions.MATRIX_COLUMNS);
-      final Map<String,String> map=mPermissionsManager.getAll();
-      for (      final Map.Entry<String,String> item : map.entrySet()) {
-        c.addRow(new Object[]{item.getKey(),item.getValue()});
+      final PackageManager pm=context.getPackageManager();
+      if (Binder.getCallingUid() == Process.myUid()) {
+        final Map<String,String> map=mPermissionsManager.getAll();
+        for (        final Map.Entry<String,String> item : map.entrySet()) {
+          c.addRow(new Object[]{item.getKey(),item.getValue()});
+        }
+      }
+ else {
+        final Map<String,String> map=mPermissionsManager.getAll();
+        final String[] callingPackages=pm.getPackagesForUid(Binder.getCallingUid());
+        for (        final Map.Entry<String,String> item : map.entrySet()) {
+          final String key=item.getKey();
+          if (ArrayUtils.contains(callingPackages,key)) {
+            c.addRow(new Object[]{key,item.getValue()});
+          }
+        }
       }
       return c;
     }

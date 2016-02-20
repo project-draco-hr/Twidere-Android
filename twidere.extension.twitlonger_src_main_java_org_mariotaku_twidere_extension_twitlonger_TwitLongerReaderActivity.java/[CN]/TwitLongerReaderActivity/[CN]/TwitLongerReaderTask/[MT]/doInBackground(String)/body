@@ -1,0 +1,9 @@
+{
+  final TwitLonger tl=TwitLongerFactory.getInstance(TWITLONGER_API_KEY,null);
+  try {
+    return TaskResponse.getInstance(tl.getPost(args[0]));
+  }
+ catch (  final TwitLongerException e) {
+    return TaskResponse.getInstance(e);
+  }
+}

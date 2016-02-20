@@ -46,7 +46,6 @@
       addMedia(mediaList);
     }
     mInReplyToStatus=savedInstanceState.getParcelable(EXTRA_STATUS);
-    mInReplyToStatusId=savedInstanceState.getLong(EXTRA_STATUS_ID);
     mMentionUser=savedInstanceState.getParcelable(EXTRA_USER);
     mDraftItem=savedInstanceState.getParcelable(EXTRA_DRAFT);
     mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);

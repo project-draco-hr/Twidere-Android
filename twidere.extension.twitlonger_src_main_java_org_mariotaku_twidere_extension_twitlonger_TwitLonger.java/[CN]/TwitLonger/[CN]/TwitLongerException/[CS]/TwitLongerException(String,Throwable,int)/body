@@ -1,4 +1,0 @@
-{
-  super(detailMessage,throwable);
-  this.errorCode=errorCode;
-}

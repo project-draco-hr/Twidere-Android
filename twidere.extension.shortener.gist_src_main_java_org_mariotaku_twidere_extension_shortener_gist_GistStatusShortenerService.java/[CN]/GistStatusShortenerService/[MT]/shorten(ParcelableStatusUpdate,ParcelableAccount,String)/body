@@ -1,0 +1,17 @@
+{
+  final Github github=GithubFactory.getInstance(getApiKey());
+  final NewGist newGist=new NewGist();
+  newGist.setDescription("long tweet");
+  newGist.setIsPublic(false);
+  final String content=overrideStatusText != null ? overrideStatusText : status.text;
+  newGist.putFile("long_tweet.txt",new GistFile(content));
+  try {
+    Gist gist=github.createGist(newGist);
+    final StatusShortenResult shortened=StatusShortenResult.shortened(getShortenedStatus(content,gist.getHtmlUrl()));
+    shortened.extra=gist.getId();
+    return shortened;
+  }
+ catch (  GithubException e) {
+    return StatusShortenResult.error(-1,e.getMessage());
+  }
+}

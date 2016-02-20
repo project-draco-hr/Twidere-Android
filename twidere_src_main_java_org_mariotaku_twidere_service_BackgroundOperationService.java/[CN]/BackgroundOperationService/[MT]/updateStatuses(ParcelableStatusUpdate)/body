@@ -3,9 +3,15 @@
   startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
-    final ContentValues draftValues=ContentValuesCreator.createStatusDraft(item);
+    final DraftItem draftItem=new DraftItem();
+    draftItem.account_ids=ParcelableAccountUtils.getAccountIds(item.accounts);
+    draftItem.text=item.text;
+    draftItem.location=item.location;
+    draftItem.media=item.media;
+    draftItem.action_extras=new Bundle();
+    draftItem.action_extras.putParcelable(EXTRA_IN_REPLY_TO_STATUS,item.in_reply_to_status);
     final ContentResolver resolver=getContentResolver();
-    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,draftValues);
+    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,DraftItemValuesCreator.create(draftItem));
     final long def=-1;
     final long draftId=draftUri != null ? NumberUtils.toLong(draftUri.getLastPathSegment(),def) : -1;
     mTwitter.addSendingDraftId(draftId);

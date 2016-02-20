@@ -1,0 +1,4 @@
+{
+  SharedPreferences preferences=PreferenceManager.getDefaultSharedPreferences(this);
+  return preferences.getString("api_key",null);
+}

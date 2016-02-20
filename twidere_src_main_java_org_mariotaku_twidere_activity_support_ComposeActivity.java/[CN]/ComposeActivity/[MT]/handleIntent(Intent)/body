@@ -4,7 +4,6 @@
   mShouldSaveAccounts=false;
   mMentionUser=intent.getParcelableExtra(EXTRA_USER);
   mInReplyToStatus=intent.getParcelableExtra(EXTRA_STATUS);
-  mInReplyToStatusId=mInReplyToStatus != null ? mInReplyToStatus.id : -1;
   mReplyLabel.setVisibility(View.GONE);
   mReplyLabelDivider.setVisibility(View.GONE);
 switch (action) {
@@ -29,8 +28,8 @@ case INTENT_ACTION_REPLY_MULTIPLE:
 {
 final String[] screenNames=intent.getStringArrayExtra(EXTRA_SCREEN_NAMES);
 final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
-final long inReplyToUserId=intent.getLongExtra(EXTRA_IN_REPLY_TO_ID,-1);
-return handleReplyMultipleIntent(screenNames,accountId,inReplyToUserId);
+final ParcelableStatus inReplyToStatus=intent.getParcelableExtra(EXTRA_IN_REPLY_TO_STATUS);
+return handleReplyMultipleIntent(screenNames,accountId,inReplyToStatus);
 }
 case INTENT_ACTION_COMPOSE_TAKE_PHOTO:
 {

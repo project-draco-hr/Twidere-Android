@@ -1,0 +1,12 @@
+{
+  TwitLongerException exception;
+  if (throwable != null) {
+    exception=new TwitLongerException(throwable);
+  }
+ else {
+    exception=new TwitLongerException();
+  }
+  exception.setRequest(httpRequest);
+  exception.setResponse(httpResponse);
+  return exception;
+}

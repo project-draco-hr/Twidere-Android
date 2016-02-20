@@ -7,7 +7,8 @@
     final ContentResolver resolver=activity.getContentResolver();
     is=resolver.openInputStream(src);
     os=resolver.openOutputStream(dst);
-    Utils.copyStream(is,os);
+    if (is == null || os == null)     throw new FileNotFoundException();
+    RestFuUtils.copyStream(is,os);
     if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && mDeleteSrc) {
       final File file=new File(src.getPath());
       if (!file.delete()) {
@@ -16,7 +17,9 @@
     }
   }
  catch (  final IOException e) {
-    Log.w(LOGTAG,e);
+    if (BuildConfig.DEBUG) {
+      Log.w(LOGTAG,e);
+    }
     return false;
   }
  finally {

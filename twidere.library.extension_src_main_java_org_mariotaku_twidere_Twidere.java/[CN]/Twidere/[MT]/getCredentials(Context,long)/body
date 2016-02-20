@@ -1,0 +1,16 @@
+{
+  if (context == null || accountId < 0)   return null;
+  final String selection=Accounts.ACCOUNT_ID + " = ?";
+  final String[] selectionArgs={String.valueOf(accountId)};
+  Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,selection,selectionArgs,null);
+  if (cur == null)   return null;
+  try {
+    if (cur.moveToFirst()) {
+      return ParcelableCredentialsCursorIndices.fromCursor(cur);
+    }
+  }
+  finally {
+    cur.close();
+  }
+  return null;
+}

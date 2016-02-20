@@ -1,0 +1,7 @@
+{
+  final RestConverter<?,Body,GithubException> converter=sBodyConverters.get(type);
+  if (converter != null) {
+    return converter;
+  }
+  return super.forRequest(type);
+}

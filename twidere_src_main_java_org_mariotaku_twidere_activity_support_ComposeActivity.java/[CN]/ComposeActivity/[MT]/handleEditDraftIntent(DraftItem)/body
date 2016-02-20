@@ -7,7 +7,11 @@
   if (draft.media != null) {
     addMedia(Arrays.asList(draft.media));
   }
-  mIsPossiblySensitive=draft.is_possibly_sensitive;
-  mInReplyToStatusId=draft.in_reply_to_status_id;
+  mRecentLocation=draft.location;
+  Bundle extras=draft.action_extras;
+  if (extras != null) {
+    mIsPossiblySensitive=extras.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
+    mInReplyToStatus=extras.getParcelable(EXTRA_IN_REPLY_TO_STATUS);
+  }
   return true;
 }

@@ -1,0 +1,10 @@
+{
+  final IStatusShortener iface=getInterface();
+  if (iface == null)   return false;
+  try {
+    return iface.callback(result,status);
+  }
+ catch (  final RemoteException e) {
+    return false;
+  }
+}

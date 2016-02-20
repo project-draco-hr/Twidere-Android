@@ -1,7 +1,7 @@
 {
   if (requiredPermissions == null || requiredPermissions.length == 0)   return true;
-  if (mContext.getPackageName().equals(pname))   return true;
-  if (checkSignature(pname))   return true;
-  final String[] permissions=getPermissions(pname);
+  if (mContext.getPackageName().equals(packageName))   return true;
+  if (checkSignature(packageName))   return true;
+  final String[] permissions=getPermissions(packageName);
   return TwidereArrayUtils.contains(permissions,requiredPermissions);
 }

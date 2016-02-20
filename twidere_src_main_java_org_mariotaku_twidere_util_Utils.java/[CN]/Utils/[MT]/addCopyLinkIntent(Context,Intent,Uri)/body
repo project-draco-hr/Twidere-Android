@@ -1,4 +1,5 @@
 {
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)   return;
   final Intent copyLinkIntent=new Intent(context,CopyLinkActivity.class);
   copyLinkIntent.setData(uri);
   final Intent[] alternateIntents={copyLinkIntent};

@@ -1,9 +1,0 @@
-{
-  final int buffer_size=8192;
-  final byte[] bytes=new byte[buffer_size];
-  int count=is.read(bytes,0,buffer_size);
-  while (count != -1) {
-    os.write(bytes,0,count);
-    count=is.read(bytes,0,buffer_size);
-  }
-}

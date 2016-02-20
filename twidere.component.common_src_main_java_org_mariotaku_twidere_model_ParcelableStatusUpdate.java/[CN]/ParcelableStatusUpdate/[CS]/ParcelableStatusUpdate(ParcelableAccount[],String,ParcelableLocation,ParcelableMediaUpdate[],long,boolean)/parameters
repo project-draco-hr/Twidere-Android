@@ -1,6 +1,0 @@
-ParcelableAccount[] accounts
-String text
-ParcelableLocation location
-ParcelableMediaUpdate[] media
-long in_reply_to_status_id
-boolean is_possibly_sensitive

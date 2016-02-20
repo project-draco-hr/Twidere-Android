@@ -1,24 +1,36 @@
 {
+  if (Binder.getCallingPid() == Process.myPid())   return;
 switch (id) {
+case VIRTUAL_TABLE_ID_PERMISSIONS:
+{
+      return;
+    }
 case VIRTUAL_TABLE_ID_PREFERENCES:
 case VIRTUAL_TABLE_ID_DNS:
 {
-      if (!checkPermission(PERMISSION_PREFERENCES))       throw new SecurityException("Access preferences requires level PERMISSION_LEVEL_PREFERENCES");
-      break;
-    }
-case TABLE_ID_ACCOUNTS:
-{
-    final String[] credentialsCols={Accounts.BASIC_AUTH_PASSWORD,Accounts.OAUTH_TOKEN,Accounts.OAUTH_TOKEN_SECRET,Accounts.CONSUMER_KEY,Accounts.CONSUMER_SECRET};
-    if (projection == null || TwidereArrayUtils.contains(projection,credentialsCols) && !checkPermission(PERMISSION_ACCOUNTS)) {
-      final String pkgName=mPermissionsManager.getPackageNameByUid(Binder.getCallingUid());
-      throw new SecurityException("Access column " + TwidereArrayUtils.toString(projection,',',true) + " in database accounts requires level PERMISSION_LEVEL_ACCOUNTS, package: "+ pkgName);
-    }
-    if (!checkPermission(PERMISSION_READ)) {
-      final String pkgName=mPermissionsManager.getPackageNameByUid(Binder.getCallingUid());
-      throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_READ, package: "+ pkgName);
-    }
+    if (!checkPermission(PERMISSION_PREFERENCES))     throw new SecurityException("Access preferences requires level PERMISSION_LEVEL_PREFERENCES");
     break;
   }
+case TABLE_ID_ACCOUNTS:
+{
+  if (checkPermission(PERMISSION_ACCOUNTS)) {
+    break;
+  }
+  if (TwidereArrayUtils.contains(Accounts.COLUMNS_NO_CREDENTIALS,projection) && !checkPermission(PERMISSION_READ)) {
+    final String pkgName=mPermissionsManager.getPackageNameByUid(Binder.getCallingUid());
+    throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_READ, package: "+ pkgName);
+  }
+  final String pkgName=mPermissionsManager.getPackageNameByUid(Binder.getCallingUid());
+  final List<String> callingSensitiveCols=new ArrayList<>();
+  if (projection != null) {
+    Collections.addAll(callingSensitiveCols,projection);
+    callingSensitiveCols.removeAll(Arrays.asList(Accounts.COLUMNS_NO_CREDENTIALS));
+  }
+ else {
+    callingSensitiveCols.add("*");
+  }
+  throw new SecurityException("Access column " + TwidereListUtils.toString(callingSensitiveCols,',',true) + " in database accounts requires level PERMISSION_LEVEL_ACCOUNTS, package: "+ pkgName);
+}
 case TABLE_ID_DIRECT_MESSAGES:
 case TABLE_ID_DIRECT_MESSAGES_INBOX:
 case TABLE_ID_DIRECT_MESSAGES_OUTBOX:
@@ -26,8 +38,8 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATION:
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATION_SCREEN_NAME:
 case TABLE_ID_DIRECT_MESSAGES_CONVERSATIONS_ENTRIES:
 {
-  if (!checkPermission(PERMISSION_DIRECT_MESSAGES))   throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_DIRECT_MESSAGES");
-  break;
+if (!checkPermission(PERMISSION_DIRECT_MESSAGES)) throw new SecurityException("Access database " + table + " requires level PERMISSION_LEVEL_DIRECT_MESSAGES");
+break;
 }
 case TABLE_ID_STATUSES:
 case TABLE_ID_MENTIONS:
@@ -48,7 +60,7 @@ break;
 default :
 {
 if (!mPermissionsManager.checkSignature(Binder.getCallingUid())) {
-throw new SecurityException("Internal database is not allowed for third-party applications");
+throw new SecurityException("Internal database " + id + " is not allowed for third-party applications");
 }
 }
 }

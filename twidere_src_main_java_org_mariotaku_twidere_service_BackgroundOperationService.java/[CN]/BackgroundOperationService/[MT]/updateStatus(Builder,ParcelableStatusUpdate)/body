@@ -14,140 +14,156 @@
   final List<SingleResponse<ParcelableStatus>> results=new ArrayList<>();
   if (statusUpdate.accounts.length == 0)   return Collections.emptyList();
   try {
-    if (mUseUploader && mUploader == null)     throw new UploaderNotFoundException(this);
-    if (mUseShortener && mShortener == null)     throw new ShortenerNotFoundException(this);
+    final TwidereApplication app=TwidereApplication.getInstance(this);
+    final String uploaderComponent=mPreferences.getString(KEY_MEDIA_UPLOADER,null);
+    final String shortenerComponent=mPreferences.getString(KEY_STATUS_SHORTENER,null);
+    MediaUploaderInterface uploader=null;
+    StatusShortenerInterface shortener=null;
+    if (!ServicePickerPreference.isNoneValue(uploaderComponent)) {
+      uploader=MediaUploaderInterface.getInstance(app,uploaderComponent);
+      if (uploader == null)       throw new UploaderNotFoundException(this);
+    }
+    if (!ServicePickerPreference.isNoneValue(shortenerComponent)) {
+      shortener=StatusShortenerInterface.getInstance(app,shortenerComponent);
+      if (shortener == null)       throw new ShortenerNotFoundException(this);
+    }
     final boolean hasMedia=statusUpdate.media != null && statusUpdate.media.length > 0;
-    final String overrideStatusText;
-    if (mUseUploader && mUploader != null && hasMedia) {
-      final MediaUploadResult uploadResult;
-      try {
-        mUploader.waitForService();
-        uploadResult=mUploader.upload(statusUpdate,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
-      }
- catch (      final Exception e) {
-        throw new UploadException(this);
-      }
- finally {
-        mUploader.unbindService();
-      }
-      if (mUseUploader && hasMedia && uploadResult == null)       throw new UploadException(this);
-      if (uploadResult.error_code != 0)       throw new UploadException(uploadResult.error_message);
-      overrideStatusText=getImageUploadStatus(this,uploadResult.media_uris,statusUpdate.text);
-    }
- else {
-      overrideStatusText=null;
-    }
-    final String unShortenedText=isEmpty(overrideStatusText) ? statusUpdate.text : overrideStatusText;
-    final boolean shouldShorten=mValidator.getTweetLength(unShortenedText) > mValidator.getMaxTweetLength();
-    final String shortenedText;
-    if (shouldShorten) {
-      if (mUseShortener) {
-        final StatusShortenResult shortenedResult;
-        mShortener.waitForService();
-        try {
-          shortenedResult=mShortener.shorten(statusUpdate,unShortenedText);
-        }
- catch (        final Exception e) {
-          throw new ShortenException(this);
-        }
- finally {
-          mShortener.unbindService();
-        }
-        if (shortenedResult == null || shortenedResult.shortened == null)         throw new ShortenException(this);
-        shortenedText=shortenedResult.shortened;
-      }
- else       throw new StatusTooLongException(this);
-    }
- else {
-      shortenedText=unShortenedText;
-    }
-    if (statusUpdate.media != null) {
+    if (uploader == null && statusUpdate.media != null) {
       for (      final ParcelableMediaUpdate media : statusUpdate.media) {
         final String path=getImagePathFromUri(this,Uri.parse(media.uri));
         final File file=path != null ? new File(path) : null;
-        if (!mUseUploader && file != null && file.exists()) {
+        if (file != null && file.exists()) {
           BitmapUtils.downscaleImageIfNeeded(file,95);
         }
       }
     }
-    for (    final ParcelableAccount account : statusUpdate.accounts) {
-      final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true);
-      final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true,TwitterUpload.class);
-      final StatusUpdate status=new StatusUpdate(shortenedText);
-      if (statusUpdate.in_reply_to_status_id > 0) {
-        status.inReplyToStatusId(statusUpdate.in_reply_to_status_id);
+    try {
+      if (uploader != null && hasMedia) {
+        uploader.waitForService();
       }
-      if (statusUpdate.location != null) {
-        status.location(ParcelableLocation.toGeoLocation(statusUpdate.location));
+      if (shortener != null) {
+        shortener.waitForService();
       }
-      if (!mUseUploader && hasMedia) {
-        final long[] mediaIds=new long[statusUpdate.media.length];
-        ContentLengthInputStream cis=null;
-        try {
-          for (int i=0, j=mediaIds.length; i < j; i++) {
-            final ParcelableMediaUpdate media=statusUpdate.media[i];
-            final Uri mediaUri=Uri.parse(media.uri);
-            final String mediaType=resolver.getType(mediaUri);
-            final InputStream is=resolver.openInputStream(mediaUri);
-            final long length=is.available();
-            cis=new ContentLengthInputStream(is,length);
-            cis.setReadListener(new StatusMediaUploadListener(this,mNotificationManager,builder,statusUpdate));
-            final ContentType contentType;
-            if (TextUtils.isEmpty(mediaType)) {
-              contentType=ContentType.parse("application/octet-stream");
-            }
- else {
-              contentType=ContentType.parse(mediaType);
-            }
-            final FileBody body=new FileBody(cis,"attachment",length,contentType);
-            final MediaUploadResponse uploadResp=upload.uploadMedia(body);
-            mediaIds[i]=uploadResp.getId();
+      for (      final ParcelableAccount account : statusUpdate.accounts) {
+        final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true);
+        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true,TwitterUpload.class);
+        if (twitter == null || upload == null) {
+          throw new UpdateStatusException("No account found");
+        }
+        String statusText=statusUpdate.text;
+        if (uploader != null && hasMedia) {
+          final MediaUploadResult uploadResult;
+          try {
+            uploadResult=uploader.upload(statusUpdate,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
           }
+ catch (          final Exception e) {
+            throw new UploadException(this);
+          }
+          if (uploadResult == null)           throw new UploadException(this);
+          if (uploadResult.error_code != 0)           throw new UploadException(uploadResult.error_message);
+          statusText=getImageUploadStatus(this,uploadResult.media_uris,statusText);
         }
- catch (        final IOException e) {
-          Log.w(LOGTAG,e);
+        final boolean shouldShorten=mValidator.getTweetLength(statusText) > mValidator.getMaxTweetLength();
+        StatusShortenResult shortenedResult=null;
+        if (shouldShorten && shortener != null) {
+          try {
+            shortenedResult=shortener.shorten(statusUpdate,account,statusText);
+          }
+ catch (          final Exception e) {
+            throw new ShortenException(getString(R.string.error_message_tweet_shorten_failed),e);
+          }
+          if (shortenedResult == null)           throw new ShortenException(getString(R.string.error_message_tweet_shorten_failed));
+          if (shortenedResult.error_code != 0)           throw new ShortenException(shortenedResult.error_message);
+          if (shortenedResult.shortened == null)           throw new ShortenException(getString(R.string.error_message_tweet_shorten_failed));
+          statusText=shortenedResult.shortened;
         }
-catch (        final TwitterException e) {
+        final StatusUpdate status=new StatusUpdate(statusText);
+        if (statusUpdate.in_reply_to_status != null) {
+          status.inReplyToStatusId(statusUpdate.in_reply_to_status.id);
+        }
+        if (statusUpdate.location != null) {
+          status.location(ParcelableLocation.toGeoLocation(statusUpdate.location));
+        }
+        if (uploader == null && hasMedia) {
+          final long[] mediaIds=new long[statusUpdate.media.length];
+          ContentLengthInputStream cis=null;
+          try {
+            for (int i=0, j=mediaIds.length; i < j; i++) {
+              final ParcelableMediaUpdate media=statusUpdate.media[i];
+              final Uri mediaUri=Uri.parse(media.uri);
+              final String mediaType=resolver.getType(mediaUri);
+              final InputStream is=resolver.openInputStream(mediaUri);
+              final long length=is.available();
+              cis=new ContentLengthInputStream(is,length);
+              cis.setReadListener(new StatusMediaUploadListener(this,mNotificationManager,builder,statusUpdate));
+              final ContentType contentType;
+              if (TextUtils.isEmpty(mediaType)) {
+                contentType=ContentType.parse("application/octet-stream");
+              }
+ else {
+                contentType=ContentType.parse(mediaType);
+              }
+              final FileBody body=new FileBody(cis,"attachment",length,contentType);
+              final MediaUploadResponse uploadResp=upload.uploadMedia(body);
+              mediaIds[i]=uploadResp.getId();
+            }
+          }
+ catch (          final IOException e) {
+            if (BuildConfig.DEBUG) {
+              Log.w(LOGTAG,e);
+            }
+          }
+catch (          final TwitterException e) {
+            if (BuildConfig.DEBUG) {
+              Log.w(LOGTAG,e);
+            }
+            final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(e);
+            results.add(response);
+            continue;
+          }
+ finally {
+            IoUtils.closeSilently(cis);
+          }
+          status.mediaIds(mediaIds);
+        }
+        status.possiblySensitive(statusUpdate.is_possibly_sensitive);
+        try {
+          final Status resultStatus=twitter.updateStatus(status);
+          if (!mentionedHondaJOJO) {
+            final UserMentionEntity[] entities=resultStatus.getUserMentionEntities();
+            if (entities == null || entities.length == 0) {
+              mentionedHondaJOJO=statusUpdate.text.contains("@" + HONDAJOJO_SCREEN_NAME);
+            }
+ else             if (entities.length == 1 && entities[0].getId() == HONDAJOJO_ID) {
+              mentionedHondaJOJO=true;
+            }
+            Utils.setLastSeen(this,entities,System.currentTimeMillis());
+          }
+          if (!notReplyToOther) {
+            final long inReplyToUserId=resultStatus.getInReplyToUserId();
+            if (inReplyToUserId <= 0 || inReplyToUserId == HONDAJOJO_ID) {
+              notReplyToOther=true;
+            }
+          }
+          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,false);
+          if (shouldShorten && shortener != null && shortenedResult != null) {
+            shortener.callback(shortenedResult,result);
+          }
+          results.add(SingleResponse.getInstance(result));
+        }
+ catch (        final TwitterException e) {
           Log.w(LOGTAG,e);
           final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(e);
           results.add(response);
-          continue;
         }
- finally {
-          IoUtils.closeSilently(cis);
-        }
-        status.mediaIds(mediaIds);
       }
-      status.possiblySensitive(statusUpdate.is_possibly_sensitive);
-      if (twitter == null) {
-        results.add(SingleResponse.<ParcelableStatus>getInstance(new NullPointerException()));
-        continue;
+    }
+  finally {
+      if (uploader != null) {
+        uploader.unbindService();
       }
-      try {
-        final Status resultStatus=twitter.updateStatus(status);
-        if (!mentionedHondaJOJO) {
-          final UserMentionEntity[] entities=resultStatus.getUserMentionEntities();
-          if (entities == null || entities.length == 0) {
-            mentionedHondaJOJO=statusUpdate.text.contains("@" + HONDAJOJO_SCREEN_NAME);
-          }
- else           if (entities.length == 1 && entities[0].getId() == HONDAJOJO_ID) {
-            mentionedHondaJOJO=true;
-          }
-          Utils.setLastSeen(this,entities,System.currentTimeMillis());
-        }
-        if (!notReplyToOther) {
-          final long inReplyToUserId=resultStatus.getInReplyToUserId();
-          if (inReplyToUserId <= 0 || inReplyToUserId == HONDAJOJO_ID) {
-            notReplyToOther=true;
-          }
-        }
-        final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,false);
-        results.add(SingleResponse.getInstance(result));
-      }
- catch (      final TwitterException e) {
-        Log.w(LOGTAG,e);
-        final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(e);
-        results.add(response);
+      if (shortener != null) {
+        shortener.unbindService();
       }
     }
   }

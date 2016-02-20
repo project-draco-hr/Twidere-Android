@@ -1,0 +1,21 @@
+{
+  final ContentResolver resolver=context.getContentResolver();
+  final Cursor c=resolver.query(Permissions.CONTENT_URI,null,null,null,null);
+  if (c == null)   return new String[0];
+  try {
+    c.moveToFirst();
+    final int idxPackageName=c.getColumnIndex(Permissions.PACKAGE_NAME), idxPermissions=c.getColumnIndex(Permissions.PERMISSION);
+    while (!c.isAfterLast()) {
+      if (pname.equals(c.getString(idxPackageName))) {
+        return parsePermissions(c.getString(idxPermissions));
+      }
+      c.moveToNext();
+    }
+  }
+ catch (  final SecurityException ignore) {
+  }
+ finally {
+    c.close();
+  }
+  return new String[0];
+}

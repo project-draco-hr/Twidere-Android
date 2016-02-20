@@ -1,9 +1,0 @@
-{
-  if (TextUtils.isEmpty(json))   return null;
-  try {
-    return new JSONObject(json);
-  }
- catch (  JSONException e) {
-    return null;
-  }
-}

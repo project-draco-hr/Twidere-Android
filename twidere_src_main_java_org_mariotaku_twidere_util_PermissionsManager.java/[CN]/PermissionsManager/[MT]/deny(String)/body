@@ -1,6 +1,6 @@
 {
-  if (package_name == null)   return false;
+  if (packageName == null)   return false;
   final SharedPreferences.Editor editor=mPreferences.edit();
-  editor.putString(package_name,PERMISSION_DENIED);
+  editor.putString(packageName,PERMISSION_DENIED);
   return editor.commit();
 }

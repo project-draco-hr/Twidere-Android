@@ -1,0 +1,10 @@
+{
+switch (requestCode) {
+case REQUEST_REQUEST_PERMISSION:
+{
+      finish();
+      break;
+    }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

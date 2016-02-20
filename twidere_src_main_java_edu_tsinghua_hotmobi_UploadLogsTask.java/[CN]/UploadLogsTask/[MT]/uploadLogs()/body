@@ -29,7 +29,7 @@
         conn.setDoOutput(true);
         os=conn.getOutputStream();
         is=new FileInputStream(logFile);
-        Utils.copyStream(is,os);
+        RestFuUtils.copyStream(is,os);
         final int responseCode=conn.getResponseCode();
         if (responseCode >= 200 && responseCode < 300) {
           uploadLogEvent.finish(conn);

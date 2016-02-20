@@ -1,0 +1,4 @@
+{
+  if (mAuthorization == null)   return new String[]{"oauth_echo_authorization"};
+  return new String[]{"tl_api_key","oauth_echo_authorization"};
+}

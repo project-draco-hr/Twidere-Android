@@ -20,16 +20,21 @@
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
   final long[] accountIds=mAccountsAdapter.getSelectedAccountIds();
   final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;
-  final long inReplyToStatusId=mInReplyToStatusId;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
-  mTwitterWrapper.updateStatusAsync(accountIds,text,statusLocation,getMedia(),inReplyToStatusId,isPossiblySensitive);
-  if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && (mInReplyToStatus == null || mInReplyToStatusId <= 0)) {
+  ParcelableStatusUpdate update=new ParcelableStatusUpdate();
+  update.accounts=DataStoreUtils.getAccounts(this,accountIds);
+  update.text=text;
+  update.location=statusLocation;
+  update.media=getMedia();
+  update.in_reply_to_status=mInReplyToStatus;
+  update.is_possibly_sensitive=isPossiblySensitive;
+  mTwitterWrapper.updateStatusesAsync(update);
+  if (mPreferences.getBoolean(KEY_NO_CLOSE_AFTER_TWEET_SENT,false) && mInReplyToStatus == null) {
     mIsPossiblySensitive=false;
     mShouldSaveAccounts=true;
     mInReplyToStatus=null;
     mMentionUser=null;
     mDraftItem=null;
-    mInReplyToStatusId=-1;
     mOriginalText=null;
     mEditText.setText(null);
     clearMedia();
