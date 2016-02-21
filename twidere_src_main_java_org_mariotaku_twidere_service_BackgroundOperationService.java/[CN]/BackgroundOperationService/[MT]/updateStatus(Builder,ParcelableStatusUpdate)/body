@@ -21,7 +21,9 @@
     StatusShortenerInterface shortener=null;
     if (!ServicePickerPreference.isNoneValue(uploaderComponent)) {
       uploader=MediaUploaderInterface.getInstance(app,uploaderComponent);
-      if (uploader == null)       throw new UploaderNotFoundException(this);
+      if (uploader == null) {
+        throw new UploaderNotFoundException(getString(R.string.error_message_media_uploader_not_found));
+      }
     }
     if (!ServicePickerPreference.isNoneValue(shortenerComponent)) {
       shortener=StatusShortenerInterface.getInstance(app,shortenerComponent);
@@ -57,9 +59,11 @@
             uploadResult=uploader.upload(statusUpdate,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
           }
  catch (          final Exception e) {
-            throw new UploadException(this);
+            throw new UploadException(getString(R.string.error_message_media_upload_failed));
           }
-          if (uploadResult == null)           throw new UploadException(this);
+          if (uploadResult == null) {
+            throw new UploadException(getString(R.string.error_message_media_upload_failed));
+          }
           if (uploadResult.error_code != 0)           throw new UploadException(uploadResult.error_message);
           statusText=getImageUploadStatus(this,uploadResult.media_uris,statusText);
         }

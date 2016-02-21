@@ -1,6 +1,4 @@
 {
   if (ArrayUtils.isEmpty(links) || text == null)   return ParseUtils.parseString(text);
-  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final String imageUploadFormat=getNonEmptyString(prefs,KEY_IMAGE_UPLOAD_FORMAT,DEFAULT_IMAGE_UPLOAD_FORMAT);
-  return imageUploadFormat.replace(FORMAT_PATTERN_LINK,TwidereArrayUtils.toString(links,' ',false)).replace(FORMAT_PATTERN_TEXT,text);
+  return text + " " + TwidereArrayUtils.toString(links,' ',false);
 }

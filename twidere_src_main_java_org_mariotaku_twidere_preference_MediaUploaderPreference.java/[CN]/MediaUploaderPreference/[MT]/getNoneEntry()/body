@@ -1,3 +1,3 @@
 {
-  return getContext().getString(R.string.image_uploader_default);
+  return getContext().getString(R.string.media_uploader_default);
 }

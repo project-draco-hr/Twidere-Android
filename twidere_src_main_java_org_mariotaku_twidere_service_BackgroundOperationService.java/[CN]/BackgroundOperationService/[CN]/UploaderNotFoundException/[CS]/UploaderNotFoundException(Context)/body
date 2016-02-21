@@ -1,3 +1,0 @@
-{
-  super(context.getString(R.string.error_message_image_uploader_not_found));
-}
