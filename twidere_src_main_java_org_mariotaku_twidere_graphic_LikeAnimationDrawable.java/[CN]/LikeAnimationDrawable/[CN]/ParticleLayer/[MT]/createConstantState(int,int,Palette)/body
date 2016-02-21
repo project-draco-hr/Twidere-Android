@@ -3,6 +3,9 @@
     @Override public Drawable newDrawable(){
       return new ParticleLayer(intrinsicWidth,intrinsicHeight,palette);
     }
+    @Override public int getChangingConfigurations(){
+      return ParticleLayer.this.getChangingConfigurations();
+    }
   }
 ;
 }

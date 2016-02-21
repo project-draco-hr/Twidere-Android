@@ -1,6 +1,6 @@
 {
   super(intrinsicWidth,intrinsicHeight,palette);
   mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  mPaint.setStrokeCap(Paint.Cap.ROUND);
+  mPaint.setStyle(Paint.Style.FILL);
   setProgress(-1);
 }

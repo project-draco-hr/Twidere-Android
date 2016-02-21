@@ -21,17 +21,15 @@
     final float mainParticleX=(float)(bounds.centerX() + currentRadius * Math.cos(mainParticleAngle));
     final float mainParticleY=(float)(bounds.centerY() + currentRadius * Math.sin(mainParticleAngle));
     mPaint.setColor(color);
-    mPaint.setStrokeWidth(mainStrokeWidth);
     if (mainStrokeWidth > 0) {
-      canvas.drawPoint(mainParticleX,mainParticleY,mPaint);
+      canvas.drawCircle(mainParticleX,mainParticleY,mainStrokeWidth / 2,mPaint);
     }
     final double particleAngle=Math.toRadians(90.0 * -expandSpinProgress + degree + 15);
     final float subParticleX=(float)(mainParticleX + distance * Math.cos(particleAngle));
     final float subParticleY=(float)(mainParticleY + distance * Math.sin(particleAngle));
     mPaint.setAlpha(Math.round(255f * (1 - progress / 2f)));
-    mPaint.setStrokeWidth(subStrokeWidth);
     if (subStrokeWidth > 0) {
-      canvas.drawPoint(subParticleX,subParticleY,mPaint);
+      canvas.drawCircle(subParticleX,subParticleY,subStrokeWidth / 2,mPaint);
     }
   }
 }

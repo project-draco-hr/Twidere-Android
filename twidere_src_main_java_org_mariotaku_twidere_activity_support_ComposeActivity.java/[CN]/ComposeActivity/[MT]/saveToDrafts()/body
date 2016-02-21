@@ -1,36 +1,16 @@
 {
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
   final Draft draft=new Draft();
-  String action=getIntent().getAction();
-  if (action == null) {
-    action=INTENT_ACTION_COMPOSE;
-  }
-switch (action) {
-case INTENT_ACTION_REPLY:
-{
-      draft.action_type=Draft.Action.REPLY;
-      break;
-    }
-case INTENT_ACTION_QUOTE:
-{
-    draft.action_type=Draft.Action.QUOTE;
-    break;
-  }
-default :
-{
-  draft.action_type=Draft.Action.UPDATE_STATUS;
-  break;
-}
-}
-draft.account_ids=mAccountsAdapter.getSelectedAccountIds();
-draft.text=text;
-final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
-extra.setInReplyToStatus(mInReplyToStatus);
-extra.setIsPossiblySensitive(mIsPossiblySensitive);
-draft.action_extras=extra;
-draft.media=getMedia();
-draft.location=mRecentLocation;
-final ContentValues values=DraftValuesCreator.create(draft);
-final Uri draftUri=getContentResolver().insert(Drafts.CONTENT_URI,values);
-displayNewDraftNotification(text,draftUri);
+  draft.action_type=getDraftAction(getIntent().getAction());
+  draft.account_ids=mAccountsAdapter.getSelectedAccountIds();
+  draft.text=text;
+  final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
+  extra.setInReplyToStatus(mInReplyToStatus);
+  extra.setIsPossiblySensitive(mIsPossiblySensitive);
+  draft.action_extras=extra;
+  draft.media=getMedia();
+  draft.location=mRecentLocation;
+  final ContentValues values=DraftValuesCreator.create(draft);
+  final Uri draftUri=getContentResolver().insert(Drafts.CONTENT_URI,values);
+  displayNewDraftNotification(text,draftUri);
 }

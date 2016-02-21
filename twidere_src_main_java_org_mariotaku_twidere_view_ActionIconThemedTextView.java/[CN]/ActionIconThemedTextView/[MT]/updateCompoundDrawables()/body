@@ -1,4 +1,0 @@
-{
-  updateCompoundDrawables(getCompoundDrawables());
-  updateCompoundDrawables(TextViewSupport.getCompoundDrawablesRelative(this));
-}

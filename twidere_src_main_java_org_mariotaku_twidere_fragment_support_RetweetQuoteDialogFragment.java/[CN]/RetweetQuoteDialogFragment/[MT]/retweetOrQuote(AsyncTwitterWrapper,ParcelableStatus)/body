@@ -21,7 +21,7 @@
       update.in_reply_to_status=status;
     }
     update.is_possibly_sensitive=status.is_possibly_sensitive;
-    twitter.updateStatusesAsync(update);
+    BackgroundOperationService.updateStatusesAsync(getContext(),Draft.Action.QUOTE,update);
   }
  else   if (isMyRetweet(status)) {
     twitter.cancelRetweetAsync(status.account_id,status.id,status.my_retweet_id);

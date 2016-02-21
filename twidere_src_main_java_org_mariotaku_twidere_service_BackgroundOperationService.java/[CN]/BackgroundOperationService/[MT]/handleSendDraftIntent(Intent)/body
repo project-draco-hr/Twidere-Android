@@ -29,7 +29,7 @@ case Draft.Action.UPDATE_STATUS:
 case Draft.Action.REPLY:
 case Draft.Action.QUOTE:
 {
-      updateStatuses(ParcelableStatusUpdateUtils.fromDraftItem(this,item));
+      updateStatuses(item.action_type,ParcelableStatusUpdateUtils.fromDraftItem(this,item));
       break;
     }
 case Draft.Action.SEND_DIRECT_MESSAGE_COMPAT:

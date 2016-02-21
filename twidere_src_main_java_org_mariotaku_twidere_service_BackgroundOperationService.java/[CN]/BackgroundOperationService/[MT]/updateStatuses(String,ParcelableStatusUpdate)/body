@@ -5,6 +5,12 @@
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
     final Draft draft=new Draft();
     draft.account_ids=ParcelableAccountUtils.getAccountIds(item.accounts);
+    if (actionType != null) {
+      draft.action_type=actionType;
+    }
+ else {
+      draft.action_type=Draft.Action.UPDATE_STATUS;
+    }
     draft.text=item.text;
     draft.location=item.location;
     draft.media=item.media;

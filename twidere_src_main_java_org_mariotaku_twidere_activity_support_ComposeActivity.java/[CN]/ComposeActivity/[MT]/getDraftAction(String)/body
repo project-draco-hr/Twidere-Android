@@ -1,0 +1,16 @@
+{
+  if (intentAction == null) {
+    return Draft.Action.UPDATE_STATUS;
+  }
+switch (intentAction) {
+case INTENT_ACTION_REPLY:
+{
+      return Draft.Action.REPLY;
+    }
+case INTENT_ACTION_QUOTE:
+{
+    return Draft.Action.QUOTE;
+  }
+}
+return Draft.Action.UPDATE_STATUS;
+}

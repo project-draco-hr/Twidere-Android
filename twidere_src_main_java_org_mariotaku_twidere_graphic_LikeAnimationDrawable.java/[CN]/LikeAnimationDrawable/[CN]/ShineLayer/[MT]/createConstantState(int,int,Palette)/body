@@ -3,6 +3,9 @@
     @Override public Drawable newDrawable(){
       return new ShineLayer(intrinsicWidth,intrinsicHeight,palette);
     }
+    @Override public int getChangingConfigurations(){
+      return ShineLayer.this.getChangingConfigurations();
+    }
   }
 ;
 }
