@@ -22,6 +22,7 @@
   replyCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.reply_count);
   retweetCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.retweet_count);
   favoriteCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.favorite_count);
+  statusContentSpace=(Space)itemView.findViewById(R.id.status_content_space);
   if (adapter.isMediaPreviewEnabled()) {
     View.inflate(mediaPreview.getContext(),R.layout.layout_card_media_preview,mediaPreview);
   }

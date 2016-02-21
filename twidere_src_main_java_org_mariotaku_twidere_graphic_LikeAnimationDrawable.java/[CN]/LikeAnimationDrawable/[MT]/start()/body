@@ -3,7 +3,7 @@
   final AnimatorSet animatorSet=new AnimatorSet();
   final AbsLayer particleLayer=getParticleShineLayer();
   final AbsLayer circleLayer=getCircleLayer();
-  final IconLayer iconLayer=getIconLayer();
+  final IconLayer iconLayer=mIconLayer;
 switch (mStyle) {
 case Style.LIKE:
 {

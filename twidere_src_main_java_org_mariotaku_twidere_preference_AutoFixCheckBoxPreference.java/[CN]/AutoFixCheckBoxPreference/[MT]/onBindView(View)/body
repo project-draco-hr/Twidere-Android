@@ -1,7 +1,0 @@
-{
-  super.onBindView(view);
-  TextView textView=(TextView)view.findViewById(android.R.id.title);
-  if (textView != null) {
-    textView.setSingleLine(false);
-  }
-}

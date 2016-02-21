@@ -1,0 +1,3 @@
+{
+  mIconLayer.setAlpha(alpha);
+}

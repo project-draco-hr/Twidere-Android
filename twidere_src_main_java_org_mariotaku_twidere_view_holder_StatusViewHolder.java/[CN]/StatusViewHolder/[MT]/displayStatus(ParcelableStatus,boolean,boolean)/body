@@ -34,6 +34,7 @@
     statusInfoIcon.setVisibility(View.GONE);
   }
   if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
+    statusContentSpace.setVisibility(View.VISIBLE);
     quotedNameView.setVisibility(View.VISIBLE);
     quotedTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
@@ -53,6 +54,7 @@
     itemContent.drawStart(manager.getUserColor(status.quoted_user_id,false),manager.getUserColor(status.user_id,false));
   }
  else {
+    statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.VISIBLE : View.GONE);
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
@@ -109,6 +111,7 @@
     final boolean hasMedia=!ArrayUtils.isEmpty(media);
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
       mediaPreview.setVisibility(View.VISIBLE);
+      statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
       mediaPreview.displayMedia(media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
     }
  else {

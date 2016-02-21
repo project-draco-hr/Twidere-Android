@@ -21,7 +21,14 @@
     textView.setText(toPlainText(TWIDERE_PREVIEW_TEXT_HTML));
   }
   timeView.setTime(System.currentTimeMillis());
-  mediaPreview.setVisibility(adapter.isMediaPreviewEnabled() ? View.VISIBLE : View.GONE);
+  if (adapter.isMediaPreviewEnabled()) {
+    mediaPreview.setVisibility(View.VISIBLE);
+    statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
+  }
+ else {
+    mediaPreview.setVisibility(View.GONE);
+    statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.VISIBLE : View.GONE);
+  }
   mediaPreview.displayMedia(R.drawable.nyan_stars_background);
   extraTypeView.setImageResource(R.drawable.ic_action_gallery);
 }
