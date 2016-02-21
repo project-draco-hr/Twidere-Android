@@ -1,3 +1,0 @@
-{
-  DraftItemParcelablePlease.writeToParcel(this,dest,flags);
-}

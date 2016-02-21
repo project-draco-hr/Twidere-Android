@@ -1,0 +1,4 @@
+ContentValues values
+ActionExtra object
+String columnName
+ParameterizedType fieldType

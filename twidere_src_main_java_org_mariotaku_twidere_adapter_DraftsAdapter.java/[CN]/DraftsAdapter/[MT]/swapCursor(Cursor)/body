@@ -1,7 +1,7 @@
 {
   final Cursor old=super.swapCursor(c);
   if (c != null) {
-    mIndices=new DraftItemCursorIndices(c);
+    mIndices=new DraftCursorIndices(c);
   }
   return old;
 }

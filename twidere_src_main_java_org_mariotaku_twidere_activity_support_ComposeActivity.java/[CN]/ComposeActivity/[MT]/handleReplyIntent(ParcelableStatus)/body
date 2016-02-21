@@ -25,9 +25,6 @@
   final int selectionEnd=mEditText.length();
   mEditText.setSelection(selectionStart,selectionEnd);
   mAccountsAdapter.setSelectedAccountIds(status.account_id);
-  final String replyToName=mUserColorNameManager.getDisplayName(status,mNameFirst,false);
-  mReplyLabel.setText(getString(R.string.reply_to_name_text,replyToName,status.text_unescaped));
-  mReplyLabel.setVisibility(View.VISIBLE);
-  mReplyLabelDivider.setVisibility(View.VISIBLE);
+  showReplyLabel(status);
   return true;
 }

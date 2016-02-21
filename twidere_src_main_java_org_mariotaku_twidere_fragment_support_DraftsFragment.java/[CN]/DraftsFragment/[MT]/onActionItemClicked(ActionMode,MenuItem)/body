@@ -14,8 +14,8 @@ case R.id.send:
     final Cursor c=mAdapter.getCursor();
     if (c == null || c.isClosed())     return false;
     final SparseBooleanArray checked=mListView.getCheckedItemPositions();
-    final List<DraftItem> list=new ArrayList<>();
-    final DraftItemCursorIndices indices=new DraftItemCursorIndices(c);
+    final List<Draft> list=new ArrayList<>();
+    final DraftCursorIndices indices=new DraftCursorIndices(c);
     for (int i=0, j=checked.size(); i < j; i++) {
       if (checked.valueAt(i) && c.moveToPosition(checked.keyAt(i))) {
         list.add(indices.newObject(c));

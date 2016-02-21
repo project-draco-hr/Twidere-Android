@@ -1,8 +1,20 @@
 {
   final Cursor c=mAdapter.getCursor();
   if (c == null || c.isClosed() || !c.moveToPosition(position))   return;
-  final DraftItem item=DraftItemCursorIndices.fromCursor(c);
-  if (item.action_type == Drafts.ACTION_UPDATE_STATUS || item.action_type <= 0) {
+  final Draft item=DraftCursorIndices.fromCursor(c);
+  if (TextUtils.isEmpty(item.action_type)) {
     editDraft(item);
+    return;
   }
+switch (item.action_type) {
+case "0":
+case "1":
+case Draft.Action.UPDATE_STATUS:
+case Draft.Action.REPLY:
+case Draft.Action.QUOTE:
+{
+      editDraft(item);
+      break;
+    }
+}
 }

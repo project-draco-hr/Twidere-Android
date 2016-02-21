@@ -4,7 +4,7 @@
   outState.putBoolean(EXTRA_IS_POSSIBLY_SENSITIVE,mIsPossiblySensitive);
   outState.putParcelable(EXTRA_STATUS,mInReplyToStatus);
   outState.putParcelable(EXTRA_USER,mMentionUser);
-  outState.putParcelable(EXTRA_DRAFT,mDraftItem);
+  outState.putParcelable(EXTRA_DRAFT,mDraft);
   outState.putBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS,mShouldSaveAccounts);
   outState.putString(EXTRA_ORIGINAL_TEXT,mOriginalText);
   super.onSaveInstanceState(outState);

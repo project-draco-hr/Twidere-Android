@@ -1,0 +1,9 @@
+{
+  if (object == null)   return;
+  try {
+    final JsonMapper<ActionExtra> mapper=(JsonMapper<ActionExtra>)LoganSquareMapperFinder.mapperFor(object.getClass());
+    values.put(columnName,mapper.serialize(object));
+  }
+ catch (  IOException e) {
+  }
+}

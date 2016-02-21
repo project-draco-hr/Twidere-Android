@@ -6,8 +6,8 @@
   final Expression where=Expression.equals(Drafts._ID,draftId);
   final Cursor c=getContentResolver().query(Drafts.CONTENT_URI,Drafts.COLUMNS,where.getSQL(),null,null);
   if (c == null)   return -1;
-  final DraftItemCursorIndices i=new DraftItemCursorIndices(c);
-  final DraftItem item;
+  final DraftCursorIndices i=new DraftCursorIndices(c);
+  final Draft item;
   try {
     if (!c.moveToFirst())     return -1;
     item=i.newObject(c);

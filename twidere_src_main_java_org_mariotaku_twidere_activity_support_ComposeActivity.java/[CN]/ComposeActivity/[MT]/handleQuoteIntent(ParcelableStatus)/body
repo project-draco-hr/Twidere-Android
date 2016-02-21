@@ -3,9 +3,6 @@
   mEditText.setText(Utils.getQuoteStatus(this,status.id,status.user_screen_name,status.text_plain));
   mEditText.setSelection(0);
   mAccountsAdapter.setSelectedAccountIds(status.account_id);
-  final String replyToName=mUserColorNameManager.getDisplayName(status,mNameFirst,false);
-  mReplyLabel.setText(getString(R.string.quote_name_text,replyToName,status.text_unescaped));
-  mReplyLabel.setVisibility(View.VISIBLE);
-  mReplyLabelDivider.setVisibility(View.VISIBLE);
+  showQuoteLabel(status);
   return true;
 }

@@ -1,8 +1,0 @@
-{
-  final Intent intent=new Intent(INTENT_ACTION_EDIT_DRAFT);
-  final Bundle bundle=new Bundle();
-  bundle.putParcelable(EXTRA_DRAFT,draft);
-  intent.putExtras(bundle);
-  mResolver.delete(Drafts.CONTENT_URI,Expression.equals(Drafts._ID,draft._id).getSQL(),null);
-  startActivityForResult(intent,REQUEST_COMPOSE);
-}

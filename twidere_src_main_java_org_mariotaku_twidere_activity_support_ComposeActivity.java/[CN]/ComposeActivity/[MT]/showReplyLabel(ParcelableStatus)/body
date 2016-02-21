@@ -1,0 +1,10 @@
+{
+  if (status == null) {
+    hideLabel();
+    return;
+  }
+  final String replyToName=mUserColorNameManager.getDisplayName(status,mNameFirst,false);
+  mReplyLabel.setText(getString(R.string.reply_to_name_text,replyToName,status.text_unescaped));
+  mReplyLabel.setVisibility(View.VISIBLE);
+  mReplyLabelDivider.setVisibility(View.VISIBLE);
+}

@@ -11,7 +11,7 @@
     setTitle(getString(R.string.quote_user,displayName));
   }
  else   if (INTENT_ACTION_EDIT_DRAFT.equals(action)) {
-    if (mDraftItem == null)     return false;
+    if (mDraft == null)     return false;
     setTitle(R.string.edit_draft);
   }
  else   if (INTENT_ACTION_MENTION.equals(action)) {

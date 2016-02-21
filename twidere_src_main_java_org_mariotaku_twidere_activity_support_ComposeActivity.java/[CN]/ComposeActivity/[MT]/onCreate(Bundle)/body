@@ -47,7 +47,7 @@
     }
     mInReplyToStatus=savedInstanceState.getParcelable(EXTRA_STATUS);
     mMentionUser=savedInstanceState.getParcelable(EXTRA_USER);
-    mDraftItem=savedInstanceState.getParcelable(EXTRA_DRAFT);
+    mDraft=savedInstanceState.getParcelable(EXTRA_DRAFT);
     mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);
     mOriginalText=savedInstanceState.getString(EXTRA_ORIGINAL_TEXT);
   }

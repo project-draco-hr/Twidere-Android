@@ -1,0 +1,33 @@
+{
+  try {
+    final String actionType=cursor.getString(cursor.getColumnIndex(Drafts.ACTION_TYPE));
+    if (TextUtils.isEmpty(actionType)) {
+      return null;
+    }
+switch (actionType) {
+case "0":
+case "1":
+case Draft.Action.UPDATE_STATUS:
+case Draft.Action.REPLY:
+case Draft.Action.QUOTE:
+{
+        final String string=cursor.getString(columnIndex);
+        if (TextUtils.isEmpty(string))         return null;
+        final JsonMapper<UpdateStatusActionExtra> mapper=LoganSquareMapperFinder.mapperFor(UpdateStatusActionExtra.class);
+        return mapper.parse(string);
+      }
+case "2":
+case Draft.Action.SEND_DIRECT_MESSAGE:
+{
+      final String string=cursor.getString(columnIndex);
+      if (TextUtils.isEmpty(string))       return null;
+      final JsonMapper<SendDirectMessageActionExtra> mapper=LoganSquareMapperFinder.mapperFor(SendDirectMessageActionExtra.class);
+      return mapper.parse(string);
+    }
+}
+}
+ catch (IOException e) {
+return null;
+}
+return null;
+}

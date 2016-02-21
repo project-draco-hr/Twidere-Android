@@ -3,15 +3,17 @@
   startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
-    final DraftItem draftItem=new DraftItem();
-    draftItem.account_ids=ParcelableAccountUtils.getAccountIds(item.accounts);
-    draftItem.text=item.text;
-    draftItem.location=item.location;
-    draftItem.media=item.media;
-    draftItem.action_extras=new Bundle();
-    draftItem.action_extras.putParcelable(EXTRA_IN_REPLY_TO_STATUS,item.in_reply_to_status);
+    final Draft draft=new Draft();
+    draft.account_ids=ParcelableAccountUtils.getAccountIds(item.accounts);
+    draft.text=item.text;
+    draft.location=item.location;
+    draft.media=item.media;
+    final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
+    extra.setInReplyToStatus(item.in_reply_to_status);
+    extra.setIsPossiblySensitive(item.is_possibly_sensitive);
+    draft.action_extras=extra;
     final ContentResolver resolver=getContentResolver();
-    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,DraftItemValuesCreator.create(draftItem));
+    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,DraftValuesCreator.create(draft));
     final long def=-1;
     final long draftId=draftUri != null ? NumberUtils.toLong(draftUri.getLastPathSegment(),def) : -1;
     mTwitter.addSendingDraftId(draftId);

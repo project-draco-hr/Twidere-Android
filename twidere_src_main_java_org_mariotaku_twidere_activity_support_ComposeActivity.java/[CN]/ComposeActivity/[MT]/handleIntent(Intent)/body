@@ -17,8 +17,8 @@ case INTENT_ACTION_QUOTE:
   }
 case INTENT_ACTION_EDIT_DRAFT:
 {
-  mDraftItem=intent.getParcelableExtra(EXTRA_DRAFT);
-  return handleEditDraftIntent(mDraftItem);
+  mDraft=intent.getParcelableExtra(EXTRA_DRAFT);
+  return handleEditDraftIntent(mDraft);
 }
 case INTENT_ACTION_MENTION:
 {

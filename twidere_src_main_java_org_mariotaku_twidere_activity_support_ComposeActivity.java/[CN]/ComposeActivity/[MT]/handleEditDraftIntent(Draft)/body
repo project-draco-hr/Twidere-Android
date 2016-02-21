@@ -1,0 +1,46 @@
+{
+  if (draft == null)   return false;
+  if (draft.action_type == null) {
+    draft.action_type=Draft.Action.UPDATE_STATUS;
+  }
+switch (draft.action_type) {
+case Draft.Action.REPLY:
+{
+      if (draft.action_extras instanceof UpdateStatusActionExtra) {
+        showReplyLabel(((UpdateStatusActionExtra)draft.action_extras).getInReplyToStatus());
+      }
+ else {
+        hideLabel();
+      }
+      break;
+    }
+case Draft.Action.QUOTE:
+{
+    if (draft.action_extras instanceof UpdateStatusActionExtra) {
+      showQuoteLabel(((UpdateStatusActionExtra)draft.action_extras).getInReplyToStatus());
+    }
+ else {
+      hideLabel();
+    }
+    break;
+  }
+default :
+{
+  hideLabel();
+}
+}
+mEditText.setText(draft.text);
+final int selectionEnd=mEditText.length();
+mEditText.setSelection(selectionEnd);
+mAccountsAdapter.setSelectedAccountIds(draft.account_ids);
+if (draft.media != null) {
+addMedia(Arrays.asList(draft.media));
+}
+mRecentLocation=draft.location;
+if (draft.action_extras instanceof UpdateStatusActionExtra) {
+final UpdateStatusActionExtra extra=(UpdateStatusActionExtra)draft.action_extras;
+mIsPossiblySensitive=extra.isPossiblySensitive();
+mInReplyToStatus=extra.getInReplyToStatus();
+}
+return true;
+}

@@ -34,7 +34,7 @@
     mShouldSaveAccounts=true;
     mInReplyToStatus=null;
     mMentionUser=null;
-    mDraftItem=null;
+    mDraft=null;
     mOriginalText=null;
     mEditText.setText(null);
     clearMedia();
