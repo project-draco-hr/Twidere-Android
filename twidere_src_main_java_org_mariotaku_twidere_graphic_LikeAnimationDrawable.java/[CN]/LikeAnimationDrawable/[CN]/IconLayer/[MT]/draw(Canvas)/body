@@ -1,4 +1,0 @@
-{
-  if (mScale <= 0)   return;
-  mDrawable.draw(canvas);
-}

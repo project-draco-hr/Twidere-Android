@@ -1,0 +1,5 @@
+{
+  mState.mCircleLayer.draw(canvas);
+  mState.mParticleLayer.draw(canvas);
+  mState.mIconLayer.draw(canvas);
+}

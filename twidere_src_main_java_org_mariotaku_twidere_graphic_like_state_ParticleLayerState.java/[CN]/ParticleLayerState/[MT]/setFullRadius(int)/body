@@ -1,0 +1,4 @@
+{
+  mFullRadius=fullRadius;
+  mParticleSize=fullRadius / 4f;
+}

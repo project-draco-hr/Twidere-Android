@@ -1,0 +1,6 @@
+{
+  final Drawable clone=orig.getConstantState().newDrawable();
+  clone.setCallback(owner);
+  clone.setBounds(orig.getBounds());
+  return clone;
+}

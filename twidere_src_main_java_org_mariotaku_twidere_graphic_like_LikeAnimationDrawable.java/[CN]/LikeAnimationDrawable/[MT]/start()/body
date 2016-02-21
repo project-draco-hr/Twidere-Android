@@ -1,0 +1,43 @@
+{
+  if (mState.mCurrentAnimator != null)   return;
+  final AnimatorSet animatorSet=new AnimatorSet();
+  final AnimationLayerDrawable particleLayer=mState.mParticleLayer;
+  final AnimationLayerDrawable circleLayer=mState.mCircleLayer;
+  final IconLayerDrawable iconLayer=mState.mIconLayer;
+switch (mState.mStyle) {
+case Style.LIKE:
+{
+      setupLikeAnimation(animatorSet,particleLayer,circleLayer,iconLayer);
+      break;
+    }
+case Style.FAVORITE:
+{
+    setupFavoriteAnimation(animatorSet,particleLayer,circleLayer,iconLayer);
+    break;
+  }
+}
+animatorSet.addListener(new AnimatorListenerAdapter(){
+@Override public void onAnimationStart(Animator animation){
+  resetState();
+}
+@Override public void onAnimationCancel(Animator animation){
+  mState.mCurrentAnimator=null;
+}
+@Override public void onAnimationEnd(Animator animation){
+  mState.mCurrentAnimator=null;
+  if (mState.mListenerRef == null)   return;
+  final OnLikedListener listener=mState.mListenerRef.get();
+  if (listener == null)   return;
+  if (!listener.onLiked()) {
+    resetState();
+  }
+}
+private void resetState(){
+  iconLayer.setColorFilter(mState.mDefaultColor,PorterDuff.Mode.SRC_ATOP);
+  particleLayer.setProgress(-1);
+}
+}
+);
+animatorSet.start();
+mState.mCurrentAnimator=animatorSet;
+}

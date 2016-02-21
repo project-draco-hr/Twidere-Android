@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
-  mCreatingFavoriteIds.put(account_id,status_id);
+  mCreatingFavoriteIds.put(mAccountId,mStatusId);
   bus.post(new StatusListChangedEvent());
 }

@@ -1,0 +1,5 @@
+{
+  this.mPalette=palette;
+  this.mIntrinsicHeight=intrinsicHeight;
+  this.mIntrinsicWidth=intrinsicWidth;
+}

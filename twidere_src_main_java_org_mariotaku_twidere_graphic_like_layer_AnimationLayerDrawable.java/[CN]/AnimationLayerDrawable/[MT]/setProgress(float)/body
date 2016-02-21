@@ -1,0 +1,4 @@
+{
+  mState.setProgress(progress);
+  invalidateSelf();
+}

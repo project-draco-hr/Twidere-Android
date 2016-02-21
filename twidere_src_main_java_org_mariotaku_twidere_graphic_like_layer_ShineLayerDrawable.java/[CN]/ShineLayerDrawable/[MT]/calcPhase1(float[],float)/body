@@ -1,0 +1,5 @@
+{
+  final int fullRadius=mState.getFullRadius();
+  startEnd[0]=fullRadius / 3;
+  startEnd[1]=startEnd[0] + (fullRadius / 4 * progress * 4);
+}

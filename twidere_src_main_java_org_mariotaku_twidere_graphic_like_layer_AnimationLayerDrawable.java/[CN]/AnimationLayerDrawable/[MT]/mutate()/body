@@ -1,0 +1,7 @@
+{
+  if (!mMutated && super.mutate() == this) {
+    mState=createConstantState(mState.getIntrinsicWidth(),mState.getIntrinsicHeight(),mState.getPalette());
+    mMutated=true;
+  }
+  return this;
+}

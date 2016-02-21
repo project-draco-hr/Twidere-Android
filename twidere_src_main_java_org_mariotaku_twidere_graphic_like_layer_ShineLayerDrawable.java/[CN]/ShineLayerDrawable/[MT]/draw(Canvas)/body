@@ -1,0 +1,39 @@
+{
+  final float progress=getProgress();
+  if (progress < 0)   return;
+  final Palette palette=mState.getPalette();
+  final int particleColor=palette.getParticleColor(0,0,progress);
+  final Rect bounds=getBounds();
+  final Paint paint=mState.getPaint();
+  paint.setColor(particleColor);
+  paint.setStrokeWidth(mState.getLineWidth());
+  final float[] startEnd=new float[2];
+  paint.setAlpha(0xFF);
+  if (progress < 0.25f) {
+    calcPhase1(startEnd,progress);
+  }
+ else   if (progress < 0.5f) {
+    calcPhase2(startEnd,progress);
+  }
+ else   if (progress < 0.75f) {
+    calcPhase3(startEnd,progress);
+  }
+ else {
+    calcPhase4(startEnd,progress);
+    paint.setAlpha(Math.round(0xFF * (1 - (progress - 0.75f) * 4)));
+  }
+  for (int i=0; i < PARTICLES_PIVOTS_COUNT; i++) {
+    final double degree=360.0 / PARTICLES_PIVOTS_COUNT * i;
+    final double mainParticleAngle=Math.toRadians(degree + 18);
+    final float startX=(float)(bounds.centerX() + startEnd[0] * Math.cos(mainParticleAngle));
+    final float startY=(float)(bounds.centerY() + startEnd[0] * Math.sin(mainParticleAngle));
+    final float stopX=(float)(bounds.centerX() + startEnd[1] * Math.cos(mainParticleAngle));
+    final float stopY=(float)(bounds.centerY() + startEnd[1] * Math.sin(mainParticleAngle));
+    if (startEnd[1] - startEnd[0] <= 0) {
+      canvas.drawPoint(startX,startY,paint);
+    }
+ else {
+      canvas.drawLine(startX,startY,stopX,stopY,paint);
+    }
+  }
+}

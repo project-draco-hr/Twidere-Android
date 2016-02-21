@@ -1,0 +1,10 @@
+{
+  final Rect r=mTmpRect;
+  final int w=Math.round(mDrawable.getIntrinsicWidth() * mState.getScale());
+  final int h=Math.round(mDrawable.getIntrinsicHeight() * mState.getScale());
+  Gravity.apply(Gravity.CENTER,w,h,bounds,r);
+  if (w > 0 && h > 0) {
+    mDrawable.setBounds(r.left,r.top,r.right,r.bottom);
+  }
+  invalidateSelf();
+}

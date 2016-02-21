@@ -1,15 +1,21 @@
 {
-  mCreatingFavoriteIds.remove(account_id,status_id);
+  mCreatingFavoriteIds.remove(mAccountId,mStatusId);
+  final FavoriteTaskEvent taskEvent=new FavoriteTaskEvent(FavoriteTaskEvent.Action.CREATE,mAccountId,mStatusId);
+  taskEvent.setFinished(true);
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
-    final TweetEvent event=TweetEvent.create(getContext(),status,TimelineType.OTHER);
-    event.setAction(TweetEvent.Action.FAVORITE);
-    HotMobiLogger.getInstance(getContext()).log(account_id,event);
-    bus.post(new FavoriteCreatedEvent(status));
-    Utils.showOkMessage(mContext,R.string.status_favorited,false);
+    taskEvent.setStatus(status);
+    taskEvent.setSucceeded(true);
+    final TweetEvent tweetEvent=TweetEvent.create(getContext(),status,TimelineType.OTHER);
+    tweetEvent.setAction(TweetEvent.Action.FAVORITE);
+    HotMobiLogger.getInstance(getContext()).log(mAccountId,tweetEvent);
+    Utils.showInfoMessage(mContext,R.string.status_favorited,false);
   }
  else {
+    taskEvent.setSucceeded(false);
     Utils.showErrorMessage(mContext,R.string.action_favoriting,result.getException(),true);
   }
+  bus.post(taskEvent);
+  bus.post(new StatusListChangedEvent());
   super.onPostExecute(result);
 }

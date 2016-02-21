@@ -1,6 +1,0 @@
-{
-  this.intrinsicWidth=intrinsicWidth;
-  this.intrinsicHeight=intrinsicHeight;
-  this.palette=palette;
-  mState=createConstantState(intrinsicWidth,intrinsicHeight,palette);
-}

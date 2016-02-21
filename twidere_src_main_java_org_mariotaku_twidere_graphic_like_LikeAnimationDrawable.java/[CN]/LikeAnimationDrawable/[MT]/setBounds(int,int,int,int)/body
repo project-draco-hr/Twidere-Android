@@ -1,0 +1,4 @@
+{
+  super.setBounds(left,top,right,bottom);
+  mState.setBounds(left,top,right,bottom);
+}

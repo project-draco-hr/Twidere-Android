@@ -1,0 +1,5 @@
+{
+  super.onBoundsChange(bounds);
+  final int fullRadius=Math.min(bounds.width(),bounds.height()) / 2;
+  mState.setFullRadius(fullRadius);
+}

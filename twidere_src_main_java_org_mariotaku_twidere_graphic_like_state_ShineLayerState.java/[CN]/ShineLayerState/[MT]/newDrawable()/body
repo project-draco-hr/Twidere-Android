@@ -1,0 +1,3 @@
+{
+  return new ShineLayerDrawable(mIntrinsicWidth,mIntrinsicHeight,mPalette);
+}

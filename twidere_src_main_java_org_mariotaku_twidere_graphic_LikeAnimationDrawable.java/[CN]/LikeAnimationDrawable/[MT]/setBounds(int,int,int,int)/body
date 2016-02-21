@@ -1,6 +1,0 @@
-{
-  super.setBounds(left,top,right,bottom);
-  mCircleLayer.setBounds(left,top,right,bottom);
-  mParticleLayer.setBounds(left,top,right,bottom);
-  mIconLayer.setBounds(left,top,right,bottom);
-}

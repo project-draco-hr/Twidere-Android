@@ -1,3 +1,0 @@
-{
-  updateFavoritedStatus(event.status);
-}

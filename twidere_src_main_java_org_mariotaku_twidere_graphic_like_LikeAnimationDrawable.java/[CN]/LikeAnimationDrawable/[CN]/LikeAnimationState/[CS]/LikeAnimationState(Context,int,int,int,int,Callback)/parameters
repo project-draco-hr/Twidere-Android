@@ -1,0 +1,6 @@
+Context context
+int likeIcon
+int defaultColor
+int likeColor
+int style
+Callback callback

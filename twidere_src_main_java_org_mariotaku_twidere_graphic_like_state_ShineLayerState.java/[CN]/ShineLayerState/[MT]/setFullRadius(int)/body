@@ -1,0 +1,4 @@
+{
+  mFullRadius=fullRadius;
+  mLineWidth=fullRadius / 10f;
+}

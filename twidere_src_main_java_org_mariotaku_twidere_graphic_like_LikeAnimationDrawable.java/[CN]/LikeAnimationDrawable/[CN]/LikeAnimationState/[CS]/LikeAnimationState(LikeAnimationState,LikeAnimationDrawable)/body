@@ -1,0 +1,8 @@
+{
+  mDefaultColor=state.mDefaultColor;
+  mLikeColor=state.mLikeColor;
+  mStyle=state.mStyle;
+  mCircleLayer=(AnimationLayerDrawable)clone(state.mCircleLayer,owner);
+  mParticleLayer=(AnimationLayerDrawable)clone(state.mParticleLayer,owner);
+  mIconLayer=(IconLayerDrawable)clone(state.mIconLayer,owner);
+}

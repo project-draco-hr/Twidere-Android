@@ -1,0 +1,4 @@
+AnimatorSet animatorSet
+Layer particleLayer
+Layer circleLayer
+IconLayerDrawable iconLayer

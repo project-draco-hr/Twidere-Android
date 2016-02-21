@@ -1,3 +1,0 @@
-{
-  mListenerRef=new WeakReference<>(listener);
-}
