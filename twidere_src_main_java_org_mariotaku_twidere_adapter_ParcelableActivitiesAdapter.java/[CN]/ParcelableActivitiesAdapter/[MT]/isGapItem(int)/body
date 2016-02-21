@@ -1,3 +1,5 @@
 {
-  return getActivity(position).is_gap && position != getActivityCount() - 1;
+  int dataPosition=adapterPosition - getActivityStartIndex();
+  if (dataPosition < 0 || dataPosition >= getActivityCount())   return false;
+  return getActivity(adapterPosition).is_gap;
 }
