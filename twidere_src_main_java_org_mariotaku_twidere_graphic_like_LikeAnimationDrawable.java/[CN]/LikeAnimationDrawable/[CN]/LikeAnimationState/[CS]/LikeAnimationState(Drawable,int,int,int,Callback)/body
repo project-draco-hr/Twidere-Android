@@ -1,0 +1,33 @@
+{
+  mDefaultColor=defaultColor;
+  mActivatedColor=activatedColor;
+  mStyle=style;
+  final int intrinsicWidth=icon.getIntrinsicWidth();
+  final int intrinsicHeight=icon.getIntrinsicHeight();
+  mIconDrawable=new ScalableDrawable(icon);
+  setIconColorFilter(new PorterDuffColorFilter(defaultColor,PorterDuff.Mode.SRC_ATOP));
+  final Palette palette;
+switch (style) {
+case Style.FAVORITE:
+{
+      palette=new FavoritePalette();
+      mParticleLayer=new ShineLayerDrawable(intrinsicWidth,intrinsicHeight,palette);
+      break;
+    }
+case Style.LIKE:
+{
+    palette=new LikePalette();
+    mParticleLayer=new ParticleLayerDrawable(intrinsicWidth,intrinsicHeight,palette);
+    break;
+  }
+default :
+{
+  throw new IllegalArgumentException();
+}
+}
+mParticleLayer.setProgress(-1);
+mCircleLayer=new CircleLayerDrawable(intrinsicWidth,intrinsicHeight,palette);
+mIconDrawable.setCallback(callback);
+mParticleLayer.setCallback(callback);
+mCircleLayer.setCallback(callback);
+}

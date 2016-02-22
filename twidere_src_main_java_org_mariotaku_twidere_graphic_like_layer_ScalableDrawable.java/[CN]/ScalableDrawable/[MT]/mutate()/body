@@ -1,0 +1,7 @@
+{
+  if (!mMutated && super.mutate() == this) {
+    mState=new ScaleConstantState(this);
+    mMutated=true;
+  }
+  return this;
+}

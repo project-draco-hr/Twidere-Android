@@ -1,5 +1,6 @@
 {
   super.onBoundsChange(bounds);
   final int fullRadius=Math.min(bounds.width(),bounds.height()) / 2;
-  mState.setFullRadius(fullRadius);
+  final ShineLayerState state=(ShineLayerState)mState;
+  state.setFullRadius(fullRadius);
 }

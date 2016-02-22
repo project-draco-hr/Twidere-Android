@@ -1,0 +1,4 @@
+{
+  if (mState.getScale() <= 0)   return;
+  mState.mDrawable.draw(canvas);
+}

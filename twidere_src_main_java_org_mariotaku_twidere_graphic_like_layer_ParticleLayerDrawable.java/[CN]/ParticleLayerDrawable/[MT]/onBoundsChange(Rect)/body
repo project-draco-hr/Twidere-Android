@@ -1,4 +1,5 @@
 {
   super.onBoundsChange(bounds);
-  mState.setFullRadius(Math.min(bounds.width(),bounds.height()) / 2);
+  final ParticleLayerState state=(ParticleLayerState)mState;
+  state.setFullRadius(Math.min(bounds.width(),bounds.height()) / 2);
 }

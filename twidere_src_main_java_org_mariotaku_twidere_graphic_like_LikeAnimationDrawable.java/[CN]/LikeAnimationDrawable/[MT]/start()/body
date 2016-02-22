@@ -3,7 +3,7 @@
   final AnimatorSet animatorSet=new AnimatorSet();
   final AnimationLayerDrawable particleLayer=mState.mParticleLayer;
   final AnimationLayerDrawable circleLayer=mState.mCircleLayer;
-  final IconLayerDrawable iconLayer=mState.mIconLayer;
+  final ScalableDrawable iconLayer=mState.mIconDrawable;
 switch (mState.mStyle) {
 case Style.LIKE:
 {
@@ -33,7 +33,7 @@ animatorSet.addListener(new AnimatorListenerAdapter(){
   }
 }
 private void resetState(){
-  iconLayer.setColorFilter(mState.mDefaultColor,PorterDuff.Mode.SRC_ATOP);
+  setColorFilter(mState.mDefaultColor,PorterDuff.Mode.SRC_ATOP);
   particleLayer.setProgress(-1);
 }
 }

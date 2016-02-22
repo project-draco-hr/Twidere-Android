@@ -1,0 +1,3 @@
+int intrinsicWidth
+int intrinsicHeight
+LikeAnimationDrawable.Palette palette

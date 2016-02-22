@@ -10,8 +10,12 @@
     verificationHint.setText(R.string.login_challenge_retype_phone_hint);
     editVerification.setVisibility(View.VISIBLE);
   }
- else {
+ else   if ("Sms".equalsIgnoreCase(challengeType)) {
     verificationHint.setText(R.string.login_verification_pin_hint);
+    editVerification.setVisibility(View.VISIBLE);
+  }
+ else {
+    verificationHint.setText(getString(R.string.unsupported_login_verification_type_name,challengeType));
     editVerification.setVisibility(View.VISIBLE);
   }
 }

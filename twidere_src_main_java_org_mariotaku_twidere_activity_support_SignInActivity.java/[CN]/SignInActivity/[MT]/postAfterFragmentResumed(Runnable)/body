@@ -1,6 +1,0 @@
-{
-  mResumeFragmentRunnable=runnable;
-  if (mFragmentsResumed) {
-    mResumeFragmentRunnable.run();
-  }
-}

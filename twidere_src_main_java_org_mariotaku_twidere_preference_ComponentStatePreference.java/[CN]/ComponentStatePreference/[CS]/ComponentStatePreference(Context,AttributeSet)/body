@@ -1,3 +1,6 @@
 {
-  this(context,attrs,android.R.attr.checkBoxPreferenceStyle);
+  super(context,attrs);
+  mPackageManager=context.getPackageManager();
+  mComponentName=getComponentName(context,attrs);
+  setDefaultValue(isComponentEnabled());
 }

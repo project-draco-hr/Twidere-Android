@@ -1,0 +1,3 @@
+{
+  mIconDrawable.setColorFilter(cf);
+}

@@ -1,0 +1,7 @@
+{
+  final ScaleConstantState state=owner.mState;
+  mDrawable=state.mDrawable.getConstantState().newDrawable();
+  mDrawable.mutate();
+  mDrawable.setCallback(owner);
+  mScale=state.getScale();
+}

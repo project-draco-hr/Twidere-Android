@@ -1,9 +1,10 @@
 {
+  final CircleState state=(CircleState)mState;
   final float progress=getProgress();
   final Rect bounds=getBounds();
   final float radius;
-  final Paint paint=mState.getPaint();
-  final int fullRadius=mState.getFullRadius();
+  final Paint paint=state.getPaint();
+  final int fullRadius=state.getFullRadius();
   if (progress < 0.5f) {
     paint.setStyle(Paint.Style.FILL);
     final float sizeProgress=Math.min(1,progress * 2);
@@ -17,6 +18,6 @@
     radius=fullRadius - strokeWidth / 2;
     if (strokeWidth <= 0)     return;
   }
-  paint.setColor(mState.getPalette().getCircleColor(progress));
+  paint.setColor(state.getPalette().getCircleColor(progress));
   canvas.drawCircle(bounds.centerX(),bounds.centerY(),radius,paint);
 }

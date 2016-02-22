@@ -1,7 +1,8 @@
 {
+  final ShineLayerState state=(ShineLayerState)mState;
   calcPhase1(startEnd,0.25f);
   final float length=startEnd[1] - startEnd[0];
   final float initialStart=startEnd[0];
-  startEnd[0]=initialStart + mState.getFullRadius() / 3 * (progress - 0.25f) * 4;
+  startEnd[0]=initialStart + state.getFullRadius() / 3 * (progress - 0.25f) * 4;
   startEnd[1]=startEnd[0] + length;
 }

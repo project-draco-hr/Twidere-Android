@@ -1,13 +1,12 @@
 {
-  postAfterFragmentResumed(new Runnable(){
-    @Override public void run(){
+  executeAfterFragmentResumed(new Action(){
+    @Override public void execute(    IExtendedActivity activity){
       if (isFinishing())       return;
       final FragmentManager fm=getSupportFragmentManager();
       final FragmentTransaction ft=fm.beginTransaction();
       final SupportProgressDialogFragment fragment=new SupportProgressDialogFragment();
       fragment.setCancelable(false);
       fragment.show(ft,FRAGMENT_TAG_SIGN_IN_PROGRESS);
-      mResumeFragmentRunnable=null;
     }
   }
 );

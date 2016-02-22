@@ -1,0 +1,6 @@
+{
+  mMediaLoadState=state;
+  if (getUserVisibleHint()) {
+    getActivity().supportInvalidateOptionsMenu();
+  }
+}

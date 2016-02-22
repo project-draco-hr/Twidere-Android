@@ -1,6 +1,8 @@
 {
   if (MenuItemCompat.getActionProvider(item) != this)   throw new IllegalArgumentException();
-  final LikeAnimationDrawable drawable=new LikeAnimationDrawable(getContext(),mIcon,mDefaultColor,mActivatedColor,mUseStar ? Style.FAVORITE : Style.LIKE);
+  final Drawable icon=ContextCompat.getDrawable(getContext(),mIcon);
+  final LikeAnimationDrawable drawable=new LikeAnimationDrawable(icon,mDefaultColor,mActivatedColor,mUseStar ? Style.FAVORITE : Style.LIKE);
+  drawable.mutate();
   drawable.setCallback(new ViewCallback(menuBar));
   item.setIcon(drawable);
 }

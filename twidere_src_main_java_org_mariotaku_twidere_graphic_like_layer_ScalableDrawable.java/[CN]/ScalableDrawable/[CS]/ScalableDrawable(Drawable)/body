@@ -1,0 +1,5 @@
+{
+  if (drawable == null)   throw new NullPointerException();
+  mState=new ScaleConstantState(drawable,this);
+  setScale(1);
+}

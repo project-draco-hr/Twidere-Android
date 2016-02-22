@@ -1,12 +1,13 @@
 {
+  final ShineLayerState state=(ShineLayerState)mState;
   final float progress=getProgress();
   if (progress < 0)   return;
-  final Palette palette=mState.getPalette();
+  final LikeAnimationDrawable.Palette palette=state.getPalette();
   final int particleColor=palette.getParticleColor(0,0,progress);
   final Rect bounds=getBounds();
-  final Paint paint=mState.getPaint();
+  final Paint paint=state.getPaint();
   paint.setColor(particleColor);
-  paint.setStrokeWidth(mState.getLineWidth());
+  paint.setStrokeWidth(state.getLineWidth());
   final float[] startEnd=new float[2];
   paint.setAlpha(0xFF);
   if (progress < 0.25f) {

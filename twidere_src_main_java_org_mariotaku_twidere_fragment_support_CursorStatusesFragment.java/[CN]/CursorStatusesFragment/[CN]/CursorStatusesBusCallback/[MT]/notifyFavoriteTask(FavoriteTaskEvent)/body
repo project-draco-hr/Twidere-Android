@@ -1,2 +1,17 @@
 {
+  if (event.isSucceeded()) {
+    final ParcelableStatus status=event.getStatus();
+    final List<ParcelableStatus> data=getAdapterData();
+    if (status == null || data == null || data.isEmpty())     return;
+    final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+    final int firstVisiblePosition=getLayoutManager().findFirstVisibleItemPosition();
+    final int lastVisiblePosition=getLayoutManager().findLastVisibleItemPosition();
+    final int startIndex=adapter.getStatusStartIndex();
+    for (int i=firstVisiblePosition, j=lastVisiblePosition + 1; i < j; i++) {
+      if (adapter.getAccountId(i) == status.account_id && adapter.getStatusId(i) == status.id) {
+        data.set(i - startIndex,status);
+        return;
+      }
+    }
+  }
 }

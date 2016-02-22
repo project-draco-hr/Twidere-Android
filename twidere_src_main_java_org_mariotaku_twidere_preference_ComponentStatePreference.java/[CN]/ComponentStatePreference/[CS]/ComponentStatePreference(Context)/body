@@ -1,3 +1,6 @@
 {
-  this(context,null);
+  super(context);
+  mPackageManager=context.getPackageManager();
+  mComponentName=getComponentName(context,null);
+  setDefaultValue(isComponentEnabled());
 }

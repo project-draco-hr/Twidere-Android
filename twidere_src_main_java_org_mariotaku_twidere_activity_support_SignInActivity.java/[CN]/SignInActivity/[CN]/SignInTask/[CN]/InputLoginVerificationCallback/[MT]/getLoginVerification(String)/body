@@ -11,12 +11,14 @@
     @Override public void run(){
       final SignInActivity activity=activityRef.get();
       if (activity == null)       return;
-      activity.postAfterFragmentResumed(new Runnable(){
-        @Override public void run(){
-          InputLoginVerificationDialogFragment df=new InputLoginVerificationDialogFragment();
+      activity.executeAfterFragmentResumed(new Action(){
+        @Override public void execute(        IExtendedActivity activity){
+          final SignInActivity sia=(SignInActivity)activity;
+          final InputLoginVerificationDialogFragment df=new InputLoginVerificationDialogFragment();
+          df.setCancelable(false);
           df.setCallback(InputLoginVerificationCallback.this);
           df.setChallengeType(challengeType);
-          df.show(activity.getSupportFragmentManager(),null);
+          df.show(sia.getSupportFragmentManager(),null);
         }
       }
 );

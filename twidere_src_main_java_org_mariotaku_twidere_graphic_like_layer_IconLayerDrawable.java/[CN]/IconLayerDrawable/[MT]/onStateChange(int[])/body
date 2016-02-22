@@ -1,5 +1,0 @@
-{
-  boolean changed=mDrawable.setState(state);
-  onBoundsChange(getBounds());
-  return changed;
-}
