@@ -9,8 +9,16 @@
   if (result == null)   return;
   if (mSaveFileTask != null && mSaveFileTask.getStatus() == AsyncTask.Status.RUNNING)   return;
   final Uri cacheUri=result.cacheUri;
-  final boolean hasImage=cacheUri != null;
-  if (!hasImage)   return;
-  mSaveFileTask=SaveImageToGalleryTask.create(this,cacheUri);
+  final boolean hasMedia=cacheUri != null;
+  if (!hasMedia)   return;
+  if (f instanceof ImagePageFragment) {
+    mSaveFileTask=SaveImageToGalleryTask.create(this,cacheUri,CacheProvider.Type.IMAGE);
+  }
+ else   if (f instanceof VideoPageFragment) {
+    mSaveFileTask=SaveImageToGalleryTask.create(this,cacheUri,CacheProvider.Type.VIDEO);
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
   AsyncTaskUtils.executeTask(mSaveFileTask);
 }

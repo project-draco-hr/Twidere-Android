@@ -1,3 +1,0 @@
-{
-  return new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(TwidereConstants.AUTHORITY_TWIDERE_CACHE).appendPath(ByteString.encodeUtf8(key).base64Url()).build();
-}

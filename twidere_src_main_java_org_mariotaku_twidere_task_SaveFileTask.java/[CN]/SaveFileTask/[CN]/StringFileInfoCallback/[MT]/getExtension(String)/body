@@ -1,3 +1,0 @@
-{
-  return MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
-}

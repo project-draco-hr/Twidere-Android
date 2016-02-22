@@ -1,6 +1,6 @@
 {
   this.contextRef=new WeakReference<>(context);
   this.source=source;
-  this.getMimeType=getMimeType;
+  this.getMimeType=callback;
   this.destination=destination;
 }

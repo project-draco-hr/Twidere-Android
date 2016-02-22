@@ -55,18 +55,7 @@
     throw new IOException("Unable to get media, response code: " + resp.getStatus());
   }
   final Body body=resp.getBody();
-  final long length=body.length();
-  final InputStream stream=body.stream();
-  return new CacheDownloadLoader.DownloadResult(){
-    @Override public void close() throws IOException {
-      body.close();
-    }
-    @Override public long getLength(){
-      return length;
-    }
-    @Override public InputStream getStream(){
-      return stream;
-    }
-  }
-;
+  final CacheMetadata metadata=new CacheMetadata();
+  metadata.setContentType(body.contentType().getContentType());
+  return new TwidereDownloadResult(body,metadata);
 }

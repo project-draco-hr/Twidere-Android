@@ -1,0 +1,10 @@
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(ContentResolver.SCHEME_CONTENT);
+  builder.authority(TwidereConstants.AUTHORITY_TWIDERE_CACHE);
+  builder.appendPath(ByteString.encodeUtf8(key).base64Url());
+  if (type != null) {
+    builder.appendQueryParameter(QUERY_PARAM_TYPE,type);
+  }
+  return builder.build();
+}

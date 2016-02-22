@@ -1,3 +1,8 @@
 {
-  return context.getContentResolver().getType(source);
+  if (type == null || source.getQueryParameter(QUERY_PARAM_TYPE) != null) {
+    return context.getContentResolver().getType(source);
+  }
+  final Uri.Builder builder=source.buildUpon();
+  builder.appendQueryParameter(QUERY_PARAM_TYPE,type);
+  return context.getContentResolver().getType(builder.build());
 }

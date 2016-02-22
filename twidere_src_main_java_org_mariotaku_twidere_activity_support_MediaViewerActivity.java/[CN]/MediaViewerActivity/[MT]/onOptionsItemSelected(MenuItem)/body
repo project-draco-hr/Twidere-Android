@@ -19,7 +19,12 @@ case R.id.refresh:
 case R.id.share:
 {
     if (object instanceof CacheDownloadMediaViewerFragment) {
-      shareMedia();
+      if (object instanceof VideoPageFragment) {
+        shareMedia(CacheProvider.Type.VIDEO);
+      }
+ else       if (object instanceof ImagePageFragment) {
+        shareMedia(CacheProvider.Type.IMAGE);
+      }
     }
  else {
       final ParcelableMedia media=getMedia()[currentItem];

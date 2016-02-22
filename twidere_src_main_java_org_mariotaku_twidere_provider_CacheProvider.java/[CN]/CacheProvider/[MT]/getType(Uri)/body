@@ -1,10 +1,26 @@
 {
-  final File file=mSimpleDiskCache.get(getCacheKey(uri));
-  if (file == null)   return null;
-  try {
-    return mContentInfoUtil.findMatch(file).getMimeType();
+  final CacheMetadata metadata=getMetadata(uri);
+  if (metadata != null) {
+    return metadata.getContentType();
   }
- catch (  IOException e) {
-    return null;
+  final String type=uri.getQueryParameter(QUERY_PARAM_TYPE);
+  if (type != null) {
+switch (type) {
+case Type.IMAGE:
+{
+        final File file=mSimpleDiskCache.get(getCacheKey(uri));
+        if (file == null)         return null;
+        return Utils.getImageMimeType(file);
+      }
+case Type.VIDEO:
+{
+      return "video/mp4";
+    }
+case Type.JSON:
+{
+    return "application/json";
   }
+}
+}
+return null;
 }

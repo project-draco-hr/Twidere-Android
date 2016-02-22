@@ -1,0 +1,6 @@
+{
+  if (mMetadata == null)   return null;
+  final String serialize=JsonSerializer.serialize(mMetadata,CacheMetadata.class);
+  if (serialize == null)   return null;
+  return serialize.getBytes();
+}

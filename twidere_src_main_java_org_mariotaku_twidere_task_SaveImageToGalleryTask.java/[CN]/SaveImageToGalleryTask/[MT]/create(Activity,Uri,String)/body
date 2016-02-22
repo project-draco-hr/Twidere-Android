@@ -1,0 +1,22 @@
+{
+  final File pubDir;
+switch (type) {
+case CacheProvider.Type.VIDEO:
+{
+      pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
+      break;
+    }
+case CacheProvider.Type.IMAGE:
+{
+    pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+    break;
+  }
+default :
+{
+  pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+  break;
+}
+}
+final File saveDir=new File(pubDir,"Twidere");
+return new SaveImageToGalleryTask(activity,source,saveDir,type);
+}

@@ -1,5 +1,0 @@
-{
-  final File pubDir=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-  final File saveDir=new File(pubDir,"Twidere");
-  return new SaveImageToGalleryTask(activity,source,saveDir);
-}
