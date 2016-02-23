@@ -47,8 +47,8 @@
     clearMedia();
     final Intent intent=new Intent(INTENT_ACTION_COMPOSE);
     setIntent(intent);
-    setComposeTitle(intent);
     handleIntent(intent);
+    setLabel(intent);
     setMenu();
     updateTextCount();
   }

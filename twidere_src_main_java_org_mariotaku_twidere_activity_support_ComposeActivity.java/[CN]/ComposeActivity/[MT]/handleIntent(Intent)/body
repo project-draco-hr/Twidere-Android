@@ -4,8 +4,6 @@
   mShouldSaveAccounts=false;
   mMentionUser=intent.getParcelableExtra(EXTRA_USER);
   mInReplyToStatus=intent.getParcelableExtra(EXTRA_STATUS);
-  mReplyLabel.setVisibility(View.GONE);
-  mReplyLabelDivider.setVisibility(View.GONE);
 switch (action) {
 case INTENT_ACTION_REPLY:
 {

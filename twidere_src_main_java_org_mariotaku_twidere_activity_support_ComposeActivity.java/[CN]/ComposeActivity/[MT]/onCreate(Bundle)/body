@@ -50,6 +50,7 @@
     mDraft=savedInstanceState.getParcelable(EXTRA_DRAFT);
     mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);
     mOriginalText=savedInstanceState.getString(EXTRA_ORIGINAL_TEXT);
+    setLabel(intent);
   }
  else {
     final int notificationId=intent.getIntExtra(EXTRA_NOTIFICATION_ID,-1);
@@ -60,6 +61,7 @@
     if (!handleIntent(intent)) {
       handleDefaultIntent(intent);
     }
+    setLabel(intent);
     final long[] selectedAccountIds=mAccountsAdapter.getSelectedAccountIds();
     if (selectedAccountIds.length == 0) {
       final long[] idsInPrefs=TwidereArrayUtils.parseLongArray(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null),',');
@@ -67,9 +69,6 @@
       mAccountsAdapter.setSelectedAccountIds(intersection.length > 0 ? intersection : defaultAccountIds);
     }
     mOriginalText=ParseUtils.parseString(mEditText.getText());
-  }
-  if (!setComposeTitle(intent)) {
-    setTitle(R.string.compose);
   }
   final Menu menu=mMenuBar.getMenu();
   getMenuInflater().inflate(R.menu.menu_compose,menu);

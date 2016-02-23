@@ -1,0 +1,62 @@
+{
+  final String action=intent.getAction();
+  if (action == null) {
+    hideLabel();
+    return false;
+  }
+switch (action) {
+case INTENT_ACTION_REPLY:
+{
+      showReplyLabel(intent.<ParcelableStatus>getParcelableExtra(EXTRA_STATUS));
+      return true;
+    }
+case INTENT_ACTION_QUOTE:
+{
+    showQuoteLabel(intent.<ParcelableStatus>getParcelableExtra(EXTRA_STATUS));
+    return true;
+  }
+case INTENT_ACTION_EDIT_DRAFT:
+{
+  Draft draft=intent.getParcelableExtra(EXTRA_DRAFT);
+  if (draft == null) {
+    hideLabel();
+    return false;
+  }
+  if (draft.action_type == null) {
+    draft.action_type=Draft.Action.UPDATE_STATUS;
+  }
+switch (draft.action_type) {
+case Draft.Action.REPLY:
+{
+      if (draft.action_extras instanceof UpdateStatusActionExtra) {
+        showReplyLabel(((UpdateStatusActionExtra)draft.action_extras).getInReplyToStatus());
+      }
+ else {
+        hideLabel();
+        return false;
+      }
+      break;
+    }
+case Draft.Action.QUOTE:
+{
+    if (draft.action_extras instanceof UpdateStatusActionExtra) {
+      showQuoteLabel(((UpdateStatusActionExtra)draft.action_extras).getInReplyToStatus());
+    }
+ else {
+      hideLabel();
+      return false;
+    }
+    break;
+  }
+default :
+{
+  hideLabel();
+  return false;
+}
+}
+return true;
+}
+}
+hideLabel();
+return false;
+}
