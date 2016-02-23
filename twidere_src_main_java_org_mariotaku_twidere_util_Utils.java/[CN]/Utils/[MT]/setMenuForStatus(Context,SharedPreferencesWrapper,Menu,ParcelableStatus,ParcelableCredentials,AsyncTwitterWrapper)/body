@@ -38,6 +38,7 @@
     ActionProvider provider=MenuItemCompat.getActionProvider(favorite);
     final boolean useStar=preferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
     if (provider instanceof FavoriteItemProvider) {
+      ((FavoriteItemProvider)provider).setIsFavorite(favorite,isFavorite);
     }
  else {
       if (useStar) {

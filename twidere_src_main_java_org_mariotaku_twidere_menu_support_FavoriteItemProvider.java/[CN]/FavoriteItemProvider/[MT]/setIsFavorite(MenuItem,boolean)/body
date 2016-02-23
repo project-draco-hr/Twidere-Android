@@ -1,0 +1,8 @@
+{
+  if (MenuItemCompat.getActionProvider(item) != this)   throw new IllegalArgumentException();
+  final Drawable icon=item.getIcon();
+  if (icon instanceof LikeAnimationDrawable) {
+    icon.mutate();
+    icon.setColorFilter(isFavorite ? mActivatedColor : mDefaultColor,PorterDuff.Mode.SRC_ATOP);
+  }
+}
