@@ -9,7 +9,6 @@
     final TweetEvent tweetEvent=TweetEvent.create(getContext(),status,TimelineType.OTHER);
     tweetEvent.setAction(TweetEvent.Action.FAVORITE);
     HotMobiLogger.getInstance(getContext()).log(mAccountId,tweetEvent);
-    Utils.showInfoMessage(mContext,R.string.status_favorited,false);
   }
  else {
     taskEvent.setSucceeded(false);
