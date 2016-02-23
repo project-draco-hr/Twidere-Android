@@ -1,0 +1,42 @@
+{
+  final HomeActivity activity=(HomeActivity)getActivity();
+  if (activity == null)   return;
+  final List<SupportTabSpec> tabs=activity.getTabs();
+  final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
+  if (account == null)   return;
+  boolean hasDmTab=false, hasInteractionsTab=false;
+  for (  SupportTabSpec tab : tabs) {
+    if (tab.type == null)     continue;
+switch (tab.type) {
+case CustomTabType.DIRECT_MESSAGES:
+{
+        if (!hasDmTab) {
+          hasDmTab=hasAccountInTab(tab,account.account_id,account.is_activated);
+        }
+        break;
+      }
+case CustomTabType.NOTIFICATIONS_TIMELINE:
+{
+      if (!hasInteractionsTab) {
+        hasInteractionsTab=hasAccountInTab(tab,account.account_id,account.is_activated);
+      }
+      break;
+    }
+}
+}
+mAccountOptionsAdapter.clear();
+mAccountOptionsAdapter.add(new OptionItem(R.string.search,R.drawable.ic_action_search,R.id.search));
+if (!hasInteractionsTab) {
+mAccountOptionsAdapter.add(new OptionItem(R.string.interactions,R.drawable.ic_action_notification,R.id.interactions));
+}
+if (!hasDmTab) {
+mAccountOptionsAdapter.add(new OptionItem(R.string.direct_messages,R.drawable.ic_action_message,R.id.messages));
+}
+if (mUseStarsForLikes) {
+mAccountOptionsAdapter.add(new OptionItem(R.string.favorites,R.drawable.ic_action_star,R.id.favorites));
+}
+ else {
+mAccountOptionsAdapter.add(new OptionItem(R.string.likes,R.drawable.ic_action_heart,R.id.favorites));
+}
+mAccountOptionsAdapter.add(new OptionItem(R.string.lists,R.drawable.ic_action_list,R.id.lists));
+}

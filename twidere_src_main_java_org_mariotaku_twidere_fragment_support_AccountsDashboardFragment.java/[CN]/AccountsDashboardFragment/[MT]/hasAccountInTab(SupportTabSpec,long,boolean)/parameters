@@ -1,0 +1,3 @@
+SupportTabSpec tab
+long accountId
+boolean isActivated

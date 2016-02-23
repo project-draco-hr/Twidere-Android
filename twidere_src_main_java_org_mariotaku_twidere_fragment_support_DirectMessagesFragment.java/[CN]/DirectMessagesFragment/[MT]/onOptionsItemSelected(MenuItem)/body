@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.compose:
 {
-      openMessageConversation(getActivity(),-1,-1);
+      openNewMessageConversation();
       break;
     }
 }

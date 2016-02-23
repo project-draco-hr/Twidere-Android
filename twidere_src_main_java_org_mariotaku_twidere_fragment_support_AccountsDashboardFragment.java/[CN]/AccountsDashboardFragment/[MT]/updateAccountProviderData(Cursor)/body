@@ -18,6 +18,7 @@
       break;
     }
   }
+  mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
   mAccountsAdapter.setAccounts(accounts);
   mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
   mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
@@ -25,7 +26,7 @@
     mAccountActionProvider.setExclusive(false);
     mAccountActionProvider.setAccounts(accounts);
   }
-  initAccountActionsAdapter(accounts);
+  updateAccountActions();
   updateAccountOptionsSeparatorLabel(null);
   updateDefaultAccountState();
 }

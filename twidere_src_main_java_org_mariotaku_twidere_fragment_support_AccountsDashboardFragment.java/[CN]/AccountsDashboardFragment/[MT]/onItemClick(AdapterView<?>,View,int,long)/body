@@ -32,6 +32,16 @@ case R.id.lists:
   Utils.openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
   break;
 }
+case R.id.messages:
+{
+Utils.openDirectMessages(getActivity(),account.account_id);
+break;
+}
+case R.id.interactions:
+{
+Utils.openInteractions(getActivity(),account.account_id);
+break;
+}
 case R.id.edit:
 {
 Utils.openProfileEditor(getActivity(),account.account_id);

@@ -1,0 +1,13 @@
+{
+  if (tab.args == null)   return false;
+  long[] accountIds=tab.args.getLongArray(EXTRA_ACCOUNT_IDS);
+  if (ArrayUtils.isEmpty(accountIds)) {
+    long tabAccountId=tab.args.getLong(EXTRA_ACCOUNT_ID);
+    if (tabAccountId == accountId)     return true;
+    return isActivated;
+  }
+ else   if (ArrayUtils.contains(accountIds,accountId)) {
+    return true;
+  }
+  return false;
+}

@@ -178,6 +178,16 @@ args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 break;
 }
+case LINK_ID_DIRECT_MESSAGES:
+{
+fragment=new DirectMessagesFragment();
+break;
+}
+case LINK_ID_INTERACTIONS:
+{
+fragment=new InteractionsTimelineFragment();
+break;
+}
 case LINK_ID_USER_LIST:
 {
 fragment=new UserListFragment();
