@@ -6,7 +6,6 @@
     event.setAction(TweetEvent.Action.RETWEET);
     HotMobiLogger.getInstance(getContext()).log(accountId,event);
     bus.post(new StatusRetweetedEvent(status));
-    Utils.showOkMessage(mContext,R.string.status_retweeted,false);
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_retweeting,result.getException(),true);
