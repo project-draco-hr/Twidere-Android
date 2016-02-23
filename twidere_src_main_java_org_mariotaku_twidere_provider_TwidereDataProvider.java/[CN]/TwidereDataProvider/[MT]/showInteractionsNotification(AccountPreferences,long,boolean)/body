@@ -29,7 +29,7 @@
         break;
       }
       final ParcelableActivity activity=ci.newObject(c);
-      if (pref.isNotificationMentionsOnly() && ArrayUtils.contains(Activity.Action.MENTION_ACTIONS,activity.action)) {
+      if (pref.isNotificationMentionsOnly() && !ArrayUtils.contains(Activity.Action.MENTION_ACTIONS,activity.action)) {
         continue;
       }
       final long[] filteredUserIds=DataStoreUtils.getFilteredUserIds(context);
