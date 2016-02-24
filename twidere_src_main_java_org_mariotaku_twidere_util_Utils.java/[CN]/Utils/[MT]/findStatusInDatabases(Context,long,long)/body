@@ -4,7 +4,7 @@
   ParcelableStatus status=null;
   final String where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.equals(Statuses.STATUS_ID,statusId)).getSQL();
   for (  final Uri uri : STATUSES_URIS) {
-    final Cursor cur=ContentResolverUtils.query(resolver,uri,Statuses.COLUMNS,where,null,null);
+    final Cursor cur=resolver.query(uri,Statuses.COLUMNS,where,null,null);
     if (cur == null) {
       continue;
     }

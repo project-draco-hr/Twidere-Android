@@ -6,7 +6,7 @@
     final ResponseList<User> lists=twitter.searchUsers(mName,paging);
     final List<ParcelableUser> data=new ArrayList<>();
     for (    final User item : lists) {
-      data.add(new ParcelableUser(item,mAccountId));
+      data.add(ParcelableUserUtils.fromUser(item,mAccountId));
     }
     return SingleResponse.getInstance(data);
   }

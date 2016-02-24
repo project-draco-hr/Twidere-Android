@@ -10,7 +10,7 @@
     if (card == null || card.getName() == null) {
       return null;
     }
-    final ParcelableCardEntity parcelableCard=ParcelableCardEntity.fromCardEntity(card,mAccountId);
+    final ParcelableCardEntity parcelableCard=ParcelableCardEntityUtils.fromCardEntity(card,mAccountId);
     return parcelableCard;
   }
  catch (  TwitterException e) {

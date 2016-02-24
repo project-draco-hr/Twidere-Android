@@ -1,0 +1,6 @@
+{
+  assertEquals(Twidere.Permission.GRANTED,Twidere.checkPermissionRequirement(new String[]{"a","b","c"},new String[]{"a","b","c"}));
+  assertEquals(Twidere.Permission.GRANTED,Twidere.checkPermissionRequirement(new String[]{"a","b"},new String[]{"a","b","c"}));
+  assertEquals(Twidere.Permission.NONE,Twidere.checkPermissionRequirement(new String[]{"a","b"},new String[]{"a","c"}));
+  assertEquals(Twidere.Permission.DENIED,Twidere.checkPermissionRequirement(new String[]{"a","b"},new String[]{"denied"}));
+}

@@ -15,7 +15,7 @@
     if (user == null) {
       return SingleResponse.getInstance();
     }
-    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId));
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId));
   }
  catch (  TwitterException e) {
     return SingleResponse.getInstance(e);

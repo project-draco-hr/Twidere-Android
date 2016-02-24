@@ -1,6 +1,6 @@
 {
-  final int playerWidth=card.getAsInteger("player_width",-1);
-  final int playerHeight=card.getAsInteger("player_height",-1);
+  final int playerWidth=ParcelableCardEntityUtils.getAsInteger(card,"player_width",-1);
+  final int playerHeight=ParcelableCardEntityUtils.getAsInteger(card,"player_height",-1);
   if (playerWidth > 0 && playerHeight > 0) {
     return new Point(playerWidth,playerHeight);
   }

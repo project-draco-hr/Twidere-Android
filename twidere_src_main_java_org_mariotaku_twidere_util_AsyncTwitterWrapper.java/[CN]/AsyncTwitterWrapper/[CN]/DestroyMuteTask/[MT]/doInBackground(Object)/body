@@ -4,7 +4,7 @@
   try {
     final User user=twitter.destroyMute(mUserId);
     Utils.setLastSeen(mContext,user.getId(),-1);
-    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId),null);
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(null,e);

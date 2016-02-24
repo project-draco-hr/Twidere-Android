@@ -1,0 +1,8 @@
+{
+  if (bindingValues == null)   return null;
+  final ArrayMap<String,ParcelableCardEntity.ParcelableBindingValue> map=new ArrayMap<>();
+  for (  Map.Entry<String,CardEntity.BindingValue> entry : bindingValues.entrySet()) {
+    map.put(entry.getKey(),new ParcelableCardEntity.ParcelableBindingValue(entry.getValue()));
+  }
+  return map;
+}

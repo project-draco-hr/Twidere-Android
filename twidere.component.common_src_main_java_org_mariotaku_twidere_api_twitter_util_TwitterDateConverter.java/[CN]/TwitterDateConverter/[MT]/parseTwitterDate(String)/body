@@ -1,27 +1,27 @@
 {
-  final String[] segs=StringUtils.split(string,' ');
-  if (segs.length != 6) {
+  final List<String> segs=split(string," ");
+  if (segs.size() != 6) {
     return null;
   }
-  final String[] timeSegs=StringUtils.split(segs[3],':');
-  if (timeSegs.length != 3) {
+  final List<String> timeSegs=split(segs.get(3),":");
+  if (timeSegs.size() != 3) {
     return null;
   }
   final GregorianCalendar calendar=new GregorianCalendar(TIME_ZONE,LOCALE);
   calendar.clear();
-  final int monthIdx=ArrayUtils.indexOf(MONTH_NAMES,segs[1]);
+  final int monthIdx=indexOf(MONTH_NAMES,segs.get(1));
   if (monthIdx < 0) {
     return null;
   }
-  calendar.set(Calendar.YEAR,Integer.parseInt(segs[5]));
+  calendar.set(Calendar.YEAR,Integer.parseInt(segs.get(5)));
   calendar.set(Calendar.MONTH,monthIdx);
-  calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(segs[2]));
-  calendar.set(Calendar.HOUR_OF_DAY,Integer.parseInt(timeSegs[0]));
-  calendar.set(Calendar.MINUTE,Integer.parseInt(timeSegs[1]));
-  calendar.set(Calendar.SECOND,Integer.parseInt(timeSegs[2]));
-  calendar.setTimeZone(SimpleTimeZone.getTimeZone(getTimezoneText(segs[4])));
+  calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(segs.get(2)));
+  calendar.set(Calendar.HOUR_OF_DAY,Integer.parseInt(timeSegs.get(0)));
+  calendar.set(Calendar.MINUTE,Integer.parseInt(timeSegs.get(1)));
+  calendar.set(Calendar.SECOND,Integer.parseInt(timeSegs.get(2)));
+  calendar.setTimeZone(SimpleTimeZone.getTimeZone(getTimezoneText(segs.get(4))));
   final Date date=calendar.getTime();
-  if (!WEEK_NAMES[calendar.get(Calendar.DAY_OF_WEEK) - 1].equals(segs[0])) {
+  if (!WEEK_NAMES[calendar.get(Calendar.DAY_OF_WEEK) - 1].equals(segs.get(0))) {
     return null;
   }
   return date;

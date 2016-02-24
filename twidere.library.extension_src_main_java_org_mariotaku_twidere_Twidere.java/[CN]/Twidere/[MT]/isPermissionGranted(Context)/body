@@ -11,11 +11,5 @@
   if (info.metaData == null)   return Permission.NONE;
   final String[] required=parsePermissions(info.metaData.getString(METADATA_KEY_EXTENSION_PERMISSIONS));
   final String[] permissions=getPermissions(context,pname);
-  if (ArrayUtils.contains(permissions,PERMISSION_DENIED)) {
-    return Permission.DENIED;
-  }
- else   if (TwidereArrayUtils.contains(permissions,required)) {
-    return Permission.GRANTED;
-  }
-  return Permission.NONE;
+  return checkPermissionRequirement(required,permissions);
 }

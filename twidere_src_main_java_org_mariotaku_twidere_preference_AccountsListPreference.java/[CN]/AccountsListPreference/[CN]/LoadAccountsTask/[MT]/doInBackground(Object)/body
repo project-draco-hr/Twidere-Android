@@ -1,3 +1,0 @@
-{
-  return DataStoreUtils.getAccountsList(mPreference.getContext(),false);
-}

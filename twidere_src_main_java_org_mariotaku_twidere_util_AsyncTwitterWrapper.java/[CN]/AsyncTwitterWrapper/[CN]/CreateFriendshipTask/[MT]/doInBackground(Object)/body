@@ -4,7 +4,7 @@
   try {
     final User user=twitter.createFriendship(user_id);
     Utils.setLastSeen(mContext,user.getId(),System.currentTimeMillis());
-    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId),null);
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(null,e);

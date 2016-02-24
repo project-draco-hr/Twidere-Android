@@ -3,7 +3,7 @@
   final String mediaUriStart=ParseUtils.parseString(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
   if (ParseUtils.parseString(uri).startsWith(mediaUriStart)) {
     final String[] proj={MediaStore.Images.Media.DATA};
-    final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),uri,proj,null,null,null);
+    final Cursor cur=context.getContentResolver().query(uri,proj,null,null,null);
     if (cur == null)     return null;
     final int idxData=cur.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
     cur.moveToFirst();

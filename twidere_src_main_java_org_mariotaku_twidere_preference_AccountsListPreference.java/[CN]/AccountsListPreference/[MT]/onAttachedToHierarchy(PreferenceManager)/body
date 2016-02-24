@@ -1,4 +1,5 @@
 {
   super.onAttachedToHierarchy(preferenceManager);
-  AsyncTaskUtils.executeTask(new LoadAccountsTask(this));
+  if (getPreferenceCount() > 0)   return;
+  setAccountsData(DataStoreUtils.getAccountsList(getContext(),false));
 }

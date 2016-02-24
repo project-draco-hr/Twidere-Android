@@ -12,7 +12,7 @@
   }
   if (mediaEntities != null) {
     for (    final MediaEntity media : mediaEntities) {
-      final String mediaURL=TwitterContentUtils.getMediaUrl(media);
+      final String mediaURL=InternalTwitterContentUtils.getMediaUrl(media);
       if (mediaURL != null) {
         list.add(ParcelableMediaUtils.fromMediaEntity(media));
       }

@@ -1,0 +1,8 @@
+{
+  final long account_id=cursor.getLong(TwidereDataStore.DirectMessages.ConversationEntries.IDX_ACCOUNT_ID);
+  final long id=cursor.getLong(TwidereDataStore.DirectMessages.ConversationEntries.IDX_CONVERSATION_ID);
+  final String name=cursor.getString(TwidereDataStore.DirectMessages.ConversationEntries.IDX_NAME);
+  final String screen_name=cursor.getString(TwidereDataStore.DirectMessages.ConversationEntries.IDX_SCREEN_NAME);
+  final String profile_image_url=cursor.getString(TwidereDataStore.DirectMessages.ConversationEntries.IDX_PROFILE_IMAGE_URL);
+  return new ParcelableUser(account_id,id,name,screen_name,profile_image_url);
+}

@@ -1,0 +1,16 @@
+{
+  if (user == null)   return null;
+  final String text=user.getDescription();
+  if (text == null)   return null;
+  final HtmlBuilder builder=new HtmlBuilder(text,false,true,true);
+  final UrlEntity[] urls=user.getDescriptionEntities();
+  if (urls != null) {
+    for (    final UrlEntity url : urls) {
+      final String expanded_url=url.getExpandedUrl();
+      if (expanded_url != null) {
+        builder.addLink(expanded_url,expanded_url,url.getStart(),url.getEnd());
+      }
+    }
+  }
+  return HtmlEscapeHelper.toPlainText(builder.build());
+}

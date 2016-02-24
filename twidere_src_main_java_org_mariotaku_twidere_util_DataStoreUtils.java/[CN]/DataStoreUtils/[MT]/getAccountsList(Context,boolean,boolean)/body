@@ -1,7 +1,8 @@
 {
   if (context == null)   return Collections.emptyList();
   final ArrayList<ParcelableAccount> accounts=new ArrayList<>();
-  final Cursor cur=ContentResolverUtils.query(context.getContentResolver(),Accounts.CONTENT_URI,Accounts.COLUMNS,activatedOnly ? Accounts.IS_ACTIVATED + " = 1" : null,null,Accounts.SORT_POSITION);
+  final String selection=activatedOnly ? Accounts.IS_ACTIVATED + " = 1" : null;
+  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,Accounts.COLUMNS,selection,null,Accounts.SORT_POSITION);
   if (cur == null)   return accounts;
   final ParcelableCredentialsCursorIndices indices=new ParcelableCredentialsCursorIndices(cur);
   cur.moveToFirst();

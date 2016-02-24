@@ -15,7 +15,7 @@
     if (hasId(user.getId())) {
       continue;
     }
-    data.add(new ParcelableUser(user,mAccountId,pos));
+    data.add(ParcelableUserUtils.fromUser(user,mAccountId,pos));
     pos++;
   }
   Collections.sort(data);

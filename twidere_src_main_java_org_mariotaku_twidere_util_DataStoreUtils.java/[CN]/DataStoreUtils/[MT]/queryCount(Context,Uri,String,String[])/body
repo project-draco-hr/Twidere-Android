@@ -1,7 +1,7 @@
 {
   final ContentResolver resolver=context.getContentResolver();
   final String[] projection=new String[]{SQLFunctions.COUNT()};
-  final Cursor cur=ContentResolverUtils.query(resolver,uri,projection,selection,selectionArgs,null);
+  final Cursor cur=resolver.query(uri,projection,selection,selectionArgs,null);
   if (cur == null)   return -1;
   try {
     if (cur.moveToFirst()) {

@@ -13,7 +13,7 @@
     values.put(CachedRelationships.USER_ID,user_id);
     values.put(CachedRelationships.BLOCKING,true);
     mResolver.insert(CachedRelationships.CONTENT_URI,values);
-    return SingleResponse.getInstance(new ParcelableUser(user,account_id),null);
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,account_id),null);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(null,e);

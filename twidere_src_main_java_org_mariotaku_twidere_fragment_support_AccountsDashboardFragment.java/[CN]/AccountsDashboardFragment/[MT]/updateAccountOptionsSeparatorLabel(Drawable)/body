@@ -11,7 +11,7 @@
   final Resources res=getResources();
   final int defWidth=res.getDisplayMetrics().widthPixels;
   final int width=bannerWidth > 0 ? bannerWidth : defWidth;
-  final String bannerUrl=TwitterContentUtils.getBestBannerUrl(account.profile_banner_url,width);
+  final String bannerUrl=InternalTwitterContentUtils.getBestBannerUrl(account.profile_banner_url,width);
   final ImageView bannerView=mAccountProfileBannerView;
   if (bannerView.getDrawable() == null || !CompareUtils.objectEquals(bannerUrl,bannerView.getTag())) {
     mMediaLoader.displayProfileBanner(mAccountProfileBannerView,bannerUrl,this);

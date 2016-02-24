@@ -4,7 +4,7 @@
   ParcelableDirectMessage message=null;
   final String where=DirectMessages.ACCOUNT_ID + " = " + account_id+ " AND "+ DirectMessages.MESSAGE_ID+ " = "+ message_id;
   for (  final Uri uri : DIRECT_MESSAGES_URIS) {
-    final Cursor cur=ContentResolverUtils.query(resolver,uri,DirectMessages.COLUMNS,where,null,null);
+    final Cursor cur=resolver.query(uri,DirectMessages.COLUMNS,where,null,null);
     if (cur == null) {
       continue;
     }

@@ -1,8 +1,8 @@
 {
   final ParcelableMedia media=new ParcelableMedia();
-  media.url=TwitterContentUtils.getMediaUrl(entity);
-  media.media_url=TwitterContentUtils.getMediaUrl(entity);
-  media.preview_url=TwitterContentUtils.getMediaUrl(entity);
+  media.url=InternalTwitterContentUtils.getMediaUrl(entity);
+  media.media_url=InternalTwitterContentUtils.getMediaUrl(entity);
+  media.preview_url=InternalTwitterContentUtils.getMediaUrl(entity);
   media.start=entity.getStart();
   media.end=entity.getEnd();
   media.type=ParcelableMediaUtils.getTypeInt(entity.getType());

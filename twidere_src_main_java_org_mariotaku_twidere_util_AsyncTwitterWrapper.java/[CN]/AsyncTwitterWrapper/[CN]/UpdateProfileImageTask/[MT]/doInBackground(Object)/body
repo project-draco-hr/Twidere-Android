@@ -9,7 +9,7 @@
       Log.w(LOGTAG,e);
     }
     final User user=TwitterWrapper.tryShowUser(twitter,mAccountId,null);
-    return SingleResponse.getInstance(new ParcelableUser(user,mAccountId));
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId));
   }
  catch (  TwitterException|FileNotFoundException e) {
     return SingleResponse.getInstance(e);

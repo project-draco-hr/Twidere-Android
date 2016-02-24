@@ -7,7 +7,7 @@
   if (sortExpression != null) {
     builder.orderBy(sortExpression);
   }
-  final Cursor cur=ContentResolverUtils.query(resolver,Uri.withAppendedPath(TwidereDataStore.CONTENT_URI_RAW_QUERY,builder.buildSQL()),null,null,selectionArgs,null);
+  final Cursor cur=resolver.query(Uri.withAppendedPath(TwidereDataStore.CONTENT_URI_RAW_QUERY,builder.buildSQL()),null,null,selectionArgs,null);
   if (cur == null)   return messageIds;
   try {
     while (cur.moveToNext()) {

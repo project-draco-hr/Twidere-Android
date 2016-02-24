@@ -1,7 +1,7 @@
 {
   if (Boolean.parseBoolean("true"))   return null;
-  final String appUrlResolved=card.getString("app_url_resolved");
-  final String domain=card.getString("domain");
+  final String appUrlResolved=ParcelableCardEntityUtils.getString(card,"app_url_resolved");
+  final String domain=ParcelableCardEntityUtils.getString(card,"domain");
   if (domain != null && appUrlResolved != null) {
     final Uri uri=Uri.parse(appUrlResolved);
     final String paramV=uri.getQueryParameter("v");

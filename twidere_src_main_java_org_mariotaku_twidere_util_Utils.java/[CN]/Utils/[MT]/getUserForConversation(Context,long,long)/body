@@ -4,7 +4,7 @@
   final Cursor c=cr.query(ConversationEntries.CONTENT_URI,null,where.getSQL(),null,null);
   if (c == null)   return null;
   try {
-    if (c.moveToFirst())     return ParcelableUser.fromDirectMessageConversationEntry(c);
+    if (c.moveToFirst())     return ParcelableUserUtils.fromDirectMessageConversationEntry(c);
   }
   finally {
     c.close();

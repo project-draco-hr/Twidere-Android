@@ -1,5 +1,7 @@
 {
   is_cache=true;
-  description_unescaped=HtmlEscapeHelper.toPlainText(description_html);
+  if (description_unescaped == null) {
+    description_unescaped=description_plain;
+  }
   is_basic=description_plain == null || url == null || location == null;
 }

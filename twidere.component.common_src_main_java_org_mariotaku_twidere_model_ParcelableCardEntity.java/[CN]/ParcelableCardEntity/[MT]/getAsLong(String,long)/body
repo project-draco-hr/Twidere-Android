@@ -1,5 +1,0 @@
-{
-  final ParcelableBindingValue value=getValue(key);
-  if (value == null)   return def;
-  return NumberUtils.toLong(value.value,def);
-}

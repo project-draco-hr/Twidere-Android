@@ -45,7 +45,7 @@
     final ContentValues cachedUserValues=createCachedUser(twitterUser);
     final long userId=twitterUser.getId();
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);
-    final ParcelableUser user=new ParcelableUser(twitterUser,mAccountId);
+    final ParcelableUser user=ParcelableUserUtils.fromUser(twitterUser,mAccountId);
     if (isMyAccount(context,userId)) {
       final ContentValues accountValues=new ContentValues();
       accountValues.put(Accounts.NAME,user.name);

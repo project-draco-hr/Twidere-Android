@@ -1,7 +1,0 @@
-{
-  name=card.getName();
-  url=card.getUrl();
-  users=ParcelableUser.fromUsersArray(card.getUsers(),accountId);
-  account_id=accountId;
-  values=ParcelableBindingValue.from(card.getBindingValues());
-}

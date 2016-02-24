@@ -1,0 +1,11 @@
+{
+  if (indexOf(permissions,PERMISSION_DENIED) != -1) {
+    return Permission.DENIED;
+  }
+ else {
+    for (    String s : required) {
+      if (indexOf(permissions,s) == -1)       return Permission.NONE;
+    }
+    return Permission.GRANTED;
+  }
+}

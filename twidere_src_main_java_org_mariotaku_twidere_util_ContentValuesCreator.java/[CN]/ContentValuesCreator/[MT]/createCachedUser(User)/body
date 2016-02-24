@@ -1,6 +1,6 @@
 {
   if (user == null)   return null;
   final ContentValues values=new ContentValues();
-  ParcelableUserValuesCreator.writeTo(new ParcelableUser(user,-1),values);
+  ParcelableUserValuesCreator.writeTo(ParcelableUserUtils.fromUser(user,-1),values);
   return values;
 }

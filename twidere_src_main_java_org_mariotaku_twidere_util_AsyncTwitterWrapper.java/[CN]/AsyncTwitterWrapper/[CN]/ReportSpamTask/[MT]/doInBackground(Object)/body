@@ -3,7 +3,7 @@
   if (twitter != null) {
     try {
       final User user=twitter.reportSpam(user_id);
-      return SingleResponse.getInstance(new ParcelableUser(user,mAccountId),null);
+      return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
     }
  catch (    final TwitterException e) {
       return SingleResponse.getInstance(null,e);
