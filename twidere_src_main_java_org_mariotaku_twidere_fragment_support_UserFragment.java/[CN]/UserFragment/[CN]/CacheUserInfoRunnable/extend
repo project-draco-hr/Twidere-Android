@@ -1,1 +1,1 @@
-TaskRunnable<Pair<ParcelableUser,Relationship>,Object,Object>
+AbstractTask<Pair<ParcelableUser,Relationship>,Object,Object>

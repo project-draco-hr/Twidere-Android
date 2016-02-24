@@ -3,15 +3,15 @@
   final RecyclerView recyclerView=getRecyclerView();
   recyclerView.addOnScrollListener(mOnScrollListener);
   recyclerView.addOnScrollListener(mPauseOnScrollListener);
-  final TaskRunnable<Object,Boolean,RecyclerView> task=new TaskRunnable<Object,Boolean,RecyclerView>(){
-    @Override public Boolean doLongOperation(    Object params) throws InterruptedException {
+  final AbstractTask<Object,Boolean,RecyclerView> task=new AbstractTask<Object,Boolean,RecyclerView>(){
+    @Override public Boolean doLongOperation(    Object params){
       final Context context=getContext();
       final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
       if (!prefs.getBoolean(KEY_USAGE_STATISTICS,false))       return false;
       final File logFile=HotMobiLogger.getLogFile(context,HotMobiLogger.ACCOUNT_ID_NOT_NEEDED,"scroll");
       return logFile.length() < 131072;
     }
-    @Override public void callback(    RecyclerView recyclerView,    Boolean result){
+    @Override public void afterExecute(    RecyclerView recyclerView,    Boolean result){
       if (result) {
         recyclerView.addOnScrollListener(mActiveHotMobiScrollTracker=mHotMobiScrollTracker);
       }
@@ -19,6 +19,6 @@
   }
 ;
   task.setResultHandler(recyclerView);
-  AsyncManager.runBackgroundTask(task);
+  TaskStarter.execute(task);
   mBus.register(mStatusesBusCallback);
 }

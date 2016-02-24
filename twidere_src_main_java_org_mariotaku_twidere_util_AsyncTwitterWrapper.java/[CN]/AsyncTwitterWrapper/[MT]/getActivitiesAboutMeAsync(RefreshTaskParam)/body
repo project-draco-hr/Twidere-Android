@@ -1,6 +1,5 @@
 {
   final GetActivitiesTask task=new GetActivitiesAboutMeTask(getContext());
   task.setParams(param);
-  task.notifyStart();
-  AsyncManager.runBackgroundTask(task);
+  TaskStarter.execute(task);
 }

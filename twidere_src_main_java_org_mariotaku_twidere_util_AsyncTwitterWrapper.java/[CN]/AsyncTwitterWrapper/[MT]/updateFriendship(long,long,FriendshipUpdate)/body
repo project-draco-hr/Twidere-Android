@@ -1,8 +1,8 @@
 {
   final Bus bus=mBus;
-  if (bus == null)   return null;
-  return AsyncManager.runBackgroundTask(new TaskRunnable<Object,SingleResponse<Relationship>,Bus>(){
-    @Override public SingleResponse<Relationship> doLongOperation(    Object param) throws InterruptedException {
+  if (bus == null)   return;
+  TaskStarter.execute(new AbstractTask<Object,SingleResponse<Relationship>,Bus>(){
+    @Override public SingleResponse<Relationship> doLongOperation(    Object param){
       final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
       try {
         return SingleResponse.getInstance(twitter.updateFriendship(userId,update));
@@ -11,7 +11,7 @@
         return SingleResponse.getInstance(e);
       }
     }
-    @Override public void callback(    Bus handler,    SingleResponse<Relationship> result){
+    @Override public void afterExecute(    Bus handler,    SingleResponse<Relationship> result){
       if (result.hasData()) {
         handler.post(new FriendshipUpdatedEvent(accountId,userId,result.getData()));
       }

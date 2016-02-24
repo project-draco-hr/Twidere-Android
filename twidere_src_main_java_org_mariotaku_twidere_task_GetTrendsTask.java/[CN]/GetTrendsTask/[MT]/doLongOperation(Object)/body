@@ -1,0 +1,12 @@
+{
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
+  if (twitter == null)   return null;
+  try {
+    final List<Trends> trends=getTrends(twitter);
+    storeTrends(mContext.getContentResolver(),getContentUri(),trends);
+    return null;
+  }
+ catch (  final TwitterException e) {
+    return null;
+  }
+}

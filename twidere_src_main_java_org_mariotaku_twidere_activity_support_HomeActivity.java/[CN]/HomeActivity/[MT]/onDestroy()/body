@@ -1,8 +1,8 @@
 {
   stopService(new Intent(this,StreamingService.class));
   final Context context=getApplicationContext();
-  AsyncManager.runBackgroundTask(new TaskRunnable(){
-    @Override public Object doLongOperation(    Object o) throws InterruptedException {
+  TaskStarter.execute(new AbstractTask(){
+    @Override public Object doLongOperation(    Object o){
       cleanDatabasesByItemLimit(context);
       return null;
     }

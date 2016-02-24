@@ -1,6 +1,5 @@
 {
   final GetSentDirectMessagesTask task=new GetSentDirectMessagesTask(mContext);
   task.setParams(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
-  task.notifyStart();
-  AsyncManager.runBackgroundTask(task);
+  TaskStarter.execute(task);
 }

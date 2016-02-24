@@ -1,1 +1,1 @@
-TaskRunnable<TwitterListResponse<Status>,Object,Object>
+AbstractTask<TwitterListResponse<Status>,Object,Object>

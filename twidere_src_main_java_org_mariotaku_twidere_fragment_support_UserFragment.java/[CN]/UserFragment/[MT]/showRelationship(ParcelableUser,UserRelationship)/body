@@ -52,6 +52,6 @@
   mFollowingYouIndicator.setVisibility(relationship.isTargetFollowingSource() ? View.VISIBLE : View.GONE);
   final CacheUserInfoRunnable task=new CacheUserInfoRunnable(getContext().getApplicationContext());
   task.setParams(Pair.create(user,relationship));
-  AsyncManager.runBackgroundTask(task);
+  TaskStarter.execute(task);
   mFollowButton.setVisibility(View.VISIBLE);
 }

@@ -1,0 +1,8 @@
+{
+  if (mCallback != null) {
+    afterExecute(mCallback,result);
+  }
+ else {
+    afterExecute(result);
+  }
+}

@@ -1,1 +1,1 @@
-TaskRunnable<long[],SingleResponse<Object>,Object>
+AbstractTask<long[],SingleResponse<Object>,Object>

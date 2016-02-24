@@ -1,16 +1,12 @@
 {
-  mResumeFragmentRunnable=new Runnable(){
-    @Override public void run(){
+  executeAfterFragmentResumed(new Action(){
+    @Override public void execute(    IBaseFragment fragment){
       final FragmentManager fm=getChildFragmentManager();
       final Fragment f=fm.findFragmentByTag(tag);
       if (f instanceof DialogFragment) {
         ((DialogFragment)f).dismiss();
       }
-      mResumeFragmentRunnable=null;
     }
   }
-;
-  if (mFragmentsResumed) {
-    mResumeFragmentRunnable.run();
-  }
+);
 }

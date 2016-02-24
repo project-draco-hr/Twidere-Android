@@ -31,11 +31,11 @@
           cardData.putString("cards_platform",TwitterAPIFactory.CARDS_PLATFORM_ANDROID_12);
           cardData.putString("response_card_name",card.name);
           cardData.putString("selected_choice",String.valueOf(i + 1));
-          TaskRunnable<CardDataMap,ParcelableCardEntity,CardPollFragment> task=new TaskRunnable<CardDataMap,ParcelableCardEntity,CardPollFragment>(){
-            @Override public void callback(            CardPollFragment handler,            ParcelableCardEntity result){
+          AbstractTask<CardDataMap,ParcelableCardEntity,CardPollFragment> task=new AbstractTask<CardDataMap,ParcelableCardEntity,CardPollFragment>(){
+            @Override public void afterExecute(            CardPollFragment handler,            ParcelableCardEntity result){
               handler.displayAndReloadPoll(result,status);
             }
-            @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap) throws InterruptedException {
+            @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap){
               final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),card.account_id,true,true,TwitterCaps.class);
               if (caps == null)               return null;
               try {
@@ -50,7 +50,7 @@
           }
 ;
           task.setParams(cardData);
-          AsyncManager.runBackgroundTask(task);
+          TaskStarter.execute(task);
         }
       }
     }

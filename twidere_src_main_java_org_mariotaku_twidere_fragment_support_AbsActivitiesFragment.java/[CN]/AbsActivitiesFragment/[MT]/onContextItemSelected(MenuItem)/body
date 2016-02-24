@@ -1,4 +1,5 @@
 {
+  if (getUserVisibleHint())   return false;
   final AbsActivitiesAdapter<Data> adapter=getAdapter();
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
   final int position=contextMenuInfo.getPosition();

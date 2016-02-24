@@ -1,1 +1,1 @@
-TaskRunnable<RefreshTaskParam,List<TwitterWrapper.StatusListResponse>,Object>
+AbstractTask<RefreshTaskParam,List<TwitterWrapper.StatusListResponse>,Object>

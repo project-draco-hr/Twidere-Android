@@ -1,0 +1,3 @@
+{
+  return CachedTrends.Local.CONTENT_URI;
+}

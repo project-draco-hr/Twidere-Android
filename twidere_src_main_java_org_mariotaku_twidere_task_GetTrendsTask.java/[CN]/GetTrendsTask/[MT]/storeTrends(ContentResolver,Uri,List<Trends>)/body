@@ -1,0 +1,21 @@
+{
+  final ArrayList<String> hashtags=new ArrayList<>();
+  final ArrayList<ContentValues> hashtagValues=new ArrayList<>();
+  if (trendsList != null && trendsList.size() > 0) {
+    final ContentValues[] valuesArray=ContentValuesCreator.createTrends(trendsList);
+    for (    final ContentValues values : valuesArray) {
+      final String hashtag=values.getAsString(TwidereDataStore.CachedTrends.NAME).replaceFirst("#","");
+      if (hashtags.contains(hashtag)) {
+        continue;
+      }
+      hashtags.add(hashtag);
+      final ContentValues hashtagValue=new ContentValues();
+      hashtagValue.put(TwidereDataStore.CachedHashtags.NAME,hashtag);
+      hashtagValues.add(hashtagValue);
+    }
+    cr.delete(uri,null,null);
+    ContentResolverUtils.bulkInsert(cr,uri,valuesArray);
+    ContentResolverUtils.bulkDelete(cr,TwidereDataStore.CachedHashtags.CONTENT_URI,TwidereDataStore.CachedHashtags.NAME,hashtags,null,true);
+    ContentResolverUtils.bulkInsert(cr,TwidereDataStore.CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
+  }
+}

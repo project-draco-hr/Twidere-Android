@@ -1,1 +1,1 @@
-TaskRunnable<RefreshTaskParam,Object,Object>
+AbstractTask<RefreshTaskParam,Object,Object>

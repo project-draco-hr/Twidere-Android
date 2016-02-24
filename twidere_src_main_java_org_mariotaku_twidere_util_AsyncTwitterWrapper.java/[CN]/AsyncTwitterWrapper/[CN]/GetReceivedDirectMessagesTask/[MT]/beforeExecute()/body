@@ -1,0 +1,5 @@
+{
+  final Intent intent=new Intent(BROADCAST_RESCHEDULE_DIRECT_MESSAGES_REFRESHING);
+  context.sendBroadcast(intent);
+  super.beforeExecute();
+}

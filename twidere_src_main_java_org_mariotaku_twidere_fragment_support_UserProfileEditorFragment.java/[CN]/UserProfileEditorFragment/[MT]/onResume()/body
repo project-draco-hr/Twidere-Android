@@ -3,8 +3,4 @@
   if (mTask != null && mTask.getStatus() == Status.PENDING) {
     AsyncTaskUtils.executeTask(mTask);
   }
-  if (!mFragmentsResumed && mResumeFragmentRunnable != null) {
-    mResumeFragmentRunnable.run();
-  }
-  mFragmentsResumed=true;
 }

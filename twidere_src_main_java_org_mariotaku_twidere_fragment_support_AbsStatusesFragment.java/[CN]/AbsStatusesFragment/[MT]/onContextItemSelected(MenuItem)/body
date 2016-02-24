@@ -1,4 +1,5 @@
 {
+  if (getUserVisibleHint())   return false;
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
   final ParcelableStatus status=getAdapter().getStatus(contextMenuInfo.getPosition());
   if (status == null)   return false;

@@ -33,7 +33,7 @@
       storeStatus(accountId,statuses,sinceId,maxId,true);
       final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
       cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountId,statuses));
-      AsyncManager.runBackgroundTask(cacheTask);
+      TaskStarter.execute(cacheTask);
       errorInfoStore.remove(getErrorInfoKey(),accountId);
     }
  catch (    final TwitterException e) {

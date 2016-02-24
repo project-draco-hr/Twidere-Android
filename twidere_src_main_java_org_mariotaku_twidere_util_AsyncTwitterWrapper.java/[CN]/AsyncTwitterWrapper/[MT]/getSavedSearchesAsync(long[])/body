@@ -1,6 +1,6 @@
 {
   final GetSavedSearchesTask task=new GetSavedSearchesTask(mContext);
   task.setParams(accountIds);
-  AsyncManager.runBackgroundTask(task);
+  TaskStarter.execute(task);
   return System.identityHashCode(task);
 }

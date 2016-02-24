@@ -1,0 +1,4 @@
+{
+  final AsyncTaskTask<Params,Result,Callback> asyncTaskTask=new AsyncTaskTask<>(task);
+  asyncTaskTask.execute();
+}

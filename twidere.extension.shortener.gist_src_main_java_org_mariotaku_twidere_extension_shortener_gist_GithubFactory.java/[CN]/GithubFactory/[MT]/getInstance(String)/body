@@ -1,7 +1,7 @@
 {
   final RestAPIFactory<GithubException> factory=new RestAPIFactory<>();
   factory.setEndpoint(new Endpoint("https://api.github.com/"));
-  factory.setHttpClient(new OkHttpRestClient(new OkHttpClient()));
+  factory.setHttpClient(new URLConnectionRestClient());
   factory.setAuthorization(new Authorization(){
     @Override public String getHeader(    Endpoint endpoint,    RestRequest restRequest){
       return "token " + apiKey;

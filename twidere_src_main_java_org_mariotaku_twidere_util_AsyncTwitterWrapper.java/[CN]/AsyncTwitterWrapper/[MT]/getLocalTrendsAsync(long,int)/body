@@ -1,4 +1,4 @@
 {
-  final GetLocalTrendsTask task=new GetLocalTrendsTask(accountId,woeid);
-  return mAsyncTaskManager.add(task,true);
+  final GetLocalTrendsTask task=new GetLocalTrendsTask(mContext,accountId,woeid);
+  TaskStarter.execute(task);
 }

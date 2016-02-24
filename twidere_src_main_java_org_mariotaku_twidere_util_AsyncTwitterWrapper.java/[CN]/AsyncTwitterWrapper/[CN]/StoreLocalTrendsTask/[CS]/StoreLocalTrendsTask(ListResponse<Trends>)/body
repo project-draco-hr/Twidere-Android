@@ -1,3 +1,0 @@
-{
-  super(mContext,result,CachedTrends.Local.CONTENT_URI);
-}

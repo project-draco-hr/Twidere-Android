@@ -1,7 +1,7 @@
 {
   final RestAPIFactory<TwitLongerException> factory=new RestAPIFactory<>();
   factory.setEndpoint(new Endpoint("http://api.twitlonger.com/"));
-  factory.setHttpClient(new OkHttpRestClient(new OkHttpClient()));
+  factory.setHttpClient(new URLConnectionRestClient());
   factory.setConstantPool(new TwitLongerConstantPool(apiKey,credentials));
   factory.setExceptionFactory(new TwitLongerExceptionFactory());
   factory.setRestConverterFactory(new LoganSquareConverterFactory());

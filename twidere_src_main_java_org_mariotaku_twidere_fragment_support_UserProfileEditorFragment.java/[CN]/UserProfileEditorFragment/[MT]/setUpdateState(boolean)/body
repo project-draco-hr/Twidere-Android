@@ -3,17 +3,13 @@
     dismissDialogFragment(UPDATE_PROFILE_DIALOG_FRAGMENT_TAG);
     return;
   }
-  mResumeFragmentRunnable=new Runnable(){
-    @Override public void run(){
+  executeAfterFragmentResumed(new Action(){
+    @Override public void execute(    IBaseFragment fragment){
       final FragmentManager fm=getChildFragmentManager();
       SupportProgressDialogFragment df=new SupportProgressDialogFragment();
       df.show(fm,UPDATE_PROFILE_DIALOG_FRAGMENT_TAG);
       df.setCancelable(false);
-      mResumeFragmentRunnable=null;
     }
   }
-;
-  if (mFragmentsResumed) {
-    mResumeFragmentRunnable.run();
-  }
+);
 }

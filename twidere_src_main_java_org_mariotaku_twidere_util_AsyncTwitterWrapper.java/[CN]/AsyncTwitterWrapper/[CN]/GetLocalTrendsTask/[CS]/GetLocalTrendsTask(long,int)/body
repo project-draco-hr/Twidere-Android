@@ -1,4 +1,0 @@
-{
-  super(account_id);
-  this.woeid=woeid;
-}

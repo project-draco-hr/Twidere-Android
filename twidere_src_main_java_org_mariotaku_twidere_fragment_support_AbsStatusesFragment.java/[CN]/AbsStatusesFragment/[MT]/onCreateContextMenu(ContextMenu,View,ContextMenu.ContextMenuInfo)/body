@@ -1,4 +1,5 @@
 {
+  if (getUserVisibleHint())   return;
   final AbsStatusesAdapter<Data> adapter=getAdapter();
   final MenuInflater inflater=new MenuInflater(getContext());
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)menuInfo;
