@@ -1,12 +1,12 @@
 {
   super.measureChildWithMargins(child,widthUsed,heightUsed);
-  if (!mIndicator.isTabExpandEnabled())   return;
-  final int count=mIndicator.getCount();
+  if (!isTabExpandEnabled())   return;
+  final int count=getItemCount();
   if (count == 0)   return;
-  final int parentHeight=mIndicator.getHeight(), parentWidth=mIndicator.getWidth();
+  final int parentHeight=getHeight(), parentWidth=getWidth();
   final int decoratedWidth=getDecoratedMeasuredWidth(child);
   final int decoratorWidth=decoratedWidth - child.getMeasuredWidth();
-  final int width=Math.max(parentWidth / count - decoratorWidth,decoratedWidth);
+  final int width=parentWidth / count - decoratorWidth;
   final int heightMeasureSpec=MeasureSpec.makeMeasureSpec(parentHeight,MeasureSpec.EXACTLY);
   final int widthMeasureSpec=MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY);
   child.measure(widthMeasureSpec,heightMeasureSpec);

@@ -1,3 +1,3 @@
 {
-  mTabExpandEnabled=expandEnabled;
+  mLayoutManager.setTabExpandEnabled(expandEnabled);
 }

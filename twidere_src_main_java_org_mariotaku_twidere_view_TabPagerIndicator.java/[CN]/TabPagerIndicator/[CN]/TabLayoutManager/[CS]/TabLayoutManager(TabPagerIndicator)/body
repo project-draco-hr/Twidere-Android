@@ -1,4 +1,0 @@
-{
-  super(indicator.getContext(),HORIZONTAL,false);
-  mIndicator=indicator;
-}

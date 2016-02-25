@@ -31,7 +31,7 @@
   adapter.setData(data);
   final int activityStartIndex=adapter.getActivityStartIndex();
   final int activityEndExclusiveIndex=activityStartIndex + adapter.getActivityCount();
-  if (activityEndExclusiveIndex >= 0) {
+  if (activityEndExclusiveIndex >= 0 && rememberPosition && tag != null) {
     final long lastItemId=adapter.getTimestamp(activityEndExclusiveIndex);
     if (lastItemId > 0 && lastReadId < lastItemId) {
       lastReadId=lastItemId;
