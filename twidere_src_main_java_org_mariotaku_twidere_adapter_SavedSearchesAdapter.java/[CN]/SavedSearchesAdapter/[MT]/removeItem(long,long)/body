@@ -1,0 +1,12 @@
+{
+  if (mData == null)   return false;
+  for (int i=0, mDataSize=mData.size(); i < mDataSize; i++) {
+    SavedSearch search=mData.get(i);
+    if (search.getId() == searchId) {
+      mData.remove(i);
+      notifyDataSetChanged();
+      return true;
+    }
+  }
+  return false;
+}

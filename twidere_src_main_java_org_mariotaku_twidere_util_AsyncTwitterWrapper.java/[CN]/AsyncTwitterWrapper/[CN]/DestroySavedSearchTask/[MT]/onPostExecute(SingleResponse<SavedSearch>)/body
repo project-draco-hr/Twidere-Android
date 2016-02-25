@@ -2,6 +2,7 @@
   if (result.hasData()) {
     final String message=mContext.getString(R.string.search_name_deleted,result.getData().getQuery());
     Utils.showOkMessage(mContext,message,false);
+    bus.post(new SavedSearchDestroyedEvent(mAccountId,mSearchId));
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_deleting_search,result.getException(),false);

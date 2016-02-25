@@ -1,6 +1,7 @@
 {
   mMediaLoadState=state;
-  if (getUserVisibleHint()) {
-    getActivity().supportInvalidateOptionsMenu();
+  final FragmentActivity activity=getActivity();
+  if (getUserVisibleHint() && activity != null) {
+    activity.supportInvalidateOptionsMenu();
   }
 }
