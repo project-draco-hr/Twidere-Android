@@ -1,6 +1,6 @@
 {
-  nameView.setTextSize(textSize * 1.1f);
-  screenNameView.setTextSize(textSize);
+  nameView.setPrimaryTextSize(textSize * 1.1f);
+  nameView.setSecondaryTextSize(textSize);
   textView.setTextSize(textSize);
   timeView.setTextSize(textSize * 0.85f);
 }

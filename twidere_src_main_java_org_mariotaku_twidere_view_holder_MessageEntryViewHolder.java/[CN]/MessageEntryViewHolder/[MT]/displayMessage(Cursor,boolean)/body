@@ -8,8 +8,9 @@
   final boolean isOutgoing=cursor.getInt(ConversationEntries.IDX_IS_OUTGOING) == 1;
   final String name=cursor.getString(ConversationEntries.IDX_NAME);
   final String screenName=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
-  nameView.setText(manager.getUserNickname(conversationId,name,false));
-  screenNameView.setText("@" + screenName);
+  nameView.setName(manager.getUserNickname(conversationId,name,false));
+  nameView.setScreenName("@" + screenName);
+  nameView.updateText(adapter.getBidiFormatter());
   textView.setText(toPlainText(cursor.getString(ConversationEntries.IDX_TEXT)));
   timeView.setTime(timestamp);
   if (isOutgoing) {
@@ -19,7 +20,6 @@
     timeView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
   }
   nameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
-  screenNameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   textView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   if (adapter.shouldShowAccountsColor()) {
     content.drawEnd(DataStoreUtils.getAccountColor(context,accountId));

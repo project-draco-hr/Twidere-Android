@@ -3,8 +3,7 @@
   this.adapter=adapter;
   content=(IColorLabelView)itemView.findViewById(R.id.content);
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
-  nameView=(TextView)itemView.findViewById(R.id.name);
-  screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
+  nameView=(NameView)itemView.findViewById(R.id.name);
   textView=(TextView)itemView.findViewById(R.id.text);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);
   setTextSize(adapter.getTextSize());
