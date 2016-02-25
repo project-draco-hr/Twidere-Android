@@ -1,4 +1,5 @@
 {
   mContentListSupport=contentListSupport;
+  mViewCallback=viewCallback;
   mTouchListener=new TouchListener(this);
 }

@@ -1,0 +1,18 @@
+{
+  if (mViewCallback != null) {
+    mViewCallback.post(new Runnable(){
+      @Override public void run(){
+        if (mViewCallback.isComputingLayout()) {
+          mViewCallback.post(this);
+        }
+ else {
+          notifyScrollStateChanged();
+        }
+      }
+    }
+);
+  }
+ else {
+    notifyScrollStateChanged();
+  }
+}

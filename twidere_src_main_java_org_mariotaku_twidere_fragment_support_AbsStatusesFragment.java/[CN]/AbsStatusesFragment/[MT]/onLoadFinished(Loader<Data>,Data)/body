@@ -2,7 +2,7 @@
   final AbsStatusesAdapter<Data> adapter=getAdapter();
   final boolean rememberPosition=mPreferences.getBoolean(KEY_REMEMBER_POSITION,false);
   final boolean readFromBottom=mPreferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
-  final long lastReadId;
+  long lastReadId;
   final int lastVisiblePos, lastVisibleTop;
   final String tag=getCurrentReadPositionTag();
   final LinearLayoutManager layoutManager=getLayoutManager();
@@ -29,14 +29,20 @@
     lastVisibleTop=0;
   }
   adapter.setData(data);
-  setRefreshEnabled(true);
   final int statusStartIndex=adapter.getStatusStartIndex();
-  final int statusEndIndex=statusStartIndex + adapter.getStatusCount();
+  final int statusEndExclusiveIndex=statusStartIndex + adapter.getStatusCount();
+  if (statusEndExclusiveIndex >= 0) {
+    final long lastItemId=adapter.getStatusId(statusEndExclusiveIndex - 1);
+    if (lastItemId > 0 && lastReadId < lastItemId) {
+      lastReadId=lastItemId;
+    }
+  }
+  setRefreshEnabled(true);
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
     adapter.setLoadMoreSupportedPosition(hasMoreData(data) ? IndicatorPosition.END : IndicatorPosition.NONE);
     int pos=-1;
-    for (int i=statusStartIndex; i < statusEndIndex; i++) {
-      if (lastReadId != -1 && lastReadId == adapter.getStatusId(i)) {
+    for (int i=statusStartIndex; i < statusEndExclusiveIndex; i++) {
+      if (lastReadId != -1 && adapter.getStatusId(i) <= lastReadId) {
         pos=i;
         break;
       }
