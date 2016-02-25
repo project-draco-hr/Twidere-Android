@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,SparseIntArray>
+AsyncTask<Object,UpdateUnreadCountTask.TabBadge,SparseIntArray>
