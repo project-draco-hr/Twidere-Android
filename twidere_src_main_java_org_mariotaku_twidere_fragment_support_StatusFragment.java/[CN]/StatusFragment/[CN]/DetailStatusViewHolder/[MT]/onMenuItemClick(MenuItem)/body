@@ -12,5 +12,5 @@
     RetweetQuoteDialogFragment.show(fm,status);
     return true;
   }
-  return Utils.handleMenuItemClick(activity,fragment,fm,manager,twitter,status,item);
+  return MenuUtils.handleStatusClick(activity,fragment,fm,manager,twitter,status,item);
 }

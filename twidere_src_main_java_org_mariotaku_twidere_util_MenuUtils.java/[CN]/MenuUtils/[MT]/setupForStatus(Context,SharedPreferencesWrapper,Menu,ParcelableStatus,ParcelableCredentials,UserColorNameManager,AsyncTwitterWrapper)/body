@@ -1,6 +1,7 @@
 {
-  if (context == null || menu == null || status == null || account == null)   return;
-  final Resources resources=context.getResources();
+  if (menu instanceof ContextMenu) {
+    ((ContextMenu)menu).setHeaderTitle(context.getString(R.string.status_menu_title_format,manager.getDisplayName(status,preferences.getBoolean(KEY_NAME_FIRST),false),status.text_unescaped));
+  }
   final int retweetHighlight=ContextCompat.getColor(context,R.color.highlight_retweet);
   final int favoriteHighlight=ContextCompat.getColor(context,R.color.highlight_favorite);
   final int likeHighlight=ContextCompat.getColor(context,R.color.highlight_like);
@@ -12,11 +13,11 @@
     isMyRetweet=false;
   }
  else {
-    isMyRetweet=status.retweeted || isMyRetweet(status);
+    isMyRetweet=status.retweeted || Utils.isMyRetweet(status);
   }
   final MenuItem delete=menu.findItem(R.id.delete);
   if (delete != null) {
-    delete.setVisible(isMyStatus(status));
+    delete.setVisible(Utils.isMyStatus(status));
   }
   final MenuItem retweet=menu.findItem(R.id.retweet);
   if (retweet != null) {
@@ -36,7 +37,7 @@
       isFavorite=status.is_favorite;
     }
     ActionProvider provider=MenuItemCompat.getActionProvider(favorite);
-    final boolean useStar=preferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
+    final boolean useStar=preferences.getBoolean(SharedPreferenceConstants.KEY_I_WANT_MY_STARS_BACK);
     if (provider instanceof FavoriteItemProvider) {
       ((FavoriteItemProvider)provider).setIsFavorite(favorite,isFavorite);
     }
@@ -65,32 +66,32 @@
   }
   final MenuItem translate=menu.findItem(R.id.translate);
   if (translate != null) {
-    final boolean isOfficialKey=isOfficialCredentials(context,account);
-    final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(context,SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-    final boolean forcePrivateApis=prefs.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false);
-    MenuUtils.setMenuItemAvailability(menu,R.id.translate,forcePrivateApis || isOfficialKey);
+    final boolean isOfficialKey=Utils.isOfficialCredentials(context,account);
+    final SharedPreferencesWrapper prefs=SharedPreferencesWrapper.getInstance(context,TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+    final boolean forcePrivateApis=prefs.getBoolean(SharedPreferenceConstants.KEY_FORCE_USING_PRIVATE_APIS,false);
+    setMenuItemAvailability(menu,R.id.translate,forcePrivateApis || isOfficialKey);
   }
-  menu.removeGroup(MENU_GROUP_STATUS_EXTENSION);
-  addIntentToMenuForExtension(context,menu,MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);
+  menu.removeGroup(Constants.MENU_GROUP_STATUS_EXTENSION);
+  Utils.addIntentToMenuForExtension(context,menu,Constants.MENU_GROUP_STATUS_EXTENSION,IntentConstants.INTENT_ACTION_EXTENSION_OPEN_STATUS,IntentConstants.EXTRA_STATUS,IntentConstants.EXTRA_STATUS_JSON,status);
   final MenuItem shareItem=menu.findItem(R.id.share);
   final ActionProvider shareProvider=MenuItemCompat.getActionProvider(shareItem);
   if (shareProvider instanceof SupportStatusShareProvider) {
     ((SupportStatusShareProvider)shareProvider).setStatus(status);
   }
  else   if (shareProvider instanceof ShareActionProvider) {
-    final Intent shareIntent=createStatusShareIntent(context,status);
+    final Intent shareIntent=Utils.createStatusShareIntent(context,status);
     ((ShareActionProvider)shareProvider).setShareIntent(shareIntent);
   }
  else   if (shareItem.hasSubMenu()) {
     final Menu shareSubMenu=shareItem.getSubMenu();
-    final Intent shareIntent=createStatusShareIntent(context,status);
-    shareSubMenu.removeGroup(MENU_GROUP_STATUS_SHARE);
-    MenuUtils.addIntentToMenu(context,shareSubMenu,shareIntent,MENU_GROUP_STATUS_SHARE);
+    final Intent shareIntent=Utils.createStatusShareIntent(context,status);
+    shareSubMenu.removeGroup(Constants.MENU_GROUP_STATUS_SHARE);
+    addIntentToMenu(context,shareSubMenu,shareIntent,Constants.MENU_GROUP_STATUS_SHARE);
   }
  else {
-    final Intent shareIntent=createStatusShareIntent(context,status);
+    final Intent shareIntent=Utils.createStatusShareIntent(context,status);
     final Intent chooserIntent=Intent.createChooser(shareIntent,context.getString(R.string.share_status));
-    addCopyLinkIntent(context,chooserIntent,LinkCreator.getTwitterStatusLink(status));
+    Utils.addCopyLinkIntent(context,chooserIntent,LinkCreator.getTwitterStatusLink(status));
     shareItem.setIntent(chooserIntent);
   }
 }

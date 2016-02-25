@@ -1,5 +1,5 @@
 {
-  if (getUserVisibleHint())   return false;
+  if (!getUserVisibleHint())   return false;
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
   final ParcelableStatus status=mStatusAdapter.getStatus(contextMenuInfo.getPosition());
   if (status == null)   return false;
@@ -10,5 +10,5 @@
     startActivity(chooser);
     return true;
   }
-  return Utils.handleMenuItemClick(getActivity(),this,getFragmentManager(),mUserColorNameManager,mTwitterWrapper,status,item);
+  return MenuUtils.handleStatusClick(getActivity(),this,getFragmentManager(),mUserColorNameManager,mTwitterWrapper,status,item);
 }

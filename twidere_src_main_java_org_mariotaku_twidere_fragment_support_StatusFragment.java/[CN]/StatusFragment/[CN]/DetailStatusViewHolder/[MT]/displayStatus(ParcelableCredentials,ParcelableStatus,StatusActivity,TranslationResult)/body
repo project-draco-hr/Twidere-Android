@@ -159,7 +159,7 @@
  else {
     twitterCard.setVisibility(View.GONE);
   }
-  Utils.setMenuForStatus(context,fragment.mPreferences,menuBar.getMenu(),status,adapter.getStatusAccount(),twitter);
+  MenuUtils.setupForStatus(context,fragment.mPreferences,menuBar.getMenu(),status,adapter.getStatusAccount(),manager,twitter);
   final String lang=status.lang;
   if (!Utils.isOfficialCredentials(context,account) || !CheckUtils.isValidLocale(lang)) {
     translateLabelView.setText(R.string.unknown_language);
