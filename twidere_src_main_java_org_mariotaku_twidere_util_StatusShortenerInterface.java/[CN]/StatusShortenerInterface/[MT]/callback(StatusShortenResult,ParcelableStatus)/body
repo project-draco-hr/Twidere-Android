@@ -2,7 +2,9 @@
   final IStatusShortener iface=getInterface();
   if (iface == null)   return false;
   try {
-    return iface.callback(result,status);
+    final String resultJson=JsonSerializer.serialize(result,StatusShortenResult.class);
+    final String statusJson=JsonSerializer.serialize(status,ParcelableStatus.class);
+    return iface.callback(resultJson,statusJson);
   }
  catch (  final RemoteException e) {
     return false;

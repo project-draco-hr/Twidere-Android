@@ -1,0 +1,3 @@
+ParcelableStatusUpdate status
+long currentAccountId
+String overrideStatusText

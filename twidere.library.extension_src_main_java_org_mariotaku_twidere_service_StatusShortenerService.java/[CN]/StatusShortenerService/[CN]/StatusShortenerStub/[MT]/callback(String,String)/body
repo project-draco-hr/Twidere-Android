@@ -1,0 +1,15 @@
+{
+  try {
+    final StatusShortenResult result=LoganSquareMapperFinder.mapperFor(StatusShortenResult.class).parse(resultJson);
+    final ParcelableStatus status=LoganSquareMapperFinder.mapperFor(ParcelableStatus.class).parse(statusJson);
+    return mService.get().callback(result,status);
+  }
+ catch (  IOException e) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+      throw new RemoteException(e.getMessage());
+    }
+ else {
+      throw new RemoteException();
+    }
+  }
+}

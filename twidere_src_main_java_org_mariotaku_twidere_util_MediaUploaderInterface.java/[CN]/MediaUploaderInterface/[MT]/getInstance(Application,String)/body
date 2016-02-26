@@ -3,6 +3,8 @@
   final Intent intent=new Intent(INTENT_ACTION_EXTENSION_UPLOAD_MEDIA);
   final ComponentName component=ComponentName.unflattenFromString(uploaderName);
   intent.setComponent(component);
-  if (application.getPackageManager().queryIntentServices(intent,0).size() != 1)   return null;
-  return new MediaUploaderInterface(application,uploaderName);
+  final PackageManager pm=application.getPackageManager();
+  final List<ResolveInfo> services=pm.queryIntentServices(intent,PackageManager.GET_META_DATA);
+  if (services.size() != 1)   return null;
+  return new MediaUploaderInterface(application,uploaderName,services.get(0).serviceInfo.metaData);
 }

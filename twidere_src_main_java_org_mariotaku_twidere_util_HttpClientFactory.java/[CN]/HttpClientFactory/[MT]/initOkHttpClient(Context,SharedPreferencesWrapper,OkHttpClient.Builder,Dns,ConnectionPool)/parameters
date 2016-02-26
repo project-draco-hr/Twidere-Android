@@ -1,0 +1,5 @@
+Context context
+SharedPreferencesWrapper prefs
+OkHttpClient.Builder builder
+Dns dns
+ConnectionPool connectionPool

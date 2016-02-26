@@ -28,6 +28,24 @@
     if (!ServicePickerPreference.isNoneValue(shortenerComponent)) {
       shortener=StatusShortenerInterface.getInstance(app,shortenerComponent);
       if (shortener == null)       throw new ShortenerNotFoundException(this);
+      try {
+        shortener.checkService(new AbsServiceInterface.CheckServiceAction(){
+          @Override public void check(          @Nullable Bundle metaData) throws AbsServiceInterface.CheckServiceException {
+            if (metaData == null)             throw new ExtensionVersionMismatchException();
+            final String extensionVersion=metaData.getString(METADATA_KEY_EXTENSION_VERSION_STATUS_SHORTENER);
+            if (!TextUtils.equals(extensionVersion,getString(R.string.status_shortener_service_interface_version))) {
+              throw new ExtensionVersionMismatchException();
+            }
+          }
+        }
+);
+      }
+ catch (      AbsServiceInterface.CheckServiceException e) {
+        if (e instanceof ExtensionVersionMismatchException) {
+          throw new ShortenException(getString(R.string.shortener_version_incompatible));
+        }
+        throw new ShortenException(e);
+      }
     }
     final boolean hasMedia=statusUpdate.media != null && statusUpdate.media.length > 0;
     if (uploader == null && statusUpdate.media != null) {
@@ -71,7 +89,7 @@
         StatusShortenResult shortenedResult=null;
         if (shouldShorten && shortener != null) {
           try {
-            shortenedResult=shortener.shorten(statusUpdate,account,statusText);
+            shortenedResult=shortener.shorten(statusUpdate,account.account_id,statusText);
           }
  catch (          final Exception e) {
             throw new ShortenException(getString(R.string.error_message_tweet_shorten_failed),e);
