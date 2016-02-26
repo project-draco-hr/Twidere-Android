@@ -1,3 +1,4 @@
 {
+  if (getContext() == null || isDetached())   return false;
   return false;
 }

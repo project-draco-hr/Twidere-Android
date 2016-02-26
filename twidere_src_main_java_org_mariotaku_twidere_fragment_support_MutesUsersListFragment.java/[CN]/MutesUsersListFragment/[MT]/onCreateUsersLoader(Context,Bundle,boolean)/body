@@ -1,5 +1,4 @@
 {
-  if (args == null)   return null;
-  final long account_id=args.getLong(EXTRA_ACCOUNT_ID,-1);
-  return new MutesUsersLoader(context,account_id,getNextCursor(),getData(),fromUser);
+  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  return new MutesUsersLoader(context,accountId,getNextCursor(),getData(),fromUser);
 }
