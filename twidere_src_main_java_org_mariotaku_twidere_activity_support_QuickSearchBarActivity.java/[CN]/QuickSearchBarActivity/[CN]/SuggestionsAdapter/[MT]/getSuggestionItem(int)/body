@@ -1,4 +1,5 @@
 {
   final Cursor cursor=(Cursor)getItem(position);
+  if (cursor == null || mIndices == null)   return null;
   return new SuggestionItem(cursor,mIndices);
 }

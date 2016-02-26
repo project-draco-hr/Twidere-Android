@@ -1,5 +1,6 @@
 {
   final Cursor cursor=(Cursor)super.getItem(position);
+  if (cursor == null || mIndices == null)   throw new NullPointerException();
 switch (cursor.getString(mIndices.type)) {
 case Suggestions.Search.TYPE_SAVED_SEARCH:
 {

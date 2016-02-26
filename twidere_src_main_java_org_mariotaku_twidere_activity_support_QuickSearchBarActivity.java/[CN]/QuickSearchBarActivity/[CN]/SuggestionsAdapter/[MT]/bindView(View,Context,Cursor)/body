@@ -1,4 +1,5 @@
 {
+  if (mIndices == null)   throw new NullPointerException();
 switch (getActualItemViewType(cursor.getPosition())) {
 case VIEW_TYPE_SEARCH_HISTORY:
 {

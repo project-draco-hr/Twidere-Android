@@ -2,7 +2,7 @@
   if (array == null)   return null;
   final String[] stringArray=new String[end - start];
   for (int i=start; i < end; i++) {
-    stringArray[i - start]=ParseUtils.parseString(array[i]);
+    stringArray[i - start]=ParseUtils.parseString(Array.get(array,i));
   }
   return stringArray;
 }

@@ -1,6 +1,6 @@
 ContentResolver resolver
 Uri uri
 String inColumn
-T[] colValues
+Object colValues
 String extraWhere
 boolean valuesIsString
