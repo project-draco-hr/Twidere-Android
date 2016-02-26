@@ -1,4 +1,7 @@
 {
+  if (mContentListSupport instanceof Fragment) {
+    if (((Fragment)mContentListSupport).getContext() == null)     return;
+  }
   final Object adapter=mContentListSupport.getAdapter();
   if (!(adapter instanceof ILoadMoreSupportAdapter))   return;
   final ILoadMoreSupportAdapter loadMoreAdapter=(ILoadMoreSupportAdapter)adapter;

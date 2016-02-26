@@ -1,4 +1,7 @@
 {
+  if (mContentListSupport instanceof Fragment) {
+    if (((Fragment)mContentListSupport).getContext() == null)     return;
+  }
   if (mViewCallback != null) {
     mViewCallback.post(new Runnable(){
       @Override public void run(){

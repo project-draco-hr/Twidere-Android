@@ -1,4 +1,7 @@
 {
+  if (mContentListSupport instanceof Fragment) {
+    if (((Fragment)mContentListSupport).getContext() == null)     return;
+  }
   if (mScrollState != RecyclerView.SCROLL_STATE_IDLE) {
     postNotifyScrollStateChanged();
   }
