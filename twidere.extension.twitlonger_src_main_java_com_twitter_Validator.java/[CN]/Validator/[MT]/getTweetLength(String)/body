@@ -1,8 +1,0 @@
-{
-  int length=text.codePointCount(0,text.length());
-  for (  final Extractor.Entity urlEntity : extractor.extractURLsWithIndices(text)) {
-    length+=urlEntity.start - urlEntity.end;
-    length+=urlEntity.value.toLowerCase().startsWith("https://") ? shortUrlLengthHttps : shortUrlLength;
-  }
-  return length;
-}

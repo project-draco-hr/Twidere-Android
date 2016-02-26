@@ -4,5 +4,5 @@
   mProfileImageStyle=Utils.getProfileImageStyle(this);
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   mCurrentThemeFontFamily=getThemeFontFamily();
-  super.onApplyThemeResource(theme,resid,first);
+  super.onApplyThemeResource(theme,resId,first);
 }

@@ -1,3 +1,0 @@
-{
-  return Activities.ByFriends.CONTENT_URI;
-}

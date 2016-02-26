@@ -1,7 +1,0 @@
-SQLiteDatabase db
-String table
-String selection
-String[] selectionArgs
-String groupBy
-String having
-String orderBy

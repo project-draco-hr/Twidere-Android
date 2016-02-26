@@ -1,5 +1,5 @@
 {
-  if (null == res)   return -1;
+  if (res == null)   return TwitterResponse.NONE;
   final String xAccessLevel=res.getHeader("X-Access-Level");
   int accessLevel;
   if (null == xAccessLevel) {

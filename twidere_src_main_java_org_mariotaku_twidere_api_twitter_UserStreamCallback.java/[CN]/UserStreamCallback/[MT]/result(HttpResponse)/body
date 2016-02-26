@@ -5,7 +5,6 @@
     onException(cause);
     return;
   }
-  final JacksonJrSimpleTreeCodec mapper=new JacksonJrSimpleTreeCodec();
   final CRLFLineReader reader=new CRLFLineReader(new InputStreamReader(response.getBody().stream(),"UTF-8"));
   try {
     for (String line; (line=reader.readLine()) != null && !disconnected; ) {
@@ -13,76 +12,85 @@
         onConnected();
         connected=true;
       }
-      if (line.isEmpty())       continue;
-      TreeNode rootNode=mapper.readTree(LoganSquare.JSON_FACTORY.createParser(line));
-switch (JSONObjectType.determine(rootNode)) {
-case SENDER:
+      if (TextUtils.isEmpty(line))       continue;
+      final TwitterStreamObject object=LoganSquare.parse(line,TwitterStreamObject.class);
+switch (object.determine()) {
+case Type.SENDER:
 {
           break;
         }
-case STATUS:
+case Type.STATUS:
 {
-        onStatus(LoganSquareMapperFinder.mapperFor(Status.class).parse(rootNode.traverse()));
+        onStatus(LoganSquareMapperFinder.mapperFor(Status.class).parse(line));
         break;
       }
-case DIRECT_MESSAGE:
+case Type.DIRECT_MESSAGE:
 {
-      onDirectMessage(LoganSquareMapperFinder.mapperFor(DirectMessage.class).parse(rootNode.traverse()));
+      onDirectMessage(object.getDirectMessage());
       break;
     }
-case DELETE:
+case Type.DELETE:
 {
+    final TwitterStreamObject.Delete delete=object.getDelete();
+    if (delete.getStatus() != null) {
+      onStatusDeleted(delete.getStatus());
+    }
+ else     if (delete.getDirectMessage() != null) {
+      onDirectMessageDeleted(delete.getDirectMessage());
+    }
     break;
   }
-case LIMIT:
+case Type.LIMIT:
 break;
-case STALL_WARNING:
+case Type.STALL_WARNING:
 break;
-case SCRUB_GEO:
+case Type.SCRUB_GEO:
 break;
-case FRIENDS:
+case Type.FRIENDS:
 break;
-case FAVORITE:
+case Type.FAVORITE:
 {
-onFavorite(parse(User.class,rootNode.get("source")),parse(User.class,rootNode.get("target")),parse(Status.class,rootNode.get("target_object")));
+StatusFavoriteEvent event=LoganSquareMapperFinder.mapperFor(StatusFavoriteEvent.class).parse(line);
+onFavorite(event.getSource(),event.getTarget(),event.getTargetObject());
 break;
 }
-case UNFAVORITE:
+case Type.UNFAVORITE:
 {
-onUnfavorite(parse(User.class,rootNode.get("source")),parse(User.class,rootNode.get("target")),parse(Status.class,rootNode.get("target_object")));
+StatusFavoriteEvent event=LoganSquareMapperFinder.mapperFor(StatusFavoriteEvent.class).parse(line);
+onUnfavorite(event.getSource(),event.getTarget(),event.getTargetObject());
 break;
 }
-case FOLLOW:
+case Type.FOLLOW:
 break;
-case UNFOLLOW:
+case Type.UNFOLLOW:
 break;
-case USER_LIST_MEMBER_ADDED:
+case Type.USER_LIST_MEMBER_ADDED:
 break;
-case USER_LIST_MEMBER_DELETED:
+case Type.USER_LIST_MEMBER_DELETED:
 break;
-case USER_LIST_SUBSCRIBED:
+case Type.USER_LIST_SUBSCRIBED:
 break;
-case USER_LIST_UNSUBSCRIBED:
+case Type.USER_LIST_UNSUBSCRIBED:
 break;
-case USER_LIST_CREATED:
+case Type.USER_LIST_CREATED:
 break;
-case USER_LIST_UPDATED:
+case Type.USER_LIST_UPDATED:
 break;
-case USER_LIST_DESTROYED:
+case Type.USER_LIST_DESTROYED:
 break;
-case USER_UPDATE:
+case Type.USER_UPDATE:
 break;
-case USER_DELETE:
+case Type.USER_DELETE:
 break;
-case USER_SUSPEND:
+case Type.USER_SUSPEND:
 break;
-case BLOCK:
+case Type.BLOCK:
 break;
-case UNBLOCK:
+case Type.UNBLOCK:
 break;
-case DISCONNECTION:
+case Type.DISCONNECTION:
 break;
-case UNKNOWN:
+case Type.UNKNOWN:
 break;
 }
 }

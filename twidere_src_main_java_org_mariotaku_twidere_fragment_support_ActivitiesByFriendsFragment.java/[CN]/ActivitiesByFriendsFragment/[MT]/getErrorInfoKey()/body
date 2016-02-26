@@ -1,3 +1,0 @@
-{
-  return ErrorInfoStore.KEY_ACTIVITIES_BY_FRIENDS;
-}

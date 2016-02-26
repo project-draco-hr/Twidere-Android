@@ -1,8 +1,0 @@
-{
-  if (text == null || text.length() == 0)   return Collections.emptyList();
-  final ArrayList<String> extracted=new ArrayList<String>();
-  for (  final Entity entity : extractCashtagsWithIndices(text)) {
-    extracted.add(entity.value);
-  }
-  return extracted;
-}

@@ -1,4 +1,0 @@
-{
-  mTwitterWrapper.getActivitiesByFriendsAsync(accountIds,maxIds,sinceIds);
-  return false;
-}

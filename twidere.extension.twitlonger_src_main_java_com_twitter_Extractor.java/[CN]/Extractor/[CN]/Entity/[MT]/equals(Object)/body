@@ -1,7 +1,0 @@
-{
-  if (this == obj)   return true;
-  if (!(obj instanceof Entity))   return false;
-  final Entity other=(Entity)obj;
-  if (type.equals(other.type) && start == other.start && end == other.end && value.equals(other.value))   return true;
- else   return false;
-}

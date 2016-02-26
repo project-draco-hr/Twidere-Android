@@ -1,5 +1,0 @@
-{
-  final long statusId=statusDeletionNotice.getStatusId();
-  resolver.delete(Statuses.CONTENT_URI,Expression.equals(Statuses.STATUS_ID,statusId).getSQL(),null);
-  resolver.delete(Activities.AboutMe.CONTENT_URI,Expression.equals(Activities.AboutMe.STATUS_ID,statusId).getSQL(),null);
-}

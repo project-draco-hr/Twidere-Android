@@ -8,6 +8,7 @@
   if (extras != null) {
     args.putAll(extras);
   }
+  boolean isAccountIdRequired=true;
 switch (linkId) {
 case LINK_ID_ACCOUNTS:
 {
@@ -167,6 +168,7 @@ break;
 case LINK_ID_DIRECT_MESSAGES_CONVERSATION:
 {
 fragment=new MessagesConversationFragment();
+isAccountIdRequired=false;
 final String paramRecipientId=uri.getQueryParameter(QUERY_PARAM_RECIPIENT_ID);
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
 final long conversationId=NumberUtils.toLong(paramRecipientId,-1);
@@ -345,7 +347,7 @@ final String paramAccountName=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_NAME);
 if (paramAccountName != null) {
 args.putLong(EXTRA_ACCOUNT_ID,DataStoreUtils.getAccountId(context,paramAccountName));
 }
- else {
+ else if (isAccountIdRequired) {
 final long accountId=getDefaultAccountId(context);
 if (isMyAccount(context,accountId)) {
 args.putLong(EXTRA_ACCOUNT_ID,accountId);

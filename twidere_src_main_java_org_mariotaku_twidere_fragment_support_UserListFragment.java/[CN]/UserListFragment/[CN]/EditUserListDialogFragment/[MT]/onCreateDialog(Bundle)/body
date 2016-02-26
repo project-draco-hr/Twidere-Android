@@ -7,21 +7,27 @@
   mIsPublic=bundle == null || bundle.getBoolean(EXTRA_IS_PUBLIC,true);
   final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
-  final View view=LayoutInflater.from(wrapped).inflate(R.layout.dialog_user_list_detail_editor,null);
-  builder.setView(view);
-  mEditName=(MaterialEditText)view.findViewById(R.id.name);
-  mEditName.addValidator(new UserListNameValidator(getString(R.string.invalid_list_name)));
-  mEditDescription=(MaterialEditText)view.findViewById(R.id.description);
-  mPublicCheckBox=(CheckBox)view.findViewById(R.id.is_public);
-  if (mName != null) {
-    mEditName.setText(mName);
-  }
-  if (mDescription != null) {
-    mEditDescription.setText(mDescription);
-  }
-  mPublicCheckBox.setChecked(mIsPublic);
+  builder.setView(R.layout.dialog_user_list_detail_editor);
   builder.setTitle(R.string.user_list);
   builder.setPositiveButton(android.R.string.ok,this);
   builder.setNegativeButton(android.R.string.cancel,this);
-  return builder.create();
+  final AlertDialog dialog=builder.create();
+  dialog.setOnShowListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface dialog){
+      AlertDialog alertDialog=(AlertDialog)dialog;
+      MaterialEditText mEditName=(MaterialEditText)alertDialog.findViewById(R.id.name);
+      MaterialEditText mEditDescription=(MaterialEditText)alertDialog.findViewById(R.id.description);
+      CheckBox mPublicCheckBox=(CheckBox)alertDialog.findViewById(R.id.is_public);
+      mEditName.addValidator(new UserListNameValidator(getString(R.string.invalid_list_name)));
+      if (mName != null) {
+        mEditName.setText(mName);
+      }
+      if (mDescription != null) {
+        mEditDescription.setText(mDescription);
+      }
+      mPublicCheckBox.setChecked(mIsPublic);
+    }
+  }
+);
+  return dialog;
 }
