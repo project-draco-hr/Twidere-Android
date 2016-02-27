@@ -9,12 +9,12 @@ case R.id.action:
         }
         final Matcher m=PATTERN_TWITLONGER.matcher(mStatus.text_html);
         if (m.find()) {
-          mTwitLongerPostTask=new TwitLongerReaderTask(m.group(GROUP_TWITLONGER_ID));
-          mTwitLongerPostTask.execute();
+          mTwitLongerPostTask=new TwitLongerReaderTask(this);
+          mTwitLongerPostTask.execute(m.group(GROUP_TWITLONGER_ID));
         }
       }
  else {
-        if (mUser == null || mResult == null)         return;
+        if (mUser == null)         return;
         final Intent intent=new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT,"@" + mUser + ": "+ mResult);

@@ -1,8 +1,8 @@
 {
-  final IStatusShortener iface=getInterface();
+  final IMediaUploader iface=getInterface();
   if (iface == null)   return false;
   try {
-    final String resultJson=JsonSerializer.serialize(result,StatusShortenResult.class);
+    final String resultJson=JsonSerializer.serialize(uploadResult,MediaUploadResult.class);
     final String statusJson=JsonSerializer.serialize(status,ParcelableStatus.class);
     return iface.callback(resultJson,statusJson);
   }

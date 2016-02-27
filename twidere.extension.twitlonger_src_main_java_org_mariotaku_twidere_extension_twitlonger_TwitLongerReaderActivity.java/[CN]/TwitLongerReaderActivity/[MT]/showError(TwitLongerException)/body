@@ -1,0 +1,5 @@
+{
+  mProgress.setVisibility(View.GONE);
+  mActionButton.setVisibility(View.VISIBLE);
+  mActionButton.setImageResource(R.drawable.ic_menu_send);
+}

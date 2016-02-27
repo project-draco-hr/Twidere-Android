@@ -2,10 +2,14 @@
   final IMediaUploader iface=getInterface();
   if (iface == null)   return null;
   try {
-    return iface.upload(status,media);
+    final String statusJson=JsonSerializer.serialize(status,ParcelableStatusUpdate.class);
+    final String mediaJson=JsonSerializer.serialize(media,UploaderMediaItem.class);
+    return JsonSerializer.parse(iface.upload(statusJson,mediaJson),MediaUploadResult.class);
   }
  catch (  final RemoteException e) {
-    Log.w(LOGTAG,e);
+    if (BuildConfig.DEBUG) {
+      Log.w(LOGTAG,e);
+    }
   }
   return null;
 }

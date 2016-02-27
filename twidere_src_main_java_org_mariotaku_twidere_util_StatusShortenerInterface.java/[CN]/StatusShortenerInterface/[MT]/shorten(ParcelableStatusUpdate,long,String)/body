@@ -7,6 +7,9 @@
     return JsonSerializer.parse(resultJson,StatusShortenResult.class);
   }
  catch (  final RemoteException e) {
-    return null;
+    if (BuildConfig.DEBUG) {
+      Log.w(LOGTAG,e);
+    }
   }
+  return null;
 }

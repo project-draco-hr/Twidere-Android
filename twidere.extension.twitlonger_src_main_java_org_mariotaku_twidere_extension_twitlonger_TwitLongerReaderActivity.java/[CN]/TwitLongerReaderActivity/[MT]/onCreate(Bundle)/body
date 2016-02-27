@@ -29,8 +29,8 @@
         if (mTwitLongerPostTask != null) {
           mTwitLongerPostTask.cancel(true);
         }
-        mTwitLongerPostTask=new TwitLongerReaderTask(m.group(GROUP_TWITLONGER_ID));
-        mTwitLongerPostTask.execute();
+        mTwitLongerPostTask=new TwitLongerReaderTask(this);
+        mTwitLongerPostTask.execute(m.group(GROUP_TWITLONGER_ID));
       }
  else {
         finish();
