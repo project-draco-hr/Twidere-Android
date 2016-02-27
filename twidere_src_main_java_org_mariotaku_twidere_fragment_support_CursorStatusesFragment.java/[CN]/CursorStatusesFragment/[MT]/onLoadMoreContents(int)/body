@@ -4,12 +4,14 @@
   if (position == 0)   return;
   TaskStarter.execute(new AbstractTask<Object,long[][],CursorStatusesFragment>(){
     @Override public long[][] doLongOperation(    Object o){
+      if (getContext() == null)       return null;
       final long[][] result=new long[3][];
       result[0]=getAccountIds();
       result[1]=getOldestStatusIds(result[0]);
       return result;
     }
     @Override public void afterExecute(    CursorStatusesFragment fragment,    long[][] result){
+      if (result == null)       return;
       fragment.getStatuses(result[0],result[1],result[2]);
     }
   }

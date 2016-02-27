@@ -1,5 +1,0 @@
-{
-  final GetActivitiesTask task=new GetActivitiesByFriendsTask(getContext());
-  task.setParams(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
-  TaskStarter.execute(task);
-}

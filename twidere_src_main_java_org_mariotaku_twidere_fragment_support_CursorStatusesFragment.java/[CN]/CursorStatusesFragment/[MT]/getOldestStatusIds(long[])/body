@@ -1,3 +1,5 @@
 {
-  return DataStoreUtils.getOldestStatusIds(getActivity(),getContentUri(),accountIds);
+  final Context context=getContext();
+  if (context == null)   return null;
+  return DataStoreUtils.getOldestStatusIds(context,getContentUri(),accountIds);
 }

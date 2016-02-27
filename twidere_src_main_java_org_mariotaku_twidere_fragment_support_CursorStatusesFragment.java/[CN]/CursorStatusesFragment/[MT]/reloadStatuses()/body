@@ -1,5 +1,5 @@
 {
-  if (getActivity() == null || isDetached())   return;
+  if (getContext() == null || isDetached())   return;
   final Bundle args=new Bundle(), fragmentArgs=getArguments();
   if (fragmentArgs != null) {
     args.putAll(fragmentArgs);
