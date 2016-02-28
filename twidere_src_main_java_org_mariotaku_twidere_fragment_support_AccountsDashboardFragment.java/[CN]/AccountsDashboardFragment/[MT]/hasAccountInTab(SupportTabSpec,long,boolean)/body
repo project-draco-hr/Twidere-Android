@@ -4,7 +4,7 @@
   if (ArrayUtils.isEmpty(accountIds)) {
     long tabAccountId=tab.args.getLong(EXTRA_ACCOUNT_ID);
     if (tabAccountId == accountId)     return true;
-    return isActivated;
+    return tabAccountId <= 0 && isActivated;
   }
  else   if (ArrayUtils.contains(accountIds,accountId)) {
     return true;

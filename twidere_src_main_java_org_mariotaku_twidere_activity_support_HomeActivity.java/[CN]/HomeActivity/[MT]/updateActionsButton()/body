@@ -2,24 +2,19 @@
   if (mViewPager == null || mPagerAdapter == null)   return;
   final int icon, title;
   final int position=mViewPager.getCurrentItem();
+  if (mPagerAdapter.getCount() == 0)   return;
   final SupportTabSpec tab=mPagerAdapter.getTab(position);
-  if (tab == null) {
-    title=R.string.compose;
-    icon=R.drawable.ic_action_status_compose;
+  if (classEquals(DirectMessagesFragment.class,tab.cls)) {
+    icon=R.drawable.ic_action_add;
+    title=R.string.new_direct_message;
+  }
+ else   if (classEquals(TrendsSuggestionsFragment.class,tab.cls)) {
+    icon=R.drawable.ic_action_search;
+    title=android.R.string.search_go;
   }
  else {
-    if (classEquals(DirectMessagesFragment.class,tab.cls)) {
-      icon=R.drawable.ic_action_add;
-      title=R.string.new_direct_message;
-    }
- else     if (classEquals(TrendsSuggestionsFragment.class,tab.cls)) {
-      icon=R.drawable.ic_action_search;
-      title=android.R.string.search_go;
-    }
- else {
-      icon=R.drawable.ic_action_status_compose;
-      title=R.string.compose;
-    }
+    icon=R.drawable.ic_action_status_compose;
+    title=R.string.compose;
   }
   if (mActionsButton instanceof IHomeActionButton) {
     final IHomeActionButton hab=(IHomeActionButton)mActionsButton;

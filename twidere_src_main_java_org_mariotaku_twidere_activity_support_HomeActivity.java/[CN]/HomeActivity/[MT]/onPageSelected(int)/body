@@ -2,6 +2,5 @@
   if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
     mDrawerLayout.closeDrawers();
   }
-  updateSlidingMenuTouchMode();
   updateActionsButton();
 }

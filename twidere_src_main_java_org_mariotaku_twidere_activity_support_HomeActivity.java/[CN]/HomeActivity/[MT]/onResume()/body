@@ -9,5 +9,4 @@
   invalidateOptionsMenu();
   updateActionsButtonStyle();
   updateActionsButton();
-  updateSlidingMenuTouchMode();
 }

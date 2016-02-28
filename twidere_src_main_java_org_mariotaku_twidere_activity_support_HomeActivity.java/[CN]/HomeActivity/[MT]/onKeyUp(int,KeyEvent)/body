@@ -7,7 +7,7 @@ case KeyEvent.KEYCODE_MENU:
         drawer.closeDrawers();
       }
  else {
-        drawer.openDrawer(Gravity.LEFT);
+        drawer.openDrawer(GravityCompat.START);
       }
       return true;
     }

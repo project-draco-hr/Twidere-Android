@@ -20,24 +20,7 @@ case CustomTabType.HOME_TIMELINE:
 case CustomTabType.NOTIFICATIONS_TIMELINE:
 {
       final long[] accountIds=Utils.getAccountIds(spec.args);
-      final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(mContext,true,spec.tag,accountIds);
-      final long position=mReadStateManager.getPosition(tagWithAccounts);
-      Expression extraWhere=null;
-      String[] extraWhereArgs=null;
-      boolean followingOnly=false;
-      if (spec.args != null) {
-        Bundle extras=spec.args.getBundle(EXTRA_EXTRAS);
-        if (extras != null) {
-          if (extras.getBoolean(EXTRA_MENTIONS_ONLY)) {
-            extraWhere=Expression.inArgs(Activities.ACTION,3);
-            extraWhereArgs=new String[]{Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE};
-          }
-          if (extras.getBoolean(EXTRA_MY_FOLLOWING_ONLY)) {
-            followingOnly=true;
-          }
-        }
-      }
-      final int count=DataStoreUtils.getActivitiesCount(mContext,Activities.AboutMe.CONTENT_URI,extraWhere,extraWhereArgs,position,followingOnly,accountIds);
+      final int count=DataStoreUtils.getInteractionsCount(mContext,mReadStateManager,spec.tag,spec.args,accountIds);
       publishProgress(new TabBadge(i,count));
       result.put(i,count);
       break;

@@ -52,8 +52,8 @@
   setupBars();
   showDataProfilingRequest();
   initUnreadCount();
+  setupHomeTabs();
   updateActionsButton();
-  updateSlidingMenuTouchMode();
   if (savedInstanceState == null) {
     if (refreshOnStart) {
       mTwitterWrapper.refreshAll(getActivatedAccountIds());
@@ -62,8 +62,7 @@
       openAccountsDrawer();
     }
   }
-  setupHomeTabs();
-  final int initialTabPosition=handleIntent(intent,savedInstanceState == null);
+  final int initialTabPosition=handleIntent(intent,savedInstanceState == null,savedInstanceState != null);
   setTabPosition(initialTabPosition);
   if (Utils.isStreamingEnabled()) {
     startService(new Intent(this,StreamingService.class));

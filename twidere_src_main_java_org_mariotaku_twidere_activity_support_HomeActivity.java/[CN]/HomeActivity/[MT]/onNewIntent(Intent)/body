@@ -1,5 +1,5 @@
 {
-  final int tabPosition=handleIntent(intent,false);
+  final int tabPosition=handleIntent(intent,false,false);
   if (tabPosition >= 0) {
     mViewPager.setCurrentItem(TwidereMathUtils.clamp(tabPosition,mPagerAdapter.getCount(),0));
   }
