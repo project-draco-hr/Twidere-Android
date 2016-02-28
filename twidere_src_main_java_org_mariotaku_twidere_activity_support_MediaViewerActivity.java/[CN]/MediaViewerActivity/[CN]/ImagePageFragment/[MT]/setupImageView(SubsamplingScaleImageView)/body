@@ -1,0 +1,4 @@
+{
+  imageView.setRegionDecoderClass(RapidImageRegionDecoder.class);
+  imageView.setBitmapDecoderClass(RapidImageDecoder.class);
+}

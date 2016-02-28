@@ -1,0 +1,5 @@
+{
+  decoder=BitmapDecoder.from(context,uri);
+  decoder.useBuiltInDecoder(true);
+  return new Point(decoder.sourceWidth(),decoder.sourceHeight());
+}

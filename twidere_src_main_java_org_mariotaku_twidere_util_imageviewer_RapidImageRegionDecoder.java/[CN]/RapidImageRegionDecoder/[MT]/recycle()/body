@@ -1,0 +1,10 @@
+{
+  BitmapDecoder.destroyMemoryCache();
+  BitmapDecoder.destroyDiskCache();
+  try {
+    decoder.reset();
+  }
+ catch (  UnsupportedOperationException ignore) {
+  }
+  decoder=null;
+}
