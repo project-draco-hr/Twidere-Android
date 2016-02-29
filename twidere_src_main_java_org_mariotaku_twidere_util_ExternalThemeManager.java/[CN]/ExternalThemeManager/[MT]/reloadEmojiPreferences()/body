@@ -5,6 +5,12 @@
     if (componentName != null) {
       emojiPackageName=componentName.getPackageName();
     }
+ else {
+      emojiPackageName=null;
+    }
+  }
+ else {
+    emojiPackageName=null;
   }
   initEmojiSupport();
 }
