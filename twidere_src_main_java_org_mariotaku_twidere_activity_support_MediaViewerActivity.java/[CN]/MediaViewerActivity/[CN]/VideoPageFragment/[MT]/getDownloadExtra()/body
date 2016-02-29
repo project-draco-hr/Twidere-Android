@@ -1,5 +1,9 @@
 {
   final MediaExtra extra=new MediaExtra();
   extra.setUseThumbor(false);
+  final Pair<String,String> fallbackUrlAndType=getBestVideoUrlAndType(getMedia(),FALLBACK_VIDEO_TYPES);
+  if (fallbackUrlAndType != null) {
+    extra.setFallbackUrl(fallbackUrlAndType.first);
+  }
   return extra;
 }
