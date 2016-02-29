@@ -51,4 +51,6 @@
   countsUsersView.setLayoutManager(layoutManager);
   final CountsUsersAdapter countsUsersAdapter=new CountsUsersAdapter(fragment,adapter);
   countsUsersView.setAdapter(countsUsersAdapter);
+  final Resources resources=activity.getResources();
+  countsUsersView.addItemDecoration(new SpacingItemDecoration(resources.getDimensionPixelOffset(R.dimen.element_spacing_normal)));
 }

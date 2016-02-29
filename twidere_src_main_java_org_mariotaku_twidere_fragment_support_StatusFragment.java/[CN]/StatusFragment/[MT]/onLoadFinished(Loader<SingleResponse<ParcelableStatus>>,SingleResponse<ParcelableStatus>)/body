@@ -25,6 +25,9 @@
  else {
     mStatusAdapter.setLoadMoreSupportedPosition(IndicatorPosition.NONE);
     setState(STATE_ERROR);
+    final ImageView errorIconView=(ImageView)mErrorContainer.findViewById(R.id.error_icon);
+    final TextView errorTextView=(TextView)mErrorContainer.findViewById(R.id.error_text);
+    errorTextView.setText(Utils.getErrorMessage(getContext(),data.getException()));
   }
   invalidateOptionsMenu();
 }
