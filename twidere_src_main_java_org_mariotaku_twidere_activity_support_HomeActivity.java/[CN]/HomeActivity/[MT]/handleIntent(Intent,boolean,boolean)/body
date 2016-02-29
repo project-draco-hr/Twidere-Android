@@ -37,18 +37,29 @@
         }
       }
     }
-    if (initialTab == -1 && !restoreInstanceState) {
+    final long readPosition=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_READ_POSITION),-1);
 switch (tabType) {
-case CustomTabType.NOTIFICATIONS_TIMELINE:
+case CustomTabType.HOME_TIMELINE:
 {
-          Utils.openInteractions(this,NumberUtils.toLong(uri.getQueryParameter(EXTRA_ACCOUNT_ID),-1));
-          break;
-        }
-case CustomTabType.DIRECT_MESSAGES:
-{
-        Utils.openDirectMessages(this,NumberUtils.toLong(uri.getQueryParameter(EXTRA_ACCOUNT_ID),-1));
+        final String tag=Utils.getReadPositionTagWithAccounts(ReadPositionTag.HOME_TIMELINE,accountId);
+        mReadStateManager.setPosition(tag,readPosition,false);
         break;
       }
+case CustomTabType.NOTIFICATIONS_TIMELINE:
+{
+      if (initialTab == -1 && !restoreInstanceState) {
+        Utils.openInteractions(this,accountId);
+      }
+      final String tag=Utils.getReadPositionTagWithAccounts(ReadPositionTag.ACTIVITIES_ABOUT_ME,accountId);
+      mReadStateManager.setPosition(tag,accountId,readPosition,false);
+      break;
+    }
+case CustomTabType.DIRECT_MESSAGES:
+{
+    if (initialTab == -1 && !restoreInstanceState) {
+      Utils.openDirectMessages(this,accountId);
+    }
+    break;
   }
 }
 }

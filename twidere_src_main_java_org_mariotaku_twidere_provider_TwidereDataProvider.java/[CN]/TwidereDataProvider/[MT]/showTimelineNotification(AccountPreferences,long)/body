@@ -38,7 +38,7 @@
     builder.setContentTitle(notificationTitle);
     builder.setContentText(notificationContent);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
-    builder.setContentIntent(getContentIntent(context,CustomTabType.HOME_TIMELINE,NotificationType.HOME_TIMELINE,accountId));
+    builder.setContentIntent(getContentIntent(context,CustomTabType.HOME_TIMELINE,NotificationType.HOME_TIMELINE,accountId,statusId));
     builder.setDeleteIntent(getMarkReadDeleteIntent(context,NotificationType.HOME_TIMELINE,accountId,statusId,false));
     builder.setNumber(statusesCount);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);

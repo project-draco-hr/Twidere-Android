@@ -57,7 +57,7 @@
     builder.setContentTitle(title);
     style.setBigContentTitle(title);
     builder.setNumber(displayCount);
-    builder.setContentIntent(getContentIntent(context,CustomTabType.NOTIFICATIONS_TIMELINE,NotificationType.INTERACTIONS,accountId));
+    builder.setContentIntent(getContentIntent(context,CustomTabType.NOTIFICATIONS_TIMELINE,NotificationType.INTERACTIONS,accountId,timestamp));
     if (timestamp != -1) {
       builder.setDeleteIntent(getMarkReadDeleteIntent(context,NotificationType.INTERACTIONS,accountId,timestamp,false));
     }
