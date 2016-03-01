@@ -20,7 +20,6 @@
   }
   final long userId=user.getId();
   if (userId <= 0)   return new SignInResponse(false,false,null);
-  if (isUserLoggedIn(activity,userId))   return new SignInResponse(true,false,null);
   final int color=analyseUserProfileColor(user);
-  return new SignInResponse(isUserLoggedIn(activity,userId),username,password,user,color,apiUrlFormat,noVersionSuffix);
+  return new SignInResponse(isUserLoggedIn(activity,userId),username,password,user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter));
 }

@@ -8,10 +8,5 @@
   final OAuthToken accessToken=authenticator.getOAuthAccessToken(username,password);
   final long userId=accessToken.getUserId();
   if (userId <= 0)   return new SignInResponse(false,false,null);
-  endpoint=TwitterAPIFactory.getOAuthRestEndpoint(apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix);
-  auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
-  final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
-  final User user=twitter.verifyCredentials();
-  final int color=analyseUserProfileColor(user);
-  return new SignInResponse(isUserLoggedIn(activity,userId),auth,user,ParcelableCredentials.AUTH_TYPE_OAUTH,color,apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix);
+  return getOAuthSignInResponse(activity,accessToken,userId,ParcelableCredentials.AUTH_TYPE_OAUTH);
 }

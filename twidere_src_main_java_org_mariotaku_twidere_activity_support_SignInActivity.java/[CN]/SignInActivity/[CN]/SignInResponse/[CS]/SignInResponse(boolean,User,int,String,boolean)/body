@@ -1,3 +1,0 @@
-{
-  this(alreadyLoggedIn,true,null,null,null,null,user,ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE,color,apiUrlFormat,false,noVersionSuffix);
-}

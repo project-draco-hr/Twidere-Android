@@ -1,0 +1,3 @@
+{
+  this(alreadyLoggedIn,true,null,basicUsername,basicPassword,null,user,ParcelableCredentials.AUTH_TYPE_BASIC,color,apiUrlFormat,false,noVersionSuffix,accountType);
+}

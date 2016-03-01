@@ -1,3 +1,0 @@
-{
-  this(alreadyLoggedIn,true,null,null,null,oauth,user,authType,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix);
-}

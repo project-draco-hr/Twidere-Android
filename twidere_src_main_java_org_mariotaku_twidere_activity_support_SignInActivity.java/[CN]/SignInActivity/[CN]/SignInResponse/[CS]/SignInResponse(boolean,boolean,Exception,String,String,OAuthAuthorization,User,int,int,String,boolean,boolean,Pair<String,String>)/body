@@ -1,0 +1,15 @@
+{
+  this.alreadyLoggedIn=alreadyLoggedIn;
+  this.succeed=succeed;
+  this.exception=exception;
+  this.basicUsername=basicUsername;
+  this.basicPassword=basicPassword;
+  this.oauth=oauth;
+  this.user=user;
+  this.authType=authType;
+  this.color=color;
+  this.apiUrlFormat=apiUrlFormat;
+  this.sameOauthSigningUrl=sameOauthSigningUrl;
+  this.noVersionSuffix=noVersionSuffix;
+  this.accountType=accountType;
+}

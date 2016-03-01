@@ -1,0 +1,13 @@
+boolean alreadyLoggedIn
+boolean succeed
+Exception exception
+String basicUsername
+String basicPassword
+OAuthAuthorization oauth
+User user
+int authType
+int color
+String apiUrlFormat
+boolean sameOauthSigningUrl
+boolean noVersionSuffix
+Pair<String,String> accountType

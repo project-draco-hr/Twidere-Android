@@ -1,0 +1,24 @@
+{
+  try {
+    StatusNetConfig config=twitter.getStatusNetConfig();
+    StatusNetAccountExtra extra=new StatusNetAccountExtra();
+    final StatusNetConfig.Site site=config.getSite();
+    if (site != null) {
+      extra.setTextLimit(site.getTextLimit());
+    }
+    return Pair.create(ParcelableCredentials.ACCOUNT_TYPE_STATUSNET,JsonSerializer.serialize(extra,StatusNetAccountExtra.class));
+  }
+ catch (  TwitterException e) {
+  }
+  try {
+    Paging paging=new Paging();
+    paging.count(1);
+    twitter.getActivitiesAboutMe(paging);
+    TwitterAccountExtra extra=new TwitterAccountExtra();
+    extra.setIsOfficialCredentials(true);
+    return Pair.create(ParcelableCredentials.ACCOUNT_TYPE_TWITTER,JsonSerializer.serialize(extra,TwitterAccountExtra.class));
+  }
+ catch (  TwitterException e) {
+  }
+  return Pair.create(ParcelableCredentials.ACCOUNT_TYPE_TWITTER,null);
+}

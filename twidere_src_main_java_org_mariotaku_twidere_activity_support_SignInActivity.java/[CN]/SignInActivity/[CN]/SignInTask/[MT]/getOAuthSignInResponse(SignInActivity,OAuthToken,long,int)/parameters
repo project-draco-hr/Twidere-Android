@@ -1,0 +1,4 @@
+SignInActivity activity
+OAuthToken accessToken
+long userId
+int authType

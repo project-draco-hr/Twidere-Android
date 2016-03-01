@@ -22,5 +22,9 @@ default :
 values=null;
 }
 }
+if (values != null && accountType != null) {
+values.put(Accounts.ACCOUNT_TYPE,accountType.first);
+values.put(Accounts.ACCOUNT_EXTRAS,accountType.second);
+}
 return values;
 }

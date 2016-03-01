@@ -1,8 +1,0 @@
-boolean alreadyLoggedIn
-OAuthAuthorization oauth
-User user
-int authType
-int color
-String apiUrlFormat
-boolean sameOauthSigningUrl
-boolean noVersionSuffix
