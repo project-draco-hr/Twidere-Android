@@ -1,3 +1,0 @@
-{
-  return !TextUtils.isEmpty(text) && getTweetLength(text) <= getMaxTweetLength();
-}

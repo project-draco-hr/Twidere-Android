@@ -1,0 +1,16 @@
+{
+  if (credentials.account_type == null) {
+    return Validator.MAX_TWEET_LENGTH;
+  }
+switch (credentials.account_type) {
+case ParcelableCredentials.ACCOUNT_TYPE_STATUSNET:
+{
+      StatusNetAccountExtra extra=JsonSerializer.parse(credentials.account_extras,StatusNetAccountExtra.class);
+      if (extra != null) {
+        return extra.getTextLimit();
+      }
+      break;
+    }
+}
+return Validator.MAX_TWEET_LENGTH;
+}

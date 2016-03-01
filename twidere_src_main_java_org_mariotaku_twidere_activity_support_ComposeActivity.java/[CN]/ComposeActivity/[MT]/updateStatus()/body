@@ -2,7 +2,7 @@
   if (isFinishing())   return;
   final boolean hasMedia=hasMedia();
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
-  final int tweetLength=mValidator.getTweetLength(text), maxLength=mValidator.getMaxTweetLength();
+  final int tweetLength=mValidator.getTweetLength(text), maxLength=mSendTextCountView.getMaxLength();
   if (!mStatusShortenerUsed && tweetLength > maxLength) {
     mEditText.setError(getString(R.string.error_message_status_too_long));
     final int textLength=mEditText.length();
