@@ -25,7 +25,7 @@
   setSupportActionBar(mActionBar);
   sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONCREATE));
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
-  int tabDisplayOptionInt=getTabDisplayOptionInt(this);
+  int tabDisplayOptionInt=Utils.getTabDisplayOptionInt(this);
   mTabColumns=getResources().getInteger(R.integer.default_tab_columns);
   mHomeContent.setOnFitSystemWindowsListener(this);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,mTabColumns);

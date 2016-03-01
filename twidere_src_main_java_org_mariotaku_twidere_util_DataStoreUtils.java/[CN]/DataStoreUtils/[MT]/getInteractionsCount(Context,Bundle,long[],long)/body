@@ -1,6 +1,4 @@
 {
-  final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(context,true,tag,accountIds);
-  final long position=readStateManager.getPosition(tagWithAccounts);
   Expression extraWhere=null;
   String[] extraWhereArgs=null;
   boolean followingOnly=false;

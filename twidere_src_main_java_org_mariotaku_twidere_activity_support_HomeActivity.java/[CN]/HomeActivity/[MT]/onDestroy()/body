@@ -3,7 +3,7 @@
   final Context context=getApplicationContext();
   TaskStarter.execute(new AbstractTask(){
     @Override public Object doLongOperation(    Object o){
-      cleanDatabasesByItemLimit(context);
+      DataStoreUtils.cleanDatabasesByItemLimit(context);
       return null;
     }
   }

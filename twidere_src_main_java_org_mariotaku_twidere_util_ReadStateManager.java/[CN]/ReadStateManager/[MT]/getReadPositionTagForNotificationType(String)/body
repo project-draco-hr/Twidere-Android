@@ -1,10 +1,18 @@
 {
   if (notificationType == null)   return null;
 switch (notificationType) {
+case NotificationType.HOME_TIMELINE:
+{
+      return ReadPositionTag.HOME_TIMELINE;
+    }
+case NotificationType.DIRECT_MESSAGES:
+{
+    return ReadPositionTag.DIRECT_MESSAGES;
+  }
 case NotificationType.INTERACTIONS:
 {
-      return ReadPositionTag.ACTIVITIES_ABOUT_ME;
-    }
+  return ReadPositionTag.ACTIVITIES_ABOUT_ME;
+}
 }
 return null;
 }

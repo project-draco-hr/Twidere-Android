@@ -10,9 +10,9 @@
       accountId=appSearchData.getLong(EXTRA_ACCOUNT_ID,-1);
     }
  else {
-      accountId=getDefaultAccountId(this);
+      accountId=Utils.getDefaultAccountId(this);
     }
-    openSearch(this,accountId,query);
+    Utils.openSearch(this,accountId,query);
     return -1;
   }
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
@@ -51,7 +51,7 @@ case CustomTabType.NOTIFICATIONS_TIMELINE:
         Utils.openInteractions(this,accountId);
       }
       final String tag=Utils.getReadPositionTagWithAccounts(ReadPositionTag.ACTIVITIES_ABOUT_ME,accountId);
-      mReadStateManager.setPosition(tag,accountId,readPosition,false);
+      mReadStateManager.setPosition(tag,readPosition,false);
       break;
     }
 case CustomTabType.DIRECT_MESSAGES:

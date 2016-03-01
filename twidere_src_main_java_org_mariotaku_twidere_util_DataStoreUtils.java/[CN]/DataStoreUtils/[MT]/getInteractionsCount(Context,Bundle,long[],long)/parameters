@@ -1,5 +1,4 @@
 Context context
-ReadStateManager readStateManager
-String tag
 Bundle extraArgs
 long[] accountIds
+long position

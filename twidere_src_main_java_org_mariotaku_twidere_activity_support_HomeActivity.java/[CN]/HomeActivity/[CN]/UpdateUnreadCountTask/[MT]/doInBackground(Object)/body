@@ -10,7 +10,7 @@ switch (spec.type) {
 case CustomTabType.HOME_TIMELINE:
 {
         final long[] accountIds=Utils.getAccountIds(spec.args);
-        final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(mContext,true,spec.tag,accountIds);
+        final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(mContext,true,ReadPositionTag.HOME_TIMELINE,accountIds);
         final long position=mReadStateManager.getPosition(tagWithAccounts);
         final int count=DataStoreUtils.getStatusesCount(mContext,Statuses.CONTENT_URI,position,accountIds);
         result.put(i,count);
@@ -20,7 +20,9 @@ case CustomTabType.HOME_TIMELINE:
 case CustomTabType.NOTIFICATIONS_TIMELINE:
 {
       final long[] accountIds=Utils.getAccountIds(spec.args);
-      final int count=DataStoreUtils.getInteractionsCount(mContext,mReadStateManager,spec.tag,spec.args,accountIds);
+      final String tagWithAccounts=Utils.getReadPositionTagWithAccounts(mContext,true,ReadPositionTag.ACTIVITIES_ABOUT_ME,accountIds);
+      final long position=mReadStateManager.getPosition(tagWithAccounts);
+      final int count=DataStoreUtils.getInteractionsCount(mContext,spec.args,accountIds,position);
       publishProgress(new TabBadge(i,count));
       result.put(i,count);
       break;

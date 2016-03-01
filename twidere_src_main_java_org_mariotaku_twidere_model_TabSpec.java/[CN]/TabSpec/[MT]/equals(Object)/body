@@ -1,5 +1,5 @@
 {
   if (!(o instanceof TabSpec))   return false;
   final TabSpec spec=(TabSpec)o;
-  return objectEquals(name,spec.name) && objectEquals(icon,spec.icon) && classEquals(cls,spec.cls)&& bundleEquals(args,spec.args)&& position == spec.position;
+  return objectEquals(name,spec.name) && objectEquals(icon,spec.icon) && cls == spec.cls && bundleEquals(args,spec.args) && position == spec.position;
 }
