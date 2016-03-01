@@ -1,0 +1,6 @@
+{
+  modeCompat.setTitle(modeCompat.getTitle());
+  final View contextView=findActionBarContextView(modeCompat);
+  if (!(contextView instanceof ActionBarContextView))   return;
+  setActionBarContextViewBackground((ActionBarContextView)contextView,accentColor,backgroundOption,outlineEnabled);
+}

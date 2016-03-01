@@ -1,0 +1,3 @@
+int dy
+int scrollState
+int idleState

@@ -1,0 +1,3 @@
+{
+  return mCalculator.getTotalScrollDistance();
+}

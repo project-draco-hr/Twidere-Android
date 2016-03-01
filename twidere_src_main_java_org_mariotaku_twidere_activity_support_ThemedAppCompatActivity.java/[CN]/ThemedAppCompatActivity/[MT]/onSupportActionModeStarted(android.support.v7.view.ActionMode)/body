@@ -1,4 +1,5 @@
 {
   super.onSupportActionModeStarted(mode);
-  ThemeUtils.applySupportActionModeColor(mode,this,getCurrentThemeColor(),getThemeBackgroundOption(),true);
+  ThemeUtils.applySupportActionModeColor(mode,getCurrentThemeColor(),getThemeBackgroundOption(),true);
+  ThemeUtils.applySupportActionModeItemColor(mode,getCurrentThemeColor());
 }

@@ -1,0 +1,8 @@
+{
+  mCalculator.onScrollStateChanged(view,scrollState);
+  mCalculator.setScrollDistanceListener(this);
+  handleScrollStateChanged(scrollState,SCROLL_STATE_IDLE);
+  if (mOnScrollListener != null) {
+    mOnScrollListener.onScrollStateChanged(view,scrollState);
+  }
+}

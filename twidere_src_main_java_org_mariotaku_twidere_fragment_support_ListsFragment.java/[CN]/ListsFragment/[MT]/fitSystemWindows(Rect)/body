@@ -1,0 +1,8 @@
+{
+  final View view=getView();
+  if (view != null) {
+    final int top=Utils.getInsetsTopWithoutActionBarHeight(getActivity(),insets.top);
+    view.setPadding(insets.left,top,insets.right,insets.bottom);
+  }
+  updateTabOffset();
+}

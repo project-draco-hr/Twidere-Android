@@ -1,0 +1,4 @@
+{
+  mViewPager.removeOnPageChangeListener(this);
+  super.onDestroy();
+}

@@ -1,0 +1,4 @@
+{
+  super(contentListSupport,viewCallback);
+  mCalculator=new ListScrollDistanceCalculator();
+}

@@ -1,13 +1,3 @@
 {
-  final int controlBarHeight=getControlBarHeight();
-  final int translationY=controlBarHeight - mControlBarOffsetPixels;
-  final FragmentActivity activity=getActivity();
-  if (activity instanceof LinkHandlerActivity) {
-    final View view=activity.getWindow().findViewById(android.support.v7.appcompat.R.id.action_bar);
-    if (view != null && controlBarHeight != 0) {
-      view.setAlpha(translationY / (float)controlBarHeight);
-    }
-  }
-  mPagerIndicator.setTranslationY(translationY);
-  mPagerWindowOverlay.setTranslationY(translationY);
+  ThemeUtils.updateControlBarUi(getActivity(),getControlBarHeight(),mControlBarOffsetPixels,mPagerIndicator,mPagerWindowOverlay);
 }

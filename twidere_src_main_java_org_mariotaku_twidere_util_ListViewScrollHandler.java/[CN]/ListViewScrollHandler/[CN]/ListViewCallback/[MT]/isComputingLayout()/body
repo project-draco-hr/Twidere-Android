@@ -1,0 +1,3 @@
+{
+  return ViewSupport.isInLayout(listView);
+}

@@ -1,0 +1,5 @@
+{
+  if (mActionModeView != null) {
+    mActionModeView.setTranslationY(translationY);
+  }
+}

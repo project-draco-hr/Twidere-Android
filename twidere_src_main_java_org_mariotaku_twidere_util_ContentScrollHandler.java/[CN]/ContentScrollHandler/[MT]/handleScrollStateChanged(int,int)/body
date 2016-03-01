@@ -1,0 +1,9 @@
+{
+  if (mContentListSupport instanceof Fragment) {
+    if (((Fragment)mContentListSupport).getContext() == null)     return;
+  }
+  if (mScrollState != idleState) {
+    postNotifyScrollStateChanged();
+  }
+  mScrollState=scrollState;
+}

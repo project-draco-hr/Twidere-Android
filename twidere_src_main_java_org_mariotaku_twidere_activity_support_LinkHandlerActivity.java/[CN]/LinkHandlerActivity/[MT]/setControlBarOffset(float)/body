@@ -1,4 +1,6 @@
 {
-  mActionBarContainer.setTranslationY(-Math.round((1 - offset) * getControlBarHeight()));
+  final int translationY=-Math.round((1 - offset) * getControlBarHeight());
+  mActionBarContainer.setTranslationY(translationY);
+  mTwidereActionModeForChildListener.setModeTranslationY(translationY);
   notifyControlBarOffsetChanged();
 }

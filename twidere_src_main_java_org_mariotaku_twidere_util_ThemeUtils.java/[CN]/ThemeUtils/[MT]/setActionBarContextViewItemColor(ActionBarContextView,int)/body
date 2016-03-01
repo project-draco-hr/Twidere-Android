@@ -1,0 +1,19 @@
+{
+  final Context context=contextView.getContext();
+  final int contrastForegroundColor=getContrastForegroundColor(context,toolbarColor);
+  if (isDarkTheme(context)) {
+    return;
+  }
+  final View titleView=contextView.findViewById(R.id.action_bar_title);
+  final View subtitleView=contextView.findViewById(R.id.action_bar_subtitle);
+  final View closeButton=contextView.findViewById(R.id.action_mode_close_button);
+  if (titleView instanceof TextView) {
+    ((TextView)titleView).setTextColor(contrastForegroundColor);
+  }
+  if (subtitleView instanceof TextView) {
+    ((TextView)subtitleView).setTextColor(contrastForegroundColor);
+  }
+  if (closeButton instanceof ImageView) {
+    ((ImageView)closeButton).setColorFilter(contrastForegroundColor,Mode.SRC_ATOP);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (activity instanceof LinkHandlerActivity) {
+    ((LinkHandlerActivity)activity).setControlBarVisibleAnimate(true);
+  }
+}

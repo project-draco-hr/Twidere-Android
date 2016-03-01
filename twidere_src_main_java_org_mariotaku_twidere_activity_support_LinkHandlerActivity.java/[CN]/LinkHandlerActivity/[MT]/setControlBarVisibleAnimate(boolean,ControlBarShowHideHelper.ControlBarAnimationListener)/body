@@ -1,4 +1,4 @@
 {
-  if (!(getCurrentVisibleFragment() instanceof SearchFragment))   return;
+  if (!(getCurrentVisibleFragment() instanceof HideUiOnScroll))   return;
   mControlBarShowHideHelper.setControlBarVisibleAnimate(visible,listener);
 }

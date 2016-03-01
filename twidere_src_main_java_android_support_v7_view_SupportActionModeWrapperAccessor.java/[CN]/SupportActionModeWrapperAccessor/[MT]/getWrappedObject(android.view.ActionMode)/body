@@ -1,0 +1,6 @@
+{
+  if (mode instanceof SupportActionModeWrapper) {
+    return ((SupportActionModeWrapper)mode).mWrappedObject;
+  }
+  return null;
+}

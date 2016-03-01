@@ -1,0 +1,4 @@
+{
+  getListView().setOnScrollListener(mScrollHandler);
+  super.onStop();
+}

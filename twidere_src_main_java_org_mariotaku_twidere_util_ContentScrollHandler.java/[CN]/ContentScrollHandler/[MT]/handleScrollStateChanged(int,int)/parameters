@@ -1,0 +1,2 @@
+int scrollState
+int idleState

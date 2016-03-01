@@ -1,4 +1,8 @@
 {
   updateTitle(mode);
+  final FragmentActivity activity=getActivity();
+  if (activity instanceof IThemedActivity) {
+    ThemeUtils.applySupportActionModeItemColor(mode,((IThemedActivity)activity).getCurrentThemeColor());
+  }
   return true;
 }

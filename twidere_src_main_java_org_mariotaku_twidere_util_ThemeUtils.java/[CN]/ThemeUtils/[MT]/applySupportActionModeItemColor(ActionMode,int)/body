@@ -1,0 +1,5 @@
+{
+  android.support.v7.view.ActionMode modeCompat=SupportActionModeWrapperAccessor.getWrappedObject(mode);
+  if (modeCompat == null)   return;
+  applySupportActionModeItemColor(modeCompat,accentColor);
+}
