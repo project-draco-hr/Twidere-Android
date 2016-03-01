@@ -1,3 +1,0 @@
-{
-  return getOptimalAccentColor(context,getUserAccentColor(context),isActionBarContext,themeResId);
-}

@@ -1,4 +1,4 @@
 {
-  if (VALUE_THEME_NAME_DARK.equals(name))   return R.style.Theme_Twidere_Dark_Dialog;
-  return R.style.Theme_Twidere_Light_Dialog;
+  if (VALUE_THEME_NAME_DARK.equals(name))   return R.style.Theme_Twidere_Dialog;
+  return R.style.Theme_Twidere_Dialog;
 }

@@ -1,6 +1,6 @@
 {
   mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow_start,GravityCompat.START);
   final Window window=getWindow();
-  ThemeUtils.applyWindowBackground(this,mHomeContent,getCurrentThemeResourceId(),getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());
+  ThemeUtils.applyWindowBackground(this,mHomeContent,getThemeBackgroundOption(),getCurrentThemeBackgroundAlpha());
   window.setBackgroundDrawable(new EmptyDrawable());
 }

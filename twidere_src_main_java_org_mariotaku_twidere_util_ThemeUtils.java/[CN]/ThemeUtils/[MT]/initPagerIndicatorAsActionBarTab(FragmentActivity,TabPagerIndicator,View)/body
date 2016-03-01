@@ -2,13 +2,12 @@
   final float supportActionBarElevation=getSupportActionBarElevation(activity);
   ViewCompat.setElevation(indicator,supportActionBarElevation);
   if (!(activity instanceof IThemedActivity))   return;
-  final int themeRes=((IThemedActivity)activity).getCurrentThemeResourceId();
   final int themeColor=((IThemedActivity)activity).getCurrentThemeColor();
   final String backgroundOption=((IThemedActivity)activity).getCurrentThemeBackgroundOption();
   final int colorDark, colorLight;
   final int[] textColors=new int[2];
   getTextColorPrimaryAndInverse(activity,textColors);
-  if (isDarkTheme(themeRes)) {
+  if (isDarkTheme(activity)) {
     colorDark=textColors[1];
     colorLight=textColors[0];
   }
@@ -17,8 +16,8 @@
     colorLight=textColors[1];
   }
   final int contrastColor=TwidereColorUtils.getContrastYIQ(themeColor,ACCENT_COLOR_THRESHOLD,colorDark,colorLight);
-  ViewSupport.setBackground(indicator,getActionBarStackedBackground(activity,themeRes,themeColor,backgroundOption,true));
-  if (isDarkTheme(themeRes)) {
+  ViewSupport.setBackground(indicator,getActionBarStackedBackground(activity,themeColor,backgroundOption,true));
+  if (isDarkTheme(activity)) {
     final int foregroundColor=getThemeForegroundColor(activity);
     indicator.setIconColor(foregroundColor);
     indicator.setLabelColor(foregroundColor);
@@ -31,6 +30,6 @@
   }
   indicator.updateAppearance();
   if (pagerOverlay != null) {
-    ViewSupport.setBackground(pagerOverlay,getNormalWindowContentOverlay(activity,themeRes));
+    ViewSupport.setBackground(pagerOverlay,getNormalWindowContentOverlay(activity));
   }
 }

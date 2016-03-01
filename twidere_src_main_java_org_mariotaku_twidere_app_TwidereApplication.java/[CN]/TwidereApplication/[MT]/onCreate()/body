@@ -4,6 +4,7 @@
     StrictModeUtils.detectAllVmPolicy();
   }
   super.onCreate();
+  resetTheme(getSharedPreferences());
   initializeAsyncTask();
   initDebugMode();
   initBugReport();

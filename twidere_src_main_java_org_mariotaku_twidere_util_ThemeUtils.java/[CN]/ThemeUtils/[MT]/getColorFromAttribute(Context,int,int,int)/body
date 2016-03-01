@@ -1,8 +1,0 @@
-{
-  final TypedValue outValue=new TypedValue();
-  final Resources.Theme theme=context.getResources().newTheme();
-  theme.applyStyle(themeId,true);
-  if (!theme.resolveAttribute(attr,outValue,true))   return def;
-  if (outValue.type == TypedValue.TYPE_REFERENCE)   return context.getResources().getColor(attr);
-  return outValue.data;
-}

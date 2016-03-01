@@ -1,0 +1,16 @@
+{
+  final int actionBarThemeId;
+  if (isDarkTheme(base) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
+    actionBarThemeId=R.style.Theme_Twidere;
+  }
+ else {
+    actionBarThemeId=R.style.Theme_Twidere;
+  }
+  final Resources.Theme baseTheme=base.getTheme();
+  final Resources.Theme actionBarTheme=base.getResources().newTheme();
+  actionBarTheme.setTo(baseTheme);
+  actionBarTheme.applyStyle(actionBarThemeId,true);
+  final ActionBarContextThemeWrapper actionBarContext=new ActionBarContextThemeWrapper(base,actionBarThemeId);
+  actionBarContext.getTheme().setTo(actionBarTheme);
+  return actionBarContext;
+}

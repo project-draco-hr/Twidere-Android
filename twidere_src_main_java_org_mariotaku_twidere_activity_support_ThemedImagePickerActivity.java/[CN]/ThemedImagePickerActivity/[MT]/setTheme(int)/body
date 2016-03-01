@@ -1,3 +1,0 @@
-{
-  super.setTheme(ThemeUtils.getNoDisplayThemeResource(this));
-}

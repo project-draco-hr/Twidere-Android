@@ -1,7 +1,0 @@
-{
-  final TypedValue outValue=new TypedValue();
-  if (context.getTheme().resolveAttribute(R.attr.actionBarPopupTheme,outValue,true)) {
-    return outValue.resourceId;
-  }
-  return def;
-}

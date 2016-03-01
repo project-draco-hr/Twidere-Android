@@ -4,4 +4,5 @@
     StrictModeUtils.detectAllThreadPolicy();
   }
   super.onCreate(savedInstanceState);
+  ThemeUtils.applyToolbarItemColor(this,getActionBarToolbar(),getCurrentThemeColor());
 }

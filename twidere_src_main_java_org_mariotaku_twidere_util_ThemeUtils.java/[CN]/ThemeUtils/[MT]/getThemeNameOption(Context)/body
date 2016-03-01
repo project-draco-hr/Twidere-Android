@@ -1,5 +1,5 @@
 {
-  if (context == null)   return VALUE_THEME_NAME_TWIDERE;
+  if (context == null)   return VALUE_THEME_NAME_LIGHT;
   final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
-  return pref.getString(KEY_THEME,VALUE_THEME_NAME_TWIDERE);
+  return pref.getString(KEY_THEME,VALUE_THEME_NAME_LIGHT);
 }

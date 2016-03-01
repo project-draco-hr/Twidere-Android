@@ -1,8 +1,8 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.colorActivatedHighlight});
+  final Context appContext=context.getApplicationContext();
+  final TypedArray a=appContext.obtainStyledAttributes(new int[]{R.attr.colorPrimary});
   try {
-    final Resources resources=context.getResources();
-    return a.getColor(0,resources.getColor(R.color.material_light_blue));
+    return a.getColor(0,ContextCompat.getColor(context,R.color.material_light_blue));
   }
   finally {
     a.recycle();

@@ -1,0 +1,9 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowContentOverlay});
+  try {
+    return a.getDrawable(0);
+  }
+  finally {
+    a.recycle();
+  }
+}

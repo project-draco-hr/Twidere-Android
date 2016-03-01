@@ -25,8 +25,7 @@
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
     final Drawable tabBackground=mPagerIndicator.getBackground();
-    final int themeId=activity.getCurrentThemeResourceId();
-    int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,themeId,activity.getThemeBackgroundOption());
+    int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,activity.getThemeBackgroundOption());
     if (ThemeUtils.isTransparentBackground(activity.getCurrentThemeBackgroundOption())) {
       stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,ThemeUtils.getActionBarAlpha(activity.getCurrentThemeBackgroundAlpha()));
     }
@@ -35,11 +34,11 @@
     final boolean tabItemIsDark=TwidereColorUtils.getYIQLuminance(tabColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
     if (mPreviousTabItemIsDark == 0 || (tabItemIsDark ? 1 : -1) != mPreviousTabItemIsDark) {
       final int[] primaryColors=new int[2];
-      ThemeUtils.getDarkLightForegroundColors(activity,themeId,primaryColors);
+      ThemeUtils.getDarkLightForegroundColors(activity,primaryColors);
       final int tabContrastColor=primaryColors[tabItemIsDark ? 0 : 1];
       mPagerIndicator.setIconColor(tabContrastColor);
       mPagerIndicator.setLabelColor(tabContrastColor);
-      if (ThemeUtils.isDarkTheme(themeId)) {
+      if (ThemeUtils.isDarkTheme(activity)) {
         mPagerIndicator.setStripColor(ThemeUtils.getOptimalAccentColor(mUiColor,tabContrastColor));
       }
  else {
@@ -51,17 +50,7 @@
     final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
     final boolean actionItemIsDark=TwidereColorUtils.getYIQLuminance(barColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
     if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
-      final int contrastForegroundColor=ThemeUtils.getContrastForegroundColor(activity,themeId,barColor);
-      final Toolbar actionBarView=activity.getActionBarToolbar();
-      if (actionBarView != null) {
-        actionBarView.setTitleTextColor(contrastForegroundColor);
-        actionBarView.setSubtitleTextColor(contrastForegroundColor);
-        ThemeUtils.setActionBarOverflowColor(actionBarView,contrastForegroundColor);
-        ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(actionBarView,ActionMenuView.class),contrastForegroundColor,contrastForegroundColor);
-        if (actionBarView instanceof TwidereToolbar) {
-          ((TwidereToolbar)actionBarView).setItemColor(contrastForegroundColor);
-        }
-      }
+      ThemeUtils.applyToolbarItemColor(activity,activity.getActionBarToolbar(),barColor);
     }
     mPreviousActionBarItemIsDark=actionItemIsDark ? 1 : -1;
   }

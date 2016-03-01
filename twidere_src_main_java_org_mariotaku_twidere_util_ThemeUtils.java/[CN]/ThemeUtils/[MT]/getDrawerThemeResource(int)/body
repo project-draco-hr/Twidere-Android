@@ -1,4 +1,0 @@
-{
-  if (isDarkTheme(themeRes))   return R.style.Theme_Twidere_Drawer_Dark;
-  return R.style.Theme_Twidere_Drawer_Light;
-}

@@ -1,4 +1,5 @@
 {
   super.setSupportActionBar(toolbar);
   mToolbar=toolbar;
+  ThemeUtils.applyToolbarItemColor(this,toolbar,mCurrentThemeColor);
 }

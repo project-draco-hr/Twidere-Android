@@ -1,0 +1,9 @@
+{
+  if (!isDarkTheme(context)) {
+    return themeColor;
+  }
+ else   if (isSolidBackground(backgroundOption)) {
+    return Color.BLACK;
+  }
+  return ContextCompat.getColor(context,R.color.background_color_action_bar_dark);
+}

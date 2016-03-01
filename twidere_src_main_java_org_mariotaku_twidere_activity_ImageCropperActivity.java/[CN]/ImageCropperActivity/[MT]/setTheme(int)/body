@@ -1,4 +1,4 @@
 {
-  super.setTheme(mCurrentThemeResource=getThemeResourceId());
-  ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeResource,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
+  super.setTheme(resId);
+  ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
 }

@@ -1,14 +1,13 @@
 {
   final TypedArray a=context.obtainStyledAttributes(ATTRS_COLOR_FOREGROUND_AND_INVERSE);
   try {
-    final int foreground=a.getColor(0,0), background=a.getColor(1,0);
-    if (ColorUtils.calculateLuminance(foreground) > ColorUtils.calculateLuminance(background)) {
-      colors[0]=background;
-      colors[1]=foreground;
+    if (isDarkTheme(context)) {
+      colors[0]=a.getColor(1,Color.WHITE);
+      colors[1]=a.getColor(0,Color.BLACK);
     }
  else {
-      colors[0]=foreground;
-      colors[1]=background;
+      colors[0]=a.getColor(0,Color.WHITE);
+      colors[1]=a.getColor(1,Color.BLACK);
     }
   }
   finally {

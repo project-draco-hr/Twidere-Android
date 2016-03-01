@@ -1,4 +1,0 @@
-{
-  final int normalThemeResId=ThemeUtils.getThemeResource(themeRes);
-  return getWindowContentOverlay(context,normalThemeResId);
-}

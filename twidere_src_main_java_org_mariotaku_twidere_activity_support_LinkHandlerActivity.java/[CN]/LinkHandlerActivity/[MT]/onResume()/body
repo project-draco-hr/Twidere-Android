@@ -1,6 +1,6 @@
 {
   super.onResume();
-  if (ThemeUtils.isColoredActionBar(getCurrentThemeResourceId())) {
+  if (ThemeUtils.isColoredActionBar(this)) {
     ActivitySupport.setTaskDescription(this,new TaskDescriptionCompat(null,null,getCurrentThemeColor()));
   }
 }

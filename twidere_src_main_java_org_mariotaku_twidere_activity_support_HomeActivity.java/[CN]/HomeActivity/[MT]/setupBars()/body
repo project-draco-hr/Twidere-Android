@@ -1,17 +1,16 @@
 {
   final int themeColor=getThemeColor();
-  final int themeResId=getCurrentThemeResourceId();
   final String backgroundOption=getCurrentThemeBackgroundOption();
   final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
   final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(this)) : 0xFF;
   final IHomeActionButton homeActionButton=(IHomeActionButton)mActionsButton;
-  mTabIndicator.setItemContext(ThemeUtils.getActionBarThemedContext(this,themeResId,themeColor));
-  ViewSupport.setBackground(mActionBarContainer,ThemeUtils.getActionBarBackground(this,themeResId,themeColor,backgroundOption,true));
-  final int actionBarColor=ThemeUtils.getActionBarColor(this,themeColor,themeResId,backgroundOption);
-  final int actionItemColor=ThemeUtils.getContrastForegroundColor(this,getCurrentThemeResourceId(),themeColor);
+  mTabIndicator.setItemContext(ThemeUtils.getActionBarThemedContext(this,themeColor));
+  ViewSupport.setBackground(mActionBarContainer,ThemeUtils.getActionBarBackground(this,themeColor,backgroundOption,true));
+  final int actionBarColor=ThemeUtils.getActionBarColor(this,themeColor,backgroundOption);
+  final int actionItemColor=ThemeUtils.getContrastForegroundColor(this,themeColor);
   final int[] foregroundColors=new int[2];
   ThemeUtils.getColorForegroundAndInverse(this,foregroundColors);
-  if (ThemeUtils.isDarkTheme(themeResId)) {
+  if (ThemeUtils.isDarkTheme(this)) {
     homeActionButton.setButtonColor(actionBarColor);
     homeActionButton.setIconColor(actionItemColor,Mode.SRC_ATOP);
     mTabIndicator.setStripColor(themeColor);

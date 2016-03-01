@@ -1,0 +1,6 @@
+{
+  if (actionBar == null || context == null)   return;
+  actionBar.setBackgroundDrawable(getActionBarBackground(context,accentColor,backgroundOption,outlineEnabled));
+  actionBar.setSplitBackgroundDrawable(getActionBarSplitBackground(context));
+  actionBar.setStackedBackgroundDrawable(getActionBarStackedBackground(context,accentColor,backgroundOption,outlineEnabled));
+}

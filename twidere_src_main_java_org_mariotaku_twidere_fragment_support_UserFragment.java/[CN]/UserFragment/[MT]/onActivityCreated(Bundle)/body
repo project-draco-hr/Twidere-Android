@@ -81,8 +81,8 @@
   setupBaseActionBar();
   setupUserPages();
   if (activity instanceof IThemedActivity) {
-    ViewSupport.setBackground(mPagerOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
-    ViewSupport.setBackground(mErrorOverlay,ThemeUtils.getNormalWindowContentOverlay(activity,((IThemedActivity)activity).getCurrentThemeResourceId()));
+    ViewSupport.setBackground(mPagerOverlay,ThemeUtils.getNormalWindowContentOverlay(activity));
+    ViewSupport.setBackground(mErrorOverlay,ThemeUtils.getNormalWindowContentOverlay(activity));
     setUiColor(((IThemedActivity)activity).getCurrentThemeColor());
   }
   getUserInfo(accountId,userId,screenName,false);

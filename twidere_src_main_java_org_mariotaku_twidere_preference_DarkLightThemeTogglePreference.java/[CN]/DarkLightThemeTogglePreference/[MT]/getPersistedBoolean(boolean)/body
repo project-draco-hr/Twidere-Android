@@ -1,4 +1,3 @@
 {
-  final SharedPreferences preferences=getSharedPreferences();
-  return ThemeUtils.isDarkTheme(getPersistedString(VALUE_THEME_NAME_TWIDERE));
+  return ThemeUtils.isDarkTheme(getPersistedString(VALUE_THEME_NAME_LIGHT));
 }

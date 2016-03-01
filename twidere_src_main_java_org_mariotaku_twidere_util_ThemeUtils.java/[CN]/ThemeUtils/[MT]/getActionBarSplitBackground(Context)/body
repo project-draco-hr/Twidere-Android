@@ -1,0 +1,9 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.backgroundSplit});
+  try {
+    return a.getDrawable(0);
+  }
+  finally {
+    a.recycle();
+  }
+}

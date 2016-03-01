@@ -44,5 +44,10 @@ case KEY_EMOJI_SUPPORT:
 DependencyHolder.get(this).getExternalThemeManager().reloadEmojiPreferences();
 break;
 }
+case KEY_THEME:
+{
+resetTheme(preferences);
+break;
+}
 }
 }

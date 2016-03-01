@@ -7,9 +7,8 @@
   }
   final AppCompatActivity activity=(AppCompatActivity)getActivity();
   final IThemedActivity themed=(IThemedActivity)activity;
-  final int themeRes=themed.getCurrentThemeResourceId();
   final String backgroundOption=themed.getThemeBackgroundOption();
-  final int actionBarColor=ThemeUtils.getActionBarColor(activity,color,themeRes,backgroundOption);
+  final int actionBarColor=ThemeUtils.getActionBarColor(activity,color,backgroundOption);
   if (mTintedStatusContent != null) {
     final int alpha=ThemeUtils.isTransparentBackground(backgroundOption) ? themed.getCurrentThemeBackgroundAlpha() : 0xFF;
     mTintedStatusContent.setColor(actionBarColor,ThemeUtils.getActionBarAlpha(alpha));
@@ -29,7 +28,7 @@
   mLocationView.setLinkTextColor(optimalAccentColor);
   mURLView.setLinkTextColor(optimalAccentColor);
   mProfileBannerView.setBackgroundColor(color);
-  ViewSupport.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,themeRes,optimalAccentColor,backgroundOption,true));
+  ViewSupport.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,optimalAccentColor,backgroundOption,true));
   final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
   if (drawer != null) {
     final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();

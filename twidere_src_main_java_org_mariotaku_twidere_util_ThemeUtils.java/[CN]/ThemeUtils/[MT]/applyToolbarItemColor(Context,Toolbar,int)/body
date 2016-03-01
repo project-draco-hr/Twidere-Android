@@ -1,0 +1,13 @@
+{
+  final int contrastForegroundColor=getContrastForegroundColor(context,toolbarColor);
+  if (toolbar == null || isDarkTheme(context)) {
+    return;
+  }
+  toolbar.setTitleTextColor(contrastForegroundColor);
+  toolbar.setSubtitleTextColor(contrastForegroundColor);
+  setActionBarOverflowColor(toolbar,contrastForegroundColor);
+  wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),contrastForegroundColor,contrastForegroundColor);
+  if (toolbar instanceof TwidereToolbar) {
+    ((TwidereToolbar)toolbar).setItemColor(contrastForegroundColor);
+  }
+}

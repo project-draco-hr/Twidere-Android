@@ -1,6 +1,0 @@
-android.support.v7.view.ActionMode modeCompat
-Activity activity
-int themeRes
-int accentColor
-String backgroundOption
-boolean outlineEnabled
