@@ -1,0 +1,15 @@
+{
+  int limit=-1;
+  for (  ParcelableCredentials credential : credentials) {
+    int currentLimit=getTextLimit(credential);
+    if (currentLimit != 0) {
+      if (limit <= 0) {
+        limit=currentLimit;
+      }
+ else {
+        limit=Math.min(limit,currentLimit);
+      }
+    }
+  }
+  return limit;
+}

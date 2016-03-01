@@ -83,9 +83,10 @@
         shortener.waitForService();
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
+        final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,account.account_id);
         final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true);
         final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true,TwitterUpload.class);
-        if (twitter == null || upload == null) {
+        if (twitter == null || upload == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }
         String statusText=statusUpdate.text;
@@ -103,7 +104,7 @@
           if (uploadResult.error_code != 0)           throw new UploadException(uploadResult.error_message);
           statusText=getImageUploadStatus(this,uploadResult.media_uris,statusText);
         }
-        final boolean shouldShorten=mValidator.getTweetLength(statusText) > mValidator.getMaxTweetLength();
+        final boolean shouldShorten=mValidator.getTweetLength(statusText) > TwidereValidator.getTextLimit(credentials);
         StatusShortenResult shortenedResult=null;
         if (shouldShorten && shortener != null) {
           try {

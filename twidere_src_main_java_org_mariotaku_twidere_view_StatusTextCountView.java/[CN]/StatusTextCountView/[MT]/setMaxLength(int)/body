@@ -1,4 +1,4 @@
 {
-  mTextCount=count;
+  mMaxLength=maxLength;
   updateTextCount();
 }
