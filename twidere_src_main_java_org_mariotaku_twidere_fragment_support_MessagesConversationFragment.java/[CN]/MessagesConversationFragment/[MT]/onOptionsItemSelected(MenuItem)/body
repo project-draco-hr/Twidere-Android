@@ -2,6 +2,8 @@
 switch (item.getItemId()) {
 case R.id.delete_all:
 {
+      if (mAccount == null || mRecipient == null)       return true;
+      mTwitterWrapper.destroyMessageConversationAsync(mAccount.account_id,mRecipient.id);
       return true;
     }
 }

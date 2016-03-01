@@ -2,12 +2,16 @@
   super.triggerRefresh();
   TaskStarter.execute(new AbstractTask<Object,long[][],CursorActivitiesFragment>(){
     @Override public long[][] doLongOperation(    Object o){
+      if (getActivity() == null) {
+        return null;
+      }
       final long[][] result=new long[3][];
       result[0]=getAccountIds();
       result[2]=getNewestActivityIds(result[0]);
       return result;
     }
     @Override public void afterExecute(    CursorActivitiesFragment fragment,    long[][] result){
+      if (result == null)       return;
       fragment.getActivities(result[0],result[1],result[2]);
     }
   }
