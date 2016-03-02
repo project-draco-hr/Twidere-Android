@@ -6,6 +6,9 @@
   final BidiFormatter formatter=adapter.getBidiFormatter();
   final Context context=adapter.getContext();
   final boolean nameFirst=adapter.isNameFirst();
+  final boolean showCardActions=isCardActionsShown();
+  actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+  itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
   final long replyCount=status.reply_count;
   final long retweetCount;
   final long favoriteCount;
@@ -54,7 +57,7 @@
     itemContent.drawStart(manager.getUserColor(status.quoted_user_id,false),manager.getUserColor(status.user_id,false));
   }
  else {
-    statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.VISIBLE : View.GONE);
+    statusContentSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
@@ -111,7 +114,7 @@
     final boolean hasMedia=!ArrayUtils.isEmpty(media);
     if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
       mediaPreview.setVisibility(View.VISIBLE);
-      statusContentSpace.setVisibility(adapter.isCardActionsHidden() ? View.GONE : View.VISIBLE);
+      statusContentSpace.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
       mediaPreview.displayMedia(media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
     }
  else {

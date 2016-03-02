@@ -7,6 +7,13 @@
 switch (v.getId()) {
 case R.id.item_content:
 {
+      if (!holder.isCardActionsShown()) {
+        holder.showCardActions();
+        return true;
+      }
+ else       if (holder.hideTempCardActions()) {
+        return true;
+      }
       return listener.onStatusLongClick(holder,position);
     }
 }

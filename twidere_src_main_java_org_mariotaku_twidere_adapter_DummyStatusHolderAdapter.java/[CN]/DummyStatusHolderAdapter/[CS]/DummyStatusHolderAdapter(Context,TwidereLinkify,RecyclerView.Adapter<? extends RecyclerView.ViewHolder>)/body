@@ -4,5 +4,6 @@
   preferences=SharedPreferencesWrapper.getInstance(context,TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   handler=new MediaLoadingHandler(R.id.media_preview_progress);
   this.linkify=linkify;
+  this.adapter=adapter;
   updateOptions();
 }

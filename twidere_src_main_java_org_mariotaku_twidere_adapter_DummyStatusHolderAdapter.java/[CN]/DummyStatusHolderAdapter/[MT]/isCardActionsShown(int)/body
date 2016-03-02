@@ -1,0 +1,4 @@
+{
+  if (position == RecyclerView.NO_POSITION)   return showCardActions;
+  return showCardActions || showingActionCardPosition == position;
+}
