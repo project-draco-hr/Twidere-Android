@@ -1,0 +1,9 @@
+{
+  if (adapter == null)   return;
+switch (v.getId()) {
+case R.id.remove:
+{
+      adapter.remove(getLayoutPosition());
+    }
+}
+}

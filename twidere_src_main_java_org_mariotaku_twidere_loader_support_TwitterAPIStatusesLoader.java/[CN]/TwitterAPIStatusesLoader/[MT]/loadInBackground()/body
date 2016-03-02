@@ -37,12 +37,14 @@
       }
     }
     statuses=getStatuses(twitter,paging);
-    if (!TwitterAPIFactory.isOfficialTwitterInstance(context,twitter)) {
+    if (!Utils.isOfficialCredentials(getContext(),getAccountId())) {
       InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }
   }
  catch (  final TwitterException e) {
-    Log.w(LOGTAG,e);
+    if (BuildConfig.DEBUG) {
+      Log.w(LOGTAG,e);
+    }
     return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data),e);
   }
   final long[] statusIds=new long[statuses.size()];

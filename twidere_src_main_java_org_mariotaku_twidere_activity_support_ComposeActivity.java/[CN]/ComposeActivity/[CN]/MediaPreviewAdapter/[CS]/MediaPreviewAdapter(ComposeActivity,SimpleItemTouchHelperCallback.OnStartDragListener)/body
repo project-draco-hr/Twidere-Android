@@ -1,5 +1,6 @@
 {
   super(activity);
+  setHasStableIds(true);
   mInflater=LayoutInflater.from(activity);
   mDragStartListener=listener;
 }

@@ -1,6 +1,6 @@
 {
   final ParcelableStatus status=mStatus;
-  if (Utils.shouldForceUsingPrivateAPIs(getContext()) || TwitterAPIFactory.isOfficialTwitterInstance(getContext(),twitter)) {
+  if (Utils.isOfficialCredentials(getContext(),getAccountId())) {
     return twitter.showConversation(status.id,paging);
   }
   final List<Status> statuses=new ArrayList<>();

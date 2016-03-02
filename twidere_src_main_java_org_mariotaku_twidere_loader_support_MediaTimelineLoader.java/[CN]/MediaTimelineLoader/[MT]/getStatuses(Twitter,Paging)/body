@@ -1,5 +1,5 @@
 {
-  if (Utils.shouldForceUsingPrivateAPIs(getContext()) || TwitterAPIFactory.isOfficialTwitterInstance(getContext(),twitter)) {
+  if (Utils.isOfficialCredentials(getContext(),getAccountId())) {
     if (mUserId != -1)     return twitter.getMediaTimeline(mUserId,paging);
     if (mUserScreenName != null)     return twitter.getMediaTimeline(mUserScreenName,paging);
   }

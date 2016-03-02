@@ -1,4 +1,11 @@
 {
-  mAttachedMediaPreview.setVisibility(hasMedia() ? View.VISIBLE : View.GONE);
+  final boolean hasMedia=hasMedia();
+  mAttachedMediaPreview.setVisibility(hasMedia ? View.VISIBLE : View.GONE);
+  if (hasMedia) {
+    mEditText.setMinLines(getResources().getInteger(R.integer.media_compose_min_lines));
+  }
+ else {
+    mEditText.setMinLines(getResources().getInteger(R.integer.default_compose_min_lines));
+  }
   setMenu();
 }

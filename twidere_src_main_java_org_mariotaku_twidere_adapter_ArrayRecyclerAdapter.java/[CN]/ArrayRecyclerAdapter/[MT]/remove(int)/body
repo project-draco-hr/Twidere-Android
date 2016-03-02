@@ -1,5 +1,5 @@
 {
-  final boolean ret=mData.remove(position) != null;
-  notifyDataSetChanged();
-  return ret;
+  mData.remove(position);
+  notifyItemRemoved(position);
+  return true;
 }

@@ -1,0 +1,3 @@
+{
+  return isOfficialCredentials(context,DataStoreUtils.getCredentials(context,accountId));
+}

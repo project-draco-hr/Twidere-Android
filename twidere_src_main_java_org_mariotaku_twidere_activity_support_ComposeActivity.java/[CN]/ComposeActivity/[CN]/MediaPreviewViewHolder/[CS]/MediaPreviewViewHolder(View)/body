@@ -2,4 +2,6 @@
   super(itemView);
   itemView.setOnLongClickListener(this);
   image=(ImageView)itemView.findViewById(R.id.image);
+  remove=itemView.findViewById(R.id.remove);
+  remove.setOnClickListener(this);
 }
