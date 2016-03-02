@@ -12,7 +12,7 @@ case TwidereLinkify.LINK_TYPE_HASHTAG:
     Utils.openTweetSearch(getActivity(),user.account_id,"#" + link);
     break;
   }
-case TwidereLinkify.LINK_TYPE_LINK:
+case TwidereLinkify.LINK_TYPE_ENTITY_URL:
 {
   final Uri uri=Uri.parse(link);
   final Intent intent;

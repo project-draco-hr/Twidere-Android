@@ -2,3 +2,5 @@ CharSequence text
 long accountId
 long extraId
 boolean sensitive
+int highlightOption
+boolean skipLinksInText

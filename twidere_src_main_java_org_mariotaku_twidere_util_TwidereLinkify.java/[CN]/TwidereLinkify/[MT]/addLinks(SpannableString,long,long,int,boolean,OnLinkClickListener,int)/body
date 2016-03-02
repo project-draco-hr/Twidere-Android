@@ -10,7 +10,7 @@ case LINK_TYPE_HASHTAG:
     addHashtagLinks(string,accountId,extraId,listener,highlightOption);
     break;
   }
-case LINK_TYPE_LINK:
+case LINK_TYPE_ENTITY_URL:
 {
   final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
   for (  final URLSpan span : spans) {
@@ -20,30 +20,34 @@ case LINK_TYPE_LINK:
       continue;
     }
     string.removeSpan(span);
-    applyLink(span.getURL(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,highlightOption,listener);
-  }
-  final List<Extractor.Entity> urls=mExtractor.extractURLsWithIndices(ParseUtils.parseString(string));
-  for (  final Extractor.Entity entity : urls) {
-    final int start=entity.getStart(), end=entity.getEnd();
-    if (entity.getType() != Extractor.Entity.Type.URL || string.getSpans(start,end,URLSpan.class).length > 0) {
-      continue;
-    }
-    applyLink(entity.getValue(),start,end,string,accountId,extraId,LINK_TYPE_LINK,sensitive,highlightOption,listener);
+    applyLink(span.getURL(),start,end,string,accountId,extraId,LINK_TYPE_ENTITY_URL,sensitive,highlightOption,listener);
   }
   break;
+}
+case LINK_TYPE_LINK_IN_TEXT:
+{
+final List<Extractor.Entity> urls=mExtractor.extractURLsWithIndices(ParseUtils.parseString(string));
+for (final Extractor.Entity entity : urls) {
+  final int start=entity.getStart(), end=entity.getEnd();
+  if (entity.getType() != Extractor.Entity.Type.URL || string.getSpans(start,end,URLSpan.class).length > 0) {
+    continue;
+  }
+  applyLink(entity.getValue(),start,end,string,accountId,extraId,LINK_TYPE_ENTITY_URL,sensitive,highlightOption,listener);
+}
+break;
 }
 case LINK_TYPE_STATUS:
 {
 final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
 for (final URLSpan span : spans) {
-  final Matcher matcher=PATTERN_TWITTER_STATUS.matcher(span.getURL());
-  if (matcher.matches()) {
-    final int start=string.getSpanStart(span);
-    final int end=string.getSpanEnd(span);
-    final String url=matcherGroup(matcher,GROUP_ID_TWITTER_STATUS_STATUS_ID);
-    string.removeSpan(span);
-    applyLink(url,start,end,string,accountId,extraId,LINK_TYPE_STATUS,sensitive,highlightOption,listener);
-  }
+final Matcher matcher=PATTERN_TWITTER_STATUS.matcher(span.getURL());
+if (matcher.matches()) {
+  final int start=string.getSpanStart(span);
+  final int end=string.getSpanEnd(span);
+  final String url=matcherGroup(matcher,GROUP_ID_TWITTER_STATUS_STATUS_ID);
+  string.removeSpan(span);
+  applyLink(url,start,end,string,accountId,extraId,LINK_TYPE_STATUS,sensitive,highlightOption,listener);
+}
 }
 break;
 }

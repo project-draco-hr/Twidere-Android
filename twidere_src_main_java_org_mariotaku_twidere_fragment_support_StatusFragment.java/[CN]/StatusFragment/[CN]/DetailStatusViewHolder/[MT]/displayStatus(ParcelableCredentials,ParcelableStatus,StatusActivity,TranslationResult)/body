@@ -18,6 +18,7 @@
   }
   profileContainer.drawEnd(DataStoreUtils.getAccountColor(context,status.account_id));
   final int layoutPosition=getLayoutPosition();
+  final boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
     quoteOriginalLink.setVisibility(View.VISIBLE);
     quotedNameContainer.setVisibility(View.VISIBLE);
@@ -27,7 +28,7 @@
     quotedScreenNameView.setText(String.format("@%s",status.quoted_user_screen_name));
     final CharSequence quotedText=HtmlSpanBuilder.fromHtml(status.quoted_text_html,status.text_unescaped);
     if (quotedText instanceof Spanned) {
-      quotedTextView.setText(linkify.applyAllLinks(quotedText,status.account_id,layoutPosition,status.is_possibly_sensitive));
+      quotedTextView.setText(linkify.applyAllLinks(quotedText,status.account_id,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
     }
     quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
     profileContainer.drawStart(manager.getUserColor(status.quoted_user_id,false));
@@ -74,7 +75,7 @@
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
   final CharSequence text=HtmlSpanBuilder.fromHtml(status.text_html,status.text_unescaped);
   if (text instanceof Spanned) {
-    textView.setText(linkify.applyAllLinks(text,status.account_id,layoutPosition,status.is_possibly_sensitive));
+    textView.setText(linkify.applyAllLinks(text,status.account_id,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
   }
   final ParcelableLocation location;
   final String placeFullName;
