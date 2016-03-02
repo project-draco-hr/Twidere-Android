@@ -1,0 +1,4 @@
+{
+  super.setCompoundDrawablesRelative(start,top,end,bottom);
+  updateCompoundDrawables(start,top,end,bottom);
+}

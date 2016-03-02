@@ -1,4 +1,4 @@
 {
   super.drawableStateChanged();
-  updateCompoundDrawables(TextViewSupport.getCompoundDrawablesRelative(this));
+  updateCompoundDrawables(getCompoundDrawables());
 }

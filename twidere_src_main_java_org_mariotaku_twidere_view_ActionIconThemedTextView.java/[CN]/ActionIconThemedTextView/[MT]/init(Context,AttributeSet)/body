@@ -1,5 +1,5 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.IconActionButton);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.IconActionButton,R.attr.cardActionButtonStyle,R.style.Widget_CardActionButton);
   mColor=a.getColor(R.styleable.IconActionButton_iabColor,0);
   mDisabledColor=a.getColor(R.styleable.IconActionButton_iabDisabledColor,0);
   mActivatedColor=a.getColor(R.styleable.IconActionButton_iabActivatedColor,0);
