@@ -1,5 +1,9 @@
 {
-  final String cacheKey=getCacheKey(source);
+  String cacheKey=getCacheKey(source);
   if (cacheKey == null)   return null;
-  return cacheKey.replaceAll("[^\\w\\d_]","_");
+  final int indexOfSsp=cacheKey.indexOf("://");
+  if (indexOfSsp != -1) {
+    cacheKey=cacheKey.substring(indexOfSsp + 3);
+  }
+  return cacheKey.replaceAll("[^\\w\\d_]",String.valueOf(getSpecialCharacter()));
 }

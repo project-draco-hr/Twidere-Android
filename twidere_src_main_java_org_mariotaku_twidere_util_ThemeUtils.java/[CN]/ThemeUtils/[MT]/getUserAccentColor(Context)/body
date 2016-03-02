@@ -1,7 +1,5 @@
 {
-  if (context == null)   return Color.TRANSPARENT;
   final SharedPreferencesWrapper pref=getSharedPreferencesWrapper(context);
-  final Resources res=context.getResources();
-  final int def=res.getColor(R.color.branding_color);
+  final int def=ContextCompat.getColor(context,R.color.branding_color);
   return pref.getInt(KEY_THEME_COLOR,def);
 }

@@ -1,0 +1,5 @@
+{
+  assertEquals("pbs_twimg_com_media_abcdefghijklmn.jpg",SaveFileTask.getFileNameWithExtension("pbs_twimg_com_media_abcdefghijklmn_jpg","jpg",'_',null));
+  assertEquals("pbs_twimg_com_media_abcdefghijklmn_jpg",SaveFileTask.getFileNameWithExtension("pbs_twimg_com_media_abcdefghijklmn_jpg",null,'_',null));
+  assertEquals("pbs_twimg_com_media_abcdefghijklmn_jpgsuffix",SaveFileTask.getFileNameWithExtension("pbs_twimg_com_media_abcdefghijklmn_jpg",null,'_',"suffix"));
+}
