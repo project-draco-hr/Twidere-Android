@@ -7,5 +7,8 @@
   mActiveHotMobiScrollTracker=null;
   recyclerView.removeOnScrollListener(mPauseOnScrollListener);
   recyclerView.removeOnScrollListener(mOnScrollListener);
+  if (getUserVisibleHint()) {
+    saveReadPosition();
+  }
   super.onStop();
 }

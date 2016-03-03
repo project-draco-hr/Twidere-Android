@@ -1,9 +1,6 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
   if (isVisibleToUser) {
-    final LinearLayoutManager layoutManager=getLayoutManager();
-    if (layoutManager != null) {
-      saveReadPosition(layoutManager.findFirstVisibleItemPosition());
-    }
+    saveReadPosition();
   }
 }
