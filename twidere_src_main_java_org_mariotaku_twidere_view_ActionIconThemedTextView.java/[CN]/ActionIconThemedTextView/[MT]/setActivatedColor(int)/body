@@ -1,3 +1,4 @@
 {
   this.mActivatedColor=color;
+  refreshDrawableState();
 }

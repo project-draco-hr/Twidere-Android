@@ -1,0 +1,4 @@
+{
+  mDefaultColor=defaultColor;
+  updateColorFilter();
+}

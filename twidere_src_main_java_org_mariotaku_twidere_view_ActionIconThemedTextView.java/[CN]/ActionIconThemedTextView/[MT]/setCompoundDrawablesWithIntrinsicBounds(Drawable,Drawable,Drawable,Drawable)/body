@@ -1,4 +1,0 @@
-{
-  super.setCompoundDrawablesWithIntrinsicBounds(left,top,right,bottom);
-  updateCompoundDrawables(left,top,right,bottom);
-}

@@ -1,0 +1,4 @@
+{
+  updateCompoundDrawables();
+  super.refreshDrawableState();
+}

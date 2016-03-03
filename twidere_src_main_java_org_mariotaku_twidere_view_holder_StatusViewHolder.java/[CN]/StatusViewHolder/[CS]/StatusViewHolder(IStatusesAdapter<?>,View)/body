@@ -16,14 +16,22 @@
   profileImageSpace=itemView.findViewById(R.id.profile_image_space);
   statusInfoSpace=itemView.findViewById(R.id.status_info_space);
   mediaPreview=(CardMediaContainer)itemView.findViewById(R.id.media_preview);
+  quoteMediaPreview=(CardMediaContainer)itemView.findViewById(R.id.quoted_media_preview);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);
   actionButtons=itemView.findViewById(R.id.action_buttons);
+  replyIconView=(ActionIconButton)itemView.findViewById(R.id.reply_icon);
+  retweetIconView=(ActionIconButton)itemView.findViewById(R.id.retweet_icon);
+  favoriteIconView=(ActionIconButton)itemView.findViewById(R.id.favorite_icon);
   replyCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.reply_count);
   retweetCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.retweet_count);
   favoriteCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.favorite_count);
-  statusContentSpace=(Space)itemView.findViewById(R.id.status_content_space);
+  statusContentUpperSpace=itemView.findViewById(R.id.status_content_upper_space);
+  statusContentLowerSpace=itemView.findViewById(R.id.status_content_lower_space);
+  textMediaSpace=itemView.findViewById(R.id.text_media_space);
+  quotedTextMediaSpace=itemView.findViewById(R.id.quoted_text_media_space);
   if (adapter.isMediaPreviewEnabled()) {
     View.inflate(mediaPreview.getContext(),R.layout.layout_card_media_preview,mediaPreview);
+    View.inflate(quoteMediaPreview.getContext(),R.layout.layout_card_media_preview,quoteMediaPreview);
   }
 }

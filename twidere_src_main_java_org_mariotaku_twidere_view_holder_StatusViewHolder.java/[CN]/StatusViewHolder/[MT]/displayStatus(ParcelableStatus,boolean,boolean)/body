@@ -9,6 +9,9 @@
   final boolean showCardActions=isCardActionsShown();
   actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
   itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+  if (statusContentLowerSpace != null) {
+    statusContentLowerSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
+  }
   final long replyCount=status.reply_count;
   final long retweetCount;
   final long favoriteCount;
@@ -17,6 +20,9 @@
     statusInfoIcon.setImageResource(R.drawable.ic_activity_action_poll);
     statusInfoLabel.setVisibility(View.VISIBLE);
     statusInfoIcon.setVisibility(View.VISIBLE);
+    if (statusContentUpperSpace != null) {
+      statusContentUpperSpace.setVisibility(View.GONE);
+    }
   }
  else   if (status.retweet_id > 0) {
     final String retweetedBy=manager.getDisplayName(status.retweeted_by_user_id,status.retweeted_by_user_name,status.retweeted_by_user_screen_name,nameFirst,false);
@@ -24,6 +30,9 @@
     statusInfoIcon.setImageResource(R.drawable.ic_activity_action_retweet);
     statusInfoLabel.setVisibility(View.VISIBLE);
     statusInfoIcon.setVisibility(View.VISIBLE);
+    if (statusContentUpperSpace != null) {
+      statusContentUpperSpace.setVisibility(View.GONE);
+    }
   }
  else   if (status.in_reply_to_status_id > 0 && status.in_reply_to_user_id > 0 && displayInReplyTo) {
     final String inReplyTo=manager.getDisplayName(status.in_reply_to_user_id,status.in_reply_to_name,status.in_reply_to_screen_name,nameFirst,false);
@@ -31,14 +40,19 @@
     statusInfoIcon.setImageResource(R.drawable.ic_activity_action_reply);
     statusInfoLabel.setVisibility(View.VISIBLE);
     statusInfoIcon.setVisibility(View.VISIBLE);
+    if (statusContentUpperSpace != null) {
+      statusContentUpperSpace.setVisibility(View.GONE);
+    }
   }
  else {
     statusInfoLabel.setVisibility(View.GONE);
     statusInfoIcon.setVisibility(View.GONE);
+    if (statusContentUpperSpace != null) {
+      statusContentUpperSpace.setVisibility(View.VISIBLE);
+    }
   }
   boolean skipLinksInText=status.extras != null && status.extras.support_entities;
-  if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
-    statusContentSpace.setVisibility(View.VISIBLE);
+  if (status.is_quote) {
     quotedNameView.setVisibility(View.VISIBLE);
     quotedTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
@@ -54,11 +68,10 @@
       final String text=status.quoted_text_unescaped;
       quotedTextView.setText(text);
     }
-    quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
-    itemContent.drawStart(manager.getUserColor(status.quoted_user_id,false),manager.getUserColor(status.user_id,false));
+    quoteIndicator.setColor(manager.getUserColor(status.quoted_user_id,false));
+    itemContent.drawStart(manager.getUserColor(status.user_id,false));
   }
  else {
-    statusContentSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
@@ -77,13 +90,13 @@
   }
   nameView.setName(manager.getUserNickname(status.user_id,status.user_name,false));
   nameView.setScreenName("@" + status.user_screen_name);
+  if (statusInfoSpace != null) {
+    statusInfoSpace.setVisibility(View.VISIBLE);
+  }
   if (adapter.isProfileImageEnabled()) {
     profileImageView.setVisibility(View.VISIBLE);
     if (profileImageSpace != null) {
       profileImageSpace.setVisibility(View.VISIBLE);
-    }
-    if (statusInfoSpace != null) {
-      statusInfoSpace.setVisibility(View.VISIBLE);
     }
     final String user_profile_image_url=status.user_profile_image_url;
     loader.displayProfileImage(profileImageView,user_profile_image_url);
@@ -96,9 +109,6 @@
     if (profileImageSpace != null) {
       profileImageSpace.setVisibility(View.GONE);
     }
-    if (statusInfoSpace != null) {
-      statusInfoSpace.setVisibility(View.GONE);
-    }
     loader.cancelDisplayTask(profileImageView);
     profileTypeView.setImageDrawable(null);
     profileTypeView.setVisibility(View.GONE);
@@ -109,21 +119,31 @@
  else {
     itemContent.drawEnd();
   }
-  final ParcelableMedia[] media=IntentUtils.getPrimaryMedia(status);
-  if (adapter.isMediaPreviewEnabled()) {
+  if (adapter.isMediaPreviewEnabled() && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
     mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    final boolean hasMedia=!ArrayUtils.isEmpty(media);
-    if (hasMedia && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
-      mediaPreview.setVisibility(View.VISIBLE);
-      statusContentSpace.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
-      mediaPreview.displayMedia(media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
+    quoteMediaPreview.setStyle(adapter.getMediaPreviewStyle());
+    final boolean showQuotedMedia=!ArrayUtils.isEmpty(status.quoted_media);
+    final boolean showMedia=!showQuotedMedia && !ArrayUtils.isEmpty(status.media);
+    mediaPreview.setVisibility(showMedia ? View.VISIBLE : View.GONE);
+    if (textMediaSpace != null) {
+      textMediaSpace.setVisibility(!status.is_quote && (showMedia || showCardActions) ? View.GONE : View.VISIBLE);
     }
- else {
-      mediaPreview.setVisibility(View.GONE);
+    quoteMediaPreview.setVisibility(showQuotedMedia ? View.VISIBLE : View.GONE);
+    if (quotedTextMediaSpace != null) {
+      quotedTextMediaSpace.setVisibility(!status.is_quote || showQuotedMedia ? View.GONE : View.VISIBLE);
     }
+    mediaPreview.displayMedia(status.media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
+    quoteMediaPreview.displayMedia(status.quoted_media,loader,status.account_id,-1,this,adapter.getMediaLoadingHandler());
   }
  else {
     mediaPreview.setVisibility(View.GONE);
+    quoteMediaPreview.setVisibility(View.GONE);
+    if (textMediaSpace != null) {
+      textMediaSpace.setVisibility(showCardActions && !status.is_quote ? View.GONE : View.VISIBLE);
+    }
+    if (quotedTextMediaSpace != null) {
+      quotedTextMediaSpace.setVisibility(status.is_quote ? View.VISIBLE : View.GONE);
+    }
   }
   if (adapter.getLinkHighlightingStyle() == VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
     textView.setText(status.text_unescaped);
@@ -136,42 +156,48 @@
   }
   if (replyCount > 0) {
     replyCountView.setText(UnitConvertUtils.calculateProperCount(replyCount));
+    replyCountView.setVisibility(View.VISIBLE);
   }
  else {
     replyCountView.setText(null);
+    replyCountView.setVisibility(View.GONE);
   }
   if (twitter.isDestroyingStatus(status.account_id,status.my_retweet_id)) {
-    retweetCountView.setActivated(false);
+    retweetIconView.setActivated(false);
     retweetCount=Math.max(0,status.retweet_count - 1);
   }
  else {
     final boolean creatingRetweet=twitter.isCreatingRetweet(status.account_id,status.id);
-    retweetCountView.setActivated(creatingRetweet || status.retweeted || Utils.isMyRetweet(status.account_id,status.retweeted_by_user_id,status.my_retweet_id));
+    retweetIconView.setActivated(creatingRetweet || status.retweeted || Utils.isMyRetweet(status.account_id,status.retweeted_by_user_id,status.my_retweet_id));
     retweetCount=status.retweet_count + (creatingRetweet ? 1 : 0);
   }
   if (retweetCount > 0) {
     retweetCountView.setText(UnitConvertUtils.calculateProperCount(retweetCount));
+    retweetCountView.setVisibility(View.VISIBLE);
   }
  else {
     retweetCountView.setText(null);
+    retweetCountView.setVisibility(View.GONE);
   }
   if (twitter.isDestroyingFavorite(status.account_id,status.id)) {
-    favoriteCountView.setActivated(false);
+    favoriteIconView.setActivated(false);
     favoriteCount=Math.max(0,status.favorite_count - 1);
   }
  else {
     final boolean creatingFavorite=twitter.isCreatingFavorite(status.account_id,status.id);
-    favoriteCountView.setActivated(creatingFavorite || status.is_favorite);
+    favoriteIconView.setActivated(creatingFavorite || status.is_favorite);
     favoriteCount=status.favorite_count + (creatingFavorite ? 1 : 0);
   }
   if (favoriteCount > 0) {
     favoriteCountView.setText(UnitConvertUtils.calculateProperCount(favoriteCount));
+    favoriteCountView.setVisibility(View.VISIBLE);
   }
  else {
     favoriteCountView.setText(null);
+    favoriteCountView.setVisibility(View.GONE);
   }
   if (shouldDisplayExtraType) {
-    displayExtraTypeIcon(status.card_name,media,status.location,status.place_full_name,status.is_possibly_sensitive);
+    displayExtraTypeIcon(status.card_name,status.media,status.location,status.place_full_name,status.is_possibly_sensitive);
   }
  else {
     extraTypeView.setVisibility(View.GONE);

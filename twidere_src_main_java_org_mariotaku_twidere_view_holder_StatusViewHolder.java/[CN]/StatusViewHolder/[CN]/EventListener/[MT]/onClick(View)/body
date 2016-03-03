@@ -21,10 +21,21 @@ case R.id.profile_image:
   break;
 }
 case R.id.reply_count:
-case R.id.retweet_count:
-case R.id.favorite_count:
+case R.id.reply_icon:
 {
-listener.onItemActionClick(holder,v.getId(),position);
+listener.onItemActionClick(holder,R.id.reply,position);
+break;
+}
+case R.id.retweet_count:
+case R.id.retweet_icon:
+{
+listener.onItemActionClick(holder,R.id.retweet,position);
+break;
+}
+case R.id.favorite_count:
+case R.id.favorite_icon:
+{
+listener.onItemActionClick(holder,R.id.favorite,position);
 break;
 }
 }

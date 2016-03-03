@@ -1,10 +1,14 @@
 {
-  profileImageView.setVisibility(adapter.isProfileImageEnabled() ? View.VISIBLE : View.GONE);
+  final boolean profileImageEnabled=adapter.isProfileImageEnabled();
+  profileImageView.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
   if (profileImageSpace != null) {
-    profileImageSpace.setVisibility(adapter.isProfileImageEnabled() ? View.VISIBLE : View.GONE);
+    profileImageSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
   }
   if (statusInfoSpace != null) {
-    statusInfoSpace.setVisibility(adapter.isProfileImageEnabled() ? View.VISIBLE : View.GONE);
+    statusInfoSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
+  }
+  if (statusContentUpperSpace != null) {
+    statusContentUpperSpace.setVisibility(View.VISIBLE);
   }
   profileImageView.setImageResource(R.mipmap.ic_launcher);
   nameView.setName(TWIDERE_PREVIEW_NAME);
@@ -24,15 +28,24 @@
   final boolean showCardActions=isCardActionsShown();
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setVisibility(View.VISIBLE);
-    statusContentSpace.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
-    actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
-    itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+    if (textMediaSpace != null) {
+      textMediaSpace.setVisibility(View.GONE);
+    }
   }
  else {
     mediaPreview.setVisibility(View.GONE);
-    statusContentSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
-    actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
-    itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+    if (textMediaSpace != null) {
+      textMediaSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
+    }
+  }
+  actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+  itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
+  if (statusContentLowerSpace != null) {
+    statusContentLowerSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
+  }
+  quoteMediaPreview.setVisibility(View.GONE);
+  if (quotedTextMediaSpace != null) {
+    quotedTextMediaSpace.setVisibility(View.GONE);
   }
   mediaPreview.displayMedia(R.drawable.nyan_stars_background);
   extraTypeView.setImageResource(R.drawable.ic_action_gallery);

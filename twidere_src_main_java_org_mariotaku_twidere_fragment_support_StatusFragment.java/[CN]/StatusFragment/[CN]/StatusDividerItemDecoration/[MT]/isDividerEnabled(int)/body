@@ -1,0 +1,11 @@
+{
+  if (childPos >= statusAdapter.getItemCount() || childPos < 0)   return false;
+  final int itemType=statusAdapter.getItemType(childPos);
+switch (itemType) {
+case StatusAdapter.ITEM_IDX_REPLY_LOAD_MORE:
+case StatusAdapter.ITEM_IDX_REPLY_ERROR:
+case StatusAdapter.ITEM_IDX_SPACE:
+    return false;
+}
+return true;
+}

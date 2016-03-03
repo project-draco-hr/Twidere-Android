@@ -1,4 +1,0 @@
-{
-  super.drawableStateChanged();
-  updateCompoundDrawables(getCompoundDrawables());
-}

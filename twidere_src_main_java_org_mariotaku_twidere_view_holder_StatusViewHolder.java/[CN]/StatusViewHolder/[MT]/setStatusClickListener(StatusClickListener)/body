@@ -4,7 +4,7 @@
   ((View)itemContent).setOnLongClickListener(eventListener);
   itemMenu.setOnClickListener(eventListener);
   profileImageView.setOnClickListener(eventListener);
-  replyCountView.setOnClickListener(eventListener);
-  retweetCountView.setOnClickListener(eventListener);
-  favoriteCountView.setOnClickListener(eventListener);
+  replyIconView.setOnClickListener(eventListener);
+  retweetIconView.setOnClickListener(eventListener);
+  favoriteIconView.setOnClickListener(eventListener);
 }

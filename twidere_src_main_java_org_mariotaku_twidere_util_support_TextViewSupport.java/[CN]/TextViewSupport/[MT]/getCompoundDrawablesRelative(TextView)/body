@@ -1,4 +1,6 @@
 {
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1)   return null;
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+    return view.getCompoundDrawables();
+  }
   return TextViewSupportJBMR1.getCompoundDrawablesRelative(view);
 }
