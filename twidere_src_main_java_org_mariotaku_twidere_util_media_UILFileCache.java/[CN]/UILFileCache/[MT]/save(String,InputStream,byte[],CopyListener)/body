@@ -5,4 +5,7 @@
     }
   }
 );
+  if (extra != null) {
+    cache.save(CacheProvider.getExtraKey(key),new ByteArrayInputStream(extra),null);
+  }
 }

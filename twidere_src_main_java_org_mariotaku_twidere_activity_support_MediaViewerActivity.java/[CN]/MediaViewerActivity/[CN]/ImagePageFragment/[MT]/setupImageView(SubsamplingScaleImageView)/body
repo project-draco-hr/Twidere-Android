@@ -1,4 +1,3 @@
 {
-  imageView.setRegionDecoderClass(RapidImageRegionDecoder.class);
-  imageView.setBitmapDecoderClass(RapidImageDecoder.class);
+  imageView.setMaxScale(getResources().getDisplayMetrics().density);
 }

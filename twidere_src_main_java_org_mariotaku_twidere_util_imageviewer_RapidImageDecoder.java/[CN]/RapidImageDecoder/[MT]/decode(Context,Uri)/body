@@ -1,3 +1,0 @@
-{
-  return BitmapDecoder.from(context,uri).useBuiltInDecoder(true).config(Bitmap.Config.RGB_565).decode();
-}

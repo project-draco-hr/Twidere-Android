@@ -1,0 +1,20 @@
+{
+  String uriString=downloadUri.toString();
+  if (TwitterMediaProvider.isSupported(uriString)) {
+    final String suffix=".jpg";
+    int lastIndexOfJpegSuffix=uriString.lastIndexOf(suffix);
+    if (lastIndexOfJpegSuffix == -1)     return downloadUri;
+    final int endOfSuffix=lastIndexOfJpegSuffix + suffix.length();
+    if (endOfSuffix == uriString.length()) {
+      return Uri.parse(uriString.substring(0,lastIndexOfJpegSuffix) + ".png");
+    }
+ else {
+      String sizeSuffix=uriString.substring(endOfSuffix);
+      if (":orig".equals(sizeSuffix)) {
+        sizeSuffix=":large";
+      }
+      return Uri.parse(uriString.substring(0,lastIndexOfJpegSuffix) + ".png" + sizeSuffix);
+    }
+  }
+  return downloadUri;
+}

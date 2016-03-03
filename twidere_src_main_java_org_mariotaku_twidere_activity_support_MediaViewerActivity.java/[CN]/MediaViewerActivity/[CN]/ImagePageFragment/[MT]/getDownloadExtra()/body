@@ -1,5 +1,12 @@
 {
   final MediaExtra mediaExtra=new MediaExtra();
   mediaExtra.setAccountId(getArguments().getLong(EXTRA_ACCOUNT_ID,-1));
+  final Uri origDownloadUri=super.getDownloadUri();
+  final Uri downloadUri=getDownloadUri();
+  if (origDownloadUri != null && downloadUri != null) {
+    final String fallbackUrl=origDownloadUri.toString();
+    mediaExtra.setFallbackUrl(fallbackUrl);
+    mediaExtra.setSkipUrlReplacing(!fallbackUrl.equals(downloadUri.toString()));
+  }
   return mediaExtra;
 }
