@@ -3,7 +3,9 @@
     return showUser(twitter,id,screenName);
   }
  catch (  final TwitterException e) {
-    if (e.isCausedByNetworkIssue())     throw e;
+    if (e.getStatusCode() == 200) {
+      return showUserAlternative(twitter,id,screenName);
+    }
+    throw e;
   }
-  return showUserAlternative(twitter,id,screenName);
 }

@@ -44,8 +44,12 @@
   final int dailyTweets=Math.round(user.statuses_count / Math.max(1,daysSinceCreation));
   mCreatedAtView.setText(resources.getQuantityString(R.plurals.created_at_with_N_tweets_per_day,dailyTweets,createdAt,dailyTweets));
   mListedCount.setText(Utils.getLocalizedNumber(mLocale,user.listed_count));
+  final long groupsCount=user.extras != null ? user.extras.groups_count : -1;
+  mGroupsCount.setText(Utils.getLocalizedNumber(mLocale,groupsCount));
   mFollowersCount.setText(Utils.getLocalizedNumber(mLocale,user.followers_count));
   mFriendsCount.setText(Utils.getLocalizedNumber(mLocale,user.friends_count));
+  mListedContainer.setVisibility(user.listed_count < 0 ? View.GONE : View.VISIBLE);
+  mGroupsContainer.setVisibility(groupsCount < 0 ? View.GONE : View.VISIBLE);
   mMediaLoader.displayOriginalProfileImage(mProfileImageView,user);
   if (userColor != 0) {
     setUiColor(userColor);
