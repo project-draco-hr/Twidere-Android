@@ -1,6 +1,5 @@
 {
   super.setTheme(resId);
-  mCurrentThemeResource=resId;
   if (shouldApplyWindowBackground()) {
     ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
   }

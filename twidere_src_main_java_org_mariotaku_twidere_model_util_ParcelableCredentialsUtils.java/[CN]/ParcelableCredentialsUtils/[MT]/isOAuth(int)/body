@@ -1,0 +1,10 @@
+{
+switch (authType) {
+case ParcelableCredentials.AUTH_TYPE_OAUTH:
+case ParcelableCredentials.AUTH_TYPE_XAUTH:
+{
+      return true;
+    }
+}
+return false;
+}
