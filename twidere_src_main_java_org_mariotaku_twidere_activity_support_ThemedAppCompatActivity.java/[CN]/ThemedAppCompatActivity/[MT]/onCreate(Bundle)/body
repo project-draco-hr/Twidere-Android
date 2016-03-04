@@ -3,6 +3,9 @@
     StrictModeUtils.detectAllVmPolicy();
     StrictModeUtils.detectAllThreadPolicy();
   }
+  if (mCurrentThemeResource != 0) {
+    getTheme().applyStyle(mCurrentThemeResource,true);
+  }
   super.onCreate(savedInstanceState);
   ThemeUtils.applyToolbarItemColor(this,getActionBarToolbar(),getCurrentThemeColor());
 }

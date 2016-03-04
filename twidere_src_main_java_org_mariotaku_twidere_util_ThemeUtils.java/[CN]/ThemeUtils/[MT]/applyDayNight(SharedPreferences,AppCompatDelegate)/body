@@ -1,0 +1,20 @@
+{
+switch (getLocalNightMode(preferences)) {
+case AppCompatDelegate.MODE_NIGHT_AUTO:
+{
+      delegate.setLocalNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+      break;
+    }
+case AppCompatDelegate.MODE_NIGHT_YES:
+{
+    delegate.setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    break;
+  }
+default :
+{
+  delegate.setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+  break;
+}
+}
+delegate.applyDayNight();
+}

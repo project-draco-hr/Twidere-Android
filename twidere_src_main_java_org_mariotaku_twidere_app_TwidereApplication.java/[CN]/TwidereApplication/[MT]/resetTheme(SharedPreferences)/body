@@ -1,15 +1,15 @@
 {
-switch (Utils.getNonEmptyString(preferences,KEY_THEME,VALUE_THEME_NAME_LIGHT)) {
-case VALUE_THEME_NAME_DARK:
+switch (ThemeUtils.getLocalNightMode(preferences)) {
+case AppCompatDelegate.MODE_NIGHT_AUTO:
 {
-      ((UiModeManager)getSystemService(UI_MODE_SERVICE)).setNightMode(UiModeManager.MODE_NIGHT_YES);
-      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+      ((UiModeManager)getSystemService(UI_MODE_SERVICE)).setNightMode(UiModeManager.MODE_NIGHT_AUTO);
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
       break;
     }
-case VALUE_THEME_NAME_AUTO:
+case AppCompatDelegate.MODE_NIGHT_YES:
 {
-    ((UiModeManager)getSystemService(UI_MODE_SERVICE)).setNightMode(UiModeManager.MODE_NIGHT_AUTO);
-    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+    ((UiModeManager)getSystemService(UI_MODE_SERVICE)).setNightMode(UiModeManager.MODE_NIGHT_YES);
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     break;
   }
 default :

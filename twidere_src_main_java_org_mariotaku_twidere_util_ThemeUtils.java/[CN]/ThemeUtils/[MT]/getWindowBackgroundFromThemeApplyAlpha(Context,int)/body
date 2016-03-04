@@ -1,7 +1,5 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
-  final Drawable d=a.getDrawable(0);
-  a.recycle();
+  final Drawable d=getWindowBackgroundFromTheme(context);
   if (d == null)   return null;
   d.mutate();
   d.setAlpha(TwidereMathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));

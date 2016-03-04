@@ -1,0 +1,13 @@
+{
+switch (Utils.getNonEmptyString(preferences,KEY_THEME,VALUE_THEME_NAME_LIGHT)) {
+case VALUE_THEME_NAME_DARK:
+{
+      return AppCompatDelegate.MODE_NIGHT_YES;
+    }
+case VALUE_THEME_NAME_AUTO:
+{
+    return AppCompatDelegate.MODE_NIGHT_AUTO;
+  }
+}
+return AppCompatDelegate.MODE_NIGHT_NO;
+}
