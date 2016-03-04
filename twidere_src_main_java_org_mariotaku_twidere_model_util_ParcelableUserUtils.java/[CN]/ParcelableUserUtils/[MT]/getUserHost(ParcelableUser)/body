@@ -1,0 +1,4 @@
+{
+  if (user.extras == null)   return USER_TYPE_TWITTER_COM;
+  return getUserHost(user.extras.ostatus_uri);
+}

@@ -1,6 +1,5 @@
 {
-  final Body body=httpResponse.getBody();
-  final Object object=parseOrThrow(body,mapper);
+  final Object object=parseOrThrow(httpResponse,mapper);
   if (object instanceof TwitterResponse) {
     ((TwitterResponse)object).processResponseHeader(httpResponse);
   }
