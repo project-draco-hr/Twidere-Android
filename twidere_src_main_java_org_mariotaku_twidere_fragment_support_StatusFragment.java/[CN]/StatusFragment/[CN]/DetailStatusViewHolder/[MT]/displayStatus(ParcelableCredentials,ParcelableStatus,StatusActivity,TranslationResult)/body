@@ -49,7 +49,7 @@
   }
   nameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
   screenNameView.setText(String.format("@%s",status.user_screen_name));
-  loader.displayProfileImage(profileImageView,status.user_profile_image_url);
+  loader.displayProfileImage(profileImageView,status);
   final int typeIconRes=Utils.getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
   final int typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.user_is_verified,status.user_is_protected);
   if (typeIconRes != 0 && typeDescriptionRes != 0) {

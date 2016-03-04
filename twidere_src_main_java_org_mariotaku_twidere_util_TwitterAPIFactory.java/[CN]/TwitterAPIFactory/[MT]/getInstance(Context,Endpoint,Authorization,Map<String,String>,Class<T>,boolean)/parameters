@@ -1,0 +1,6 @@
+Context context
+Endpoint endpoint
+Authorization auth
+Map<String,String> extraRequestParams
+Class<T> cls
+boolean twitterExtraQueries

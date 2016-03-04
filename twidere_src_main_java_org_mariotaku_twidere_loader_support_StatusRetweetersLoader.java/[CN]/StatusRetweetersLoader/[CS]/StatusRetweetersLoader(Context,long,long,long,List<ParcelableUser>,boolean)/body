@@ -1,4 +1,0 @@
-{
-  super(context,accountId,cursor,data,fromUser);
-  mStatusId=statusId;
-}

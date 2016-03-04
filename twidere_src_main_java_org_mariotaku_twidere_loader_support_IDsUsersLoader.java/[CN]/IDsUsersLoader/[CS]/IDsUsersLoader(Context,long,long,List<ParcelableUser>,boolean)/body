@@ -1,3 +1,0 @@
-{
-  super(context,accountId,cursor,data,fromUser);
-}

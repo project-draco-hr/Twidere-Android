@@ -1,5 +1,8 @@
 {
-  if (Utils.isOfficialCredentials(getContext(),getAccountId())) {
+  final Context context=getContext();
+  final ParcelableCredentials credentials=DataStoreUtils.getCredentials(context,getAccountId());
+  if (credentials == null)   throw new TwitterException("Null credentials");
+  if (Utils.isOfficialCredentials(context,credentials)) {
     if (mUserId != -1)     return twitter.getMediaTimeline(mUserId,paging);
     if (mUserScreenName != null)     return twitter.getMediaTimeline(mUserScreenName,paging);
   }
@@ -15,7 +18,7 @@
       screenName=mUser.getScreenName();
     }
     final SearchQuery query;
-    if (mTwitterOptimizedSearches) {
+    if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
       query=new SearchQuery("from:" + screenName + " filter:media exclude:retweets");
     }
  else {

@@ -1,7 +1,6 @@
 {
   setupWindow();
   super.onCreate(savedInstanceState);
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   mResolver=getContentResolver();
   setContentView(R.layout.activity_sign_in);
   setSupportActionBar((Toolbar)findViewById(R.id.action_bar));

@@ -1,7 +1,0 @@
-Context context
-long accountId
-long userId
-String screenName
-long maxId
-List<ParcelableUser> userList
-boolean fromUser

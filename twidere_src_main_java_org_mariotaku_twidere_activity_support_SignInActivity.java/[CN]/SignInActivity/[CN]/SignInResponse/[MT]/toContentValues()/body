@@ -25,6 +25,7 @@ values=null;
 if (values != null && accountType != null) {
 values.put(Accounts.ACCOUNT_TYPE,accountType.first);
 values.put(Accounts.ACCOUNT_EXTRAS,accountType.second);
+values.put(Accounts.ACCOUNT_USER,JsonSerializer.serialize(ParcelableUserUtils.fromUser(user,user.getId()),ParcelableUser.class));
 }
 return values;
 }

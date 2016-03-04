@@ -1,6 +1,8 @@
 {
   final ParcelableStatus status=mStatus;
-  if (Utils.isOfficialCredentials(getContext(),getAccountId())) {
+  final ParcelableCredentials credentials=DataStoreUtils.getCredentials(getContext(),getAccountId());
+  if (credentials == null)   throw new TwitterException("Null credentials");
+  if (Utils.isOfficialCredentials(getContext(),credentials)) {
     return twitter.showConversation(status.id,paging);
   }
   final List<Status> statuses=new ArrayList<>();
@@ -18,7 +20,7 @@
   }
   if ((sinceId > 0 && sinceId > status.id) || noSinceMaxId) {
     SearchQuery query=new SearchQuery();
-    if (mTwitterOptimizedSearches) {
+    if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
       query.query("to:" + status.user_screen_name);
     }
  else {

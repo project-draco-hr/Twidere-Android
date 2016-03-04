@@ -1,0 +1,8 @@
+{
+  if (status.extras != null && !TextUtils.isEmpty(status.extras.user_profile_image_url_profile_size)) {
+    displayProfileImage(view,status.extras.user_profile_image_url_profile_size);
+  }
+ else {
+    displayProfileImage(view,status.user_profile_image_url);
+  }
+}

@@ -3,7 +3,7 @@
   final ParcelableCardEntity obj=new ParcelableCardEntity();
   obj.name=card.getName();
   obj.url=card.getUrl();
-  obj.users=ParcelableUserUtils.fromUsersArray(card.getUsers(),accountId);
+  obj.users=ParcelableUserUtils.fromUsers(card.getUsers(),accountId);
   obj.account_id=accountId;
   obj.values=from(card.getBindingValues());
   return obj;

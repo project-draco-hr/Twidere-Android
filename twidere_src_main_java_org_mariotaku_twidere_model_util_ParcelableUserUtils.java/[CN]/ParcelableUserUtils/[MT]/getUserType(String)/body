@@ -1,0 +1,4 @@
+{
+  if (uri == null)   return USER_TYPE_TWITTER_COM;
+  return PreviewMediaExtractor.getAuthority(uri);
+}

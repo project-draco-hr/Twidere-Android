@@ -1,5 +1,5 @@
 {
   final ParcelableAccount account=getAdapterAccount(position);
-  mImageLoader.displayDashboardProfileImage(holder.icon,account.profile_image_url,null);
+  mImageLoader.displayDashboardProfileImage(holder.icon,account,null);
   holder.icon.setBorderColor(account.color);
 }

@@ -1,4 +1,10 @@
 {
+  final Context context=getContext();
+  if (mUserEvent != null && context != null && mUser != null) {
+    mUserEvent.setUser(mUser);
+    mUserEvent.markEnd();
+    HotMobiLogger.getInstance(context).log(mUserEvent);
+  }
   mBus.unregister(this);
   super.onStop();
 }

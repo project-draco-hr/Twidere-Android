@@ -1,0 +1,10 @@
+Context context
+long accountId
+String query
+long sinceId
+long maxId
+List<ParcelableStatus> data
+String[] savedStatusesArgs
+int tabPosition
+boolean fromUser
+boolean makeGap

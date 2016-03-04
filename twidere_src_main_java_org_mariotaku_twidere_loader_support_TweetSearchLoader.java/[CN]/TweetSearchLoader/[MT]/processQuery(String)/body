@@ -1,5 +1,5 @@
 {
-  if (mTwitterOptimizedSearches) {
+  if (TwitterAPIFactory.isTwitterCredentials(getContext(),getAccountId())) {
     return String.format("%s exclude:retweets",query);
   }
   return query;

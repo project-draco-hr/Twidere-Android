@@ -34,7 +34,7 @@
       clickedColors=clickedImageView.getBorderColors();
       final ParcelableAccount oldSelectedAccount=mAccountsAdapter.getSelectedAccount();
       if (oldSelectedAccount == null)       return;
-      mMediaLoader.displayDashboardProfileImage(clickedImageView,oldSelectedAccount.profile_image_url,profileDrawable);
+      mMediaLoader.displayDashboardProfileImage(clickedImageView,oldSelectedAccount,profileDrawable);
       clickedImageView.setBorderColors(profileImageView.getBorderColors());
       mSwitchAccountAnimationPlaying=true;
     }

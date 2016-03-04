@@ -1,5 +1,9 @@
 {
-  final SearchQuery query=new SearchQuery(processQuery(mQuery));
-  query.paging(paging);
-  return twitter.search(query);
+  final String processedQuery=processQuery(mQuery);
+  if (TwitterAPIFactory.isTwitterCredentials(getContext(),getAccountId())) {
+    final SearchQuery query=new SearchQuery(processedQuery);
+    query.paging(paging);
+    return twitter.search(query);
+  }
+  return twitter.searchStatuses(processedQuery,paging);
 }

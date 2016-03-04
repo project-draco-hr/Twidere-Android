@@ -1,0 +1,8 @@
+{
+  if (account.account_user != null && account.account_user.extras != null && !TextUtils.isEmpty(account.account_user.extras.profile_image_url_profile_size)) {
+    displayDashboardProfileImage(view,account.account_user.extras.profile_image_url_profile_size,drawableOnLoading);
+  }
+ else {
+    displayDashboardProfileImage(view,account.profile_image_url,drawableOnLoading);
+  }
+}
