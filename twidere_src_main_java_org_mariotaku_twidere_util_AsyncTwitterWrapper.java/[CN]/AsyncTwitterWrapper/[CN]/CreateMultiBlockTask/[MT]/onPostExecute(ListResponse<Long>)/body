@@ -6,7 +6,7 @@
     Utils.showErrorMessage(mContext,R.string.action_blocking,result.getException(),true);
   }
   final Intent intent=new Intent(BROADCAST_MULTI_BLOCKSTATE_CHANGED);
-  intent.putExtra(EXTRA_USER_ID,user_ids);
+  intent.putExtra(EXTRA_USER_ID,mUserIds);
   mContext.sendBroadcast(intent);
   super.onPostExecute(result);
 }

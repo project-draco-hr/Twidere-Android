@@ -1,5 +1,0 @@
-long accountId
-List<Status> statuses
-long sinceId
-long maxId
-boolean notify

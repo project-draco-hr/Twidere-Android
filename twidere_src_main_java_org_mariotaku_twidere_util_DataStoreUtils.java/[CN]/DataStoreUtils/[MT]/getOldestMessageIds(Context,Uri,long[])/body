@@ -1,3 +1,0 @@
-{
-  return getLongFieldArray(context,uri,accountIds,DirectMessages.ACCOUNT_ID,DirectMessages.MESSAGE_ID,new OrderBy(SQLFunctions.MIN(DirectMessages.MESSAGE_TIMESTAMP)));
-}

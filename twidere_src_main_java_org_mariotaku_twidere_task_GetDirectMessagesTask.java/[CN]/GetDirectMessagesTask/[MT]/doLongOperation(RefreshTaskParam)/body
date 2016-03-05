@@ -1,10 +1,10 @@
 {
-  final long[] accountIds=param.getAccountIds();
+  final AccountId[] accountIds=param.getAccountIds();
   final long[] sinceIds=param.getSinceIds(), maxIds=param.getMaxIds();
   final List<TwitterWrapper.MessageListResponse> result=new ArrayList<>();
   int idx=0;
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
-  for (  final long accountId : accountIds) {
+  for (  final AccountId accountId : accountIds) {
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
     if (twitter == null)     continue;
     try {

@@ -1,5 +1,4 @@
 {
-  if (accountId < 0)   return SingleResponse.getInstance();
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
   if (twitter == null) {
     return SingleResponse.getInstance();

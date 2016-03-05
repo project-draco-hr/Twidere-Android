@@ -1,0 +1,5 @@
+Context context
+AccountId accountId
+String accountHost
+Uri imageUri
+boolean deleteImage

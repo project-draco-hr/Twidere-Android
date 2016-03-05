@@ -1,9 +1,5 @@
 {
   if (result.hasData()) {
-    for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
-      final String where=Statuses.ACCOUNT_ID + " = " + mAccountId+ " AND "+ Statuses.USER_ID+ " = "+ user_id;
-      mResolver.delete(uri,where,null);
-    }
     Utils.showInfoMessage(mContext,R.string.reported_user_for_spam,false);
     bus.post(new FriendshipUserUpdatedEvent(result.getData()));
   }

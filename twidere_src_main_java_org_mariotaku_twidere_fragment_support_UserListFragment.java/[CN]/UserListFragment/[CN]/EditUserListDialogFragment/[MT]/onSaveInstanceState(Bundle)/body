@@ -1,5 +1,5 @@
 {
-  outState.putLong(EXTRA_ACCOUNT_ID,mAccountId);
+  outState.putParcelable(EXTRA_ACCOUNT_ID,mAccountId);
   outState.putLong(EXTRA_LIST_ID,mListId);
   outState.putString(EXTRA_LIST_NAME,mName);
   outState.putString(EXTRA_DESCRIPTION,mDescription);

@@ -1,10 +1,10 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
   if (twitter == null)   return SingleResponse.getInstance();
   ParcelableStatus status=null;
   TwitterException exception=null;
   try {
-    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(status_id),account_id,false);
+    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountId,false);
   }
  catch (  final TwitterException e) {
     exception=e;
@@ -16,8 +16,8 @@
       values.put(Statuses.RETWEET_COUNT,status.retweet_count - 1);
     }
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
-      mResolver.delete(uri,Statuses.STATUS_ID + " = " + status_id,null);
-      mResolver.update(uri,values,Statuses.MY_RETWEET_ID + " = " + status_id,null);
+      mResolver.delete(uri,Statuses.STATUS_ID + " = " + mStatusId,null);
+      mResolver.update(uri,values,Statuses.MY_RETWEET_ID + " = " + mStatusId,null);
     }
   }
   return SingleResponse.getInstance(status,exception);

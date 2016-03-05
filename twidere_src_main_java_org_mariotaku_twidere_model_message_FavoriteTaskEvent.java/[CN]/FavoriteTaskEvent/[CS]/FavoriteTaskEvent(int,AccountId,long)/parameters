@@ -1,0 +1,3 @@
+int action
+AccountId accountId
+long statusId

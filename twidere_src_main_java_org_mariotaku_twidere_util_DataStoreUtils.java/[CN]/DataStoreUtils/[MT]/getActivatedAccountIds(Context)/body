@@ -1,13 +1,13 @@
 {
-  if (context == null)   return new long[0];
-  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_ID},Accounts.IS_ACTIVATED + " = 1",null,null);
-  if (cur == null)   return new long[0];
+  if (context == null)   return new AccountId[0];
+  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_ID,Accounts.ACCOUNT_HOST},Accounts.IS_ACTIVATED + " = 1",null,null);
+  if (cur == null)   return new AccountId[0];
   try {
     cur.moveToFirst();
-    final long[] ids=new long[cur.getCount()];
+    final AccountId[] ids=new AccountId[cur.getCount()];
     int i=0;
     while (!cur.isAfterLast()) {
-      ids[i++]=cur.getLong(0);
+      ids[i++]=new AccountId(cur.getLong(0),cur.getString(1));
       cur.moveToNext();
     }
     return ids;

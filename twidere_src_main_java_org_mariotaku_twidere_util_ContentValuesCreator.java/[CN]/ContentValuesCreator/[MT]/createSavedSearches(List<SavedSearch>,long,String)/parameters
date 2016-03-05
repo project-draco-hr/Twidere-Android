@@ -1,0 +1,3 @@
+List<SavedSearch> savedSearches
+long accountId
+String accountHost

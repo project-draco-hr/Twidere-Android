@@ -2,7 +2,8 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final ParcelableUserList list=new ParcelableUserList(twitter.createUserListSubscription(listId),accountId);
+    final UserList userList=twitter.createUserListSubscription(listId);
+    final ParcelableUserList list=ParcelableUserListUtils.from(userList,accountId);
     return SingleResponse.getInstance(list);
   }
  catch (  final TwitterException e) {

@@ -1,0 +1,3 @@
+{
+  return Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_ID),Expression.or(Expression.isNull(new Column(Statuses.ACCOUNT_HOST)),Expression.equalsArgs(Statuses.ACCOUNT_HOST)));
+}

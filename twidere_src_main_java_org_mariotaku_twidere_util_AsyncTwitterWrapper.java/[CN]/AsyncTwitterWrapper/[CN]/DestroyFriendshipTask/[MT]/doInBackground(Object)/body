@@ -2,9 +2,9 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
   if (twitter != null) {
     try {
-      final User user=twitter.destroyFriendship(user_id);
+      final User user=twitter.destroyFriendship(mUserId);
       Utils.setLastSeen(mContext,user.getId(),-1);
-      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,mAccountId),Expression.or(Expression.equals(Statuses.USER_ID,user_id),Expression.equals(Statuses.RETWEETED_BY_USER_ID,user_id)));
+      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,mAccountId),Expression.or(Expression.equals(Statuses.USER_ID,mUserId),Expression.equals(Statuses.RETWEETED_BY_USER_ID,mUserId)));
       mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),null);
       return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
     }

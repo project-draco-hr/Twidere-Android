@@ -1,3 +1,0 @@
-{
-  mProcessingFriendshipRequestIds.removeElement(ParcelableUser.calculateHashCode(accountId,userId));
-}

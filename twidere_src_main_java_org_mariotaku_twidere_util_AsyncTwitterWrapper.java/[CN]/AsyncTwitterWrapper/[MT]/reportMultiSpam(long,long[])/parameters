@@ -1,2 +1,2 @@
 long accountId
-long[] user_ids
+long[] userIds

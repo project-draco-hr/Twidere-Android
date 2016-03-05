@@ -29,7 +29,7 @@
  else {
     action=getDraftAction(getIntent().getAction());
   }
-  update.accounts=DataStoreUtils.getAccounts(this,accountIds);
+  update.accounts=ParcelableAccountUtils.getAccounts(this,accountIds);
   update.text=text;
   update.location=statusLocation;
   update.media=getMedia();

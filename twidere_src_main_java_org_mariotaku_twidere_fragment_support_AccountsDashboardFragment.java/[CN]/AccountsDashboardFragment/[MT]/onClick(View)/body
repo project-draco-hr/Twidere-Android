@@ -5,7 +5,7 @@ case R.id.profile_container:
       final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
       if (account == null)       return;
       final FragmentActivity activity=getActivity();
-      IntentUtils.openUserProfile(activity,account.account_id,account.account_id,account.screen_name,null,true);
+      IntentUtils.openUserProfile(activity,account.account_id,account.account_id,account.screen_name,null,true,UserFragment.Referral.SELF_PROFILE);
       break;
     }
 }

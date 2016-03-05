@@ -1,9 +1,0 @@
-{
-  for (  final ManagedAsyncTask<?,?,?> task : mAsyncTaskManager.getTaskSpecList()) {
-    if (task instanceof CreateFriendshipTask) {
-      final CreateFriendshipTask createFriendshipTask=(CreateFriendshipTask)task;
-      if (createFriendshipTask.getStatus() == AsyncTask.Status.RUNNING && createFriendshipTask.getAccountId() == accountId && createFriendshipTask.getUserId() == userId)       return true;
-    }
-  }
-  return false;
-}

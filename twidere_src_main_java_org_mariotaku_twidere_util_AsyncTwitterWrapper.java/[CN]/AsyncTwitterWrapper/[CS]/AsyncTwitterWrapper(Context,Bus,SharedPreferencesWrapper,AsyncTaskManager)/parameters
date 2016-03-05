@@ -1,0 +1,4 @@
+Context context
+Bus bus
+SharedPreferencesWrapper preferences
+AsyncTaskManager asyncTaskManager

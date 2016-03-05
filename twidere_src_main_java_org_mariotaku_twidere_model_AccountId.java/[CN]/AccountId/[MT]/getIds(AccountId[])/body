@@ -1,0 +1,7 @@
+{
+  long[] result=new long[ids.length];
+  for (int i=0, idsLength=ids.length; i < idsLength; i++) {
+    result[i]=ids[i].getId();
+  }
+  return result;
+}

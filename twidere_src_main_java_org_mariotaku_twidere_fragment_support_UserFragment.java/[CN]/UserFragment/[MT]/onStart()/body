@@ -1,7 +1,7 @@
 {
   super.onStart();
   mBus.register(this);
-  @UserEvent.Referral final String referral=getArguments().getString(EXTRA_REFERRAL);
+  @Referral final String referral=getArguments().getString(EXTRA_REFERRAL);
   final Context context=getContext();
   if (mUserEvent == null) {
     mUserEvent=UserEvent.create(context,referral);

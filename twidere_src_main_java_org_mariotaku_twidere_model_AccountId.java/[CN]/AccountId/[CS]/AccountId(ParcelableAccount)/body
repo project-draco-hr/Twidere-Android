@@ -1,0 +1,4 @@
+{
+  this.id=account.account_id;
+  this.host=account.account_host;
+}

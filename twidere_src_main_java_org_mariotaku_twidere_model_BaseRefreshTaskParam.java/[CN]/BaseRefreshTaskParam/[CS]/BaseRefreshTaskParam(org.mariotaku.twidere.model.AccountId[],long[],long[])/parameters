@@ -1,0 +1,3 @@
+org.mariotaku.twidere.model.AccountId[] accountIds
+long[] maxIds
+long[] sinceIds

@@ -6,7 +6,8 @@
     for (int i=0, j=users.length; i < j; i++) {
       userIds[i]=users[i].id;
     }
-    final ParcelableUserList list=new ParcelableUserList(twitter.deleteUserListMembers(mUserListId,userIds),mAccountId);
+    final UserList userList=twitter.deleteUserListMembers(mUserListId,userIds);
+    final ParcelableUserList list=ParcelableUserListUtils.from(userList,mAccountId);
     return SingleResponse.getInstance(list,null);
   }
  catch (  final TwitterException e) {

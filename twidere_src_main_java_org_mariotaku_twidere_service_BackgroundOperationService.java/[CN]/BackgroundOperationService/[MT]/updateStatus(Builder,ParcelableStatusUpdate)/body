@@ -85,7 +85,7 @@
       for (      final ParcelableAccount account : statusUpdate.accounts) {
         final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,account.account_id);
         final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true);
-        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true,TwitterUpload.class);
+        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,accountHost,true,true,TwitterUpload.class);
         if (twitter == null || upload == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }
@@ -186,7 +186,7 @@ catch (          final TwitterException e) {
               notReplyToOther=true;
             }
           }
-          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,false);
+          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,accountHost,false);
           if (shouldShorten && shortener != null && shortenedResult != null) {
             shortener.callback(shortenedResult,result);
           }

@@ -1,4 +1,0 @@
-{
-  final List<ParcelableAccount> list=getAccountsList(context,activatedOnly,officialKeyOnly);
-  return list.toArray(new ParcelableAccount[list.size()]);
-}

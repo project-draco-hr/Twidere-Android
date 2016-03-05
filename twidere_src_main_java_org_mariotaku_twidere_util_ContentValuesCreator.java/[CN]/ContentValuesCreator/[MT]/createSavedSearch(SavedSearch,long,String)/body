@@ -1,0 +1,10 @@
+{
+  final ContentValues values=new ContentValues();
+  values.put(SavedSearches.ACCOUNT_ID,accountId);
+  values.put(SavedSearches.ACCOUNT_HOST,accountHost);
+  values.put(SavedSearches.SEARCH_ID,savedSearch.getId());
+  values.put(SavedSearches.CREATED_AT,savedSearch.getCreatedAt().getTime());
+  values.put(SavedSearches.NAME,savedSearch.getName());
+  values.put(SavedSearches.QUERY,savedSearch.getQuery());
+  return values;
+}

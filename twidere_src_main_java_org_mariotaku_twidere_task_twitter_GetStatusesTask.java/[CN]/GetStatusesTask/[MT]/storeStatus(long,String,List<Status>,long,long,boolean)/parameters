@@ -1,0 +1,6 @@
+long accountId
+String accountHost
+List<Status> statuses
+long sinceId
+long maxId
+boolean notify

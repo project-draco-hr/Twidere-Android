@@ -65,6 +65,7 @@ args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 if (!args.containsKey(EXTRA_USER_ID)) {
 args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
 }
+args.putString(EXTRA_REFERRAL,intent.getStringExtra(EXTRA_REFERRAL));
 break;
 }
 case LINK_ID_USER_LIST_MEMBERSHIPS:
@@ -348,9 +349,9 @@ if (paramAccountName != null) {
 args.putLong(EXTRA_ACCOUNT_ID,DataStoreUtils.getAccountId(context,paramAccountName));
 }
  else if (isAccountIdRequired) {
-final long accountId=getDefaultAccountId(context);
+final AccountId accountId=getDefaultAccountId(context);
 if (isMyAccount(context,accountId)) {
-args.putLong(EXTRA_ACCOUNT_ID,accountId);
+args.putLong(EXTRA_ACCOUNT_ID,accountId.getId());
 }
 }
 }

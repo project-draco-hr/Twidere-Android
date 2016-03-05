@@ -1,0 +1,5 @@
+ContentResolver cr
+int loadItemLimit
+long accountId
+boolean noItemsBefore
+ResponseList<Activity> activities

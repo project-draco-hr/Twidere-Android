@@ -8,7 +8,7 @@
  catch (    InterruptedException e) {
       Log.w(LOGTAG,e);
     }
-    final User user=TwitterWrapper.tryShowUser(twitter,mAccountId,null);
+    final User user=TwitterWrapper.tryShowUser(twitter,mAccountId.getId(),null);
     return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId));
   }
  catch (  TwitterException|FileNotFoundException e) {

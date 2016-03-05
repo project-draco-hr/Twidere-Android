@@ -1,4 +1,0 @@
-{
-  final DestroyFriendshipTask task=new DestroyFriendshipTask(accountId,user_id);
-  return mAsyncTaskManager.add(task,true);
-}

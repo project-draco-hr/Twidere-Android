@@ -1,4 +1,0 @@
-ContentResolver cr
-long accountId
-boolean noItemsBefore
-ResponseList<Activity> activities

@@ -1,0 +1,23 @@
+{
+  if (context == null || accountId < 0)   return null;
+  final Expression where=Expression.equals(Accounts.ACCOUNT_ID,accountId);
+  Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,Accounts.COLUMNS_NO_CREDENTIALS,where.getSQL(),null,null);
+  if (cur == null)   return null;
+  try {
+    ParcelableAccountCursorIndices i=new ParcelableAccountCursorIndices(cur);
+    cur.moveToFirst();
+    while (!cur.isAfterLast()) {
+      if (TextUtils.equals(cur.getString(i.account_host),accountHost)) {
+        return i.newObject(cur);
+      }
+      cur.moveToNext();
+    }
+    if (cur.moveToFirst()) {
+      return i.newObject(cur);
+    }
+  }
+  finally {
+    cur.close();
+  }
+  return null;
+}

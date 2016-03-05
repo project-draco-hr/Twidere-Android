@@ -1,0 +1,4 @@
+Context context
+AccountId accountId
+Uri imageUri
+boolean deleteImage

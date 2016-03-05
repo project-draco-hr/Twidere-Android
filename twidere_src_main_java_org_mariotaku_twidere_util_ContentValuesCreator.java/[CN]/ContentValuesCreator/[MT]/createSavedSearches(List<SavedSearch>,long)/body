@@ -1,7 +1,0 @@
-{
-  final ContentValues[] resultValuesArray=new ContentValues[savedSearches.size()];
-  for (int i=0, j=savedSearches.size(); i < j; i++) {
-    resultValuesArray[i]=createSavedSearch(savedSearches.get(i),accountId);
-  }
-  return resultValuesArray;
-}

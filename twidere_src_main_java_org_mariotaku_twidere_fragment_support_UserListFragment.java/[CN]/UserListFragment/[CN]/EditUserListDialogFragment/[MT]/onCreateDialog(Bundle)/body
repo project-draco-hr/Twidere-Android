@@ -1,6 +1,6 @@
 {
   final Bundle bundle=savedInstanceState == null ? getArguments() : savedInstanceState;
-  mAccountId=bundle != null ? bundle.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
+  mAccountId=bundle != null ? bundle.<AccountId>getParcelable(EXTRA_ACCOUNT_ID) : null;
   mListId=bundle != null ? bundle.getLong(EXTRA_LIST_ID,-1) : -1;
   mName=bundle != null ? bundle.getString(EXTRA_LIST_NAME) : null;
   mDescription=bundle != null ? bundle.getString(EXTRA_DESCRIPTION) : null;

@@ -7,8 +7,9 @@ case R.id.error_container:
     }
 case R.id.profile_image:
 {
-    if (mUserList == null)     return;
-    IntentUtils.openUserProfile(getActivity(),mUserList.account_id,mUserList.user_id,mUserList.user_screen_name,null,true);
+    final ParcelableUserList userList=mUserList;
+    if (userList == null)     return;
+    IntentUtils.openUserProfile(getActivity(),userList.account_id,userList.user_id,userList.user_screen_name,null,true,null);
     break;
   }
 }

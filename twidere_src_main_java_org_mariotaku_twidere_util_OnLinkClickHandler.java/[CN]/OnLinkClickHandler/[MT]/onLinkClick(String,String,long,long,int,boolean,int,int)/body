@@ -7,7 +7,7 @@
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
-      IntentUtils.openUserProfile(context,accountId,-1,link,null,true);
+      IntentUtils.openUserProfile(context,accountId,-1,link,null,true,UserFragment.Referral.USER_MENTION);
       break;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
@@ -41,7 +41,7 @@ break;
 }
 case TwidereLinkify.LINK_TYPE_USER_ID:
 {
-IntentUtils.openUserProfile(context,accountId,NumberUtils.toLong(link,-1),null,null,true);
+IntentUtils.openUserProfile(context,accountId,NumberUtils.toLong(link,-1),null,null,true,UserFragment.Referral.USER_MENTION);
 break;
 }
 case TwidereLinkify.LINK_TYPE_STATUS:

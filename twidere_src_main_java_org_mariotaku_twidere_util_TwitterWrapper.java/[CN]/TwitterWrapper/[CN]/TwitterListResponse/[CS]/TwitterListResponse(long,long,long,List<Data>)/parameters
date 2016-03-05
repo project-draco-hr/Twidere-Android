@@ -1,4 +1,0 @@
-long accountId
-long maxId
-long sinceId
-List<Data> list

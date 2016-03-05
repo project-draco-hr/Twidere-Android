@@ -1,10 +1,10 @@
 {
   setProgressBarIndeterminateVisibility(true);
-  final long accountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
-  final long userId=args != null ? args.getLong(EXTRA_USER_ID,-1) : -1;
-  final long listId=args != null ? args.getLong(EXTRA_LIST_ID,-1) : -1;
-  final String listName=args != null ? args.getString(EXTRA_LIST_NAME) : null;
-  final String screenName=args != null ? args.getString(EXTRA_SCREEN_NAME) : null;
-  final boolean omitIntentExtra=args == null || args.getBoolean(EXTRA_OMIT_INTENT_EXTRA,true);
+  final AccountId accountId=args.getParcelable(EXTRA_ACCOUNT_ID);
+  final long userId=args.getLong(EXTRA_USER_ID,-1);
+  final long listId=args.getLong(EXTRA_LIST_ID,-1);
+  final String listName=args.getString(EXTRA_LIST_NAME);
+  final String screenName=args.getString(EXTRA_SCREEN_NAME);
+  final boolean omitIntentExtra=args.getBoolean(EXTRA_OMIT_INTENT_EXTRA,true);
   return new ParcelableUserListLoader(getActivity(),omitIntentExtra,getArguments(),accountId,listId,listName,userId,screenName);
 }

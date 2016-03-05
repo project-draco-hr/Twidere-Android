@@ -1,5 +1,5 @@
 {
   final ParcelableUser user=getAdapter().getUser(position);
   final FragmentActivity activity=getActivity();
-  IntentUtils.openUserProfile(activity,user.account_id,user.id,user.screen_name,null,true);
+  IntentUtils.openUserProfile(activity,user.account_id,user.id,user.screen_name,null,true,getUserReferral());
 }

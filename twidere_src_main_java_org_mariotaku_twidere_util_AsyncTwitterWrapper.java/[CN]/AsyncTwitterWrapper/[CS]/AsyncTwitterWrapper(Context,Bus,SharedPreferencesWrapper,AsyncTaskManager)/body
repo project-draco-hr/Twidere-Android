@@ -1,0 +1,7 @@
+{
+  mContext=context;
+  mResolver=context.getContentResolver();
+  mBus=bus;
+  mPreferences=preferences;
+  mAsyncTaskManager=asyncTaskManager;
+}

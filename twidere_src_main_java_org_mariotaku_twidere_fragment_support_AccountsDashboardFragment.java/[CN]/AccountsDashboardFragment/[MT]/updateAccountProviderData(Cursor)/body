@@ -2,7 +2,7 @@
   if (cursor == null)   return;
   final Menu menu=mAccountsToggleMenu.getMenu();
   mAccountActionProvider=(AccountToggleProvider)MenuItemCompat.getActionProvider(menu.findItem(R.id.select_account));
-  final ParcelableAccount[] accounts=DataStoreUtils.getAccounts(cursor);
+  final ParcelableAccount[] accounts=ParcelableAccountUtils.getAccounts(cursor);
   if (accounts.length > 0) {
     mNoAccountContainer.setVisibility(View.GONE);
     mAccountProfileContainer.setVisibility(View.VISIBLE);

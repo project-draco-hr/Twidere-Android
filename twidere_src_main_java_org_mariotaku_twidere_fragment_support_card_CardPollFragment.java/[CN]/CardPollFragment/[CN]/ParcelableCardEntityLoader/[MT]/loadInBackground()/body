@@ -1,5 +1,5 @@
 {
-  final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true,true,TwitterCaps.class);
+  final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,accountHost,true,true,TwitterCaps.class);
   if (caps == null)   return null;
   try {
     final CardDataMap params=new CardDataMap();

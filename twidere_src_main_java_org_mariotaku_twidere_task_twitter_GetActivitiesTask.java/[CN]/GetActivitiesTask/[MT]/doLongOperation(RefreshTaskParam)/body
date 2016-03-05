@@ -6,7 +6,7 @@
   for (int i=0; i < accountIds.length; i++) {
     final long accountId=accountIds[i];
     final boolean noItemsBefore=DataStoreUtils.getActivitiesCount(context,getContentUri(),accountId) <= 0;
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,accountHost,true);
     if (twitter == null)     continue;
     final Paging paging=new Paging();
     paging.count(loadItemLimit);
@@ -22,7 +22,7 @@
     }
     try {
       final ResponseList<Activity> activities=getActivities(twitter,accountId,paging);
-      storeActivities(cr,accountId,noItemsBefore,activities);
+      storeActivities(cr,loadItemLimit,accountId,noItemsBefore,activities);
       if (saveReadPosition) {
         saveReadPosition(accountId,twitter);
       }

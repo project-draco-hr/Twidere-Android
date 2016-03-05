@@ -1,7 +1,7 @@
 {
   final boolean isFiltering=DataStoreUtils.isFilteringUser(context,userId);
   if (accountId == userId)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,accountHost,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final Relationship relationship=twitter.showFriendship(userId);

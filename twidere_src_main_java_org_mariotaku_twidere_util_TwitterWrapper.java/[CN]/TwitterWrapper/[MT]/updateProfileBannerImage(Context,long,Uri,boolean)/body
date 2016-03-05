@@ -1,4 +1,0 @@
-{
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,false);
-  updateProfileBannerImage(context,twitter,imageUri,deleteImage);
-}

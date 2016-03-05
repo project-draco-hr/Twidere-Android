@@ -1,8 +1,8 @@
 {
   final List<Long> blocked_users=new ArrayList<>();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,account_id,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
   if (twitter != null) {
-    for (    final long user_id : user_ids) {
+    for (    final long user_id : mUserIds) {
       try {
         final User user=twitter.createBlock(user_id);
         if (user == null || user.getId() <= 0) {

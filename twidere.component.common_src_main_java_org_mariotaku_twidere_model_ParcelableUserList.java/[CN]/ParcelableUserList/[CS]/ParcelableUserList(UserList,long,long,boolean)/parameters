@@ -1,4 +1,0 @@
-UserList list
-long account_id
-long position
-boolean is_following

@@ -1,0 +1,4 @@
+AccountId accountId
+List<DirectMessage> messages
+boolean isOutgoing
+boolean notify

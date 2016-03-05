@@ -1,7 +1,7 @@
 {
   if (tag == null)   return null;
   if (accountIds == null || accountIds.length == 0 || (accountIds.length == 1 && accountIds[0] < 0)) {
-    final long[] activatedIds=DataStoreUtils.getActivatedAccountIds(context);
+    final AccountId[] activatedIds=DataStoreUtils.getActivatedAccountIds(context);
     Arrays.sort(activatedIds);
     return tag + "_" + TwidereArrayUtils.toString(activatedIds,'_',false);
   }

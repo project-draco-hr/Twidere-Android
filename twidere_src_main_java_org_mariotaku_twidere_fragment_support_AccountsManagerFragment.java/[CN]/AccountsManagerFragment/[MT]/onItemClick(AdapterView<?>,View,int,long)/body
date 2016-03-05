@@ -1,4 +1,4 @@
 {
   final ParcelableAccount account=mAdapter.getAccount(position);
-  IntentUtils.openUserProfile(getActivity(),account.account_id,account.account_id,account.screen_name,null,true);
+  IntentUtils.openUserProfile(getActivity(),account.account_id,account.account_id,account.screen_name,null,true,UserFragment.Referral.SELF_PROFILE);
 }

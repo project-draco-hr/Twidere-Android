@@ -17,7 +17,7 @@
       list=twitter.showUserList(mListName,mScreenName);
     }
  else     return SingleResponse.getInstance();
-    return SingleResponse.getInstance(new ParcelableUserList(list,mAccountId));
+    return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountId));
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

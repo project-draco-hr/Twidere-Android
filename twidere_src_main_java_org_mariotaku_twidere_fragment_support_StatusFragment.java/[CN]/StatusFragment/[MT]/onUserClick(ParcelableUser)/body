@@ -1,3 +1,3 @@
 {
-  IntentUtils.openUserProfile(getContext(),user,null,true);
+  IntentUtils.openUserProfile(getContext(),user,null,true,UserFragment.Referral.TIMELINE_STATUS);
 }

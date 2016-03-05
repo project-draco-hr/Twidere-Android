@@ -2,7 +2,7 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
   if (twitter != null) {
     try {
-      final User user=twitter.reportSpam(user_id);
+      final User user=twitter.reportSpam(mUserId);
       return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
     }
  catch (    final TwitterException e) {

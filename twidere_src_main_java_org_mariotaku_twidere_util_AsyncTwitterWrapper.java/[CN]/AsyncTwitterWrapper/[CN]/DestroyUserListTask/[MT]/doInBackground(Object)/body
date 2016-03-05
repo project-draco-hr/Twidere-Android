@@ -1,15 +1,12 @@
 {
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,false);
-  if (twitter != null) {
-    try {
-      if (mListId > 0) {
-        final ParcelableUserList list=new ParcelableUserList(twitter.destroyUserList(mListId),mAccountId);
-        return SingleResponse.getInstance(list);
-      }
-    }
- catch (    final TwitterException e) {
-      return SingleResponse.getInstance(e);
-    }
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final UserList userList=twitter.destroyUserList(mListId);
+    final ParcelableUserList list=ParcelableUserListUtils.from(userList,mAccountId);
+    return SingleResponse.getInstance(list);
   }
-  return SingleResponse.getInstance();
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
 }

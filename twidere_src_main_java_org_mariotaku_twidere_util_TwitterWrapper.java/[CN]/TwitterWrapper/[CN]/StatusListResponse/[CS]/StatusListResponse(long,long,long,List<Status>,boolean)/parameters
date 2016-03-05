@@ -1,5 +1,0 @@
-long accountId
-long maxId
-long sinceId
-List<Status> list
-boolean truncated

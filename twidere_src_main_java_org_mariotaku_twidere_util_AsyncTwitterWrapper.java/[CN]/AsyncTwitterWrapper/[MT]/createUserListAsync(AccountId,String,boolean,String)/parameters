@@ -1,0 +1,4 @@
+AccountId accountId
+String listName
+boolean isPublic
+String description

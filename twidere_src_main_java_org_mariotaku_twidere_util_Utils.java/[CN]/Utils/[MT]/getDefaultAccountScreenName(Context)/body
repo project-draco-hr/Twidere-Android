@@ -1,4 +1,0 @@
-{
-  if (context == null)   return null;
-  return DataStoreUtils.getAccountScreenName(context,getDefaultAccountId(context));
-}

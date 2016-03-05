@@ -1,0 +1,6 @@
+{
+  super(context);
+  mAccountId=accountId;
+  mAccountHost=accountHost;
+  mStatusId=statusId;
+}

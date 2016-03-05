@@ -1,5 +1,4 @@
 {
-  if (mAccountId < 0)   return SingleResponse.getInstance();
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
@@ -10,9 +9,10 @@
     values.put(Statuses.REPLY_COUNT,status.reply_count);
     values.put(Statuses.RETWEET_COUNT,status.retweet_count);
     values.put(Statuses.FAVORITE_COUNT,status.favorite_count);
-    final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,mAccountId),Expression.or(Expression.equals(Statuses.STATUS_ID,mStatusId),Expression.equals(Statuses.RETWEET_ID,mStatusId)));
+    final Expression where=Expression.and(Utils.getAccountCompareExpression(),Expression.or(Expression.equals(Statuses.STATUS_ID,mStatusId),Expression.equals(Statuses.RETWEET_ID,mStatusId)));
+    final String[] whereArgs={String.valueOf(mAccountId.getId()),mAccountId.getHost(),String.valueOf(mStatusId),String.valueOf(mStatusId)};
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
-      mResolver.update(uri,values,where.getSQL(),null);
+      mResolver.update(uri,values,where.getSQL(),whereArgs);
     }
     return SingleResponse.getInstance(status);
   }

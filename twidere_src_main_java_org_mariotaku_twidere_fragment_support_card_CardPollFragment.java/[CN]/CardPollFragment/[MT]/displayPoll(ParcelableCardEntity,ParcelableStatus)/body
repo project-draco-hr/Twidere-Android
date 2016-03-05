@@ -36,7 +36,7 @@
               handler.displayAndReloadPoll(result,status);
             }
             @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap){
-              final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),card.account_id,true,true,TwitterCaps.class);
+              final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),card.account_id,accountHost,true,true,TwitterCaps.class);
               if (caps == null)               return null;
               try {
                 final CardEntity cardEntity=caps.sendPassThrough(cardDataMap).getCard();

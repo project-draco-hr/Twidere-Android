@@ -1,7 +1,0 @@
-{
-  if (tag == null)   return null;
-  if (accountIds == null || accountIds.length == 0 || (accountIds.length == 1 && accountIds[0] < 0))   return tag;
-  final long[] accountIdsClone=accountIds.clone();
-  Arrays.sort(accountIdsClone);
-  return tag + "_" + TwidereArrayUtils.toString(accountIdsClone,'_',false);
-}

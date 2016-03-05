@@ -1,10 +1,10 @@
 {
-  mCreatingRetweetIds.remove(accountId,statusId);
+  mCreatingRetweetIds.remove(accountId.getId(),statusId);
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
     final TweetEvent event=TweetEvent.create(getContext(),status,TimelineType.OTHER);
     event.setAction(TweetEvent.Action.RETWEET);
-    HotMobiLogger.getInstance(getContext()).log(accountId,event);
+    HotMobiLogger.getInstance(getContext()).log(accountId.getId(),event);
     bus.post(new StatusRetweetedEvent(status));
   }
  else {

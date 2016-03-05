@@ -1,5 +1,4 @@
 {
-  if (mAccountId <= 0)   return;
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {

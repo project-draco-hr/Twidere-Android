@@ -1,0 +1,4 @@
+Activity activity
+long accountId
+String accountHost
+boolean isGap

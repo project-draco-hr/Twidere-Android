@@ -1,5 +1,5 @@
 {
-  mCreatingFavoriteIds.remove(mAccountId,mStatusId);
+  mCreatingFavoriteIds.remove(mAccountId.getId(),mStatusId);
   final FavoriteTaskEvent taskEvent=new FavoriteTaskEvent(FavoriteTaskEvent.Action.CREATE,mAccountId,mStatusId);
   taskEvent.setFinished(true);
   if (result.hasData()) {
@@ -8,7 +8,7 @@
     taskEvent.setSucceeded(true);
     final TweetEvent tweetEvent=TweetEvent.create(getContext(),status,TimelineType.OTHER);
     tweetEvent.setAction(TweetEvent.Action.FAVORITE);
-    HotMobiLogger.getInstance(getContext()).log(mAccountId,tweetEvent);
+    HotMobiLogger.getInstance(getContext()).log(mAccountId.getId(),tweetEvent);
   }
  else {
     taskEvent.setSucceeded(false);

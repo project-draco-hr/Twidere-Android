@@ -1,0 +1,10 @@
+{
+  if (card == null)   return null;
+  final ParcelableCardEntity obj=new ParcelableCardEntity();
+  obj.name=card.getName();
+  obj.url=card.getUrl();
+  obj.users=ParcelableUserUtils.fromUsers(card.getUsers(),accountId);
+  obj.account_id=accountId.getId();
+  obj.values=from(card.getBindingValues());
+  return obj;
+}

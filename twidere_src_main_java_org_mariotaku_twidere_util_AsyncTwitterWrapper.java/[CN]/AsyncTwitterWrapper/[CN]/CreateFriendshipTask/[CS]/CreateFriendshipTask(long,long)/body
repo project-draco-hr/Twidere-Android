@@ -1,5 +1,0 @@
-{
-  super(mContext);
-  this.mAccountId=accountId;
-  this.user_id=user_id;
-}
