@@ -1,5 +1,0 @@
-{
-  final GetSentDirectMessagesTask task=new GetSentDirectMessagesTask(mContext);
-  task.setParams(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
-  TaskStarter.execute(task);
-}

@@ -1,6 +1,0 @@
-{
-  super(list,exception);
-  this.accountId=accountId;
-  this.maxId=maxId;
-  this.sinceId=sinceId;
-}

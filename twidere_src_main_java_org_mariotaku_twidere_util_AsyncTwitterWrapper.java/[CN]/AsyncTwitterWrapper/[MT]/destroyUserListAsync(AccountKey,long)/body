@@ -1,0 +1,4 @@
+{
+  final DestroyUserListTask task=new DestroyUserListTask(mContext,accountKey,listId);
+  return mAsyncTaskManager.add(task,true);
+}

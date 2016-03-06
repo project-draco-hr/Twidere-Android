@@ -1,9 +1,7 @@
 {
+  final String actionType=cursor.getString(cursor.getColumnIndex(Drafts.ACTION_TYPE));
+  if (TextUtils.isEmpty(actionType))   return null;
   try {
-    final String actionType=cursor.getString(cursor.getColumnIndex(Drafts.ACTION_TYPE));
-    if (TextUtils.isEmpty(actionType)) {
-      return null;
-    }
 switch (actionType) {
 case "0":
 case "1":

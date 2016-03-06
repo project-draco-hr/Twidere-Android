@@ -1,6 +1,6 @@
 {
   final ParcelableUsersAdapter adapter=getAdapter();
-  final int position=adapter.findPosition(event.getAccountId(),event.getUserId());
+  final int position=adapter.findPosition(event.getAccountKey(),event.getUserId());
   if (event.isFinished() && event.isSucceeded()) {
     adapter.removeUserAt(position);
   }

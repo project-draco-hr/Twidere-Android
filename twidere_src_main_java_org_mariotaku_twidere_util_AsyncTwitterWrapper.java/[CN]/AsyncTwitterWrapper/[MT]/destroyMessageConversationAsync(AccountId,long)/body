@@ -1,4 +1,0 @@
-{
-  final DestroyMessageConversationTask task=new DestroyMessageConversationTask(accountId,userId);
-  return mAsyncTaskManager.add(task,true);
-}

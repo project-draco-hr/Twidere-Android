@@ -1,3 +1,0 @@
-{
-  return getTwitterInstance(context,accountId,includeEntities,true);
-}

@@ -1,4 +1,0 @@
-{
-  mAccountId=accountId;
-  updateAccountId();
-}

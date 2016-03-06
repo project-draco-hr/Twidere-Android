@@ -1,3 +1,0 @@
-{
-  return getCredentials(context,accountId.getId(),accountId.getHost());
-}

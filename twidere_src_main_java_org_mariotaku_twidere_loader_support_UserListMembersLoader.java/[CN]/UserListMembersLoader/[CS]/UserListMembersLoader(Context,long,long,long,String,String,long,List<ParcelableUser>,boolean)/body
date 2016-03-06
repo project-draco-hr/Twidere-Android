@@ -1,7 +1,0 @@
-{
-  super(context,accountId,data,fromUser);
-  mListId=listId;
-  mUserId=userId;
-  mScreenName=screenName;
-  mListName=listName;
-}

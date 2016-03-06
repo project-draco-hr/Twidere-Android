@@ -1,5 +1,5 @@
 {
-  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountId,mUserId);
+  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountKey,mUserId);
   event.setFinished(true);
   if (result.hasData()) {
     final User user=result.getData();
@@ -13,6 +13,6 @@
     event.setSucceeded(false);
   }
   super.onPostExecute(result);
-  removeProcessingFriendshipRequestId(mAccountId,mUserId);
+  removeProcessingFriendshipRequestId(mAccountKey,mUserId);
   bus.post(event);
 }

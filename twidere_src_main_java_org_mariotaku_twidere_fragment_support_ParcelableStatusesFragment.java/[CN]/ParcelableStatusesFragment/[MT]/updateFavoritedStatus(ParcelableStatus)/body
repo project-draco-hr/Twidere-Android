@@ -1,7 +1,5 @@
 {
   final Context context=getActivity();
   if (context == null)   return;
-  if (status.account_id == getAccountId()) {
-    replaceStatus(status);
-  }
+  replaceStatus(status);
 }

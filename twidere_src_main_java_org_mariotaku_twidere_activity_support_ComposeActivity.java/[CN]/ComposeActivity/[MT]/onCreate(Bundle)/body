@@ -13,7 +13,7 @@
     finish();
     return;
   }
-  final long[] defaultAccountIds=DataStoreUtils.getAccountIds(accounts);
+  final long[] defaultAccountIds=DataStoreUtils.getAccountKeys(accounts);
   mMenuBar.setOnMenuItemClickListener(this);
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);
@@ -53,7 +53,7 @@
   }
  else {
     final int notificationId=intent.getIntExtra(EXTRA_NOTIFICATION_ID,-1);
-    final long notificationAccount=intent.getLongExtra(EXTRA_NOTIFICATION_ACCOUNT,-1);
+    final AccountKey notificationAccount=intent.getParcelableExtra(EXTRA_NOTIFICATION_ACCOUNT);
     if (notificationId != -1) {
       mTwitterWrapper.clearNotificationAsync(notificationId,notificationAccount);
     }

@@ -1,0 +1,4 @@
+{
+  final DestroyMuteTask task=new DestroyMuteTask(accountKey,userId);
+  return mAsyncTaskManager.add(task,true);
+}

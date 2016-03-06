@@ -1,5 +1,0 @@
-{
-  this.action=action;
-  this.accountId=accountId;
-  this.statusId=statusId;
-}

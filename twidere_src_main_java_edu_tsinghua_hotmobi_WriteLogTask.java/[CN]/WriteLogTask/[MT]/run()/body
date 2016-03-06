@@ -4,7 +4,7 @@
   RandomAccessFile raf=null;
   FileChannel fc=null;
   try {
-    raf=new RandomAccessFile(HotMobiLogger.getLogFile(context,accountId,type),"rw");
+    raf=new RandomAccessFile(HotMobiLogger.getLogFile(context,accountKey,type),"rw");
     fc=raf.getChannel();
     final FileLock lock=fc.lock();
     for (    T event : events) {
@@ -12,8 +12,8 @@
         preProcessing.process(event,context);
       }
       if (BuildConfig.DEBUG) {
-        if (accountId > 0) {
-          Log.v(HotMobiLogger.LOGTAG,"Log " + type + " for account "+ accountId+ ": "+ event);
+        if (accountKey != null) {
+          Log.v(HotMobiLogger.LOGTAG,"Log " + type + " for account "+ accountKey+ ": "+ event);
         }
  else {
           Log.v(HotMobiLogger.LOGTAG,"Log " + type + ": "+ event);

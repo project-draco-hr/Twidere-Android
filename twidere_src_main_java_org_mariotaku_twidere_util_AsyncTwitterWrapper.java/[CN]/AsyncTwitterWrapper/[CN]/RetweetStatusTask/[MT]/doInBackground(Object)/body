@@ -1,10 +1,10 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,true);
   if (twitter == null) {
     return SingleResponse.getInstance();
   }
   try {
-    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(statusId),accountId,false);
+    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(statusId),mAccountKey,false);
     Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
     values.put(Statuses.MY_RETWEET_ID,status.id);

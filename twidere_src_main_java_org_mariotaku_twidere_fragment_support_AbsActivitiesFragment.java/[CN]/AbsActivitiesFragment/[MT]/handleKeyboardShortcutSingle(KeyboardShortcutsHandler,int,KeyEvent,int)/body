@@ -42,7 +42,7 @@ case ACTION_STATUS_FAVORITE:
 {
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
     if (status.is_favorite) {
-      twitter.destroyFavoriteAsync(new AccountId(activity.account_id,activity.account_host),status.id);
+      twitter.destroyFavoriteAsync(new AccountKey(activity.account_id,activity.account_host),status.id);
     }
  else {
       final IStatusViewHolder holder=(IStatusViewHolder)recyclerView.findViewHolderForLayoutPosition(position);

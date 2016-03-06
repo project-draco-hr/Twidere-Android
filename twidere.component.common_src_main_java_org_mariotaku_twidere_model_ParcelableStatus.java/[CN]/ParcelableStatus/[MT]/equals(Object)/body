@@ -1,7 +1,8 @@
 {
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (!(obj instanceof ParcelableStatus))   return false;
-  final ParcelableStatus other=(ParcelableStatus)obj;
-  return account_id == other.account_id && id == other.id;
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ParcelableStatus status=(ParcelableStatus)o;
+  if (id != status.id)   return false;
+  if (account_id != status.account_id)   return false;
+  return !(account_host != null ? !account_host.equals(status.account_host) : status.account_host != null);
 }

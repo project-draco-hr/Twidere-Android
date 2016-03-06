@@ -1,3 +1,0 @@
-{
-  super(context,account_id,accountHost,image_uri,delete_image);
-}

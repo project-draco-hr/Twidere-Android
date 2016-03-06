@@ -1,7 +1,0 @@
-{
-  super(context);
-  this.mAccountId=accountId;
-  this.mListName=listName;
-  this.mDescription=description;
-  this.mIsPublic=isPublic;
-}

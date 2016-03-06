@@ -1,19 +1,19 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getActivity(),accountId,accountHost,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getActivity(),mAccountKey,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final UserList list;
-    if (listId > 0) {
-      list=twitter.showUserList(listId);
+    if (mListId > 0) {
+      list=twitter.showUserList(mListId);
     }
- else     if (userId > 0) {
-      list=twitter.showUserList(listName,userId);
+ else     if (mUserId > 0) {
+      list=twitter.showUserList(mListName,mUserId);
     }
- else     if (screenName != null) {
-      list=twitter.showUserList(listName,screenName);
+ else     if (mScreenName != null) {
+      list=twitter.showUserList(mListName,mScreenName);
     }
  else     throw new TwitterException("list_id or list_name and user_id (or screen_name) required");
-    return SingleResponse.getInstance(new ParcelableUserList(list,accountId));
+    return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

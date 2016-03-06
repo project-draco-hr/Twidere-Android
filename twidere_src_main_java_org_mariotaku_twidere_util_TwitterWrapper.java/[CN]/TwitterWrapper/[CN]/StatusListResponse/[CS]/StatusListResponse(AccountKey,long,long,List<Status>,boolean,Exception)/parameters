@@ -1,0 +1,6 @@
+AccountKey accountKey
+long maxId
+long sinceId
+List<Status> list
+boolean truncated
+Exception exception

@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.mAccountKey=accountKey;
+  this.mListName=listName;
+  this.mDescription=description;
+  this.mIsPublic=isPublic;
+}

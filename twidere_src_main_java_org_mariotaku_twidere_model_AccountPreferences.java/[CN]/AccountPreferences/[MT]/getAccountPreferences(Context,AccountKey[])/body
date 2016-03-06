@@ -1,0 +1,8 @@
+{
+  if (context == null || accountKeys == null)   return null;
+  final AccountPreferences[] preferences=new AccountPreferences[accountKeys.length];
+  for (int i=0, j=preferences.length; i < j; i++) {
+    preferences[i]=new AccountPreferences(context,accountKeys[i]);
+  }
+  return preferences;
+}

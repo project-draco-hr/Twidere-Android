@@ -1,6 +1,0 @@
-{
-  super(context);
-  this.context=context;
-  this.accountId=accountId;
-  this.userId=userId;
-}

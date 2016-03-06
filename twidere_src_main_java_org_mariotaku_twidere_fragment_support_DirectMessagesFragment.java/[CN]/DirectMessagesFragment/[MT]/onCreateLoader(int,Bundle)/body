@@ -1,6 +1,6 @@
 {
   final Uri uri=DirectMessages.ConversationEntries.CONTENT_URI;
-  final long[] accountIds=getAccountIds();
+  final AccountKey[] accountIds=getAccountKeys();
   final Expression account_where=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountIds));
   return new CursorLoader(getActivity(),uri,null,account_where.getSQL(),null,null);
 }

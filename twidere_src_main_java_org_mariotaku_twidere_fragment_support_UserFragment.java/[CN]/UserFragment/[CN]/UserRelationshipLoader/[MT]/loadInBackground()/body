@@ -1,17 +1,17 @@
 {
-  final boolean isFiltering=DataStoreUtils.isFilteringUser(context,userId);
-  if (accountId == userId)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,accountHost,false);
+  final boolean isFiltering=DataStoreUtils.isFilteringUser(context,mUserId);
+  if (mAccountKey.getId() == mUserId)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final Relationship relationship=twitter.showFriendship(userId);
+    final Relationship relationship=twitter.showFriendship(mUserId);
     if (relationship.isSourceBlockingTarget() || relationship.isSourceBlockedByTarget()) {
-      Utils.setLastSeen(context,userId,-1);
+      Utils.setLastSeen(context,mUserId,-1);
     }
  else {
-      Utils.setLastSeen(context,userId,System.currentTimeMillis());
+      Utils.setLastSeen(context,mUserId,System.currentTimeMillis());
     }
-    Utils.updateRelationship(context,relationship,accountId);
+    Utils.updateRelationship(context,relationship,mAccountKey);
     return SingleResponse.getInstance(new UserRelationship(relationship,isFiltering));
   }
  catch (  final TwitterException e) {

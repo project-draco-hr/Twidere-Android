@@ -1,0 +1,7 @@
+{
+  this.mAccountKey=accountKey;
+  this.mUserId=userId;
+  this.mListId=listId;
+  this.mScreenName=screenName;
+  this.mListName=listName;
+}

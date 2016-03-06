@@ -1,0 +1,13 @@
+{
+  if (context == null)   throw new NullPointerException();
+  final ParcelableStatus cached=findStatusInDatabases(context,accountKey,statusId);
+  if (cached != null)   return cached;
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
+  if (twitter == null)   throw new TwitterException("Account does not exist");
+  final Status status=twitter.showStatus(statusId);
+  final String where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountKey.getId()),Expression.equals(Statuses.STATUS_ID,statusId)).getSQL();
+  final ContentResolver resolver=context.getContentResolver();
+  resolver.delete(CachedStatuses.CONTENT_URI,where,null);
+  resolver.insert(CachedStatuses.CONTENT_URI,ContentValuesCreator.createStatus(status,accountKey));
+  return ParcelableStatusUtils.fromStatus(status,accountKey,false);
+}

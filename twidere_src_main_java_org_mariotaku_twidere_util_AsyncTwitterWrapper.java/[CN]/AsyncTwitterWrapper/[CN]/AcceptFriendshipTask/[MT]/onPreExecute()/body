@@ -1,7 +1,7 @@
 {
-  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountId,mUserId);
+  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountKey,mUserId);
   event.setFinished(false);
   bus.post(event);
-  mAsyncTwitterWrapper.addProcessingFriendshipRequestId(mAccountId,mUserId);
+  mAsyncTwitterWrapper.addProcessingFriendshipRequestId(mAccountKey,mUserId);
   super.onPreExecute();
 }

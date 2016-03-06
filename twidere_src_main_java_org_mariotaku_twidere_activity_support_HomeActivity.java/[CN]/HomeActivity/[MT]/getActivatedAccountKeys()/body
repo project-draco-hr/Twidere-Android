@@ -1,0 +1,7 @@
+{
+  final Fragment fragment=getLeftDrawerFragment();
+  if (fragment instanceof AccountsDashboardFragment) {
+    return ((AccountsDashboardFragment)fragment).getActivatedAccountIds();
+  }
+  return DataStoreUtils.getActivatedAccountKeys(this);
+}

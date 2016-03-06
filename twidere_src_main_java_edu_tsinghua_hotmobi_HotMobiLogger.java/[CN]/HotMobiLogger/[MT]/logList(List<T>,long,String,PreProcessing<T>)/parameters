@@ -1,4 +1,0 @@
-List<T> events
-long accountId
-String type
-PreProcessing<T> preProcessing

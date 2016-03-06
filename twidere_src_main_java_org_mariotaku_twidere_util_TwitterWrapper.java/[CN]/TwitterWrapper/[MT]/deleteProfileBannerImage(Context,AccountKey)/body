@@ -1,0 +1,11 @@
+{
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,false);
+  if (twitter == null)   return new SingleResponse<>(false,null);
+  try {
+    twitter.removeProfileBannerImage();
+    return new SingleResponse<>(true,null);
+  }
+ catch (  final TwitterException e) {
+    return new SingleResponse<>(false,e);
+  }
+}

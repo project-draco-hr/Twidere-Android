@@ -1,5 +1,0 @@
-Context context
-long accountId
-String type
-List<T> events
-PreProcessing<T> preProcessing

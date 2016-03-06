@@ -1,8 +1,0 @@
-{
-  final Uri.Builder builder=Notifications.CONTENT_URI.buildUpon();
-  builder.appendPath(String.valueOf(notificationType));
-  if (accountId > 0) {
-    builder.appendPath(String.valueOf(accountId));
-  }
-  return context.getContentResolver().delete(builder.build(),null,null);
-}

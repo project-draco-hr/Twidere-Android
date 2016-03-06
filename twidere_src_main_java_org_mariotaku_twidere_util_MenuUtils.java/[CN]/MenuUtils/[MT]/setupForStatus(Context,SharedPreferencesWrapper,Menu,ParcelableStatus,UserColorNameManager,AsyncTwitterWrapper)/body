@@ -1,5 +1,5 @@
 {
-  final ParcelableCredentials account=DataStoreUtils.getCredentials(context,new AccountId(status.account_id,status.account_host));
+  final ParcelableCredentials account=DataStoreUtils.getCredentials(context,new AccountKey(status.account_id,status.account_host));
   if (account == null)   return;
   setupForStatus(context,preferences,menu,status,account,manager,twitter);
 }

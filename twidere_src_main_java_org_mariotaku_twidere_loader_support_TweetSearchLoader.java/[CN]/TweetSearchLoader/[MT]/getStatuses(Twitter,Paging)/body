@@ -1,6 +1,6 @@
 {
   final String processedQuery=processQuery(mQuery);
-  if (TwitterAPIFactory.isTwitterCredentials(getContext(),getAccountId())) {
+  if (TwitterAPIFactory.isTwitterCredentials(getContext(),getAccountKey())) {
     final SearchQuery query=new SearchQuery(processedQuery);
     query.paging(paging);
     return twitter.search(query);

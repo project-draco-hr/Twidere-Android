@@ -10,10 +10,10 @@ case R.id.copy:
 case R.id.retweet:
 {
     if (Utils.isMyRetweet(status)) {
-      twitter.cancelRetweetAsync(new AccountId(status.account_id,status.account_host),status.id,status.my_retweet_id);
+      twitter.cancelRetweetAsync(new AccountKey(status.account_id,status.account_host),status.id,status.my_retweet_id);
     }
  else {
-      twitter.retweetStatusAsync(new AccountId(status.account_id,status.account_host),status.id);
+      twitter.retweetStatusAsync(new AccountKey(status.account_id,status.account_host),status.id);
     }
     break;
   }
@@ -42,7 +42,7 @@ if (provider instanceof FavoriteItemProvider) {
   ((FavoriteItemProvider)provider).invokeItem(item,new AbsStatusesFragment.DefaultOnLikedListener(twitter,status));
 }
  else {
-  twitter.createFavoriteAsync(new AccountId(status.account_id,status.account_host),status.id);
+  twitter.createFavoriteAsync(new AccountKey(status.account_id,status.account_host),status.id);
 }
 }
 break;

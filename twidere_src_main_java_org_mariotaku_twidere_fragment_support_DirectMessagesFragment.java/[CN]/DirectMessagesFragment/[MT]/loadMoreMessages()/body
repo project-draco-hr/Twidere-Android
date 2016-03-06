@@ -2,21 +2,21 @@
   if (isRefreshing())   return;
   setLoadMoreIndicatorPosition(IndicatorPosition.END);
   setRefreshEnabled(false);
-  AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,long[][]>(){
-    @Override protected long[][] doInBackground(    final Object... params){
+  AsyncTaskUtils.executeTask(new AsyncTask<Object,Object,RefreshTaskParam[]>(){
+    @Override protected RefreshTaskParam[] doInBackground(    final Object... params){
       final Context context=getContext();
       if (context == null)       return null;
-      final long[][] result=new long[3][];
-      result[0]=getAccountIds();
-      result[1]=DataStoreUtils.getOldestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,result[0]);
-      result[2]=DataStoreUtils.getOldestMessageIds(context,DirectMessages.Outbox.CONTENT_URI,result[0]);
+      RefreshTaskParam[] result=new RefreshTaskParam[2];
+      AccountKey[] accountKeys=getAccountKeys();
+      result[0]=new BaseRefreshTaskParam(accountKeys,DataStoreUtils.getOldestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,accountKeys),null);
+      result[1]=new BaseRefreshTaskParam(accountKeys,DataStoreUtils.getOldestMessageIds(context,DirectMessages.Outbox.CONTENT_URI,accountKeys),null);
       return result;
     }
-    @Override protected void onPostExecute(    final long[][] result){
+    @Override protected void onPostExecute(    final RefreshTaskParam[] result){
       final AsyncTwitterWrapper twitter=mTwitterWrapper;
       if (twitter == null || result == null)       return;
-      twitter.getReceivedDirectMessagesAsync(result[0],result[1],null);
-      twitter.getSentDirectMessagesAsync(result[0],result[2],null);
+      twitter.getReceivedDirectMessagesAsync(result[0]);
+      twitter.getSentDirectMessagesAsync(result[1]);
     }
   }
 );

@@ -1,0 +1,3 @@
+{
+  return DataStoreUtils.getOldestActivityMaxPositions(getActivity(),getContentUri(),accountKeys);
+}

@@ -1,4 +1,0 @@
-{
-  final CreateMultiBlockTask task=new CreateMultiBlockTask(accountId,userIds);
-  return mAsyncTaskManager.add(task,true);
-}

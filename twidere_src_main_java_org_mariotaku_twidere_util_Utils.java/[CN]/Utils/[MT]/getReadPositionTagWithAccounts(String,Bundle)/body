@@ -1,4 +1,0 @@
-{
-  final AccountId[] accountIds=getAccountIds(args);
-  return getReadPositionTagWithAccounts(tag,accountIds);
-}

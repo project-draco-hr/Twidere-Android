@@ -1,0 +1,4 @@
+{
+  if (context == null || accountKey == null)   return false;
+  return isMyAccount(context,accountKey.getId(),accountKey.getHost());
+}

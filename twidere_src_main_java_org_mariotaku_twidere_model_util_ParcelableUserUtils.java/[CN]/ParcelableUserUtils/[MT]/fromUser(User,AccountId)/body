@@ -1,3 +1,0 @@
-{
-  return fromUser(user,accountId,0);
-}

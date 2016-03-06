@@ -1,0 +1,4 @@
+{
+  this.mAccountKey=accountKey;
+  this.searchId=searchId;
+}

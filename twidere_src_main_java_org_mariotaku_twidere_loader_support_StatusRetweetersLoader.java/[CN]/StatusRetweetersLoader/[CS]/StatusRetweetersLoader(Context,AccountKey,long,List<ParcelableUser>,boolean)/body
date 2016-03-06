@@ -1,0 +1,4 @@
+{
+  super(context,accountKey,data,fromUser);
+  mStatusId=statusId;
+}

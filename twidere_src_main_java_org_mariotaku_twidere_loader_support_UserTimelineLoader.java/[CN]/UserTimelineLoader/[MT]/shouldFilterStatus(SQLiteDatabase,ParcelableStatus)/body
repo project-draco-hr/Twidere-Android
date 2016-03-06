@@ -1,4 +1,5 @@
 {
+  if (mIsMyTimeline)   return false;
   final long retweetUserId=status.is_retweet ? status.user_id : -1;
-  return !mIsMyTimeline && InternalTwitterContentUtils.isFiltered(database,retweetUserId,status.text_plain,status.text_html,status.source,-1,status.quoted_user_id);
+  return InternalTwitterContentUtils.isFiltered(database,retweetUserId,status.text_plain,status.text_html,status.source,-1,status.quoted_user_id);
 }

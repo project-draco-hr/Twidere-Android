@@ -1,7 +1,7 @@
 {
   if (!event.isSucceeded())   return;
   final StatusAdapter adapter=getAdapter();
-  final ParcelableStatus status=adapter.findStatusById(event.getAccountId(),event.getStatusId());
+  final ParcelableStatus status=adapter.findStatusById(event.getAccountKey(),event.getStatusId());
   if (status != null) {
 switch (event.getAction()) {
 case FavoriteTaskEvent.Action.CREATE:

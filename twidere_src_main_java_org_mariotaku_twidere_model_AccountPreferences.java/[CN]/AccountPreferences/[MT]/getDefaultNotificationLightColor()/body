@@ -1,5 +1,5 @@
 {
-  final ParcelableAccount a=ParcelableAccountUtils.getAccount(mContext,mAccountId);
+  final ParcelableAccount a=ParcelableAccountUtils.getAccount(mContext,mAccountKey);
   if (a != null) {
     return a.color;
   }

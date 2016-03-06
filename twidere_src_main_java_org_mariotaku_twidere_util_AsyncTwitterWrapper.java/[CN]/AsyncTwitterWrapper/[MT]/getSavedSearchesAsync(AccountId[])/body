@@ -1,6 +1,0 @@
-{
-  final GetSavedSearchesTask task=new GetSavedSearchesTask(mContext);
-  task.setParams(accountIds);
-  TaskStarter.execute(task);
-  return System.identityHashCode(task);
-}

@@ -8,10 +8,10 @@ case TABLE_ID_STATUSES:
 {
       mBackgroundExecutor.execute(new Runnable(){
         @Override public void run(){
-          final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
+          final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountKeys(context));
           for (          final AccountPreferences pref : prefs) {
             if (!pref.isHomeTimelineNotificationEnabled())             continue;
-            final long positionTag=getPositionTag(CustomTabType.HOME_TIMELINE,pref.getAccountId());
+            final long positionTag=getPositionTag(CustomTabType.HOME_TIMELINE,pref.getAccountKey());
             showTimelineNotification(pref,positionTag);
           }
           notifyUnreadCountChanged(NOTIFICATION_ID_HOME_TIMELINE);
@@ -24,11 +24,11 @@ case TABLE_ID_ACTIVITIES_ABOUT_ME:
 {
     mBackgroundExecutor.execute(new Runnable(){
       @Override public void run(){
-        final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
+        final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountKeys(context));
         final boolean combined=mPreferences.getBoolean(KEY_COMBINED_NOTIFICATIONS);
         for (        final AccountPreferences pref : prefs) {
           if (!pref.isInteractionsNotificationEnabled())           continue;
-          showInteractionsNotification(pref,getPositionTag(ReadPositionTag.ACTIVITIES_ABOUT_ME,pref.getAccountId()),combined);
+          showInteractionsNotification(pref,getPositionTag(ReadPositionTag.ACTIVITIES_ABOUT_ME,pref.getAccountKey()),combined);
         }
         notifyUnreadCountChanged(NOTIFICATION_ID_INTERACTIONS_TIMELINE);
       }
@@ -38,7 +38,7 @@ case TABLE_ID_ACTIVITIES_ABOUT_ME:
   }
 case TABLE_ID_DIRECT_MESSAGES_INBOX:
 {
-  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountIds(context));
+  final AccountPreferences[] prefs=AccountPreferences.getNotificationEnabledPreferences(context,DataStoreUtils.getAccountKeys(context));
   for (  final AccountPreferences pref : prefs) {
     if (!pref.isDirectMessagesNotificationEnabled())     continue;
     final StringLongPair[] pairs=mReadStateManager.getPositionPairs(CustomTabType.DIRECT_MESSAGES);

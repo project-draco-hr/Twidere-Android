@@ -22,7 +22,7 @@
         }
  else {
           final ComposeAutoCompleteAdapter adapter=new ComposeAutoCompleteAdapter(activity);
-          adapter.setAccountId(Utils.getDefaultAccountId(activity));
+          adapter.setAccountKey(Utils.getDefaultAccountKey(activity));
           mUserAutoCompleteAdapter=adapter;
         }
         editText.setAdapter(mUserAutoCompleteAdapter);

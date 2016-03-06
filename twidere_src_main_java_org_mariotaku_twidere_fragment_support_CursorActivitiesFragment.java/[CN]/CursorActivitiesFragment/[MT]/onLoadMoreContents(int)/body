@@ -2,15 +2,14 @@
   if ((position & IndicatorPosition.START) != 0)   return;
   super.onLoadMoreContents(position);
   if (position == 0)   return;
-  TaskStarter.execute(new AbstractTask<Object,long[][],CursorActivitiesFragment>(){
-    @Override public long[][] doLongOperation(    Object o){
-      final long[][] result=new long[3][];
-      result[0]=getAccountIds();
-      result[1]=getOldestActivityIds(result[0]);
-      return result;
+  TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
+    @Override public RefreshTaskParam doLongOperation(    Object o){
+      final AccountKey[] accountKeys=getAccountKeys();
+      final long[] maxIds=getOldestActivityIds(accountKeys);
+      return new BaseRefreshTaskParam(accountKeys,maxIds,null);
     }
-    @Override public void afterExecute(    CursorActivitiesFragment fragment,    long[][] result){
-      fragment.getActivities(result[0],result[1],result[2]);
+    @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){
+      fragment.getActivities(result);
     }
   }
 .setResultHandler(this));

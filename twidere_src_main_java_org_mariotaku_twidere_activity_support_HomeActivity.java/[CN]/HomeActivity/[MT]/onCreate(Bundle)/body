@@ -56,7 +56,7 @@
   updateActionsButton();
   if (savedInstanceState == null) {
     if (refreshOnStart) {
-      mTwitterWrapper.refreshAll(getActivatedAccountIds());
+      mTwitterWrapper.refreshAll(getActivatedAccountKeys());
     }
     if (intent.getBooleanExtra(EXTRA_OPEN_ACCOUNTS_DRAWER,false)) {
       openAccountsDrawer();

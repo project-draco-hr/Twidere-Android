@@ -1,3 +1,0 @@
-{
-  getActivitiesAboutMeAsync(new BaseRefreshTaskParam(accountIds,maxIds,sinceIds));
-}

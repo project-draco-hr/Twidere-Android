@@ -8,14 +8,14 @@ case REQUEST_UPLOAD_PROFILE_BANNER_IMAGE:
         mTask=new RemoveProfileBannerTaskInternal(mAccountId);
       }
  else {
-        mTask=new UpdateProfileBannerImageTaskInternal(getActivity(),mAsyncTaskManager,mAccountId,data.getData(),true);
+        mTask=new UpdateProfileBannerImageTaskInternal(getActivity(),mAccountId,data.getData(),true);
       }
       break;
     }
 case REQUEST_UPLOAD_PROFILE_IMAGE:
 {
     if (mTask != null && mTask.getStatus() == Status.RUNNING)     return;
-    mTask=new UpdateProfileImageTaskInternal(getActivity(),mAsyncTaskManager,mAccountId,data.getData(),true);
+    mTask=new UpdateProfileImageTaskInternal(getActivity(),mAccountId,data.getData(),true);
     break;
   }
 case REQUEST_PICK_LINK_COLOR:

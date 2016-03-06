@@ -1,0 +1,14 @@
+{
+  final ContentResolver resolver=context.getContentResolver();
+  final String where=Expression.equalsArgs(Accounts.ACCOUNT_ID).getSQL();
+  final String[] projection=new String[]{Accounts.ACCOUNT_HOST};
+  final String[] whereArgs={String.valueOf(accountId)};
+  final Cursor cur=resolver.query(Accounts.CONTENT_URI,projection,where,whereArgs,null);
+  if (cur == null)   return false;
+  try {
+    return cur.getCount() > 0;
+  }
+  finally {
+    cur.close();
+  }
+}

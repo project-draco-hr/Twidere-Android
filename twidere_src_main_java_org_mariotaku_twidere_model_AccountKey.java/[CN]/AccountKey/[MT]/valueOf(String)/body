@@ -1,0 +1,16 @@
+{
+  if (str == null)   return null;
+  int idxOfAt=str.indexOf("@");
+  try {
+    if (idxOfAt != -1) {
+      final String idStr=str.substring(0,idxOfAt);
+      return new AccountKey(Long.parseLong(idStr),str.substring(idxOfAt + 1,str.length()));
+    }
+ else {
+      return new AccountKey(Long.parseLong(str),null);
+    }
+  }
+ catch (  NumberFormatException e) {
+    return null;
+  }
+}

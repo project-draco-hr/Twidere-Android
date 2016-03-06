@@ -1,0 +1,9 @@
+{
+  final String tabType=cursor.getString(cursor.getColumnIndex(Tabs.TYPE));
+  if (TextUtils.isEmpty(tabType))   return null;
+switch (tabType) {
+case CustomTabType.NOTIFICATIONS_TIMELINE:
+    return JsonSerializer.parse(cursor.getString(columnIndex),UserMentionTabExtras.class);
+}
+return null;
+}

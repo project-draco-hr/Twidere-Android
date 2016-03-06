@@ -1,0 +1,4 @@
+{
+  final CreateUserListSubscriptionTask task=new CreateUserListSubscriptionTask(accountKey,listId);
+  return mAsyncTaskManager.add(task,true);
+}

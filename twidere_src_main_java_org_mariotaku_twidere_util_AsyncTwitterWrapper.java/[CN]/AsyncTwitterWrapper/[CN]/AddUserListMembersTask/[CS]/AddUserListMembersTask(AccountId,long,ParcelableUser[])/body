@@ -1,6 +1,0 @@
-{
-  super(mContext);
-  this.accountId=accountId;
-  this.listId=listId;
-  this.users=users;
-}

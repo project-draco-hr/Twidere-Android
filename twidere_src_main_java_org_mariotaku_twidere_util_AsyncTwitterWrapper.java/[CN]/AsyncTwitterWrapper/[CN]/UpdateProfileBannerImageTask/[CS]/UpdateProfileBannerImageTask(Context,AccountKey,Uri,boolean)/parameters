@@ -1,0 +1,4 @@
+Context context
+AccountKey accountKey
+Uri imageUri
+boolean deleteImage

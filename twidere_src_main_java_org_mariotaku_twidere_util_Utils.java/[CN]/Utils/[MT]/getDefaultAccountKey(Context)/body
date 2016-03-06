@@ -1,0 +1,22 @@
+{
+  if (context == null)   return null;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final long accountId=prefs.getLong(KEY_DEFAULT_ACCOUNT_ID,-1);
+  final String accountHost=prefs.getString(KEY_DEFAULT_ACCOUNT_HOST,null);
+  final AccountKey[] accountKeys=DataStoreUtils.getAccountKeys(context);
+  int idMatchIdx=-1;
+  for (int i=0, accountIdsLength=accountKeys.length; i < accountIdsLength; i++) {
+    AccountKey id=accountKeys[i];
+    if (accountId == id.getId()) {
+      idMatchIdx=i;
+      if (TextUtils.equals(accountHost,id.getHost()))       return id;
+    }
+  }
+  if (idMatchIdx != -1) {
+    return accountKeys[idMatchIdx];
+  }
+  if (accountKeys.length > 0 && !ArrayUtils.contains(accountKeys,accountId)) {
+    return accountKeys[0];
+  }
+  return null;
+}

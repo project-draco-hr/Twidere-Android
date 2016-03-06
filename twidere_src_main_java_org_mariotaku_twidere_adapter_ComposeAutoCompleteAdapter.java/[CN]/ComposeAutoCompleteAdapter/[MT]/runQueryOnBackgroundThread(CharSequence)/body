@@ -24,6 +24,6 @@ default :
   return null;
 }
 }
-builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(mAccountId.getId()));
+builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(mAccountKey.getId()));
 return mContext.getContentResolver().query(builder.build(),Suggestions.AutoComplete.COLUMNS,null,null,null);
 }

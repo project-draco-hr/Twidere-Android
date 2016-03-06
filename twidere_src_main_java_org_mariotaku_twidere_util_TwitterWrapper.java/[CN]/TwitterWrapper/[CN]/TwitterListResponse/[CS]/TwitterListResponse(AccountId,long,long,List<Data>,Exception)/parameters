@@ -1,5 +1,0 @@
-AccountId accountId
-long maxId
-long sinceId
-List<Data> list
-Exception exception

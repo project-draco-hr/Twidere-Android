@@ -1,0 +1,5 @@
+{
+  final ParcelableCredentials credentials=DataStoreUtils.getCredentials(context,accountKey);
+  if (credentials == null)   return false;
+  return isOfficialCredentials(context,credentials);
+}

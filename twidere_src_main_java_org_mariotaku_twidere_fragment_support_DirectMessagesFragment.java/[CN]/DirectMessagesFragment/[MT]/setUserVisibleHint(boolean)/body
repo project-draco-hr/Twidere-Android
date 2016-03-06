@@ -2,8 +2,8 @@
   super.setUserVisibleHint(isVisibleToUser);
   final FragmentActivity activity=getActivity();
   if (isVisibleToUser && activity != null) {
-    for (    long accountId : getAccountIds()) {
-      final String tag="messages_" + accountId;
+    for (    AccountKey accountKey : getAccountKeys()) {
+      final String tag="messages_" + accountKey;
       mNotificationManager.cancel(tag,NOTIFICATION_ID_DIRECT_MESSAGES);
     }
   }

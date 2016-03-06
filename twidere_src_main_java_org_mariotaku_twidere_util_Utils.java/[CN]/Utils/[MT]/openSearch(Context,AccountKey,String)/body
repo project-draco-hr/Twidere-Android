@@ -1,0 +1,3 @@
+{
+  openSearch(context,accountKey,query,null);
+}

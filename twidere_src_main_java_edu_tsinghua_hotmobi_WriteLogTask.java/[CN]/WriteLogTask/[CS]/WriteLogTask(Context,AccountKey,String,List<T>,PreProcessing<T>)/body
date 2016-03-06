@@ -1,0 +1,7 @@
+{
+  this.context=context;
+  this.accountKey=accountKey;
+  this.type=type;
+  this.events=events;
+  this.preProcessing=preProcessing;
+}

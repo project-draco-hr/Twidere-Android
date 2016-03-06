@@ -1,0 +1,4 @@
+{
+  final ReportSpamTask task=new ReportSpamTask(accountKey,userId);
+  return mAsyncTaskManager.add(task,true);
+}

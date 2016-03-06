@@ -1,17 +1,17 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountId,accountHost,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);
     final List<ParcelableUserList> data=new ArrayList<>();
-    boolean is_my_account=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountId));
+    boolean is_my_account=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountKey.getId()));
     for (    final UserList item : lists) {
       final User user=item.getUser();
       if (user != null && mScreenName.equalsIgnoreCase(user.getScreenName())) {
-        if (!is_my_account && user.getId() == mAccountId) {
+        if (!is_my_account && user.getId() == mAccountKey.getId()) {
           is_my_account=true;
         }
-        data.add(new ParcelableUserList(item,mAccountId));
+        data.add(ParcelableUserListUtils.from(item,mAccountKey));
       }
     }
     final SingleResponse<List<ParcelableUserList>> result=SingleResponse.getInstance(data);

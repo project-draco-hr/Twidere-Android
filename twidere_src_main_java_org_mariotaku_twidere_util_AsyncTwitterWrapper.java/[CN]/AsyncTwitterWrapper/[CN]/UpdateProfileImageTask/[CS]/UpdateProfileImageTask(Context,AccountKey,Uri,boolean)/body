@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.mContext=context;
+  this.mAccountKey=accountKey;
+  this.mImageUri=imageUri;
+  this.mDeleteImage=deleteImage;
+}

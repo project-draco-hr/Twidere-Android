@@ -1,16 +1,13 @@
 {
   super.triggerRefresh();
-  TaskStarter.execute(new AbstractTask<Object,long[][],CursorStatusesFragment>(){
-    @Override public long[][] doLongOperation(    Object o){
-      final long[][] result=new long[3][];
-      result[0]=getAccountIds();
-      result[2]=getNewestStatusIds(result[0]);
-      return result;
+  getStatuses(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return CursorStatusesFragment.this.getAccountKeys();
     }
-    @Override public void afterExecute(    CursorStatusesFragment fragment,    long[][] result){
-      fragment.getStatuses(result[0],result[1],result[2]);
+    @Nullable @Override public long[] getSinceIds(){
+      return getNewestStatusIds(getAccountKeys());
     }
   }
-.setResultHandler(this));
+);
   return true;
 }

@@ -1,4 +1,0 @@
-{
-  final CreateSavedSearchTask task=new CreateSavedSearchTask(accountId,query);
-  return mAsyncTaskManager.add(task,true);
-}

@@ -1,0 +1,4 @@
+{
+  final CreateFavoriteTask task=new CreateFavoriteTask(accountKey,statusId);
+  return mAsyncTaskManager.add(task,true);
+}

@@ -3,7 +3,7 @@
     final ParcelableUserList cache=mExtras.getParcelable(EXTRA_USER_LIST);
     if (cache != null)     return SingleResponse.getInstance(cache);
   }
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final UserList list;
@@ -17,7 +17,7 @@
       list=twitter.showUserList(mListName,mScreenName);
     }
  else     return SingleResponse.getInstance();
-    return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountId));
+    return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

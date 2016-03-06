@@ -1,3 +1,0 @@
-{
-  return from(list,accountId,0,false);
-}

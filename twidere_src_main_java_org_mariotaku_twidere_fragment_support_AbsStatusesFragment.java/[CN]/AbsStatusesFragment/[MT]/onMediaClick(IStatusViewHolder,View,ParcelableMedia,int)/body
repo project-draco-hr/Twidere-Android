@@ -4,5 +4,5 @@
   if (status == null)   return;
   IntentUtils.openMedia(getActivity(),status,media,null,true);
   final MediaEvent event=MediaEvent.create(getActivity(),status,media,getTimelineType(),adapter.isMediaPreviewEnabled());
-  HotMobiLogger.getInstance(getActivity()).log(status.account_id,event);
+  HotMobiLogger.getInstance(getActivity()).log(new AccountKey(status.account_id,status.account_host),event);
 }

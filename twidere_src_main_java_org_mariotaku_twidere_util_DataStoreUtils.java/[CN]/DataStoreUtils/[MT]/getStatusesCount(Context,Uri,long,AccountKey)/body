@@ -1,0 +1,12 @@
+{
+  if (context == null)   return 0;
+  final RawItemArray idsIn;
+  if (ArrayUtils.isEmpty(accountKeys)) {
+    idsIn=new RawItemArray(getActivatedAccountKeys(context));
+  }
+ else {
+    idsIn=new RawItemArray(accountKeys);
+  }
+  final Expression selection=Expression.and(Expression.in(new Column(Statuses.ACCOUNT_ID),idsIn),Expression.greaterThan(Statuses.STATUS_ID,sinceId),buildStatusFilterWhereClause(getTableNameByUri(uri),null));
+  return queryCount(context,uri,selection.getSQL(),null);
+}

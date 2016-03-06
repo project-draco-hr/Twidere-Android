@@ -14,7 +14,7 @@ case DialogInterface.BUTTON_POSITIVE:
       update.setMode(isPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
       update.setName(name);
       update.setDescription(description);
-      mTwitterWrapper.updateUserListDetails(mAccountId,mListId,update);
+      mTwitterWrapper.updateUserListDetails(mAccountKey,mListId,update);
       break;
     }
 }

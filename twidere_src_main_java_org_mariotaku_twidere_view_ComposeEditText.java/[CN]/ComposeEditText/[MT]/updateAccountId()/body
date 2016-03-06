@@ -1,4 +1,4 @@
 {
   if (mAdapter == null)   return;
-  mAdapter.setAccountId(mAccountId);
+  mAdapter.setAccountKey(mAccountKey);
 }

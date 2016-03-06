@@ -1,0 +1,7 @@
+{
+  super(context);
+  mContext=context;
+  mAccountKey=accountKey;
+  mImageUri=imageUri;
+  mDeleteImage=deleteImage;
+}

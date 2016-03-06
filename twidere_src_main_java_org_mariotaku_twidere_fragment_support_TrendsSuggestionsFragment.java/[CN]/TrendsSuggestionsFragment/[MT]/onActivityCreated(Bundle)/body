@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mAccountId=getDefaultAccountId(getActivity());
+  mAccountId=getDefaultAccountKey(getActivity());
   getListView().setOnItemClickListener(this);
   getLoaderManager().initLoader(0,null,this);
   showProgress();

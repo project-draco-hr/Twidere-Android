@@ -6,7 +6,7 @@
   final ParcelableActivity activity=adapter.getActivity(position);
   if (activity == null)   return;
   if (mReadStateManager.setPosition(readPositionTag,activity.timestamp)) {
-    mTwitterWrapper.setActivitiesAboutMeUnreadAsync(getAccountIds(),activity.timestamp);
+    mTwitterWrapper.setActivitiesAboutMeUnreadAsync(getAccountKeys(),activity.timestamp);
   }
   mReadStateManager.setPosition(getCurrentReadPositionTag(),activity.timestamp,true);
 }

@@ -1,5 +1,5 @@
 {
-  final long accountId=pref.getAccountId();
+  final long accountId=pref.getAccountKey();
   final Context context=getContext();
   if (context == null)   return;
   final Resources resources=context.getResources();

@@ -1,8 +1,8 @@
 {
   final Context context=getContext();
   if (context == null)   return;
-  final long accountId=pref.getAccountId();
-  final String where=Expression.and(Expression.equals(Activities.ACCOUNT_ID,pref.getAccountId()),Expression.greaterThan(Activities.TIMESTAMP,position)).getSQL();
+  final long accountId=pref.getAccountKey();
+  final String where=Expression.and(Expression.equals(Activities.ACCOUNT_ID,pref.getAccountKey()),Expression.greaterThan(Activities.TIMESTAMP,position)).getSQL();
   Cursor c=query(Activities.AboutMe.CONTENT_URI,Activities.COLUMNS,where,null,new OrderBy(Activities.TIMESTAMP,false).getSQL());
   if (c == null)   return;
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);

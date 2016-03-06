@@ -1,0 +1,20 @@
+{
+  if (context == null)   return Color.TRANSPARENT;
+  final Integer cached=sAccountColors.get(accountKey);
+  if (cached != null)   return cached;
+  final String[] projection={Accounts.COLOR};
+  String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost()};
+  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,projection,Utils.getAccountCompareExpression().getSQL(),whereArgs,null);
+  if (cur == null)   return Color.TRANSPARENT;
+  try {
+    if (cur.getCount() > 0 && cur.moveToFirst()) {
+      final int color=cur.getInt(0);
+      sAccountColors.put(accountKey,color);
+      return color;
+    }
+    return Color.TRANSPARENT;
+  }
+  finally {
+    cur.close();
+  }
+}

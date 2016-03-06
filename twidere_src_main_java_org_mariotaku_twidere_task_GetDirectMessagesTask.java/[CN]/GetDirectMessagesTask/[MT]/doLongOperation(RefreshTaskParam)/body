@@ -1,11 +1,11 @@
 {
-  final AccountId[] accountIds=param.getAccountIds();
+  final AccountKey[] accountKeys=param.getAccountKeys();
   final long[] sinceIds=param.getSinceIds(), maxIds=param.getMaxIds();
   final List<TwitterWrapper.MessageListResponse> result=new ArrayList<>();
   int idx=0;
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
-  for (  final AccountId accountId : accountIds) {
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,true);
+  for (  final AccountKey accountKey : accountKeys) {
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();
@@ -21,21 +21,21 @@
       }
       final List<DirectMessage> messages=new ArrayList<>();
       final boolean truncated=Utils.truncateMessages(getDirectMessages(twitter,paging),messages,sinceId);
-      result.add(new TwitterWrapper.MessageListResponse(accountId,max_id,sinceId,messages,truncated));
-      storeMessages(accountId,messages,isOutgoing(),true);
-      errorInfoStore.remove(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId);
+      result.add(new TwitterWrapper.MessageListResponse(accountKey,max_id,sinceId,messages,truncated));
+      storeMessages(accountKey,messages,isOutgoing(),true);
+      errorInfoStore.remove(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountKey);
     }
  catch (    final TwitterException e) {
       if (e.getErrorCode() == TwitterErrorCode.NO_DM_PERMISSION) {
-        errorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId,ErrorInfoStore.CODE_NO_DM_PERMISSION);
+        errorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountKey,ErrorInfoStore.CODE_NO_DM_PERMISSION);
       }
  else       if (e.isCausedByNetworkIssue()) {
-        errorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
+        errorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountKey,ErrorInfoStore.CODE_NETWORK_ERROR);
       }
       if (BuildConfig.DEBUG) {
         Log.w(TwidereConstants.LOGTAG,e);
       }
-      result.add(new TwitterWrapper.MessageListResponse(accountId,e));
+      result.add(new TwitterWrapper.MessageListResponse(accountKey,e));
     }
     idx++;
   }

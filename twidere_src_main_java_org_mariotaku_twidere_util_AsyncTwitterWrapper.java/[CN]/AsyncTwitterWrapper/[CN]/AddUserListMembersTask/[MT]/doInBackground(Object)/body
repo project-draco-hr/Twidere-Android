@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter == null || users == null)   return SingleResponse.getInstance();
   try {
     final long[] userIds=new long[users.length];
@@ -7,7 +7,7 @@
       userIds[i]=users[i].id;
     }
     final UserList result=twitter.addUserListMembers(listId,userIds);
-    final ParcelableUserList list=ParcelableUserListUtils.from(result,accountId);
+    final ParcelableUserList list=ParcelableUserListUtils.from(result,mAccountKey);
     return SingleResponse.getInstance(list,null);
   }
  catch (  final TwitterException e) {

@@ -1,0 +1,13 @@
+{
+  mFragment=fragment;
+  mActivity=fragment.getActivity();
+  mHandler=new Handler(mActivity.getMainLooper());
+  mAccountKey=accountKey;
+  mOriginal=original;
+  mName=name;
+  mUrl=url;
+  mLocation=location;
+  mDescription=description;
+  mLinkColor=linkColor;
+  mBackgroundColor=backgroundColor;
+}

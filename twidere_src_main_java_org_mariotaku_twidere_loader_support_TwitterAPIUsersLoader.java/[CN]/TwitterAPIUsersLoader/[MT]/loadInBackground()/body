@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,accountHost,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
   if (twitter == null)   return null;
   final List<ParcelableUser> data=getData();
   final List<User> users;
@@ -15,7 +15,7 @@
     if (hasId(user.getId())) {
       continue;
     }
-    data.add(ParcelableUserUtils.fromUser(user,mAccountId,pos));
+    data.add(ParcelableUserUtils.fromUser(user,mAccountKey,pos));
     pos++;
   }
   Collections.sort(data);

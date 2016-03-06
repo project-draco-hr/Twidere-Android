@@ -1,0 +1,4 @@
+{
+  final CreateUserListTask task=new CreateUserListTask(mContext,accountKey,listName,isPublic,description);
+  return mAsyncTaskManager.add(task,true);
+}

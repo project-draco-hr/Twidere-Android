@@ -1,4 +1,0 @@
-{
-  final DestroyDirectMessageTask task=new DestroyDirectMessageTask(accountId,messageId);
-  return mAsyncTaskManager.add(task,true);
-}

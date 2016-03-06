@@ -1,8 +1,8 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.createFavorite(mStatusId),mAccountId,false);
+    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.createFavorite(mStatusId),mAccountKey,false);
     Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
     values.put(Statuses.IS_FAVORITE,true);
@@ -10,7 +10,7 @@
     values.put(Statuses.RETWEET_COUNT,status.retweet_count);
     values.put(Statuses.FAVORITE_COUNT,status.favorite_count);
     final Expression where=Expression.and(Utils.getAccountCompareExpression(),Expression.or(Expression.equals(Statuses.STATUS_ID,mStatusId),Expression.equals(Statuses.RETWEET_ID,mStatusId)));
-    final String[] whereArgs={String.valueOf(mAccountId.getId()),mAccountId.getHost(),String.valueOf(mStatusId),String.valueOf(mStatusId)};
+    final String[] whereArgs={String.valueOf(mAccountKey.getId()),mAccountKey.getHost(),String.valueOf(mStatusId),String.valueOf(mStatusId)};
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       mResolver.update(uri,values,where.getSQL(),whereArgs);
     }

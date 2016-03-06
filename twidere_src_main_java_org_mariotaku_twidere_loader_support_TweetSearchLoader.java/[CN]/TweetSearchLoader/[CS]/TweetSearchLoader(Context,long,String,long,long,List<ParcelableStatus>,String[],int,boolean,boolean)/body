@@ -1,5 +1,0 @@
-{
-  super(context,accountId,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser);
-  mQuery=query;
-  mGapEnabled=makeGap;
-}

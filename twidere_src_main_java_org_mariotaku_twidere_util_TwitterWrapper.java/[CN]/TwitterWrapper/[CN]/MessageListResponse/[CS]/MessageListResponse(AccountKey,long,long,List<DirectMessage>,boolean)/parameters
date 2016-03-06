@@ -1,0 +1,5 @@
+AccountKey accountKey
+long maxId
+long sinceId
+List<DirectMessage> list
+boolean truncated

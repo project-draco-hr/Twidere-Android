@@ -1,0 +1,5 @@
+{
+  final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost(),String.valueOf(userId)};
+  mResolver.delete(DirectMessages.Inbox.CONTENT_URI,Expression.and(Utils.getAccountCompareExpression(),Expression.equalsArgs(Inbox.SENDER_ID)).getSQL(),whereArgs);
+  mResolver.delete(DirectMessages.Outbox.CONTENT_URI,Expression.and(Utils.getAccountCompareExpression(),Expression.equalsArgs(Outbox.RECIPIENT_ID)).getSQL(),whereArgs);
+}

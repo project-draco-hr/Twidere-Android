@@ -2,10 +2,10 @@
   final ParcelableCredentials[] accounts=mAccountsAdapter.getSelectedAccounts();
   setSelectedAccounts(accounts);
   if (ArrayUtils.isEmpty(accounts)) {
-    mEditText.setAccountId(Utils.getDefaultAccountId(this));
+    mEditText.setAccountKey(Utils.getDefaultAccountKey(this));
   }
  else {
-    mEditText.setAccountId(new AccountId(accounts[0]));
+    mEditText.setAccountKey(new AccountKey(accounts[0]));
   }
   mSendTextCountView.setMaxLength(TwidereValidator.getTextLimit(accounts));
   setMenu();

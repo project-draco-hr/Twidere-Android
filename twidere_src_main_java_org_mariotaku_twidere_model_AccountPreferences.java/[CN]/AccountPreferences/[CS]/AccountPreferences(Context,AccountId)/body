@@ -1,6 +1,0 @@
-{
-  mContext=context;
-  mAccountId=accountId;
-  final String name=ACCOUNT_PREFERENCES_NAME_PREFIX + accountId;
-  mPreferences=context.getSharedPreferences(name,Context.MODE_PRIVATE);
-}

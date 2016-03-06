@@ -1,18 +1,17 @@
 {
   super.triggerRefresh();
-  TaskStarter.execute(new AbstractTask<Object,long[][],CursorActivitiesFragment>(){
-    @Override public long[][] doLongOperation(    Object o){
+  TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
+    @Override public RefreshTaskParam doLongOperation(    Object o){
       if (getActivity() == null) {
         return null;
       }
-      final long[][] result=new long[3][];
-      result[0]=getAccountIds();
-      result[2]=getNewestActivityIds(result[0]);
-      return result;
+      final AccountKey[] accountKeys=getAccountKeys();
+      final long[] sinceIds=getNewestActivityIds(accountKeys);
+      return new BaseRefreshTaskParam(accountKeys,sinceIds,null);
     }
-    @Override public void afterExecute(    CursorActivitiesFragment fragment,    long[][] result){
+    @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){
       if (result == null)       return;
-      fragment.getActivities(result[0],result[1],result[2]);
+      fragment.getActivities(result);
     }
   }
 .setResultHandler(this));

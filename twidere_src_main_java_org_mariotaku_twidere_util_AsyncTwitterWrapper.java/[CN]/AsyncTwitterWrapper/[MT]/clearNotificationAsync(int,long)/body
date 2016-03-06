@@ -1,4 +1,0 @@
-{
-  final ClearNotificationTask task=new ClearNotificationTask(notificationId,notificationAccount);
-  AsyncTaskUtils.executeTask(task);
-}

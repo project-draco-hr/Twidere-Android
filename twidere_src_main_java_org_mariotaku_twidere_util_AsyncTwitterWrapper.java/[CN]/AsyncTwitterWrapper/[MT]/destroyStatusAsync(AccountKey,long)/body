@@ -1,0 +1,4 @@
+{
+  final DestroyStatusTask task=new DestroyStatusTask(accountKey,statusId);
+  return mAsyncTaskManager.add(task,true);
+}

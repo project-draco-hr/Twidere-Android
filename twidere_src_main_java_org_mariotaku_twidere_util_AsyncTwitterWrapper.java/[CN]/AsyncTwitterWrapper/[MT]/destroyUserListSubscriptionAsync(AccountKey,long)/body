@@ -1,0 +1,4 @@
+{
+  final DestroyUserListSubscriptionTask task=new DestroyUserListSubscriptionTask(accountKey,listId);
+  return mAsyncTaskManager.add(task,true);
+}

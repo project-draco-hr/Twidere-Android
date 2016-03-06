@@ -1,4 +1,0 @@
-{
-  final DestroyFavoriteTask task=new DestroyFavoriteTask(accountId,statusId);
-  return mAsyncTaskManager.add(task,true);
-}

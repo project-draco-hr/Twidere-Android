@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.mAccountKey=accountKey;
+  this.listId=listId;
+  this.update=update;
+  this.mContext=context;
+}

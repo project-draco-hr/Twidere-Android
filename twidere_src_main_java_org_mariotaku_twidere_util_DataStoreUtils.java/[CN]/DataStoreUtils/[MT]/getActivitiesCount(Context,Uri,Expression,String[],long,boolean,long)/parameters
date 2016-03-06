@@ -1,7 +1,0 @@
-Context context
-Uri uri
-Expression extraWhere
-String[] extraWhereArgs
-long sinceTimestamp
-boolean followingOnly
-long accountIds

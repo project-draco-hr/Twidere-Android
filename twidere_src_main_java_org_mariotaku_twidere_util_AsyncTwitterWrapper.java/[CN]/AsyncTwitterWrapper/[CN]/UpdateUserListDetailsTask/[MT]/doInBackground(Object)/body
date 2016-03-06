@@ -1,9 +1,9 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter != null) {
     try {
       final UserList list=twitter.updateUserList(listId,update);
-      return SingleResponse.getInstance(ParcelableUserListUtils.from(list,accountId));
+      return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
     }
  catch (    final TwitterException e) {
       return SingleResponse.getInstance(e);

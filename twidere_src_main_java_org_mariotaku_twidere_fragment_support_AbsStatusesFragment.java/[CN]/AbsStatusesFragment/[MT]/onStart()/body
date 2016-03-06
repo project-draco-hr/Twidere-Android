@@ -9,7 +9,7 @@
       if (context == null)       return false;
       final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
       if (!prefs.getBoolean(KEY_USAGE_STATISTICS,false))       return false;
-      final File logFile=HotMobiLogger.getLogFile(context,HotMobiLogger.ACCOUNT_ID_NOT_NEEDED,"scroll");
+      final File logFile=HotMobiLogger.getLogFile(context,null,"scroll");
       return logFile.length() < 131072;
     }
     @Override public void afterExecute(    RecyclerView recyclerView,    Boolean result){

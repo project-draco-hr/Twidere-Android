@@ -1,5 +1,0 @@
-{
-  super(mContext);
-  mAccountId=accountId;
-  mSearchId=searchId;
-}

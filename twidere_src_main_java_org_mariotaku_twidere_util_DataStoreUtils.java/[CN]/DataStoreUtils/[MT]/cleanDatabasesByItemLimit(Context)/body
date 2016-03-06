@@ -2,7 +2,7 @@
   if (context == null)   return;
   final ContentResolver resolver=context.getContentResolver();
   final int itemLimit=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getInt(KEY_DATABASE_ITEM_LIMIT,DEFAULT_DATABASE_ITEM_LIMIT);
-  for (  final AccountId accountId : getAccountIds(context)) {
+  for (  final AccountKey accountKey : getAccountKeys(context)) {
     for (    final Uri uri : STATUSES_URIS) {
       if (CachedStatuses.CONTENT_URI.equals(uri)) {
         continue;
@@ -12,7 +12,7 @@
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(Statuses._ID)).from(new Tables(table)).where(accountWhere).orderBy(new OrderBy(Statuses.STATUS_ID,false)).limit(itemLimit);
       final Expression where=Expression.and(Expression.lesserThan(new Column(Statuses._ID),SQLQueryBuilder.select(SQLFunctions.MIN(new Column(Statuses._ID))).from(qb.build()).build()),accountWhere);
-      final String[] whereArgs={String.valueOf(accountId.getId()),accountId.getHost(),String.valueOf(accountId.getId()),accountId.getHost()};
+      final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost(),String.valueOf(accountKey.getId()),accountKey.getHost()};
       resolver.delete(uri,where.getSQL(),whereArgs);
     }
     for (    final Uri uri : ACTIVITIES_URIS) {
@@ -21,7 +21,7 @@
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(Activities._ID)).from(new Tables(table)).where(accountWhere).orderBy(new OrderBy(Activities.TIMESTAMP,false)).limit(itemLimit);
       final Expression where=Expression.and(Expression.lesserThan(new Column(Activities._ID),SQLQueryBuilder.select(SQLFunctions.MIN(new Column(Activities._ID))).from(qb.build()).build()),accountWhere);
-      final String[] whereArgs={String.valueOf(accountId.getId()),accountId.getHost(),String.valueOf(accountId.getId()),accountId.getHost()};
+      final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost(),String.valueOf(accountKey.getId()),accountKey.getHost()};
       resolver.delete(uri,where.getSQL(),whereArgs);
     }
     for (    final Uri uri : DIRECT_MESSAGES_URIS) {
@@ -30,7 +30,7 @@
       final SQLSelectQuery.Builder qb=new SQLSelectQuery.Builder();
       qb.select(new Column(DirectMessages._ID)).from(new Tables(table)).where(accountWhere).orderBy(new OrderBy(DirectMessages.MESSAGE_ID,false)).limit(itemLimit * 10);
       final Expression where=Expression.and(Expression.lesserThan(new Column(DirectMessages._ID),SQLQueryBuilder.select(SQLFunctions.MIN(new Column(DirectMessages._ID))).from(qb.build()).build()),accountWhere);
-      final String[] whereArgs={String.valueOf(accountId.getId()),accountId.getHost(),String.valueOf(accountId.getId()),accountId.getHost()};
+      final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost(),String.valueOf(accountKey.getId()),accountKey.getHost()};
       resolver.delete(uri,where.getSQL(),whereArgs);
     }
   }

@@ -1,0 +1,4 @@
+{
+  final AddUserListMembersTask task=new AddUserListMembersTask(accountKey,listId,users);
+  return mAsyncTaskManager.add(task,true);
+}

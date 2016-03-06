@@ -23,7 +23,7 @@
     }
   }
   final UserAutoCompleteAdapter adapter=new UserAutoCompleteAdapter(this);
-  adapter.setAccountId(getAccountId());
+  adapter.setAccountKey(getAccountId());
   mEditScreenName.setAdapter(adapter);
   mEditScreenName.setText(mScreenName);
   mUserListsListView.setAdapter(mUserListsAdapter=new SimpleParcelableUserListsAdapter(this));

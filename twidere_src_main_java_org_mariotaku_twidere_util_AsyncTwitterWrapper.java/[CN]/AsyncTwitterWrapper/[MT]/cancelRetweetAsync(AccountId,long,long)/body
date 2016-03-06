@@ -1,5 +1,0 @@
-{
-  if (myRetweetId > 0)   return destroyStatusAsync(accountId,myRetweetId);
- else   if (statusId > 0)   return destroyStatusAsync(accountId,statusId);
-  return -1;
-}

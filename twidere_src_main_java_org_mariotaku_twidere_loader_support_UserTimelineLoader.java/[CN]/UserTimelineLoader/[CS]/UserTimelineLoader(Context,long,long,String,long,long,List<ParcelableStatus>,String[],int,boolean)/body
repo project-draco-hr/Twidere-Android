@@ -1,6 +1,0 @@
-{
-  super(context,accountId,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser);
-  mUserId=userId;
-  mUserScreenName=screenName;
-  mIsMyTimeline=userId > 0 ? accountId == userId : accountId == DataStoreUtils.getAccountId(context,screenName);
-}

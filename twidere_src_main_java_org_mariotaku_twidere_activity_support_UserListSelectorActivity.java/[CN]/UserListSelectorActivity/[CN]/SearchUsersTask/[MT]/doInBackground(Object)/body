@@ -1,12 +1,12 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountId,accountHost,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final Paging paging=new Paging();
     final ResponseList<User> lists=twitter.searchUsers(mName,paging);
     final List<ParcelableUser> data=new ArrayList<>();
     for (    final User item : lists) {
-      data.add(ParcelableUserUtils.fromUser(item,mAccountId));
+      data.add(ParcelableUserUtils.fromUser(item,mAccountKey));
     }
     return SingleResponse.getInstance(data);
   }

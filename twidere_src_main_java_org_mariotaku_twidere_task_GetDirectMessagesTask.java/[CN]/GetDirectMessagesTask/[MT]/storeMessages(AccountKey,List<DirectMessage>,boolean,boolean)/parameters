@@ -1,0 +1,4 @@
+AccountKey accountKey
+List<DirectMessage> messages
+boolean isOutgoing
+boolean notify

@@ -1,0 +1,6 @@
+{
+  super(context,accountKey,data,fromUser);
+  final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
+  mLoadItemLimit=Math.min(100,loadItemLimit);
+}

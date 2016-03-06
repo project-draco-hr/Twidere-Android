@@ -1,0 +1,4 @@
+{
+  final RetweetStatusTask task=new RetweetStatusTask(accountKey,statusId);
+  return mAsyncTaskManager.add(task,true);
+}

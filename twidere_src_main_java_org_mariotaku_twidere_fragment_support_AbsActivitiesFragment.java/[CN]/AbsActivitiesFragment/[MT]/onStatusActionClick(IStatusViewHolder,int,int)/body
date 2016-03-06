@@ -21,7 +21,7 @@ case R.id.favorite:
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   if (twitter == null)   return;
   if (status.is_favorite) {
-    twitter.destroyFavoriteAsync(new AccountId(status.account_id,status.account_host),status.id);
+    twitter.destroyFavoriteAsync(new AccountKey(status.account_id,status.account_host),status.id);
   }
  else {
     holder.playLikeAnimation(new DefaultOnLikedListener(twitter,status));

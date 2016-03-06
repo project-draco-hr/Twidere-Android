@@ -1,9 +1,10 @@
 {
-  if (args == null)   return null;
   final long listId=args.getLong(EXTRA_LIST_ID,-1);
-  final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+  final AccountKey accountId=args.getParcelable(EXTRA_ACCOUNT_KEY);
   final long userId=args.getLong(EXTRA_USER_ID,-1);
   final String screenName=args.getString(EXTRA_SCREEN_NAME);
   final String listName=args.getString(EXTRA_LIST_NAME);
-  return new UserListMembersLoader(context,accountId,listId,userId,screenName,listName,getNextCursor(),getData(),fromUser);
+  final UserListMembersLoader loader=new UserListMembersLoader(context,accountId,listId,userId,screenName,listName,getData(),fromUser);
+  loader.setCursor(getNextCursor());
+  return loader;
 }

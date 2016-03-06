@@ -1,4 +1,4 @@
 {
-  final AccountId[] accountIds=DataStoreUtils.getAccountIds(context);
-  return !ArrayUtils.isEmpty(AccountPreferences.getAutoRefreshEnabledAccountIds(context,accountIds));
+  final AccountKey[] accountKeys=DataStoreUtils.getAccountKeys(context);
+  return !ArrayUtils.isEmpty(AccountPreferences.getAutoRefreshEnabledAccountIds(context,accountKeys));
 }

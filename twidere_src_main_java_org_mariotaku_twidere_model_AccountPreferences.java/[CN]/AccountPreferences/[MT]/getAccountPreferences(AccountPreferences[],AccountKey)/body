@@ -1,0 +1,6 @@
+{
+  for (  final AccountPreferences pref : prefs) {
+    if (pref.getAccountKey() == accountKey)     return pref;
+  }
+  return null;
+}

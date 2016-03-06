@@ -1,0 +1,4 @@
+{
+  final AcceptFriendshipTask task=new AcceptFriendshipTask(mContext,accountKey,userId);
+  return mAsyncTaskManager.add(task,true);
+}

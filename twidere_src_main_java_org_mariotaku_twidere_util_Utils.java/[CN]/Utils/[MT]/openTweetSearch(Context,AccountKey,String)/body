@@ -1,0 +1,3 @@
+{
+  openSearch(context,accountKey,query,QUERY_PARAM_VALUE_TWEETS);
+}

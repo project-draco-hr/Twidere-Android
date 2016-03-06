@@ -11,8 +11,8 @@
       final Set<ContentValues> usersValues=new HashSet<>();
       final Set<ContentValues> statusesValues=new HashSet<>();
       final Set<ContentValues> hashTagValues=new HashSet<>();
-      final AccountId accountId=params.accountId;
-      statusesValues.add(ContentValuesCreator.createStatus(status,accountId.getId(),accountId.getHost()));
+      final AccountKey accountKey=params.mAccountKey;
+      statusesValues.add(ContentValuesCreator.createStatus(status,accountKey.getId(),accountKey.getHost()));
       final String text=InternalTwitterContentUtils.unescapeTwitterStatusText(status.getText());
       for (      final String hashtag : extractor.extractHashtags(text)) {
         final ContentValues values=new ContentValues();

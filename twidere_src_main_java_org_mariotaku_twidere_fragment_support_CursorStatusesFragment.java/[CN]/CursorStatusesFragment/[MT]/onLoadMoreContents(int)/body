@@ -2,18 +2,13 @@
   if ((position & IndicatorPosition.START) != 0)   return;
   super.onLoadMoreContents(position);
   if (position == 0)   return;
-  TaskStarter.execute(new AbstractTask<Object,long[][],CursorStatusesFragment>(){
-    @Override public long[][] doLongOperation(    Object o){
-      if (getContext() == null)       return null;
-      final long[][] result=new long[3][];
-      result[0]=getAccountIds();
-      result[1]=getOldestStatusIds(result[0]);
-      return result;
+  getStatuses(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return CursorStatusesFragment.this.getAccountKeys();
     }
-    @Override public void afterExecute(    CursorStatusesFragment fragment,    long[][] result){
-      if (result == null)       return;
-      fragment.getStatuses(result[0],result[1],result[2]);
+    @Nullable @Override public long[] getMaxIds(){
+      return getOldestStatusIds(getAccountKeys());
     }
   }
-.setResultHandler(this));
+);
 }

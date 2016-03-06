@@ -1,0 +1,26 @@
+{
+  if (args == null)   return null;
+  if (args.containsKey(EXTRA_ACCOUNT_KEYS)) {
+    return newParcelableArray(args.getParcelableArray(EXTRA_ACCOUNT_KEYS),AccountKey.CREATOR);
+  }
+ else   if (args.containsKey(EXTRA_ACCOUNT_KEY)) {
+    final AccountKey accountKey=args.getParcelable(EXTRA_ACCOUNT_KEY);
+    if (accountKey == null)     return null;
+    return new AccountKey[]{accountKey};
+  }
+ else   if (args.containsKey(EXTRA_ACCOUNT_IDS)) {
+    final long[] accountIds=args.getLongArray(EXTRA_ACCOUNT_IDS);
+    if (accountIds == null)     return null;
+    final AccountKey[] accountKeys=new AccountKey[accountIds.length];
+    for (int i=0, accountIdsLength=accountIds.length; i < accountIdsLength; i++) {
+      accountKeys[i]=new AccountKey(accountIds[i],null);
+    }
+    return accountKeys;
+  }
+ else   if (args.containsKey(EXTRA_ACCOUNT_ID)) {
+    final long accountId=args.getLong(EXTRA_ACCOUNT_ID,-1);
+    if (accountId <= 0)     return null;
+    return new AccountKey[]{new AccountKey(accountId,null)};
+  }
+  return null;
+}

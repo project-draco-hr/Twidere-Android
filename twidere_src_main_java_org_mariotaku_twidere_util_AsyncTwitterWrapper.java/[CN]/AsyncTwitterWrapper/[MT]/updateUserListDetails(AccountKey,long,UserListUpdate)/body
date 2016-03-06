@@ -1,0 +1,4 @@
+{
+  final UpdateUserListDetailsTask task=new UpdateUserListDetailsTask(mContext,accountKey,listId,update);
+  return mAsyncTaskManager.add(task,true);
+}

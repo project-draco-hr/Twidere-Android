@@ -1,3 +1,0 @@
-{
-  return getAccount(context,accountId.getId(),accountId.getHost());
-}

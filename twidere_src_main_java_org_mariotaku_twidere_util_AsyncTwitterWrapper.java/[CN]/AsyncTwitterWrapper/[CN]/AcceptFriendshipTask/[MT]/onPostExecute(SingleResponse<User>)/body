@@ -1,5 +1,5 @@
 {
-  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountId,mUserId);
+  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountKey,mUserId);
   event.setFinished(true);
   if (result.hasData()) {
     final User user=result.getData();
@@ -12,7 +12,7 @@
     Utils.showErrorMessage(getContext(),R.string.action_accepting_follow_request,result.getException(),false);
     event.setSucceeded(false);
   }
-  mAsyncTwitterWrapper.removeProcessingFriendshipRequestId(mAccountId,mUserId);
+  mAsyncTwitterWrapper.removeProcessingFriendshipRequestId(mAccountKey,mUserId);
   bus.post(event);
   super.onPostExecute(result);
 }

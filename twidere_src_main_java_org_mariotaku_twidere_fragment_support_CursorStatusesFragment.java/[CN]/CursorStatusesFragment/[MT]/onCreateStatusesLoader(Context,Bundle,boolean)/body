@@ -2,8 +2,8 @@
   final Uri uri=getContentUri();
   final String table=getTableNameByUri(uri);
   final String sortOrder=Statuses.DEFAULT_SORT_ORDER;
-  final long[] accountIds=getAccountIds();
-  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountIds));
+  final AccountKey[] accountKeys=getAccountKeys();
+  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_ID),new RawItemArray(accountKeys));
   final Expression filterWhere=getFiltersWhere(table), where;
   if (filterWhere != null) {
     where=Expression.and(accountWhere,filterWhere);
@@ -13,7 +13,7 @@
   }
   final String selection=processWhere(where).getSQL();
   final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
-  adapter.setShowAccountsColor(accountIds.length > 1);
+  adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Statuses.COLUMNS;
   return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,selection,null,sortOrder,fromUser);
 }

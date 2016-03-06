@@ -10,6 +10,6 @@
   final String[] order={CachedUsers.LAST_SEEN,CachedUsers.SCORE,CachedUsers.SCREEN_NAME,CachedUsers.NAME};
   final boolean[] ascending={false,false,true,true};
   final OrderBy orderBy=new OrderBy(order,ascending);
-  final Uri uri=Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,String.valueOf(mAccountId));
+  final Uri uri=Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,String.valueOf(mAccountKey));
   return mContext.getContentResolver().query(uri,CachedUsers.COLUMNS,usersSelection.getSQL(),selectionArgs,orderBy.getSQL());
 }

@@ -25,7 +25,8 @@ values=null;
 if (values != null && accountType != null) {
 values.put(Accounts.ACCOUNT_TYPE,accountType.first);
 values.put(Accounts.ACCOUNT_EXTRAS,accountType.second);
-final ParcelableUser parcelableUser=ParcelableUserUtils.fromUser(user,user.getId());
+final AccountKey accountKey=new AccountKey(user.getId(),ParcelableUserUtils.getUserHost(user.getOstatusUri()));
+final ParcelableUser parcelableUser=ParcelableUserUtils.fromUser(user,accountKey);
 values.put(Accounts.ACCOUNT_HOST,ParcelableUserUtils.getUserHost(parcelableUser));
 values.put(Accounts.ACCOUNT_USER,JsonSerializer.serialize(parcelableUser,ParcelableUser.class));
 }

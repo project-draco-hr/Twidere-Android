@@ -1,12 +1,14 @@
 {
-  final long[] accountIds=param.getAccountIds(), maxIds=param.getMaxIds(), sinceIds=param.getSinceIds();
+  final AccountKey[] accountIds=param.getAccountKeys();
+  final long[] maxIds=param.getMaxIds();
+  final long[] sinceIds=param.getSinceIds();
   final ContentResolver cr=context.getContentResolver();
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT);
   boolean saveReadPosition=false;
   for (int i=0; i < accountIds.length; i++) {
-    final long accountId=accountIds[i];
-    final boolean noItemsBefore=DataStoreUtils.getActivitiesCount(context,getContentUri(),accountId) <= 0;
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountId,accountHost,true);
+    final AccountKey accountKey=accountIds[i];
+    final boolean noItemsBefore=DataStoreUtils.getActivitiesCount(context,getContentUri(),accountKey) <= 0;
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
     if (twitter == null)     continue;
     final Paging paging=new Paging();
     paging.count(loadItemLimit);
@@ -21,22 +23,22 @@
       }
     }
     try {
-      final ResponseList<Activity> activities=getActivities(twitter,accountId,paging);
-      storeActivities(cr,loadItemLimit,accountId,noItemsBefore,activities);
+      final ResponseList<Activity> activities=getActivities(twitter,accountKey,paging);
+      storeActivities(cr,loadItemLimit,accountKey,noItemsBefore,activities);
       if (saveReadPosition) {
-        saveReadPosition(accountId,twitter);
+        saveReadPosition(accountKey,twitter);
       }
-      errorInfoStore.remove(getErrorInfoKey(),accountId);
+      errorInfoStore.remove(getErrorInfoKey(),accountKey);
     }
  catch (    TwitterException e) {
       if (BuildConfig.DEBUG) {
         Log.w(LOGTAG,e);
       }
       if (e.getErrorCode() == 220) {
-        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NO_ACCESS_FOR_CREDENTIALS);
+        errorInfoStore.put(getErrorInfoKey(),accountKey,ErrorInfoStore.CODE_NO_ACCESS_FOR_CREDENTIALS);
       }
  else       if (e.isCausedByNetworkIssue()) {
-        errorInfoStore.put(getErrorInfoKey(),accountId,ErrorInfoStore.CODE_NETWORK_ERROR);
+        errorInfoStore.put(getErrorInfoKey(),accountKey,ErrorInfoStore.CODE_NETWORK_ERROR);
       }
     }
   }

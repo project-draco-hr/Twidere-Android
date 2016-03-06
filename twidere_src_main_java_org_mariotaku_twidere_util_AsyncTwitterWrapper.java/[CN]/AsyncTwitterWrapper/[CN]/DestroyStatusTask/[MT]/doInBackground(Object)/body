@@ -1,10 +1,10 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   ParcelableStatus status=null;
   TwitterException exception=null;
   try {
-    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountId,false);
+    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountKey,false);
   }
  catch (  final TwitterException e) {
     exception=e;

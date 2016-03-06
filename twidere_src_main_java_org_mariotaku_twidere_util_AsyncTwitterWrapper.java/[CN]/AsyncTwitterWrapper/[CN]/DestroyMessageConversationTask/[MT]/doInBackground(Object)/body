@@ -1,14 +1,14 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    twitter.destroyDirectMessagesConversation(mAccountId.getId(),mUserId);
-    deleteMessages(mAccountId,mUserId);
+    twitter.destroyDirectMessagesConversation(mAccountKey.getId(),mUserId);
+    deleteMessages(mAccountKey,mUserId);
     return SingleResponse.getInstance();
   }
  catch (  final TwitterException e) {
     if (isMessageNotFound(e)) {
-      deleteMessages(mAccountId,mUserId);
+      deleteMessages(mAccountKey,mUserId);
     }
     return SingleResponse.getInstance(e);
   }

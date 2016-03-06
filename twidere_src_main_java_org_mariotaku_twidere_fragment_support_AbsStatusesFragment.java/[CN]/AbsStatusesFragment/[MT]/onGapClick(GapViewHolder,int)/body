@@ -2,7 +2,7 @@
   final AbsStatusesAdapter<Data> adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
-  final long[] accountIds={status.account_id};
+  final AccountKey[] accountIds={new AccountKey(status.account_id,status.account_host)};
   final long[] maxIds={status.id};
-  getStatuses(accountIds,maxIds,null);
+  getStatuses(new BaseRefreshTaskParam(accountIds,maxIds,null));
 }

@@ -1,6 +1,6 @@
 {
   if (context == null)   return null;
-  final AccountId accountId=Utils.getDefaultAccountId(context);
-  if (accountId == null)   return null;
-  return getTwitterInstance(context,accountId,includeEntities,includeRetweets);
+  final AccountKey accountKey=Utils.getDefaultAccountKey(context);
+  if (accountKey == null)   return null;
+  return getTwitterInstance(context,accountKey,includeEntities,includeRetweets);
 }

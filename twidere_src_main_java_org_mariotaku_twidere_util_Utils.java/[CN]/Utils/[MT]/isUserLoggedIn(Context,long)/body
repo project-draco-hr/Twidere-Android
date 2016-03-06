@@ -1,7 +1,7 @@
 {
   if (context == null)   return false;
-  final AccountId[] ids=DataStoreUtils.getAccountIds(context);
-  for (  final AccountId id : ids) {
+  final AccountKey[] ids=DataStoreUtils.getAccountKeys(context);
+  for (  final AccountKey id : ids) {
     if (id.getId() == accountId)     return true;
   }
   return false;

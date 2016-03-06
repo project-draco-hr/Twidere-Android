@@ -1,6 +1,6 @@
 {
   try {
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,true);
     TwitterWrapper.updateProfileImage(mContext,twitter,mImageUri,mDeleteImage);
     try {
       Thread.sleep(5000L);
@@ -8,8 +8,8 @@
  catch (    InterruptedException e) {
       Log.w(LOGTAG,e);
     }
-    final User user=TwitterWrapper.tryShowUser(twitter,mAccountId.getId(),null);
-    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId));
+    final User user=TwitterWrapper.tryShowUser(twitter,mAccountKey.getId(),null);
+    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey));
   }
  catch (  TwitterException|FileNotFoundException e) {
     return SingleResponse.getInstance(e);

@@ -1,12 +1,13 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter != null) {
     try {
       final User user=twitter.destroyFriendship(mUserId);
       Utils.setLastSeen(mContext,user.getId(),-1);
-      final Expression where=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,mAccountId),Expression.or(Expression.equals(Statuses.USER_ID,mUserId),Expression.equals(Statuses.RETWEETED_BY_USER_ID,mUserId)));
-      mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),null);
-      return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountId),null);
+      final Expression where=Expression.and(Utils.getAccountCompareExpression(),Expression.or(Expression.equals(Statuses.USER_ID,mUserId),Expression.equals(Statuses.RETWEETED_BY_USER_ID,mUserId)));
+      String[] whereArgs={String.valueOf(mAccountKey.getId()),mAccountKey.getHost(),String.valueOf(mUserId),String.valueOf(mUserId)};
+      mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),whereArgs);
+      return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey),null);
     }
  catch (    final TwitterException e) {
       return SingleResponse.getInstance(null,e);

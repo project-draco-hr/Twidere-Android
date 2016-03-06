@@ -1,0 +1,4 @@
+{
+  final DeleteUserListMembersTask task=new DeleteUserListMembersTask(accountKey,listId,users);
+  return mAsyncTaskManager.add(task,true);
+}

@@ -1,0 +1,15 @@
+{
+  final File logsDir=getLogsDir(context);
+  final File todayLogDir=new File(logsDir,DATE_FORMAT.format(new Date()));
+  if (!todayLogDir.exists()) {
+    todayLogDir.mkdirs();
+  }
+  final String logFilename;
+  if (accountKey != null) {
+    logFilename=type + "_" + accountKey+ ".log";
+  }
+ else {
+    logFilename=type + ".log";
+  }
+  return new File(todayLogDir,logFilename);
+}

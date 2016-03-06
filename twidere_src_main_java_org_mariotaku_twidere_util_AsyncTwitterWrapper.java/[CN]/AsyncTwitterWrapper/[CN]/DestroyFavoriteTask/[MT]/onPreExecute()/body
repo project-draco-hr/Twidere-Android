@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
-  mDestroyingFavoriteIds.put(mAccountId,mStatusId);
+  mDestroyingFavoriteIds.put(mAccountKey.getId(),mStatusId);
   bus.post(new StatusListChangedEvent());
 }

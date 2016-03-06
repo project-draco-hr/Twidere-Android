@@ -37,7 +37,7 @@ if (userList.is_following) {
   DestroyUserListSubscriptionDialogFragment.show(getFragmentManager(),userList);
 }
  else {
-  twitter.createUserListSubscriptionAsync(userList.account_id,userList.id);
+  twitter.createUserListSubscriptionAsync(new AccountKey(userList.account_id,userList.account_host),userList.id);
 }
 return true;
 }
