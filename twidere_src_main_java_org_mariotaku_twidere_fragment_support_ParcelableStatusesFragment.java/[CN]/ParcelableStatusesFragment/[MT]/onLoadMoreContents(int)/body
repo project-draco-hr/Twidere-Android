@@ -3,6 +3,8 @@
   super.onLoadMoreContents(position);
   if (position == 0)   return;
   final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
-  final long[] maxIds=new long[]{adapter.getStatusId(adapter.getStatusCount() - 1)};
-  getStatuses(null,maxIds,null);
+  final ParcelableStatus status=adapter.getStatus(adapter.getItemCount() - 1);
+  AccountKey[] accountKeys={new AccountKey(status.account_id,status.account_host)};
+  final long[] maxIds={status.id};
+  getStatuses(new BaseRefreshTaskParam(accountKeys,maxIds,null));
 }

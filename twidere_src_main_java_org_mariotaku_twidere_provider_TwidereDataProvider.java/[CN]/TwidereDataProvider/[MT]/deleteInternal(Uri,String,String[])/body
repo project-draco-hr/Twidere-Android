@@ -15,12 +15,12 @@ case VIRTUAL_TABLE_ID_NOTIFICATIONS:
     }
  else     if (segments.size() == 2) {
       final int notificationType=NumberUtils.toInt(segments.get(1),-1);
-      clearNotification(notificationType,0);
+      clearNotification(notificationType,null);
     }
  else     if (segments.size() == 3) {
       final int notificationType=NumberUtils.toInt(segments.get(1),-1);
-      final long accountId=NumberUtils.toLong(segments.get(2),-1);
-      clearNotification(notificationType,accountId);
+      final AccountKey accountKey=AccountKey.valueOf(segments.get(2));
+      clearNotification(notificationType,accountKey);
     }
     return 1;
   }

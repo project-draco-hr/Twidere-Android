@@ -1,0 +1,3 @@
+{
+  openMedia(context,accountKey,isPossiblySensitive,null,null,current,media,options,newDocument);
+}

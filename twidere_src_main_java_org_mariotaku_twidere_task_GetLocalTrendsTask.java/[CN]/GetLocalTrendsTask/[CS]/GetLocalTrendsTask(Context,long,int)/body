@@ -1,4 +1,0 @@
-{
-  super(context,accountId);
-  this.woeid=woeid;
-}

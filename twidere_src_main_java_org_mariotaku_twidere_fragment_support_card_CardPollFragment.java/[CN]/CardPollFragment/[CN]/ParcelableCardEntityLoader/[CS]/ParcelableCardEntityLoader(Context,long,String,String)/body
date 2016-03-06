@@ -1,6 +1,0 @@
-{
-  super(context);
-  mAccountId=accountId;
-  mCardUri=cardUri;
-  mCardName=cardName;
-}

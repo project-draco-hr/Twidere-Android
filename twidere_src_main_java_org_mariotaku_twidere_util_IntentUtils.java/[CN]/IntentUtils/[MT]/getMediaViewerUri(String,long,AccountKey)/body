@@ -1,0 +1,11 @@
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority("media");
+  builder.appendPath(type);
+  builder.appendPath(String.valueOf(id));
+  if (accountKey != null) {
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
+  }
+  return builder.build();
+}

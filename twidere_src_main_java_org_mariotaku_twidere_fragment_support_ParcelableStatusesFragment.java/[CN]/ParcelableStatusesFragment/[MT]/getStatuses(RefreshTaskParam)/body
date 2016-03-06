@@ -1,0 +1,15 @@
+{
+  final Bundle args=new Bundle(getArguments());
+  long[] maxIds=param.getMaxIds();
+  if (maxIds != null) {
+    args.putLong(EXTRA_MAX_ID,maxIds[0]);
+    args.putBoolean(EXTRA_MAKE_GAP,false);
+  }
+  long[] sinceIds=param.getSinceIds();
+  if (sinceIds != null) {
+    args.putLong(EXTRA_SINCE_ID,sinceIds[0]);
+  }
+  args.putBoolean(EXTRA_FROM_USER,true);
+  getLoaderManager().restartLoader(0,args,this);
+  return true;
+}

@@ -2,7 +2,7 @@
   final String text=mEditText != null ? ParseUtils.parseString(mEditText.getText()) : null;
   final Draft draft=new Draft();
   draft.action_type=getDraftAction(getIntent().getAction());
-  draft.account_ids=mAccountsAdapter.getSelectedAccountIds();
+  draft.account_ids=AccountKey.getIds(mAccountsAdapter.getSelectedAccountKeys());
   draft.text=text;
   final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
   extra.setInReplyToStatus(mInReplyToStatus);

@@ -1,7 +1,8 @@
 {
   if (mAccounts == null)   return;
-  final long accountId=mAccounts[position].account_id;
-  mSelection.put(accountId,!mSelection.get(accountId,false));
+  final ParcelableCredentials account=mAccounts[position];
+  final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
+  mSelection.put(accountKey,!Boolean.TRUE.equals(mSelection.get(accountKey)));
   mActivity.notifyAccountSelectionChanged();
   notifyDataSetChanged();
 }

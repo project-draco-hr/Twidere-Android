@@ -1,9 +1,10 @@
 {
   final ParcelableUser user=getUser();
-  if (user == null)   return;
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
-  final boolean is_creating_friendship=twitter != null && twitter.isCreatingFriendship(user.account_id,user.id);
-  final boolean is_destroying_friendship=twitter != null && twitter.isDestroyingFriendship(user.account_id,user.id);
-  setProgressBarIndeterminateVisibility(is_creating_friendship || is_destroying_friendship);
+  if (user == null || twitter == null)   return;
+  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  final boolean isCreatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
+  final boolean destroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
+  setProgressBarIndeterminateVisibility(isCreatingFriendship || destroyingFriendship);
   invalidateOptionsMenu();
 }

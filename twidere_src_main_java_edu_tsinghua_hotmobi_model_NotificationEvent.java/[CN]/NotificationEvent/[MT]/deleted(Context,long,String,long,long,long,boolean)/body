@@ -1,3 +1,0 @@
-{
-  return create(context,Action.DELETE,System.currentTimeMillis(),postTime,type,accountId,itemId,itemUserId,itemUserFollowing);
-}

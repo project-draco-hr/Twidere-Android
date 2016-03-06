@@ -3,6 +3,6 @@
   setHasStableIds(true);
   mActivity=activity;
   mInflater=activity.getLayoutInflater();
-  mSelection=new LongSparseArray<>();
+  mSelection=new HashMap<>();
   mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
 }

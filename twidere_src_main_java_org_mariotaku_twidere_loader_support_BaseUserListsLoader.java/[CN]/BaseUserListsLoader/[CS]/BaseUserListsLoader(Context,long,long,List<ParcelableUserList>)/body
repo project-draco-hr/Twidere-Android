@@ -1,8 +1,0 @@
-{
-  super(context);
-  if (data != null) {
-    mData.addAll(data);
-  }
-  mCursor=cursor;
-  mAccountId=accountId;
-}

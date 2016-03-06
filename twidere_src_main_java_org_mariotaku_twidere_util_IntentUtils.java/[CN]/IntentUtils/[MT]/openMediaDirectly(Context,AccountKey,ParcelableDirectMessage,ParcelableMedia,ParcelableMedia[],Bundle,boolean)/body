@@ -1,0 +1,3 @@
+{
+  openMediaDirectly(context,accountKey,null,message,current,media,options,newDocument);
+}

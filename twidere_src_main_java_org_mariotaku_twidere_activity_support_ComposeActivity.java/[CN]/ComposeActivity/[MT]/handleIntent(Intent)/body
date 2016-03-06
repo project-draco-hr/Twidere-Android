@@ -25,9 +25,9 @@ return handleMentionIntent(mMentionUser);
 case INTENT_ACTION_REPLY_MULTIPLE:
 {
 final String[] screenNames=intent.getStringArrayExtra(EXTRA_SCREEN_NAMES);
-final long accountId=intent.getLongExtra(EXTRA_ACCOUNT_ID,-1);
+final AccountKey accountKey=intent.getParcelableExtra(EXTRA_ACCOUNT_KEYS);
 final ParcelableStatus inReplyToStatus=intent.getParcelableExtra(EXTRA_IN_REPLY_TO_STATUS);
-return handleReplyMultipleIntent(screenNames,accountId,inReplyToStatus);
+return handleReplyMultipleIntent(screenNames,accountKey,inReplyToStatus);
 }
 case INTENT_ACTION_COMPOSE_TAKE_PHOTO:
 {

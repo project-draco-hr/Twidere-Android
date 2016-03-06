@@ -1,9 +1,0 @@
-{
-  if (args.containsKey(EXTRA_ACCOUNT_ID)) {
-    return args.getLong(EXTRA_ACCOUNT_ID) == accountId;
-  }
- else   if (args.containsKey(EXTRA_ACCOUNT_IDS)) {
-    return ArrayUtils.contains(args.getLongArray(EXTRA_ACCOUNT_IDS),accountId);
-  }
-  return ArrayUtils.contains(activatedAccountIds,accountId);
-}

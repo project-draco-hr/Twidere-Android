@@ -1,0 +1,5 @@
+{
+  super(context);
+  mAccountKey=accountKey;
+  mStatusId=statusId;
+}

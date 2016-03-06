@@ -8,7 +8,8 @@ case R.id.block:
 {
       if (userRelationship == null)       return true;
       if (userRelationship.relationship.isSourceBlockingTarget()) {
-        twitter.destroyBlockAsync(user.account_id,user.id);
+        final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+        twitter.destroyBlockAsync(accountKey,user.id);
       }
  else {
         CreateUserBlockDialogFragment.show(getFragmentManager(),user);
@@ -39,7 +40,8 @@ case R.id.mute_user:
 {
 if (userRelationship == null) return true;
 if (userRelationship.relationship.isSourceMutingTarget()) {
-  twitter.destroyMuteAsync(user.account_id,user.id);
+  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  twitter.destroyMuteAsync(accountKey,user.id);
 }
  else {
   CreateUserMuteDialogFragment.show(getFragmentManager(),user);
@@ -63,7 +65,8 @@ builder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
 builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_id));
 builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.id));
 final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-intent.putExtra(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getActivity(),user.account_id));
+final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+intent.putExtra(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getActivity(),accountKey));
 intent.putExtra(EXTRA_USER,user);
 startActivity(intent);
 break;
@@ -93,7 +96,7 @@ case R.id.add_to_list:
 final Intent intent=new Intent(INTENT_ACTION_SELECT_USER_LIST);
 intent.setClass(getActivity(),UserListSelectorActivity.class);
 intent.putExtra(EXTRA_ACCOUNT_ID,user.account_id);
-intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(getActivity(),user.account_id));
+intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(getActivity(),new AccountKey(user.account_id,user.account_host)));
 startActivityForResult(intent,REQUEST_ADD_TO_LIST);
 break;
 }
@@ -109,14 +112,15 @@ case R.id.follow:
 {
 if (userRelationship == null) return true;
 final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
-final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
-final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
+final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+final boolean isCreatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
+final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
 if (!isCreatingFriendship && !isDestroyingFriendship) {
 if (isFollowing) {
 DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
 }
  else {
-twitter.createFriendshipAsync(user.account_id,user.id);
+twitter.createFriendshipAsync(accountKey,user.id);
 }
 }
 return true;
@@ -126,7 +130,8 @@ case R.id.enable_retweets:
 final boolean newState=!item.isChecked();
 final FriendshipUpdate update=new FriendshipUpdate();
 update.retweets(newState);
-twitter.updateFriendship(user.account_id,user.id,update);
+final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+twitter.updateFriendship(accountKey,user.id,update);
 item.setChecked(newState);
 return true;
 }

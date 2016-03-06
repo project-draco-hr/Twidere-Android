@@ -1,4 +1,0 @@
-Context context
-String notificationType
-long accountId
-StringLongPair[] positions

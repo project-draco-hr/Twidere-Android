@@ -1,6 +1,6 @@
 {
   if (status == null || status.id <= 0)   return false;
-  final String myScreenName=DataStoreUtils.getAccountScreenName(this,status.account_id);
+  final String myScreenName=DataStoreUtils.getAccountScreenName(this,new AccountKey(status.account_id,status.account_host));
   if (TextUtils.isEmpty(myScreenName))   return false;
   int selectionStart=0;
   mEditText.append("@" + status.user_screen_name + " ");
@@ -24,7 +24,7 @@
   }
   final int selectionEnd=mEditText.length();
   mEditText.setSelection(selectionStart,selectionEnd);
-  mAccountsAdapter.setSelectedAccountIds(status.account_id);
+  mAccountsAdapter.setSelectedAccountIds(new AccountKey(status.account_id,status.account_host));
   showReplyLabel(status);
   return true;
 }

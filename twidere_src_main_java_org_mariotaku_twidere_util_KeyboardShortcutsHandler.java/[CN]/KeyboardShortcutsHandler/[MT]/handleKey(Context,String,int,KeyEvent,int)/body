@@ -14,7 +14,7 @@ case ACTION_SEARCH:
   }
 case ACTION_MESSAGE:
 {
-  Utils.openMessageConversation(context,-1,-1);
+  Utils.openMessageConversation(context,null,-1);
   return true;
 }
 }

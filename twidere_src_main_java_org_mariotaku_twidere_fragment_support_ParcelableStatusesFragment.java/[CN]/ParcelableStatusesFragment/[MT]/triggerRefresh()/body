@@ -4,10 +4,10 @@
   final AccountKey[] accountIds=getAccountKeys();
   if (adapter.getStatusCount() > 0) {
     final long[] sinceIds=new long[]{adapter.getStatus(0).id};
-    getStatuses(accountIds,null,sinceIds);
+    getStatuses(new BaseRefreshTaskParam(accountIds,null,sinceIds));
   }
  else {
-    getStatuses(accountIds,null,null);
+    getStatuses(new BaseRefreshTaskParam(accountIds,null,null));
   }
   return true;
 }

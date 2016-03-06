@@ -1,0 +1,5 @@
+{
+  final AccountKey account_id=getDefaultAccountKey(this);
+  final int woeid=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
+  mTwitterWrapper.getLocalTrendsAsync(account_id,woeid);
+}

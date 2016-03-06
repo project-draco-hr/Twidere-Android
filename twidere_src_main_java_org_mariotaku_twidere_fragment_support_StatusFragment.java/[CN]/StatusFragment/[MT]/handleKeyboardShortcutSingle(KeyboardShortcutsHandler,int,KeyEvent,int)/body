@@ -30,10 +30,10 @@ case ACTION_STATUS_FAVORITE:
 {
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   if (status.is_favorite) {
-    twitter.destroyFavoriteAsync(status.account_id,status.id);
+    twitter.destroyFavoriteAsync(new AccountKey(status.account_id,status.account_host),status.id);
   }
  else {
-    twitter.createFavoriteAsync(status.account_id,status.id);
+    twitter.createFavoriteAsync(new AccountKey(status.account_id,status.account_host),status.id);
   }
   return true;
 }

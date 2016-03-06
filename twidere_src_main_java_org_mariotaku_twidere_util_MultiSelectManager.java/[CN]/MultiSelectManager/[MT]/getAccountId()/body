@@ -1,4 +1,0 @@
-{
-  if (mAccountId <= 0)   return getFirstSelectAccountId(mSelectedItems);
-  return mAccountId;
-}

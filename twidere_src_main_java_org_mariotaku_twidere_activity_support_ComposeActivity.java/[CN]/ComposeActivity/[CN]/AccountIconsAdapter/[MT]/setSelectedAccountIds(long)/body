@@ -1,9 +1,0 @@
-{
-  mSelection.clear();
-  if (accountIds != null) {
-    for (    long accountId : accountIds) {
-      mSelection.put(accountId,true);
-    }
-  }
-  notifyDataSetChanged();
-}

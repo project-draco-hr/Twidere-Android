@@ -4,6 +4,6 @@
     Utils.openMessageConversation(getActivity(),accountIds[0],-1);
   }
  else {
-    Utils.openMessageConversation(getActivity(),-1,-1);
+    Utils.openMessageConversation(getActivity(),null,-1);
   }
 }

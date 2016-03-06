@@ -8,10 +8,11 @@
   }
   final LoaderManager lm=getLoaderManager();
   final boolean loadingRelationship=lm.getLoader(LOADER_ID_FRIENDSHIP) != null;
-  final boolean creatingFriendship=twitter.isCreatingFriendship(user.account_id,user.id);
-  final boolean destroyingFriendship=twitter.isDestroyingFriendship(user.account_id,user.id);
-  final boolean creatingBlock=twitter.isCreatingFriendship(user.account_id,user.id);
-  final boolean destroyingBlock=twitter.isDestroyingFriendship(user.account_id,user.id);
+  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  final boolean creatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
+  final boolean destroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
+  final boolean creatingBlock=twitter.isCreatingFriendship(accountKey,user.id);
+  final boolean destroyingBlock=twitter.isDestroyingFriendship(accountKey,user.id);
   if (loadingRelationship || creatingFriendship || destroyingFriendship|| creatingBlock|| destroyingBlock) {
     mFollowButton.setVisibility(View.GONE);
     mFollowProgress.setVisibility(View.VISIBLE);

@@ -7,5 +7,5 @@
   final String screenName=args.getString(EXTRA_SCREEN_NAME);
   final int tabPosition=args.getInt(EXTRA_TAB_POSITION,-1);
   final boolean fromUser=args.getBoolean(EXTRA_FROM_USER);
-  return new MediaTimelineLoader(context,accountId,userId,screenName,sinceId,maxId,getAdapter().getData(),null,tabPosition,fromUser);
+  return new MediaTimelineLoader(context,accountKey,userId,screenName,sinceId,maxId,getAdapter().getData(),null,tabPosition,fromUser);
 }

@@ -2,7 +2,7 @@
   if (status == null || status.id <= 0)   return false;
   mEditText.setText(Utils.getQuoteStatus(this,status.id,status.user_screen_name,status.text_plain));
   mEditText.setSelection(0);
-  mAccountsAdapter.setSelectedAccountIds(status.account_id);
+  mAccountsAdapter.setSelectedAccountIds(new AccountKey(status.account_id,status.account_host));
   showQuoteLabel(status);
   return true;
 }

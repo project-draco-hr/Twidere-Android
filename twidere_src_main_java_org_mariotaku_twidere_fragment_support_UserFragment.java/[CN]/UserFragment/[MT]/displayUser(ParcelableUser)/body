@@ -18,7 +18,8 @@
     mProfileNameContainer.drawEnd(user.account_color);
   }
  else {
-    mProfileNameContainer.drawEnd(DataStoreUtils.getAccountColor(activity,user.account_id));
+    final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+    mProfileNameContainer.drawEnd(DataStoreUtils.getAccountColor(activity,accountKey));
   }
   final String nick=mUserColorNameManager.getUserNickname(user.id,true);
   mNameView.setText(mBidiFormatter.unicodeWrap(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick)));

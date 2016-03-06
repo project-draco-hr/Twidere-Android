@@ -1,10 +1,10 @@
 {
   if (user == null || user.id <= 0)   return false;
-  final String my_screen_name=DataStoreUtils.getAccountScreenName(this,user.account_id);
-  if (TextUtils.isEmpty(my_screen_name))   return false;
+  final String accountScreenName=DataStoreUtils.getAccountScreenName(this,new AccountKey(user.account_id,user.account_host));
+  if (TextUtils.isEmpty(accountScreenName))   return false;
   mEditText.setText(String.format("@%s ",user.screen_name));
   final int selection_end=mEditText.length();
   mEditText.setSelection(selection_end);
-  mAccountsAdapter.setSelectedAccountIds(user.account_id);
+  mAccountsAdapter.setSelectedAccountIds(new AccountKey(user.account_id,user.account_host));
   return true;
 }

@@ -1,15 +1,16 @@
 {
-  final long accountId=pref.getAccountKey();
+  final AccountKey accountKey=pref.getAccountKey();
   final Context context=getContext();
   if (context == null)   return;
   final Resources resources=context.getResources();
   final NotificationManagerWrapper nm=mNotificationManager;
-  final Expression selection=Expression.and(Expression.equals(Statuses.ACCOUNT_ID,accountId),Expression.greaterThan(Statuses.STATUS_ID,position));
+  final Expression selection=Expression.and(Utils.getAccountCompareExpression(),Expression.greaterThan(Statuses.STATUS_ID,position));
   final String filteredSelection=DataStoreUtils.buildStatusFilterWhereClause(Statuses.TABLE_NAME,selection).getSQL();
+  final String[] selectionArgs={String.valueOf(accountKey.getId()),accountKey.getHost()};
   final String[] userProjection={Statuses.USER_ID,Statuses.USER_NAME,Statuses.USER_SCREEN_NAME};
   final String[] statusProjection={Statuses.STATUS_ID};
-  final Cursor statusCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,statusProjection,filteredSelection,null,null,null,Statuses.DEFAULT_SORT_ORDER);
-  final Cursor userCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,userProjection,filteredSelection,null,Statuses.USER_ID,null,Statuses.DEFAULT_SORT_ORDER);
+  final Cursor statusCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,statusProjection,filteredSelection,selectionArgs,null,null,Statuses.DEFAULT_SORT_ORDER);
+  final Cursor userCursor=mDatabaseWrapper.query(Statuses.TABLE_NAME,userProjection,filteredSelection,selectionArgs,Statuses.USER_ID,null,Statuses.DEFAULT_SORT_ORDER);
   try {
     final int usersCount=userCursor.getCount();
     final int statusesCount=statusCursor.getCount();
@@ -38,13 +39,13 @@
     builder.setContentTitle(notificationTitle);
     builder.setContentText(notificationContent);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
-    builder.setContentIntent(getContentIntent(context,CustomTabType.HOME_TIMELINE,NotificationType.HOME_TIMELINE,accountId,statusId));
-    builder.setDeleteIntent(getMarkReadDeleteIntent(context,NotificationType.HOME_TIMELINE,accountId,statusId,false));
+    builder.setContentIntent(getContentIntent(context,CustomTabType.HOME_TIMELINE,NotificationType.HOME_TIMELINE,accountKey,statusId));
+    builder.setDeleteIntent(getMarkReadDeleteIntent(context,NotificationType.HOME_TIMELINE,accountKey,statusId,false));
     builder.setNumber(statusesCount);
     builder.setCategory(NotificationCompat.CATEGORY_SOCIAL);
     applyNotificationPreferences(builder,pref,pref.getHomeTimelineNotificationType());
     try {
-      nm.notify("home_" + accountId,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountId),builder.build());
+      nm.notify("home_" + accountKey,Utils.getNotificationId(NOTIFICATION_ID_HOME_TIMELINE,accountKey),builder.build());
       Utils.sendPebbleNotification(context,notificationContent);
     }
  catch (    SecurityException e) {

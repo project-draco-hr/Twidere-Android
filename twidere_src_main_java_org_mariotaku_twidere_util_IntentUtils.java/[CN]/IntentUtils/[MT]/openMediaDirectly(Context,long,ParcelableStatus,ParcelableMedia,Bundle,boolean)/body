@@ -1,3 +1,0 @@
-{
-  openMediaDirectly(context,accountId,status,null,current,getPrimaryMedia(status),options,newDocument);
-}

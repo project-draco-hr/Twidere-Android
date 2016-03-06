@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,accountHost,true);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true);
   List<UserList> listLoaded=null;
   try {
     listLoaded=getUserLists(twitter);
@@ -15,13 +15,13 @@
       final int dataSize=mData.size();
       for (int i=0; i < listSize; i++) {
         final UserList list=listLoaded.get(i);
-        mData.add(new ParcelableUserList(list,mAccountId,dataSize + i,isFollowing(list)));
+        mData.add(ParcelableUserListUtils.from(list,mAccountId,dataSize + i,isFollowing(list)));
       }
     }
  else {
       for (int i=0; i < listSize; i++) {
         final UserList list=listLoaded.get(i);
-        mData.add(new ParcelableUserList(listLoaded.get(i),mAccountId,i,isFollowing(list)));
+        mData.add(ParcelableUserListUtils.from(listLoaded.get(i),mAccountId,i,isFollowing(list)));
       }
     }
   }

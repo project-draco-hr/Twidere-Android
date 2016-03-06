@@ -1,0 +1,6 @@
+{
+  super(context);
+  mAccountKey=accountKey;
+  mCardUri=cardUri;
+  mCardName=cardName;
+}

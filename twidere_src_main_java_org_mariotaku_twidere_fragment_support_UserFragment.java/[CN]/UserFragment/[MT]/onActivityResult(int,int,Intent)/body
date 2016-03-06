@@ -21,7 +21,7 @@ case REQUEST_ADD_TO_LIST:
       final AsyncTwitterWrapper twitter=mTwitterWrapper;
       final ParcelableUserList list=data.getParcelableExtra(EXTRA_USER_LIST);
       if (list == null || twitter == null)       return;
-      twitter.addUserListMembersAsync(user.account_id,list.id,user);
+      twitter.addUserListMembersAsync(new AccountKey(user.account_id,user.account_host),list.id,user);
     }
     break;
   }

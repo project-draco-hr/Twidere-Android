@@ -1,11 +1,11 @@
 {
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
-    final long accountId=getAccountId();
+    final AccountKey accountKey=getAccountKey();
   final long searchId=getSearchId();
 final AsyncTwitterWrapper twitter=mTwitterWrapper;
 if (searchId <= 0 || twitter == null) return;
-twitter.destroySavedSearchAsync(accountId,searchId);
+twitter.destroySavedSearchAsync(accountKey,searchId);
 break;
 default :
 break;

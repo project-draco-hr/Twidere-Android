@@ -1,3 +1,3 @@
 {
-  openMedia(context,message.account_id,false,null,message,current,message.media,options,newDocument);
+  openMedia(context,new AccountKey(message.account_id,message.account_host),false,null,message,current,message.media,options,newDocument);
 }

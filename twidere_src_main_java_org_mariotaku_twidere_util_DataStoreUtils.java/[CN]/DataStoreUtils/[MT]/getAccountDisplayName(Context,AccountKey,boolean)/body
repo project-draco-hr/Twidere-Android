@@ -1,0 +1,10 @@
+{
+  final String name;
+  if (nameFirst) {
+    name=getAccountName(context,accountKey);
+  }
+ else {
+    name=String.format("@%s",getAccountScreenName(context,accountKey));
+  }
+  return name;
+}

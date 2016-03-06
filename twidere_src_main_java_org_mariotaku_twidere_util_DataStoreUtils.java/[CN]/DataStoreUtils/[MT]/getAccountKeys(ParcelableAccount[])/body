@@ -1,7 +1,8 @@
 {
-  final long[] ids=new long[accounts.length];
+  final AccountKey[] ids=new AccountKey[accounts.length];
   for (int i=0, j=accounts.length; i < j; i++) {
-    ids[i]=accounts[i].account_id;
+    final ParcelableAccount account=accounts[i];
+    ids[i]=new AccountKey(account.account_id,account.account_host);
   }
   return ids;
 }
