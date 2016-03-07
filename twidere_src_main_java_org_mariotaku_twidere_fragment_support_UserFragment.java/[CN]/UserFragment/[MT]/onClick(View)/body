@@ -36,7 +36,7 @@ case R.id.profile_image:
   ParcelableMedia profileImage=ParcelableMediaUtils.image(url);
   profileImage.type=ParcelableMedia.Type.IMAGE;
   final ParcelableMedia[] media={profileImage};
-  IntentUtils.openMedia(activity,user.account_id,false,null,media,null,true);
+  IntentUtils.openMedia(activity,new AccountKey(user.account_id,user.account_host),false,null,media,null,true);
   break;
 }
 case R.id.profile_banner:
@@ -46,7 +46,7 @@ final String url=user.profile_banner_url + "/ipad_retina";
 ParcelableMedia profileBanner=ParcelableMediaUtils.image(url);
 profileBanner.type=ParcelableMedia.Type.IMAGE;
 final ParcelableMedia[] media={profileBanner};
-IntentUtils.openMedia(activity,user.account_id,false,null,media,null,true);
+IntentUtils.openMedia(activity,new AccountKey(user.account_id,user.account_host),false,null,media,null,true);
 break;
 }
 case R.id.listed_container:

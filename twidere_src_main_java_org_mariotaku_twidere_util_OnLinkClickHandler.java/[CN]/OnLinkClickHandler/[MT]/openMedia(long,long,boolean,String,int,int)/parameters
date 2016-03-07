@@ -1,6 +1,0 @@
-long accountId
-long extraId
-boolean sensitive
-String link
-int start
-int end

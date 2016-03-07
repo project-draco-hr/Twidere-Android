@@ -1,7 +1,0 @@
-CharSequence text
-OnLinkClickListener listener
-long accountId
-long extraId
-boolean sensitive
-int highlightOption
-boolean skipLinksInText

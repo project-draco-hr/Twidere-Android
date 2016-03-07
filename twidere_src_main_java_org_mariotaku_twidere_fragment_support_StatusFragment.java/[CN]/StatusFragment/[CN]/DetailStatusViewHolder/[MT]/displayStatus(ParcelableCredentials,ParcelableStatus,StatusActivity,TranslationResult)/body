@@ -28,7 +28,7 @@
     quotedScreenNameView.setText(String.format("@%s",status.quoted_user_screen_name));
     final CharSequence quotedText=HtmlSpanBuilder.fromHtml(status.quoted_text_html,status.text_unescaped);
     if (quotedText instanceof Spanned) {
-      quotedTextView.setText(linkify.applyAllLinks(quotedText,status.account_id,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
+      quotedTextView.setText(linkify.applyAllLinks(quotedText,new AccountKey(status.account_id,status.account_host),layoutPosition,status.is_possibly_sensitive,skipLinksInText));
     }
     quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
     profileContainer.drawStart(manager.getUserColor(status.quoted_user_id,false));
@@ -75,7 +75,7 @@
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
   final CharSequence text=HtmlSpanBuilder.fromHtml(status.text_html,status.text_unescaped);
   if (text instanceof Spanned) {
-    textView.setText(linkify.applyAllLinks(text,status.account_id,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
+    textView.setText(linkify.applyAllLinks(text,new AccountKey(status.account_id,status.account_host),layoutPosition,status.is_possibly_sensitive,skipLinksInText));
   }
   final ParcelableLocation location;
   final String placeFullName;
@@ -129,7 +129,7 @@
     mediaPreviewContainer.setVisibility(View.VISIBLE);
     mediaPreview.setVisibility(View.VISIBLE);
     mediaPreviewLoad.setVisibility(View.GONE);
-    mediaPreview.displayMedia(media,loader,status.account_id,-1,adapter.getFragment(),adapter.getMediaLoadingHandler());
+    mediaPreview.displayMedia(media,loader,new AccountKey(status.account_id,status.account_host),-1,adapter.getFragment(),adapter.getMediaLoadingHandler());
   }
  else {
     mediaPreviewContainer.setVisibility(View.VISIBLE);

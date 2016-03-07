@@ -2,7 +2,7 @@
   super.setUserVisibleHint(isVisibleToUser);
   final FragmentActivity activity=getActivity();
   if (isVisibleToUser && activity != null) {
-    for (    long accountId : getAccountKeys()) {
+    for (    AccountKey accountId : getAccountKeys()) {
       final String tag="home_" + accountId;
       mNotificationManager.cancel(tag,NOTIFICATION_ID_HOME_TIMELINE);
     }

@@ -1,7 +1,0 @@
-Context context
-long accountId
-long userId
-String screenName
-Bundle activityOptions
-boolean newDocument
-String referral

@@ -4,6 +4,9 @@
     @NonNull @Override public AccountKey[] getAccountKeys(){
       return CursorStatusesFragment.this.getAccountKeys();
     }
+    @Override public boolean hasMaxIds(){
+      return false;
+    }
     @Nullable @Override public long[] getSinceIds(){
       return getNewestStatusIds(getAccountKeys());
     }

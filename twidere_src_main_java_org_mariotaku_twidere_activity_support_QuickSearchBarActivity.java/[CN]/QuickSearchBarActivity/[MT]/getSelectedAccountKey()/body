@@ -1,0 +1,4 @@
+{
+  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
+  return new AccountKey(account.account_id,account.account_host);
+}

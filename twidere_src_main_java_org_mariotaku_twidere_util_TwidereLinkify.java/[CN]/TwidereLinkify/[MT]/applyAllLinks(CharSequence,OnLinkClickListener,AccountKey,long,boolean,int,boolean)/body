@@ -1,0 +1,9 @@
+{
+  if (text == null)   return null;
+  final SpannableString string=SpannableString.valueOf(text);
+  for (  final int type : ALL_LINK_TYPES) {
+    if (type == LINK_TYPE_LINK_IN_TEXT && skipLinksInText)     continue;
+    addLinks(string,accountKey,extraId,type,sensitive,listener,highlightOption);
+  }
+  return string;
+}

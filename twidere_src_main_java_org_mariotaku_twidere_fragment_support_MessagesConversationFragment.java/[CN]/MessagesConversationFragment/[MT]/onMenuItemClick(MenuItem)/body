@@ -1,16 +1,15 @@
 {
-  if (mSelectedDirectMessage != null) {
-    final long message_id=mSelectedDirectMessage.id;
-    final long account_id=mSelectedDirectMessage.account_id;
+  final ParcelableDirectMessage message=mSelectedDirectMessage;
+  if (message != null) {
 switch (item.getItemId()) {
 case R.id.delete:
 {
-        mTwitterWrapper.destroyDirectMessageAsync(account_id,message_id);
+        mTwitterWrapper.destroyDirectMessageAsync(new AccountKey(message.account_id,message.account_host),message.id);
         break;
       }
 case R.id.copy:
 {
-      if (ClipboardUtils.setText(getActivity(),mSelectedDirectMessage.text_plain)) {
+      if (ClipboardUtils.setText(getActivity(),message.text_plain)) {
         Utils.showOkMessage(getActivity(),R.string.text_copied,false);
       }
       break;

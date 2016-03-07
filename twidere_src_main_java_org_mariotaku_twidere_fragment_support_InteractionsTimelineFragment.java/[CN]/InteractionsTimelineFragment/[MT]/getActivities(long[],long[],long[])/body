@@ -1,4 +1,0 @@
-{
-  mTwitterWrapper.getActivitiesAboutMeAsync(accountIds,maxIds,sinceIds);
-  return true;
-}

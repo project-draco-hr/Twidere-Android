@@ -1,18 +1,19 @@
 {
   final List<ParcelableCredentials> accountsList=DataStoreUtils.getCredentialsList(this,true);
-  final long[] accountIds=new long[accountsList.size()];
-  for (int i=0, j=accountIds.length; i < j; i++) {
-    accountIds[i]=accountsList.get(i).account_id;
+  final AccountKey[] accountKeys=new AccountKey[accountsList.size()];
+  for (int i=0, j=accountKeys.length; i < j; i++) {
+    final ParcelableCredentials credentials=accountsList.get(i);
+    accountKeys[i]=new AccountKey(credentials.account_id,credentials.account_host);
   }
-  final AccountPreferences[] activitedPreferences=AccountPreferences.getAccountPreferences(this,accountIds);
+  final AccountPreferences[] activatedPreferences=AccountPreferences.getAccountPreferences(this,accountKeys);
   if (BuildConfig.DEBUG) {
     Log.d(Constants.LOGTAG,"Setting up twitter stream instances");
   }
-  mAccountIds=accountIds;
+  mAccountKeys=accountKeys;
   clearTwitterInstances();
   boolean result=false;
   for (int i=0, j=accountsList.size(); i < j; i++) {
-    final AccountPreferences preferences=activitedPreferences[i];
+    final AccountPreferences preferences=activatedPreferences[i];
     if (!preferences.isStreamingEnabled())     continue;
     final ParcelableCredentials account=accountsList.get(i);
     final Endpoint endpoint=TwitterAPIFactory.getEndpoint(account,TwitterUserStream.class);

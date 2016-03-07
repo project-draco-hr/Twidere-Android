@@ -1,0 +1,6 @@
+Context context
+AccountKey accountId
+long sinceId
+long maxId
+String[] states
+List<ScheduledStatus> data

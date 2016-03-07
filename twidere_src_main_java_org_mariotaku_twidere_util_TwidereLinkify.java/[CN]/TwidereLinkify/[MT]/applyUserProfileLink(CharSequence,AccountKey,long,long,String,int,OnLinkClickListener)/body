@@ -1,0 +1,14 @@
+{
+  final SpannableString string=SpannableString.valueOf(text);
+  final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
+  for (  final URLSpan span : spans) {
+    string.removeSpan(span);
+  }
+  if (userId > 0) {
+    applyLink(String.valueOf(userId),0,string.length(),string,accountKey,extraId,LINK_TYPE_USER_ID,false,highlightOption,listener);
+  }
+ else   if (screenName != null) {
+    applyLink(screenName,0,string.length(),string,accountKey,extraId,LINK_TYPE_MENTION,false,highlightOption,listener);
+  }
+  return string;
+}

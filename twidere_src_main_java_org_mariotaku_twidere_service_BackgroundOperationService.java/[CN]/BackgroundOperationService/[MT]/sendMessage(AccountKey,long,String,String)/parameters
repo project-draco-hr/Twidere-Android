@@ -1,0 +1,4 @@
+AccountKey accountId
+long recipientId
+String text
+String imageUri

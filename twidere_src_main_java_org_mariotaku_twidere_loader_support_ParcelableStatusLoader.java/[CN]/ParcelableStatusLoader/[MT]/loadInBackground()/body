@@ -9,7 +9,7 @@
     }
   }
   try {
-    final ParcelableStatus status=findStatus(getContext(),mAccountId,accountHost,mStatusId);
+    final ParcelableStatus status=findStatus(getContext(),mAccountId,mStatusId);
     final ParcelableCredentials credentials=DataStoreUtils.getCredentials(getContext(),mAccountId);
     final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(status);
     final Bundle extras=response.getExtras();

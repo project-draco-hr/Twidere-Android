@@ -1,0 +1,4 @@
+{
+  mTwitterWrapper.getActivitiesAboutMeAsync(param);
+  return true;
+}

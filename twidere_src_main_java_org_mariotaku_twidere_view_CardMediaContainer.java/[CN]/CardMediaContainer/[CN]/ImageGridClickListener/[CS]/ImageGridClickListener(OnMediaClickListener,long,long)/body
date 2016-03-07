@@ -1,5 +1,0 @@
-{
-  mListenerRef=new WeakReference<>(listener);
-  mAccountId=accountId;
-  mExtraId=extraId;
-}

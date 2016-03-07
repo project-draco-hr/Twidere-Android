@@ -1,0 +1,12 @@
+{
+  if (accountKey == null) {
+    displayPreviewImage(view,url,loadingHandler);
+    return;
+  }
+  final DisplayImageOptions.Builder b=new DisplayImageOptions.Builder();
+  b.cloneFrom(mImageDisplayOptions);
+  MediaExtra extra=new MediaExtra();
+  extra.setAccountKey(accountKey);
+  b.extraForDownloader(extra);
+  mImageLoader.displayImage(url,view,b.build(),loadingHandler,loadingHandler);
+}

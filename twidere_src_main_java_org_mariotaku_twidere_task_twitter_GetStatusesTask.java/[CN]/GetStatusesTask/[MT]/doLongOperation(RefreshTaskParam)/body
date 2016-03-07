@@ -6,7 +6,7 @@
   int idx=0;
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   for (  final AccountKey accountKey : accountKeys) {
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey.getId(),accountKey.getHost(),true);
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();
@@ -31,7 +31,7 @@
       }
       final List<Status> statuses=getStatuses(twitter,paging);
       InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
-      storeStatus(accountKey.getId(),accountKey.getHost(),statuses,sinceId,maxId,true);
+      storeStatus(accountKey,statuses,sinceId,maxId,true);
       final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
       cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountKey,statuses));
       TaskStarter.execute(cacheTask);

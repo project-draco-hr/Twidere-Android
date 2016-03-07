@@ -9,6 +9,9 @@
     @Nullable @Override public long[] getMaxIds(){
       return getOldestStatusIds(getAccountKeys());
     }
+    @Override public boolean hasMaxIds(){
+      return true;
+    }
   }
 );
 }

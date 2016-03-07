@@ -1,5 +1,0 @@
-{
-  super(fragment.getContext(),accountId,query,0,null,fromUser);
-  mUserColorNameManager=fragment.mUserColorNameManager;
-  mFromCache=fromCache;
-}

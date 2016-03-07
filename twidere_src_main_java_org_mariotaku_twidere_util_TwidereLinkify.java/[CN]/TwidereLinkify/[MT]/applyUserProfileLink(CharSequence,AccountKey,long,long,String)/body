@@ -1,0 +1,3 @@
+{
+  return applyUserProfileLink(text,accountKey,extraId,userId,screenName,mHighlightOption);
+}

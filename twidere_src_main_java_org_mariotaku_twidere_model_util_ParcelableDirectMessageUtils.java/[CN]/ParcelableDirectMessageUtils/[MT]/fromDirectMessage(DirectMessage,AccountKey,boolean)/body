@@ -1,0 +1,3 @@
+{
+  return fromDirectMessage(message,accountKey.getId(),accountKey.getHost(),isOutgoing);
+}

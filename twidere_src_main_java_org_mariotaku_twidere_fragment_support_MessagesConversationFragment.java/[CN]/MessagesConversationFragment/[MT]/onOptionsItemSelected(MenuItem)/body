@@ -2,8 +2,9 @@
 switch (item.getItemId()) {
 case R.id.delete_all:
 {
-      if (mAccount == null || mRecipient == null)       return true;
-      mTwitterWrapper.destroyMessageConversationAsync(mAccount.account_id,mRecipient.id);
+      final ParcelableCredentials account=mAccount;
+      if (account == null || mRecipient == null)       return true;
+      mTwitterWrapper.destroyMessageConversationAsync(new AccountKey(account.account_id,account.account_host),mRecipient.id);
       return true;
     }
 }

@@ -83,9 +83,10 @@
         shortener.waitForService();
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
-        final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,account.account_id);
-        final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_id,true,true);
-        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_id,accountHost,true,true,TwitterUpload.class);
+        final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
+        final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,accountKey);
+        final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,accountKey,true,true);
+        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,accountKey,true,true,TwitterUpload.class);
         if (twitter == null || upload == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }
@@ -108,7 +109,7 @@
         StatusShortenResult shortenedResult=null;
         if (shouldShorten && shortener != null) {
           try {
-            shortenedResult=shortener.shorten(statusUpdate,account.account_id,statusText);
+            shortenedResult=shortener.shorten(statusUpdate,accountKey.getId(),statusText);
           }
  catch (          final Exception e) {
             throw new ShortenException(getString(R.string.error_message_tweet_shorten_failed),e);
@@ -186,7 +187,7 @@ catch (          final TwitterException e) {
               notReplyToOther=true;
             }
           }
-          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_id,accountHost,false);
+          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,accountKey,false);
           if (shouldShorten && shortener != null && shortenedResult != null) {
             shortener.callback(shortenedResult,result);
           }

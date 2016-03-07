@@ -1,7 +1,9 @@
 {
-  final long accountId=getAccountId();
+  final AccountKey accountId=getSelectedAccountKey();
   final Uri.Builder builder=Suggestions.Search.CONTENT_URI.buildUpon();
   builder.appendQueryParameter(QUERY_PARAM_QUERY,ParseUtils.parseString(mSearchQuery.getText()));
-  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,ParseUtils.parseString(accountId));
+  if (accountId != null) {
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountId.toString());
+  }
   return new CursorLoader(this,builder.build(),Suggestions.Search.COLUMNS,null,null,null);
 }

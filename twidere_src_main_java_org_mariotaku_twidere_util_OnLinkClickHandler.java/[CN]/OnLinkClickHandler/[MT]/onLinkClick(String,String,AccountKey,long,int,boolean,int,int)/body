@@ -1,0 +1,53 @@
+{
+  if (manager != null && manager.isActive())   return;
+  if (!isPrivateData()) {
+    final LinkEvent event=LinkEvent.create(context,link,type);
+    HotMobiLogger.getInstance(context).log(accountKey,event);
+  }
+switch (type) {
+case TwidereLinkify.LINK_TYPE_MENTION:
+{
+      IntentUtils.openUserProfile(context,accountKey,-1,link,null,true,UserFragment.Referral.USER_MENTION);
+      break;
+    }
+case TwidereLinkify.LINK_TYPE_HASHTAG:
+{
+    Utils.openTweetSearch(context,accountKey,"#" + link);
+    break;
+  }
+case TwidereLinkify.LINK_TYPE_ENTITY_URL:
+{
+  if (PreviewMediaExtractor.isSupported(link)) {
+    openMedia(accountKey,extraId,sensitive,link,start,end);
+  }
+ else {
+    openLink(link);
+  }
+  break;
+}
+case TwidereLinkify.LINK_TYPE_LIST:
+{
+final String[] mentionList=link.split("/");
+if (mentionList.length != 2) {
+  break;
+}
+Utils.openUserListDetails(context,accountKey,-1,-1,mentionList[0],mentionList[1]);
+break;
+}
+case TwidereLinkify.LINK_TYPE_CASHTAG:
+{
+Utils.openTweetSearch(context,accountKey,link);
+break;
+}
+case TwidereLinkify.LINK_TYPE_USER_ID:
+{
+IntentUtils.openUserProfile(context,accountKey,NumberUtils.toLong(link,-1),null,null,true,UserFragment.Referral.USER_MENTION);
+break;
+}
+case TwidereLinkify.LINK_TYPE_STATUS:
+{
+Utils.openStatus(context,accountKey,NumberUtils.toLong(link,-1));
+break;
+}
+}
+}

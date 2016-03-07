@@ -3,6 +3,7 @@
   event.markStart(context);
   event.setId(status.id);
   event.setAccountId(status.account_id);
+  event.setAccountHost(status.account_host);
   event.setUserId(status.user_id);
   event.setTimelineType(timelineType);
   event.setTweetType(TwidereDataUtils.getTweetType(status));

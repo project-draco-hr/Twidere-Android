@@ -1,5 +1,0 @@
-MessagesConversationFragment fragment
-long accountId
-String query
-boolean fromCache
-boolean fromUser

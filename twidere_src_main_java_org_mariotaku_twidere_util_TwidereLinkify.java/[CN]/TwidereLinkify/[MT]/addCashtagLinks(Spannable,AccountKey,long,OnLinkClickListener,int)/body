@@ -1,0 +1,10 @@
+{
+  boolean hasMatches=false;
+  for (  final Entity entity : mExtractor.extractCashtagsWithIndices(spannable.toString())) {
+    final int start=entity.getStart();
+    final int end=entity.getEnd();
+    applyLink(entity.getValue(),start,end,spannable,accountKey,extraId,LINK_TYPE_CASHTAG,false,highlightOption,listener);
+    hasMatches=true;
+  }
+  return hasMatches;
+}

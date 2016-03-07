@@ -1,6 +1,0 @@
-Context context
-long accountId
-String query
-int page
-List<ParcelableUser> data
-boolean fromUser

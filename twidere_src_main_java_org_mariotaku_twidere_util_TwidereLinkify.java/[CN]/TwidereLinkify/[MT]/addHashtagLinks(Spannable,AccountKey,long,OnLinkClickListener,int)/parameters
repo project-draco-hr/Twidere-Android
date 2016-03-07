@@ -1,0 +1,5 @@
+Spannable spannable
+AccountKey accountId
+long extraId
+OnLinkClickListener listener
+int highlightOption

@@ -1,0 +1,14 @@
+{
+  final ContentResolver cr=context.getContentResolver();
+  final Expression where=Expression.and(getAccountCompareExpression(),Expression.equalsArgs(ConversationEntries.CONVERSATION_ID));
+  final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost(),String.valueOf(conversationId)};
+  final Cursor c=cr.query(ConversationEntries.CONTENT_URI,null,where.getSQL(),whereArgs,null);
+  if (c == null)   return null;
+  try {
+    if (c.moveToFirst())     return ParcelableUserUtils.fromDirectMessageConversationEntry(c);
+  }
+  finally {
+    c.close();
+  }
+  return null;
+}
