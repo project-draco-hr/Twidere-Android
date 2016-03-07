@@ -1,0 +1,8 @@
+{
+  super.deliverResult(data);
+  if (data.hasData()) {
+    final UpdateAccountInfoTask task=new UpdateAccountInfoTask(getContext());
+    task.setParams(Pair.create(mAccountKey,data.getData()));
+    TaskStarter.execute(task);
+  }
+}

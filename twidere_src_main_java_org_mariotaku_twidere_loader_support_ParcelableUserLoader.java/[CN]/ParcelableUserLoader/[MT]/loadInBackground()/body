@@ -47,17 +47,6 @@
     final long userId=twitterUser.getId();
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);
     final ParcelableUser user=ParcelableUserUtils.fromUser(twitterUser,accountKey);
-    if (Utils.isMyAccount(context,user.key)) {
-      final ContentValues accountValues=new ContentValues();
-      accountValues.put(Accounts.NAME,user.name);
-      accountValues.put(Accounts.SCREEN_NAME,user.screen_name);
-      accountValues.put(Accounts.PROFILE_IMAGE_URL,user.profile_image_url);
-      accountValues.put(Accounts.PROFILE_BANNER_URL,user.profile_banner_url);
-      accountValues.put(Accounts.ACCOUNT_USER,JsonSerializer.serialize(user,ParcelableUser.class));
-      accountValues.put(Accounts.ACCOUNT_KEY,String.valueOf(user.key));
-      final String accountWhere=Expression.equals(Accounts.ACCOUNT_KEY,userId).getSQL();
-      resolver.update(Accounts.CONTENT_URI,accountValues,accountWhere,null);
-    }
     user.account_color=accountColor;
     return SingleResponse.getInstance(user);
   }
