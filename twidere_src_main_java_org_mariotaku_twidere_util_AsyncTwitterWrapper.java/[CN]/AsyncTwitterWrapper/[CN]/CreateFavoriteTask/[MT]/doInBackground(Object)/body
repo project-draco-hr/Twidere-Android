@@ -9,8 +9,8 @@
     values.put(Statuses.REPLY_COUNT,status.reply_count);
     values.put(Statuses.RETWEET_COUNT,status.retweet_count);
     values.put(Statuses.FAVORITE_COUNT,status.favorite_count);
-    final Expression where=Expression.and(Utils.getAccountCompareExpression(),Expression.or(Expression.equals(Statuses.STATUS_ID,mStatusId),Expression.equals(Statuses.RETWEET_ID,mStatusId)));
-    final String[] whereArgs={String.valueOf(mAccountKey.getId()),mAccountKey.getHost(),String.valueOf(mStatusId),String.valueOf(mStatusId)};
+    final Expression where=Expression.and(Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY),Expression.or(Expression.equalsArgs(Statuses.STATUS_ID),Expression.equalsArgs(Statuses.RETWEET_ID)));
+    final String[] whereArgs={mAccountKey.toString(),String.valueOf(mStatusId),String.valueOf(mStatusId)};
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       mResolver.update(uri,values,where.getSQL(),whereArgs);
     }

@@ -1,4 +1,13 @@
 {
   if (context == null || accountKey == null)   return false;
-  return isMyAccount(context,accountKey.getId(),accountKey.getHost());
+  final String[] projection=new String[]{SQLFunctions.COUNT()};
+  final Cursor cur=DataStoreUtils.getAccountCursor(context,projection,accountKey);
+  if (cur == null)   return false;
+  try {
+    if (cur.moveToFirst())     return cur.getLong(0) > 0;
+  }
+  finally {
+    cur.close();
+  }
+  return false;
 }

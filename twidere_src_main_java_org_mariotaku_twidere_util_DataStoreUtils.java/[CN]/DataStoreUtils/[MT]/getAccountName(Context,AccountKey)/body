@@ -3,11 +3,10 @@
   final String cached=sAccountNames.get(accountKey);
   if (!isEmpty(cached))   return cached;
   final String[] projection={Accounts.SCREEN_NAME};
-  String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost()};
-  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,projection,Utils.getAccountCompareExpression().getSQL(),whereArgs,null);
+  final Cursor cur=getAccountCursor(context,projection,accountKey);
   if (cur == null)   return null;
   try {
-    if (cur.getCount() > 0 && cur.moveToFirst()) {
+    if (cur.moveToFirst()) {
       final String name=cur.getString(0);
       sAccountNames.put(accountKey,name);
       return name;

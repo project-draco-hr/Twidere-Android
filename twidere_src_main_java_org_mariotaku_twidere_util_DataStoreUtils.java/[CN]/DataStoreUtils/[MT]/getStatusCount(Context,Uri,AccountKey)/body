@@ -1,5 +1,5 @@
 {
-  final String where=Utils.getAccountCompareExpression().getSQL();
-  final String[] whereArgs={String.valueOf(accountId.getId()),accountId.getHost()};
+  final String where=Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY).getSQL();
+  final String[] whereArgs={accountId.toString()};
   return queryCount(context,uri,where,whereArgs);
 }

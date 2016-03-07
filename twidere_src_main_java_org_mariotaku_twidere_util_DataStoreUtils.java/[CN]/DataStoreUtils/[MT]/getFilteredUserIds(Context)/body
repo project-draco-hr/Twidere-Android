@@ -1,7 +1,8 @@
 {
   if (context == null)   return new long[0];
   final ContentResolver resolver=context.getContentResolver();
-  final Cursor cur=resolver.query(Filters.Users.CONTENT_URI,new String[]{Filters.Users.USER_ID},null,null,null);
+  final String[] projection={Filters.Users.USER_ID};
+  final Cursor cur=resolver.query(Filters.Users.CONTENT_URI,projection,null,null,null);
   if (cur == null)   return new long[0];
   try {
     final long[] ids=new long[cur.getCount()];

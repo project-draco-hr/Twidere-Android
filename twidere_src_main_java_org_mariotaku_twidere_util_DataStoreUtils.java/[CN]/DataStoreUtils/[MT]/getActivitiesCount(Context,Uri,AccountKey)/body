@@ -1,4 +1,4 @@
 {
-  final String where=Utils.getAccountCompareExpression().getSQL();
-  return queryCount(context,uri,where,new String[]{String.valueOf(accountKey.getId()),accountKey.getHost()});
+  final String where=Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY).getSQL();
+  return queryCount(context,uri,where,new String[]{accountKey.toString()});
 }

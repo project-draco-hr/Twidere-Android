@@ -1,4 +1,4 @@
 {
-  mBus.register(this);
+  mBus.unregister(this);
   super.onStop();
 }

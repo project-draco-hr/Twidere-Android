@@ -3,7 +3,7 @@
   this.mOmitIntentExtra=omitIntentExtra;
   this.mLoadFromCache=loadFromCache;
   this.mExtras=extras;
-  this.mAccountId=accountId;
+  this.mAccountKey=accountKey;
   this.mUserId=userId;
   this.mScreenName=screenName;
 }

@@ -1,4 +1,5 @@
 {
+  if (mAccountKey == null)   return SingleResponse.getInstance(new TwitterException("No Account"));
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getActivity(),mAccountKey,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {

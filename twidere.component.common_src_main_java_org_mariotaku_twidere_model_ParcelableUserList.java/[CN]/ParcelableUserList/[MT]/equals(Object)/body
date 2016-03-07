@@ -1,9 +1,7 @@
 {
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (!(obj instanceof ParcelableUserList))   return false;
-  final ParcelableUserList other=(ParcelableUserList)obj;
-  if (account_id != other.account_id)   return false;
-  if (id != other.id)   return false;
-  return true;
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ParcelableUserList that=(ParcelableUserList)o;
+  if (id != that.id)   return false;
+  return account_key.equals(that.account_key);
 }

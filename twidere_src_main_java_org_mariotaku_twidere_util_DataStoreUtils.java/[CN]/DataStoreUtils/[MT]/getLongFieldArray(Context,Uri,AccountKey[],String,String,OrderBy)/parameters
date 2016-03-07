@@ -1,6 +1,6 @@
 Context context
 Uri uri
-long[] keys
+AccountKey[] keys
 String keyField
 String valueField
 OrderBy sortExpression

@@ -6,7 +6,7 @@ case REQUEST_SELECT_USER:
       final ParcelableUserList userList=mUserList;
       if (resultCode != Activity.RESULT_OK || !data.hasExtra(EXTRA_USER) || twitter == null || userList == null)       return;
       final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
-      twitter.addUserListMembersAsync(new AccountKey(userList.account_id,userList.account_host),userList.id,user);
+      twitter.addUserListMembersAsync(userList.account_key,userList.id,user);
       return;
     }
 case REQUEST_SELECT_ACCOUNT:
