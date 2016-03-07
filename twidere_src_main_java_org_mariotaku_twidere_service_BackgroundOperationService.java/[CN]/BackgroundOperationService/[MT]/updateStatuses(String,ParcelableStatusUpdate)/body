@@ -37,11 +37,11 @@
           exception=response.getException();
         }
       }
- else       if (data.account_id > 0) {
-        failedAccountIds.remove(new AccountKey(data.account_id,data.account_host));
+ else       if (data.account_key != null) {
+        failedAccountIds.remove(data.account_key);
         final TweetEvent event=TweetEvent.create(this,data,TimelineType.OTHER);
         event.setAction(TweetEvent.Action.TWEET);
-        HotMobiLogger.getInstance(this).log(new AccountKey(data.account_id,data.account_host),event);
+        HotMobiLogger.getInstance(this).log(data.account_key,event);
       }
     }
     if (result.isEmpty()) {

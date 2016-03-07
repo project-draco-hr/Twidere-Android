@@ -1,4 +1,0 @@
-DirectMessage message
-long accountId
-String accountHost
-boolean isOutgoing

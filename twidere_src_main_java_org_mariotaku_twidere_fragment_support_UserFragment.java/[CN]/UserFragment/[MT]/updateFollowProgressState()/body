@@ -8,7 +8,7 @@
   }
   final LoaderManager lm=getLoaderManager();
   final boolean loadingRelationship=lm.getLoader(LOADER_ID_FRIENDSHIP) != null;
-  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
+  final AccountKey accountKey=user.account_key;
   final boolean creatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
   final boolean destroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
   final boolean creatingBlock=twitter.isCreatingFriendship(accountKey,user.id);

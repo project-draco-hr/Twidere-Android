@@ -2,10 +2,7 @@
   final UrlEntity[] urlEntities=user.getUrlEntities();
   final ParcelableUser obj=new ParcelableUser();
   obj.position=position;
-  if (accountKey != null) {
-    obj.account_key=accountKey.getId();
-    obj.account_host=accountKey.getHost();
-  }
+  obj.account_key=accountKey;
   obj.id=user.getId();
   obj.created_at=user.getCreatedAt().getTime();
   obj.is_protected=user.isProtected();

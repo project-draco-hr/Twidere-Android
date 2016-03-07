@@ -3,13 +3,12 @@
   final ParcelableUser user=getUser();
   final UserRelationship userRelationship=mRelationship;
   if (user == null || twitter == null)   return false;
-  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
 switch (item.getItemId()) {
 case R.id.block:
 {
       if (userRelationship == null)       return true;
       if (userRelationship.relationship.isSourceBlockingTarget()) {
-        twitter.destroyBlockAsync(accountKey,user.id);
+        twitter.destroyBlockAsync(user.account_key,user.id);
       }
  else {
         CreateUserBlockDialogFragment.show(getFragmentManager(),user);
@@ -40,7 +39,7 @@ case R.id.mute_user:
 {
 if (userRelationship == null) return true;
 if (userRelationship.relationship.isSourceMutingTarget()) {
-  twitter.destroyMuteAsync(accountKey,user.id);
+  twitter.destroyMuteAsync(user.account_key,user.id);
 }
  else {
   CreateUserMuteDialogFragment.show(getFragmentManager(),user);
@@ -61,10 +60,10 @@ case R.id.send_direct_message:
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
-builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(accountKey));
+builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_key));
 builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.id));
 final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-intent.putExtra(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getActivity(),accountKey));
+intent.putExtra(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getActivity(),user.account_key));
 intent.putExtra(EXTRA_USER,user);
 startActivity(intent);
 break;
@@ -93,8 +92,8 @@ case R.id.add_to_list:
 {
 final Intent intent=new Intent(INTENT_ACTION_SELECT_USER_LIST);
 intent.setClass(getActivity(),UserListSelectorActivity.class);
-intent.putExtra(EXTRA_ACCOUNT_ID,accountKey);
-intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(getActivity(),accountKey));
+intent.putExtra(EXTRA_ACCOUNT_KEY,user.account_key);
+intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(getActivity(),user.account_key));
 startActivityForResult(intent,REQUEST_ADD_TO_LIST);
 break;
 }
@@ -110,14 +109,14 @@ case R.id.follow:
 {
 if (userRelationship == null) return true;
 final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
-final boolean isCreatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
-final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
+final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_key,user.id);
+final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_key,user.id);
 if (!isCreatingFriendship && !isDestroyingFriendship) {
 if (isFollowing) {
 DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
 }
  else {
-twitter.createFriendshipAsync(accountKey,user.id);
+twitter.createFriendshipAsync(user.account_key,user.id);
 }
 }
 return true;
@@ -127,38 +126,38 @@ case R.id.enable_retweets:
 final boolean newState=!item.isChecked();
 final FriendshipUpdate update=new FriendshipUpdate();
 update.retweets(newState);
-twitter.updateFriendship(accountKey,user.id,update);
+twitter.updateFriendship(user.account_key,user.id,update);
 item.setChecked(newState);
 return true;
 }
 case R.id.muted_users:
 {
-IntentUtils.openMutesUsers(getActivity(),accountKey);
+IntentUtils.openMutesUsers(getActivity(),user.account_key);
 return true;
 }
 case R.id.blocked_users:
 {
-IntentUtils.openUserBlocks(getActivity(),accountKey);
+IntentUtils.openUserBlocks(getActivity(),user.account_key);
 return true;
 }
 case R.id.incoming_friendships:
 {
-IntentUtils.openIncomingFriendships(getActivity(),accountKey);
+IntentUtils.openIncomingFriendships(getActivity(),user.account_key);
 return true;
 }
 case R.id.user_mentions:
 {
-IntentUtils.openUserMentions(getActivity(),accountKey,user.screen_name);
+IntentUtils.openUserMentions(getActivity(),user.account_key,user.screen_name);
 return true;
 }
 case R.id.saved_searches:
 {
-IntentUtils.openSavedSearches(getActivity(),accountKey);
+IntentUtils.openSavedSearches(getActivity(),user.account_key);
 return true;
 }
 case R.id.scheduled_statuses:
 {
-IntentUtils.openScheduledStatuses(getActivity(),accountKey);
+IntentUtils.openScheduledStatuses(getActivity(),user.account_key);
 return true;
 }
 case R.id.open_in_browser:

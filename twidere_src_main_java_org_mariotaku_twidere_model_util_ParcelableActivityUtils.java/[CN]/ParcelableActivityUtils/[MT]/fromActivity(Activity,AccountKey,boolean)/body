@@ -1,7 +1,6 @@
 {
   ParcelableActivity result=new ParcelableActivity();
-  result.account_key=accountKey.getId();
-  result.account_host=accountKey.getHost();
+  result.account_key=accountKey;
   result.timestamp=activity.getCreatedAt().getTime();
   result.action=activity.getAction();
   result.max_position=activity.getMaxPosition();

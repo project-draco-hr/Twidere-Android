@@ -5,14 +5,14 @@
     resolver.delete(uri,where,null);
   }
   final User sender=directMessage.getSender(), recipient=directMessage.getRecipient();
-  if (sender.getId() == account.account_key) {
-    final ContentValues values=ContentValuesCreator.createDirectMessage(directMessage,account.account_key,account.account_host,true);
+  if (sender.getId() == account.account_key.getId()) {
+    final ContentValues values=ContentValuesCreator.createDirectMessage(directMessage,account.account_key,true);
     if (values != null) {
       resolver.insert(DirectMessages.Outbox.CONTENT_URI,values);
     }
   }
-  if (recipient.getId() == account.account_key) {
-    final ContentValues values=ContentValuesCreator.createDirectMessage(directMessage,account.account_key,account.account_host,false);
+  if (recipient.getId() == account.account_key.getId()) {
+    final ContentValues values=ContentValuesCreator.createDirectMessage(directMessage,account.account_key,false);
     final Uri.Builder builder=DirectMessages.Inbox.CONTENT_URI.buildUpon();
     builder.appendQueryParameter(QUERY_PARAM_NOTIFY,"true");
     if (values != null) {

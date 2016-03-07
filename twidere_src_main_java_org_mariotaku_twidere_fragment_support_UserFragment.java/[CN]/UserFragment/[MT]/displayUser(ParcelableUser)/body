@@ -16,8 +16,7 @@
     mProfileNameContainer.drawEnd(user.account_color);
   }
  else {
-    final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
-    mProfileNameContainer.drawEnd(DataStoreUtils.getAccountColor(activity,accountKey));
+    mProfileNameContainer.drawEnd(DataStoreUtils.getAccountColor(activity,user.account_key));
   }
   final String nick=mUserColorNameManager.getUserNickname(user.id,true);
   mNameView.setText(mBidiFormatter.unicodeWrap(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick)));
@@ -33,8 +32,7 @@
   mScreenNameView.setText(String.format("@%s",user.screen_name));
   mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
-  mDescriptionView.setText(linkify.applyAllLinks(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain,accountKey,false,false));
+  mDescriptionView.setText(linkify.applyAllLinks(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain,user.account_key,false,false));
   mLocationContainer.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(TextUtils.isEmpty(user.url) && TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);

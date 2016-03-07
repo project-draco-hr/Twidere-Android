@@ -4,7 +4,7 @@
   final UserRelationship userRelationship=mRelationship;
   if (twitter == null || user == null || userRelationship == null)   return;
   final Relationship relationship=userRelationship.relationship;
-  final boolean isMyself=user.account_key == user.id;
+  final boolean isMyself=user.account_key.getId() == user.id;
   final MenuItem mentionItem=menu.findItem(R.id.mention);
   if (mentionItem != null) {
     final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);

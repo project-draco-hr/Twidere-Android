@@ -1,5 +1,5 @@
 {
-  final long accountId=cursor.getLong(DirectMessages.ConversationEntries.IDX_ACCOUNT_KEY);
+  final AccountKey accountId=AccountKey.valueOf(cursor.getString(DirectMessages.ConversationEntries.IDX_ACCOUNT_KEY));
   final long id=cursor.getLong(DirectMessages.ConversationEntries.IDX_CONVERSATION_ID);
   final String name=cursor.getString(DirectMessages.ConversationEntries.IDX_NAME);
   final String screenName=cursor.getString(DirectMessages.ConversationEntries.IDX_SCREEN_NAME);

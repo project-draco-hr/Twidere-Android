@@ -7,7 +7,9 @@
     ParcelableAccountCursorIndices i=new ParcelableAccountCursorIndices(cur);
     cur.moveToFirst();
     while (!cur.isAfterLast()) {
-      if (TextUtils.equals(cur.getString(i.account_host),accountHost)) {
+      final AccountKey accountKey=AccountKey.valueOf(cur.getString(i.account_key));
+      if (accountKey == null)       continue;
+      if (accountKey.isAccount(accountId,accountHost)) {
         return i.newObject(cur);
       }
       cur.moveToNext();

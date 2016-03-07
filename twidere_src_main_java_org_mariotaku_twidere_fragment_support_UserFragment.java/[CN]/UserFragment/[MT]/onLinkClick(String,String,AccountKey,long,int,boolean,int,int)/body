@@ -4,12 +4,12 @@
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
-      IntentUtils.openUserProfile(getActivity(),new AccountKey(user.account_key,user.account_host),-1,link,null,true,Referral.USER_MENTION);
+      IntentUtils.openUserProfile(getActivity(),user.account_key,-1,link,null,true,Referral.USER_MENTION);
       break;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
 {
-    IntentUtils.openTweetSearch(getActivity(),new AccountKey(user.account_key,user.account_host),"#" + link);
+    IntentUtils.openTweetSearch(getActivity(),user.account_key,"#" + link);
     break;
   }
 case TwidereLinkify.LINK_TYPE_ENTITY_URL:

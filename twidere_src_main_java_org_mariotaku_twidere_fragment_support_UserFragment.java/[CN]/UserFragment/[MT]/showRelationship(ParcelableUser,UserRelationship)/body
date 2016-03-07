@@ -3,7 +3,7 @@
     mRelationship=null;
     return;
   }
-  if (user.account_key == user.id) {
+  if (user.account_key.isAccount(user.id,user.user_host)) {
     mFollowButton.setText(R.string.edit);
     mFollowButton.setVisibility(View.VISIBLE);
     mRelationship=null;

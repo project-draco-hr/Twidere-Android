@@ -1,5 +1,5 @@
 {
-  account_id=accountId;
+  account_key=accountId;
   user_id=userId;
   following=relationship.isSourceFollowingTarget();
   following=relationship.isSourceFollowedByTarget();
