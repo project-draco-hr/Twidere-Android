@@ -1,6 +1,6 @@
 {
   final Context context=getContext();
-  final ParcelableCredentials credentials=DataStoreUtils.getCredentials(context,getAccountKey());
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,getAccountKey());
   if (credentials == null)   throw new TwitterException("Null credentials");
   if (Utils.isOfficialCredentials(context,credentials)) {
     if (mUserId != -1)     return twitter.getMediaTimeline(mUserId,paging);

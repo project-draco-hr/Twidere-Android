@@ -1,6 +1,6 @@
 {
-  if (context == null)   return null;
-  final ParcelableCredentials credentials=DataStoreUtils.getCredentials(context,accountKey.getId(),accountKey.getHost());
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,accountKey);
+  if (credentials == null)   return null;
   final HashMap<String,String> extraParams=new HashMap<>();
   extraParams.put("include_entities",String.valueOf(includeEntities));
   extraParams.put("include_retweets",String.valueOf(includeRetweets));

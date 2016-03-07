@@ -3,7 +3,7 @@
   final String table=getTableNameByUri(uri);
   final String sortOrder=Statuses.DEFAULT_SORT_ORDER;
   final AccountKey[] accountKeys=getAccountKeys();
-  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_KEY),new RawItemArray(accountKeys));
+  final Expression accountWhere=Expression.in(new Column(Statuses.ACCOUNT_KEY),new ArgsArray(accountKeys.length));
   final Expression filterWhere=getFiltersWhere(table), where;
   if (filterWhere != null) {
     where=Expression.and(accountWhere,filterWhere);
@@ -15,5 +15,6 @@
   final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Statuses.COLUMNS;
-  return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,selection,null,sortOrder,fromUser);
+  final String[] selectionArgs=TwidereArrayUtils.toStringArray(accountKeys,0,accountKeys.length);
+  return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,selection,selectionArgs,sortOrder,fromUser);
 }

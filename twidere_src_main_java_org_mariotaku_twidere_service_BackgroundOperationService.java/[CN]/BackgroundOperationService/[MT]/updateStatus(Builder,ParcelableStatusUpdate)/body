@@ -83,7 +83,7 @@
         shortener.waitForService();
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
-        final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,account.account_key);
+        final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(this,account.account_key);
         final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_key,true,true);
         final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_key,true,true,TwitterUpload.class);
         if (twitter == null || upload == null || credentials == null) {

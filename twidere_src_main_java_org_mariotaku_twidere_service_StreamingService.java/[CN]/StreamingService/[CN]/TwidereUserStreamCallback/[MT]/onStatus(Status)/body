@@ -4,7 +4,7 @@
     statusStreamStarted=true;
     values.put(Statuses.IS_GAP,true);
   }
-  final String where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();
+  final String where=Expression.and(Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();
   final String[] whereArgs={account.account_key.toString(),String.valueOf(status.getId())};
   resolver.delete(Statuses.CONTENT_URI,where,whereArgs);
   resolver.delete(Mentions.CONTENT_URI,where,whereArgs);

@@ -3,8 +3,8 @@
   final Integer cached=sAccountColors.get(accountKey);
   if (cached != null)   return cached;
   final String[] projection={Accounts.COLOR};
-  String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost()};
-  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,projection,Utils.getAccountCompareExpression().getSQL(),whereArgs,null);
+  String[] whereArgs={accountKey.toString()};
+  final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,projection,Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY).getSQL(),whereArgs,null);
   if (cur == null)   return Color.TRANSPARENT;
   try {
     if (cur.getCount() > 0 && cur.moveToFirst()) {

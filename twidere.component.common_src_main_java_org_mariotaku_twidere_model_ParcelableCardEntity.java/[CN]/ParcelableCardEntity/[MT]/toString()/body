@@ -1,3 +1,3 @@
 {
-  return "ParcelableCardEntity{" + "account_id=" + account_id + ", name='"+ name+ '\''+ ", url='"+ url+ '\''+ ", users="+ Arrays.toString(users)+ ", values="+ values+ '}';
+  return "ParcelableCardEntity{" + "account_key=" + account_key + ", name='"+ name+ '\''+ ", url='"+ url+ '\''+ ", users="+ Arrays.toString(users)+ ", values="+ values+ '}';
 }

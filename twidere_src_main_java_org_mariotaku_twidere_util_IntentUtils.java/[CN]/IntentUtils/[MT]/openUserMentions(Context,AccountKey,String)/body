@@ -3,7 +3,7 @@
   builder.scheme(TwidereConstants.SCHEME_TWIDERE);
   builder.authority(TwidereConstants.AUTHORITY_USER_MENTIONS);
   if (accountKey != null) {
-    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_ID,accountKey.toString());
+    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
   }
   if (screenName != null) {
     builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_SCREEN_NAME,screenName);

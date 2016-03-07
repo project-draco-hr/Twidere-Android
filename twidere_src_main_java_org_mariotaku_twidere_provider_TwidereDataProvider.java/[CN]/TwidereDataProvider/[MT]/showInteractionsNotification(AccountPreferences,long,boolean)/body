@@ -2,8 +2,8 @@
   final Context context=getContext();
   if (context == null)   return;
   final AccountKey accountKey=pref.getAccountKey();
-  final String where=Expression.and(Utils.getAccountCompareExpression(),Expression.greaterThan(Activities.TIMESTAMP,position)).getSQL();
-  final String[] whereArgs={String.valueOf(accountKey.getId()),accountKey.getHost()};
+  final String where=Expression.and(Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY),Expression.greaterThanArgs(Activities.TIMESTAMP)).getSQL();
+  final String[] whereArgs={accountKey.toString(),String.valueOf(position)};
   Cursor c=query(Activities.AboutMe.CONTENT_URI,Activities.COLUMNS,where,whereArgs,new OrderBy(Activities.TIMESTAMP,false).getSQL());
   if (c == null)   return;
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);

@@ -1,0 +1,14 @@
+{
+  final Cursor c=DataStoreUtils.getAccountCursor(context,Accounts.COLUMNS,accountKey);
+  if (c == null)   return null;
+  try {
+    final ParcelableCredentialsCursorIndices i=new ParcelableCredentialsCursorIndices(c);
+    if (c.moveToFirst()) {
+      return i.newObject(c);
+    }
+  }
+  finally {
+    c.close();
+  }
+  return null;
+}

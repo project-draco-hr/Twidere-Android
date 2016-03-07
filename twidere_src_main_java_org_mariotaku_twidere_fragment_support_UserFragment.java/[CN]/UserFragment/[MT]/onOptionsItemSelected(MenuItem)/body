@@ -63,7 +63,7 @@ builder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
 builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_key));
 builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.id));
 final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
-intent.putExtra(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getActivity(),user.account_key));
+intent.putExtra(EXTRA_ACCOUNT,ParcelableCredentialsUtils.getCredentials(getActivity(),user.account_key));
 intent.putExtra(EXTRA_USER,user);
 startActivity(intent);
 break;

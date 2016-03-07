@@ -3,7 +3,7 @@
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_INTERACTIONS);
   if (accountKey != null) {
-    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,accountKey.toString());
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
   }
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   context.startActivity(intent);

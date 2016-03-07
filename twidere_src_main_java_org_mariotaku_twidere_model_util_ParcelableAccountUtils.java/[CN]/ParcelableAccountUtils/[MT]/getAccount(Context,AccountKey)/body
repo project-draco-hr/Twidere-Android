@@ -1,3 +1,14 @@
 {
-  return getAccount(context,accountKey.getId(),accountKey.getHost());
+  final Cursor c=DataStoreUtils.getAccountCursor(context,Accounts.COLUMNS_NO_CREDENTIALS,accountKey);
+  if (c == null)   return null;
+  try {
+    final ParcelableAccountCursorIndices i=new ParcelableAccountCursorIndices(c);
+    if (c.moveToFirst()) {
+      return i.newObject(c);
+    }
+  }
+  finally {
+    c.close();
+  }
+  return null;
 }

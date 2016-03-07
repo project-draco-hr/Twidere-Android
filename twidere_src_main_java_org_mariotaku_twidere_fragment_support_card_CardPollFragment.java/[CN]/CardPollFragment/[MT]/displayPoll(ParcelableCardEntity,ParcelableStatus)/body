@@ -36,11 +36,11 @@
               handler.displayAndReloadPoll(result,status);
             }
             @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap){
-              final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),new AccountKey(card.account_id,card.account_host),true,true,TwitterCaps.class);
+              final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),card.account_key,true,true,TwitterCaps.class);
               if (caps == null)               return null;
               try {
                 final CardEntity cardEntity=caps.sendPassThrough(cardDataMap).getCard();
-                return ParcelableCardEntityUtils.fromCardEntity(cardEntity,new AccountKey(card.account_id,card.account_host));
+                return ParcelableCardEntityUtils.fromCardEntity(cardEntity,card.account_key);
               }
  catch (              TwitterException e) {
                 Log.w(LOGTAG,e);

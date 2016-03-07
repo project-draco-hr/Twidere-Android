@@ -3,7 +3,7 @@
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_USER_LISTS);
   if (accountKey != null) {
-    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,accountKey.toString());
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
   }
   if (user_id > 0) {
     builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user_id));

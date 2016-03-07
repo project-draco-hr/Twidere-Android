@@ -4,13 +4,13 @@
     if (cache != null) {
       final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(cache);
       final Bundle extras=response.getExtras();
-      extras.putParcelable(EXTRA_ACCOUNT,DataStoreUtils.getCredentials(getContext(),mAccountId));
+      extras.putParcelable(EXTRA_ACCOUNT,ParcelableCredentialsUtils.getCredentials(getContext(),mAccountId));
       return response;
     }
   }
   try {
     final ParcelableStatus status=findStatus(getContext(),mAccountId,mStatusId);
-    final ParcelableCredentials credentials=DataStoreUtils.getCredentials(getContext(),mAccountId);
+    final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(getContext(),mAccountId);
     final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(status);
     final Bundle extras=response.getExtras();
     extras.putParcelable(EXTRA_ACCOUNT,credentials);

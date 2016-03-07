@@ -6,12 +6,13 @@
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
 {
-      final String[] whereArgs={String.valueOf(accountId.getId()),accountId.getHost()};
-      resolver.delete(Accounts.CONTENT_URI,Utils.getAccountCompareExpression().getSQL(),whereArgs);
-      resolver.delete(Statuses.CONTENT_URI,Utils.getAccountCompareExpression().getSQL(),whereArgs);
-      resolver.delete(Mentions.CONTENT_URI,Utils.getAccountCompareExpression().getSQL(),whereArgs);
-      resolver.delete(Inbox.CONTENT_URI,Utils.getAccountCompareExpression().getSQL(),whereArgs);
-      resolver.delete(Outbox.CONTENT_URI,Utils.getAccountCompareExpression().getSQL(),whereArgs);
+      final String where=Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY).getSQL();
+      final String[] whereArgs={accountId.toString()};
+      resolver.delete(Accounts.CONTENT_URI,where,whereArgs);
+      resolver.delete(Statuses.CONTENT_URI,where,whereArgs);
+      resolver.delete(Mentions.CONTENT_URI,where,whereArgs);
+      resolver.delete(Inbox.CONTENT_URI,where,whereArgs);
+      resolver.delete(Outbox.CONTENT_URI,where,whereArgs);
       break;
     }
 }

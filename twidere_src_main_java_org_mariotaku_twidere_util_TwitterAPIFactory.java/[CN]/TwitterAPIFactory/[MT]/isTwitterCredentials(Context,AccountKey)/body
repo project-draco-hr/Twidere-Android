@@ -1,3 +1,3 @@
 {
-  return isTwitterCredentials(DataStoreUtils.getCredentials(context,accountId));
+  return isTwitterCredentials(ParcelableCredentialsUtils.getCredentials(context,accountId));
 }
