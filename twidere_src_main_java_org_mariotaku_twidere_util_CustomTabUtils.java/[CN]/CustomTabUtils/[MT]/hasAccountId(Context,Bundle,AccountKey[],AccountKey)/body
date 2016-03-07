@@ -1,0 +1,10 @@
+{
+  final AccountKey[] accountKeys=Utils.getAccountKeys(context,args);
+  if (accountKeys != null) {
+    return ArrayUtils.contains(accountKeys,accountKey);
+  }
+  if (activatedAccountKeys != null) {
+    return ArrayUtils.contains(activatedAccountKeys,accountKey);
+  }
+  return false;
+}

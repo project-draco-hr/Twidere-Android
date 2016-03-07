@@ -1,0 +1,6 @@
+{
+  final HashMap<String,String> extraParams=new HashMap<>();
+  extraParams.put("include_entities",String.valueOf(includeEntities));
+  extraParams.put("include_retweets",String.valueOf(includeRetweets));
+  return getInstance(context,credentials,extraParams,cls);
+}

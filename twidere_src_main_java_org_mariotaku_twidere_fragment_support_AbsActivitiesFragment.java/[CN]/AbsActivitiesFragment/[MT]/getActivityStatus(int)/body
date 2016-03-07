@@ -2,5 +2,5 @@
   final AbsActivitiesAdapter<Data> adapter=getAdapter();
   final ParcelableActivity activity=adapter.getActivity(position);
   if (activity == null)   return null;
-  return ParcelableActivity.getActivityStatus(activity);
+  return ParcelableActivityUtils.getActivityStatus(activity);
 }

@@ -1,6 +1,6 @@
 {
   final ContentValues values=new ContentValues();
-  final ParcelableStatus status=ParcelableActivity.getActivityStatus(activity);
+  final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
   if (status != null) {
     createStatusActivity(status,values);
   }

@@ -1,0 +1,4 @@
+{
+  super(context,ParcelableStatusCursorIndices.class,uri,projection,selection,selectionArgs,sortOrder,fromUser);
+  mAccountKeys=accountKeys;
+}

@@ -1,3 +1,5 @@
 {
-  return new ActivityCursor(cursor,indices,DataStoreUtils.getFilteredUserIds(getContext()));
+  final long[] filteredUserIds=DataStoreUtils.getFilteredUserIds(getContext());
+  final ParcelableAccount[] accounts=ParcelableAccountUtils.getAccounts(getContext(),mAccountKeys);
+  return new ActivityCursor(cursor,indices,filteredUserIds,accounts);
 }

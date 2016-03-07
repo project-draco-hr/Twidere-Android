@@ -1,0 +1,18 @@
+{
+  if (Activity.Action.MENTION.equals(activity.action)) {
+    final ParcelableStatus status=activity.target_object_statuses[0];
+    status.account_color=activity.account_color;
+    return status;
+  }
+ else   if (Activity.Action.REPLY.equals(activity.action)) {
+    final ParcelableStatus status=activity.target_statuses[0];
+    status.account_color=activity.account_color;
+    return status;
+  }
+ else   if (Activity.Action.QUOTE.equals(activity.action)) {
+    final ParcelableStatus status=activity.target_statuses[0];
+    status.account_color=activity.account_color;
+    return status;
+  }
+  return null;
+}

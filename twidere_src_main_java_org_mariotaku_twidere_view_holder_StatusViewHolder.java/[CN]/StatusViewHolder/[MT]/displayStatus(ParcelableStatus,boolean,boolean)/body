@@ -113,7 +113,7 @@
     profileTypeView.setVisibility(View.GONE);
   }
   if (adapter.shouldShowAccountsColor()) {
-    itemContent.drawEnd(DataStoreUtils.getAccountColor(context,status.account_key));
+    itemContent.drawEnd(status.account_color);
   }
  else {
     itemContent.drawEnd();

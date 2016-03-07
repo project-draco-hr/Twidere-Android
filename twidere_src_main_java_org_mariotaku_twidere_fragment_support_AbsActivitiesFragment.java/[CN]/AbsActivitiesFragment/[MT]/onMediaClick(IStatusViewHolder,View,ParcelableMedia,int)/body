@@ -1,6 +1,6 @@
 {
   final AbsActivitiesAdapter<Data> adapter=getAdapter();
-  final ParcelableStatus status=ParcelableActivity.getActivityStatus(adapter.getActivity(position));
+  final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(adapter.getActivity(position));
   if (status == null)   return;
   IntentUtils.openMedia(getActivity(),status,media,null,true);
   final MediaEvent event=MediaEvent.create(getActivity(),status,media,getTimelineType(),adapter.isMediaPreviewEnabled());

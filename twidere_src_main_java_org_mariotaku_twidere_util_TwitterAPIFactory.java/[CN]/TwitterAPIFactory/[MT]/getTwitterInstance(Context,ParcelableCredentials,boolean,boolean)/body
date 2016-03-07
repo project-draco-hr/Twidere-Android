@@ -1,0 +1,3 @@
+{
+  return getTwitterInstance(context,credentials,includeEntities,includeRetweets,Twitter.class);
+}

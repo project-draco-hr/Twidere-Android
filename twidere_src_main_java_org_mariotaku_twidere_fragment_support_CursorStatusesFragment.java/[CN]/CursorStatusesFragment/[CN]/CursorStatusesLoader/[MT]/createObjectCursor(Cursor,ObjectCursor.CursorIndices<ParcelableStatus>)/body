@@ -1,0 +1,4 @@
+{
+  final ParcelableAccount[] accounts=ParcelableAccountUtils.getAccounts(getContext(),mAccountKeys);
+  return new StatusCursor(cursor,indices,accounts);
+}

@@ -17,5 +17,5 @@
   final AbsActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Activities.COLUMNS;
-  return new CursorActivitiesLoader(context,uri,projection,selection,expression.whereArgs,sortOrder,fromUser);
+  return new CursorActivitiesLoader(context,uri,projection,selection,expression.whereArgs,sortOrder,fromUser,accountKeys);
 }

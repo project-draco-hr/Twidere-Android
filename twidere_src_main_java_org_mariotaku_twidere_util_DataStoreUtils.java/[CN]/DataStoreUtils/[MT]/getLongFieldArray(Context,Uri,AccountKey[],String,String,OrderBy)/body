@@ -11,8 +11,8 @@
   if (cur == null)   return messageIds;
   try {
     while (cur.moveToNext()) {
-      final long accountId=cur.getLong(0);
-      int idx=ArrayUtils.indexOf(keys,accountId);
+      final AccountKey accountKey=AccountKey.valueOf(cur.getString(0));
+      int idx=ArrayUtils.indexOf(keys,accountKey);
       if (idx < 0)       continue;
       messageIds[idx]=cur.getLong(1);
     }

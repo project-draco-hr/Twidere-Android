@@ -1,4 +1,12 @@
 {
+  final Context context=getContext();
+  if (mAccountKey == null) {
+    return ListResponse.getListInstance(new TwitterException("No Account"));
+  }
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
+  if (credentials == null) {
+    return ListResponse.getListInstance(new TwitterException("No Account"));
+  }
   List<ParcelableStatus> data=getData();
   if (data == null) {
     data=new CopyOnWriteArrayList<>();
@@ -17,10 +25,11 @@
     }
   }
   if (!isFromUser())   return ListResponse.getListInstance(data);
-  final Twitter twitter=getTwitter();
-  if (twitter == null)   return null;
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,credentials,true,true);
+  if (twitter == null) {
+    return ListResponse.getListInstance(new TwitterException("No Account"));
+  }
   final List<Status> statuses;
-  final Context context=getContext();
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final int loadItemLimit=prefs.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   final boolean noItemsBefore=data.isEmpty();
@@ -37,7 +46,7 @@
       }
     }
     statuses=getStatuses(twitter,paging);
-    if (!Utils.isOfficialCredentials(getContext(),getAccountKey())) {
+    if (!Utils.isOfficialCredentials(context,getAccountKey())) {
       InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }
   }
@@ -68,7 +77,9 @@
   final boolean insertGap=minId > 0 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
-    data.add(ParcelableStatusUtils.fromStatus(status,mAccountKey,insertGap && isGapEnabled() && minIdx == i));
+    final ParcelableStatus item=ParcelableStatusUtils.fromStatus(status,mAccountKey,insertGap && isGapEnabled() && minIdx == i);
+    item.account_color=credentials.color;
+    data.add(item);
   }
   final SQLiteDatabase db=TwidereApplication.getInstance(context).getSQLiteDatabase();
   final ParcelableStatus[] array=data.toArray(new ParcelableStatus[data.size()]);

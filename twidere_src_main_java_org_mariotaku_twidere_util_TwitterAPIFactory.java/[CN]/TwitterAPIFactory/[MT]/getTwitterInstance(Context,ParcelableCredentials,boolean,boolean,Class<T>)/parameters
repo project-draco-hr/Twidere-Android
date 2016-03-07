@@ -1,0 +1,5 @@
+Context context
+ParcelableCredentials credentials
+boolean includeEntities
+boolean includeRetweets
+Class<T> cls

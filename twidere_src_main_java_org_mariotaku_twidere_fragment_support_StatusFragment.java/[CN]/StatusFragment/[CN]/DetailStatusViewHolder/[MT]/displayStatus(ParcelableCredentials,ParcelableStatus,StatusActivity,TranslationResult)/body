@@ -16,7 +16,7 @@
     retweetedByView.setText(null);
     retweetedByView.setVisibility(View.GONE);
   }
-  profileContainer.drawEnd(DataStoreUtils.getAccountColor(context,status.account_key));
+  profileContainer.drawEnd(status.account_color);
   final int layoutPosition=getLayoutPosition();
   final boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote && ArrayUtils.isEmpty(status.media)) {

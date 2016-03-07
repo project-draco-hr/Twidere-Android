@@ -1,0 +1,5 @@
+{
+  super(cursor,indies);
+  this.filteredUserIds=filteredUserIds;
+  this.accounts=accounts;
+}

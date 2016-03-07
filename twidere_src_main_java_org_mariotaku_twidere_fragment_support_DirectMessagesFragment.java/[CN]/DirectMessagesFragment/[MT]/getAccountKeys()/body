@@ -1,6 +1,6 @@
 {
   final Bundle args=getArguments();
-  AccountKey[] accountKeys=Utils.getAccountKeys(args);
+  AccountKey[] accountKeys=Utils.getAccountKeys(getContext(),args);
   if (accountKeys != null) {
     return accountKeys;
   }

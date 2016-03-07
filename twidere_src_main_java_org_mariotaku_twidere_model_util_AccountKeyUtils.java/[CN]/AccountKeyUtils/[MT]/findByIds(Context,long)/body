@@ -1,0 +1,17 @@
+{
+  final String[] projection={Accounts.ACCOUNT_KEY};
+  final Cursor cur=DataStoreUtils.findAccountCursorsById(context,projection,id);
+  if (cur == null)   return new AccountKey[0];
+  try {
+    final ArrayList<AccountKey> accountKeys=new ArrayList<>();
+    cur.moveToFirst();
+    while (!cur.isAfterLast()) {
+      accountKeys.add(AccountKey.valueOf(cur.getString(0)));
+      cur.moveToNext();
+    }
+    return accountKeys.toArray(new AccountKey[accountKeys.size()]);
+  }
+  finally {
+    cur.close();
+  }
+}

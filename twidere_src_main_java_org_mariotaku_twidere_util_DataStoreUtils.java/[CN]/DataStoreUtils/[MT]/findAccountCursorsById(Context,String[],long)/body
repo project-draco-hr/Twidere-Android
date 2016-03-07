@@ -1,0 +1,11 @@
+{
+  if (ids == null)   return null;
+  final ContentResolver cr=context.getContentResolver();
+  Expression[] expressions=new Expression[ids.length];
+  for (int i=0, j=ids.length; i < j; i++) {
+    expressions[i]=Expression.likeRaw(new Column(Accounts.ACCOUNT_KEY),"?||\'@%\'");
+  }
+  final String where=Expression.or(expressions).getSQL();
+  final String[] whereArgs=TwidereArrayUtils.toStringArray(ids);
+  return cr.query(Accounts.CONTENT_URI,columns,where,whereArgs,null);
+}

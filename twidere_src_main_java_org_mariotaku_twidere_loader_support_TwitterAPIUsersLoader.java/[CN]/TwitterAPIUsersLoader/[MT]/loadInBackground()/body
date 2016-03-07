@@ -1,7 +1,9 @@
 {
-  if (mAccountKey == null)   return null;
+  if (mAccountKey == null) {
+    return ListResponse.getListInstance(new TwitterException("No Account"));
+  }
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
-  if (twitter == null)   return null;
+  if (twitter == null)   return ListResponse.getListInstance(new TwitterException("No Account"));
   final List<ParcelableUser> data=getData();
   final List<User> users;
   try {
@@ -9,7 +11,7 @@
   }
  catch (  final TwitterException e) {
     Log.w(LOGTAG,e);
-    return data;
+    return ListResponse.getListInstance(data);
   }
   int pos=data.size();
   for (  final User user : users) {
@@ -20,5 +22,5 @@
     pos++;
   }
   Collections.sort(data);
-  return data;
+  return ListResponse.getListInstance(data);
 }

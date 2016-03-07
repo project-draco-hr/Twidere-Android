@@ -159,7 +159,7 @@ case Activity.Action.MENTION:
 case Activity.Action.REPLY:
 case Activity.Action.QUOTE:
 {
-final ParcelableStatus status=ParcelableActivity.getActivityStatus(activity);
+final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
 if (status == null) return null;
 final SpannableString title=new SpannableString(manager.getDisplayName(status,nameFirst,false));
 title.setSpan(new StyleSpan(Typeface.BOLD),0,title.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
