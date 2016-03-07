@@ -1,4 +1,0 @@
-Context context
-AccountKey accountKey
-long cursor
-List<ParcelableUserList> data

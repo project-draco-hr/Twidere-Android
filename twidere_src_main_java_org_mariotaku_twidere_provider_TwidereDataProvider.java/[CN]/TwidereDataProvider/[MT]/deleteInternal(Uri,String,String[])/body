@@ -19,7 +19,7 @@ case VIRTUAL_TABLE_ID_NOTIFICATIONS:
     }
  else     if (segments.size() == 3) {
       final int notificationType=NumberUtils.toInt(segments.get(1),-1);
-      final AccountKey accountKey=AccountKey.valueOf(segments.get(2));
+      final UserKey accountKey=UserKey.valueOf(segments.get(2));
       clearNotification(notificationType,accountKey);
     }
     return 1;

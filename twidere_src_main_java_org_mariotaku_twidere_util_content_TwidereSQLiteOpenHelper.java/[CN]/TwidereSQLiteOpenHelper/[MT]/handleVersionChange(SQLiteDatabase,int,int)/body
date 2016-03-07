@@ -14,7 +14,7 @@
   safeUpgrade(db,Activities.AboutMe.TABLE_NAME,Activities.AboutMe.COLUMNS,Activities.AboutMe.TYPES,true,null);
   safeUpgrade(db,Activities.ByFriends.TABLE_NAME,Activities.ByFriends.COLUMNS,Activities.ByFriends.TYPES,true,null);
   safeUpgrade(db,Drafts.TABLE_NAME,Drafts.COLUMNS,Drafts.TYPES,false,draftsAlias);
-  safeUpgrade(db,CachedUsers.TABLE_NAME,CachedUsers.COLUMNS,CachedUsers.TYPES,true,null,createConflictReplaceConstraint(CachedUsers.USER_ID,CachedUsers.USER_HOST));
+  safeUpgrade(db,CachedUsers.TABLE_NAME,CachedUsers.COLUMNS,CachedUsers.TYPES,true,null,createConflictReplaceConstraint(CachedUsers.USER_KEY,CachedUsers.USER_HOST));
   safeUpgrade(db,CachedStatuses.TABLE_NAME,CachedStatuses.COLUMNS,CachedStatuses.TYPES,true,null);
   safeUpgrade(db,CachedHashtags.TABLE_NAME,CachedHashtags.COLUMNS,CachedHashtags.TYPES,true,null);
   safeUpgrade(db,CachedRelationships.TABLE_NAME,CachedRelationships.COLUMNS,CachedRelationships.TYPES,true,null,createConflictReplaceConstraint(CachedRelationships.ACCOUNT_KEY,CachedRelationships.USER_ID));
@@ -28,6 +28,9 @@
   safeUpgrade(db,Tabs.TABLE_NAME,Tabs.COLUMNS,Tabs.TYPES,false,null);
   safeUpgrade(db,SavedSearches.TABLE_NAME,SavedSearches.COLUMNS,SavedSearches.TYPES,true,null);
   safeUpgrade(db,SearchHistory.TABLE_NAME,SearchHistory.COLUMNS,SearchHistory.TYPES,true,null);
+  if (oldVersion < 131) {
+    migrateFilteredUsers(db);
+  }
   db.beginTransaction();
   db.execSQL(SQLQueryBuilder.dropTable(true,"network_usages").getSQL());
   db.execSQL(SQLQueryBuilder.dropTable(true,"mentions").getSQL());

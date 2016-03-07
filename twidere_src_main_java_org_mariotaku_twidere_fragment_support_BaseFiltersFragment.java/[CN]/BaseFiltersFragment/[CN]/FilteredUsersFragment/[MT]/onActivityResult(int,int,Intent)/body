@@ -6,7 +6,9 @@ case REQUEST_SELECT_USER:
       final ParcelableUser user=data.getParcelableExtra(EXTRA_USER);
       final ContentValues values=ContentValuesCreator.createFilteredUser(user);
       final ContentResolver resolver=getContentResolver();
-      resolver.delete(Filters.Users.CONTENT_URI,Expression.equals(Filters.Users.USER_ID,user.id).getSQL(),null);
+      final String where=Expression.equalsArgs(Filters.Users.USER_ID).getSQL();
+      final String[] whereArgs={user.key.toString()};
+      resolver.delete(Filters.Users.CONTENT_URI,where,whereArgs);
       resolver.insert(Filters.Users.CONTENT_URI,values);
       break;
     }

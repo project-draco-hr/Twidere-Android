@@ -1,8 +1,8 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final User user=twitter.denyFriendship(mUserId);
+    final User user=twitter.denyFriendship(mUserId.getId());
     return SingleResponse.getInstance(user,null);
   }
  catch (  final TwitterException e) {

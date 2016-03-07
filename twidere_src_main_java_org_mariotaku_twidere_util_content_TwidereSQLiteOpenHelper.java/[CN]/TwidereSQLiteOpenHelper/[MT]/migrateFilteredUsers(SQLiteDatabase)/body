@@ -1,0 +1,3 @@
+{
+  db.execSQL(SQLQueryBuilder.update(OnConflict.REPLACE,Filters.Users.TABLE_NAME).set(new SetValue(Filters.Users.USER_ID,new RawSQLLang(Filters.Users.USER_ID + "||?"))).where(Expression.notLikeArgs(new Column(Filters.Users.USER_ID))).buildSQL(),new Object[]{"@twitter.com","%@%"});
+}

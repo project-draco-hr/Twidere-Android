@@ -1,8 +1,0 @@
-String link
-String orig
-AccountKey accountKey
-long extraId
-int type
-boolean sensitive
-int start
-int end

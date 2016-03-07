@@ -6,7 +6,7 @@
   adapter.setCursor(cursor);
   adapter.setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
   adapter.setLoadMoreSupportedPosition(hasMoreData(cursor) ? IndicatorPosition.END : IndicatorPosition.NONE);
-  final AccountKey[] accountIds=getAccountKeys();
+  final UserKey[] accountIds=getAccountKeys();
   adapter.setShowAccountsColor(accountIds.length > 1);
   setRefreshEnabled(true);
   if (accountIds.length > 0) {

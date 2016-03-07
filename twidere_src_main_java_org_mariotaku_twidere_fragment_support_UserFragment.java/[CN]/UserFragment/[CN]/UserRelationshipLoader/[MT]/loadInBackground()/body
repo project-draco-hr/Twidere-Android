@@ -1,15 +1,21 @@
 {
+  if (mAccountKey == null) {
+    return SingleResponse.getInstance(new TwitterException("No Account"));
+  }
   final boolean isFiltering=DataStoreUtils.isFilteringUser(context,mUserId);
   if (mAccountKey.getId() == mUserId)   return SingleResponse.getInstance();
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,mAccountKey,false);
-  if (twitter == null)   return SingleResponse.getInstance();
+  if (twitter == null) {
+    return SingleResponse.getInstance(new TwitterException("No Account"));
+  }
   try {
     final Relationship relationship=twitter.showFriendship(mUserId);
+    final UserKey userKey=new UserKey(mUserId,mAccountKey.getHost());
     if (relationship.isSourceBlockingTarget() || relationship.isSourceBlockedByTarget()) {
-      Utils.setLastSeen(context,mUserId,-1);
+      Utils.setLastSeen(context,userKey,-1);
     }
  else {
-      Utils.setLastSeen(context,mUserId,System.currentTimeMillis());
+      Utils.setLastSeen(context,userKey,System.currentTimeMillis());
     }
     Utils.updateRelationship(context,relationship,mAccountKey);
     return SingleResponse.getInstance(new UserRelationship(relationship,isFiltering));

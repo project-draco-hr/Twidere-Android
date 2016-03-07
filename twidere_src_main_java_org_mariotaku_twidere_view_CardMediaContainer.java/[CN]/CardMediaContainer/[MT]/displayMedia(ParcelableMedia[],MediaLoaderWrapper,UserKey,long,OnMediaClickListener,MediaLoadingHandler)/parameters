@@ -1,0 +1,6 @@
+ParcelableMedia[] mediaArray
+MediaLoaderWrapper loader
+UserKey accountId
+long extraId
+OnMediaClickListener mediaClickListener
+MediaLoadingHandler loadingHandler

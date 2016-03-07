@@ -1,8 +1,0 @@
-{
-  return refreshAll(new GetAccountKeysClosure(){
-    @Override public AccountKey[] getAccountKeys(){
-      return accountKeys;
-    }
-  }
-);
-}

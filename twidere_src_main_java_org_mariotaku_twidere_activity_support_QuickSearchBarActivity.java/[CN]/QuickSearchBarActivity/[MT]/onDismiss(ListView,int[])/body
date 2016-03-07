@@ -8,6 +8,6 @@
   }
   mUsersSearchAdapter.addRemovedPositions(reverseSortedPositions);
   final ContentResolver cr=getContentResolver();
-  ContentResolverUtils.bulkDelete(cr,SearchHistory.CONTENT_URI,SearchHistory._ID,ids,null,false);
+  ContentResolverUtils.bulkDelete(cr,SearchHistory.CONTENT_URI,SearchHistory._ID,ids,null);
   getSupportLoaderManager().restartLoader(0,null,this);
 }

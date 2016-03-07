@@ -1,7 +1,6 @@
 {
-  final long def=-1;
-  final long userId=NumberUtils.toLong(key,def);
-  if (mListener != null) {
+  final UserKey userId=UserKey.valueOf(key);
+  if (mListener != null && userId != null) {
     mListener.onUserColorChanged(userId,sharedPreferences.getInt(key,0));
   }
 }

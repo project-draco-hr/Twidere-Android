@@ -1,13 +1,13 @@
 {
   if (prefs == null)   return null;
-  final AccountKey[] temp=new AccountKey[prefs.length];
+  final UserKey[] temp=new UserKey[prefs.length];
   int i=0;
   for (  final AccountPreferences pref : prefs) {
     if (pref.isAutoRefreshEnabled() && filter.isRefreshable(pref)) {
       temp[i++]=pref.getAccountKey();
     }
   }
-  final AccountKey[] result=new AccountKey[i];
+  final UserKey[] result=new UserKey[i];
   System.arraycopy(temp,0,result,0,i);
   return result;
 }

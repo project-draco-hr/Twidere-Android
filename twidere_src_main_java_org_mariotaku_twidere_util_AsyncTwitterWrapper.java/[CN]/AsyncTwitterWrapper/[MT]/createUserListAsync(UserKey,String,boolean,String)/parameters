@@ -1,0 +1,4 @@
+UserKey accountKey
+String listName
+boolean isPublic
+String description

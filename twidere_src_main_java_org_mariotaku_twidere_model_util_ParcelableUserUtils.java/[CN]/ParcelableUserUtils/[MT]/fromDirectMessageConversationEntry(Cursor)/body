@@ -1,6 +1,6 @@
 {
-  final AccountKey accountId=AccountKey.valueOf(cursor.getString(DirectMessages.ConversationEntries.IDX_ACCOUNT_KEY));
-  final long id=cursor.getLong(DirectMessages.ConversationEntries.IDX_CONVERSATION_ID);
+  final UserKey accountId=UserKey.valueOf(cursor.getString(DirectMessages.ConversationEntries.IDX_ACCOUNT_KEY));
+  final UserKey id=UserKey.valueOf(cursor.getString(DirectMessages.ConversationEntries.IDX_CONVERSATION_ID));
   final String name=cursor.getString(DirectMessages.ConversationEntries.IDX_NAME);
   final String screenName=cursor.getString(DirectMessages.ConversationEntries.IDX_SCREEN_NAME);
   final String profileImageUrl=cursor.getString(DirectMessages.ConversationEntries.IDX_PROFILE_IMAGE_URL);

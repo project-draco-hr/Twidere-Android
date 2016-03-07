@@ -1,0 +1,3 @@
+{
+  return ParcelableCredentials.ACCOUNT_TYPE_STATUSNET.equals(credentials.account_type);
+}

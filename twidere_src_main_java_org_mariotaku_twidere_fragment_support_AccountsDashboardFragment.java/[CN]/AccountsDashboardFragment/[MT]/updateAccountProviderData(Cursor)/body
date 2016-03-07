@@ -11,7 +11,7 @@
     mNoAccountContainer.setVisibility(View.VISIBLE);
     mAccountProfileContainer.setVisibility(View.INVISIBLE);
   }
-  AccountKey defaultId=null;
+  UserKey defaultId=null;
   for (  ParcelableAccount account : accounts) {
     if (account.is_activated) {
       defaultId=account.account_key;
@@ -20,7 +20,7 @@
   }
   mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
   mAccountsAdapter.setAccounts(accounts);
-  AccountKey accountKey=AccountKey.valueOf(mPreferences.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
+  UserKey accountKey=UserKey.valueOf(mPreferences.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
   if (accountKey == null) {
     accountKey=defaultId;
   }

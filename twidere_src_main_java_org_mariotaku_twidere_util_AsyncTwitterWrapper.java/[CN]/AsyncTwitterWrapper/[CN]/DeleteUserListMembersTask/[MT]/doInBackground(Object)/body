@@ -2,11 +2,11 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final long[] userIds=new long[users.length];
+    final UserKey[] userIds=new UserKey[users.length];
     for (int i=0, j=users.length; i < j; i++) {
-      userIds[i]=users[i].id;
+      userIds[i]=users[i].key;
     }
-    final UserList userList=twitter.deleteUserListMembers(mUserListId,userIds);
+    final UserList userList=twitter.deleteUserListMembers(mUserListId,UserKey.getIds(userIds));
     final ParcelableUserList list=ParcelableUserListUtils.from(userList,mAccountKey);
     return SingleResponse.getInstance(list,null);
   }

@@ -1,7 +1,7 @@
 {
   final Context context=getContext();
   final ContentResolver resolver=context.getContentResolver();
-  final AccountKey accountKey=mAccountKey;
+  final UserKey accountKey=mAccountKey;
   final int accountColor=DataStoreUtils.getAccountColor(context,accountKey);
   if (!mOmitIntentExtra && mExtras != null) {
     final ParcelableUser user=mExtras.getParcelable(EXTRA_USER);
@@ -18,7 +18,7 @@
     final Expression where;
     final String[] whereArgs;
     if (mUserId > 0) {
-      where=Expression.equals(CachedUsers.USER_ID,mUserId);
+      where=Expression.equals(CachedUsers.USER_KEY,mUserId);
       whereArgs=null;
     }
  else {
@@ -47,15 +47,14 @@
     final long userId=twitterUser.getId();
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);
     final ParcelableUser user=ParcelableUserUtils.fromUser(twitterUser,accountKey);
-    final AccountKey userAccountKey=new AccountKey(user.id,user.user_host);
-    if (Utils.isMyAccount(context,userAccountKey)) {
+    if (Utils.isMyAccount(context,user.key)) {
       final ContentValues accountValues=new ContentValues();
       accountValues.put(Accounts.NAME,user.name);
       accountValues.put(Accounts.SCREEN_NAME,user.screen_name);
       accountValues.put(Accounts.PROFILE_IMAGE_URL,user.profile_image_url);
       accountValues.put(Accounts.PROFILE_BANNER_URL,user.profile_banner_url);
       accountValues.put(Accounts.ACCOUNT_USER,JsonSerializer.serialize(user,ParcelableUser.class));
-      accountValues.put(Accounts.ACCOUNT_KEY,String.valueOf(userAccountKey));
+      accountValues.put(Accounts.ACCOUNT_KEY,String.valueOf(user.key));
       final String accountWhere=Expression.equals(Accounts.ACCOUNT_KEY,userId).getSQL();
       resolver.update(Accounts.CONTENT_URI,accountValues,accountWhere,null);
     }

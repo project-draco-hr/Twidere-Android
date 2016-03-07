@@ -1,8 +1,8 @@
 {
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (!(obj instanceof ParcelableUserMention))   return false;
-  final ParcelableUserMention other=(ParcelableUserMention)obj;
-  if (id != other.id)   return false;
-  return true;
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ParcelableUserMention that=(ParcelableUserMention)o;
+  if (key != null ? !key.equals(that.key) : that.key != null)   return false;
+  if (name != null ? !name.equals(that.name) : that.name != null)   return false;
+  return !(screen_name != null ? !screen_name.equals(that.screen_name) : that.screen_name != null);
 }

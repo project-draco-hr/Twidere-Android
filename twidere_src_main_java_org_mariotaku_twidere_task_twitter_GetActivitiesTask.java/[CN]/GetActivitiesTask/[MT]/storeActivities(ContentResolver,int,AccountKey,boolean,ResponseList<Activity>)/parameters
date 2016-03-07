@@ -1,5 +1,0 @@
-ContentResolver cr
-int loadItemLimit
-AccountKey accountKey
-boolean noItemsBefore
-ResponseList<Activity> activities

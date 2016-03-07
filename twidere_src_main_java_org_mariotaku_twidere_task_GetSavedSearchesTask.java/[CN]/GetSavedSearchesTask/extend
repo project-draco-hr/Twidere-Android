@@ -1,1 +1,1 @@
-AbstractTask<AccountKey[],SingleResponse<Object>,Object>
+AbstractTask<UserKey[],SingleResponse<Object>,Object>

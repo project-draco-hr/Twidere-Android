@@ -27,7 +27,7 @@
     boolean failed=false;
     Exception exception=null;
     final Expression where=Expression.equals(Drafts._ID,draftId);
-    final List<AccountKey> failedAccountIds=new ArrayList<>();
+    final List<UserKey> failedAccountIds=new ArrayList<>();
     Collections.addAll(failedAccountIds,ParcelableAccountUtils.getAccountKeys(item.accounts));
     for (    final SingleResponse<ParcelableStatus> response : result) {
       final ParcelableStatus data=response.getData();

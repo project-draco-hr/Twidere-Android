@@ -1,0 +1,4 @@
+{
+  final DenyFriendshipTask task=new DenyFriendshipTask(mContext,accountKey,userId);
+  return mAsyncTaskManager.add(task,true);
+}

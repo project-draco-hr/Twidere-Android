@@ -1,7 +1,7 @@
 {
   super.triggerRefresh();
   getStatuses(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeys(){
       return CursorStatusesFragment.this.getAccountKeys();
     }
     @Override public boolean hasMaxIds(){

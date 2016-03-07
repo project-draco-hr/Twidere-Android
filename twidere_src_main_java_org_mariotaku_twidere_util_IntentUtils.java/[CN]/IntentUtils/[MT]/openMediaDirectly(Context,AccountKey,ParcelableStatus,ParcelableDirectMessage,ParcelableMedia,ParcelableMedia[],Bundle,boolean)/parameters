@@ -1,8 +1,0 @@
-Context context
-AccountKey accountKey
-ParcelableStatus status
-ParcelableDirectMessage message
-ParcelableMedia current
-ParcelableMedia[] media
-Bundle options
-boolean newDocument

@@ -1,0 +1,5 @@
+Context context
+UserKey accountKey
+boolean includeEntities
+boolean includeRetweets
+Class<T> cls

@@ -1,7 +1,7 @@
 {
   final HashMap<String,String> preferences=new HashMap<>();
   for (  AccountPreferences pref : AccountPreferences.getAccountPreferences(context,DataStoreUtils.getAccountKeys(context))) {
-    final AccountKey accountKey=pref.getAccountKey();
+    final UserKey accountKey=pref.getAccountKey();
     preferences.put("notification_" + accountKey + "_home",String.valueOf(pref.isHomeTimelineNotificationEnabled()));
     preferences.put("notification_" + accountKey + "_interactions",String.valueOf(pref.isInteractionsNotificationEnabled()));
   }

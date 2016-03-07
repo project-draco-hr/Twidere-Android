@@ -1,0 +1,5 @@
+UserKey account_key
+UserKey key
+String name
+String screenName
+String profileImageUrl

@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case android.R.id.home:
 {
-      final AccountKey[] accountKeys=getActivatedAccountKeys(this);
+      final UserKey[] accountKeys=getActivatedAccountKeys(this);
       if (accountKeys.length > 0) {
         onBackPressed();
       }

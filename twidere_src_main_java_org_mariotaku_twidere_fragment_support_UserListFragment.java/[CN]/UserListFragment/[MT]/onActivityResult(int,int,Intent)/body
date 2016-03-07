@@ -14,8 +14,8 @@ case REQUEST_SELECT_ACCOUNT:
     if (resultCode == Activity.RESULT_OK) {
       if (data == null || !data.hasExtra(EXTRA_ID))       return;
       final ParcelableUserList userList=mUserList;
-      final AccountKey accountKey=data.getParcelableExtra(EXTRA_KEY);
-      IntentUtils.openUserListDetails(getActivity(),accountKey,userList.id,userList.user_id,userList.user_screen_name,userList.name);
+      final UserKey accountKey=data.getParcelableExtra(EXTRA_KEY);
+      IntentUtils.openUserListDetails(getActivity(),accountKey,userList.id,userList.user_key.getId(),userList.user_screen_name,userList.name);
     }
     break;
   }

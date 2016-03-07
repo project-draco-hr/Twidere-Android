@@ -18,7 +18,7 @@
     return;
   }
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
-  final AccountKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
+  final UserKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
   final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
   final ParcelableStatusUpdate update=new ParcelableStatusUpdate();

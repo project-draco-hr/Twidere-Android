@@ -1,3 +1,0 @@
-{
-  return AccountKey.valueOf(cursor.getString(columnIndex));
-}

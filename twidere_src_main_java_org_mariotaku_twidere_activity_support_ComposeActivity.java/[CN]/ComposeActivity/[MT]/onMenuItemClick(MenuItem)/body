@@ -41,12 +41,12 @@ if (intent != null) {
 try {
 final String action=intent.getAction();
 if (INTENT_ACTION_EXTENSION_COMPOSE.equals(action)) {
-final AccountKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
+final UserKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
 intent.putExtra(EXTRA_TEXT,ParseUtils.parseString(mEditText.getText()));
-intent.putExtra(EXTRA_ACCOUNT_IDS,AccountKey.getIds(accountKeys));
+intent.putExtra(EXTRA_ACCOUNT_IDS,UserKey.getIds(accountKeys));
 intent.putExtra(EXTRA_ACCOUNT_KEYS,accountKeys);
 if (accountKeys.length > 0) {
-  final AccountKey accountKey=accountKeys[0];
+  final UserKey accountKey=accountKeys[0];
   intent.putExtra(EXTRA_NAME,DataStoreUtils.getAccountName(this,accountKey));
   intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(this,accountKey));
 }

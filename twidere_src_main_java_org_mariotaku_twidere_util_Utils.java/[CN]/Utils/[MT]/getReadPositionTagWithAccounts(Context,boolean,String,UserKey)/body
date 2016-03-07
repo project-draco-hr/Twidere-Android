@@ -1,0 +1,11 @@
+{
+  if (tag == null)   return null;
+  if (ArrayUtils.isEmpty(accountKeys)) {
+    final UserKey[] activatedIds=DataStoreUtils.getActivatedAccountKeys(context);
+    Arrays.sort(activatedIds);
+    return tag + "_" + TwidereArrayUtils.toString(activatedIds,'_',false);
+  }
+  final UserKey[] accountIdsClone=accountKeys.clone();
+  Arrays.sort(accountIdsClone);
+  return tag + "_" + TwidereArrayUtils.toString(accountIdsClone,'_',false);
+}

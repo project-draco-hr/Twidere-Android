@@ -42,7 +42,7 @@ case Draft.Action.SEND_DIRECT_MESSAGE:
     if (ArrayUtils.isEmpty(item.account_ids) || recipientId <= 0) {
       return;
     }
-    final AccountKey accountKey=item.account_ids[0];
+    final UserKey accountKey=item.account_ids[0];
     final String imageUri=ArrayUtils.isEmpty(item.media) ? null : item.media[0].uri;
     sendMessage(accountKey,recipientId,item.text,imageUri);
     break;

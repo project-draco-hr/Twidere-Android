@@ -10,7 +10,7 @@
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(activity,ThemeUtils.getThemeBackgroundOption(activity),ThemeUtils.getUserThemeBackgroundAlpha(activity));
   mActionBarShadowColor=0xA0000000;
   final Bundle args=getArguments();
-  AccountKey accountId=null;
+  UserKey accountId=null;
   long userId=-1;
   String screenName=null;
   if (savedInstanceState != null) {

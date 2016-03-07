@@ -171,14 +171,14 @@ catch (          final TwitterException e) {
         try {
           final Status resultStatus=twitter.updateStatus(status);
           if (!mentionedHondaJOJO) {
-            final UserMentionEntity[] entities=resultStatus.getUserMentionEntities();
-            if (entities == null || entities.length == 0) {
+            ParcelableUserMention[] mentions=ParcelableUserMentionUtils.fromUserMentionEntities(resultStatus.getUser(),resultStatus.getUserMentionEntities());
+            if (ArrayUtils.isEmpty(mentions)) {
               mentionedHondaJOJO=statusUpdate.text.contains("@" + HONDAJOJO_SCREEN_NAME);
             }
- else             if (entities.length == 1 && entities[0].getId() == HONDAJOJO_ID) {
+ else             if (mentions.length == 1 && mentions[0].key.getId() == HONDAJOJO_ID) {
               mentionedHondaJOJO=true;
             }
-            Utils.setLastSeen(this,entities,System.currentTimeMillis());
+            Utils.setLastSeen(this,mentions,System.currentTimeMillis());
           }
           if (!notReplyToOther) {
             final long inReplyToUserId=resultStatus.getInReplyToUserId();

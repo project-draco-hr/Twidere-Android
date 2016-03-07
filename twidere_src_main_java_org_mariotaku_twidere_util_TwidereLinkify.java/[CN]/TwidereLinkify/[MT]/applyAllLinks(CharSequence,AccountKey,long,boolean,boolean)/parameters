@@ -1,5 +1,0 @@
-CharSequence text
-AccountKey accountKey
-long extraId
-boolean sensitive
-boolean skipLinksInText

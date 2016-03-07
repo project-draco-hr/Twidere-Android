@@ -4,7 +4,7 @@
   }
   if (data == null)   return;
   for (  final ParcelableUser user : data) {
-    if (clearOld || findItemPosition(user.id) < 0) {
+    if (clearOld || findItemPosition(user.key.getId()) < 0) {
       add(user);
     }
   }

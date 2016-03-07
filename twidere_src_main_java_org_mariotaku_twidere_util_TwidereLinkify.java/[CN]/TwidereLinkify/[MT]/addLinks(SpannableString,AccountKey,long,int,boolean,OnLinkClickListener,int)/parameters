@@ -1,7 +1,0 @@
-SpannableString string
-AccountKey accountKey
-long extraId
-int type
-boolean sensitive
-OnLinkClickListener listener
-int highlightOption

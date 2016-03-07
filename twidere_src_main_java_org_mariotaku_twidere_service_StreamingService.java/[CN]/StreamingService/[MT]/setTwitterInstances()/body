@@ -1,6 +1,6 @@
 {
   final List<ParcelableCredentials> accountsList=DataStoreUtils.getCredentialsList(this,true);
-  final AccountKey[] accountKeys=new AccountKey[accountsList.size()];
+  final UserKey[] accountKeys=new UserKey[accountsList.size()];
   for (int i=0, j=accountKeys.length; i < j; i++) {
     final ParcelableCredentials credentials=accountsList.get(i);
     accountKeys[i]=credentials.account_key;

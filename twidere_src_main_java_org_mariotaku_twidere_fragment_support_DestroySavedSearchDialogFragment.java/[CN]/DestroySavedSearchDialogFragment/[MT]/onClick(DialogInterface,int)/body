@@ -1,7 +1,7 @@
 {
 switch (which) {
 case DialogInterface.BUTTON_POSITIVE:
-    final AccountKey accountKey=getAccountKey();
+    final UserKey accountKey=getAccountKey();
   final long searchId=getSearchId();
 final AsyncTwitterWrapper twitter=mTwitterWrapper;
 if (searchId <= 0 || twitter == null) return;

@@ -1,0 +1,6 @@
+Context context
+UserKey accountKey
+long userId
+String screenName
+List<ParcelableUser> userList
+boolean fromUser

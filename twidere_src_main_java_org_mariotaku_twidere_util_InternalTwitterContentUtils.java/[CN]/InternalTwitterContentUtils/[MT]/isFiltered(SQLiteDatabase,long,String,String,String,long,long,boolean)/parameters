@@ -1,8 +1,0 @@
-SQLiteDatabase database
-long userId
-String textPlain
-String textHtml
-String source
-long retweetedById
-long quotedUserId
-boolean filterRts

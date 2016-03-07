@@ -1,7 +1,0 @@
-{
-  if (userId < 0)   return;
-  mUserNicknames.put(userId,nickname);
-  final SharedPreferences.Editor editor=mNicknamePreferences.edit();
-  editor.putString(String.valueOf(userId),nickname);
-  editor.apply();
-}

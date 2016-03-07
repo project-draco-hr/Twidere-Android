@@ -1,5 +1,0 @@
-Context context
-AccountKey accountKey
-long statusId
-List<ParcelableUser> data
-boolean fromUser

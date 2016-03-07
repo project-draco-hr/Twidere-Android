@@ -1,0 +1,4 @@
+FragmentManager fm
+UserKey accountKey
+long searchId
+String name

@@ -1,7 +1,7 @@
 {
   mUser=user;
   final FragmentActivity activity=getActivity();
-  if (user == null || user.id <= 0 || activity == null)   return;
+  if (user == null || user.key == null || activity == null)   return;
   final Resources resources=getResources();
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
@@ -10,10 +10,10 @@
   mHeaderErrorContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=mUserColorNameManager.getUserColor(user.id,true);
+  final int userColor=mUserColorNameManager.getUserColor(user.key,true);
   mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
   mProfileNameContainer.drawEnd(user.account_color);
-  final String nick=mUserColorNameManager.getUserNickname(user.id,true);
+  final String nick=mUserColorNameManager.getUserNickname(user.key,true);
   mNameView.setText(mBidiFormatter.unicodeWrap(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick)));
   final int typeIconRes=Utils.getUserTypeIconRes(user.is_verified,user.is_protected);
   if (typeIconRes != 0) {

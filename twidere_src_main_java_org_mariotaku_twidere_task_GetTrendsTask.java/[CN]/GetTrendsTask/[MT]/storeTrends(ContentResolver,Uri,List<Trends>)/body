@@ -15,7 +15,7 @@
     }
     cr.delete(uri,null,null);
     ContentResolverUtils.bulkInsert(cr,uri,valuesArray);
-    ContentResolverUtils.bulkDelete(cr,TwidereDataStore.CachedHashtags.CONTENT_URI,TwidereDataStore.CachedHashtags.NAME,hashtags,null,true);
+    ContentResolverUtils.bulkDelete(cr,TwidereDataStore.CachedHashtags.CONTENT_URI,TwidereDataStore.CachedHashtags.NAME,hashtags,null);
     ContentResolverUtils.bulkInsert(cr,TwidereDataStore.CachedHashtags.CONTENT_URI,hashtagValues.toArray(new ContentValues[hashtagValues.size()]));
   }
 }

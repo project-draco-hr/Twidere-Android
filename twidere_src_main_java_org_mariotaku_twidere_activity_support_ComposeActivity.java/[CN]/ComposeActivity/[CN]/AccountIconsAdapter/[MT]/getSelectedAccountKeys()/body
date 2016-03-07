@@ -1,13 +1,13 @@
 {
-  if (mAccounts == null)   return new AccountKey[0];
-  final AccountKey[] temp=new AccountKey[mAccounts.length];
+  if (mAccounts == null)   return new UserKey[0];
+  final UserKey[] temp=new UserKey[mAccounts.length];
   int selectedCount=0;
   for (  ParcelableAccount account : mAccounts) {
     if (Boolean.TRUE.equals(mSelection.get(account.account_key))) {
       temp[selectedCount++]=account.account_key;
     }
   }
-  final AccountKey[] result=new AccountKey[selectedCount];
+  final UserKey[] result=new UserKey[selectedCount];
   System.arraycopy(temp,0,result,0,result.length);
   return result;
 }

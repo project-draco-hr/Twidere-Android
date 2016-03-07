@@ -1,4 +1,0 @@
-AccountKey accountId
-long userId
-String screenName
-boolean omitIntentExtra

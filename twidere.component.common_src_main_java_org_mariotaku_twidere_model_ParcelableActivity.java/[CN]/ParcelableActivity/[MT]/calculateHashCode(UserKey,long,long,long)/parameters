@@ -1,0 +1,4 @@
+UserKey accountKey
+long timestamp
+long maxPosition
+long minPosition

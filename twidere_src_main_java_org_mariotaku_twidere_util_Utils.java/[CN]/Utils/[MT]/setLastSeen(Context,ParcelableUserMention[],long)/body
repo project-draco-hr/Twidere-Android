@@ -2,7 +2,7 @@
   if (entities == null)   return false;
   boolean result=false;
   for (  ParcelableUserMention entity : entities) {
-    result|=setLastSeen(context,entity.id,time);
+    result|=setLastSeen(context,entity.key,time);
   }
   return result;
 }

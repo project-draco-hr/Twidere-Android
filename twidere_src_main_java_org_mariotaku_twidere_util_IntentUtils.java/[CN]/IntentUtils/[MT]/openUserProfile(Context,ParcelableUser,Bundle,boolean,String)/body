@@ -6,8 +6,8 @@
   builder.scheme(TwidereConstants.SCHEME_TWIDERE);
   builder.authority(TwidereConstants.AUTHORITY_USER);
   builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_KEY,user.account_key.toString());
-  if (user.id > 0) {
-    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_USER_ID,String.valueOf(user.id));
+  if (user.key != null) {
+    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_USER_ID,user.key.toString());
   }
   if (user.screen_name != null) {
     builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_SCREEN_NAME,user.screen_name);

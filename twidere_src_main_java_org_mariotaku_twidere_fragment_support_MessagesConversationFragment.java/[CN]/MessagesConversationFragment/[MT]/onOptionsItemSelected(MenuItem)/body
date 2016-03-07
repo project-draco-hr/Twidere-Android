@@ -4,7 +4,7 @@ case R.id.delete_all:
 {
       final ParcelableCredentials account=mAccount;
       if (account == null || mRecipient == null)       return true;
-      mTwitterWrapper.destroyMessageConversationAsync(account.account_key,mRecipient.id);
+      mTwitterWrapper.destroyMessageConversationAsync(account.account_key,mRecipient.key.getId());
       return true;
     }
 }

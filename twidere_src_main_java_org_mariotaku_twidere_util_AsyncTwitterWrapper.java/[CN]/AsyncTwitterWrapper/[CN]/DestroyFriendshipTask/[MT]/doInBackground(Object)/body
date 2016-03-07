@@ -3,7 +3,7 @@
   if (twitter != null) {
     try {
       final User user=twitter.destroyFriendship(mUserId);
-      Utils.setLastSeen(mContext,user.getId(),-1);
+      Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),-1);
       final Expression where=Expression.and(Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY),Expression.or(Expression.equalsArgs(Statuses.USER_ID),Expression.equalsArgs(Statuses.RETWEETED_BY_USER_ID)));
       final String[] whereArgs={mAccountKey.toString(),String.valueOf(mUserId),String.valueOf(mUserId)};
       mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),whereArgs);

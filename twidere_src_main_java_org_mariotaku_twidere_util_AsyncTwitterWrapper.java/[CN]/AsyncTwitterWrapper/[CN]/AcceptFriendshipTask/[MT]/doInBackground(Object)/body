@@ -2,7 +2,7 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final User user=twitter.acceptFriendship(mUserId);
+    final User user=twitter.acceptFriendship(mUserId.getId());
     return SingleResponse.getInstance(user,null);
   }
  catch (  final TwitterException e) {

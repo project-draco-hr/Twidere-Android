@@ -1,7 +1,7 @@
 {
   if (user == null)   return null;
   final ContentValues values=new ContentValues();
-  values.put(CachedUsers.USER_ID,user.id);
+  values.put(CachedUsers.USER_KEY,String.valueOf(user.key));
   values.put(CachedUsers.NAME,user.name);
   values.put(CachedUsers.SCREEN_NAME,user.screen_name);
   values.put(CachedUsers.PROFILE_IMAGE_URL,user.profile_image_url);

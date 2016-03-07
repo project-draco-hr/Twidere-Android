@@ -1,23 +1,2 @@
 {
-  final Bundle args=getArguments();
-  final String text=ParseUtils.parseString(mEditText.getText());
-  final long userId=args != null ? args.getLong(EXTRA_USER_ID,-1) : -1;
-  if (userId == -1)   return;
-switch (which) {
-case DialogInterface.BUTTON_POSITIVE:
-{
-      if (TextUtils.isEmpty(text)) {
-        mUserColorNameManager.clearUserNickname(userId);
-      }
- else {
-        mUserColorNameManager.setUserNickname(userId,text);
-      }
-      break;
-    }
-case DialogInterface.BUTTON_NEUTRAL:
-{
-    mUserColorNameManager.clearUserNickname(userId);
-    break;
-  }
-}
 }

@@ -1,4 +1,0 @@
-{
-  if (colValues == null)   return 0;
-  return bulkDelete(resolver,uri,inColumn,colValues.toArray(),extraWhere,valuesIsString);
-}

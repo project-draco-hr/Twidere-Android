@@ -1,7 +1,7 @@
 {
   try {
     final ParcelableStatusUpdate statusUpdate=LoganSquareMapperFinder.mapperFor(ParcelableStatusUpdate.class).parse(statusJson);
-    final AccountKey currentAccountId=AccountKey.valueOf(currentAccountIdStr);
+    final UserKey currentAccountId=UserKey.valueOf(currentAccountIdStr);
     final StatusShortenResult shorten=mService.get().shorten(statusUpdate,currentAccountId,overrideStatusText);
     return LoganSquareMapperFinder.mapperFor(StatusShortenResult.class).serialize(shorten);
   }

@@ -7,7 +7,7 @@
       final Context context=getContext();
       if (context == null)       return null;
       RefreshTaskParam[] result=new RefreshTaskParam[2];
-      AccountKey[] accountKeys=getAccountKeys();
+      UserKey[] accountKeys=getAccountKeys();
       result[0]=new BaseRefreshTaskParam(accountKeys,DataStoreUtils.getOldestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,accountKeys),null);
       result[1]=new BaseRefreshTaskParam(accountKeys,DataStoreUtils.getOldestMessageIds(context,DirectMessages.Outbox.CONTENT_URI,accountKeys),null);
       return result;

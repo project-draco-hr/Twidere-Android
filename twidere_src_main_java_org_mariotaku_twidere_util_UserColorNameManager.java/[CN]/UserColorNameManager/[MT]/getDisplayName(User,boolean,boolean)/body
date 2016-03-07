@@ -1,3 +1,3 @@
 {
-  return getDisplayName(user.getId(),user.getName(),user.getScreenName(),nameFirst,ignoreCache);
+  return getDisplayName(UserKeyUtils.fromUser(user),user.getName(),user.getScreenName(),nameFirst,ignoreCache);
 }

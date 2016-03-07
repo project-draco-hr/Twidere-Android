@@ -3,12 +3,12 @@
   final String action=intent.getAction();
   final boolean hasAccountIds;
   if (intent.hasExtra(EXTRA_ACCOUNT_KEYS)) {
-    final AccountKey[] accountKeys=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_ACCOUNT_KEYS),AccountKey.CREATOR);
+    final UserKey[] accountKeys=Utils.newParcelableArray(intent.getParcelableArrayExtra(EXTRA_ACCOUNT_KEYS),UserKey.CREATOR);
     mAccountsAdapter.setSelectedAccountIds(accountKeys);
     hasAccountIds=true;
   }
  else   if (intent.hasExtra(EXTRA_ACCOUNT_KEY)) {
-    final AccountKey accountKey=intent.getParcelableExtra(EXTRA_ACCOUNT_KEY);
+    final UserKey accountKey=intent.getParcelableExtra(EXTRA_ACCOUNT_KEY);
     mAccountsAdapter.setSelectedAccountIds(accountKey);
     hasAccountIds=true;
   }

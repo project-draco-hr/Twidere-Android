@@ -4,7 +4,7 @@
     manager.mSelectedStatusIds.remove(((ParcelableStatus)object).id);
   }
  else   if (object instanceof ParcelableUser) {
-    manager.mSelectedUserIds.remove(((ParcelableUser)object).id);
+    manager.mSelectedUserIds.remove(((ParcelableUser)object).key);
   }
   if (ret) {
     if (isEmpty()) {

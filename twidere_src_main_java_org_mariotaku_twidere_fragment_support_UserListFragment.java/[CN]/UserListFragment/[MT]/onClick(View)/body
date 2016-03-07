@@ -9,7 +9,7 @@ case R.id.profile_image:
 {
     final ParcelableUserList userList=mUserList;
     if (userList == null)     return;
-    IntentUtils.openUserProfile(getActivity(),userList.account_key,userList.user_id,userList.user_screen_name,null,true,null);
+    IntentUtils.openUserProfile(getActivity(),userList.account_key,userList.user_key.getId(),userList.user_screen_name,null,true,null);
     break;
   }
 }

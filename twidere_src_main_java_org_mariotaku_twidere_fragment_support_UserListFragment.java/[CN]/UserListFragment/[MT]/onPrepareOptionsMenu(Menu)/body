@@ -3,7 +3,7 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.info,userList != null);
   menu.removeGroup(MENU_GROUP_USER_LIST_EXTENSION);
   if (userList != null) {
-    final boolean isMyList=userList.user_id == userList.account_key.getId();
+    final boolean isMyList=userList.user_key.equals(userList.account_key);
     final boolean isFollowing=userList.is_following;
     MenuUtils.setMenuItemAvailability(menu,R.id.edit,isMyList);
     MenuUtils.setMenuItemAvailability(menu,R.id.follow,!isMyList);

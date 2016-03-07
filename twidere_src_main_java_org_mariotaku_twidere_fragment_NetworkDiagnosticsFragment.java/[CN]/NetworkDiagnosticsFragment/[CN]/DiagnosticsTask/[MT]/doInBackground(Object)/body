@@ -20,7 +20,7 @@
     publishProgress(new LogText("null"));
   }
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
-  for (  AccountKey accountKey : DataStoreUtils.getAccountKeys(mContext)) {
+  for (  UserKey accountKey : DataStoreUtils.getAccountKeys(mContext)) {
     final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,accountKey);
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountKey,false);
     if (credentials == null || twitter == null)     continue;

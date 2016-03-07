@@ -1,6 +1,6 @@
 {
   final MenuItem item=menu.findItem(R.id.new_user_list);
-  final AccountKey accountId=getAccountKey();
+  final UserKey accountId=getAccountKey();
   if (accountId == null || item == null)   return;
   final long userId=getUserId();
   if (accountId.getId() == userId) {

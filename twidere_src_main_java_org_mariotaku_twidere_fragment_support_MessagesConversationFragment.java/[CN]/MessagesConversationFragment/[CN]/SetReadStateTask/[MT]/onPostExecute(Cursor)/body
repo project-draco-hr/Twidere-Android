@@ -1,7 +1,7 @@
 {
   if (cursor.moveToFirst()) {
     final int messageIdIdx=cursor.getColumnIndex(ConversationEntries.MESSAGE_ID);
-    final String key=mAccount.account_key + "-" + mRecipient.id;
+    final String key=mAccount.account_key + "-" + mRecipient.key;
     mReadStateManager.setPosition(CustomTabType.DIRECT_MESSAGES,key,cursor.getLong(messageIdIdx),false);
   }
   cursor.close();

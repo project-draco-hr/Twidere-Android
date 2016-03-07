@@ -5,7 +5,7 @@
   final LoaderManager lm=getLoaderManager();
   final Bundle args=new Bundle();
   args.putParcelable(EXTRA_ACCOUNT_KEY,account.account_key);
-  args.putLong(EXTRA_RECIPIENT_ID,recipient.id);
+  args.putLong(EXTRA_RECIPIENT_ID,recipient.key.getId());
   if (mLoaderInitialized) {
     lm.restartLoader(0,args,this);
   }

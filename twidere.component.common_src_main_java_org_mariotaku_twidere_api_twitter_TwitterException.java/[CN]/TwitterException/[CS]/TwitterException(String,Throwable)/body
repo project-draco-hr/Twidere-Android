@@ -3,4 +3,5 @@
   if (cause instanceof TwitterException) {
     ((TwitterException)cause).setNested();
   }
+  setCausedByNetworkIssue(cause instanceof IOException);
 }

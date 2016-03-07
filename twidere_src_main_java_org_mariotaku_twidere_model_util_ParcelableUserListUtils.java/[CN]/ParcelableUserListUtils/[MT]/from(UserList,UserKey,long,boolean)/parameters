@@ -1,0 +1,4 @@
+UserList list
+UserKey accountKey
+long position
+boolean isFollowing

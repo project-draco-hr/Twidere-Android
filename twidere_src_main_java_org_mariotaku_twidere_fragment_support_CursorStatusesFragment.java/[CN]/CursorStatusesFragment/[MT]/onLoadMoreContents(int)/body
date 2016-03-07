@@ -3,7 +3,7 @@
   super.onLoadMoreContents(position);
   if (position == 0)   return;
   getStatuses(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeys(){
       return CursorStatusesFragment.this.getAccountKeys();
     }
     @Nullable @Override public long[] getMaxIds(){

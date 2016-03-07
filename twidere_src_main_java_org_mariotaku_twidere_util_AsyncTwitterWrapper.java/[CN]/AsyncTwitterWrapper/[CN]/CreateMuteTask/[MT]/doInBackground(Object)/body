@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.createMute(mUserId);
-    Utils.setLastSeen(mContext,user.getId(),-1);
+    Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),-1);
     final Expression where=Expression.and(Utils.getAccountCompareExpression(),Expression.equals(Statuses.USER_ID,mUserId));
     final String[] whereArgs={String.valueOf(mAccountKey.getId()),mAccountKey.getHost(),String.valueOf(mUserId)};
     mResolver.delete(Statuses.CONTENT_URI,where.getSQL(),whereArgs);

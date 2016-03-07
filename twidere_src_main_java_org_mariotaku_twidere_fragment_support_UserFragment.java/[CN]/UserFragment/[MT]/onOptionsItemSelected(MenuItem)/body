@@ -8,7 +8,7 @@ case R.id.block:
 {
       if (userRelationship == null)       return true;
       if (userRelationship.relationship.isSourceBlockingTarget()) {
-        twitter.destroyBlockAsync(user.account_key,user.id);
+        twitter.destroyBlockAsync(user.account_key,user.key.getId());
       }
  else {
         CreateUserBlockDialogFragment.show(getFragmentManager(),user);
@@ -25,8 +25,9 @@ case R.id.add_to_filter:
   if (userRelationship == null)   return true;
   final ContentResolver cr=getContentResolver();
   if (userRelationship.isFiltering) {
-    final Expression where=Expression.equals(Filters.Users.USER_ID,user.id);
-    cr.delete(Filters.Users.CONTENT_URI,where.getSQL(),null);
+    final String where=Expression.equalsArgs(Filters.Users.USER_ID).getSQL();
+    final String[] whereArgs={user.key.toString()};
+    cr.delete(Filters.Users.CONTENT_URI,where,whereArgs);
     Utils.showInfoMessage(getActivity(),R.string.message_user_unmuted,false);
   }
  else {
@@ -39,7 +40,7 @@ case R.id.mute_user:
 {
 if (userRelationship == null) return true;
 if (userRelationship.relationship.isSourceMutingTarget()) {
-  twitter.destroyMuteAsync(user.account_key,user.id);
+  twitter.destroyMuteAsync(user.account_key,user.key.getId());
 }
  else {
   CreateUserMuteDialogFragment.show(getFragmentManager(),user);
@@ -61,7 +62,7 @@ final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
 builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_key));
-builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.id));
+builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.key));
 final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
 intent.putExtra(EXTRA_ACCOUNT,ParcelableCredentialsUtils.getCredentials(getActivity(),user.account_key));
 intent.putExtra(EXTRA_USER,user);
@@ -71,7 +72,7 @@ break;
 case R.id.set_color:
 {
 final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
-intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.id,true));
+intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.key,true));
 intent.putExtra(EXTRA_ALPHA_SLIDER,false);
 intent.putExtra(EXTRA_CLEAR_BUTTON,true);
 startActivityForResult(intent,REQUEST_SET_COLOR);
@@ -79,13 +80,13 @@ break;
 }
 case R.id.clear_nickname:
 {
-mUserColorNameManager.clearUserNickname(user.id);
+mUserColorNameManager.clearUserNickname(user.key);
 break;
 }
 case R.id.set_nickname:
 {
-final String nick=mUserColorNameManager.getUserNickname(user.id,true);
-SetUserNicknameDialogFragment.show(getFragmentManager(),user.id,nick);
+final String nick=mUserColorNameManager.getUserNickname(user.key,true);
+SetUserNicknameDialogFragment.show(getFragmentManager(),user.key,nick);
 break;
 }
 case R.id.add_to_list:
@@ -109,14 +110,14 @@ case R.id.follow:
 {
 if (userRelationship == null) return true;
 final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
-final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_key,user.id);
-final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_key,user.id);
+final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_key,user.key.getId());
+final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_key,user.key.getId());
 if (!isCreatingFriendship && !isDestroyingFriendship) {
 if (isFollowing) {
 DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
 }
  else {
-twitter.createFriendshipAsync(user.account_key,user.id);
+twitter.createFriendshipAsync(user.account_key,user.key.getId());
 }
 }
 return true;
@@ -126,7 +127,7 @@ case R.id.enable_retweets:
 final boolean newState=!item.isChecked();
 final FriendshipUpdate update=new FriendshipUpdate();
 update.retweets(newState);
-twitter.updateFriendship(user.account_key,user.id,update);
+twitter.updateFriendship(user.account_key,user.key.getId(),update);
 item.setChecked(newState);
 return true;
 }

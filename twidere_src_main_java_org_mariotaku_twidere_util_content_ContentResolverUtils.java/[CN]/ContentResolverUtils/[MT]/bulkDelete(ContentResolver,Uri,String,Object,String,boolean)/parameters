@@ -1,6 +1,0 @@
-ContentResolver resolver
-Uri uri
-String inColumn
-Object colValues
-String extraWhere
-boolean valuesIsString

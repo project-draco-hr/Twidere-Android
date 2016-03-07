@@ -1,0 +1,5 @@
+CharSequence text
+UserKey accountKey
+long extraId
+long userId
+String screenName

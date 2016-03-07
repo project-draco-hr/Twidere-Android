@@ -2,6 +2,6 @@
   final TweetEvent event=mStatusEvent;
   if (event == null)   return;
   event.markEnd();
-  final AccountKey accountKey=new AccountKey(event.getAccountId(),event.getAccountHost());
+  final UserKey accountKey=new UserKey(event.getAccountId(),event.getAccountHost());
   HotMobiLogger.getInstance(getActivity()).log(accountKey,event);
 }

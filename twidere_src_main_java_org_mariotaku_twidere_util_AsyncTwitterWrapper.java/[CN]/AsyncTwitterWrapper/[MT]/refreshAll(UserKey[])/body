@@ -1,0 +1,8 @@
+{
+  return refreshAll(new GetAccountKeysClosure(){
+    @Override public UserKey[] getAccountKeys(){
+      return accountKeys;
+    }
+  }
+);
+}

@@ -6,8 +6,8 @@
       if (followingOnly && !user.is_following) {
         continue;
       }
-      if (!ArrayUtils.contains(filteredUserIds,user.id)) {
-        list.add(user.id);
+      if (!ArrayUtils.contains(filteredUserIds,user.key.getId())) {
+        list.add(user.key.getId());
       }
     }
     activity.after_filtered_source_ids=list.toArray();

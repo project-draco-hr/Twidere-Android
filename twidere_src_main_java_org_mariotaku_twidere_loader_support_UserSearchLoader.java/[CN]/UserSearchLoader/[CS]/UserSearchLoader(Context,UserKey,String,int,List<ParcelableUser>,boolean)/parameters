@@ -1,0 +1,6 @@
+Context context
+UserKey accountKey
+String query
+int page
+List<ParcelableUser> data
+boolean fromUser

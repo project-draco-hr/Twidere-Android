@@ -1,0 +1,3 @@
+{
+  setUserColor(userId.toString(),color);
+}

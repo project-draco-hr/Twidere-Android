@@ -2,7 +2,7 @@
   final Uri uri=getContentUri();
   final String table=getTableNameByUri(uri);
   final String sortOrder=getSortOrder();
-  final AccountKey[] accountKeys=getAccountKeys();
+  final UserKey[] accountKeys=getAccountKeys();
   final Expression accountWhere=Expression.in(new Column(Activities.ACCOUNT_KEY),new ArgsArray(accountKeys.length));
   final Expression filterWhere=getFiltersWhere(table), where;
   if (filterWhere != null) {

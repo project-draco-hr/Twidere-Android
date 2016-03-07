@@ -1,0 +1,5 @@
+MessagesConversationFragment fragment
+UserKey accountKey
+String query
+boolean fromCache
+boolean fromUser

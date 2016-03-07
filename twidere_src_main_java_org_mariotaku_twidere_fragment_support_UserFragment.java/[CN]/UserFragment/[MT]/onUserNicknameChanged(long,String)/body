@@ -1,4 +1,0 @@
-{
-  if (mUser == null || mUser.id != userId)   return;
-  displayUser(mUser);
-}

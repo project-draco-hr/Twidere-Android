@@ -1,5 +1,5 @@
 {
-  final Set<Long> user_ids=new HashSet<>();
+  final Set<UserKey> userKeys=new HashSet<>();
   final Set<String> keywords=new HashSet<>();
   final Set<String> sources=new HashSet<>();
   final ArrayList<ContentValues> userValues=new ArrayList<>();
@@ -9,12 +9,12 @@
     final Object value=info.value;
     if (value instanceof ParcelableUserMention) {
       final ParcelableUserMention mention=(ParcelableUserMention)value;
-      user_ids.add(mention.id);
+      userKeys.add(mention.key);
       userValues.add(ContentValuesCreator.createFilteredUser(mention));
     }
  else     if (value instanceof UserItem) {
       final UserItem item=(UserItem)value;
-      user_ids.add(item.id);
+      userKeys.add(item.key);
       userValues.add(createFilteredUser(item));
     }
  else     if (info.type == FilterItemInfo.FILTER_TYPE_KEYWORD) {
@@ -37,9 +37,9 @@
     }
   }
   final ContentResolver resolver=getContentResolver();
-  ContentResolverUtils.bulkDelete(resolver,Filters.Users.CONTENT_URI,Filters.Users.USER_ID,user_ids,null,false);
-  ContentResolverUtils.bulkDelete(resolver,Filters.Keywords.CONTENT_URI,Filters.Keywords.VALUE,keywords,null,true);
-  ContentResolverUtils.bulkDelete(resolver,Filters.Sources.CONTENT_URI,Filters.Sources.VALUE,sources,null,true);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Users.CONTENT_URI,Filters.Users.USER_ID,userKeys,null);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Keywords.CONTENT_URI,Filters.Keywords.VALUE,keywords,null);
+  ContentResolverUtils.bulkDelete(resolver,Filters.Sources.CONTENT_URI,Filters.Sources.VALUE,sources,null);
   ContentResolverUtils.bulkInsert(resolver,Filters.Users.CONTENT_URI,userValues);
   ContentResolverUtils.bulkInsert(resolver,Filters.Keywords.CONTENT_URI,keywordValues);
   ContentResolverUtils.bulkInsert(resolver,Filters.Sources.CONTENT_URI,sourceValues);

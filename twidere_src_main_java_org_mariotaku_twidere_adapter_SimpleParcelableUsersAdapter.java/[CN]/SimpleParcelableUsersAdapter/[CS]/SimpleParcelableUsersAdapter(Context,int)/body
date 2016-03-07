@@ -1,5 +1,4 @@
 {
   super(context,layoutRes);
-  mContext=context;
   configBaseAdapter(context,this);
 }

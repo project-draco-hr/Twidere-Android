@@ -1,0 +1,13 @@
+{
+  final ContentResolver cr=context.getContentResolver();
+  final ContentValues values=new ContentValues();
+  if (time > 0) {
+    values.put(CachedUsers.LAST_SEEN,time);
+  }
+ else {
+    values.putNull(CachedUsers.LAST_SEEN);
+  }
+  final String where=Expression.equalsArgs(CachedUsers.USER_KEY).getSQL();
+  final String[] selectionArgs={userId.toString()};
+  return cr.update(CachedUsers.CONTENT_URI,values,where,selectionArgs) > 0;
+}

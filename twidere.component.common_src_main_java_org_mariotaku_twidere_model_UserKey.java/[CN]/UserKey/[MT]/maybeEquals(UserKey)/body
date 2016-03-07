@@ -1,0 +1,3 @@
+{
+  return another != null && another.getId() == id;
+}

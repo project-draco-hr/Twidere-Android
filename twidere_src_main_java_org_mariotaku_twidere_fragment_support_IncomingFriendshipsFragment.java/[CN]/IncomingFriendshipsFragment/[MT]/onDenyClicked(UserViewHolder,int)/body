@@ -2,5 +2,5 @@
   final AbsUsersAdapter<List<ParcelableUser>> adapter=getAdapter();
   final ParcelableUser user=adapter.getUser(position);
   if (user == null)   return;
-  mTwitterWrapper.denyFriendshipAsync(user.account_key,user.id);
+  mTwitterWrapper.denyFriendshipAsync(user.account_key,user.key);
 }

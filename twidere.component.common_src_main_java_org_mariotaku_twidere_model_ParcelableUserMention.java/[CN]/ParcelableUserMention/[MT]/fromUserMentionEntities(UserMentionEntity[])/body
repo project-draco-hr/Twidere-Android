@@ -1,8 +1,0 @@
-{
-  if (entities == null)   return null;
-  final ParcelableUserMention[] mentions=new ParcelableUserMention[entities.length];
-  for (int i=0, j=entities.length; i < j; i++) {
-    mentions[i]=new ParcelableUserMention(entities[i]);
-  }
-  return mentions;
-}

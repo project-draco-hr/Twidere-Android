@@ -1,9 +1,0 @@
-{
-  this.account_key=account_key;
-  this.id=id;
-  this.name=name;
-  this.screen_name=screen_name;
-  this.profile_image_url=profile_image_url;
-  is_cache=true;
-  is_basic=true;
-}

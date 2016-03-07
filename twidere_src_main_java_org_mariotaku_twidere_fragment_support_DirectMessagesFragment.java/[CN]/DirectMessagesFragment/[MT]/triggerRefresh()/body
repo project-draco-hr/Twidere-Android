@@ -3,7 +3,7 @@
     @Override protected RefreshTaskParam doInBackground(    final Object... params){
       final Context context=getContext();
       if (context == null)       return null;
-      AccountKey[] accountIds=getAccountKeys();
+      UserKey[] accountIds=getAccountKeys();
       long[] ids=DataStoreUtils.getNewestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,accountIds);
       return new BaseRefreshTaskParam(accountIds,ids,null);
     }

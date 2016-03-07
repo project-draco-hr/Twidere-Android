@@ -1,0 +1,13 @@
+{
+  if (context == null || accountKeys == null)   return new UserKey[0];
+  final UserKey[] temp=new UserKey[accountKeys.length];
+  int i=0;
+  for (  final UserKey accountKey : accountKeys) {
+    if (new AccountPreferences(context,accountKey).isAutoRefreshEnabled()) {
+      temp[i++]=accountKey;
+    }
+  }
+  final UserKey[] enabledIds=new UserKey[i];
+  System.arraycopy(temp,0,enabledIds,0,i);
+  return enabledIds;
+}

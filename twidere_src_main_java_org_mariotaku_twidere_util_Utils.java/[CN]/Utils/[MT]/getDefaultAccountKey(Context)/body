@@ -1,8 +1,8 @@
 {
   if (context == null)   return null;
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  AccountKey accountKey=AccountKey.valueOf(prefs.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
-  final AccountKey[] accountKeys=DataStoreUtils.getAccountKeys(context);
+  UserKey accountKey=UserKey.valueOf(prefs.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
+  final UserKey[] accountKeys=DataStoreUtils.getAccountKeys(context);
   int idMatchIdx=-1;
   for (int i=0, accountIdsLength=accountKeys.length; i < accountIdsLength; i++) {
     if (accountKeys[i].equals(accountKey)) {

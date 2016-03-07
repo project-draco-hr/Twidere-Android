@@ -1,0 +1,4 @@
+List<T> events
+UserKey accountId
+String type
+PreProcessing<T> preProcessing

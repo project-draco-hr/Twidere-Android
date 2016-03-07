@@ -1,13 +1,13 @@
 {
-  if (context == null)   return new AccountKey[0];
+  if (context == null)   return new UserKey[0];
   final Cursor cur=context.getContentResolver().query(Accounts.CONTENT_URI,new String[]{Accounts.ACCOUNT_KEY},Accounts.IS_ACTIVATED + " = 1",null,null);
-  if (cur == null)   return new AccountKey[0];
+  if (cur == null)   return new UserKey[0];
   try {
     cur.moveToFirst();
-    final AccountKey[] ids=new AccountKey[cur.getCount()];
+    final UserKey[] ids=new UserKey[cur.getCount()];
     int i=0;
     while (!cur.isAfterLast()) {
-      ids[i++]=AccountKey.valueOf(cur.getString(0));
+      ids[i++]=UserKey.valueOf(cur.getString(0));
       cur.moveToNext();
     }
     return ids;

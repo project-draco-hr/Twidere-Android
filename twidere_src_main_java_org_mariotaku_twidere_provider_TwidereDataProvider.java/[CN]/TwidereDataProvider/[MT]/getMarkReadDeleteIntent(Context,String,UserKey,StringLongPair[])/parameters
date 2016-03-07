@@ -1,0 +1,4 @@
+Context context
+String notificationType
+UserKey accountId
+StringLongPair[] positions

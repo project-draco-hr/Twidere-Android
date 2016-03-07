@@ -1,0 +1,14 @@
+{
+  if (context == null || accountKeys == null)   return new AccountPreferences[0];
+  final AccountPreferences[] temp=new AccountPreferences[accountKeys.length];
+  int i=0;
+  for (  final UserKey accountKey : accountKeys) {
+    final AccountPreferences preference=new AccountPreferences(context,accountKey);
+    if (preference.isNotificationEnabled()) {
+      temp[i++]=preference;
+    }
+  }
+  final AccountPreferences[] enabledIds=new AccountPreferences[i];
+  System.arraycopy(temp,0,enabledIds,0,i);
+  return enabledIds;
+}

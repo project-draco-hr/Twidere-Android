@@ -1,5 +1,0 @@
-{
-  this.id=id;
-  this.name=name;
-  this.screen_name=screen_name;
-}

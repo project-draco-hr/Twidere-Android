@@ -1,3 +1,3 @@
 {
-  return "ParcelableUserList{" + "members_count=" + members_count + ", subscribers_count="+ subscribers_count+ ", account_key="+ account_key+ ", id="+ id+ ", user_id="+ user_id+ ", position="+ position+ ", is_public="+ is_public+ ", is_following="+ is_following+ ", description='"+ description+ '\''+ ", name='"+ name+ '\''+ ", user_screen_name='"+ user_screen_name+ '\''+ ", user_name='"+ user_name+ '\''+ ", user_profile_image_url='"+ user_profile_image_url+ '\''+ '}';
+  return "ParcelableUserList{" + "members_count=" + members_count + ", subscribers_count="+ subscribers_count+ ", account_key="+ account_key+ ", id="+ id+ ", user_id="+ user_key+ ", position="+ position+ ", is_public="+ is_public+ ", is_following="+ is_following+ ", description='"+ description+ '\''+ ", name='"+ name+ '\''+ ", user_screen_name='"+ user_screen_name+ '\''+ ", user_name='"+ user_name+ '\''+ ", user_profile_image_url='"+ user_profile_image_url+ '\''+ '}';
 }

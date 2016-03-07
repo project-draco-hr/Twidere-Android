@@ -1,3 +1,0 @@
-{
-  return code == 301 || code == 302 || code == 307;
-}

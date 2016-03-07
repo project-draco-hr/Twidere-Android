@@ -1,4 +1,0 @@
-List<T> events
-AccountKey accountId
-String type
-PreProcessing<T> preProcessing

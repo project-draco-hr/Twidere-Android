@@ -8,7 +8,7 @@ case BROADCAST_NOTIFICATION_DELETED:
       if (uri == null)       return;
       DependencyHolder holder=DependencyHolder.get(context);
       @NotificationType final String notificationType=uri.getQueryParameter(QUERY_PARAM_NOTIFICATION_TYPE);
-      final AccountKey accountKey=AccountKey.valueOf(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_KEY));
+      final UserKey accountKey=UserKey.valueOf(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_KEY));
       final long itemId=NumberUtils.toLong(UriExtraUtils.getExtra(uri,"item_id"),-1);
       final long itemUserId=NumberUtils.toLong(UriExtraUtils.getExtra(uri,"item_user_id"),-1);
       final boolean itemUserFollowing=Boolean.parseBoolean(UriExtraUtils.getExtra(uri,"item_user_following"));

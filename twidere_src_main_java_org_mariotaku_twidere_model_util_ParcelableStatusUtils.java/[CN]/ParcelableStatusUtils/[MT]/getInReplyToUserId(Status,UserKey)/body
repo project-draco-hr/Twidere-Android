@@ -1,0 +1,23 @@
+{
+  final long inReplyToUserId=status.getInReplyToUserId();
+  final UserMentionEntity[] entities=status.getUserMentionEntities();
+  if (entities != null) {
+    for (    final UserMentionEntity entity : entities) {
+      if (inReplyToUserId == entity.getId()) {
+        return new UserKey(inReplyToUserId,accountKey.getHost());
+      }
+    }
+  }
+  final Attention[] attentions=status.getAttentions();
+  if (attentions != null) {
+    for (    Attention attention : attentions) {
+      if (inReplyToUserId == attention.getId()) {
+        final String host=UserKeyUtils.getUserHost(attention.getOstatusUri());
+        if (host != null) {
+          return new UserKey(inReplyToUserId,host);
+        }
+      }
+    }
+  }
+  return new UserKey(inReplyToUserId,accountKey.getHost());
+}

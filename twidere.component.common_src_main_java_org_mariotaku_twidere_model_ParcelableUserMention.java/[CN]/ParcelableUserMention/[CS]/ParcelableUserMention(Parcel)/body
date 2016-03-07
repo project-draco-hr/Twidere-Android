@@ -1,5 +1,0 @@
-{
-  id=in.readLong();
-  name=in.readString();
-  screen_name=in.readString();
-}

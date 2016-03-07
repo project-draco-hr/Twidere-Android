@@ -1,5 +1,5 @@
 {
   final ParcelableUser user=getUser();
-  if (user == null || !event.isAccount(user.account_key) || !event.isUser(user.id))   return;
+  if (user == null || !event.isAccount(user.account_key) || !event.isUser(user.key.getId()))   return;
   getFriendship();
 }

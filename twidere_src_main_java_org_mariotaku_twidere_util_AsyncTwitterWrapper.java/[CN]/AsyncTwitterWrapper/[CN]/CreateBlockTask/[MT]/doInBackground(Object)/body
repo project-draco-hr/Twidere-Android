@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.createBlock(mUserId);
-    Utils.setLastSeen(mContext,user.getId(),-1);
+    Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),-1);
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       final Expression where=Expression.and(Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY),Expression.equalsArgs(Statuses.USER_ID));
       final String[] whereArgs={mAccountKey.toString(),String.valueOf(mUserId)};

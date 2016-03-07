@@ -4,7 +4,7 @@
   if (position == 0)   return;
   TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
     @Override public RefreshTaskParam doLongOperation(    Object o){
-      final AccountKey[] accountKeys=getAccountKeys();
+      final UserKey[] accountKeys=getAccountKeys();
       final long[] maxIds=getOldestActivityIds(accountKeys);
       return new BaseRefreshTaskParam(accountKeys,maxIds,null);
     }

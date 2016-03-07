@@ -7,7 +7,7 @@ case DialogInterface.BUTTON_POSITIVE:
       final ParcelableUser user=args.getParcelable(EXTRA_USER);
       final AsyncTwitterWrapper twitter=mTwitterWrapper;
       if (account == null || user == null || twitter == null)       return;
-      twitter.destroyMessageConversationAsync(account.account_key,user.id);
+      twitter.destroyMessageConversationAsync(account.account_key,user.key.getId());
       break;
     }
 }

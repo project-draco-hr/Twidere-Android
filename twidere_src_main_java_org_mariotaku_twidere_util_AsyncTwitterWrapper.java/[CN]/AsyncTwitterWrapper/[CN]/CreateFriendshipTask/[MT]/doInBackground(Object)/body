@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.createFriendship(user_id);
-    Utils.setLastSeen(mContext,user.getId(),System.currentTimeMillis());
+    Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),System.currentTimeMillis());
     return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey),null);
   }
  catch (  final TwitterException e) {

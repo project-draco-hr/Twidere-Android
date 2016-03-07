@@ -5,7 +5,7 @@
       if (getActivity() == null) {
         return null;
       }
-      final AccountKey[] accountKeys=getAccountKeys();
+      final UserKey[] accountKeys=getAccountKeys();
       final long[] sinceIds=getNewestActivityIds(accountKeys);
       return new BaseRefreshTaskParam(accountKeys,sinceIds,null);
     }

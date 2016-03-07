@@ -1,2 +1,0 @@
-int position
-SimpleArrayMap<AccountKey,Set<Long>> counts

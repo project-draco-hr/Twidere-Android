@@ -1,0 +1,3 @@
+{
+  return accountId.equals(retweetedById) || myRetweetId > 0;
+}

@@ -1,0 +1,5 @@
+Context context
+String type
+String notificationType
+UserKey accountKey
+long readPosition

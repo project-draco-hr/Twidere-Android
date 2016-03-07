@@ -1,12 +1,12 @@
 {
-  final ArrayList<Long> ids_list=new ArrayList<>();
-  for (  final Object item : selected_items) {
+  final ArrayList<UserKey> userKeys=new ArrayList<>();
+  for (  final Object item : selectedItems) {
     if (item instanceof ParcelableUser) {
-      ids_list.add(((ParcelableUser)item).id);
+      userKeys.add(((ParcelableUser)item).key);
     }
  else     if (item instanceof ParcelableStatus) {
-      ids_list.add(((ParcelableStatus)item).user_id);
+      userKeys.add(((ParcelableStatus)item).user_key);
     }
   }
-  return TwidereArrayUtils.fromList(ids_list);
+  return userKeys.toArray(new UserKey[userKeys.size()]);
 }

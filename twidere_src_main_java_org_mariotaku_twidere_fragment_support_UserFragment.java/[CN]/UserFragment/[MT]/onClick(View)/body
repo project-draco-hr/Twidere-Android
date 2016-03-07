@@ -10,7 +10,7 @@ case R.id.error_container:
     }
 case R.id.follow:
 {
-    if (user.account_key.isAccount(user.id,user.user_host)) {
+    if (user.account_key.equals(user.key)) {
       Utils.openProfileEditor(getActivity(),user.account_key);
       break;
     }
@@ -18,13 +18,13 @@ case R.id.follow:
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
     if (userRelationship == null || twitter == null)     return;
     if (userRelationship.relationship.isSourceBlockingTarget()) {
-      twitter.destroyBlockAsync(user.account_key,user.id);
+      twitter.destroyBlockAsync(user.account_key,user.key.getId());
     }
  else     if (userRelationship.relationship.isSourceFollowingTarget()) {
       DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
     }
  else {
-      twitter.createFriendshipAsync(user.account_key,user.id);
+      twitter.createFriendshipAsync(user.account_key,user.key.getId());
     }
     break;
   }
@@ -49,22 +49,22 @@ break;
 }
 case R.id.listed_container:
 {
-IntentUtils.openUserLists(getActivity(),user.account_key,user.id,user.screen_name);
+IntentUtils.openUserLists(getActivity(),user.account_key,user.key.getId(),user.screen_name);
 break;
 }
 case R.id.followers_container:
 {
-IntentUtils.openUserFollowers(getActivity(),user.account_key,user.id,user.screen_name);
+IntentUtils.openUserFollowers(getActivity(),user.account_key,user.key.getId(),user.screen_name);
 break;
 }
 case R.id.friends_container:
 {
-IntentUtils.openUserFriends(getActivity(),user.account_key,user.id,user.screen_name);
+IntentUtils.openUserFriends(getActivity(),user.account_key,user.key.getId(),user.screen_name);
 break;
 }
 case R.id.name_container:
 {
-if (user.account_key.isAccount(user.id,user.user_host)) return;
+if (user.account_key.equals(user.key)) return;
 Utils.openProfileEditor(getActivity(),user.account_key);
 break;
 }

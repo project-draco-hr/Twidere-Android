@@ -1,7 +1,8 @@
 {
   accountId=user.account_key.getId();
   accountHost=user.account_key.getHost();
-  userId=user.id;
+  userId=user.key.getId();
+  userHost=user.key.toString();
   statusCount=user.statuses_count;
   followerCount=user.followers_count;
   friendCount=user.friends_count;

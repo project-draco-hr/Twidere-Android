@@ -30,7 +30,7 @@
     if (quotedText instanceof Spanned) {
       quotedTextView.setText(linkify.applyAllLinks(quotedText,status.account_key,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
     }
-    quoteIndicator.setColor(manager.getUserColor(status.user_id,false));
+    quoteIndicator.setColor(manager.getUserColor(status.user_key,false));
     profileContainer.drawStart(manager.getUserColor(status.quoted_user_id,false));
   }
  else {
@@ -38,7 +38,7 @@
     quotedNameContainer.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
-    profileContainer.drawStart(manager.getUserColor(status.user_id,false));
+    profileContainer.drawStart(manager.getUserColor(status.user_key,false));
   }
   final long timestamp;
   if (status.is_retweet) {
@@ -47,7 +47,7 @@
  else {
     timestamp=status.timestamp;
   }
-  nameView.setText(manager.getUserNickname(status.user_id,status.user_name,false));
+  nameView.setText(manager.getUserNickname(status.user_key,status.user_name,false));
   screenNameView.setText(String.format("@%s",status.user_screen_name));
   loader.displayProfileImage(profileImageView,status);
   final int typeIconRes=Utils.getUserTypeIconRes(status.user_is_verified,status.user_is_protected);

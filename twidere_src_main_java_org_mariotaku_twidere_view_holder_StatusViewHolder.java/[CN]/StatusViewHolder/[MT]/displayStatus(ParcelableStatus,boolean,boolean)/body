@@ -34,7 +34,7 @@
       statusContentUpperSpace.setVisibility(View.GONE);
     }
   }
- else   if (status.in_reply_to_status_id > 0 && status.in_reply_to_user_id > 0 && displayInReplyTo) {
+ else   if (status.in_reply_to_status_id > 0 && status.in_reply_to_user_id != null && displayInReplyTo) {
     final String inReplyTo=manager.getDisplayName(status.in_reply_to_user_id,status.in_reply_to_name,status.in_reply_to_screen_name,nameFirst,false);
     statusInfoLabel.setText(context.getString(R.string.in_reply_to_name,formatter.unicodeWrap(inReplyTo)));
     statusInfoIcon.setImageResource(R.drawable.ic_activity_action_reply);
@@ -69,17 +69,17 @@
       quotedTextView.setText(text);
     }
     quoteIndicator.setColor(manager.getUserColor(status.quoted_user_id,false));
-    itemContent.drawStart(manager.getUserColor(status.user_id,false));
+    itemContent.drawStart(manager.getUserColor(status.user_key,false));
   }
  else {
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
     if (status.is_retweet) {
-      itemContent.drawStart(manager.getUserColor(status.retweeted_by_user_id,false),manager.getUserColor(status.user_id,false));
+      itemContent.drawStart(manager.getUserColor(status.retweeted_by_user_id,false),manager.getUserColor(status.user_key,false));
     }
  else {
-      itemContent.drawStart(manager.getUserColor(status.user_id,false));
+      itemContent.drawStart(manager.getUserColor(status.user_key,false));
     }
   }
   if (status.is_retweet) {
@@ -88,7 +88,7 @@
  else {
     timeView.setTime(status.timestamp);
   }
-  nameView.setName(manager.getUserNickname(status.user_id,status.user_name,false));
+  nameView.setName(manager.getUserNickname(status.user_key,status.user_name,false));
   nameView.setScreenName("@" + status.user_screen_name);
   if (statusInfoSpace != null) {
     statusInfoSpace.setVisibility(View.VISIBLE);
@@ -167,7 +167,7 @@
   }
  else {
     final boolean creatingRetweet=twitter.isCreatingRetweet(status.account_key,status.id);
-    retweetIconView.setActivated(creatingRetweet || status.retweeted || Utils.isMyRetweet(status.account_key.getId(),status.retweeted_by_user_id,status.my_retweet_id));
+    retweetIconView.setActivated(creatingRetweet || status.retweeted || Utils.isMyRetweet(status.account_key,status.retweeted_by_user_id,status.my_retweet_id));
     retweetCount=status.retweet_count + (creatingRetweet ? 1 : 0);
   }
   if (retweetCount > 0) {

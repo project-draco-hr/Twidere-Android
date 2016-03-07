@@ -1,3 +1,0 @@
-{
-  return retweetedById == accountId || myRetweetId > 0;
-}

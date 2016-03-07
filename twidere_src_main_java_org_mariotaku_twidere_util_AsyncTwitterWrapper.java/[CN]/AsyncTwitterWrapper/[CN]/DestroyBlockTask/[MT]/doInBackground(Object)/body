@@ -3,7 +3,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final User user=twitter.destroyBlock(mUserId);
-    Utils.setLastSeen(mContext,user.getId(),-1);
+    Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),-1);
     return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey),null);
   }
  catch (  final TwitterException e) {

@@ -1,5 +1,5 @@
 {
-  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountKey,mUserId);
+  final FollowRequestTaskEvent event=new FollowRequestTaskEvent(FollowRequestTaskEvent.Action.ACCEPT,mAccountKey,mUserId.getId());
   event.setFinished(true);
   if (result.hasData()) {
     final User user=result.getData();

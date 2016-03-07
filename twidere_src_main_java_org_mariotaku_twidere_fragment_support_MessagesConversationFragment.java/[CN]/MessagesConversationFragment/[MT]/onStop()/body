@@ -7,7 +7,7 @@
   final ParcelableCredentials account=mAccount;
   final ParcelableUser recipient=mRecipient;
   if (account != null && recipient != null) {
-    final String key=getDraftsTextKey(account.account_key,recipient.id);
+    final String key=getDraftsTextKey(account.account_key,recipient.key.getId());
     final SharedPreferences.Editor editor=mMessageDrafts.edit();
     final String text=ParseUtils.parseString(mEditText.getText());
     if (TextUtils.isEmpty(text)) {

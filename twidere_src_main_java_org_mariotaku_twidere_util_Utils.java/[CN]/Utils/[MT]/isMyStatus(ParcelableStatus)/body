@@ -1,4 +1,4 @@
 {
   if (isMyRetweet(status))   return true;
-  return status.account_key.getId() == status.user_id;
+  return status.account_key.maybeEquals(status.user_key);
 }

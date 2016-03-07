@@ -1,5 +1,5 @@
 {
-  final AccountKey accountKey=event.getAccountKey();
+  final UserKey accountKey=event.getAccountKey();
   final String screen_name=getAccountScreenName(getActivity(),accountKey);
   final Bundle args=getArguments();
   if (args == null)   return;

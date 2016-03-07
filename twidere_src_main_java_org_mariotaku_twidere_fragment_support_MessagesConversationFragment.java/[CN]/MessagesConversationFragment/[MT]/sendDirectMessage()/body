@@ -7,7 +7,7 @@
     mEditText.setError(getString(R.string.error_message_no_content));
   }
  else {
-    mTwitterWrapper.sendDirectMessageAsync(account.account_key,recipient.id,message,mImageUri);
+    mTwitterWrapper.sendDirectMessageAsync(account.account_key,recipient.key.getId(),message,mImageUri);
     mEditText.setText(null);
     mImageUri=null;
     updateAddImageButton();

@@ -1,5 +1,5 @@
 {
-  final AccountKey accountId=getSelectedAccountKey();
+  final UserKey accountId=getSelectedAccountKey();
   final Uri.Builder builder=Suggestions.Search.CONTENT_URI.buildUpon();
   builder.appendQueryParameter(QUERY_PARAM_QUERY,ParseUtils.parseString(mSearchQuery.getText()));
   if (accountId != null) {

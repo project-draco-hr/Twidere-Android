@@ -7,10 +7,10 @@ case REQUEST_SET_COLOR:
       if (resultCode == Activity.RESULT_OK) {
         if (data == null)         return;
         final int color=data.getIntExtra(EXTRA_COLOR,Color.TRANSPARENT);
-        mUserColorNameManager.setUserColor(mUser.id,color);
+        mUserColorNameManager.setUserColor(mUser.key,color);
       }
  else       if (resultCode == ColorPickerDialogActivity.RESULT_CLEARED) {
-        mUserColorNameManager.clearUserColor(mUser.id);
+        mUserColorNameManager.clearUserColor(mUser.key);
       }
       break;
     }
@@ -30,9 +30,9 @@ case REQUEST_SELECT_ACCOUNT:
   if (user == null)   return;
   if (resultCode == Activity.RESULT_OK) {
     if (data == null || !data.hasExtra(EXTRA_ID))     return;
-    final AccountKey accountKey=data.getParcelableExtra(EXTRA_KEY);
+    final UserKey accountKey=data.getParcelableExtra(EXTRA_KEY);
     @Referral final String referral=getArguments().getString(EXTRA_REFERRAL);
-    IntentUtils.openUserProfile(getActivity(),accountKey,user.id,user.screen_name,null,true,referral);
+    IntentUtils.openUserProfile(getActivity(),accountKey,user.key.getId(),user.screen_name,null,true,referral);
   }
   break;
 }

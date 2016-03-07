@@ -1,0 +1,4 @@
+View view
+ParcelableMedia media
+UserKey accountKey
+long extraId

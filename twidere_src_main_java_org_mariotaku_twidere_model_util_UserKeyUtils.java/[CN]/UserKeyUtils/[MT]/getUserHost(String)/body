@@ -1,0 +1,6 @@
+{
+  if (uri == null)   return TwidereConstants.USER_TYPE_TWITTER_COM;
+  final String authority=PreviewMediaExtractor.getAuthority(uri);
+  if (authority == null)   return TwidereConstants.USER_TYPE_TWITTER_COM;
+  return authority.replaceAll("[^\\w\\d\\.]","-");
+}

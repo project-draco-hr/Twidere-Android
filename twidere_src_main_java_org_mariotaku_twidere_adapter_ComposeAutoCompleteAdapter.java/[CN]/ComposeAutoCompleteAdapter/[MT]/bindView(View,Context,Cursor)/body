@@ -4,8 +4,8 @@
   final ProfileImageView icon=(ProfileImageView)view.findViewById(android.R.id.icon);
   icon.setImageDrawable(null);
   if (Suggestions.AutoComplete.TYPE_USERS.equals(cursor.getString(mTypeIdx))) {
-    text1.setText(mUserColorNameManager.getUserNickname(cursor.getLong(mExtraIdIdx),cursor.getString(mTitleIdx)));
-    text2.setText('@' + cursor.getString(mSummaryIdx));
+    text1.setText(mUserColorNameManager.getUserNickname(cursor.getString(mExtraIdIdx),cursor.getString(mTitleIdx)));
+    text2.setText(String.format("@%s",cursor.getString(mSummaryIdx)));
     if (mDisplayProfileImage) {
       final String profileImageUrl=cursor.getString(mIconIdx);
       mProfileImageLoader.displayProfileImage(icon,profileImageUrl);
@@ -16,7 +16,7 @@
     icon.clearColorFilter();
   }
  else {
-    text1.setText('#' + cursor.getString(mTitleIdx));
+    text1.setText(String.format("#%s",cursor.getString(mTitleIdx)));
     text2.setText(R.string.hashtag);
     icon.setImageResource(R.drawable.ic_action_hashtag);
     icon.setColorFilter(text1.getCurrentTextColor(),Mode.SRC_ATOP);

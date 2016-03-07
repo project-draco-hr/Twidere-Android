@@ -3,8 +3,8 @@
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
   final ProfileImageView icon=(ProfileImageView)view.findViewById(android.R.id.icon);
   icon.setImageDrawable(null);
-  text1.setText(mUserColorNameManager.getUserNickname(cursor.getLong(mIdIdx),cursor.getString(mNameIdx)));
-  text2.setText('@' + cursor.getString(mScreenNameIdx));
+  text1.setText(mUserColorNameManager.getUserNickname(cursor.getString(mIdIdx),cursor.getString(mNameIdx)));
+  text2.setText(String.format("@%s",cursor.getString(mScreenNameIdx)));
   if (mDisplayProfileImage) {
     final String profileImageUrl=cursor.getString(mProfileImageIdx);
     mProfileImageLoader.displayProfileImage(icon,profileImageUrl);

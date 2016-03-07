@@ -7,7 +7,7 @@
   if (cur == null)   return null;
   try {
     if (cur.moveToFirst()) {
-      return AccountKey.valueOf(cur.getString(0));
+      return UserKey.valueOf(cur.getString(0));
     }
     return null;
   }

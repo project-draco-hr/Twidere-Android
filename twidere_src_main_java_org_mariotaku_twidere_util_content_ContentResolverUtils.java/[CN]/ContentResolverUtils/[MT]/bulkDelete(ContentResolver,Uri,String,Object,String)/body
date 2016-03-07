@@ -1,0 +1,15 @@
+{
+  if (colValues == null)   return 0;
+  final int colValuesLength=Array.getLength(colValues), blocksCount=colValuesLength / MAX_BULK_COUNT + 1;
+  int rowsDeleted=0;
+  for (int i=0; i < blocksCount; i++) {
+    final int start=i * MAX_BULK_COUNT, end=Math.min(start + MAX_BULK_COUNT,colValuesLength);
+    final String[] block=TwidereArrayUtils.toStringArray(colValues,start,end);
+    final StringBuilder where=new StringBuilder(Expression.in(new Columns.Column(inColumn),new ArgsArray(block.length)).getSQL());
+    if (!TextUtils.isEmpty(extraWhere)) {
+      where.append(" AND ").append(extraWhere);
+    }
+    rowsDeleted+=resolver.delete(uri,where.toString(),block);
+  }
+  return rowsDeleted;
+}

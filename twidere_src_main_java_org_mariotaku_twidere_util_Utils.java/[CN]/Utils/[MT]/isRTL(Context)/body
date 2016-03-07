@@ -1,5 +1,0 @@
-{
-  if (context == null)   return false;
-  final Resources res=context.getResources();
-  return "ar".equals(res.getConfiguration().locale.getLanguage());
-}

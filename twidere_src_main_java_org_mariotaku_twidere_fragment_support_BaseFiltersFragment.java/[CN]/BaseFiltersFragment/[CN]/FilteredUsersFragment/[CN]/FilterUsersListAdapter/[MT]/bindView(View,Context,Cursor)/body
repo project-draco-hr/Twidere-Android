@@ -1,9 +1,2 @@
 {
-  super.bindView(view,context,cursor);
-  final TextView text1=(TextView)view.findViewById(android.R.id.text1);
-  final long userId=cursor.getLong(mUserIdIdx);
-  final String name=cursor.getString(mNameIdx);
-  final String screenName=cursor.getString(mScreenNameIdx);
-  final String displayName=mUserColorNameManager.getDisplayName(userId,name,screenName,mNameFirst,false);
-  text1.setText(displayName);
 }

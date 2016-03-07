@@ -5,7 +5,7 @@
 switch (item.getItemId()) {
 case R.id.add:
 {
-      if (userList.user_id != userList.account_key.getId())       return false;
+      if (!userList.user_key.equals(userList.account_key))       return false;
       final Intent intent=new Intent(INTENT_ACTION_SELECT_USER);
       intent.setClass(getActivity(),UserListSelectorActivity.class);
       intent.putExtra(EXTRA_ACCOUNT_KEY,userList.account_key);
@@ -14,7 +14,7 @@ case R.id.add:
     }
 case R.id.delete:
 {
-    if (userList.user_id != userList.account_key.getId())     return false;
+    if (!userList.user_key.equals(userList.account_key))     return false;
     DestroyUserListDialogFragment.show(getFragmentManager(),userList);
     break;
   }

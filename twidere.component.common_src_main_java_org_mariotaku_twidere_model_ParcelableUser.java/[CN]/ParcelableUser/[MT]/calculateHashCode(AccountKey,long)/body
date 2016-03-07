@@ -1,5 +1,0 @@
-{
-  int result=account_key.hashCode();
-  result=31 * result + (int)(id ^ (id >>> 32));
-  return result;
-}

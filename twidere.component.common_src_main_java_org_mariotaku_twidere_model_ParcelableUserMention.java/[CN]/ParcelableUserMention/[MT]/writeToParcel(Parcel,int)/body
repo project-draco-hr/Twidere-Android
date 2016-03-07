@@ -1,5 +1,3 @@
 {
-  dest.writeLong(id);
-  dest.writeString(name);
-  dest.writeString(screen_name);
+  ParcelableUserMentionParcelablePlease.writeToParcel(this,dest,flags);
 }

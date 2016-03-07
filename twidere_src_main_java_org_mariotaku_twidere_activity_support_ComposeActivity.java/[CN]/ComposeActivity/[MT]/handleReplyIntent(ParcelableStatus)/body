@@ -4,7 +4,7 @@
   if (TextUtils.isEmpty(myScreenName))   return false;
   int selectionStart=0;
   mEditText.append("@" + status.user_screen_name + " ");
-  if (status.account_key.getId() != status.user_id) {
+  if (!status.account_key.equals(status.user_key)) {
     selectionStart=mEditText.length();
   }
   if (status.is_retweet) {

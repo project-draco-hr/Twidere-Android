@@ -1,5 +1,0 @@
-Context context
-AccountKey accountKey
-String type
-List<T> events
-PreProcessing<T> preProcessing

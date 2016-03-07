@@ -1,5 +1,5 @@
 {
-  if (user == null || user.id <= 0)   return false;
+  if (user == null || user.key == null)   return false;
   final String accountScreenName=DataStoreUtils.getAccountScreenName(this,user.account_key);
   if (TextUtils.isEmpty(accountScreenName))   return false;
   mEditText.setText(String.format("@%s ",user.screen_name));

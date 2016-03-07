@@ -1,11 +1,14 @@
 {
+  mCanLoadAllReplies=false;
   final ParcelableStatus status=mStatus;
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(getContext(),getAccountKey());
   if (credentials == null)   throw new TwitterException("Null credentials");
   if (Utils.isOfficialCredentials(getContext(),credentials)) {
+    mCanLoadAllReplies=true;
     return twitter.showConversation(status.id,paging);
   }
- else   if (!TwitterAPIFactory.isTwitterCredentials(credentials)) {
+ else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+    mCanLoadAllReplies=true;
     return twitter.getStatusNetConversation(status.id,paging);
   }
   final List<Status> statuses=new ArrayList<>();

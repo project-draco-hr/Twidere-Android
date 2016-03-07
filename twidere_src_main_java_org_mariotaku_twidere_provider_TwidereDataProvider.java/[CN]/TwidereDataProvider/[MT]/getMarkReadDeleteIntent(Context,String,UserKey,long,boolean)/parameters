@@ -1,0 +1,5 @@
+Context context
+String type
+UserKey accountKey
+long position
+boolean extraUserFollowing

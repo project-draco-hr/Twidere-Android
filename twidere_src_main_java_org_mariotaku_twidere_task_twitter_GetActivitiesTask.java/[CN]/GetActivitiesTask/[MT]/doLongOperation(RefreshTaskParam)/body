@@ -1,12 +1,12 @@
 {
-  final AccountKey[] accountIds=param.getAccountKeys();
+  final UserKey[] accountIds=param.getAccountKeys();
   final long[] maxIds=param.getMaxIds();
   final long[] sinceIds=param.getSinceIds();
   final ContentResolver cr=context.getContentResolver();
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT);
   boolean saveReadPosition=false;
   for (int i=0; i < accountIds.length; i++) {
-    final AccountKey accountKey=accountIds[i];
+    final UserKey accountKey=accountIds[i];
     final boolean noItemsBefore=DataStoreUtils.getActivitiesCount(context,getContentUri(),accountKey) <= 0;
     final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
     if (twitter == null)     continue;

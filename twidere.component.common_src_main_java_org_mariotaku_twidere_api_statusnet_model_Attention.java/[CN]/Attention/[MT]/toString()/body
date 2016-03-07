@@ -1,0 +1,3 @@
+{
+  return "Attention{" + "fullName='" + fullName + '\''+ ", id='"+ id+ '\''+ ", ostatusUri='"+ ostatusUri+ '\''+ ", profileUrl='"+ profileUrl+ '\''+ ", screenName='"+ screenName+ '\''+ '}';
+}

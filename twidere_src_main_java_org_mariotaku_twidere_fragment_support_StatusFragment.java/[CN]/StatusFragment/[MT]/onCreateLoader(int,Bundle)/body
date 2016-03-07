@@ -1,6 +1,6 @@
 {
   final Bundle fragmentArgs=getArguments();
-  final AccountKey accountKey=fragmentArgs.getParcelable(EXTRA_ACCOUNT_KEY);
+  final UserKey accountKey=fragmentArgs.getParcelable(EXTRA_ACCOUNT_KEY);
   final long statusId=fragmentArgs.getLong(EXTRA_STATUS_ID,-1);
   return new ParcelableStatusLoader(getActivity(),false,fragmentArgs,accountKey,statusId);
 }
