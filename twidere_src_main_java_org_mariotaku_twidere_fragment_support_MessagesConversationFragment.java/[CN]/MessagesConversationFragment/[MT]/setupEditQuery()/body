@@ -11,8 +11,8 @@
       if (((BaseAppCompatActivity)activity).getKeyMetaState() != 0)       return false;
       final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
       if (account == null)       return false;
-      mEditText.setAccountKey(new AccountKey(account.account_id,account.account_host));
-      searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
+      mEditText.setAccountKey(account.account_key);
+      searchUsers(account.account_key,ParseUtils.parseString(mEditUserQuery.getText()),false);
       return true;
     }
   }
@@ -25,8 +25,8 @@
     @Override public void afterTextChanged(    Editable s){
       final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
       if (account == null)       return;
-      mEditText.setAccountKey(new AccountKey(account.account_id,account.account_host));
-      searchUsers(account.account_id,ParseUtils.parseString(s),true);
+      mEditText.setAccountKey(account.account_key);
+      searchUsers(account.account_key,ParseUtils.parseString(s),true);
     }
   }
 );

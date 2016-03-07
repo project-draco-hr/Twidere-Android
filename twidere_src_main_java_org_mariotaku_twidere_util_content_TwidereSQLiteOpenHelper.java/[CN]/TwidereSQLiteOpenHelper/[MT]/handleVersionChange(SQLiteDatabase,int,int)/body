@@ -4,7 +4,7 @@
   final HashMap<String,String> draftsAlias=new HashMap<>();
   accountsAlias.put(Accounts.SCREEN_NAME,"username");
   accountsAlias.put(Accounts.NAME,"username");
-  accountsAlias.put(Accounts.ACCOUNT_ID,"user_id");
+  accountsAlias.put(Accounts.ACCOUNT_KEY,"user_id");
   accountsAlias.put(Accounts.COLOR,"user_color");
   accountsAlias.put(Accounts.OAUTH_TOKEN_SECRET,"token_secret");
   accountsAlias.put(Accounts.API_URL_FORMAT,"rest_base_url");
@@ -17,7 +17,7 @@
   safeUpgrade(db,CachedUsers.TABLE_NAME,CachedUsers.COLUMNS,CachedUsers.TYPES,true,null,createConflictReplaceConstraint(CachedUsers.USER_ID,CachedUsers.USER_HOST));
   safeUpgrade(db,CachedStatuses.TABLE_NAME,CachedStatuses.COLUMNS,CachedStatuses.TYPES,true,null);
   safeUpgrade(db,CachedHashtags.TABLE_NAME,CachedHashtags.COLUMNS,CachedHashtags.TYPES,true,null);
-  safeUpgrade(db,CachedRelationships.TABLE_NAME,CachedRelationships.COLUMNS,CachedRelationships.TYPES,true,null,createConflictReplaceConstraint(CachedRelationships.ACCOUNT_ID,CachedRelationships.USER_ID));
+  safeUpgrade(db,CachedRelationships.TABLE_NAME,CachedRelationships.COLUMNS,CachedRelationships.TYPES,true,null,createConflictReplaceConstraint(CachedRelationships.ACCOUNT_KEY,CachedRelationships.USER_ID));
   safeUpgrade(db,Filters.Users.TABLE_NAME,Filters.Users.COLUMNS,Filters.Users.TYPES,oldVersion < 49,null);
   safeUpgrade(db,Filters.Keywords.TABLE_NAME,Filters.Keywords.COLUMNS,Filters.Keywords.TYPES,oldVersion < 49,filtersAlias);
   safeUpgrade(db,Filters.Sources.TABLE_NAME,Filters.Sources.COLUMNS,Filters.Sources.TYPES,oldVersion < 49,filtersAlias);

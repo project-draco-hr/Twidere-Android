@@ -1,6 +1,0 @@
-{
-  for (int i=0, j=getStatusCount(); i < j; i++) {
-    if (accountId == getAccountId(i) && statusId == getStatusId(i))     return getStatus(i);
-  }
-  return null;
-}

@@ -1,7 +1,7 @@
 {
   if (status == null)   return;
   final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_ACCOUNT_KEY,new AccountKey(status.account_id,status.account_host));
+  args.putParcelable(EXTRA_ACCOUNT_KEY,status.account_key);
   args.putLong(EXTRA_STATUS_ID,status.is_retweet ? status.retweet_id : status.id);
   args.putLong(EXTRA_SINCE_ID,sinceId);
   args.putLong(EXTRA_MAX_ID,maxId);

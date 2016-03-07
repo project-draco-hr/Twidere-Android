@@ -4,7 +4,7 @@
     if (result.alreadyLoggedIn) {
       final ContentValues values=result.toContentValues();
       if (values != null) {
-        mResolver.update(Accounts.CONTENT_URI,values,Expression.equals(Accounts.ACCOUNT_ID,result.user.getId()).getSQL(),null);
+        mResolver.update(Accounts.CONTENT_URI,values,Expression.equals(Accounts.ACCOUNT_KEY,result.user.getId()).getSQL(),null);
       }
       Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
     }

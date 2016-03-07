@@ -1,3 +1,3 @@
 {
-  return mAccounts[position].account_id;
+  return System.identityHashCode(mAccounts[position]);
 }

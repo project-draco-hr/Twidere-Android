@@ -3,7 +3,7 @@
   qb.select(select).from(new Tables(CachedUsers.TABLE_NAME));
   final Column relationshipsUserId=new Column(new Table(CachedRelationships.TABLE_NAME),CachedRelationships.USER_ID);
   final Column usersUserId=new Column(new Table(CachedUsers.TABLE_NAME),CachedRelationships.USER_ID);
-  final Column relationshipsAccountId=new Column(new Table(CachedRelationships.TABLE_NAME),CachedRelationships.ACCOUNT_ID);
+  final Column relationshipsAccountId=new Column(new Table(CachedRelationships.TABLE_NAME),CachedRelationships.ACCOUNT_KEY);
   final Expression on=Expression.and(Expression.equals(relationshipsUserId,usersUserId),Expression.equals(relationshipsAccountId,accountId));
   qb.join(new Join(false,Operation.LEFT,new Table(CachedRelationships.TABLE_NAME),on));
   if (selection != null) {

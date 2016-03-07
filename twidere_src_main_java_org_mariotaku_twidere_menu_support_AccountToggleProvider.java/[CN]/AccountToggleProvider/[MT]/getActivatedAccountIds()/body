@@ -4,7 +4,7 @@
   int len=0;
   for (  ParcelableAccount account : mAccounts) {
     if (account.is_activated) {
-      temp[len++]=new AccountKey(account.account_id,account.account_host);
+      temp[len++]=account.account_key;
     }
   }
   final AccountKey[] result=new AccountKey[len];

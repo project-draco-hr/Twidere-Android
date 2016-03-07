@@ -14,7 +14,7 @@ case R.id.add_image:
 case R.id.query_button:
 {
   final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
-  searchUsers(account.account_id,ParseUtils.parseString(mEditUserQuery.getText()),false);
+  searchUsers(account.account_key,ParseUtils.parseString(mEditUserQuery.getText()),false);
   break;
 }
 }

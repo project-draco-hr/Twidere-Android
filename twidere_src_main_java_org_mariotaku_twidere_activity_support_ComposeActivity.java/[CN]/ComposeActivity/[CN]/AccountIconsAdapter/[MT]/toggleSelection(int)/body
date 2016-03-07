@@ -1,8 +1,7 @@
 {
   if (mAccounts == null)   return;
   final ParcelableCredentials account=mAccounts[position];
-  final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
-  mSelection.put(accountKey,!Boolean.TRUE.equals(mSelection.get(accountKey)));
+  mSelection.put(account.account_key,!Boolean.TRUE.equals(mSelection.get(account.account_key)));
   mActivity.notifyAccountSelectionChanged();
   notifyDataSetChanged();
 }

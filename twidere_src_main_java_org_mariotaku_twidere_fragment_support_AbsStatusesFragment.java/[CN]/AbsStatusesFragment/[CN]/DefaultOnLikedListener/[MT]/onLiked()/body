@@ -1,6 +1,6 @@
 {
   final ParcelableStatus status=mStatus;
   if (status.is_favorite)   return false;
-  mTwitter.createFavoriteAsync(new AccountKey(status.account_id,status.account_host),status.id);
+  mTwitter.createFavoriteAsync(status.account_key,status.id);
   return true;
 }

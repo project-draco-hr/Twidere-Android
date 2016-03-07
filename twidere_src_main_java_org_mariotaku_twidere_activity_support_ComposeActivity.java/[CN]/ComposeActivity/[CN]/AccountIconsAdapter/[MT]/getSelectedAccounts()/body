@@ -3,7 +3,7 @@
   final ParcelableCredentials[] temp=new ParcelableCredentials[mAccounts.length];
   int selectedCount=0;
   for (  ParcelableCredentials account : mAccounts) {
-    if (Boolean.TRUE.equals(mSelection.get(new AccountKey(account.account_id,account.account_host)))) {
+    if (Boolean.TRUE.equals(mSelection.get(account.account_key))) {
       temp[selectedCount++]=account;
     }
   }

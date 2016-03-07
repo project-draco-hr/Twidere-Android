@@ -9,7 +9,7 @@
   this.authType=authType;
   this.color=color;
   this.apiUrlFormat=apiUrlFormat;
-  this.sameOauthSigningUrl=sameOauthSigningUrl;
+  this.sameOAuthSigningUrl=sameOAuthSigningUrl;
   this.noVersionSuffix=noVersionSuffix;
   this.accountType=accountType;
 }

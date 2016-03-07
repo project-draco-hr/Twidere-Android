@@ -7,7 +7,7 @@
     Collections.addAll(tempList,accounts);
     if (previousAccounts != null) {
       for (      ParcelableAccount previousAccount : previousAccounts) {
-        final int idx=indexOfAccount(tempList,previousAccount.account_id);
+        final int idx=indexOfAccount(tempList,previousAccount.account_key);
         if (idx >= 0) {
           mInternalAccounts[tempIdx++]=tempList.remove(idx);
         }

@@ -8,6 +8,6 @@ User user
 int authType
 int color
 String apiUrlFormat
-boolean sameOauthSigningUrl
+boolean sameOAuthSigningUrl
 boolean noVersionSuffix
 Pair<String,String> accountType

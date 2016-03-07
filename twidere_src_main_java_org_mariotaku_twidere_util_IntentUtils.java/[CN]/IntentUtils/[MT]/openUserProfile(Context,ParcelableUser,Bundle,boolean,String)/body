@@ -5,7 +5,7 @@
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(TwidereConstants.SCHEME_TWIDERE);
   builder.authority(TwidereConstants.AUTHORITY_USER);
-  builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_id));
+  builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_ID,String.valueOf(user.account_key));
   if (user.id > 0) {
     builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_USER_ID,String.valueOf(user.id));
   }

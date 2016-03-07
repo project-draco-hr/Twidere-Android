@@ -3,7 +3,7 @@
   final ParcelableUser obj=new ParcelableUser();
   obj.position=position;
   if (accountKey != null) {
-    obj.account_id=accountKey.getId();
+    obj.account_key=accountKey.getId();
     obj.account_host=accountKey.getHost();
   }
   obj.id=user.getId();

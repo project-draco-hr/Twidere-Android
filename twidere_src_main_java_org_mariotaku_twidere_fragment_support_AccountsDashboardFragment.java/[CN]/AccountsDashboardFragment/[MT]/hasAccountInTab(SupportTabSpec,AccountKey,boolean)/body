@@ -1,0 +1,6 @@
+{
+  if (tab.args == null)   return false;
+  final AccountKey[] accountKeys=Utils.getAccountKeys(tab.args);
+  if (accountKeys == null)   return isActivated;
+  return ArrayUtils.contains(accountKeys,accountId);
+}

@@ -2,10 +2,10 @@
   int fromIdx=-1, toIdx=-1;
   for (int i=0, j=mInternalAccounts.length; i < j; i++) {
     final ParcelableAccount account=mInternalAccounts[i];
-    if (fromId.isAccount(account.account_id,account.account_host)) {
+    if (fromId.equals(account.account_key)) {
       fromIdx=i;
     }
-    if (toId.isAccount(account.account_id,account.account_host)) {
+    if (toId.equals(account.account_key)) {
       toIdx=i;
     }
   }

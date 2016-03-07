@@ -1,6 +1,6 @@
 {
   if (mPositionPairs == null)   return true;
-  final long accountId=c.getLong(ConversationEntries.IDX_ACCOUNT_ID);
+  final long accountId=c.getLong(ConversationEntries.IDX_ACCOUNT_KEY);
   final long conversationId=c.getLong(ConversationEntries.IDX_CONVERSATION_ID);
   final long messageId=c.getLong(ConversationEntries.IDX_MESSAGE_ID);
   final String key=accountId + "-" + conversationId;

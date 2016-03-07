@@ -1,0 +1,8 @@
+{
+  if (mAccounts == null)   return;
+  for (  final ParcelableAccount account : mAccounts) {
+    if (account.account_key == accountId) {
+      account.is_activated=isChecked;
+    }
+  }
+}

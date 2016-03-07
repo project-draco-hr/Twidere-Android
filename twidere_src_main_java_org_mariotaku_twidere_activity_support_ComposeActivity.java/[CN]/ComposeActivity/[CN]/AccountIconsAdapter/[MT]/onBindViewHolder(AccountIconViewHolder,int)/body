@@ -1,5 +1,5 @@
 {
   final ParcelableAccount account=mAccounts[position];
-  final boolean isSelected=Boolean.TRUE.equals(mSelection.get(new AccountKey(account.account_id,account.account_host)));
+  final boolean isSelected=Boolean.TRUE.equals(mSelection.get(account.account_key));
   holder.showAccount(this,account,isSelected);
 }

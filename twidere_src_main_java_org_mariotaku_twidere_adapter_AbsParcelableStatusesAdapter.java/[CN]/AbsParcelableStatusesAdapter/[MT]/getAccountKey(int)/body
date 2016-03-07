@@ -1,0 +1,10 @@
+{
+  int dataPosition=adapterPosition - getStatusStartIndex();
+  if (dataPosition < 0 || dataPosition >= getStatusCount())   return null;
+  if (mData instanceof ObjectCursor) {
+    final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
+    final ParcelableStatusCursorIndices indices=(ParcelableStatusCursorIndices)((ObjectCursor)mData).getIndices();
+    return AccountKey.valueOf(cursor.getString(indices.account_key));
+  }
+  return mData.get(dataPosition).account_key;
+}

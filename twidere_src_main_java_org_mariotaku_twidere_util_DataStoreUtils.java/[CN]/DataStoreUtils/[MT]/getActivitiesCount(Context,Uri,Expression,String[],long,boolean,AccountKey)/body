@@ -2,10 +2,10 @@
   if (context == null)   return 0;
   final RawItemArray idsIn;
   if (ArrayUtils.isEmpty(accountKeys)) {
-    idsIn=new RawItemArray(getActivatedAccountKeys(context));
+    idsIn=new RawItemArray(AccountKey.getIds(getActivatedAccountKeys(context)));
   }
  else {
-    idsIn=new RawItemArray(accountKeys);
+    idsIn=new RawItemArray(AccountKey.getIds(accountKeys));
   }
   Expression[] expressions;
   if (extraWhere != null) {
@@ -15,7 +15,7 @@
  else {
     expressions=new Expression[3];
   }
-  expressions[0]=Expression.in(new Column(Activities.ACCOUNT_ID),idsIn);
+  expressions[0]=Expression.in(new Column(Activities.ACCOUNT_KEY),idsIn);
   expressions[1]=Expression.greaterThan(Activities.TIMESTAMP,sinceTimestamp);
   expressions[2]=buildActivityFilterWhereClause(getTableNameByUri(uri),null);
   final Expression selection=Expression.and(expressions);

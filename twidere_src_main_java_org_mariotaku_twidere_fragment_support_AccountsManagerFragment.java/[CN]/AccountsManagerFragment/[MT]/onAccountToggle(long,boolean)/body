@@ -1,3 +1,0 @@
-{
-  mActivatedState.append(accountId,state);
-}

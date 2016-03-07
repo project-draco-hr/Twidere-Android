@@ -3,7 +3,7 @@
   final ParcelableUser user=getUser();
   final UserRelationship userRelationship=mRelationship;
   if (user == null || twitter == null)   return false;
-  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
 switch (item.getItemId()) {
 case R.id.block:
 {

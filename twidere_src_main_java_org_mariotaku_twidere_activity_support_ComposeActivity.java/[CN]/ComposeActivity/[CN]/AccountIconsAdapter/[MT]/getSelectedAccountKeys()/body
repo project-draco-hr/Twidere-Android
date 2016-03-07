@@ -3,8 +3,8 @@
   final AccountKey[] temp=new AccountKey[mAccounts.length];
   int selectedCount=0;
   for (  ParcelableAccount account : mAccounts) {
-    if (Boolean.TRUE.equals(mSelection.get(new AccountKey(account.account_id,account.account_host)))) {
-      temp[selectedCount++]=new AccountKey(account.account_id,account.account_host);
+    if (Boolean.TRUE.equals(mSelection.get(account.account_key))) {
+      temp[selectedCount++]=account.account_key;
     }
   }
   final AccountKey[] result=new AccountKey[selectedCount];

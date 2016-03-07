@@ -3,6 +3,5 @@
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableStatus status=(ParcelableStatus)o;
   if (id != status.id)   return false;
-  if (account_id != status.account_id)   return false;
-  return !(account_host != null ? !account_host.equals(status.account_host) : status.account_host != null);
+  return account_key.equals(status.account_key);
 }

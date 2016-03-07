@@ -1,10 +1,10 @@
 {
-  final ContentValues values=ContentValuesCreator.createStatus(status,new AccountKey(account.account_id,account.account_host));
+  final ContentValues values=ContentValuesCreator.createStatus(status,new AccountKey(account.account_key,account.account_host));
   if (!statusStreamStarted) {
     statusStreamStarted=true;
     values.put(Statuses.IS_GAP,true);
   }
-  final String where=Statuses.ACCOUNT_ID + " = " + account.account_id+ " AND "+ Statuses.STATUS_ID+ " = "+ status.getId();
+  final String where=Statuses.ACCOUNT_KEY + " = " + account.account_key+ " AND "+ Statuses.STATUS_ID+ " = "+ status.getId();
   resolver.delete(Statuses.CONTENT_URI,where,null);
   resolver.delete(Mentions.CONTENT_URI,where,null);
   resolver.insert(Statuses.CONTENT_URI,values);

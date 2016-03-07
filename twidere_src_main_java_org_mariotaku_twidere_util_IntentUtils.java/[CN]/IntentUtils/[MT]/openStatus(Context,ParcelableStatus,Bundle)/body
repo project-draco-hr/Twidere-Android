@@ -1,5 +1,5 @@
 {
-  final AccountKey accountKey=new AccountKey(status.account_id,status.account_host);
+  final AccountKey accountKey=status.account_key;
   final long statusId=status.id;
   final Bundle extras=new Bundle();
   extras.putParcelable(EXTRA_STATUS,status);

@@ -1,0 +1,10 @@
+{
+  final ScrollRecord record=new ScrollRecord();
+  record.setId(id);
+  record.setAccountId(accountKey.getId());
+  record.setAccountHost(accountKey.getHost());
+  record.setTimestamp(timestamp);
+  record.setTimeOffset(timeOffset);
+  record.setScrollState(scrollState);
+  return record;
+}

@@ -83,7 +83,7 @@
         shortener.waitForService();
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
-        final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
+        final AccountKey accountKey=new AccountKey(account.account_key,account.account_host);
         final ParcelableCredentials credentials=DataStoreUtils.getCredentials(this,accountKey);
         final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,accountKey,true,true);
         final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,accountKey,true,true,TwitterUpload.class);

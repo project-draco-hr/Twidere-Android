@@ -1,2 +1,0 @@
-int position
-LongSparseArray<Set<Long>> counts

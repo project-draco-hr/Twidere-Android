@@ -1,0 +1,3 @@
+AccountKey accountKey
+String query
+boolean fromCache

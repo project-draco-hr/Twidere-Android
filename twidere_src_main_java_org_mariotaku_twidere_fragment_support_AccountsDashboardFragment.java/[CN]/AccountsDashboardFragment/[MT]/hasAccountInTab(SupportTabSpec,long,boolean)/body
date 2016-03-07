@@ -1,9 +1,0 @@
-{
-  if (tab.args == null)   return false;
-  final AccountKey[] accountKeys=Utils.getAccountKeys(tab.args);
-  if (accountKeys == null)   return isActivated;
-  for (  AccountKey accountKey : accountKeys) {
-    if (accountId == accountKey.getId())     return true;
-  }
-  return false;
-}

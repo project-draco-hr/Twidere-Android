@@ -1,7 +1,6 @@
 {
   final ContentValues values=new ContentValues();
-  values.put(CachedRelationships.ACCOUNT_ID,accountKey.getId());
-  values.put(CachedRelationships.ACCOUNT_HOST,accountKey.getHost());
+  values.put(CachedRelationships.ACCOUNT_KEY,accountKey.toString());
   values.put(CachedRelationships.USER_ID,relationship.getTargetUserId());
   values.put(CachedRelationships.FOLLOWING,relationship.isSourceFollowingTarget());
   values.put(CachedRelationships.FOLLOWED_BY,relationship.isSourceFollowedByTarget());

@@ -1,0 +1,3 @@
+DirectMessage message
+AccountKey accountKey
+boolean isOutgoing

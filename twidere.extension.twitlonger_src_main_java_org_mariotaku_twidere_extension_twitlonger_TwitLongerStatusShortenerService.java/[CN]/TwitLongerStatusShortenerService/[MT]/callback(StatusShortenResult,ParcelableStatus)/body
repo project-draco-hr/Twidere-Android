@@ -2,7 +2,7 @@
   if (result.extra == null)   return false;
   final ParcelableCredentials credentials;
   try {
-    credentials=getOAuthCredentials(status.account_id);
+    credentials=getOAuthCredentials(status.account_key);
   }
  catch (  SecurityException e) {
     if (BuildConfig.DEBUG) {

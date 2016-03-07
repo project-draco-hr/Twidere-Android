@@ -10,8 +10,7 @@
       mResolver.delete(uri,where.getSQL(),whereArgs);
     }
     final ContentValues values=new ContentValues();
-    values.put(CachedRelationships.ACCOUNT_ID,mAccountKey.getId());
-    values.put(CachedRelationships.ACCOUNT_HOST,mAccountKey.getHost());
+    values.put(CachedRelationships.ACCOUNT_KEY,mAccountKey.toString());
     values.put(CachedRelationships.USER_ID,mUserId);
     values.put(CachedRelationships.BLOCKING,true);
     mResolver.insert(CachedRelationships.CONTENT_URI,values);

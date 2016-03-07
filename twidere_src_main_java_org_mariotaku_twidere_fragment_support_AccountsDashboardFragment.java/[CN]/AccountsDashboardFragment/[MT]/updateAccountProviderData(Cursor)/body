@@ -14,7 +14,7 @@
   AccountKey defaultId=null;
   for (  ParcelableAccount account : accounts) {
     if (account.is_activated) {
-      defaultId=new AccountKey(account.account_id,account.account_host);
+      defaultId=account.account_key;
       break;
     }
   }
@@ -24,7 +24,7 @@
   if (accountKey == null) {
     accountKey=defaultId;
   }
-  mAccountsAdapter.setSelectedAccountId(accountKey);
+  mAccountsAdapter.setSelectedAccountKey(accountKey);
   mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
   if (mAccountActionProvider != null) {
     mAccountActionProvider.setExclusive(false);

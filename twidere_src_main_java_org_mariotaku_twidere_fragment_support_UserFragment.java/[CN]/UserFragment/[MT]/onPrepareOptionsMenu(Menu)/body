@@ -4,7 +4,7 @@
   final UserRelationship userRelationship=mRelationship;
   if (twitter == null || user == null || userRelationship == null)   return;
   final Relationship relationship=userRelationship.relationship;
-  final boolean isMyself=user.account_id == user.id;
+  final boolean isMyself=user.account_key == user.id;
   final MenuItem mentionItem=menu.findItem(R.id.mention);
   if (mentionItem != null) {
     final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst,true);
@@ -13,7 +13,7 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.mention,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.incoming_friendships,isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.saved_searches,isMyself);
-  MenuUtils.setMenuItemAvailability(menu,R.id.scheduled_statuses,isMyself && TwitterAPIFactory.getOfficialKeyType(getActivity(),user.account_id) == ConsumerKeyType.TWEETDECK);
+  MenuUtils.setMenuItemAvailability(menu,R.id.scheduled_statuses,isMyself && TwitterAPIFactory.getOfficialKeyType(getActivity(),user.account_key) == ConsumerKeyType.TWEETDECK);
   if (!isMyself) {
     MenuUtils.setMenuItemAvailability(menu,R.id.send_direct_message,relationship.canSourceDMTarget());
     MenuUtils.setMenuItemAvailability(menu,R.id.block,true);

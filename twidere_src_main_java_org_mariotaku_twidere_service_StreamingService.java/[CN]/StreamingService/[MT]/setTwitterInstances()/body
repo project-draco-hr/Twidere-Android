@@ -3,7 +3,7 @@
   final AccountKey[] accountKeys=new AccountKey[accountsList.size()];
   for (int i=0, j=accountKeys.length; i < j; i++) {
     final ParcelableCredentials credentials=accountsList.get(i);
-    accountKeys[i]=new AccountKey(credentials.account_id,credentials.account_host);
+    accountKeys[i]=new AccountKey(credentials.account_key,credentials.account_host);
   }
   final AccountPreferences[] activatedPreferences=AccountPreferences.getAccountPreferences(this,accountKeys);
   if (BuildConfig.DEBUG) {
@@ -20,12 +20,12 @@
     final Authorization authorization=TwitterAPIFactory.getAuthorization(account);
     final TwitterUserStream twitter=TwitterAPIFactory.getInstance(this,endpoint,authorization,TwitterUserStream.class);
     final TwidereUserStreamCallback callback=new TwidereUserStreamCallback(this,account);
-    mCallbacks.put(account.account_id,callback);
+    mCallbacks.put(account.account_key,callback);
     new Thread(){
       @Override public void run(){
         twitter.getUserStream(callback);
-        Log.d(Constants.LOGTAG,String.format("Stream %d disconnected",account.account_id));
-        mCallbacks.remove(account.account_id);
+        Log.d(Constants.LOGTAG,String.format("Stream %d disconnected",account.account_key));
+        mCallbacks.remove(account.account_key);
         updateStreamState();
       }
     }

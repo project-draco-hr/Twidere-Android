@@ -2,7 +2,7 @@
   final FragmentActivity activity=getActivity();
   final ParcelableUser user=getUser();
   if (activity == null || user == null)   return;
-  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
 switch (view.getId()) {
 case R.id.error_container:
 {
@@ -11,7 +11,7 @@ case R.id.error_container:
     }
 case R.id.follow:
 {
-    if (user.id == user.account_id) {
+    if (user.id == user.account_key) {
       Utils.openProfileEditor(getActivity(),accountKey);
       break;
     }
@@ -65,7 +65,7 @@ break;
 }
 case R.id.name_container:
 {
-if (user.account_id != user.id) return;
+if (user.account_key != user.id) return;
 Utils.openProfileEditor(getActivity(),accountKey);
 break;
 }

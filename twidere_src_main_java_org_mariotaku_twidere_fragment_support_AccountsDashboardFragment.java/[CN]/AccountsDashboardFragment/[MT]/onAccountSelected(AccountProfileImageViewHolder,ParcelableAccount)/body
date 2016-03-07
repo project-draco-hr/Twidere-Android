@@ -48,10 +48,9 @@
     }
     private void finishAnimation(){
       final Editor editor=mPreferences.edit();
-      final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
-      editor.putString(KEY_DEFAULT_ACCOUNT_KEY,accountKey.toString());
+      editor.putString(KEY_DEFAULT_ACCOUNT_KEY,account.account_key.toString());
       editor.apply();
-      mAccountsAdapter.setSelectedAccountId(accountKey);
+      mAccountsAdapter.setSelectedAccountKey(account.account_key);
       mAccountOptionsAdapter.setSelectedAccount(account);
       updateAccountActions();
       updateAccountOptionsSeparatorLabel(clickedDrawable);

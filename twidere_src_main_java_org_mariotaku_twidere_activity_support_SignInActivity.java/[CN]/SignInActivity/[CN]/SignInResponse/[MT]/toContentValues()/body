@@ -1,33 +1,53 @@
 {
+  if (user == null || user.getId() <= 0)   return null;
   final ContentValues values;
 switch (authType) {
 case ParcelableCredentials.AUTH_TYPE_BASIC:
 {
-      values=createAccount(basicUsername,basicPassword,user,color,apiUrlFormat,noVersionSuffix);
+      values=new ContentValues();
+      values.put(Accounts.BASIC_AUTH_USERNAME,basicUsername);
+      values.put(Accounts.BASIC_AUTH_PASSWORD,basicPassword);
+      values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_BASIC);
       break;
     }
 case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
 {
-    values=ContentValuesCreator.createAccount(user,color,apiUrlFormat,noVersionSuffix);
+    values=new ContentValues();
+    values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
     break;
   }
 case ParcelableCredentials.AUTH_TYPE_OAUTH:
 case ParcelableCredentials.AUTH_TYPE_XAUTH:
 {
-  values=ContentValuesCreator.createAccount(oauth,user,authType,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix);
+  values=new ContentValues();
+  final OAuthToken accessToken=oauth.getOauthToken();
+  values.put(Accounts.OAUTH_TOKEN,accessToken.getOauthToken());
+  values.put(Accounts.OAUTH_TOKEN_SECRET,accessToken.getOauthTokenSecret());
+  values.put(Accounts.CONSUMER_KEY,oauth.getConsumerKey());
+  values.put(Accounts.CONSUMER_SECRET,oauth.getConsumerSecret());
+  values.put(Accounts.AUTH_TYPE,authType);
   break;
 }
 default :
 {
-values=null;
+return null;
 }
 }
-if (values != null && accountType != null) {
+values.put(Accounts.ACCOUNT_KEY,user.getId());
+values.put(Accounts.SCREEN_NAME,user.getScreenName());
+values.put(Accounts.NAME,user.getName());
+values.put(Accounts.PROFILE_IMAGE_URL,TwitterContentUtils.getProfileImageUrl(user));
+values.put(Accounts.PROFILE_BANNER_URL,user.getProfileBannerImageUrl());
+values.put(Accounts.COLOR,color);
+values.put(Accounts.IS_ACTIVATED,1);
+values.put(Accounts.API_URL_FORMAT,apiUrlFormat);
+values.put(Accounts.SAME_OAUTH_SIGNING_URL,sameOAuthSigningUrl);
+values.put(Accounts.NO_VERSION_SUFFIX,noVersionSuffix);
+if (accountType != null) {
 values.put(Accounts.ACCOUNT_TYPE,accountType.first);
 values.put(Accounts.ACCOUNT_EXTRAS,accountType.second);
 final AccountKey accountKey=new AccountKey(user.getId(),ParcelableUserUtils.getUserHost(user.getOstatusUri()));
 final ParcelableUser parcelableUser=ParcelableUserUtils.fromUser(user,accountKey);
-values.put(Accounts.ACCOUNT_HOST,ParcelableUserUtils.getUserHost(parcelableUser));
 values.put(Accounts.ACCOUNT_USER,JsonSerializer.serialize(parcelableUser,ParcelableUser.class));
 }
 return values;

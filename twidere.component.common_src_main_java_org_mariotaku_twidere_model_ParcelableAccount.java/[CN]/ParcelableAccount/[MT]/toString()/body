@@ -1,3 +1,3 @@
 {
-  return "ParcelableAccount{" + "screen_name='" + screen_name + '\''+ ", name='"+ name+ '\''+ ", profile_image_url='"+ profile_image_url+ '\''+ ", profile_banner_url='"+ profile_banner_url+ '\''+ ", account_id="+ account_id+ ", color="+ color+ ", is_activated="+ is_activated+ ", account_type='"+ account_type+ '\''+ ", account_host='"+ account_host+ '\''+ ", account_user="+ account_user+ ", is_dummy="+ is_dummy+ '}';
+  return "ParcelableAccount{" + "id=" + id + ", account_key="+ account_key+ ", screen_name='"+ screen_name+ '\''+ ", name='"+ name+ '\''+ ", account_type='"+ account_type+ '\''+ ", profile_image_url='"+ profile_image_url+ '\''+ ", profile_banner_url='"+ profile_banner_url+ '\''+ ", color="+ color+ ", is_activated="+ is_activated+ ", account_user="+ account_user+ ", is_dummy="+ is_dummy+ '}';
 }

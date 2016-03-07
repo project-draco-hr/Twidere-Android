@@ -11,14 +11,14 @@ switch (tab.type) {
 case CustomTabType.DIRECT_MESSAGES:
 {
         if (!hasDmTab) {
-          hasDmTab=hasAccountInTab(tab,account.account_id,account.is_activated);
+          hasDmTab=hasAccountInTab(tab,account.account_key,account.is_activated);
         }
         break;
       }
 case CustomTabType.NOTIFICATIONS_TIMELINE:
 {
       if (!hasInteractionsTab) {
-        hasInteractionsTab=hasAccountInTab(tab,account.account_id,account.is_activated);
+        hasInteractionsTab=hasAccountInTab(tab,account.account_key,account.is_activated);
       }
       break;
     }

@@ -2,6 +2,5 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableAccount account=(ParcelableAccount)o;
-  if (id != account.id)   return false;
-  return !(account_host != null ? !account_host.equals(account.account_host) : account.account_host != null);
+  return account_key.equals(account.account_key);
 }

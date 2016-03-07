@@ -1,5 +1,5 @@
 {
   final ParcelableUser user=mUser;
   if (user == null)   return;
-  getUserInfo(user.account_id,user.id,user.screen_name,omitIntentExtra);
+  getUserInfo(user.account_key,user.id,user.screen_name,omitIntentExtra);
 }

@@ -1,0 +1,7 @@
+{
+  int result=accountKey.hashCode();
+  result=31 * result + (int)(timestamp ^ (timestamp >>> 32));
+  result=31 * result + (int)(maxPosition ^ (maxPosition >>> 32));
+  result=31 * result + (int)(minPosition ^ (minPosition >>> 32));
+  return result;
+}

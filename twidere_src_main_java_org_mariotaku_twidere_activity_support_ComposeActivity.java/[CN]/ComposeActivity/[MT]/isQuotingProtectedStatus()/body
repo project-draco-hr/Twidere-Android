@@ -1,4 +1,5 @@
 {
-  if (!isQuote() || mInReplyToStatus == null)   return false;
-  return mInReplyToStatus.user_is_protected && mInReplyToStatus.account_id != mInReplyToStatus.user_id;
+  final ParcelableStatus status=mInReplyToStatus;
+  if (!isQuote() || status == null)   return false;
+  return status.user_is_protected && status.account_key.getId() != status.user_id;
 }

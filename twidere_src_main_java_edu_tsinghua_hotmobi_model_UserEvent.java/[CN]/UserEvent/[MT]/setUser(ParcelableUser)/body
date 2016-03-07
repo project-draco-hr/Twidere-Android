@@ -1,5 +1,6 @@
 {
-  accountId=user.account_id;
+  accountId=user.account_key.getId();
+  accountHost=user.account_key.getHost();
   userId=user.id;
   statusCount=user.statuses_count;
   followerCount=user.followers_count;

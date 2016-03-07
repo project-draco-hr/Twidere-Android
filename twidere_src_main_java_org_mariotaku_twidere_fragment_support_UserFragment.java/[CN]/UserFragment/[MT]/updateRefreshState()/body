@@ -2,7 +2,7 @@
   final ParcelableUser user=getUser();
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   if (user == null || twitter == null)   return;
-  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  final AccountKey accountKey=new AccountKey(user.account_key,user.account_host);
   final boolean isCreatingFriendship=twitter.isCreatingFriendship(accountKey,user.id);
   final boolean destroyingFriendship=twitter.isDestroyingFriendship(accountKey,user.id);
   setProgressBarIndeterminateVisibility(isCreatingFriendship || destroyingFriendship);

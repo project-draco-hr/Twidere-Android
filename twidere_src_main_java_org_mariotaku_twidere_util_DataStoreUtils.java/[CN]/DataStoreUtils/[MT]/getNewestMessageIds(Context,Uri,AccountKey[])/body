@@ -1,3 +1,3 @@
 {
-  return getLongFieldArray(context,uri,AccountKey.getIds(accountKeys),DirectMessages.ACCOUNT_ID,DirectMessages.MESSAGE_ID,new OrderBy(SQLFunctions.MAX(DirectMessages.MESSAGE_TIMESTAMP)));
+  return getLongFieldArray(context,uri,AccountKey.getIds(accountKeys),DirectMessages.ACCOUNT_KEY,DirectMessages.MESSAGE_ID,new OrderBy(SQLFunctions.MAX(DirectMessages.MESSAGE_TIMESTAMP)));
 }

@@ -1,0 +1,8 @@
+{
+  for (int i=0, j=getStatusCount(); i < j; i++) {
+    if (accountKey.equals(getAccountKey(i)) && statusId == getStatusId(i)) {
+      return getStatus(i);
+    }
+  }
+  return null;
+}
