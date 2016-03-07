@@ -1,7 +1,7 @@
 {
-  if (context == null || media == null)   return;
+  if (media == null)   return;
   final Intent intent=new Intent(context,MediaViewerActivity.class);
-  intent.putExtra(EXTRA_ACCOUNT_ID,accountKey);
+  intent.putExtra(EXTRA_ACCOUNT_KEY,accountKey);
   intent.putExtra(EXTRA_CURRENT_MEDIA,current);
   intent.putExtra(EXTRA_MEDIA,media);
   if (status != null) {

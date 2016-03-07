@@ -1,0 +1,3 @@
+{
+  return mCreatingFavoriteIds.has(accountId.getId(),statusId);
+}

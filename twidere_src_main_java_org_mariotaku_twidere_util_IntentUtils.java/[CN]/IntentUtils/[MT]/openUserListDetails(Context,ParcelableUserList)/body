@@ -1,0 +1,16 @@
+{
+  final long userId=userList.user_id;
+  final long listId=userList.id;
+  final Bundle extras=new Bundle();
+  extras.putParcelable(EXTRA_USER_LIST,userList);
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER_LIST);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,new AccountKey(userList.account_id,userList.account_host).toString());
+  builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(userId));
+  builder.appendQueryParameter(QUERY_PARAM_LIST_ID,String.valueOf(listId));
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  intent.setExtrasClassLoader(context.getClassLoader());
+  intent.putExtras(extras);
+  context.startActivity(intent);
+}

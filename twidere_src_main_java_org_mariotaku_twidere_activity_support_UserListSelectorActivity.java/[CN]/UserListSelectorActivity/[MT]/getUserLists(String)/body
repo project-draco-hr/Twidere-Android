@@ -1,6 +1,6 @@
 {
   if (screenName == null)   return;
   mScreenName=screenName;
-  final GetUserListsTask task=new GetUserListsTask(this,getAccountId(),screenName);
+  final GetUserListsTask task=new GetUserListsTask(this,getAccountKey(),screenName);
   AsyncTaskUtils.executeTask(task);
 }

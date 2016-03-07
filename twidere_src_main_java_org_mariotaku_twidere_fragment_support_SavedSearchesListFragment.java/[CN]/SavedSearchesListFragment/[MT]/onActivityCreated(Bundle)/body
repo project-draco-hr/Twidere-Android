@@ -3,8 +3,6 @@
   final ListView listView=getListView();
   listView.setOnItemClickListener(this);
   listView.setOnItemLongClickListener(this);
-  final Bundle args=getArguments();
-  mAccountId=args != null ? args.getLong(EXTRA_ACCOUNT_ID,-1) : -1;
   getLoaderManager().initLoader(0,null,this);
   showProgress();
 }

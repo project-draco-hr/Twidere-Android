@@ -22,8 +22,8 @@ case REQUEST_SELECT_ACCOUNT:
     if (status == null)     return;
     if (resultCode == Activity.RESULT_OK) {
       if (data == null || !data.hasExtra(EXTRA_ID))       return;
-      final long accountId=data.getLongExtra(EXTRA_ID,-1);
-      Utils.openStatus(activity,accountId,status.id);
+      final AccountKey accountKey=data.getParcelableExtra(EXTRA_KEY);
+      IntentUtils.openStatus(activity,accountKey,status.id);
     }
     break;
   }

@@ -27,7 +27,7 @@ case LINK_ID_FILTERS:
 }
 case LINK_ID_PROFILE_EDITOR:
 {
-if (!args.containsKey(EXTRA_ACCOUNT_ID) && uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID) == null) {
+if (noAccount(uri,args)) {
   return null;
 }
 fragment=new UserProfileEditorFragment();
@@ -127,14 +127,14 @@ case LINK_ID_USER_FOLLOWERS:
 {
 fragment=new UserFollowersFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final String param_user_id=uri.getQueryParameter(QUERY_PARAM_USER_ID);
+final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
+args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 }
-if (isEmpty(paramScreenName) && isEmpty(param_user_id)) return null;
+if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
 }
 case LINK_ID_USER_FRIENDS:
@@ -326,19 +326,21 @@ default :
 return null;
 }
 }
-final String paramAccountId=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID);
-if (paramAccountId != null) {
-args.putLong(EXTRA_ACCOUNT_ID,NumberUtils.toLong(paramAccountId,-1));
+if (isAccountIdRequired) {
+final String paramAccountKey=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_KEY);
+if (paramAccountKey != null) {
+args.putParcelable(EXTRA_ACCOUNT_KEY,AccountKey.valueOf(paramAccountKey));
 }
  else {
 final String paramAccountName=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_NAME);
 if (paramAccountName != null) {
-args.putLong(EXTRA_ACCOUNT_ID,DataStoreUtils.getAccountId(context,paramAccountName));
+args.putParcelable(EXTRA_ACCOUNT_KEY,DataStoreUtils.getAccountKey(context,paramAccountName));
 }
- else if (isAccountIdRequired) {
+ else {
 final AccountKey accountKey=getDefaultAccountKey(context);
 if (isMyAccount(context,accountKey)) {
-args.putLong(EXTRA_ACCOUNT_ID,accountKey.getId());
+args.putParcelable(EXTRA_ACCOUNT_KEY,accountKey);
+}
 }
 }
 }

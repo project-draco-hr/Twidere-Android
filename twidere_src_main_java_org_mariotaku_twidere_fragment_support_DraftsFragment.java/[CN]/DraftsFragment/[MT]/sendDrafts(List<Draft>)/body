@@ -25,7 +25,7 @@ case Draft.Action.SEND_DIRECT_MESSAGE:
       if (ArrayUtils.isEmpty(item.account_ids) || recipientId <= 0) {
         continue;
       }
-      final long accountId=item.account_ids[0];
+      final AccountKey accountId=item.account_ids[0];
       final String imageUri=item.media != null && item.media.length > 0 ? item.media[0].uri : null;
       twitter.sendDirectMessageAsync(accountId,recipientId,item.text,imageUri);
       break;

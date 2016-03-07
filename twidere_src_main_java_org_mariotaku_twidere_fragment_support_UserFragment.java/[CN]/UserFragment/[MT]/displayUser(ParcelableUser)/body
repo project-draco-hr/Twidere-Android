@@ -1,6 +1,4 @@
 {
-  if (mFirstCreate && user != null && !user.equals(mUser)) {
-  }
   mUser=user;
   final FragmentActivity activity=getActivity();
   if (user == null || user.id <= 0 || activity == null)   return;
@@ -35,7 +33,8 @@
   mScreenNameView.setText(String.format("@%s",user.screen_name));
   mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  mDescriptionView.setText(linkify.applyAllLinks(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain,user.account_id,false,false));
+  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
+  mDescriptionView.setText(linkify.applyAllLinks(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain,accountKey,false,false));
   mLocationContainer.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(TextUtils.isEmpty(user.url) && TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);

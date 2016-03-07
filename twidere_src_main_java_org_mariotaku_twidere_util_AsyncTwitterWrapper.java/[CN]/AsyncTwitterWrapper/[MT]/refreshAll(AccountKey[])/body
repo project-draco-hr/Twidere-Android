@@ -1,34 +1,8 @@
 {
-  getHomeTimelineAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
-      return accountKeys;
-    }
-    @Nullable @Override public long[] getSinceIds(){
-      return DataStoreUtils.getNewestStatusIds(mContext,Statuses.CONTENT_URI,accountKeys);
-    }
-  }
-);
-  getActivitiesAboutMeAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
-      return accountKeys;
-    }
-    @Nullable @Override public long[] getSinceIds(){
-      return DataStoreUtils.getNewestActivityMaxPositions(mContext,Activities.AboutMe.CONTENT_URI,accountKeys);
-    }
-  }
-);
-  getReceivedDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
+  return refreshAll(new GetAccountKeysClosure(){
+    @Override public AccountKey[] getAccountKeys(){
       return accountKeys;
     }
   }
 );
-  getSentDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public AccountKey[] getAccountKeys(){
-      return accountKeys;
-    }
-  }
-);
-  getSavedSearchesAsync(accountKeys);
-  return true;
 }

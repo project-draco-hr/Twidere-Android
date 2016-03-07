@@ -1,0 +1,6 @@
+{
+  if (statusId <= 0)   return;
+  final Uri uri=LinkCreator.getTwidereStatusLink(accountKey,statusId);
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+  context.startActivity(intent);
+}

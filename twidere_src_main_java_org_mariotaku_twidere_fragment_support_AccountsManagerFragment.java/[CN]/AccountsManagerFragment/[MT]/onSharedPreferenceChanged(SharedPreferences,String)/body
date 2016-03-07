@@ -1,5 +1,5 @@
 {
-  if (KEY_DEFAULT_ACCOUNT_ID.equals(key)) {
+  if (KEY_DEFAULT_ACCOUNT_KEY.equals(key)) {
     updateDefaultAccount();
   }
 }

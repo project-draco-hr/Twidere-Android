@@ -1,0 +1,13 @@
+{
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(TwidereConstants.SCHEME_TWIDERE);
+  builder.authority(TwidereConstants.AUTHORITY_USER_MENTIONS);
+  if (accountKey != null) {
+    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_ID,accountKey.toString());
+  }
+  if (screenName != null) {
+    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_SCREEN_NAME,screenName);
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  context.startActivity(intent);
+}

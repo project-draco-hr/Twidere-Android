@@ -5,14 +5,15 @@ case ITEM_VIEW_TYPE_COUNT:
       final LabeledCount count=getCount(position);
       final ParcelableStatus status=mStatusAdapter.getStatus();
       if (count == null || status == null)       return;
+      final AccountKey accountKey=new AccountKey(status.account_id,status.account_host);
 switch (count.type) {
 case KEY_RETWEET_COUNT:
 {
           if (status.is_retweet) {
-            Utils.openStatusRetweeters(getContext(),status.account_id,status.retweet_id);
+            IntentUtils.openStatusRetweeters(getContext(),accountKey,status.retweet_id);
           }
  else {
-            Utils.openStatusRetweeters(getContext(),status.account_id,status.id);
+            IntentUtils.openStatusRetweeters(getContext(),accountKey,status.id);
           }
           break;
         }
@@ -21,10 +22,10 @@ case KEY_FAVORITE_COUNT:
         final ParcelableCredentials account=mStatusAdapter.getStatusAccount();
         if (!Utils.isOfficialCredentials(getContext(),account))         return;
         if (status.is_retweet) {
-          Utils.openStatusFavoriters(getContext(),status.account_id,status.retweet_id);
+          IntentUtils.openStatusFavoriters(getContext(),accountKey,status.retweet_id);
         }
  else {
-          Utils.openStatusFavoriters(getContext(),status.account_id,status.id);
+          IntentUtils.openStatusFavoriters(getContext(),accountKey,status.id);
         }
         break;
       }

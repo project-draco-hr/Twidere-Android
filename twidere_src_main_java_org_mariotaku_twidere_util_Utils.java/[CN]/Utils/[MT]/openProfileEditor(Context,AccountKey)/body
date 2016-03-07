@@ -1,0 +1,12 @@
+{
+  final Intent intent=new Intent();
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_PROFILE_EDITOR);
+  if (accountId != null) {
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountId.toString());
+  }
+  intent.setData(builder.build());
+  intent.setPackage(BuildConfig.APPLICATION_ID);
+  context.startActivity(intent);
+}

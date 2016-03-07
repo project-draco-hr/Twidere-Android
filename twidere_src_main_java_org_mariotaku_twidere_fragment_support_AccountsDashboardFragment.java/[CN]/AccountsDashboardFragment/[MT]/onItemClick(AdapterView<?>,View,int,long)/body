@@ -5,11 +5,12 @@
     final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
     if (account == null || !(item instanceof OptionItem))     return;
     final OptionItem option=(OptionItem)item;
+    final AccountKey accountKey=new AccountKey(account.account_id,account.account_host);
 switch (option.id) {
 case R.id.search:
 {
         final Intent intent=new Intent(getActivity(),QuickSearchBarActivity.class);
-        intent.putExtra(EXTRA_ACCOUNT_ID,account.account_id);
+        intent.putExtra(EXTRA_ACCOUNT_KEY,accountKey);
         startActivity(intent);
         closeAccountsDrawer();
         break;
@@ -18,33 +19,33 @@ case R.id.compose:
 {
       final Intent composeIntent=new Intent(INTENT_ACTION_COMPOSE);
       composeIntent.setClass(getActivity(),ComposeActivity.class);
-      composeIntent.putExtra(EXTRA_ACCOUNT_IDS,new long[]{account.account_id});
+      composeIntent.putExtra(EXTRA_ACCOUNT_KEY,accountKey);
       startActivity(composeIntent);
       break;
     }
 case R.id.favorites:
 {
-    Utils.openUserFavorites(getActivity(),account.account_id,account.account_id,account.screen_name);
+    IntentUtils.openUserFavorites(getActivity(),accountKey,account.account_id,account.screen_name);
     break;
   }
 case R.id.lists:
 {
-  Utils.openUserLists(getActivity(),account.account_id,account.account_id,account.screen_name);
+  IntentUtils.openUserLists(getActivity(),accountKey,account.account_id,account.screen_name);
   break;
 }
 case R.id.messages:
 {
-Utils.openDirectMessages(getActivity(),account.account_id);
+IntentUtils.openDirectMessages(getActivity(),accountKey);
 break;
 }
 case R.id.interactions:
 {
-Utils.openInteractions(getActivity(),account.account_id);
+IntentUtils.openInteractions(getActivity(),accountKey);
 break;
 }
 case R.id.edit:
 {
-Utils.openProfileEditor(getActivity(),account.account_id);
+Utils.openProfileEditor(getActivity(),accountKey);
 break;
 }
 }

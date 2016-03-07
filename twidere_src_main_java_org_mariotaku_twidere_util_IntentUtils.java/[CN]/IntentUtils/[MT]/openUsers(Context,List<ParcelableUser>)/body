@@ -1,5 +1,5 @@
 {
-  if (context == null || users == null)   return;
+  if (users == null)   return;
   final Bundle extras=new Bundle();
   extras.putParcelableArrayList(EXTRA_USERS,new ArrayList<>(users));
   final Uri.Builder builder=new Uri.Builder();

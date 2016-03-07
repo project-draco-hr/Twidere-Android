@@ -1,0 +1,20 @@
+{
+  final Intent intent=new Intent(Intent.ACTION_VIEW);
+  intent.putExtra(EXTRA_QUERY,query);
+  if (accountKey != null) {
+    intent.putExtra(EXTRA_ACCOUNT_KEY,accountKey);
+  }
+  final Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_SEARCH);
+  if (accountKey != null) {
+    builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
+  }
+  builder.appendQueryParameter(QUERY_PARAM_QUERY,query);
+  if (!TextUtils.isEmpty(type)) {
+    builder.appendQueryParameter(QUERY_PARAM_TYPE,type);
+    intent.putExtra(EXTRA_TYPE,type);
+  }
+  intent.setData(builder.build());
+  context.startActivity(intent);
+}

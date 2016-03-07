@@ -32,7 +32,7 @@ case R.id.location_view:
 {
 final ParcelableLocation location=status.location;
 if (!ParcelableLocation.isValidLocation(location)) return;
-Utils.openMap(adapter.getContext(),location.latitude,location.longitude);
+IntentUtils.openMap(adapter.getContext(),location.latitude,location.longitude);
 break;
 }
 case R.id.quoted_name_container:
@@ -42,7 +42,7 @@ break;
 }
 case R.id.quote_original_link:
 {
-Utils.openStatus(adapter.getContext(),accountKey,status.quoted_id);
+IntentUtils.openStatus(adapter.getContext(),accountKey,status.quoted_id);
 break;
 }
 case R.id.translate_label:

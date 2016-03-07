@@ -1,0 +1,3 @@
+{
+  return AccountKey.valueOf(s);
+}

@@ -9,7 +9,8 @@
   mAccountSpinner.setOnItemSelectedListener(this);
   if (savedInstanceState == null) {
     final Intent intent=getIntent();
-    final int index=accountsSpinnerAdapter.findItemPosition(intent.getLongExtra(EXTRA_ACCOUNT_ID,-1));
+    final AccountKey accountKey=intent.getParcelableExtra(EXTRA_ACCOUNT_KEY);
+    final int index=accountsSpinnerAdapter.findItemPosition(System.identityHashCode(accountKey));
     if (index != -1) {
       mAccountSpinner.setSelection(index);
     }

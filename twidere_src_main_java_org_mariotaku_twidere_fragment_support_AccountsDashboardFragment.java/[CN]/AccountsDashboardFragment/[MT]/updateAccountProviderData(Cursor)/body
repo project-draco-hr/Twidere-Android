@@ -11,16 +11,20 @@
     mNoAccountContainer.setVisibility(View.VISIBLE);
     mAccountProfileContainer.setVisibility(View.INVISIBLE);
   }
-  long defaultId=-1;
+  AccountKey defaultId=null;
   for (  ParcelableAccount account : accounts) {
     if (account.is_activated) {
-      defaultId=account.account_id;
+      defaultId=new AccountKey(account.account_id,account.account_host);
       break;
     }
   }
   mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
   mAccountsAdapter.setAccounts(accounts);
-  mAccountsAdapter.setSelectedAccountId(mPreferences.getLong(KEY_DEFAULT_ACCOUNT_ID,defaultId));
+  AccountKey accountKey=AccountKey.valueOf(mPreferences.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
+  if (accountKey == null) {
+    accountKey=defaultId;
+  }
+  mAccountsAdapter.setSelectedAccountId(accountKey);
   mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
   if (mAccountActionProvider != null) {
     mAccountActionProvider.setExclusive(false);

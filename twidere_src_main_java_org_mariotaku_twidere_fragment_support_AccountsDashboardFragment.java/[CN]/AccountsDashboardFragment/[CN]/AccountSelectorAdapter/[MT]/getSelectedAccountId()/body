@@ -1,5 +1,5 @@
 {
   final ParcelableAccount selectedAccount=getSelectedAccount();
-  if (selectedAccount == null)   return -1;
-  return selectedAccount.account_id;
+  if (selectedAccount == null)   return null;
+  return new AccountKey(selectedAccount.account_id,selectedAccount.account_host);
 }

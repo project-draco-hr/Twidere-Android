@@ -13,7 +13,7 @@
     finish();
     return;
   }
-  final AccountKey[] defaultAccountIds=DataStoreUtils.getAccountKeys(accounts);
+  final AccountKey[] defaultAccountIds=ParcelableAccountUtils.getAccountKeys(accounts);
   mMenuBar.setOnMenuItemClickListener(this);
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);

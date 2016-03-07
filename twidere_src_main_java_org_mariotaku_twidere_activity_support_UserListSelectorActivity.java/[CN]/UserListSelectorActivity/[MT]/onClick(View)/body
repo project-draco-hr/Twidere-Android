@@ -11,7 +11,7 @@ case R.id.create_list:
 {
     final DialogFragment f=new CreateUserListDialogFragment();
     final Bundle args=new Bundle();
-    args.putParcelable(EXTRA_ACCOUNT_KEY,getAccountId());
+    args.putParcelable(EXTRA_ACCOUNT_KEY,getAccountKey());
     f.setArguments(args);
     f.show(getSupportFragmentManager(),null);
     break;

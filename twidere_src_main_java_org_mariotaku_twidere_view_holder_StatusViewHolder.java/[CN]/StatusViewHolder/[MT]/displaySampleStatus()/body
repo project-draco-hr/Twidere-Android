@@ -18,7 +18,7 @@
     final TwidereLinkify linkify=adapter.getTwidereLinkify();
     final CharSequence text=HtmlSpanBuilder.fromHtml(TWIDERE_PREVIEW_TEXT_HTML,TWIDERE_PREVIEW_TEXT_UNESCAPED);
     if (text instanceof Spanned) {
-      textView.setText(linkify.applyAllLinks(text,-1,-1,false,adapter.getLinkHighlightingStyle(),true));
+      textView.setText(linkify.applyAllLinks(text,null,-1,false,adapter.getLinkHighlightingStyle(),true));
     }
   }
  else {

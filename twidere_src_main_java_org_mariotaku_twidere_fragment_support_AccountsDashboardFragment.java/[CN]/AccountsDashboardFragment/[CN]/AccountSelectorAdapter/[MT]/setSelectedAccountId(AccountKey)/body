@@ -1,0 +1,5 @@
+{
+  final ParcelableAccount selectedAccount=getSelectedAccount();
+  if (selectedAccount == null || accountKey == null)   return;
+  swap(accountKey,new AccountKey(selectedAccount.account_id,selectedAccount.account_host));
+}

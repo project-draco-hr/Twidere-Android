@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   final Intent intent=getIntent();
-  if (!intent.hasExtra(EXTRA_ACCOUNT_ID)) {
+  if (!intent.hasExtra(EXTRA_ACCOUNT_KEY)) {
     finish();
     return;
   }
@@ -23,7 +23,7 @@
     }
   }
   final UserAutoCompleteAdapter adapter=new UserAutoCompleteAdapter(this);
-  adapter.setAccountKey(getAccountId());
+  adapter.setAccountKey(getAccountKey());
   mEditScreenName.setAdapter(adapter);
   mEditScreenName.setText(mScreenName);
   mUserListsListView.setAdapter(mUserListsAdapter=new SimpleParcelableUserListsAdapter(this));

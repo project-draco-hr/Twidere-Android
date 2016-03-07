@@ -16,7 +16,7 @@
     final ParcelableStatus status=getAdapter().getStatus(position);
     if (status == null)     return false;
     if (keyCode == KeyEvent.KEYCODE_ENTER) {
-      Utils.openStatus(getActivity(),status,null);
+      IntentUtils.openStatus(getActivity(),status,null);
       return true;
     }
     if (action == null) {

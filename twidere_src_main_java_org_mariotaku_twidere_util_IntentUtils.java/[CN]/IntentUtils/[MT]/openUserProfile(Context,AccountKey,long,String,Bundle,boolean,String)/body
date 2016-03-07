@@ -1,6 +1,6 @@
 {
-  if (context == null || userId <= 0 && isEmpty(screenName))   return;
-  final Uri uri=LinkCreator.getTwidereUserLink(accountId,userId,screenName);
+  if (userId <= 0 && isEmpty(screenName))   return;
+  final Uri uri=LinkCreator.getTwidereUserLink(accountKey,userId,screenName);
   final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
   intent.putExtra(EXTRA_REFERRAL,referral);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && newDocument) {

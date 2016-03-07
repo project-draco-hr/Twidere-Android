@@ -2,6 +2,7 @@
   final FragmentActivity activity=getActivity();
   final ParcelableUser user=getUser();
   if (activity == null || user == null)   return;
+  final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
 switch (view.getId()) {
 case R.id.error_container:
 {
@@ -11,21 +12,19 @@ case R.id.error_container:
 case R.id.follow:
 {
     if (user.id == user.account_id) {
-      Utils.openProfileEditor(getActivity(),user.account_id);
+      Utils.openProfileEditor(getActivity(),accountKey);
       break;
     }
     final UserRelationship userRelationship=mRelationship;
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
     if (userRelationship == null || twitter == null)     return;
     if (userRelationship.relationship.isSourceBlockingTarget()) {
-      final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
       twitter.destroyBlockAsync(accountKey,user.id);
     }
  else     if (userRelationship.relationship.isSourceFollowingTarget()) {
       DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
     }
  else {
-      final AccountKey accountKey=new AccountKey(user.account_id,user.account_host);
       twitter.createFriendshipAsync(accountKey,user.id);
     }
     break;
@@ -36,7 +35,7 @@ case R.id.profile_image:
   ParcelableMedia profileImage=ParcelableMediaUtils.image(url);
   profileImage.type=ParcelableMedia.Type.IMAGE;
   final ParcelableMedia[] media={profileImage};
-  IntentUtils.openMedia(activity,new AccountKey(user.account_id,user.account_host),false,null,media,null,true);
+  IntentUtils.openMedia(activity,accountKey,false,null,media,null,true);
   break;
 }
 case R.id.profile_banner:
@@ -46,28 +45,28 @@ final String url=user.profile_banner_url + "/ipad_retina";
 ParcelableMedia profileBanner=ParcelableMediaUtils.image(url);
 profileBanner.type=ParcelableMedia.Type.IMAGE;
 final ParcelableMedia[] media={profileBanner};
-IntentUtils.openMedia(activity,new AccountKey(user.account_id,user.account_host),false,null,media,null,true);
+IntentUtils.openMedia(activity,accountKey,false,null,media,null,true);
 break;
 }
 case R.id.listed_container:
 {
-Utils.openUserLists(getActivity(),user.account_id,user.id,user.screen_name);
+IntentUtils.openUserLists(getActivity(),accountKey,user.id,user.screen_name);
 break;
 }
 case R.id.followers_container:
 {
-Utils.openUserFollowers(getActivity(),user.account_id,user.id,user.screen_name);
+IntentUtils.openUserFollowers(getActivity(),accountKey,user.id,user.screen_name);
 break;
 }
 case R.id.friends_container:
 {
-Utils.openUserFriends(getActivity(),user.account_id,user.id,user.screen_name);
+IntentUtils.openUserFriends(getActivity(),accountKey,user.id,user.screen_name);
 break;
 }
 case R.id.name_container:
 {
 if (user.account_id != user.id) return;
-Utils.openProfileEditor(getActivity(),user.account_id);
+Utils.openProfileEditor(getActivity(),accountKey);
 break;
 }
 case R.id.profile_birthday_banner:

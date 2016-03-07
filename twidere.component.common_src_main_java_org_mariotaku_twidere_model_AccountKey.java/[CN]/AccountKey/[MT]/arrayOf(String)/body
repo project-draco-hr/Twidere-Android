@@ -1,0 +1,10 @@
+{
+  if (str == null)   return null;
+  List<String> split=TwitterDateConverter.split(str,",");
+  AccountKey[] keys=new AccountKey[split.size()];
+  for (int i=0, splitLength=split.size(); i < splitLength; i++) {
+    keys[i]=valueOf(split.get(i));
+    if (keys[i] == null)     return null;
+  }
+  return keys;
+}

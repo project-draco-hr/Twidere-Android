@@ -1,5 +1,5 @@
 Context context
-AccountKey accountId
+AccountKey accountKey
 long userId
 String screenName
 Bundle activityOptions

@@ -1,5 +1,5 @@
 {
-  if (context == null || user == null)   return;
+  if (user == null)   return;
   final Bundle extras=new Bundle();
   extras.putParcelable(EXTRA_USER,user);
   final Uri.Builder builder=new Uri.Builder();

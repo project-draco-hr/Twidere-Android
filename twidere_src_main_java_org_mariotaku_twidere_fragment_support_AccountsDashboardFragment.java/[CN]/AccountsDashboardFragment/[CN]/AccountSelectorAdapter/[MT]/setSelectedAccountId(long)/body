@@ -1,5 +1,0 @@
-{
-  final ParcelableAccount selectedAccount=getSelectedAccount();
-  if (selectedAccount == null)   return;
-  swap(accountId,selectedAccount.account_id);
-}

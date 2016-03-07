@@ -1,0 +1,34 @@
+{
+  getHomeTimelineAsync(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return closure.getAccountKeys();
+    }
+    @Nullable @Override public long[] getSinceIds(){
+      return DataStoreUtils.getNewestStatusIds(mContext,Statuses.CONTENT_URI,getAccountKeys());
+    }
+  }
+);
+  getActivitiesAboutMeAsync(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return closure.getAccountKeys();
+    }
+    @Nullable @Override public long[] getSinceIds(){
+      return DataStoreUtils.getNewestActivityMaxPositions(mContext,Activities.AboutMe.CONTENT_URI,getAccountKeys());
+    }
+  }
+);
+  getReceivedDirectMessagesAsync(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return closure.getAccountKeys();
+    }
+  }
+);
+  getSentDirectMessagesAsync(new SimpleRefreshTaskParam(){
+    @NonNull @Override public AccountKey[] getAccountKeys(){
+      return closure.getAccountKeys();
+    }
+  }
+);
+  getSavedSearchesAsync(closure.getAccountKeys());
+  return true;
+}

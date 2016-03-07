@@ -1,5 +1,4 @@
 {
   super.onStart();
-  final IntentFilter filter=new IntentFilter(BROADCAST_MULTI_BLOCKSTATE_CHANGED);
-  registerReceiver(mStateReceiver,filter);
+  mBus.register(this);
 }

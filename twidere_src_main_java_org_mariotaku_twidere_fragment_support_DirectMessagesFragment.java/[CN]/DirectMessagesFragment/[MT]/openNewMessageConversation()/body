@@ -1,9 +1,9 @@
 {
   final AccountKey[] accountIds=getAccountKeys();
   if (accountIds.length == 1) {
-    Utils.openMessageConversation(getActivity(),accountIds[0],-1);
+    IntentUtils.openMessageConversation(getActivity(),accountIds[0],-1);
   }
  else {
-    Utils.openMessageConversation(getActivity(),null,-1);
+    IntentUtils.openMessageConversation(getActivity(),null,-1);
   }
 }

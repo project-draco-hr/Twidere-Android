@@ -1,0 +1,9 @@
+{
+  final AccountKey accountKey=event.getAccountKey();
+  final String screen_name=getAccountScreenName(getActivity(),accountKey);
+  final Bundle args=getArguments();
+  if (args == null)   return;
+  if (accountKey != null && accountKey.getId() == args.getLong(EXTRA_USER_ID,-1) || screen_name != null && screen_name.equalsIgnoreCase(args.getString(EXTRA_SCREEN_NAME))) {
+    removeUsers(event.getUserIds());
+  }
+}

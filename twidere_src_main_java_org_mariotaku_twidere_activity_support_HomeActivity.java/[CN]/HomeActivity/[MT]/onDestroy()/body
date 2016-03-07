@@ -8,6 +8,5 @@
     }
   }
 );
-  sendBroadcast(new Intent(BROADCAST_HOME_ACTIVITY_ONDESTROY));
   super.onDestroy();
 }

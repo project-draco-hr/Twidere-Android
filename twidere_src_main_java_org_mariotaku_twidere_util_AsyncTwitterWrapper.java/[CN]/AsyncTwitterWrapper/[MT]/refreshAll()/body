@@ -1,3 +1,8 @@
 {
-  refreshAll(DataStoreUtils.getActivatedAccountKeys(mContext));
+  refreshAll(new GetAccountKeysClosure(){
+    @Override public AccountKey[] getAccountKeys(){
+      return DataStoreUtils.getActivatedAccountKeys(mContext);
+    }
+  }
+);
 }
