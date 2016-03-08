@@ -149,9 +149,7 @@
   }
  else {
     final CharSequence text=HtmlSpanBuilder.fromHtml(status.text_html,status.text_unescaped);
-    if (text instanceof Spanned) {
-      textView.setText(linkify.applyAllLinks(text,status.account_key,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle(),skipLinksInText));
-    }
+    textView.setText(linkify.applyAllLinks(text,status.account_key,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle(),skipLinksInText));
   }
   if (replyCount > 0) {
     replyCountView.setText(UnitConvertUtils.calculateProperCount(replyCount));
