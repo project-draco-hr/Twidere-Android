@@ -1,0 +1,5 @@
+{
+  final String a=accountKey.getHost(), b=userKey.getHost();
+  if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b))   return true;
+  return a.equals(b);
+}

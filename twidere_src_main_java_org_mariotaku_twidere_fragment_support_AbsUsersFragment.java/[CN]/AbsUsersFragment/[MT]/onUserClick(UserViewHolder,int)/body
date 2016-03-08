@@ -1,5 +1,17 @@
 {
   final ParcelableUser user=getAdapter().getUser(position);
   final FragmentActivity activity=getActivity();
-  IntentUtils.openUserProfile(activity,user.account_key,user.key.getId(),user.screen_name,null,true,getUserReferral());
+  if (UserKeyUtils.isSameHost(user.account_key,user.key)) {
+    IntentUtils.openUserProfile(activity,user.account_key,user.key.getId(),user.screen_name,null,true,getUserReferral());
+  }
+ else   if (user.extras != null && user.extras.statusnet_profile_url != null) {
+    final Uri uri=Uri.parse(user.extras.statusnet_profile_url);
+    final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+    startActivity(intent);
+  }
+ else {
+    final Uri uri=LinkCreator.getTwitterUserLink(user.screen_name);
+    final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+    startActivity(intent);
+  }
 }

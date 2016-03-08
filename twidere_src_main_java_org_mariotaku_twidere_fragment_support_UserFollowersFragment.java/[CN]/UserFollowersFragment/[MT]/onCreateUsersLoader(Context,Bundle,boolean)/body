@@ -4,5 +4,6 @@
   final String screenName=args.getString(EXTRA_SCREEN_NAME);
   final UserFollowersLoader loader=new UserFollowersLoader(context,accountKey,userId,screenName,getData(),fromUser);
   loader.setCursor(getNextCursor());
+  loader.setPage(getNextPage());
   return loader;
 }

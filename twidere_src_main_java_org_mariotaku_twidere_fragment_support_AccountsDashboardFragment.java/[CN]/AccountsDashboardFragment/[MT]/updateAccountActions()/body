@@ -38,5 +38,7 @@ mAccountOptionsAdapter.add(new OptionItem(R.string.favorites,R.drawable.ic_actio
  else {
 mAccountOptionsAdapter.add(new OptionItem(R.string.likes,R.drawable.ic_action_heart,R.id.favorites));
 }
+if (TwitterAPIFactory.isTwitterCredentials(account)) {
 mAccountOptionsAdapter.add(new OptionItem(R.string.lists,R.drawable.ic_action_list,R.id.lists));
+}
 }

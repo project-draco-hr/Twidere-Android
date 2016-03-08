@@ -3,4 +3,5 @@
   final BaseCursorSupportUsersLoader cursorLoader=(BaseCursorSupportUsersLoader)loader;
   mNextCursor=cursorLoader.getNextCursor();
   mPrevCursor=cursorLoader.getPrevCursor();
+  mNextPage=cursorLoader.getNextPage();
 }
