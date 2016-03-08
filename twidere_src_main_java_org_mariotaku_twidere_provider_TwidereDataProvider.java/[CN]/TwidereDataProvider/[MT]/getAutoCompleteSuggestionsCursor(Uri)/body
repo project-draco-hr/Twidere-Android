@@ -1,7 +1,7 @@
 {
   final String query=uri.getQueryParameter(QUERY_PARAM_QUERY);
   final String type=uri.getQueryParameter(QUERY_PARAM_TYPE);
-  final String accountId=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID);
+  final String accountKey=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_KEY);
   if (query == null || type == null)   return null;
   final String queryEscaped=query.replace("_","^_");
   if (Suggestions.AutoComplete.TYPE_USERS.equals(type)) {
@@ -11,7 +11,7 @@
     final String[] mappedProjection={new Column(CachedUsers._ID,Suggestions._ID).getSQL(),new Column("'" + Suggestions.AutoComplete.TYPE_USERS + "'",Suggestions.TYPE).getSQL(),new Column(CachedUsers.NAME,Suggestions.TITLE).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.SUMMARY).getSQL(),new Column(CachedUsers.USER_KEY,Suggestions.EXTRA_ID).getSQL(),new Column(CachedUsers.PROFILE_IMAGE_URL,Suggestions.ICON).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.VALUE).getSQL()};
     final String[] orderBy={CachedUsers.SCORE,CachedUsers.LAST_SEEN,CachedUsers.SCREEN_NAME,CachedUsers.NAME};
     final boolean[] ascending={false,false,true,true};
-    return query(Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,accountId),mappedProjection,where.getSQL(),whereArgs,new OrderBy(orderBy,ascending).getSQL());
+    return query(Uri.withAppendedPath(CachedUsers.CONTENT_URI_WITH_SCORE,accountKey),mappedProjection,where.getSQL(),whereArgs,new OrderBy(orderBy,ascending).getSQL());
   }
  else   if (Suggestions.AutoComplete.TYPE_HASHTAGS.equals(type)) {
     final Expression where=Expression.likeRaw(new Column(CachedHashtags.NAME),"?||'%'","^");

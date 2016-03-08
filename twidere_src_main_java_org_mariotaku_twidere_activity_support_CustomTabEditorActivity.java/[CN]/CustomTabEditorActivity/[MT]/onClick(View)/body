@@ -59,8 +59,8 @@ if (secondaryFieldRequired) {
 data.putExtra(EXTRA_TYPE,mTabType);
 data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
 data.putExtra(EXTRA_ICON,getIconKey());
-data.putExtra(EXTRA_ARGUMENTS,ParseUtils.bundleToJSON(args));
-data.putExtra(EXTRA_EXTRAS,ParseUtils.bundleToJSON(mExtrasBundle));
+data.putExtra(EXTRA_ARGUMENTS,InternalParseUtils.bundleToJSON(args));
+data.putExtra(EXTRA_EXTRAS,InternalParseUtils.bundleToJSON(mExtrasBundle));
 setResult(RESULT_OK,data);
 finish();
 }
@@ -70,7 +70,7 @@ final Intent data=new Intent();
 data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
 data.putExtra(EXTRA_ICON,getIconKey());
 data.putExtra(EXTRA_ID,mTabId);
-data.putExtra(EXTRA_EXTRAS,ParseUtils.bundleToJSON(mExtrasBundle));
+data.putExtra(EXTRA_EXTRAS,InternalParseUtils.bundleToJSON(mExtrasBundle));
 setResult(RESULT_OK,data);
 finish();
 }

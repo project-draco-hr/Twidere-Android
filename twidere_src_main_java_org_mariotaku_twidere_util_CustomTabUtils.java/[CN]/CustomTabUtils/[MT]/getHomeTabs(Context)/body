@@ -13,10 +13,17 @@
     final int position=cur.getInt(indices.position);
     final String iconType=cur.getString(indices.icon);
     final String name=cur.getString(indices.name);
-    final Bundle args=ParseUtils.jsonToBundle(cur.getString(idxArguments));
+    final Bundle args=new Bundle();
+    final TabArguments tabArguments=parseTabArguments(type,cur.getString(idxArguments));
+    if (tabArguments != null) {
+      tabArguments.copyToBundle(args);
+    }
     @ReadPositionTag final String tag=getTagByType(type);
     args.putInt(EXTRA_TAB_POSITION,position);
-    args.putBundle(EXTRA_EXTRAS,ParseUtils.jsonToBundle(cur.getString(idxExtras)));
+    final TabExtras tabExtras=parseTabExtras(type,cur.getString(idxExtras));
+    if (tabExtras != null) {
+      args.putParcelable(EXTRA_EXTRAS,tabExtras);
+    }
     final CustomTabConfiguration conf=getTabConfiguration(type);
     final Class<? extends Fragment> cls=conf != null ? conf.getFragmentClass() : InvalidTabFragment.class;
     final String tabTypeName=getTabTypeName(context,type);

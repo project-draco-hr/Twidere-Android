@@ -1,4 +1,4 @@
 {
-  if (list == null)   throw new NullPointerException();
+  if (list == null)   return null;
   return list.get(location);
 }

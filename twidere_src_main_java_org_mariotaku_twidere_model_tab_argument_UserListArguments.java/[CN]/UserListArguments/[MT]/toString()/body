@@ -1,0 +1,3 @@
+{
+  return "UserListArguments{" + "listId=" + listId + "} "+ super.toString();
+}

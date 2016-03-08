@@ -1,0 +1,4 @@
+{
+  super.copyToBundle(bundle);
+  bundle.putString(EXTRA_QUERY,query);
+}

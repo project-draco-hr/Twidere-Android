@@ -4,8 +4,8 @@
   linkBuilder.scheme(SCHEME_TWIDERE);
   linkBuilder.authority(AUTHORITY_INTERACTIONS);
   linkBuilder.appendPath(notificationType);
-  if (accountId != null) {
-    linkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_ID,accountId.toString());
+  if (accountKey != null) {
+    linkBuilder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,accountKey.toString());
   }
   linkBuilder.appendQueryParameter(QUERY_PARAM_READ_POSITIONS,StringLongPair.toString(positions));
   linkBuilder.appendQueryParameter(QUERY_PARAM_TIMESTAMP,String.valueOf(System.currentTimeMillis()));

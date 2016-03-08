@@ -1,0 +1,4 @@
+{
+  super.copyToBundle(bundle);
+  bundle.putLong(EXTRA_LIST_ID,listId);
+}

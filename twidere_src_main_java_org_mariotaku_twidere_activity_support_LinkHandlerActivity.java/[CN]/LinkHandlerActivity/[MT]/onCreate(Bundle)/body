@@ -20,7 +20,7 @@
   final ActionBar actionBar=getSupportActionBar();
   if (actionBar != null) {
     actionBar.setDisplayHomeAsUpEnabled(true);
-    setActionBarTheme(actionBar,linkId,data);
+    setActionBarTheme(linkId);
   }
   mMainContent.setOnFitSystemWindowsListener(this);
   setStatusBarColor(linkId,data);

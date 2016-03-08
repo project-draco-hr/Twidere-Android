@@ -1,3 +1,0 @@
-{
-  return IntentConstants.EXTRA_ACCOUNT_ID.equals(key) || IntentConstants.EXTRA_USER_ID.equals(key) || IntentConstants.EXTRA_STATUS_ID.equals(key)|| IntentConstants.EXTRA_LIST_ID.equals(key);
-}

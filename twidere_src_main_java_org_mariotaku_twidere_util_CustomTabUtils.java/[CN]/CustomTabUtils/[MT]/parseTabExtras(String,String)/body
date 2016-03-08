@@ -1,0 +1,9 @@
+{
+switch (type) {
+case CustomTabType.NOTIFICATIONS_TIMELINE:
+{
+      return JsonSerializer.parse(json,InteractionsTabExtras.class);
+    }
+}
+return null;
+}

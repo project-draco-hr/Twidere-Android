@@ -88,28 +88,26 @@ case TABLE_ID_DIRECT_MESSAGES_CONVERSATION_SCREEN_NAME:
 {
 final List<String> segments=uri.getPathSegments();
 if (segments.size() != 4) return null;
-final long accountId=NumberUtils.toLong(segments.get(2),-1);
+final UserKey accountKey=UserKey.valueOf(segments.get(2));
 final String screenName=segments.get(3);
-final SQLSelectQuery query=ConversationQueryBuilder.buildByScreenName(projection,accountId,screenName,selection,sortOrder);
-final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
+final Pair<SQLSelectQuery,String[]> query=ConversationQueryBuilder.byScreenName(projection,accountKey,screenName,selection,sortOrder);
+final Cursor c=mDatabaseWrapper.rawQuery(query.first.getSQL(),query.second);
 setNotificationUri(c,DirectMessages.CONTENT_URI);
 return c;
 }
 case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_RELATIONSHIP:
 {
-final long def=-1;
-final long accountId=NumberUtils.toLong(uri.getLastPathSegment(),def);
-final SQLSelectQuery query=CachedUsersQueryBuilder.withRelationship(projection,selection,sortOrder,accountId);
-final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
+final UserKey accountKey=UserKey.valueOf(uri.getLastPathSegment());
+final Pair<SQLSelectQuery,String[]> query=CachedUsersQueryBuilder.withRelationship(projection,selection,sortOrder,accountKey);
+final Cursor c=mDatabaseWrapper.rawQuery(query.first.getSQL(),query.second);
 setNotificationUri(c,CachedUsers.CONTENT_URI);
 return c;
 }
 case VIRTUAL_TABLE_ID_CACHED_USERS_WITH_SCORE:
 {
-final long def=-1;
-final long accountId=NumberUtils.toLong(uri.getLastPathSegment(),def);
-final SQLSelectQuery query=CachedUsersQueryBuilder.withScore(projection,selection,sortOrder,accountId,0);
-final Cursor c=mDatabaseWrapper.rawQuery(query.getSQL(),selectionArgs);
+final UserKey accountKey=UserKey.valueOf(uri.getLastPathSegment());
+final Pair<SQLSelectQuery,String[]> query=CachedUsersQueryBuilder.withScore(projection,selection,sortOrder,accountKey,0);
+final Cursor c=mDatabaseWrapper.rawQuery(query.first.getSQL(),query.second);
 setNotificationUri(c,CachedUsers.CONTENT_URI);
 return c;
 }

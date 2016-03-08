@@ -1,0 +1,14 @@
+{
+  final String[] projection={Accounts.ACCOUNT_KEY};
+  final Cursor cur=findAccountCursorsById(context,projection,accountId);
+  if (cur == null)   return null;
+  try {
+    if (cur.moveToFirst()) {
+      return UserKey.valueOf(cur.getString(0));
+    }
+    return null;
+  }
+  finally {
+    cur.close();
+  }
+}

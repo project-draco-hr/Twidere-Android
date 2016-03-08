@@ -1,4 +1,5 @@
 {
+  if (mQuery == null)   throw new TwitterException("Empty query");
   final String processedQuery=processQuery(mQuery);
   if (TwitterAPIFactory.isTwitterCredentials(getContext(),getAccountKey())) {
     final SearchQuery query=new SearchQuery(processedQuery);

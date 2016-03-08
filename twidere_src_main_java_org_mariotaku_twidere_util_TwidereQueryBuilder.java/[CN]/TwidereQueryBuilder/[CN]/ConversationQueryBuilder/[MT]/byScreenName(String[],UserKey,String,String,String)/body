@@ -1,0 +1,17 @@
+{
+  final Selectable select=Utils.getColumnsFromProjection(projection);
+  final SQLSelectQuery.Builder qb=SQLQueryBuilder.select(select);
+  qb.select(select);
+  qb.from(new Tables(DirectMessages.TABLE_NAME));
+  final Expression accountIdWhere=Expression.equalsArgs(DirectMessages.ACCOUNT_KEY);
+  final Expression incomingWhere=Expression.and(Expression.notEquals(DirectMessages.IS_OUTGOING,1),Expression.equals(new Column(DirectMessages.SENDER_SCREEN_NAME),screen_name));
+  final Expression outgoingWhere=Expression.and(Expression.equals(DirectMessages.IS_OUTGOING,1),Expression.equals(new Column(DirectMessages.RECIPIENT_SCREEN_NAME),screen_name));
+  if (selection != null) {
+    qb.where(Expression.and(accountIdWhere,incomingWhere,outgoingWhere,new Expression(selection)));
+  }
+ else {
+    qb.where(Expression.and(accountIdWhere,incomingWhere,outgoingWhere));
+  }
+  qb.orderBy(new OrderBy(sortOrder != null ? sortOrder : Conversation.DEFAULT_SORT_ORDER));
+  return Pair.create(qb.build(),new String[]{accountKey.toString()});
+}

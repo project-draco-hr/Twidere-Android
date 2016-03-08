@@ -6,7 +6,8 @@
   final int value=item.getValue();
   if (value > 0) {
     final String key=item.getKey();
-    text1.setText(key.substring(0,1).toUpperCase(Locale.US) + key.substring(1,key.length()));
+    final String name=key.substring(0,1).toUpperCase(Locale.US) + key.substring(1,key.length());
+    text1.setText(name);
   }
  else {
     text1.setText(R.string.customize);

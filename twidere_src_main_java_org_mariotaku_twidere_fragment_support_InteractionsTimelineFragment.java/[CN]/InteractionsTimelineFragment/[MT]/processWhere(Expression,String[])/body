@@ -1,8 +1,8 @@
 {
   final Bundle arguments=getArguments();
   if (arguments != null) {
-    final Bundle extras=arguments.getBundle(EXTRA_EXTRAS);
-    if (extras != null && extras.getBoolean(EXTRA_MENTIONS_ONLY)) {
+    final InteractionsTabExtras extras=arguments.getParcelable(EXTRA_EXTRAS);
+    if (extras != null && extras.isMentionsOnly()) {
       final Expression expression=Expression.and(where,Expression.inArgs(Activities.ACTION,3));
       return new Where(expression,ArrayUtils.addAll(whereArgs,Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE));
     }

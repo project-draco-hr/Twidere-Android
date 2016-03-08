@@ -3,13 +3,14 @@
   String[] extraWhereArgs=null;
   boolean followingOnly=false;
   if (extraArgs != null) {
-    Bundle extras=extraArgs.getBundle(EXTRA_EXTRAS);
-    if (extras != null) {
-      if (extras.getBoolean(EXTRA_MENTIONS_ONLY)) {
+    final TabExtras extras=extraArgs.getParcelable(EXTRA_EXTRAS);
+    if (extras instanceof InteractionsTabExtras) {
+      InteractionsTabExtras ite=((InteractionsTabExtras)extras);
+      if (ite.isMentionsOnly()) {
         extraWhere=Expression.inArgs(Activities.ACTION,3);
         extraWhereArgs=new String[]{Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE};
       }
-      if (extras.getBoolean(EXTRA_MY_FOLLOWING_ONLY)) {
+      if (ite.isMyFollowingOnly()) {
         followingOnly=true;
       }
     }

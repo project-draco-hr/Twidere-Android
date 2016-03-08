@@ -1,3 +1,0 @@
-{
-  return TextUtils.isEmpty(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID)) && !args.containsKey(EXTRA_ACCOUNT_ID);
-}

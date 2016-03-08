@@ -1,5 +1,0 @@
-String[] projection
-long account_id
-String screen_name
-String selection
-String sortOrder

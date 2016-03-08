@@ -1,7 +1,0 @@
-Context context
-String type
-String notificationType
-long accountId
-long statusId
-long userId
-boolean userFollowing

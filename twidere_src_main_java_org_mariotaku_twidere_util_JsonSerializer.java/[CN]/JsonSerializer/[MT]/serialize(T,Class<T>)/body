@@ -4,6 +4,9 @@
     return LoganSquareMapperFinder.mapperFor(cls).serialize(object);
   }
  catch (  IOException e) {
+    if (BuildConfig.DEBUG) {
+      Log.w(Constants.LOGTAG,e);
+    }
     return null;
   }
 }

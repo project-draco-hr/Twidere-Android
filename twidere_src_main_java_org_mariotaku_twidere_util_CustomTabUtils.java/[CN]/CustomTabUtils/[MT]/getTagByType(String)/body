@@ -1,5 +1,5 @@
 {
-switch (getTabTypeAlias(tabType)) {
+switch (tabType) {
 case CustomTabType.HOME_TIMELINE:
     return ReadPositionTag.HOME_TIMELINE;
 case "activities_about_me":

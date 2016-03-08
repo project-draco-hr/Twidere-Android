@@ -1,5 +1,0 @@
-String[] projection
-String selection
-String sortOrder
-long accountId
-int limit

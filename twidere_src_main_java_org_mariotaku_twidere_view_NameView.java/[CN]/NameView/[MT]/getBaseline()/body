@@ -1,0 +1,8 @@
+{
+  try {
+    return super.getBaseline();
+  }
+ catch (  IndexOutOfBoundsException e) {
+    return -1;
+  }
+}

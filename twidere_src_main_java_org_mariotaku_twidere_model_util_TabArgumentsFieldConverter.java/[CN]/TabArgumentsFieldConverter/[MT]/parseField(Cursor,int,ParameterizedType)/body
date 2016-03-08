@@ -1,10 +1,5 @@
 {
-  final String tabType=cursor.getString(cursor.getColumnIndex(Tabs.TYPE));
+  final String tabType=CustomTabUtils.getTabTypeAlias(cursor.getString(cursor.getColumnIndex(Tabs.TYPE)));
   if (TextUtils.isEmpty(tabType))   return null;
-switch (tabType) {
-case CustomTabType.FAVORITES:
-case CustomTabType.USER_TIMELINE:
-    return JsonSerializer.parse(cursor.getString(columnIndex),UserArguments.class);
-}
-return JsonSerializer.parse(cursor.getString(columnIndex),Arguments.class);
+  return CustomTabUtils.parseTabArguments(tabType,cursor.getString(columnIndex));
 }
