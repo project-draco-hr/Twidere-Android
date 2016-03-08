@@ -1,0 +1,18 @@
+{
+  if (conversationId == null && screenName == null)   return TwidereDataStore.CONTENT_URI_NULL;
+  final Uri.Builder builder;
+  if (conversationId != null) {
+    builder=DirectMessages.Conversation.CONTENT_URI.buildUpon();
+  }
+ else {
+    builder=DirectMessages.Conversation.CONTENT_URI_SCREEN_NAME.buildUpon();
+  }
+  builder.appendPath(String.valueOf(accountKey));
+  if (conversationId != null) {
+    builder.appendPath(String.valueOf(conversationId));
+  }
+ else {
+    builder.appendPath(screenName);
+  }
+  return builder.build();
+}

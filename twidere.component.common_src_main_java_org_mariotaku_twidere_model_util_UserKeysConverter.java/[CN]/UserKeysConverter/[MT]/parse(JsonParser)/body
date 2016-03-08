@@ -1,0 +1,14 @@
+{
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() != JsonToken.START_ARRAY) {
+    jsonParser.skipChildren();
+    return null;
+  }
+  List<UserKey> list=new ArrayList<>();
+  while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
+    list.add(UserKey.valueOf(jsonParser.getValueAsString()));
+  }
+  return list.toArray(new UserKey[list.size()]);
+}

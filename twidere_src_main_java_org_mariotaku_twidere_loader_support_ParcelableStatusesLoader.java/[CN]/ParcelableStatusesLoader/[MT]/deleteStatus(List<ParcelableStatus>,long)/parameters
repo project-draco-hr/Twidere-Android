@@ -1,2 +1,2 @@
 List<ParcelableStatus> statuses
-long status_id
+long statusId

@@ -1,0 +1,6 @@
+{
+  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
+    return String.format("%s exclude:retweets",query);
+  }
+  return query;
+}

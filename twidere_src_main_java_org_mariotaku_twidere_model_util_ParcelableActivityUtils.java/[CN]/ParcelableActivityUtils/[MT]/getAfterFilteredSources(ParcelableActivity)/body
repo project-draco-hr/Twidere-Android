@@ -6,7 +6,7 @@
   ParcelableUser[] result=new ParcelableUser[activity.after_filtered_source_ids.length];
   for (int i=0; i < activity.after_filtered_source_ids.length; i++) {
     for (    ParcelableUser user : activity.sources) {
-      if (user.key.getId() == activity.after_filtered_source_ids[i]) {
+      if (user.key.equals(activity.after_filtered_source_ids[i])) {
         result[i]=user;
       }
     }

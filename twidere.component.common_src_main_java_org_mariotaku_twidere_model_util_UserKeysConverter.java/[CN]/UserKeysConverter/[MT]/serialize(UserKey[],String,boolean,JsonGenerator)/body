@@ -1,0 +1,15 @@
+{
+  if (writeFieldNameForObject) {
+    jsonGenerator.writeFieldName(fieldName);
+  }
+  if (object == null) {
+    jsonGenerator.writeNull();
+  }
+ else {
+    jsonGenerator.writeStartArray();
+    for (    UserKey userKey : object) {
+      jsonGenerator.writeString(userKey.toString());
+    }
+    jsonGenerator.writeEndArray();
+  }
+}

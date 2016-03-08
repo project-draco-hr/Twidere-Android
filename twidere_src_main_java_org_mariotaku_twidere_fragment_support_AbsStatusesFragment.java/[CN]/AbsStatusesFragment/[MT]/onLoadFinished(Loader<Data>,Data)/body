@@ -39,7 +39,14 @@
   }
   setRefreshEnabled(true);
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
-    adapter.setLoadMoreSupportedPosition(hasMoreData(data) ? IndicatorPosition.END : IndicatorPosition.NONE);
+    if (hasMoreData(data)) {
+      adapter.setLoadMoreSupportedPosition(IndicatorPosition.END);
+      onHasMoreDataChanged(true);
+    }
+ else {
+      adapter.setLoadMoreSupportedPosition(IndicatorPosition.NONE);
+      onHasMoreDataChanged(false);
+    }
     int pos=-1;
     for (int i=statusStartIndex; i < statusEndExclusiveIndex; i++) {
       if (lastReadId != -1 && adapter.getStatusId(i) <= lastReadId) {
@@ -55,6 +62,9 @@
         layoutManager.scrollToPositionWithOffset(pos,lastVisibleTop - layoutManager.getPaddingTop());
       }
     }
+  }
+ else {
+    onHasMoreDataChanged(false);
   }
   if (loader instanceof IExtendedLoader) {
     ((IExtendedLoader)loader).setFromUser(false);

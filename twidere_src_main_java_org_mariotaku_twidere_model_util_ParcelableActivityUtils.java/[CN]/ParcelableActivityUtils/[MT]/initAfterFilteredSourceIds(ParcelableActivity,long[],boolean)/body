@@ -1,16 +1,16 @@
 {
   if (activity.after_filtered_source_ids != null)   return false;
   if (followingOnly || !ArrayUtils.isEmpty(filteredUserIds)) {
-    ArrayLongList list=new ArrayLongList();
+    List<UserKey> list=new ArrayList<>();
     for (    ParcelableUser user : activity.sources) {
       if (followingOnly && !user.is_following) {
         continue;
       }
       if (!ArrayUtils.contains(filteredUserIds,user.key.getId())) {
-        list.add(user.key.getId());
+        list.add(user.key);
       }
     }
-    activity.after_filtered_source_ids=list.toArray();
+    activity.after_filtered_source_ids=list.toArray(new UserKey[list.size()]);
     return true;
   }
  else {

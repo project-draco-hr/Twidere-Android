@@ -1,7 +1,0 @@
-{
-  if (conversation_id <= 0 && screen_name == null)   return TwidereDataStore.CONTENT_URI_NULL;
-  final Uri.Builder builder=conversation_id > 0 ? DirectMessages.Conversation.CONTENT_URI.buildUpon() : DirectMessages.Conversation.CONTENT_URI_SCREEN_NAME.buildUpon();
-  builder.appendPath(String.valueOf(account_id));
-  builder.appendPath(conversation_id > 0 ? String.valueOf(conversation_id) : screen_name);
-  return builder.build();
-}

@@ -30,23 +30,13 @@
     return ListResponse.getListInstance(new TwitterException("No Account"));
   }
   final List<Status> statuses;
-  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  final int loadItemLimit=prefs.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   final boolean noItemsBefore=data.isEmpty();
+  final int loadItemLimit=mPreferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
   try {
     final Paging paging=new Paging();
-    paging.setCount(loadItemLimit);
-    if (mMaxId > 0) {
-      paging.setMaxId(mMaxId);
-    }
-    if (mSinceId > 0) {
-      paging.setSinceId(mSinceId);
-      if (mMaxId <= 0) {
-        paging.setLatestResults(true);
-      }
-    }
-    statuses=getStatuses(twitter,paging);
-    if (!Utils.isOfficialCredentials(context,getAccountKey())) {
+    processPaging(credentials,loadItemLimit,paging);
+    statuses=getStatuses(twitter,credentials,paging);
+    if (!Utils.isOfficialCredentials(context,credentials)) {
       InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
     }
   }

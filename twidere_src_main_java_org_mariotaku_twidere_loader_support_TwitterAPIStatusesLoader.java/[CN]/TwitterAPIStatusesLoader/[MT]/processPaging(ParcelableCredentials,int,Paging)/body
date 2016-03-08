@@ -1,0 +1,12 @@
+{
+  paging.setCount(loadItemLimit);
+  if (mMaxId > 0) {
+    paging.setMaxId(mMaxId);
+  }
+  if (mSinceId > 0) {
+    paging.setSinceId(mSinceId);
+    if (mMaxId <= 0) {
+      paging.setLatestResults(true);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+    paging.setRpp(loadItemLimit);
+    if (mPage > 0) {
+      paging.setPage(mPage);
+    }
+  }
+ else {
+    super.processPaging(credentials,loadItemLimit,paging);
+  }
+}

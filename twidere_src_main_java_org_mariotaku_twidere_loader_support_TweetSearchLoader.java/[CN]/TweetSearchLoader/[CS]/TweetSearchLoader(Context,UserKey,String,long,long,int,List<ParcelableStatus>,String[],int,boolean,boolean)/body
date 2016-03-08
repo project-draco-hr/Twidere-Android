@@ -1,0 +1,6 @@
+{
+  super(context,accountKey,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser);
+  mPage=page;
+  mQuery=query;
+  mGapEnabled=makeGap;
+}

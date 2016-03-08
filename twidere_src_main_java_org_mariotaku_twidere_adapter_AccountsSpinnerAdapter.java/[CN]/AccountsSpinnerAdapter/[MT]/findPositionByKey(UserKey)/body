@@ -1,0 +1,8 @@
+{
+  for (int i=0, j=getCount(); i < j; i++) {
+    if (getItem(i).account_key.equals(key)) {
+      return i;
+    }
+  }
+  return -1;
+}

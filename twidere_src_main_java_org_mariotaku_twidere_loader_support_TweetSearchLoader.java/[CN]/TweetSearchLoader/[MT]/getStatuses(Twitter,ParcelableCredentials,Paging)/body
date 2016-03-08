@@ -1,0 +1,13 @@
+{
+  if (mQuery == null)   throw new TwitterException("Empty query");
+  final String processedQuery=processQuery(credentials,mQuery);
+  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
+    final SearchQuery query=new SearchQuery(processedQuery);
+    query.paging(paging);
+    return twitter.search(query);
+  }
+ else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+    return twitter.searchStatuses(processedQuery,paging);
+  }
+  throw new TwitterException("Not implemented");
+}
