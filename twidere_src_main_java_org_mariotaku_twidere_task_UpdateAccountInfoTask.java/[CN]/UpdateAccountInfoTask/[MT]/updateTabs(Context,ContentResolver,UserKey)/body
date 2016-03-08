@@ -1,0 +1,30 @@
+{
+  Cursor tabsCursor=resolver.query(Tabs.CONTENT_URI,Tabs.COLUMNS,null,null,null);
+  if (tabsCursor == null)   return;
+  try {
+    TabCursorIndices indices=new TabCursorIndices(tabsCursor);
+    tabsCursor.moveToFirst();
+    LongSparseArray<ContentValues> values=new LongSparseArray<>();
+    while (!tabsCursor.isAfterLast()) {
+      Tab tab=indices.newObject(tabsCursor);
+      TabArguments arguments=tab.getArguments();
+      if (arguments != null) {
+        final long accountId=arguments.getAccountId();
+        final UserKey[] keys=arguments.getAccountKeys();
+        if (accountKey.getId() == accountId && keys == null) {
+          arguments.setAccountKeys(new UserKey[]{accountKey});
+          values.put(tab.getId(),TabValuesCreator.create(tab));
+        }
+      }
+      tabsCursor.moveToNext();
+    }
+    final String where=Expression.equalsArgs(Tabs._ID).getSQL();
+    for (int i=0, j=values.size(); i < j; i++) {
+      final String[] whereArgs={String.valueOf(values.keyAt(i))};
+      resolver.update(Tabs.CONTENT_URI,values.valueAt(i),where,whereArgs);
+    }
+  }
+  finally {
+    tabsCursor.close();
+  }
+}

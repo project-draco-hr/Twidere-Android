@@ -22,5 +22,6 @@
   resolver.update(DirectMessages.Inbox.CONTENT_URI,accountKeyValues,accountWhere,accountWhereArgs);
   resolver.update(DirectMessages.Outbox.CONTENT_URI,accountKeyValues,accountWhere,accountWhereArgs);
   resolver.update(CachedRelationships.CONTENT_URI,accountKeyValues,accountWhere,accountWhereArgs);
+  updateTabs(context,resolver,user.key);
   return null;
 }
