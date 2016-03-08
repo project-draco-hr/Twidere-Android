@@ -1,4 +1,0 @@
-{
-  if (!isValidLocation(location))   return null;
-  return toString(location.latitude,location.longitude);
-}

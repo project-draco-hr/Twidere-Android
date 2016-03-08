@@ -20,7 +20,7 @@
     }
     extraTypeView.setVisibility(View.VISIBLE);
   }
- else   if (ParcelableLocation.isValidLocation(location) || !TextUtils.isEmpty(placeFullName)) {
+ else   if (ParcelableLocationUtils.isValidLocation(location) || !TextUtils.isEmpty(placeFullName)) {
     extraTypeView.setImageResource(R.drawable.ic_action_location);
     extraTypeView.setVisibility(View.VISIBLE);
   }

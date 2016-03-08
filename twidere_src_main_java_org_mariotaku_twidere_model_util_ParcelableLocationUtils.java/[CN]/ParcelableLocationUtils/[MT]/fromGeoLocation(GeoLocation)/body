@@ -1,0 +1,7 @@
+{
+  if (geoLocation == null)   return null;
+  final ParcelableLocation result=new ParcelableLocation();
+  result.latitude=geoLocation.getLatitude();
+  result.longitude=geoLocation.getLongitude();
+  return result;
+}

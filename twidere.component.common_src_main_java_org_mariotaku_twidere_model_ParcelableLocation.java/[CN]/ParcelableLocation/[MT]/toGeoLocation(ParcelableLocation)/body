@@ -1,3 +1,0 @@
-{
-  return isValidLocation(location) ? location.toGeoLocation() : null;
-}

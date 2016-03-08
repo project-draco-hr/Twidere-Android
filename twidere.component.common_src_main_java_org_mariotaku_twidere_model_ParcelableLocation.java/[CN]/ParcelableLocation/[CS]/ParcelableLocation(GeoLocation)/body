@@ -1,4 +1,0 @@
-{
-  latitude=location != null ? location.getLatitude() : Double.NaN;
-  longitude=location != null ? location.getLongitude() : Double.NaN;
-}

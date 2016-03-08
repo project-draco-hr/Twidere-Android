@@ -1,5 +1,5 @@
 {
   final boolean fromUser=args.getBoolean(EXTRA_FROM_USER);
   args.remove(EXTRA_FROM_USER);
-  return onCreateStatusesLoader(getActivity(),args,fromUser);
+  return onCreateActivitiesLoader(getActivity(),args,fromUser);
 }

@@ -12,6 +12,6 @@
  catch (  NumberFormatException e) {
     return null;
   }
-  if (isValidLocation(obj))   return obj;
-  return null;
+  if (Double.isNaN(obj.latitude) || Double.isNaN(obj.longitude))   return null;
+  return obj;
 }

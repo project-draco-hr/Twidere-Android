@@ -123,7 +123,7 @@
           status.inReplyToStatusId(statusUpdate.in_reply_to_status.id);
         }
         if (statusUpdate.location != null) {
-          status.location(ParcelableLocation.toGeoLocation(statusUpdate.location));
+          status.location(ParcelableLocationUtils.toGeoLocation(statusUpdate.location));
         }
         if (uploader == null && hasMedia) {
           final long[] mediaIds=new long[statusUpdate.media.length];

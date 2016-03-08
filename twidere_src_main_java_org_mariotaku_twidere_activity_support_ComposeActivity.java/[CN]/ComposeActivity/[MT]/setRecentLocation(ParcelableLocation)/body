@@ -1,6 +1,6 @@
 {
   if (location != null) {
-    mLocationText.setText(location.getHumanReadableString(3));
+    mLocationText.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
   }
  else {
     mLocationText.setText(R.string.unknown_location);

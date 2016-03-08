@@ -1,0 +1,3 @@
+{
+  return String.format("%s,%s",InternalParseUtils.parsePrettyDecimal(obj.latitude,decimalDigits),InternalParseUtils.parsePrettyDecimal(obj.longitude,decimalDigits));
+}

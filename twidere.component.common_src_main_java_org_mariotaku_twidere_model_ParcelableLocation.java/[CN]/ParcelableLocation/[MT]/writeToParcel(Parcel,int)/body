@@ -1,4 +1,3 @@
 {
-  out.writeDouble(latitude);
-  out.writeDouble(longitude);
+  ParcelableLocationParcelablePlease.writeToParcel(this,dest,flags);
 }

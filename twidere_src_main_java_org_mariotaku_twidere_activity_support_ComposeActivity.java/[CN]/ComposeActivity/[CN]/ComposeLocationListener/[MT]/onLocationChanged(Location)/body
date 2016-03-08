@@ -1,5 +1,5 @@
 {
   final ComposeActivity activity=mActivityRef.get();
   if (activity == null)   return;
-  activity.setRecentLocation(ParcelableLocation.fromLocation(location));
+  activity.setRecentLocation(ParcelableLocationUtils.fromLocation(location));
 }

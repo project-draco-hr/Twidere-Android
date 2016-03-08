@@ -1,0 +1,3 @@
+{
+  return location != null && !Double.isNaN(location.latitude) && !Double.isNaN(location.longitude);
+}

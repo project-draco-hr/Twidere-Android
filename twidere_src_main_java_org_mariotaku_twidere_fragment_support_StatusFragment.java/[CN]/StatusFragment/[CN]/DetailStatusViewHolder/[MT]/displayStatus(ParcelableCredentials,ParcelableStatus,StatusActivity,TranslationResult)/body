@@ -90,9 +90,9 @@
   if (!TextUtils.isEmpty(placeFullName)) {
     locationView.setVisibility(View.VISIBLE);
     locationView.setText(placeFullName);
-    locationView.setClickable(ParcelableLocation.isValidLocation(location));
+    locationView.setClickable(ParcelableLocationUtils.isValidLocation(location));
   }
- else   if (ParcelableLocation.isValidLocation(location)) {
+ else   if (ParcelableLocationUtils.isValidLocation(location)) {
     locationView.setVisibility(View.VISIBLE);
     locationView.setText(R.string.view_map);
     locationView.setClickable(true);

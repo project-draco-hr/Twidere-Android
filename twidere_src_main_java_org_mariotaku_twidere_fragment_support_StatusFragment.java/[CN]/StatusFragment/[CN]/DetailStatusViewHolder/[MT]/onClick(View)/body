@@ -30,7 +30,7 @@ case R.id.retweeted_by:
 case R.id.location_view:
 {
 final ParcelableLocation location=status.location;
-if (!ParcelableLocation.isValidLocation(location)) return;
+if (!ParcelableLocationUtils.isValidLocation(location)) return;
 IntentUtils.openMap(adapter.getContext(),location.latitude,location.longitude);
 break;
 }
