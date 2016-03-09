@@ -3,16 +3,9 @@ switch (viewType) {
 case ITEM_VIEW_TYPE_USER_LIST:
 {
       final View view;
-      if (mCompactCards) {
-        view=mInflater.inflate(R.layout.card_item_user_list_compact,parent,false);
-        final View itemContent=view.findViewById(R.id.item_content);
-        itemContent.setBackgroundColor(mCardBackgroundColor);
-      }
- else {
-        view=mInflater.inflate(R.layout.card_item_user_list,parent,false);
-        final CardView cardView=(CardView)view.findViewById(R.id.card);
-        cardView.setCardBackgroundColor(mCardBackgroundColor);
-      }
+      view=mInflater.inflate(R.layout.card_item_user_list_compact,parent,false);
+      final View itemContent=view.findViewById(R.id.item_content);
+      itemContent.setBackgroundColor(mCardBackgroundColor);
       final UserListViewHolder holder=new UserListViewHolder(this,view);
       holder.setOnClickListeners();
       holder.setupViewOptions();

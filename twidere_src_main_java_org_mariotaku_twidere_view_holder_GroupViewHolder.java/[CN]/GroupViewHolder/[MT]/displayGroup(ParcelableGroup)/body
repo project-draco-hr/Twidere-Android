@@ -1,0 +1,19 @@
+{
+  final Context context=adapter.getContext();
+  final MediaLoaderWrapper loader=adapter.getMediaLoader();
+  final UserColorNameManager manager=adapter.getUserColorNameManager();
+  nameView.setText(group.fullname);
+  final boolean nameFirst=adapter.isNameFirst();
+  if (adapter.isProfileImageEnabled()) {
+    profileImageView.setVisibility(View.VISIBLE);
+    loader.displayProfileImage(profileImageView,group.homepage_logo);
+  }
+ else {
+    profileImageView.setVisibility(View.GONE);
+    loader.cancelDisplayTask(profileImageView);
+  }
+  descriptionView.setVisibility(TextUtils.isEmpty(group.description) ? View.GONE : View.VISIBLE);
+  descriptionView.setText(group.description);
+  membersCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),group.member_count));
+  subscribersCountView.setText(Utils.getLocalizedNumber(Locale.getDefault(),group.admin_count));
+}

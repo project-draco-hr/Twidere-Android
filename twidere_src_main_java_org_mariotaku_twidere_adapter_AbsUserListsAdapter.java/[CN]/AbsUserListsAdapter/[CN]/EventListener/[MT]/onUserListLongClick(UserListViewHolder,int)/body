@@ -1,0 +1,4 @@
+{
+  final UserListAdapterListener listener=mAdapter.mUserListAdapterListener;
+  return listener != null && listener.onUserListLongClick(holder,position);
+}

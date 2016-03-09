@@ -1,0 +1,10 @@
+{
+  if (groupClickListener == null)   return;
+switch (v.getId()) {
+case R.id.item_content:
+{
+      groupClickListener.onGroupClick(this,getLayoutPosition());
+      break;
+    }
+}
+}

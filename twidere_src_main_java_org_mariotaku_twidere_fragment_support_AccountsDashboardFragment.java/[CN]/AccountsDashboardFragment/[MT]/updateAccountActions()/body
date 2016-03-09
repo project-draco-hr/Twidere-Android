@@ -41,4 +41,7 @@ mAccountOptionsAdapter.add(new OptionItem(R.string.likes,R.drawable.ic_action_he
 if (TwitterAPIFactory.isTwitterCredentials(account)) {
 mAccountOptionsAdapter.add(new OptionItem(R.string.lists,R.drawable.ic_action_list,R.id.lists));
 }
+ else if (TwitterAPIFactory.isStatusNetCredentials(account)) {
+mAccountOptionsAdapter.add(new OptionItem(R.string.groups,R.drawable.ic_action_list,R.id.groups));
+}
 }

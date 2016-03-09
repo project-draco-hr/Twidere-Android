@@ -1,0 +1,4 @@
+{
+  final GroupAdapterListener listener=mAdapter.mGroupAdapterListener;
+  return listener != null && listener.onGroupLongClick(holder,position);
+}

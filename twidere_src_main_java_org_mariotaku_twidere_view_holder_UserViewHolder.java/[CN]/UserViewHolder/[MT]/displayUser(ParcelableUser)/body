@@ -1,4 +1,5 @@
 {
+  final Context context=adapter.getContext();
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final UserColorNameManager manager=adapter.getUserColorNameManager();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
@@ -40,5 +41,12 @@
     processingRequestProgress.setVisibility(View.GONE);
     acceptRequestButton.setVisibility(View.VISIBLE);
     denyRequestButton.setVisibility(View.VISIBLE);
+  }
+  if (UserKeyUtils.isSameHost(user.account_key,user.key)) {
+    externalIndicator.setVisibility(View.GONE);
+  }
+ else {
+    externalIndicator.setVisibility(View.VISIBLE);
+    externalIndicator.setText(context.getString(R.string.external_user_host_format,user.key.getHost()));
   }
 }

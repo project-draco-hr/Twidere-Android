@@ -5,6 +5,7 @@
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   nameView=(NameView)itemView.findViewById(R.id.name);
+  externalIndicator=(TextView)itemView.findViewById(R.id.external_indicator);
   descriptionView=(TextView)itemView.findViewById(R.id.description);
   locationView=(TextView)itemView.findViewById(R.id.location);
   urlView=(TextView)itemView.findViewById(R.id.url);

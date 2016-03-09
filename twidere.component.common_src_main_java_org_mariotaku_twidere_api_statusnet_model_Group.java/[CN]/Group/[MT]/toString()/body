@@ -1,0 +1,3 @@
+{
+  return "Group{" + "modified=" + modified + ", nickname='"+ nickname+ '\''+ ", adminCount="+ adminCount+ ", created="+ created+ ", id="+ id+ ", homepage='"+ homepage+ '\''+ ", fullname='"+ fullname+ '\''+ ", homepageLogo='"+ homepageLogo+ '\''+ ", miniLogo='"+ miniLogo+ '\''+ ", url='"+ url+ '\''+ ", memberCount="+ memberCount+ ", blocked="+ blocked+ ", streamLogo='"+ streamLogo+ '\''+ ", member="+ member+ ", description='"+ description+ '\''+ ", originalLogo='"+ originalLogo+ '\''+ ", location='"+ location+ '\''+ '}';
+}

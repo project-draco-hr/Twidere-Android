@@ -1,0 +1,11 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  final AbsGroupsAdapter<Data> adapter=getAdapter();
+  final RecyclerView recyclerView=getRecyclerView();
+  final LinearLayoutManager layoutManager=getLayoutManager();
+  adapter.setListener(this);
+  mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter,this);
+  final Bundle loaderArgs=new Bundle(getArguments());
+  loaderArgs.putBoolean(EXTRA_FROM_USER,true);
+  getLoaderManager().initLoader(0,loaderArgs,this);
+}

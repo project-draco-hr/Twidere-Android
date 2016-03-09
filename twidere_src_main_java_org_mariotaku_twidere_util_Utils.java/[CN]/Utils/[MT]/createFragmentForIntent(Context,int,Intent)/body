@@ -216,6 +216,20 @@ args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
 }
+case LINK_ID_USER_GROUPS:
+{
+fragment=new UserGroupsFragment();
+final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
+final long paramUserId=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_USER_ID),-1);
+if (!args.containsKey(EXTRA_SCREEN_NAME)) {
+args.putString(EXTRA_SCREEN_NAME,paramScreenName);
+}
+if (!args.containsKey(EXTRA_USER_ID)) {
+args.putLong(EXTRA_USER_ID,paramUserId);
+}
+if (isEmpty(paramScreenName) && paramUserId <= 0) return null;
+break;
+}
 case LINK_ID_USER_LIST_TIMELINE:
 {
 fragment=new UserListTimelineFragment();

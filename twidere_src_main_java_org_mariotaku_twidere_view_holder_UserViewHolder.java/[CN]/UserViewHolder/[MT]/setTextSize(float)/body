@@ -1,5 +1,6 @@
 {
   descriptionView.setTextSize(textSize);
+  externalIndicator.setTextSize(textSize);
   nameView.setPrimaryTextSize(textSize);
   nameView.setSecondaryTextSize(textSize * 0.75f);
   locationView.setTextSize(textSize);
