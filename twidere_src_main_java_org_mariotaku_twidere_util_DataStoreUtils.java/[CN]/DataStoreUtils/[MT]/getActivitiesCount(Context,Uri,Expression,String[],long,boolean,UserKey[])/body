@@ -1,11 +1,6 @@
 {
-  if (context == null)   return 0;
-  final RawItemArray idsIn;
-  if (ArrayUtils.isEmpty(accountKeys)) {
-    idsIn=new RawItemArray(UserKey.getIds(getActivatedAccountKeys(context)));
-  }
- else {
-    idsIn=new RawItemArray(UserKey.getIds(accountKeys));
+  if (accountKeys == null) {
+    accountKeys=getActivatedAccountKeys(context);
   }
   Expression[] expressions;
   if (extraWhere != null) {
@@ -15,14 +10,26 @@
  else {
     expressions=new Expression[3];
   }
-  expressions[0]=Expression.in(new Column(Activities.ACCOUNT_KEY),idsIn);
-  expressions[1]=Expression.greaterThan(Activities.TIMESTAMP,sinceTimestamp);
+  expressions[0]=Expression.inArgs(new Column(Activities.ACCOUNT_KEY),accountKeys.length);
+  expressions[1]=Expression.greaterThanArgs(Activities.TIMESTAMP);
   expressions[2]=buildActivityFilterWhereClause(getTableNameByUri(uri),null);
   final Expression selection=Expression.and(expressions);
+  String[] selectionArgs;
+  if (extraWhereArgs != null) {
+    selectionArgs=new String[accountKeys.length + 1 + extraWhereArgs.length];
+    System.arraycopy(extraWhereArgs,0,selectionArgs,accountKeys.length + 1,extraWhereArgs.length);
+  }
+ else {
+    selectionArgs=new String[accountKeys.length + 1];
+  }
+  for (int i=0; i < accountKeys.length; i++) {
+    selectionArgs[i]=accountKeys[i].toString();
+  }
+  selectionArgs[accountKeys.length]=String.valueOf(sinceTimestamp);
   if (followingOnly) {
     final ContentResolver resolver=context.getContentResolver();
     final String[] projection=new String[]{Activities.SOURCES};
-    final Cursor cur=resolver.query(uri,projection,selection.getSQL(),extraWhereArgs,null);
+    final Cursor cur=resolver.query(uri,projection,selection.getSQL(),selectionArgs,null);
     if (cur == null)     return -1;
     try {
       final JsonMapper<UserFollowState> mapper;
@@ -60,5 +67,5 @@
       cur.close();
     }
   }
-  return queryCount(context,uri,selection.getSQL(),extraWhereArgs);
+  return queryCount(context,uri,selection.getSQL(),selectionArgs);
 }

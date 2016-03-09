@@ -4,4 +4,4 @@ Expression extraWhere
 String[] extraWhereArgs
 long sinceTimestamp
 boolean followingOnly
-UserKey accountKeys
+UserKey[] accountKeys
