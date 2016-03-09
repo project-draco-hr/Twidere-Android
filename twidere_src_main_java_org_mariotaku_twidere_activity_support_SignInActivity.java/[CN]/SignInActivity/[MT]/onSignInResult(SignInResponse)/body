@@ -4,7 +4,9 @@
     if (result.alreadyLoggedIn) {
       final ContentValues values=result.toContentValues();
       if (values != null) {
-        mResolver.update(Accounts.CONTENT_URI,values,Expression.equals(Accounts.ACCOUNT_KEY,result.user.getId()).getSQL(),null);
+        final String where=Expression.equalsArgs(Accounts.ACCOUNT_KEY).getSQL();
+        final String[] whereArgs={values.getAsString(Accounts.ACCOUNT_KEY)};
+        mResolver.update(Accounts.CONTENT_URI,values,where,whereArgs);
       }
       Toast.makeText(this,R.string.error_already_logged_in,Toast.LENGTH_SHORT).show();
     }
@@ -13,7 +15,6 @@
       if (values != null) {
         mResolver.insert(Accounts.CONTENT_URI,values);
       }
-      final long loggedId=result.user.getId();
       final Intent intent=new Intent(this,HomeActivity.class);
       intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
       startActivity(intent);

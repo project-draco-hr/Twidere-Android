@@ -1,6 +1,6 @@
 Context context
 UserKey accountId
-long sinceId
-long maxId
+String sinceId
+String maxId
 String[] states
 List<ScheduledStatus> data

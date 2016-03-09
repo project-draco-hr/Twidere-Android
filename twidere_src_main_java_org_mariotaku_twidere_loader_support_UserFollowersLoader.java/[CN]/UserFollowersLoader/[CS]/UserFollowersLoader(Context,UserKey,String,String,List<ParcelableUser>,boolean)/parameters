@@ -1,6 +1,6 @@
 Context context
 UserKey accountId
-long userId
+String userId
 String screenName
 List<ParcelableUser> data
 boolean fromUser

@@ -1,9 +1,9 @@
 Context context
-UserKey accountKey
+UserKey accountId
 String userId
 String screenName
-long sinceId
-long maxId
+String sinceId
+String maxId
 List<ParcelableStatus> data
 String[] savedStatusesArgs
 int tabPosition

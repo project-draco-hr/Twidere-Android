@@ -1,11 +1,12 @@
 Context context
 UserKey accountKey
-String query
-long sinceId
-long maxId
-int page
+long listId
+String userId
+String screenName
+String listName
+String sinceId
+String maxId
 List<ParcelableStatus> data
 String[] savedStatusesArgs
 int tabPosition
 boolean fromUser
-boolean makeGap

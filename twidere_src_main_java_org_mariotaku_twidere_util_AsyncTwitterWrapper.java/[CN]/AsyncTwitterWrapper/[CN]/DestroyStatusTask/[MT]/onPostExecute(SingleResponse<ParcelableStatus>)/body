@@ -2,7 +2,7 @@
   mDestroyingStatusIds.remove(Pair.create(mAccountKey,mStatusId));
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
-    if (status.retweet_id > 0) {
+    if (status.retweet_id != null) {
       Utils.showInfoMessage(mContext,R.string.retweet_cancelled,false);
     }
  else {

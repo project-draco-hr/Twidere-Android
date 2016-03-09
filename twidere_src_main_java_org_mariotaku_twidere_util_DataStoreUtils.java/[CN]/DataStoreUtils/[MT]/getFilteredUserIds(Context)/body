@@ -1,15 +1,15 @@
 {
-  if (context == null)   return new long[0];
+  if (context == null)   return new String[0];
   final ContentResolver resolver=context.getContentResolver();
   final String[] projection={Filters.Users.USER_ID};
   final Cursor cur=resolver.query(Filters.Users.CONTENT_URI,projection,null,null,null);
-  if (cur == null)   return new long[0];
+  if (cur == null)   return new String[0];
   try {
-    final long[] ids=new long[cur.getCount()];
+    final String[] ids=new String[cur.getCount()];
     cur.moveToFirst();
     int i=0;
     while (!cur.isAfterLast()) {
-      ids[i]=cur.getLong(0);
+      ids[i]=cur.getString(0);
       cur.moveToNext();
       i++;
     }

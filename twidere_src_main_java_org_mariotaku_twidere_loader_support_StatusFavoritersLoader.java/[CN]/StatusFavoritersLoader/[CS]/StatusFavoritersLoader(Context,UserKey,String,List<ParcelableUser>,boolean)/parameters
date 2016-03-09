@@ -1,5 +1,5 @@
 Context context
 UserKey accountKey
-long statusId
+String statusId
 List<ParcelableUser> data
 boolean fromUser

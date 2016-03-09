@@ -7,7 +7,7 @@
     @Override public boolean hasMaxIds(){
       return false;
     }
-    @Nullable @Override public long[] getSinceIds(){
+    @Nullable @Override public String[] getSinceIds(){
       return getNewestStatusIds(getAccountKeys());
     }
   }

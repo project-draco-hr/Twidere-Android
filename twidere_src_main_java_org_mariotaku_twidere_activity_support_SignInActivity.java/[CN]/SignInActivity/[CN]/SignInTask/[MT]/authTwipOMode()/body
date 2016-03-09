@@ -6,8 +6,8 @@
   final Authorization auth=new EmptyAuthorization();
   final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
   final User user=twitter.verifyCredentials();
-  final long userId=user.getId();
-  if (userId <= 0)   return new SignInResponse(false,false,null);
+  final String userId=user.getId();
+  if (userId == null)   return new SignInResponse(false,false,null);
   final int color=analyseUserProfileColor(user);
   return new SignInResponse(isUserLoggedIn(activity,userId),user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter));
 }

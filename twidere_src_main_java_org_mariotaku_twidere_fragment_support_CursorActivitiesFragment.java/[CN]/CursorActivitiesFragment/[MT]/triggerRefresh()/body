@@ -6,7 +6,7 @@
         return null;
       }
       final UserKey[] accountKeys=getAccountKeys();
-      final long[] sinceIds=getNewestActivityIds(accountKeys);
+      final String[] sinceIds=getNewestActivityIds(accountKeys);
       return new BaseRefreshTaskParam(accountKeys,sinceIds,null);
     }
     @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){

@@ -6,7 +6,7 @@
   final TwitterOAuth oauth=TwitterAPIFactory.getInstance(activity,endpoint,auth,TwitterOAuth.class);
   final OAuthPasswordAuthenticator authenticator=new OAuthPasswordAuthenticator(oauth,verificationCallback,userAgent);
   final OAuthToken accessToken=authenticator.getOAuthAccessToken(username,password);
-  final long userId=accessToken.getUserId();
-  if (userId <= 0)   return new SignInResponse(false,false,null);
+  final String userId=accessToken.getUserId();
+  if (userId == null)   return new SignInResponse(false,false,null);
   return getOAuthSignInResponse(activity,accessToken,userId,ParcelableCredentials.AUTH_TYPE_OAUTH);
 }

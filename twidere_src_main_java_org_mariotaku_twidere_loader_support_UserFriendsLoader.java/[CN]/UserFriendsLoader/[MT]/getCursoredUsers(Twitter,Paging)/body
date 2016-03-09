@@ -1,6 +1,6 @@
 {
   final String accountType=DataStoreUtils.getAccountType(getContext(),getAccountId());
-  if (mUserId > 0) {
+  if (mUserId != null) {
     if (ParcelableCredentials.ACCOUNT_TYPE_STATUSNET.equals(accountType)) {
       return twitter.getStatusesFriendsList(mUserId,paging);
     }

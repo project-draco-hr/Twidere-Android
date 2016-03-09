@@ -1,6 +1,6 @@
 {
   final ContentResolver resolver=context.getContentResolver();
-  final long[] messageIds=new long[keys.length];
+  final String[] messageIds=new String[keys.length];
   Arrays.fill(messageIds,-1);
   final String[] selectionArgs=TwidereArrayUtils.toStringArray(keys);
   final SQLSelectQuery.Builder builder=SQLQueryBuilder.select(new Columns(keyField,valueField)).from(new Table(getTableNameByUri(uri))).groupBy(new Column(keyField)).having(Expression.in(new Column(keyField),new ArgsArray(keys.length)));
@@ -14,7 +14,7 @@
       final UserKey accountKey=UserKey.valueOf(cur.getString(0));
       int idx=ArrayUtils.indexOf(keys,accountKey);
       if (idx < 0)       continue;
-      messageIds[idx]=cur.getLong(1);
+      messageIds[idx]=cur.getString(1);
     }
     return messageIds;
   }

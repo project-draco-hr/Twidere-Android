@@ -2,10 +2,10 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true);
   if (twitter == null)   return null;
   final Paging paging=new Paging();
-  if (mSinceId > 0) {
+  if (mSinceId != null) {
     paging.setSinceId(mSinceId);
   }
-  if (mMaxId > 0) {
+  if (mMaxId != null) {
     paging.setMaxId(mMaxId);
   }
   try {

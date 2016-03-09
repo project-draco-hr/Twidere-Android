@@ -1,4 +1,4 @@
 Cursor cursor
 CursorIndices<ParcelableActivity> indies
-long[] filteredUserIds
+String[] filteredUserIds
 ParcelableAccount[] accounts

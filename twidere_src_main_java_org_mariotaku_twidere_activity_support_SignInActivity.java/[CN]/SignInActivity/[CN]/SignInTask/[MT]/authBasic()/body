@@ -18,8 +18,8 @@
     }
     throw e;
   }
-  final long userId=user.getId();
-  if (userId <= 0)   return new SignInResponse(false,false,null);
+  final String userId=user.getId();
+  if (userId == null)   return new SignInResponse(false,false,null);
   final int color=analyseUserProfileColor(user);
   return new SignInResponse(isUserLoggedIn(activity,userId),username,password,user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter));
 }

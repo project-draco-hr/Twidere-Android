@@ -5,7 +5,7 @@
     final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
     final ParcelableStatusCursorIndices indices=(ParcelableStatusCursorIndices)((ObjectCursor)mData).getIndices();
     final UserKey accountKey=UserKey.valueOf(cursor.getString(indices.account_key));
-    final long id=cursor.getLong(indices.id);
+    final String id=cursor.getString(indices.id);
     return ParcelableStatus.calculateHashCode(accountKey,id);
   }
   return System.identityHashCode(mData.get(dataPosition));

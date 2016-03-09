@@ -6,7 +6,7 @@
     @NonNull @Override public UserKey[] getAccountKeys(){
       return CursorStatusesFragment.this.getAccountKeys();
     }
-    @Nullable @Override public long[] getMaxIds(){
+    @Nullable @Override public String[] getMaxIds(){
       return getOldestStatusIds(getAccountKeys());
     }
     @Override public boolean hasMaxIds(){

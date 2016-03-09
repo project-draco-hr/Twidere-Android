@@ -4,8 +4,8 @@
     Endpoint endpoint=TwitterAPIFactory.getOAuthEndpoint(apiUrlFormat,"api",null,sameOauthSigningUrl);
     final TwitterOAuth oauth=TwitterAPIFactory.getInstance(context,endpoint,new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret()),TwitterOAuth.class);
     final OAuthToken accessToken=oauth.getAccessToken(requestToken,oauthVerifier);
-    final long userId=accessToken.getUserId();
-    if (userId <= 0)     return new SignInResponse(false,false,null);
+    final String userId=accessToken.getUserId();
+    if (userId == null)     return new SignInResponse(false,false,null);
     final OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
     endpoint=TwitterAPIFactory.getOAuthEndpoint(apiUrlFormat,"api",versionSuffix,sameOauthSigningUrl);
     final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);

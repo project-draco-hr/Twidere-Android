@@ -1,4 +1,4 @@
 SignInActivity activity
 OAuthToken accessToken
-long userId
+String userId
 int authType

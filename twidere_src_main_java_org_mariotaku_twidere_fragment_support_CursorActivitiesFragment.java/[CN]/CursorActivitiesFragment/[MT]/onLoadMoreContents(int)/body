@@ -5,7 +5,7 @@
   TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
     @Override public RefreshTaskParam doLongOperation(    Object o){
       final UserKey[] accountKeys=getAccountKeys();
-      final long[] maxIds=getOldestActivityIds(accountKeys);
+      final String[] maxIds=getOldestActivityIds(accountKeys);
       return new BaseRefreshTaskParam(accountKeys,maxIds,null);
     }
     @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){

@@ -14,7 +14,7 @@ case "oauth_token_secret":
       }
 case "user_id":
 {
-      userId=Long.parseLong(value);
+      userId=value;
       break;
     }
 case "screen_name":

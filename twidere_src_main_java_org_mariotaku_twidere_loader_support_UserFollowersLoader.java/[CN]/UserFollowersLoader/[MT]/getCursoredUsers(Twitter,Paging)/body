@@ -2,7 +2,7 @@
   final UserKey accountId=getAccountId();
   if (accountId == null)   throw new TwitterException("No account");
   final String accountType=DataStoreUtils.getAccountType(getContext(),accountId);
-  if (mUserId > 0) {
+  if (mUserId != null) {
     if (ParcelableCredentials.ACCOUNT_TYPE_STATUSNET.equals(accountType)) {
       return twitter.getStatusesFollowersList(mUserId,paging);
     }

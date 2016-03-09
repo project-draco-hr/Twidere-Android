@@ -1,3 +1,9 @@
 {
-  return getItem(position) != null ? getItem(position).key.getId() : -1;
+  final ParcelableUser item=getItem(position);
+  if (item != null) {
+    return System.identityHashCode(item);
+  }
+ else {
+    return -1;
+  }
 }
