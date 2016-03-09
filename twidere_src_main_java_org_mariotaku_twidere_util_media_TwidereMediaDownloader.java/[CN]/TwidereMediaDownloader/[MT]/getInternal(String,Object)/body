@@ -1,17 +1,15 @@
 {
   final Uri uri=Uri.parse(url);
-  final Authorization auth;
-  final ParcelableCredentials account;
-  final boolean useThumbor;
+  Authorization auth=null;
+  ParcelableCredentials account=null;
+  boolean useThumbor=true;
   if (extra instanceof MediaExtra) {
     useThumbor=((MediaExtra)extra).isUseThumbor();
-    account=ParcelableCredentialsUtils.getCredentials(mContext,((MediaExtra)extra).getAccountKey());
-    auth=TwitterAPIFactory.getAuthorization(account);
-  }
- else {
-    useThumbor=true;
-    account=null;
-    auth=null;
+    UserKey accountKey=((MediaExtra)extra).getAccountKey();
+    if (accountKey != null) {
+      account=ParcelableCredentialsUtils.getCredentials(mContext,accountKey);
+      auth=TwitterAPIFactory.getAuthorization(account);
+    }
   }
   final Uri modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);
   final MultiValueMap<String> additionalHeaders=new MultiValueMap<>();
