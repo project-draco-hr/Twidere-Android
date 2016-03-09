@@ -1,0 +1,3 @@
+{
+  return mDestroyingStatusIds.contains(Pair.create(accountId,statusId));
+}

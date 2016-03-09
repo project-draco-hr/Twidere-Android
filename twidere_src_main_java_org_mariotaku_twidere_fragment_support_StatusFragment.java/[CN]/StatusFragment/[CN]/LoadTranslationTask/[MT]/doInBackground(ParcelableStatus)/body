@@ -15,7 +15,7 @@
  else {
       dest=prefDest;
     }
-    final long statusId=status.is_retweet ? status.retweet_id : status.id;
+    final String statusId=status.is_retweet ? status.retweet_id : status.id;
     return SingleResponse.getInstance(twitter.showTranslation(statusId,dest));
   }
  catch (  final TwitterException e) {

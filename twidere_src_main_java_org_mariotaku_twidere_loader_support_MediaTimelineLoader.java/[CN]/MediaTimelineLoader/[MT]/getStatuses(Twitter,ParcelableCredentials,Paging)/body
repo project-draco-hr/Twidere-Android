@@ -1,7 +1,7 @@
 {
   final Context context=getContext();
   if (Utils.isOfficialCredentials(context,credentials)) {
-    if (mUserId != -1)     return twitter.getMediaTimeline(mUserId,paging);
+    if (mUserId != null)     return twitter.getMediaTimeline(mUserId,paging);
     if (mUserScreenName != null)     return twitter.getMediaTimeline(mUserScreenName,paging);
   }
  else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {

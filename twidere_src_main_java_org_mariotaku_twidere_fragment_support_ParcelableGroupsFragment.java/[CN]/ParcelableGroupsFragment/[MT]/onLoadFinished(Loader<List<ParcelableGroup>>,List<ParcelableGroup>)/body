@@ -1,5 +1,5 @@
 {
-  final AbsGroupsAdapter<List<ParcelableGroup>> adapter=getAdapter();
+  final ParcelableGroupsAdapter adapter=getAdapter();
   adapter.setData(data);
   if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
     adapter.setLoadMoreSupportedPosition(hasMoreData(data) ? IndicatorPosition.END : IndicatorPosition.NONE);

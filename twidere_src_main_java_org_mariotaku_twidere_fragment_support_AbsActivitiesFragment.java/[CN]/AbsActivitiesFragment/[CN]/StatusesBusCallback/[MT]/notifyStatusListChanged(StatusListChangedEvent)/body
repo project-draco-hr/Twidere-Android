@@ -1,4 +1,4 @@
 {
-  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   adapter.notifyDataSetChanged();
 }

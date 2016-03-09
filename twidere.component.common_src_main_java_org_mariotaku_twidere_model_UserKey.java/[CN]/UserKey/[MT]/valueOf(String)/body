@@ -1,16 +1,31 @@
 {
   if (str == null)   return null;
-  int idxOfAt=str.indexOf("@");
-  try {
-    if (idxOfAt != -1) {
-      final String idStr=str.substring(0,idxOfAt);
-      return new UserKey(Long.parseLong(idStr),str.substring(idxOfAt + 1,str.length()));
+  boolean escaping=false, idFinished=false;
+  StringBuilder idBuilder=new StringBuilder(), hostBuilder=new StringBuilder();
+  for (int i=0, j=str.length(); i < j; i++) {
+    final char ch=str.charAt(i);
+    if (!escaping) {
+      if (ch == '\\') {
+        escaping=true;
+      }
+ else       if (ch == '@') {
+        idFinished=true;
+      }
     }
+    if (!isSpecialChar(ch) || !escaping) {
+      if (idFinished) {
+        hostBuilder.append(ch);
+      }
  else {
-      return new UserKey(Long.parseLong(str),null);
+        idBuilder.append(ch);
+      }
+      escaping=false;
     }
   }
- catch (  NumberFormatException e) {
-    return null;
+  if (hostBuilder.length() != 0) {
+    return new UserKey(idBuilder.toString(),hostBuilder.toString());
+  }
+ else {
+    return new UserKey(idBuilder.toString(),null);
   }
 }

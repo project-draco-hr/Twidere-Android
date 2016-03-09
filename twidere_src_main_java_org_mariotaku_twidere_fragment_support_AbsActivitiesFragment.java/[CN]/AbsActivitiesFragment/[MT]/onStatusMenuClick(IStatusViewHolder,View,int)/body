@@ -2,7 +2,7 @@
   if (getActivity() == null)   return;
   final LinearLayoutManager lm=getLayoutManager();
   final View view=lm.findViewByPosition(position);
-  if (view == null || lm.getItemViewType(view) != AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
+  if (view == null || lm.getItemViewType(view) != ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
     return;
   }
   getRecyclerView().showContextMenuForChild(view);

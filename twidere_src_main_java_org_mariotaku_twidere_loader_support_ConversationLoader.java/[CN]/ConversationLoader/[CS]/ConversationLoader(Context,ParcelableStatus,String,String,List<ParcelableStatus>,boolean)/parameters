@@ -1,0 +1,6 @@
+Context context
+ParcelableStatus status
+String sinceId
+String maxId
+List<ParcelableStatus> data
+boolean fromUser

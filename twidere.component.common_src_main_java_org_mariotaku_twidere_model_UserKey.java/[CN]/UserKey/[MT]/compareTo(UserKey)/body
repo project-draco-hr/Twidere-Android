@@ -1,5 +1,5 @@
 {
-  if (this.id == another.id) {
+  if (this.id.equals(another.id)) {
     if (this.host != null && another.host != null) {
       return this.host.compareTo(another.host);
     }
@@ -11,5 +11,5 @@
     }
     return 0;
   }
-  return (int)(this.id - another.id);
+  return this.id.compareTo(another.id);
 }

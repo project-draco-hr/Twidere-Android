@@ -3,7 +3,7 @@
     final ParcelableStatus status=event.getStatus();
     final List<ParcelableStatus> data=getAdapterData();
     if (status == null || data == null || data.isEmpty())     return;
-    final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+    final ParcelableStatusesAdapter adapter=getAdapter();
     final int firstVisiblePosition=getLayoutManager().findFirstVisibleItemPosition();
     final int lastVisiblePosition=getLayoutManager().findLastVisibleItemPosition();
     final int startIndex=adapter.getStatusStartIndex();

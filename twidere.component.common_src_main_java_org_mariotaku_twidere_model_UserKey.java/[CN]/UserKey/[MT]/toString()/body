@@ -1,4 +1,4 @@
 {
-  if (host != null)   return id + "@" + host;
-  return String.valueOf(id);
+  if (host != null)   return escapeText(id) + "@" + escapeText(host);
+  return id;
 }

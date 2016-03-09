@@ -17,9 +17,9 @@
   if (mLoadFromCache) {
     final Expression where;
     final String[] whereArgs;
-    if (mUserId > 0) {
-      where=Expression.equals(CachedUsers.USER_KEY,mUserId);
-      whereArgs=null;
+    if (mUserId != null) {
+      where=Expression.equalsArgs(CachedUsers.USER_KEY);
+      whereArgs=new String[]{mUserId};
     }
  else {
       where=Expression.equalsArgs(CachedUsers.SCREEN_NAME);

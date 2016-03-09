@@ -10,7 +10,7 @@
   }
   if (message != null) {
     intent.putExtra(EXTRA_MESSAGE,message);
-    intent.setData(getMediaViewerUri("message",message.id,accountKey));
+    intent.setData(getMediaViewerUri("message",String.valueOf(message.id),accountKey));
   }
   if (newDocument && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);

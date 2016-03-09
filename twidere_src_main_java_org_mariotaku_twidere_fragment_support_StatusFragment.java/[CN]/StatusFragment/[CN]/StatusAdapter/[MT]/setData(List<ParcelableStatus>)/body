@@ -10,7 +10,7 @@
  else {
     int conversationCount=0, replyCount=0;
     int replyStart=-1;
-    final long statusId=status.is_retweet ? status.retweet_id : status.id;
+    final String statusId=status.is_retweet ? status.retweet_id : status.id;
     for (int i=0, j=data.size(); i < j; i++) {
       ParcelableStatus item=data.get(i);
       if (item.id < statusId) {

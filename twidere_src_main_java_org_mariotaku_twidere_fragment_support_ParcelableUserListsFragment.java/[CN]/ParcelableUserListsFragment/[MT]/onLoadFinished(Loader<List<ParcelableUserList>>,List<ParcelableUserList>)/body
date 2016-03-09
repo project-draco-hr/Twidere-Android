@@ -1,5 +1,18 @@
 {
-  super.onLoadFinished(loader,data);
+  final ParcelableUserListsAdapter adapter=getAdapter();
+  adapter.setData(data);
+  if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
+    adapter.setLoadMoreSupportedPosition(hasMoreData(data) ? IndicatorPosition.END : IndicatorPosition.NONE);
+    setRefreshEnabled(true);
+  }
+  if (loader instanceof IExtendedLoader) {
+    ((IExtendedLoader)loader).setFromUser(false);
+  }
+  if (loader instanceof ICursorSupportLoader) {
+    mNextCursor=((ICursorSupportLoader)loader).getNextCursor();
+    mPrevCursor=((ICursorSupportLoader)loader).getNextCursor();
+  }
+  showContent();
   setRefreshEnabled(true);
   setRefreshing(false);
   setLoadMoreIndicatorPosition(IndicatorPosition.NONE);

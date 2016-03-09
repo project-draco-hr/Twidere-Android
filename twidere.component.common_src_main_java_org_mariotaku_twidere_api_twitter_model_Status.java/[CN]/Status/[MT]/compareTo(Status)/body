@@ -1,6 +1,6 @@
 {
-  final long delta=id - that.getId();
-  if (delta < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
- else   if (delta > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
-  return (int)delta;
+  final int delta=createdAt.compareTo(that.createdAt);
+  if (delta == 0) {
+  }
+  return delta;
 }

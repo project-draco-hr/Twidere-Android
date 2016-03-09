@@ -1,5 +1,5 @@
 {
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(statusPosition);
   if (status == null)   return;
   IntentUtils.openMedia(getActivity(),status,media,null,true);

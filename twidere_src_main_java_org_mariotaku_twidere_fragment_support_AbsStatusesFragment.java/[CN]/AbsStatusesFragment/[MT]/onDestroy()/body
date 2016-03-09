@@ -1,5 +1,5 @@
 {
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   adapter.setListener(null);
   super.onDestroy();
 }

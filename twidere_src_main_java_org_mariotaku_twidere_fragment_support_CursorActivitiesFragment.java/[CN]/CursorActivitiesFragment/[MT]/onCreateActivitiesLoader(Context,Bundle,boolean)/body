@@ -14,7 +14,7 @@
   final String[] accountSelectionArgs=TwidereArrayUtils.toStringArray(accountKeys,0,accountKeys.length);
   final Where expression=processWhere(where,accountSelectionArgs);
   final String selection=expression.getSQL();
-  final AbsActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Activities.COLUMNS;
   return new CursorActivitiesLoader(context,uri,projection,selection,expression.whereArgs,sortOrder,fromUser,accountKeys);

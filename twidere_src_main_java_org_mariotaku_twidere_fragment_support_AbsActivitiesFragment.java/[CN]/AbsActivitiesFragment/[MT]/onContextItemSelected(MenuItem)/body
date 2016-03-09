@@ -1,10 +1,10 @@
 {
   if (!getUserVisibleHint())   return false;
-  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)item.getMenuInfo();
   final int position=contextMenuInfo.getPosition();
 switch (adapter.getItemViewType(position)) {
-case AbsActivitiesAdapter.ITEM_VIEW_TYPE_STATUS:
+case ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_STATUS:
 {
       final ParcelableStatus status=getActivityStatus(position);
       if (status == null)       return false;

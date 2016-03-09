@@ -2,7 +2,7 @@
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final User user=twitter.createFriendship(user_id);
+    final User user=twitter.createFriendship(mUserId);
     Utils.setLastSeen(mContext,UserKeyUtils.fromUser(user),System.currentTimeMillis());
     return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey),null);
   }

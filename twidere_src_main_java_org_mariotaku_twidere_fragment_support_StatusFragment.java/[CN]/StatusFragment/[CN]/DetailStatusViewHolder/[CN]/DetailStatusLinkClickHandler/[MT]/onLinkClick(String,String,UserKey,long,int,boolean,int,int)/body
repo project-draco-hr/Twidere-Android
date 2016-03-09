@@ -9,7 +9,7 @@
     expandOrOpenMedia(current);
     return;
   }
-  if (type == TwidereLinkify.LINK_TYPE_STATUS && status.id == NumberUtils.toLong(link)) {
+  if (type == TwidereLinkify.LINK_TYPE_STATUS && TextUtils.equals(status.id,link)) {
     expandOrOpenMedia(null);
     return;
   }

@@ -1,3 +1,0 @@
-{
-  return getHomeTimelineAsync(new BaseRefreshTaskParam(accountKeys,maxIds,sinceIds));
-}

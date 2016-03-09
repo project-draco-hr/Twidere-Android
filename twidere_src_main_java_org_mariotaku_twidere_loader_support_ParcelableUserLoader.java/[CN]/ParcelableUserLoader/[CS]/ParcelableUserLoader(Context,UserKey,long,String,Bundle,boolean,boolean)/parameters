@@ -1,7 +1,0 @@
-Context context
-UserKey accountKey
-long userId
-String screenName
-Bundle extras
-boolean omitIntentExtra
-boolean loadFromCache

@@ -1,6 +1,6 @@
 {
   final UserKey[] accountIds=getAccountKeys();
-  final AbsActivitiesAdapter<List<ParcelableActivity>> adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   if (adapter.getItemCount() > 0) {
     showContent();
   }

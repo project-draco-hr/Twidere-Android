@@ -1,5 +1,5 @@
 {
   final ParcelableStatus status=getStatus(position);
-  if (status != null)   return status.id;
+  if (status != null)   return System.identityHashCode(status);
   return getItemType(position);
 }

@@ -1,0 +1,9 @@
+{
+  for (  final ManagedAsyncTask<?,?,?> task : mAsyncTaskManager.getTaskSpecList()) {
+    if (task instanceof DestroyFriendshipTask) {
+      final DestroyFriendshipTask destroyFriendshipTask=(DestroyFriendshipTask)task;
+      if (destroyFriendshipTask.getStatus() == AsyncTask.Status.RUNNING && destroyFriendshipTask.getAccountKey().equals(accountKey) && destroyFriendshipTask.getUserId().equals(userId))       return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,4 @@
+{
+  final ParcelableStatusesAdapter adapter=getAdapter();
+  adapter.setData(data);
+}

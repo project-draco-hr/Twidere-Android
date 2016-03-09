@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
-  mCreatingRetweetIds.put(mAccountKey.getId(),statusId);
+  mCreatingRetweetIds.add(Pair.create(mAccountKey,mStatusId));
   bus.post(new StatusListChangedEvent());
 }

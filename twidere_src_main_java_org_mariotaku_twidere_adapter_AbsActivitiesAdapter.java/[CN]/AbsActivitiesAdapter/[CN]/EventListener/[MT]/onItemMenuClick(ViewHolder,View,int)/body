@@ -1,7 +1,0 @@
-{
-  final AbsActivitiesAdapter<?> adapter=adapterRef.get();
-  if (adapter == null)   return;
-  if (adapter.mActivityAdapterListener != null) {
-    adapter.mActivityAdapterListener.onStatusMenuClick((StatusViewHolder)holder,menuView,position);
-  }
-}

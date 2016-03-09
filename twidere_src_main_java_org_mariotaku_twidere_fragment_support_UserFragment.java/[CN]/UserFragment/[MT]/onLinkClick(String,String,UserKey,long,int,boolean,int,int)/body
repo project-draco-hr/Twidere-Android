@@ -4,7 +4,7 @@
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
-      IntentUtils.openUserProfile(getActivity(),user.account_key,-1,link,null,true,Referral.USER_MENTION);
+      IntentUtils.openUserProfile(getActivity(),user.account_key,null,link,null,true,Referral.USER_MENTION);
       break;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:

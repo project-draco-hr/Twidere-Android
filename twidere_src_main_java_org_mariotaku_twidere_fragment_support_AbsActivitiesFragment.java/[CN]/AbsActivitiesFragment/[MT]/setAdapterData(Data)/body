@@ -1,4 +1,0 @@
-{
-  final AbsActivitiesAdapter<Data> adapter=getAdapter();
-  adapter.setData(data);
-}

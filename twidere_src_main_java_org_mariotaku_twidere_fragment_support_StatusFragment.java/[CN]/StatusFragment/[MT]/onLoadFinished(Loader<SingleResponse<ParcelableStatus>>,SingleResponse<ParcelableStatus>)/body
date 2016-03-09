@@ -7,7 +7,7 @@
     if (mStatusAdapter.setStatus(status,credentials)) {
       mStatusAdapter.setLoadMoreSupportedPosition(IndicatorPosition.BOTH);
       mStatusAdapter.setData(null);
-      loadConversation(status,-1,-1);
+      loadConversation(status,null,null);
       loadActivity(status);
       final int position=mStatusAdapter.getFirstPositionOfItem(StatusAdapter.ITEM_IDX_STATUS);
       if (position != RecyclerView.NO_POSITION) {

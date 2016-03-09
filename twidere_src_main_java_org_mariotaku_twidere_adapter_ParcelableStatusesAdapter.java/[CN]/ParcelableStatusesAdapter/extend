@@ -1,1 +1,1 @@
-AbsStatusesAdapter<List<ParcelableStatus>>
+LoadMoreSupportAdapter<RecyclerView.ViewHolder>

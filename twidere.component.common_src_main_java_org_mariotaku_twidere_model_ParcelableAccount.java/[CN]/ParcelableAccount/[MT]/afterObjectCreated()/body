@@ -1,0 +1,6 @@
+{
+  if (account_user != null) {
+    account_user.is_cache=true;
+    account_user.account_color=color;
+  }
+}

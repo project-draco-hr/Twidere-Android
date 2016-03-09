@@ -2,7 +2,7 @@
   if ((position & IndicatorPosition.START) != 0)   return;
   super.onLoadMoreContents(position);
   if (position == 0)   return;
-  final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(adapter.getStatusStartIndex() + adapter.getStatusCount() - 1);
   UserKey[] accountKeys={status.account_key};
   final long[] maxIds={status.id};

@@ -2,7 +2,7 @@
   final String readPositionTag=getReadPositionTagWithAccounts();
   if (readPositionTag == null)   return;
   if (position == RecyclerView.NO_POSITION)   return;
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   mReadStateManager.setPosition(readPositionTag,status.id);

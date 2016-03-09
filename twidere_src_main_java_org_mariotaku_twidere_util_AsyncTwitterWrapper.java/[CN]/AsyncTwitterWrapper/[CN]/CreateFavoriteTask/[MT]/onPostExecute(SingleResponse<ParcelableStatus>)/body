@@ -1,5 +1,5 @@
 {
-  mCreatingFavoriteIds.remove(mAccountKey.getId(),mStatusId);
+  mCreatingFavoriteIds.remove(Pair.create(mAccountKey,mStatusId));
   final FavoriteTaskEvent taskEvent=new FavoriteTaskEvent(FavoriteTaskEvent.Action.CREATE,mAccountKey,mStatusId);
   taskEvent.setFinished(true);
   if (result.hasData()) {

@@ -4,7 +4,7 @@
     return;
   }
   final RecyclerView recyclerView=getRecyclerView();
-  final AbsActivitiesAdapter<Data> adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   recyclerView.addItemDecoration(new DividerItemDecoration(context,getLayoutManager().getOrientation()){
     @Override protected boolean isDividerEnabled(    int childPos){
       if (childPos == RecyclerView.NO_POSITION || childPos == adapter.getItemCount() - 1) {
@@ -20,8 +20,8 @@
     }
     private boolean shouldUseDividerFor(    int itemViewType){
 switch (itemViewType) {
-case AbsActivitiesAdapter.ITEM_VIEW_TYPE_TITLE_SUMMARY:
-case AbsActivitiesAdapter.ITEM_VIEW_TYPE_GAP:
+case ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_TITLE_SUMMARY:
+case ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_GAP:
         return true;
 default :
       return false;

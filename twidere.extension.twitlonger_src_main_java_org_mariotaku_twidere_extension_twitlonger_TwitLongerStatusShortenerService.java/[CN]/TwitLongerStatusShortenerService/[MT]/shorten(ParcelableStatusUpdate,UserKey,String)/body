@@ -30,7 +30,7 @@
     }
     return StatusShortenResult.error(-1,getString(R.string.permission_not_granted));
   }
-  if (credentials == null) {
+  if (credentials == null || !isTwitter(credentials)) {
     return StatusShortenResult.error(-1,"No valid Twitter account found");
   }
   final TwitLonger tl=TwitLongerFactory.getInstance(TWITLONGER_API_KEY,credentials);
@@ -44,7 +44,9 @@
     }
     NewPost newPost=new NewPost(text);
     if (status.in_reply_to_status != null) {
-      newPost.setInReplyTo(status.in_reply_to_status.id,status.in_reply_to_status.user_screen_name);
+      final long inReplyToId=Long.parseLong(status.in_reply_to_status.id);
+      final String inReplyToScreenName=status.in_reply_to_status.user_screen_name;
+      newPost.setInReplyTo(inReplyToId,inReplyToScreenName);
     }
     final Post response=tl.createPost(newPost);
     if (response != null) {

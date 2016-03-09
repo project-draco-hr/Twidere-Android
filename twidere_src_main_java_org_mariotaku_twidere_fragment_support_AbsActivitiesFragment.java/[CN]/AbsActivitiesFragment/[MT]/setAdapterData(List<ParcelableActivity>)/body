@@ -1,0 +1,4 @@
+{
+  final ParcelableActivitiesAdapter adapter=getAdapter();
+  adapter.setData(data);
+}

@@ -4,7 +4,7 @@
   final ParcelableUser user=args.getParcelable(EXTRA_USER);
   if (user != null) {
     tabArgs.putParcelable(EXTRA_ACCOUNT_KEY,user.account_key);
-    tabArgs.putLong(EXTRA_USER_ID,user.key.getId());
+    tabArgs.putString(EXTRA_USER_ID,user.key.getId());
     tabArgs.putString(EXTRA_SCREEN_NAME,user.screen_name);
   }
  else {

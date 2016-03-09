@@ -1,5 +1,5 @@
 {
-  LongSparseMap<Status> quotes=new LongSparseMap<>();
+  MultiValueMap<Status> quotes=new MultiValueMap<>();
   for (  Status status : list) {
     if (status.isQuote())     continue;
     final UrlEntity[] entities=status.getUrlEntities();
@@ -7,21 +7,21 @@
     for (int i=entities.length - 1; i >= 0; i--) {
       final Matcher m=PATTERN_TWITTER_STATUS_LINK.matcher(entities[i].getExpandedUrl());
       if (!m.matches())       continue;
-      final long def=-1;
-      final long quoteId=NumberUtils.toLong(m.group(3),def);
-      if (quoteId > 0) {
-        quotes.put(quoteId,status);
+      final String quoteId=m.group(3);
+      if (!TextUtils.isEmpty(quoteId)) {
+        quotes.add(quoteId,status);
       }
       break;
     }
   }
-  final long[] quoteIds=quotes.keys();
-  for (int currentBulkIdx=0, totalLength=quoteIds.length; currentBulkIdx < totalLength; currentBulkIdx+=TwitterContentUtils.TWITTER_BULK_QUERY_COUNT) {
-    final int currentBulkCount=Math.min(totalLength,currentBulkIdx + TwitterContentUtils.TWITTER_BULK_QUERY_COUNT) - currentBulkIdx;
-    final long[] ids=new long[currentBulkCount];
+  final Set<String> keySet=quotes.keySet();
+  final String[] quoteIds=keySet.toArray(new String[keySet.size()]);
+  for (int currentBulkIdx=0, totalLength=quoteIds.length; currentBulkIdx < totalLength; currentBulkIdx+=TWITTER_BULK_QUERY_COUNT) {
+    final int currentBulkCount=Math.min(totalLength,currentBulkIdx + TWITTER_BULK_QUERY_COUNT) - currentBulkIdx;
+    final String[] ids=new String[currentBulkCount];
     System.arraycopy(quoteIds,currentBulkIdx,ids,0,currentBulkCount);
     for (    Status quoted : twitter.lookupStatuses(ids)) {
-      final Set<Status> orig=quotes.get(quoted.getId());
+      final List<Status> orig=quotes.get(quoted.getId());
       if (orig == null)       continue;
       for (      Status status : orig) {
         Status.setQuotedStatus(status,quoted);

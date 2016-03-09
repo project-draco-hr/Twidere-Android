@@ -1,0 +1,3 @@
+ParcelableActivitiesAdapter adapter
+View itemView
+boolean isCompact

@@ -1,6 +1,0 @@
-Context context
-ParcelableStatus status
-long sinceId
-long maxId
-List<ParcelableStatus> data
-boolean fromUser

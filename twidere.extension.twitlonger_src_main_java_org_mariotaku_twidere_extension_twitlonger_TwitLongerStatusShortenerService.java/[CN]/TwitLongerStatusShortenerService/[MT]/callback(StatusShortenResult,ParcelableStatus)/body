@@ -12,7 +12,7 @@
   }
   final TwitLonger tl=TwitLongerFactory.getInstance(TWITLONGER_API_KEY,credentials);
   try {
-    tl.updatePost(result.extra,status.id);
+    tl.updatePost(result.extra,Long.parseLong(status.id));
   }
  catch (  TwitLongerException e) {
     if (BuildConfig.DEBUG) {

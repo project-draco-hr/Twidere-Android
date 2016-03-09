@@ -1,4 +1,4 @@
 {
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   adapter.notifyDataSetChanged();
 }

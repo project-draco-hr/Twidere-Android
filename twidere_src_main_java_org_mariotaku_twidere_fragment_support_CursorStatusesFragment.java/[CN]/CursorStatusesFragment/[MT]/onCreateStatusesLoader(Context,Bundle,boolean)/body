@@ -12,7 +12,7 @@
     where=accountWhere;
   }
   final String selection=processWhere(where).getSQL();
-  final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Statuses.COLUMNS;
   final String[] selectionArgs=TwidereArrayUtils.toStringArray(accountKeys,0,accountKeys.length);

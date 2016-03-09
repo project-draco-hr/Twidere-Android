@@ -1,0 +1,6 @@
+{
+  for (  final ParcelableStatus status : mData) {
+    if (TextUtils.equals(status.id,statusId))     return true;
+  }
+  return false;
+}

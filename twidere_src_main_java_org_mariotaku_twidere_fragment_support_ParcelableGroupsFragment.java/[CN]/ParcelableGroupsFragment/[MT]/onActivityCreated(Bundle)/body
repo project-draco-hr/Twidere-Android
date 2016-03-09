@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final AbsGroupsAdapter<List<ParcelableGroup>> adapter=getAdapter();
+  final ParcelableGroupsAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
   adapter.setListener(this);

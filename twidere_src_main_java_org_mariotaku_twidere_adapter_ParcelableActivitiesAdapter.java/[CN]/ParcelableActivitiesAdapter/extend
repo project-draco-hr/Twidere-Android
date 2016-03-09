@@ -1,1 +1,1 @@
-AbsActivitiesAdapter<List<ParcelableActivity>>
+LoadMoreSupportAdapter<RecyclerView.ViewHolder>

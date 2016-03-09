@@ -1,29 +1,3 @@
 {
-  int result=createdAt != null ? createdAt.hashCode() : 0;
-  result=31 * result + (int)(id ^ (id >>> 32));
-  result=31 * result + (text != null ? text.hashCode() : 0);
-  result=31 * result + (source != null ? source.hashCode() : 0);
-  result=31 * result + (truncated ? 1 : 0);
-  result=31 * result + (entities != null ? entities.hashCode() : 0);
-  result=31 * result + (extendedEntities != null ? extendedEntities.hashCode() : 0);
-  result=31 * result + (int)(inReplyToStatusId ^ (inReplyToStatusId >>> 32));
-  result=31 * result + (int)(inReplyToUserId ^ (inReplyToUserId >>> 32));
-  result=31 * result + (inReplyToScreenName != null ? inReplyToScreenName.hashCode() : 0);
-  result=31 * result + (user != null ? user.hashCode() : 0);
-  result=31 * result + (geo != null ? geo.hashCode() : 0);
-  result=31 * result + (place != null ? place.hashCode() : 0);
-  result=31 * result + (currentUserRetweet != null ? currentUserRetweet.hashCode() : 0);
-  result=31 * result + (contributors != null ? Arrays.hashCode(contributors) : 0);
-  result=31 * result + (int)(retweetCount ^ (retweetCount >>> 32));
-  result=31 * result + (int)(favoriteCount ^ (favoriteCount >>> 32));
-  result=31 * result + (int)(replyCount ^ (replyCount >>> 32));
-  result=31 * result + (favorited ? 1 : 0);
-  result=31 * result + (retweeted ? 1 : 0);
-  result=31 * result + (lang != null ? lang.hashCode() : 0);
-  result=31 * result + (int)(descendentReplyCount ^ (descendentReplyCount >>> 32));
-  result=31 * result + (retweetedStatus != null ? retweetedStatus.hashCode() : 0);
-  result=31 * result + (quotedStatus != null ? quotedStatus.hashCode() : 0);
-  result=31 * result + (card != null ? card.hashCode() : 0);
-  result=31 * result + (possiblySensitive ? 1 : 0);
-  return result;
+  return id.hashCode();
 }

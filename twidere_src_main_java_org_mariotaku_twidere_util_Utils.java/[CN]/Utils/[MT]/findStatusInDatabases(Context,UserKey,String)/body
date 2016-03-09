@@ -1,0 +1,19 @@
+{
+  if (context == null)   return null;
+  final ContentResolver resolver=context.getContentResolver();
+  ParcelableStatus status=null;
+  final String where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();
+  final String[] whereArgs={accountKey.toString(),statusId};
+  for (  final Uri uri : STATUSES_URIS) {
+    final Cursor cur=resolver.query(uri,Statuses.COLUMNS,where,whereArgs,null);
+    if (cur == null) {
+      continue;
+    }
+    if (cur.getCount() > 0) {
+      cur.moveToFirst();
+      status=ParcelableStatusCursorIndices.fromCursor(cur);
+    }
+    cur.close();
+  }
+  return status;
+}

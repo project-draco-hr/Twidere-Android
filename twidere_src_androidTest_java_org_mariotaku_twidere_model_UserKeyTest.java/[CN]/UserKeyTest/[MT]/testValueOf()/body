@@ -1,0 +1,3 @@
+{
+  assertEquals(UserKey.valueOf("abc@twitter.com"),new UserKey("abc","twitter.com"));
+}

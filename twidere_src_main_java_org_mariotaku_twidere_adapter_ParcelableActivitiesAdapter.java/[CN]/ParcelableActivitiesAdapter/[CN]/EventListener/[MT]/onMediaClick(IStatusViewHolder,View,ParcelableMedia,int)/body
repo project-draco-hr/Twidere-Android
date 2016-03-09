@@ -1,0 +1,7 @@
+{
+  final ParcelableActivitiesAdapter adapter=adapterRef.get();
+  if (adapter == null)   return;
+  if (adapter.mActivityAdapterListener != null) {
+    adapter.mActivityAdapterListener.onMediaClick(holder,view,media,statusPosition);
+  }
+}

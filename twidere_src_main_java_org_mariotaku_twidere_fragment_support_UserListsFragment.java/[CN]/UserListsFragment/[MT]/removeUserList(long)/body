@@ -1,3 +1,3 @@
 {
-  final AbsUserListsAdapter<List<ParcelableUserList>> adapter=getAdapter();
+  final ParcelableUserListsAdapter adapter=getAdapter();
 }

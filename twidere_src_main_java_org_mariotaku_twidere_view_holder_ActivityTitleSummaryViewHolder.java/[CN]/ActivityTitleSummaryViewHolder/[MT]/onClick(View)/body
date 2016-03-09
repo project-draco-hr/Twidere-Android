@@ -1,10 +1,10 @@
 {
-  if (mActivityAdapterListener == null)   return;
+  if (mActivityEventListener == null)   return;
   final int position=getLayoutPosition();
 switch (v.getId()) {
 case R.id.item_content:
 {
-      mActivityAdapterListener.onActivityClick(this,position);
+      mActivityEventListener.onActivityClick(this,position);
       break;
     }
 }

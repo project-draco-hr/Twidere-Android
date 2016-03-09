@@ -1,4 +1,0 @@
-{
-  final CreateMuteTask task=new CreateMuteTask(accountKey,user_id);
-  return mAsyncTaskManager.add(task,true);
-}

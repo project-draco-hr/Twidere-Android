@@ -1,0 +1,21 @@
+{
+  final LoaderManager lm=getLoaderManager();
+  lm.destroyLoader(LOADER_ID_USER);
+  lm.destroyLoader(LOADER_ID_FRIENDSHIP);
+  final Bundle args=new Bundle();
+  args.putParcelable(EXTRA_ACCOUNT_KEY,accountId);
+  args.putString(EXTRA_USER_ID,userId);
+  args.putString(EXTRA_SCREEN_NAME,screenName);
+  args.putBoolean(EXTRA_OMIT_INTENT_EXTRA,omitIntentExtra);
+  if (!mGetUserInfoLoaderInitialized) {
+    lm.initLoader(LOADER_ID_USER,args,mUserInfoLoaderCallbacks);
+    mGetUserInfoLoaderInitialized=true;
+  }
+ else {
+    lm.restartLoader(LOADER_ID_USER,args,mUserInfoLoaderCallbacks);
+  }
+  if (accountId == null || userId == null && screenName == null) {
+    mCardContent.setVisibility(View.GONE);
+    mHeaderErrorContainer.setVisibility(View.GONE);
+  }
+}

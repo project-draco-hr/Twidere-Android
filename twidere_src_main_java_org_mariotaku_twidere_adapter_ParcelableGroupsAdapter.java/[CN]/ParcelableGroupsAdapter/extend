@@ -1,1 +1,1 @@
-AbsGroupsAdapter<List<ParcelableGroup>>
+LoadMoreSupportAdapter<RecyclerView.ViewHolder>

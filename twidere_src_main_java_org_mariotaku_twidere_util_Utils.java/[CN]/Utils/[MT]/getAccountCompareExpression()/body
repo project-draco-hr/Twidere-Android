@@ -1,3 +1,0 @@
-{
-  return Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY);
-}

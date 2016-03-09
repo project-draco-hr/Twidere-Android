@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   adapter.setListener(this);
   final Bundle loaderArgs=new Bundle(getArguments());
   loaderArgs.putBoolean(EXTRA_FROM_USER,true);

@@ -1,0 +1,3 @@
+{
+  return mDestroyingFavoriteIds.contains(Pair.create(accountKey,statusId));
+}

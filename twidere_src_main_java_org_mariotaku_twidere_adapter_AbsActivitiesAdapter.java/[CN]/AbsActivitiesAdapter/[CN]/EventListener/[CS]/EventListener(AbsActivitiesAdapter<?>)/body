@@ -1,3 +1,0 @@
-{
-  adapterRef=new WeakReference<AbsActivitiesAdapter<?>>(adapter);
-}

@@ -1,5 +1,5 @@
 {
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   final UserKey[] accountIds={status.account_key};

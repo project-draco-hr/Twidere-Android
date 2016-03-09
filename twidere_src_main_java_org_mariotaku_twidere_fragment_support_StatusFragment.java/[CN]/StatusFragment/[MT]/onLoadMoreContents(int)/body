@@ -2,14 +2,14 @@
   if ((position & IndicatorPosition.START) != 0) {
     final int start=mStatusAdapter.getIndexStart(StatusAdapter.ITEM_IDX_CONVERSATION);
     final ParcelableStatus status=mStatusAdapter.getStatus(start);
-    if (status == null || status.in_reply_to_status_id <= 0)     return;
-    loadConversation(getStatus(),-1,status.id);
+    if (status == null || status.in_reply_to_status_id == null)     return;
+    loadConversation(getStatus(),null,status.id);
   }
  else   if ((position & IndicatorPosition.END) != 0) {
     final int start=mStatusAdapter.getIndexStart(StatusAdapter.ITEM_IDX_CONVERSATION);
     final ParcelableStatus status=mStatusAdapter.getStatus(start + mStatusAdapter.getStatusCount() - 1);
     if (status == null)     return;
-    loadConversation(getStatus(),status.id,-1);
+    loadConversation(getStatus(),status.id,null);
   }
   mStatusAdapter.setLoadMoreIndicatorPosition(position);
 }

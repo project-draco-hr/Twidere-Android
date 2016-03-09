@@ -4,16 +4,17 @@
     return SingleResponse.getInstance();
   }
   try {
-    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(statusId),mAccountKey,false);
+    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
     Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
     values.put(Statuses.MY_RETWEET_ID,status.id);
     values.put(Statuses.REPLY_COUNT,status.reply_count);
     values.put(Statuses.RETWEET_COUNT,status.retweet_count);
     values.put(Statuses.FAVORITE_COUNT,status.favorite_count);
-    final Expression where=Expression.or(Expression.equals(Statuses.STATUS_ID,statusId),Expression.equals(Statuses.RETWEET_ID,statusId));
+    final Expression where=Expression.or(Expression.equalsArgs(Statuses.STATUS_ID),Expression.equalsArgs(Statuses.RETWEET_ID));
+    final String[] whereArgs={mStatusId,mStatusId};
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
-      mResolver.update(uri,values,where.getSQL(),null);
+      mResolver.update(uri,values,where.getSQL(),whereArgs);
     }
     return SingleResponse.getInstance(status);
   }

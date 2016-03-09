@@ -22,7 +22,7 @@ case R.id.profile_container:
   }
 case R.id.retweeted_by:
 {
-  if (status.retweet_id > 0) {
+  if (status.retweet_id != null) {
     IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.retweeted_by_user_id.getId(),status.retweeted_by_user_screen_name,null,true,UserFragment.Referral.STATUS);
   }
   break;

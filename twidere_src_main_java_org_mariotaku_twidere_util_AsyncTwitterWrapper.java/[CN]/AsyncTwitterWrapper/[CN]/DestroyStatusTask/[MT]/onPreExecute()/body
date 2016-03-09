@@ -1,5 +1,5 @@
 {
   super.onPreExecute();
-  mDestroyingStatusIds.put(mAccountKey.getId(),mStatusId);
+  mDestroyingStatusIds.add(Pair.create(mAccountKey,mStatusId));
   bus.post(new StatusListChangedEvent());
 }

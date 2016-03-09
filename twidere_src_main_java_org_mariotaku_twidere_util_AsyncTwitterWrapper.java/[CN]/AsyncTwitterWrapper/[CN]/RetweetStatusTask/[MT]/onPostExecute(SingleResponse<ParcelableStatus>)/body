@@ -1,5 +1,5 @@
 {
-  mCreatingRetweetIds.remove(mAccountKey.getId(),statusId);
+  mCreatingRetweetIds.remove(Pair.create(mAccountKey,mStatusId));
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
     final TweetEvent event=TweetEvent.create(getContext(),status,TimelineType.OTHER);

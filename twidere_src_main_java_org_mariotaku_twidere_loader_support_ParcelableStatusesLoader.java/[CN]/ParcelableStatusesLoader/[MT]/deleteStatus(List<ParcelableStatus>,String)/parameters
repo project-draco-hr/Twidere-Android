@@ -1,0 +1,2 @@
+List<ParcelableStatus> statuses
+String statusId

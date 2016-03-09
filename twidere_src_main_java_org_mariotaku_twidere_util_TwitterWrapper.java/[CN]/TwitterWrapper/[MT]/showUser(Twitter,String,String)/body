@@ -1,0 +1,9 @@
+{
+  if (id != null) {
+    return twitter.showUser(id);
+  }
+ else   if (screenName != null) {
+    return twitter.showUserByScreenName(screenName);
+  }
+  throw new TwitterException("Invalid user id or screen name");
+}

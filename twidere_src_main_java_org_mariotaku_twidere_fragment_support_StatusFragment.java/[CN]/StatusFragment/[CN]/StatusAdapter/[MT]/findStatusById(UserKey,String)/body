@@ -1,0 +1,9 @@
+{
+  if (mStatus != null && accountId.equals(mStatus.account_key) && TextUtils.equals(statusId,mStatus.id)) {
+    return mStatus;
+  }
+  for (  ParcelableStatus status : Nullables.list(mData)) {
+    if (accountId.equals(status.account_key) && TextUtils.equals(status.id,statusId))     return status;
+  }
+  return null;
+}

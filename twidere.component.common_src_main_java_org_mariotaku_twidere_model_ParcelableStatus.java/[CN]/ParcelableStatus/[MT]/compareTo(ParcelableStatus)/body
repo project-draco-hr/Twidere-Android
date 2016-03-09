@@ -1,6 +1,7 @@
 {
-  final long diff=another.id - id;
-  if (diff > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
-  if (diff < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
-  return (int)diff;
+  long timeDelta=timestamp - another.timestamp;
+  if (timeDelta == 0) {
+    return (int)(sort_id - another.sort_id);
+  }
+  return (int)timeDelta;
 }

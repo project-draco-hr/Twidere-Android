@@ -1,6 +1,6 @@
 {
   final UserKey[] accountKeys=getAccountKeys();
-  final AbsStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   if (adapter.getItemCount() > 0) {
     showContent();
   }

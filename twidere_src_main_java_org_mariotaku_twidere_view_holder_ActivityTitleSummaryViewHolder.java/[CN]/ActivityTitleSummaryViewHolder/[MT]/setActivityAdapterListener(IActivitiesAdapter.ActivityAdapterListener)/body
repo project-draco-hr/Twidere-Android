@@ -1,4 +1,0 @@
-{
-  mActivityAdapterListener=listener;
-  ((View)itemContent).setOnClickListener(this);
-}

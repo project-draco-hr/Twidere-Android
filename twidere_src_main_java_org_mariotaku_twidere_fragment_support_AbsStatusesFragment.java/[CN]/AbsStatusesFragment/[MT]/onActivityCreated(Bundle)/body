@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final AbsStatusesAdapter<Data> adapter=getAdapter();
+  final ParcelableStatusesAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
   adapter.setListener(this);
