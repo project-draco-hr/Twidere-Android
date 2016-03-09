@@ -1,0 +1,11 @@
+{
+  final int position=getLoadMoreIndicatorPosition();
+  int count=getGroupsCount();
+  if ((position & IndicatorPosition.START) != 0) {
+    count++;
+  }
+  if ((position & IndicatorPosition.END) != 0) {
+    count++;
+  }
+  return count;
+}

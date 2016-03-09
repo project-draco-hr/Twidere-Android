@@ -1,0 +1,4 @@
+Group group
+UserKey accountKey
+int position
+boolean member

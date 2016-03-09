@@ -1,0 +1,30 @@
+{
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountId,true);
+  List<Group> listLoaded=null;
+  try {
+    listLoaded=getGroups(twitter);
+  }
+ catch (  final TwitterException e) {
+    Log.w(LOGTAG,e);
+  }
+  if (listLoaded != null) {
+    final int listSize=listLoaded.size();
+    if (listLoaded instanceof PageableResponseList) {
+      mNextCursor=((CursorSupport)listLoaded).getNextCursor();
+      mPrevCursor=((CursorSupport)listLoaded).getPreviousCursor();
+      final int dataSize=mData.size();
+      for (int i=0; i < listSize; i++) {
+        final Group group=listLoaded.get(i);
+        mData.add(ParcelableGroupUtils.from(group,mAccountId,dataSize + i,isMember(group)));
+      }
+    }
+ else {
+      for (int i=0; i < listSize; i++) {
+        final Group list=listLoaded.get(i);
+        mData.add(ParcelableGroupUtils.from(listLoaded.get(i),mAccountId,i,isMember(list)));
+      }
+    }
+  }
+  Collections.sort(mData);
+  return mData;
+}

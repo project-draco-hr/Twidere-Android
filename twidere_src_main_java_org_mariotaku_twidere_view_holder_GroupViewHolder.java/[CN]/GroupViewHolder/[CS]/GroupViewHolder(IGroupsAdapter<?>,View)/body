@@ -3,9 +3,9 @@
   itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
   this.adapter=adapter;
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
-  nameView=(TextView)itemView.findViewById(R.id.name);
-  createdByView=(TextView)itemView.findViewById(R.id.created_by);
+  nameView=(NameView)itemView.findViewById(R.id.name);
+  externalIndicator=(TextView)itemView.findViewById(R.id.external_indicator);
   descriptionView=(TextView)itemView.findViewById(R.id.description);
   membersCountView=(TextView)itemView.findViewById(R.id.members_count);
-  subscribersCountView=(TextView)itemView.findViewById(R.id.subscribers_count);
+  adminsCountView=(TextView)itemView.findViewById(R.id.admins_count);
 }

@@ -1,5 +1,14 @@
 {
-  super.onLoadFinished(loader,data);
+  final ParcelableUsersAdapter adapter=getAdapter();
+  adapter.setData(data);
+  if (!(loader instanceof IExtendedLoader) || ((IExtendedLoader)loader).isFromUser()) {
+    adapter.setLoadMoreSupportedPosition(hasMoreData(data) ? IndicatorPosition.END : IndicatorPosition.NONE);
+    setRefreshEnabled(true);
+  }
+  if (loader instanceof IExtendedLoader) {
+    ((IExtendedLoader)loader).setFromUser(false);
+  }
+  showContent();
   setRefreshEnabled(true);
   setRefreshing(false);
   setLoadMoreIndicatorPosition(IndicatorPosition.NONE);

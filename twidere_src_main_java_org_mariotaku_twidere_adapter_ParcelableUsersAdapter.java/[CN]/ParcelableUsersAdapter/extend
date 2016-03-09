@@ -1,1 +1,1 @@
-AbsUsersAdapter<List<ParcelableUser>>
+LoadMoreSupportAdapter<RecyclerView.ViewHolder>

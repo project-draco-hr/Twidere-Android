@@ -1,0 +1,2 @@
+Loader<List<ParcelableGroup>> loader
+List<ParcelableGroup> data

@@ -1,0 +1,4 @@
+{
+  if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b))   return true;
+  return TextUtils.equals(a,b);
+}

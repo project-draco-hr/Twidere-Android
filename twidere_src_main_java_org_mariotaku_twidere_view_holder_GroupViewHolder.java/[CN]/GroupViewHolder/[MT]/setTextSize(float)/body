@@ -1,4 +1,8 @@
 {
-  nameView.setTextSize(textSize);
-  createdByView.setTextSize(textSize * 0.75f);
+  descriptionView.setTextSize(textSize);
+  externalIndicator.setTextSize(textSize);
+  nameView.setPrimaryTextSize(textSize);
+  nameView.setSecondaryTextSize(textSize * 0.75f);
+  membersCountView.setTextSize(textSize);
+  adminsCountView.setTextSize(textSize);
 }
