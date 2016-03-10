@@ -10,11 +10,11 @@
     if (mListId > 0) {
       list=twitter.showUserList(mListId);
     }
- else     if (mUserId > 0) {
+ else     if (mUserId != null) {
       list=twitter.showUserList(mListName,mUserId);
     }
  else     if (mScreenName != null) {
-      list=twitter.showUserList(mListName,mScreenName);
+      list=twitter.showUserListByScrenName(mListName,mScreenName);
     }
  else     return SingleResponse.getInstance();
     return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));

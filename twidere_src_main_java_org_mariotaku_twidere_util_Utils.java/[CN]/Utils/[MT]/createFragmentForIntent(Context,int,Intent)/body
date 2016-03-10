@@ -46,8 +46,8 @@ case LINK_ID_STATUS:
 {
 fragment=new StatusFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
-final String param_status_id=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(param_status_id,-1));
+final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
+args.putString(EXTRA_STATUS_ID,paramStatusId);
 }
 break;
 }
@@ -55,12 +55,12 @@ case LINK_ID_USER:
 {
 fragment=new UserFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final String param_user_id=uri.getQueryParameter(QUERY_PARAM_USER_ID);
+final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 args.putString(EXTRA_REFERRAL,intent.getStringExtra(EXTRA_REFERRAL));
 break;
@@ -74,7 +74,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 break;
 }
@@ -87,7 +87,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -101,7 +101,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -115,7 +115,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 if (!args.containsKey(EXTRA_SCREEN_NAME) && !args.containsKey(EXTRA_USER_ID)) return null;
 break;
@@ -129,7 +129,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -138,14 +138,14 @@ case LINK_ID_USER_FRIENDS:
 {
 fragment=new UserFriendsFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final String param_user_id=uri.getQueryParameter(QUERY_PARAM_USER_ID);
+final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(param_user_id,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
-if (isEmpty(paramScreenName) && isEmpty(param_user_id)) return null;
+if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
 }
 case LINK_ID_USER_BLOCKS:
@@ -197,7 +197,7 @@ final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
 args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -211,7 +211,7 @@ if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 }
 if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
@@ -220,14 +220,14 @@ case LINK_ID_USER_GROUPS:
 {
 fragment=new UserGroupsFragment();
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final long paramUserId=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_USER_ID),-1);
+final String paramUserId=uri.getQueryParameter(QUERY_PARAM_USER_ID);
 if (!args.containsKey(EXTRA_SCREEN_NAME)) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 }
 if (!args.containsKey(EXTRA_USER_ID)) {
-args.putLong(EXTRA_USER_ID,paramUserId);
+args.putString(EXTRA_USER_ID,paramUserId);
 }
-if (isEmpty(paramScreenName) && paramUserId <= 0) return null;
+if (isEmpty(paramScreenName) && isEmpty(paramUserId)) return null;
 break;
 }
 case LINK_ID_USER_LIST_TIMELINE:
@@ -239,7 +239,7 @@ final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
 args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -253,7 +253,7 @@ final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
 args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -267,7 +267,7 @@ final String paramListId=uri.getQueryParameter(QUERY_PARAM_LIST_ID);
 final String paramListName=uri.getQueryParameter(QUERY_PARAM_LIST_NAME);
 if (isEmpty(paramListId) && (isEmpty(paramListName) || isEmpty(paramScreenName) && isEmpty(paramUserId))) return null;
 args.putLong(EXTRA_LIST_ID,NumberUtils.toLong(paramListId,-1));
-args.putLong(EXTRA_USER_ID,NumberUtils.toLong(paramUserId,-1));
+args.putString(EXTRA_USER_ID,paramUserId);
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
@@ -307,7 +307,7 @@ case LINK_ID_STATUS_RETWEETERS:
 fragment=new StatusRetweetersListFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(paramStatusId,-1));
+args.putString(EXTRA_STATUS_ID,paramStatusId);
 }
 break;
 }
@@ -316,7 +316,7 @@ case LINK_ID_STATUS_FAVORITERS:
 fragment=new StatusFavoritersListFragment();
 if (!args.containsKey(EXTRA_STATUS_ID)) {
 final String paramStatusId=uri.getQueryParameter(QUERY_PARAM_STATUS_ID);
-args.putLong(EXTRA_STATUS_ID,NumberUtils.toLong(paramStatusId,-1));
+args.putString(EXTRA_STATUS_ID,paramStatusId);
 }
 break;
 }

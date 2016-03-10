@@ -1,6 +1,6 @@
 {
   if (mListId > 0)   return twitter.getUserListSubscribers(mListId,paging);
- else   if (mUserId > 0)   return twitter.getUserListSubscribers(mListName.replace(' ','-'),mUserId,paging);
- else   if (mScreenName != null)   return twitter.getUserListSubscribers(mListName.replace(' ','-'),mScreenName,paging);
+ else   if (mUserId != null)   return twitter.getUserListSubscribers(mListName.replace(' ','-'),mUserId,paging);
+ else   if (mScreenName != null)   return twitter.getUserListSubscribersByScreenName(mListName.replace(' ','-'),mScreenName,paging);
   throw new TwitterException("list_id or list_name and user_id (or screen_name) required");
 }

@@ -2,6 +2,6 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableStatus status=(ParcelableStatus)o;
-  if (id != status.id)   return false;
+  if (!TextUtils.equals(id,status.id))   return false;
   return account_key.equals(status.account_key);
 }

@@ -2,6 +2,8 @@
   final UserKey[] accountKeys=param.getAccountKeys();
   final String[] maxIds=param.getMaxIds();
   final String[] sinceIds=param.getSinceIds();
+  final long[] maxSortIds=param.getMaxSortIds();
+  final long[] sinceSortIds=param.getSinceSortIds();
   final List<TwitterWrapper.StatusListResponse> result=new ArrayList<>();
   int idx=0;
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT,DEFAULT_LOAD_ITEM_LIMIT);
@@ -12,11 +14,16 @@
       final Paging paging=new Paging();
       paging.count(loadItemLimit);
       final String maxId, sinceId;
+      long maxSortId=-1, sinceSortId=-1;
       if (maxIds != null && maxIds[idx] != null) {
         maxId=maxIds[idx];
         paging.maxId(maxId);
+        if (maxSortIds != null) {
+          maxSortId=maxSortIds[idx];
+        }
       }
  else {
+        maxSortId=-1;
         maxId=null;
       }
       if (sinceIds != null && sinceIds[idx] != null) {
@@ -28,6 +35,9 @@
  else {
           paging.sinceId(sinceId);
         }
+        if (sinceSortIds != null) {
+          sinceSortId=sinceSortIds[idx];
+        }
         if (maxIds == null || sinceIds[idx] == null) {
           paging.setLatestResults(true);
         }
@@ -37,7 +47,7 @@
       }
       final List<Status> statuses=getStatuses(twitter,paging);
       InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
-      storeStatus(accountKey,statuses,sinceId,maxId,true);
+      storeStatus(accountKey,statuses,sinceId,maxId,sinceSortId,maxSortId,true);
       final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
       cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountKey,statuses));
       TaskStarter.execute(cacheTask);

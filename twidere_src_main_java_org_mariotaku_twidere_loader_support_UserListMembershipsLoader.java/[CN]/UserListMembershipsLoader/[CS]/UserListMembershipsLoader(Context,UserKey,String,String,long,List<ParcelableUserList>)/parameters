@@ -1,0 +1,6 @@
+Context context
+UserKey accountKey
+String userId
+String screenName
+long cursor
+List<ParcelableUserList> data

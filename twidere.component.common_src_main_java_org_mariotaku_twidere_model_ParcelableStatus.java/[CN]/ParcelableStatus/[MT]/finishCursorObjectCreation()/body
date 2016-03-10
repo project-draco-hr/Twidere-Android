@@ -1,3 +1,4 @@
 {
   card_name=card != null ? card.name : null;
+  fixSortId();
 }

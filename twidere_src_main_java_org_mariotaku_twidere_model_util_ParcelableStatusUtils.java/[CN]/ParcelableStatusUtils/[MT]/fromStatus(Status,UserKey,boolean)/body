@@ -4,6 +4,13 @@
   result.account_key=accountKey;
   result.id=orig.getId();
   result.timestamp=getTime(orig.getCreatedAt());
+  result.sort_id=orig.getRawId();
+  if (result.sort_id == -1) {
+    result.sort_id=NumberUtils.toLong(result.id,-1);
+  }
+  if (result.sort_id == -1) {
+    result.sort_id=result.timestamp;
+  }
   result.extras=new ParcelableStatus.Extras();
   result.extras.external_url=orig.getExternalUrl();
   result.extras.support_entities=orig.getEntities() != null;

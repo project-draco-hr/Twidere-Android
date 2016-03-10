@@ -1,45 +1,19 @@
 {
   mCanLoadAllReplies=false;
   final ParcelableStatus status=mStatus;
-  if (Utils.isOfficialCredentials(getContext(),credentials)) {
-    mCanLoadAllReplies=true;
-    return twitter.showConversation(status.id,paging);
+  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
+    final boolean isOfficial=Utils.isOfficialCredentials(getContext(),credentials);
+    mCanLoadAllReplies=isOfficial;
+    if (isOfficial) {
+      return twitter.showConversation(status.id,paging);
+    }
+ else {
+      return showConversationCompat(twitter,credentials,status);
+    }
   }
  else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
     mCanLoadAllReplies=true;
     return twitter.getStatusNetConversation(status.id,paging);
   }
-  final List<Status> statuses=new ArrayList<>();
-  final String maxId=getMaxId(), sinceId=getSinceId();
-  final boolean noSinceMaxId=maxId == null && sinceId == null;
-  if ((maxId != null && maxId < status.id) || noSinceMaxId) {
-    String inReplyToId=maxId != null ? maxId : status.in_reply_to_status_id;
-    int count=0;
-    while (inReplyToId != null && count < 10) {
-      final Status item=twitter.showStatus(inReplyToId);
-      inReplyToId=item.getInReplyToStatusId();
-      statuses.add(item);
-      count++;
-    }
-  }
-  if ((sinceId != null && sinceId > status.id) || noSinceMaxId) {
-    SearchQuery query=new SearchQuery();
-    if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
-      query.query("to:" + status.user_screen_name);
-    }
- else {
-      query.query("@" + status.user_screen_name);
-    }
-    query.sinceId(sinceId != null ? sinceId : status.id);
-    try {
-      for (      Status item : twitter.search(query)) {
-        if (TextUtils.equals(item.getInReplyToStatusId(),status.id)) {
-          statuses.add(item);
-        }
-      }
-    }
- catch (    TwitterException e) {
-    }
-  }
-  return statuses;
+  throw new TwitterException("Not supported");
 }

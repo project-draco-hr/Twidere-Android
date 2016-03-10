@@ -1,5 +1,0 @@
-UserKey accountKey
-List<Status> statuses
-String sinceId
-String maxId
-boolean notify

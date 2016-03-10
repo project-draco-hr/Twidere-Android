@@ -1,4 +1,0 @@
-{
-  super(accountKey,maxId,sinceId,list,exception);
-  this.truncated=truncated;
-}

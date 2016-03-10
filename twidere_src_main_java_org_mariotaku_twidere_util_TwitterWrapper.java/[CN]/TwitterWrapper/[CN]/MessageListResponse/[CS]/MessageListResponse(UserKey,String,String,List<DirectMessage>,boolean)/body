@@ -1,3 +1,0 @@
-{
-  this(accountKey,maxId,sinceId,list,truncated,null);
-}

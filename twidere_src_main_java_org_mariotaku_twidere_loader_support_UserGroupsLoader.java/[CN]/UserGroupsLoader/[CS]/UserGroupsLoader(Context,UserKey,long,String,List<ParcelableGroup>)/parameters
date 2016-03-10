@@ -1,5 +1,0 @@
-Context context
-UserKey accountKey
-long userId
-String screenName
-List<ParcelableGroup> data
