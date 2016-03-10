@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   final Intent intent=getIntent();
-  final String type=mTabType=intent.getStringExtra(EXTRA_TYPE);
+  final String type=getTabType();
   final CustomTabConfiguration conf=getTabConfiguration(type);
   if (type == null || conf == null) {
     finish();

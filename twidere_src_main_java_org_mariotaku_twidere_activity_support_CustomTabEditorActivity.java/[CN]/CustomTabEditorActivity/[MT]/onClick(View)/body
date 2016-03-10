@@ -33,7 +33,17 @@ break;
 }
 case R.id.save:
 {
-if (!isEditMode()) {
+if (isEditMode()) {
+if (mTabId < 0) return;
+final Intent data=new Intent();
+data.putExtra(EXTRA_NAME,getTabName());
+data.putExtra(EXTRA_ICON,getTabIconKey());
+data.putExtra(EXTRA_ID,mTabId);
+data.putExtra(EXTRA_EXTRAS,InternalParseUtils.bundleToJSON(mExtrasBundle));
+setResult(RESULT_OK,data);
+finish();
+}
+ else {
 if (conf == null) return;
 final boolean accountIdRequired=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_REQUIRED;
 final boolean noAccountId=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_NONE;
@@ -49,27 +59,19 @@ if (accountIdRequired && accountIdInvalid) {
   return;
 }
 final Intent data=new Intent();
-final Bundle args=new Bundle();
-if (!noAccountId) {
-  args.putParcelable(EXTRA_ACCOUNT_KEY,getAccountKey());
+final TabArguments args=CustomTabUtils.newTabArguments(getTabType());
+if (args != null) {
+  if (!noAccountId) {
+    args.setAccountKeys(new UserKey[]{getAccountKey()});
+  }
+  if (secondaryFieldRequired) {
+    addSecondaryFieldValueToArguments(args);
+  }
 }
-if (secondaryFieldRequired) {
-  addSecondaryFieldValueToArguments(args);
-}
-data.putExtra(EXTRA_TYPE,mTabType);
-data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
-data.putExtra(EXTRA_ICON,getIconKey());
-data.putExtra(EXTRA_ARGUMENTS,InternalParseUtils.bundleToJSON(args));
-data.putExtra(EXTRA_EXTRAS,InternalParseUtils.bundleToJSON(mExtrasBundle));
-setResult(RESULT_OK,data);
-finish();
-}
- else {
-if (mTabId < 0) return;
-final Intent data=new Intent();
-data.putExtra(EXTRA_NAME,ParseUtils.parseString(mEditTabName.getText()));
-data.putExtra(EXTRA_ICON,getIconKey());
-data.putExtra(EXTRA_ID,mTabId);
+data.putExtra(EXTRA_TYPE,getTabType());
+data.putExtra(EXTRA_NAME,getTabName());
+data.putExtra(EXTRA_ICON,getTabIconKey());
+data.putExtra(EXTRA_ARGUMENTS,JsonSerializer.serialize(args));
 data.putExtra(EXTRA_EXTRAS,InternalParseUtils.bundleToJSON(mExtrasBundle));
 setResult(RESULT_OK,data);
 finish();

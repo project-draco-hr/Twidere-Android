@@ -1,0 +1,3 @@
+{
+  return ParseUtils.parseString(mEditTabName.getText());
+}

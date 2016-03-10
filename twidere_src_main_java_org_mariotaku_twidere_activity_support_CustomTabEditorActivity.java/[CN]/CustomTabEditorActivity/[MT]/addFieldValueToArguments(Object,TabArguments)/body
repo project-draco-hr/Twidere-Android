@@ -1,0 +1,17 @@
+{
+  final CustomTabConfiguration conf=mTabConfiguration;
+  if (value == null || args == null || conf == null)   return;
+  if (value instanceof ParcelableUser && args instanceof UserArguments) {
+    final ParcelableUser user=(ParcelableUser)value;
+    ((UserArguments)args).setUserId(user.key.getId());
+  }
+ else   if (value instanceof ParcelableUserList && args instanceof UserListArguments) {
+    final ParcelableUserList userList=(ParcelableUserList)value;
+    ((UserListArguments)args).setListId(userList.id);
+  }
+ else   if (value instanceof CharSequence) {
+    if (args instanceof TextQueryArguments) {
+      ((TextQueryArguments)args).setQuery(value.toString());
+    }
+  }
+}
