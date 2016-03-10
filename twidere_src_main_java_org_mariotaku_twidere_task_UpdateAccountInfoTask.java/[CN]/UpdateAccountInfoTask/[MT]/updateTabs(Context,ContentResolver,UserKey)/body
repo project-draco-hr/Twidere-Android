@@ -9,9 +9,9 @@
       Tab tab=indices.newObject(tabsCursor);
       TabArguments arguments=tab.getArguments();
       if (arguments != null) {
-        final long accountId=arguments.getAccountId();
+        final String accountId=arguments.getAccountId();
         final UserKey[] keys=arguments.getAccountKeys();
-        if (accountKey.getId() == accountId && keys == null) {
+        if (TextUtils.equals(accountKey.getId(),accountId) && keys == null) {
           arguments.setAccountKeys(new UserKey[]{accountKey});
           values.put(tab.getId(),TabValuesCreator.create(tab));
         }

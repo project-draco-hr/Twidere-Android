@@ -2,6 +2,6 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableDirectMessage that=(ParcelableDirectMessage)o;
-  if (id != that.id)   return false;
-  return account_key.equals(that.account_key);
+  if (!account_key.equals(that.account_key))   return false;
+  return id.equals(that.id);
 }

@@ -1,0 +1,6 @@
+{
+  final String where=Expression.and(Expression.equalsArgs(DirectMessages.ACCOUNT_KEY),Expression.equalsArgs(DirectMessages.MESSAGE_ID)).getSQL();
+  final String[] whereArgs=new String[]{mAccountKey.toString(),mMessageId};
+  mResolver.delete(DirectMessages.Inbox.CONTENT_URI,where,whereArgs);
+  mResolver.delete(DirectMessages.Outbox.CONTENT_URI,where,whereArgs);
+}

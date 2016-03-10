@@ -1,0 +1,10 @@
+{
+  int dataPosition=adapterPosition - getStatusStartIndex();
+  if (dataPosition < 0 || dataPosition >= getStatusCount())   return -1;
+  if (mData instanceof ObjectCursor) {
+    final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
+    final ParcelableStatusCursorIndices indices=(ParcelableStatusCursorIndices)((ObjectCursor)mData).getIndices();
+    return cursor.getLong(indices.timestamp);
+  }
+  return mData.get(dataPosition).timestamp;
+}

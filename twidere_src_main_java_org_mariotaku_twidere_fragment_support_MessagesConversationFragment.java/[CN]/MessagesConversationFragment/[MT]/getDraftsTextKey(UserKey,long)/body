@@ -1,3 +1,0 @@
-{
-  return String.format(Locale.ROOT,"text_%s_to_%d",accountKey,userId);
-}

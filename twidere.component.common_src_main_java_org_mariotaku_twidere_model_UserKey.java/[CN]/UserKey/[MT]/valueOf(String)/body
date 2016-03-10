@@ -11,6 +11,9 @@
  else       if (ch == '@') {
         idFinished=true;
       }
+ else       if (ch == ',') {
+        break;
+      }
     }
     if (!isSpecialChar(ch) || !escaping) {
       if (idFinished) {

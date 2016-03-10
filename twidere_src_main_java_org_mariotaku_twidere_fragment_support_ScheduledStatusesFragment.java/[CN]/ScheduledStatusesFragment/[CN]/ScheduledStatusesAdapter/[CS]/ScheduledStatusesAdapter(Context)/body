@@ -1,6 +1,5 @@
 {
   super(context);
-  mContext=context;
   mInflater=LayoutInflater.from(context);
   setLoadMoreSupportedPosition(IndicatorPosition.NONE);
 }

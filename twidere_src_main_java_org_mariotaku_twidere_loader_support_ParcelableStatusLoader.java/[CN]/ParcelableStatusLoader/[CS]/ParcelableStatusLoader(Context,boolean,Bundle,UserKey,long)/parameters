@@ -1,5 +1,0 @@
-Context context
-boolean omitIntentExtra
-Bundle extras
-UserKey accountId
-long statusId

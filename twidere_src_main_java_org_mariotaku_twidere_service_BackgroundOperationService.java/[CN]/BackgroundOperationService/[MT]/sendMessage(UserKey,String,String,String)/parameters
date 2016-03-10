@@ -1,0 +1,4 @@
+UserKey accountId
+String recipientId
+String text
+String imageUri

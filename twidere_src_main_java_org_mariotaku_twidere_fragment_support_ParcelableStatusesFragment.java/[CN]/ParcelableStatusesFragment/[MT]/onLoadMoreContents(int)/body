@@ -5,7 +5,7 @@
   final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(adapter.getStatusStartIndex() + adapter.getStatusCount() - 1);
   UserKey[] accountKeys={status.account_key};
-  final long[] maxIds={status.id};
+  final String[] maxIds={status.id};
   mPage+=mPageDelta;
   getStatuses(new BaseRefreshTaskParam(accountKeys,maxIds,null));
 }

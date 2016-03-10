@@ -1,0 +1,9 @@
+{
+  if (def == null) {
+    def=TwidereConstants.USER_TYPE_TWITTER_COM;
+  }
+  if (uri == null)   return def;
+  final String authority=PreviewMediaExtractor.getAuthority(uri);
+  if (authority == null)   return def;
+  return authority.replaceAll("[^\\w\\d\\.]","-");
+}

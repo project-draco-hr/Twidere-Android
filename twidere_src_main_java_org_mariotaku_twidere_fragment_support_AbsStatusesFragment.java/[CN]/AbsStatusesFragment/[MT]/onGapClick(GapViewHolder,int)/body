@@ -3,6 +3,6 @@
   final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
   final UserKey[] accountIds={status.account_key};
-  final long[] maxIds={status.id};
+  final String[] maxIds={status.id};
   getStatuses(new BaseRefreshTaskParam(accountIds,maxIds,null));
 }

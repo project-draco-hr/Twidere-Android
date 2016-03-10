@@ -1,0 +1,4 @@
+UserKey accountKey
+String maxId
+String sinceId
+List<Data> list

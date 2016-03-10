@@ -8,7 +8,7 @@
   final Menu menu=mPopupMenu.getMenu();
   final MenuItem view_profile_item=menu.findItem(R.id.view_profile);
   if (view_profile_item != null && dm != null) {
-    view_profile_item.setVisible(dm.account_key.getId() != dm.sender_id);
+    view_profile_item.setVisible(!TextUtils.equals(dm.account_key.getId(),dm.sender_id));
   }
   mPopupMenu.setOnMenuItemClickListener(this);
   mPopupMenu.show();

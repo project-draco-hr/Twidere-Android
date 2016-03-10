@@ -4,7 +4,7 @@
       final Context context=getContext();
       if (context == null)       return null;
       UserKey[] accountIds=getAccountKeys();
-      long[] ids=DataStoreUtils.getNewestMessageIds(context,DirectMessages.Inbox.CONTENT_URI,accountIds);
+      String[] ids=DataStoreUtils.getNewestMessageIds(context,Inbox.CONTENT_URI,accountIds);
       return new BaseRefreshTaskParam(accountIds,ids,null);
     }
     @Override protected void onPostExecute(    final RefreshTaskParam result){

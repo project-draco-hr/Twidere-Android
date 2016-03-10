@@ -1,0 +1,3 @@
+List<DirectMessage> in
+List<DirectMessage> out
+String sinceId

@@ -2,8 +2,8 @@
   final MenuItem item=menu.findItem(R.id.new_user_list);
   final UserKey accountId=getAccountKey();
   if (accountId == null || item == null)   return;
-  final long userId=getUserId();
-  if (accountId.getId() == userId) {
+  final String userId=getUserId();
+  if (TextUtils.equals(accountId.getId(),userId)) {
     MenuUtils.setMenuItemAvailability(menu,R.id.new_user_list,true);
   }
  else {

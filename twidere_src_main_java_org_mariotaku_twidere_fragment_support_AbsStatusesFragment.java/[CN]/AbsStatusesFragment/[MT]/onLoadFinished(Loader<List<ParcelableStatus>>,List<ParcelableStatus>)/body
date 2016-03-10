@@ -2,7 +2,7 @@
   final ParcelableStatusesAdapter adapter=getAdapter();
   final boolean rememberPosition=mPreferences.getBoolean(KEY_REMEMBER_POSITION,false);
   final boolean readFromBottom=mPreferences.getBoolean(KEY_READ_FROM_BOTTOM,false);
-  long lastReadId;
+  long lastReadTimestamp;
   final int lastVisiblePos, lastVisibleTop;
   final String tag=getCurrentReadPositionTag();
   final LinearLayoutManager layoutManager=getLayoutManager();
@@ -16,25 +16,25 @@
     final int statusStartIndex=adapter.getStatusStartIndex();
     final int statusEndIndex=statusStartIndex + adapter.getStatusCount();
     final int lastItemIndex=Math.min(statusEndIndex,lastVisiblePos);
-    lastReadId=adapter.getStatusId(lastItemIndex);
+    lastReadTimestamp=adapter.getStatusTimestamp(lastItemIndex);
     final View positionView=layoutManager.findViewByPosition(lastItemIndex);
     lastVisibleTop=positionView != null ? positionView.getTop() : 0;
   }
  else   if (rememberPosition && tag != null) {
-    lastReadId=mReadStateManager.getPosition(tag);
+    lastReadTimestamp=mReadStateManager.getPosition(tag);
     lastVisibleTop=0;
   }
  else {
-    lastReadId=-1;
+    lastReadTimestamp=-1;
     lastVisibleTop=0;
   }
   adapter.setData(data);
   final int statusStartIndex=adapter.getStatusStartIndex();
   final int statusEndExclusiveIndex=statusStartIndex + adapter.getStatusCount();
   if (statusEndExclusiveIndex >= 0 && rememberPosition && tag != null) {
-    final long lastItemId=adapter.getStatusId(statusEndExclusiveIndex - 1);
-    if (lastItemId > 0 && lastReadId > 0 && lastReadId < lastItemId) {
-      lastReadId=lastItemId;
+    final long lastItemId=adapter.getStatusTimestamp(statusEndExclusiveIndex - 1);
+    if (lastItemId != -1 && lastReadTimestamp > 0 && lastReadTimestamp < lastItemId) {
+      lastReadTimestamp=lastItemId;
     }
   }
   setRefreshEnabled(true);
@@ -49,7 +49,7 @@
     }
     int pos=-1;
     for (int i=statusStartIndex; i < statusEndExclusiveIndex; i++) {
-      if (lastReadId != -1 && adapter.getStatusId(i) <= lastReadId) {
+      if (lastReadTimestamp != -1 && adapter.getStatusTimestamp(i) <= lastReadTimestamp) {
         pos=i;
         break;
       }

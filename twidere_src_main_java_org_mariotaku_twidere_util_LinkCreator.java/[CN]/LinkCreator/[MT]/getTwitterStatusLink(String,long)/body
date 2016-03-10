@@ -1,9 +1,0 @@
-{
-  Uri.Builder builder=new Uri.Builder();
-  builder.scheme(SCHEME_HTTPS);
-  builder.authority(AUTHORITY_TWITTER);
-  builder.appendPath(screenName);
-  builder.appendPath("status");
-  builder.appendPath(String.valueOf(statusId));
-  return builder.build();
-}

@@ -1,5 +1,0 @@
-long id
-UserKey accountKey
-long timestamp
-long timeOffset
-int scrollState

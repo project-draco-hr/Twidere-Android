@@ -1,5 +1,0 @@
-{
-  final String where=DirectMessages.MESSAGE_ID + " = " + message_id;
-  mResolver.delete(DirectMessages.Inbox.CONTENT_URI,where,null);
-  mResolver.delete(DirectMessages.Outbox.CONTENT_URI,where,null);
-}

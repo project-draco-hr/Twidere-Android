@@ -1,0 +1,6 @@
+UserKey accountKey
+String maxId
+String sinceId
+List<DirectMessage> list
+boolean truncated
+Exception exception

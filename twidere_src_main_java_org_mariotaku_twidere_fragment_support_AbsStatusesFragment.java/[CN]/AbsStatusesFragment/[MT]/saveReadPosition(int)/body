@@ -5,6 +5,6 @@
   final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(position);
   if (status == null)   return;
-  mReadStateManager.setPosition(readPositionTag,status.id);
-  mReadStateManager.setPosition(getCurrentReadPositionTag(),status.id,true);
+  mReadStateManager.setPosition(readPositionTag,status.timestamp);
+  mReadStateManager.setPosition(getCurrentReadPositionTag(),status.timestamp,true);
 }

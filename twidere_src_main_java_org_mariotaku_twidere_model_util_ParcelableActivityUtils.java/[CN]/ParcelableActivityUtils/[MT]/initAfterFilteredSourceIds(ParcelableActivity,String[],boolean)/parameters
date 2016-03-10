@@ -1,0 +1,3 @@
+ParcelableActivity activity
+String[] filteredUserIds
+boolean followingOnly

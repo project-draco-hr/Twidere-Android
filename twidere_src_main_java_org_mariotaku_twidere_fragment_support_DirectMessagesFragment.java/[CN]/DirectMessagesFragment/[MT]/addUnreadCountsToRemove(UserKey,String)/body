@@ -1,0 +1,11 @@
+{
+  if (mUnreadCountsToRemove.indexOfKey(accountId) < 0) {
+    final Set<String> counts=new HashSet<>();
+    counts.add(id);
+    mUnreadCountsToRemove.put(accountId,counts);
+  }
+ else {
+    final Set<String> counts=mUnreadCountsToRemove.get(accountId);
+    counts.add(id);
+  }
+}

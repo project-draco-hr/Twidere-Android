@@ -1,0 +1,5 @@
+UserKey accountKey
+String maxId
+String sinceId
+List<Data> list
+Exception exception

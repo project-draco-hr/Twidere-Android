@@ -1,0 +1,3 @@
+{
+  return "TranslationResult{" + "id='" + id + '\''+ ", lang='"+ lang+ '\''+ ", translatedLang='"+ translatedLang+ '\''+ ", translationType='"+ translationType+ '\''+ ", text='"+ text+ '\''+ "} "+ super.toString();
+}

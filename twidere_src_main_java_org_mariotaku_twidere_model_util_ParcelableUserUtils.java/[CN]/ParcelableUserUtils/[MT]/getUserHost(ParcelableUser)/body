@@ -1,4 +1,0 @@
-{
-  if (user.extras == null)   return USER_TYPE_TWITTER_COM;
-  return UserKeyUtils.getUserHost(user.extras.ostatus_uri);
-}

@@ -1,9 +1,9 @@
 {
   final List<ParcelableStatus> data=getAdapterData();
-  if (status == null || status.retweet_id <= 0 || data == null)   return;
+  if (status == null || status.retweet_id == null || data == null)   return;
   for (int i=0, j=data.size(); i < j; i++) {
     final ParcelableStatus orig=data.get(i);
-    if (orig.account_key.equals(status.account_key) && orig.id == status.retweet_id) {
+    if (orig.account_key.equals(status.account_key) && TextUtils.equals(orig.id,status.retweet_id)) {
       orig.my_retweet_id=status.my_retweet_id;
       orig.retweet_count=status.retweet_count;
     }

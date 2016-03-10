@@ -1,0 +1,2 @@
+int position
+SimpleArrayMap<UserKey,Set<String>> counts

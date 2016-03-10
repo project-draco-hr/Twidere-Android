@@ -1,15 +1,17 @@
 {
-  final long inReplyToUserId=status.getInReplyToUserId();
+  final String inReplyToUserId=status.getInReplyToUserId();
   final UserMentionEntity[] entities=status.getUserMentionEntities();
   if (entities != null) {
     for (    final UserMentionEntity entity : entities) {
-      if (inReplyToUserId == entity.getId())       return entity.getName();
+      if (TextUtils.equals(inReplyToUserId,entity.getId()))       return entity.getName();
     }
   }
   final Attention[] attentions=status.getAttentions();
   if (attentions != null) {
     for (    Attention attention : attentions) {
-      if (inReplyToUserId == attention.getId())       return attention.getFullName();
+      if (TextUtils.equals(inReplyToUserId,attention.getId())) {
+        return attention.getFullName();
+      }
     }
   }
   return status.getInReplyToScreenName();

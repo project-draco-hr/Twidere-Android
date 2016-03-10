@@ -1,6 +1,4 @@
 {
-  final long diff=another.id - id;
-  if (diff > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
-  if (diff < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
+  final long diff=another.timestamp - timestamp;
   return (int)diff;
 }

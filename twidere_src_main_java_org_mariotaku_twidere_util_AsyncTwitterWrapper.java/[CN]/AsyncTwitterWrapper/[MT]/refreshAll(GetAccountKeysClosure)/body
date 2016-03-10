@@ -3,7 +3,7 @@
     @NonNull @Override public UserKey[] getAccountKeys(){
       return closure.getAccountKeys();
     }
-    @Nullable @Override public long[] getSinceIds(){
+    @Nullable @Override public String[] getSinceIds(){
       return DataStoreUtils.getNewestStatusIds(mContext,Statuses.CONTENT_URI,getAccountKeys());
     }
   }
@@ -12,7 +12,7 @@
     @NonNull @Override public UserKey[] getAccountKeys(){
       return closure.getAccountKeys();
     }
-    @Nullable @Override public long[] getSinceIds(){
+    @Nullable @Override public String[] getSinceIds(){
       return DataStoreUtils.getNewestActivityMaxPositions(mContext,Activities.AboutMe.CONTENT_URI,getAccountKeys());
     }
   }

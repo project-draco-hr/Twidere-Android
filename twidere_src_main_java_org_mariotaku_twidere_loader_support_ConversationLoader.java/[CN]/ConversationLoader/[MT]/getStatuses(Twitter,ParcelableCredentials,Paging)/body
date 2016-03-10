@@ -33,7 +33,7 @@
     query.sinceId(sinceId != null ? sinceId : status.id);
     try {
       for (      Status item : twitter.search(query)) {
-        if (item.getInReplyToStatusId() == status.id) {
+        if (TextUtils.equals(item.getInReplyToStatusId(),status.id)) {
           statuses.add(item);
         }
       }

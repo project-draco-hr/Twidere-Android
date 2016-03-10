@@ -3,12 +3,12 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final DirectMessage message=twitter.destroyDirectMessage(mMessageId);
-    deleteMessages(mMessageId);
+    deleteMessages();
     return SingleResponse.getInstance(message,null);
   }
  catch (  final TwitterException e) {
     if (isMessageNotFound(e)) {
-      deleteMessages(mMessageId);
+      deleteMessages();
     }
     return SingleResponse.getInstance(null,e);
   }

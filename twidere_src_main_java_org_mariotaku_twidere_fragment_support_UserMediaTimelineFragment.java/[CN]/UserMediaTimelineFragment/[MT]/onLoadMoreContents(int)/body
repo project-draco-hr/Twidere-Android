@@ -3,6 +3,6 @@
   super.onLoadMoreContents(position);
   if (position == 0)   return;
   final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
-  final long maxId=adapter.getStatusId(adapter.getStatusCount() - 1);
-  getStatuses(maxId,-1);
+  final String maxId=adapter.getStatusId(adapter.getStatusCount() - 1);
+  getStatuses(maxId,null);
 }

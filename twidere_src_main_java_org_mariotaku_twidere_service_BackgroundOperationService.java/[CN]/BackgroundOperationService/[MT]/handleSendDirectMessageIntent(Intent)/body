@@ -1,7 +1,8 @@
 {
   final UserKey accountId=intent.getParcelableExtra(EXTRA_ACCOUNT_KEY);
-  final long recipientId=intent.getLongExtra(EXTRA_RECIPIENT_ID,-1);
-  final String imageUri=intent.getStringExtra(EXTRA_IMAGE_URI);
+  final String recipientId=intent.getStringExtra(EXTRA_RECIPIENT_ID);
   final String text=intent.getStringExtra(EXTRA_TEXT);
+  final String imageUri=intent.getStringExtra(EXTRA_IMAGE_URI);
+  if (accountId == null || recipientId == null || text == null)   return;
   sendMessage(accountId,recipientId,text,imageUri);
 }

@@ -1,0 +1,6 @@
+{
+  for (  final ParcelableUser user : mData) {
+    if (TextUtils.equals(user.key.getId(),id))     return true;
+  }
+  return false;
+}

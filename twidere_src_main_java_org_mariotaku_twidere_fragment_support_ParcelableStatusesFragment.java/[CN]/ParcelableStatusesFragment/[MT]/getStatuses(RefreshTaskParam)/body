@@ -1,13 +1,13 @@
 {
   final Bundle args=new Bundle(getArguments());
-  long[] maxIds=param.getMaxIds();
+  String[] maxIds=param.getMaxIds();
   if (maxIds != null) {
-    args.putLong(EXTRA_MAX_ID,maxIds[0]);
+    args.putString(EXTRA_MAX_ID,maxIds[0]);
     args.putBoolean(EXTRA_MAKE_GAP,false);
   }
-  long[] sinceIds=param.getSinceIds();
+  String[] sinceIds=param.getSinceIds();
   if (sinceIds != null) {
-    args.putLong(EXTRA_SINCE_ID,sinceIds[0]);
+    args.putString(EXTRA_SINCE_ID,sinceIds[0]);
   }
   if (mPage > 0) {
     args.putInt(EXTRA_PAGE,mPage);

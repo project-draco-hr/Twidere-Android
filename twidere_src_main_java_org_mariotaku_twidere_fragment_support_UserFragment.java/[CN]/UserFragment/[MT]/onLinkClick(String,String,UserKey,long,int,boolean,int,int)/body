@@ -36,7 +36,7 @@ break;
 }
 case TwidereLinkify.LINK_TYPE_STATUS:
 {
-IntentUtils.openStatus(getActivity(),accountKey,NumberUtils.toLong(link,-1));
+IntentUtils.openStatus(getActivity(),accountKey,link);
 break;
 }
 }

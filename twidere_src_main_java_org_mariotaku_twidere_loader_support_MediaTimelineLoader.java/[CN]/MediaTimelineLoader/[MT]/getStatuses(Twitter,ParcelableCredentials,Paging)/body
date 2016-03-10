@@ -29,7 +29,7 @@
     final ResponseList<Status> result=new ResponseList<>();
     for (    Status status : twitter.search(query)) {
       final User user=status.getUser();
-      if (user.getId() == mUserId || user.getScreenName().equalsIgnoreCase(mUserScreenName)) {
+      if (TextUtils.equals(user.getId(),mUserId) || StringUtils.endsWithIgnoreCase(user.getScreenName(),mUserScreenName)) {
         result.add(status);
       }
     }

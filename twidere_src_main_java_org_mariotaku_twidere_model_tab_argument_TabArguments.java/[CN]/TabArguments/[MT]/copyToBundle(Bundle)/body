@@ -1,5 +1,5 @@
 {
-  if (accountId > 0) {
-    bundle.putLong(EXTRA_ACCOUNT_ID,accountId);
+  if (accountId != null) {
+    bundle.putString(EXTRA_ACCOUNT_ID,accountId);
   }
 }

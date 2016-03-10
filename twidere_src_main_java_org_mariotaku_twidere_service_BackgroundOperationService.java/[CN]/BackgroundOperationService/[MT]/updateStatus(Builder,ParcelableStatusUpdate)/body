@@ -170,23 +170,23 @@ catch (          final TwitterException e) {
         status.possiblySensitive(statusUpdate.is_possibly_sensitive);
         try {
           final Status resultStatus=twitter.updateStatus(status);
+          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_key,false);
           if (!mentionedHondaJOJO) {
-            ParcelableUserMention[] mentions=ParcelableUserMentionUtils.fromUserMentionEntities(resultStatus.getUser(),resultStatus.getUserMentionEntities());
+            final ParcelableUserMention[] mentions=result.mentions;
             if (ArrayUtils.isEmpty(mentions)) {
               mentionedHondaJOJO=statusUpdate.text.contains("@" + HONDAJOJO_SCREEN_NAME);
             }
- else             if (mentions.length == 1 && mentions[0].key.getId() == HONDAJOJO_ID) {
+ else             if (mentions.length == 1 && mentions[0].key.equals(HONDAJOJO_ID)) {
               mentionedHondaJOJO=true;
             }
             Utils.setLastSeen(this,mentions,System.currentTimeMillis());
           }
           if (!notReplyToOther) {
-            final long inReplyToUserId=resultStatus.getInReplyToUserId();
-            if (inReplyToUserId <= 0 || inReplyToUserId == HONDAJOJO_ID) {
+            final String inReplyToUserId=resultStatus.getInReplyToUserId();
+            if (inReplyToUserId == null || HONDAJOJO_ID.check(inReplyToUserId,null)) {
               notReplyToOther=true;
             }
           }
-          final ParcelableStatus result=ParcelableStatusUtils.fromStatus(resultStatus,account.account_key,false);
           if (shouldShorten && shortener != null && shortenedResult != null) {
             shortener.callback(shortenedResult,result);
           }

@@ -3,7 +3,7 @@
   final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
   final UserKey[] accountIds=getAccountKeys();
   if (adapter.getStatusCount() > 0) {
-    final long[] sinceIds=new long[]{adapter.getStatus(0).id};
+    final String[] sinceIds=new String[]{adapter.getStatus(0).id};
     getStatuses(new BaseRefreshTaskParam(accountIds,null,sinceIds));
   }
  else {

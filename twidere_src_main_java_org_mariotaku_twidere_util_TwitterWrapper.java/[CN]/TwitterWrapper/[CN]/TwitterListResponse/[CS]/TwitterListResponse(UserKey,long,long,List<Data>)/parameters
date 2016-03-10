@@ -1,4 +1,0 @@
-UserKey accountKey
-long maxId
-long sinceId
-List<Data> list

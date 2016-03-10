@@ -1,4 +1,4 @@
 {
-  if (position == getUserCount())   return -1;
+  if (position == getUserCount())   return null;
   return mData.get(position).key.getId();
 }
