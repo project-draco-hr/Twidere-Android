@@ -30,4 +30,11 @@
     }
   }
   ContentResolverUtils.bulkInsert(cr,getContentUri(),valuesList);
+  if (maxId != null && sinceId == null) {
+    final ContentValues noGapValues=new ContentValues();
+    noGapValues.put(Activities.IS_GAP,false);
+    final String noGapWhere=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.equalsArgs(Activities.MIN_REQUEST_POSITION),Expression.equalsArgs(Activities.MAX_REQUEST_POSITION)).getSQL();
+    final String[] noGapWhereArgs={accountKey.toString(),maxId,maxId};
+    cr.update(getContentUri(),noGapValues,noGapWhere,noGapWhereArgs);
+  }
 }

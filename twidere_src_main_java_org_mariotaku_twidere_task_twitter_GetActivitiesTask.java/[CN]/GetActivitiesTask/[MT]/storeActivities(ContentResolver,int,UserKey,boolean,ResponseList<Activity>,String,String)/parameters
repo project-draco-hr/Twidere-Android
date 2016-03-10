@@ -3,3 +3,5 @@ int loadItemLimit
 UserKey accountKey
 boolean noItemsBefore
 ResponseList<Activity> activities
+String sinceId
+String maxId
