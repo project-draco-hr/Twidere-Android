@@ -1,0 +1,22 @@
+{
+  final Paging paging=new Paging();
+  paging.count(getCount());
+  if (getCursor() > 0) {
+    paging.setCursor(getCursor());
+  }
+ else   if (getPage() > 1) {
+    paging.setPage(getPage());
+  }
+  if (useIDs(credentials)) {
+    final IDs ids=getIDs(twitter,credentials,paging);
+    setCursors(ids);
+    return twitter.lookupUsers(ids.getIDs());
+  }
+ else {
+    final List<User> users=getCursoredUsers(twitter,credentials,paging);
+    if (users instanceof CursorSupport) {
+      setCursors(((CursorSupport)users));
+    }
+    return users;
+  }
+}

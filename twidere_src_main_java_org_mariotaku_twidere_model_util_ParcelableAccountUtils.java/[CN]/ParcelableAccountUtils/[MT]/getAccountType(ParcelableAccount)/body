@@ -1,0 +1,4 @@
+{
+  if (account.account_type == null)   return ParcelableAccount.Type.TWITTER;
+  return account.account_type;
+}

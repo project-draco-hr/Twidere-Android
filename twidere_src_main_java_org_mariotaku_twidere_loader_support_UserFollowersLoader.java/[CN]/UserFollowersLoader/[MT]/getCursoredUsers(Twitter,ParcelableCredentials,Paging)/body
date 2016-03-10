@@ -1,0 +1,32 @@
+{
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.STATUSNET:
+{
+      if (mUserId != null) {
+        return twitter.getStatusesFollowersList(mUserId,paging);
+      }
+ else       if (mScreenName != null) {
+        return twitter.getStatusesFollowersListByScreenName(mScreenName,paging);
+      }
+    }
+case ParcelableAccount.Type.FANFOU:
+{
+    if (mUserId != null) {
+      return twitter.getUsersFollowers(mUserId,paging);
+    }
+ else     if (mScreenName != null) {
+      return twitter.getUsersFollowers(mScreenName,paging);
+    }
+  }
+default :
+{
+  if (mUserId != null) {
+    return twitter.getFollowersList(mUserId,paging);
+  }
+ else   if (mScreenName != null) {
+    return twitter.getFollowersListByScreenName(mScreenName,paging);
+  }
+}
+}
+throw new TwitterException("user_id or screen_name required");
+}

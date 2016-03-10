@@ -1,5 +1,0 @@
-{
-  final Paging paging=new Paging();
-  paging.page(mPage);
-  return twitter.searchUsers(mQuery,paging);
-}

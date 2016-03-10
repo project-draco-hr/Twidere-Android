@@ -1,0 +1,11 @@
+{
+  final Paging paging=new Paging();
+  paging.page(mPage);
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return twitter.searchFanfouUsers(mQuery,paging);
+    }
+}
+return twitter.searchUsers(mQuery,paging);
+}

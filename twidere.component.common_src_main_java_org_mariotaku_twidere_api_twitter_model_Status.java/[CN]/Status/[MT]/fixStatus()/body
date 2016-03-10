@@ -1,0 +1,10 @@
+{
+  if (TextUtils.isEmpty(inReplyToStatusId)) {
+    inReplyToStatusId=null;
+    inReplyToUserId=null;
+    inReplyToScreenName=null;
+  }
+  if (quotedStatus == null && repostStatus != null) {
+    quotedStatus=repostStatus;
+  }
+}

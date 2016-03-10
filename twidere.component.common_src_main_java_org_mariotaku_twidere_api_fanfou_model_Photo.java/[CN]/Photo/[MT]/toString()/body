@@ -1,0 +1,3 @@
+{
+  return "Photo{" + "url='" + url + '\''+ ", imageUrl='"+ imageUrl+ '\''+ ", thumbUrl='"+ thumbUrl+ '\''+ ", largeUrl='"+ largeUrl+ '\''+ '}';
+}

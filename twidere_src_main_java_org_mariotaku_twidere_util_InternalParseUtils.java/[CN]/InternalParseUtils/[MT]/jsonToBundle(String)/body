@@ -11,16 +11,17 @@
       }
       final String key=key_obj.toString();
       final Object value=json.get(key);
-      if (value instanceof Boolean) {
+      if (shouldUseString(key)) {
+        bundle.putString(key,json.optString(key));
+      }
+ else       if (shouldPutLong(key)) {
+        bundle.putLong(key,json.optLong(key));
+      }
+ else       if (value instanceof Boolean) {
         bundle.putBoolean(key,json.optBoolean(key));
       }
  else       if (value instanceof Integer) {
-        if (shouldPutLong(key)) {
-          bundle.putLong(key,json.optLong(key));
-        }
- else {
-          bundle.putInt(key,json.optInt(key));
-        }
+        bundle.putInt(key,json.optInt(key));
       }
  else       if (value instanceof Long) {
         bundle.putLong(key,json.optLong(key));

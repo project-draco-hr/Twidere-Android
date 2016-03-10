@@ -1,0 +1,4 @@
+Twitter twitter
+ParcelableCredentials credentials
+ParcelableStatus status
+boolean loadReplies

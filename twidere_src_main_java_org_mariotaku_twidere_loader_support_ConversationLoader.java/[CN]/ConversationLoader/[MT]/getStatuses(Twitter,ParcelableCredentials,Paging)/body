@@ -8,12 +8,13 @@
       return twitter.showConversation(status.id,paging);
     }
  else {
-      return showConversationCompat(twitter,credentials,status);
+      return showConversationCompat(twitter,credentials,status,true);
     }
   }
  else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
     mCanLoadAllReplies=true;
     return twitter.getStatusNetConversation(status.id,paging);
   }
-  throw new TwitterException("Not supported");
+  mCanLoadAllReplies=true;
+  return showConversationCompat(twitter,credentials,status,false);
 }

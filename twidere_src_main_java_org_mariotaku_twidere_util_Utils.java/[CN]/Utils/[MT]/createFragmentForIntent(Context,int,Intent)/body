@@ -339,14 +339,14 @@ return null;
 }
 UserKey accountKey=UserKey.valueOf(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_KEY));
 if (accountKey == null) {
-final long accountId=NumberUtils.toLong(uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID),-1);
+final String accountId=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_ID);
 final String paramAccountName=uri.getQueryParameter(QUERY_PARAM_ACCOUNT_NAME);
-if (accountId != -1) {
+if (accountId != null) {
 accountKey=DataStoreUtils.findAccountKey(context,accountId);
 args.putParcelable(EXTRA_ACCOUNT_KEY,accountKey);
 }
  else if (paramAccountName != null) {
-accountKey=DataStoreUtils.findAccountKey(context,paramAccountName);
+accountKey=DataStoreUtils.findAccountKeyByScreenName(context,paramAccountName);
 }
  else {
 accountKey=getDefaultAccountKey(context);

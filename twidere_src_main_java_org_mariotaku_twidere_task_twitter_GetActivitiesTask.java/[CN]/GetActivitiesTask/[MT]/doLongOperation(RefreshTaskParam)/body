@@ -8,7 +8,9 @@
   for (int i=0; i < accountIds.length; i++) {
     final UserKey accountKey=accountIds[i];
     final boolean noItemsBefore=DataStoreUtils.getActivitiesCount(context,getContentUri(),accountKey) <= 0;
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);
+    final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,accountKey);
+    if (credentials == null)     continue;
+    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,credentials,true,true);
     if (twitter == null)     continue;
     final Paging paging=new Paging();
     paging.count(loadItemLimit);
@@ -23,7 +25,7 @@
       }
     }
     try {
-      final ResponseList<Activity> activities=getActivities(twitter,accountKey,paging);
+      final ResponseList<Activity> activities=getActivities(twitter,credentials,paging);
       storeActivities(cr,loadItemLimit,accountKey,noItemsBefore,activities);
       if (saveReadPosition) {
         saveReadPosition(accountKey,twitter);

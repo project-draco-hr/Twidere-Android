@@ -1,13 +1,21 @@
 {
   if (mQuery == null)   throw new TwitterException("Empty query");
   final String processedQuery=processQuery(credentials,mQuery);
-  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
-    final SearchQuery query=new SearchQuery(processedQuery);
-    query.paging(paging);
-    return twitter.search(query);
-  }
- else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.TWITTER:
+{
+      final SearchQuery query=new SearchQuery(processedQuery);
+      query.paging(paging);
+      return twitter.search(query);
+    }
+case ParcelableAccount.Type.STATUSNET:
+{
     return twitter.searchStatuses(processedQuery,paging);
   }
-  throw new TwitterException("Not implemented");
+case ParcelableAccount.Type.FANFOU:
+{
+  return twitter.searchPublicTimeline(processedQuery,paging);
+}
+}
+throw new TwitterException("Not implemented");
 }

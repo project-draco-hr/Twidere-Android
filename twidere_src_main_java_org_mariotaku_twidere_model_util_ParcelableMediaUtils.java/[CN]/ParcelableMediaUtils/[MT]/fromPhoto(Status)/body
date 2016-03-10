@@ -1,0 +1,11 @@
+{
+  Photo photo=status.getPhoto();
+  if (photo == null)   return new ParcelableMedia[0];
+  final ParcelableMedia media=new ParcelableMedia();
+  media.type=ParcelableMedia.Type.IMAGE;
+  media.url=photo.getUrl();
+  media.page_url=photo.getUrl();
+  media.media_url=photo.getLargeUrl();
+  media.preview_url=photo.getImageUrl();
+  return new ParcelableMedia[]{media};
+}

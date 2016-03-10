@@ -3,7 +3,7 @@
     return Validator.MAX_TWEET_LENGTH;
   }
 switch (credentials.account_type) {
-case ParcelableCredentials.ACCOUNT_TYPE_STATUSNET:
+case ParcelableAccount.Type.STATUSNET:
 {
       StatusNetAccountExtra extra=JsonSerializer.parse(credentials.account_extras,StatusNetAccountExtra.class);
       if (extra != null) {

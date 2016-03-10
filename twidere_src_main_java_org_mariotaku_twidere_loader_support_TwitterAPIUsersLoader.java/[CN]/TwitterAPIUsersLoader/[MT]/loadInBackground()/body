@@ -2,12 +2,16 @@
   if (mAccountKey == null) {
     return ListResponse.getListInstance(new TwitterException("No Account"));
   }
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(getContext(),mAccountKey);
+  if (credentials == null) {
+    return ListResponse.getListInstance(new TwitterException("No Account"));
+  }
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),credentials,true,true);
   if (twitter == null)   return ListResponse.getListInstance(new TwitterException("No Account"));
   final List<ParcelableUser> data=getData();
   final List<User> users;
   try {
-    users=getUsers(twitter);
+    users=getUsers(twitter,credentials);
   }
  catch (  final TwitterException e) {
     Log.w(LOGTAG,e);

@@ -1,5 +1,5 @@
 {
-  if (ParcelableCredentials.ACCOUNT_TYPE_TWITTER.equals(account.account_type)) {
+  if (ParcelableAccount.Type.TWITTER.equals(account.account_type)) {
     final TwitterAccountExtra extra=JsonSerializer.parse(account.account_extras,TwitterAccountExtra.class);
     if (extra != null) {
       return extra.isOfficialCredentials();
