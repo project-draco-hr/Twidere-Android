@@ -1,0 +1,15 @@
+{
+  String url=user.getProfileImageUrlLarge();
+  if (url != null && isFanfouHost(getUserHost(url,"twitter.com"))) {
+    return true;
+  }
+  url=user.getProfileImageUrl();
+  if (url != null && isFanfouHost(getUserHost(url,"twitter.com"))) {
+    return true;
+  }
+  url=user.getProfileBackgroundImageUrl();
+  if (url != null && isFanfouHost(getUserHost(url,"twitter.com"))) {
+    return true;
+  }
+  return false;
+}

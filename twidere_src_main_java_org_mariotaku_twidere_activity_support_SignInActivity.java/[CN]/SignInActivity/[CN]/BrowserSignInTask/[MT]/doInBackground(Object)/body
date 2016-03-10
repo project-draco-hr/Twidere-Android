@@ -11,7 +11,7 @@
     final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);
     final User user=twitter.verifyCredentials();
     final int color=analyseUserProfileColor(user);
-    return new SignInResponse(isUserLoggedIn(context,userId),auth,user,ParcelableCredentials.AUTH_TYPE_OAUTH,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix,detectAccountType(twitter));
+    return new SignInResponse(isUserLoggedIn(context,userId),auth,user,ParcelableCredentials.AUTH_TYPE_OAUTH,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix,detectAccountType(twitter,user));
   }
  catch (  final TwitterException e) {
     return new SignInResponse(false,false,e);

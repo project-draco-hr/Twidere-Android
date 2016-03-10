@@ -2,7 +2,11 @@
   if (sortId != -1)   return sortId;
   sortId=rawId;
   if (sortId == -1) {
-    sortId=Long.parseLong(id);
+    try {
+      sortId=Long.parseLong(id);
+    }
+ catch (    NumberFormatException e) {
+    }
   }
   if (sortId == -1 && createdAt != null) {
     sortId=createdAt.getTime();

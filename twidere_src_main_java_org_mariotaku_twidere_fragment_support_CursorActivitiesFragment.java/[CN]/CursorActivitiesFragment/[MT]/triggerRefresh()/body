@@ -1,19 +1,19 @@
 {
   super.triggerRefresh();
-  TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
-    @Override public RefreshTaskParam doLongOperation(    Object o){
-      if (getActivity() == null) {
-        return null;
-      }
-      final UserKey[] accountKeys=getAccountKeys();
-      final String[] sinceIds=getNewestActivityIds(accountKeys);
-      return new BaseRefreshTaskParam(accountKeys,sinceIds,null);
+  getActivities(new SimpleRefreshTaskParam(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
+      return CursorActivitiesFragment.this.getAccountKeys();
     }
-    @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){
-      if (result == null)       return;
-      fragment.getActivities(result);
+    @Nullable @Override public String[] getSinceIds(){
+      return getNewestActivityIds(getAccountKeys());
+    }
+    @Nullable @Override public long[] getSinceSortIds(){
+      return DataStoreUtils.getNewestActivityMaxSortPositions(getActivity(),getContentUri(),getAccountKeys());
+    }
+    @Override public boolean hasSinceIds(){
+      return true;
     }
   }
-.setResultHandler(this));
+);
   return true;
 }

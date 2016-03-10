@@ -1,0 +1,3 @@
+{
+  return getLongFieldArray(context,uri,accountKeys,Activities.ACCOUNT_KEY,Activities.MAX_SORT_POSITION,new OrderBy(SQLFunctions.MIN(Activities.TIMESTAMP)));
+}

@@ -1,3 +1,4 @@
 {
+  if (isFanfouUser(user))   return TwidereConstants.USER_TYPE_FANFOU_COM;
   return getUserHost(user.getOstatusUri(),TwidereConstants.USER_TYPE_TWITTER_COM);
 }

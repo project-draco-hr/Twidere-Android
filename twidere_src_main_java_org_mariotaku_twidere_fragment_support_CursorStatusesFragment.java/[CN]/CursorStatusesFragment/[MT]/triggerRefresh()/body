@@ -1,7 +1,8 @@
 {
   super.triggerRefresh();
+  final Context context=getContext();
   getStatuses(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return CursorStatusesFragment.this.getAccountKeys();
     }
     @Override public boolean hasMaxIds(){
@@ -9,6 +10,9 @@
     }
     @Nullable @Override public String[] getSinceIds(){
       return getNewestStatusIds(getAccountKeys());
+    }
+    @Nullable @Override public long[] getSinceSortIds(){
+      return DataStoreUtils.getNewestStatusSortIds(context,getContentUri(),getAccountKeys());
     }
   }
 );

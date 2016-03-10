@@ -1,6 +1,6 @@
 {
   getHomeTimelineAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return closure.getAccountKeys();
     }
     @Nullable @Override public String[] getSinceIds(){
@@ -9,7 +9,7 @@
   }
 );
   getActivitiesAboutMeAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return closure.getAccountKeys();
     }
     @Nullable @Override public String[] getSinceIds(){
@@ -18,13 +18,13 @@
   }
 );
   getReceivedDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return closure.getAccountKeys();
     }
   }
 );
   getSentDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeys(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return closure.getAccountKeys();
     }
   }

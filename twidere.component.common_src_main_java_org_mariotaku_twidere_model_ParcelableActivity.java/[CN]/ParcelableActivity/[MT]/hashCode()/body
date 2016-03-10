@@ -1,3 +1,3 @@
 {
-  return calculateHashCode(account_key,timestamp,max_position,min_position);
+  return calculateHashCode(account_key,timestamp,max_sort_position,min_sort_position);
 }

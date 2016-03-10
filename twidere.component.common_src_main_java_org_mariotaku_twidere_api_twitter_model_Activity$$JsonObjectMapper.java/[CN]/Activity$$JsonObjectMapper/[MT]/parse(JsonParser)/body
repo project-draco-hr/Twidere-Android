@@ -13,5 +13,14 @@
     parseField(instance,fieldName,jsonParser);
     jsonParser.skipChildren();
   }
+  try {
+    instance.maxSortPosition=Long.parseLong(instance.maxPosition);
+    instance.minSortPosition=Long.parseLong(instance.minPosition);
+  }
+ catch (  NumberFormatException e) {
+    final long time=instance.createdAt != null ? instance.createdAt.getTime() : -1;
+    instance.maxSortPosition=time;
+    instance.minSortPosition=time;
+  }
   return instance;
 }

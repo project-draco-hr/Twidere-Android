@@ -9,7 +9,6 @@
   initDebugMode();
   initBugReport();
   mHandler=new Handler();
-  initAccountColor(this);
   final PackageManager pm=getPackageManager();
   final ComponentName main=new ComponentName(this,MainActivity.class);
   final ComponentName main2=new ComponentName(this,MainHondaJOJOActivity.class);

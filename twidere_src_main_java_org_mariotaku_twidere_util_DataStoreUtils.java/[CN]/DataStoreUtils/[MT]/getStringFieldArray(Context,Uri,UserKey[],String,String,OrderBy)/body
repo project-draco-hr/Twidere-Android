@@ -1,0 +1,11 @@
+{
+  return getFieldArray(context,uri,keys,keyField,valueField,sortExpression,new FieldArrayCreator<String[]>(){
+    @Override public String[] newArray(    int size){
+      return new String[size];
+    }
+    @Override public void assign(    String[] array,    int arrayIdx,    Cursor cur,    int colIdx){
+      array[arrayIdx]=cur.getString(colIdx);
+    }
+  }
+);
+}

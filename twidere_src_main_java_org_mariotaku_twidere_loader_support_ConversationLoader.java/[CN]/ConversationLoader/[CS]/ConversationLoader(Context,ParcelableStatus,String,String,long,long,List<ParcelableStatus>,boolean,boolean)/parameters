@@ -1,0 +1,9 @@
+Context context
+ParcelableStatus status
+String sinceId
+String maxId
+long sinceSortId
+long maxSortId
+List<ParcelableStatus> data
+boolean fromUser
+boolean loadingMore

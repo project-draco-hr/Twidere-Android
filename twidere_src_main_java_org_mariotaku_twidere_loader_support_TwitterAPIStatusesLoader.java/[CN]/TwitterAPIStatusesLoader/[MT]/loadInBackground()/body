@@ -61,7 +61,7 @@
   }
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,mMaxId);
   final boolean noRowsDeleted=rowsDeleted == 0;
-  final boolean insertGap=minIdx != -1 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit;
+  final boolean insertGap=minIdx != -1 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit && !mLoadingMore;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
     final ParcelableStatus item=ParcelableStatusUtils.fromStatus(status,mAccountKey,insertGap && isGapEnabled() && minIdx == i);

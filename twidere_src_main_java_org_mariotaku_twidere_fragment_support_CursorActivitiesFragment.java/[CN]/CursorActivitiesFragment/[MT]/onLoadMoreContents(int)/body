@@ -2,15 +2,19 @@
   if ((position & IndicatorPosition.START) != 0)   return;
   super.onLoadMoreContents(position);
   if (position == 0)   return;
-  TaskStarter.execute(new AbstractTask<Object,RefreshTaskParam,CursorActivitiesFragment>(){
-    @Override public RefreshTaskParam doLongOperation(    Object o){
-      final UserKey[] accountKeys=getAccountKeys();
-      final String[] maxIds=getOldestActivityIds(accountKeys);
-      return new BaseRefreshTaskParam(accountKeys,maxIds,null);
+  getActivities(new SimpleRefreshTaskParam(){
+    @NonNull @Override public UserKey[] getAccountKeysWorker(){
+      return CursorActivitiesFragment.this.getAccountKeys();
     }
-    @Override public void afterExecute(    CursorActivitiesFragment fragment,    RefreshTaskParam result){
-      fragment.getActivities(result);
+    @Nullable @Override public String[] getMaxIds(){
+      return getOldestActivityIds(getAccountKeys());
+    }
+    @Nullable @Override public long[] getMaxSortIds(){
+      return DataStoreUtils.getOldestActivityMaxSortPositions(getActivity(),getContentUri(),getAccountKeys());
+    }
+    @Override public boolean hasMaxIds(){
+      return true;
     }
   }
-.setResultHandler(this));
+);
 }

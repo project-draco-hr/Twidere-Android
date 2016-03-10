@@ -4,5 +4,6 @@
   if (status == null)   return;
   final UserKey[] accountIds={status.account_key};
   final String[] maxIds={status.id};
-  getStatuses(new BaseRefreshTaskParam(accountIds,maxIds,null));
+  final long[] maxSortIds={status.sort_id};
+  getStatuses(new BaseRefreshTaskParam(accountIds,maxIds,null,maxSortIds,null));
 }

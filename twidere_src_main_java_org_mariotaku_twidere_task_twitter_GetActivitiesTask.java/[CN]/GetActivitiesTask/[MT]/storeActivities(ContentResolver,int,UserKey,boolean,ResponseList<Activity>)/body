@@ -5,23 +5,23 @@
   for (  Activity activity : activities) {
     final ParcelableActivity parcelableActivity=ParcelableActivityUtils.fromActivity(activity,accountKey,false);
     if (deleteBound[0] < 0) {
-      deleteBound[0]=parcelableActivity.min_position;
+      deleteBound[0]=parcelableActivity.min_sort_position;
     }
  else {
-      deleteBound[0]=Math.min(deleteBound[0],parcelableActivity.min_position);
+      deleteBound[0]=Math.min(deleteBound[0],parcelableActivity.min_sort_position);
     }
     if (deleteBound[1] < 0) {
-      deleteBound[1]=parcelableActivity.max_position;
+      deleteBound[1]=parcelableActivity.max_sort_position;
     }
  else {
-      deleteBound[1]=Math.max(deleteBound[1],parcelableActivity.max_position);
+      deleteBound[1]=Math.max(deleteBound[1],parcelableActivity.max_sort_position);
     }
     final ContentValues values=ContentValuesCreator.createActivity(parcelableActivity);
     values.put(Statuses.INSERTED_DATE,System.currentTimeMillis());
     valuesList.add(values);
   }
   if (deleteBound[0] > 0 && deleteBound[1] > 0) {
-    final Expression where=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.greaterEqualsArgs(Activities.MIN_POSITION),Expression.lesserEqualsArgs(Activities.MAX_POSITION));
+    final Expression where=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.greaterEqualsArgs(Activities.MIN_SORT_POSITION),Expression.lesserEqualsArgs(Activities.MAX_SORT_POSITION));
     final String[] whereArgs={accountKey.toString(),String.valueOf(deleteBound[0]),String.valueOf(deleteBound[1])};
     int rowsDeleted=cr.delete(getContentUri(),where.getSQL(),whereArgs);
     boolean insertGap=valuesList.size() >= loadItemLimit && !noItemsBefore && rowsDeleted <= 0;

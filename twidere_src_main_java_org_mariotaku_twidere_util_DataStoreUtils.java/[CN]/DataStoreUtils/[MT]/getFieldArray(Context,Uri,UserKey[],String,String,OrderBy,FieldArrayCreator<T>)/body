@@ -1,0 +1,23 @@
+{
+  final ContentResolver resolver=context.getContentResolver();
+  final T messageIds=creator.newArray(keys.length);
+  final String[] selectionArgs=TwidereArrayUtils.toStringArray(keys);
+  final SQLSelectQuery.Builder builder=SQLQueryBuilder.select(new Columns(keyField,valueField)).from(new Table(getTableNameByUri(uri))).groupBy(new Column(keyField)).having(Expression.in(new Column(keyField),new ArgsArray(keys.length)));
+  if (sortExpression != null) {
+    builder.orderBy(sortExpression);
+  }
+  final Cursor cur=resolver.query(Uri.withAppendedPath(TwidereDataStore.CONTENT_URI_RAW_QUERY,builder.buildSQL()),null,null,selectionArgs,null);
+  if (cur == null)   return messageIds;
+  try {
+    while (cur.moveToNext()) {
+      final UserKey accountKey=UserKey.valueOf(cur.getString(0));
+      int idx=ArrayUtils.indexOf(keys,accountKey);
+      if (idx < 0)       continue;
+      creator.assign(messageIds,idx,cur,1);
+    }
+    return messageIds;
+  }
+  finally {
+    cur.close();
+  }
+}

@@ -4,25 +4,30 @@
   StringBuilder idBuilder=new StringBuilder(), hostBuilder=new StringBuilder();
   for (int i=0, j=str.length(); i < j; i++) {
     final char ch=str.charAt(i);
-    if (!escaping) {
-      if (ch == '\\') {
-        escaping=true;
-      }
- else       if (ch == '@') {
-        idFinished=true;
-      }
- else       if (ch == ',') {
-        break;
-      }
+    boolean append=false;
+    if (escaping) {
+      append=true;
+      escaping=false;
     }
-    if (!isSpecialChar(ch) || !escaping) {
+ else     if (ch == '\\') {
+      escaping=true;
+    }
+ else     if (ch == '@') {
+      idFinished=true;
+    }
+ else     if (ch == ',') {
+      break;
+    }
+ else {
+      append=true;
+    }
+    if (append) {
       if (idFinished) {
         hostBuilder.append(ch);
       }
  else {
         idBuilder.append(ch);
       }
-      escaping=false;
     }
   }
   if (hostBuilder.length() != 0) {

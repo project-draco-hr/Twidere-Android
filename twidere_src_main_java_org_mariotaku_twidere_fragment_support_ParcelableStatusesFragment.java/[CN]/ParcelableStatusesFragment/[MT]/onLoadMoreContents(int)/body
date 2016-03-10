@@ -3,9 +3,13 @@
   super.onLoadMoreContents(position);
   if (position == 0)   return;
   final ParcelableStatusesAdapter adapter=getAdapter();
-  final ParcelableStatus status=adapter.getStatus(adapter.getStatusStartIndex() + adapter.getStatusCount() - 1);
+  final int idx=adapter.getStatusStartIndex() + adapter.getStatusCount() - 1;
+  if (idx < 0)   return;
+  final ParcelableStatus status=adapter.getStatus(idx);
   UserKey[] accountKeys={status.account_key};
   final String[] maxIds={status.id};
   mPage+=mPageDelta;
-  getStatuses(new BaseRefreshTaskParam(accountKeys,maxIds,null));
+  final BaseRefreshTaskParam param=new BaseRefreshTaskParam(accountKeys,maxIds,null);
+  param.setIsLoadingMore(true);
+  getStatuses(param);
 }

@@ -22,7 +22,6 @@
   nameView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   textView.setTypeface(null,isUnread && !isOutgoing ? Typeface.BOLD : Typeface.NORMAL);
   if (adapter.shouldShowAccountsColor()) {
-    content.drawEnd(DataStoreUtils.getAccountColor(context,accountKey));
   }
  else {
     content.drawEnd();

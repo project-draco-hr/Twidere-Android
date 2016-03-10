@@ -1,0 +1,13 @@
+Context context
+UserKey accountKey
+long listId
+String userId
+String screenName
+String listName
+String sinceId
+String maxId
+List<ParcelableStatus> data
+String[] savedStatusesArgs
+int tabPosition
+boolean fromUser
+boolean loadingMore

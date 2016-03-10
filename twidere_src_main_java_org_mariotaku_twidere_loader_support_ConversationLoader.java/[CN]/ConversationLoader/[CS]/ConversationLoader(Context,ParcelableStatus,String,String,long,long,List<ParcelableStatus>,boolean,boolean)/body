@@ -1,0 +1,7 @@
+{
+  super(context,status.account_key,sinceId,maxId,data,null,-1,fromUser,loadingMore);
+  mStatus=Nullables.assertNonNull(ParcelUtils.clone(status));
+  mSinceSortId=sinceSortId;
+  mMaxSortId=maxSortId;
+  ParcelableStatusUtils.makeOriginalStatus(mStatus);
+}

@@ -1,0 +1,3 @@
+{
+  return "Tab{" + "id=" + id + ", name='"+ name+ '\''+ ", icon='"+ icon+ '\''+ ", type='"+ type+ '\''+ ", position="+ position+ ", arguments="+ arguments+ ", extras="+ extras+ '}';
+}

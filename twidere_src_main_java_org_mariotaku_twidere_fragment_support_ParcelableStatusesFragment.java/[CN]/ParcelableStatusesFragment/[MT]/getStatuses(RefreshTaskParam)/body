@@ -12,6 +12,7 @@
   if (mPage > 0) {
     args.putInt(EXTRA_PAGE,mPage);
   }
+  args.putBoolean(EXTRA_LOADING_MORE,param.isLoadingMore());
   args.putBoolean(EXTRA_FROM_USER,true);
   getLoaderManager().restartLoader(0,args,this);
   return true;

@@ -1,6 +1,7 @@
 {
   final Activity activity=new Activity();
-  activity.maxPosition=activity.minPosition=-1;
+  activity.maxPosition=activity.minPosition=null;
+  activity.maxSortPosition=activity.minSortPosition=status.getSortId();
   activity.createdAt=status.getCreatedAt();
   if (TextUtils.equals(status.getInReplyToUserId(),twitterId)) {
     activity.action=Action.REPLY;

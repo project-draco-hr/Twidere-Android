@@ -1,5 +1,6 @@
 {
   final String inReplyToUserId=status.getInReplyToUserId();
+  if (inReplyToUserId == null)   return null;
   final UserMentionEntity[] entities=status.getUserMentionEntities();
   if (entities != null) {
     for (    final UserMentionEntity entity : entities) {

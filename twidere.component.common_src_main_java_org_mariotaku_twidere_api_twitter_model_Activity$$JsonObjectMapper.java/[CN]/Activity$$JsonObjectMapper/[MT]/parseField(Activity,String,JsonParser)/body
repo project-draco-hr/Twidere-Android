@@ -11,10 +11,10 @@
     }
   }
  else   if ("min_position".equals(fieldName)) {
-    instance.minPosition=jsonParser.getValueAsLong(-1);
+    instance.minPosition=jsonParser.getValueAsString();
   }
  else   if ("max_position".equals(fieldName)) {
-    instance.maxPosition=jsonParser.getValueAsLong(-1);
+    instance.maxPosition=jsonParser.getValueAsString();
   }
  else   if ("sources_size".equals(fieldName)) {
     instance.sourcesSize=jsonParser.getValueAsInt();
