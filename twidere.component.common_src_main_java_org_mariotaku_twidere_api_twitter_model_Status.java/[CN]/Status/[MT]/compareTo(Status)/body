@@ -1,6 +1,14 @@
 {
   final int delta=createdAt.compareTo(that.createdAt);
   if (delta == 0) {
+    if (rawId != -1) {
+      return (int)(rawId - that.rawId);
+    }
+    try {
+      return (int)(Long.parseLong(id) - Long.parseLong(that.id));
+    }
+ catch (    NumberFormatException e) {
+    }
   }
   return delta;
 }

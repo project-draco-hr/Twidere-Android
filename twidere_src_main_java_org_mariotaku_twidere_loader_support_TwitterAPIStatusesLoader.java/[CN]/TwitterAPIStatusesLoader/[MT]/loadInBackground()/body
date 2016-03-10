@@ -47,24 +47,21 @@
     return ListResponse.getListInstance(new CopyOnWriteArrayList<>(data),e);
   }
   final String[] statusIds=new String[statuses.size()];
-  String minId=null;
   int minIdx=-1;
   int rowsDeleted=0;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
-    final String id=status.getId();
-    if (minId == null || id < minId) {
-      minId=id;
+    if (minIdx == -1 || status.compareTo(statuses.get(minIdx)) < 0) {
       minIdx=i;
     }
-    statusIds[i]=id;
+    statusIds[i]=status.getId();
     if (deleteStatus(data,status.getId())) {
       rowsDeleted++;
     }
   }
   final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,mMaxId);
   final boolean noRowsDeleted=rowsDeleted == 0;
-  final boolean insertGap=minId != null && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit;
+  final boolean insertGap=minIdx != -1 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && statuses.size() >= loadItemLimit;
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
     final ParcelableStatus item=ParcelableStatusUtils.fromStatus(status,mAccountKey,insertGap && isGapEnabled() && minIdx == i);
