@@ -4,4 +4,5 @@ String sinceId
 String maxId
 long sinceSortId
 long maxSortId
+int loadItemLimit
 boolean notify
