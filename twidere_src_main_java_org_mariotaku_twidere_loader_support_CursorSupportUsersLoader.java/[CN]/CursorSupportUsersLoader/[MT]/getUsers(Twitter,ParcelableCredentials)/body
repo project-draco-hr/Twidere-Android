@@ -7,7 +7,7 @@
  else   if (getPage() > 1) {
     paging.setPage(getPage());
   }
-  final ResponseList<User> users;
+  final List<User> users;
   if (useIDs(credentials)) {
     final IDs ids=getIDs(twitter,credentials,paging);
     setCursors(ids);

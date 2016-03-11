@@ -1,3 +1,9 @@
 {
-  return twitter.getBlocksList(paging);
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return twitter.getFanfouBlocking(paging);
+    }
+}
+return twitter.getBlocksList(paging);
 }
