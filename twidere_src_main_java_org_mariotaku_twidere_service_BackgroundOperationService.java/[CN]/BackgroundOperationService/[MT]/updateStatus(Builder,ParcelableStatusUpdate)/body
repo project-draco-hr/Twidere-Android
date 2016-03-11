@@ -85,8 +85,7 @@
       for (      final ParcelableAccount account : statusUpdate.accounts) {
         final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(this,account.account_key);
         final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_key,true,true);
-        final TwitterUpload upload=TwitterAPIFactory.getTwitterInstance(this,account.account_key,true,true,TwitterUpload.class);
-        if (twitter == null || upload == null || credentials == null) {
+        if (twitter == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }
         String statusText=statusUpdate.text;
@@ -126,46 +125,9 @@
           status.location(ParcelableLocationUtils.toGeoLocation(statusUpdate.location));
         }
         if (uploader == null && hasMedia) {
-          final long[] mediaIds=new long[statusUpdate.media.length];
-          ContentLengthInputStream cis=null;
-          try {
-            for (int i=0, j=mediaIds.length; i < j; i++) {
-              final ParcelableMediaUpdate media=statusUpdate.media[i];
-              final Uri mediaUri=Uri.parse(media.uri);
-              final String mediaType=resolver.getType(mediaUri);
-              final InputStream is=resolver.openInputStream(mediaUri);
-              final long length=is.available();
-              cis=new ContentLengthInputStream(is,length);
-              cis.setReadListener(new StatusMediaUploadListener(this,mNotificationManager,builder,statusUpdate));
-              final ContentType contentType;
-              if (TextUtils.isEmpty(mediaType)) {
-                contentType=ContentType.parse("application/octet-stream");
-              }
- else {
-                contentType=ContentType.parse(mediaType);
-              }
-              final FileBody body=new FileBody(cis,"attachment",length,contentType);
-              final MediaUploadResponse uploadResp=upload.uploadMedia(body);
-              mediaIds[i]=uploadResp.getId();
-            }
-          }
- catch (          final IOException e) {
-            if (BuildConfig.DEBUG) {
-              Log.w(LOGTAG,e);
-            }
-          }
-catch (          final TwitterException e) {
-            if (BuildConfig.DEBUG) {
-              Log.w(LOGTAG,e);
-            }
-            final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(e);
-            results.add(response);
+          if (uploadOnSocialPlatform(resolver,builder,shortener,uploader,credentials,twitter,statusUpdate,status,statusText,shouldShorten,shortenedResult,uploadResult,results)) {
             continue;
           }
- finally {
-            IoUtils.closeSilently(cis);
-          }
-          status.mediaIds(mediaIds);
         }
         status.possiblySensitive(statusUpdate.is_possibly_sensitive);
         try {

@@ -1,0 +1,4 @@
+ContentResolver resolver
+Builder builder
+ParcelableMediaUpdate media
+ParcelableStatusUpdate statusUpdate
