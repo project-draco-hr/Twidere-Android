@@ -1,3 +1,4 @@
 DialogInterface dialog
 CharSequence s
 ParcelableStatus status
+ParcelableAccount account

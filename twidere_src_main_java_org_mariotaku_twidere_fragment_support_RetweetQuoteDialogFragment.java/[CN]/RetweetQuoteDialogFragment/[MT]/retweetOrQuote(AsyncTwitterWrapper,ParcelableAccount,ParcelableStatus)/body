@@ -1,0 +1,49 @@
+{
+  final Dialog dialog=getDialog();
+  if (dialog == null)   return;
+  final EditText editComment=((EditText)dialog.findViewById(R.id.edit_comment));
+  if (useQuote(editComment.length() > 0,account)) {
+    final Menu menu=mPopupMenu.getMenu();
+    final MenuItem itemQuoteOriginalStatus=menu.findItem(R.id.quote_original_status);
+    final Uri statusLink;
+    final boolean quoteOriginalStatus=itemQuoteOriginalStatus.isChecked();
+    String commentText;
+    final ParcelableStatusUpdate update=new ParcelableStatusUpdate();
+    update.accounts=new ParcelableAccount[]{account};
+    final String editingComment=String.valueOf(editComment.getText());
+switch (ParcelableAccountUtils.getAccountType(account)) {
+case ParcelableAccount.Type.FANFOU:
+{
+        if (!status.is_quote || !quoteOriginalStatus) {
+          commentText=getString(R.string.fanfou_repost_format,editingComment,status.user_screen_name,status.text_plain);
+          update.repost_status_id=status.id;
+        }
+ else {
+          commentText=getString(R.string.fanfou_repost_format,editingComment,status.quoted_user_screen_name,status.quoted_text_plain);
+          update.repost_status_id=status.quoted_id;
+        }
+        if (commentText.length() > Validator.MAX_TWEET_LENGTH) {
+          commentText=commentText.substring(0,Math.max(Validator.MAX_TWEET_LENGTH,editingComment.length()));
+        }
+        break;
+      }
+default :
+{
+      if (!status.is_quote || !quoteOriginalStatus) {
+        statusLink=LinkCreator.getTwitterStatusLink(status.user_screen_name,status.id);
+      }
+ else {
+        statusLink=LinkCreator.getTwitterStatusLink(status.quoted_user_screen_name,status.quoted_id);
+      }
+      commentText=editingComment + " " + statusLink;
+      break;
+    }
+}
+update.text=commentText;
+update.is_possibly_sensitive=status.is_possibly_sensitive;
+BackgroundOperationService.updateStatusesAsync(getContext(),Draft.Action.QUOTE,update);
+}
+ else {
+twitter.retweetStatusAsync(status.account_key,status.id);
+}
+}

@@ -121,6 +121,9 @@
         if (statusUpdate.in_reply_to_status != null) {
           status.inReplyToStatusId(statusUpdate.in_reply_to_status.id);
         }
+        if (statusUpdate.repost_status_id != null) {
+          status.setRepostStatusId(statusUpdate.repost_status_id);
+        }
         if (statusUpdate.location != null) {
           status.location(ParcelableLocationUtils.toGeoLocation(statusUpdate.location));
         }
