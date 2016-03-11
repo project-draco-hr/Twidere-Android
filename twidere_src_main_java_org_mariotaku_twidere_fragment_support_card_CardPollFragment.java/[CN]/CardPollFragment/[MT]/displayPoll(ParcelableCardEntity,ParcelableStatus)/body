@@ -32,7 +32,7 @@
           cardData.putString("response_card_name",card.name);
           cardData.putString("selected_choice",String.valueOf(i + 1));
           AbstractTask<CardDataMap,ParcelableCardEntity,CardPollFragment> task=new AbstractTask<CardDataMap,ParcelableCardEntity,CardPollFragment>(){
-            @Override public void afterExecute(            CardPollFragment handler,            ParcelableCardEntity result){
+            @Override public void afterExecute(            CardPollFragment handler,            CardDataMap params,            ParcelableCardEntity result){
               handler.displayAndReloadPoll(result,status);
             }
             @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap){

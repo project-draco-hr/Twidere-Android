@@ -32,15 +32,13 @@
     profileImageView.setVisibility(View.GONE);
     loader.cancelDisplayTask(profileImageView);
   }
-  if (twitter.isProcessingFollowRequest(user.account_key,user.key)) {
+  if (twitter.isUpdatingRelationship(user.account_key,user.key)) {
     processingRequestProgress.setVisibility(View.VISIBLE);
-    acceptRequestButton.setVisibility(View.GONE);
-    denyRequestButton.setVisibility(View.GONE);
+    actionsContainer.setVisibility(View.GONE);
   }
  else {
     processingRequestProgress.setVisibility(View.GONE);
-    acceptRequestButton.setVisibility(View.VISIBLE);
-    denyRequestButton.setVisibility(View.VISIBLE);
+    actionsContainer.setVisibility(View.VISIBLE);
   }
   if (UserKeyUtils.isSameHost(user.account_key,user.key)) {
     externalIndicator.setVisibility(View.GONE);
@@ -48,5 +46,21 @@
  else {
     externalIndicator.setVisibility(View.VISIBLE);
     externalIndicator.setText(context.getString(R.string.external_user_host_format,user.key.getHost()));
+  }
+  followButton.setActivated(user.is_following);
+  final boolean isMySelf=user.account_key.equals(user.key);
+  if (requestClickListener != null && !isMySelf) {
+    acceptRequestButton.setVisibility(View.VISIBLE);
+    denyRequestButton.setVisibility(View.VISIBLE);
+  }
+ else {
+    acceptRequestButton.setVisibility(View.GONE);
+    denyRequestButton.setVisibility(View.GONE);
+  }
+  if (followClickListener != null && !isMySelf) {
+    followButton.setVisibility(View.VISIBLE);
+  }
+ else {
+    followButton.setVisibility(View.GONE);
   }
 }

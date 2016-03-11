@@ -1,0 +1,5 @@
+{
+  final ParcelableUser user=getUser();
+  if (user == null || !event.isSucceeded() || !event.isUser(user))   return;
+  getFriendship();
+}

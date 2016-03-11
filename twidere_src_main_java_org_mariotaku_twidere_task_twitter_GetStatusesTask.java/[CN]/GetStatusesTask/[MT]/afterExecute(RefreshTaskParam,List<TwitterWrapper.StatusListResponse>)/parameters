@@ -1,0 +1,2 @@
+RefreshTaskParam params
+List<TwitterWrapper.StatusListResponse> result

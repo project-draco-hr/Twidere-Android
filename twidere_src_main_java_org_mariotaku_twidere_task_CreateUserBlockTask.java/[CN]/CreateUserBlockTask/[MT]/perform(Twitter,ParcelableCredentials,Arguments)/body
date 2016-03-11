@@ -1,0 +1,9 @@
+{
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return twitter.createFanfouBlock(args.userKey.getId());
+    }
+}
+return twitter.createBlock(args.userKey.getId());
+}

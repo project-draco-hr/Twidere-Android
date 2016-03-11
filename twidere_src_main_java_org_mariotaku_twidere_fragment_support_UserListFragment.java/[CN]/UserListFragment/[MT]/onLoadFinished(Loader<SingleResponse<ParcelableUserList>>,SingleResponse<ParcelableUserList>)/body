@@ -7,5 +7,4 @@
   }
  else   if (data.hasException()) {
   }
-  setProgressBarIndeterminateVisibility(false);
 }

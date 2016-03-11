@@ -1,0 +1,7 @@
+{
+  if (!TextUtils.isEmpty(user.profile_banner_url))   return user.profile_banner_url;
+  if (USER_TYPE_FANFOU_COM.equals(user.key.getHost())) {
+    return user.profile_background_url;
+  }
+  return null;
+}

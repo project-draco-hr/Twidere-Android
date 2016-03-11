@@ -18,5 +18,11 @@ case R.id.deny_request:
   requestClickListener.onDenyClicked(this,getLayoutPosition());
   break;
 }
+case R.id.follow:
+{
+if (followClickListener == null) return;
+followClickListener.onFollowClicked(this,getLayoutPosition());
+break;
+}
 }
 }

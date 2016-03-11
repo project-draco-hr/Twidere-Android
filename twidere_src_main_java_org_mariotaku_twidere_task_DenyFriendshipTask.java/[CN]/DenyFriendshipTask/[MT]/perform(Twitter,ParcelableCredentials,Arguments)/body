@@ -1,0 +1,9 @@
+{
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return twitter.denyFanfouFriendship(args.userKey.getId());
+    }
+}
+return twitter.denyFriendship(args.userKey.getId());
+}

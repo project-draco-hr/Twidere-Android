@@ -1,0 +1,12 @@
+{
+  if (!event.isSucceeded())   return false;
+switch (event.getAction()) {
+case FriendshipTaskEvent.Action.BLOCK:
+case FriendshipTaskEvent.Action.ACCEPT:
+case FriendshipTaskEvent.Action.DENY:
+{
+      return true;
+    }
+}
+return false;
+}

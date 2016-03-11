@@ -11,7 +11,7 @@
         return SingleResponse.getInstance(e);
       }
     }
-    @Override public void afterExecute(    Bus handler,    SingleResponse<Relationship> result){
+    @Override public void afterExecute(    Bus handler,    Object params,    SingleResponse<Relationship> result){
       if (result.hasData()) {
         handler.post(new FriendshipUpdatedEvent(accountKey,userId,result.getData()));
       }

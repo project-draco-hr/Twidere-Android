@@ -1,0 +1,9 @@
+{
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return twitter.acceptFanfouFriendship(args.userKey.getId());
+    }
+}
+return twitter.acceptFriendship(args.userKey.getId());
+}

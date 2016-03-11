@@ -18,13 +18,13 @@ case R.id.follow:
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
     if (userRelationship == null || twitter == null)     return;
     if (userRelationship.relationship.isSourceBlockingTarget()) {
-      twitter.destroyBlockAsync(user.account_key,user.key.getId());
+      twitter.destroyBlockAsync(user.account_key,user.key);
     }
  else     if (userRelationship.relationship.isSourceFollowingTarget()) {
       DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
     }
  else {
-      twitter.createFriendshipAsync(user.account_key,user.key.getId());
+      twitter.createFriendshipAsync(user.account_key,user.key);
     }
     break;
   }
@@ -39,8 +39,9 @@ case R.id.profile_image:
 }
 case R.id.profile_banner:
 {
-if (user.profile_banner_url == null) return;
-final String url=user.profile_banner_url + "/ipad_retina";
+final String bannerUrl=ParcelableUserUtils.getProfileBannerUrl(user);
+if (bannerUrl == null) return;
+final String url=InternalTwitterContentUtils.getBestBannerUrl(bannerUrl,Integer.MAX_VALUE);
 ParcelableMedia profileBanner=ParcelableMediaUtils.image(url);
 profileBanner.type=ParcelableMedia.Type.IMAGE;
 final ParcelableMedia[] media={profileBanner};

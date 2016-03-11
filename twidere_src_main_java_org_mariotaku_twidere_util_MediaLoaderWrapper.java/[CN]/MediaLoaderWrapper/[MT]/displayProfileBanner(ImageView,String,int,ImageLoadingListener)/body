@@ -1,0 +1,3 @@
+{
+  mImageLoader.displayImage(getBestBannerUrl(url,width),view,mBannerDisplayOptions,listener);
+}

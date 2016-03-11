@@ -1,0 +1,11 @@
+{
+  final String message;
+  final boolean nameFirst=preferences.getBoolean(KEY_NAME_FIRST);
+  if (user.is_protected) {
+    message=context.getString(R.string.sent_follow_request_to_user,manager.getDisplayName(user,nameFirst,true));
+  }
+ else {
+    message=context.getString(R.string.followed_user,manager.getDisplayName(user,nameFirst,true));
+  }
+  Utils.showOkMessage(context,message,false);
+}

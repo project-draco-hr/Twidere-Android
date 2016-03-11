@@ -12,7 +12,7 @@
       final File logFile=HotMobiLogger.getLogFile(context,null,"scroll");
       return logFile.length() < 131072;
     }
-    @Override public void afterExecute(    RecyclerView recyclerView,    Boolean result){
+    @Override public void afterExecute(    RecyclerView recyclerView,    Object params,    Boolean result){
       if (result) {
         recyclerView.addOnScrollListener(mActiveHotMobiScrollTracker=mHotMobiScrollTracker);
       }

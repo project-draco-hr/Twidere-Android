@@ -1,0 +1,12 @@
+{
+  if (USER_TYPE_FANFOU_COM.equals(params.accountKey.getHost())) {
+    if (exception instanceof TwitterException) {
+      TwitterException te=(TwitterException)exception;
+      if (te.getStatusCode() == 403 && !TextUtils.isEmpty(te.getErrorMessage())) {
+        Utils.showErrorMessage(context,te.getErrorMessage(),false);
+        return;
+      }
+    }
+  }
+  Utils.showErrorMessage(context,R.string.action_following,exception,false);
+}

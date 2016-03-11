@@ -36,7 +36,7 @@
       final ResponseList<Activity> activities=getActivities(twitter,credentials,paging);
       storeActivities(cr,loadItemLimit,accountKey,noItemsBefore,activities,sinceId,maxId);
       if (saveReadPosition) {
-        saveReadPosition(accountKey,twitter);
+        saveReadPosition(accountKey,credentials,twitter);
       }
       errorInfoStore.remove(getErrorInfoKey(),accountKey);
     }

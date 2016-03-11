@@ -1,8 +1,8 @@
 {
   if (mCallback != null) {
-    afterExecute(mCallback,result);
+    afterExecute(mCallback,mParams,result);
   }
  else {
-    afterExecute(result);
+    afterExecute(mParams,result);
   }
 }

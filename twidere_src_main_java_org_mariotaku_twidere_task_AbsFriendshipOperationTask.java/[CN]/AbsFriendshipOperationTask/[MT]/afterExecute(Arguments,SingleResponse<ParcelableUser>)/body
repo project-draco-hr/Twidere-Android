@@ -1,0 +1,15 @@
+{
+  twitter.removeUpdatingRelationshipId(params.accountKey,params.userKey);
+  final FriendshipTaskEvent event=new FriendshipTaskEvent(action,params.accountKey,params.userKey);
+  event.setFinished(true);
+  if (result.hasData()) {
+    final ParcelableUser user=result.getData();
+    showSucceededMessage(params,user);
+    event.setSucceeded(true);
+    event.setUser(result.getData());
+  }
+ else {
+    showErrorMessage(params,result.getException());
+  }
+  bus.post(event);
+}

@@ -1,0 +1,5 @@
+{
+  final DestroyUserBlockTask task=new DestroyUserBlockTask(mContext);
+  task.setup(accountKey,userKey);
+  TaskStarter.execute(task);
+}

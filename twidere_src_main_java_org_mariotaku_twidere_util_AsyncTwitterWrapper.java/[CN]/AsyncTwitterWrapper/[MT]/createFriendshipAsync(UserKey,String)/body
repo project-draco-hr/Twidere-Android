@@ -1,4 +1,0 @@
-{
-  final CreateFriendshipTask task=new CreateFriendshipTask(accountKey,userId);
-  return mAsyncTaskManager.add(task,true);
-}

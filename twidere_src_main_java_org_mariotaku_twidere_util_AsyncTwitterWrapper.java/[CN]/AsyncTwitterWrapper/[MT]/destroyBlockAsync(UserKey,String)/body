@@ -1,4 +1,0 @@
-{
-  final DestroyBlockTask task=new DestroyBlockTask(accountKey,userId);
-  return mAsyncTaskManager.add(task,true);
-}

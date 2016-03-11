@@ -1,0 +1,7 @@
+{
+  if (colorString == null)   return 0;
+  if (!colorString.startsWith("#")) {
+    colorString="#" + colorString;
+  }
+  return ParseUtils.parseColor(colorString,0);
+}

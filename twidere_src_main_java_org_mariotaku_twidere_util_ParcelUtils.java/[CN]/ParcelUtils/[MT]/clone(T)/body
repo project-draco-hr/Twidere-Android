@@ -1,5 +1,4 @@
 {
-  if (object == null)   return null;
   final Parcel parcel=Parcel.obtain();
   try {
     object.writeToParcel(parcel,0);

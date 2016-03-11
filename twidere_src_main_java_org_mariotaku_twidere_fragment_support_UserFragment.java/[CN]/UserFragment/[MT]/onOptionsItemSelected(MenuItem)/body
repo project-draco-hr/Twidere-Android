@@ -8,7 +8,7 @@ case R.id.block:
 {
       if (userRelationship == null)       return true;
       if (userRelationship.relationship.isSourceBlockingTarget()) {
-        twitter.destroyBlockAsync(user.account_key,user.key.getId());
+        twitter.destroyBlockAsync(user.account_key,user.key);
       }
  else {
         CreateUserBlockDialogFragment.show(getFragmentManager(),user);
@@ -40,7 +40,7 @@ case R.id.mute_user:
 {
 if (userRelationship == null) return true;
 if (userRelationship.relationship.isSourceMutingTarget()) {
-  twitter.destroyMuteAsync(user.account_key,user.key.getId());
+  twitter.destroyMuteAsync(user.account_key,user.key);
 }
  else {
   CreateUserMuteDialogFragment.show(getFragmentManager(),user);
@@ -110,14 +110,13 @@ case R.id.follow:
 {
 if (userRelationship == null) return true;
 final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
-final boolean isCreatingFriendship=twitter.isCreatingFriendship(user.account_key,user.key.getId());
-final boolean isDestroyingFriendship=twitter.isDestroyingFriendship(user.account_key,user.key.getId());
-if (!isCreatingFriendship && !isDestroyingFriendship) {
+final boolean updatingRelationship=twitter.isUpdatingRelationship(user.account_key,user.key);
+if (!updatingRelationship) {
 if (isFollowing) {
 DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
 }
  else {
-twitter.createFriendshipAsync(user.account_key,user.key.getId());
+twitter.createFriendshipAsync(user.account_key,user.key);
 }
 }
 return true;

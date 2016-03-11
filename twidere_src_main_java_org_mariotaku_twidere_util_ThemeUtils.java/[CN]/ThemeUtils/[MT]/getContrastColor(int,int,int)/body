@@ -1,0 +1,6 @@
+{
+  if (TwidereColorUtils.getYIQLuminance(color) <= ACCENT_COLOR_THRESHOLD) {
+    return lightColor;
+  }
+  return darkColor;
+}

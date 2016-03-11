@@ -1,3 +1,9 @@
 {
-  return true;
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      return false;
+    }
+}
+return true;
 }

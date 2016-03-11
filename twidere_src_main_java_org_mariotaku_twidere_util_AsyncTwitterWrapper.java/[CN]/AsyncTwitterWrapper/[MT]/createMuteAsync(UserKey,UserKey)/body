@@ -1,0 +1,5 @@
+{
+  final CreateUserMuteTask task=new CreateUserMuteTask(mContext);
+  task.setup(accountKey,userKey);
+  TaskStarter.execute(task);
+}

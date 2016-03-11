@@ -55,9 +55,10 @@
   }
   final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;
-  if (ObjectUtils.notEqual(mProfileBannerView.getTag(),user.profile_banner_url) || mProfileBannerView.getDrawable() == null) {
-    mProfileBannerView.setTag(user.profile_banner_url);
-    mMediaLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,width);
+  final String bannerUrl=ParcelableUserUtils.getProfileBannerUrl(user);
+  if (ObjectUtils.notEqual(mProfileBannerView.getTag(),bannerUrl) || mProfileBannerView.getDrawable() == null) {
+    mProfileBannerView.setTag(bannerUrl);
+    mMediaLoader.displayProfileBanner(mProfileBannerView,bannerUrl,width);
   }
   final UserRelationship relationship=mRelationship;
   if (relationship == null) {

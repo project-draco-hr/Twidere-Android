@@ -1,4 +1,0 @@
-{
-  final CreateBlockTask task=new CreateBlockTask(accountKey,userId);
-  return mAsyncTaskManager.add(task,true);
-}

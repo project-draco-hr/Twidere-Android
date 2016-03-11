@@ -1,0 +1,13 @@
+{
+  final AsyncTwitterWrapper twitter=mTwitterWrapper;
+  final ParcelableUsersAdapter adapter=getAdapter();
+  final ParcelableUser user=adapter.getUser(position);
+  if (user == null || twitter == null)   return;
+  if (twitter.isUpdatingRelationship(user.account_key,user.key))   return;
+  if (user.is_following) {
+    DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
+  }
+ else {
+    twitter.createFriendshipAsync(user.account_key,user.key);
+  }
+}

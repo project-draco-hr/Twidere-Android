@@ -1,0 +1,1 @@
+AbstractTask<AbsFriendshipOperationTask.Arguments,SingleResponse<ParcelableUser>,Object>

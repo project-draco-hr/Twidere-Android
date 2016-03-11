@@ -1,0 +1,10 @@
+{
+  if (mData == null)   return RecyclerView.NO_POSITION;
+  for (int i=getUserStartIndex(), j=i + getUserCount(); i < j; i++) {
+    final ParcelableUser user=mData.get(i);
+    if (accountKey.equals(user.account_key) && userKey.equals(user.key)) {
+      return i;
+    }
+  }
+  return RecyclerView.NO_POSITION;
+}

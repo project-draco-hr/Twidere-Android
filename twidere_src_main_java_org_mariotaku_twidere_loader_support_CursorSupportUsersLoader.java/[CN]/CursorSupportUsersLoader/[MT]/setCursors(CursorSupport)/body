@@ -2,5 +2,4 @@
   if (cursor == null)   return;
   mNextCursor=cursor.getNextCursor();
   mPrevCursor=cursor.getPreviousCursor();
-  mNextPage=mPage + 1;
 }
