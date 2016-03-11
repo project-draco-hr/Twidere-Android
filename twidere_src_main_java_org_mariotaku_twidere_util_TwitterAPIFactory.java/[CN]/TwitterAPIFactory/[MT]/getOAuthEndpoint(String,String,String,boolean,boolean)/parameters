@@ -1,0 +1,5 @@
+String apiUrlFormat
+String domain
+String versionSuffix
+boolean sameOAuthSigningUrl
+boolean fixUrl

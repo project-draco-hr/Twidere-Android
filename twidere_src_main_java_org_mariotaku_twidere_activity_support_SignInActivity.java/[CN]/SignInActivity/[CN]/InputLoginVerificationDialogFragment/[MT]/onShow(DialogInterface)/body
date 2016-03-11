@@ -2,6 +2,7 @@
   final AlertDialog alertDialog=(AlertDialog)dialog;
   final TextView verificationHint=(TextView)alertDialog.findViewById(R.id.verification_hint);
   final EditText editVerification=(EditText)alertDialog.findViewById(R.id.edit_verification_code);
+  if (verificationHint == null || editVerification == null)   return;
   if ("Push".equalsIgnoreCase(challengeType)) {
     verificationHint.setText(R.string.login_verification_push_hint);
     editVerification.setVisibility(View.GONE);

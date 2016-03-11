@@ -36,6 +36,7 @@ saveEditedText();
 final Intent intent=new Intent(this,BrowserSignInActivity.class);
 intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
 intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
+intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
 startActivityForResult(intent,REQUEST_BROWSER_SIGN_IN);
 break;
 }

@@ -8,6 +8,6 @@
     }
     return;
   }
-  final OAuthEndpoint endpoint=new OAuthEndpoint(TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",null));
+  final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
   mActivity.loadUrl(endpoint.construct("/oauth/authorize",new String[]{"oauth_token",data.getOauthToken()}));
 }

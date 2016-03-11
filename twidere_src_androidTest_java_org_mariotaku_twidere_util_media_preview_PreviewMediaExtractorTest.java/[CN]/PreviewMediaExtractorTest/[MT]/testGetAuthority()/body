@@ -1,5 +1,0 @@
-{
-  assertEquals("www.google.com",PreviewMediaExtractor.getAuthority("http://www.google.com/"));
-  assertEquals("twitter.com",PreviewMediaExtractor.getAuthority("https://twitter.com"));
-  assertNull(PreviewMediaExtractor.getAuthority("www.google.com/"));
-}

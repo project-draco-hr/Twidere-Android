@@ -1,5 +1,4 @@
 {
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_browser_sign_in);
   mWebView.setWebViewClient(new AuthorizationWebViewClient(this));

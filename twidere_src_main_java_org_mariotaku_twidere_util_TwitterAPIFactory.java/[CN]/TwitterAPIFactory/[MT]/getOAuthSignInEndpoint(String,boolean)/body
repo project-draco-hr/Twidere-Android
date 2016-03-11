@@ -1,0 +1,3 @@
+{
+  return getOAuthEndpoint(apiUrlFormat,"api",null,sameOAuthSigningUrl,true);
+}

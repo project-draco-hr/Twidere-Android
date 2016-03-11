@@ -1,11 +1,3 @@
 {
-  String endpointUrl, signEndpointUrl;
-  endpointUrl=getApiUrl(apiUrlFormat,domain,versionSuffix);
-  if (!sameOAuthSigningUrl) {
-    signEndpointUrl=getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,domain,versionSuffix);
-  }
- else {
-    signEndpointUrl=endpointUrl;
-  }
-  return new OAuthEndpoint(endpointUrl,signEndpointUrl);
+  return getOAuthEndpoint(apiUrlFormat,domain,versionSuffix,sameOAuthSigningUrl,false);
 }

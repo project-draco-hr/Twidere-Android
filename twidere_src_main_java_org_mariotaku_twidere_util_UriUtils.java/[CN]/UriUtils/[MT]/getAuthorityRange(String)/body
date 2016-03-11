@@ -1,0 +1,9 @@
+{
+  int start=link.indexOf("://");
+  if (start < 0)   return null;
+  int end=link.indexOf('/',start + 3);
+  if (end < 0) {
+    end=link.length();
+  }
+  return new int[]{start + 3,end};
+}

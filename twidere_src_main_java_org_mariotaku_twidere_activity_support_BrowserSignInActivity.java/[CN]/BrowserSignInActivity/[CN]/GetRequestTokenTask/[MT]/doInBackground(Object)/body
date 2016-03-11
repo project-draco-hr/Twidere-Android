@@ -1,18 +1,10 @@
 {
-  final String defConsumerKey=getNonEmptyString(mPreferences,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);
-  final String defConsumerSecret=getNonEmptyString(mPreferences,KEY_CONSUMER_SECRET,TWITTER_CONSUMER_SECRET);
-  final String consumerKey, consumerSecret;
-  if (!isEmpty(mConsumerKey) && !isEmpty(mConsumerSecret)) {
-    consumerKey=mConsumerKey;
-    consumerSecret=mConsumerSecret;
-  }
- else {
-    consumerKey=defConsumerKey;
-    consumerSecret=defConsumerSecret;
+  if (isEmpty(mConsumerKey) || isEmpty(mConsumerSecret)) {
+    return null;
   }
   try {
-    final OAuthEndpoint endpoint=new OAuthEndpoint(TwitterAPIFactory.getApiUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api",null));
-    final Authorization auth=new OAuthAuthorization(consumerKey,consumerSecret);
+    final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
+    final Authorization auth=new OAuthAuthorization(mConsumerKey,mConsumerSecret);
     final TwitterOAuth twitter=TwitterAPIFactory.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
     return twitter.getRequestToken(OAUTH_CALLBACK_OOB);
   }

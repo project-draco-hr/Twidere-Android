@@ -1,5 +1,21 @@
 {
   super.onPageFinished(view,url);
   view.loadUrl(INJECT_CONTENT);
-  ((BrowserSignInActivity)getActivity()).setLoadProgressShown(false);
+  final BrowserSignInActivity activity=(BrowserSignInActivity)getActivity();
+  activity.setLoadProgressShown(false);
+  Uri uri=Uri.parse(url);
+  if ("fanfou.com".equals(uri.getHost())) {
+    final String path=uri.getPath();
+    final Set<String> paramNames=uri.getQueryParameterNames();
+    if ("/oauth/authorize".equals(path) && paramNames.contains("oauth_callback")) {
+      final OAuthToken requestToken=activity.mRequestToken;
+      if (requestToken != null) {
+        final Intent intent=new Intent();
+        intent.putExtra(EXTRA_REQUEST_TOKEN,requestToken.getOauthToken());
+        intent.putExtra(EXTRA_REQUEST_TOKEN_SECRET,requestToken.getOauthTokenSecret());
+        activity.setResult(RESULT_OK,intent);
+        activity.finish();
+      }
+    }
+  }
 }
