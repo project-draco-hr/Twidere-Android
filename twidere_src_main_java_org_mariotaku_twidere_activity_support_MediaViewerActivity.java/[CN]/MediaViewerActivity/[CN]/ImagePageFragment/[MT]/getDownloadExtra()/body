@@ -1,6 +1,6 @@
 {
   final MediaExtra mediaExtra=new MediaExtra();
-  mediaExtra.setAccountKey(getArguments().<UserKey>getParcelable(EXTRA_ACCOUNT_KEY));
+  mediaExtra.setAccountKey(getAccountKey());
   final Uri origDownloadUri=super.getDownloadUri();
   final Uri downloadUri=getDownloadUri();
   if (origDownloadUri != null && downloadUri != null) {

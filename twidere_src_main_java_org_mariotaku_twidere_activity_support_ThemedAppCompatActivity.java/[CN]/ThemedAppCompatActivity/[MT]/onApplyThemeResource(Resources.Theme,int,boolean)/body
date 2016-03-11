@@ -5,5 +5,6 @@
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   mCurrentThemeFontFamily=getThemeFontFamily();
   super.onApplyThemeResource(theme,resId,first);
-  ThemeUtils.applyToolbarItemColor(this,getActionBarToolbar(),mCurrentThemeColor);
+  final Toolbar actionBarToolbar=getActionBarToolbar();
+  ThemeUtils.applyToolbarItemColor(this,actionBarToolbar,mCurrentThemeColor);
 }

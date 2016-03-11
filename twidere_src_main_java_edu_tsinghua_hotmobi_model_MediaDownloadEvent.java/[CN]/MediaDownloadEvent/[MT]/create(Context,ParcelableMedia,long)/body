@@ -1,0 +1,7 @@
+{
+  final MediaDownloadEvent event=new MediaDownloadEvent();
+  event.markStart(context);
+  event.setMedia(media);
+  event.setSize(total);
+  return event;
+}

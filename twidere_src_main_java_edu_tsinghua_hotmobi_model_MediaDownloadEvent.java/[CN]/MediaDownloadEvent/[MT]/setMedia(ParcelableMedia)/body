@@ -1,0 +1,5 @@
+{
+  this.type=media.type;
+  this.url=media.url;
+  this.mediaUrl=media.media_url;
+}

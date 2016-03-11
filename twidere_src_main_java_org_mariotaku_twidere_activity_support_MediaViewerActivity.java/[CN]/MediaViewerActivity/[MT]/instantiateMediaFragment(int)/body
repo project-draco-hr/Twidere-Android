@@ -1,31 +1,28 @@
 {
   final ParcelableMedia media=getMedia()[position];
+  final Bundle args=new Bundle();
+  final Intent intent=getIntent();
+  args.putParcelable(EXTRA_ACCOUNT_KEY,intent.getParcelableExtra(EXTRA_ACCOUNT_KEY));
+  args.putParcelable(EXTRA_MEDIA,media);
+  args.putParcelable(EXTRA_STATUS,intent.getParcelableExtra(EXTRA_STATUS));
 switch (media.type) {
 case ParcelableMedia.Type.IMAGE:
 {
-      final Bundle args=new Bundle();
-      args.putParcelable(EXTRA_ACCOUNT_KEY,getIntent().getParcelableExtra(EXTRA_ACCOUNT_KEY));
       args.putParcelable(ImagePageFragment.EXTRA_MEDIA_URI,Uri.parse(media.media_url));
       return (MediaViewerFragment)Fragment.instantiate(this,ImagePageFragment.class.getName(),args);
     }
 case ParcelableMedia.Type.ANIMATED_GIF:
 case ParcelableMedia.Type.CARD_ANIMATED_GIF:
 {
-    final Bundle args=new Bundle();
     args.putBoolean(VideoPageFragment.EXTRA_LOOP,true);
-    args.putParcelable(EXTRA_MEDIA,media);
     return (MediaViewerFragment)Fragment.instantiate(this,VideoPageFragment.class.getName(),args);
   }
 case ParcelableMedia.Type.VIDEO:
 {
-  final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_MEDIA,media);
   return (MediaViewerFragment)Fragment.instantiate(this,VideoPageFragment.class.getName(),args);
 }
 case ParcelableMedia.Type.EXTERNAL_PLAYER:
 {
-final Bundle args=new Bundle();
-args.putParcelable(EXTRA_MEDIA,media);
 return (MediaViewerFragment)Fragment.instantiate(this,ExternalBrowserPageFragment.class.getName(),args);
 }
 }
