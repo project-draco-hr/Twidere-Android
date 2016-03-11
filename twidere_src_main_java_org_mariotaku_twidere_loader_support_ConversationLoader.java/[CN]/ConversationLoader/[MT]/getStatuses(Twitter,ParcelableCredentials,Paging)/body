@@ -1,20 +1,29 @@
 {
   mCanLoadAllReplies=false;
   final ParcelableStatus status=mStatus;
-  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
-    final boolean isOfficial=Utils.isOfficialCredentials(getContext(),credentials);
-    mCanLoadAllReplies=isOfficial;
-    if (isOfficial) {
-      return twitter.showConversation(status.id,paging);
-    }
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.TWITTER:
+{
+      final boolean isOfficial=Utils.isOfficialCredentials(getContext(),credentials);
+      mCanLoadAllReplies=isOfficial;
+      if (isOfficial) {
+        return twitter.showConversation(status.id,paging);
+      }
  else {
-      return showConversationCompat(twitter,credentials,status,true);
+        return showConversationCompat(twitter,credentials,status,true);
+      }
     }
-  }
- else   if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+case ParcelableAccount.Type.STATUSNET:
+{
     mCanLoadAllReplies=true;
     return twitter.getStatusNetConversation(status.id,paging);
   }
+case ParcelableAccount.Type.FANFOU:
+{
   mCanLoadAllReplies=true;
-  return showConversationCompat(twitter,credentials,status,false);
+  return twitter.getContextTimeline(status.id,paging);
+}
+}
+mCanLoadAllReplies=true;
+return showConversationCompat(twitter,credentials,status,false);
 }

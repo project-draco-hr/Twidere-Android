@@ -2,5 +2,8 @@
   if (status.extras != null && !TextUtils.isEmpty(status.extras.external_url)) {
     return Uri.parse(status.extras.external_url);
   }
+  if (USER_TYPE_FANFOU_COM.equals(status.account_key.getHost())) {
+    return getFanfouStatusLink(status.id);
+  }
   return getTwitterStatusLink(status.user_screen_name,status.id);
 }

@@ -91,7 +91,7 @@
  else {
     final Intent shareIntent=Utils.createStatusShareIntent(context,status);
     final Intent chooserIntent=Intent.createChooser(shareIntent,context.getString(R.string.share_status));
-    Utils.addCopyLinkIntent(context,chooserIntent,LinkCreator.getTwitterStatusLink(status));
+    Utils.addCopyLinkIntent(context,chooserIntent,LinkCreator.getStatusWebLink(status));
     shareItem.setIntent(chooserIntent);
   }
 }

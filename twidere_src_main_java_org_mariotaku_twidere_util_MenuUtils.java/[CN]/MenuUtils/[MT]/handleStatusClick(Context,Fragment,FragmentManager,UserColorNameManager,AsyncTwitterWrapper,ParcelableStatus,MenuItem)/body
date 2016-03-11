@@ -100,7 +100,7 @@ break;
 }
 case R.id.open_in_browser:
 {
-final Intent intent=new Intent(Intent.ACTION_VIEW,LinkCreator.getTwitterStatusLink(status));
+final Intent intent=new Intent(Intent.ACTION_VIEW,LinkCreator.getStatusWebLink(status));
 intent.addCategory(Intent.CATEGORY_BROWSABLE);
 context.startActivity(intent);
 break;
