@@ -1,50 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  final Toolbar toolbar=(Toolbar)findViewById(R.id.action_bar);
-  setSupportActionBar(toolbar);
-  mTwidereActionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
-  final TintedStatusNativeActionModeAwareLayout layout=(TintedStatusNativeActionModeAwareLayout)findViewById(R.id.main_content);
-  layout.setActionModeForChildListener(mTwidereActionModeForChildListener);
-  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
-  final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
-  ViewCompat.setElevation(actionBarContainer,ThemeUtils.getSupportActionBarElevation(this));
-  ViewSupport.setOutlineProvider(actionBarContainer,ViewOutlineProviderCompat.BACKGROUND);
-  final View windowOverlay=findViewById(R.id.window_overlay);
-  ViewSupport.setBackground(windowOverlay,ThemeUtils.getNormalWindowContentOverlay(this));
-  setIntent(getIntent().addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-  final String backgroundOption=getCurrentThemeBackgroundOption();
-  final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
-  final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(this)) : 0xFF;
-  actionBarContainer.setAlpha(actionBarAlpha / 255f);
-  windowOverlay.setAlpha(actionBarAlpha / 255f);
-  toolbar.setNavigationOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      onBackPressed();
-    }
-  }
-);
-  final ActionBar actionBar=getSupportActionBar();
-  if (actionBar != null) {
-    actionBar.setDisplayHomeAsUpEnabled(true);
-  }
   if (savedInstanceState != null) {
     invalidateHeaders();
-  }
-  final ListView listView=getListView();
-  if (listView != null) {
-    listView.setChoiceMode(isMultiPane() ? ListView.CHOICE_MODE_SINGLE : ListView.CHOICE_MODE_NONE);
-    final LayoutParams lp=listView.getLayoutParams();
-    if (lp instanceof MarginLayoutParams) {
-      final MarginLayoutParams mlp=(MarginLayoutParams)lp;
-      mlp.leftMargin=0;
-      mlp.topMargin=0;
-      mlp.rightMargin=0;
-      mlp.bottomMargin=0;
-      listView.setLayoutParams(mlp);
-    }
-    final ViewParent listParent=listView.getParent();
-    if (listParent instanceof ViewGroup) {
-      ((ViewGroup)listParent).setPadding(0,0,0,0);
-    }
   }
 }

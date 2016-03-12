@@ -1,7 +1,0 @@
-{
-  final SharedPreferences prefs=getSharedPreferences();
-  if (prefs == null || mDependencyKey == null || mDependencyValues == null)   return;
-  final Map<String,?> all=prefs.getAll();
-  final String valueString=ParseUtils.parseString(all.get(mDependencyKey),mDependencyValueDefault);
-  setEnabled(ArrayUtils.contains(mDependencyValues,valueString));
-}

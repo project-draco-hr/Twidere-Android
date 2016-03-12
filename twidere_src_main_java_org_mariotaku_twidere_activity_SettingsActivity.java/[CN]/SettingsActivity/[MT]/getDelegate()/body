@@ -1,6 +1,0 @@
-{
-  if (mDelegate == null) {
-    mDelegate=ThemedAppCompatDelegateFactory.create(this,this);
-  }
-  return mDelegate;
-}

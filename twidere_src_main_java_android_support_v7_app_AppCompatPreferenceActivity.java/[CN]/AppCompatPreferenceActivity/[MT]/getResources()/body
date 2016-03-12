@@ -1,0 +1,6 @@
+{
+  if (mResources == null) {
+    mResources=new TintResources(this,super.getResources());
+  }
+  return mResources;
+}

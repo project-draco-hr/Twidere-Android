@@ -1,0 +1,7 @@
+{
+  super.onConfigurationChanged(newConfig);
+  getDelegate().onConfigurationChanged(newConfig);
+  if (mResources != null) {
+    mResources.updateConfiguration(newConfig,null);
+  }
+}

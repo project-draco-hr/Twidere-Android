@@ -1,5 +1,0 @@
-{
-  final FrameLayout mainContent=initMainContent();
-  getLayoutInflater().inflate(layoutResID,(ViewGroup)mainContent.findViewById(R.id.settings_content),true);
-  super.setContentView(mainContent);
-}

@@ -1,7 +1,0 @@
-{
-  final FrameLayout mainContent=(FrameLayout)findViewById(R.id.main_content);
-  if (mainContent != null) {
-    return mainContent;
-  }
-  return ((FrameLayout)getLayoutInflater().inflate(R.layout.activity_settings,null));
-}

@@ -1,0 +1,14 @@
+{
+  final AppCompatDelegate delegate=getDelegate();
+  delegate.installViewFactory();
+  delegate.onCreate(savedInstanceState);
+  if (delegate.applyDayNight() && mThemeId != 0) {
+    if (Build.VERSION.SDK_INT >= 23) {
+      onApplyThemeResource(getTheme(),mThemeId,false);
+    }
+ else {
+      setTheme(mThemeId);
+    }
+  }
+  super.onCreate(savedInstanceState);
+}

@@ -1,0 +1,20 @@
+{
+  final int keyCode=event.getKeyCode();
+  if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+    final int action=event.getAction();
+    if (action == KeyEvent.ACTION_DOWN) {
+      if (KeyEventCompat.hasModifiers(event,KeyEvent.META_ALT_ON)) {
+        final ActionBar actionBar=getSupportActionBar();
+        if (actionBar != null && actionBar.isShowing() && actionBar.requestFocus()) {
+          mEatKeyUpEvent=true;
+          return true;
+        }
+      }
+    }
+ else     if (action == KeyEvent.ACTION_UP && mEatKeyUpEvent) {
+      mEatKeyUpEvent=false;
+      return true;
+    }
+  }
+  return super.dispatchKeyEvent(event);
+}
