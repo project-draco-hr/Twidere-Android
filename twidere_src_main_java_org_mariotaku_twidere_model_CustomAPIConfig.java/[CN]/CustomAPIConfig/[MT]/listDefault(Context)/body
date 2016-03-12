@@ -1,0 +1,6 @@
+{
+  CustomAPIConfig[] list=new CustomAPIConfig[2];
+  list[0]=new CustomAPIConfig(context.getString(R.string.provider_default),DEFAULT_TWITTER_API_URL_FORMAT,ParcelableCredentials.AUTH_TYPE_OAUTH,true,false,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET);
+  list[1]=new CustomAPIConfig(context.getString(R.string.provider_fanfou),DEFAULT_FANFOU_API_URL_FORMAT,ParcelableCredentials.AUTH_TYPE_OAUTH,true,true,FANFOU_CONSUMER_KEY,FANFOU_CONSUMER_SECRET);
+  return list;
+}

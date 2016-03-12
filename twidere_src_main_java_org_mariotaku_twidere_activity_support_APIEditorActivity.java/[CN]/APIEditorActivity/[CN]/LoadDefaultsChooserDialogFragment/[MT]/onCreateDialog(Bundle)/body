@@ -1,0 +1,10 @@
+{
+  mAPIConfigs=CustomAPIConfig.listDefault(getContext());
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+  String[] entries=new String[mAPIConfigs.length];
+  for (int i=0, mAPIConfigsLength=mAPIConfigs.length; i < mAPIConfigsLength; i++) {
+    entries[i]=mAPIConfigs[i].getName();
+  }
+  builder.setItems(entries,this);
+  return builder.create();
+}

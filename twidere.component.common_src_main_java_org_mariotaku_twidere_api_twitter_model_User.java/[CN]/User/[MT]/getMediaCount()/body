@@ -1,3 +1,4 @@
 {
-  return mediaCount;
+  if (mediaCount != -1)   return mediaCount;
+  return photoCount;
 }

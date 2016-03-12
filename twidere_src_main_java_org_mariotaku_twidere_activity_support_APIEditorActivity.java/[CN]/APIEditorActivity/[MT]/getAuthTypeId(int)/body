@@ -1,0 +1,20 @@
+{
+switch (authType) {
+case ParcelableCredentials.AUTH_TYPE_XAUTH:
+{
+      return R.id.xauth;
+    }
+case ParcelableCredentials.AUTH_TYPE_BASIC:
+{
+    return R.id.basic;
+  }
+case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
+{
+  return R.id.twip_o;
+}
+default :
+{
+return R.id.oauth;
+}
+}
+}

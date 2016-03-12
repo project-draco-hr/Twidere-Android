@@ -1,0 +1,8 @@
+{
+  mEditAPIUrlFormat.setText(apiConfig.getApiUrlFormat());
+  mEditAuthType.check(getAuthTypeId(apiConfig.getAuthType()));
+  mEditSameOAuthSigningUrl.setChecked(apiConfig.isSameOAuthUrl());
+  mEditNoVersionSuffix.setChecked(apiConfig.isNoVersionSuffix());
+  mEditConsumerKey.setText(apiConfig.getConsumerKey());
+  mEditConsumerSecret.setText(apiConfig.getConsumerSecret());
+}

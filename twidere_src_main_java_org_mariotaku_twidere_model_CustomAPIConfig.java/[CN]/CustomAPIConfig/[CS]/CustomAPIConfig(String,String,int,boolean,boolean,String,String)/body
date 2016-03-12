@@ -1,0 +1,9 @@
+{
+  this.name=name;
+  this.apiUrlFormat=apiUrlFormat;
+  this.authType=authType;
+  this.sameOAuthUrl=sameOAuthUrl;
+  this.noVersionSuffix=noVersionSuffix;
+  this.consumerKey=consumerKey;
+  this.consumerSecret=consumerSecret;
+}

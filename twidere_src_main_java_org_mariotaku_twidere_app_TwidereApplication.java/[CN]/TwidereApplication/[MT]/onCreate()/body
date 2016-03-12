@@ -3,6 +3,7 @@
   if (BuildConfig.DEBUG) {
     StrictModeUtils.detectAllVmPolicy();
   }
+  resetTheme(getSharedPreferences());
   super.onCreate();
   initializeAsyncTask();
   initDebugMode();

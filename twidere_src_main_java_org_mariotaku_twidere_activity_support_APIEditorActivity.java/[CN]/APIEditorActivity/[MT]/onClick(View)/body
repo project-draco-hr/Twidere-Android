@@ -15,5 +15,11 @@ case R.id.api_url_format_help:
     Toast.makeText(this,R.string.api_url_format_help,Toast.LENGTH_LONG).show();
     break;
   }
+case R.id.load_defaults:
+{
+  final LoadDefaultsChooserDialogFragment df=new LoadDefaultsChooserDialogFragment();
+  df.show(getSupportFragmentManager(),"load_defaults");
+  break;
+}
 }
 }

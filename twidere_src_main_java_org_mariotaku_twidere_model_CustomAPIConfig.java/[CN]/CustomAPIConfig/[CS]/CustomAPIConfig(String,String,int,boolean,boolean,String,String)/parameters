@@ -1,0 +1,7 @@
+String name
+String apiUrlFormat
+int authType
+boolean sameOAuthUrl
+boolean noVersionSuffix
+String consumerKey
+String consumerSecret

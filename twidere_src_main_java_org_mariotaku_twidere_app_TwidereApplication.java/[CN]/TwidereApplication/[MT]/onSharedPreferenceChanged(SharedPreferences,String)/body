@@ -46,6 +46,7 @@ break;
 }
 case KEY_THEME:
 {
+resetTheme(preferences);
 break;
 }
 }

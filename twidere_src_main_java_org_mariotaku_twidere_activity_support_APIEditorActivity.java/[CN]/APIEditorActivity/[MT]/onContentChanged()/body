@@ -1,5 +1,6 @@
 {
   super.onContentChanged();
+  mLoadDefaultsButton=(Button)findViewById(R.id.load_defaults);
   mEditAPIUrlFormat=(EditText)findViewById(R.id.api_url_format);
   mEditAuthType=(RadioGroup)findViewById(R.id.auth_type);
   mButtonOAuth=(RadioButton)findViewById(R.id.oauth);

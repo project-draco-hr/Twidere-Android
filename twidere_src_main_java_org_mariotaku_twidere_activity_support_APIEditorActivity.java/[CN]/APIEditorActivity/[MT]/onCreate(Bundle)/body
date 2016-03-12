@@ -34,6 +34,8 @@
   mEditNoVersionSuffix.setOnCheckedChangeListener(this);
   mSaveButton.setOnClickListener(this);
   mAPIFormatHelpButton.setOnClickListener(this);
+  mLoadDefaultsButton.setVisibility(View.VISIBLE);
+  mLoadDefaultsButton.setOnClickListener(this);
   mEditAPIUrlFormat.setText(apiUrlFormat);
   mEditSameOAuthSigningUrl.setChecked(sameOAuthSigningUrl);
   mEditNoVersionSuffix.setChecked(noVersionSuffix);

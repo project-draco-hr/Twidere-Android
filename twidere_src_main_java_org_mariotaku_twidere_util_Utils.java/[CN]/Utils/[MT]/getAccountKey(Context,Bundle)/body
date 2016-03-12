@@ -1,0 +1,5 @@
+{
+  final UserKey[] accountKeys=getAccountKeys(context,args);
+  if (ArrayUtils.isEmpty(accountKeys))   return null;
+  return accountKeys[0];
+}

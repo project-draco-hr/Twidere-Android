@@ -15,6 +15,8 @@
  else {
     mImageLoader.cancelDisplayTask(holder.profileImage);
   }
+  final String accountType=cursor.getString(mIndices.account_type);
+  holder.accountType.setImageResource(ParcelableAccountUtils.getAccountTypeIcon(accountType));
   holder.toggle.setChecked(cursor.getShort(mIndices.is_activated) == 1);
   holder.toggle.setOnCheckedChangeListener(mCheckedChangeListener);
   holder.toggle.setTag(cursor.getString(mIndices.account_key));
