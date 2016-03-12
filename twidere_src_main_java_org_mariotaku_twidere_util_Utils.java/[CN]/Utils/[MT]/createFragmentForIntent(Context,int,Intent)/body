@@ -169,9 +169,8 @@ fragment=new MessagesConversationFragment();
 isAccountIdRequired=false;
 final String paramRecipientId=uri.getQueryParameter(QUERY_PARAM_RECIPIENT_ID);
 final String paramScreenName=uri.getQueryParameter(QUERY_PARAM_SCREEN_NAME);
-final long conversationId=NumberUtils.toLong(paramRecipientId,-1);
-if (conversationId > 0) {
-args.putLong(EXTRA_RECIPIENT_ID,conversationId);
+if (paramRecipientId != null) {
+args.putString(EXTRA_RECIPIENT_ID,paramRecipientId);
 }
  else if (paramScreenName != null) {
 args.putString(EXTRA_SCREEN_NAME,paramScreenName);
