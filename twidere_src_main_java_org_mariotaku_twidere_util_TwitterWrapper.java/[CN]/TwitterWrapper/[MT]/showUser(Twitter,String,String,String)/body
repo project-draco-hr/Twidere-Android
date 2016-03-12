@@ -1,0 +1,15 @@
+{
+  if (id != null) {
+    if (ParcelableAccount.Type.FANFOU.equals(accountType)) {
+      return twitter.showFanfouUser(id);
+    }
+    return twitter.showUser(id);
+  }
+ else   if (screenName != null) {
+    if (ParcelableAccount.Type.FANFOU.equals(accountType)) {
+      return twitter.showFanfouUser(screenName);
+    }
+    return twitter.showUserByScreenName(screenName);
+  }
+  throw new TwitterException("Invalid user id or screen name");
+}

@@ -1,0 +1,16 @@
+{
+  final HttpMethod method=restMethod.getMethod();
+  final String path=restMethod.getPath();
+  final MultiValueMap<String> headers=restMethod.getHeaders(valuePool);
+  final MultiValueMap<String> queries=restMethod.getQueries(valuePool);
+  final MultiValueMap<Body> params=restMethod.getParams(factory,valuePool);
+  final RawValue rawValue=restMethod.getRawValue();
+  final BodyType bodyType=restMethod.getBodyType();
+  final Map<String,Object> extras=restMethod.getExtras();
+  if (queries != null && extraRequestParams != null) {
+    for (    Map.Entry<String,String> entry : extraRequestParams.entrySet()) {
+      queries.add(entry.getKey(),entry.getValue());
+    }
+  }
+  return new RestRequest(method.value(),method.allowBody(),path,headers,queries,params,rawValue,bodyType,extras);
+}

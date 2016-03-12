@@ -27,6 +27,7 @@
   }
   final TwitterConverterFactory converterFactory=new TwitterConverterFactory();
   factory.setRestConverterFactory(converterFactory);
+  factory.setRestRequestFactory(new TwidereRestRequestFactory(extraRequestParams));
   factory.setHttpRequestFactory(new TwidereHttpRequestFactory(userAgent));
   factory.setExceptionFactory(new TwidereExceptionFactory(converterFactory));
   return factory.build(cls);

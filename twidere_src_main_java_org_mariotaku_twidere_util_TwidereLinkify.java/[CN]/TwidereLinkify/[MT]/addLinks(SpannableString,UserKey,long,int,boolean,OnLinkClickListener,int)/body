@@ -12,15 +12,31 @@ case LINK_TYPE_HASHTAG:
   }
 case LINK_TYPE_ENTITY_URL:
 {
-  final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
+  final int length=string.length();
+  final URLSpan[] spans=string.getSpans(0,length,URLSpan.class);
   for (  final URLSpan span : spans) {
-    final int start=string.getSpanStart(span);
-    final int end=string.getSpanEnd(span);
-    if (start < 0 || end > string.length() || start > end) {
+    int start=string.getSpanStart(span), end=string.getSpanEnd(span);
+    if (span instanceof TwidereURLSpan || start < 0 || end > length || start > end) {
       continue;
     }
     string.removeSpan(span);
-    applyLink(span.getURL(),start,end,string,accountKey,extraId,LINK_TYPE_ENTITY_URL,sensitive,highlightOption,listener);
+    String url=span.getURL();
+    if (USER_TYPE_FANFOU_COM.equals(accountKey.getHost())) {
+      if (url.startsWith("/")) {
+        url="http://fanfou.com" + url;
+      }
+      if ("fanfou.com".equals(UriUtils.getAuthority(url)) && start > 0) {
+        final char ch=string.charAt(start - 1);
+        if (isAtSymbol(ch)) {
+          start=start - 1;
+        }
+ else         if (isHashSymbol(ch) && end < length - 1 && isHashSymbol(string.charAt(end))) {
+          start=start - 1;
+          end=end + 1;
+        }
+      }
+    }
+    applyLink(url,String.valueOf(string.subSequence(start,end)),start,end,string,accountKey,extraId,LINK_TYPE_ENTITY_URL,sensitive,highlightOption,listener);
   }
   break;
 }
@@ -32,13 +48,14 @@ for (final Extractor.Entity entity : urls) {
   if (entity.getType() != Extractor.Entity.Type.URL || string.getSpans(start,end,URLSpan.class).length > 0) {
     continue;
   }
-  applyLink(entity.getValue(),start,end,string,accountKey,extraId,LINK_TYPE_ENTITY_URL,sensitive,highlightOption,listener);
+  applyLink(entity.getValue(),null,start,end,string,accountKey,extraId,LINK_TYPE_LINK_IN_TEXT,sensitive,highlightOption,listener);
 }
 break;
 }
 case LINK_TYPE_STATUS:
 {
-final URLSpan[] spans=string.getSpans(0,string.length(),URLSpan.class);
+final int length=string.length();
+final URLSpan[] spans=string.getSpans(0,length,URLSpan.class);
 for (final URLSpan span : spans) {
 final Matcher matcher=PATTERN_TWITTER_STATUS.matcher(span.getURL());
 if (matcher.matches()) {
@@ -46,7 +63,7 @@ if (matcher.matches()) {
   final int end=string.getSpanEnd(span);
   final String url=matcherGroup(matcher,GROUP_ID_TWITTER_STATUS_STATUS_ID);
   string.removeSpan(span);
-  applyLink(url,start,end,string,accountKey,extraId,LINK_TYPE_STATUS,sensitive,highlightOption,listener);
+  applyLink(url,null,start,end,string,accountKey,extraId,LINK_TYPE_STATUS,sensitive,highlightOption,listener);
 }
 }
 break;

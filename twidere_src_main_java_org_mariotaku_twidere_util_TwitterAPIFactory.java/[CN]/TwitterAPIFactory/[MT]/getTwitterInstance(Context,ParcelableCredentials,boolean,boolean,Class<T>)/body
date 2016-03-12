@@ -1,6 +1,17 @@
 {
   final HashMap<String,String> extraParams=new HashMap<>();
-  extraParams.put("include_entities",String.valueOf(includeEntities));
-  extraParams.put("include_retweets",String.valueOf(includeRetweets));
-  return getInstance(context,credentials,extraParams,cls);
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.FANFOU:
+{
+      extraParams.put("format","html");
+      break;
+    }
+case ParcelableAccount.Type.TWITTER:
+{
+    extraParams.put("include_entities",String.valueOf(includeEntities));
+    extraParams.put("include_retweets",String.valueOf(includeRetweets));
+    break;
+  }
+}
+return getInstance(context,credentials,extraParams,cls);
 }

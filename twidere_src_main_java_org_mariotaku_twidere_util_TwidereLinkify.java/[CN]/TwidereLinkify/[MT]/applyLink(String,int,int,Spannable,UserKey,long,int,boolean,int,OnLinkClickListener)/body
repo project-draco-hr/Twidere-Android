@@ -1,3 +1,0 @@
-{
-  applyLink(url,null,start,end,text,accountKey,extraId,type,sensitive,highlightOption,listener);
-}

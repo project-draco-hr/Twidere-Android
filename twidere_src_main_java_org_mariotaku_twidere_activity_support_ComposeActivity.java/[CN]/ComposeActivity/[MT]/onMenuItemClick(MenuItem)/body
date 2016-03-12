@@ -18,7 +18,7 @@ case R.id.add_location:
 }
 case R.id.drafts:
 {
-Utils.openDrafts(this);
+IntentUtils.openDrafts(this);
 break;
 }
 case R.id.delete:

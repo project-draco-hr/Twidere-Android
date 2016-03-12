@@ -19,7 +19,8 @@
   }
   final ImageView bannerView=mAccountProfileBannerView;
   if (bannerView.getDrawable() == null || !CompareUtils.objectEquals(bannerUrl,bannerView.getTag())) {
-    mMediaLoader.displayProfileBanner(mAccountProfileBannerView,bannerUrl,width,this);
+    mMediaLoader.displayProfileBanner(mAccountProfileBannerView,bannerUrl,width);
+    mAccountProfileBannerView.setTag(bannerUrl);
   }
  else {
     mMediaLoader.cancelDisplayTask(mAccountProfileBannerView);

@@ -1,0 +1,4 @@
+Twitter twitter
+String id
+String screenName
+String accountType

@@ -1,4 +1,0 @@
-{
-  if (getId() == null || getText() == null)   throw new IOException("Malformed Status object");
-  fixStatus();
-}

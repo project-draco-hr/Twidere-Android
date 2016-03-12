@@ -73,13 +73,14 @@
   if (result.extras.user_profile_image_url_profile_size == null) {
     result.extras.user_profile_image_url_profile_size=user.getProfileImageUrlLarge();
   }
-  if (status instanceof FanfouSearchStatus) {
-    result.text_html=status.getText();
+  String text=status.getText();
+  if (text.contains("<") && text.contains(">")) {
+    result.text_html=text;
     result.text_plain=HtmlEscapeHelper.toPlainText(result.text_html);
   }
  else {
     result.text_html=InternalTwitterContentUtils.formatStatusText(status);
-    result.text_plain=InternalTwitterContentUtils.unescapeTwitterStatusText(status.getText());
+    result.text_plain=InternalTwitterContentUtils.unescapeTwitterStatusText(text);
   }
   result.media=ParcelableMediaUtils.fromStatus(status);
   result.source=status.getSource();

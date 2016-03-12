@@ -1,5 +1,9 @@
 {
-  if (mUserId != null)   return twitter.getUserTimeline(mUserId,paging);
- else   if (mUserScreenName != null)   return twitter.getUserTimelineByScreenName(mUserScreenName,paging);
+  if (mUserId != null) {
+    return twitter.getUserTimeline(mUserId,paging);
+  }
+ else   if (mUserScreenName != null) {
+    return twitter.getUserTimelineByScreenName(mUserScreenName,paging);
+  }
  else   throw new TwitterException("Invalid user");
 }

@@ -37,6 +37,11 @@ case R.id.groups:
 IntentUtils.openUserGroups(getActivity(),account.account_key,account.account_key.getId(),account.screen_name);
 break;
 }
+case R.id.public_timeline:
+{
+IntentUtils.openPublicTimeline(getActivity(),account.account_key);
+break;
+}
 case R.id.messages:
 {
 IntentUtils.openDirectMessages(getActivity(),account.account_key);
@@ -49,7 +54,7 @@ break;
 }
 case R.id.edit:
 {
-Utils.openProfileEditor(getActivity(),account.account_key);
+IntentUtils.openProfileEditor(getActivity(),account.account_key);
 break;
 }
 }
@@ -60,17 +65,17 @@ final OptionItem option=(OptionItem)item;
 switch (option.id) {
 case R.id.accounts:
 {
-Utils.openAccountsManager(getActivity());
+IntentUtils.openAccountsManager(getActivity());
 break;
 }
 case R.id.drafts:
 {
-Utils.openDrafts(getActivity());
+IntentUtils.openDrafts(getActivity());
 break;
 }
 case R.id.filters:
 {
-Utils.openFilters(getActivity());
+IntentUtils.openFilters(getActivity());
 break;
 }
 case R.id.settings:
