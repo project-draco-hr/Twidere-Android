@@ -1,5 +1,5 @@
 String[] projection
 UserKey accountKey
-long conversationId
+String conversationId
 String selection
 String sortOrder
