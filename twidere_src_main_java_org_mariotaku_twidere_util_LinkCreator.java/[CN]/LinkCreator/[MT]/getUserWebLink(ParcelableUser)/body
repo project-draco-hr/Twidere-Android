@@ -1,0 +1,9 @@
+{
+  if (user.extras != null && user.extras.statusnet_profile_url != null) {
+    return Uri.parse(user.extras.statusnet_profile_url);
+  }
+  if (USER_TYPE_FANFOU_COM.equals(user.key.getHost())) {
+    return getFanfouUserLink(user.key.getId());
+  }
+  return getTwitterUserLink(user.screen_name);
+}

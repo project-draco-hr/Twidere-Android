@@ -1,0 +1,7 @@
+{
+  Uri.Builder builder=new Uri.Builder();
+  builder.scheme(SCHEME_HTTP);
+  builder.authority(AUTHORITY_FANFOU);
+  builder.appendPath(id);
+  return builder.build();
+}
