@@ -1,9 +1,0 @@
-{
-  final TextView title=(TextView)view.findViewById(android.R.id.title);
-  if (!TextUtils.isEmpty(header.title)) {
-    title.setText(header.title);
-  }
- else {
-    title.setText(header.titleRes);
-  }
-}

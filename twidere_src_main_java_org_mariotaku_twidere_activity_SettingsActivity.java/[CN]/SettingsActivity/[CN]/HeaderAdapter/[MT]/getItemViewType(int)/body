@@ -1,4 +1,0 @@
-{
-  final Header header=getItem(position);
-  return getHeaderType(header);
-}

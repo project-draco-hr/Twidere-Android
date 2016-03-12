@@ -1,6 +1,11 @@
 {
   super.onCreate(savedInstanceState);
-  if (savedInstanceState != null) {
-    invalidateHeaders();
-  }
+  SettingsDetailsFragment fragment=new SettingsDetailsFragment();
+  final Bundle args=new Bundle();
+  args.putInt(EXTRA_RESID,R.xml.preferences_network);
+  fragment.setArguments(args);
+  final FragmentManager fm=getSupportFragmentManager();
+  final FragmentTransaction ft=fm.beginTransaction();
+  ft.replace(android.R.id.content,fragment);
+  ft.commit();
 }

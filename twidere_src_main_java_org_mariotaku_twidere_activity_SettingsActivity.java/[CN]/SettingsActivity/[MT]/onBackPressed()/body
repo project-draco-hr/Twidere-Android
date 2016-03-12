@@ -1,7 +1,7 @@
 {
   if (isTopSettings() && shouldNotifyChange()) {
     final RestartConfirmDialogFragment df=new RestartConfirmDialogFragment();
-    df.show(getFragmentManager().beginTransaction(),"restart_confirm");
+    df.show(getSupportFragmentManager(),"restart_confirm");
     return;
   }
   super.onBackPressed();

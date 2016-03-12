@@ -1,6 +1,0 @@
-{
-  mInflater=LayoutInflater.from(context);
-  mHeaders=new ArrayList<>();
-  mResources=context.getResources();
-  mActionIconColor=ThemeUtils.getThemeForegroundColor(context);
-}

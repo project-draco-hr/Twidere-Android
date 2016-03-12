@@ -1,6 +1,0 @@
-{
-  super(view);
-  title=(TextView)findViewById(android.R.id.title);
-  summary=(TextView)findViewById(android.R.id.summary);
-  icon=(ImageView)findViewById(android.R.id.icon);
-}

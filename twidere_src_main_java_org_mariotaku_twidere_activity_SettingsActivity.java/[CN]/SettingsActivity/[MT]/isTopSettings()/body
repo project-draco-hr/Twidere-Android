@@ -1,3 +1,3 @@
 {
-  return getIntent().getStringExtra(EXTRA_SHOW_FRAGMENT) == null;
+  return Boolean.parseBoolean("true");
 }
