@@ -7,13 +7,6 @@
       actionBarContext=actionBar.getThemedContext();
     }
   }
- else   if (activity instanceof AppCompatPreferenceActivity) {
-    final AppCompatDelegate delegate=((AppCompatPreferenceActivity)activity).getDelegate();
-    final ActionBar actionBar=AppCompatDelegateAccessor.peekActionBar(delegate);
-    if (actionBar != null) {
-      actionBarContext=actionBar.getThemedContext();
-    }
-  }
   if (activity != actionBarContext)   return actionBarContext;
   return null;
 }

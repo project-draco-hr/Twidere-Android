@@ -1,27 +1,32 @@
 {
   final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
-  @SuppressLint("InflateParams") final View view=LayoutInflater.from(getActivity()).inflate(R.layout.dialog_host_mapping,null);
-  builder.setView(view);
-  mEditHost=(EditText)view.findViewById(R.id.host);
-  mEditAddress=(EditText)view.findViewById(R.id.address);
-  mCheckExclude=(CheckBox)view.findViewById(R.id.exclude);
-  mEditHost.addTextChangedListener(this);
-  mEditAddress.addTextChangedListener(this);
-  mCheckExclude.setOnCheckedChangeListener(this);
-  final Bundle args=getArguments();
-  if (args != null) {
-    mEditHost.setEnabled(!args.getBoolean(EXTRA_EDIT_MODE,false));
-    if (savedInstanceState == null) {
-      mEditHost.setText(args.getCharSequence(EXTRA_HOST));
-      mEditAddress.setText(args.getCharSequence(EXTRA_ADDRESS));
-      mCheckExclude.setChecked(args.getBoolean(EXTRA_EXCLUDED));
-    }
-  }
+  builder.setView(R.layout.dialog_host_mapping);
   builder.setTitle(R.string.add_host_mapping);
   builder.setPositiveButton(android.R.string.ok,this);
   builder.setNegativeButton(android.R.string.cancel,null);
   final AlertDialog dialog=builder.create();
-  dialog.setOnShowListener(this);
+  dialog.setOnShowListener(new OnShowListener(){
+    @Override public void onShow(    DialogInterface dialog){
+      AlertDialog alertDialog=(AlertDialog)dialog;
+      mEditHost=(EditText)alertDialog.findViewById(R.id.host);
+      mEditAddress=(EditText)alertDialog.findViewById(R.id.address);
+      mCheckExclude=(CheckBox)alertDialog.findViewById(R.id.exclude);
+      mEditHost.addTextChangedListener(AddMappingDialogFragment.this);
+      mEditAddress.addTextChangedListener(AddMappingDialogFragment.this);
+      mCheckExclude.setOnCheckedChangeListener(AddMappingDialogFragment.this);
+      final Bundle args=getArguments();
+      if (args != null) {
+        mEditHost.setEnabled(!args.getBoolean(EXTRA_EDIT_MODE,false));
+        if (savedInstanceState == null) {
+          mEditHost.setText(args.getCharSequence(EXTRA_HOST));
+          mEditAddress.setText(args.getCharSequence(EXTRA_ADDRESS));
+          mCheckExclude.setChecked(args.getBoolean(EXTRA_EXCLUDED));
+        }
+      }
+      updateButton();
+    }
+  }
+);
   return dialog;
 }

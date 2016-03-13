@@ -1,0 +1,4 @@
+{
+  if (mActivatedColor != 0)   return mActivatedColor;
+  return getDefaultColor();
+}

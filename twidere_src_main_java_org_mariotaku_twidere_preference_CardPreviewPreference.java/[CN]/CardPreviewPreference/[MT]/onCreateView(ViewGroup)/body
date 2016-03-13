@@ -1,5 +1,0 @@
-{
-  final View statusView=super.onCreateView(parent);
-  mHolder=new StatusViewHolder(mAdapter,statusView);
-  return statusView;
-}

@@ -1,11 +1,20 @@
 {
   super.onCreate(savedInstanceState);
-  SettingsDetailsFragment fragment=new SettingsDetailsFragment();
-  final Bundle args=new Bundle();
-  args.putInt(EXTRA_RESID,R.xml.preferences_network);
-  fragment.setArguments(args);
-  final FragmentManager fm=getSupportFragmentManager();
-  final FragmentTransaction ft=fm.beginTransaction();
-  ft.replace(android.R.id.content,fragment);
-  ft.commit();
+  setContentView(R.layout.activity_settings);
+  final int backgroundAlpha=getCurrentThemeBackgroundAlpha();
+  final int alpha=ThemeUtils.getActionBarAlpha(getThemeBackgroundOption(),backgroundAlpha);
+  final int statusBarColor=ThemeUtils.getActionBarColor(this,getCurrentThemeColor(),getThemeBackgroundOption());
+  mMainContent.setDrawColor(true);
+  mMainContent.setColor(statusBarColor,alpha);
+  mTwidereActionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
+  mMainContent.setActionModeForChildListener(mTwidereActionModeForChildListener);
+  mDetailFragmentContainer.setBackgroundColor((backgroundAlpha << 24 | 0xFFFFFF) & ThemeUtils.getThemeBackgroundColor(this));
+  mSlidingPaneLayout.setShadowResourceLeft(R.drawable.sliding_pane_shadow_left);
+  mSlidingPaneLayout.setShadowResourceRight(R.drawable.sliding_pane_shadow_right);
+  mSlidingPaneLayout.setSliderFadeColor(0);
+  mEntriesAdapter=new EntriesAdapter(this);
+  initEntries();
+  mEntriesListView.setAdapter(mEntriesAdapter);
+  mEntriesListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+  mEntriesListView.setOnItemClickListener(this);
 }

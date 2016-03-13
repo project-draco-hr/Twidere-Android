@@ -1,5 +1,0 @@
-{
-  super.onBindView(view);
-  final ImageView imageView=(ImageView)view.findViewById(R.id.color);
-  imageView.setImageBitmap(TwidereColorUtils.getColorPreviewBitmap(getContext(),getValue(),false));
-}

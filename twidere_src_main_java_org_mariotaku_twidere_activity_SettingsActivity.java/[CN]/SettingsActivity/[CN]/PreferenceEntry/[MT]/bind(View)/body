@@ -1,0 +1,4 @@
+{
+  ((ImageView)view.findViewById(android.R.id.icon)).setImageResource(icon);
+  ((TextView)view.findViewById(android.R.id.title)).setText(title);
+}

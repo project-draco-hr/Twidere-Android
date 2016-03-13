@@ -1,0 +1,7 @@
+{
+  super.onBindViewHolder(holder);
+  final TextView title=(TextView)holder.findViewById(android.R.id.title);
+  final TextView summary=(TextView)holder.findViewById(android.R.id.summary);
+  title.setText(getTitle());
+  summary.setText(getSummary());
+}

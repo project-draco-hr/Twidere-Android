@@ -1,0 +1,5 @@
+{
+  super.onBindViewHolder(view);
+  final int fgColor=ThemeUtils.getThemeForegroundColor(getContext());
+  ((ImageView)view.findViewById(android.R.id.icon)).setColorFilter(fgColor,Mode.SRC_ATOP);
+}

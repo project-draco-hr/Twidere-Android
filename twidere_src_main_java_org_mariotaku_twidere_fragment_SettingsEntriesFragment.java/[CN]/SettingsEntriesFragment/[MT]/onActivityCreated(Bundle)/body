@@ -1,5 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  getPreferenceManager().setSharedPreferencesName(SHARED_PREFERENCES_NAME);
-  addPreferencesFromResource(R.xml.settings_headers);
-}

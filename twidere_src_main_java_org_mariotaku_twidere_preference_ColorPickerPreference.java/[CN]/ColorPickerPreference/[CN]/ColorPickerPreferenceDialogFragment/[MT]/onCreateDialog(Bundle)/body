@@ -1,0 +1,12 @@
+{
+  final ColorPickerPreference preference=(ColorPickerPreference)getPreference();
+  final Context context=getContext();
+  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
+  builder.setTitle(preference.getDialogTitle());
+  builder.setView(R.layout.cp__dialog_color_picker);
+  builder.setPositiveButton(context.getString(android.R.string.ok),this);
+  builder.setNegativeButton(context.getString(android.R.string.cancel),this);
+  AlertDialog dialog=builder.create();
+  dialog.setOnShowListener(this);
+  return dialog;
+}

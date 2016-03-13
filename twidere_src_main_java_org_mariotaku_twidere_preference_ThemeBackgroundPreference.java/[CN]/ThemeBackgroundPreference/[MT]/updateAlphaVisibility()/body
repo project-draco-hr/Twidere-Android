@@ -1,5 +1,0 @@
-{
-  if (mAlphaContainer == null)   return;
-  final boolean isTransparent=VALUE_THEME_BACKGROUND_TRANSPARENT.equals(mValue);
-  mAlphaContainer.setVisibility(isTransparent ? View.VISIBLE : View.GONE);
-}

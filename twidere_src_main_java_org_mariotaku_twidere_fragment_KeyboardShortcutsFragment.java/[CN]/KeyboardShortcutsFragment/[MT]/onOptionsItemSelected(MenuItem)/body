@@ -3,7 +3,7 @@ switch (item.getItemId()) {
 case R.id.reset:
 {
       final DialogFragment f=new ResetKeyboardShortcutConfirmDialogFragment();
-      f.show(getFragmentManager().beginTransaction(),"reset_keyboard_shortcut_confirm");
+      f.show(getFragmentManager(),"reset_keyboard_shortcut_confirm");
       return true;
     }
 }

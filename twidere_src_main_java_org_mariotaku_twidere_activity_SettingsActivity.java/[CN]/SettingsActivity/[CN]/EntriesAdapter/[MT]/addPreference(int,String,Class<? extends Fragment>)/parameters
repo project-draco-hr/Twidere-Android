@@ -1,0 +1,3 @@
+int icon
+String title
+Class<? extends Fragment> cls

@@ -1,3 +1,0 @@
-{
-  super.onPanelClosed(featureId,menu);
-}

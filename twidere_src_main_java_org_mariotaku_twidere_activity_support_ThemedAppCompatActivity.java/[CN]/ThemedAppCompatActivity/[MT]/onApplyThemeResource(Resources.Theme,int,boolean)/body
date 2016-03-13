@@ -5,9 +5,8 @@
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   mCurrentThemeFontFamily=getThemeFontFamily();
   super.onApplyThemeResource(theme,resId,first);
-  final Toolbar actionBarToolbar=getActionBarToolbar();
-  ThemeUtils.applyToolbarItemColor(this,actionBarToolbar,mCurrentThemeColor);
+  final Window window=getWindow();
   if (shouldApplyWindowBackground()) {
-    ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
+    ThemeUtils.applyWindowBackground(this,window,mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
   }
 }

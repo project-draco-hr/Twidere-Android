@@ -1,0 +1,38 @@
+{
+  final Context context=getContext();
+  final TypedArray a=context.obtainStyledAttributes(null,android.support.v7.appcompat.R.styleable.AlertDialog,android.support.v7.appcompat.R.attr.alertDialogStyle,0);
+  @SuppressLint("PrivateResource") final int layout=a.getResourceId(android.support.v7.appcompat.R.styleable.AlertDialog_singleChoiceItemLayout,0);
+  a.recycle();
+  mAdapter=new SimpleCursorAdapter(context,layout,null,new String[]{Audio.Media.TITLE},new int[]{android.R.id.text1},0);
+  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,this);
+  int checkedItem=-1;
+  builder.setSingleChoiceItems(mAdapter,checkedItem,new OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      if (mMediaPlayer != null) {
+        if (mMediaPlayer.isPlaying()) {
+          mMediaPlayer.stop();
+        }
+        mMediaPlayer.release();
+      }
+      final Cursor cursor=mAdapter.getCursor();
+      if (!cursor.moveToPosition(which))       return;
+      mMediaPlayer=new MediaPlayer();
+      mMediaPlayer.setLooping(false);
+      final String ringtone=cursor.getString(cursor.getColumnIndex(Audio.Media.DATA));
+      final Uri def_uri=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+      final Uri uri=isEmpty(ringtone) ? def_uri : Uri.parse(ringtone);
+      try {
+        mMediaPlayer.setDataSource(getContext(),uri);
+        mMediaPlayer.prepare();
+        mMediaPlayer.start();
+      }
+ catch (      final Exception e) {
+      }
+    }
+  }
+);
+  getLoaderManager().initLoader(0,null,this);
+  return builder.create();
+}

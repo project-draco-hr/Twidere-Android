@@ -3,6 +3,5 @@
     persistString(value);
     notifyChanged();
   }
-  updateAlphaVisibility();
   updateSummary();
 }

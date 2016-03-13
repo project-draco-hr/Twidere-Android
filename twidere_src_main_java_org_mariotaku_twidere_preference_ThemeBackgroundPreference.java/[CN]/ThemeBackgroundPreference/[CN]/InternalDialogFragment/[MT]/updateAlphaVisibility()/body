@@ -1,0 +1,6 @@
+{
+  if (mAlphaContainer == null)   return;
+  final ThemeBackgroundPreference preference=(ThemeBackgroundPreference)getPreference();
+  final boolean isTransparent=VALUE_THEME_BACKGROUND_TRANSPARENT.equals(preference.getValue());
+  mAlphaContainer.setVisibility(isTransparent ? View.VISIBLE : View.GONE);
+}

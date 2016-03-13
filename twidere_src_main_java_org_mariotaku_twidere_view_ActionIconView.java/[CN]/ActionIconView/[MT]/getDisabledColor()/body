@@ -1,0 +1,4 @@
+{
+  if (mDisabledColor != 0)   return mDisabledColor;
+  return getDefaultColor();
+}

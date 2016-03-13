@@ -1,0 +1,9 @@
+{
+  super(context,attrs);
+  final int[] styleable={android.R.attr.ringtoneType,android.R.attr.showDefault,android.R.attr.showSilent};
+  TypedArray a=context.obtainStyledAttributes(attrs,styleable);
+  mRingtoneType=a.getInt(0,RingtoneManager.TYPE_RINGTONE);
+  mShowDefault=a.getBoolean(1,true);
+  mShowSilent=a.getBoolean(2,true);
+  a.recycle();
+}

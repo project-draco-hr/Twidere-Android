@@ -1,0 +1,11 @@
+{
+  if (isActivated()) {
+    setColorFilter(getActivatedColor());
+  }
+ else   if (isEnabled()) {
+    setColorFilter(getDefaultColor());
+  }
+ else {
+    setColorFilter(getDisabledColor());
+  }
+}

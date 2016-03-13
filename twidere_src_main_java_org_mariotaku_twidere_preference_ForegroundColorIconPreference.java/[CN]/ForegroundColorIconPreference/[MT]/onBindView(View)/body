@@ -1,8 +1,0 @@
-{
-  super.onBindView(view);
-  final Drawable icon=getIcon();
-  if (icon != null) {
-    icon.setColorFilter(ThemeUtils.getThemeForegroundColor(getContext()),Mode.SRC_ATOP);
-  }
-  setIcon(icon);
-}

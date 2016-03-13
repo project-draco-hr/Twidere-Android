@@ -1,0 +1,3 @@
+{
+  addPreference(icon,title,cls,null);
+}

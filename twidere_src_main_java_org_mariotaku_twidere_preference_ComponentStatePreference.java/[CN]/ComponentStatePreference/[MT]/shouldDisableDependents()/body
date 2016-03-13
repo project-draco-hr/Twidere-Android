@@ -1,5 +1,3 @@
 {
-  final boolean disableDependentsState=getDisableDependentsState();
-  final boolean value=isComponentEnabled();
-  return disableDependentsState ? value : !value;
+  return getDisableDependentsState() || !isComponentAvailable();
 }

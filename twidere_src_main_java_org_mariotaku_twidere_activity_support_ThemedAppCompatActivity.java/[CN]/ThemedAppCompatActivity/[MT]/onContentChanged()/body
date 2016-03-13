@@ -1,0 +1,8 @@
+{
+  super.onContentChanged();
+  final Window window=getWindow();
+  final Toolbar actionBarToolbar=(Toolbar)window.findViewById(R.id.action_bar);
+  final ActionBarContainer actionBarContainer=(ActionBarContainer)window.findViewById(R.id.action_bar_container);
+  ThemeUtils.applyActionBarBackground(actionBarContainer,this,mCurrentThemeColor,mCurrentThemeBackgroundOption,true);
+  ThemeUtils.applyToolbarItemColor(this,actionBarToolbar,mCurrentThemeColor);
+}

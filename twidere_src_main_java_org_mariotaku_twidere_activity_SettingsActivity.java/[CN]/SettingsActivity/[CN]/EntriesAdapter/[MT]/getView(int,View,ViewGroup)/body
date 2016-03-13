@@ -1,0 +1,28 @@
+{
+  final int viewType=getItemViewType(position);
+  final Entry entry=getItem(position);
+  final View view;
+  if (convertView != null) {
+    view=convertView;
+  }
+ else {
+switch (viewType) {
+case VIEW_TYPE_PREFERENCE_ENTRY:
+{
+        view=mInflater.inflate(R.layout.list_item_preference_header_item,parent,false);
+        break;
+      }
+case VIEW_TYPE_HEADER_ENTRY:
+{
+      view=mInflater.inflate(R.layout.list_item_preference_header_category,parent,false);
+      break;
+    }
+default :
+{
+    throw new UnsupportedOperationException();
+  }
+}
+}
+entry.bind(view);
+return view;
+}

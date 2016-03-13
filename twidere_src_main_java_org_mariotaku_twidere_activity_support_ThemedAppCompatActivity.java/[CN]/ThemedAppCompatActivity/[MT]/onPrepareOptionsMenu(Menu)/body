@@ -1,0 +1,7 @@
+{
+  final boolean result=super.onPrepareOptionsMenu(menu);
+  final Window window=getWindow();
+  final Toolbar actionBarToolbar=(Toolbar)window.findViewById(R.id.action_bar);
+  ThemeUtils.applyToolbarItemColor(this,actionBarToolbar,mCurrentThemeColor);
+  return result;
+}

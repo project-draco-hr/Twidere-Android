@@ -1,0 +1,20 @@
+{
+  mEntriesAdapter.addHeader(getString(R.string.appearance));
+  mEntriesAdapter.addPreference(R.drawable.ic_action_color_palette,getString(R.string.theme),R.xml.preferences_theme);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_card,getString(R.string.cards),R.xml.preferences_cards);
+  mEntriesAdapter.addHeader(getString(R.string.function));
+  mEntriesAdapter.addPreference(R.drawable.ic_action_tab,getString(R.string.tabs),CustomTabsFragment.class);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_extension,getString(R.string.extensions),ExtensionsListFragment.class);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_refresh,getString(R.string.refresh),R.xml.preferences_refresh);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_notification,getString(R.string.notifications),R.xml.preferences_notifications);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_server,getString(R.string.network),R.xml.preferences_network);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_status_compose,getString(R.string.compose),R.xml.preferences_compose);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_twidere_square,getString(R.string.content),R.xml.preferences_content);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_storage,getString(R.string.storage),R.xml.preferences_storage);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_more_horizontal,getString(R.string.other_settings),R.xml.preferences_other);
+  mEntriesAdapter.addHeader(getString(R.string.about));
+  mEntriesAdapter.addPreference(R.drawable.ic_action_info,getString(R.string.about),R.xml.preferences_about);
+  final Bundle browserArgs=new Bundle();
+  browserArgs.putString(EXTRA_URI,"file:///android_asset/gpl-3.0-standalone.html");
+  mEntriesAdapter.addPreference(R.drawable.ic_action_open_source,getString(R.string.open_source_license),SupportBrowserFragment.class,browserArgs);
+}

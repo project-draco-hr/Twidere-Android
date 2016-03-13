@@ -1,7 +1,5 @@
 {
-  mPreferences=getSharedPreferences();
-  if (mPreferences == null)   return;
-  mCheckedWoeId=mPreferences.getInt(KEY_LOCAL_TRENDS_WOEID,1);
+  mCheckedWoeId=getPersistedInt(1);
   if (mGetAvailableTrendsTask != null) {
     mGetAvailableTrendsTask.cancel(false);
   }

@@ -1,0 +1,9 @@
+{
+  final ColorPickerPreference preference=(ColorPickerPreference)getPreference();
+  if (mController == null)   return;
+  final int color=mController.getColor();
+  if (preference.isPersistent()) {
+    preference.persistInt(color);
+  }
+  preference.notifyChanged();
+}

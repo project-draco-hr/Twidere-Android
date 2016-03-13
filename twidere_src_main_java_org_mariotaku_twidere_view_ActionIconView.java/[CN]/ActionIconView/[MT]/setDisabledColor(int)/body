@@ -1,0 +1,4 @@
+{
+  mDisabledColor=disabledColor;
+  updateColorFilter();
+}

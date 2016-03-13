@@ -1,3 +1,0 @@
-{
-  return NavUtils.getParentActivityIntent(this);
-}

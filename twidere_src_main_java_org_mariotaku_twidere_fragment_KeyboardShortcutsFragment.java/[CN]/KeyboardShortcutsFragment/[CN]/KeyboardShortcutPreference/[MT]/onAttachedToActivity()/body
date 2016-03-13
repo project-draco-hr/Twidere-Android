@@ -1,4 +1,0 @@
-{
-  super.onAttachedToActivity();
-  mKeyboardShortcutHandler.registerOnSharedPreferenceChangeListener(mPreferencesChangeListener);
-}

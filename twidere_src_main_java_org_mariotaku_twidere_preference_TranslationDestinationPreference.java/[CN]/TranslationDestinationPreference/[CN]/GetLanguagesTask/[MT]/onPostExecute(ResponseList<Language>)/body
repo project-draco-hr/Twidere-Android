@@ -6,7 +6,8 @@
   if (result == null)   return;
   final AlertDialog.Builder selectorBuilder=new AlertDialog.Builder(getContext());
   selectorBuilder.setTitle(getTitle());
-  selectorBuilder.setSingleChoiceItems(mAdapter,mAdapter.findItemPosition(mSelectedLanguageCode),TranslationDestinationPreference.this);
+  final String value=getPersistedString(mSelectedLanguageCode);
+  selectorBuilder.setSingleChoiceItems(mAdapter,mAdapter.findItemPosition(value),TranslationDestinationPreference.this);
   selectorBuilder.setNegativeButton(android.R.string.cancel,null);
   mDialog=selectorBuilder.create();
   final ListView lv=mDialog.getListView();

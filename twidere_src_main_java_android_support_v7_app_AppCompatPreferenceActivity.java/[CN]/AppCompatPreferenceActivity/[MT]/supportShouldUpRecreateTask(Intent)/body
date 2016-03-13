@@ -1,3 +1,0 @@
-{
-  return NavUtils.shouldUpRecreateTask(this,targetIntent);
-}

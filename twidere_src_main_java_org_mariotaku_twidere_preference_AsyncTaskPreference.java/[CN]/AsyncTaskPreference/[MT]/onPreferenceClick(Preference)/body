@@ -1,7 +1,0 @@
-{
-  if (mTask == null || mTask.getStatus() != Status.RUNNING) {
-    mTask=new Task(this);
-    mTask.execute();
-  }
-  return true;
-}

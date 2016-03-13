@@ -1,7 +1,0 @@
-{
-  super.onPrepareDialogBuilder(builder);
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setNegativeButton(android.R.string.cancel,null);
-  final int value=getPersistedInt(mDefaultValue);
-  builder.setMultiChoiceItems(getEntries(),getCheckedItems(value),null);
-}

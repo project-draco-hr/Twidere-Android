@@ -1,4 +1,0 @@
-{
-  super.setTheme(resid);
-  mThemeId=resid;
-}

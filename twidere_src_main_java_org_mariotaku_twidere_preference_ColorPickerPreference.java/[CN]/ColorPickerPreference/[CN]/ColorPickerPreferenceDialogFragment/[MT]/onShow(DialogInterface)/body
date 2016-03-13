@@ -1,0 +1,12 @@
+{
+  final ColorPickerPreference preference=(ColorPickerPreference)getPreference();
+  final AlertDialog alertDialog=(AlertDialog)dialog;
+  final View windowView=alertDialog.getWindow().getDecorView();
+  if (windowView == null)   return;
+  mController=new ColorPickerDialog.Controller(getContext(),windowView);
+  mController.setAlphaEnabled(preference.isAlphaSliderEnabled());
+  for (  int presetColor : PRESET_COLORS) {
+    mController.addColor(ContextCompat.getColor(getContext(),presetColor));
+  }
+  mController.setInitialColor(preference.getValue());
+}

@@ -1,17 +1,8 @@
 {
   final Twitter twitter=TwitterAPIFactory.getDefaultTwitterInstance(getContext(),false);
-  final String pref=mPreferences.getString(KEY_TRANSLATION_DESTINATION,null);
   if (twitter == null)   return null;
   try {
-    if (pref == null) {
-      mSelectedLanguageCode=twitter.getAccountSettings().getLanguage();
-      final Editor editor=mPreferences.edit();
-      editor.putString(KEY_TRANSLATION_DESTINATION,mSelectedLanguageCode);
-      editor.apply();
-    }
- else {
-      mSelectedLanguageCode=pref;
-    }
+    mSelectedLanguageCode=twitter.getAccountSettings().getLanguage();
     return twitter.getLanguages();
   }
  catch (  final TwitterException e) {

@@ -1,9 +1,3 @@
 {
   super(context,attrs,defStyle);
-  mNames=getNames();
-  mKeys=getKeys();
-  mDefaultValues=getDefaults();
-  final int length=mNames.length;
-  if (length != mKeys.length || length != mDefaultValues.length)   throw new IllegalArgumentException();
-  mValues=new boolean[length];
 }

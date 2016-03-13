@@ -1,12 +1,9 @@
 {
   super(context,attrs,defStyleAttr);
-  final TypedArray a=context.obtainStyledAttributes(attrs,new int[]{android.R.attr.color,android.R.attr.colorForeground});
-  if (a.hasValue(0)) {
-    mDefaultColor=a.getColor(0,0);
-  }
- else {
-    mDefaultColor=a.getColor(1,0);
-  }
-  setColorFilter(mDefaultColor,Mode.SRC_ATOP);
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.IconActionButton,R.attr.cardActionButtonStyle,R.style.Widget_CardActionButton);
+  mDefaultColor=a.getColor(R.styleable.IconActionButton_iabColor,0);
+  mActivatedColor=a.getColor(R.styleable.IconActionButton_iabActivatedColor,0);
+  mDisabledColor=a.getColor(R.styleable.IconActionButton_iabDisabledColor,0);
   a.recycle();
+  updateColorFilter();
 }

@@ -1,0 +1,33 @@
+{
+  addPreferencesFromResource(getPreferenceResource());
+  final Context context=getActivity();
+  final Preference wizardHeader=new WizardPageHeaderPreference(context);
+  wizardHeader.setTitle(getHeaderTitle());
+  wizardHeader.setSummary(getHeaderSummary());
+  wizardHeader.setOrder(0);
+  final PreferenceScreen screen=getPreferenceScreen();
+  screen.addPreference(wizardHeader);
+  final int nextPageTitle=getNextPageTitle();
+  if (nextPageTitle != 0) {
+    final Preference nextPage=new WizardPageNavPreference(context);
+    nextPage.setOrder(999);
+    nextPage.setKey(WIZARD_PREFERENCE_KEY_NEXT_PAGE);
+    nextPage.setTitle(nextPageTitle);
+    nextPage.setOnPreferenceClickListener(this);
+    screen.addPreference(nextPage);
+  }
+  final Preference.OnPreferenceChangeListener listener=new Preference.OnPreferenceChangeListener(){
+    @Override public boolean onPreferenceChange(    Preference preference,    Object newValue){
+      final Bundle extras=preference.getExtras();
+      if (extras != null && extras.getBoolean(EXTRA_RESTART_ACTIVITY)) {
+        ((SettingsWizardActivity)getActivity()).restartWithCurrentPage();
+        return true;
+      }
+      return true;
+    }
+  }
+;
+  for (int i=0, j=screen.getPreferenceCount(); i < j; i++) {
+    screen.getPreference(i).setOnPreferenceChangeListener(listener);
+  }
+}

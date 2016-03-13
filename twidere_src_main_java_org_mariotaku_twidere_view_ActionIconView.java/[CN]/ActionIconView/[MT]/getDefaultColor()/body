@@ -1,3 +1,10 @@
 {
+  if (mDefaultColor == 0) {
+    ColorStateList color=ViewCompat.getBackgroundTintList(this);
+    if (color != null) {
+      final int currentColor=color.getColorForState(getDrawableState(),0);
+      return ThemeUtils.getContrastColor(currentColor,Color.BLACK,Color.WHITE);
+    }
+  }
   return mDefaultColor;
 }

@@ -1,5 +1,0 @@
-{
-  if (!isTopSettings())   return false;
-  getMenuInflater().inflate(R.menu.menu_settings,menu);
-  return true;
-}

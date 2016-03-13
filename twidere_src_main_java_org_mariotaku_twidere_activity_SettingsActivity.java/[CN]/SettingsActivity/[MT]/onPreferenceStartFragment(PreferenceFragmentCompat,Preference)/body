@@ -1,0 +1,9 @@
+{
+  final FragmentManager fm=getSupportFragmentManager();
+  final FragmentTransaction ft=fm.beginTransaction();
+  final Fragment f=Fragment.instantiate(this,preference.getFragment(),preference.getExtras());
+  ft.replace(R.id.detail_fragment_container,f);
+  ft.addToBackStack(String.valueOf(preference.getTitle()));
+  ft.commit();
+  return true;
+}

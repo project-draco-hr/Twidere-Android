@@ -1,16 +1,4 @@
 {
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
-  final Activity activity=getActivity();
-  final PreferenceScreen defaultScreen=getPreferenceScreen();
-  final PreferenceScreen preferenceScreen;
-  if (defaultScreen != null) {
-    defaultScreen.removeAll();
-    preferenceScreen=defaultScreen;
-  }
- else {
-    preferenceScreen=getPreferenceManager().createPreferenceScreen(activity);
-  }
-  setPreferenceScreen(preferenceScreen);
-  addPreferences();
 }

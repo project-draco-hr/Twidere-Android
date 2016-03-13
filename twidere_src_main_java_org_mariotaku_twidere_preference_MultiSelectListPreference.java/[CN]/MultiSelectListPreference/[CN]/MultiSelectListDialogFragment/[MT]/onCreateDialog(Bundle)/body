@@ -1,0 +1,19 @@
+{
+  final MultiSelectListPreference preference=(MultiSelectListPreference)getPreference();
+  mNames=preference.getNames();
+  mKeys=preference.getKeys();
+  mDefaultValues=preference.getDefaults();
+  final int length=mKeys.length;
+  if (length != mNames.length || length != mDefaultValues.length)   throw new IllegalArgumentException();
+  mValues=new boolean[length];
+  mPreferences=preference.getDefaultSharedPreferences();
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+  for (int i=0; i < length; i++) {
+    mValues[i]=mPreferences.getBoolean(mKeys[i],mDefaultValues[i]);
+  }
+  builder.setTitle(preference.getDialogTitle());
+  builder.setPositiveButton(android.R.string.ok,this);
+  builder.setNegativeButton(android.R.string.cancel,null);
+  builder.setMultiChoiceItems(mNames,mValues,this);
+  return builder.create();
+}

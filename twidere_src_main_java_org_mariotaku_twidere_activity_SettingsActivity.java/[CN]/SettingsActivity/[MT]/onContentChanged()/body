@@ -1,0 +1,7 @@
+{
+  super.onContentChanged();
+  mEntriesListView=(ListView)findViewById(R.id.entries_list);
+  mSlidingPaneLayout=(SlidingPaneLayout)findViewById(R.id.sliding_pane);
+  mMainContent=(TintedStatusNativeActionModeAwareLayout)findViewById(R.id.main_content);
+  mDetailFragmentContainer=findViewById(R.id.detail_fragment_container);
+}

@@ -1,0 +1,10 @@
+{
+  final Entry entry=getItem(position);
+  if (entry instanceof PreferenceEntry) {
+    return VIEW_TYPE_PREFERENCE_ENTRY;
+  }
+ else   if (entry instanceof HeaderEntry) {
+    return VIEW_TYPE_HEADER_ENTRY;
+  }
+  throw new UnsupportedOperationException();
+}

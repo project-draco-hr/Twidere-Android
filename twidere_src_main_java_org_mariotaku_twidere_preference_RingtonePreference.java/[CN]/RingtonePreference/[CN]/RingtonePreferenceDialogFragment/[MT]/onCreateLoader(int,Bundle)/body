@@ -1,0 +1,6 @@
+{
+  final String[] cols=new String[]{Audio.Media._ID,Audio.Media.DATA,Audio.Media.TITLE};
+  final String selection=Expression.equalsArgs(Audio.Media.IS_NOTIFICATION).getSQL();
+  final String[] selectionArgs={"1"};
+  return new CursorLoader(getContext(),Audio.Media.INTERNAL_CONTENT_URI,cols,selection,selectionArgs,Audio.Media.DEFAULT_SORT_ORDER);
+}

@@ -1,6 +1,0 @@
-{
-  super.onBindView(view);
-  final TextView summary=(TextView)view.findViewById(android.R.id.summary);
-  summary.setVisibility(View.VISIBLE);
-  summary.setText(getStyledEntry(Utils.getLinkHighlightingStyleInt(getValue()),getEntry()));
-}
