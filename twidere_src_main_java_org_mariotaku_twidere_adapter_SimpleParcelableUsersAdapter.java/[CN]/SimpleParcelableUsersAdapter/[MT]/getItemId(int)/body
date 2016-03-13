@@ -1,7 +1,7 @@
 {
   final ParcelableUser item=getItem(position);
   if (item != null) {
-    return System.identityHashCode(item);
+    return item.hashCode();
   }
  else {
     return -1;

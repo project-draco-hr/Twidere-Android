@@ -1,3 +1,3 @@
 {
-  return System.identityHashCode(getAdapterAccount(position));
+  return getAdapterAccount(position).hashCode();
 }
