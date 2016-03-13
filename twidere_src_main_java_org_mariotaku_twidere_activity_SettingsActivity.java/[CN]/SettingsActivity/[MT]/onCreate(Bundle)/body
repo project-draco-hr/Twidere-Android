@@ -17,4 +17,13 @@
   mEntriesListView.setAdapter(mEntriesAdapter);
   mEntriesListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
   mEntriesListView.setOnItemClickListener(this);
+  if (savedInstanceState == null) {
+    for (int i=0, j=mEntriesAdapter.getCount(); i < j; i++) {
+      if (mEntriesAdapter.getItemViewType(i) == EntriesAdapter.VIEW_TYPE_PREFERENCE_ENTRY) {
+        openDetails(i);
+        mEntriesListView.setItemChecked(i,true);
+        break;
+      }
+    }
+  }
 }

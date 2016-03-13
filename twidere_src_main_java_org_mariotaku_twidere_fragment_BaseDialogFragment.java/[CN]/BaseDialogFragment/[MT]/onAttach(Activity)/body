@@ -1,4 +1,0 @@
-{
-  super.onAttach(activity);
-  GeneralComponentHelper.build(activity).inject(this);
-}

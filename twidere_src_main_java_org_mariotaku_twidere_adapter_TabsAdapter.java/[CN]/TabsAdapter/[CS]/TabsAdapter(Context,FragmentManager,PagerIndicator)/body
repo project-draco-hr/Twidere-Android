@@ -1,6 +1,0 @@
-{
-  super(fm);
-  mContext=context;
-  mIndicator=indicator;
-  clear();
-}

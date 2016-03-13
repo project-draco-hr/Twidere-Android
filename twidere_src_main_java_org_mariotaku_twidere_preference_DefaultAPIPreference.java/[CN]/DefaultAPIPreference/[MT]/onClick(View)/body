@@ -1,9 +1,0 @@
-{
-switch (v.getId()) {
-case R.id.api_url_format_help:
-{
-      Toast.makeText(getContext(),R.string.api_url_format_help,Toast.LENGTH_LONG).show();
-      break;
-    }
-}
-}

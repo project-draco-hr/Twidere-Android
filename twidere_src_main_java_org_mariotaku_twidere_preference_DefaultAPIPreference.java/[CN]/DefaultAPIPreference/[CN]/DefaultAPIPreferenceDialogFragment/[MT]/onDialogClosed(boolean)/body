@@ -1,0 +1,25 @@
+{
+  if (!positiveResult)   return;
+  DefaultAPIPreference preference=((DefaultAPIPreference)getPreference());
+  final SharedPreferences preferences=preference.getSharedPreferences();
+  final String apiUrlFormat=ParseUtils.parseString(mEditAPIUrlFormat.getText());
+  final int authType=APIEditorActivity.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
+  final boolean sameOAuthSigningUrl=mEditSameOAuthSigningUrl.isChecked();
+  final boolean noVersionSuffix=mEditNoVersionSuffix.isChecked();
+  final String consumerKey=ParseUtils.parseString(mEditConsumerKey.getText());
+  final String consumerSecret=ParseUtils.parseString(mEditConsumerSecret.getText());
+  final SharedPreferences.Editor editor=preferences.edit();
+  if (!TextUtils.isEmpty(consumerKey) && !TextUtils.isEmpty(consumerSecret)) {
+    editor.putString(KEY_CONSUMER_KEY,consumerKey);
+    editor.putString(KEY_CONSUMER_SECRET,consumerSecret);
+  }
+ else {
+    editor.remove(KEY_CONSUMER_KEY);
+    editor.remove(KEY_CONSUMER_SECRET);
+  }
+  editor.putString(KEY_API_URL_FORMAT,apiUrlFormat);
+  editor.putInt(KEY_AUTH_TYPE,authType);
+  editor.putBoolean(KEY_SAME_OAUTH_SIGNING_URL,sameOAuthSigningUrl);
+  editor.putBoolean(KEY_NO_VERSION_SUFFIX,noVersionSuffix);
+  editor.apply();
+}

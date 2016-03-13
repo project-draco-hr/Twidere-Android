@@ -3,9 +3,9 @@
   if (context == null)   return;
   ((IExtendedActivity)context).executeAfterFragmentResumed(new IExtendedActivity.Action(){
     @Override public void execute(    IExtendedActivity activity){
-      final DialogFragment fragment=new ProgressDialogFragment();
+      final DialogFragment fragment=new SupportProgressDialogFragment();
       fragment.setCancelable(false);
-      fragment.show(((Activity)activity).getFragmentManager(),PROGRESS_FRAGMENT_TAG);
+      fragment.show(((FragmentActivity)activity).getSupportFragmentManager(),PROGRESS_FRAGMENT_TAG);
     }
   }
 );
