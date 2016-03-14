@@ -10,10 +10,10 @@
   }
   mKeySpec=spec;
   mKeysLabel.setText(spec.toKeyString());
-  final String oldAction=mKeyboardShortcutHandler.findAction(spec);
+  final String oldAction=mKeyboardShortcutsHandler.findAction(spec);
   final KeyboardShortcutSpec copyOfSpec=spec.copy();
   copyOfSpec.setContextTag(null);
-  final String oldGeneralAction=mKeyboardShortcutHandler.findAction(copyOfSpec);
+  final String oldGeneralAction=mKeyboardShortcutsHandler.findAction(copyOfSpec);
   if (!TextUtils.isEmpty(oldAction) && !keyAction.equals(oldAction)) {
     mConflictLabel.setVisibility(View.VISIBLE);
     final String label=KeyboardShortcutsHandler.getActionLabel(this,oldAction);

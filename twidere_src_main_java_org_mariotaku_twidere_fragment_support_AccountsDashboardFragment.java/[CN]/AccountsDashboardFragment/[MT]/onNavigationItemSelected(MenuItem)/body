@@ -1,0 +1,84 @@
+{
+  final ParcelableAccount account=mAccountsAdapter.getSelectedAccount();
+  if (account == null)   return false;
+switch (item.getItemId()) {
+case R.id.search:
+{
+      final Intent intent=new Intent(getActivity(),QuickSearchBarActivity.class);
+      intent.putExtra(EXTRA_ACCOUNT_KEY,account.account_key);
+      startActivity(intent);
+      closeAccountsDrawer();
+      break;
+    }
+case R.id.compose:
+{
+    final Intent composeIntent=new Intent(INTENT_ACTION_COMPOSE);
+    composeIntent.setClass(getActivity(),ComposeActivity.class);
+    composeIntent.putExtra(EXTRA_ACCOUNT_KEY,account.account_key);
+    startActivity(composeIntent);
+    break;
+  }
+case R.id.favorites:
+{
+  IntentUtils.openUserFavorites(getActivity(),account.account_key,account.account_key.getId(),account.screen_name);
+  break;
+}
+case R.id.lists:
+{
+IntentUtils.openUserLists(getActivity(),account.account_key,account.account_key.getId(),account.screen_name);
+break;
+}
+case R.id.groups:
+{
+IntentUtils.openUserGroups(getActivity(),account.account_key,account.account_key.getId(),account.screen_name);
+break;
+}
+case R.id.public_timeline:
+{
+IntentUtils.openPublicTimeline(getActivity(),account.account_key);
+break;
+}
+case R.id.messages:
+{
+IntentUtils.openDirectMessages(getActivity(),account.account_key);
+break;
+}
+case R.id.interactions:
+{
+IntentUtils.openInteractions(getActivity(),account.account_key);
+break;
+}
+case R.id.edit:
+{
+IntentUtils.openProfileEditor(getActivity(),account.account_key);
+break;
+}
+case R.id.accounts:
+{
+IntentUtils.openAccountsManager(getActivity());
+closeAccountsDrawer();
+break;
+}
+case R.id.drafts:
+{
+IntentUtils.openDrafts(getActivity());
+closeAccountsDrawer();
+break;
+}
+case R.id.filters:
+{
+IntentUtils.openFilters(getActivity());
+closeAccountsDrawer();
+break;
+}
+case R.id.settings:
+{
+final Intent intent=new Intent(getActivity(),SettingsActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+startActivityForResult(intent,REQUEST_SETTINGS);
+closeAccountsDrawer();
+break;
+}
+}
+return false;
+}

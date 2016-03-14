@@ -1,5 +1,0 @@
-{
-  mMultiSelectHandler.dispatchOnStop();
-  super.onStop();
-  mMainContent.removeOnLayoutChangeListener(mLayoutChangeListener);
-}

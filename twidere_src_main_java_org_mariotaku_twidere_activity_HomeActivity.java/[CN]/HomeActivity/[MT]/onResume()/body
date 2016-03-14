@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  invalidateOptionsMenu();
+  updateActionsButtonStyle();
+  updateActionsButton();
+}

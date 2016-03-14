@@ -1,4 +1,0 @@
-{
-  super(context);
-  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
-}

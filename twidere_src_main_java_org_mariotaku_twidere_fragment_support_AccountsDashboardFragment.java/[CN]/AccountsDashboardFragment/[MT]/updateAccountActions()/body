@@ -24,34 +24,36 @@ case CustomTabType.NOTIFICATIONS_TIMELINE:
     }
 }
 }
-mAccountOptionsAdapter.clear();
-mAccountOptionsAdapter.add(new OptionItem(R.string.search,R.drawable.ic_action_search,R.id.search));
-if (!hasInteractionsTab) {
-mAccountOptionsAdapter.add(new OptionItem(R.string.interactions,R.drawable.ic_action_notification,R.id.interactions));
-}
-if (!hasDmTab) {
-mAccountOptionsAdapter.add(new OptionItem(R.string.direct_messages,R.drawable.ic_action_message,R.id.messages));
-}
+final Menu menu=mNavigationView.getMenu();
+MenuUtils.setMenuItemAvailability(menu,R.id.interactions,!hasInteractionsTab);
+MenuUtils.setMenuItemAvailability(menu,R.id.messages,!hasDmTab);
 if (mUseStarsForLikes) {
-mAccountOptionsAdapter.add(new OptionItem(R.string.favorites,R.drawable.ic_action_star,R.id.favorites));
+MenuUtils.setMenuItemTitle(menu,R.id.favorites,R.string.favorites);
+MenuUtils.setMenuItemIcon(menu,R.id.favorites,R.drawable.ic_action_star);
 }
  else {
-mAccountOptionsAdapter.add(new OptionItem(R.string.likes,R.drawable.ic_action_heart,R.id.favorites));
+MenuUtils.setMenuItemTitle(menu,R.id.favorites,R.string.likes);
+MenuUtils.setMenuItemIcon(menu,R.id.favorites,R.drawable.ic_action_heart);
 }
+boolean hasLists=false, hasGroups=false, hasPublicTimeline=false;
 switch (ParcelableAccountUtils.getAccountType(account)) {
 case ParcelableAccount.Type.TWITTER:
 {
-  mAccountOptionsAdapter.add(new OptionItem(R.string.lists,R.drawable.ic_action_list,R.id.lists));
+  hasLists=true;
   break;
 }
 case ParcelableAccount.Type.STATUSNET:
 {
-mAccountOptionsAdapter.add(new OptionItem(R.string.groups,R.drawable.ic_action_list,R.id.groups));
+hasGroups=true;
 break;
 }
 case ParcelableAccount.Type.FANFOU:
 {
-mAccountOptionsAdapter.add(new OptionItem(R.string.public_timeline,R.drawable.ic_action_quote,R.id.public_timeline));
+hasPublicTimeline=true;
+break;
 }
 }
+MenuUtils.setMenuItemAvailability(menu,R.id.groups,hasGroups);
+MenuUtils.setMenuItemAvailability(menu,R.id.lists,hasLists);
+MenuUtils.setMenuItemAvailability(menu,R.id.public_timeline,hasPublicTimeline);
 }

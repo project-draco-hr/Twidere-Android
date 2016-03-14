@@ -1,9 +1,0 @@
-{
-  final ParcelableAccount account=mSelectedAccount;
-  if (account != null && option.id == R.id.compose) {
-    final Context context=getContext();
-    final String displayName=UserColorNameManager.getDisplayName(account.name,account.screen_name,mNameFirst);
-    return context.getString(R.string.tweet_from_name,displayName);
-  }
-  return super.getTitle(position,option);
-}

@@ -1,0 +1,8 @@
+{
+  TypedValue value=new TypedValue();
+  if (!context.getTheme().resolveAttribute(R.attr.ateThemeKey,value,true)) {
+    return "dark";
+  }
+  if (TextUtils.isEmpty(value.string))   return "dark";
+  return String.valueOf(value.string);
+}

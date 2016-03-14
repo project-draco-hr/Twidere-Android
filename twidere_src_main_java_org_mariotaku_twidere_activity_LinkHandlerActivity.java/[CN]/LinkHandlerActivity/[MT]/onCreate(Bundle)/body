@@ -1,0 +1,18 @@
+{
+  mMultiSelectHandler=new MultiSelectEventHandler(this);
+  mMultiSelectHandler.dispatchOnCreate();
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  final int linkId=matchLinkId(data);
+  super.onCreate(savedInstanceState);
+  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar != null) {
+    actionBar.setDisplayHomeAsUpEnabled(true);
+    setActionBarTheme(linkId);
+  }
+  Utils.logOpenNotificationFromUri(this,data);
+  if (!showFragment(linkId,data)) {
+    finish();
+  }
+}

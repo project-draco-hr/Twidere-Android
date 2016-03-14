@@ -1,8 +1,6 @@
 {
   if (mAccountProfileContainer == null)   return;
-  final HomeActivity activity=(HomeActivity)getActivity();
   final Rect insets=mSystemWindowsInsets;
-  if (!activity.getDefaultSystemWindowsInsets(insets))   return;
   final int top=Utils.getInsetsTopWithoutActionBarHeight(getActivity(),insets.top);
   mAccountProfileContainer.setPadding(0,top,0,0);
 }

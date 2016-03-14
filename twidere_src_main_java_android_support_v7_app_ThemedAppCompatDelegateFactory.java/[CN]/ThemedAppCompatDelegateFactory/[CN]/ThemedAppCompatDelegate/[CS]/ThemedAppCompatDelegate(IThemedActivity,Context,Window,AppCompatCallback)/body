@@ -1,4 +1,0 @@
-{
-  super(context,window,callback);
-  this.themed=themed;
-}

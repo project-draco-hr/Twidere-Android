@@ -25,7 +25,6 @@
     accountKey=defaultId;
   }
   mAccountsAdapter.setSelectedAccountKey(accountKey);
-  mAccountOptionsAdapter.setSelectedAccount(mAccountsAdapter.getSelectedAccount());
   if (mAccountActionProvider != null) {
     mAccountActionProvider.setExclusive(false);
     mAccountActionProvider.setAccounts(accounts);

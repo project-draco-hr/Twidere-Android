@@ -1,9 +1,5 @@
 {
   mActionMode=mode;
-  final FragmentActivity activity=getActivity();
-  if (activity instanceof IThemedActivity) {
-    ThemeUtils.applySupportActionModeColor(mode,((IThemedActivity)activity).getCurrentThemeColor(),((IThemedActivity)activity).getThemeBackgroundOption(),true);
-  }
   setControlVisible(true);
   mode.getMenuInflater().inflate(R.menu.action_multi_select_items,menu);
   return true;

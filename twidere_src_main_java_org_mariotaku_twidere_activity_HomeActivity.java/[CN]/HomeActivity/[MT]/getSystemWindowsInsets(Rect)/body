@@ -1,0 +1,12 @@
+{
+  if (mTabIndicator == null || mHomeContent == null)   return false;
+  final int height=mTabIndicator.getHeight();
+  if (height != 0) {
+    insets.top=height;
+  }
+ else {
+    insets.top=ThemeUtils.getActionBarHeight(this);
+  }
+  insets.top+=mHomeContent.getTop();
+  return true;
+}

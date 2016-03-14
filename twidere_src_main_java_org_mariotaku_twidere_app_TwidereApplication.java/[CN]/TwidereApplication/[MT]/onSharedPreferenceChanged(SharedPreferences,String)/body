@@ -49,5 +49,12 @@ case KEY_THEME:
 resetTheme(preferences);
 break;
 }
+case KEY_THEME_COLOR:
+{
+final int themeColor=preferences.getInt(key,ContextCompat.getColor(this,R.color.branding_color));
+ATE.config(this,"light").primaryColor(themeColor).accentColor(themeColor).commit();
+ATE.config(this,"dark").accentColor(themeColor).commit();
+break;
+}
 }
 }

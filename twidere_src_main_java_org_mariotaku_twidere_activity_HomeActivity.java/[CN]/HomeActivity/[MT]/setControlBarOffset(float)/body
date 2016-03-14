@@ -1,0 +1,13 @@
+{
+  final ActionBar actionBar=getSupportActionBar();
+  if (actionBar == null)   return;
+  mActionBar.setTranslationY(mTabColumns > 1 ? 0 : (int)(getControlBarHeight() * (offset - 1)));
+  final ViewGroup.LayoutParams lp=mActionsButton.getLayoutParams();
+  if (lp instanceof MarginLayoutParams) {
+    mActionsButton.setTranslationY((((MarginLayoutParams)lp).bottomMargin + mActionsButton.getHeight()) * (1 - offset));
+  }
+ else {
+    mActionsButton.setTranslationY(mActionsButton.getHeight() * (1 - offset));
+  }
+  notifyControlBarOffsetChanged();
+}

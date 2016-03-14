@@ -1,0 +1,8 @@
+{
+  if (BuildConfig.DEBUG) {
+    StrictModeUtils.detectAllVmPolicy();
+    StrictModeUtils.detectAllThreadPolicy();
+  }
+  final int themeColor=getThemeColor();
+  super.onCreate(savedInstanceState);
+}

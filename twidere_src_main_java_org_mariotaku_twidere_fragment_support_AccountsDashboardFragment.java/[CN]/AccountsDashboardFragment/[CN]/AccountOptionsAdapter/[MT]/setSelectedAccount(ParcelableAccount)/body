@@ -1,4 +1,0 @@
-{
-  mSelectedAccount=account;
-  notifyDataSetChanged();
-}

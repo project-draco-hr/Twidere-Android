@@ -1,5 +1,0 @@
-{
-  final int height=mTabIndicator != null ? mTabIndicator.getHeight() : 0;
-  insets.top=(height != 0 ? height : ThemeUtils.getActionBarHeight(this));
-  return true;
-}

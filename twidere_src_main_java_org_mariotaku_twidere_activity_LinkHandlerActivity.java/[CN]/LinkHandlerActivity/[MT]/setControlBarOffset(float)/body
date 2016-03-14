@@ -1,0 +1,4 @@
+{
+  final int translationY=-Math.round((1 - offset) * getControlBarHeight());
+  notifyControlBarOffsetChanged();
+}

@@ -1,4 +1,0 @@
-{
-  super.setPressed(pressed);
-  mHelper.setState(pressed);
-}

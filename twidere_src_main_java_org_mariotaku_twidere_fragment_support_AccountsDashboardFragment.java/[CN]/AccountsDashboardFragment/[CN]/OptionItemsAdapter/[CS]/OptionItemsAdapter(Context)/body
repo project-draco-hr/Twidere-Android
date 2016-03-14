@@ -1,5 +1,0 @@
-{
-  super(context,R.layout.list_item_dashboard_menu);
-  GeneralComponentHelper.build(context).inject(this);
-  mActionIconColor=ThemeUtils.getThemeForegroundColor(context);
-}

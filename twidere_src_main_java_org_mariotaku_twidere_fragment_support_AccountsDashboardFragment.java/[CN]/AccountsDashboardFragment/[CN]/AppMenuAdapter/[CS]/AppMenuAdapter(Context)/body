@@ -1,7 +1,0 @@
-{
-  super(context);
-  add(new OptionItem(R.string.accounts,R.drawable.ic_action_accounts,R.id.accounts));
-  add(new OptionItem(R.string.drafts,R.drawable.ic_action_draft,R.id.drafts));
-  add(new OptionItem(R.string.filters,R.drawable.ic_action_speaker_muted,R.id.filters));
-  add(new OptionItem(R.string.settings,R.drawable.ic_action_settings,R.id.settings));
-}

@@ -1,6 +1,0 @@
-{
-  if (mTwidereActionModeForChildListener.finishExisting()) {
-    return;
-  }
-  super.onBackPressed();
-}

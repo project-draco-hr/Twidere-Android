@@ -18,25 +18,5 @@ default :
   return false;
 }
 }
-final int firstVisiblePosition=ListViewUtils.getFirstFullyVisiblePosition(mListView);
-final int selectedItem=mListView.getSelectedItemPosition();
-final int count=mListView.getCount();
-int resultPosition;
-if (!mListView.isFocused() || selectedItem == ListView.INVALID_POSITION) {
-resultPosition=firstVisiblePosition;
-}
- else {
-resultPosition=selectedItem + offset;
-while (resultPosition >= 0 && resultPosition < count && !mAdapter.isEnabled(resultPosition)) {
-resultPosition+=offset;
-}
-}
-final View focusedChild=mListView.getFocusedChild();
-if (focusedChild == null) {
-mListView.requestChildFocus(mListView.getChildAt(0),null);
-}
-if (resultPosition >= 0 && resultPosition < count) {
-mListView.setSelection(resultPosition);
-}
 return true;
 }

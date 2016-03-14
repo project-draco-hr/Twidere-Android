@@ -1,3 +1,0 @@
-{
-  return ViewCompat.getTranslationZ(object) / mElevation;
-}

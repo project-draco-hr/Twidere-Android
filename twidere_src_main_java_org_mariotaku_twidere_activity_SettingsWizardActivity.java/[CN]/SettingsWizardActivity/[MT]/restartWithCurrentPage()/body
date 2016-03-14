@@ -2,5 +2,5 @@
   final Intent intent=getIntent();
   intent.putExtra(EXTRA_PAGE,mViewPager.getCurrentItem());
   setIntent(intent);
-  restart();
+  recreate();
 }

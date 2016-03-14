@@ -1,7 +1,0 @@
-{
-  final ActionBar actionBar=getSupportActionBar();
-  if (actionBar == null)   return;
-  final int themeColor=getCurrentThemeColor();
-  final String option=getThemeBackgroundOption();
-  ThemeUtils.applyActionBarBackground(actionBar,this,themeColor,option,isActionBarOutlineEnabled());
-}

@@ -1,5 +1,0 @@
-ActionBar actionBar
-Context context
-int accentColor
-String backgroundOption
-boolean outlineEnabled
