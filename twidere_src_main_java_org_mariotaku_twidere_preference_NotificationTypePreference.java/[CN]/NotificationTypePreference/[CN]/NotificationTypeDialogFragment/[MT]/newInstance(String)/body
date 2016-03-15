@@ -1,5 +1,5 @@
 {
-  final MultiSelectListDialogFragment df=new MultiSelectListDialogFragment();
+  final NotificationTypeDialogFragment df=new NotificationTypeDialogFragment();
   final Bundle args=new Bundle();
   args.putString(PreferenceDialogFragmentCompat.ARG_KEY,key);
   df.setArguments(args);

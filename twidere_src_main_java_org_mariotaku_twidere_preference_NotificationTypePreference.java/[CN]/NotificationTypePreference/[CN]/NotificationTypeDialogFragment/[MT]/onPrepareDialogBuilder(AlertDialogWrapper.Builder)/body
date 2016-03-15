@@ -1,0 +1,6 @@
+{
+  NotificationTypePreference preference=(NotificationTypePreference)getPreference();
+  final int value=preference.getPersistedInt(preference.getDefaultValue());
+  mCheckedItems=preference.getCheckedItems(value);
+  builder.setMultiChoiceItems(preference.getEntries(),mCheckedItems,this);
+}

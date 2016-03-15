@@ -16,5 +16,5 @@
   if (needInputMethod()) {
     supportRequestInputMethod(dialog);
   }
-  return builder.create();
+  return dialog;
 }
