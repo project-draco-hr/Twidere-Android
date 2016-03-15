@@ -1,0 +1,7 @@
+{
+  final MultiSelectListDialogFragment df=new MultiSelectListDialogFragment();
+  final Bundle args=new Bundle();
+  args.putString(PreferenceDialogFragmentCompat.ARG_KEY,key);
+  df.setArguments(args);
+  return df;
+}

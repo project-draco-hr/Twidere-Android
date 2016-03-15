@@ -1,0 +1,10 @@
+{
+  final Context context=getContext();
+  NotificationTypePreference preference=(NotificationTypePreference)getPreference();
+  onClick(null,DialogInterface.BUTTON_NEGATIVE);
+  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(context).setTitle(preference.getDialogTitle()).setIcon(preference.getDialogIcon()).setPositiveButton(preference.getPositiveButtonText(),this).setNegativeButton(preference.getNegativeButtonText(),this);
+  final int value=preference.getPersistedInt(preference.getDefaultValue());
+  mCheckedItems=preference.getCheckedItems(value);
+  builder.setMultiChoiceItems(preference.getEntries(),mCheckedItems,this);
+  return builder.create();
+}

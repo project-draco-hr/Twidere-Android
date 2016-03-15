@@ -1,0 +1,13 @@
+{
+  if (!positive || mCheckedItems == null)   return;
+  NotificationTypePreference preference=(NotificationTypePreference)getPreference();
+  int value=0;
+  final int[] flags=preference.getFlags();
+  for (int i=0, j=flags.length; i < j; i++) {
+    if (mCheckedItems[i]) {
+      value|=flags[i];
+    }
+  }
+  preference.persistInt(value);
+  preference.notifyChanged();
+}
