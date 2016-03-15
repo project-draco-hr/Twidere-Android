@@ -1,9 +1,0 @@
-{
-  final PreferenceScreen preferenceScreen=getPreferenceScreen();
-  final Context context=preferenceScreen.getContext();
-  final KeyboardShortcutsHandler shortcutHandler=mKeyboardShortcutHandler;
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-    return new KeyboardShortcutPreferenceCompat(context,shortcutHandler,contextTag,action);
-  }
-  return new KeyboardShortcutPreference(context,shortcutHandler,contextTag,action);
-}

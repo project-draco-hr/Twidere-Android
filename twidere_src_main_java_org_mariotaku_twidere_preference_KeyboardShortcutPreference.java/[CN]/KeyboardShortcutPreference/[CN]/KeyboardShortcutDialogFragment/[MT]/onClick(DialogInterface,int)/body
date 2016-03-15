@@ -1,0 +1,18 @@
+{
+  final KeyboardShortcutPreference preference=(KeyboardShortcutPreference)getPreference();
+  final String action=preference.getAction();
+  final KeyboardShortcutsHandler handler=preference.getKeyboardShortcutsHandler();
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      if (mKeySpec == null)       return;
+      handler.register(mKeySpec,action);
+      break;
+    }
+case DialogInterface.BUTTON_NEUTRAL:
+{
+    handler.unregister(action);
+    break;
+  }
+}
+}

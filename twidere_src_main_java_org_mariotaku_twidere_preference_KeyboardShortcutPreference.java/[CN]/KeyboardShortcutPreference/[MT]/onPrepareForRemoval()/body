@@ -1,0 +1,4 @@
+{
+  mKeyboardShortcutsHandler.unregisterOnSharedPreferenceChangeListener(mPreferencesChangeListener);
+  super.onPrepareForRemoval();
+}

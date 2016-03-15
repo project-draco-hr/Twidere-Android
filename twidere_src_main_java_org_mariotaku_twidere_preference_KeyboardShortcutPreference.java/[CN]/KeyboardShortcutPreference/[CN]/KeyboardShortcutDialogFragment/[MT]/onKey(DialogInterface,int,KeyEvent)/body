@@ -1,0 +1,41 @@
+{
+  if (event.getAction() == KeyEvent.ACTION_DOWN) {
+    if (KeyEvent.isModifierKey(keyCode)) {
+      mModifierStates|=KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+    }
+  }
+ else   if (event.getAction() != KeyEvent.ACTION_UP) {
+    return false;
+  }
+  if (KeyEvent.isModifierKey(keyCode)) {
+    mModifierStates&=~KeyboardShortcutsHandler.getMetaStateForKeyCode(keyCode);
+  }
+  final KeyboardShortcutPreference preference=(KeyboardShortcutPreference)getPreference();
+  final String action=preference.getAction();
+  final String contextTag=preference.getContextTag();
+  final KeyboardShortcutsHandler handler=preference.getKeyboardShortcutsHandler();
+  final KeyboardShortcutSpec spec=KeyboardShortcutsHandler.getKeyboardShortcutSpec(contextTag,keyCode,event,KeyEvent.normalizeMetaState(mModifierStates | event.getMetaState()));
+  if (spec == null || !spec.isValid()) {
+    Log.d(LOGTAG,String.format("Invalid key %s",event),new Exception());
+    return false;
+  }
+  mKeySpec=spec;
+  mKeysLabel.setText(spec.toKeyString());
+  final String oldAction=handler.findAction(spec);
+  final Context context=getContext();
+  if (action.equals(oldAction) || TextUtils.isEmpty(oldAction)) {
+    mConflictLabel.setVisibility(View.GONE);
+    if (dialog instanceof AlertDialog) {
+      ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE).setText((android.R.string.ok));
+    }
+  }
+ else {
+    mConflictLabel.setVisibility(View.VISIBLE);
+    final String label=KeyboardShortcutsHandler.getActionLabel(context,oldAction);
+    mConflictLabel.setText(context.getString(R.string.conflicts_with_name,label));
+    if (dialog instanceof AlertDialog) {
+      ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE).setText((R.string.overwrite));
+    }
+  }
+  return true;
+}

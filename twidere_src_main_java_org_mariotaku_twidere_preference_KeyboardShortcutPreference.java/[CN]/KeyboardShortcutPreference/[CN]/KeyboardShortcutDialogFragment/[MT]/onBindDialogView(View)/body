@@ -1,0 +1,6 @@
+{
+  super.onBindDialogView(view);
+  mKeysLabel=(TextView)view.findViewById(R.id.keys_label);
+  mConflictLabel=(TextView)view.findViewById(R.id.conflict_label);
+  mConflictLabel.setVisibility(View.GONE);
+}

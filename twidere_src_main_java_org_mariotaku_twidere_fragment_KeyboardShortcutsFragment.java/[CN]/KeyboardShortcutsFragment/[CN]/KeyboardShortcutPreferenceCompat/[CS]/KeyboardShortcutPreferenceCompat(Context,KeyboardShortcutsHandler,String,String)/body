@@ -1,5 +1,5 @@
 {
-  super(context,null);
+  super(context);
   mKeyboardShortcutHandler=handler;
   mContextTag=contextTag;
   mAction=action;

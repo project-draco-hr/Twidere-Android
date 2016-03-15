@@ -1,0 +1,17 @@
+{
+  AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(getContext());
+  final Context context=getContext();
+  final String[] entries=new String[2];
+  final Intent[] values=new Intent[2];
+  entries[0]=context.getString(R.string.import_settings);
+  entries[1]=context.getString(R.string.export_settings);
+  values[0]=new Intent(context,DataImportActivity.class);
+  values[1]=new Intent(context,DataExportActivity.class);
+  builder.setItems(entries,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      startActivity(values[which]);
+    }
+  }
+);
+  return builder.create();
+}

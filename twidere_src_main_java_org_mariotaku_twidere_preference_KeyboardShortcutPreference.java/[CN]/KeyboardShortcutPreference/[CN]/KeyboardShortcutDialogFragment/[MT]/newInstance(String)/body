@@ -1,0 +1,7 @@
+{
+  final KeyboardShortcutDialogFragment df=new KeyboardShortcutDialogFragment();
+  final Bundle args=new Bundle();
+  args.putString(ARG_KEY,key);
+  df.setArguments(args);
+  return df;
+}

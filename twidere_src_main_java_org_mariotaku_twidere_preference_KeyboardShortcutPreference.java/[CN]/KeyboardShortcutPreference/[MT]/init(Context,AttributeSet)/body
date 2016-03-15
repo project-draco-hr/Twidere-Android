@@ -1,0 +1,22 @@
+{
+  GeneralComponentHelper.build(context).inject(this);
+  TypedArray a=context.obtainStyledAttributes(set,R.styleable.KeyboardShortcutPreference);
+  mContextTag=a.getString(R.styleable.KeyboardShortcutPreference_android_tag);
+  mAction=a.getString(R.styleable.KeyboardShortcutPreference_android_action);
+  a.recycle();
+  if (TextUtils.isEmpty(mAction)) {
+    throw new IllegalArgumentException("android:action required");
+  }
+  setKey(mAction);
+  setDialogLayoutResource(R.layout.dialog_keyboard_shortcut_input);
+  setPersistent(false);
+  setDialogTitle(KeyboardShortcutsHandler.getActionLabel(context,mAction));
+  setTitle(KeyboardShortcutsHandler.getActionLabel(context,mAction));
+  mPreferencesChangeListener=new SharedPreferences.OnSharedPreferenceChangeListener(){
+    @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
+      updateSummary();
+    }
+  }
+;
+  updateSummary();
+}
