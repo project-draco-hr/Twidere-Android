@@ -1,0 +1,20 @@
+{
+  final Context context=getContext();
+  final DialogPreference preference=getPreference();
+  onClick(null,DialogInterface.BUTTON_NEGATIVE);
+  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(context).setTitle(preference.getDialogTitle()).setIcon(preference.getDialogIcon()).setPositiveButton(preference.getPositiveButtonText(),this).setNegativeButton(preference.getNegativeButtonText(),this);
+  View contentView=onCreateDialogView(context);
+  if (contentView != null) {
+    onBindDialogView(contentView);
+    builder.setView(contentView);
+  }
+ else {
+    builder.setMessage(preference.getDialogMessage());
+  }
+  onPrepareDialogBuilder(builder);
+  final Dialog dialog=builder.create();
+  if (needInputMethod()) {
+    supportRequestInputMethod(dialog);
+  }
+  return builder.create();
+}

@@ -5,13 +5,5 @@
     itemBrowser.setVisible(is_oauth);
     itemBrowser.setEnabled(is_oauth);
   }
-  final boolean result=super.onPrepareOptionsMenu(menu);
-  if (!shouldSetActionItemColor())   return result;
-  final Toolbar toolbar=peekActionBarToolbar();
-  if (toolbar != null) {
-    final int themeColor=getCurrentThemeColor();
-    final int itemColor=ThemeUtils.getContrastForegroundColor(this,themeColor);
-    ThemeUtils.wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),itemColor,itemColor);
-  }
-  return result;
+  return true;
 }

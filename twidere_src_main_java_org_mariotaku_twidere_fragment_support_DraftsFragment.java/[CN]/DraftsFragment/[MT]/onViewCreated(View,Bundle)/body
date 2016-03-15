@@ -1,0 +1,9 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mListView=(ListView)view.findViewById(android.R.id.list);
+  mEmptyView=view.findViewById(android.R.id.empty);
+  mEmptyText=(TextView)view.findViewById(R.id.empty_text);
+  mEmptyIcon=(ImageView)view.findViewById(R.id.empty_icon);
+  mProgressContainer=view.findViewById(R.id.progress_container);
+  mListContainer=view.findViewById(R.id.list_container);
+}

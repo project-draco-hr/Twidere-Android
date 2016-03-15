@@ -1,0 +1,6 @@
+{
+  super.onBindDialogView(view);
+  mEditText=(EditText)view.findViewById(android.R.id.edit);
+  final EditTextPreference preference=(EditTextPreference)getPreference();
+  mEditText.setText(preference.getText());
+}

@@ -8,9 +8,8 @@
   profileBannerContainer.setTranslationY(-offset);
   profileBannerView.setTranslationY(offset / 2);
   profileBirthdayBannerView.setTranslationY(offset / 2);
-  if (mActionBarBackground != null && mTintedStatusContent != null) {
+  if (mActionBarBackground != null) {
     mActionBarBackground.setFactor(factor);
-    mTintedStatusContent.setFactor(factor);
     final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
     final float tabOutlineAlphaFactor;
     if ((offset - spaceHeight) > 0) {

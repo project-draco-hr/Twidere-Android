@@ -1,18 +1,4 @@
 {
-  final View actionBarContainer=findViewById(R.id.twidere_action_bar_container);
-  if (actionBarContainer != null) {
-    final ViewGroup.LayoutParams toolBarParams=actionBarContainer.getLayoutParams();
-    boolean changed=false;
-    if (toolBarParams instanceof ViewGroup.MarginLayoutParams) {
-      final int topMargin=((ViewGroup.MarginLayoutParams)toolBarParams).topMargin;
-      changed=topMargin != insets.top;
-      ((ViewGroup.MarginLayoutParams)toolBarParams).topMargin=insets.top;
-    }
-    if (changed) {
-      actionBarContainer.setLayoutParams(toolBarParams);
-    }
-  }
-  insets.top+=ThemeUtils.getActionBarHeight(this);
   super.onFitSystemWindows(insets);
   final Fragment fragment=getCurrentVisibleFragment();
   if (fragment instanceof IBaseFragment) {

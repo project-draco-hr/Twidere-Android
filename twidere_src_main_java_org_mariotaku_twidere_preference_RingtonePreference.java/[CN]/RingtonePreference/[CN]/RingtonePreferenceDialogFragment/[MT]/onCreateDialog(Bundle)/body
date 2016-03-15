@@ -4,13 +4,31 @@
   @SuppressLint("PrivateResource") final int layout=a.getResourceId(android.support.v7.appcompat.R.styleable.AlertDialog_singleChoiceItemLayout,0);
   a.recycle();
   mAdapter=new SimpleCursorAdapter(context,layout,null,new String[]{Audio.Media.TITLE},new int[]{android.R.id.text1},0);
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
-  builder.setTitle(getPreference().getDialogTitle());
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setNegativeButton(android.R.string.cancel,this);
+  final MaterialDialog.Builder builder=new MaterialDialog.Builder(context);
+  builder.title(getPreference().getDialogTitle());
+  builder.positiveText(android.R.string.ok);
+  builder.negativeText(android.R.string.cancel);
+  builder.onPositive(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog materialDialog,    @NonNull DialogAction dialogAction){
+      RingtonePreferenceDialogFragment.this.onClick(materialDialog,DialogInterface.BUTTON_POSITIVE);
+    }
+  }
+);
+  builder.onNegative(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog materialDialog,    @NonNull DialogAction dialogAction){
+      RingtonePreferenceDialogFragment.this.onClick(materialDialog,DialogInterface.BUTTON_NEGATIVE);
+    }
+  }
+);
+  builder.cancelListener(new DialogInterface.OnCancelListener(){
+    @Override public void onCancel(    DialogInterface dialog){
+      RingtonePreferenceDialogFragment.this.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
+    }
+  }
+);
   int checkedItem=-1;
-  builder.setSingleChoiceItems(mAdapter,checkedItem,new OnClickListener(){
-    @Override public void onClick(    DialogInterface dialog,    int which){
+  builder.adapter(mAdapter,new MaterialDialog.ListCallback(){
+    @Override public void onSelection(    MaterialDialog dialog,    View view,    int which,    CharSequence text){
       if (mMediaPlayer != null) {
         if (mMediaPlayer.isPlaying()) {
           mMediaPlayer.stop();
@@ -35,5 +53,5 @@
   }
 );
   getLoaderManager().initLoader(0,null,this);
-  return builder.create();
+  return builder.build();
 }

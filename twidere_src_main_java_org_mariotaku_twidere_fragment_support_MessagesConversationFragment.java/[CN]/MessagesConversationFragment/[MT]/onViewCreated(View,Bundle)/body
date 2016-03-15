@@ -1,0 +1,16 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mUsersSearchProgress=view.findViewById(R.id.users_search_progress);
+  mUsersSearchList=(ListView)view.findViewById(R.id.users_search_list);
+  mUsersSearchEmpty=view.findViewById(R.id.users_search_empty);
+  mUsersSearchEmptyText=(TextView)view.findViewById(R.id.users_search_empty_text);
+  mMessagesListView=(RecyclerView)view.findViewById(R.id.recycler_view);
+  mConversationContainer=view.findViewById(R.id.conversation_container);
+  mUsersSearchList=(ListView)view.findViewById(R.id.users_search_list);
+  mRecipientSelectorContainer=view.findViewById(R.id.recipient_selector_container);
+  mInputPanelShadowCompat=view.findViewById(R.id.input_panel_shadow_compat);
+  mInputPanel=view.findViewById(R.id.input_panel);
+  mEditText=(ComposeEditText)mInputPanel.findViewById(R.id.edit_text);
+  mSendButton=mInputPanel.findViewById(R.id.send);
+  mAddImageButton=(ImageView)mInputPanel.findViewById(R.id.add_image);
+}

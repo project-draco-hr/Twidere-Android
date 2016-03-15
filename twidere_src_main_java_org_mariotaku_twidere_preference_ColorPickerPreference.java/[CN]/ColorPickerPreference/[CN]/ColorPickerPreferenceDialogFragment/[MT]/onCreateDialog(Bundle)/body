@@ -1,12 +1,14 @@
 {
   final ColorPickerPreference preference=(ColorPickerPreference)getPreference();
   final Context context=getContext();
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
-  builder.setTitle(preference.getDialogTitle());
-  builder.setView(R.layout.cp__dialog_color_picker);
-  builder.setPositiveButton(context.getString(android.R.string.ok),this);
-  builder.setNegativeButton(context.getString(android.R.string.cancel),this);
-  AlertDialog dialog=builder.create();
+  final MaterialDialog.Builder builder=new MaterialDialog.Builder(context);
+  builder.title(preference.getDialogTitle());
+  builder.customView(R.layout.cp__dialog_color_picker,false);
+  builder.positiveText(android.R.string.ok);
+  builder.negativeText(android.R.string.cancel);
+  builder.onPositive(this);
+  builder.onNegative(this);
+  Dialog dialog=builder.build();
   dialog.setOnShowListener(this);
   return dialog;
 }

@@ -1,4 +1,0 @@
-{
-  setPadding(0,height,0,0);
-  super.setStatusBarHeight(height);
-}

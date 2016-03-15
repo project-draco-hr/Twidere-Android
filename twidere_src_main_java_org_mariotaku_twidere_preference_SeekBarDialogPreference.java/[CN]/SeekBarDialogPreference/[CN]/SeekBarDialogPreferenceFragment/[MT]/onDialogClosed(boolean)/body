@@ -1,0 +1,11 @@
+{
+  if (positive) {
+    final SeekBarDialogPreference preference=(SeekBarDialogPreference)getPreference();
+    final int minProgress=preference.getMinProgress();
+    final int step=preference.getStep();
+    final int realProgress=mSeekBar.getProgress() * step + minProgress;
+    if (preference.callChangeListener(realProgress)) {
+      preference.setProgress(realProgress);
+    }
+  }
+}

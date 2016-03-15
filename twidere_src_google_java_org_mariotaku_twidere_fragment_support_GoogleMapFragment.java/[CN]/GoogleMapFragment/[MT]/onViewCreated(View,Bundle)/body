@@ -1,5 +1,4 @@
 {
   super.onViewCreated(view,savedInstanceState);
-  onBaseViewCreated(view,savedInstanceState);
   requestFitSystemWindows();
 }

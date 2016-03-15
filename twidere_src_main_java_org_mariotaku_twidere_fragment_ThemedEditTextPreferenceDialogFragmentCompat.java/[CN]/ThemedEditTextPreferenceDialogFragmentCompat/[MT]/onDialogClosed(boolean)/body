@@ -1,0 +1,9 @@
+{
+  if (positiveResult) {
+    final String value=mEditText.getText().toString();
+    final EditTextPreference preference=(EditTextPreference)getPreference();
+    if (preference.callChangeListener(value)) {
+      preference.setText(value);
+    }
+  }
+}

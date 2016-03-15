@@ -1,0 +1,7 @@
+{
+  final SeekBarDialogPreferenceFragment fragment=new SeekBarDialogPreferenceFragment();
+  final Bundle args=new Bundle();
+  args.putString(ARG_KEY,key);
+  fragment.setArguments(args);
+  return fragment;
+}

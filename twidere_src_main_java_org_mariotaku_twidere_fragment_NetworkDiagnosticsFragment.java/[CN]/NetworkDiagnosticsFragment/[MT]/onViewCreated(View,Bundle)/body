@@ -1,0 +1,5 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mStartDiagnosticsButton=(Button)view.findViewById(R.id.start_diagnostics);
+  mLogTextView=(TextView)view.findViewById(R.id.log_text);
+}

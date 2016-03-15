@@ -1,5 +1,0 @@
-{
-  if (mThemedContext != null)   return mThemedContext;
-  final Context context=getActivity();
-  return mThemedContext=new ContextThemeWrapper(context,R.style.Theme_Twidere_Drawer);
-}

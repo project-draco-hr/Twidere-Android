@@ -1,0 +1,4 @@
+{
+  super.onViewStateRestored(savedInstanceState);
+  requestFitSystemWindows();
+}

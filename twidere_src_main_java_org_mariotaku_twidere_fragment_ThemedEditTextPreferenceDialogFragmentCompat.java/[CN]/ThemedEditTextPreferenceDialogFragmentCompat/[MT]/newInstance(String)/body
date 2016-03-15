@@ -1,0 +1,7 @@
+{
+  final ThemedEditTextPreferenceDialogFragmentCompat fragment=new ThemedEditTextPreferenceDialogFragmentCompat();
+  final Bundle args=new Bundle();
+  args.putString(ARG_KEY,key);
+  fragment.setArguments(args);
+  return fragment;
+}

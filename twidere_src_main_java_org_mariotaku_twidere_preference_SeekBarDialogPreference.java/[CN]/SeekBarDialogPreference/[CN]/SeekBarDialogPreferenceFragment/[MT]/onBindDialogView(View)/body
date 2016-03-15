@@ -1,0 +1,35 @@
+{
+  super.onBindDialogView(view);
+  final SeekBarDialogPreference preference=(SeekBarDialogPreference)getPreference();
+  final CharSequence message=preference.getDialogMessage();
+  final TextView dialogMessageText=(TextView)view.findViewById(R.id.text_dialog_message);
+  dialogMessageText.setText(message);
+  dialogMessageText.setVisibility(TextUtils.isEmpty(message) ? View.GONE : View.VISIBLE);
+  mProgressText=(TextView)view.findViewById(R.id.text_progress);
+  mSeekBar=(SeekBar)view.findViewById(R.id.seek_bar);
+  mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+    @Override public void onProgressChanged(    final SeekBar seekBar,    final int progress,    final boolean fromUser){
+      final int step=preference.getStep();
+      final int minProgress=preference.getMinProgress();
+      final String progressStr=String.valueOf(progress * step + minProgress);
+      final CharSequence progressTextSuffix=preference.getProgressTextSuffix();
+      if (progressTextSuffix == null) {
+        mProgressText.setText(progressStr);
+      }
+ else {
+        mProgressText.setText(progressStr.concat(progressTextSuffix.toString()));
+      }
+    }
+    @Override public void onStartTrackingTouch(    final SeekBar seekBar){
+    }
+    @Override public void onStopTrackingTouch(    final SeekBar seekBar){
+    }
+  }
+);
+  final int maxProgress=preference.getMaxProgress();
+  final int minProgress=preference.getMinProgress();
+  final int step=preference.getStep();
+  final int progress=preference.getProgress();
+  mSeekBar.setMax((int)Math.ceil((maxProgress - minProgress) / (double)step));
+  mSeekBar.setProgress((int)Math.ceil((progress - minProgress) / (double)step));
+}

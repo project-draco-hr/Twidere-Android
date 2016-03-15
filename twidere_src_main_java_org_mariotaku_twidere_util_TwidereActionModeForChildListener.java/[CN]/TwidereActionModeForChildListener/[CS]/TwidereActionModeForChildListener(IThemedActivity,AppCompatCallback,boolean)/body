@@ -1,6 +1,0 @@
-{
-  mActivity=(Activity)activity;
-  mThemed=activity;
-  mWindow=mActivity.getWindow();
-  mAppCompatCallback=callback;
-}

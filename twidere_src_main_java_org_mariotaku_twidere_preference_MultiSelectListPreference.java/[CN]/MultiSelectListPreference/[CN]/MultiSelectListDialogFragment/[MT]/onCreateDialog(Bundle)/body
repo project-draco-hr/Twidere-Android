@@ -7,7 +7,7 @@
   if (length != mNames.length || length != mDefaultValues.length)   throw new IllegalArgumentException();
   mValues=new boolean[length];
   mPreferences=preference.getDefaultSharedPreferences();
-  final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(getContext());
   for (int i=0; i < length; i++) {
     mValues[i]=mPreferences.getBoolean(mKeys[i],mDefaultValues[i]);
   }

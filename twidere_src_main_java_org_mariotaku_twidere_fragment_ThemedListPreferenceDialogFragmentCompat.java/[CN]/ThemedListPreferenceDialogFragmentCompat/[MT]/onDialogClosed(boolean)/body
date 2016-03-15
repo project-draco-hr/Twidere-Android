@@ -1,0 +1,9 @@
+{
+  final ListPreference preference=getListPreference();
+  if (positiveResult && mClickedDialogEntryIndex >= 0 && preference.getEntryValues() != null) {
+    String value=preference.getEntryValues()[mClickedDialogEntryIndex].toString();
+    if (preference.callChangeListener(value)) {
+      preference.setValue(value);
+    }
+  }
+}

@@ -1,9 +1,0 @@
-{
-  super.onBaseViewCreated(view,savedInstanceState);
-  mListView=(DragSortListView)view.findViewById(android.R.id.list);
-  mEmptyView=view.findViewById(android.R.id.empty);
-  mEmptyIcon=(ImageView)view.findViewById(R.id.empty_icon);
-  mEmptyText=(TextView)view.findViewById(R.id.empty_text);
-  mListContainer=view.findViewById(R.id.list_container);
-  mProgressContainer=view.findViewById(R.id.progress_container);
-}

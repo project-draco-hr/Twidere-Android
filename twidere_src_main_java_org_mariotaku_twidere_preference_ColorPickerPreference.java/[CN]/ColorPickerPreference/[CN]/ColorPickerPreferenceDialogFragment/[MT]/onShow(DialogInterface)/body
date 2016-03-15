@@ -1,6 +1,6 @@
 {
   final ColorPickerPreference preference=(ColorPickerPreference)getPreference();
-  final AlertDialog alertDialog=(AlertDialog)dialog;
+  final Dialog alertDialog=(Dialog)dialog;
   final View windowView=alertDialog.getWindow().getDecorView();
   if (windowView == null)   return;
   mController=new ColorPickerDialog.Controller(getContext(),windowView);

@@ -6,8 +6,6 @@
   final int statusBarColor=ThemeUtils.getActionBarColor(this,getCurrentThemeColor(),getThemeBackgroundOption());
   mMainContent.setDrawColor(true);
   mMainContent.setColor(statusBarColor,alpha);
-  mTwidereActionModeForChildListener=new TwidereActionModeForChildListener(this,this,false);
-  mMainContent.setActionModeForChildListener(mTwidereActionModeForChildListener);
   mDetailFragmentContainer.setBackgroundColor((backgroundAlpha << 24 | 0xFFFFFF) & ThemeUtils.getThemeBackgroundColor(this));
   mSlidingPaneLayout.setShadowResourceLeft(R.drawable.sliding_pane_shadow_left);
   mSlidingPaneLayout.setShadowResourceRight(R.drawable.sliding_pane_shadow_right);

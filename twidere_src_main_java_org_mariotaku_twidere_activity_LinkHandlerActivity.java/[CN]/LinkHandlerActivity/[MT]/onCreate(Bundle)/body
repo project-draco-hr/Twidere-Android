@@ -1,4 +1,5 @@
 {
+  supportRequestWindowFeature(AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
   final Intent intent=getIntent();

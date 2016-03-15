@@ -2,13 +2,12 @@
   final FragmentActivity activity=getActivity();
   if (!(activity instanceof LinkHandlerActivity))   return;
   final LinkHandlerActivity linkHandler=(LinkHandlerActivity)activity;
-  final ActionBarContainer actionBarContainer=linkHandler.getActionBarContainer();
   final ActionBar actionBar=linkHandler.getSupportActionBar();
-  if (actionBarContainer == null || actionBar == null)   return;
+  if (actionBar == null)   return;
   final Drawable shadow=ResourcesCompat.getDrawable(activity.getResources(),R.drawable.shadow_user_banner_action_bar,null);
   mActionBarBackground=new ActionBarDrawable(shadow);
   if (!ThemeUtils.isWindowFloating(linkHandler) && ThemeUtils.isTransparentBackground(linkHandler.getCurrentThemeBackgroundOption())) {
     mProfileBannerView.setAlpha(linkHandler.getCurrentThemeBackgroundAlpha() / 255f);
   }
-  actionBarContainer.setPrimaryBackground(mActionBarBackground);
+  actionBar.setBackgroundDrawable(mActionBarBackground);
 }
