@@ -40,7 +40,7 @@
       if (top != oldTop) {
         final Fragment fragment=getLeftDrawerFragment();
         if (fragment instanceof AccountsDashboardFragment) {
-          ((AccountsDashboardFragment)fragment).requestFitSystemWindows();
+          ((AccountsDashboardFragment)fragment).setStatusBarHeight(top);
         }
       }
     }

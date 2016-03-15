@@ -1,0 +1,4 @@
+{
+  final int top=Utils.getInsetsTopWithoutActionBarHeight(getActivity(),height);
+  mAccountProfileContainer.setPadding(0,top,0,0);
+}

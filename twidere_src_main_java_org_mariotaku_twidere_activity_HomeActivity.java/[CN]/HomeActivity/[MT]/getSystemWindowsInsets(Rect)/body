@@ -7,6 +7,5 @@
  else {
     insets.top=ThemeUtils.getActionBarHeight(this);
   }
-  insets.top+=mHomeContent.getTop();
   return true;
 }

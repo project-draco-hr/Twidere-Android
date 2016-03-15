@@ -4,18 +4,5 @@
   final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
   final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(this)) : 0xFF;
   mTabIndicator.setItemContext(ThemeUtils.getActionBarThemedContext(this,themeColor));
-  final int[] foregroundColors=new int[2];
-  ThemeUtils.getColorForegroundAndInverse(this,foregroundColors);
-  if (ThemeUtils.isDarkTheme(this)) {
-    mTabIndicator.setStripColor(themeColor);
-    mTabIndicator.setIconColor(foregroundColors[0]);
-    mTabIndicator.setLabelColor(foregroundColors[0]);
-  }
- else {
-    final int contrastColor=TwidereColorUtils.getContrastYIQ(themeColor,ThemeUtils.ACCENT_COLOR_THRESHOLD,foregroundColors[0],foregroundColors[1]);
-    mTabIndicator.setStripColor(contrastColor);
-    mTabIndicator.setIconColor(contrastColor);
-    mTabIndicator.setLabelColor(contrastColor);
-  }
   mActionsButton.setAlpha(actionBarAlpha / 255f);
 }
