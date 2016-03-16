@@ -1,9 +1,0 @@
-{
-  if (mMainContent == null)   return;
-  final int alpha=ThemeUtils.isTransparentBackground(getThemeBackgroundOption()) ? getCurrentThemeBackgroundAlpha() : 0xFF;
-  final int statusBarColor=ThemeUtils.getActionBarColor(this,getCurrentThemeColor(),getThemeBackgroundOption());
-  mMainContent.setColor(statusBarColor,alpha);
-  mMainContent.setDrawShadow(false);
-  mMainContent.setDrawColor(true);
-  mMainContent.setFactor(1);
-}

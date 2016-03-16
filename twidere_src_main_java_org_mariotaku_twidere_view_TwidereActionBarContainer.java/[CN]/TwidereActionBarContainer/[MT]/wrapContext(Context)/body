@@ -1,6 +1,0 @@
-{
-  if (context instanceof IThemedActivity) {
-    return ThemeUtils.getActionBarThemedContext(context,((IThemedActivity)context).getCurrentThemeColor());
-  }
-  return ThemeUtils.getActionBarThemedContext(context);
-}

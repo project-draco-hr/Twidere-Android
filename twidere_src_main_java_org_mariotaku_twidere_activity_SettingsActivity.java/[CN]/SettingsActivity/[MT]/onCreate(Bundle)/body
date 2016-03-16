@@ -2,10 +2,6 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_settings);
   final int backgroundAlpha=getCurrentThemeBackgroundAlpha();
-  final int alpha=ThemeUtils.getActionBarAlpha(getThemeBackgroundOption(),backgroundAlpha);
-  final int statusBarColor=ThemeUtils.getActionBarColor(this,getCurrentThemeColor(),getThemeBackgroundOption());
-  mMainContent.setDrawColor(true);
-  mMainContent.setColor(statusBarColor,alpha);
   mDetailFragmentContainer.setBackgroundColor((backgroundAlpha << 24 | 0xFFFFFF) & ThemeUtils.getThemeBackgroundColor(this));
   mSlidingPaneLayout.setShadowResourceLeft(R.drawable.sliding_pane_shadow_left);
   mSlidingPaneLayout.setShadowResourceRight(R.drawable.sliding_pane_shadow_right);

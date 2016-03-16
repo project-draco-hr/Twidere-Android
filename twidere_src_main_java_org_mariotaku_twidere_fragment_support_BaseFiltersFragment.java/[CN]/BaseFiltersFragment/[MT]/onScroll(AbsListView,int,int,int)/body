@@ -1,4 +1,19 @@
 {
   super.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
-  setControlVisible(firstVisibleItem < 1);
+  if (ViewCompat.isLaidOut(view)) {
+    int childCount=view.getChildCount();
+    if (childCount > 0) {
+      final View firstChild=view.getChildAt(0);
+      final FragmentActivity activity=getActivity();
+      int controlBarHeight=0;
+      if (activity instanceof IControlBarActivity) {
+        controlBarHeight=((IControlBarActivity)activity).getControlBarHeight();
+      }
+      final boolean visible=firstChild.getTop() > controlBarHeight;
+      setControlVisible(visible);
+    }
+ else {
+      setControlVisible(true);
+    }
+  }
 }

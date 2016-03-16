@@ -1,5 +1,5 @@
 {
   final int positionStart=mLayoutManager.findFirstVisibleItemPosition();
-  final int itemCount=mLayoutManager.findLastVisibleItemPosition() - positionStart;
+  final int itemCount=mLayoutManager.findLastVisibleItemPosition() - positionStart + 1;
   mIndicatorAdapter.notifyItemRangeChanged(positionStart,itemCount);
 }

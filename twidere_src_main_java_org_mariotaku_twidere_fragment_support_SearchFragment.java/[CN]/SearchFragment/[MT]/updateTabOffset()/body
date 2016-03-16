@@ -1,3 +1,0 @@
-{
-  ThemeUtils.updateControlBarUi(getActivity(),getControlBarHeight(),mControlBarOffsetPixels,mPagerIndicator,mPagerWindowOverlay);
-}

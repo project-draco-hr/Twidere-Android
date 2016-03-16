@@ -1,5 +1,0 @@
-{
-  mControlBarHeight=activity.getControlBarHeight();
-  mControlBarOffsetPixels=Math.round(mControlBarHeight * (1 - offset));
-  updateTabOffset();
-}

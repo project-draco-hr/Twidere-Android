@@ -2,7 +2,7 @@
   if (shouldNotifyChange()) {
     final Intent data=new Intent();
     data.putExtra(EXTRA_CHANGED,true);
-    setResult(isTopSettings() ? RESULT_OK : RESULT_SETTINGS_CHANGED,data);
+    setResult(RESULT_SETTINGS_CHANGED,data);
   }
   super.finish();
 }

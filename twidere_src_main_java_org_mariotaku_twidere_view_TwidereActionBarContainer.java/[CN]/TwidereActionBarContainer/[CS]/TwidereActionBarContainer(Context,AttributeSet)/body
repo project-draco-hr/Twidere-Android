@@ -1,6 +1,0 @@
-{
-  super(wrapContext(context),attrs);
-  final TypedArray a=getContext().obtainStyledAttributes(attrs,ATTRS);
-  inflate(getContext(),a.getResourceId(0,R.layout.layout_actionbar_content),this);
-  a.recycle();
-}

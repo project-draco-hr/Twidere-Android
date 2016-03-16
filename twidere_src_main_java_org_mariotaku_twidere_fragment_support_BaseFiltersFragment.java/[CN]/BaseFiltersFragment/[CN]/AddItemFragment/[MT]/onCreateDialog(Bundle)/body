@@ -2,7 +2,6 @@
   final FragmentActivity activity=getActivity();
   final Context wrapped=ThemeUtils.getDialogThemedContext(activity);
   final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
-  buildDialog(builder);
   builder.setView(R.layout.dialog_auto_complete_textview);
   builder.setTitle(R.string.add_rule);
   builder.setPositiveButton(android.R.string.ok,this);

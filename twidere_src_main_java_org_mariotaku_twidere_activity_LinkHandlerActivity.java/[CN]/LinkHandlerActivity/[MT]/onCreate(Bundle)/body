@@ -1,19 +1,27 @@
 {
-  supportRequestWindowFeature(AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY);
   mMultiSelectHandler=new MultiSelectEventHandler(this);
   mMultiSelectHandler.dispatchOnCreate();
   final Intent intent=getIntent();
-  final Uri data=intent.getData();
-  final int linkId=matchLinkId(data);
+  final Uri uri=intent.getData();
+  final int linkId=matchLinkId(uri);
+  intent.setExtrasClassLoader(getClassLoader());
+  final Fragment fragment=createFragmentForIntent(this,linkId,intent);
+  if (fragment instanceof IToolBarSupportFragment) {
+    if (!((IToolBarSupportFragment)fragment).setupWindow(this)) {
+      supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+      supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_MODE_OVERLAY);
+    }
+  }
   super.onCreate(savedInstanceState);
-  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
-  final ActionBar actionBar=getSupportActionBar();
-  if (actionBar != null) {
-    actionBar.setDisplayHomeAsUpEnabled(true);
-    setActionBarTheme(linkId);
-  }
-  Utils.logOpenNotificationFromUri(this,data);
-  if (!showFragment(linkId,data)) {
+  if (fragment == null) {
     finish();
+    return;
   }
+  setupActionBarOption();
+  Utils.logOpenNotificationFromUri(this,uri);
+  final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+  ft.replace(android.R.id.content,fragment);
+  ft.commit();
+  showFragment(linkId,uri);
+  mFinishOnly=Boolean.parseBoolean(uri.getQueryParameter(QUERY_PARAM_FINISH_ONLY));
 }

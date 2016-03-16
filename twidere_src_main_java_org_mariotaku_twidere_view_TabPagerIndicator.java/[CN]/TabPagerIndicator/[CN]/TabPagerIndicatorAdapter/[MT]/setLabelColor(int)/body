@@ -1,4 +1,3 @@
 {
   mLabelColor=color;
-  notifyDataSetChanged();
 }

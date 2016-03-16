@@ -1,0 +1,4 @@
+{
+  if (mToolbarContainer == null)   return;
+  mToolbarContainer.setTranslationY((offset - 1) * getControlBarHeight());
+}

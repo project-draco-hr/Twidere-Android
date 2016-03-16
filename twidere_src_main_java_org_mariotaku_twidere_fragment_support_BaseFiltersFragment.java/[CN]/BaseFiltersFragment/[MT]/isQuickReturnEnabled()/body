@@ -1,4 +1,3 @@
 {
-  final int firstVisiblePosition=getListView().getFirstVisiblePosition();
-  return mActionMode == null && firstVisiblePosition >= 1;
+  return mActionMode == null;
 }

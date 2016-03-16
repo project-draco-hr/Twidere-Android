@@ -8,6 +8,15 @@
   profileBannerContainer.setTranslationY(-offset);
   profileBannerView.setTranslationY(offset / 2);
   profileBirthdayBannerView.setTranslationY(offset / 2);
+  final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
+  final int statusBarColor;
+  if (Config.coloredStatusBar(activity,activity.getATEKey())) {
+    statusBarColor=(int)sArgbEvaluator.evaluate(factor,ATEUtil.darkenColor(0xA0000000),ATEUtil.darkenColor(mUiColor));
+  }
+ else {
+    statusBarColor=(int)sArgbEvaluator.evaluate(factor,ATEUtil.darkenColor(0xA0000000),Color.BLACK);
+  }
+  WindowSupport.setStatusBarColor(activity.getWindow(),statusBarColor);
   if (mActionBarBackground != null) {
     mActionBarBackground.setFactor(factor);
     final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
@@ -19,7 +28,6 @@
       tabOutlineAlphaFactor=1f;
     }
     mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
-    final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }

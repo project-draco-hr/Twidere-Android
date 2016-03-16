@@ -1,8 +1,4 @@
 {
-  final Intent intent=getIntent();
-  intent.setExtrasClassLoader(getClassLoader());
-  final Fragment fragment=createFragmentForIntent(this,linkId,intent);
-  if (uri == null || fragment == null)   return false;
   setSubtitle(null);
 switch (linkId) {
 case LINK_ID_STATUS:
@@ -187,9 +183,5 @@ setTitle(getString(R.string.app_name));
 break;
 }
 }
-mFinishOnly=Boolean.parseBoolean(uri.getQueryParameter(QUERY_PARAM_FINISH_ONLY));
-final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-ft.replace(android.R.id.content,fragment);
-ft.commit();
 return true;
 }

@@ -1,6 +1,6 @@
 {
   final Context wrapped=ThemeUtils.getDialogThemedContext(getActivity());
-  final AlertDialog.Builder builder=new AlertDialog.Builder(wrapped);
+  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(wrapped);
   mFilterItems=getFilterItemsInfo();
   final String[] entries=new String[mFilterItems.length];
   final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
@@ -19,8 +19,9 @@ break;
 }
 }
 builder.setTitle(R.string.add_to_filter);
-builder.setMultiChoiceItems(entries,null,this);
+builder.setMultiChoiceItems(entries,null,null);
 builder.setPositiveButton(android.R.string.ok,this);
 builder.setNegativeButton(android.R.string.cancel,null);
+builder.alwaysCallMultiChoiceCallback();
 return builder.create();
 }

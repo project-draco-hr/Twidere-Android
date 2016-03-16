@@ -1,4 +1,11 @@
 {
-  final int translationY=-Math.round((1 - offset) * getControlBarHeight());
+  Fragment fragment=getCurrentVisibleFragment();
+  ActionBar actionBar=getSupportActionBar();
+  if (fragment instanceof IToolBarSupportFragment) {
+    ((IToolBarSupportFragment)fragment).setControlBarOffset(offset);
+  }
+ else   if (actionBar != null) {
+    actionBar.setHideOffset((int)(getControlBarHeight() * offset));
+  }
   notifyControlBarOffsetChanged();
 }

@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  adapter.addTab(StatusesSearchFragment.class,args,getString(R.string.statuses),R.drawable.ic_action_twitter,0,null);
+  adapter.addTab(SearchUsersFragment.class,args,getString(R.string.users),R.drawable.ic_action_user,1,null);
+}

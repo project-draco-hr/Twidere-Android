@@ -1,4 +1,4 @@
 Context context
 String key
-TabPagerIndicator view
+TabPagerIndicator target
 Object extra

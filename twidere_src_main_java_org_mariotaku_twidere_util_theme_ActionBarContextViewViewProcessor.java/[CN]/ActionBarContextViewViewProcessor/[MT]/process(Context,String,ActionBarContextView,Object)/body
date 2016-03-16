@@ -1,0 +1,4 @@
+{
+  final int primaryColor=Config.primaryColor(context,key);
+  target.setBackgroundColor(primaryColor);
+}

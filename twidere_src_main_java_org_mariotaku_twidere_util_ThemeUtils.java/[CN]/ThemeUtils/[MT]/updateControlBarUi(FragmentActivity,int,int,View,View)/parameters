@@ -1,5 +1,0 @@
-FragmentActivity activity
-int controlBarHeight
-int controlBarOffsetPixels
-View pagerIndicator
-View pagerWindowOverlay

@@ -1,0 +1,12 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mViewPager=(ViewPager)view.findViewById(R.id.view_pager);
+  mToolbarContainer=(ExtendedLinearLayout)view.findViewById(R.id.toolbar_container);
+  mPagerIndicator=(TabPagerIndicator)view.findViewById(R.id.toolbar_tabs);
+  mPagerOverlay=view.findViewById(R.id.pager_window_overlay);
+  mToolbar=(Toolbar)view.findViewById(R.id.toolbar);
+  final Object host=getHost();
+  if (host instanceof AppCompatActivity) {
+    ((AppCompatActivity)host).setSupportActionBar(mToolbar);
+  }
+}

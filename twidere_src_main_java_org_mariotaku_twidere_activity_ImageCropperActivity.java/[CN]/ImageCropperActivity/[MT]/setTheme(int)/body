@@ -1,4 +1,0 @@
-{
-  super.setTheme(resId);
-  ThemeUtils.applyWindowBackground(this,getWindow(),mCurrentThemeBackgroundOption,mCurrentThemeBackgroundAlpha);
-}

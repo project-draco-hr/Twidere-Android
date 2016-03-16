@@ -1,24 +1,4 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final FragmentActivity activity=getActivity();
-  mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager(),null,1);
-  mViewPager.setAdapter(mPagerAdapter);
-  mViewPager.setOffscreenPageLimit(2);
-  mViewPager.addOnPageChangeListener(this);
-  mPagerIndicator.setViewPager(mViewPager);
-  mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
-  mPagerAdapter.addTab(FilteredUsersFragment.class,null,getString(R.string.users),null,0,null);
-  mPagerAdapter.addTab(FilteredKeywordsFragment.class,null,getString(R.string.keywords),null,1,null);
-  mPagerAdapter.addTab(FilteredSourcesFragment.class,null,getString(R.string.sources),null,2,null);
-  mPagerAdapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
-  ThemeUtils.initPagerIndicatorAsActionBarTab(activity,mPagerIndicator,mPagerOverlay);
-  ThemeUtils.setCompatToolbarOverlay(activity,new EmptyDrawable());
-  ThemeUtils.setCompatContentViewOverlay(activity,new EmptyDrawable());
-  ThemeUtils.setWindowOverlayViewOverlay(activity,new EmptyDrawable());
-  if (activity instanceof IThemedActivity) {
-    final String backgroundOption=((IThemedActivity)activity).getCurrentThemeBackgroundOption();
-    final boolean isTransparent=ThemeUtils.isTransparentBackground(backgroundOption);
-    final int actionBarAlpha=isTransparent ? ThemeUtils.getActionBarAlpha(ThemeUtils.getUserThemeBackgroundAlpha(activity)) : 0xFF;
-    mPagerIndicator.setAlpha(actionBarAlpha / 255f);
-  }
+  setHasOptionsMenu(true);
 }

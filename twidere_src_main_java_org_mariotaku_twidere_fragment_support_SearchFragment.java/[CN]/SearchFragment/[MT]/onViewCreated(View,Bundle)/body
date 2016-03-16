@@ -1,6 +1,0 @@
-{
-  super.onViewCreated(view,savedInstanceState);
-  mViewPager=(ViewPager)view.findViewById(R.id.view_pager);
-  mPagerWindowOverlay=view.findViewById(R.id.pager_window_overlay);
-  mPagerIndicator=(TabPagerIndicator)view.findViewById(R.id.view_pager_tabs);
-}

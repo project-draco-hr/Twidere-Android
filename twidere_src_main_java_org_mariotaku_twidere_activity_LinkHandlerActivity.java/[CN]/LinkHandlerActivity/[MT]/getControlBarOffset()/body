@@ -1,3 +1,11 @@
 {
+  Fragment fragment=getCurrentVisibleFragment();
+  ActionBar actionBar=getSupportActionBar();
+  if (fragment instanceof IToolBarSupportFragment) {
+    return ((IToolBarSupportFragment)fragment).getControlBarOffset();
+  }
+ else   if (actionBar != null) {
+    return actionBar.getHideOffset() / (float)getControlBarHeight();
+  }
   return 0;
 }
