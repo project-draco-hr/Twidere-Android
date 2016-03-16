@@ -3,6 +3,5 @@
     StrictModeUtils.detectAllVmPolicy();
     StrictModeUtils.detectAllThreadPolicy();
   }
-  final int themeColor=getThemeColor();
   super.onCreate(savedInstanceState);
 }

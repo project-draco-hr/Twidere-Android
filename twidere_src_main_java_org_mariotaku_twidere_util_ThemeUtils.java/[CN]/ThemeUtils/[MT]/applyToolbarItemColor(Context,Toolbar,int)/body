@@ -12,6 +12,11 @@
  else {
     popupItemColor=getThemeForegroundColor(context);
   }
+  final Drawable navigationIcon=toolbar.getNavigationIcon();
+  if (navigationIcon != null) {
+    navigationIcon.setColorFilter(contrastForegroundColor,Mode.SRC_ATOP);
+    toolbar.setNavigationIcon(navigationIcon);
+  }
   getThemeForegroundColor(context);
   setActionBarOverflowColor(toolbar,contrastForegroundColor);
   wrapToolbarMenuIcon(ViewSupport.findViewByType(toolbar,ActionMenuView.class),contrastForegroundColor,popupItemColor);

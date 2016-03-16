@@ -1,9 +1,7 @@
 {
   mCurrentThemeColor=getThemeColor();
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
-  mProfileImageStyle=Utils.getProfileImageStyle(this);
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
-  mCurrentThemeFontFamily=getThemeFontFamily();
   super.onApplyThemeResource(theme,resId,first);
   final Window window=getWindow();
   if (shouldApplyWindowBackground()) {

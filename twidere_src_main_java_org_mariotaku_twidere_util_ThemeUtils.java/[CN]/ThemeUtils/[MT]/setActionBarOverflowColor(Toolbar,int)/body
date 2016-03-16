@@ -3,17 +3,9 @@
   if (toolbar instanceof TwidereToolbar) {
     ((TwidereToolbar)toolbar).setItemColor(itemColor);
   }
-  final ActionMenuView actionMenuView=ViewSupport.findViewByType(toolbar,ActionMenuView.class);
-  if (actionMenuView == null)   return;
-  View overflowView=null;
-  for (int i=0, j=actionMenuView.getChildCount(); i < j; i++) {
-    final View child=actionMenuView.getChildAt(i);
-    final ActionMenuView.LayoutParams lp=(ActionMenuView.LayoutParams)child.getLayoutParams();
-    if (lp.isOverflowButton) {
-      overflowView=child;
-      break;
-    }
+  final Drawable overflowIcon=toolbar.getOverflowIcon();
+  if (overflowIcon != null) {
+    overflowIcon.setColorFilter(itemColor,Mode.SRC_ATOP);
+    toolbar.setOverflowIcon(overflowIcon);
   }
-  if (!(overflowView instanceof ImageView))   return;
-  ((ImageView)overflowView).setColorFilter(itemColor,Mode.SRC_ATOP);
 }

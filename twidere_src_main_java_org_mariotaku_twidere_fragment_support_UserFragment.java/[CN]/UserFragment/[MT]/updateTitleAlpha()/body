@@ -3,8 +3,7 @@
   mNameView.getLocationInWindow(location);
   final float nameShowingRatio=(mHeaderDrawerLayout.getPaddingTop() - location[1]) / (float)mNameView.getHeight();
   final float textAlpha=TwidereMathUtils.clamp(nameShowingRatio,0,1);
-  final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
-  final Toolbar actionBarView=activity.getActionBarToolbar();
+  final Toolbar actionBarView=mToolbar;
   if (actionBarView != null) {
     final TextView titleView=ViewSupport.findViewByText(actionBarView,actionBarView.getTitle());
     if (titleView != null) {

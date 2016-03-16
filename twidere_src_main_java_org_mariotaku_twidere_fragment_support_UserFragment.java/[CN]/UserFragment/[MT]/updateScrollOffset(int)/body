@@ -17,6 +17,7 @@
     statusBarColor=(int)sArgbEvaluator.evaluate(factor,ATEUtil.darkenColor(0xA0000000),Color.BLACK);
   }
   WindowSupport.setStatusBarColor(activity.getWindow(),statusBarColor);
+  int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,activity.getThemeBackgroundOption());
   if (mActionBarBackground != null) {
     mActionBarBackground.setFactor(factor);
     final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
@@ -32,7 +33,6 @@
       setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
     }
     final Drawable tabBackground=mPagerIndicator.getBackground();
-    int stackedTabColor=ThemeUtils.getActionBarColor(activity,mUiColor,activity.getThemeBackgroundOption());
     if (ThemeUtils.isTransparentBackground(activity.getCurrentThemeBackgroundOption())) {
       stackedTabColor=ColorUtils.setAlphaComponent(stackedTabColor,ThemeUtils.getActionBarAlpha(activity.getCurrentThemeBackgroundAlpha()));
     }
@@ -54,12 +54,12 @@
       mPagerIndicator.updateAppearance();
     }
     mPreviousTabItemIsDark=(tabItemIsDark ? 1 : -1);
-    final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
-    final boolean actionItemIsDark=TwidereColorUtils.getYIQLuminance(barColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
-    if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
-      ThemeUtils.applyToolbarItemColor(activity,activity.getActionBarToolbar(),barColor);
-    }
-    mPreviousActionBarItemIsDark=actionItemIsDark ? 1 : -1;
   }
+  final int barColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
+  final boolean actionItemIsDark=TwidereColorUtils.getYIQLuminance(barColor) > ThemeUtils.ACCENT_COLOR_THRESHOLD;
+  if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
+    ThemeUtils.applyToolbarItemColor(activity,mToolbar,barColor);
+  }
+  mPreviousActionBarItemIsDark=actionItemIsDark ? 1 : -1;
   updateTitleAlpha();
 }
