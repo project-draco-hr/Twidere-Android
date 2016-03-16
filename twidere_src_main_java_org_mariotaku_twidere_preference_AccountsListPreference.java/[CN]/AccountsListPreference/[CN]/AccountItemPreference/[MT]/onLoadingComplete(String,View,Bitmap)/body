@@ -1,4 +1,6 @@
 {
   final Bitmap roundedBitmap=BitmapUtils.getCircleBitmap(loadedImage);
-  setIcon(new BitmapDrawable(getContext().getResources(),roundedBitmap));
+  final BitmapDrawable icon=new BitmapDrawable(getContext().getResources(),roundedBitmap);
+  icon.setGravity(Gravity.FILL);
+  setIcon(icon);
 }

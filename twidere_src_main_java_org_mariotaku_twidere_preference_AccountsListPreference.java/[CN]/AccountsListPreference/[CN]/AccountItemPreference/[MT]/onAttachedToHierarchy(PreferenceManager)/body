@@ -1,6 +1,0 @@
-{
-  super.onAttachedToHierarchy(preferenceManager);
-  setTitle(mAccount.name);
-  setSummary(String.format("@%s",mAccount.screen_name));
-  mImageLoader.loadProfileImage(mAccount.profile_image_url,this);
-}

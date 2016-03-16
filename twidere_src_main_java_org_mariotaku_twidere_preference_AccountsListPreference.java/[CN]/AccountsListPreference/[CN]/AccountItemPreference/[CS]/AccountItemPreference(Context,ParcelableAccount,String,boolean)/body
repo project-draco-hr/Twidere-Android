@@ -5,4 +5,7 @@
   mAccount=account;
   mSwitchPreference=context.getSharedPreferences(switchPreferenceName,Context.MODE_PRIVATE);
   mSwitchPreference.registerOnSharedPreferenceChangeListener(this);
+  setTitle(mAccount.name);
+  setSummary(String.format("@%s",mAccount.screen_name));
+  mImageLoader.loadProfileImage(mAccount,this);
 }
