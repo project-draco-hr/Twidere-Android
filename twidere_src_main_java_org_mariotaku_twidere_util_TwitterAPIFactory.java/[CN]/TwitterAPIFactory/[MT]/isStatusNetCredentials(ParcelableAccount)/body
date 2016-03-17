@@ -1,3 +1,3 @@
 {
-  return ParcelableAccount.Type.STATUSNET.equals(credentials.account_type);
+  return ParcelableAccount.Type.STATUSNET.equals(account.account_type);
 }

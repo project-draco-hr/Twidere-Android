@@ -8,5 +8,6 @@
  else   if (isGapItem(position)) {
     return ITEM_VIEW_TYPE_GAP;
   }
+  if (isFiltered(position))   return ITEM_VIEW_TYPE_EMPTY;
   return ITEM_VIEW_TYPE_STATUS;
 }

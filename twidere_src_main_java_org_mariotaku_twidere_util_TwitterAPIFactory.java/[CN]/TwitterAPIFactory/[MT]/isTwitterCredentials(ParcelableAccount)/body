@@ -1,3 +1,8 @@
 {
-  return ParcelableAccount.Type.TWITTER.equals(credentials.account_type);
+  if (account.account_type == null) {
+    final String accountHost=account.account_key.getHost();
+    if (accountHost == null)     return true;
+    return USER_TYPE_TWITTER_COM.equals(accountHost);
+  }
+  return ParcelableAccount.Type.TWITTER.equals(account.account_type);
 }

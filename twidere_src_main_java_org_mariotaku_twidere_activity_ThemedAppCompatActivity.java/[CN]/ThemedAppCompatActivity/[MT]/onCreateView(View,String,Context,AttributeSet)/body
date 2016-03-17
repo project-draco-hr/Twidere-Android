@@ -1,0 +1,19 @@
+{
+  if (context != this) {
+    final AppCompatDelegate delegate=getDelegate();
+    View view=delegate.createView(parent,name,context,attrs);
+    if (view == null) {
+      view=newInstance(name,context,attrs);
+    }
+    if (view == null) {
+      for (      String prefix : sClassPrefixList) {
+        view=newInstance(prefix + name,context,attrs);
+        if (view != null)         break;
+      }
+    }
+    if (view != null) {
+      return view;
+    }
+  }
+  return super.onCreateView(parent,name,context,attrs);
+}

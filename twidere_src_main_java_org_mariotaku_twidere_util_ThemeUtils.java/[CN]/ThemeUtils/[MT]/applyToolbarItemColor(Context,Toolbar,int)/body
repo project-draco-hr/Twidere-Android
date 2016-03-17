@@ -1,8 +1,8 @@
 {
-  if (toolbar == null || isDarkTheme(context)) {
+  if (toolbar == null) {
     return;
   }
-  final int contrastForegroundColor=getContrastForegroundColor(context,toolbarColor);
+  final int contrastForegroundColor=getColorDependent(toolbarColor);
   toolbar.setTitleTextColor(contrastForegroundColor);
   toolbar.setSubtitleTextColor(contrastForegroundColor);
   int popupItemColor, popupTheme=toolbar.getPopupTheme();
