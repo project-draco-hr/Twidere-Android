@@ -6,5 +6,6 @@
   mViewPager=(ExtendedViewPager)findViewById(R.id.main_pager);
   mEmptyTabHint=findViewById(R.id.empty_tab_hint);
   mActionsButton=(FloatingActionButton)findViewById(R.id.actions_button);
-  mHomeContent=(ExtendedFrameLayout)findViewById(R.id.home_content);
+  mHomeContent=(ExtendedRelativeLayout)findViewById(R.id.home_content);
+  mWindowOverlay=findViewById(R.id.window_overlay);
 }

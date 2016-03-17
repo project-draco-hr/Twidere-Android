@@ -1,4 +1,6 @@
 {
   if (mToolbarContainer == null)   return;
-  mToolbarContainer.setTranslationY((offset - 1) * getControlBarHeight());
+  final float translationY=(offset - 1) * getControlBarHeight();
+  mToolbarContainer.setTranslationY(translationY);
+  mWindowOverlay.setTranslationY(translationY);
 }

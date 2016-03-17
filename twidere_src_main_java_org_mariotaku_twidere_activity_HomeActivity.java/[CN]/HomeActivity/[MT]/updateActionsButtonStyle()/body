@@ -1,6 +1,0 @@
-{
-  final boolean leftsideComposeButton=mPreferences.getBoolean(KEY_LEFTSIDE_COMPOSE_BUTTON,false);
-  final FrameLayout.LayoutParams lp=(LayoutParams)mActionsButton.getLayoutParams();
-  lp.gravity=Gravity.BOTTOM | (leftsideComposeButton ? Gravity.LEFT : Gravity.RIGHT);
-  mActionsButton.setLayoutParams(lp);
-}

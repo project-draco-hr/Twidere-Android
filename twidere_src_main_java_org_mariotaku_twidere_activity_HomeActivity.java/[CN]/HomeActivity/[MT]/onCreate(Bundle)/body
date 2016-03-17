@@ -19,6 +19,7 @@
   }
   setContentView(R.layout.activity_home);
   setSupportActionBar(mActionBar);
+  ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   int tabDisplayOptionInt=Utils.getTabDisplayOptionInt(this);
   mTabColumns=getResources().getInteger(R.integer.default_tab_columns);

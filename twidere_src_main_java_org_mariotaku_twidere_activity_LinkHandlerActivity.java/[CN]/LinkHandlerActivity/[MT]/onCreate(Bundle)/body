@@ -22,6 +22,9 @@
   final FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
   ft.replace(android.R.id.content,fragment);
   ft.commit();
-  showFragment(linkId,uri);
+  setTitle(linkId,uri);
   mFinishOnly=Boolean.parseBoolean(uri.getQueryParameter(QUERY_PARAM_FINISH_ONLY));
+  if (fragment instanceof IToolBarSupportFragment) {
+    ThemeUtils.setCompatContentViewOverlay(this,new EmptyDrawable());
+  }
 }
