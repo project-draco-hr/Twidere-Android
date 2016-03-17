@@ -1,4 +1,4 @@
 {
-  super.onBaseViewCreated(view,savedInstanceState);
+  super.onViewCreated(view,savedInstanceState);
   mMapView=(MapView)view.findViewById(R.id.map_view);
 }

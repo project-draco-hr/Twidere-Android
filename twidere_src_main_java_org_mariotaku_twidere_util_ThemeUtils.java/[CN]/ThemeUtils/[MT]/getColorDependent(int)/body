@@ -1,0 +1,4 @@
+{
+  final boolean isDark=!ATEUtil.isColorLight(color);
+  return isDark ? Color.WHITE : Color.BLACK;
+}

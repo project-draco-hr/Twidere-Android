@@ -1,7 +1,6 @@
 {
   final int primaryColor=Config.primaryColor(context,key);
-  final boolean isDark=!ATEUtil.isColorLight(primaryColor);
-  final int primaryColorDependent=isDark ? Color.WHITE : Color.BLACK;
+  final int primaryColorDependent=ThemeUtils.getColorDependent(primaryColor);
   target.setBackgroundTintList(ColorStateList.valueOf(primaryColor));
   target.setColorFilter(primaryColorDependent);
 }

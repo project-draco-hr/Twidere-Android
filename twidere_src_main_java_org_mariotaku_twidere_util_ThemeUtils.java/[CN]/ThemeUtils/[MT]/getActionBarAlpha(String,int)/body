@@ -1,6 +1,0 @@
-{
-  if (isTransparentBackground(option)) {
-    return getActionBarAlpha(alpha);
-  }
-  return 0xFF;
-}

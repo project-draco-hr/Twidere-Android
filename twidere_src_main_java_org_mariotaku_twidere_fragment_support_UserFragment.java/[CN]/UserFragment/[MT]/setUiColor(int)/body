@@ -5,26 +5,31 @@
   if (mActionBarBackground == null) {
     setupBaseActionBar();
   }
-  final AppCompatActivity activity=(AppCompatActivity)getActivity();
-  final IThemedActivity themed=(IThemedActivity)activity;
-  final String backgroundOption=themed.getThemeBackgroundOption();
-  final int actionBarColor=ThemeUtils.getActionBarColor(activity,color,backgroundOption);
-  if (mActionBarBackground != null) {
-    mActionBarBackground.setColor(actionBarColor);
-  }
-  if (mUser != null) {
-    final String displayName=mUserColorNameManager.getDisplayName(mUser,mNameFirst,false);
-    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(displayName,null,actionBarColor));
+  final ThemedAppCompatActivity activity=(ThemedAppCompatActivity)getActivity();
+  if (Config.coloredActionBar(activity,activity.getATEKey())) {
+    mPrimaryColor=color;
+    mPrimaryColorDark=ATEUtil.darkenColor(color);
   }
  else {
-    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,actionBarColor));
+    mPrimaryColor=Config.primaryColor(activity,activity.getATEKey());
+    mPrimaryColorDark=Color.BLACK;
+  }
+  if (mActionBarBackground != null) {
+    mActionBarBackground.setColor(mPrimaryColor);
+  }
+  if (mUser != null) {
+    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst,false);
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(name,null,color));
+  }
+ else {
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,color));
   }
   final int optimalAccentColor=ThemeUtils.getOptimalAccentColor(color,mDescriptionView.getCurrentTextColor());
   mDescriptionView.setLinkTextColor(optimalAccentColor);
   mLocationView.setLinkTextColor(optimalAccentColor);
   mURLView.setLinkTextColor(optimalAccentColor);
   mProfileBannerView.setBackgroundColor(color);
-  ViewSupport.setBackground(mPagerIndicator,ThemeUtils.getActionBarStackedBackground(activity,optimalAccentColor,backgroundOption,true));
+  mPagerIndicator.setBackgroundColor(mPrimaryColor);
   final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
   if (drawer != null) {
     final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();
