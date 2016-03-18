@@ -1,0 +1,9 @@
+{
+  if (mCheckedActionView)   return;
+  mCheckedActionView=true;
+  View actionView=getActionView();
+  if (actionView != null) {
+    ViewProcessor processor=ATE.getViewProcessor(actionView.getClass());
+    if (processor != null)     processor.process(getContext(),mKey,actionView,null);
+  }
+}

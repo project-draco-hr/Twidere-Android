@@ -1,0 +1,18 @@
+{
+  Class<?> cls=null;
+  try {
+    cls=Class.forName(name);
+  }
+ catch (  ClassNotFoundException e) {
+  }
+  if (cls != null)   return cls;
+  for (  String prefix : sClassPrefixList) {
+    try {
+      cls=Class.forName(prefix + name);
+    }
+ catch (    ClassNotFoundException e) {
+    }
+    if (cls != null)     return cls;
+  }
+  return null;
+}

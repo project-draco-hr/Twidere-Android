@@ -1,0 +1,5 @@
+{
+  final MenuItemImpl menuImpl=getItemData();
+  if (menuImpl == null)   return null;
+  return menuImpl.getActionView();
+}

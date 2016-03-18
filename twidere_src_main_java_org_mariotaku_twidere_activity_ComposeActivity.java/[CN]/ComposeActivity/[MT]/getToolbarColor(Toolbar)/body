@@ -1,0 +1,3 @@
+{
+  return ATEUtil.resolveColor(this,android.R.attr.panelColorBackground);
+}

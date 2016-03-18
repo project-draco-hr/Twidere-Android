@@ -6,13 +6,16 @@
       view=newInstance(name,context,attrs);
     }
     if (view == null) {
-      for (      String prefix : sClassPrefixList) {
-        view=newInstance(prefix + name,context,attrs);
-        if (view != null)         break;
-      }
+      view=newInstance(name,context,attrs);
     }
     if (view != null) {
       return view;
+    }
+  }
+  if (parent instanceof TwidereActionMenuView) {
+    final Class<?> cls=findClass(name);
+    if (cls != null && ActionMenuItemView.class.isAssignableFrom(cls)) {
+      return ((TwidereActionMenuView)parent).createActionMenuView(context,attrs);
     }
   }
   return super.onCreateView(parent,name,context,attrs);

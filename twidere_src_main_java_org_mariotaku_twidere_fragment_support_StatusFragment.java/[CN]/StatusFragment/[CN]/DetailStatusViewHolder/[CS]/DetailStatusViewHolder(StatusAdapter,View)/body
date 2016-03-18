@@ -6,7 +6,7 @@
   menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
   nameView=(TextView)itemView.findViewById(R.id.name);
   screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
-  textView=(StatusTextView)itemView.findViewById(R.id.text);
+  textView=(TextView)itemView.findViewById(R.id.text);
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
   timeSourceView=(TextView)itemView.findViewById(R.id.time_source);

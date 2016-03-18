@@ -1,0 +1,9 @@
+{
+  ATEDefaultTags.process(this);
+  if (mWaitForInflate) {
+    mKeyContext=keyContext;
+    ATE.addPostInflationView(this);
+    return;
+  }
+  ATEViewUtil.init(keyContext,this,context);
+}

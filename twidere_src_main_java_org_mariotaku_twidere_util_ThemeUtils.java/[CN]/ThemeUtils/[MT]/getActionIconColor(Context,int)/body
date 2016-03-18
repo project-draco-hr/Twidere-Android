@@ -1,0 +1,5 @@
+{
+  final int colorDark=ContextCompat.getColor(context,R.color.action_icon_dark);
+  final int colorLight=ContextCompat.getColor(context,R.color.action_icon_light);
+  return ATEUtil.isColorLight(backgroundColor) ? colorDark : colorLight;
+}

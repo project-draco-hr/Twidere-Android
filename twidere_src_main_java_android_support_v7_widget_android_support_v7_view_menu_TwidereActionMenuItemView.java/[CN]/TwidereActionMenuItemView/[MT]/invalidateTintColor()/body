@@ -1,0 +1,4 @@
+{
+  final int colorBackground=ATEUtil.resolveColor(getContext(),android.R.attr.colorBackground);
+  mTintColor=ThemeUtils.getActionIconColor(getContext(),colorBackground);
+}

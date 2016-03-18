@@ -1,0 +1,6 @@
+{
+  invalidateTintColor();
+  mIcon=TintHelper.createTintedDrawable(icon,mTintColor);
+  super.setIcon(mIcon);
+  invalidateActionView();
+}

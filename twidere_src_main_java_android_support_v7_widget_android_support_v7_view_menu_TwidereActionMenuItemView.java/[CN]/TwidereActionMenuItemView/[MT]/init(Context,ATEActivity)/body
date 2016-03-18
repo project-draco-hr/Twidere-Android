@@ -1,0 +1,9 @@
+{
+  if (keyContext == null && context instanceof ATEActivity)   keyContext=(ATEActivity)context;
+  mKey=null;
+  if (keyContext != null)   mKey=keyContext.getATEKey();
+  if (mIcon != null)   setIcon(mIcon);
+ else   invalidateTintColor();
+  ATE.themeView(context,this,mKey);
+  setTextColor(mTintColor);
+}

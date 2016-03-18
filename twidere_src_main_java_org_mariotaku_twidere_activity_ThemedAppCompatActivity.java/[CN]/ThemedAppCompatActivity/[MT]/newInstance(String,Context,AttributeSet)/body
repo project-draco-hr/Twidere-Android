@@ -1,6 +1,7 @@
 {
   try {
-    final Class<?> cls=Class.forName(name);
+    final Class<?> cls=findClass(name);
+    if (cls == null)     throw new ClassNotFoundException(name);
     final Constructor<?> constructor=cls.getConstructor(Context.class,AttributeSet.class);
     return (View)constructor.newInstance(context,attrs);
   }

@@ -2,12 +2,12 @@
   if (accounts.length == 1) {
     mCountView.setText(null);
     final ParcelableAccount account=accounts[0];
-    mImageLoader.displayProfileImage(mProfileImageView,account);
+    mMediaLoader.displayProfileImage(mProfileImageView,account);
     mProfileImageView.setBorderColor(account.color);
   }
  else {
     mCountView.setText(String.valueOf(accounts.length));
-    mImageLoader.cancelDisplayTask(mProfileImageView);
+    mMediaLoader.cancelDisplayTask(mProfileImageView);
     mProfileImageView.setImageDrawable(null);
     mProfileImageView.setBorderColors(Utils.getAccountColors(accounts));
   }

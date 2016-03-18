@@ -7,7 +7,7 @@
   mEntriesAdapter.addPreference(R.drawable.ic_action_extension,getString(R.string.extensions),ExtensionsListFragment.class);
   mEntriesAdapter.addPreference(R.drawable.ic_action_refresh,getString(R.string.refresh),R.xml.preferences_refresh);
   mEntriesAdapter.addPreference(R.drawable.ic_action_notification,getString(R.string.notifications),R.xml.preferences_notifications);
-  mEntriesAdapter.addPreference(R.drawable.ic_action_server,getString(R.string.network),R.xml.preferences_network);
+  mEntriesAdapter.addPreference(R.drawable.ic_action_web,getString(R.string.network),R.xml.preferences_network);
   mEntriesAdapter.addPreference(R.drawable.ic_action_status_compose,getString(R.string.compose),R.xml.preferences_compose);
   mEntriesAdapter.addPreference(R.drawable.ic_action_twidere_square,getString(R.string.content),R.xml.preferences_content);
   mEntriesAdapter.addPreference(R.drawable.ic_action_storage,getString(R.string.storage),R.xml.preferences_storage);
