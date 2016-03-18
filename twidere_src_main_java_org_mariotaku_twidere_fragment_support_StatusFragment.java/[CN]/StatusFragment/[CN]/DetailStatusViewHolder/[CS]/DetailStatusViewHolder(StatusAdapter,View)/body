@@ -4,8 +4,7 @@
   this.linkClickHandler=new DetailStatusLinkClickHandler(adapter.getContext(),null,adapter);
   this.linkify=new TwidereLinkify(linkClickHandler);
   menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
-  nameView=(TextView)itemView.findViewById(R.id.name);
-  screenNameView=(TextView)itemView.findViewById(R.id.screen_name);
+  nameView=(NameView)itemView.findViewById(R.id.name);
   textView=(TextView)itemView.findViewById(R.id.text);
   profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
   profileTypeView=(ImageView)itemView.findViewById(R.id.profile_type);
@@ -19,9 +18,7 @@
   profileContainer=(ColorLabelRelativeLayout)itemView.findViewById(R.id.profile_container);
   twitterCard=(TwitterCardContainer)itemView.findViewById(R.id.twitter_card);
   quotedTextView=(TextView)itemView.findViewById(R.id.quoted_text);
-  quotedNameView=(TextView)itemView.findViewById(R.id.quoted_name);
-  quotedScreenNameView=(TextView)itemView.findViewById(R.id.quoted_screen_name);
-  quotedNameContainer=itemView.findViewById(R.id.quoted_name_container);
+  quotedNameView=(NameView)itemView.findViewById(R.id.quoted_name);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   translateLabelView=(TextView)itemView.findViewById(R.id.translate_label);
   translateContainer=itemView.findViewById(R.id.translate_container);

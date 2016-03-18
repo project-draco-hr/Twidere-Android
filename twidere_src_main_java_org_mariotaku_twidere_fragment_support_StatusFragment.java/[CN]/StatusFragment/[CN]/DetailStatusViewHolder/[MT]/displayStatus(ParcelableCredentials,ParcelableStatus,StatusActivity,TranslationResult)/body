@@ -21,11 +21,11 @@
   final boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote && ArrayUtils.isEmpty(status.media)) {
     quoteOriginalLink.setVisibility(View.VISIBLE);
-    quotedNameContainer.setVisibility(View.VISIBLE);
+    quotedNameView.setVisibility(View.VISIBLE);
     quotedTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
-    quotedNameView.setText(manager.getUserNickname(status.quoted_user_id,status.quoted_user_name,false));
-    quotedScreenNameView.setText(String.format("@%s",status.quoted_user_screen_name));
+    quotedNameView.setName(manager.getUserNickname(status.quoted_user_id,status.quoted_user_name,false));
+    quotedNameView.setScreenName(String.format("@%s",status.quoted_user_screen_name));
     final CharSequence quotedText=HtmlSpanBuilder.fromHtml(status.quoted_text_html,status.text_unescaped);
     quotedTextView.setText(linkify.applyAllLinks(quotedText,status.account_key,layoutPosition,status.is_possibly_sensitive,skipLinksInText));
     quoteIndicator.setColor(manager.getUserColor(status.user_key,false));
@@ -33,7 +33,7 @@
   }
  else {
     quoteOriginalLink.setVisibility(View.GONE);
-    quotedNameContainer.setVisibility(View.GONE);
+    quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
     profileContainer.drawStart(manager.getUserColor(status.user_key,false));
@@ -45,8 +45,10 @@
  else {
     timestamp=status.timestamp;
   }
-  nameView.setText(manager.getUserNickname(status.user_key,status.user_name,false));
-  screenNameView.setText(String.format("@%s",status.user_screen_name));
+  final BidiFormatter formatter=adapter.getBidiFormatter();
+  nameView.setName(manager.getUserNickname(status.user_key,status.user_name,false));
+  nameView.setScreenName(String.format("@%s",status.user_screen_name));
+  nameView.updateText(formatter);
   loader.displayProfileImage(profileImageView,status);
   final int typeIconRes=Utils.getUserTypeIconRes(status.user_is_verified,status.user_is_protected);
   final int typeDescriptionRes=Utils.getUserTypeDescriptionRes(status.user_is_verified,status.user_is_protected);

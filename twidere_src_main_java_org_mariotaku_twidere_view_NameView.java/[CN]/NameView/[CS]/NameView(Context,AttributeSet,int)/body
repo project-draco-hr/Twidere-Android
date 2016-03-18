@@ -1,5 +1,7 @@
 {
   super(context,attrs,defStyleAttr);
+  setSpannableFactory(new SafeSpannableFactory());
+  setEditableFactory(new SafeEditableFactory());
   setEllipsize(TextUtils.TruncateAt.END);
   final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.NameView,defStyleAttr,0);
   setPrimaryTextColor(a.getColor(R.styleable.NameView_nv_primaryTextColor,0));

@@ -8,6 +8,7 @@
   ATE.registerViewProcessor(ActionBarContextView.class,new ActionBarContextViewViewProcessor());
   ATE.registerViewProcessor(ExtendedSwipeRefreshLayout.class,new ExtendedSwipeRefreshLayoutViewProcessor());
   ATE.registerViewProcessor(TimelineContentTextView.class,new TimelineContentTextViewViewProcessor());
+  ATE.registerViewProcessor(ProgressWheel.class,new ProgressWheelViewProcessor());
   final SharedPreferences preferences=getSharedPreferences();
   if (!ATE.config(this,null).isConfigured()) {
     final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));

@@ -1,0 +1,11 @@
+{
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)   return;
+  final View decorView=window.getDecorView();
+  final int systemUiVisibility=decorView.getSystemUiVisibility();
+  if (lightStatusBar) {
+    decorView.setSystemUiVisibility(systemUiVisibility | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+  }
+ else {
+    decorView.setSystemUiVisibility(systemUiVisibility & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+  }
+}

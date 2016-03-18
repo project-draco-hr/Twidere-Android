@@ -1,3 +1,15 @@
 {
   if (ArrayUtils.contains(excludeGroups,item.getGroupId()))   return;
+  final Drawable icon=item.getIcon();
+  if (icon == null || icon instanceof DoNotWrapDrawable)   return;
+  if (icon instanceof ActionIconDrawable) {
+    ((ActionIconDrawable)icon).setDefaultColor(itemColor);
+    item.setIcon(icon);
+    return;
+  }
+  icon.mutate();
+  final Drawable.Callback callback=icon.getCallback();
+  final ActionIconDrawable newIcon=new ActionIconDrawable(icon,itemColor);
+  newIcon.setCallback(callback);
+  item.setIcon(newIcon);
 }

@@ -34,7 +34,7 @@ if (!ParcelableLocationUtils.isValidLocation(location)) return;
 IntentUtils.openMap(adapter.getContext(),location.latitude,location.longitude);
 break;
 }
-case R.id.quoted_name_container:
+case R.id.quoted_name:
 {
 IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.quoted_user_id.getId(),status.quoted_user_screen_name,null,true,UserFragment.Referral.STATUS);
 break;
