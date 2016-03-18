@@ -17,6 +17,7 @@
     finish();
     return;
   }
+  supportRequestWindowFeature(AppCompatDelegate.FEATURE_ACTION_MODE_OVERLAY);
   setContentView(R.layout.activity_home);
   setSupportActionBar(mActionBar);
   ThemeUtils.setCompatContentViewOverlay(getWindow(),new EmptyDrawable());

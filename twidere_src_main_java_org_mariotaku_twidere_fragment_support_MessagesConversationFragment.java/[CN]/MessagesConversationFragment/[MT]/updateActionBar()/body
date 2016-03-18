@@ -1,6 +1,0 @@
-{
-  final BaseAppCompatActivity activity=(BaseAppCompatActivity)getActivity();
-  final ActionBar actionBar=activity.getSupportActionBar();
-  if (actionBar == null)   return;
-  actionBar.setDisplayOptions(mRecipient != null ? ActionBar.DISPLAY_SHOW_TITLE : ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM);
-}

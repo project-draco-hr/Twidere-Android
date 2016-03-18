@@ -12,7 +12,7 @@
     text1.setText(mUserColorNameManager.getUserNickname(user.key,user.name,false));
     text2.setText(String.format("@%s",user.screen_name));
     if (displayProfileImage) {
-      mImageLoader.displayProfileImage(icon,user);
+      mMediaLoader.displayProfileImage(icon,user);
     }
   }
  else   if (value instanceof ParcelableUserList) {
@@ -21,7 +21,7 @@
     text1.setText(userList.name);
     text2.setText(getString(R.string.created_by,createdBy));
     if (displayProfileImage) {
-      mImageLoader.displayProfileImage(icon,userList.user_profile_image_url);
+      mMediaLoader.displayProfileImage(icon,userList.user_profile_image_url);
     }
   }
  else   if (value instanceof CharSequence) {

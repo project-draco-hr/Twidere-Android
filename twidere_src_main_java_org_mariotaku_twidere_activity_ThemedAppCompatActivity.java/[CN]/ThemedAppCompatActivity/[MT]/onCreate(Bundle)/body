@@ -1,7 +1,0 @@
-{
-  if (BuildConfig.DEBUG) {
-    StrictModeUtils.detectAllVmPolicy();
-    StrictModeUtils.detectAllThreadPolicy();
-  }
-  super.onCreate(savedInstanceState);
-}

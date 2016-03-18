@@ -1,6 +1,0 @@
-{
-  if (getShowsDialog()) {
-    return inflater.inflate(R.layout.dialog_scrollable_status,parent,false);
-  }
-  return inflater.inflate(R.layout.fragment_scrollable_status,parent,false);
-}

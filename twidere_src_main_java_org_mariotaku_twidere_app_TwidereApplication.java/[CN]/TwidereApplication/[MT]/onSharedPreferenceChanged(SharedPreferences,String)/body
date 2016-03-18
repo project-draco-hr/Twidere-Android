@@ -55,6 +55,12 @@ case KEY_THEME_BACKGROUND:
 Config.markChanged(this,VALUE_THEME_NAME_LIGHT,VALUE_THEME_NAME_DARK);
 break;
 }
+case KEY_PROFILE_IMAGE_STYLE:
+{
+Config.markChanged(this,VALUE_THEME_NAME_LIGHT,VALUE_THEME_NAME_DARK);
+mProfileImageViewViewProcessor.setStyle(Utils.getProfileImageStyle(preferences.getString(key,null)));
+break;
+}
 case KEY_THEME_COLOR:
 {
 final int themeColor=preferences.getInt(key,ContextCompat.getColor(this,R.color.branding_color));

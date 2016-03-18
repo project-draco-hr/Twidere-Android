@@ -1,5 +1,5 @@
 {
-  mDestroyingStatusIds.remove(Pair.create(mAccountKey,mStatusId));
+  mDestroyingStatusIds.removeElement(calculateHashCode(mAccountKey,mStatusId));
   if (result.hasData()) {
     final ParcelableStatus status=result.getData();
     if (status.retweet_id != null) {

@@ -1,6 +1,6 @@
 {
   final int actionBarThemeId;
-  if (isDarkTheme(base) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
+  if (!isLightTheme(base) || TwidereColorUtils.getYIQLuminance(accentColor) <= ACCENT_COLOR_THRESHOLD) {
     actionBarThemeId=R.style.Theme_Twidere;
   }
  else {

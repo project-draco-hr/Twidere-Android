@@ -1,5 +1,8 @@
 {
   super.onPreExecute();
-  mCreatingRetweetIds.add(Pair.create(mAccountKey,mStatusId));
+  final int hashCode=calculateHashCode(mAccountKey,mStatusId);
+  if (!mCreatingRetweetIds.contains(hashCode)) {
+    mCreatingRetweetIds.add(hashCode);
+  }
   bus.post(new StatusListChangedEvent());
 }

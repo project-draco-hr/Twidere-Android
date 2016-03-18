@@ -1,4 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  GeneralComponentHelper.build(this).inject(this);
-}

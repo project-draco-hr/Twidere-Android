@@ -1,0 +1,56 @@
+{
+  final View space=mProfileBannerSpace;
+  final ProfileBannerImageView profileBannerView=mProfileBannerView;
+  final View profileBirthdayBannerView=mProfileBirthdayBannerView;
+  final View profileBannerContainer=mProfileBannerContainer;
+  final int spaceHeight=space.getHeight();
+  final float factor=TwidereMathUtils.clamp(spaceHeight == 0 ? 0 : (offset / (float)spaceHeight),0,1);
+  profileBannerContainer.setTranslationY(-offset);
+  profileBannerView.setTranslationY(offset / 2);
+  profileBirthdayBannerView.setTranslationY(offset / 2);
+  final BaseActivity activity=(BaseActivity)getActivity();
+  final int statusBarColor=(int)sArgbEvaluator.evaluate(factor,ATEUtil.darkenColor(0xA0000000),ATEUtil.darkenColor(mPrimaryColorDark));
+  final Window window=activity.getWindow();
+  WindowSupport.setStatusBarColor(window,statusBarColor);
+  ThemeUtils.setLightStatusBar(window,ATEUtil.isColorLight(statusBarColor));
+  int stackedTabColor=mPrimaryColor;
+  final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();
+  final float tabOutlineAlphaFactor;
+  if ((offset - spaceHeight) > 0) {
+    tabOutlineAlphaFactor=1f - TwidereMathUtils.clamp((offset - spaceHeight) / profileContentHeight,0,1);
+  }
+ else {
+    tabOutlineAlphaFactor=1f;
+  }
+  if (mActionBarBackground != null) {
+    mActionBarBackground.setFactor(factor);
+    mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
+  }
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+    setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
+  }
+  final int currentTabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
+  final Drawable tabBackground=mPagerIndicator.getBackground();
+  ((ColorDrawable)tabBackground).setColor(currentTabColor);
+  final boolean tabItemIsDark=ATEUtil.isColorLight(currentTabColor);
+  if (mPreviousTabItemIsDark == 0 || (tabItemIsDark ? 1 : -1) != mPreviousTabItemIsDark) {
+    final int tabContrastColor=ThemeUtils.getColorDependent(currentTabColor);
+    mPagerIndicator.setIconColor(tabContrastColor);
+    mPagerIndicator.setLabelColor(tabContrastColor);
+    if (Config.coloredActionBar(activity,activity.getATEKey())) {
+      mPagerIndicator.setStripColor(tabContrastColor);
+    }
+ else {
+      mPagerIndicator.setStripColor(ThemeUtils.getOptimalAccentColor(mUiColor,tabContrastColor));
+    }
+    mPagerIndicator.updateAppearance();
+  }
+  mPreviousTabItemIsDark=(tabItemIsDark ? 1 : -1);
+  final int currentActionBarColor=(Integer)sArgbEvaluator.evaluate(factor,mActionBarShadowColor,stackedTabColor);
+  final boolean actionItemIsDark=ATEUtil.isColorLight(currentActionBarColor);
+  if (mPreviousActionBarItemIsDark == 0 || (actionItemIsDark ? 1 : -1) != mPreviousActionBarItemIsDark) {
+    ThemeUtils.applyToolbarItemColor(activity,mToolbar,currentActionBarColor);
+  }
+  mPreviousActionBarItemIsDark=actionItemIsDark ? 1 : -1;
+  updateTitleAlpha();
+}

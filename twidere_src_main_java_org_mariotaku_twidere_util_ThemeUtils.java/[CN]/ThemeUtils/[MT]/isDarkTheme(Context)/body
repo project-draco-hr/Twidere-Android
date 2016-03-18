@@ -1,9 +1,0 @@
-{
-  final TypedArray a=context.obtainStyledAttributes(new int[]{R.attr.darkTheme});
-  try {
-    return a.getBoolean(0,false);
-  }
-  finally {
-    a.recycle();
-  }
-}

@@ -1,5 +1,8 @@
 {
   super.onPreExecute();
-  mDestroyingStatusIds.add(Pair.create(mAccountKey,mStatusId));
+  final int hashCode=calculateHashCode(mAccountKey,mStatusId);
+  if (!mDestroyingStatusIds.contains(hashCode)) {
+    mDestroyingStatusIds.add(hashCode);
+  }
   bus.post(new StatusListChangedEvent());
 }

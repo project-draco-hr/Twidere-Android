@@ -19,7 +19,7 @@ case REQUEST_EDIT_API:
     }
 case REQUEST_BROWSER_SIGN_IN:
 {
-    if (resultCode == BaseAppCompatActivity.RESULT_OK && data != null) {
+    if (resultCode == BaseActivity.RESULT_OK && data != null) {
       doBrowserLogin(data);
     }
     break;

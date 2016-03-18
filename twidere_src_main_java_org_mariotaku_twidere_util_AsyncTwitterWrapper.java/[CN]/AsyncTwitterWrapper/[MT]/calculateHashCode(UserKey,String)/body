@@ -1,0 +1,3 @@
+{
+  return (accountId == null ? 0 : accountId.hashCode()) ^ (statusId == null ? 0 : statusId.hashCode());
+}

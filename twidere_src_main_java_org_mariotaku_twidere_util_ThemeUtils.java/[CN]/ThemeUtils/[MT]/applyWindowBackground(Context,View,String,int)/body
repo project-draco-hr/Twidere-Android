@@ -4,7 +4,7 @@
     ViewSupport.setBackground(window,getWindowBackgroundFromThemeApplyAlpha(context,alpha));
   }
  else   if (VALUE_THEME_BACKGROUND_SOLID.equals(option)) {
-    ViewSupport.setBackground(window,new ColorDrawable(isDarkTheme(context) ? Color.BLACK : Color.WHITE));
+    ViewSupport.setBackground(window,new ColorDrawable(!isLightTheme(context) ? Color.BLACK : Color.WHITE));
   }
  else {
     ViewSupport.setBackground(window,getWindowBackgroundFromTheme(context));

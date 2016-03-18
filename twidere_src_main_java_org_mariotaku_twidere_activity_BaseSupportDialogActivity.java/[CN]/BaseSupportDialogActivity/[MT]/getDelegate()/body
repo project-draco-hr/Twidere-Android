@@ -1,6 +1,0 @@
-{
-  if (mDelegate == null) {
-    mDelegate=AppCompatDelegate.create(this,this);
-  }
-  return mDelegate;
-}

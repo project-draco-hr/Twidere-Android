@@ -1,5 +1,4 @@
 {
-  mCurrentThemeColor=getThemeColor();
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   super.onApplyThemeResource(theme,resId,first);

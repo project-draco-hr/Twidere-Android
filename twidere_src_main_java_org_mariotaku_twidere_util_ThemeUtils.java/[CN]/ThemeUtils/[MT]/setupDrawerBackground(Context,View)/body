@@ -4,7 +4,7 @@
   final int alpha=((IThemedActivity)context).getCurrentThemeBackgroundAlpha();
   final Drawable d;
   if (isSolidBackground(backgroundOption)) {
-    d=new ColorDrawable(isDarkTheme(context) ? Color.BLACK : Color.WHITE);
+    d=new ColorDrawable(!isLightTheme(context) ? Color.BLACK : Color.WHITE);
   }
  else {
     d=getWindowBackgroundFromTheme(context);

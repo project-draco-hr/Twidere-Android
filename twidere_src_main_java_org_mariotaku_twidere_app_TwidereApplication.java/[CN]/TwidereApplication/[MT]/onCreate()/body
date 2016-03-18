@@ -9,6 +9,9 @@
   ATE.registerViewProcessor(ExtendedSwipeRefreshLayout.class,new ExtendedSwipeRefreshLayoutViewProcessor());
   ATE.registerViewProcessor(TimelineContentTextView.class,new TimelineContentTextViewViewProcessor());
   ATE.registerViewProcessor(ProgressWheel.class,new ProgressWheelViewProcessor());
+  mProfileImageViewViewProcessor=new ProfileImageViewViewProcessor();
+  ATE.registerViewProcessor(ProfileImageView.class,mProfileImageViewViewProcessor);
+  ATE.registerTagProcessor("optimal_link_color",new OptimalLinkColorTagProcessor());
   final SharedPreferences preferences=getSharedPreferences();
   if (!ATE.config(this,null).isConfigured()) {
     final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));

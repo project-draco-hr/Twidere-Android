@@ -1,11 +1,9 @@
 {
   super.onCreate(savedInstanceState);
-  setVisible(true);
   final Bundle fragmentArgs=new Bundle();
   fragmentArgs.putInt(EXTRA_RESID,R.xml.preferences_usage_statistics);
-  final Intent intent=new Intent(this,SettingsActivity.class);
-  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT,SettingsDetailsFragment.class.getName());
-  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS,fragmentArgs);
-  intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_TITLE,R.string.usage_statistics);
-  startActivityForResult(intent,REQUEST_USAGE_STATISTICS);
+  final FragmentManager fm=getSupportFragmentManager();
+  final FragmentTransaction ft=fm.beginTransaction();
+  ft.replace(android.R.id.content,Fragment.instantiate(this,SettingsDetailsFragment.class.getName(),fragmentArgs));
+  ft.commit();
 }

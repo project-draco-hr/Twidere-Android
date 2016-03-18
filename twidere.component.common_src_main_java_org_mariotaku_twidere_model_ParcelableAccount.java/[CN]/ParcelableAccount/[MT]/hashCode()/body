@@ -1,3 +1,4 @@
 {
+  if (account_key == null)   return 0;
   return account_key.hashCode();
 }

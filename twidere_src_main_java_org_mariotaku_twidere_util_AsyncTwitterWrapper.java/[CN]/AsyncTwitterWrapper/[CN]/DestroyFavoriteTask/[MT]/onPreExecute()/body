@@ -1,5 +1,8 @@
 {
   super.onPreExecute();
-  mDestroyingFavoriteIds.add(Pair.create(mAccountKey,mStatusId));
+  final int hashCode=calculateHashCode(mAccountKey,mStatusId);
+  if (!mDestroyingFavoriteIds.contains(hashCode)) {
+    mDestroyingFavoriteIds.add(hashCode);
+  }
   bus.post(new StatusListChangedEvent());
 }

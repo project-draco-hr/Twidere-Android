@@ -5,7 +5,7 @@
     window.setBackgroundDrawable(getWindowBackgroundFromThemeApplyAlpha(context,alpha));
   }
  else   if (VALUE_THEME_BACKGROUND_SOLID.equals(option)) {
-    window.setBackgroundDrawable(new ColorDrawable(isDarkTheme(context) ? Color.BLACK : Color.WHITE));
+    window.setBackgroundDrawable(new ColorDrawable(!isLightTheme(context) ? Color.BLACK : Color.WHITE));
   }
  else {
     window.setBackgroundDrawable(getWindowBackgroundFromTheme(context));

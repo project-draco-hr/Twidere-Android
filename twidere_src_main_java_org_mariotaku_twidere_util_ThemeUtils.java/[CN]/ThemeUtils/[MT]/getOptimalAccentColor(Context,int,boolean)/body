@@ -1,6 +1,6 @@
 {
   final int backgroundColorApprox;
-  final boolean isDarkTheme=isDarkTheme(context);
+  final boolean isDarkTheme=!isLightTheme(context);
   if (!isActionBarContext) {
     backgroundColorApprox=isDarkTheme ? Color.BLACK : Color.WHITE;
   }

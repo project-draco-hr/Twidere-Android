@@ -1,0 +1,5 @@
+{
+  TextView tv=(TextView)view;
+  final int accentColor=Config.accentColor(context,key);
+  tv.setLinkTextColor(ThemeUtils.getOptimalAccentColor(accentColor,tv.getCurrentTextColor()));
+}

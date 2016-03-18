@@ -1,0 +1,6 @@
+{
+  super(context,android.R.layout.simple_list_item_1);
+  mResources=context.getResources();
+  mActionIconColor=!ThemeUtils.isLightTheme(context) ? 0xffffffff : 0xc0333333;
+  mPadding=(int)(4 * mResources.getDisplayMetrics().density);
+}

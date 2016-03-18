@@ -1,0 +1,38 @@
+{
+  mUiColor=color;
+  mPreviousActionBarItemIsDark=0;
+  mPreviousTabItemIsDark=0;
+  if (mActionBarBackground == null) {
+    setupBaseActionBar();
+  }
+  final BaseActivity activity=(BaseActivity)getActivity();
+  if (Config.coloredActionBar(activity,activity.getATEKey())) {
+    mPrimaryColor=color;
+    mPrimaryColorDark=ATEUtil.darkenColor(color);
+  }
+ else {
+    mPrimaryColor=Config.primaryColor(activity,activity.getATEKey());
+    mPrimaryColorDark=Color.BLACK;
+  }
+  if (mActionBarBackground != null) {
+    mActionBarBackground.setColor(mPrimaryColor);
+  }
+  if (mUser != null) {
+    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst,false);
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(name,null,color));
+  }
+ else {
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,color));
+  }
+  final int optimalAccentColor=ThemeUtils.getOptimalAccentColor(color,mDescriptionView.getCurrentTextColor());
+  mDescriptionView.setLinkTextColor(optimalAccentColor);
+  mLocationView.setLinkTextColor(optimalAccentColor);
+  mURLView.setLinkTextColor(optimalAccentColor);
+  mProfileBannerView.setBackgroundColor(color);
+  mPagerIndicator.setBackgroundColor(mPrimaryColor);
+  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
+  if (drawer != null) {
+    final int offset=drawer.getPaddingTop() - drawer.getHeaderTop();
+    updateScrollOffset(offset);
+  }
+}

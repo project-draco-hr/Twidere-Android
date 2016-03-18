@@ -1,7 +1,7 @@
 {
   final TextView text1=(TextView)view.findViewById(android.R.id.text1);
   final TextView text2=(TextView)view.findViewById(android.R.id.text2);
-  final ProfileImageView icon=(ProfileImageView)view.findViewById(android.R.id.icon);
+  final ImageView icon=(ImageView)view.findViewById(android.R.id.icon);
   icon.setImageDrawable(null);
   if (Suggestions.AutoComplete.TYPE_USERS.equals(cursor.getString(mTypeIdx))) {
     text1.setText(mUserColorNameManager.getUserNickname(cursor.getString(mExtraIdIdx),cursor.getString(mTitleIdx)));

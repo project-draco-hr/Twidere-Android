@@ -1,3 +1,0 @@
-{
-  return getActionBarBackground(context,accentColor,backgroundOption,outlineEnabled);
-}

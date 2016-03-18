@@ -1,0 +1,6 @@
+{
+  if (target == null)   return;
+  defaultProcessor.process(context,key,target,extra);
+  final int accentColor=Config.accentColor(context,key);
+  target.setLinkTextColor(ThemeUtils.getOptimalAccentColor(accentColor,target.getCurrentTextColor()));
+}

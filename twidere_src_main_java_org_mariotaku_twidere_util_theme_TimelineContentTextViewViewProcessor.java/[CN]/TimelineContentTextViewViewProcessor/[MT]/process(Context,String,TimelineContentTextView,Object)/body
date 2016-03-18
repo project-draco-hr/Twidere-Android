@@ -1,5 +1,0 @@
-{
-  if (target == null)   return;
-  final int accentColor=Config.accentColor(context,key);
-  target.setLinkTextColor(ThemeUtils.getOptimalAccentColor(accentColor,target.getCurrentTextColor()));
-}

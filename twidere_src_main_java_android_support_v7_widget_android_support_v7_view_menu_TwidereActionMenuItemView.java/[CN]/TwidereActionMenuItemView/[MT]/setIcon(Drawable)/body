@@ -1,6 +1,11 @@
 {
   invalidateTintColor();
-  mIcon=TintHelper.createTintedDrawable(icon,mTintColor);
+  if (icon instanceof IgnoreTinting) {
+    mIcon=icon;
+  }
+ else {
+    mIcon=TintHelper.createTintedDrawable(icon,mTintColor);
+  }
   super.setIcon(mIcon);
   invalidateActionView();
 }

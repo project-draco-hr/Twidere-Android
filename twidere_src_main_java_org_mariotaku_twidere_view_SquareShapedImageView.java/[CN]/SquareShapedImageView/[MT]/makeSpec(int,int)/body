@@ -1,3 +1,0 @@
-{
-  return MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(spec),mode);
-}

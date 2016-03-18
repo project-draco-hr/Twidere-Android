@@ -1,0 +1,8 @@
+{
+  if (!mPreferences.contains(KEY_USAGE_STATISTICS)) {
+    final SharedPreferences.Editor editor=mPreferences.edit();
+    editor.putBoolean(KEY_USAGE_STATISTICS,mPreferences.getBoolean(KEY_USAGE_STATISTICS));
+    editor.apply();
+  }
+  super.onDestroy();
+}
