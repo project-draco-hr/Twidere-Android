@@ -50,7 +50,11 @@
   builder.tag(NoIntercept.INSTANCE);
   final HttpResponse resp=mClient.newCall(builder.build()).execute();
   if (!resp.isSuccessful()) {
-    throw new IOException("Unable to get media, response code: " + resp.getStatus());
+    final String detailMessage="Unable to get " + requestUri + ", response code: "+ resp.getStatus();
+    if (resp.getStatus() == 404) {
+      throw new FileNotFoundException(detailMessage);
+    }
+    throw new IOException(detailMessage);
   }
   final Body body=resp.getBody();
   final CacheMetadata metadata=new CacheMetadata();

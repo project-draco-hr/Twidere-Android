@@ -2,10 +2,9 @@
   if (uriString == null)   return null;
   try {
     if (isTwitterProfileImage(uriString)) {
-      final String replaced=Utils.getTwitterProfileImageOfSize(uriString,mTwitterProfileImageSize);
-      return getStreamFromNetworkInternal(replaced,extras);
+      uriString=Utils.getTwitterProfileImageOfSize(uriString,mTwitterProfileImageSize);
     }
- else     return getStreamFromNetworkInternal(uriString,extras);
+    return getStreamFromNetworkInternal(uriString,extras);
   }
  catch (  final FileNotFoundException e) {
     if (isTwitterProfileImage(uriString) && !uriString.contains("_normal.")) {
