@@ -1,10 +1,7 @@
 {
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
-  if (attachLocation) {
-    mLocationIcon.setColorFilter(ThemeUtils.getOptimalAccentColor(this,false),Mode.SRC_ATOP);
-  }
- else {
-    mLocationIcon.setColorFilter(mLocationIcon.getDefaultColor(),Mode.SRC_ATOP);
+  mLocationIcon.setActivated(attachLocation);
+  if (!attachLocation) {
     mLocationText.setText(R.string.no_location);
   }
 }

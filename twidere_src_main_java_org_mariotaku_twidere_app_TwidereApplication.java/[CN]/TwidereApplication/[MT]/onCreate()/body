@@ -12,10 +12,15 @@
   mProfileImageViewViewProcessor=new ProfileImageViewViewProcessor();
   ATE.registerViewProcessor(ProfileImageView.class,mProfileImageViewViewProcessor);
   ATE.registerTagProcessor("optimal_link_color",new OptimalLinkColorTagProcessor());
+  ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR));
+  ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED));
+  ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED));
   final SharedPreferences preferences=getSharedPreferences();
-  if (!ATE.config(this,null).isConfigured()) {
-    final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));
+  final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));
+  if (!ATE.config(this,VALUE_THEME_NAME_LIGHT).isConfigured()) {
     ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(themeColor).coloredActionBar(true).commit();
+  }
+  if (!ATE.config(this,VALUE_THEME_NAME_DARK).isConfigured()) {
     ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).commit();
   }
   resetTheme(preferences);

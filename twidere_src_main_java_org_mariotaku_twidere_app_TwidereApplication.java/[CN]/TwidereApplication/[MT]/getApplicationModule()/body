@@ -1,4 +1,0 @@
-{
-  if (mApplicationModule != null)   return mApplicationModule;
-  return mApplicationModule=new ApplicationModule(this);
-}

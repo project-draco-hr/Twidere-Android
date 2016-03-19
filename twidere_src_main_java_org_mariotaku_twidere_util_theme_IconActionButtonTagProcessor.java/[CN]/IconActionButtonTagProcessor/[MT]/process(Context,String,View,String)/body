@@ -1,0 +1,22 @@
+{
+  final IIconActionButton iab=(IIconActionButton)view;
+  final ColorResult colorResult=getColorFromSuffix(context,key,view,suffix);
+  if (colorResult == null)   return;
+switch (mPrefix) {
+case PREFIX_COLOR:
+{
+      iab.setDefaultColor(colorResult.getColor());
+      break;
+    }
+case PREFIX_COLOR_ACTIVATED:
+{
+    iab.setActivatedColor(colorResult.getColor());
+    break;
+  }
+case PREFIX_COLOR_DISABLED:
+{
+  iab.setDisabledColor(colorResult.getColor());
+  break;
+}
+}
+}

@@ -1,3 +1,11 @@
 {
-  setColorFilter(isActivated() ? mActivatedColor : mColor,Mode.SRC_ATOP);
+  if (isActivated()) {
+    setColorFilter(getActivatedColor());
+  }
+ else   if (isEnabled()) {
+    setColorFilter(getDefaultColor());
+  }
+ else {
+    setColorFilter(getDisabledColor());
+  }
 }

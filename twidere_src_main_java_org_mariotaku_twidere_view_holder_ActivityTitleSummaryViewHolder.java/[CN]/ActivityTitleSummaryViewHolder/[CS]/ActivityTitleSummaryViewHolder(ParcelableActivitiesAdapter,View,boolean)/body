@@ -2,7 +2,7 @@
   super(itemView);
   this.adapter=adapter;
   itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
-  activityTypeView=(ActionIconView)itemView.findViewById(R.id.activity_type);
+  activityTypeView=(IconActionView)itemView.findViewById(R.id.activity_type);
   titleView=(TextView)itemView.findViewById(R.id.title);
   summaryView=(TextView)itemView.findViewById(R.id.summary);
   timeView=(ShortTimeView)itemView.findViewById(R.id.time);

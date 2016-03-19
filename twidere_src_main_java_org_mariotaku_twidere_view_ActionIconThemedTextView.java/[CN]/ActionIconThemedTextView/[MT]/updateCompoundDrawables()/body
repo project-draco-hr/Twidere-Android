@@ -7,7 +7,7 @@
       color=getActivatedColor();
     }
  else     if (isEnabled()) {
-      color=getColor();
+      color=getDefaultColor();
     }
  else {
       color=getDisabledColor();

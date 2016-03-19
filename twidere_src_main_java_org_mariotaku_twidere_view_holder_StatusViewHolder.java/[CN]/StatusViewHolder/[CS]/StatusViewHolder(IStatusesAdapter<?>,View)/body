@@ -20,9 +20,9 @@
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);
   actionButtons=itemView.findViewById(R.id.action_buttons);
-  replyIconView=(ActionIconButton)itemView.findViewById(R.id.reply_icon);
-  retweetIconView=(ActionIconButton)itemView.findViewById(R.id.retweet_icon);
-  favoriteIconView=(ActionIconButton)itemView.findViewById(R.id.favorite_icon);
+  replyIconView=(IconActionButton)itemView.findViewById(R.id.reply_icon);
+  retweetIconView=(IconActionButton)itemView.findViewById(R.id.retweet_icon);
+  favoriteIconView=(IconActionButton)itemView.findViewById(R.id.favorite_icon);
   replyCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.reply_count);
   retweetCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.retweet_count);
   favoriteCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.favorite_count);
