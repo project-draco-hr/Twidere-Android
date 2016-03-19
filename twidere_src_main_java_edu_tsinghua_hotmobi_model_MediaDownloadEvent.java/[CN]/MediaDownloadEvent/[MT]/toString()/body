@@ -1,0 +1,3 @@
+{
+  return "MediaDownloadEvent{" + "type=" + type + ", url='"+ url+ '\''+ ", mediaUrl='"+ mediaUrl+ '\''+ ", size="+ size+ "} "+ super.toString();
+}
