@@ -27,7 +27,7 @@
     mActionBarBackground.setOutlineAlphaFactor(tabOutlineAlphaFactor);
   }
   if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-    setCompatToolbarOverlayAlpha(activity,factor * tabOutlineAlphaFactor);
+    mWindowOverlay.setAlpha(factor * tabOutlineAlphaFactor);
   }
   final int currentTabColor=(Integer)sArgbEvaluator.evaluate(tabOutlineAlphaFactor,stackedTabColor,mCardBackgroundColor);
   final Drawable tabBackground=mPagerIndicator.getBackground();

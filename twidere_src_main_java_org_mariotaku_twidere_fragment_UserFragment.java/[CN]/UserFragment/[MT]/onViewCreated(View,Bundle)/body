@@ -41,6 +41,7 @@
   mErrorOverlay=contentView.findViewById(R.id.error_window_overlay);
   mFollowButton=(Button)headerView.findViewById(R.id.follow);
   mFollowProgress=(ProgressBar)headerView.findViewById(R.id.follow_progress);
+  mWindowOverlay=view.findViewById(R.id.window_overlay);
   mPagesContent=view.findViewById(R.id.pages_content);
   mPagesErrorContainer=view.findViewById(R.id.pages_error_container);
   mPagesErrorIcon=(ImageView)view.findViewById(R.id.pages_error_icon);
