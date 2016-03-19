@@ -1,6 +1,0 @@
-{
-  if (!mWaitForInflate)   return;
-  mWaitForInflate=false;
-  ATEViewUtil.init(mKeyContext,this,getContext());
-  mKeyContext=null;
-}

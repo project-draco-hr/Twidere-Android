@@ -61,6 +61,12 @@ Config.markChanged(this,VALUE_THEME_NAME_LIGHT,VALUE_THEME_NAME_DARK);
 mProfileImageViewViewProcessor.setStyle(Utils.getProfileImageStyle(preferences.getString(key,null)));
 break;
 }
+case KEY_THEME_FONT_FAMILY:
+{
+Config.markChanged(this,VALUE_THEME_NAME_LIGHT,VALUE_THEME_NAME_DARK);
+mFontFamilyTagProcessor.setFontFamily(ThemeUtils.getThemeFontFamily(preferences));
+break;
+}
 case KEY_THEME_COLOR:
 {
 final int themeColor=preferences.getInt(key,ContextCompat.getColor(this,R.color.branding_color));

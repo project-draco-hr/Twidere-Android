@@ -1,9 +1,4 @@
 {
   super.dispatchDraw(canvas);
-  if (mDrawShadow) {
-    canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mShadowPaint);
-  }
- else   if (mDrawColor) {
-  }
-  canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mDrawColor ? mColorPaint : mBlackPaint);
+  canvas.drawRect(0,0,canvas.getWidth(),mStatusBarHeight,mColorPaint);
 }

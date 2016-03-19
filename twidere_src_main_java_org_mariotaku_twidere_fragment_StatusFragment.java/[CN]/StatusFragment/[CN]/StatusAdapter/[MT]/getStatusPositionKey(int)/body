@@ -1,0 +1,5 @@
+{
+  final ParcelableStatus status=getStatus(position);
+  if (status == null)   return -1;
+  return status.position_key > 0 ? status.timestamp : getStatusTimestamp(position);
+}

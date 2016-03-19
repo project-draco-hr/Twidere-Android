@@ -1,0 +1,8 @@
+{
+  TextView textView=(TextView)view;
+  final Typeface defTypeface=textView.getTypeface();
+  Typeface typeface=ThemeUtils.getUserTypeface(context,mFontFamily,defTypeface);
+  if (defTypeface != typeface) {
+    textView.setTypeface(typeface);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  mStatusBarHeight=offset;
+  requestLayout();
+}

@@ -1,5 +1,3 @@
 {
   super(context,attrs,defStyle);
-  mSystemWindowsInsets=new Rect();
-  mActionBarHeight=ThemeUtils.getActionBarHeight(context);
 }

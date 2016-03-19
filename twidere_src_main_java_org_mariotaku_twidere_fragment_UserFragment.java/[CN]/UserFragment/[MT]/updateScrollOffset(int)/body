@@ -9,9 +9,9 @@
   profileBannerView.setTranslationY(offset / 2);
   profileBirthdayBannerView.setTranslationY(offset / 2);
   final BaseActivity activity=(BaseActivity)getActivity();
-  final int statusBarColor=(int)sArgbEvaluator.evaluate(factor,ATEUtil.darkenColor(0xA0000000),ATEUtil.darkenColor(mPrimaryColorDark));
+  final int statusBarColor=(int)sArgbEvaluator.evaluate(factor,0xA0000000,ATEUtil.darkenColor(mPrimaryColorDark));
   final Window window=activity.getWindow();
-  WindowSupport.setStatusBarColor(window,statusBarColor);
+  mTintedStatusFrameLayout.setStatusBarColor(statusBarColor);
   ThemeUtils.setLightStatusBar(window,ATEUtil.isColorLight(statusBarColor));
   int stackedTabColor=mPrimaryColor;
   final float profileContentHeight=mProfileNameContainer.getHeight() + mProfileDetailsContainer.getHeight();

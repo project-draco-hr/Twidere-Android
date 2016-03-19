@@ -1,0 +1,4 @@
+{
+  mToolbarHeight=toolbarHeight;
+  requestLayout();
+}

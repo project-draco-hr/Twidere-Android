@@ -1,0 +1,4 @@
+{
+  if (sortDiff == 0)   return timestamp;
+  return timestamp + (sortId - lastSortId) * 499 / sortDiff;
+}

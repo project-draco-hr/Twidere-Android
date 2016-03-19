@@ -1,9 +1,9 @@
 {
   super(context,attrs,defStyleAttr);
   mTextPaint=new TextPaint(TextPaint.ANTI_ALIAS_FLAG);
-  final TypedArray a=context.obtainStyledAttributes(attrs,new int[]{android.R.attr.textColor,android.R.attr.text});
-  setColor(a.getColor(0,Color.WHITE));
-  setText(a.getString(1));
+  final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.BadgeView);
+  setColor(a.getColor(R.styleable.BadgeView_android_textColor,Color.WHITE));
+  setText(a.getString(R.styleable.BadgeView_android_text));
   a.recycle();
   mTextPaint.setTextAlign(Align.CENTER);
   mTextBounds=new Rect();

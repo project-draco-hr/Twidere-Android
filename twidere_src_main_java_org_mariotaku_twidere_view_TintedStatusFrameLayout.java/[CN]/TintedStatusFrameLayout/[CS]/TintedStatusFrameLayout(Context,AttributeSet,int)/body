@@ -3,11 +3,27 @@
   final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TintedStatusLayout);
   setSetPaddingEnabled(a.getBoolean(R.styleable.TintedStatusLayout_setPadding,false));
   a.recycle();
-  mBlackPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-  mBlackPaint.setColor(Color.BLACK);
-  mShadowPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
   mColorPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
   mSystemWindowsInsets=new Rect();
   setWillNotDraw(false);
-  setFactor(1);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    setSystemUiVisibility(SYSTEM_UI_FLAG_LAYOUT_STABLE | SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    ViewCompat.setOnApplyWindowInsetsListener(this,new android.support.v4.view.OnApplyWindowInsetsListener(){
+      @Override public WindowInsetsCompat onApplyWindowInsets(      View v,      WindowInsetsCompat insets){
+        final int top=insets.getSystemWindowInsetTop();
+        final int left=insets.getSystemWindowInsetLeft();
+        final int right=insets.getSystemWindowInsetRight();
+        final int bottom=insets.getSystemWindowInsetBottom();
+        if (mSetPadding) {
+          setPadding(left,top,right,bottom);
+        }
+        setStatusBarHeight(top);
+        if (mWindowInsetsListener != null) {
+          mWindowInsetsListener.onApplyWindowInsets(left,top,right,bottom);
+        }
+        return insets.consumeSystemWindowInsets();
+      }
+    }
+);
+  }
 }

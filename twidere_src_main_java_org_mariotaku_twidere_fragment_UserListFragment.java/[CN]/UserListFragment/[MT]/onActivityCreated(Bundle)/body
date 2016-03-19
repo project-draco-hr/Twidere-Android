@@ -10,10 +10,5 @@
     }
   }
 );
-  mPagerAdapter=new SupportTabsAdapter(activity,getChildFragmentManager());
-  mViewPager.setAdapter(mPagerAdapter);
-  mPagerIndicator.setViewPager(mViewPager);
-  mPagerIndicator.setTabDisplayOption(TabPagerIndicator.LABEL);
   getUserListInfo(false);
-  setupUserPages();
 }

@@ -1,0 +1,4 @@
+{
+  final String style=prefs.getString(KEY_PROFILE_IMAGE_STYLE,null);
+  return getProfileImageStyle(style);
+}
