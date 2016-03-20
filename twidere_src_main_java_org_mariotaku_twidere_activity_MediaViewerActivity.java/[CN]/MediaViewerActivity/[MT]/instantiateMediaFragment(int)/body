@@ -8,8 +8,16 @@
 switch (media.type) {
 case ParcelableMedia.Type.IMAGE:
 {
+      if (media.media_url == null) {
+        return (MediaViewerFragment)Fragment.instantiate(this,ExternalBrowserPageFragment.class.getName(),args);
+      }
       args.putParcelable(ImagePageFragment.EXTRA_MEDIA_URI,Uri.parse(media.media_url));
-      return (MediaViewerFragment)Fragment.instantiate(this,ImagePageFragment.class.getName(),args);
+      if (media.media_url.endsWith(".gif")) {
+        return (MediaViewerFragment)Fragment.instantiate(this,GifPageFragment.class.getName(),args);
+      }
+ else {
+        return (MediaViewerFragment)Fragment.instantiate(this,ImagePageFragment.class.getName(),args);
+      }
     }
 case ParcelableMedia.Type.ANIMATED_GIF:
 case ParcelableMedia.Type.CARD_ANIMATED_GIF:

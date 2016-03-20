@@ -1,0 +1,3 @@
+{
+  return getArguments().getParcelable(ImagePageFragment.EXTRA_MEDIA_URI);
+}

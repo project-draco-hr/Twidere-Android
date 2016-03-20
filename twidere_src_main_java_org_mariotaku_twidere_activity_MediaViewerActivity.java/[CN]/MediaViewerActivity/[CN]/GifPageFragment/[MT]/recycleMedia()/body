@@ -1,0 +1,3 @@
+{
+  mGifView.setInputSource(null);
+}

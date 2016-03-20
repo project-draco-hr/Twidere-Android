@@ -8,6 +8,4 @@
   mPlayPauseButton=(ImageButton)view.findViewById(R.id.play_pause_button);
   mVolumeButton=(ImageButton)view.findViewById(R.id.volume_button);
   mVideoControl=view.findViewById(R.id.video_control);
-  final ProgressWheel progressWheel=(ProgressWheel)view.findViewById(org.mariotaku.mediaviewer.library.R.id.load_progress);
-  progressWheel.setBarColor(ThemeUtils.getUserAccentColor(getContext()));
 }

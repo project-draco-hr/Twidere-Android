@@ -1,0 +1,4 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  mGifView=(GifTextureView)view.findViewById(R.id.gif_view);
+}

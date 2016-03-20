@@ -1,5 +1,0 @@
-{
-  super.onViewCreated(view,savedInstanceState);
-  final ProgressWheel progressWheel=(ProgressWheel)view.findViewById(org.mariotaku.mediaviewer.library.R.id.load_progress);
-  progressWheel.setBarColor(ThemeUtils.getUserAccentColor(getContext()));
-}

@@ -1,0 +1,10 @@
+{
+  final Context context=getContext();
+  if (context == null)   return;
+  if (result.cacheUri != null) {
+    mGifView.setInputSource(new InputSource.UriSource(context.getContentResolver(),result.cacheUri));
+  }
+ else {
+    mGifView.setInputSource(null);
+  }
+}
