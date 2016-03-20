@@ -1,0 +1,7 @@
+{
+  if (location == null) {
+    remove("location");
+    return;
+  }
+  put("location",location);
+}

@@ -1,0 +1,4 @@
+{
+  put("photo",photo);
+  put("status",status);
+}
