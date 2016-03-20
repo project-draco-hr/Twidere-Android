@@ -1,0 +1,6 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  getLoaderManager().initLoader(0,null,this);
+  setRefreshEnabled(false);
+  showContent();
+}

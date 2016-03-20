@@ -101,14 +101,8 @@ case LINK_ID_INCOMING_FRIENDSHIPS:
 setTitle(R.string.incoming_friendships);
 break;
 }
-case LINK_ID_USERS:
+case LINK_ID_ITEMS:
 {
-setTitle(R.string.users);
-break;
-}
-case LINK_ID_STATUSES:
-{
-setTitle(R.string.statuses);
 break;
 }
 case LINK_ID_USER_MEDIA_TIMELINE:

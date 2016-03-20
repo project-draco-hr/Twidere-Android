@@ -1,3 +1,0 @@
-{
-  return new IntentExtrasStatusesLoader(context,getArguments(),getAdapterData(),fromUser);
-}

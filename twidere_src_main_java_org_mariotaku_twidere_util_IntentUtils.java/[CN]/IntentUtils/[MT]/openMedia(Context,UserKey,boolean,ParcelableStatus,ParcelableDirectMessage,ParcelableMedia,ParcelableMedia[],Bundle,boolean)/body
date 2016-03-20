@@ -1,6 +1,6 @@
 {
   if (media == null)   return;
-  final SharedPreferences prefs=context.getSharedPreferences(TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (context instanceof FragmentActivity && isPossiblySensitive && !prefs.getBoolean(SharedPreferenceConstants.KEY_DISPLAY_SENSITIVE_CONTENTS,false)) {
     final FragmentActivity activity=(FragmentActivity)context;
     final FragmentManager fm=activity.getSupportFragmentManager();

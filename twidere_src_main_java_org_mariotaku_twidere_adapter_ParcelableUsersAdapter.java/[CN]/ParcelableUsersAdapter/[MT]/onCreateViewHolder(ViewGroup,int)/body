@@ -2,14 +2,7 @@
 switch (viewType) {
 case ITEM_VIEW_TYPE_USER:
 {
-      final View view;
-      view=mInflater.inflate(R.layout.card_item_user_compact,parent,false);
-      final View itemContent=view.findViewById(R.id.item_content);
-      itemContent.setBackgroundColor(mCardBackgroundColor);
-      final UserViewHolder holder=new UserViewHolder(this,view);
-      holder.setOnClickListeners();
-      holder.setupViewOptions();
-      return holder;
+      return createUserViewHolder(this,mInflater,parent,mCardBackgroundColor);
     }
 case ITEM_VIEW_TYPE_LOAD_INDICATOR:
 {

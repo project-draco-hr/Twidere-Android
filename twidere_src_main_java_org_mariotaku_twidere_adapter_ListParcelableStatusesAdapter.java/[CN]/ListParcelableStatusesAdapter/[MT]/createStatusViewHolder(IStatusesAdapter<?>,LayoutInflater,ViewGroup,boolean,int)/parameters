@@ -1,0 +1,5 @@
+IStatusesAdapter<?> adapter
+LayoutInflater inflater
+ViewGroup parent
+boolean compact
+int cardBackgroundColor

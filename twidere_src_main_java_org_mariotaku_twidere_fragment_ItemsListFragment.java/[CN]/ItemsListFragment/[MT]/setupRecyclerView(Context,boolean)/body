@@ -1,0 +1,32 @@
+{
+  if (compact) {
+    super.setupRecyclerView(context,true);
+    return;
+  }
+  final RecyclerView recyclerView=getRecyclerView();
+  final VariousItemsAdapter adapter=getAdapter();
+  recyclerView.addItemDecoration(new DividerItemDecoration(context,getLayoutManager().getOrientation()){
+    @Override protected boolean isDividerEnabled(    int childPos){
+      if (childPos == RecyclerView.NO_POSITION || childPos == adapter.getItemCount() - 1) {
+        return false;
+      }
+      final int itemViewType=adapter.getItemViewType(childPos);
+      if (shouldUseDividerFor(itemViewType)) {
+        if (shouldUseDividerFor(adapter.getItemViewType(childPos + 1))) {
+          return true;
+        }
+      }
+      return false;
+    }
+    private boolean shouldUseDividerFor(    int itemViewType){
+switch (itemViewType) {
+case VariousItemsAdapter.VIEW_TYPE_USER:
+case VariousItemsAdapter.VIEW_TYPE_USER_LIST:
+        return true;
+default :
+      return false;
+  }
+}
+}
+);
+}

@@ -1,4 +1,0 @@
-{
-  super.onLoadFinished(loader,data);
-  setRefreshEnabled(false);
-}

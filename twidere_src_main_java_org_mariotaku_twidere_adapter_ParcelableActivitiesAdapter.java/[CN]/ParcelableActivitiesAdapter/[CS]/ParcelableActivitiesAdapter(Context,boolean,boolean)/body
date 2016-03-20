@@ -1,6 +1,6 @@
 {
   super(context);
-  mStatusAdapterDelegate=new DummyStatusHolderAdapter(context,new TwidereLinkify(new OnLinkClickHandler(context,null)),this);
+  mStatusAdapterDelegate=new DummyItemAdapter(context,new TwidereLinkify(new OnLinkClickHandler(context,null)),this);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mInflater=LayoutInflater.from(context);
   mLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);

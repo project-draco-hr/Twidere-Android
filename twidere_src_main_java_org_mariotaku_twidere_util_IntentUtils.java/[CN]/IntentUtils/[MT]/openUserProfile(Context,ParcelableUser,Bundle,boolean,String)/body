@@ -2,14 +2,14 @@
   final Bundle extras=new Bundle();
   extras.putParcelable(EXTRA_USER,user);
   final Uri.Builder builder=new Uri.Builder();
-  builder.scheme(TwidereConstants.SCHEME_TWIDERE);
-  builder.authority(TwidereConstants.AUTHORITY_USER);
-  builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_ACCOUNT_KEY,user.account_key.toString());
+  builder.scheme(SCHEME_TWIDERE);
+  builder.authority(AUTHORITY_USER);
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,user.account_key.toString());
   if (user.key != null) {
-    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_USER_ID,user.key.toString());
+    builder.appendQueryParameter(QUERY_PARAM_USER_ID,user.key.toString());
   }
   if (user.screen_name != null) {
-    builder.appendQueryParameter(TwidereConstants.QUERY_PARAM_SCREEN_NAME,user.screen_name);
+    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,user.screen_name);
   }
   final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
   intent.setExtrasClassLoader(context.getClassLoader());

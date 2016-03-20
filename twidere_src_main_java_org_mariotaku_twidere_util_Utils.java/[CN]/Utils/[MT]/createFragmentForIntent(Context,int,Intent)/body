@@ -296,14 +296,9 @@ case LINK_ID_INCOMING_FRIENDSHIPS:
 fragment=new IncomingFriendshipsFragment();
 break;
 }
-case LINK_ID_USERS:
+case LINK_ID_ITEMS:
 {
-fragment=new UsersListFragment();
-break;
-}
-case LINK_ID_STATUSES:
-{
-fragment=new StatusesListFragment();
+fragment=new ItemsListFragment();
 break;
 }
 case LINK_ID_STATUS_RETWEETERS:

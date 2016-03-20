@@ -1,5 +1,14 @@
 {
   int dataPosition=adapterPosition - getActivityStartIndex();
-  if (dataPosition < 0 || dataPosition >= getActivityCount())   return false;
-  return getActivity(adapterPosition).is_gap;
+  final int activityCount=getActivityCount();
+  if (dataPosition < 0 || dataPosition >= activityCount)   return false;
+  if (dataPosition == activityCount - 1) {
+    return false;
+  }
+  if (mData instanceof ObjectCursor) {
+    final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
+    final ParcelableActivityCursorIndices indices=(ParcelableActivityCursorIndices)((ObjectCursor)mData).getIndices();
+    return cursor.getShort(indices.is_gap) == 1;
+  }
+  return mData.get(dataPosition).is_gap;
 }
