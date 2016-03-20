@@ -20,7 +20,7 @@
     final String[] usersProjection={new Column(CachedUsers._ID,Suggestions.Search._ID).getSQL(),new Column("'" + Suggestions.Search.TYPE_USER + "'",Suggestions.Search.TYPE).getSQL(),new Column(CachedUsers.NAME,Suggestions.Search.TITLE).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.Search.SUMMARY).getSQL(),new Column(CachedUsers.PROFILE_IMAGE_URL,Suggestions.Search.ICON).getSQL(),new Column(CachedUsers.USER_KEY,Suggestions.Search.EXTRA_ID).getSQL(),new Column(SQLConstants.NULL,Suggestions.Search.EXTRA).getSQL(),new Column(CachedUsers.SCREEN_NAME,Suggestions.Search.VALUE).getSQL()};
     String queryTrimmed=queryEscaped.startsWith("@") ? queryEscaped.substring(1) : queryEscaped;
     final String[] nicknameKeys=Utils.getMatchedNicknameKeys(query,mUserColorNameManager);
-    final Expression usersSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.in(new Column(CachedUsers.USER_KEY),new RawItemArray(nicknameKeys)));
+    final Expression usersSelection=Expression.or(Expression.likeRaw(new Column(CachedUsers.SCREEN_NAME),"?||'%'","^"),Expression.likeRaw(new Column(CachedUsers.NAME),"?||'%'","^"),Expression.inArgs(new Column(CachedUsers.USER_KEY),nicknameKeys.length));
     final String[] selectionArgs=new String[nicknameKeys.length + 2];
     selectionArgs[0]=selectionArgs[1]=queryTrimmed;
     System.arraycopy(nicknameKeys,0,selectionArgs,2,nicknameKeys.length);

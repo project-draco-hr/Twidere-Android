@@ -1,5 +1,5 @@
 String[] projection
 UserKey accountKey
-String screen_name
+String screenName
 String selection
 String sortOrder

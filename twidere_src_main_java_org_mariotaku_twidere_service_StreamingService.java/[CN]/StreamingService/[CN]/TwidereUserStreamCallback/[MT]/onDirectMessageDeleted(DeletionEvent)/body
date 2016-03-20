@@ -1,6 +1,7 @@
 {
-  final String where=Expression.equals(DirectMessages.MESSAGE_ID,event.getId()).getSQL();
+  final String where=Expression.equalsArgs(DirectMessages.MESSAGE_ID).getSQL();
+  final String[] whereArgs={event.getId()};
   for (  final Uri uri : MESSAGES_URIS) {
-    resolver.delete(uri,where,null);
+    resolver.delete(uri,where,whereArgs);
   }
 }
