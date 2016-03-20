@@ -10,10 +10,13 @@
       return getOldestActivityIds(getAccountKeys());
     }
     @Nullable @Override public long[] getMaxSortIds(){
-      return DataStoreUtils.getOldestActivityMaxSortPositions(getActivity(),getContentUri(),getAccountKeys());
+      return DataStoreUtils.getOldestActivityMaxSortPositions(getContext(),getContentUri(),getAccountKeys());
     }
     @Override public boolean hasMaxIds(){
       return true;
+    }
+    @Override public boolean shouldAbort(){
+      return getContext() == null;
     }
   }
 );

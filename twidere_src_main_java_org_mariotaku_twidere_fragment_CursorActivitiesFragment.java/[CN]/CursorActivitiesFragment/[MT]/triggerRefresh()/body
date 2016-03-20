@@ -8,10 +8,13 @@
       return getNewestActivityIds(getAccountKeys());
     }
     @Nullable @Override public long[] getSinceSortIds(){
-      return DataStoreUtils.getNewestActivityMaxSortPositions(getActivity(),getContentUri(),getAccountKeys());
+      return DataStoreUtils.getNewestActivityMaxSortPositions(getContext(),getContentUri(),getAccountKeys());
     }
     @Override public boolean hasSinceIds(){
       return true;
+    }
+    @Override public boolean shouldAbort(){
+      return getContext() == null;
     }
   }
 );

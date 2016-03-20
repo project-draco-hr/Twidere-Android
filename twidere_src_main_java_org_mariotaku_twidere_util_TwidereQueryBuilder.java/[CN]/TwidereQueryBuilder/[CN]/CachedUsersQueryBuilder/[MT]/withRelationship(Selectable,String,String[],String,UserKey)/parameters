@@ -1,5 +1,5 @@
-String[] projection
+Selectable select
 String selection
+String[] selectionArgs
 String sortOrder
 UserKey accountKey
-int limit

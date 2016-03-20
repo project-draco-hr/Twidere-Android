@@ -1,4 +1,5 @@
-Selectable select
+String[] projection
 String selection
+String[] selectionArgs
 String sortOrder
 UserKey accountKey

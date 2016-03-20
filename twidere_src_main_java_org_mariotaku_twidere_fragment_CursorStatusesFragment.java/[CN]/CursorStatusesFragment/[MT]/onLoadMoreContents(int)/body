@@ -1,7 +1,6 @@
 {
   if ((position & IndicatorPosition.START) != 0)   return;
   super.onLoadMoreContents(position);
-  final Context context=getContext();
   if (position == 0)   return;
   getStatuses(new SimpleRefreshTaskParam(){
     @NonNull @Override public UserKey[] getAccountKeysWorker(){
@@ -11,10 +10,13 @@
       return getOldestStatusIds(getAccountKeys());
     }
     @Nullable @Override public long[] getMaxSortIds(){
-      return DataStoreUtils.getOldestStatusSortIds(context,getContentUri(),getAccountKeys());
+      return DataStoreUtils.getOldestStatusSortIds(getContext(),getContentUri(),getAccountKeys());
     }
     @Override public boolean hasMaxIds(){
       return true;
+    }
+    @Override public boolean shouldAbort(){
+      return getContext() == null;
     }
   }
 );

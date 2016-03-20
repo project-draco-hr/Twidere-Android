@@ -1,6 +1,7 @@
 {
   for (int i=0, j=arrays.length, k=0; i < j; i++) {
     final Object array=arrays[i];
+    if (array == null)     continue;
     final int length=Array.getLength(array);
     System.arraycopy(array,0,dest,k,length);
     k+=length;

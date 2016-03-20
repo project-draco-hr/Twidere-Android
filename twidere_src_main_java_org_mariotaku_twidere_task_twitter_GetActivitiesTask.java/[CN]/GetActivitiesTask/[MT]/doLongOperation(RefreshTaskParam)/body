@@ -1,4 +1,5 @@
 {
+  if (param.shouldAbort())   return null;
   final UserKey[] accountIds=param.getAccountKeys();
   final String[] maxIds=param.getMaxIds();
   final String[] sinceIds=param.getSinceIds();

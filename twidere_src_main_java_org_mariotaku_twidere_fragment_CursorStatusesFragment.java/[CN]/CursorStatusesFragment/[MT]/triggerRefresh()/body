@@ -1,6 +1,5 @@
 {
   super.triggerRefresh();
-  final Context context=getContext();
   getStatuses(new SimpleRefreshTaskParam(){
     @NonNull @Override public UserKey[] getAccountKeysWorker(){
       return CursorStatusesFragment.this.getAccountKeys();
@@ -12,7 +11,10 @@
       return getNewestStatusIds(getAccountKeys());
     }
     @Nullable @Override public long[] getSinceSortIds(){
-      return DataStoreUtils.getNewestStatusSortIds(context,getContentUri(),getAccountKeys());
+      return DataStoreUtils.getNewestStatusSortIds(getContext(),getContentUri(),getAccountKeys());
+    }
+    @Override public boolean shouldAbort(){
+      return getContext() == null;
     }
   }
 );

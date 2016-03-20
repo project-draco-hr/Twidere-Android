@@ -1,4 +1,6 @@
 String[] projection
 String selection
+String[] selectionArgs
 String sortOrder
 UserKey accountKey
+int limit

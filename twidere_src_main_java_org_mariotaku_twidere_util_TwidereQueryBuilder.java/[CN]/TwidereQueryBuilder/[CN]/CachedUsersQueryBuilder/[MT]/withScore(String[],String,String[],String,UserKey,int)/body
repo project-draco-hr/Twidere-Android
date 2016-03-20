@@ -14,8 +14,10 @@
   final String expr=String.format(Locale.ROOT,"%s * 100 + %s * 50 - %s * 100 - %s * 100 - %s * 100",valueOrZero(CachedRelationships.FOLLOWING,CachedRelationships.FOLLOWED_BY,CachedRelationships.BLOCKING,CachedRelationships.BLOCKED_BY,CachedRelationships.MUTING));
   columns[columns.length - 1]=new Column(expr,"score");
   qb.select(select);
-  final Pair<SQLSelectQuery,String[]> pair=withRelationship(new Columns(columns),null,null,accountKey);
+  final Pair<SQLSelectQuery,String[]> pair=withRelationship(new Columns(columns),null,null,null,accountKey);
   qb.from(pair.first);
+  final String[] mergedArgs=new String[TwidereArrayUtils.arraysLength(pair.second,selectionArgs)];
+  TwidereArrayUtils.mergeArray(mergedArgs,pair.second,selectionArgs);
   if (selection != null) {
     qb.where(new Expression(selection));
   }
@@ -25,5 +27,5 @@
   if (limit > 0) {
     qb.limit(limit);
   }
-  return Pair.create(qb.build(),pair.second);
+  return Pair.create(qb.build(),mergedArgs);
 }
