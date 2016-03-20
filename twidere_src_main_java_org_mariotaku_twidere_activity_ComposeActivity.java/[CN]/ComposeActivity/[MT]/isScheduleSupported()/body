@@ -1,5 +1,7 @@
 {
-  for (  ParcelableCredentials account : mAccountsAdapter.getSelectedAccounts()) {
+  final ParcelableCredentials[] accounts=mAccountsAdapter.getSelectedAccounts();
+  if (ArrayUtils.isEmpty(accounts))   return false;
+  for (  ParcelableCredentials account : accounts) {
     if (TwitterContentUtils.getOfficialKeyType(this,account.consumer_key,account.consumer_secret) != ConsumerKeyType.TWEETDECK) {
       return false;
     }
