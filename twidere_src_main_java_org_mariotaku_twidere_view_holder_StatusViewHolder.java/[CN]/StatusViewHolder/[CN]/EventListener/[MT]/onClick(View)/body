@@ -22,18 +22,21 @@ case R.id.profile_image:
 }
 case R.id.reply_count:
 case R.id.reply_icon:
+case R.id.reply:
 {
 listener.onItemActionClick(holder,R.id.reply,position);
 break;
 }
 case R.id.retweet_count:
 case R.id.retweet_icon:
+case R.id.retweet:
 {
 listener.onItemActionClick(holder,R.id.retweet,position);
 break;
 }
 case R.id.favorite_count:
 case R.id.favorite_icon:
+case R.id.favorite:
 {
 listener.onItemActionClick(holder,R.id.favorite,position);
 break;

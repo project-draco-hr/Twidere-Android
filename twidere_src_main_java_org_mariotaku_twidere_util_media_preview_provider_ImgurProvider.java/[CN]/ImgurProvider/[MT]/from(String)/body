@@ -1,0 +1,14 @@
+{
+  final String authority=UriUtils.getAuthority(url);
+  if (authority == null)   return null;
+switch (authority) {
+case "i.imgur.com":
+{
+      final String path=UriUtils.getPath(url);
+      if (path == null)       return null;
+      ParcelableMedia media=new ParcelableMedia();
+      media.url=url;
+    }
+}
+return null;
+}

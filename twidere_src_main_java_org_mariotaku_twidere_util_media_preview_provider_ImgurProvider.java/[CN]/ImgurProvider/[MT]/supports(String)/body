@@ -1,0 +1,10 @@
+{
+  final String authority=UriUtils.getAuthority(link);
+  if (authority == null)   return false;
+switch (authority) {
+case "i.imgur.com":
+    return true;
+default :
+  return false;
+}
+}
