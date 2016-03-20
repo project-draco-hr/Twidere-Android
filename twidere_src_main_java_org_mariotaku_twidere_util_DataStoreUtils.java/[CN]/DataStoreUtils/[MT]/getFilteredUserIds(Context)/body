@@ -1,7 +1,7 @@
 {
   if (context == null)   return new String[0];
   final ContentResolver resolver=context.getContentResolver();
-  final String[] projection={Filters.Users.USER_ID};
+  final String[] projection={Filters.Users.USER_KEY};
   final Cursor cur=resolver.query(Filters.Users.CONTENT_URI,projection,null,null,null);
   if (cur == null)   return new String[0];
   try {

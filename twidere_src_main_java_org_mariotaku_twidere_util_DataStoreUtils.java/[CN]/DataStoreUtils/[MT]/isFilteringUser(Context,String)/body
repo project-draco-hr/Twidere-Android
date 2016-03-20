@@ -1,7 +1,7 @@
 {
   final ContentResolver cr=context.getContentResolver();
-  final Expression where=Expression.equalsArgs(Filters.Users.USER_ID);
-  final Cursor c=cr.query(Filters.Users.CONTENT_URI,new String[]{SQLFunctions.COUNT()},where.getSQL(),new String[]{userId},null);
+  final Expression where=Expression.equalsArgs(Filters.Users.USER_KEY);
+  final Cursor c=cr.query(Filters.Users.CONTENT_URI,new String[]{SQLFunctions.COUNT()},where.getSQL(),new String[]{userKey},null);
   if (c == null)   return false;
   try {
     if (c.moveToFirst()) {

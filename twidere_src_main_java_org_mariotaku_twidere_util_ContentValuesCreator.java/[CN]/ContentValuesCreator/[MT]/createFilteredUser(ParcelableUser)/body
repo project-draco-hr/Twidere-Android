@@ -1,7 +1,7 @@
 {
   if (user == null)   return null;
   final ContentValues values=new ContentValues();
-  values.put(Filters.Users.USER_ID,user.key.toString());
+  values.put(Filters.Users.USER_KEY,user.key.toString());
   values.put(Filters.Users.NAME,user.name);
   values.put(Filters.Users.SCREEN_NAME,user.screen_name);
   return values;
