@@ -1,5 +1,5 @@
 {
-  ATE.themeOverflow(this,this.getATEKey());
+  ATE.themeOverflow(this,getATEKey());
   getMenuInflater().inflate(R.menu.menu_media_viewer,menu);
   return true;
 }

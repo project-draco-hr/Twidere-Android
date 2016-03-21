@@ -1,4 +1,4 @@
 {
   super.onResume();
-  ATE.invalidateActivity(this,this.updateTime,getATEKey());
+  ATE.invalidateActivity(this,updateTime,getATEKey());
 }

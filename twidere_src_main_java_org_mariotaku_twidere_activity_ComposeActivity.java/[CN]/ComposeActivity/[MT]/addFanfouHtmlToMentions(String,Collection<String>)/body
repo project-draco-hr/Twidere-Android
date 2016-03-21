@@ -1,0 +1,14 @@
+{
+  final CharSequence text=HtmlSpanBuilder.fromHtml(textHtml,null);
+  if (text instanceof Spannable) {
+    Spannable html=((Spannable)text);
+    for (    URLSpan span : html.getSpans(0,html.length(),URLSpan.class)) {
+      int start=html.getSpanStart(span), end=html.getSpanEnd(span);
+      if (start <= 0 || end > html.length() || start > end)       continue;
+      final char ch=html.charAt(start - 1);
+      if (ch == '@' || ch == '\uff20') {
+        mentions.add(html.subSequence(start,end).toString());
+      }
+    }
+  }
+}

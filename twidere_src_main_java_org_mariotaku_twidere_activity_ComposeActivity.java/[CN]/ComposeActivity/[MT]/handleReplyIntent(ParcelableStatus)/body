@@ -3,19 +3,35 @@
   final String myScreenName=DataStoreUtils.getAccountScreenName(this,status.account_key);
   if (TextUtils.isEmpty(myScreenName))   return false;
   int selectionStart=0;
+  final Collection<String> mentions=new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
   mEditText.append("@" + status.user_screen_name + " ");
   if (!status.account_key.equals(status.user_key)) {
     selectionStart=mEditText.length();
   }
   if (status.is_retweet) {
-    mEditText.append("@" + status.retweeted_by_user_screen_name + " ");
+    mentions.add(status.retweeted_by_user_screen_name);
   }
   if (status.is_quote) {
-    mEditText.append("@" + status.quoted_user_screen_name + " ");
+    mentions.add(status.quoted_user_screen_name);
   }
-  final Collection<String> mentions=new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-  mentions.addAll(mExtractor.extractMentionedScreennames(status.text_plain));
-  mentions.addAll(mExtractor.extractMentionedScreennames(status.quoted_text_plain));
+  if (!ArrayUtils.isEmpty(status.mentions)) {
+    for (    ParcelableUserMention mention : status.mentions) {
+      mentions.add(mention.screen_name);
+    }
+    mentions.addAll(mExtractor.extractMentionedScreennames(status.quoted_text_plain));
+  }
+ else   if (USER_TYPE_FANFOU_COM.equals(status.account_key.getHost())) {
+    addFanfouHtmlToMentions(status.text_html,mentions);
+    if (status.is_quote) {
+      addFanfouHtmlToMentions(status.quoted_text_html,mentions);
+    }
+  }
+ else {
+    mentions.addAll(mExtractor.extractMentionedScreennames(status.text_plain));
+    if (status.is_quote) {
+      mentions.addAll(mExtractor.extractMentionedScreennames(status.quoted_text_plain));
+    }
+  }
   for (  final String mention : mentions) {
     if (mention.equalsIgnoreCase(status.user_screen_name) || mention.equalsIgnoreCase(myScreenName) || mention.equalsIgnoreCase(status.retweeted_by_user_screen_name)) {
       continue;
