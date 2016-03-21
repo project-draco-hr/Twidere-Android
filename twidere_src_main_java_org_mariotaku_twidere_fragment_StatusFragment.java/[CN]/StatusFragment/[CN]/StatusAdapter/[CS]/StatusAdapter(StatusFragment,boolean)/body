@@ -31,5 +31,4 @@
     mCardLayoutResource=R.layout.card_item_status;
   }
   mTwidereLinkify=new TwidereLinkify(new StatusAdapterLinkClickHandler<>(this));
-  mEventListener=new ParcelableStatusesAdapter.EventListener(this);
 }

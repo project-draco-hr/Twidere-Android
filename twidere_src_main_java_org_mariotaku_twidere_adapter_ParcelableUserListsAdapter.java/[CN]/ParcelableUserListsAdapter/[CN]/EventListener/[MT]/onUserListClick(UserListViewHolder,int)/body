@@ -1,5 +1,0 @@
-{
-  final UserListAdapterListener listener=mAdapter.mUserListAdapterListener;
-  if (listener == null)   return;
-  listener.onUserListClick(holder,position);
-}

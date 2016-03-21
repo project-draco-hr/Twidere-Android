@@ -3,7 +3,7 @@
   final ParcelableUserListsAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
-  adapter.setListener(this);
+  adapter.setUserListClickListener(this);
   mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter,this);
   final Bundle loaderArgs=new Bundle(getArguments());
   loaderArgs.putBoolean(EXTRA_FROM_USER,true);

@@ -1,7 +1,7 @@
 {
   final ParcelableStatus status=getStatus();
   if (status == null)   return;
-  if (activity != null && activity.statusId != (status.is_retweet ? status.retweet_id : status.id)) {
+  if (activity != null && activity.isStatus(status)) {
     return;
   }
   mStatusActivity=activity;

@@ -1,4 +1,4 @@
 {
-  setUserClickListener(adapter.getUserAdapterListener());
+  setUserClickListener(adapter.getUserClickListener());
   setActionClickListeners(adapter.getRequestClickListener(),adapter.getFollowClickListener());
 }

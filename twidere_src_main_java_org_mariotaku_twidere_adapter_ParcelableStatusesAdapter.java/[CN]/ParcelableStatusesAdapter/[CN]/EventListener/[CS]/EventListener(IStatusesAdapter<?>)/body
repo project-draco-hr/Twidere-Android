@@ -1,3 +1,0 @@
-{
-  adapterRef=new WeakReference<IStatusesAdapter<?>>(adapter);
-}

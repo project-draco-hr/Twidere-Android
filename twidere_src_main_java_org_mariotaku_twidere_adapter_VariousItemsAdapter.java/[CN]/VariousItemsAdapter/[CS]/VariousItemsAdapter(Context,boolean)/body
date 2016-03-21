@@ -3,6 +3,7 @@
   mCompact=compact;
   mInflater=LayoutInflater.from(context);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
-  mDummyAdapter=new DummyItemAdapter(context);
+  mDummyAdapter=new DummyItemAdapter(context,new TwidereLinkify(null),this);
+  mDummyAdapter.updateOptions();
   setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
 }

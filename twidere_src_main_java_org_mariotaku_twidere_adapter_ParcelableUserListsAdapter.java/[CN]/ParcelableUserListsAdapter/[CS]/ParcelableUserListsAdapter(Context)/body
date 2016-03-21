@@ -1,7 +1,6 @@
 {
   super(context);
   mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
-  mEventListener=new EventListener(this);
   mInflater=LayoutInflater.from(context);
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
   mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));

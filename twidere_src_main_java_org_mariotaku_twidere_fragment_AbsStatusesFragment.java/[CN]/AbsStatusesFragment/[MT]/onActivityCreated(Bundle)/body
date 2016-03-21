@@ -3,7 +3,7 @@
   final ParcelableStatusesAdapter adapter=getAdapter();
   final RecyclerView recyclerView=getRecyclerView();
   final LinearLayoutManager layoutManager=getLayoutManager();
-  adapter.setListener(this);
+  adapter.setStatusClickListener(this);
   registerForContextMenu(recyclerView);
   mNavigationHelper=new RecyclerViewNavigationHelper(recyclerView,layoutManager,adapter,this);
   mPauseOnScrollListener=new PauseRecyclerViewOnScrollListener(adapter.getMediaLoader().getImageLoader(),false,true);

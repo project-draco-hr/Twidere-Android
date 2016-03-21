@@ -1,3 +1,9 @@
 {
+  if (adapter instanceof ParcelableUsersAdapter) {
+    return ((ParcelableUsersAdapter)adapter).getUser(position);
+  }
+ else   if (adapter instanceof VariousItemsAdapter) {
+    return (ParcelableUser)((VariousItemsAdapter)adapter).getItem(position);
+  }
   return null;
 }

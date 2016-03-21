@@ -1,6 +1,0 @@
-{
-  final IStatusesAdapter<?> adapter=adapterRef.get();
-  if (adapter == null)   return false;
-  final StatusAdapterListener listener=adapter.getStatusAdapterListener();
-  return listener != null && listener.onStatusLongClick(holder,position);
-}
