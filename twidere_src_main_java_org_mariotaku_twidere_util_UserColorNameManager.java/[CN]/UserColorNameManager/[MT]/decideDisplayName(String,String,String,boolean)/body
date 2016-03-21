@@ -1,4 +1,4 @@
 {
   if (!isEmpty(nickname))   return nickname;
-  return nameFirst && isEmpty(name) ? name : "@" + screenName;
+  return nameFirst && !isEmpty(name) ? name : "@" + screenName;
 }

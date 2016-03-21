@@ -1,3 +1,0 @@
-{
-  return nameFirst && !isEmpty(name) ? name : "@" + screenName;
-}
