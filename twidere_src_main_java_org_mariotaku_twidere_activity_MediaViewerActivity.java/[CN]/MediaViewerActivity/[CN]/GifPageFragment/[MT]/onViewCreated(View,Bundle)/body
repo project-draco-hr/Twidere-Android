@@ -1,4 +1,10 @@
 {
   super.onViewCreated(view,savedInstanceState);
   mGifView=(GifTextureView)view.findViewById(R.id.gif_view);
+  mGifView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      ((MediaViewerActivity)getActivity()).toggleBar();
+    }
+  }
+);
 }

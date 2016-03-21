@@ -1,0 +1,3 @@
+{
+  return Config.LIGHT_TOOLBAR_OFF;
+}
