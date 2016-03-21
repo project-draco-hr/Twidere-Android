@@ -1,0 +1,4 @@
+{
+  final String nick=getNickname(userId);
+  return decideDisplayName(nick,name,screenName,nameFirst);
+}

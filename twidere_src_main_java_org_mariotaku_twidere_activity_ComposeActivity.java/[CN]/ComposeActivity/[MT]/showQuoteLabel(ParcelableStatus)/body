@@ -3,7 +3,7 @@
     hideLabel();
     return;
   }
-  final String replyToName=mUserColorNameManager.getDisplayName(status,mNameFirst,false);
+  final String replyToName=mUserColorNameManager.getDisplayName(status,mNameFirst);
   mReplyLabel.setText(getString(R.string.quote_name_text,replyToName,status.text_unescaped));
   mReplyLabel.setVisibility(View.VISIBLE);
   mReplyLabelDivider.setVisibility(View.VISIBLE);

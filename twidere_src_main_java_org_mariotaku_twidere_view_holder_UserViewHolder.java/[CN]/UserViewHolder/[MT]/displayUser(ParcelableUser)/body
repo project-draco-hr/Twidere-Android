@@ -3,7 +3,7 @@
   final MediaLoaderWrapper loader=adapter.getMediaLoader();
   final UserColorNameManager manager=adapter.getUserColorNameManager();
   final AsyncTwitterWrapper twitter=adapter.getTwitterWrapper();
-  itemContent.drawStart(manager.getUserColor(user.key,false));
+  itemContent.drawStart(manager.getUserColor(user.key));
   final int userTypeRes=getUserTypeIconRes(user.is_verified,user.is_protected);
   if (userTypeRes != 0) {
     profileTypeView.setImageResource(userTypeRes);

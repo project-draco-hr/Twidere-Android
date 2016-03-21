@@ -1,0 +1,4 @@
+Spannable text
+UserKey accountKey
+boolean sensitive
+boolean skipLinksInText

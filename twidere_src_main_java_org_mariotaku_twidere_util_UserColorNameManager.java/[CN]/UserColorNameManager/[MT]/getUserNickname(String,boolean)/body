@@ -1,6 +1,0 @@
-{
-  if (!ignoreCache && mUserNicknames.containsKey(userId))   return mUserNicknames.get(userId);
-  final String nickname=mNicknamePreferences.getString(userId,null);
-  mUserNicknames.put(userId,nickname);
-  return nickname;
-}

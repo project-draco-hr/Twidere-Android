@@ -1,0 +1,6 @@
+{
+  if (spans == null)   return;
+  for (  SpanItem span : spans) {
+    text.setSpan(new URLSpan(span.link),span.start,span.end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  }
+}

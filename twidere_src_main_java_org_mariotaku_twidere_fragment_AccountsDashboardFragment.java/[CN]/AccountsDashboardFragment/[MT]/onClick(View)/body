@@ -9,7 +9,7 @@ case R.id.profile_container:
         IntentUtils.openUserProfile(activity,account.account_user,null,true,UserFragment.Referral.SELF_PROFILE);
       }
  else {
-        IntentUtils.openUserProfile(activity,account.account_key,account.account_key.getId(),account.screen_name,null,true,UserFragment.Referral.SELF_PROFILE);
+        IntentUtils.openUserProfile(activity,account.account_key,account.account_key,account.screen_name,null,true,UserFragment.Referral.SELF_PROFILE);
       }
       break;
     }

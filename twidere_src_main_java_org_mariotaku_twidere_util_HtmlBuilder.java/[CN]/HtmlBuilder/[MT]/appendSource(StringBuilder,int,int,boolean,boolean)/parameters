@@ -1,0 +1,5 @@
+StringBuilder builder
+int start
+int end
+boolean escapeSource
+boolean sourceEscaped

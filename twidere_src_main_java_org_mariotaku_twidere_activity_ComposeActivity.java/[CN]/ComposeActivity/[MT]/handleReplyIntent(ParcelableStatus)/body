@@ -21,9 +21,9 @@
     mentions.addAll(mExtractor.extractMentionedScreennames(status.quoted_text_plain));
   }
  else   if (USER_TYPE_FANFOU_COM.equals(status.account_key.getHost())) {
-    addFanfouHtmlToMentions(status.text_html,mentions);
+    addFanfouHtmlToMentions(status.text_unescaped,status.spans,mentions);
     if (status.is_quote) {
-      addFanfouHtmlToMentions(status.quoted_text_html,mentions);
+      addFanfouHtmlToMentions(status.quoted_text_unescaped,status.quoted_spans,mentions);
     }
   }
  else {

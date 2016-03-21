@@ -1,0 +1,11 @@
+{
+  if (textEscaped == escapeText) {
+    builder.append(text);
+  }
+ else   if (escapeText) {
+    builder.append(escape(text));
+  }
+ else {
+    builder.append(unescape(text));
+  }
+}

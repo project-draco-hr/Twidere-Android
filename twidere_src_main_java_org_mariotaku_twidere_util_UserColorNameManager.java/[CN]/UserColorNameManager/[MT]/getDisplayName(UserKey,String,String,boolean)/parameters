@@ -1,0 +1,4 @@
+UserKey userId
+String name
+String screenName
+boolean nameFirst

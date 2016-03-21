@@ -1,3 +1,12 @@
 {
-  return getUserNickname(userId.toString(),ignoreCache);
+  final String userKeyString=userKey.toString();
+  if (mNicknamePreferences.contains(userKey.getId())) {
+    String nick=mNicknamePreferences.getString(userKey.getId(),null);
+    SharedPreferences.Editor editor=mNicknamePreferences.edit();
+    editor.remove(userKey.getId());
+    editor.putString(userKeyString,nick);
+    editor.apply();
+    return nick;
+  }
+  return mNicknamePreferences.getString(userKeyString,null);
 }

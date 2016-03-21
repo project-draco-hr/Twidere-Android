@@ -1,3 +1,4 @@
 {
-  return getUserNickname(userId,name,false);
+  final String nick=getNickname(userId);
+  return isEmpty(nick) ? name : nick;
 }

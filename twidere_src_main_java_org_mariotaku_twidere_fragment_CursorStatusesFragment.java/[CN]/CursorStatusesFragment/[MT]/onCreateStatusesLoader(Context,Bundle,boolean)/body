@@ -16,5 +16,5 @@
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Statuses.COLUMNS;
   final String[] selectionArgs=TwidereArrayUtils.toStringArray(accountKeys,0,accountKeys.length);
-  return new CursorStatusesLoader(context,uri,projection,selection,selectionArgs,sortOrder,fromUser,accountKeys);
+  return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,selection,selectionArgs,sortOrder,fromUser);
 }

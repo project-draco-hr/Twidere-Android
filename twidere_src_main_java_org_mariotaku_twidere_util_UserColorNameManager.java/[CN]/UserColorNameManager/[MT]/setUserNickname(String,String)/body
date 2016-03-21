@@ -1,6 +1,0 @@
-{
-  mUserNicknames.put(userId,nickname);
-  final SharedPreferences.Editor editor=mNicknamePreferences.edit();
-  editor.putString(userId,nickname);
-  editor.apply();
-}

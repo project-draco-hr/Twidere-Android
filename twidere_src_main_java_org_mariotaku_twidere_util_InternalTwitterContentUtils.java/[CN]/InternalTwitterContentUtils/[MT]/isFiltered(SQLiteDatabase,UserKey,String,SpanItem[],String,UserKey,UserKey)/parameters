@@ -1,0 +1,7 @@
+SQLiteDatabase database
+UserKey userKey
+String textPlain
+SpanItem[] spans
+String source
+UserKey retweetedById
+UserKey quotedUserId

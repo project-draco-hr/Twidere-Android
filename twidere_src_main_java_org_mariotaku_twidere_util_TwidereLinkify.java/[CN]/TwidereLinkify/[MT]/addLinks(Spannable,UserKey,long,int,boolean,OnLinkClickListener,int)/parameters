@@ -1,0 +1,7 @@
+Spannable string
+UserKey accountKey
+long extraId
+int type
+boolean sensitive
+OnLinkClickListener listener
+int highlightOption

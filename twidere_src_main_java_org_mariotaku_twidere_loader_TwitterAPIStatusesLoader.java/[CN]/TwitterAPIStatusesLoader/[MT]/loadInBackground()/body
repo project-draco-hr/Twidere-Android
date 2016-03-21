@@ -65,7 +65,7 @@
   for (int i=0, j=statuses.size(); i < j; i++) {
     final Status status=statuses.get(i);
     final ParcelableStatus item=ParcelableStatusUtils.fromStatus(status,mAccountKey,insertGap && isGapEnabled() && minIdx == i);
-    item.account_color=credentials.color;
+    ParcelableStatusUtils.updateExtraInformation(item,credentials,mUserColorNameManager);
     data.add(item);
   }
   final SQLiteDatabase db=TwidereApplication.getInstance(context).getSQLiteDatabase();

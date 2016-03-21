@@ -1,0 +1,4 @@
+StringBuilder builder
+String text
+boolean escapeText
+boolean textEscaped

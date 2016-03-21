@@ -1,8 +1,0 @@
-SQLiteDatabase database
-UserKey userKey
-String textPlain
-String textHtml
-String source
-UserKey retweetedById
-UserKey quotedUserId
-boolean filterRts

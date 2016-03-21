@@ -1,6 +1,5 @@
 {
-  mUserNicknames.remove(userId);
   final SharedPreferences.Editor editor=mNicknamePreferences.edit();
-  editor.remove(userId.toString());
+  editor.remove(userKey.toString());
   editor.apply();
 }

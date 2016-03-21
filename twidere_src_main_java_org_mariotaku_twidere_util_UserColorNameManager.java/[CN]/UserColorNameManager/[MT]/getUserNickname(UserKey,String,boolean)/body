@@ -1,3 +1,4 @@
 {
-  return getUserNickname(userId.toString(),name,ignoreCache);
+  final String nick=getUserNickname(userId,ignoreCache);
+  return isEmpty(nick) ? name : nick;
 }

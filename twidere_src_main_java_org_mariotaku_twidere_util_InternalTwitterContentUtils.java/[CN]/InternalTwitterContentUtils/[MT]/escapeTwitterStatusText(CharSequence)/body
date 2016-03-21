@@ -1,4 +1,0 @@
-{
-  if (text == null)   return null;
-  return ESCAPE_TWITTER_RAW_TEXT.translate(text);
-}

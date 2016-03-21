@@ -1,6 +1,0 @@
-{
-  mUserColors.put(userId,color);
-  final SharedPreferences.Editor editor=mColorPreferences.edit();
-  editor.putInt(userId,color);
-  editor.apply();
-}

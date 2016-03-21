@@ -1,1 +1,1 @@
-AbstractTask<Pair<UserKey,ParcelableUser>,Object,Object>
+AbstractTask<Pair<ParcelableAccount,ParcelableUser>,Object,Object>

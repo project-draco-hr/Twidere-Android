@@ -1,5 +1,4 @@
 {
-  mUserColors.remove(userId);
   final SharedPreferences.Editor editor=mColorPreferences.edit();
   editor.remove(userId.toString());
   editor.apply();

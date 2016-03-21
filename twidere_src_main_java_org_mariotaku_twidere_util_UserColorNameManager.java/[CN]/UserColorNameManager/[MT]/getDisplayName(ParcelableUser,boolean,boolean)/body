@@ -1,3 +1,0 @@
-{
-  return getDisplayName(user.key,user.name,user.screen_name,nameFirst,ignoreCache);
-}

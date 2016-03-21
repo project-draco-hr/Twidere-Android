@@ -18,7 +18,7 @@
     mActionBarBackground.setColor(mPrimaryColor);
   }
   if (mUser != null) {
-    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst,false);
+    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst);
     ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(name,null,color));
   }
  else {

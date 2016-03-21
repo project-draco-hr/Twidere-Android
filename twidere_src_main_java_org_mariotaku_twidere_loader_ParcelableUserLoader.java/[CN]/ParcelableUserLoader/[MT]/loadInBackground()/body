@@ -2,7 +2,17 @@
   final Context context=getContext();
   final ContentResolver resolver=context.getContentResolver();
   final UserKey accountKey=mAccountKey;
-  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
+  ParcelableCredentials credentials=null;
+  for (  ParcelableCredentials cred : ParcelableCredentialsUtils.getCredentialses(context)) {
+    if (cred.account_key.equals(accountKey)) {
+      credentials=cred;
+      break;
+    }
+ else     if (cred.account_user != null && cred.account_user.account_key.equals(accountKey)) {
+      credentials=cred;
+      break;
+    }
+  }
   if (credentials == null)   return SingleResponse.getInstance();
   if (!mOmitIntentExtra && mExtras != null) {
     final ParcelableUser user=mExtras.getParcelable(EXTRA_USER);
@@ -43,12 +53,20 @@
     }
   }
   try {
-    final User twitterUser=TwitterWrapper.tryShowUser(twitter,mUserId,mScreenName,credentials.account_type);
+    final User twitterUser;
+    if (mExtras != null && UserFragment.Referral.SELF_PROFILE.equals(mExtras.getString(EXTRA_REFERRAL))) {
+      twitterUser=twitter.verifyCredentials();
+    }
+ else {
+      twitterUser=TwitterWrapper.tryShowUser(twitter,mUserId,mScreenName,credentials.account_type);
+    }
     final ContentValues cachedUserValues=createCachedUser(twitterUser);
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);
     final ParcelableUser user=ParcelableUserUtils.fromUser(twitterUser,accountKey);
     user.account_color=credentials.color;
-    return SingleResponse.getInstance(user);
+    final SingleResponse<ParcelableUser> response=SingleResponse.getInstance(user);
+    response.getExtras().putParcelable(EXTRA_ACCOUNT,credentials);
+    return response;
   }
  catch (  final TwitterException e) {
     Log.w(LOGTAG,e);

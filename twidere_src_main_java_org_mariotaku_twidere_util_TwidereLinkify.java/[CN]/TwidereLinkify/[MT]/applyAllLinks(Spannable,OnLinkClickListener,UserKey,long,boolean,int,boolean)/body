@@ -1,0 +1,7 @@
+{
+  if (text == null)   return;
+  for (  final int type : ALL_LINK_TYPES) {
+    if (type == LINK_TYPE_LINK_IN_TEXT && skipLinksInText)     continue;
+    addLinks(text,accountKey,extraId,type,sensitive,listener,highlightOption);
+  }
+}

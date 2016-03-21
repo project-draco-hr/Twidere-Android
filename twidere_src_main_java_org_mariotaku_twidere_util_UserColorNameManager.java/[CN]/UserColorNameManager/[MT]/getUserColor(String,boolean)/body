@@ -1,6 +1,0 @@
-{
-  if (!ignoreCache && mUserColors.indexOfKey(userId) >= 0)   return mUserColors.get(userId);
-  final int color=mColorPreferences.getInt(userId,Color.TRANSPARENT);
-  mUserColors.put(userId,color);
-  return color;
-}

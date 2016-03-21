@@ -72,7 +72,7 @@ break;
 case R.id.set_color:
 {
 final Intent intent=new Intent(getActivity(),ColorPickerDialogActivity.class);
-intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.key,true));
+intent.putExtra(EXTRA_COLOR,mUserColorNameManager.getUserColor(user.key));
 intent.putExtra(EXTRA_ALPHA_SLIDER,false);
 intent.putExtra(EXTRA_CLEAR_BUTTON,true);
 startActivityForResult(intent,REQUEST_SET_COLOR);

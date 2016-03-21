@@ -1,3 +1,5 @@
 {
-  setUserColor(userId.toString(),color);
+  final SharedPreferences.Editor editor=mColorPreferences.edit();
+  editor.putInt(userKey.toString(),color);
+  editor.apply();
 }

@@ -10,7 +10,7 @@
   mHeaderErrorContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=mUserColorNameManager.getUserColor(user.key,true);
+  final int userColor=mUserColorNameManager.getUserColor(user.key);
   mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
   mProfileNameContainer.drawEnd(user.account_color);
   final String nick=mUserColorNameManager.getUserNickname(user.key,true);
@@ -27,7 +27,15 @@
   mScreenNameView.setText(String.format("@%s",user.screen_name));
   mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  mDescriptionView.setText(linkify.applyAllLinks(user.description_html != null ? HtmlSpanBuilder.fromHtml(user.description_html) : user.description_plain,user.account_key,false,false));
+  if (user.description_html != null) {
+    final Spannable text=HtmlSpanBuilder.fromHtml(user.description_html);
+    linkify.applyAllLinks(text,user.account_key,false,false);
+    mDescriptionView.setText(text);
+  }
+ else {
+    mDescriptionView.setText(user.description_plain);
+    Linkify.addLinks(mDescriptionView,Linkify.WEB_URLS);
+  }
   mLocationContainer.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(TextUtils.isEmpty(user.url) && TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);
@@ -64,7 +72,7 @@
   if (relationship == null) {
     getFriendship();
   }
-  activity.setTitle(mUserColorNameManager.getDisplayName(user,mNameFirst,true));
+  activity.setTitle(mUserColorNameManager.getDisplayName(user,mNameFirst));
   Calendar cal=Calendar.getInstance();
   final int currentMonth=cal.get(Calendar.MONTH), currentDay=cal.get(Calendar.DAY_OF_MONTH);
   cal.setTimeInMillis(user.created_at);

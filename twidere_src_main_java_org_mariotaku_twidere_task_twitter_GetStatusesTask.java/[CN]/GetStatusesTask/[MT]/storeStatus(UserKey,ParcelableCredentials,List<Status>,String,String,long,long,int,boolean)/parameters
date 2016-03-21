@@ -1,0 +1,9 @@
+UserKey accountKey
+ParcelableCredentials credentials
+List<Status> statuses
+String sinceId
+String maxId
+long sinceSortId
+long maxSortId
+int loadItemLimit
+boolean notify

@@ -20,13 +20,13 @@
     final String notificationTitle=resources.getQuantityString(R.plurals.N_new_statuses,statusesCount,statusesCount);
     final String notificationContent;
     userCursor.moveToFirst();
-    final String displayName=mUserColorNameManager.getDisplayName(userCursor.getString(idxUserId),userCursor.getString(idxUserName),userCursor.getString(idxUserScreenName),mNameFirst,false);
+    final String displayName=mUserColorNameManager.getDisplayName(userCursor.getString(idxUserId),userCursor.getString(idxUserName),userCursor.getString(idxUserScreenName),mNameFirst);
     if (usersCount == 1) {
       notificationContent=context.getString(R.string.from_name,displayName);
     }
  else     if (usersCount == 2) {
       userCursor.moveToPosition(1);
-      final String othersName=mUserColorNameManager.getDisplayName(userCursor.getString(idxUserId),userCursor.getString(idxUserName),userCursor.getString(idxUserScreenName),mNameFirst,false);
+      final String othersName=mUserColorNameManager.getDisplayName(userCursor.getString(idxUserId),userCursor.getString(idxUserName),userCursor.getString(idxUserScreenName),mNameFirst);
       notificationContent=resources.getString(R.string.from_name_and_name,displayName,othersName);
     }
  else {

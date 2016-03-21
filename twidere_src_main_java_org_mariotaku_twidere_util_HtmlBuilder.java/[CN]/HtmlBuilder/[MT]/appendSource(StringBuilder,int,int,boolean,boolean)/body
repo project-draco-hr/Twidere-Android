@@ -1,0 +1,11 @@
+{
+  if (sourceEscaped == escapeSource) {
+    append(builder,codePoints.substring(start,end),escapeSource,sourceEscaped);
+  }
+ else   if (escapeSource) {
+    append(builder,escape(codePoints.substring(start,end)),true,sourceEscaped);
+  }
+ else {
+    append(builder,unescape(codePoints.substring(start,end)),false,sourceEscaped);
+  }
+}

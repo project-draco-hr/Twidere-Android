@@ -1,0 +1,5 @@
+Spannable text
+UserKey accountKey
+long extraId
+boolean sensitive
+boolean skipLinksInText

@@ -1,0 +1,4 @@
+String nickname
+String name
+String screenName
+boolean nameFirst

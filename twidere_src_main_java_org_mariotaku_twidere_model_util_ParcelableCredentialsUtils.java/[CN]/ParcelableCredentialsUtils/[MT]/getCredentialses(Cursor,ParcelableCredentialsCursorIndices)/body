@@ -1,0 +1,15 @@
+{
+  if (cursor == null || indices == null)   return new ParcelableCredentials[0];
+  try {
+    cursor.moveToFirst();
+    final ParcelableCredentials[] credentialses=new ParcelableCredentials[cursor.getCount()];
+    while (!cursor.isAfterLast()) {
+      credentialses[cursor.getPosition()]=indices.newObject(cursor);
+      cursor.moveToNext();
+    }
+    return credentialses;
+  }
+  finally {
+    cursor.close();
+  }
+}

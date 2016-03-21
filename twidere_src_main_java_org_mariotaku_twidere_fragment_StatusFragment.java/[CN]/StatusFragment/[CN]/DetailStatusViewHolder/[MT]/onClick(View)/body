@@ -17,13 +17,13 @@ case R.id.media_preview_load:
 case R.id.profile_container:
 {
     final FragmentActivity activity=fragment.getActivity();
-    IntentUtils.openUserProfile(activity,status.account_key,status.user_key.getId(),status.user_screen_name,null,true,UserFragment.Referral.STATUS);
+    IntentUtils.openUserProfile(activity,status.account_key,status.user_key,status.user_screen_name,null,true,UserFragment.Referral.STATUS);
     break;
   }
 case R.id.retweeted_by:
 {
   if (status.retweet_id != null) {
-    IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.retweeted_by_user_id.getId(),status.retweeted_by_user_screen_name,null,true,UserFragment.Referral.STATUS);
+    IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.retweeted_by_user_key,status.retweeted_by_user_screen_name,null,true,UserFragment.Referral.STATUS);
   }
   break;
 }
@@ -36,7 +36,7 @@ break;
 }
 case R.id.quoted_name:
 {
-IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.quoted_user_id.getId(),status.quoted_user_screen_name,null,true,UserFragment.Referral.STATUS);
+IntentUtils.openUserProfile(adapter.getContext(),status.account_key,status.quoted_user_key,status.quoted_user_screen_name,null,true,UserFragment.Referral.STATUS);
 break;
 }
 case R.id.quote_original_link:

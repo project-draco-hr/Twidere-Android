@@ -1,3 +1,0 @@
-{
-  return getUserColor(userId.toString(),ignoreCache);
-}

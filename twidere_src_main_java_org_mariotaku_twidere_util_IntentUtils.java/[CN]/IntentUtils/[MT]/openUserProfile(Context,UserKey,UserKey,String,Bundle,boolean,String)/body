@@ -1,0 +1,15 @@
+{
+  if (userKey == null && isEmpty(screenName))   return;
+  final Uri uri=LinkCreator.getTwidereUserLink(accountKey,userKey,screenName);
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+  intent.putExtra(EXTRA_REFERRAL,referral);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && newDocument) {
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+  }
+  if (context instanceof Activity) {
+    ActivityCompat.startActivity((Activity)context,intent,activityOptions);
+  }
+ else {
+    context.startActivity(intent);
+  }
+}

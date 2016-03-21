@@ -1,0 +1,66 @@
+{
+  final Uri uri=getContentUri();
+  final ContentResolver resolver=context.getContentResolver();
+  final boolean noItemsBefore=DataStoreUtils.getStatusCount(context,uri,accountKey) <= 0;
+  final ContentValues[] values=new ContentValues[statuses.size()];
+  final String[] statusIds=new String[statuses.size()];
+  int minIdx=-1;
+  boolean hasIntersection=false;
+  if (!statuses.isEmpty()) {
+    final long firstSortId=statuses.get(0).getSortId();
+    final long lastSortId=statuses.get(statuses.size() - 1).getSortId();
+    long sortDiff=firstSortId - lastSortId;
+    for (int i=0, j=statuses.size(); i < j; i++) {
+      final Status item=statuses.get(i);
+      final ParcelableStatus status=ParcelableStatusUtils.fromStatus(item,accountKey,false);
+      ParcelableStatusUtils.updateExtraInformation(status,credentials,manager);
+      status.position_key=getPositionKey(status.timestamp,status.sort_id,lastSortId,sortDiff);
+      values[i]=ParcelableStatusValuesCreator.create(status);
+      values[i].put(Statuses.INSERTED_DATE,System.currentTimeMillis());
+      if (minIdx == -1 || item.compareTo(statuses.get(minIdx)) < 0) {
+        minIdx=i;
+      }
+      if (sinceId != null && item.getSortId() <= sinceSortId) {
+        hasIntersection=true;
+      }
+      statusIds[i]=item.getId();
+    }
+  }
+  final Expression accountWhere=Expression.equalsArgs(AccountSupportColumns.ACCOUNT_KEY);
+  final Expression statusWhere=Expression.inArgs(new Columns.Column(Statuses.STATUS_ID),statusIds.length);
+  final String countWhere=Expression.and(accountWhere,statusWhere).getSQL();
+  final String[] whereArgs=new String[statusIds.length + 1];
+  System.arraycopy(statusIds,0,whereArgs,1,statusIds.length);
+  whereArgs[0]=accountKey.toString();
+  final String[] projection={SQLFunctions.COUNT()};
+  final int rowsDeleted;
+  final Cursor countCur=resolver.query(uri,projection,countWhere,whereArgs,null);
+  try {
+    if (countCur != null && countCur.moveToFirst()) {
+      rowsDeleted=countCur.getInt(0);
+    }
+ else {
+      rowsDeleted=0;
+    }
+  }
+  finally {
+    Utils.closeSilently(countCur);
+  }
+  final RefreshEvent event=RefreshEvent.create(context,statusIds,getTimelineType());
+  HotMobiLogger.getInstance(context).log(accountKey,event);
+  final boolean deletedOldGap=rowsDeleted > 0 && ArrayUtils.contains(statusIds,maxId);
+  final boolean noRowsDeleted=rowsDeleted == 0;
+  final boolean insertGap=minIdx != -1 && (noRowsDeleted || deletedOldGap) && !noItemsBefore && !hasIntersection && statuses.size() > loadItemLimit / 2;
+  if (insertGap) {
+    values[minIdx].put(Statuses.IS_GAP,true);
+  }
+  final Uri insertUri=UriUtils.appendQueryParameters(uri,QUERY_PARAM_NOTIFY,notify);
+  ContentResolverUtils.bulkInsert(resolver,insertUri,values);
+  if (maxId != null && sinceId == null) {
+    final ContentValues noGapValues=new ContentValues();
+    noGapValues.put(Statuses.IS_GAP,false);
+    final String noGapWhere=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();
+    final String[] noGapWhereArgs={accountKey.toString(),maxId};
+    resolver.update(getContentUri(),noGapValues,noGapWhere,noGapWhereArgs);
+  }
+}

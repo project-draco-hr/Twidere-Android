@@ -1,0 +1,3 @@
+{
+  applyAllLinks(text,mOnLinkClickListener,accountKey,-1,sensitive,mHighlightOption,skipLinksInText);
+}

@@ -142,7 +142,7 @@ if (byFriends) return null;
 CharSequence title;
 int icon=R.drawable.ic_activity_action_list_added;
 if (sources.length == 1 && activity.target_object_user_lists != null && activity.target_object_user_lists.length == 1) {
-final SpannableString firstDisplayName=new SpannableString(manager.getDisplayName(sources[0],nameFirst,false));
+final SpannableString firstDisplayName=new SpannableString(manager.getDisplayName(sources[0],nameFirst));
 final SpannableString listName=new SpannableString(activity.target_object_user_lists[0].name);
 firstDisplayName.setSpan(new StyleSpan(Typeface.BOLD),0,firstDisplayName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 listName.setSpan(new StyleSpan(Typeface.BOLD),0,listName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -161,7 +161,7 @@ case Activity.Action.QUOTE:
 {
 final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
 if (status == null) return null;
-final SpannableString title=new SpannableString(manager.getDisplayName(status,nameFirst,false));
+final SpannableString title=new SpannableString(manager.getDisplayName(status,nameFirst));
 title.setSpan(new StyleSpan(Typeface.BOLD),0,title.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 return new ActivityTitleSummaryMessage(0,0,title,status.text_unescaped);
 }

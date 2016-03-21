@@ -1,4 +1,4 @@
 {
-  if (is_quote && TextUtils.isEmpty(quoted_text_html))   throw new IOException("Incompatible model");
+  if (is_quote && TextUtils.isEmpty(quoted_text_unescaped))   throw new IOException("Incompatible model");
   fixSortId();
 }

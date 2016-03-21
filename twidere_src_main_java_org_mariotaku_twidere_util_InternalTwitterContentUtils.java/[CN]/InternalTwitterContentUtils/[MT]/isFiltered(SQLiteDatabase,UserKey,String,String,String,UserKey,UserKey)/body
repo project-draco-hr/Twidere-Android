@@ -1,3 +1,0 @@
-{
-  return isFiltered(database,userKey,textPlain,textHtml,source,retweetedById,quotedUserId,true);
-}

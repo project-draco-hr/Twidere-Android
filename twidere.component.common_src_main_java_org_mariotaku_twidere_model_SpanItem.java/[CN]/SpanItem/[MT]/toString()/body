@@ -1,0 +1,3 @@
+{
+  return "SpanItem{" + "start=" + start + ", end="+ end+ ", link='"+ link+ '\''+ '}';
+}

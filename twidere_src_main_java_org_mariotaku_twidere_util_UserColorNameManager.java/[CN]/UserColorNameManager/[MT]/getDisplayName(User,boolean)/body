@@ -1,0 +1,3 @@
+{
+  return getDisplayName(UserKeyUtils.fromUser(user),user.getName(),user.getScreenName(),nameFirst);
+}

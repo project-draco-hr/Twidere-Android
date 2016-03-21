@@ -1,0 +1,7 @@
+Context context
+UserKey accountKey
+UserKey userKey
+String screenName
+Bundle activityOptions
+boolean newDocument
+String referral

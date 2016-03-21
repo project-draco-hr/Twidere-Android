@@ -1,0 +1,3 @@
+String text
+SpanItem[] spans
+Collection<String> mentions

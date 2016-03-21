@@ -1,0 +1,11 @@
+{
+  if (spans == null)   return;
+  for (  SpanItem span : spans) {
+    int start=span.start, end=span.end;
+    if (start <= 0 || end > text.length() || start > end)     continue;
+    final char ch=text.charAt(start - 1);
+    if (ch == '@' || ch == '\uff20') {
+      mentions.add(text.substring(start,end));
+    }
+  }
+}
