@@ -67,10 +67,10 @@ intent.putExtra(IntentConstants.EXTRA_COLOR,color);
 intent.putExtra(IntentConstants.EXTRA_CLEAR_BUTTON,color != 0);
 intent.putExtra(IntentConstants.EXTRA_ALPHA_SLIDER,false);
 if (fragment != null) {
-fragment.startActivityForResult(intent,TwidereConstants.REQUEST_SET_COLOR);
+fragment.startActivityForResult(intent,REQUEST_SET_COLOR);
 }
  else if (context instanceof Activity) {
-((Activity)context).startActivityForResult(intent,TwidereConstants.REQUEST_SET_COLOR);
+((Activity)context).startActivityForResult(intent,REQUEST_SET_COLOR);
 }
 break;
 }
@@ -82,7 +82,10 @@ break;
 case R.id.set_nickname:
 {
 final String nick=colorNameManager.getUserNickname(status.user_key);
-SetUserNicknameDialogFragment.show(fm,status.user_key,nick);
+final SetUserNicknameDialogFragment df=SetUserNicknameDialogFragment.show(fm,status.user_key,nick);
+if (fragment != null) {
+df.setTargetFragment(fragment,REQUEST_SET_NICKNAME);
+}
 break;
 }
 case R.id.open_with_account:
@@ -91,10 +94,10 @@ final Intent intent=new Intent(IntentConstants.INTENT_ACTION_SELECT_ACCOUNT);
 intent.setClass(context,AccountSelectorActivity.class);
 intent.putExtra(IntentConstants.EXTRA_SINGLE_SELECTION,true);
 if (fragment != null) {
-fragment.startActivityForResult(intent,TwidereConstants.REQUEST_SELECT_ACCOUNT);
+fragment.startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 }
  else if (context instanceof Activity) {
-((Activity)context).startActivityForResult(intent,TwidereConstants.REQUEST_SELECT_ACCOUNT);
+((Activity)context).startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 }
 break;
 }
@@ -112,7 +115,7 @@ try {
 context.startActivity(item.getIntent());
 }
  catch (final ActivityNotFoundException e) {
-Log.w(TwidereConstants.LOGTAG,e);
+Log.w(LOGTAG,e);
 return false;
 }
 }

@@ -1,0 +1,5 @@
+{
+  temp.clear();
+  temp.put(valueColumn,value);
+  cr.update(uri,temp,Expression.equalsArgs(whereColumn).getSQL(),new String[]{userKey});
+}

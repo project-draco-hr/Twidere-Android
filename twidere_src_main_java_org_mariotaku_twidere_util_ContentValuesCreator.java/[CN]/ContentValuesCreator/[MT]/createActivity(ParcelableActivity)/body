@@ -1,9 +1,0 @@
-{
-  final ContentValues values=new ContentValues();
-  final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
-  if (status != null) {
-    createStatusActivity(status,values);
-  }
-  ParcelableActivityValuesCreator.writeTo(activity,values);
-  return values;
-}

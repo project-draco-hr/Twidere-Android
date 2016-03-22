@@ -1,4 +1,5 @@
 {
+  mContext=context;
   mColorPreferences=context.getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mNicknamePreferences=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
 }

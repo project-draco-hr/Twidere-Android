@@ -1,0 +1,7 @@
+ContentResolver cr
+Uri uri
+String userKey
+String valueColumn
+String whereColumn
+String value
+ContentValues temp

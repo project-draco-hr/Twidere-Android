@@ -1,5 +1,7 @@
 {
   final SharedPreferences.Editor editor=mNicknamePreferences.edit();
-  editor.putString(userKey.toString(),nickname);
+  final String userKeyString=userKey.toString();
+  updateNickname(userKeyString,null);
+  editor.putString(userKeyString,nickname);
   editor.apply();
 }

@@ -1,6 +1,6 @@
 ContentResolver cr
 int loadItemLimit
-UserKey accountKey
+ParcelableCredentials credentials
 boolean noItemsBefore
 ResponseList<Activity> activities
 String sinceId

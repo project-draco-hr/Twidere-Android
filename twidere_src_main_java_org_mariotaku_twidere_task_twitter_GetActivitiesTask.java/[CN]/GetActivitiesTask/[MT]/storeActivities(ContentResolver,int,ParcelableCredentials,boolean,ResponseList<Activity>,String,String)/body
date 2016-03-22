@@ -3,7 +3,7 @@
   Arrays.fill(deleteBound,-1);
   List<ContentValues> valuesList=new ArrayList<>();
   for (  Activity activity : activities) {
-    final ParcelableActivity parcelableActivity=ParcelableActivityUtils.fromActivity(activity,accountKey,false);
+    final ParcelableActivity parcelableActivity=ParcelableActivityUtils.fromActivity(activity,credentials.account_key,false);
     if (deleteBound[0] < 0) {
       deleteBound[0]=parcelableActivity.min_sort_position;
     }
@@ -16,13 +16,13 @@
  else {
       deleteBound[1]=Math.max(deleteBound[1],parcelableActivity.max_sort_position);
     }
-    final ContentValues values=ContentValuesCreator.createActivity(parcelableActivity);
+    final ContentValues values=ContentValuesCreator.createActivity(parcelableActivity,credentials,userColorNameManager);
     values.put(Activities.INSERTED_DATE,System.currentTimeMillis());
     valuesList.add(values);
   }
   if (deleteBound[0] > 0 && deleteBound[1] > 0) {
     final Expression where=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.greaterEqualsArgs(Activities.MIN_SORT_POSITION),Expression.lesserEqualsArgs(Activities.MAX_SORT_POSITION));
-    final String[] whereArgs={accountKey.toString(),String.valueOf(deleteBound[0]),String.valueOf(deleteBound[1])};
+    final String[] whereArgs={credentials.account_key.toString(),String.valueOf(deleteBound[0]),String.valueOf(deleteBound[1])};
     int rowsDeleted=cr.delete(getContentUri(),where.getSQL(),whereArgs);
     boolean insertGap=valuesList.size() >= loadItemLimit && !noItemsBefore && rowsDeleted <= 0 && activities.size() > loadItemLimit / 2;
     if (insertGap && !valuesList.isEmpty()) {
@@ -34,7 +34,7 @@
     final ContentValues noGapValues=new ContentValues();
     noGapValues.put(Activities.IS_GAP,false);
     final String noGapWhere=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.equalsArgs(Activities.MIN_REQUEST_POSITION),Expression.equalsArgs(Activities.MAX_REQUEST_POSITION)).getSQL();
-    final String[] noGapWhereArgs={accountKey.toString(),maxId,maxId};
+    final String[] noGapWhereArgs={credentials.toString(),maxId,maxId};
     cr.update(getContentUri(),noGapValues,noGapWhere,noGapWhereArgs);
   }
 }

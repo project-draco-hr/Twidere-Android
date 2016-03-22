@@ -35,7 +35,7 @@
     }
     try {
       final ResponseList<Activity> activities=getActivities(twitter,credentials,paging);
-      storeActivities(cr,loadItemLimit,accountKey,noItemsBefore,activities,sinceId,maxId);
+      storeActivities(cr,loadItemLimit,credentials,noItemsBefore,activities,sinceId,maxId);
       if (saveReadPosition) {
         saveReadPosition(accountKey,credentials,twitter);
       }

@@ -5,6 +5,10 @@
     final Bundle dataExtra=data.getExtras();
     final ParcelableCredentials credentials=dataExtra.getParcelable(EXTRA_ACCOUNT);
     if (mStatusAdapter.setStatus(status,credentials)) {
+      Bundle args=getArguments();
+      if (args.containsKey(EXTRA_STATUS)) {
+        args.putParcelable(EXTRA_STATUS,status);
+      }
       mStatusAdapter.setLoadMoreSupportedPosition(IndicatorPosition.BOTH);
       mStatusAdapter.setData(null);
       loadConversation(status,null,null);

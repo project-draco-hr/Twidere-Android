@@ -2,7 +2,8 @@
   final ParcelableStatus old=mStatus;
   mStatus=status;
   mStatusAccount=credentials;
+  final boolean changed=!CompareUtils.objectEquals(old,status);
   notifyDataSetChanged();
   updateItemDecoration();
-  return !CompareUtils.objectEquals(old,status);
+  return changed;
 }
