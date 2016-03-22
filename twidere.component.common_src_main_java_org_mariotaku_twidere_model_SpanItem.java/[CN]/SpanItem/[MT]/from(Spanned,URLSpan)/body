@@ -1,0 +1,7 @@
+{
+  SpanItem spanItem=new SpanItem();
+  spanItem.link=span.getURL();
+  spanItem.start=spanned.getSpanStart(span);
+  spanItem.end=spanned.getSpanEnd(span);
+  return spanItem;
+}

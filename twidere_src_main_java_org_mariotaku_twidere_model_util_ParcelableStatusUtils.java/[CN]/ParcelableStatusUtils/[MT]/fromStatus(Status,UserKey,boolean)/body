@@ -83,8 +83,14 @@
   }
   String text=status.getText();
   if (text.contains("<") && text.contains(">")) {
-    result.text_unescaped=HtmlEscapeHelper.toPlainText(text);
+    final Spannable html=HtmlSpanBuilder.fromHtml(text);
+    result.text_unescaped=html.toString();
     result.text_plain=result.text_unescaped;
+    URLSpan[] spans=html.getSpans(0,html.length(),URLSpan.class);
+    result.spans=new SpanItem[spans.length];
+    for (int i=0, j=spans.length; i < j; i++) {
+      result.spans[i]=SpanItem.from(html,spans[i]);
+    }
   }
  else {
     final Pair<String,List<SpanItem>> textWithIndices=InternalTwitterContentUtils.formatStatusTextWithIndices(status);
