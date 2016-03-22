@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  mFirstCreate=savedInstanceState == null;
   final FragmentActivity activity=getActivity();
   setHasOptionsMenu(true);
   mUserColorNameManager.registerColorChangedListener(this);

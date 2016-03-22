@@ -19,7 +19,7 @@
     if (user != null) {
       final ContentValues values=ParcelableUserValuesCreator.create(user);
       resolver.insert(CachedUsers.CONTENT_URI,values);
-      user.account_color=credentials.color;
+      ParcelableUserUtils.updateExtraInformation(user,credentials,mUserColorNameManager);
       return SingleResponse.getInstance(user);
     }
   }
@@ -63,7 +63,7 @@
     final ContentValues cachedUserValues=createCachedUser(twitterUser);
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);
     final ParcelableUser user=ParcelableUserUtils.fromUser(twitterUser,accountKey);
-    user.account_color=credentials.color;
+    ParcelableUserUtils.updateExtraInformation(user,credentials,mUserColorNameManager);
     final SingleResponse<ParcelableUser> response=SingleResponse.getInstance(user);
     response.getExtras().putParcelable(EXTRA_ACCOUNT,credentials);
     return response;

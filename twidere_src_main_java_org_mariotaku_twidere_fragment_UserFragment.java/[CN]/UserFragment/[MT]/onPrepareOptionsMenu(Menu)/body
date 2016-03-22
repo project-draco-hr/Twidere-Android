@@ -5,7 +5,7 @@
   final boolean isMyself=user.account_key.equals(user.key);
   final MenuItem mentionItem=menu.findItem(R.id.mention);
   if (mentionItem != null) {
-    final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst);
+    final String displayName=UserColorNameManager.decideDisplayName(user.nickname,user.name,user.screen_name,mNameFirst);
     mentionItem.setTitle(getString(R.string.mention_user_name,displayName));
   }
   MenuUtils.setMenuItemAvailability(menu,R.id.mention,!isMyself);

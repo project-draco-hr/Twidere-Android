@@ -10,10 +10,9 @@
   }
   try {
     final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(getContext(),mAccountId);
+    if (credentials == null)     return SingleResponse.getInstance();
     final ParcelableStatus status=findStatus(getContext(),mAccountId,mStatusId);
-    if (credentials != null) {
-      status.account_color=credentials.color;
-    }
+    ParcelableStatusUtils.updateExtraInformation(status,credentials,mUserColorNameManager);
     final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(status);
     final Bundle extras=response.getExtras();
     extras.putParcelable(EXTRA_ACCOUNT,credentials);

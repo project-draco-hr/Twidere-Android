@@ -1,0 +1,3 @@
+{
+  return isEmpty(nick) ? name : nick;
+}

@@ -2,5 +2,5 @@ Context context
 SharedPreferencesWrapper preferences
 Menu menu
 ParcelableStatus status
-UserColorNameManager manager
+ParcelableCredentials account
 AsyncTwitterWrapper twitter

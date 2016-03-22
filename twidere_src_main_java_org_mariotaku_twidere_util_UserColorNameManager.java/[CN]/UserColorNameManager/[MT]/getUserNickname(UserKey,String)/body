@@ -1,3 +1,4 @@
 {
-  return getUserNickname(userId,name,false);
+  final String nick=getUserNickname(userId);
+  return decideNickname(nick,name);
 }

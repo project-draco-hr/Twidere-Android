@@ -1,5 +1,4 @@
 {
-  final Context context=getActivity();
   final Bundle args=getArguments(), tabArgs=new Bundle();
   final ParcelableUser user=args.getParcelable(EXTRA_USER);
   if (user != null) {

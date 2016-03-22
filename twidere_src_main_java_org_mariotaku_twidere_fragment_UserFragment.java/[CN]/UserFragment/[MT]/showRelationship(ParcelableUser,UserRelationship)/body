@@ -26,7 +26,6 @@
   }
  else   if (!relationship.isSourceFollowingTarget() && user.is_protected) {
     mPagesErrorContainer.setVisibility(View.VISIBLE);
-    final String displayName=mUserColorNameManager.getDisplayName(user,mNameFirst);
     mPagesErrorText.setText(R.string.user_protected_summary);
     mPagesErrorIcon.setImageResource(R.drawable.ic_info_locked);
     mPagesContent.setVisibility(View.GONE);

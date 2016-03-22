@@ -85,7 +85,7 @@ break;
 }
 case R.id.set_nickname:
 {
-final String nick=mUserColorNameManager.getUserNickname(user.key,true);
+final String nick=mUserColorNameManager.getUserNickname(user.key);
 SetUserNicknameDialogFragment.show(getFragmentManager(),user.key,nick);
 break;
 }

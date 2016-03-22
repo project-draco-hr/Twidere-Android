@@ -10,7 +10,7 @@ case ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_STATUS:
       final ParcelableStatus status=getActivityStatus(position);
       if (status == null)       return;
       inflater.inflate(R.menu.action_status,menu);
-      MenuUtils.setupForStatus(getContext(),mPreferences,menu,status,mUserColorNameManager,mTwitterWrapper);
+      MenuUtils.setupForStatus(getContext(),mPreferences,menu,status,mTwitterWrapper);
       break;
     }
 }

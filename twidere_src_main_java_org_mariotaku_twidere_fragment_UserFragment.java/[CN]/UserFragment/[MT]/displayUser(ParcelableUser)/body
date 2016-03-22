@@ -10,11 +10,9 @@
   mHeaderErrorContainer.setVisibility(View.GONE);
   mProgressContainer.setVisibility(View.GONE);
   mUser=user;
-  final int userColor=mUserColorNameManager.getUserColor(user.key);
-  mProfileImageView.setBorderColor(userColor != 0 ? userColor : Color.WHITE);
+  mProfileImageView.setBorderColor(user.color != 0 ? user.color : Color.WHITE);
   mProfileNameContainer.drawEnd(user.account_color);
-  final String nick=mUserColorNameManager.getUserNickname(user.key,true);
-  mNameView.setText(mBidiFormatter.unicodeWrap(TextUtils.isEmpty(nick) ? user.name : getString(R.string.name_with_nickname,user.name,nick)));
+  mNameView.setText(mBidiFormatter.unicodeWrap(TextUtils.isEmpty(user.nickname) ? user.name : getString(R.string.name_with_nickname,user.name,user.nickname)));
   final int typeIconRes=Utils.getUserTypeIconRes(user.is_verified,user.is_protected);
   if (typeIconRes != 0) {
     mProfileTypeView.setImageResource(typeIconRes);
@@ -52,8 +50,8 @@
   mListedContainer.setVisibility(user.listed_count < 0 ? View.GONE : View.VISIBLE);
   mGroupsContainer.setVisibility(groupsCount < 0 ? View.GONE : View.VISIBLE);
   mMediaLoader.displayOriginalProfileImage(mProfileImageView,user);
-  if (userColor != 0) {
-    setUiColor(userColor);
+  if (user.color != 0) {
+    setUiColor(user.color);
   }
  else   if (user.link_color != 0) {
     setUiColor(user.link_color);
@@ -72,7 +70,7 @@
   if (relationship == null) {
     getFriendship();
   }
-  activity.setTitle(mUserColorNameManager.getDisplayName(user,mNameFirst));
+  activity.setTitle(UserColorNameManager.decideDisplayName(user.nickname,user.name,user.screen_name,mNameFirst));
   Calendar cal=Calendar.getInstance();
   final int currentMonth=cal.get(Calendar.MONTH), currentDay=cal.get(Calendar.DAY_OF_MONTH);
   cal.setTimeInMillis(user.created_at);

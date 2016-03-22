@@ -1,0 +1,5 @@
+{
+  user.account_color=account.color;
+  user.color=manager.getUserColor(user.key);
+  user.nickname=manager.getUserNickname(user.key);
+}

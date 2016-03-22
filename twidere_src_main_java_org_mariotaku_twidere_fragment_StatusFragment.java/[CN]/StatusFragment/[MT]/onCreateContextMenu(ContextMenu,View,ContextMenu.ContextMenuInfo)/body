@@ -4,5 +4,5 @@
   final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)menuInfo;
   final ParcelableStatus status=mStatusAdapter.getStatus(contextMenuInfo.getPosition());
   inflater.inflate(R.menu.action_status,menu);
-  MenuUtils.setupForStatus(getContext(),mPreferences,menu,status,mUserColorNameManager,mTwitterWrapper);
+  MenuUtils.setupForStatus(getContext(),mPreferences,menu,status,mTwitterWrapper);
 }

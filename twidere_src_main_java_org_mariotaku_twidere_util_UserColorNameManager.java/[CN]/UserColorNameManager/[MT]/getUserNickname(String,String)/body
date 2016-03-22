@@ -1,4 +1,4 @@
 {
-  final String nick=getNickname(userId);
-  return isEmpty(nick) ? name : nick;
+  final String nick=getUserNicknameInternal(userId);
+  return decideNickname(nick,name);
 }
