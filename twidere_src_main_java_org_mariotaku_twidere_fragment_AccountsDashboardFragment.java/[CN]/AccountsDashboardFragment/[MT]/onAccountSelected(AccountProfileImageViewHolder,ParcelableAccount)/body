@@ -50,7 +50,7 @@
       final Editor editor=mPreferences.edit();
       editor.putString(KEY_DEFAULT_ACCOUNT_KEY,account.account_key.toString());
       editor.apply();
-      mAccountsAdapter.setSelectedAccountKey(account.account_key);
+      mAccountsAdapter.setSelectedAccount(account);
       updateAccountActions();
       updateAccountOptionsSeparatorLabel(clickedDrawable);
       snapshotView.setVisibility(View.INVISIBLE);

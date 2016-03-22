@@ -24,7 +24,14 @@
   if (accountKey == null) {
     accountKey=defaultId;
   }
-  mAccountsAdapter.setSelectedAccountKey(accountKey);
+  ParcelableAccount selectedAccount=null;
+  for (  ParcelableAccount account : accounts) {
+    if (account.account_key.equals(accountKey)) {
+      selectedAccount=account;
+      break;
+    }
+  }
+  mAccountsAdapter.setSelectedAccount(selectedAccount);
   if (mAccountActionProvider != null) {
     mAccountActionProvider.setExclusive(false);
     mAccountActionProvider.setAccounts(accounts);
