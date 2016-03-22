@@ -2,7 +2,7 @@
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   final ParcelableUser user=getUser();
   if (twitter == null || user == null)   return;
-  final boolean isMyself=user.account_key.equals(user.key);
+  final boolean isMyself=user.account_key.maybeEquals(user.key);
   final MenuItem mentionItem=menu.findItem(R.id.mention);
   if (mentionItem != null) {
     final String displayName=UserColorNameManager.decideDisplayName(user.nickname,user.name,user.screen_name,mNameFirst);
