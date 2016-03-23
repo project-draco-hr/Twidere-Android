@@ -2,5 +2,5 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   Group group=(Group)o;
-  return id == group.id;
+  return id.equals(group.id);
 }

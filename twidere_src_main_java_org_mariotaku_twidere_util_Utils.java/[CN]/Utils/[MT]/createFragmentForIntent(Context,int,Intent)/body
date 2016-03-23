@@ -206,6 +206,16 @@ args.putString(EXTRA_SCREEN_NAME,paramScreenName);
 args.putString(EXTRA_LIST_NAME,paramListName);
 break;
 }
+case LINK_ID_GROUP:
+{
+fragment=new GroupFragment();
+final String paramGroupId=uri.getQueryParameter(QUERY_PARAM_GROUP_ID);
+final String paramGroupName=uri.getQueryParameter(QUERY_PARAM_GROUP_NAME);
+if (isEmpty(paramGroupId) && isEmpty(paramGroupName)) return null;
+args.putString(EXTRA_GROUP_ID,paramGroupId);
+args.putString(EXTRA_GROUP_NAME,paramGroupName);
+break;
+}
 case LINK_ID_USER_LISTS:
 {
 fragment=new ListsFragment();

@@ -1,0 +1,13 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (activity == null)   return;
+  getLoaderManager().destroyLoader(0);
+  mGroup=group;
+  if (group != null) {
+    activity.setTitle(group.fullname);
+  }
+ else {
+    activity.setTitle(R.string.user_list);
+  }
+  invalidateOptionsMenu();
+}

@@ -1,0 +1,5 @@
+{
+  if (mGroupId != null)   return twitter.getGroupStatuses(mGroupId,paging);
+ else   if (mGroupName != null)   return twitter.getGroupStatusesByName(mGroupName,paging);
+  throw new TwitterException("No group name or id given");
+}

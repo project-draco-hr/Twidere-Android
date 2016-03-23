@@ -1,4 +1,4 @@
 {
-  if (position == getGroupsCount())   return -1;
+  if (position == getGroupsCount())   return null;
   return mData.get(position).id;
 }

@@ -1,0 +1,5 @@
+{
+  final Bundle args=getArguments();
+  adapter.addTab(GroupTimelineFragment.class,args,getString(R.string.statuses),0,0,"statuses");
+  adapter.addTab(GroupMembersFragment.class,args,getString(R.string.members),0,1,"members");
+}

@@ -1,0 +1,24 @@
+{
+  if (!mOmitIntentExtra && mExtras != null) {
+    final ParcelableGroup cache=mExtras.getParcelable(EXTRA_GROUP);
+    if (cache != null)     return SingleResponse.getInstance(cache);
+  }
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
+  if (twitter == null)   return SingleResponse.getInstance();
+  try {
+    final Group group;
+    if (mGroupId != null) {
+      group=twitter.showGroup(mGroupId);
+    }
+ else     if (mGroupName != null) {
+      group=twitter.showGroupByName(mGroupName);
+    }
+ else {
+      return SingleResponse.getInstance();
+    }
+    return SingleResponse.getInstance(ParcelableGroupUtils.from(group,mAccountKey,0,group.isMember()));
+  }
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
+  }
+}

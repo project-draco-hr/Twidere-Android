@@ -1,0 +1,12 @@
+{
+  setRefreshing(true);
+  if (args == null)   return null;
+  final UserKey accountKey=Utils.getAccountKey(context,args);
+  final String groupId=args.getString(EXTRA_GROUP_ID);
+  final String groupName=args.getString(EXTRA_GROUP_NAME);
+  final String maxId=args.getString(EXTRA_MAX_ID);
+  final String sinceId=args.getString(EXTRA_SINCE_ID);
+  final int tabPosition=args.getInt(EXTRA_TAB_POSITION,-1);
+  final boolean loadingMore=args.getBoolean(EXTRA_LOADING_MORE,false);
+  return new GroupTimelineLoader(getActivity(),accountKey,groupId,groupName,sinceId,maxId,getAdapterData(),getSavedStatusesFileArgs(),tabPosition,fromUser,loadingMore);
+}
