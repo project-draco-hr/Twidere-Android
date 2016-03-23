@@ -1,7 +1,7 @@
 {
   super(itemView);
   this.adapter=adapter;
-  this.linkClickHandler=new DetailStatusLinkClickHandler(adapter.getContext(),null,adapter);
+  this.linkClickHandler=new DetailStatusLinkClickHandler(adapter.getContext(),null,adapter,adapter.getPreferences());
   this.linkify=new TwidereLinkify(linkClickHandler);
   menuBar=(ActionMenuView)itemView.findViewById(R.id.menu_bar);
   nameView=(NameView)itemView.findViewById(R.id.name);

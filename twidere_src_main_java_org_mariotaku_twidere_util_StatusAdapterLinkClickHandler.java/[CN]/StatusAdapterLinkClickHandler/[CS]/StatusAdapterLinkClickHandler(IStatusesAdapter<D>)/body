@@ -1,4 +1,0 @@
-{
-  super(adapter.getContext(),null);
-  this.adapter=adapter;
-}

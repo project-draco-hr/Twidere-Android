@@ -2,7 +2,7 @@
   super(context,layoutRes,collection);
   GeneralComponentHelper.build(context).inject((BaseArrayAdapter<Object>)this);
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mLinkify=new TwidereLinkify(new OnLinkClickHandler(context,mMultiSelectManager));
+  mLinkify=new TwidereLinkify(new OnLinkClickHandler(context,mMultiSelectManager,mPreferences));
   mNicknamePrefs=context.getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mColorPrefs=context.getSharedPreferences(USER_COLOR_PREFERENCES_NAME,Context.MODE_PRIVATE);
   mNicknamePrefs.registerOnSharedPreferenceChangeListener(this);

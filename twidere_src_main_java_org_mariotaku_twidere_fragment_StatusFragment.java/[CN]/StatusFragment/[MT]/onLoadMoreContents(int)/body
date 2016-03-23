@@ -1,4 +1,5 @@
 {
+  if (!mHasMoreConversation)   return;
   if ((position & IndicatorPosition.START) != 0) {
     final int start=mStatusAdapter.getIndexStart(StatusAdapter.ITEM_IDX_CONVERSATION);
     final ParcelableStatus status=mStatusAdapter.getStatus(start);

@@ -1,4 +1,0 @@
-{
-  super(context,manager);
-  this.adapter=adapter;
-}
