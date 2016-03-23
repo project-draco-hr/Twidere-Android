@@ -19,11 +19,12 @@
   }
   supportRequestWindowFeature(AppCompatDelegate.FEATURE_ACTION_MODE_OVERLAY);
   setContentView(R.layout.activity_home);
-  setSupportActionBar(mActionBar);
+  setSupportActionBar(mToolbar);
   ThemeUtils.setCompatContentViewOverlay(getWindow(),new EmptyDrawable());
   final boolean refreshOnStart=mPreferences.getBoolean(KEY_REFRESH_ON_START,false);
   int tabDisplayOptionInt=Utils.getTabDisplayOptionInt(this);
   mTabColumns=getResources().getInteger(R.integer.default_tab_columns);
+  mDrawerToggle=new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open_accounts_dashboard,R.string.close_accounts_dashboard);
   mHomeContent.setOnFitSystemWindowsListener(this);
   mPagerAdapter=new SupportTabsAdapter(this,getSupportFragmentManager(),mTabIndicator,mTabColumns);
   mViewPager.setAdapter(mPagerAdapter);
@@ -50,6 +51,7 @@
 );
   mActionsButton.setOnClickListener(this);
   mActionsButton.setOnLongClickListener(this);
+  mDrawerToggleButton.setOnClickListener(this);
   mEmptyTabHint.setOnClickListener(this);
   setupSlidingMenu();
   setupBars();

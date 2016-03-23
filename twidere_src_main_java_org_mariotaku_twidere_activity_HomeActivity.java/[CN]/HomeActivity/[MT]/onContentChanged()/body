@@ -1,11 +1,12 @@
 {
   super.onContentChanged();
   mTabIndicator=(TabPagerIndicator)findViewById(R.id.main_tabs);
-  mActionBar=(Toolbar)findViewById(R.id.action_bar);
+  mToolbar=(Toolbar)findViewById(R.id.action_bar);
   mDrawerLayout=(DrawerLayout)findViewById(R.id.home_menu);
   mViewPager=(ExtendedViewPager)findViewById(R.id.main_pager);
   mEmptyTabHint=findViewById(R.id.empty_tab_hint);
   mActionsButton=(FloatingActionButton)findViewById(R.id.actions_button);
   mHomeContent=(ExtendedRelativeLayout)findViewById(R.id.home_content);
   mWindowOverlay=findViewById(R.id.window_overlay);
+  mDrawerToggleButton=(ImageButton)findViewById(R.id.drawer_toggle);
 }

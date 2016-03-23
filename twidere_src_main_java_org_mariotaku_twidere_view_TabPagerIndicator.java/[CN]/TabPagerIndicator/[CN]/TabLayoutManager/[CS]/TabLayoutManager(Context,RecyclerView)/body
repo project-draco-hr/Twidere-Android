@@ -1,4 +1,5 @@
 {
   super(context,HORIZONTAL,false);
+  mRecyclerView=recyclerView;
   setAutoMeasureEnabled(true);
 }

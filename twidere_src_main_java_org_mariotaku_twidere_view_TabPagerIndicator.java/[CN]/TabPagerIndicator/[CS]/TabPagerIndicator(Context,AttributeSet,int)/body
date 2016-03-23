@@ -8,7 +8,7 @@
   ViewCompat.setOverScrollMode(this,ViewCompat.OVER_SCROLL_NEVER);
   setHorizontalScrollBarEnabled(false);
   setVerticalScrollBarEnabled(false);
-  setLayoutManager(mLayoutManager=new TabLayoutManager(context));
+  setLayoutManager(mLayoutManager=new TabLayoutManager(context,this));
   setItemContext(context);
   setAdapter(mIndicatorAdapter);
   final TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.TabPagerIndicator);

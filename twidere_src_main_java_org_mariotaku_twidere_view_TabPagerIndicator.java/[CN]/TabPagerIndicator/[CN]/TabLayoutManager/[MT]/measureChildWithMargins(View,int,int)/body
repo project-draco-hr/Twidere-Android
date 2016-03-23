@@ -3,7 +3,7 @@
   if (!isTabExpandEnabled())   return;
   final int count=getItemCount();
   if (count == 0)   return;
-  final int parentHeight=getHeight(), parentWidth=getWidth();
+  final int parentHeight=mRecyclerView.getHeight(), parentWidth=mRecyclerView.getWidth();
   final int decoratedWidth=getDecoratedMeasuredWidth(child);
   final int measuredWidth=child.getMeasuredWidth();
   final int decoratorWidth=decoratedWidth - measuredWidth;

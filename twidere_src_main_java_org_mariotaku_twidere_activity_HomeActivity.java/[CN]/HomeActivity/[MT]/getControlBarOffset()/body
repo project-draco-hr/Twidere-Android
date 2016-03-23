@@ -11,5 +11,5 @@
     return 1 - mActionsButton.getTranslationY() / total;
   }
   final float totalHeight=getControlBarHeight();
-  return 1 + mActionBar.getTranslationY() / totalHeight;
+  return 1 + mToolbar.getTranslationY() / totalHeight;
 }

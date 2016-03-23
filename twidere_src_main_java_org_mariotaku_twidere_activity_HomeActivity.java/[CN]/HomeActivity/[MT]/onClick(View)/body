@@ -13,5 +13,15 @@ case R.id.empty_tab_hint:
     startActivityForResult(intent,REQUEST_SETTINGS);
     break;
   }
+case R.id.drawer_toggle:
+{
+  if (mDrawerLayout.isDrawerOpen(GravityCompat.START) || mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+    mDrawerLayout.closeDrawers();
+  }
+ else {
+    mDrawerLayout.openDrawer(GravityCompat.START);
+  }
+  break;
+}
 }
 }
