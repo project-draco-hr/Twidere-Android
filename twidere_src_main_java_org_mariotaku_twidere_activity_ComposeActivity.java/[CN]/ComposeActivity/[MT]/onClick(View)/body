@@ -15,10 +15,5 @@ case R.id.account_selector_button:
   setAccountSelectorVisible(!isAccountSelectorVisible());
   break;
 }
-case R.id.location_container:
-{
-toggleLocation();
-break;
-}
 }
 }

@@ -2,7 +2,9 @@
   super.onStart();
   mImageUploaderUsed=!ServicePickerPreference.isNoneValue(mPreferences.getString(KEY_MEDIA_UPLOADER,null));
   mStatusShortenerUsed=!ServicePickerPreference.isNoneValue(mPreferences.getString(KEY_STATUS_SHORTENER,null));
-  requestOrUpdateLocation();
+  if (mPreferences.getBoolean(KEY_ATTACH_LOCATION)) {
+    requestOrUpdateLocation();
+  }
   setMenu();
   updateTextCount();
   final int textSize=mPreferences.getInt(KEY_TEXT_SIZE,Utils.getDefaultTextSize(this));

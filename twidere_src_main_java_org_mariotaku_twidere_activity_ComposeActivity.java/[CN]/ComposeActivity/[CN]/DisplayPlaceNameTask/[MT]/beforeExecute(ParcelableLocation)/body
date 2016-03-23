@@ -1,0 +1,6 @@
+{
+  final TextView textView=getCallback();
+  if (textView != null) {
+    textView.setText(R.string.getting_location);
+  }
+}

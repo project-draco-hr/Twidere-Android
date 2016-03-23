@@ -1,0 +1,3 @@
+MultiValueSwitch switchView
+int color
+boolean useDarker

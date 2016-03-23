@@ -18,75 +18,126 @@
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);
   mAccountSelectorButton.setOnClickListener(this);
-  mLocationContainer.setOnClickListener(this);
-  final LinearLayoutManager linearLayoutManager=new FixedLinearLayoutManager(this);
-  linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-  linearLayoutManager.setStackFromEnd(true);
-  mAccountSelector.setLayoutManager(linearLayoutManager);
-  mAccountSelector.setItemAnimator(new DefaultItemAnimator());
-  mAccountsAdapter=new AccountIconsAdapter(this);
-  mAccountSelector.setAdapter(mAccountsAdapter);
-  mAccountsAdapter.setAccounts(accounts);
-  mMediaPreviewAdapter=new MediaPreviewAdapter(this,new PreviewGridOnStartDragListener(this));
-  mItemTouchHelper=new ItemTouchHelper(new AttachedMediaItemTouchHelperCallback(mMediaPreviewAdapter));
-  final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-  layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-  mAttachedMediaPreview.setLayoutManager(layoutManager);
-  mAttachedMediaPreview.setAdapter(mMediaPreviewAdapter);
-  mItemTouchHelper.attachToRecyclerView(mAttachedMediaPreview);
-  final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
-  mAttachedMediaPreview.addItemDecoration(new PreviewGridItemDecoration(previewGridSpacing));
-  final Intent intent=getIntent();
-  if (savedInstanceState != null) {
-    mAccountsAdapter.setSelectedAccountIds(Utils.newParcelableArray(savedInstanceState.getParcelableArray(EXTRA_ACCOUNT_KEY),UserKey.CREATOR));
-    mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
-    final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
-    if (mediaList != null) {
-      addMedia(mediaList);
+  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION);
+  final boolean attachPreciseLocation=mPreferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
+  if (attachLocation) {
+    if (attachPreciseLocation) {
+      mLocationSwitch.setValue(LOCATION_VALUE_COORDINATE);
     }
-    mInReplyToStatus=savedInstanceState.getParcelable(EXTRA_STATUS);
-    mMentionUser=savedInstanceState.getParcelable(EXTRA_USER);
-    mDraft=savedInstanceState.getParcelable(EXTRA_DRAFT);
-    mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);
-    mOriginalText=savedInstanceState.getString(EXTRA_ORIGINAL_TEXT);
-    setLabel(intent);
+ else {
+      mLocationSwitch.setValue(LOCATION_VALUE_PLACE);
+    }
   }
  else {
-    final int notificationId=intent.getIntExtra(EXTRA_NOTIFICATION_ID,-1);
-    final UserKey notificationAccount=intent.getParcelableExtra(EXTRA_NOTIFICATION_ACCOUNT);
-    if (notificationId != -1) {
-      mTwitterWrapper.clearNotificationAsync(notificationId,notificationAccount);
-    }
-    if (!handleIntent(intent)) {
-      handleDefaultIntent(intent);
-    }
-    setLabel(intent);
-    final UserKey[] selectedAccountIds=mAccountsAdapter.getSelectedAccountKeys();
-    if (ArrayUtils.isEmpty(selectedAccountIds)) {
-      final UserKey[] idsInPrefs=UserKey.arrayOf(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null));
-      UserKey[] intersection=null;
-      if (idsInPrefs != null) {
-        intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
+    mLocationSwitch.setValue(LOCATION_VALUE_NONE);
+  }
+  mLocationSwitch.setOnCheckedChangeListener(new MultiValueSwitch.OnCheckedChangeListener(){
+    @Override public void onCheckedChange(    int position){
+      final String value=String.valueOf(mLocationSwitch.getValue());
+      boolean attachLocation=false, attachPreciseLocation=false;
+switch (value) {
+case LOCATION_VALUE_COORDINATE:
+{
+          attachLocation=true;
+          attachPreciseLocation=true;
+          break;
+        }
+case LOCATION_VALUE_PLACE:
+{
+        attachLocation=true;
+        attachPreciseLocation=false;
+        break;
       }
-      mAccountsAdapter.setSelectedAccountIds(ArrayUtils.isEmpty(intersection) ? defaultAccountIds : intersection);
+  }
+  SharedPreferences.Editor editor=mPreferences.edit();
+  editor.putBoolean(KEY_ATTACH_LOCATION,attachLocation);
+  editor.putBoolean(KEY_ATTACH_PRECISE_LOCATION,attachPreciseLocation);
+  editor.apply();
+  if (attachLocation) {
+    requestOrUpdateLocation();
+  }
+ else   if (mLocationListener != null) {
+    try {
+      mLocationManager.removeUpdates(mLocationListener);
+      mLocationListener=null;
     }
-    mOriginalText=ParseUtils.parseString(mEditText.getText());
+ catch (    SecurityException e) {
+    }
   }
-  final Menu menu=mMenuBar.getMenu();
-  getMenuInflater().inflate(R.menu.menu_compose,menu);
-  ThemeUtils.wrapMenuIcon(mMenuBar);
-  mSendView.setOnClickListener(this);
-  mSendView.setOnLongClickListener(this);
-  final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
-  MenuUtils.addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
-  final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
-  final MenuItem mediaMenuItem=menu.findItem(R.id.media_menu);
-  if (mediaMenuItem != null && mediaMenuItem.hasSubMenu()) {
-    MenuUtils.addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
-  }
-  setMenu();
   updateLocationState();
-  notifyAccountSelectionChanged();
-  mTextChanged=false;
-  updateAttachedMediaView();
+  setMenu();
+  updateTextCount();
+}
+}
+);
+final LinearLayoutManager linearLayoutManager=new FixedLinearLayoutManager(this);
+linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+linearLayoutManager.setStackFromEnd(true);
+mAccountSelector.setLayoutManager(linearLayoutManager);
+mAccountSelector.setItemAnimator(new DefaultItemAnimator());
+mAccountsAdapter=new AccountIconsAdapter(this);
+mAccountSelector.setAdapter(mAccountsAdapter);
+mAccountsAdapter.setAccounts(accounts);
+mMediaPreviewAdapter=new MediaPreviewAdapter(this,new PreviewGridOnStartDragListener(this));
+mItemTouchHelper=new ItemTouchHelper(new AttachedMediaItemTouchHelperCallback(mMediaPreviewAdapter));
+final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+mAttachedMediaPreview.setLayoutManager(layoutManager);
+mAttachedMediaPreview.setAdapter(mMediaPreviewAdapter);
+mItemTouchHelper.attachToRecyclerView(mAttachedMediaPreview);
+final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
+mAttachedMediaPreview.addItemDecoration(new PreviewGridItemDecoration(previewGridSpacing));
+final Intent intent=getIntent();
+if (savedInstanceState != null) {
+mAccountsAdapter.setSelectedAccountIds(Utils.newParcelableArray(savedInstanceState.getParcelableArray(EXTRA_ACCOUNT_KEY),UserKey.CREATOR));
+mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
+final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
+if (mediaList != null) {
+  addMedia(mediaList);
+}
+mInReplyToStatus=savedInstanceState.getParcelable(EXTRA_STATUS);
+mMentionUser=savedInstanceState.getParcelable(EXTRA_USER);
+mDraft=savedInstanceState.getParcelable(EXTRA_DRAFT);
+mShouldSaveAccounts=savedInstanceState.getBoolean(EXTRA_SHOULD_SAVE_ACCOUNTS);
+mOriginalText=savedInstanceState.getString(EXTRA_ORIGINAL_TEXT);
+setLabel(intent);
+}
+ else {
+final int notificationId=intent.getIntExtra(EXTRA_NOTIFICATION_ID,-1);
+final UserKey notificationAccount=intent.getParcelableExtra(EXTRA_NOTIFICATION_ACCOUNT);
+if (notificationId != -1) {
+  mTwitterWrapper.clearNotificationAsync(notificationId,notificationAccount);
+}
+if (!handleIntent(intent)) {
+  handleDefaultIntent(intent);
+}
+setLabel(intent);
+final UserKey[] selectedAccountIds=mAccountsAdapter.getSelectedAccountKeys();
+if (ArrayUtils.isEmpty(selectedAccountIds)) {
+  final UserKey[] idsInPrefs=UserKey.arrayOf(mPreferences.getString(KEY_COMPOSE_ACCOUNTS,null));
+  UserKey[] intersection=null;
+  if (idsInPrefs != null) {
+    intersection=TwidereArrayUtils.intersection(idsInPrefs,defaultAccountIds);
+  }
+  mAccountsAdapter.setSelectedAccountIds(ArrayUtils.isEmpty(intersection) ? defaultAccountIds : intersection);
+}
+mOriginalText=ParseUtils.parseString(mEditText.getText());
+}
+final Menu menu=mMenuBar.getMenu();
+getMenuInflater().inflate(R.menu.menu_compose,menu);
+ThemeUtils.wrapMenuIcon(mMenuBar);
+mSendView.setOnClickListener(this);
+mSendView.setOnLongClickListener(this);
+final Intent composeExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_COMPOSE);
+MenuUtils.addIntentToMenu(this,menu,composeExtensionsIntent,MENU_GROUP_COMPOSE_EXTENSION);
+final Intent imageExtensionsIntent=new Intent(INTENT_ACTION_EXTENSION_EDIT_IMAGE);
+final MenuItem mediaMenuItem=menu.findItem(R.id.media_menu);
+if (mediaMenuItem != null && mediaMenuItem.hasSubMenu()) {
+MenuUtils.addIntentToMenu(this,mediaMenuItem.getSubMenu(),imageExtensionsIntent,MENU_GROUP_IMAGE_EXTENSION);
+}
+setMenu();
+updateLocationState();
+notifyAccountSelectionChanged();
+mTextChanged=false;
+updateAttachedMediaView();
 }

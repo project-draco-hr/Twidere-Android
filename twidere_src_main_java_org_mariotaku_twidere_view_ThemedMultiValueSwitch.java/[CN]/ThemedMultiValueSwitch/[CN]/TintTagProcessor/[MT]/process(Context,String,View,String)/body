@@ -1,0 +1,5 @@
+{
+  final ColorResult result=getColorFromSuffix(context,key,view,suffix);
+  if (result == null)   return;
+  setTint((MultiValueSwitch)view,result.getColor(),result.isDark(context));
+}

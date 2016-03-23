@@ -1,0 +1,4 @@
+{
+  if (mCallbackRef == null)   return null;
+  return mCallbackRef.get();
+}

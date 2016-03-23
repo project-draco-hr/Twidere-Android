@@ -1,5 +1,0 @@
-{
-  final Resources resources=context.getResources();
-  mSpacingSmall=resources.getDimensionPixelSize(R.dimen.element_spacing_small);
-  mSpacingNormal=resources.getDimensionPixelSize(R.dimen.element_spacing_normal);
-}

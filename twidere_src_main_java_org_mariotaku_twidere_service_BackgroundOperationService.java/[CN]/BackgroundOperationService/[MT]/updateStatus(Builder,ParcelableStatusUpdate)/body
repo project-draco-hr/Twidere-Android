@@ -126,6 +126,7 @@
         }
         if (statusUpdate.location != null) {
           status.location(ParcelableLocationUtils.toGeoLocation(statusUpdate.location));
+          status.displayCoordinates(statusUpdate.display_coordinates);
         }
         if (uploader == null && hasMedia) {
           if (uploadOnSocialPlatform(resolver,builder,shortener,uploader,credentials,twitter,statusUpdate,status,statusText,shouldShorten,shortenedResult,uploadResult,results)) {

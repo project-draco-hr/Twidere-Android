@@ -1,0 +1,19 @@
+{
+  final SharedPreferencesWrapper preferences=context.mPreferences;
+  final boolean attachLocation=preferences.getBoolean(KEY_ATTACH_LOCATION);
+  final boolean attachPreciseLocation=preferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
+  if (attachLocation) {
+    if (attachPreciseLocation) {
+      textView.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
+    }
+ else     if (addresses == null || addresses.isEmpty()) {
+      textView.setText(R.string.your_coarse_location);
+    }
+ else {
+      textView.setText(addresses.get(0).getLocality());
+    }
+  }
+ else {
+    textView.setText(R.string.no_location);
+  }
+}

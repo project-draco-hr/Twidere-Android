@@ -1,0 +1,9 @@
+{
+  Geocoder gcd=new Geocoder(context,Locale.getDefault());
+  try {
+    return gcd.getFromLocation(location.latitude,location.longitude,1);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

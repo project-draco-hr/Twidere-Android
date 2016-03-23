@@ -1,6 +1,15 @@
 {
   if (location != null) {
-    mLocationText.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
+    final boolean attachPreciseLocation=mPreferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
+    if (attachPreciseLocation) {
+      mLocationText.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
+    }
+ else {
+      DisplayPlaceNameTask task=new DisplayPlaceNameTask(this);
+      task.setParams(location);
+      task.setResultHandler(mLocationText);
+      TaskStarter.execute(task);
+    }
   }
  else {
     mLocationText.setText(R.string.unknown_location);

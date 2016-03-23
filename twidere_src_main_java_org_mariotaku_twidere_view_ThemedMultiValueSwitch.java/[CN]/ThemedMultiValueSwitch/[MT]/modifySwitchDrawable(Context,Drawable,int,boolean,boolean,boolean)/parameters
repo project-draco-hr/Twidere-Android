@@ -1,0 +1,6 @@
+Context context
+Drawable from
+int tint
+boolean thumb
+boolean compatSwitch
+boolean useDarker

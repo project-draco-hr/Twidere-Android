@@ -1,0 +1,21 @@
+{
+  if (useDarker) {
+    tint=ATEUtil.shiftColor(tint,1.1f);
+  }
+  tint=ATEUtil.adjustAlpha(tint,(compatSwitch && !thumb) ? 0.5f : 1.0f);
+  int disabled;
+  int normal;
+  if (thumb) {
+    disabled=ContextCompat.getColor(context,useDarker ? com.afollestad.appthemeengine.R.color.ate_switch_thumb_disabled_dark : com.afollestad.appthemeengine.R.color.ate_switch_thumb_disabled_light);
+    normal=ContextCompat.getColor(context,useDarker ? com.afollestad.appthemeengine.R.color.ate_switch_thumb_normal_dark : com.afollestad.appthemeengine.R.color.ate_switch_thumb_normal_light);
+  }
+ else {
+    disabled=ContextCompat.getColor(context,useDarker ? com.afollestad.appthemeengine.R.color.ate_switch_track_disabled_dark : com.afollestad.appthemeengine.R.color.ate_switch_track_disabled_light);
+    normal=ContextCompat.getColor(context,useDarker ? com.afollestad.appthemeengine.R.color.ate_switch_track_normal_dark : com.afollestad.appthemeengine.R.color.ate_switch_track_normal_light);
+  }
+  if (!compatSwitch) {
+    normal=ATEUtil.stripAlpha(normal);
+  }
+  final ColorStateList sl=new ColorStateList(new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{android.R.attr.state_enabled,-android.R.attr.state_activated,-android.R.attr.state_checked},new int[]{android.R.attr.state_enabled,android.R.attr.state_activated},new int[]{android.R.attr.state_enabled,android.R.attr.state_checked}},new int[]{disabled,normal,tint,tint});
+  return TintHelper.createTintedDrawable(from,sl);
+}

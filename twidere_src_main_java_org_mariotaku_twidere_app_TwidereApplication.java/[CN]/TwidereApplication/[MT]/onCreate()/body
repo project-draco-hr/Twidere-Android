@@ -17,6 +17,7 @@
   ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR));
   ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED));
   ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED));
+  ATE.registerTagProcessor(ThemedMultiValueSwitch.PREFIX_TINT,new ThemedMultiValueSwitch.TintTagProcessor());
   final SharedPreferences preferences=getSharedPreferences();
   mProfileImageViewViewProcessor.setStyle(Utils.getProfileImageStyle(preferences));
   mFontFamilyTagProcessor.setFontFamily(ThemeUtils.getThemeFontFamily(preferences));

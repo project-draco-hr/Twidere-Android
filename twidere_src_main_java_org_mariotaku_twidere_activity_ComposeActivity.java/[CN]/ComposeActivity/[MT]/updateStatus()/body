@@ -17,9 +17,9 @@
     mEditText.setSelection(textLength - (tweetLength - maxLength),textLength);
     return;
   }
-  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION,false);
+  final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION);
+  final boolean attachPreciseLocation=mPreferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
   final UserKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
-  final ParcelableLocation statusLocation=attachLocation ? mRecentLocation : null;
   final boolean isPossiblySensitive=hasMedia && mIsPossiblySensitive;
   final ParcelableStatusUpdate update=new ParcelableStatusUpdate();
   @Draft.Action String action;
@@ -31,7 +31,10 @@
   }
   update.accounts=ParcelableAccountUtils.getAccounts(this,accountKeys);
   update.text=text;
-  update.location=statusLocation;
+  if (attachLocation) {
+    update.location=mRecentLocation;
+    update.display_coordinates=attachPreciseLocation;
+  }
   update.media=getMedia();
   update.in_reply_to_status=mInReplyToStatus;
   update.is_possibly_sensitive=isPossiblySensitive;

@@ -11,15 +11,10 @@ case R.id.add_image_sub_item:
     pickImage();
     break;
   }
-case R.id.add_location:
-{
-  toggleLocation();
-  break;
-}
 case R.id.drafts:
 {
-IntentUtils.openDrafts(this);
-break;
+  IntentUtils.openDrafts(this);
+  break;
 }
 case R.id.delete:
 {
@@ -41,26 +36,26 @@ if (intent != null) {
 try {
 final String action=intent.getAction();
 if (INTENT_ACTION_EXTENSION_COMPOSE.equals(action)) {
-final UserKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
-intent.putExtra(EXTRA_TEXT,ParseUtils.parseString(mEditText.getText()));
-intent.putExtra(EXTRA_ACCOUNT_IDS,UserKey.getIds(accountKeys));
-intent.putExtra(EXTRA_ACCOUNT_KEYS,accountKeys);
-if (accountKeys.length > 0) {
-  final UserKey accountKey=accountKeys[0];
-  intent.putExtra(EXTRA_NAME,DataStoreUtils.getAccountName(this,accountKey));
-  intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(this,accountKey));
-}
-if (mInReplyToStatus != null) {
-  intent.putExtra(EXTRA_IN_REPLY_TO_ID,mInReplyToStatus.id);
-  intent.putExtra(EXTRA_IN_REPLY_TO_NAME,mInReplyToStatus.user_name);
-  intent.putExtra(EXTRA_IN_REPLY_TO_SCREEN_NAME,mInReplyToStatus.user_screen_name);
-}
-startActivityForResult(intent,REQUEST_EXTENSION_COMPOSE);
+  final UserKey[] accountKeys=mAccountsAdapter.getSelectedAccountKeys();
+  intent.putExtra(EXTRA_TEXT,ParseUtils.parseString(mEditText.getText()));
+  intent.putExtra(EXTRA_ACCOUNT_IDS,UserKey.getIds(accountKeys));
+  intent.putExtra(EXTRA_ACCOUNT_KEYS,accountKeys);
+  if (accountKeys.length > 0) {
+    final UserKey accountKey=accountKeys[0];
+    intent.putExtra(EXTRA_NAME,DataStoreUtils.getAccountName(this,accountKey));
+    intent.putExtra(EXTRA_SCREEN_NAME,DataStoreUtils.getAccountScreenName(this,accountKey));
+  }
+  if (mInReplyToStatus != null) {
+    intent.putExtra(EXTRA_IN_REPLY_TO_ID,mInReplyToStatus.id);
+    intent.putExtra(EXTRA_IN_REPLY_TO_NAME,mInReplyToStatus.user_name);
+    intent.putExtra(EXTRA_IN_REPLY_TO_SCREEN_NAME,mInReplyToStatus.user_screen_name);
+  }
+  startActivityForResult(intent,REQUEST_EXTENSION_COMPOSE);
 }
  else if (INTENT_ACTION_EXTENSION_EDIT_IMAGE.equals(action)) {
 }
  else {
-startActivity(intent);
+  startActivity(intent);
 }
 }
  catch (final ActivityNotFoundException e) {

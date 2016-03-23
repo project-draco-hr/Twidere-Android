@@ -1,4 +1,0 @@
-{
-  if (place == null)   return null;
-  return place.getFullName();
-}

@@ -9,5 +9,10 @@
   }
  else {
     Toast.makeText(this,R.string.cannot_get_location,Toast.LENGTH_SHORT).show();
+    final SharedPreferences.Editor editor=mPreferences.edit();
+    editor.putBoolean(KEY_ATTACH_LOCATION,false);
+    editor.putBoolean(KEY_ATTACH_PRECISE_LOCATION,false);
+    editor.apply();
+    mLocationSwitch.setValue(LOCATION_VALUE_NONE);
   }
 }

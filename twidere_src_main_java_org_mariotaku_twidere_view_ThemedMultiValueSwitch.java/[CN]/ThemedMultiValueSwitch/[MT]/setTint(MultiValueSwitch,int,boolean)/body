@@ -1,0 +1,8 @@
+{
+  if (switchView.getTrackDrawable() != null) {
+    switchView.setTrackDrawable(modifySwitchDrawable(switchView.getContext(),switchView.getTrackDrawable(),color,false,true,useDarker));
+  }
+  if (switchView.getThumbDrawable() != null) {
+    switchView.setThumbDrawable(modifySwitchDrawable(switchView.getContext(),switchView.getThumbDrawable(),color,true,true,useDarker));
+  }
+}
