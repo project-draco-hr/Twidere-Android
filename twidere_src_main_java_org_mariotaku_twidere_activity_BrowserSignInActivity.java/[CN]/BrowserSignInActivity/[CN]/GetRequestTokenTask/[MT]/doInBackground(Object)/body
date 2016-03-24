@@ -1,15 +1,14 @@
 {
   if (isEmpty(mConsumerKey) || isEmpty(mConsumerSecret)) {
-    return null;
+    return SingleResponse.getInstance();
   }
   try {
     final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
     final Authorization auth=new OAuthAuthorization(mConsumerKey,mConsumerSecret);
     final TwitterOAuth twitter=TwitterAPIFactory.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
-    return twitter.getRequestToken(OAUTH_CALLBACK_OOB);
+    return SingleResponse.getInstance(twitter.getRequestToken(OAUTH_CALLBACK_OOB));
   }
- catch (  final Exception e) {
-    Log.w(LOGTAG,e);
+ catch (  final TwitterException e) {
+    return SingleResponse.getInstance(e);
   }
-  return null;
 }

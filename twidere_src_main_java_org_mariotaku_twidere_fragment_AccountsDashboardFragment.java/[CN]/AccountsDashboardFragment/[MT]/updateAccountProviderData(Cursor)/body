@@ -37,6 +37,7 @@
     mAccountActionProvider.setAccounts(accounts);
   }
   updateAccountActions();
-  updateAccountOptionsSeparatorLabel(null);
+  displayAccountBanner(selectedAccount);
+  displayCurrentAccount(null);
   updateDefaultAccountState();
 }

@@ -1,12 +1,12 @@
 {
   final Uri uri=Uri.parse(url);
   if (url.startsWith(OAUTH_CALLBACK_URL)) {
-    final String oauth_verifier=uri.getQueryParameter(EXTRA_OAUTH_VERIFIER);
+    final String oauthVerifier=uri.getQueryParameter(EXTRA_OAUTH_VERIFIER);
     final BrowserSignInActivity activity=(BrowserSignInActivity)getActivity();
     final OAuthToken requestToken=activity.mRequestToken;
-    if (oauth_verifier != null && requestToken != null) {
+    if (oauthVerifier != null && requestToken != null) {
       final Intent intent=new Intent();
-      intent.putExtra(EXTRA_OAUTH_VERIFIER,oauth_verifier);
+      intent.putExtra(EXTRA_OAUTH_VERIFIER,oauthVerifier);
       intent.putExtra(EXTRA_REQUEST_TOKEN,requestToken.getOauthToken());
       intent.putExtra(EXTRA_REQUEST_TOKEN_SECRET,requestToken.getOauthTokenSecret());
       activity.setResult(RESULT_OK,intent);

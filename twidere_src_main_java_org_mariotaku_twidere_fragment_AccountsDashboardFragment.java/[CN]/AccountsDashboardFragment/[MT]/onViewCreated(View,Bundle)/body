@@ -6,7 +6,7 @@
   mAccountProfileContainer=mAccountSelectorView.findViewById(R.id.profile_container);
   mNoAccountContainer=mAccountSelectorView.findViewById(R.id.no_account_container);
   mAccountProfileImageView=(ShapedImageView)mAccountSelectorView.findViewById(R.id.profile_image);
-  mAccountProfileBannerView=(ImageView)mAccountSelectorView.findViewById(R.id.account_profile_banner);
+  mAccountProfileBannerView=(ViewSwitcher)mAccountSelectorView.findViewById(R.id.account_profile_banner);
   mFloatingProfileImageSnapshotView=(ImageView)mAccountSelectorView.findViewById(R.id.floating_profile_image_snapshot);
   mAccountProfileNameView=(TextView)mAccountSelectorView.findViewById(R.id.name);
   mAccountProfileScreenNameView=(TextView)mAccountSelectorView.findViewById(R.id.screen_name);

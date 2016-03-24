@@ -1,0 +1,18 @@
+{
+  mActivity.setLoadProgressShown(false);
+  if (result.hasData()) {
+    final OAuthToken token=result.getData();
+    mActivity.setRequestToken(token);
+    final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
+    mActivity.loadUrl(endpoint.construct("/oauth/authorize",new String[]{"oauth_token",token.getOauthToken()}));
+  }
+ else {
+    if (BuildConfig.DEBUG && result.hasException()) {
+      Log.w(LOGTAG,"Exception while browser sign in",result.getException());
+    }
+    if (!mActivity.isFinishing()) {
+      Toast.makeText(mActivity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
+      mActivity.finish();
+    }
+  }
+}

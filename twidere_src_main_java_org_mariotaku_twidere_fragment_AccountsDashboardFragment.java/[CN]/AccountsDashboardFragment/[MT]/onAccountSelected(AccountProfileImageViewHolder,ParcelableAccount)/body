@@ -36,6 +36,7 @@
       if (oldSelectedAccount == null)       return;
       mMediaLoader.displayDashboardProfileImage(clickedImageView,oldSelectedAccount,profileDrawable);
       clickedImageView.setBorderColors(profileImageView.getBorderColors());
+      displayAccountBanner(account);
       mSwitchAccountAnimationPlaying=true;
     }
     @Override public void onAnimationEnd(    Animator animation){
@@ -52,7 +53,7 @@
       editor.apply();
       mAccountsAdapter.setSelectedAccount(account);
       updateAccountActions();
-      updateAccountOptionsSeparatorLabel(clickedDrawable);
+      displayCurrentAccount(clickedDrawable);
       snapshotView.setVisibility(View.INVISIBLE);
       snapshotView.setImageDrawable(null);
       profileImageView.setImageDrawable(clickedDrawable);
