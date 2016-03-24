@@ -1,7 +1,6 @@
 {
   mFragment=fragment;
   mActivity=fragment.getActivity();
-  mHandler=new Handler(mActivity.getMainLooper());
   mAccountKey=accountKey;
   mOriginal=original;
   mName=name;

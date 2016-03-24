@@ -1,5 +1,8 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountKey,true);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mActivity,mAccountKey);
+  if (credentials == null)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,credentials,true,true);
+  if (twitter == null)   return SingleResponse.getInstance();
   try {
     User user=null;
     if (isProfileChanged()) {
@@ -15,7 +18,9 @@
     if (user == null) {
       return SingleResponse.getInstance();
     }
-    return SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey));
+    final SingleResponse<ParcelableUser> response=SingleResponse.getInstance(ParcelableUserUtils.fromUser(user,mAccountKey));
+    response.getExtras().putParcelable(EXTRA_ACCOUNT,credentials);
+    return response;
   }
  catch (  TwitterException e) {
     return SingleResponse.getInstance(e);

@@ -18,5 +18,5 @@ default :
 }
 }
 final File saveDir=new File(pubDir,"Twidere");
-return new SaveImageToGalleryTask(activity,source,saveDir,type);
+return new SaveMediaToGalleryTask(activity,source,saveDir,type);
 }

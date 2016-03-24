@@ -1,6 +1,6 @@
 {
-  mHandler.post(new Runnable(){
-    @Override public void run(){
+  mFragment.executeAfterFragmentResumed(new Action(){
+    @Override public void execute(    IBaseFragment fragment){
       final DialogFragment df=SupportProgressDialogFragment.show(mFragment.getActivity(),DIALOG_FRAGMENT_TAG);
       df.setCancelable(false);
     }
