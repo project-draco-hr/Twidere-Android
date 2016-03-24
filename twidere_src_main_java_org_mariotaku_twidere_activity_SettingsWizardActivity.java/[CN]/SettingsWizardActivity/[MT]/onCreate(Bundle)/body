@@ -5,7 +5,7 @@
   mViewPager.setAdapter(mAdapter);
   mViewPager.setEnabled(false);
   mIndicator.setViewPager(mViewPager);
-  mIndicator.setSelectedColor(getCurrentThemeColor());
+  mIndicator.setSelectedColor(Config.accentColor(this,getATEKey()));
   initPages();
   final int initialPage=getIntent().getIntExtra(EXTRA_PAGE,-1);
   if (initialPage != -1) {

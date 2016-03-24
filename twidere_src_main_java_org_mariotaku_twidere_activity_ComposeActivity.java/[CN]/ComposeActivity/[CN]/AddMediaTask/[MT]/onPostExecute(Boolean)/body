@@ -2,10 +2,12 @@
   final ComposeActivity activity=mActivityRef.get();
   if (activity == null)   return;
   activity.setProgressVisible(false);
-  activity.addMedia(new ParcelableMediaUpdate(dst.toString(),mMediaType));
-  activity.setMenu();
-  activity.updateTextCount();
-  if (!result) {
+  if (result) {
+    activity.addMedia(new ParcelableMediaUpdate(dst.toString(),mMediaType));
+  }
+ else {
     Toast.makeText(activity,R.string.error_occurred,Toast.LENGTH_SHORT).show();
   }
+  activity.setMenu();
+  activity.updateTextCount();
 }
