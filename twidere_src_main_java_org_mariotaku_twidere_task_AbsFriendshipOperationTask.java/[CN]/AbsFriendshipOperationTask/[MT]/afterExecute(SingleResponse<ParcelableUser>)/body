@@ -1,4 +1,5 @@
 {
+  final Arguments params=getParams();
   twitter.removeUpdatingRelationshipId(params.accountKey,params.userKey);
   final FriendshipTaskEvent event=new FriendshipTaskEvent(action,params.accountKey,params.userKey);
   event.setFinished(true);

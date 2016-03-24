@@ -1,4 +1,0 @@
-{
-  mCallbackRef=new WeakReference<>(callback);
-  return this;
-}

@@ -1,9 +1,0 @@
-{
-  Callback callback=getCallback();
-  if (callback != null) {
-    afterExecute(callback,mParams,result);
-  }
- else {
-    afterExecute(mParams,result);
-  }
-}

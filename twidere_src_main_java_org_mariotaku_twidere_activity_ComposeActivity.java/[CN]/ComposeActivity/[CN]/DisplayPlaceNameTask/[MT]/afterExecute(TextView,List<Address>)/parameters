@@ -1,3 +1,2 @@
 TextView textView
-ParcelableLocation location
 List<Address> addresses
