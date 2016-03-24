@@ -1,6 +1,6 @@
 {
-  mHasMoreConversation=data != null && !data.isEmpty();
   final ReadPosition readPosition=saveReadPosition();
-  mStatusAdapter.setData(data);
+  final boolean changed=mStatusAdapter.setData(data);
+  mHasMoreConversation=data != null && changed;
   restoreReadPosition(readPosition);
 }

@@ -1,6 +1,7 @@
 {
   final ParcelableStatus status=mStatus;
-  if (status == null)   return;
+  if (status == null)   return false;
+  boolean changed=!CompareUtils.objectEquals(mData,data);
   mData=data;
   if (data == null || data.isEmpty()) {
     setTypeCount(ITEM_IDX_CONVERSATION,0);
@@ -37,4 +38,5 @@
   }
   notifyDataSetChanged();
   updateItemDecoration();
+  return changed;
 }

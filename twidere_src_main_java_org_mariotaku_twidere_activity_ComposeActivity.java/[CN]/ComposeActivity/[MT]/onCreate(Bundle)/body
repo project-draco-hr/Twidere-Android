@@ -89,7 +89,8 @@ final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.elemen
 mAttachedMediaPreview.addItemDecoration(new PreviewGridItemDecoration(previewGridSpacing));
 final Intent intent=getIntent();
 if (savedInstanceState != null) {
-mAccountsAdapter.setSelectedAccountIds(Utils.newParcelableArray(savedInstanceState.getParcelableArray(EXTRA_ACCOUNT_KEY),UserKey.CREATOR));
+final UserKey[] selected=Utils.newParcelableArray(savedInstanceState.getParcelableArray(EXTRA_ACCOUNT_KEYS),UserKey.CREATOR);
+mAccountsAdapter.setSelectedAccountIds(selected);
 mIsPossiblySensitive=savedInstanceState.getBoolean(EXTRA_IS_POSSIBLY_SENSITIVE);
 final ArrayList<ParcelableMediaUpdate> mediaList=savedInstanceState.getParcelableArrayList(EXTRA_MEDIA);
 if (mediaList != null) {
