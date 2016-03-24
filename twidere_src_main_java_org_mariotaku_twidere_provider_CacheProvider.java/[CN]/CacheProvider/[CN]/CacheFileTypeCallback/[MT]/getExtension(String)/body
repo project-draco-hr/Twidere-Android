@@ -1,4 +1,4 @@
 {
   if (mimeType == null)   return null;
-  return MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
+  return MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType.toLowerCase(Locale.US));
 }
