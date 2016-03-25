@@ -17,12 +17,19 @@
   if (mActionBarBackground != null) {
     mActionBarBackground.setColor(mPrimaryColor);
   }
-  if (mUser != null) {
-    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst);
-    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(name,null,color));
+  int taskColor;
+  if (Config.coloredActionBar(activity,activity.getATEKey())) {
+    taskColor=color;
   }
  else {
-    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,color));
+    taskColor=Config.toolbarColor(activity,activity.getATEKey(),mToolbar);
+  }
+  if (mUser != null) {
+    final String name=mUserColorNameManager.getDisplayName(mUser,mNameFirst);
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(name,null,taskColor));
+  }
+ else {
+    ActivitySupport.setTaskDescription(activity,new TaskDescriptionCompat(null,null,taskColor));
   }
   final int optimalAccentColor=ThemeUtils.getOptimalAccentColor(color,mDescriptionView.getCurrentTextColor());
   mDescriptionView.setLinkTextColor(optimalAccentColor);

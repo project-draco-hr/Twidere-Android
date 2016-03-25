@@ -1,7 +1,16 @@
 {
-  mUser=user;
   final FragmentActivity activity=getActivity();
-  if (user == null || user.key == null || activity == null)   return;
+  if (activity == null)   return;
+  mUser=user;
+  if (user == null || user.key == null) {
+    mProfileImageView.setVisibility(View.GONE);
+    mProfileTypeView.setVisibility(View.GONE);
+    if (activity instanceof ATEActivity) {
+      setUiColor(Config.primaryColor(activity,((ATEActivity)activity).getATEKey()));
+    }
+    return;
+  }
+  mProfileImageView.setVisibility(View.VISIBLE);
   final Resources resources=getResources();
   final LoaderManager lm=getLoaderManager();
   lm.destroyLoader(LOADER_ID_USER);
@@ -56,7 +65,8 @@
  else   if (user.link_color != 0) {
     setUiColor(user.link_color);
   }
- else   if (activity instanceof IThemedActivity) {
+ else   if (activity instanceof ATEActivity) {
+    setUiColor(Config.primaryColor(activity,((ATEActivity)activity).getATEKey()));
   }
   final int defWidth=resources.getDisplayMetrics().widthPixels;
   final int width=mBannerWidth > 0 ? mBannerWidth : defWidth;

@@ -1,7 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
   final FragmentActivity activity=getActivity();
-  setHasOptionsMenu(true);
   mUserColorNameManager.registerColorChangedListener(this);
   mUserColorNameManager.registerNicknameChangedListener(this);
   mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
@@ -28,35 +27,6 @@
     }
   }
 );
-  activity.setEnterSharedElementCallback(new SharedElementCallback(){
-    @Override public void onSharedElementStart(    List<String> sharedElementNames,    List<View> sharedElements,    List<View> sharedElementSnapshots){
-      final int idx=sharedElementNames.indexOf(TRANSITION_NAME_PROFILE_IMAGE);
-      if (idx != -1) {
-        final View view=sharedElements.get(idx);
-        int[] location=new int[2];
-        final RectF bounds=new RectF(0,0,view.getWidth(),view.getHeight());
-        view.getLocationOnScreen(location);
-        bounds.offsetTo(location[0],location[1]);
-        mProfileImageView.setTransitionSource(bounds);
-      }
-      super.onSharedElementStart(sharedElementNames,sharedElements,sharedElementSnapshots);
-    }
-    @Override public void onSharedElementEnd(    List<String> sharedElementNames,    List<View> sharedElements,    List<View> sharedElementSnapshots){
-      int idx=sharedElementNames.indexOf(TRANSITION_NAME_PROFILE_IMAGE);
-      if (idx != -1) {
-        final View view=sharedElements.get(idx);
-        int[] location=new int[2];
-        final RectF bounds=new RectF(0,0,view.getWidth(),view.getHeight());
-        view.getLocationOnScreen(location);
-        bounds.offsetTo(location[0],location[1]);
-        mProfileImageView.setTransitionDestination(bounds);
-      }
-      super.onSharedElementEnd(sharedElementNames,sharedElements,sharedElementSnapshots);
-    }
-  }
-);
-  ViewCompat.setTransitionName(mProfileImageView,TRANSITION_NAME_PROFILE_IMAGE);
-  ViewCompat.setTransitionName(mProfileTypeView,TRANSITION_NAME_PROFILE_TYPE);
   mTintedStatusFrameLayout.setWindowInsetsListener(new TintedStatusFrameLayout.WindowInsetsListener(){
     @Override public void onApplyWindowInsets(    int left,    int top,    int right,    int bottom){
       mProfileContentContainer.setPadding(0,top,0,0);
