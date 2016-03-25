@@ -1,5 +1,8 @@
 {
-  if (accountKeys != null) {
+  if (!ArrayUtils.isEmpty(accountKeys)) {
+    for (    UserKey key : accountKeys) {
+      if (key == null)       return;
+    }
     bundle.putParcelableArray(EXTRA_ACCOUNT_KEYS,accountKeys);
   }
  else   if (accountId != null) {

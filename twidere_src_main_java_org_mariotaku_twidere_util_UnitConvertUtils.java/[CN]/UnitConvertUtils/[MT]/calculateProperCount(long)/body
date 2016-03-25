@@ -10,5 +10,10 @@
     }
     value=value / 1000.0;
   }
-  return String.format("%.2f %s",value,countUnits[index]);
+  if (value < 10) {
+    return String.format(Locale.getDefault(),"%.1f %s",value,countUnits[index]);
+  }
+ else {
+    return String.format(Locale.getDefault(),"%.0f %s",value,countUnits[index]);
+  }
 }
