@@ -26,7 +26,7 @@
   }
   ParcelableAccount selectedAccount=null;
   for (  ParcelableAccount account : accounts) {
-    if (account.account_key.equals(accountKey)) {
+    if (account.account_key.maybeEquals(accountKey)) {
       selectedAccount=account;
       break;
     }
@@ -37,7 +37,10 @@
     mAccountActionProvider.setAccounts(accounts);
   }
   updateAccountActions();
-  displayAccountBanner(selectedAccount);
-  displayCurrentAccount(null);
+  ParcelableAccount currentAccount=mAccountsAdapter.getSelectedAccount();
+  if (currentAccount != null) {
+    displayAccountBanner(currentAccount);
+    displayCurrentAccount(null);
+  }
   updateDefaultAccountState();
 }

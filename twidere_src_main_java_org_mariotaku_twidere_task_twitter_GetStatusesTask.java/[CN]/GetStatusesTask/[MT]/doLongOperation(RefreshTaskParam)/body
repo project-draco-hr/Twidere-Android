@@ -1,4 +1,5 @@
 {
+  if (param.shouldAbort())   return Collections.emptyList();
   final UserKey[] accountKeys=param.getAccountKeys();
   final String[] maxIds=param.getMaxIds();
   final String[] sinceIds=param.getSinceIds();
