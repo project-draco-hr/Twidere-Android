@@ -6,8 +6,8 @@
     mAPIUrlFormat=savedInstanceState.getString(Accounts.API_URL_FORMAT);
     mAuthType=savedInstanceState.getInt(Accounts.AUTH_TYPE);
     mSameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL);
-    mConsumerKey=trim(savedInstanceState.getString(Accounts.CONSUMER_KEY));
-    mConsumerSecret=trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
+    mConsumerKey=Utils.trim(savedInstanceState.getString(Accounts.CONSUMER_KEY));
+    mConsumerSecret=Utils.trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
     mUsername=savedInstanceState.getString(Accounts.SCREEN_NAME);
     mPassword=savedInstanceState.getString(Accounts.PASSWORD);
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
@@ -20,8 +20,7 @@
   mEditPassword.setText(mPassword);
   mEditPassword.addTextChangedListener(this);
   mSignUpButton.setOnClickListener(this);
-  final Resources resources=getResources();
-  final ColorStateList color=ColorStateList.valueOf(resources.getColor(R.color.material_light_green));
+  final ColorStateList color=ColorStateList.valueOf(ContextCompat.getColor(this,R.color.material_light_green));
   ViewCompat.setBackgroundTintList(mSignInButton,color);
   setSignInButton();
   final String consumerKey=mPreferences.getString(KEY_CONSUMER_KEY,null);

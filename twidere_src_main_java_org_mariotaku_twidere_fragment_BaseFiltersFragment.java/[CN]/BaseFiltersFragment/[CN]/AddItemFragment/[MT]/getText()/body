@@ -1,5 +1,2 @@
 {
-  AlertDialog alertDialog=(AlertDialog)getDialog();
-  final AutoCompleteTextView editText=(AutoCompleteTextView)alertDialog.findViewById(R.id.edit_text);
-  return ParseUtils.parseString(editText.getText());
 }

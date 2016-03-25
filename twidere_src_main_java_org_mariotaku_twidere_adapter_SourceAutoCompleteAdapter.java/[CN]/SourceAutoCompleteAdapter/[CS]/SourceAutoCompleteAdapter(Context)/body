@@ -1,5 +1,5 @@
 {
   super(context,android.R.layout.simple_list_item_1,null,FROM,TO,0);
   final TwidereApplication app=TwidereApplication.getInstance(context);
-  mDatabase=app != null ? app.getSQLiteDatabase() : null;
+  mDatabase=app.getSQLiteDatabase();
 }

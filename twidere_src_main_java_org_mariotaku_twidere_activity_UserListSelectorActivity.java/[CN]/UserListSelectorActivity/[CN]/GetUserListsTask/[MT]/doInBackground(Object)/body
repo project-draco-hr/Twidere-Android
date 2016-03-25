@@ -4,18 +4,18 @@
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);
     final List<ParcelableUserList> data=new ArrayList<>();
-    boolean is_my_account=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountKey));
+    boolean isMyAccount=mScreenName.equalsIgnoreCase(getAccountScreenName(mActivity,mAccountKey));
     for (    final UserList item : lists) {
       final User user=item.getUser();
       if (user != null && mScreenName.equalsIgnoreCase(user.getScreenName())) {
-        if (!is_my_account && user.getId() == mAccountKey.getId()) {
-          is_my_account=true;
+        if (!isMyAccount && TextUtils.equals(user.getId(),mAccountKey.getId())) {
+          isMyAccount=true;
         }
         data.add(ParcelableUserListUtils.from(item,mAccountKey));
       }
     }
     final SingleResponse<List<ParcelableUserList>> result=SingleResponse.getInstance(data);
-    result.getExtras().putBoolean(EXTRA_IS_MY_ACCOUNT,is_my_account);
+    result.getExtras().putBoolean(EXTRA_IS_MY_ACCOUNT,isMyAccount);
     return result;
   }
  catch (  final TwitterException e) {

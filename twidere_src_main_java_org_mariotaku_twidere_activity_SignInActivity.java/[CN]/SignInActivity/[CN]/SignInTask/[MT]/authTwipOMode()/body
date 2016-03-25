@@ -9,5 +9,5 @@
   final String userId=user.getId();
   if (userId == null)   return new SignInResponse(false,false,null);
   final int color=analyseUserProfileColor(user);
-  return new SignInResponse(isUserLoggedIn(activity,userId),user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter,user));
+  return new SignInResponse(Utils.isUserLoggedIn(activity,userId),user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter,user));
 }

@@ -4,5 +4,5 @@
   final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
   final User user=twitter.verifyCredentials();
   final int color=analyseUserProfileColor(user);
-  return new SignInResponse(isUserLoggedIn(activity,userId),auth,user,authType,color,apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix,detectAccountType(twitter,user));
+  return new SignInResponse(Utils.isUserLoggedIn(activity,userId),auth,user,authType,color,apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix,detectAccountType(twitter,user));
 }

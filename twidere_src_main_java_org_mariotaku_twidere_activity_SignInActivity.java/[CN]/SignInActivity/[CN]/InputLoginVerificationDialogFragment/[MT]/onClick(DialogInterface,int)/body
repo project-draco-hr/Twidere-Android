@@ -1,16 +1,2 @@
 {
-switch (which) {
-case DialogInterface.BUTTON_POSITIVE:
-{
-      final AlertDialog alertDialog=(AlertDialog)dialog;
-      final EditText editVerification=(EditText)alertDialog.findViewById(R.id.edit_verification_code);
-      callback.setChallengeResponse(ParseUtils.parseString(editVerification.getText()));
-      break;
-    }
-case DialogInterface.BUTTON_NEGATIVE:
-{
-    callback.setChallengeResponse(null);
-    break;
-  }
-}
 }

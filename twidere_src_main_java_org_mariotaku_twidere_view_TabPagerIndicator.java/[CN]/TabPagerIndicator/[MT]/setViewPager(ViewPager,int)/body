@@ -5,6 +5,6 @@
   }
   mViewPager=view;
   mPagerProvider=adapter;
-  view.setOnPageChangeListener(this);
+  view.addOnPageChangeListener(this);
   mIndicatorAdapter.setTabProvider((TabProvider)adapter);
 }
