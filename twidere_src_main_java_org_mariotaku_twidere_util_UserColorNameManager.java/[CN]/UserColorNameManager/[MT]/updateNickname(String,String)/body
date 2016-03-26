@@ -4,7 +4,7 @@
   updateColumn(cr,Statuses.CONTENT_URI,userKey,Statuses.USER_NICKNAME,Statuses.USER_KEY,nickname,cv);
   updateColumn(cr,Statuses.CONTENT_URI,userKey,Statuses.QUOTED_USER_NICKNAME,Statuses.QUOTED_USER_KEY,nickname,cv);
   updateColumn(cr,Statuses.CONTENT_URI,userKey,Statuses.RETWEET_USER_NICKNAME,Statuses.RETWEETED_BY_USER_KEY,nickname,cv);
-  updateColumn(cr,Activities.AboutMe.CONTENT_URI,userKey,Activities.STATUS_USER_NICKNAME,Activities.STATUS_USER_ID,nickname,cv);
+  updateColumn(cr,Activities.AboutMe.CONTENT_URI,userKey,Activities.STATUS_USER_NICKNAME,Activities.STATUS_USER_KEY,nickname,cv);
   updateColumn(cr,Activities.AboutMe.CONTENT_URI,userKey,Activities.STATUS_RETWEET_USER_NICKNAME,Activities.STATUS_RETWEETED_BY_USER_ID,nickname,cv);
   updateColumn(cr,Activities.AboutMe.CONTENT_URI,userKey,Activities.STATUS_QUOTED_USER_NICKNAME,Activities.STATUS_QUOTED_USER_ID,nickname,cv);
 }
