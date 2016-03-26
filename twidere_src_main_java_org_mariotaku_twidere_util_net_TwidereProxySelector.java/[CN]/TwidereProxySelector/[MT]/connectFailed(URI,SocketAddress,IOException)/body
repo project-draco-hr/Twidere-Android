@@ -1,5 +1,0 @@
-{
-  if (BuildConfig.DEBUG) {
-    Log.w("TwidereProxy",String.format("%s: proxy %s connect failed",uri,address),failure);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  GeneralComponentHelper.build(context).inject(this);
-  this.type=type;
-  this.host=host;
-  this.port=port;
-}
