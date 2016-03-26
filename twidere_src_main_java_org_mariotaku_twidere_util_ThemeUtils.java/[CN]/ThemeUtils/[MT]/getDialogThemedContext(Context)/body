@@ -1,3 +1,0 @@
-{
-  return new ContextThemeWrapper(context,R.style.Theme_Twidere_Dialog);
-}
