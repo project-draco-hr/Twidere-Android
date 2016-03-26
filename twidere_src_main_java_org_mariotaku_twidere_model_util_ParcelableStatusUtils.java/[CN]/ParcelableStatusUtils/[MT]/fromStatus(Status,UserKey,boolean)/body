@@ -8,6 +8,7 @@
   result.extras=new ParcelableStatus.Extras();
   result.extras.external_url=orig.getExternalUrl();
   result.extras.support_entities=orig.getEntities() != null;
+  result.extras.statusnet_conversation_id=orig.getStatusnetConversationId();
   final Status retweetedStatus=orig.getRetweetedStatus();
   result.is_retweet=orig.isRetweet();
   result.retweeted=orig.wasRetweeted();
@@ -25,10 +26,12 @@
   if (quoted != null) {
     final User quotedUser=quoted.getUser();
     result.quoted_id=quoted.getId();
-    String quotedText=quoted.getText();
-    if (quotedText.contains("<") && quotedText.contains(">")) {
-      result.quoted_text_unescaped=HtmlEscapeHelper.toPlainText(quotedText);
+    final String quotedText=quoted.getHtmlText();
+    if (isHtml(quotedText)) {
+      final CharSequence html=HtmlSpanBuilder.fromHtml(quotedText,quoted.getText());
+      result.quoted_text_unescaped=html.toString();
       result.quoted_text_plain=result.quoted_text_unescaped;
+      result.quoted_spans=getSpanItems(html);
     }
  else {
       final Pair<String,List<SpanItem>> textWithIndices=InternalTwitterContentUtils.formatStatusTextWithIndices(quoted);
@@ -81,16 +84,12 @@
   if (result.extras.user_profile_image_url_profile_size == null) {
     result.extras.user_profile_image_url_profile_size=user.getProfileImageUrlLarge();
   }
-  String text=status.getText();
-  if (text.contains("<") && text.contains(">")) {
-    final Spannable html=HtmlSpanBuilder.fromHtml(text);
+  final String text=status.getHtmlText();
+  if (isHtml(text)) {
+    final CharSequence html=HtmlSpanBuilder.fromHtml(text,status.getText());
     result.text_unescaped=html.toString();
     result.text_plain=result.text_unescaped;
-    URLSpan[] spans=html.getSpans(0,html.length(),URLSpan.class);
-    result.spans=new SpanItem[spans.length];
-    for (int i=0, j=spans.length; i < j; i++) {
-      result.spans[i]=SpanItem.from(html,spans[i]);
-    }
+    result.spans=getSpanItems(html);
   }
  else {
     final Pair<String,List<SpanItem>> textWithIndices=InternalTwitterContentUtils.formatStatusTextWithIndices(status);

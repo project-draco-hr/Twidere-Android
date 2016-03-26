@@ -1,0 +1,4 @@
+{
+  if (statusnetHtml != null)   return statusnetHtml;
+  return text;
+}
