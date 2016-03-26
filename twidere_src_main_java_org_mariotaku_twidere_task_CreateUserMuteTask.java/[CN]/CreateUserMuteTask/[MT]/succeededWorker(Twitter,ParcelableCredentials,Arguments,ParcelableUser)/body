@@ -6,6 +6,13 @@
     final String[] whereArgs={args.accountKey.toString(),args.userKey.toString()};
     resolver.delete(uri,where.getSQL(),whereArgs);
   }
+  if (!user.is_following) {
+    for (    final Uri uri : TwidereDataStore.ACTIVITIES_URIS) {
+      final Expression where=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.equalsArgs(Activities.STATUS_USER_KEY));
+      final String[] whereArgs={args.accountKey.toString(),args.userKey.toString()};
+      resolver.delete(uri,where.getSQL(),whereArgs);
+    }
+  }
   final ContentValues values=new ContentValues();
   values.put(CachedRelationships.ACCOUNT_KEY,args.accountKey.toString());
   values.put(CachedRelationships.USER_KEY,args.userKey.toString());
