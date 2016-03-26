@@ -39,7 +39,7 @@
     result.quoted_timestamp=quoted.getCreatedAt().getTime();
     result.quoted_source=quoted.getSource();
     result.quoted_media=ParcelableMediaUtils.fromStatus(quoted);
-    result.quoted_location=ParcelableLocationUtils.fromGeoLocation(quoted.getGeoLocation());
+    result.quoted_location=getLocation(quoted);
     result.quoted_place_full_name=getPlaceFullName(quoted);
     result.quoted_user_key=UserKeyUtils.fromUser(quotedUser);
     result.quoted_user_name=quotedUser.getName();
@@ -100,7 +100,7 @@
   }
   result.media=ParcelableMediaUtils.fromStatus(status);
   result.source=status.getSource();
-  result.location=ParcelableLocationUtils.fromGeoLocation(status.getGeoLocation());
+  result.location=getLocation(status);
   result.is_favorite=status.isFavorited();
   if (result.account_key.maybeEquals(result.retweeted_by_user_key)) {
     result.my_retweet_id=result.id;
