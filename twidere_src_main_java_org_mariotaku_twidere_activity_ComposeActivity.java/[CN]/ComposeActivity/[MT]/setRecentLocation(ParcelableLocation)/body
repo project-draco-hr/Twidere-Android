@@ -5,10 +5,12 @@
       mLocationText.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
     }
  else {
-      DisplayPlaceNameTask task=new DisplayPlaceNameTask(this);
-      task.setParams(location);
-      task.setResultHandler(mLocationText);
-      TaskStarter.execute(task);
+      if (mLocationText.getTag() == null || !location.equals(mRecentLocation)) {
+        DisplayPlaceNameTask task=new DisplayPlaceNameTask(this);
+        task.setParams(location);
+        task.setResultHandler(mLocationText);
+        TaskStarter.execute(task);
+      }
     }
   }
  else {

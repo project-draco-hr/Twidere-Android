@@ -5,3 +5,4 @@ boolean noItemsBefore
 ResponseList<Activity> activities
 String sinceId
 String maxId
+boolean notify

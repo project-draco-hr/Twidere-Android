@@ -1,3 +1,4 @@
 {
+  context.getContentResolver().notifyChange(getContentUri(),null);
   bus.post(new GetActivitiesTaskEvent(getContentUri(),false,null));
 }

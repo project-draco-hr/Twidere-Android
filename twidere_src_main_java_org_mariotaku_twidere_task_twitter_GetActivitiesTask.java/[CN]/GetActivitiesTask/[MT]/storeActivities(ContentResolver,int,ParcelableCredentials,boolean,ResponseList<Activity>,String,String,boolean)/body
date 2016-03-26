@@ -20,21 +20,22 @@
     values.put(Activities.INSERTED_DATE,System.currentTimeMillis());
     valuesList.add(values);
   }
+  final Uri contentUri=UriUtils.appendQueryParameters(getContentUri(),QUERY_PARAM_NOTIFY,notify);
   if (deleteBound[0] > 0 && deleteBound[1] > 0) {
     final Expression where=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.greaterEqualsArgs(Activities.MIN_SORT_POSITION),Expression.lesserEqualsArgs(Activities.MAX_SORT_POSITION));
     final String[] whereArgs={credentials.account_key.toString(),String.valueOf(deleteBound[0]),String.valueOf(deleteBound[1])};
-    int rowsDeleted=cr.delete(getContentUri(),where.getSQL(),whereArgs);
+    int rowsDeleted=cr.delete(contentUri,where.getSQL(),whereArgs);
     boolean insertGap=valuesList.size() >= loadItemLimit && !noItemsBefore && rowsDeleted <= 0 && activities.size() > loadItemLimit / 2;
     if (insertGap && !valuesList.isEmpty()) {
       valuesList.get(valuesList.size() - 1).put(Activities.IS_GAP,true);
     }
   }
-  ContentResolverUtils.bulkInsert(cr,getContentUri(),valuesList);
+  ContentResolverUtils.bulkInsert(cr,contentUri,valuesList);
   if (maxId != null && sinceId == null) {
     final ContentValues noGapValues=new ContentValues();
     noGapValues.put(Activities.IS_GAP,false);
     final String noGapWhere=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.equalsArgs(Activities.MIN_REQUEST_POSITION),Expression.equalsArgs(Activities.MAX_REQUEST_POSITION)).getSQL();
     final String[] noGapWhereArgs={credentials.toString(),maxId,maxId};
-    cr.update(getContentUri(),noGapValues,noGapWhere,noGapWhereArgs);
+    cr.update(contentUri,noGapValues,noGapWhere,noGapWhereArgs);
   }
 }

@@ -61,6 +61,6 @@
     noGapValues.put(Statuses.IS_GAP,false);
     final String noGapWhere=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();
     final String[] noGapWhereArgs={accountKey.toString(),maxId};
-    resolver.update(getContentUri(),noGapValues,noGapWhere,noGapWhereArgs);
+    resolver.update(insertUri,noGapValues,noGapWhere,noGapWhereArgs);
   }
 }
