@@ -18,6 +18,8 @@ case LogText.State.WARNING:
   coloredText.setSpan(new ForegroundColorSpan(ContextCompat.getColor(activity,R.color.material_amber)),0,coloredText.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   break;
 }
+case LogText.State.DEFAULT:
+break;
 }
 mLogTextView.append(coloredText);
 Selection.setSelection(mLogTextView.getEditableText(),mLogTextView.length());
