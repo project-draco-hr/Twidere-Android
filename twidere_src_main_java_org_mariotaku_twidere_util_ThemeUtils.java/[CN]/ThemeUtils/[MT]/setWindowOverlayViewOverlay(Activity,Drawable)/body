@@ -1,9 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   return;
-  final Window window=activity.getWindow();
-  final View windowOverlay=window.findViewById(R.id.window_overlay);
-  if (windowOverlay == null) {
-    return;
-  }
-  ViewSupport.setBackground(windowOverlay,overlay);
-}
