@@ -7,6 +7,5 @@ case TABLE_ID_ACCOUNTS:
       break;
     }
 }
-if (!uri.getBooleanQueryParameter(QUERY_PARAM_NOTIFY,true)) return;
 notifyContentObserver(Utils.getNotificationUri(tableId,uri));
 }

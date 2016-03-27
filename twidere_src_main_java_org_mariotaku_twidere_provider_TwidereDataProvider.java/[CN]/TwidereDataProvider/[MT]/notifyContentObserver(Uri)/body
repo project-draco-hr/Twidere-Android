@@ -1,8 +1,9 @@
 {
+  if (!uri.getBooleanQueryParameter(QUERY_PARAM_NOTIFY,true))   return;
   mHandler.post(new Runnable(){
     @Override public void run(){
       final ContentResolver cr=getContentResolver();
-      if (uri == null || cr == null)       return;
+      if (cr == null)       return;
       cr.notifyChange(uri,null);
     }
   }
