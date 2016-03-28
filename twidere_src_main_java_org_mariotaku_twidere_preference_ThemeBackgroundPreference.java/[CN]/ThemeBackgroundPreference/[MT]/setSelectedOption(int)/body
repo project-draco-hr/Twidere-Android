@@ -1,3 +1,8 @@
 {
-  setValue(mBackgroundValues[which]);
+  if (which < 0) {
+    setValue(mDefaultValue);
+  }
+ else {
+    setValue(mBackgroundValues[which]);
+  }
 }

@@ -5,5 +5,7 @@
  else   if (mUserScreenName != null) {
     return twitter.getUserTimelineByScreenName(mUserScreenName,paging);
   }
- else   throw new TwitterException("Invalid user");
+ else {
+    throw new TwitterException("Invalid user");
+  }
 }
