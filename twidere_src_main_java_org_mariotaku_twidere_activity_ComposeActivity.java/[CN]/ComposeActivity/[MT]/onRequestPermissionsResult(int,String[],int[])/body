@@ -13,6 +13,6 @@
     editor.putBoolean(KEY_ATTACH_LOCATION,false);
     editor.putBoolean(KEY_ATTACH_PRECISE_LOCATION,false);
     editor.apply();
-    mLocationSwitch.setValue(LOCATION_VALUE_NONE);
+    mLocationSwitch.setCheckedPosition(ArrayUtils.indexOf(LOCATION_OPTIONS,LOCATION_VALUE_NONE));
   }
 }
