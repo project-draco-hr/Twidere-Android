@@ -1,10 +1,8 @@
 {
-  if (result.hasData() && result.getData().id > 0) {
+  if (result.hasData()) {
     final String message=mContext.getString(R.string.updated_list_details,result.getData().name);
     Utils.showOkMessage(mContext,message,false);
-    final Intent intent=new Intent(BROADCAST_USER_LIST_DETAILS_UPDATED);
-    intent.putExtra(EXTRA_LIST_ID,listId);
-    mContext.sendBroadcast(intent);
+    bus.post(new UserListUpdatedEvent(result.getData()));
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_updating_details,result.getException(),true);

@@ -18,6 +18,7 @@
   setupEditText();
   mAccountSelectorContainer.setOnClickListener(this);
   mAccountSelectorButton.setOnClickListener(this);
+  mReplyLabel.setOnClickListener(this);
   final boolean attachLocation=mPreferences.getBoolean(KEY_ATTACH_LOCATION);
   final boolean attachPreciseLocation=mPreferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
   if (attachLocation) {

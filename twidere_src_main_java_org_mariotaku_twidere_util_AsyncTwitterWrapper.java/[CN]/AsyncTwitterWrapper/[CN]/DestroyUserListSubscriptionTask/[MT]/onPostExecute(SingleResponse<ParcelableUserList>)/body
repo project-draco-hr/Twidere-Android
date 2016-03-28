@@ -3,9 +3,7 @@
   if (succeed) {
     final String message=mContext.getString(R.string.unsubscribed_from_list,result.getData().name);
     Utils.showOkMessage(mContext,message,false);
-    final Intent intent=new Intent(BROADCAST_USER_LIST_UNSUBSCRIBED);
-    intent.putExtra(EXTRA_USER_LIST,result.getData());
-    mContext.sendBroadcast(intent);
+    bus.post(new UserListSubscriptionEvent(UserListSubscriptionEvent.Action.UNSUBSCRIBE,result.getData()));
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_unsubscribing_from_list,result.getException(),true);

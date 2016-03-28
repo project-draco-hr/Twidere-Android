@@ -71,7 +71,7 @@ case KEY_THEME_COLOR:
 {
 final int themeColor=preferences.getInt(key,ContextCompat.getColor(this,R.color.branding_color));
 ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(themeColor).coloredActionBar(true).coloredStatusBar(true).commit();
-ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(false).commit();
+ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(true).statusBarColor(Color.BLACK).commit();
 ATE.config(this,null).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(false).commit();
 break;
 }

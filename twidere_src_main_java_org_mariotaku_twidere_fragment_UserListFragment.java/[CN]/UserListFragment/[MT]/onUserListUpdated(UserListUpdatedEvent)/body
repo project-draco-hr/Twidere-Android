@@ -1,0 +1,6 @@
+{
+  if (mUserList == null)   return;
+  if (event.getUserList().id == mUserList.id) {
+    getUserListInfo(true);
+  }
+}

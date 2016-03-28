@@ -5,8 +5,8 @@
   media.url=link;
   if (path.startsWith("/media/")) {
     media.type=ParcelableMedia.Type.IMAGE;
-    media.preview_url=String.format(Locale.ROOT,"%s:medium",link);
-    media.media_url=String.format(Locale.ROOT,"%s:orig",link);
+    media.preview_url=getMediaForSize(link,"medium");
+    media.media_url=getMediaForSize(link,"orig");
   }
  else   if (path.startsWith("/tweet_video/")) {
     return null;

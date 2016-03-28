@@ -15,5 +15,11 @@ case R.id.account_selector_button:
   setAccountSelectorVisible(!isAccountSelectorVisible());
   break;
 }
+case R.id.reply_label:
+{
+if (mReplyLabel.getVisibility() != View.VISIBLE) return;
+mReplyLabel.setSingleLine(mReplyLabel.getLineCount() > 1);
+break;
+}
 }
 }

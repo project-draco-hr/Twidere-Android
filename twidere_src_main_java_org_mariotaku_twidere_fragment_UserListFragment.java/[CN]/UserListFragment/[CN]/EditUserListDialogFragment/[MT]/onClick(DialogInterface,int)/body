@@ -1,21 +1,2 @@
 {
-switch (which) {
-case DialogInterface.BUTTON_POSITIVE:
-{
-      final AlertDialog alertDialog=(AlertDialog)dialog;
-      final MaterialEditText editName=(MaterialEditText)alertDialog.findViewById(R.id.name);
-      final MaterialEditText editDescription=(MaterialEditText)alertDialog.findViewById(R.id.description);
-      final CheckBox editIsPublic=(CheckBox)alertDialog.findViewById(R.id.is_public);
-      final String name=ParseUtils.parseString(editName.getText());
-      final String description=ParseUtils.parseString(editDescription.getText());
-      final boolean isPublic=editIsPublic.isChecked();
-      if (TextUtils.isEmpty(name))       return;
-      final UserListUpdate update=new UserListUpdate();
-      update.setMode(isPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
-      update.setName(name);
-      update.setDescription(description);
-      mTwitterWrapper.updateUserListDetails(mAccountKey,mListId,update);
-      break;
-    }
-}
 }

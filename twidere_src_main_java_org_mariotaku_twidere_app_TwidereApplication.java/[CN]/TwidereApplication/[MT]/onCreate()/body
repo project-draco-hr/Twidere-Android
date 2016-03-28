@@ -23,10 +23,10 @@
   mFontFamilyTagProcessor.setFontFamily(ThemeUtils.getThemeFontFamily(preferences));
   final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));
   if (!ATE.config(this,VALUE_THEME_NAME_LIGHT).isConfigured()) {
-    ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(themeColor).coloredActionBar(true).commit();
+    ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(themeColor).coloredActionBar(true).coloredStatusBar(true).commit();
   }
   if (!ATE.config(this,VALUE_THEME_NAME_DARK).isConfigured()) {
-    ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).commit();
+    ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(true).statusBarColor(Color.BLACK).commit();
   }
   if (!ATE.config(this,null).isConfigured()) {
     ATE.config(this,null).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(false).commit();

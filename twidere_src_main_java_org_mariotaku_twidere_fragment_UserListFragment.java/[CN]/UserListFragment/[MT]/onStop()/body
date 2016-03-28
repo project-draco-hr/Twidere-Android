@@ -1,4 +1,4 @@
 {
-  unregisterReceiver(mStatusReceiver);
+  mBus.unregister(this);
   super.onStop();
 }
