@@ -1,9 +1,0 @@
-{
-  if (result.hasError()) {
-    activity.showError(result.getThrowable());
-  }
- else {
-    activity.showResult(result.getObject());
-  }
-  super.onPostExecute(result);
-}

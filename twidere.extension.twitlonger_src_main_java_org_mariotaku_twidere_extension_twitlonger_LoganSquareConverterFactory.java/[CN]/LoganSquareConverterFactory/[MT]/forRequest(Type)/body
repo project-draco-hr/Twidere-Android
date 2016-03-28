@@ -1,7 +1,0 @@
-{
-  final RestConverter<?,Body,TwitLongerException> converter=sBodyConverters.get(type);
-  if (converter != null) {
-    return converter;
-  }
-  return super.forRequest(type);
-}

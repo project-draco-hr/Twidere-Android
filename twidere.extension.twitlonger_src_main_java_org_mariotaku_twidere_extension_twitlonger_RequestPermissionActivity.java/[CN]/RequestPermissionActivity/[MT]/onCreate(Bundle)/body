@@ -1,6 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  final Intent intent=new Intent(INTENT_ACTION_REQUEST_PERMISSIONS);
-  intent.setPackage(TWIDERE_PACKAGE_NAME);
-  startActivityForResult(intent,REQUEST_REQUEST_PERMISSION);
-}

@@ -1,1 +1,0 @@
-AsyncTask<String,Object,TaskResponse<Post,TwitLongerException>>

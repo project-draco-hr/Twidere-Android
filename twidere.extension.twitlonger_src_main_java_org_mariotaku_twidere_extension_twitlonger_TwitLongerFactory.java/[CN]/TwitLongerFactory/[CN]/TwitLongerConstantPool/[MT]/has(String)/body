@@ -1,9 +1,0 @@
-{
-switch (key) {
-case "tl_api_key":
-    return true;
-case "oauth_echo_authorization":
-  return mAuthorization != null;
-}
-return false;
-}

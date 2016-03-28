@@ -1,5 +1,0 @@
-{
-  final Body body=httpResponse.getBody();
-  final Object object=parseOrThrow(body,mapper);
-  return object;
-}

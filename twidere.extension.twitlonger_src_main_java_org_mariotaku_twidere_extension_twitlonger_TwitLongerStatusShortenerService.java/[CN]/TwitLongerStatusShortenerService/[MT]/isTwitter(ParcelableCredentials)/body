@@ -1,3 +1,0 @@
-{
-  return credentials.account_type == null || ParcelableAccount.Type.TWITTER.equals(credentials.account_type);
-}

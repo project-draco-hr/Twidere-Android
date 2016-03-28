@@ -1,4 +1,0 @@
-{
-  if (TextUtils.isEmpty(text))   return null;
-  return PATTERN_TWITLONGER.matcher(text).group(GROUP_TWITLONGER_ID);
-}

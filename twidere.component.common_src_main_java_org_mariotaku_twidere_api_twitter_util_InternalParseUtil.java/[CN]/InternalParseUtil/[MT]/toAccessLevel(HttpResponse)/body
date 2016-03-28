@@ -1,26 +1,26 @@
 {
-  if (res == null)   return TwitterResponse.NONE;
+  if (res == null)   return TwitterResponse.AccessLevel.NONE;
   final String xAccessLevel=res.getHeader("X-Access-Level");
   int accessLevel;
   if (null == xAccessLevel) {
-    accessLevel=TwitterResponse.NONE;
+    accessLevel=TwitterResponse.AccessLevel.NONE;
   }
  else {
 switch (xAccessLevel.length()) {
 case 4:
-      accessLevel=TwitterResponse.READ;
+      accessLevel=TwitterResponse.AccessLevel.READ;
     break;
 case 10:
-  accessLevel=TwitterResponse.READ_WRITE;
+  accessLevel=TwitterResponse.AccessLevel.READ_WRITE;
 break;
 case 25:
-accessLevel=TwitterResponse.READ_WRITE_DIRECTMESSAGES;
+accessLevel=TwitterResponse.AccessLevel.READ_WRITE_DIRECTMESSAGES;
 break;
 case 26:
-accessLevel=TwitterResponse.READ_WRITE_DIRECTMESSAGES;
+accessLevel=TwitterResponse.AccessLevel.READ_WRITE_DIRECTMESSAGES;
 break;
 default :
-accessLevel=TwitterResponse.NONE;
+accessLevel=TwitterResponse.AccessLevel.NONE;
 }
 }
 return accessLevel;
