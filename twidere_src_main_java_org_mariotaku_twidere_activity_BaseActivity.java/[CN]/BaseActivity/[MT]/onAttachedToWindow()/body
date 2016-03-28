@@ -1,0 +1,7 @@
+{
+  super.onAttachedToWindow();
+  final Window window=getWindow();
+  if (window != null && shouldApplyWindowBackground()) {
+    ThemeUtils.applyWindowBackground(this,window,getThemeBackgroundOption(),getThemeBackgroundAlpha());
+  }
+}

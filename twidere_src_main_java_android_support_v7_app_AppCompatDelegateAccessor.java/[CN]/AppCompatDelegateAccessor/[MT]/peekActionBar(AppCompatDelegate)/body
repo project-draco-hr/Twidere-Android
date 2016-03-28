@@ -1,4 +1,0 @@
-{
-  if (delegate instanceof AppCompatDelegateImplBase)   return ((AppCompatDelegateImplBase)delegate).peekSupportActionBar();
-  return null;
-}
