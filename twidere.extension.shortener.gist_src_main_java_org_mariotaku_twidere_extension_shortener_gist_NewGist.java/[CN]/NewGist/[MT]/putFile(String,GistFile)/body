@@ -1,6 +1,0 @@
-{
-  if (files == null) {
-    files=new HashMap<>();
-  }
-  files.put(key,file);
-}
