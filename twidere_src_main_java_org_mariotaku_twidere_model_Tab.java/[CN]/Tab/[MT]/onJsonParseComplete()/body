@@ -1,0 +1,8 @@
+{
+  if (internalArguments != null) {
+    arguments=internalArguments.getArguments();
+  }
+  if (internalExtras != null) {
+    extras=internalExtras.getExtras();
+  }
+}

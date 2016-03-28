@@ -1,22 +1,2 @@
 {
-  if (src == null)   throw new FileNotFoundException();
-  final ZipFile zipFile=new ZipFile(src);
-  if (hasFlag(flags,FLAG_PREFERENCES)) {
-    importSharedPreferencesData(zipFile,context,SHARED_PREFERENCES_NAME,ENTRY_PREFERENCES,new AnnotationProcessStrategy(SharedPreferenceConstants.class));
-  }
-  if (hasFlag(flags,FLAG_NICKNAMES)) {
-    importSharedPreferencesData(zipFile,context,USER_NICKNAME_PREFERENCES_NAME,ENTRY_NICKNAMES,ConvertToStringProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_USER_COLORS)) {
-    importSharedPreferencesData(zipFile,context,USER_COLOR_PREFERENCES_NAME,ENTRY_USER_COLORS,ConvertToIntProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_HOST_MAPPING)) {
-    importSharedPreferencesData(zipFile,context,HOST_MAPPING_PREFERENCES_NAME,ENTRY_HOST_MAPPING,ConvertToStringProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
-    importSharedPreferencesData(zipFile,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS,ConvertToStringProcessStrategy.SINGLETON);
-  }
-  if (hasFlag(flags,FLAG_FILTERS)) {
-  }
-  zipFile.close();
 }

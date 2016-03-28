@@ -1,0 +1,17 @@
+{
+  if (arguments == null)   return null;
+  InternalArguments result=new InternalArguments();
+  if (arguments instanceof TextQueryArguments) {
+    result.textQuery=(TextQueryArguments)arguments;
+  }
+ else   if (arguments instanceof UserArguments) {
+    result.user=(UserArguments)arguments;
+  }
+ else   if (arguments instanceof UserListArguments) {
+    result.userList=(UserListArguments)arguments;
+  }
+ else {
+    result.base=arguments;
+  }
+  return result;
+}

@@ -1,0 +1,3 @@
+{
+  return "UserItem{" + "userKey='" + userKey + '\''+ ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ '}';
+}

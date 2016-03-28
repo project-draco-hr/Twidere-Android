@@ -1,6 +1,28 @@
 {
   final String[] cols=new String[]{Audio.Media._ID,Audio.Media.DATA,Audio.Media.TITLE};
-  final String selection=Expression.equalsArgs(Audio.Media.IS_NOTIFICATION).getSQL();
-  final String[] selectionArgs={"1"};
+  RingtonePreference preference=(RingtonePreference)getPreference();
+  int ringtoneType=preference.getRingtoneType();
+  List<Expression> expressions=new ArrayList<>();
+  if ((ringtoneType & RingtoneManager.TYPE_NOTIFICATION) != 0) {
+    expressions.add(Expression.equalsArgs(Audio.Media.IS_NOTIFICATION));
+  }
+  if ((ringtoneType & RingtoneManager.TYPE_RINGTONE) != 0) {
+    expressions.add(Expression.equalsArgs(Audio.Media.IS_RINGTONE));
+  }
+  if ((ringtoneType & RingtoneManager.TYPE_ALARM) != 0) {
+    expressions.add(Expression.equalsArgs(Audio.Media.IS_ALARM));
+  }
+  final String selection;
+  final String[] selectionArgs;
+  if (expressions.isEmpty()) {
+    selection=null;
+    selectionArgs=null;
+  }
+ else {
+    final int size=expressions.size();
+    selection=Expression.or(expressions.toArray(new Expression[size])).getSQL();
+    selectionArgs=new String[size];
+    Arrays.fill(selectionArgs,"1");
+  }
   return new CursorLoader(getContext(),Audio.Media.INTERNAL_CONTENT_URI,cols,selection,selectionArgs,Audio.Media.DEFAULT_SORT_ORDER);
 }

@@ -18,6 +18,34 @@
     if (hasFlag(flags,FLAG_KEYBOARD_SHORTCUTS)) {
       exportSharedPreferencesData(zos,context,KEYBOARD_SHORTCUTS_PREFERENCES_NAME,ENTRY_KEYBOARD_SHORTCUTS,ConvertToStringProcessStrategy.SINGLETON);
     }
+    if (hasFlag(flags,FLAG_FILTERS)) {
+      FiltersData data=new FiltersData();
+      final ContentResolver cr=context.getContentResolver();
+      data.setUsers(queryAll(cr,Filters.Users.CONTENT_URI,Filters.Users.COLUMNS,FiltersData$UserItemCursorIndices.class));
+      data.setKeywords(queryAll(cr,Filters.Keywords.CONTENT_URI,Filters.Keywords.COLUMNS,FiltersData$BaseItemCursorIndices.class));
+      data.setSources(queryAll(cr,Filters.Sources.CONTENT_URI,Filters.Sources.COLUMNS,FiltersData$BaseItemCursorIndices.class));
+      data.setLinks(queryAll(cr,Filters.Links.CONTENT_URI,Filters.Links.COLUMNS,FiltersData$BaseItemCursorIndices.class));
+      exportItem(zos,ENTRY_FILTERS,FiltersData.class,data);
+    }
+    if (hasFlag(flags,FLAG_TABS)) {
+      final ContentResolver cr=context.getContentResolver();
+      final Cursor c=cr.query(Tabs.CONTENT_URI,Tabs.COLUMNS,null,null,null);
+      if (c != null) {
+        final List<Tab> tabs=new ArrayList<>(c.getCount());
+        try {
+          TabCursorIndices ci=new TabCursorIndices(c);
+          c.moveToFirst();
+          while (!c.isAfterLast()) {
+            tabs.add(ci.newObject(c));
+            c.moveToNext();
+          }
+        }
+  finally {
+          c.close();
+        }
+        exportItemsList(zos,ENTRY_TABS,Tab.class,tabs);
+      }
+    }
     zos.finish();
     zos.flush();
   }

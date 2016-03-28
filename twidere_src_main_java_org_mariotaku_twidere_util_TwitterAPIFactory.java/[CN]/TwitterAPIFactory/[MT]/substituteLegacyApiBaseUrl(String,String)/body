@@ -1,5 +1,7 @@
 {
-  final int startOfHost=format.indexOf("://") + 3;
+  final int idxOfSlash=format.indexOf("://");
+  if (idxOfSlash < 0)   return format;
+  final int startOfHost=idxOfSlash + 3;
   if (startOfHost < 0)   return getApiBaseUrl("https://[DOMAIN.]twitter.com/",domain);
   final int endOfHost=format.indexOf('/',startOfHost);
   final String host=endOfHost != -1 ? format.substring(startOfHost,endOfHost) : format.substring(startOfHost);

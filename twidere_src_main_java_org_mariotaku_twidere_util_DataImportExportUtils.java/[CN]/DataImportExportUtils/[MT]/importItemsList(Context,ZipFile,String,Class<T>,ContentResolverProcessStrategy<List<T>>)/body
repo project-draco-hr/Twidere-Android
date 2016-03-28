@@ -1,0 +1,7 @@
+{
+  final ZipEntry entry=zipFile.getEntry(entryName);
+  if (entry == null)   return;
+  final JsonMapper<T> mapper=LoganSquareMapperFinder.mapperFor(itemCls);
+  List<T> itemsList=mapper.parseList(zipFile.getInputStream(entry));
+  strategy.importItem(context.getContentResolver(),itemsList);
+}

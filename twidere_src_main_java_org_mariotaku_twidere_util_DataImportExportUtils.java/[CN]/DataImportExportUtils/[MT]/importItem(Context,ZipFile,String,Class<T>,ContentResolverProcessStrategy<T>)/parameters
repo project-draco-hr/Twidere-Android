@@ -1,0 +1,5 @@
+Context context
+ZipFile zipFile
+String entryName
+Class<T> itemCls
+ContentResolverProcessStrategy<T> strategy

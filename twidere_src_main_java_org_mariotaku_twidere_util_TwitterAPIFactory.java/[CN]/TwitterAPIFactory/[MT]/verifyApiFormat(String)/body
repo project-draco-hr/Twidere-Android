@@ -1,3 +1,4 @@
 {
-  return URLUtil.isValidUrl(getApiBaseUrl(format,"test"));
+  final String url=getApiBaseUrl(format,"test");
+  return URLUtil.isHttpsUrl(url) || URLUtil.isHttpUrl(url);
 }

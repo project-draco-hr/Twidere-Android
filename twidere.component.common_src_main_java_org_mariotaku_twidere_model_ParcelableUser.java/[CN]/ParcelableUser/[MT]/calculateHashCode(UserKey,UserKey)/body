@@ -1,5 +1,5 @@
 {
-  int result=accountKey.hashCode();
-  result=31 * result + userKey.hashCode();
+  int result=accountKey != null ? key.hashCode() : 0;
+  result=31 * result + key.hashCode();
   return result;
 }

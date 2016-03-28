@@ -1,0 +1,7 @@
+{
+  zos.putNextEntry(new ZipEntry(entryName));
+  final JsonGenerator jsonGenerator=LoganSquare.JSON_FACTORY.createGenerator(zos);
+  LoganSquareMapperFinder.mapperFor(itemCls).serialize(item,jsonGenerator,true);
+  jsonGenerator.flush();
+  zos.closeEntry();
+}

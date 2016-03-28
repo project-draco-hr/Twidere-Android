@@ -1,0 +1,14 @@
+{
+  if (userList != null) {
+    return userList;
+  }
+ else   if (user != null) {
+    return user;
+  }
+ else   if (textQuery != null) {
+    return textQuery;
+  }
+ else {
+    return base;
+  }
+}

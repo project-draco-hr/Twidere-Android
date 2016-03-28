@@ -1,4 +1,10 @@
 {
+  if (positive && mCurrentUri != null) {
+    final RingtonePreference preference=(RingtonePreference)getPreference();
+    if (preference.isPersistent()) {
+      preference.persistString(mCurrentUri.toString());
+    }
+  }
   if (mMediaPlayer != null) {
     if (mMediaPlayer.isPlaying()) {
       mMediaPlayer.stop();

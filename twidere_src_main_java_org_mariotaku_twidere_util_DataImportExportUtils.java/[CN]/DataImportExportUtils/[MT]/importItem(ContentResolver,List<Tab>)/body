@@ -1,0 +1,10 @@
+{
+  if (items == null)   return false;
+  List<ContentValues> values=new ArrayList<>(items.size());
+  for (  Tab item : items) {
+    values.add(TabValuesCreator.create(item));
+  }
+  cr.delete(Tabs.CONTENT_URI,null,null);
+  ContentResolverUtils.bulkInsert(cr,Tabs.CONTENT_URI,values);
+  return true;
+}

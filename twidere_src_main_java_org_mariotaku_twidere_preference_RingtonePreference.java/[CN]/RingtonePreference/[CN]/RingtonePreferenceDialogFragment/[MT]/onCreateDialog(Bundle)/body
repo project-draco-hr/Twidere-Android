@@ -40,8 +40,9 @@
       mMediaPlayer=new MediaPlayer();
       mMediaPlayer.setLooping(false);
       final String ringtone=cursor.getString(cursor.getColumnIndex(Audio.Media.DATA));
-      final Uri def_uri=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-      final Uri uri=isEmpty(ringtone) ? def_uri : Uri.parse(ringtone);
+      final Uri defUri=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+      final Uri uri=isEmpty(ringtone) ? defUri : Uri.parse(ringtone);
+      mCurrentUri=uri;
       try {
         mMediaPlayer.setDataSource(getContext(),uri);
         mMediaPlayer.prepare();

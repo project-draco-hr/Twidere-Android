@@ -1,0 +1,11 @@
+{
+  if (extras == null)   return null;
+  InternalExtras result=new InternalExtras();
+  if (extras instanceof InteractionsTabExtras) {
+    result.interactions=(InteractionsTabExtras)extras;
+  }
+ else {
+    result.base=extras;
+  }
+  return result;
+}

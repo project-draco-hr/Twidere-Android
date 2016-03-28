@@ -2,6 +2,6 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableUser user=(ParcelableUser)o;
-  if (!account_key.equals(user.account_key))   return false;
+  if (account_key != null ? !account_key.equals(user.account_key) : user.account_key != null)   return false;
   return key.equals(user.key);
 }

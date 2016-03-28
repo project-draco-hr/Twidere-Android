@@ -1,5 +1,0 @@
-ZipOutputStream zos
-Context context
-String preferencesName
-String entryName
-ProcessStrategy strategy

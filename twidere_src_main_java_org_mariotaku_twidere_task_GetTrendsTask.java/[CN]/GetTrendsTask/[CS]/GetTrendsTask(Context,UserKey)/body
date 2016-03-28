@@ -1,4 +1,5 @@
 {
+  GeneralComponentHelper.build(context).inject(this);
   this.mContext=context;
   this.mAccountId=accountKey;
 }

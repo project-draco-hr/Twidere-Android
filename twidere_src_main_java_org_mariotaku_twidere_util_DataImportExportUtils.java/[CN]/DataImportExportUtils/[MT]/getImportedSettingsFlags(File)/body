@@ -19,6 +19,9 @@
   if (zipFile.getEntry(ENTRY_FILTERS) != null) {
     flags|=FLAG_FILTERS;
   }
+  if (zipFile.getEntry(ENTRY_TABS) != null) {
+    flags|=FLAG_TABS;
+  }
   zipFile.close();
   return flags;
 }

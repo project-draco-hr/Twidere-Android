@@ -1,0 +1,4 @@
+{
+  internalArguments=InternalArguments.from(arguments);
+  internalExtras=InternalExtras.from(extras);
+}

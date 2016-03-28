@@ -1,0 +1,23 @@
+{
+  Cursor c=cr.query(uri,projection,null,null,null);
+  if (c == null)   return null;
+  try {
+    final ObjectCursor.CursorIndices<T> ci;
+    try {
+      ci=cls.getConstructor(Cursor.class).newInstance(c);
+    }
+ catch (    Exception e) {
+      throw new RuntimeException(e);
+    }
+    List<T> items=new ArrayList<>(c.getCount());
+    c.moveToFirst();
+    while (!c.isAfterLast()) {
+      items.add(ci.newObject(c));
+      c.moveToNext();
+    }
+    return items;
+  }
+  finally {
+    c.close();
+  }
+}
