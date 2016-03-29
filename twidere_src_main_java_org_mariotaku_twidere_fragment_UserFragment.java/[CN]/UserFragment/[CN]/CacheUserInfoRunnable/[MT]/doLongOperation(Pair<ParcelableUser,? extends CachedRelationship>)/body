@@ -2,6 +2,6 @@
   final ContentResolver resolver=context.getContentResolver();
   final ParcelableUser user=args.first;
   resolver.insert(CachedUsers.CONTENT_URI,ParcelableUserValuesCreator.create(user));
-  resolver.insert(CachedRelationships.CONTENT_URI,CachedRelationshipValuesCreator.create(new CachedRelationship(user.account_key,user.key.getId(),args.second)));
+  resolver.insert(CachedRelationships.CONTENT_URI,CachedRelationshipValuesCreator.create(args.second));
   return null;
 }

@@ -14,28 +14,26 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.scheduled_statuses,isMyself && TwitterAPIFactory.getOfficialKeyType(getActivity(),user.account_key) == ConsumerKeyType.TWEETDECK);
   final UserRelationship userRelationship=mRelationship;
   if (!isMyself && userRelationship != null) {
-    final Relationship relationship=userRelationship.relationship;
-    MenuUtils.setMenuItemAvailability(menu,R.id.send_direct_message,relationship.canSourceDMTarget());
+    MenuUtils.setMenuItemAvailability(menu,R.id.send_direct_message,userRelationship.can_dm);
     MenuUtils.setMenuItemAvailability(menu,R.id.block,true);
     MenuUtils.setMenuItemAvailability(menu,R.id.mute_user,true);
     final MenuItem blockItem=menu.findItem(R.id.block);
     if (blockItem != null) {
-      final boolean blocking=relationship.isSourceBlockingTarget();
-      ActionIconDrawable.setMenuHighlight(blockItem,new TwidereMenuInfo(blocking));
-      blockItem.setTitle(blocking ? R.string.unblock : R.string.block);
+      ActionIconDrawable.setMenuHighlight(blockItem,new TwidereMenuInfo(userRelationship.blocking));
+      blockItem.setTitle(userRelationship.blocking ? R.string.unblock : R.string.block);
     }
     final MenuItem muteItem=menu.findItem(R.id.mute_user);
     if (muteItem != null) {
-      muteItem.setChecked(relationship.isSourceMutingTarget());
+      muteItem.setChecked(userRelationship.muting);
     }
     final MenuItem filterItem=menu.findItem(R.id.add_to_filter);
     if (filterItem != null) {
-      ActionIconDrawable.setMenuHighlight(filterItem,new TwidereMenuInfo(userRelationship.isFiltering));
-      filterItem.setTitle(userRelationship.isFiltering ? R.string.remove_from_filter : R.string.add_to_filter);
+      ActionIconDrawable.setMenuHighlight(filterItem,new TwidereMenuInfo(userRelationship.filtering));
+      filterItem.setTitle(userRelationship.filtering ? R.string.remove_from_filter : R.string.add_to_filter);
     }
     final MenuItem wantRetweetsItem=menu.findItem(R.id.enable_retweets);
     if (wantRetweetsItem != null) {
-      wantRetweetsItem.setChecked(relationship.isSourceWantRetweetsFromTarget());
+      wantRetweetsItem.setChecked(userRelationship.retweet_enabled);
     }
   }
  else {

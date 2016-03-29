@@ -1,4 +1,4 @@
 UserKey accountId
-String userId
+UserKey userId
 String screenName
 boolean omitIntentExtra

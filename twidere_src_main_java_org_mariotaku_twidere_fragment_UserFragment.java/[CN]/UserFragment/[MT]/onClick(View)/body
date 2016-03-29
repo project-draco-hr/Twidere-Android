@@ -17,10 +17,10 @@ case R.id.follow:
     final UserRelationship userRelationship=mRelationship;
     final AsyncTwitterWrapper twitter=mTwitterWrapper;
     if (userRelationship == null || twitter == null)     return;
-    if (userRelationship.relationship.isSourceBlockingTarget()) {
+    if (userRelationship.blocking) {
       twitter.destroyBlockAsync(user.account_key,user.key);
     }
- else     if (userRelationship.relationship.isSourceFollowingTarget()) {
+ else     if (userRelationship.following) {
       DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
     }
  else {

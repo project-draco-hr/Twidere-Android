@@ -1,5 +1,5 @@
 {
   mProgressContainer.setVisibility(View.VISIBLE);
   mEditProfileContent.setVisibility(View.GONE);
-  return new ParcelableUserLoader(getActivity(),mAccountId,mAccountId.getId(),null,getArguments(),false,false);
+  return new ParcelableUserLoader(getActivity(),mAccountId,mAccountId,null,getArguments(),false,false);
 }

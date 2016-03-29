@@ -5,6 +5,6 @@
   this.mLoadFromCache=loadFromCache;
   this.mExtras=extras;
   this.mAccountKey=accountKey;
-  this.mUserId=userId;
+  this.mUserKey=userKey;
   this.mScreenName=screenName;
 }

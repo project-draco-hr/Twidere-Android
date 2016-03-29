@@ -1,6 +1,6 @@
 {
   for (  final SupportTabSpec spec : tabs) {
-    if (spec.cls == HomeTimelineFragment.class || spec.cls == InteractionsTimelineFragment.class || spec.cls == DirectMessagesFragment.class)     return true;
+    if (spec.cls == HomeTimelineFragment.class || spec.cls == InteractionsTimelineFragment.class || spec.cls == DirectMessagesFragment.class || spec.cls == MessagesEntriesFragment.class)     return true;
   }
   return false;
 }

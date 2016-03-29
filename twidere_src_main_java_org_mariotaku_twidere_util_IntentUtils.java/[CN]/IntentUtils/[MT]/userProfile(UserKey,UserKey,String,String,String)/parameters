@@ -1,0 +1,5 @@
+UserKey accountKey
+UserKey userKey
+String screenName
+String referral
+String profileUrl

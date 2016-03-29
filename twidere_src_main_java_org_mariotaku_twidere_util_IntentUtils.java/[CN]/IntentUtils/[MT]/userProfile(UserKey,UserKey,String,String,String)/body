@@ -1,0 +1,8 @@
+{
+  if (userKey == null && isEmpty(screenName))   return null;
+  final Uri uri=LinkCreator.getTwidereUserLink(accountKey,userKey,screenName);
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+  intent.putExtra(EXTRA_REFERRAL,referral);
+  intent.putExtra(EXTRA_PROFILE_URL,profileUrl);
+  return intent;
+}

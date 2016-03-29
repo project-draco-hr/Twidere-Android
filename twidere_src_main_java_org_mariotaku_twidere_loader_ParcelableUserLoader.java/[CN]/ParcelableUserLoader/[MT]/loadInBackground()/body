@@ -28,9 +28,9 @@
   if (mLoadFromCache) {
     final Expression where;
     final String[] whereArgs;
-    if (mUserId != null) {
+    if (mUserKey != null) {
       where=Expression.equalsArgs(CachedUsers.USER_KEY);
-      whereArgs=new String[]{mUserId};
+      whereArgs=new String[]{mUserKey.toString()};
     }
  else {
       where=Expression.equalsArgs(CachedUsers.SCREEN_NAME);
@@ -58,7 +58,17 @@
       twitterUser=twitter.verifyCredentials();
     }
  else {
-      twitterUser=TwitterWrapper.tryShowUser(twitter,mUserId,mScreenName,credentials.account_type);
+      String mProfileUrl=null;
+      if (mExtras != null) {
+        mProfileUrl=mExtras.getString(EXTRA_PROFILE_URL);
+      }
+      if (TwitterAPIFactory.isStatusNetCredentials(credentials) && mUserKey != null && mProfileUrl != null && !TextUtils.equals(credentials.account_key.getHost(),mUserKey.getHost())) {
+        twitterUser=twitter.showExternalProfile(mProfileUrl);
+      }
+ else {
+        final String id=mUserKey != null ? mUserKey.getId() : null;
+        twitterUser=TwitterWrapper.tryShowUser(twitter,id,mScreenName,credentials.account_type);
+      }
     }
     final ContentValues cachedUserValues=createCachedUser(twitterUser);
     resolver.insert(CachedUsers.CONTENT_URI,cachedUserValues);

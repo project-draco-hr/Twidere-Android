@@ -2,5 +2,5 @@
   super(context);
   this.context=context;
   this.mAccountKey=accountKey;
-  this.mUserId=userId;
+  this.mUser=user;
 }

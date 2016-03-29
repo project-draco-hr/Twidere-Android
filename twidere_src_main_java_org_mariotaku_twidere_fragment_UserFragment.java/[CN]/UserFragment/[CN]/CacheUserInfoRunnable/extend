@@ -1,1 +1,1 @@
-AbstractTask<Pair<ParcelableUser,Relationship>,Object,Object>
+AbstractTask<Pair<ParcelableUser,? extends CachedRelationship>,Object,Object>

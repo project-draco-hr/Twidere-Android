@@ -6,6 +6,9 @@
   if (DirectMessagesFragment.class == tab.cls) {
     IntentUtils.openMessageConversation(this,null,null);
   }
+ else   if (MessagesEntriesFragment.class == tab.cls) {
+    IntentUtils.openMessageConversation(this,null,null);
+  }
  else   if (TrendsSuggestionsFragment.class == tab.cls) {
     openSearchView(null);
   }

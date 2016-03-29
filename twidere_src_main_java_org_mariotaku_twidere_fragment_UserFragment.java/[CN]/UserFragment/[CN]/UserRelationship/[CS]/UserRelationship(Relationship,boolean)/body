@@ -1,4 +1,0 @@
-{
-  this.relationship=relationship;
-  this.isFiltering=isFiltering;
-}

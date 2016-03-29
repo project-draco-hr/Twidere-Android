@@ -1,16 +1,25 @@
 {
-  if (mAccountKey == null) {
+  if (mAccountKey == null || mUser == null) {
+    return SingleResponse.getInstance(new TwitterException("Null parameters"));
+  }
+  final boolean isFiltering=DataStoreUtils.isFilteringUser(context,mUser.key);
+  if (mAccountKey.equals(mUser.key))   return SingleResponse.getInstance();
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
+  if (credentials == null) {
     return SingleResponse.getInstance(new TwitterException("No Account"));
   }
-  final boolean isFiltering=DataStoreUtils.isFilteringUser(context,mUserId);
-  if (mAccountKey.getId().equals(mUserId))   return SingleResponse.getInstance();
+  if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+    if (!UserKeyUtils.isSameHost(mAccountKey,mUser.key)) {
+      return SingleResponse.getInstance(new UserRelationship(mUser,isFiltering));
+    }
+  }
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,mAccountKey,false);
   if (twitter == null) {
     return SingleResponse.getInstance(new TwitterException("No Account"));
   }
   try {
-    final Relationship relationship=twitter.showFriendship(mUserId);
-    final UserKey userKey=new UserKey(mUserId,mAccountKey.getHost());
+    final Relationship relationship=twitter.showFriendship(mUser.key.getId());
+    final UserKey userKey=mUser.key;
     if (relationship.isSourceBlockingTarget() || relationship.isSourceBlockedByTarget()) {
       Utils.setLastSeen(context,userKey,-1);
     }
@@ -18,7 +27,7 @@
       Utils.setLastSeen(context,userKey,System.currentTimeMillis());
     }
     Utils.updateRelationship(context,mAccountKey,userKey,relationship);
-    return SingleResponse.getInstance(new UserRelationship(relationship,isFiltering));
+    return SingleResponse.getInstance(new UserRelationship(mAccountKey,relationship,isFiltering));
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

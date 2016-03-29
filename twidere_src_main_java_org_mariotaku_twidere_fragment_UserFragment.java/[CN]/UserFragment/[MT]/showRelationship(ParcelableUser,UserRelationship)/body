@@ -17,14 +17,13 @@
     mRelationship=userRelationship;
   }
   invalidateOptionsMenu();
-  final Relationship relationship=userRelationship.relationship;
-  mFollowButton.setEnabled(relationship.isSourceBlockingTarget() || !relationship.isSourceBlockedByTarget());
-  if (relationship.isSourceBlockedByTarget()) {
+  mFollowButton.setEnabled(userRelationship.blocking || !userRelationship.blocked_by);
+  if (userRelationship.blocked_by) {
     mPagesErrorContainer.setVisibility(View.GONE);
     mPagesErrorText.setText(null);
     mPagesContent.setVisibility(View.VISIBLE);
   }
- else   if (!relationship.isSourceFollowingTarget() && user.is_protected) {
+ else   if (!userRelationship.following && user.is_protected) {
     mPagesErrorContainer.setVisibility(View.VISIBLE);
     mPagesErrorText.setText(R.string.user_protected_summary);
     mPagesErrorIcon.setImageResource(R.drawable.ic_info_locked);
@@ -35,10 +34,10 @@
     mPagesErrorText.setText(null);
     mPagesContent.setVisibility(View.VISIBLE);
   }
-  if (relationship.isSourceBlockingTarget()) {
+  if (userRelationship.blocking) {
     mFollowButton.setText(R.string.unblock);
   }
- else   if (relationship.isSourceFollowingTarget()) {
+ else   if (userRelationship.following) {
     mFollowButton.setText(R.string.unfollow);
   }
  else   if (user.is_follow_request_sent) {
@@ -48,9 +47,9 @@
     mFollowButton.setText(R.string.follow);
   }
   mFollowButton.setCompoundDrawablePadding(Math.round(mFollowButton.getTextSize() * 0.25f));
-  mFollowingYouIndicator.setVisibility(relationship.isTargetFollowingSource() ? View.VISIBLE : View.GONE);
+  mFollowingYouIndicator.setVisibility(userRelationship.followed_by ? View.VISIBLE : View.GONE);
   final CacheUserInfoRunnable task=new CacheUserInfoRunnable(getContext().getApplicationContext());
-  task.setParams(Pair.create(user,relationship));
+  task.setParams(Pair.create(user,userRelationship));
   TaskStarter.execute(task);
   mFollowButton.setVisibility(View.VISIBLE);
 }

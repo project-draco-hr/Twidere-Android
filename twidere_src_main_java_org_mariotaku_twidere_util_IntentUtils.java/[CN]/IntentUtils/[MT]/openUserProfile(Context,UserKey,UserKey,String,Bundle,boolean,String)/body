@@ -1,8 +1,6 @@
 {
-  if (userKey == null && isEmpty(screenName))   return;
-  final Uri uri=LinkCreator.getTwidereUserLink(accountKey,userKey,screenName);
-  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
-  intent.putExtra(EXTRA_REFERRAL,referral);
+  final Intent intent=userProfile(accountKey,userKey,screenName,referral,null);
+  if (intent == null)   return;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && newDocument) {
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
   }

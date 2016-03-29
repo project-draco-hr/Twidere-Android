@@ -1,0 +1,12 @@
+{
+  this.source=user.account_key.getId();
+  this.target=user.key.getId();
+  this.filtering=filtering;
+  if (user.extras != null) {
+    this.following=user.is_following;
+    this.followed_by=user.extras.statusnet_followed_by;
+    this.blocking=user.extras.statusnet_blocking;
+    this.blocked_by=user.extras.statusnet_blocked_by;
+    this.can_dm=user.extras.statusnet_followed_by;
+  }
+}

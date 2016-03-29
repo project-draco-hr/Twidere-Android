@@ -1,6 +1,6 @@
 Context context
 UserKey accountKey
-String userId
+UserKey userKey
 String screenName
 Bundle extras
 boolean omitIntentExtra

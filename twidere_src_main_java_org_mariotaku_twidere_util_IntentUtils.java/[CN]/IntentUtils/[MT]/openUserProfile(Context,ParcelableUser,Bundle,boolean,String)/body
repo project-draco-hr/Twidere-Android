@@ -1,17 +1,11 @@
 {
   final Bundle extras=new Bundle();
   extras.putParcelable(EXTRA_USER,user);
-  final Uri.Builder builder=new Uri.Builder();
-  builder.scheme(SCHEME_TWIDERE);
-  builder.authority(AUTHORITY_USER);
-  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,user.account_key.toString());
-  if (user.key != null) {
-    builder.appendQueryParameter(QUERY_PARAM_USER_ID,user.key.toString());
+  if (user.extras != null) {
+    extras.putString(EXTRA_PROFILE_URL,user.extras.statusnet_profile_url);
   }
-  if (user.screen_name != null) {
-    builder.appendQueryParameter(QUERY_PARAM_SCREEN_NAME,user.screen_name);
-  }
-  final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
+  final Uri uri=LinkCreator.getTwidereUserLink(user.account_key,user.key,user.screen_name);
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
   intent.setExtrasClassLoader(context.getClassLoader());
   intent.putExtras(extras);
   intent.putExtra(EXTRA_REFERRAL,referral);

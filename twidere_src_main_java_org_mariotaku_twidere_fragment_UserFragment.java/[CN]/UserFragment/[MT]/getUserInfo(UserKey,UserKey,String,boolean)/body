@@ -4,7 +4,7 @@
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
   final Bundle args=new Bundle();
   args.putParcelable(EXTRA_ACCOUNT_KEY,accountId);
-  args.putString(EXTRA_USER_ID,userId);
+  args.putParcelable(EXTRA_USER_ID,userId);
   args.putString(EXTRA_SCREEN_NAME,screenName);
   args.putBoolean(EXTRA_OMIT_INTENT_EXTRA,omitIntentExtra);
   if (!mGetUserInfoLoaderInitialized) {

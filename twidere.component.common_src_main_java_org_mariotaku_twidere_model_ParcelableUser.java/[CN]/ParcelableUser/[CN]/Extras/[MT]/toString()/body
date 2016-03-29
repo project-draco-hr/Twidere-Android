@@ -1,0 +1,3 @@
+{
+  return "Extras{" + "statusnet_profile_url='" + statusnet_profile_url + '\''+ ", ostatus_uri='"+ ostatus_uri+ '\''+ ", profile_image_url_original='"+ profile_image_url_original+ '\''+ ", profile_image_url_profile_size='"+ profile_image_url_profile_size+ '\''+ ", groups_count="+ groups_count+ ", unique_id='"+ unique_id+ '\''+ ", statusnet_blocking="+ statusnet_blocking+ ", statusnet_blocked_by="+ statusnet_blocked_by+ ", statusnet_followed_by="+ statusnet_followed_by+ '}';
+}

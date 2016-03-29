@@ -7,7 +7,7 @@ switch (item.getItemId()) {
 case R.id.block:
 {
       if (userRelationship == null)       return true;
-      if (userRelationship.relationship.isSourceBlockingTarget()) {
+      if (userRelationship.blocking) {
         twitter.destroyBlockAsync(user.account_key,user.key);
       }
  else {
@@ -24,7 +24,7 @@ case R.id.add_to_filter:
 {
   if (userRelationship == null)   return true;
   final ContentResolver cr=getContentResolver();
-  if (userRelationship.isFiltering) {
+  if (userRelationship.filtering) {
     final String where=Expression.equalsArgs(Filters.Users.USER_KEY).getSQL();
     final String[] whereArgs={user.key.toString()};
     cr.delete(Filters.Users.CONTENT_URI,where,whereArgs);
@@ -39,7 +39,7 @@ case R.id.add_to_filter:
 case R.id.mute_user:
 {
 if (userRelationship == null) return true;
-if (userRelationship.relationship.isSourceMutingTarget()) {
+if (userRelationship.muting) {
   twitter.destroyMuteAsync(user.account_key,user.key);
 }
  else {
@@ -109,10 +109,9 @@ break;
 case R.id.follow:
 {
 if (userRelationship == null) return true;
-final boolean isFollowing=userRelationship.relationship.isSourceFollowingTarget();
 final boolean updatingRelationship=twitter.isUpdatingRelationship(user.account_key,user.key);
 if (!updatingRelationship) {
-if (isFollowing) {
+if (userRelationship.following) {
 DestroyFriendshipDialogFragment.show(getFragmentManager(),user);
 }
  else {
