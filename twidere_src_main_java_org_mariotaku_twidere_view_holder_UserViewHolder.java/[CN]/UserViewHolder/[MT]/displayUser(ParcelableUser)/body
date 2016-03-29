@@ -47,6 +47,7 @@
     externalIndicator.setVisibility(View.VISIBLE);
     externalIndicator.setText(context.getString(R.string.external_user_host_format,user.key.getHost()));
   }
+  followButton.setImageResource(user.is_following ? R.drawable.ic_action_confirm : R.drawable.ic_action_add);
   followButton.setActivated(user.is_following);
   final boolean isMySelf=user.account_key.equals(user.key);
   if (requestClickListener != null && !isMySelf) {

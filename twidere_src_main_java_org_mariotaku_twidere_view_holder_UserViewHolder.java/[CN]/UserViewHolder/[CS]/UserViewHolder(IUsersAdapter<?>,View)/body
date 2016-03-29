@@ -14,8 +14,8 @@
   friendsCountView=(TextView)itemView.findViewById(R.id.friends_count);
   actionsProgressContainer=itemView.findViewById(R.id.actions_progress_container);
   actionsContainer=itemView.findViewById(R.id.actions_container);
-  acceptRequestButton=itemView.findViewById(R.id.accept_request);
-  denyRequestButton=itemView.findViewById(R.id.deny_request);
-  followButton=itemView.findViewById(R.id.follow);
+  acceptRequestButton=(ImageButton)itemView.findViewById(R.id.accept_request);
+  denyRequestButton=(ImageButton)itemView.findViewById(R.id.deny_request);
+  followButton=(ImageButton)itemView.findViewById(R.id.follow);
   processingRequestProgress=itemView.findViewById(R.id.processing_request);
 }

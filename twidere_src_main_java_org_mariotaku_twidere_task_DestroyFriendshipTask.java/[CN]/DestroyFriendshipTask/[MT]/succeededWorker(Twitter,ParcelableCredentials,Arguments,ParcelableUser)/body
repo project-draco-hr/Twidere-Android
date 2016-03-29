@@ -1,4 +1,5 @@
 {
+  user.is_following=false;
   Utils.setLastSeen(context,user.key,-1);
   final Expression where=Expression.and(Expression.equalsArgs(TwidereDataStore.Statuses.ACCOUNT_KEY),Expression.or(Expression.equalsArgs(TwidereDataStore.Statuses.USER_KEY),Expression.equalsArgs(TwidereDataStore.Statuses.RETWEETED_BY_USER_KEY)));
   final String[] whereArgs={args.userKey.toString(),args.userKey.toString(),args.userKey.toString()};

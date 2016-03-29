@@ -1,3 +1,4 @@
 {
+  user.is_following=true;
   Utils.setLastSeen(context,user.key,System.currentTimeMillis());
 }
