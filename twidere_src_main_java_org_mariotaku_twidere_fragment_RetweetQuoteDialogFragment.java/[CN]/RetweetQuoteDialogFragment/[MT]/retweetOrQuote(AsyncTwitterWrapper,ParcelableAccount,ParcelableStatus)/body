@@ -1,7 +1,7 @@
 {
   final Dialog dialog=getDialog();
   if (dialog == null)   return;
-  final EditText editComment=((EditText)dialog.findViewById(R.id.edit_comment));
+  final EditText editComment=(EditText)dialog.findViewById(R.id.edit_comment);
   if (useQuote(editComment.length() > 0,account)) {
     final Menu menu=mPopupMenu.getMenu();
     final MenuItem itemQuoteOriginalStatus=menu.findItem(R.id.quote_original_status);

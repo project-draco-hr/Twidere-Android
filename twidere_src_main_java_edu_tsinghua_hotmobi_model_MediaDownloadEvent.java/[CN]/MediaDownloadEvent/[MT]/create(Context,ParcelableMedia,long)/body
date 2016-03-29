@@ -2,6 +2,7 @@
   final MediaDownloadEvent event=new MediaDownloadEvent();
   event.markStart(context);
   event.setMedia(media);
-  event.setSize(total);
+  event.setNonce(nonce);
+  event.setNetworkType(NetworkEvent.getActivateNetworkType(context));
   return event;
 }

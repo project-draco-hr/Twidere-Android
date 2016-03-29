@@ -1,6 +1,6 @@
 {
-  super.onDownloadFinished();
-  if (mMediaDownloadEvent != null) {
+  super.onDownloadFinished(nonce);
+  if (mMediaDownloadEvent != null && mMediaDownloadEvent.getNonce() == nonce) {
     mMediaDownloadEvent.markEnd();
     HotMobiLogger.getInstance(getContext()).log(getAccountKey(),mMediaDownloadEvent);
     mMediaDownloadEvent=null;

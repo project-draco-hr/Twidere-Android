@@ -1,6 +1,0 @@
-{
-  super.onDownloadFinished();
-  if (mMediaDownloadEvent != null) {
-    HotMobiLogger.getInstance(getContext()).log(getAccountKey(),mMediaDownloadEvent);
-  }
-}

@@ -1,0 +1,13 @@
+{
+  try {
+    final ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    final NetworkInfo activeNetworkInfo=cm.getActiveNetworkInfo();
+    if (activeNetworkInfo != null) {
+      return activeNetworkInfo.getType();
+    }
+    return -1;
+  }
+ catch (  SecurityException e) {
+    return -1;
+  }
+}

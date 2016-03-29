@@ -1,8 +1,8 @@
 {
-  super.onDownloadStart(total);
+  super.onDownloadRequested(nonce);
   final Context context=getContext();
   if (context != null) {
-    mMediaDownloadEvent=MediaDownloadEvent.create(context,getMedia(),total);
+    mMediaDownloadEvent=MediaDownloadEvent.create(context,getMedia(),nonce);
   }
  else {
     mMediaDownloadEvent=null;
