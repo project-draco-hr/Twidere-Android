@@ -3,8 +3,8 @@
   lm.destroyLoader(LOADER_ID_USER);
   lm.destroyLoader(LOADER_ID_FRIENDSHIP);
   final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_ACCOUNT_KEY,accountId);
-  args.putParcelable(EXTRA_USER_ID,userId);
+  args.putParcelable(EXTRA_ACCOUNT_KEY,accountKey);
+  args.putParcelable(EXTRA_USER_KEY,userKey);
   args.putString(EXTRA_SCREEN_NAME,screenName);
   args.putBoolean(EXTRA_OMIT_INTENT_EXTRA,omitIntentExtra);
   if (!mGetUserInfoLoaderInitialized) {
@@ -14,7 +14,7 @@
  else {
     lm.restartLoader(LOADER_ID_USER,args,mUserInfoLoaderCallbacks);
   }
-  if (accountId == null || userId == null && screenName == null) {
+  if (accountKey == null || userKey == null && screenName == null) {
     mCardContent.setVisibility(View.GONE);
     mHeaderErrorContainer.setVisibility(View.GONE);
   }

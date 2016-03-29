@@ -1,0 +1,7 @@
+{
+  super(context,accountKey,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
+  mListId=listId;
+  mUserKey=userKey;
+  mScreenName=screenName;
+  mListName=listName;
+}

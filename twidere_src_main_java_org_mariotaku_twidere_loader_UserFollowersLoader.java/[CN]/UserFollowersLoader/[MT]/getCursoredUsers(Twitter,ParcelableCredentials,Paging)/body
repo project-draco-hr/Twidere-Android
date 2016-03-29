@@ -2,8 +2,8 @@
 switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.STATUSNET:
 {
-      if (mUserId != null) {
-        return twitter.getStatusesFollowersList(mUserId,paging);
+      if (mUserKey != null) {
+        return twitter.getStatusesFollowersList(mUserKey.getId(),paging);
       }
  else       if (mScreenName != null) {
         return twitter.getStatusesFollowersListByScreenName(mScreenName,paging);
@@ -11,8 +11,8 @@ case ParcelableAccount.Type.STATUSNET:
     }
 case ParcelableAccount.Type.FANFOU:
 {
-    if (mUserId != null) {
-      return twitter.getUsersFollowers(mUserId,paging);
+    if (mUserKey != null) {
+      return twitter.getUsersFollowers(mUserKey.getId(),paging);
     }
  else     if (mScreenName != null) {
       return twitter.getUsersFollowers(mScreenName,paging);
@@ -20,8 +20,8 @@ case ParcelableAccount.Type.FANFOU:
   }
 default :
 {
-  if (mUserId != null) {
-    return twitter.getFollowersList(mUserId,paging);
+  if (mUserKey != null) {
+    return twitter.getFollowersList(mUserKey.getId(),paging);
   }
  else   if (mScreenName != null) {
     return twitter.getFollowersListByScreenName(mScreenName,paging);

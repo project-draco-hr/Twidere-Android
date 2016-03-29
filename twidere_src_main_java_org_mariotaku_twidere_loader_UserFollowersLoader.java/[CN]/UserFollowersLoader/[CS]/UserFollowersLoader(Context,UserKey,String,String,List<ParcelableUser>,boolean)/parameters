@@ -1,6 +1,0 @@
-Context context
-UserKey accountId
-String userId
-String screenName
-List<ParcelableUser> data
-boolean fromUser

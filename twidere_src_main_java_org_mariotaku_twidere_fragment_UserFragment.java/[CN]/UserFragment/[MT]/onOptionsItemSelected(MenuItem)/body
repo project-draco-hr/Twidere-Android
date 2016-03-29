@@ -61,8 +61,8 @@ case R.id.send_direct_message:
 final Uri.Builder builder=new Uri.Builder();
 builder.scheme(SCHEME_TWIDERE);
 builder.authority(AUTHORITY_DIRECT_MESSAGES_CONVERSATION);
-builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,String.valueOf(user.account_key));
-builder.appendQueryParameter(QUERY_PARAM_USER_ID,String.valueOf(user.key));
+builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_KEY,user.account_key.toString());
+builder.appendQueryParameter(QUERY_PARAM_USER_KEY,user.key.toString());
 final Intent intent=new Intent(Intent.ACTION_VIEW,builder.build());
 intent.putExtra(EXTRA_ACCOUNT,ParcelableCredentialsUtils.getCredentials(getActivity(),user.account_key));
 intent.putExtra(EXTRA_USER,user);

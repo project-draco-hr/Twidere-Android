@@ -4,8 +4,8 @@ switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.TWITTER:
 {
       if (Utils.isOfficialCredentials(context,credentials)) {
-        if (mUserId != null) {
-          return twitter.getMediaTimeline(mUserId,paging);
+        if (mUserKey != null) {
+          return twitter.getMediaTimeline(mUserKey.getId(),paging);
         }
         if (mUserScreenName != null) {
           return twitter.getMediaTimelineByScreenName(mUserScreenName,paging);
@@ -16,11 +16,14 @@ case ParcelableAccount.Type.TWITTER:
         if (mUserScreenName != null) {
           screenName=mUserScreenName;
         }
- else {
+ else         if (mUserKey != null) {
           if (mUser == null) {
-            mUser=TwitterWrapper.tryShowUser(twitter,mUserId,null,credentials.account_type);
+            mUser=TwitterWrapper.tryShowUser(twitter,mUserKey.getId(),null,credentials.account_type);
           }
           screenName=mUser.getScreenName();
+        }
+ else {
+          throw new TwitterException("Invalid parameters");
         }
         final SearchQuery query;
         if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
@@ -33,7 +36,7 @@ case ParcelableAccount.Type.TWITTER:
         final ResponseList<Status> result=new ResponseList<>();
         for (        Status status : twitter.search(query)) {
           final User user=status.getUser();
-          if (TextUtils.equals(user.getId(),mUserId) || StringUtils.endsWithIgnoreCase(user.getScreenName(),mUserScreenName)) {
+          if ((mUserKey != null && TextUtils.equals(user.getId(),mUserKey.getId())) || StringUtils.endsWithIgnoreCase(user.getScreenName(),mUserScreenName)) {
             result.add(status);
           }
         }
@@ -43,8 +46,8 @@ case ParcelableAccount.Type.TWITTER:
     }
 case ParcelableAccount.Type.FANFOU:
 {
-    if (mUserId != null) {
-      return twitter.getPhotosUserTimeline(mUserId,paging);
+    if (mUserKey != null) {
+      return twitter.getPhotosUserTimeline(mUserKey.getId(),paging);
     }
     if (mUserScreenName != null) {
       return twitter.getPhotosUserTimeline(mUserScreenName,paging);

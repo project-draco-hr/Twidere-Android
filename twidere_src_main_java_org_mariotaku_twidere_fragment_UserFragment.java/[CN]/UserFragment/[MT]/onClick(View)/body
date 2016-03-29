@@ -50,22 +50,22 @@ break;
 }
 case R.id.listed_container:
 {
-IntentUtils.openUserLists(getActivity(),user.account_key,user.key.getId(),user.screen_name);
+IntentUtils.openUserLists(getActivity(),user.account_key,user.key,user.screen_name);
 break;
 }
 case R.id.groups_container:
 {
-IntentUtils.openUserGroups(getActivity(),user.account_key,user.key.getId(),user.screen_name);
+IntentUtils.openUserGroups(getActivity(),user.account_key,user.key,user.screen_name);
 break;
 }
 case R.id.followers_container:
 {
-IntentUtils.openUserFollowers(getActivity(),user.account_key,user.key.getId(),user.screen_name);
+IntentUtils.openUserFollowers(getActivity(),user.account_key,user.key,user.screen_name);
 break;
 }
 case R.id.friends_container:
 {
-IntentUtils.openUserFriends(getActivity(),user.account_key,user.key.getId(),user.screen_name);
+IntentUtils.openUserFriends(getActivity(),user.account_key,user.key,user.screen_name);
 break;
 }
 case R.id.name_container:

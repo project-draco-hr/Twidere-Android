@@ -10,8 +10,8 @@
     if (mListId > 0) {
       list=twitter.showUserList(mListId);
     }
- else     if (mUserId != null) {
-      list=twitter.showUserList(mListName,mUserId);
+ else     if (mUserKey != null) {
+      list=twitter.showUserList(mListName,mUserKey.getId());
     }
  else     if (mScreenName != null) {
       list=twitter.showUserListByScrenName(mListName,mScreenName);

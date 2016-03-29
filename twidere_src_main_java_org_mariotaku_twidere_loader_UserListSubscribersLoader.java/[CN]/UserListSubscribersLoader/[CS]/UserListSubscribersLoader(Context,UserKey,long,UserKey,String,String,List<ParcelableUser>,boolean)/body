@@ -1,0 +1,7 @@
+{
+  super(context,accountKey,data,fromUser);
+  mListId=listId;
+  mUserKey=userKey;
+  mScreenName=screenName;
+  mListName=listName;
+}

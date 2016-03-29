@@ -1,0 +1,5 @@
+{
+  super(context,accountKey,0,data);
+  mUserKey=userKey;
+  mScreenName=screenName;
+}

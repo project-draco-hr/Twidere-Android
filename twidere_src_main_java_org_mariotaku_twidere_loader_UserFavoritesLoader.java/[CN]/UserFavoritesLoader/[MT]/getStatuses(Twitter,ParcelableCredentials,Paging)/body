@@ -1,6 +1,6 @@
 {
-  if (mUserId != null) {
-    return twitter.getFavorites(mUserId,paging);
+  if (mUserKey != null) {
+    return twitter.getFavorites(mUserKey.getId(),paging);
   }
  else   if (mUserScreenName != null) {
     return twitter.getFavoritesByScreenName(mUserScreenName,paging);

@@ -1,6 +1,6 @@
 {
   if (mUserId != null) {
-    return twitter.getUserTimeline(mUserId,paging);
+    return twitter.getUserTimeline(mUserId.getId(),paging);
   }
  else   if (mUserScreenName != null) {
     return twitter.getUserTimelineByScreenName(mUserScreenName,paging);

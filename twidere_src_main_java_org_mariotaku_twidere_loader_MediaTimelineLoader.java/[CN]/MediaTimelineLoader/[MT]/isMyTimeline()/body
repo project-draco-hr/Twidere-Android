@@ -1,9 +1,11 @@
 {
-  if (mUserId != null) {
-    return getAccountKey().check(mUserId,null);
+  final UserKey accountKey=getAccountKey();
+  if (accountKey == null)   return false;
+  if (mUserKey != null) {
+    return mUserKey.maybeEquals(accountKey);
   }
  else {
-    final String accountScreenName=DataStoreUtils.getAccountScreenName(getContext(),getAccountKey());
+    final String accountScreenName=DataStoreUtils.getAccountScreenName(getContext(),accountKey);
     return accountScreenName != null && accountScreenName.equalsIgnoreCase(mUserScreenName);
   }
 }

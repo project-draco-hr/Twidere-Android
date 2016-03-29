@@ -1,5 +1,0 @@
-{
-  super(context,accountKey,cursor,data);
-  mUserId=userId;
-  mScreenName=screenName;
-}

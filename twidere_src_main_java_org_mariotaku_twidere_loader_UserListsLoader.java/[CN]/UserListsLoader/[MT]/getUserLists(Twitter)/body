@@ -1,7 +1,7 @@
 {
   if (twitter == null)   return null;
-  if (mUserId != null) {
-    return twitter.getUserLists(mUserId,mReverse);
+  if (mUserKey != null) {
+    return twitter.getUserLists(mUserKey.getId(),mReverse);
   }
  else   if (mScreenName != null) {
     return twitter.getUserListsByScreenName(mScreenName,mReverse);
