@@ -1,6 +1,6 @@
 {
-  if (!TextUtils.equals(source,user.account_key.getId())) {
+  if (!account_key.equals(user.account_key)) {
     return false;
   }
-  return (user.extras != null && TextUtils.equals(target,user.extras.unique_id)) || TextUtils.equals(target,user.key.getId());
+  return (user.extras != null && TextUtils.equals(user_id,user.extras.unique_id)) || TextUtils.equals(user_id,user.key.getId());
 }

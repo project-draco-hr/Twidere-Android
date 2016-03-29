@@ -1,7 +1,5 @@
 {
   super(accountKey,relationship.getTargetUserId(),relationship);
-  this.source=relationship.getSourceUserId();
-  this.target=relationship.getTargetUserId();
   this.filtering=filtering;
   this.can_dm=relationship.canSourceDMTarget();
 }
