@@ -1,4 +1,0 @@
-{
-  super(context,attrs,defStyle);
-  ThemeUtils.setupDrawerBackground(context,this);
-}

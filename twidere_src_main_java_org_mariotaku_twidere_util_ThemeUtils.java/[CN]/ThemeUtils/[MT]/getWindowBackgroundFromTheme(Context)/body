@@ -1,12 +1,7 @@
 {
-  final TypedArray a=context.obtainStyledAttributes(new int[]{R.attr.windowNormalBackground,android.R.attr.windowBackground});
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
   try {
-    if (a.hasValue(0)) {
-      return a.getDrawable(0);
-    }
- else {
-      return a.getDrawable(1);
-    }
+    return a.getDrawable(0);
   }
   finally {
     a.recycle();
