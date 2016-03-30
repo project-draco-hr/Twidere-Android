@@ -1,0 +1,11 @@
+{
+  View view;
+  if (convertView != null) {
+    view=convertView;
+  }
+ else {
+    view=mInflater.inflate(android.R.layout.simple_expandable_list_item_1,parent,false);
+  }
+  ((TextView)view.findViewById(android.R.id.text1)).setText(getGroup(groupPosition).getName());
+  return view;
+}

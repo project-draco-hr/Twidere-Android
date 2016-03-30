@@ -1,0 +1,8 @@
+{
+  final long woeid=location.getWoeid();
+  parents.put(woeid,location);
+  final List<Location> list=getList(woeid);
+  if (woeid != WORLDWIDE) {
+    addToList(list,location);
+  }
+}

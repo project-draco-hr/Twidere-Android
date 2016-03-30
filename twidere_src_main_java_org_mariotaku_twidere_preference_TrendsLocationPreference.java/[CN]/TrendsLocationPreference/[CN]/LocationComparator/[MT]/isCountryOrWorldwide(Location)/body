@@ -1,0 +1,4 @@
+{
+  final long parentId=location.getParentId();
+  return parentId == 0 || parentId == 1;
+}

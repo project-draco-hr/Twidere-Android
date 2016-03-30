@@ -1,9 +1,0 @@
-{
-  final Location item=mAdapter.getItem(which);
-  if (item != null) {
-    persistInt(item.getWoeid());
-  }
-  if (mDialog != null && mDialog.isShowing()) {
-    mDialog.dismiss();
-  }
-}

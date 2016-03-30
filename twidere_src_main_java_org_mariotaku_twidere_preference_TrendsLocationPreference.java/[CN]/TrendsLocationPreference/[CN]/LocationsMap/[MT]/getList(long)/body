@@ -1,0 +1,8 @@
+{
+  List<Location> list=map.get(parentId);
+  if (list == null) {
+    list=new ArrayList<>();
+    map.put(parentId,list);
+  }
+  return list;
+}

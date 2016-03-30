@@ -1,0 +1,3 @@
+{
+  comparator=new LocationComparator(Collator.getInstance(locale));
+}

@@ -1,0 +1,9 @@
+{
+  SimpleArrayMap<Location,List<Location>> result=new SimpleArrayMap<>(map.size());
+  for (int i=0, j=map.size(); i < j; i++) {
+    Location parent=parents.get(map.keyAt(i));
+    if (parent == null)     continue;
+    result.put(parent,map.valueAt(i));
+  }
+  return result;
+}

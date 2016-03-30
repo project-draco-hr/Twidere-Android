@@ -1,0 +1,9 @@
+{
+  final long parentId=location.getParentId();
+  if (parentId == EMPTY || parentId == WORLDWIDE) {
+    putParent(location);
+  }
+ else {
+    putChild(parentId,location);
+  }
+}

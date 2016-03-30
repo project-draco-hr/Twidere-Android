@@ -1,0 +1,42 @@
+{
+  if (mProgress.isShowing()) {
+    mProgress.dismiss();
+  }
+  mAdapter.setData(result);
+  if (result == null)   return;
+  final AlertDialog.Builder selectorBuilder=new AlertDialog.Builder(getContext());
+  selectorBuilder.setTitle(getTitle());
+  selectorBuilder.setView(R.layout.dialog_trends_location_selector);
+  selectorBuilder.setNegativeButton(android.R.string.cancel,null);
+  mDialog=selectorBuilder.create();
+  mDialog.setOnShowListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface dialogInterface){
+      final Dialog dialog=(Dialog)dialogInterface;
+      final ExpandableListView listView=(ExpandableListView)dialog.findViewById(R.id.expandable_list);
+      listView.setAdapter(mAdapter);
+      listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener(){
+        @Override public boolean onGroupClick(        ExpandableListView parent,        View v,        int groupPosition,        long id){
+          final Location group=mAdapter.getGroup(groupPosition);
+          if (group.getWoeid() == WORLDWIDE) {
+            persistInt(group.getWoeid());
+            dialog.dismiss();
+            return true;
+          }
+          return false;
+        }
+      }
+);
+      listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener(){
+        @Override public boolean onChildClick(        ExpandableListView parent,        View v,        int groupPosition,        int childPosition,        long id){
+          final Location child=mAdapter.getChild(groupPosition,childPosition);
+          persistInt(child.getWoeid());
+          dialog.dismiss();
+          return true;
+        }
+      }
+);
+    }
+  }
+);
+  mDialog.show();
+}

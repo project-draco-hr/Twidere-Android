@@ -1,0 +1,3 @@
+{
+  return getChild(groupPosition,childPosition).getWoeid();
+}
