@@ -70,7 +70,10 @@ mSecondaryFieldContainer.setVisibility(View.GONE);
 iconKey=intent.getStringExtra(EXTRA_ICON);
 mEditTabName.setText(intent.getStringExtra(EXTRA_NAME));
 if (savedInstanceState == null && intent.hasExtra(EXTRA_EXTRAS)) {
-mExtrasBundle.putAll(InternalParseUtils.jsonToBundle(intent.getStringExtra(EXTRA_EXTRAS)));
+TabExtras extras=CustomTabUtils.parseTabExtras(type,intent.getStringExtra(EXTRA_EXTRAS));
+if (extras != null) {
+  extras.copyToBundle(mExtrasBundle);
+}
 }
 }
 final int selection=mTabIconsAdapter.getIconPosition(iconKey);
