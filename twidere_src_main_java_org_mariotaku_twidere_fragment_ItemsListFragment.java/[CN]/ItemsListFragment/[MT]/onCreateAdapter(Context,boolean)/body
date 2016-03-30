@@ -7,6 +7,19 @@
       if (status == null)       return;
       IntentUtils.openStatus(getContext(),status,null);
     }
+    @Override public void onItemActionClick(    RecyclerView.ViewHolder holder,    int id,    int position){
+      final Context context=getContext();
+      if (context == null)       return;
+      final ParcelableStatus status=dummyItemAdapter.getStatus(position);
+      if (status == null)       return;
+      AbsStatusesFragment.handleStatusActionClick(context,getFragmentManager(),mTwitterWrapper,(StatusViewHolder)holder,status,id);
+    }
+    @Override public void onItemMenuClick(    RecyclerView.ViewHolder holder,    View menuView,    int position){
+      if (getActivity() == null)       return;
+      final View view=getLayoutManager().findViewByPosition(position);
+      if (view == null)       return;
+      getRecyclerView().showContextMenuForChild(view);
+    }
   }
 );
   dummyItemAdapter.setUserClickListener(new IUsersAdapter.SimpleUserClickListener(){
