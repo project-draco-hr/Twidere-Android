@@ -1,5 +1,5 @@
 {
-  final boolean succeed=result.hasData() && result.getData().id > 0;
+  final boolean succeed=result.hasData();
   final String message;
   if (succeed) {
     if (users.length == 1) {
@@ -12,11 +12,8 @@
       final Resources res=mContext.getResources();
       message=res.getQuantityString(R.plurals.deleted_N_users_from_list,users.length,users.length,result.getData().name);
     }
+    bus.post(new UserListMembersChangedEvent(UserListMembersChangedEvent.Action.REMOVED,result.getData(),users));
     Utils.showInfoMessage(mContext,message,false);
-    final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_DELETED);
-    intent.putExtra(EXTRA_USER_LIST,result.getData());
-    intent.putExtra(EXTRA_USERS,users);
-    mContext.sendBroadcast(intent);
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);

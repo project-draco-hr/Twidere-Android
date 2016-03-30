@@ -1,0 +1,3 @@
+{
+  return "PlaceType{" + "name='" + name + '\''+ ", code="+ code+ '}';
+}

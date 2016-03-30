@@ -1,6 +1,6 @@
 {
   final int primaryColor=Config.primaryColor(context,key);
-  final boolean isDark=!ATEUtil.isColorLight(primaryColor);
+  final boolean isDark=!ThemeUtils.isLightColor(primaryColor);
   final int primaryColorDependent=isDark ? Color.WHITE : Color.BLACK;
   target.setIconColor(primaryColorDependent);
   target.setLabelColor(primaryColorDependent);

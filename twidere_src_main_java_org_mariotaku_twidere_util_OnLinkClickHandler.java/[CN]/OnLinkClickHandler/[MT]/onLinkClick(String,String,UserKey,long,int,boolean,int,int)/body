@@ -61,7 +61,7 @@ final String[] mentionList=StringUtils.split(link,"/");
 if (mentionList.length != 2) {
 break;
 }
-IntentUtils.openUserListDetails(context,accountKey,-1,null,mentionList[0],mentionList[1]);
+IntentUtils.openUserListDetails(context,accountKey,null,null,mentionList[0],mentionList[1]);
 break;
 }
 case TwidereLinkify.LINK_TYPE_CASHTAG:

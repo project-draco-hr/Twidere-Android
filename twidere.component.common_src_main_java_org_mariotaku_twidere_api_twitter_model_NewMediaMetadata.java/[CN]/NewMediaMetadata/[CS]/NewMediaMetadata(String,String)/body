@@ -1,0 +1,4 @@
+{
+  this.mediaId=mediaId;
+  this.altText=new AltText(altText);
+}

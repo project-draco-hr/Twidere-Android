@@ -10,5 +10,5 @@
  catch (  LoganSquareMapperFinder.ClassLoaderDeadLockException e) {
     throw new RestConverter.ConvertException(e);
   }
-  return new JsonConverter(mapper);
+  return new JsonResponseConverter(mapper);
 }

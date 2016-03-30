@@ -1,6 +1,3 @@
 {
-  final long diff=id - another.id;
-  if (diff > Integer.MAX_VALUE)   return Integer.MAX_VALUE;
-  if (diff < Integer.MIN_VALUE)   return Integer.MIN_VALUE;
-  return (int)diff;
+  return id.compareTo(another.id);
 }

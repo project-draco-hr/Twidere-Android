@@ -1,7 +1,7 @@
 {
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
-  ParcelableUserList that=(ParcelableUserList)o;
-  if (id != that.id)   return false;
-  return account_key.equals(that.account_key);
+  ParcelableUserList userList=(ParcelableUserList)o;
+  if (!account_key.equals(userList.account_key))   return false;
+  return id.equals(userList.id);
 }

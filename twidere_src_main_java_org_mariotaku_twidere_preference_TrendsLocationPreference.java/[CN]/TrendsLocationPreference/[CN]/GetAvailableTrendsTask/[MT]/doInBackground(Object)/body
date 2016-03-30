@@ -2,10 +2,16 @@
   final Twitter twitter=TwitterAPIFactory.getDefaultTwitterInstance(getContext(),false);
   if (twitter == null)   return null;
   try {
-    return twitter.getAvailableTrends();
+    LocationsMap map=new LocationsMap(Locale.getDefault());
+    for (    Location location : twitter.getAvailableTrends()) {
+      map.put(location);
+    }
+    return map.pack();
   }
  catch (  final TwitterException e) {
-    Log.w(LOGTAG,e);
+    if (BuildConfig.DEBUG) {
+      Log.w(LOGTAG,e);
+    }
   }
   return null;
 }

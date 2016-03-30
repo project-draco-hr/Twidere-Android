@@ -1,4 +1,4 @@
 {
   super(context,attrs,defStyle);
-  mAdapter=new AvailableTrendsAdapter(context);
+  mAdapter=new ExpandableTrendLocationsListAdapter(context);
 }

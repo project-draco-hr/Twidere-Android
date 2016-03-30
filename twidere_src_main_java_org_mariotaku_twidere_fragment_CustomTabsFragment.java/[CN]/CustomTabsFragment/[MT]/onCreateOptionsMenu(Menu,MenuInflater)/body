@@ -1,9 +1,8 @@
 {
   inflater.inflate(R.menu.menu_custom_tabs,menu);
   final Resources res=getResources();
-  final boolean hasOfficialKeyAccounts=Utils.hasAccountSignedWithOfficialKeys(getActivity());
-  final boolean forcePrivateAPI=mPreferences.getBoolean(KEY_FORCE_USING_PRIVATE_APIS,false);
-  final UserKey[] accountIds=DataStoreUtils.getAccountKeys(getActivity());
+  final FragmentActivity activity=getActivity();
+  final UserKey[] accountIds=DataStoreUtils.getAccountKeys(activity);
   final MenuItem itemAdd=menu.findItem(R.id.add_submenu);
   if (itemAdd != null && itemAdd.hasSubMenu()) {
     final SubMenu subMenu=itemAdd.getSubMenu();
@@ -16,15 +15,18 @@
       final CustomTabConfiguration conf=entry.getValue();
       final boolean accountIdRequired=conf.getAccountRequirement() == CustomTabConfiguration.ACCOUNT_REQUIRED;
       final Intent intent=new Intent(INTENT_ACTION_ADD_TAB);
-      intent.setClass(getActivity(),CustomTabEditorActivity.class);
+      intent.setClass(activity,CustomTabEditorActivity.class);
       intent.putExtra(EXTRA_TYPE,type);
       final MenuItem subItem=subMenu.add(conf.getDefaultTitle());
       final boolean disabledByNoAccount=accountIdRequired && accountIds.length == 0;
-      final boolean disabledByDuplicateTab=conf.isSingleTab() && isTabAdded(getActivity(),type);
+      final boolean disabledByDuplicateTab=conf.isSingleTab() && isTabAdded(activity,type);
       final boolean shouldDisable=disabledByDuplicateTab || disabledByNoAccount;
       subItem.setVisible(!shouldDisable);
       subItem.setEnabled(!shouldDisable);
       final Drawable icon=ResourcesCompat.getDrawable(res,conf.getDefaultIcon(),null);
+      if (icon != null && activity instanceof ATEActivity) {
+        icon.mutate().setColorFilter(Config.textColorPrimary(activity,((ATEActivity)activity).getATEKey()),Mode.SRC_ATOP);
+      }
       subItem.setIcon(icon);
       subItem.setIntent(intent);
     }

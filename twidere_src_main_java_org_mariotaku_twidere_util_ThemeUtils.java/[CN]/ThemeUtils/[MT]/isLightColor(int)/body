@@ -1,0 +1,3 @@
+{
+  return ColorUtils.calculateLuminance(color) * 0xFF > ACCENT_COLOR_THRESHOLD;
+}

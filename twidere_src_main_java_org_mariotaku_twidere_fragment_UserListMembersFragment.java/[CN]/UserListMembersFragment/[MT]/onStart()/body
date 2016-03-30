@@ -1,5 +1,4 @@
 {
   super.onStart();
-  final IntentFilter filter=new IntentFilter(BROADCAST_USER_LIST_MEMBERS_DELETED);
-  registerReceiver(mStatusReceiver,filter);
+  mBus.register(this);
 }

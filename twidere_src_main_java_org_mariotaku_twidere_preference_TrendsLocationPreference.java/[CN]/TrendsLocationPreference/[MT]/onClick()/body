@@ -1,5 +1,4 @@
 {
-  mCheckedWoeId=getPersistedInt(1);
   if (mGetAvailableTrendsTask != null) {
     mGetAvailableTrendsTask.cancel(false);
   }

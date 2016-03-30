@@ -1,5 +1,5 @@
 {
-  if (object1.getWoeid() == 1)   return Integer.MIN_VALUE;
-  if (object2.getWoeid() == 1)   return Integer.MAX_VALUE;
-  return mCollator.compare(object1.getName(),object2.getName());
+  if (isCountryOrWorldwide(lhs))   return Integer.MIN_VALUE;
+  if (isCountryOrWorldwide(rhs))   return Integer.MAX_VALUE;
+  return collator.compare(lhs.getName(),rhs.getName());
 }

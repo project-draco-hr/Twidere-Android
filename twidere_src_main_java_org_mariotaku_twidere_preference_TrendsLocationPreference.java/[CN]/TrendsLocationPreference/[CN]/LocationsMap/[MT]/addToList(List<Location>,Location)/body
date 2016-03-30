@@ -1,0 +1,6 @@
+{
+  int loc=Collections.binarySearch(list,location,comparator);
+  if (loc < 0) {
+    list.add(-(loc + 1),location);
+  }
+}

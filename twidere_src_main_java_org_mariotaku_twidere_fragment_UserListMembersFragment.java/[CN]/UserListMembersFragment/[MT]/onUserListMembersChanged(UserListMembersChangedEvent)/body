@@ -1,0 +1,39 @@
+{
+  ParcelableUserList userList=event.getUserList();
+  final Bundle args=getArguments();
+  final UserKey accountId=args.getParcelable(EXTRA_ACCOUNT_KEY);
+  final String listId=args.getString(EXTRA_LIST_ID);
+  final UserKey userKey=args.getParcelable(EXTRA_USER_KEY);
+  final String screenName=args.getString(EXTRA_SCREEN_NAME);
+  final String listName=args.getString(EXTRA_LIST_NAME);
+  if (!ParcelableUserListUtils.check(userList,accountId,listId,userKey,screenName,listName)) {
+    return;
+  }
+switch (event.getAction()) {
+case UserListMembersChangedEvent.Action.ADDED:
+{
+      final ParcelableUsersAdapter adapter=getAdapter();
+      final List<ParcelableUser> newUsers=Arrays.asList(event.getUsers());
+      final List<ParcelableUser> users=adapter.getData();
+      users.removeAll(newUsers);
+      users.addAll(0,newUsers);
+      for (int i=0, j=users.size(); i < j; i++) {
+        users.get(i).position=i;
+      }
+      adapter.notifyDataSetChanged();
+      break;
+    }
+case UserListMembersChangedEvent.Action.REMOVED:
+{
+    final ParcelableUsersAdapter adapter=getAdapter();
+    final List<ParcelableUser> removedUsers=Arrays.asList(event.getUsers());
+    final List<ParcelableUser> users=adapter.getData();
+    users.removeAll(removedUsers);
+    for (int i=0, j=users.size(); i < j; i++) {
+      users.get(i).position=i;
+    }
+    adapter.notifyDataSetChanged();
+    break;
+  }
+}
+}

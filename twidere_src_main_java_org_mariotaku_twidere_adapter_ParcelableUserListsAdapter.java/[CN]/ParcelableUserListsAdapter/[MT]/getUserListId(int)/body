@@ -1,4 +1,4 @@
 {
-  if (position == getUserListsCount())   return -1;
+  if (position == getUserListsCount())   return null;
   return mData.get(position).id;
 }

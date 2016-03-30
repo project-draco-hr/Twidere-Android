@@ -1,0 +1,6 @@
+{
+  super(mContext);
+  this.mAccountKey=accountKey;
+  this.mListId=listId;
+  this.mUsers=users;
+}

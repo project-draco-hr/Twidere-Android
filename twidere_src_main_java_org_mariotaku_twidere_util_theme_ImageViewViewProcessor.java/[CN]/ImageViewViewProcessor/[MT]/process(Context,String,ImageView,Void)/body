@@ -1,0 +1,10 @@
+{
+  if (target == null)   return;
+switch (target.getId()) {
+case android.support.v7.appcompat.R.id.action_mode_close_button:
+{
+      target.setColorFilter(ThemeUtils.getColorDependent(Config.toolbarColor(context,key,null)));
+      break;
+    }
+}
+}

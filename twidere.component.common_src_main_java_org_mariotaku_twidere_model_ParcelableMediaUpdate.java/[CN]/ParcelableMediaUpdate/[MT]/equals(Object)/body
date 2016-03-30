@@ -3,5 +3,6 @@
   if (o == null || getClass() != o.getClass())   return false;
   ParcelableMediaUpdate that=(ParcelableMediaUpdate)o;
   if (type != that.type)   return false;
-  return uri.equals(that.uri);
+  if (!uri.equals(that.uri))   return false;
+  return alt_text != null ? alt_text.equals(that.alt_text) : that.alt_text == null;
 }

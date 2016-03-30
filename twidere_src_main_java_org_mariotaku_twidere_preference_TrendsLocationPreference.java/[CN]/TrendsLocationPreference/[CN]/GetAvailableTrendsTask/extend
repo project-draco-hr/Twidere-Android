@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,ResponseList<Location>>
+AsyncTask<Object,Object,SimpleArrayMap<Location,List<Location>>>

@@ -1,0 +1,18 @@
+{
+  if (!getUserVisibleHint() || menuInfo == null)   return;
+  final MenuInflater inflater=new MenuInflater(getContext());
+  final ExtendedRecyclerView.ContextMenuInfo contextMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)menuInfo;
+  final int position=contextMenuInfo.getPosition();
+  final VariousItemsAdapter adapter=getAdapter();
+switch (adapter.getItemViewType(position)) {
+case VariousItemsAdapter.VIEW_TYPE_STATUS:
+{
+      final DummyItemAdapter dummyAdapter=getAdapter().getDummyAdapter();
+      final ParcelableStatus status=dummyAdapter.getStatus(contextMenuInfo.getPosition());
+      if (status == null)       break;
+      inflater.inflate(R.menu.action_status,menu);
+      MenuUtils.setupForStatus(getContext(),mPreferences,menu,status,mTwitterWrapper);
+      break;
+    }
+}
+}

@@ -1,7 +1,13 @@
 {
-  final Drawable d=getWindowBackgroundFromTheme(context);
-  if (d == null)   return null;
-  d.mutate();
-  d.setAlpha(TwidereMathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA));
-  return d;
+  int backgroundColor;
+  final Drawable d=getWindowBackground(context);
+  if (d instanceof ColorDrawable) {
+    backgroundColor=((ColorDrawable)d).getColor();
+  }
+ else {
+    backgroundColor=getColorBackground(context);
+  }
+  backgroundColor&=0x00FFFFFF;
+  backgroundColor|=TwidereMathUtils.clamp(alpha,ThemeBackgroundPreference.MIN_ALPHA,ThemeBackgroundPreference.MAX_ALPHA) << 24;
+  return new WindowBackgroundDrawable(backgroundColor);
 }

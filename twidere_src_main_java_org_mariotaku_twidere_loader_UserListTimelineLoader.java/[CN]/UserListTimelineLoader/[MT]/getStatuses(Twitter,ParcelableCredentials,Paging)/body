@@ -1,5 +1,5 @@
 {
-  if (mListId > 0)   return twitter.getUserListStatuses(mListId,paging);
+  if (mListId != null)   return twitter.getUserListStatuses(mListId,paging);
  else   if (mListName == null)   throw new TwitterException("No list name or id given");
  else   if (mUserKey != null)   return twitter.getUserListStatuses(mListName.replace(' ','-'),mUserKey.getId(),paging);
  else   if (mScreenName != null)   return twitter.getUserListStatuses(mListName.replace(' ','-'),mScreenName,paging);

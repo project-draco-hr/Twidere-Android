@@ -8,6 +8,6 @@
     window.setBackgroundDrawable(new ColorDrawable(isLightTheme(context) ? Color.WHITE : Color.BLACK));
   }
  else {
-    window.setBackgroundDrawable(getWindowBackgroundFromTheme(context));
+    window.setBackgroundDrawable(getWindowBackground(context));
   }
 }
