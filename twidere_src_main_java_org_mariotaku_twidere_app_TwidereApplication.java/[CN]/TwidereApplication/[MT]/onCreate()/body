@@ -8,8 +8,10 @@
   ATE.registerViewProcessor(TabPagerIndicator.class,new TabPagerIndicatorViewProcessor());
   ATE.registerViewProcessor(FloatingActionButton.class,new FloatingActionButtonViewProcessor());
   ATE.registerViewProcessor(ActionBarContextView.class,new ActionBarContextViewViewProcessor());
-  ATE.registerViewProcessor(ExtendedSwipeRefreshLayout.class,new ExtendedSwipeRefreshLayoutViewProcessor());
+  ATE.registerViewProcessor(SwipeRefreshLayout.class,new SwipeRefreshLayoutViewProcessor());
   ATE.registerViewProcessor(TimelineContentTextView.class,new TimelineContentTextViewViewProcessor());
+  ATE.registerViewProcessor(TextView.class,new TextViewViewProcessor());
+  ATE.registerViewProcessor(ImageView.class,new ImageViewViewProcessor());
   ATE.registerViewProcessor(ProgressWheel.class,new ProgressWheelViewProcessor());
   ATE.registerViewProcessor(ProfileImageView.class,mProfileImageViewViewProcessor);
   ATE.registerTagProcessor(OptimalLinkColorTagProcessor.TAG,new OptimalLinkColorTagProcessor());
@@ -23,13 +25,13 @@
   mFontFamilyTagProcessor.setFontFamily(ThemeUtils.getThemeFontFamily(preferences));
   final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));
   if (!ATE.config(this,VALUE_THEME_NAME_LIGHT).isConfigured()) {
-    ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(themeColor).coloredActionBar(true).coloredStatusBar(true).commit();
+    ATE.config(this,VALUE_THEME_NAME_LIGHT).primaryColor(themeColor).accentColor(ThemeUtils.getOptimalAccentColor(themeColor)).coloredActionBar(true).coloredStatusBar(true).commit();
   }
   if (!ATE.config(this,VALUE_THEME_NAME_DARK).isConfigured()) {
-    ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(true).statusBarColor(Color.BLACK).commit();
+    ATE.config(this,VALUE_THEME_NAME_DARK).accentColor(ThemeUtils.getOptimalAccentColor(themeColor)).coloredActionBar(false).coloredStatusBar(true).statusBarColor(Color.BLACK).commit();
   }
   if (!ATE.config(this,null).isConfigured()) {
-    ATE.config(this,null).accentColor(themeColor).coloredActionBar(false).coloredStatusBar(false).commit();
+    ATE.config(this,null).accentColor(ThemeUtils.getOptimalAccentColor(themeColor)).coloredActionBar(false).coloredStatusBar(false).commit();
   }
   resetTheme(preferences);
   super.onCreate();

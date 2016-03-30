@@ -1,0 +1,3 @@
+{
+  return ThemeUtils.getLightToolbarMode(Config.toolbarColor(this,getATEKey(),toolbar));
+}

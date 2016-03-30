@@ -1,4 +1,4 @@
 Context context
 String key
-ExtendedSwipeRefreshLayout target
+SwipeRefreshLayout target
 Object extra

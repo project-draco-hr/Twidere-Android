@@ -1,0 +1,3 @@
+{
+  return getOptimalAccentColor(themeColor,getContrastColor(themeColor,Color.BLACK,Color.WHITE));
+}

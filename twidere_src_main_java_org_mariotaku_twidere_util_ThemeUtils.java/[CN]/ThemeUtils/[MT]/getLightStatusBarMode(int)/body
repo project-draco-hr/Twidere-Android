@@ -1,0 +1,6 @@
+{
+  if (isLightColor(statusBarColor)) {
+    return Config.LIGHT_STATUS_BAR_ON;
+  }
+  return Config.LIGHT_STATUS_BAR_OFF;
+}

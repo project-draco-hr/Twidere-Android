@@ -1,0 +1,6 @@
+{
+  if (isLightColor(themeColor)) {
+    return Config.LIGHT_TOOLBAR_ON;
+  }
+  return Config.LIGHT_TOOLBAR_OFF;
+}
