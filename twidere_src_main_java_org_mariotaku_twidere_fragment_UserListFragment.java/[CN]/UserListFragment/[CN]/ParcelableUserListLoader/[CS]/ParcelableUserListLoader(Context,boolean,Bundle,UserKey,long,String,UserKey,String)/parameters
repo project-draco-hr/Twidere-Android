@@ -1,8 +1,0 @@
-Context context
-boolean omitIntentExtra
-Bundle extras
-UserKey accountKey
-long listId
-String listName
-UserKey userKey
-String screenName

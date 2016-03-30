@@ -1,7 +1,6 @@
 {
   final FragmentActivity activity=getActivity();
-  final Context context=activity;
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
+  final AlertDialog.Builder builder=new AlertDialog.Builder(activity);
   final ParcelableUser[] users=getUsers();
   final ParcelableUserList userList=getUserList();
   if (users == null || userList == null)   throw new NullPointerException();

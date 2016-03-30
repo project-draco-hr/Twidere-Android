@@ -7,7 +7,7 @@
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final UserList list;
-    if (mListId > 0) {
+    if (mListId != null) {
       list=twitter.showUserList(mListId);
     }
  else     if (mUserKey != null) {

@@ -1,25 +1,22 @@
 {
-  final boolean succeed=result.hasData() && result.getData().id > 0;
+  final boolean succeed=result.hasData();
   if (succeed) {
     final String message;
-    if (users.length == 1) {
-      final ParcelableUser user=users[0];
+    if (mUsers.length == 1) {
+      final ParcelableUser user=mUsers[0];
       final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
       final String displayName=mUserColorNameManager.getDisplayName(user.key,user.name,user.screen_name,nameFirst);
       message=mContext.getString(R.string.added_user_to_list,displayName,result.getData().name);
     }
  else {
       final Resources res=mContext.getResources();
-      message=res.getQuantityString(R.plurals.added_N_users_to_list,users.length,users.length,result.getData().name);
+      message=res.getQuantityString(R.plurals.added_N_users_to_list,mUsers.length,mUsers.length,result.getData().name);
     }
     Utils.showOkMessage(mContext,message,false);
   }
  else {
     Utils.showErrorMessage(mContext,R.string.action_adding_member,result.getException(),true);
   }
-  final Intent intent=new Intent(BROADCAST_USER_LIST_MEMBERS_ADDED);
-  intent.putExtra(EXTRA_USER_LIST,result.getData());
-  intent.putExtra(EXTRA_USERS,users);
-  mContext.sendBroadcast(intent);
+  bus.post(new UserListMembersChangedEvent(UserListMembersChangedEvent.Action.ADDED,result.getData(),mUsers));
   super.onPostExecute(result);
 }

@@ -1,12 +1,12 @@
 {
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
-  if (twitter == null || users == null)   return SingleResponse.getInstance();
+  if (twitter == null)   return SingleResponse.getInstance();
   try {
-    final UserKey[] userIds=new UserKey[users.length];
-    for (int i=0, j=users.length; i < j; i++) {
-      userIds[i]=users[i].key;
+    final UserKey[] userIds=new UserKey[mUsers.length];
+    for (int i=0, j=mUsers.length; i < j; i++) {
+      userIds[i]=mUsers[i].key;
     }
-    final UserList result=twitter.addUserListMembers(listId,UserKey.getIds(userIds));
+    final UserList result=twitter.addUserListMembers(mListId,UserKey.getIds(userIds));
     final ParcelableUserList list=ParcelableUserListUtils.from(result,mAccountKey);
     return SingleResponse.getInstance(list,null);
   }

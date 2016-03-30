@@ -1,0 +1,6 @@
+ParcelableUserList userList
+UserKey accountKey
+String listId
+UserKey userKey
+String screenName
+String listName

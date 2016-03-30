@@ -1,8 +1,6 @@
 {
   final View view;
   view=inflater.inflate(R.layout.card_item_user_list_compact,parent,false);
-  final View itemContent=view.findViewById(R.id.item_content);
-  itemContent.setBackgroundColor(cardBackgroundColor);
   final UserListViewHolder holder=new UserListViewHolder(adapter,view);
   holder.setOnClickListeners();
   holder.setupViewOptions();

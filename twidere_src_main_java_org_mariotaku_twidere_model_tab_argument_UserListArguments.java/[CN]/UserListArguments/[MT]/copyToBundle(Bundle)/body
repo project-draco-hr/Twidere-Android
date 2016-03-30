@@ -1,4 +1,4 @@
 {
   super.copyToBundle(bundle);
-  bundle.putLong(EXTRA_LIST_ID,listId);
+  bundle.putString(EXTRA_LIST_ID,listId);
 }

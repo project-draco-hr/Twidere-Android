@@ -1,0 +1,16 @@
+{
+  if (!userList.account_key.equals(accountKey))   return false;
+  if (listId != null) {
+    return TextUtils.equals(listId,userList.id);
+  }
+ else   if (listName != null) {
+    if (!TextUtils.equals(listName,userList.name))     return false;
+    if (userKey != null) {
+      return userKey.equals(userList.user_key);
+    }
+ else     if (screenName != null) {
+      return TextUtils.equals(screenName,userList.user_screen_name);
+    }
+  }
+  return false;
+}

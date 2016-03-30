@@ -1,7 +1,7 @@
 {
   setRefreshing(true);
   if (args == null)   return null;
-  final long listId=args.getLong(EXTRA_LIST_ID,-1);
+  final String listId=args.getString(EXTRA_LIST_ID);
   final UserKey accountKey=Utils.getAccountKey(context,args);
   final String maxId=args.getString(EXTRA_MAX_ID);
   final String sinceId=args.getString(EXTRA_SINCE_ID);
