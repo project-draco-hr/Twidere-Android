@@ -1,0 +1,3 @@
+{
+  return "NewMediaMetadata{" + "mediaId='" + mediaId + '\''+ ", altText="+ altText+ '}';
+}

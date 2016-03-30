@@ -3,5 +3,13 @@
   if (converter != null) {
     return converter;
   }
-  return super.forRequest(type);
+  if (SimpleBody.supports(type)) {
+    return new SimpleBodyConverter<>(type);
+  }
+  try {
+    return new JsonRequestConverter(LoganSquareMapperFinder.mapperFor(type));
+  }
+ catch (  LoganSquareMapperFinder.ClassLoaderDeadLockException e) {
+    throw new RestConverter.ConvertException(e);
+  }
 }

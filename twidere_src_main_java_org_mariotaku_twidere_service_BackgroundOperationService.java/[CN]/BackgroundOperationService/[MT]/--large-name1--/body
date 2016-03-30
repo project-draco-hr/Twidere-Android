@@ -32,7 +32,7 @@
       if (upload == null) {
         throw new UpdateStatusException("Twitter instance is null");
       }
-      final long[] mediaIds=new long[statusUpdate.media.length];
+      final String[] mediaIds=new String[statusUpdate.media.length];
       for (int i=0, j=mediaIds.length; i < j; i++) {
         final ParcelableMediaUpdate media=statusUpdate.media[i];
         FileBody body=null;
@@ -40,6 +40,9 @@
         try {
           body=getBodyFromMedia(resolver,builder,media,statusUpdate);
           uploadResp=upload.uploadMedia(body);
+          if (!TextUtils.isEmpty(media.alt_text)) {
+            upload.createMetadata(new NewMediaMetadata(uploadResp.getId(),media.alt_text));
+          }
         }
   finally {
           Utils.closeSilently(body);

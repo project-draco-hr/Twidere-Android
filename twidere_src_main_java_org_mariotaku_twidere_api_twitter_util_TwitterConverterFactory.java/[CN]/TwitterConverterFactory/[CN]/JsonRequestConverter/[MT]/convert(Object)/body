@@ -1,0 +1,3 @@
+{
+  return new StringBody(mapper.serialize(request),ContentType.parse("application/json"));
+}

@@ -2,4 +2,8 @@
   mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
   mCurrentThemeBackgroundOption=getThemeBackgroundOption();
   super.onApplyThemeResource(theme,resId,first);
+  final Window window=getWindow();
+  if (window != null && shouldApplyWindowBackground()) {
+    ThemeUtils.applyWindowBackground(this,window,getThemeBackgroundOption(),getThemeBackgroundAlpha());
+  }
 }

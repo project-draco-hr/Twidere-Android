@@ -1,0 +1,3 @@
+{
+  return "AltText{" + "text='" + text + '\''+ '}';
+}

@@ -1,0 +1,9 @@
+{
+  final TypedArray a=context.obtainStyledAttributes(new int[]{android.R.attr.colorBackground});
+  try {
+    return a.getColor(0,Color.TRANSPARENT);
+  }
+  finally {
+    a.recycle();
+  }
+}
