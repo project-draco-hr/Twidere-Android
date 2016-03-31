@@ -1,0 +1,9 @@
+{
+  FileInputStream is=null;
+  try {
+    return LoganSquareMapperFinder.mapperFor(cls).parseList(json);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

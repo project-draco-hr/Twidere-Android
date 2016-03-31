@@ -1,0 +1,9 @@
+{
+  if (spans == null)   return;
+  for (  SpanItem span : spans) {
+    if (span.link == null)     continue;
+    if (PreviewMediaExtractor.isSupported(span.link)) {
+      mImagePreloader.preloadImage(span.link);
+    }
+  }
+}

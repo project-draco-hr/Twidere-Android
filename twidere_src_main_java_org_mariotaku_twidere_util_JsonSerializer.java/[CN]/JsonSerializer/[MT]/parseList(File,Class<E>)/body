@@ -5,9 +5,6 @@
     return LoganSquareMapperFinder.mapperFor(cls).parseList(is);
   }
  catch (  IOException e) {
-    if (BuildConfig.DEBUG) {
-      Log.w(Constants.LOGTAG,e);
-    }
     return null;
   }
  finally {

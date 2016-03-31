@@ -1,7 +1,7 @@
 {
   final Context context=getContext();
   if (uri == null || valuesArray == null || valuesArray.length == 0 || context == null)   return;
-  preloadImages(valuesArray);
+  preloadMedia(valuesArray);
 switch (tableId) {
 case TABLE_ID_STATUSES:
 {

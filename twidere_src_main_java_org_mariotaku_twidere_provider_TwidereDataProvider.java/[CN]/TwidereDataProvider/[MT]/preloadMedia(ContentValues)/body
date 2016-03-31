@@ -1,0 +1,16 @@
+{
+  if (values == null)   return;
+  final boolean preloadProfileImages=mPreferences.getBoolean(KEY_PRELOAD_PROFILE_IMAGES,false);
+  final boolean preloadPreviewMedia=mPreferences.getBoolean(KEY_PRELOAD_PREVIEW_IMAGES,false);
+  for (  final ContentValues v : values) {
+    if (preloadProfileImages) {
+      mImagePreloader.preloadImage(v.getAsString(Statuses.USER_PROFILE_IMAGE_URL));
+      mImagePreloader.preloadImage(v.getAsString(DirectMessages.SENDER_PROFILE_IMAGE_URL));
+      mImagePreloader.preloadImage(v.getAsString(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL));
+    }
+    if (preloadPreviewMedia) {
+      preloadSpans(JsonSerializer.parseList(v.getAsString(Statuses.SPANS),SpanItem.class));
+      preloadSpans(JsonSerializer.parseList(v.getAsString(Statuses.QUOTED_SPANS),SpanItem.class));
+    }
+  }
+}
