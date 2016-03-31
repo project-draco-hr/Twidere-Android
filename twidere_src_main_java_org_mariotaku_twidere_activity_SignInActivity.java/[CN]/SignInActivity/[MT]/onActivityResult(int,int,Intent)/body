@@ -4,12 +4,12 @@ case REQUEST_EDIT_API:
 {
       if (resultCode == RESULT_OK) {
         mAPIUrlFormat=data.getStringExtra(Accounts.API_URL_FORMAT);
-        mAuthType=data.getIntExtra(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_OAUTH);
+        mAuthType=data.getIntExtra(Accounts.AUTH_TYPE,ParcelableCredentials.AuthType.OAUTH);
         mSameOAuthSigningUrl=data.getBooleanExtra(Accounts.SAME_OAUTH_SIGNING_URL,false);
         mNoVersionSuffix=data.getBooleanExtra(Accounts.NO_VERSION_SUFFIX,false);
         mConsumerKey=data.getStringExtra(Accounts.CONSUMER_KEY);
         mConsumerSecret=data.getStringExtra(Accounts.CONSUMER_SECRET);
-        final boolean isTwipOMode=mAuthType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE;
+        final boolean isTwipOMode=mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE;
         mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
         mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
       }

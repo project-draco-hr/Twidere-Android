@@ -1,5 +1,5 @@
 {
-  if ((position & IndicatorPosition.START) != 0)   return;
+  if ((position & IndicatorPosition.START) != 0 || isRefreshing())   return;
   super.onLoadMoreContents(position);
   if (position == 0)   return;
   getActivities(new SimpleRefreshTaskParam(){

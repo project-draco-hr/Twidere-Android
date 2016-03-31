@@ -1,0 +1,10 @@
+{
+  account_key=accountKey;
+  user_key=userKey;
+  following=relationship.isSourceFollowingTarget();
+  followed_by=relationship.isSourceFollowedByTarget();
+  blocking=relationship.isSourceBlockingTarget();
+  blocked_by=relationship.isSourceBlockedByTarget();
+  muting=relationship.isSourceMutingTarget();
+  retweet_enabled=relationship.isSourceWantRetweetsFromTarget();
+}

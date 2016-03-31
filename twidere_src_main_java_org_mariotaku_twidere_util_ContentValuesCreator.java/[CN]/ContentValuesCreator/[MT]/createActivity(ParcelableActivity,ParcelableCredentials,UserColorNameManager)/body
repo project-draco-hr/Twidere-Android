@@ -1,10 +1,23 @@
 {
   final ContentValues values=new ContentValues();
   final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
+  activity.account_color=credentials.color;
   if (status != null) {
     ParcelableStatusUtils.updateExtraInformation(status,credentials,manager);
-    createStatusActivity(status,values);
-    activity.account_color=status.account_color;
+    if (status.is_retweet) {
+      activity.status_retweeted_by_user_key=status.retweeted_by_user_key;
+    }
+ else     if (status.is_quote) {
+      activity.status_quote_spans=status.quoted_spans;
+      activity.status_quote_text_plain=status.quoted_text_plain;
+      activity.status_quote_source=status.quoted_source;
+      activity.status_quoted_user_key=status.quoted_user_key;
+    }
+    activity.status_user_key=status.user_key;
+    activity.status_user_following=status.user_is_following;
+    activity.status_spans=status.spans;
+    activity.status_text_plain=status.text_plain;
+    activity.status_source=status.source;
     activity.status_user_color=status.user_color;
     activity.status_retweet_user_color=status.retweet_user_color;
     activity.status_quoted_user_color=status.quoted_user_color;
@@ -12,9 +25,6 @@
     activity.status_in_reply_to_user_nickname=status.in_reply_to_user_nickname;
     activity.status_retweet_user_nickname=status.retweet_user_nickname;
     activity.status_quoted_user_nickname=status.quoted_user_nickname;
-  }
- else {
-    activity.account_color=credentials.color;
   }
   ParcelableActivityValuesCreator.writeTo(activity,values);
   return values;

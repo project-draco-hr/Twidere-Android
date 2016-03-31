@@ -12,7 +12,7 @@
     mPassword=savedInstanceState.getString(Accounts.PASSWORD);
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
   }
-  final boolean isTwipOMode=mAuthType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE;
+  final boolean isTwipOMode=mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE;
   mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
   mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
   mEditUsername.setText(mUsername);

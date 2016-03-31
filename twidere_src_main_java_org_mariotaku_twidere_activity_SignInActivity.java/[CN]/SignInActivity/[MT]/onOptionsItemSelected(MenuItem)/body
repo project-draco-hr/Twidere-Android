@@ -31,7 +31,7 @@ case R.id.edit_api:
 }
 case R.id.open_in_browser:
 {
-if (mAuthType != ParcelableCredentials.AUTH_TYPE_OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
+if (mAuthType != ParcelableCredentials.AuthType.OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
 saveEditedText();
 final Intent intent=new Intent(this,BrowserSignInActivity.class);
 intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);

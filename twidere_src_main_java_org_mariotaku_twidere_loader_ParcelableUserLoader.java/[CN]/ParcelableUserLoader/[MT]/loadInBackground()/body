@@ -61,12 +61,12 @@
       twitterUser=twitter.verifyCredentials();
     }
  else {
-      String mProfileUrl=null;
+      String profileUrl=null;
       if (mExtras != null) {
-        mProfileUrl=mExtras.getString(EXTRA_PROFILE_URL);
+        profileUrl=mExtras.getString(EXTRA_PROFILE_URL);
       }
-      if (TwitterAPIFactory.isStatusNetCredentials(credentials) && mUserKey != null && mProfileUrl != null && !TextUtils.equals(credentials.account_key.getHost(),mUserKey.getHost())) {
-        twitterUser=twitter.showExternalProfile(mProfileUrl);
+      if (TwitterAPIFactory.isStatusNetCredentials(credentials) && mUserKey != null && profileUrl != null && !TextUtils.equals(credentials.account_key.getHost(),mUserKey.getHost())) {
+        twitterUser=twitter.showExternalProfile(profileUrl);
       }
  else {
         final String id=mUserKey != null ? mUserKey.getId() : null;

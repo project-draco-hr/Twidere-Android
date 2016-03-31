@@ -2,7 +2,7 @@
   FileInputStream is=null;
   try {
     is=new FileInputStream(file);
-    return LoganSquareMapperFinder.mapperFor(cls).parseList(is);
+    return parseList(is,cls);
   }
  catch (  IOException e) {
     return null;

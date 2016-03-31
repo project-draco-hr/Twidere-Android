@@ -9,7 +9,7 @@
   String consumerKey, consumerSecret;
   final SharedPreferences pref=getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   final String prefApiUrlFormat=getNonEmptyString(pref,KEY_API_URL_FORMAT,DEFAULT_TWITTER_API_URL_FORMAT);
-  final int prefAuthType=pref.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_OAUTH);
+  final int prefAuthType=pref.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AuthType.OAUTH);
   final boolean prefSameOAuthSigningUrl=pref.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,false);
   final boolean prefNoVersionSuffix=pref.getBoolean(KEY_NO_VERSION_SUFFIX,false);
   final String prefConsumerKey=getNonEmptyString(pref,KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY);
@@ -41,10 +41,10 @@
   mEditNoVersionSuffix.setChecked(noVersionSuffix);
   mEditConsumerKey.setText(consumerKey);
   mEditConsumerSecret.setText(consumerSecret);
-  mButtonOAuth.setChecked(authType == ParcelableCredentials.AUTH_TYPE_OAUTH);
-  mButtonXAuth.setChecked(authType == ParcelableCredentials.AUTH_TYPE_XAUTH);
-  mButtonBasic.setChecked(authType == ParcelableCredentials.AUTH_TYPE_BASIC);
-  mButtonTWIPOMode.setChecked(authType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
+  mButtonOAuth.setChecked(authType == ParcelableCredentials.AuthType.OAUTH);
+  mButtonXAuth.setChecked(authType == ParcelableCredentials.AuthType.XAUTH);
+  mButtonBasic.setChecked(authType == ParcelableCredentials.AuthType.BASIC);
+  mButtonTWIPOMode.setChecked(authType == ParcelableCredentials.AuthType.TWIP_O_MODE);
   if (mEditAuthType.getCheckedRadioButtonId() == -1) {
     mButtonOAuth.setChecked(true);
   }

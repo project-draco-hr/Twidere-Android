@@ -1,6 +1,9 @@
 {
   final ParcelableStatusesAdapter adapter=getAdapter();
   final ParcelableStatus status=adapter.getStatus(position);
+  if (BuildConfig.DEBUG) {
+    Log.v(LOGTAG,"Load activity gap " + status);
+  }
   if (status == null)   return;
   final UserKey[] accountIds={status.account_key};
   final String[] maxIds={status.id};

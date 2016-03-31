@@ -2,7 +2,7 @@
   super.onContentChanged();
   mTabIndicator=(TabPagerIndicator)findViewById(R.id.main_tabs);
   mToolbar=(Toolbar)findViewById(R.id.action_bar);
-  mDrawerLayout=(DrawerLayout)findViewById(R.id.home_menu);
+  mDrawerLayout=(HomeDrawerLayout)findViewById(R.id.home_menu);
   mViewPager=(ExtendedViewPager)findViewById(R.id.main_pager);
   mEmptyTabHint=findViewById(R.id.empty_tab_hint);
   mActionsButton=(FloatingActionButton)findViewById(R.id.actions_button);

@@ -1,6 +1,6 @@
 {
   this.account_key=user.account_key;
-  this.user_id=user.key.getId();
+  this.user_key=user.key;
   this.filtering=filtering;
   if (user.extras != null) {
     this.following=user.is_following;

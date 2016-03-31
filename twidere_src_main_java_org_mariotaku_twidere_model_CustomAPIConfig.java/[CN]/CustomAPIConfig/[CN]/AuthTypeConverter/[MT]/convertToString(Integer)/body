@@ -1,0 +1,22 @@
+{
+  if (object == null)   return "oauth";
+switch (object) {
+case ParcelableCredentials.AuthType.OAUTH:
+{
+      return "oauth";
+    }
+case ParcelableCredentials.AuthType.XAUTH:
+{
+    return "xauth";
+  }
+case ParcelableCredentials.AuthType.BASIC:
+{
+  return "basic";
+}
+case ParcelableCredentials.AuthType.TWIP_O_MODE:
+{
+return "twip_o_mode";
+}
+}
+return "oauth";
+}

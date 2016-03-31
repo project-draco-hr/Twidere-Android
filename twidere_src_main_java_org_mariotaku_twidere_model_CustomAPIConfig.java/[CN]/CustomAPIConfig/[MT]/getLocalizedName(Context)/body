@@ -1,0 +1,9 @@
+{
+  if (localizedName == null)   return name;
+  final Resources res=context.getResources();
+  int id=res.getIdentifier(localizedName,"string",context.getPackageName());
+  if (id != 0) {
+    return res.getString(id);
+  }
+  return name;
+}

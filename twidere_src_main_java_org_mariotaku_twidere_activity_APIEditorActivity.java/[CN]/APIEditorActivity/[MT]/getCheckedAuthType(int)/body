@@ -2,19 +2,19 @@
 switch (checkedId) {
 case R.id.xauth:
 {
-      return ParcelableCredentials.AUTH_TYPE_XAUTH;
+      return ParcelableCredentials.AuthType.XAUTH;
     }
 case R.id.basic:
 {
-    return ParcelableCredentials.AUTH_TYPE_BASIC;
+    return ParcelableCredentials.AuthType.BASIC;
   }
 case R.id.twip_o:
 {
-  return ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE;
+  return ParcelableCredentials.AuthType.TWIP_O_MODE;
 }
 default :
 {
-return ParcelableCredentials.AUTH_TYPE_OAUTH;
+return ParcelableCredentials.AuthType.OAUTH;
 }
 }
 }

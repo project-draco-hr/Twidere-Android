@@ -1,6 +1,10 @@
 {
   final ParcelableActivitiesAdapter adapter=getAdapter();
   final ParcelableActivity activity=adapter.getActivity(position);
+  if (BuildConfig.DEBUG) {
+    Log.v(LOGTAG,"Load activity gap " + activity);
+  }
+  if (activity == null)   return;
   final UserKey[] accountIds={activity.account_key};
   final String[] maxIds={activity.min_position};
   final long[] maxSortIds={activity.min_sort_position};

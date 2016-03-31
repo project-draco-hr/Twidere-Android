@@ -2,22 +2,22 @@
   if (user == null)   return null;
   final ContentValues values;
 switch (authType) {
-case ParcelableCredentials.AUTH_TYPE_BASIC:
+case ParcelableCredentials.AuthType.BASIC:
 {
       values=new ContentValues();
       values.put(Accounts.BASIC_AUTH_USERNAME,basicUsername);
       values.put(Accounts.BASIC_AUTH_PASSWORD,basicPassword);
-      values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_BASIC);
+      values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AuthType.BASIC);
       break;
     }
-case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
+case ParcelableCredentials.AuthType.TWIP_O_MODE:
 {
     values=new ContentValues();
-    values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
+    values.put(Accounts.AUTH_TYPE,ParcelableCredentials.AuthType.TWIP_O_MODE);
     break;
   }
-case ParcelableCredentials.AUTH_TYPE_OAUTH:
-case ParcelableCredentials.AUTH_TYPE_XAUTH:
+case ParcelableCredentials.AuthType.OAUTH:
+case ParcelableCredentials.AuthType.XAUTH:
 {
   values=new ContentValues();
   final OAuthToken accessToken=oauth.getOauthToken();

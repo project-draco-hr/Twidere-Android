@@ -27,7 +27,7 @@
       Utils.setLastSeen(context,userKey,System.currentTimeMillis());
     }
     Utils.updateRelationship(context,mAccountKey,userKey,relationship);
-    return SingleResponse.getInstance(new UserRelationship(mAccountKey,relationship,isFiltering));
+    return SingleResponse.getInstance(new UserRelationship(mAccountKey,userKey,relationship,isFiltering));
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

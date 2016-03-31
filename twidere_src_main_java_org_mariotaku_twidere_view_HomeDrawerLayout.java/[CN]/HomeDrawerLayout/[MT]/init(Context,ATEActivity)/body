@@ -1,0 +1,11 @@
+{
+  final String key=keyContext != null ? keyContext.getATEKey() : null;
+  if (Config.coloredStatusBar(context,key)) {
+    setStatusBarBackgroundColor(Config.statusBarColor(context,key));
+    if (context instanceof Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      final Activity activity=(Activity)context;
+      activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
+      ATE.invalidateLightStatusBar(activity,key);
+    }
+  }
+}

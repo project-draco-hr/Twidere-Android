@@ -1,0 +1,24 @@
+{
+switch (ev.getAction()) {
+case MotionEvent.ACTION_DOWN:
+{
+      mStartLockMode=getDrawerLockMode(GravityCompat.START);
+      mEndLockMode=getDrawerLockMode(GravityCompat.END);
+      if (isDrawerOpen(GravityCompat.START) || isDrawerOpen(GravityCompat.END)) {
+        if (mShouldDisableDecider != null && mShouldDisableDecider.shouldDisableTouch(ev)) {
+          setDrawerLockMode(LOCK_MODE_LOCKED_OPEN,GravityCompat.START);
+          setDrawerLockMode(LOCK_MODE_LOCKED_OPEN,GravityCompat.END);
+        }
+      }
+      break;
+    }
+case MotionEvent.ACTION_UP:
+case MotionEvent.ACTION_CANCEL:
+{
+    setDrawerLockMode(mStartLockMode,GravityCompat.START);
+    setDrawerLockMode(mEndLockMode,GravityCompat.END);
+    break;
+  }
+}
+return super.dispatchTouchEvent(ev);
+}

@@ -1,6 +1,16 @@
 {
-  CustomAPIConfig[] list=new CustomAPIConfig[2];
-  list[0]=new CustomAPIConfig(context.getString(R.string.provider_default),DEFAULT_TWITTER_API_URL_FORMAT,ParcelableCredentials.AUTH_TYPE_OAUTH,true,false,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET);
-  list[1]=new CustomAPIConfig(context.getString(R.string.provider_fanfou),DEFAULT_FANFOU_API_URL_FORMAT,ParcelableCredentials.AUTH_TYPE_OAUTH,true,true,FANFOU_CONSUMER_KEY,FANFOU_CONSUMER_SECRET);
-  return list;
+  final AssetManager assets=context.getAssets();
+  InputStream is=null;
+  try {
+    is=assets.open("data/default_api_configs.json");
+    List<CustomAPIConfig> configList=JsonSerializer.parseList(is,CustomAPIConfig.class);
+    if (configList == null)     return listBuiltin(context);
+    return configList.toArray(new CustomAPIConfig[configList.size()]);
+  }
+ catch (  IOException e) {
+    return listBuiltin(context);
+  }
+ finally {
+    Utils.closeSilently(is);
+  }
 }

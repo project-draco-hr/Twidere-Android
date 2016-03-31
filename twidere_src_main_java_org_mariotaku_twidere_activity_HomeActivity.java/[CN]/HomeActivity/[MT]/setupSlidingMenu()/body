@@ -2,4 +2,17 @@
   mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow_start,GravityCompat.START);
   mDrawerLayout.addDrawerListener(mDrawerToggle);
   mDrawerLayout.addDrawerListener(this);
+  mDrawerLayout.setShouldDisableDecider(new HomeDrawerLayout.ShouldDisableDecider(){
+    @Override public boolean shouldDisableTouch(    MotionEvent e){
+      final Fragment fragment=getLeftDrawerFragment();
+      if (fragment instanceof AccountsDashboardFragment) {
+        RecyclerView accountsSelector=((AccountsDashboardFragment)fragment).getAccountsSelector();
+        if (accountsSelector != null) {
+          return TwidereViewUtils.hitView(e.getRawX(),e.getRawY(),accountsSelector);
+        }
+      }
+      return false;
+    }
+  }
+);
 }

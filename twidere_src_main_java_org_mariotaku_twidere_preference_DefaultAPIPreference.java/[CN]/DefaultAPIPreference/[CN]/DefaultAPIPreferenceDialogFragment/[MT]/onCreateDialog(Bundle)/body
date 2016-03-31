@@ -24,12 +24,12 @@
       mEditAuthType.setOnCheckedChangeListener(new OnCheckedChangeListener(){
         @Override public void onCheckedChanged(        RadioGroup group,        int checkedId){
           final int authType=APIEditorActivity.getCheckedAuthType(checkedId);
-          final boolean isOAuth=authType == ParcelableCredentials.AUTH_TYPE_OAUTH || authType == ParcelableCredentials.AUTH_TYPE_XAUTH;
+          final boolean isOAuth=authType == ParcelableCredentials.AuthType.OAUTH || authType == ParcelableCredentials.AuthType.XAUTH;
           mEditSameOAuthSigningUrl.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
           mEditConsumerKey.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
           mEditConsumerSecret.setVisibility(isOAuth ? View.VISIBLE : View.GONE);
           if (!mEditNoVersionSuffixChanged) {
-            mEditNoVersionSuffix.setChecked(authType == ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE);
+            mEditNoVersionSuffix.setChecked(authType == ParcelableCredentials.AuthType.TWIP_O_MODE);
           }
         }
       }
@@ -52,7 +52,7 @@
  else {
         final SharedPreferences preferences=preference.getSharedPreferences();
         final String apiUrlFormat=preferences.getString(KEY_API_URL_FORMAT,DEFAULT_TWITTER_API_URL_FORMAT);
-        final int authType=preferences.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AUTH_TYPE_OAUTH);
+        final int authType=preferences.getInt(KEY_AUTH_TYPE,ParcelableCredentials.AuthType.OAUTH);
         final boolean sameOAuthSigningUrl=preferences.getBoolean(KEY_SAME_OAUTH_SIGNING_URL,true);
         final boolean noVersionSuffix=preferences.getBoolean(KEY_NO_VERSION_SUFFIX,false);
         final String consumerKey=trim(preferences.getString(KEY_CONSUMER_KEY,TWITTER_CONSUMER_KEY));

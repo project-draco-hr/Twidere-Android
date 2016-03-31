@@ -1,11 +1,4 @@
 {
-  final ContentValues values=new ContentValues();
-  values.put(CachedRelationships.ACCOUNT_KEY,accountKey.toString());
-  values.put(CachedRelationships.USER_KEY,userKey.toString());
-  values.put(CachedRelationships.FOLLOWING,relationship.isSourceFollowingTarget());
-  values.put(CachedRelationships.FOLLOWED_BY,relationship.isSourceFollowedByTarget());
-  values.put(CachedRelationships.BLOCKING,relationship.isSourceBlockingTarget());
-  values.put(CachedRelationships.BLOCKED_BY,relationship.isSourceBlockedByTarget());
-  values.put(CachedRelationships.MUTING,relationship.isSourceMutingTarget());
-  return values;
+  CachedRelationship cached=new CachedRelationship(relationship,accountKey,userKey);
+  return CachedRelationshipValuesCreator.create(cached);
 }

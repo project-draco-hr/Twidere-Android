@@ -1,13 +1,13 @@
 {
   try {
 switch (authType) {
-case ParcelableCredentials.AUTH_TYPE_OAUTH:
+case ParcelableCredentials.AuthType.OAUTH:
       return authOAuth();
-case ParcelableCredentials.AUTH_TYPE_XAUTH:
+case ParcelableCredentials.AuthType.XAUTH:
     return authxAuth();
-case ParcelableCredentials.AUTH_TYPE_BASIC:
+case ParcelableCredentials.AuthType.BASIC:
   return authBasic();
-case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
+case ParcelableCredentials.AuthType.TWIP_O_MODE:
 return authTwipOMode();
 }
 return authOAuth();

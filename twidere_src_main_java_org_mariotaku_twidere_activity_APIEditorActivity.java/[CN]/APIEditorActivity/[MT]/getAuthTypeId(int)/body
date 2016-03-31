@@ -1,14 +1,14 @@
 {
 switch (authType) {
-case ParcelableCredentials.AUTH_TYPE_XAUTH:
+case ParcelableCredentials.AuthType.XAUTH:
 {
       return R.id.xauth;
     }
-case ParcelableCredentials.AUTH_TYPE_BASIC:
+case ParcelableCredentials.AuthType.BASIC:
 {
     return R.id.basic;
   }
-case ParcelableCredentials.AUTH_TYPE_TWIP_O_MODE:
+case ParcelableCredentials.AuthType.TWIP_O_MODE:
 {
   return R.id.twip_o;
 }

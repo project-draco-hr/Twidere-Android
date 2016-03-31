@@ -2,5 +2,5 @@
   if (!account_key.equals(user.account_key)) {
     return false;
   }
-  return (user.extras != null && TextUtils.equals(user_id,user.extras.unique_id)) || TextUtils.equals(user_id,user.key.getId());
+  return (user.extras != null && TextUtils.equals(user_key.getId(),user.extras.unique_id)) || TextUtils.equals(user_key.getId(),user.key.getId());
 }
