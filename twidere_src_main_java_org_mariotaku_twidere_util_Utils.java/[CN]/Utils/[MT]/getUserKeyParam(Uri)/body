@@ -1,0 +1,7 @@
+{
+  final String paramUserKey=uri.getQueryParameter(QUERY_PARAM_USER_KEY);
+  if (paramUserKey == null) {
+    return uri.getQueryParameter(QUERY_PARAM_USER_ID);
+  }
+  return paramUserKey;
+}

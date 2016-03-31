@@ -6,6 +6,11 @@
     bundle.putParcelableArray(EXTRA_ACCOUNT_KEYS,accountKeys);
   }
  else   if (accountId != null) {
-    bundle.putString(EXTRA_ACCOUNT_ID,accountId);
+    final long id=NumberUtils.toLong(accountId,Long.MIN_VALUE);
+    if (id != Long.MIN_VALUE && id <= 0) {
+      bundle.putParcelableArray(EXTRA_ACCOUNT_KEYS,new UserKey[0]);
+      return;
+    }
+    bundle.putParcelableArray(EXTRA_ACCOUNT_KEYS,new UserKey[]{UserKey.valueOf(accountId)});
   }
 }
