@@ -6,5 +6,4 @@
   editor.putInt(KEY_THEME_BACKGROUND_ALPHA,getSliderAlpha());
   editor.apply();
   preference.saveValue();
-  preference.notifyChanged();
 }

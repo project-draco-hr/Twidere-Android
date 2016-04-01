@@ -1,4 +1,6 @@
 {
+  final PreferenceManager preferenceManager=getPreferenceManager();
+  preferenceManager.setSharedPreferencesName(SHARED_PREFERENCES_NAME);
   addPreferencesFromResource(getPreferenceResource());
   final Context context=getActivity();
   final Preference wizardHeader=new WizardPageHeaderPreference(context);

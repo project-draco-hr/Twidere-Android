@@ -19,6 +19,9 @@
     return response;
   }
  catch (  final TwitterException e) {
+    if (e.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND) {
+      DataStoreUtils.deleteStatus(getContext().getContentResolver(),mAccountId,mStatusId,null);
+    }
     return SingleResponse.getInstance(e);
   }
 }

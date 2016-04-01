@@ -1,6 +1,7 @@
 {
   if (!TextUtils.equals(getPersistedString(null),value)) {
     persistString(value);
+    callChangeListener(value);
     notifyChanged();
   }
   updateSummary();

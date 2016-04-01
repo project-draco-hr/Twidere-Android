@@ -1,0 +1,4 @@
+{
+  mEntries.add(new PreferenceEntry(tag,icon,title,preference,null,null));
+  notifyDataSetChanged();
+}

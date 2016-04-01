@@ -1,3 +1,5 @@
+String tag
 int icon
 String title
 Class<? extends Fragment> cls
+Bundle args

@@ -1,6 +1,9 @@
 {
   final String key=preference.getKey();
   if (WIZARD_PREFERENCE_KEY_EDIT_CUSTOM_TABS.equals(key)) {
+    final Intent intent=new Intent(getActivity(),SettingsActivity.class);
+    intent.putExtra(SettingsActivity.EXTRA_INITIAL_TAG,"tabs");
+    startActivityForResult(intent,REQUEST_CUSTOM_TABS);
   }
  else   if (WIZARD_PREFERENCE_KEY_USE_DEFAULTS.equals(key)) {
     applyInitialTabSettings();

@@ -1,4 +1,0 @@
-{
-  mEntries.add(new PreferenceEntry(icon,title,0,cls.getName(),args));
-  notifyDataSetChanged();
-}

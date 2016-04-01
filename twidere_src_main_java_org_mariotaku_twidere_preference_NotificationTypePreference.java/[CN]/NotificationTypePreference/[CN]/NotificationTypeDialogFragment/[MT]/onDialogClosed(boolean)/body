@@ -9,5 +9,6 @@
     }
   }
   preference.persistInt(value);
+  preference.callChangeListener(value);
   preference.notifyChanged();
 }

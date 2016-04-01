@@ -10,8 +10,5 @@
     if (extras.containsKey(EXTRA_RESTART_ACTIVITY)) {
       activity.recreate();
     }
- else     if (extras.containsKey(EXTRA_RECREATE_ACTIVITY)) {
-      activity.recreate();
-    }
   }
 }
