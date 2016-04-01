@@ -1,4 +1,0 @@
-{
-  super.onContentChanged();
-  mListView=(ListView)findViewById(android.R.id.list);
-}

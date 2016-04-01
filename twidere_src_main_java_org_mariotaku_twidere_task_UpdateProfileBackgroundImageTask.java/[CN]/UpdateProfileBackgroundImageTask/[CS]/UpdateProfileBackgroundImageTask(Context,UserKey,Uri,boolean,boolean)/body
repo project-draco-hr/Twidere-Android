@@ -1,0 +1,8 @@
+{
+  GeneralComponentHelper.build(context).inject((UpdateProfileBackgroundImageTask<Object>)this);
+  mContext=context;
+  mAccountKey=accountKey;
+  mImageUri=imageUri;
+  mDeleteImage=deleteImage;
+  mTile=tile;
+}

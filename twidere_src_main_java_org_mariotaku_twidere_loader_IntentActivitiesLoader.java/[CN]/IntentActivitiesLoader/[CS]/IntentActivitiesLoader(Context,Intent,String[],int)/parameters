@@ -1,4 +1,0 @@
-Context context
-Intent intent
-String[] packagesBlacklist
-int flags

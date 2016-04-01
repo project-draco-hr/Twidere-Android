@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,SingleResponse<ParcelableUser>>
+AbstractTask<Object,SingleResponse<ParcelableUser>,UserProfileEditorFragment>

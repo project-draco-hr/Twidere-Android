@@ -1,0 +1,29 @@
+{
+  ParcelableLocation location=getParams();
+  final TextView textView=getCallback();
+  if (textView == null)   return;
+  final SharedPreferencesWrapper preferences=context.mPreferences;
+  final boolean attachLocation=preferences.getBoolean(KEY_ATTACH_LOCATION);
+  final boolean attachPreciseLocation=preferences.getBoolean(KEY_ATTACH_PRECISE_LOCATION);
+  if (attachLocation) {
+    if (attachPreciseLocation) {
+      textView.setText(ParcelableLocationUtils.getHumanReadableString(location,3));
+      textView.setTag(location);
+    }
+ else {
+      Object tag=textView.getTag();
+      if (tag instanceof Address) {
+        textView.setText(((Address)tag).getLocality());
+      }
+ else       if (tag instanceof NoAddress) {
+        textView.setText(R.string.your_coarse_location);
+      }
+ else {
+        textView.setText(R.string.getting_location);
+      }
+    }
+  }
+ else {
+    textView.setText(R.string.no_location);
+  }
+}

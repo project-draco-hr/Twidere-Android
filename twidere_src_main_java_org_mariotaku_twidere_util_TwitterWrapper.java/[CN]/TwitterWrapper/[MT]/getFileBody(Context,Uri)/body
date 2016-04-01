@@ -1,0 +1,27 @@
+{
+  final ContentResolver cr=context.getContentResolver();
+  String type=cr.getType(imageUri);
+  if (type == null) {
+    type=Utils.getImageMimeType(cr,imageUri);
+  }
+  final ContentType contentType;
+  final String extension;
+  if (type != null) {
+    contentType=ContentType.parse(type);
+    extension=MimeTypeMap.getSingleton().getExtensionFromMimeType(type);
+  }
+ else {
+    contentType=null;
+    extension=null;
+  }
+  final InputStream is=cr.openInputStream(imageUri);
+  if (is == null)   throw new FileNotFoundException(imageUri.toString());
+  final String fileName;
+  if (extension != null) {
+    fileName="image." + extension;
+  }
+ else {
+    fileName="image";
+  }
+  return new FileBody(is,fileName,is.available(),contentType);
+}

@@ -2,7 +2,7 @@
   if (absListView == null)   return;
   if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
     if (absListView instanceof ListView) {
-      final ListView listView=((ListView)absListView);
+      final ListView listView=(ListView)absListView;
       listView.setSelectionFromTop(position,offset);
     }
  else {
@@ -13,7 +13,7 @@
  else {
     stopListView(absListView);
     if (absListView instanceof ListView) {
-      final ListView listView=((ListView)absListView);
+      final ListView listView=(ListView)absListView;
       listView.setSelectionFromTop(position,offset);
     }
  else {

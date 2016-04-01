@@ -1,0 +1,17 @@
+{
+  if (uri == null)   return null;
+  final BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inJustDecodeBounds=true;
+  InputStream is=null;
+  try {
+    is=cr.openInputStream(uri);
+    BitmapFactory.decodeStream(is,null,o);
+    return o.outMimeType;
+  }
+ catch (  IOException e) {
+    return null;
+  }
+ finally {
+    closeSilently(is);
+  }
+}

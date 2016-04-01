@@ -15,20 +15,21 @@
   }
  else {
     if (!handled.second) {
+      BugReporter.logException(new TwitterLinkException("Unable to handle twitter uri " + uri));
     }
-    final String packageName=mPreferences.getString(KEY_FALLBACK_TWITTER_LINK_HANDLER,null);
     final Intent fallbackIntent=new Intent(Intent.ACTION_VIEW,uri);
-    IntentSupport.setSelector(intent,new Intent(Intent.ACTION_VIEW).addCategory(IntentSupport.CATEGORY_APP_BROWSER));
-    fallbackIntent.setPackage(packageName);
-    if (TextUtils.isEmpty(packageName) || packageManager.queryIntentActivities(fallbackIntent,0).isEmpty()) {
-      final Intent pickIntent=new Intent(INTENT_ACTION_PICK_ACTIVITY);
-      pickIntent.putExtra(EXTRA_INTENT,new Intent(Intent.ACTION_VIEW,uri));
-      pickIntent.putExtra(EXTRA_BLACKLIST,new String[]{getPackageName()});
-      startActivityForResult(pickIntent,REQUEST_PICK_ACTIVITY);
-      return;
+    fallbackIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+    fallbackIntent.setPackage(IntentUtils.getDefaultBrowserPackage(this));
+    final ComponentName componentName=fallbackIntent.resolveActivity(packageManager);
+    if (componentName == null) {
+      final Intent targetIntent=new Intent(Intent.ACTION_VIEW,uri);
+      targetIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+      startActivity(Intent.createChooser(targetIntent,getString(R.string.open_in_browser)));
+    }
+ else     if (!TextUtils.equals(getPackageName(),componentName.getPackageName())) {
+      startActivity(fallbackIntent);
     }
  else {
-      startActivity(fallbackIntent);
     }
   }
   finish();

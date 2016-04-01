@@ -1,6 +1,6 @@
 {
   final ParcelableUser user=mUser;
-  if (user == null || (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING))   return;
+  if (user == null || (mTask != null && !mTask.isFinished()))   return;
 switch (view.getId()) {
 case R.id.profile_image:
 {
@@ -20,6 +20,12 @@ case R.id.edit_profile_banner:
 {
 final Intent intent=ThemedImagePickerActivity.withThemed(getActivity()).aspectRatio(3,1).maximumSize(1500,500).addEntry(getString(R.string.remove),"remove_banner",RESULT_REMOVE_BANNER).build();
 startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_BANNER_IMAGE);
+break;
+}
+case R.id.edit_profile_background:
+{
+final Intent intent=ThemedImagePickerActivity.withThemed(getActivity()).build();
+startActivityForResult(intent,REQUEST_UPLOAD_PROFILE_BACKGROUND_IMAGE);
 break;
 }
 case R.id.set_link_color:

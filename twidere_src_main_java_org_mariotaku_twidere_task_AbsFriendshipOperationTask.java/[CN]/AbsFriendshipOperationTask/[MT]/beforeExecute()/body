@@ -1,0 +1,7 @@
+{
+  Arguments params=getParams();
+  twitter.addUpdatingRelationshipId(params.accountKey,params.userKey);
+  final FriendshipTaskEvent event=new FriendshipTaskEvent(action,params.accountKey,params.userKey);
+  event.setFinished(false);
+  bus.post(event);
+}

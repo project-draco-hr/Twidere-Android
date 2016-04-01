@@ -1,8 +1,0 @@
-{
-  super.onReset();
-  onStopLoading();
-  if (mPackageObserver != null) {
-    getContext().unregisterReceiver(mPackageObserver);
-    mPackageObserver=null;
-  }
-}

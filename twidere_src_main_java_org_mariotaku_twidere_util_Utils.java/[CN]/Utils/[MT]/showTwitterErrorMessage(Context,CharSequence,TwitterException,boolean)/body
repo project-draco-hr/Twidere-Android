@@ -13,6 +13,9 @@
         final String msg=StatusCodeMessageUtils.getMessage(context,te.getStatusCode(),te.getErrorCode());
         message=context.getString(R.string.error_message_with_action,action,msg != null ? msg : trimLineBreak(te.getMessage()));
       }
+ else       if (!TextUtils.isEmpty(te.getErrorMessage())) {
+        message=context.getString(R.string.error_message_with_action,action,trimLineBreak(te.getErrorMessage()));
+      }
  else       if (te.getCause() instanceof SSLException) {
         final String msg=te.getCause().getMessage();
         if (msg != null && msg.contains("!=")) {

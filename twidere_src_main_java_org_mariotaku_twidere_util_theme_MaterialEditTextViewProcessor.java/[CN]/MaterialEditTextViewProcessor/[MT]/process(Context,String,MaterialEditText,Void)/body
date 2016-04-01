@@ -1,0 +1,5 @@
+{
+  if (target == null)   return;
+  int accentColor=Config.accentColor(context,key);
+  target.setPrimaryColor(accentColor);
+}

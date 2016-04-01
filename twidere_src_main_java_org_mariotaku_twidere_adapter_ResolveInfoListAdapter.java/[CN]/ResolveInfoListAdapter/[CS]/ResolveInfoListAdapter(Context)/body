@@ -1,4 +1,0 @@
-{
-  super(context,R.layout.list_item_two_line_small);
-  mPackageManager=context.getPackageManager();
-}

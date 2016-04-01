@@ -1,7 +1,0 @@
-{
-  super(context);
-  mPackageManager=context.getPackageManager();
-  mIntent=intent;
-  mPackagesBlacklist=packagesBlacklist;
-  mFlags=flags;
-}

@@ -1,6 +1,0 @@
-{
-  final Intent intent=getIntent();
-  final Intent extraIntent=intent.getParcelableExtra(EXTRA_INTENT);
-  final String[] blacklist=intent.getStringArrayExtra(EXTRA_BLACKLIST);
-  return new IntentActivitiesLoader(this,extraIntent,blacklist,0);
-}

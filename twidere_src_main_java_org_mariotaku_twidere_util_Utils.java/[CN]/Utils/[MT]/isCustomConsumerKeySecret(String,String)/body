@@ -1,4 +1,4 @@
 {
   if (TextUtils.isEmpty(consumerKey) || TextUtils.isEmpty(consumerSecret))   return false;
-  return (!TWITTER_CONSUMER_KEY.equals(consumerKey) && !TWITTER_CONSUMER_SECRET.equals(consumerKey)) && (!TWITTER_CONSUMER_KEY_LEGACY.equals(consumerKey) && !TWITTER_CONSUMER_SECRET_LEGACY.equals(consumerSecret));
+  return !TWITTER_CONSUMER_KEY.equals(consumerKey) && !TWITTER_CONSUMER_SECRET.equals(consumerKey) && !TWITTER_CONSUMER_KEY_LEGACY.equals(consumerKey)&& !TWITTER_CONSUMER_SECRET_LEGACY.equals(consumerSecret);
 }

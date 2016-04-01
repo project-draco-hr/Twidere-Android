@@ -1,3 +1,0 @@
-{
-  mImageLoader.displayImage(url,view,options);
-}

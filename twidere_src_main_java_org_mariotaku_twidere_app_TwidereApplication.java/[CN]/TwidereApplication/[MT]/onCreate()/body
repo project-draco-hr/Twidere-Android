@@ -12,6 +12,7 @@
   ATE.registerViewProcessor(TimelineContentTextView.class,new TimelineContentTextViewViewProcessor());
   ATE.registerViewProcessor(TextView.class,new TextViewViewProcessor());
   ATE.registerViewProcessor(ImageView.class,new ImageViewViewProcessor());
+  ATE.registerViewProcessor(MaterialEditText.class,new MaterialEditTextViewProcessor());
   ATE.registerViewProcessor(ProgressWheel.class,new ProgressWheelViewProcessor());
   ATE.registerViewProcessor(ProfileImageView.class,mProfileImageViewViewProcessor);
   ATE.registerTagProcessor(OptimalLinkColorTagProcessor.TAG,new OptimalLinkColorTagProcessor());

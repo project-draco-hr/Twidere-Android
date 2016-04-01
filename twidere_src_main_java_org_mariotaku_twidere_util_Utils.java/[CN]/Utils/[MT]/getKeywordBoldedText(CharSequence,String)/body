@@ -1,3 +1,0 @@
-{
-  return getKeywordHighlightedText(orig,new StyleSpan(Typeface.BOLD),keywords);
-}

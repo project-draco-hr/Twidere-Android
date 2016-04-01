@@ -1,4 +1,7 @@
 {
+  if (keyContext == null && context instanceof ATEActivity) {
+    keyContext=(ATEActivity)context;
+  }
   final String key=keyContext != null ? keyContext.getATEKey() : null;
   if (Config.coloredStatusBar(context,key)) {
     setStatusBarBackgroundColor(Config.statusBarColor(context,key));
