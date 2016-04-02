@@ -19,4 +19,5 @@
   }
   builder.setColor(pref.getNotificationLightColor());
   builder.setDefaults(notificationDefaults);
+  builder.setOnlyAlertOnce(true);
 }
