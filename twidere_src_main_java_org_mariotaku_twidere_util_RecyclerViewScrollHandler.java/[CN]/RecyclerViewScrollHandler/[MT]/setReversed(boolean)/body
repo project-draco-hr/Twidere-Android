@@ -1,0 +1,3 @@
+{
+  mScrollHandler.setReversed(inversed);
+}
