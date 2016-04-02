@@ -1,4 +1,5 @@
 {
+  if (mAccountId == null || mStatusId == null)   return SingleResponse.getInstance();
   if (!mOmitIntentExtra && mExtras != null) {
     final ParcelableStatus cache=mExtras.getParcelable(IntentConstants.EXTRA_STATUS);
     if (cache != null) {

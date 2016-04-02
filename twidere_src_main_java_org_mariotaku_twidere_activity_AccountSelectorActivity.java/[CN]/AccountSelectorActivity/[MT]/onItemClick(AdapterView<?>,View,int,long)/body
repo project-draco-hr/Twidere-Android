@@ -1,8 +1,3 @@
 {
-  final Intent data=new Intent();
-  final ParcelableAccount account=mAdapter.getAccount(position);
-  data.putExtra(EXTRA_ID,account.account_key.getId());
-  data.putExtra(EXTRA_KEY,account.account_key);
-  setResult(RESULT_OK,data);
-  finish();
+  selectSingleAccount(position);
 }

@@ -71,7 +71,7 @@
     setMenuItemAvailability(menu,R.id.translate,isOfficialKey);
   }
   menu.removeGroup(Constants.MENU_GROUP_STATUS_EXTENSION);
-  Utils.addIntentToMenuForExtension(context,menu,Constants.MENU_GROUP_STATUS_EXTENSION,IntentConstants.INTENT_ACTION_EXTENSION_OPEN_STATUS,IntentConstants.EXTRA_STATUS,IntentConstants.EXTRA_STATUS_JSON,status);
+  Utils.addIntentToMenuForExtension(context,menu,Constants.MENU_GROUP_STATUS_EXTENSION,INTENT_ACTION_EXTENSION_OPEN_STATUS,EXTRA_STATUS,EXTRA_STATUS_JSON,status);
   final MenuItem shareItem=menu.findItem(R.id.share);
   final ActionProvider shareProvider=MenuItemCompat.getActionProvider(shareItem);
   if (shareProvider instanceof SupportStatusShareProvider) {

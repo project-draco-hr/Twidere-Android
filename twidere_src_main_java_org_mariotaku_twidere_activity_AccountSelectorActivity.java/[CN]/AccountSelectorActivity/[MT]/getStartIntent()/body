@@ -1,0 +1,4 @@
+{
+  final Intent intent=getIntent();
+  return intent.getParcelableExtra(EXTRA_START_INTENT);
+}

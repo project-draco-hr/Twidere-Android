@@ -1,5 +1,4 @@
 {
-  if (context == null)   return null;
   final ContentResolver resolver=context.getContentResolver();
   ParcelableStatus status=null;
   final String where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();

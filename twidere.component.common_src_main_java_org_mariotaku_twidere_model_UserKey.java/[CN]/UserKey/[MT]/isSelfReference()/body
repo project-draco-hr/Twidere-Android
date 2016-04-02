@@ -1,0 +1,3 @@
+{
+  return equals(SELF_REFERENCE);
+}

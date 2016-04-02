@@ -1,5 +1,4 @@
 {
-  if (context == null)   throw new NullPointerException();
   final ParcelableStatus cached=findStatusInDatabases(context,accountKey,statusId);
   if (cached != null)   return cached;
   final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,accountKey,true);

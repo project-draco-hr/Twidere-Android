@@ -103,6 +103,7 @@ case R.id.open_with_account:
 final Intent intent=new Intent(INTENT_ACTION_SELECT_ACCOUNT);
 intent.setClass(getActivity(),AccountSelectorActivity.class);
 intent.putExtra(EXTRA_SINGLE_SELECTION,true);
+intent.putExtra(EXTRA_ACCOUNT_HOST,user.key.getHost());
 startActivityForResult(intent,REQUEST_SELECT_ACCOUNT);
 break;
 }

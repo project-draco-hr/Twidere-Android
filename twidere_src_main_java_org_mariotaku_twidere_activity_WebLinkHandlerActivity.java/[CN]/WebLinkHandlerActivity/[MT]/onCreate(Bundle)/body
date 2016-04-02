@@ -1,0 +1,53 @@
+{
+  super.onCreate(savedInstanceState);
+  final PackageManager packageManager=getPackageManager();
+  final Intent intent=getIntent();
+  final Uri uri=intent.getData();
+  if (uri == null || uri.getHost() == null) {
+    finish();
+    return;
+  }
+  final Pair<Intent,Boolean> handled;
+switch (uri.getHost()) {
+case "twitter.com":
+case "www.twitter.com":
+case "mobile.twitter.com":
+{
+      handled=handleTwitterLink(regulateTwitterUri(uri));
+      break;
+    }
+case "fanfou.com":
+{
+    handled=handleFanfouLink(uri);
+    break;
+  }
+default :
+{
+  handled=Pair.create(null,false);
+  break;
+}
+}
+if (handled.first != null) {
+startActivity(handled.first);
+}
+ else {
+if (!handled.second) {
+BugReporter.logException(new TwitterLinkException("Unable to handle twitter uri " + uri));
+}
+final Intent fallbackIntent=new Intent(Intent.ACTION_VIEW,uri);
+fallbackIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+fallbackIntent.setPackage(IntentUtils.getDefaultBrowserPackage(this));
+final ComponentName componentName=fallbackIntent.resolveActivity(packageManager);
+if (componentName == null) {
+final Intent targetIntent=new Intent(Intent.ACTION_VIEW,uri);
+targetIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+startActivity(Intent.createChooser(targetIntent,getString(R.string.open_in_browser)));
+}
+ else if (!TextUtils.equals(getPackageName(),componentName.getPackageName())) {
+startActivity(fallbackIntent);
+}
+ else {
+}
+}
+finish();
+}

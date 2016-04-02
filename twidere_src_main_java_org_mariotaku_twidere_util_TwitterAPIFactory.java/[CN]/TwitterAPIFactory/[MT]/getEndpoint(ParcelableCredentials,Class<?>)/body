@@ -19,7 +19,11 @@
   }
  else   if (TwitterOAuth.class.isAssignableFrom(cls)) {
     domain="api";
-    versionSuffix="/oauth";
+    versionSuffix=null;
+  }
+ else   if (TwitterOAuth2.class.isAssignableFrom(cls)) {
+    domain="api";
+    versionSuffix=null;
   }
  else   if (TwitterUserStream.class.isAssignableFrom(cls)) {
     domain="userstream";
