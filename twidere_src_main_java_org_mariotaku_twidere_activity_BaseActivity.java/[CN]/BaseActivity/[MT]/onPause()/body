@@ -1,4 +1,12 @@
 {
+  final NfcAdapter adapter=NfcAdapter.getDefaultAdapter(this);
+  if (adapter != null && adapter.isEnabled()) {
+    try {
+      adapter.disableForegroundDispatch(this);
+    }
+ catch (    SecurityException e) {
+    }
+  }
   mActionHelper.dispatchOnPause();
   super.onPause();
 }

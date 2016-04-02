@@ -105,6 +105,7 @@ case R.id.open_in_browser:
 {
 final Intent intent=new Intent(Intent.ACTION_VIEW,LinkCreator.getStatusWebLink(status));
 intent.addCategory(Intent.CATEGORY_BROWSABLE);
+intent.setPackage(IntentUtils.getDefaultBrowserPackage(context));
 context.startActivity(intent);
 break;
 }
