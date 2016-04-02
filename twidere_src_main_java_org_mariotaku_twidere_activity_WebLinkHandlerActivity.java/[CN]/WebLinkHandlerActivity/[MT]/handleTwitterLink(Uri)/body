@@ -24,7 +24,7 @@ case "search":
   final Uri.Builder builder=new Uri.Builder();
   builder.scheme(SCHEME_TWIDERE);
   builder.authority(AUTHORITY_SEARCH);
-  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_HOST,"twitter.com");
+  builder.appendQueryParameter(QUERY_PARAM_ACCOUNT_HOST,USER_TYPE_TWITTER_COM);
   builder.appendQueryParameter(QUERY_PARAM_QUERY,uri.getQueryParameter("q"));
   return Pair.create(new Intent(Intent.ACTION_VIEW,builder.build()),true);
 }

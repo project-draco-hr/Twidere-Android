@@ -1,0 +1,14 @@
+{
+  if (status.extras != null) {
+    if (!TextUtils.isEmpty(status.extras.quoted_external_url)) {
+      return Uri.parse(status.extras.quoted_external_url);
+    }
+ else     if (!TextUtils.isEmpty(status.extras.external_url)) {
+      return Uri.parse(status.extras.external_url);
+    }
+  }
+  if (USER_TYPE_FANFOU_COM.equals(status.account_key.getHost())) {
+    return getFanfouStatusLink(status.quoted_id);
+  }
+  return getTwitterStatusLink(status.quoted_user_screen_name,status.quoted_id);
+}
