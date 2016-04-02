@@ -1,4 +1,8 @@
 {
   mVideoView.setVideoURI(result.cacheUri);
   setMediaViewVisible(true);
+  final FragmentActivity activity=getActivity();
+  if (activity != null) {
+    activity.supportInvalidateOptionsMenu();
+  }
 }

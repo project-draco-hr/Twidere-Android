@@ -1,4 +1,0 @@
-{
-  super.onTitleChanged(title,color);
-  getDelegate().setTitle(title);
-}

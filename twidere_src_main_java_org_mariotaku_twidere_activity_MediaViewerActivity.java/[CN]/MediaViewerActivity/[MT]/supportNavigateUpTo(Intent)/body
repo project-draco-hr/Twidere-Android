@@ -1,3 +1,0 @@
-{
-  NavUtils.navigateUpTo(this,upIntent);
-}

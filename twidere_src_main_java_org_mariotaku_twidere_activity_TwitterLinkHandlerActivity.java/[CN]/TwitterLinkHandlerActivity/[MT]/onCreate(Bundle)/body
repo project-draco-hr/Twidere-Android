@@ -1,7 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   final PackageManager packageManager=getPackageManager();
-  mPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
   final Intent intent=getIntent();
   final Uri data=intent.getData();
   if (data == null) {

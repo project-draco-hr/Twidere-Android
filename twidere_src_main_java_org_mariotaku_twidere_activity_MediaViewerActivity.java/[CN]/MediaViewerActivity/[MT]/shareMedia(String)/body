@@ -10,7 +10,7 @@
   final File destination=new File(getCacheDir(),"shared_files");
   final SaveFileTask task=new SaveFileTask(this,result.cacheUri,destination,new CacheProvider.CacheFileTypeCallback(this,type)){
     private static final String PROGRESS_FRAGMENT_TAG="progress";
-    protected void dismissProgress(){
+    @Override protected void dismissProgress(){
       final IExtendedActivity activity=(IExtendedActivity)getContext();
       if (activity == null)       return;
       activity.executeAfterFragmentResumed(new IExtendedActivity.Action(){
@@ -24,7 +24,7 @@
       }
 );
     }
-    protected void showProgress(){
+    @Override protected void showProgress(){
       final IExtendedActivity activity=(IExtendedActivity)getContext();
       if (activity == null)       return;
       activity.executeAfterFragmentResumed(new IExtendedActivity.Action(){
@@ -36,7 +36,7 @@
       }
 );
     }
-    protected void onFileSaved(    @NonNull File savedFile,    @Nullable String mimeType){
+    @Override protected void onFileSaved(    @NonNull File savedFile,    @Nullable String mimeType){
       final MediaViewerActivity activity=(MediaViewerActivity)getContext();
       if (activity == null)       return;
       activity.mShareFile=savedFile;

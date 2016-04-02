@@ -1,7 +1,4 @@
 {
   mActionHelper.dispatchOnPause();
   super.onPause();
-  if (isFinishing()) {
-    ATE.cleanup();
-  }
 }
