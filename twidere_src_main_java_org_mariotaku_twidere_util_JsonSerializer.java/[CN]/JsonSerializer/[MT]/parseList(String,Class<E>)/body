@@ -1,5 +1,5 @@
 {
-  FileInputStream is=null;
+  if (json == null)   return null;
   try {
     return LoganSquareMapperFinder.mapperFor(cls).parseList(json);
   }
