@@ -1,2 +1,5 @@
 {
+  if (event.isSucceeded()) {
+    updateFavoritedStatus(event.getStatus());
+  }
 }

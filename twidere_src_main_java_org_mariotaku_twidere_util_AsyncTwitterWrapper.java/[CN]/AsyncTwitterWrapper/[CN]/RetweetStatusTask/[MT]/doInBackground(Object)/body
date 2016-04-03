@@ -4,19 +4,35 @@
     return SingleResponse.getInstance();
   }
   try {
-    final ParcelableStatus status=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
-    Utils.setLastSeen(mContext,status.mentions,System.currentTimeMillis());
+    final ParcelableStatus result=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
+    Utils.setLastSeen(mContext,result.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
-    values.put(Statuses.MY_RETWEET_ID,status.id);
-    values.put(Statuses.REPLY_COUNT,status.reply_count);
-    values.put(Statuses.RETWEET_COUNT,status.retweet_count);
-    values.put(Statuses.FAVORITE_COUNT,status.favorite_count);
+    values.put(Statuses.MY_RETWEET_ID,result.id);
+    values.put(Statuses.REPLY_COUNT,result.reply_count);
+    values.put(Statuses.RETWEET_COUNT,result.retweet_count);
+    values.put(Statuses.FAVORITE_COUNT,result.favorite_count);
     final Expression where=Expression.or(Expression.equalsArgs(Statuses.STATUS_ID),Expression.equalsArgs(Statuses.RETWEET_ID));
     final String[] whereArgs={mStatusId,mStatusId};
     for (    final Uri uri : TwidereDataStore.STATUSES_URIS) {
       mResolver.update(uri,values,where.getSQL(),whereArgs);
     }
-    return SingleResponse.getInstance(status);
+    DataStoreUtils.updateActivityStatus(mResolver,mAccountKey,mStatusId,new DataStoreUtils.UpdateActivityAction(){
+      @Override public void process(      ParcelableActivity activity){
+        ParcelableStatus[][] statusesMatrix={activity.target_statuses,activity.target_object_statuses};
+        for (        ParcelableStatus[] statusesArray : statusesMatrix) {
+          if (statusesArray == null)           continue;
+          for (          ParcelableStatus status : statusesArray) {
+            if (!result.id.equals(status.id))             continue;
+            status.my_retweet_id=result.id;
+            status.reply_count=result.reply_count;
+            status.retweet_count=result.retweet_count;
+            status.favorite_count=result.favorite_count;
+          }
+        }
+      }
+    }
+);
+    return SingleResponse.getInstance(result);
   }
  catch (  final TwitterException e) {
     return SingleResponse.getInstance(e);

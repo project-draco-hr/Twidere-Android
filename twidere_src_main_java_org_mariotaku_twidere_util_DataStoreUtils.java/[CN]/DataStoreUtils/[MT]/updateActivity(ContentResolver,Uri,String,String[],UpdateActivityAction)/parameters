@@ -1,0 +1,5 @@
+ContentResolver cr
+Uri uri
+String where
+String[] whereArgs
+UpdateActivityAction action

@@ -3,6 +3,6 @@
   GeneralComponentHelper.build(context).inject(this);
   mOmitIntentExtra=omitIntentExtra;
   mExtras=extras;
-  mAccountId=accountId;
+  mAccountKey=accountKey;
   mStatusId=statusId;
 }

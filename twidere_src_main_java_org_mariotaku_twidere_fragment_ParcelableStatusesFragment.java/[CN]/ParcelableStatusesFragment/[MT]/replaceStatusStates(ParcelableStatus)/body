@@ -1,0 +1,17 @@
+{
+  if (status == null)   return;
+  final LinearLayoutManager lm=getLayoutManager();
+  final ParcelableStatusesAdapter adapter=getAdapter();
+  int rangeStart=Math.max(adapter.getStatusStartIndex(),lm.findFirstVisibleItemPosition());
+  int rangeEnd=Math.min(lm.findLastVisibleItemPosition(),adapter.getStatusStartIndex() + adapter.getStatusCount() - 1);
+  for (int i=rangeStart, j=rangeEnd + 1; i < j; i++) {
+    ParcelableStatus item=adapter.getStatus(i);
+    if (status.equals(item)) {
+      item.favorite_count=status.favorite_count;
+      item.retweet_count=status.retweet_count;
+      item.reply_count=status.reply_count;
+      item.is_favorite=status.is_favorite;
+    }
+  }
+  adapter.notifyItemRangeChanged(rangeStart,rangeEnd);
+}

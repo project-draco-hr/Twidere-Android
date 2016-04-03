@@ -1,0 +1,24 @@
+{
+  final Cursor c=cr.query(uri,Activities.COLUMNS,where,whereArgs,null);
+  if (c == null)   return;
+  LongSparseArray<ContentValues> values=new LongSparseArray<>();
+  try {
+    ParcelableActivityCursorIndices ci=new ParcelableActivityCursorIndices(c);
+    c.moveToFirst();
+    while (!c.isAfterLast()) {
+      final ParcelableActivity activity=ci.newObject(c);
+      action.process(activity);
+      values.put(activity._id,ParcelableActivityValuesCreator.create(activity));
+      c.moveToNext();
+    }
+  }
+  finally {
+    c.close();
+  }
+  String updateWhere=Expression.equalsArgs(Activities._ID).getSQL();
+  String[] updateWhereArgs=new String[1];
+  for (int i=0, j=values.size(); i < j; i++) {
+    updateWhereArgs[0]=String.valueOf(values.keyAt(i));
+    cr.update(uri,values.valueAt(i),updateWhere,updateWhereArgs);
+  }
+}

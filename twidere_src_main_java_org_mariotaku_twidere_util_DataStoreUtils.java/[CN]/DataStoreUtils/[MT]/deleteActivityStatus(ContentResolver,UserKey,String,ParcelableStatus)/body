@@ -1,0 +1,39 @@
+{
+  final String host=accountKey.getHost();
+  final String deleteWhere, updateWhere;
+  final String[] deleteWhereArgs, updateWhereArgs;
+  if (host != null) {
+    deleteWhere=Expression.and(Expression.likeRaw(new Column(Activities.ACCOUNT_KEY),"'%@'||?"),Expression.or(Expression.equalsArgs(Activities.STATUS_ID),Expression.equalsArgs(Activities.STATUS_RETWEET_ID))).getSQL();
+    deleteWhereArgs=new String[]{host,statusId,statusId};
+    updateWhere=Expression.and(Expression.likeRaw(new Column(Activities.ACCOUNT_KEY),"'%@'||?"),Expression.equalsArgs(Activities.STATUS_MY_RETWEET_ID)).getSQL();
+    updateWhereArgs=new String[]{host,statusId};
+  }
+ else {
+    deleteWhere=Expression.or(Expression.equalsArgs(Activities.STATUS_ID),Expression.equalsArgs(Activities.STATUS_RETWEET_ID)).getSQL();
+    deleteWhereArgs=new String[]{statusId,statusId};
+    updateWhere=Expression.equalsArgs(Activities.STATUS_MY_RETWEET_ID).getSQL();
+    updateWhereArgs=new String[]{statusId};
+  }
+  for (  final Uri uri : ACTIVITIES_URIS) {
+    cr.delete(uri,deleteWhere,deleteWhereArgs);
+    if (result != null) {
+      updateActivity(cr,uri,updateWhere,updateWhereArgs,new UpdateActivityAction(){
+        @Override public void process(        ParcelableActivity activity){
+          activity.status_my_retweet_id=null;
+          ParcelableStatus[][] statusesMatrix={activity.target_statuses,activity.target_object_statuses};
+          for (          ParcelableStatus[] statusesArray : statusesMatrix) {
+            if (statusesArray == null)             continue;
+            for (            ParcelableStatus status : statusesArray) {
+              if (!statusId.equals(status.id))               continue;
+              status.my_retweet_id=null;
+              status.reply_count=result.reply_count;
+              status.retweet_count=result.retweet_count - 1;
+              status.favorite_count=result.favorite_count;
+            }
+          }
+        }
+      }
+);
+    }
+  }
+}

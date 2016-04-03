@@ -11,6 +11,7 @@
   }
   if (status != null || (exception != null && exception.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND)) {
     DataStoreUtils.deleteStatus(mResolver,mAccountKey,mStatusId,status);
+    DataStoreUtils.deleteActivityStatus(mResolver,mAccountKey,mStatusId,status);
   }
   return SingleResponse.getInstance(status,exception);
 }

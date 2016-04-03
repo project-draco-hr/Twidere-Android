@@ -1,0 +1,7 @@
+{
+  final String activityWhere=Expression.and(Expression.equalsArgs(Activities.ACCOUNT_KEY),Expression.or(Expression.equalsArgs(Activities.STATUS_ID),Expression.equalsArgs(Activities.STATUS_RETWEET_ID))).getSQL();
+  final String[] activityWhereArgs={accountKey.toString(),statusId,statusId};
+  for (  final Uri uri : ACTIVITIES_URIS) {
+    updateActivity(resolver,uri,activityWhere,activityWhereArgs,action);
+  }
+}

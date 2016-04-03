@@ -1,0 +1,4 @@
+ContentResolver resolver
+UserKey accountKey
+String statusId
+UpdateActivityAction action
