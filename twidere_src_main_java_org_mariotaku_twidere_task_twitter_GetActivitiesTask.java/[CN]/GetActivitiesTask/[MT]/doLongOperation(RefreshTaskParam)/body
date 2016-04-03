@@ -2,6 +2,7 @@
   if (param.shouldAbort())   return null;
   final UserKey[] accountIds=param.getAccountKeys();
   final String[] maxIds=param.getMaxIds();
+  final long[] maxSortIds=param.getMaxSortIds();
   final String[] sinceIds=param.getSinceIds();
   final ContentResolver cr=context.getContentResolver();
   final int loadItemLimit=preferences.getInt(KEY_LOAD_ITEM_LIMIT);
@@ -16,8 +17,12 @@
     final Paging paging=new Paging();
     paging.count(loadItemLimit);
     String maxId=null;
+    long maxSortId=-1;
     if (maxIds != null) {
       maxId=maxIds[i];
+      if (maxSortIds != null) {
+        maxSortId=maxSortIds[i];
+      }
       if (maxId != null) {
         paging.maxId(maxId);
       }

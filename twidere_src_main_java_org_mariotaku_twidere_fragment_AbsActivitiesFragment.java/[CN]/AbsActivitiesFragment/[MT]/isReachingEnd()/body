@@ -1,0 +1,14 @@
+{
+  final LinearLayoutManager lm=getLayoutManager();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
+  int lastPosition=lm.findLastCompletelyVisibleItemPosition();
+  final int itemCount=adapter.getItemCount();
+  int finalPos=itemCount - 1;
+  for (int i=lastPosition + 1; i < itemCount; i++) {
+    if (adapter.getItemViewType(i) != ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_EMPTY) {
+      finalPos=i - 1;
+      break;
+    }
+  }
+  return finalPos >= itemCount - 1;
+}
