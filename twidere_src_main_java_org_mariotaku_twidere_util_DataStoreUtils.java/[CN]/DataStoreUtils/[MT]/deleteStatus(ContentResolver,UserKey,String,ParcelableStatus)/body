@@ -18,7 +18,7 @@
     cr.delete(uri,deleteWhere,deleteWhereArgs);
     if (status != null) {
       final ContentValues values=new ContentValues();
-      values.put(Statuses.MY_RETWEET_ID,-1);
+      values.putNull(Statuses.MY_RETWEET_ID);
       values.put(Statuses.RETWEET_COUNT,status.retweet_count - 1);
       cr.update(uri,values,updateWhere,updateWhereArgs);
     }
