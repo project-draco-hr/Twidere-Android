@@ -1,2 +1,2 @@
-boolean hasComment
+boolean preCondition
 ParcelableAccount account
