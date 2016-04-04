@@ -1,18 +1,6 @@
 {
   final ParcelableCardEntity.ParcelableBindingValue value=obj.getValue(key);
   if (value == null)   return def;
-  try {
-    return DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.parse(value.value);
-  }
- catch (  ParseException e) {
-    return def;
-  }
-catch (  NoSuchMethodError e) {
-    try {
-      return DateUtils.parseDate(value.value,Locale.ENGLISH,"yyyy-MM-dd'T'HH:mm:ssZZ");
-    }
- catch (    ParseException e1) {
-      return def;
-    }
-  }
+  final String str=value.value;
+  return InternalParseUtils.parseISODateTime(str,def);
 }

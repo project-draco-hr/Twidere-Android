@@ -1,9 +1,9 @@
 {
   try {
-    MenuBuilder.class.getDeclaredField("mContext");
-    FastDateParser.class.getDeclaredMethod("parse",String.class);
+    Menu.class.isAssignableFrom(MenuBuilder.class);
+    InternalParseUtils.parseISODateTime("2001-01-01T01:01:01Z",null);
   }
- catch (  Exception e) {
+ catch (  Error e) {
     return false;
   }
   return true;
