@@ -1,8 +1,0 @@
-{
-  super.onResumeFragments();
-  mFragmentResumed=true;
-  if (mSetProgressVisibleRunnable != null) {
-    runOnUiThread(mSetProgressVisibleRunnable);
-    mSetProgressVisibleRunnable=null;
-  }
-}

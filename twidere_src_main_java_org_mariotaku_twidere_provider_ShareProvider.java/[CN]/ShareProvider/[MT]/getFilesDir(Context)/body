@@ -1,0 +1,5 @@
+{
+  final File externalCacheDir=context.getExternalCacheDir();
+  if (externalCacheDir == null)   return null;
+  return new File(externalCacheDir,"shared_files");
+}

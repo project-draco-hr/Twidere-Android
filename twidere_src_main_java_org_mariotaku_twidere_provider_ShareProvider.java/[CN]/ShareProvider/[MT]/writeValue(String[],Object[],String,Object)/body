@@ -1,0 +1,6 @@
+{
+  int idx=ArrayUtils.indexOf(columns,column);
+  if (idx != ArrayUtils.INDEX_NOT_FOUND) {
+    values[idx]=value;
+  }
+}

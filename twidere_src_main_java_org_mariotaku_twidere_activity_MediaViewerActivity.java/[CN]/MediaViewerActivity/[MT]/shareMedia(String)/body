@@ -7,7 +7,7 @@
   if (result == null || result.cacheUri == null) {
     return;
   }
-  final File destination=new File(getCacheDir(),"shared_files");
+  final File destination=ShareProvider.getFilesDir(this);
   final SaveFileTask task=new SaveFileTask(this,result.cacheUri,destination,new CacheProvider.CacheFileTypeCallback(this,type)){
     private static final String PROGRESS_FRAGMENT_TAG="progress";
     @Override protected void dismissProgress(){
@@ -39,8 +39,7 @@
     @Override protected void onFileSaved(    @NonNull File savedFile,    @Nullable String mimeType){
       final MediaViewerActivity activity=(MediaViewerActivity)getContext();
       if (activity == null)       return;
-      activity.mShareFile=savedFile;
-      final Uri fileUri=FileProvider.getUriForFile(activity,AUTHORITY_TWIDERE_FILE,savedFile);
+      final Uri fileUri=ShareProvider.getUriForFile(activity,AUTHORITY_TWIDERE_SHARE,savedFile);
       final Intent intent=new Intent(Intent.ACTION_SEND);
       intent.setDataAndType(fileUri,mimeType);
       intent.putExtra(Intent.EXTRA_STREAM,fileUri);

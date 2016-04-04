@@ -1,4 +1,0 @@
-{
-  mActionHelper.dispatchOnPause();
-  super.onPause();
-}

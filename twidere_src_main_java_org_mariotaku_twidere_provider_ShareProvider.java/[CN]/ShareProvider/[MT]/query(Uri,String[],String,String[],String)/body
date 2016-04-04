@@ -1,0 +1,18 @@
+{
+  try {
+    final File file=getFile(uri);
+    if (file == null)     return null;
+    file.setReadable(true,false);
+    if (projection == null) {
+      projection=COLUMNS;
+    }
+    MatrixCursor cursor=new MatrixCursor(projection,1);
+    Object[] values=new Object[projection.length];
+    writeValue(projection,values,MediaColumns.DATA,file.getAbsolutePath());
+    cursor.addRow(values);
+    return cursor;
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

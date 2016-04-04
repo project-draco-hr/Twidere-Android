@@ -1,0 +1,6 @@
+{
+  final File filesDir=getFilesDir(context);
+  if (filesDir == null)   return null;
+  if (!filesDir.equals(file.getParentFile()))   return null;
+  return new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(authority).appendPath(file.getName()).build();
+}

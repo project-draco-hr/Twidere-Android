@@ -1,3 +1,0 @@
-{
-  mActionHelper.executeAfterFragmentResumed(action);
-}

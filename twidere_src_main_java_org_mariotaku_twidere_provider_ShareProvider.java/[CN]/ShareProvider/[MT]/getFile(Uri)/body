@@ -1,0 +1,5 @@
+{
+  final String lastPathSegment=uri.getLastPathSegment();
+  if (lastPathSegment == null)   throw new FileNotFoundException(uri.toString());
+  return new File(getFilesDir(getContext()),lastPathSegment);
+}

@@ -1,0 +1,11 @@
+{
+  final File externalCacheDir=context.getExternalCacheDir();
+  if (externalCacheDir == null)   return false;
+  File[] files=externalCacheDir.listFiles();
+  for (  File file : files) {
+    if (file.isFile()) {
+      file.delete();
+    }
+  }
+  return true;
+}
