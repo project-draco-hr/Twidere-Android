@@ -7,4 +7,12 @@
  catch (  ParseException e) {
     return def;
   }
+catch (  NoSuchMethodError e) {
+    try {
+      return DateUtils.parseDate(value.value,Locale.ENGLISH,"yyyy-MM-dd'T'HH:mm:ssZZ");
+    }
+ catch (    ParseException e1) {
+      return def;
+    }
+  }
 }
