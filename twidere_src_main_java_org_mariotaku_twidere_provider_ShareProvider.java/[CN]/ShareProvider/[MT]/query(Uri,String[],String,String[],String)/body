@@ -2,7 +2,6 @@
   try {
     final File file=getFile(uri);
     if (file == null)     return null;
-    file.setReadable(true,false);
     if (projection == null) {
       projection=COLUMNS;
     }

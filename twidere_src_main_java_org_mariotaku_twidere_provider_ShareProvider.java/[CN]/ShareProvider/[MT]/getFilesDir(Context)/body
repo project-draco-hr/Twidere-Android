@@ -1,5 +1,11 @@
 {
-  final File externalCacheDir=context.getExternalCacheDir();
-  if (externalCacheDir == null)   return null;
-  return new File(externalCacheDir,"shared_files");
+  File cacheDir=context.getCacheDir();
+  if (ContextCompat.checkSelfPermission(context,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+    final File externalCacheDir=context.getExternalCacheDir();
+    if (externalCacheDir != null && externalCacheDir.canWrite()) {
+      cacheDir=externalCacheDir;
+    }
+  }
+  if (cacheDir == null)   return null;
+  return new File(cacheDir,"shared_files");
 }
