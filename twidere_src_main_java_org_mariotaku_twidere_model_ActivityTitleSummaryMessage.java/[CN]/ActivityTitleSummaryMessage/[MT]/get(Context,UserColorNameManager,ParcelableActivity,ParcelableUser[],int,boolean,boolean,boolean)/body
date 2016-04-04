@@ -39,16 +39,8 @@ case Activity.Action.FAVORITE:
         title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_like,R.string.activity_about_me_like_multi,sources,nameFirst);
       }
     }
-    final StringBuilder summaryBuilder=new StringBuilder();
-    boolean first=true;
-    for (    ParcelableStatus status : activity.target_statuses) {
-      if (!first) {
-        summaryBuilder.append('\n');
-      }
-      summaryBuilder.append(status.text_unescaped.replace('\n',' '));
-      first=false;
-    }
-    return new ActivityTitleSummaryMessage(typeIcon,color,title,summaryBuilder.toString());
+    final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
+    return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
   }
 case Activity.Action.RETWEET:
 {
@@ -61,7 +53,7 @@ case Activity.Action.RETWEET:
  else {
     title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_retweet,R.string.activity_about_me_retweet_multi,sources,nameFirst);
   }
-  final String summary=activity.target_statuses[0].text_unescaped;
+  final Spanned summary=generateStatusTextSummary(context,activity.target_object_statuses,nameFirst);
   return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.FAVORITED_RETWEET:
@@ -80,7 +72,7 @@ if (shouldUseStarsForLikes) {
   color=ContextCompat.getColor(context,R.color.highlight_like);
   title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_liked_retweet,R.string.activity_about_me_liked_retweet_multi,sources,nameFirst);
 }
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.RETWEETED_RETWEET:
@@ -89,7 +81,7 @@ if (byFriends) return null;
 int typeIcon=R.drawable.ic_activity_action_retweet;
 int color=ContextCompat.getColor(context,R.color.highlight_retweet);
 CharSequence title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_retweeted_retweet,R.string.activity_about_me_retweeted_retweet_multi,sources,nameFirst);
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.RETWEETED_MENTION:
@@ -98,7 +90,7 @@ if (byFriends) return null;
 int typeIcon=R.drawable.ic_activity_action_retweet;
 int color=ContextCompat.getColor(context,R.color.highlight_retweet);
 CharSequence title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_retweeted_mention,R.string.activity_about_me_retweeted_mention_multi,sources,nameFirst);
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.FAVORITED_MENTION:
@@ -117,7 +109,7 @@ typeIcon=R.drawable.ic_activity_action_like;
 color=ContextCompat.getColor(context,R.color.highlight_like);
 title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_liked_mention,R.string.activity_about_me_liked_mention_multi,sources,nameFirst);
 }
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.LIST_CREATED:
@@ -179,7 +171,7 @@ int typeIcon=R.drawable.ic_activity_action_media_tagged;
 int color=ContextCompat.getColor(context,R.color.highlight_tagged);
 CharSequence title;
 title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_media_tagged,R.string.activity_about_me_media_tagged_multi,sources,nameFirst);
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.FAVORITED_MEDIA_TAGGED:
@@ -198,7 +190,7 @@ typeIcon=R.drawable.ic_activity_action_like;
 color=ContextCompat.getColor(context,R.color.highlight_like);
 title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_liked_media_tagged,R.string.activity_about_me_liked_media_tagged_multi,sources,nameFirst);
 }
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.RETWEETED_MEDIA_TAGGED:
@@ -207,7 +199,7 @@ if (byFriends) return null;
 int typeIcon=R.drawable.ic_activity_action_retweet;
 int color=ContextCompat.getColor(context,R.color.highlight_retweet);
 CharSequence title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_retweeted_media_tagged,R.string.activity_about_me_retweeted_media_tagged_multi,sources,nameFirst);
-final String summary=activity.target_statuses[0].text_unescaped;
+final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
 return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 }

@@ -1,0 +1,6 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  CustomAPIConfig config=getItem(position);
+  ((TextView)view.findViewById(com.afollestad.materialdialogs.R.id.title)).setText(config.getLocalizedName(getContext()));
+  return view;
+}

@@ -1,0 +1,6 @@
+{
+  if (data != null) {
+    mAdapter.clear();
+    mAdapter.addAll(data);
+  }
+}

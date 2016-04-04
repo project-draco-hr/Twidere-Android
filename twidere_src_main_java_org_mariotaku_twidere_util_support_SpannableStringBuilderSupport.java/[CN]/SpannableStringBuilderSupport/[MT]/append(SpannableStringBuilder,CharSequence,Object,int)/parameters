@@ -1,0 +1,4 @@
+SpannableStringBuilder builder
+CharSequence text
+Object span
+int flags

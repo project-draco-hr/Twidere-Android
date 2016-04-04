@@ -4,7 +4,7 @@
     try {
       adapter.disableForegroundDispatch(this);
     }
- catch (    SecurityException e) {
+ catch (    Exception e) {
     }
   }
   mActionHelper.dispatchOnPause();

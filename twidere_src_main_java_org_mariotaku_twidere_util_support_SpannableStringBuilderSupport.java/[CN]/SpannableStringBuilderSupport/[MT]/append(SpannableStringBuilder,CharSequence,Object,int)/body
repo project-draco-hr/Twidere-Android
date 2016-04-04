@@ -1,0 +1,5 @@
+{
+  int start=builder.length();
+  builder.append(text);
+  builder.setSpan(span,start,builder.length(),flags);
+}

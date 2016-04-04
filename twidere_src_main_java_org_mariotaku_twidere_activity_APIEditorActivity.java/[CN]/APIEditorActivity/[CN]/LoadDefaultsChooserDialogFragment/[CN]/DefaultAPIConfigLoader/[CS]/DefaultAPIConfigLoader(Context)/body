@@ -1,0 +1,4 @@
+{
+  super(context);
+  GeneralComponentHelper.build(context).inject(this);
+}

@@ -5,7 +5,7 @@
     is=assets.open("data/default_api_configs.json");
     List<CustomAPIConfig> configList=JsonSerializer.parseList(is,CustomAPIConfig.class);
     if (configList == null)     return listBuiltin(context);
-    return configList.toArray(new CustomAPIConfig[configList.size()]);
+    return configList;
   }
  catch (  IOException e) {
     return listBuiltin(context);

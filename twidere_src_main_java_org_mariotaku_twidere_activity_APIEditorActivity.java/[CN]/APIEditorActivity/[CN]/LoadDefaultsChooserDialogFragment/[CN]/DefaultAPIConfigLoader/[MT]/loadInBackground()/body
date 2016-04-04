@@ -1,0 +1,17 @@
+{
+  HttpRequest request=new HttpRequest(GET.METHOD,DEFAULT_API_CONFIGS_URL,null,null,null);
+  HttpResponse response=null;
+  try {
+    response=mClient.newCall(request).execute();
+    if (response.isSuccessful()) {
+      final InputStream is=response.getBody().stream();
+      return JsonSerializer.parseList(is,CustomAPIConfig.class);
+    }
+  }
+ catch (  IOException e) {
+  }
+ finally {
+    Utils.closeSilently(response);
+  }
+  return null;
+}

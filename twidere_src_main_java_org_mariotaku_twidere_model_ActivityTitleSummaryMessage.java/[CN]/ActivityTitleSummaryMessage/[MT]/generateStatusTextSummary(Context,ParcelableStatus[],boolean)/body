@@ -1,0 +1,15 @@
+{
+  if (statuses == null)   return null;
+  final SpannableStringBuilder summaryBuilder=new SpannableStringBuilder();
+  boolean first=true;
+  for (  ParcelableStatus status : statuses) {
+    if (!first) {
+      summaryBuilder.append('\n');
+    }
+    final SpannableString displayName=new SpannableString(UserColorNameManager.decideDisplayName(status.user_nickname,status.user_name,status.user_screen_name,nameFirst));
+    displayName.setSpan(new StyleSpan(Typeface.BOLD),0,displayName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    summaryBuilder.append(SpanFormatter.format(context.getString(R.string.title_summary_line_format),displayName,status.text_unescaped.replace('\n',' ')));
+    first=false;
+  }
+  return summaryBuilder;
+}

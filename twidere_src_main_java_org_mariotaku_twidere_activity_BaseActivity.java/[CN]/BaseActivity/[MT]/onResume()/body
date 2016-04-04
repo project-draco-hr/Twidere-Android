@@ -14,7 +14,7 @@
     try {
       adapter.enableForegroundDispatch(this,intent,new IntentFilter[]{intentFilter},null);
     }
- catch (    SecurityException e) {
+ catch (    Exception e) {
     }
   }
 }
