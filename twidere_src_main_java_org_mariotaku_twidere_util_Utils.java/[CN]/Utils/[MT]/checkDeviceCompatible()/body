@@ -1,0 +1,10 @@
+{
+  try {
+    MenuBuilder.class.getDeclaredField("mContext");
+    FastDateParser.class.getDeclaredMethod("parse",String.class);
+  }
+ catch (  Exception e) {
+    return false;
+  }
+  return true;
+}
