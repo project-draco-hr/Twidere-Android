@@ -1,4 +1,0 @@
-{
-  final File file=new File(getCacheDir(),"tmp_image_" + System.currentTimeMillis());
-  return Uri.fromFile(file);
-}

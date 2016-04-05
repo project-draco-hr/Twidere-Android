@@ -1,5 +1,5 @@
 ComposeActivity activity
-Uri src
-Uri dst
+Uri[] sources
+Uri[] destinations
 int mediaType
 boolean deleteSrc

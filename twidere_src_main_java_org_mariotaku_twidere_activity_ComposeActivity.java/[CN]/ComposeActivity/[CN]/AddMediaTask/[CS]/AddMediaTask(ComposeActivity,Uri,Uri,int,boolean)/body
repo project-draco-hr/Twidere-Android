@@ -1,7 +1,0 @@
-{
-  this.mActivityRef=new WeakReference<>(activity);
-  this.src=src;
-  this.dst=dst;
-  this.mMediaType=mediaType;
-  this.mDeleteSrc=deleteSrc;
-}

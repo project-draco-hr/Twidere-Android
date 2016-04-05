@@ -15,28 +15,30 @@
  else {
     hasAccountIds=false;
   }
-  mShouldSaveAccounts=!Intent.ACTION_SEND.equals(action) && !Intent.ACTION_SEND_MULTIPLE.equals(action) && !hasAccountIds;
-  final Uri data=intent.getData();
+  if (Intent.ACTION_SEND.equals(action)) {
+    mShouldSaveAccounts=false;
+    final Uri[] src={intent.getParcelableExtra(Intent.EXTRA_STREAM)};
+    final Uri[] dst={createTempImageUri(0)};
+    AsyncTaskUtils.executeTask(new AddMediaTask(this,src,dst,getMediaType(intent.getType(),ParcelableMedia.Type.IMAGE),false));
+  }
+ else   if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
+    mShouldSaveAccounts=false;
+    final List<Uri> extraStream=intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+    final Uri[] src=extraStream.toArray(new Uri[extraStream.size()]);
+    final Uri[] dst=new Uri[extraStream.size()];
+    for (int i=0; i < dst.length; i++) {
+      dst[i]=createTempImageUri(i);
+    }
+    AsyncTaskUtils.executeTask(new AddMediaTask(this,src,dst,getMediaType(intent.getType(),ParcelableMedia.Type.IMAGE),false));
+  }
+ else {
+    final Uri[] src={intent.getData()};
+    final Uri[] dst={createTempImageUri(0)};
+    AsyncTaskUtils.executeTask(new AddMediaTask(this,src,dst,getMediaType(intent.getType(),ParcelableMedia.Type.IMAGE),false));
+    mShouldSaveAccounts=!hasAccountIds;
+  }
   final CharSequence extraSubject=intent.getCharSequenceExtra(Intent.EXTRA_SUBJECT);
   final CharSequence extraText=intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
-  final Uri extraStream=intent.getParcelableExtra(Intent.EXTRA_STREAM);
-  if (extraStream != null) {
-    AsyncTaskUtils.executeTask(new AddMediaTask(this,extraStream,createTempImageUri(),ParcelableMedia.Type.IMAGE,false));
-  }
- else   if (data != null) {
-    AsyncTaskUtils.executeTask(new AddMediaTask(this,data,createTempImageUri(),ParcelableMedia.Type.IMAGE,false));
-  }
- else   if (intent.hasExtra(EXTRA_SHARE_SCREENSHOT) && Utils.useShareScreenshot()) {
-    final Bitmap bitmap=intent.getParcelableExtra(EXTRA_SHARE_SCREENSHOT);
-    if (bitmap != null) {
-      try {
-        AsyncTaskUtils.executeTask(new AddBitmapTask(this,bitmap,createTempImageUri(),ParcelableMedia.Type.IMAGE));
-      }
- catch (      IOException e) {
-        bitmap.recycle();
-      }
-    }
-  }
   mEditText.setText(Utils.getShareStatus(this,extraSubject,extraText));
   final int selectionEnd=mEditText.length();
   mEditText.setSelection(selectionEnd);

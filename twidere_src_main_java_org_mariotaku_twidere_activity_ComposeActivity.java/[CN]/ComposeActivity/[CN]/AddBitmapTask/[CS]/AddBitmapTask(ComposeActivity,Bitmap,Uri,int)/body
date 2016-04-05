@@ -1,4 +1,0 @@
-{
-  super(activity,Uri.fromFile(File.createTempFile("tmp_bitmap",null)),dst,media_type,true);
-  mBitmap=bitmap;
-}

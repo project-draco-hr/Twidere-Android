@@ -1,30 +1,35 @@
 {
-  final ComposeActivity activity=this.mActivityRef.get();
-  if (activity == null)   return false;
-  InputStream is=null;
-  OutputStream os=null;
-  try {
-    final ContentResolver resolver=activity.getContentResolver();
-    is=resolver.openInputStream(src);
-    os=resolver.openOutputStream(dst);
-    if (is == null || os == null)     throw new FileNotFoundException();
-    RestFuUtils.copyStream(is,os);
-    if (ContentResolver.SCHEME_FILE.equals(src.getScheme()) && mDeleteSrc) {
-      final File file=new File(src.getPath());
-      if (!file.delete()) {
-        Log.d(LOGTAG,String.format("Unable to delete %s",file));
+  final ComposeActivity activity=mActivityRef.get();
+  if (activity == null)   return new boolean[0];
+  final boolean[] result=new boolean[mSources.length];
+  for (int i=0, j=mSources.length; i < j; i++) {
+    Uri source=mSources[i], destination=mDestinations[i];
+    InputStream is=null;
+    OutputStream os=null;
+    try {
+      final ContentResolver resolver=activity.getContentResolver();
+      is=resolver.openInputStream(source);
+      os=resolver.openOutputStream(destination);
+      if (is == null || os == null)       throw new FileNotFoundException();
+      RestFuUtils.copyStream(is,os);
+      if (ContentResolver.SCHEME_FILE.equals(source.getScheme()) && mDeleteSrc) {
+        final File file=new File(source.getPath());
+        if (!file.delete()) {
+          Log.d(LOGTAG,String.format("Unable to delete %s",file));
+        }
       }
+      result[i]=true;
     }
-  }
- catch (  final IOException e) {
-    if (BuildConfig.DEBUG) {
-      Log.w(LOGTAG,e);
+ catch (    final IOException e) {
+      if (BuildConfig.DEBUG) {
+        Log.w(LOGTAG,e);
+      }
+      result[i]=false;
     }
-    return false;
-  }
  finally {
-    Utils.closeSilently(os);
-    Utils.closeSilently(is);
+      Utils.closeSilently(os);
+      Utils.closeSilently(is);
+    }
   }
-  return true;
+  return result;
 }

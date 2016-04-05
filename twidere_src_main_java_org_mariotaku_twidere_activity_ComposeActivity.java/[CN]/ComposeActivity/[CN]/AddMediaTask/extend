@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,Boolean>
+AsyncTask<Object,Object,boolean[]>
