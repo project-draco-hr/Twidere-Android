@@ -6,7 +6,7 @@
       mListView.setItemChecked(i,ArrayUtils.contains(activatedIds,mAdapter.getItemId(i)));
     }
   }
-  if (mAdapter.getCount() == 1 && isSingleSelection()) {
+  if (mAdapter.getCount() == 1 && shouldSelectOnlyItem()) {
     selectSingleAccount(0);
   }
 }
