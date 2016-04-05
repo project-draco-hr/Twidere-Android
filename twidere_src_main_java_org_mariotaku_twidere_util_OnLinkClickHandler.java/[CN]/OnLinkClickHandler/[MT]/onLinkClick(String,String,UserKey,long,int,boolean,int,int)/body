@@ -17,7 +17,7 @@ case TwidereLinkify.LINK_TYPE_HASHTAG:
   }
 case TwidereLinkify.LINK_TYPE_LINK_IN_TEXT:
 {
-  if (PreviewMediaExtractor.isSupported(link)) {
+  if (isMedia(link,extraId)) {
     openMedia(accountKey,extraId,sensitive,link,start,end);
   }
  else {
@@ -27,7 +27,7 @@ case TwidereLinkify.LINK_TYPE_LINK_IN_TEXT:
 }
 case TwidereLinkify.LINK_TYPE_ENTITY_URL:
 {
-if (PreviewMediaExtractor.isSupported(link)) {
+if (isMedia(link,extraId)) {
   openMedia(accountKey,extraId,sensitive,link,start,end);
 }
  else {

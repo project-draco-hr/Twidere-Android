@@ -1,11 +1,17 @@
 {
-  final MediaEntity[] mediaEntities=entities.getMediaEntities();
+  MediaEntity[] mediaEntities=null;
+  if (entities instanceof ExtendedEntitySupport) {
+    mediaEntities=((ExtendedEntitySupport)entities).getExtendedMediaEntities();
+  }
+  if (mediaEntities == null) {
+    mediaEntities=entities.getMediaEntities();
+  }
   if (mediaEntities != null) {
     for (    final MediaEntity mediaEntity : mediaEntities) {
       final int start=mediaEntity.getStart(), end=mediaEntity.getEnd();
       final String mediaUrl=getMediaUrl(mediaEntity);
       if (mediaUrl != null && start >= 0 && end >= 0) {
-        builder.addLink(mediaUrl,mediaEntity.getDisplayUrl(),start,end);
+        builder.addLink(mediaEntity.getExpandedUrl(),mediaEntity.getDisplayUrl(),start,end);
       }
     }
   }

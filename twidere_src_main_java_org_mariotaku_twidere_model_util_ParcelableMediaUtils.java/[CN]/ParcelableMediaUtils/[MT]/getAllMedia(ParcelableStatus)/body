@@ -1,0 +1,5 @@
+{
+  ParcelableMedia[] result=new ParcelableMedia[TwidereArrayUtils.arraysLength(status.media,status.quoted_media)];
+  TwidereArrayUtils.mergeArray(result,status.media,status.quoted_media);
+  return result;
+}

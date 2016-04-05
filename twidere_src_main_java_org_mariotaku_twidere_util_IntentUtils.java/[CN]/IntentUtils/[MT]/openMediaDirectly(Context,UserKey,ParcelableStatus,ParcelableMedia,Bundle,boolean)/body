@@ -1,3 +1,3 @@
 {
-  openMediaDirectly(context,accountKey,status,null,current,getPrimaryMedia(status),options,newDocument);
+  openMediaDirectly(context,accountKey,status,null,current,ParcelableMediaUtils.getPrimaryMedia(status),options,newDocument);
 }

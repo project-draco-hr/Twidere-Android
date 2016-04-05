@@ -4,6 +4,7 @@
   media.url=mediaUrl;
   media.media_url=mediaUrl;
   media.preview_url=mediaUrl;
+  media.page_url=entity.getExpandedUrl();
   media.start=entity.getStart();
   media.end=entity.getEnd();
   media.type=ParcelableMediaUtils.getTypeInt(entity.getType());

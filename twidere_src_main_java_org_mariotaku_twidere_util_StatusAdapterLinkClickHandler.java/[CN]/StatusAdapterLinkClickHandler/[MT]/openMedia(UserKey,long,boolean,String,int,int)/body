@@ -1,11 +1,13 @@
 {
   if (extraId == RecyclerView.NO_POSITION)   return;
   final ParcelableStatus status=adapter.getStatus((int)extraId);
-  final ParcelableMedia current=StatusLinkClickHandler.findByLink(status.media,link);
+  final ParcelableMedia[] media=ParcelableMediaUtils.getAllMedia(status);
+  final ParcelableMedia current=StatusLinkClickHandler.findByLink(media,link);
   if (current != null && current.open_browser) {
     openLink(link);
   }
  else {
-    IntentUtils.openMedia(context,status,current,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API));
+    final boolean newDocument=preferences.getBoolean(KEY_NEW_DOCUMENT_API);
+    IntentUtils.openMedia(context,status,current,null,newDocument);
   }
 }
