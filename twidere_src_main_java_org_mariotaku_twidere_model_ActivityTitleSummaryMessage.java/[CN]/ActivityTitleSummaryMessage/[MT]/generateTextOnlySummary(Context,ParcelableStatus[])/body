@@ -1,0 +1,13 @@
+{
+  if (statuses == null)   return null;
+  final StringBuilder summaryBuilder=new StringBuilder();
+  boolean first=true;
+  for (  ParcelableStatus status : statuses) {
+    if (!first) {
+      summaryBuilder.append('\n');
+    }
+    summaryBuilder.append(status.text_unescaped.replace('\n',' '));
+    first=false;
+  }
+  return summaryBuilder;
+}

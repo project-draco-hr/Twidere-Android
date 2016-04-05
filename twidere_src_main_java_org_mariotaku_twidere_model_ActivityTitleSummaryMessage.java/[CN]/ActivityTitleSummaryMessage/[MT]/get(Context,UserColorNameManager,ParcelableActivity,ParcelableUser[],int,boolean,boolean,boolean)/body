@@ -39,7 +39,7 @@ case Activity.Action.FAVORITE:
         title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_like,R.string.activity_about_me_like_multi,sources,nameFirst);
       }
     }
-    final Spanned summary=generateStatusTextSummary(context,activity.target_statuses,nameFirst);
+    final CharSequence summary=generateTextOnlySummary(context,activity.target_statuses);
     return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
   }
 case Activity.Action.RETWEET:
@@ -53,7 +53,7 @@ case Activity.Action.RETWEET:
  else {
     title=getTitleStringAboutMe(resources,manager,R.string.activity_about_me_retweet,R.string.activity_about_me_retweet_multi,sources,nameFirst);
   }
-  final Spanned summary=generateStatusTextSummary(context,activity.target_object_statuses,nameFirst);
+  final CharSequence summary=generateTextOnlySummary(context,activity.target_object_statuses);
   return new ActivityTitleSummaryMessage(typeIcon,color,title,summary);
 }
 case Activity.Action.FAVORITED_RETWEET:
