@@ -1,0 +1,26 @@
+{
+  if (preference instanceof RingtonePreference) {
+    RingtonePreference ringtonePreference=(RingtonePreference)preference;
+    Intent intent=new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+    intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE,ringtonePreference.getRingtoneType());
+    intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT,ringtonePreference.isShowDefault());
+    intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT,ringtonePreference.isShowSilent());
+    intent.putExtra(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI,Settings.System.DEFAULT_NOTIFICATION_URI);
+    String existingValue=ringtonePreference.getValue();
+    if (existingValue != null) {
+      if (existingValue.length() == 0) {
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI,(Uri)null);
+      }
+ else {
+        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI,Uri.parse(existingValue));
+      }
+    }
+ else {
+      intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI,Settings.System.DEFAULT_NOTIFICATION_URI);
+    }
+    startActivityForResult(intent,REQUEST_PICK_RINGTONE);
+    mRingtonePreferenceKey=ringtonePreference.getKey();
+    return true;
+  }
+  return super.onPreferenceTreeClick(preference);
+}

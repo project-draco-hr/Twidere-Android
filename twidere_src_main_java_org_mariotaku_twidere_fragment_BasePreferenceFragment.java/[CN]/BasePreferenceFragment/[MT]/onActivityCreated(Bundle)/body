@@ -1,0 +1,6 @@
+{
+  if (savedInstanceState != null) {
+    mRingtonePreferenceKey=savedInstanceState.getString(EXTRA_RINGTONE_PREFERENCE_KEY);
+  }
+  super.onActivityCreated(savedInstanceState);
+}

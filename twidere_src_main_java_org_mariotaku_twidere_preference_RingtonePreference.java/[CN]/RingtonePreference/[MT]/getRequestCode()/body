@@ -1,0 +1,3 @@
+{
+  return getKey().hashCode() & 0x0000FFFF;
+}

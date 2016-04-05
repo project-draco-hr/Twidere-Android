@@ -1,0 +1,19 @@
+{
+switch (requestCode) {
+case REQUEST_PICK_RINGTONE:
+{
+      if (resultCode == Activity.RESULT_OK && data != null) {
+        Uri ringtone=data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+        if (mRingtonePreferenceKey != null) {
+          RingtonePreference ringtonePreference=(RingtonePreference)findPreference(mRingtonePreferenceKey);
+          if (ringtonePreference != null) {
+            ringtonePreference.setValue(ringtone != null ? ringtone.toString() : null);
+          }
+        }
+        mRingtonePreferenceKey=null;
+      }
+      break;
+    }
+}
+super.onActivityResult(requestCode,resultCode,data);
+}

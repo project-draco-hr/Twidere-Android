@@ -1,5 +1,0 @@
-{
-  RingtonePreferenceDialogFragment df=RingtonePreferenceDialogFragment.newInstance(getKey());
-  df.setTargetFragment(fragment,0);
-  df.show(fragment.getFragmentManager(),getKey());
-}
