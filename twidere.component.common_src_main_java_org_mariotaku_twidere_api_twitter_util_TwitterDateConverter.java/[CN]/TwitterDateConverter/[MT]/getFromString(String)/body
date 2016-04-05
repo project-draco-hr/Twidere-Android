@@ -1,17 +1,9 @@
 {
-  Date date=null;
+  if (string == null)   return null;
   try {
-    date=parseTwitterDate(string);
-  }
- catch (  NumberFormatException e) {
-    Log.w("Twidere",e);
-  }
-  if (date != null)   return date;
-  try {
-    date=mDateFormat.parse(string);
+    return sFormat.parse(string);
   }
  catch (  ParseException e) {
     return null;
   }
-  return date;
 }

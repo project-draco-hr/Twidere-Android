@@ -1,5 +1,0 @@
-{
-  mDateFormat=new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy",LOCALE);
-  mDateFormat.setLenient(true);
-  mDateFormat.setTimeZone(TIME_ZONE);
-}

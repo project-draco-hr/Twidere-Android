@@ -1,9 +1,0 @@
-{
-  for (int i=0, inputLength=input.length; i < inputLength; i++) {
-    if (find == null) {
-      if (input[i] == null)       return i;
-    }
- else     if (find.equals(input[i]))     return i;
-  }
-  return -1;
-}

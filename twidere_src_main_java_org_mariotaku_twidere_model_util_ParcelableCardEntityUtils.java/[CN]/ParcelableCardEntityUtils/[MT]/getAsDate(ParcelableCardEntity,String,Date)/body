@@ -1,6 +1,10 @@
 {
   final ParcelableCardEntity.ParcelableBindingValue value=obj.getValue(key);
   if (value == null)   return def;
-  final String str=value.value;
-  return InternalParseUtils.parseISODateTime(str,def);
+  try {
+    return sISOFormat.parse(value.value);
+  }
+ catch (  ParseException e) {
+    return def;
+  }
 }

@@ -51,6 +51,7 @@
             }
           }
 ;
+          task.setResultHandler(CardPollFragment.this);
           task.setParams(cardData);
           TaskStarter.execute(task);
         }
@@ -71,7 +72,7 @@
     if (label == null)     throw new NullPointerException();
     final float choicePercent=votesSum == 0 ? 0 : value / (float)votesSum;
     choiceLabelView.setText(label);
-    choicePercentView.setText(String.format("%d%%",Math.round(choicePercent * 100)));
+    choicePercentView.setText(String.format(Locale.US,"%d%%",Math.round(choicePercent * 100)));
     pollItem.setOnClickListener(clickListener);
     final boolean isSelected=selectedChoice == choiceIndex;
     if (showResult) {

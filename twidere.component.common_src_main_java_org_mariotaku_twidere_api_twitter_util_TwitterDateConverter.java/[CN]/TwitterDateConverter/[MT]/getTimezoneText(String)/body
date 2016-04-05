@@ -1,4 +1,0 @@
-{
-  if (seg.startsWith("GMT") || seg.startsWith("UTC"))   return seg;
-  return "GMT" + seg;
-}
