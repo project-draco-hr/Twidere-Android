@@ -1,1 +1,1 @@
-StringBasedTypeConverter<Date>
+DateTypeConverter

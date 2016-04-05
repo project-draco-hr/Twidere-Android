@@ -1,9 +1,0 @@
-{
-  if (string == null)   return null;
-  try {
-    return sFormat.parse(string);
-  }
- catch (  ParseException e) {
-    return null;
-  }
-}
