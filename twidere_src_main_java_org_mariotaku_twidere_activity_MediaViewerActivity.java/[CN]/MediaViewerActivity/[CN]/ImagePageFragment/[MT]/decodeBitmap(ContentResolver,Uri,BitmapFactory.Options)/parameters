@@ -1,0 +1,3 @@
+ContentResolver cr
+Uri uri
+BitmapFactory.Options o

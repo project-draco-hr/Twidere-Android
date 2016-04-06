@@ -1,0 +1,10 @@
+{
+  InputStream is=null;
+  try {
+    is=cr.openInputStream(uri);
+    return BitmapFactory.decodeStream(is,null,o);
+  }
+  finally {
+    Utils.closeSilently(is);
+  }
+}

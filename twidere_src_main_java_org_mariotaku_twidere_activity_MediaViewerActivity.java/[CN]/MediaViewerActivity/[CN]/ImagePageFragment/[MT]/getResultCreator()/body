@@ -1,0 +1,4 @@
+{
+  if (mResultCreator != null)   return mResultCreator;
+  return mResultCreator=new SizedResultCreator(getContext());
+}

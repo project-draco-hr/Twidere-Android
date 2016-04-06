@@ -1,0 +1,14 @@
+{
+  BitmapFactory.Options o=new BitmapFactory.Options();
+  o.inJustDecodeBounds=true;
+  o.inPreferredConfig=Bitmap.Config.RGB_565;
+  final ContentResolver cr=context.getContentResolver();
+  decodeBitmap(cr,uri,o);
+  final DisplayMetrics dm=context.getResources().getDisplayMetrics();
+  final int targetSize=Math.min(1024,Math.max(dm.widthPixels,dm.heightPixels));
+  o.inSampleSize=TwidereMathUtils.nextPowerOf2(Math.max(1,Math.min(o.outHeight,o.outWidth) / targetSize));
+  o.inJustDecodeBounds=false;
+  final Bitmap bitmap=decodeBitmap(cr,uri,o);
+  if (bitmap == null)   throw new IOException();
+  return bitmap;
+}

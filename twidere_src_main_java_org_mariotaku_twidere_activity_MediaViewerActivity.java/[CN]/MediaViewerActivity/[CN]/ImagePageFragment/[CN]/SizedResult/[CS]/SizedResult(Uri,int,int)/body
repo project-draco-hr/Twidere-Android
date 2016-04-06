@@ -1,0 +1,5 @@
+{
+  super(cacheUri,null);
+  this.width=width;
+  this.height=height;
+}
