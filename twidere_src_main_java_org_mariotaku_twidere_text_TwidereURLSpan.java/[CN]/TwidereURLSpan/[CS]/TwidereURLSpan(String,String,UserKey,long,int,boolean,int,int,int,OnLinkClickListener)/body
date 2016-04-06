@@ -1,6 +1,5 @@
 {
   super(url);
-  this.url=url;
   this.orig=orig;
   this.accountKey=accountKey;
   this.extraId=extraId;

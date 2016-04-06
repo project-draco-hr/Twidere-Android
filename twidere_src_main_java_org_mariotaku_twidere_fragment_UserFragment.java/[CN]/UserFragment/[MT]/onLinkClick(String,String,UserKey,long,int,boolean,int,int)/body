@@ -35,10 +35,5 @@ if (mentionList.length != 2) {
 }
 break;
 }
-case TwidereLinkify.LINK_TYPE_STATUS:
-{
-IntentUtils.openStatus(getActivity(),accountKey,link);
-break;
-}
 }
 }

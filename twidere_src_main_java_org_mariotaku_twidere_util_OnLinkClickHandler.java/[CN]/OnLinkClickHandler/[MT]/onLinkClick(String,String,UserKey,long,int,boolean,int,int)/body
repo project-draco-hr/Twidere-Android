@@ -74,10 +74,5 @@ case TwidereLinkify.LINK_TYPE_USER_ID:
 IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(link),null,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
 break;
 }
-case TwidereLinkify.LINK_TYPE_STATUS:
-{
-IntentUtils.openStatus(context,accountKey,link);
-break;
-}
 }
 }
