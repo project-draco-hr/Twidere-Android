@@ -1,5 +1,5 @@
 {
-  if ((sources == null) || (sources.length == 0))   return null;
+  if (sources == null || sources.length == 0)   return null;
   final Configuration configuration=resources.getConfiguration();
   final SpannableString firstSourceName=new SpannableString(manager.getDisplayName(sources[0],nameFirst));
   firstSourceName.setSpan(new StyleSpan(Typeface.BOLD),0,firstSourceName.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

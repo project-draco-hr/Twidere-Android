@@ -28,7 +28,7 @@
   }
  else {
     mConflictLabel.setVisibility(View.GONE);
-    mButtonPositive.setText((android.R.string.ok));
+    mButtonPositive.setText(android.R.string.ok);
   }
   return true;
 }

@@ -1,6 +1,6 @@
 {
   if (!positiveResult)   return;
-  DefaultAPIPreference preference=((DefaultAPIPreference)getPreference());
+  DefaultAPIPreference preference=(DefaultAPIPreference)getPreference();
   final SharedPreferences preferences=preference.getSharedPreferences();
   final String apiUrlFormat=ParseUtils.parseString(mEditAPIUrlFormat.getText());
   final int authType=APIEditorActivity.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
