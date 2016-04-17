@@ -2,7 +2,7 @@
 switch (holder.getItemViewType()) {
 case ITEM_VIEW_TYPE_USER_LIST:
 {
-      bindGroup(((GroupViewHolder)holder),position);
+      bindGroup((GroupViewHolder)holder,position);
       break;
     }
 }

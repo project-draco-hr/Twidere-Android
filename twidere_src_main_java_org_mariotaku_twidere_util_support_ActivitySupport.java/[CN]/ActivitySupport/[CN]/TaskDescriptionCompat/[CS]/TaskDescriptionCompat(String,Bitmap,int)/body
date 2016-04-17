@@ -1,5 +1,5 @@
 {
-  if ((colorPrimary != 0) && (Color.alpha(colorPrimary) != 255)) {
+  if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
     throw new RuntimeException("A TaskDescription's primary color should be opaque");
   }
   mLabel=label;
