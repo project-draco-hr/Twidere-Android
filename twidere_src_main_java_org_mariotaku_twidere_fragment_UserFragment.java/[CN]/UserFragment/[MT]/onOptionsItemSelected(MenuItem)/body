@@ -34,6 +34,7 @@ case R.id.add_to_filter:
     cr.insert(Filters.Users.CONTENT_URI,ContentValuesCreator.createFilteredUser(user));
     Utils.showInfoMessage(getActivity(),R.string.message_user_muted,false);
   }
+  getFriendship();
   break;
 }
 case R.id.mute_user:

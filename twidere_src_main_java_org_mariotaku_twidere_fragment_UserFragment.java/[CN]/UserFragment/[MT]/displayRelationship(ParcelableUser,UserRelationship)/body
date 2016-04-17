@@ -6,7 +6,7 @@
   if (user.account_key.maybeEquals(user.key)) {
     mFollowButton.setText(R.string.edit);
     mFollowButton.setVisibility(View.VISIBLE);
-    mRelationship=null;
+    mRelationship=userRelationship;
     return;
   }
   if (userRelationship == null || !userRelationship.check(user)) {
