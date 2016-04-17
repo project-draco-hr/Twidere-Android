@@ -39,7 +39,7 @@
           exception=response.getException();
         }
       }
- else       if (data.account_key != null) {
+ else {
         failedAccountIds.remove(data.account_key);
         final TweetEvent event=TweetEvent.create(this,data,TimelineType.OTHER);
         event.setAction(TweetEvent.Action.TWEET);
