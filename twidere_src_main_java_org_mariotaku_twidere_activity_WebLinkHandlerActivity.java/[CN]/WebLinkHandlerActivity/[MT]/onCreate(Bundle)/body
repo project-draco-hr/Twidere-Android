@@ -28,6 +28,7 @@ default :
 }
 }
 if (handled.first != null) {
+handled.first.putExtras(intent);
 startActivity(handled.first);
 }
  else {

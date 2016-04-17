@@ -1,5 +1,5 @@
 {
-  if (manager != null && manager.isActive())   return;
+  if (manager != null && manager.isActive())   return false;
   if (!isPrivateData()) {
     final LinkEvent event=LinkEvent.create(context,link,type);
     HotMobiLogger.getInstance(context).log(accountKey,event);
@@ -8,12 +8,12 @@ switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
       IntentUtils.openUserProfile(context,accountKey,null,link,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
-      break;
+      return true;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
 {
     IntentUtils.openTweetSearch(context,accountKey,"#" + link);
-    break;
+    return true;
   }
 case TwidereLinkify.LINK_TYPE_LINK_IN_TEXT:
 {
@@ -23,7 +23,7 @@ case TwidereLinkify.LINK_TYPE_LINK_IN_TEXT:
  else {
     openLink(link);
   }
-  break;
+  return true;
 }
 case TwidereLinkify.LINK_TYPE_ENTITY_URL:
 {
@@ -31,48 +31,65 @@ if (isMedia(link,extraId)) {
   openMedia(accountKey,extraId,sensitive,link,start,end);
 }
  else {
-  if (orig != null && "fanfou.com".equals(UriUtils.getAuthority(link))) {
-    final char ch=orig.charAt(0);
-    final int length=orig.length();
-    if (TwidereLinkify.isAtSymbol(ch)) {
-      String id=UriUtils.getPath(link);
-      if (id != null) {
-        int idxOfSlash=id.indexOf('/');
-        if (idxOfSlash == 0) {
-          id=id.substring(1);
+  final String authority=UriUtils.getAuthority(link);
+  if (authority == null) {
+    openLink(link);
+    return true;
+  }
+switch (authority) {
+case "fanfou.com":
+{
+      if (orig != null) {
+        final char ch=orig.charAt(0);
+        final int length=orig.length();
+        if (TwidereLinkify.isAtSymbol(ch)) {
+          String id=UriUtils.getPath(link);
+          if (id != null) {
+            int idxOfSlash=id.indexOf('/');
+            if (idxOfSlash == 0) {
+              id=id.substring(1);
+            }
+            final String screenName=orig.substring(1,length);
+            IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(id),screenName,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
+            return true;
+          }
         }
-        final String screenName=orig.substring(1,length);
-        IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(id),screenName,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
-        break;
+ else         if (TwidereLinkify.isHashSymbol(ch) && TwidereLinkify.isHashSymbol(orig.charAt(length - 1))) {
+          IntentUtils.openSearch(context,accountKey,orig.substring(1,length - 1));
+          return true;
+        }
       }
-    }
- else     if (TwidereLinkify.isHashSymbol(ch) && TwidereLinkify.isHashSymbol(orig.charAt(length - 1))) {
-      IntentUtils.openSearch(context,accountKey,orig.substring(1,length - 1));
       break;
     }
+case "twitter.com":
+{
+    openTwitterLink(link,accountKey);
+    return true;
   }
-  openLink(link);
 }
-break;
+openLink(link);
+}
+return true;
 }
 case TwidereLinkify.LINK_TYPE_LIST:
 {
 final String[] mentionList=StringUtils.split(link,"/");
 if (mentionList.length != 2) {
-break;
+return false;
 }
 IntentUtils.openUserListDetails(context,accountKey,null,null,mentionList[0],mentionList[1]);
-break;
+return true;
 }
 case TwidereLinkify.LINK_TYPE_CASHTAG:
 {
 IntentUtils.openTweetSearch(context,accountKey,link);
-break;
+return true;
 }
 case TwidereLinkify.LINK_TYPE_USER_ID:
 {
 IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(link),null,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
-break;
+return true;
 }
 }
+return false;
 }

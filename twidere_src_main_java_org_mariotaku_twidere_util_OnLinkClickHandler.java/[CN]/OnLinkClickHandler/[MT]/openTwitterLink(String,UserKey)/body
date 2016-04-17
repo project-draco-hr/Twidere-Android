@@ -2,7 +2,8 @@
   if (manager != null && manager.isActive())   return;
   final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(link));
   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-  intent.setPackage(IntentUtils.getDefaultBrowserPackage(context));
+  intent.setClass(context,WebLinkHandlerActivity.class);
+  intent.putExtra(EXTRA_ACCOUNT_KEY,accountKey);
   try {
     context.startActivity(intent);
   }
