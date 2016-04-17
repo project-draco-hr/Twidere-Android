@@ -1,5 +1,10 @@
 {
   final ParcelableUsersAdapter adapter=new ParcelableUsersAdapter(context);
-  adapter.setFollowClickListener(this);
+  if (Utils.isOfficialCredentials(context,Utils.getAccountKey(context,getArguments()))) {
+    adapter.setFollowClickListener(this);
+  }
+ else {
+    adapter.setFollowClickListener(null);
+  }
   return adapter;
 }

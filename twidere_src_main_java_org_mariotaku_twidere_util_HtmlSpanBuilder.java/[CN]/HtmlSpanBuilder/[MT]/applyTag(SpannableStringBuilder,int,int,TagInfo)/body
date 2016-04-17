@@ -1,5 +1,10 @@
 {
-  final Object span=createSpan(info);
-  if (span == null)   return;
-  sb.setSpan(span,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  if (info.name.equalsIgnoreCase("br")) {
+    sb.append('\n');
+  }
+ else {
+    final Object span=createSpan(info);
+    if (span == null)     return;
+    sb.setSpan(span,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  }
 }
