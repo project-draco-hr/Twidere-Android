@@ -1,0 +1,4 @@
+{
+  mEditUsername.setText(username);
+  mEditPassword.setText(password);
+}

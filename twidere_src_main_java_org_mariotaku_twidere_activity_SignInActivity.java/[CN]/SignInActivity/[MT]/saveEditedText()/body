@@ -1,5 +1,0 @@
-{
-  if (mEditUsername == null || mEditPassword == null)   return;
-  mUsername=ParseUtils.parseString(mEditUsername.getText());
-  mPassword=ParseUtils.parseString(mEditPassword.getText());
-}

@@ -1,0 +1,3 @@
+{
+  builder.append("(SELECT 1 IN (SELECT ? LIKE '%>'||").append(Filters.Sources.TABLE_NAME).append(".").append(Filters.VALUE).append("||'</a>%' FROM ").append(Filters.Sources.TABLE_NAME).append("))");
+}

@@ -1,5 +1,4 @@
 {
-  saveEditedText();
   setDefaultAPI();
   outState.putString(Accounts.API_URL_FORMAT,mAPIUrlFormat);
   outState.putInt(Accounts.AUTH_TYPE,mAuthType);
@@ -7,8 +6,6 @@
   outState.putBoolean(Accounts.NO_VERSION_SUFFIX,mNoVersionSuffix);
   outState.putString(Accounts.CONSUMER_KEY,mConsumerKey);
   outState.putString(Accounts.CONSUMER_SECRET,mConsumerSecret);
-  outState.putString(Accounts.SCREEN_NAME,mUsername);
-  outState.putString(Accounts.PASSWORD,mPassword);
   outState.putLong(EXTRA_API_LAST_CHANGE,mAPIChangeTimestamp);
   super.onSaveInstanceState(outState);
 }

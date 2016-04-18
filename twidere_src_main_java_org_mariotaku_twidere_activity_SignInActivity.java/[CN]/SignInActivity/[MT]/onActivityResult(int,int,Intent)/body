@@ -9,9 +9,7 @@ case REQUEST_EDIT_API:
         mNoVersionSuffix=data.getBooleanExtra(Accounts.NO_VERSION_SUFFIX,false);
         mConsumerKey=data.getStringExtra(Accounts.CONSUMER_KEY);
         mConsumerSecret=data.getStringExtra(Accounts.CONSUMER_SECRET);
-        final boolean isTwipOMode=mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE;
-        mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
-        mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        updateSignInType();
       }
       setSignInButton();
       invalidateOptionsMenu();

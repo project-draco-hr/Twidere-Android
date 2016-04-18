@@ -1,3 +1,22 @@
 {
-  mSignInButton.setEnabled(mEditPassword.getText().length() > 0 && mEditUsername.getText().length() > 0 || mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE);
+switch (mAuthType) {
+case ParcelableCredentials.AuthType.XAUTH:
+case ParcelableCredentials.AuthType.BASIC:
+{
+      mPasswordSignInButton.setVisibility(View.GONE);
+      mSignInButton.setEnabled(mEditPassword.getText().length() > 0 && mEditUsername.getText().length() > 0);
+      break;
+    }
+case ParcelableCredentials.AuthType.OAUTH:
+{
+    mPasswordSignInButton.setVisibility(View.VISIBLE);
+    mSignInButton.setEnabled(true);
+    break;
+  }
+default :
+{
+  mPasswordSignInButton.setVisibility(View.GONE);
+  mSignInButton.setEnabled(true);
+}
+}
 }

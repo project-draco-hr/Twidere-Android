@@ -1,0 +1,10 @@
+{
+  if (mAuthType != ParcelableCredentials.AuthType.OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return true;
+  final Intent intent=new Intent(this,BrowserSignInActivity.class);
+  intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
+  intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
+  intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
+  intent.putExtra(Accounts.SAME_OAUTH_SIGNING_URL,mSameOAuthSigningUrl);
+  startActivityForResult(intent,REQUEST_BROWSER_SIGN_IN);
+  return false;
+}

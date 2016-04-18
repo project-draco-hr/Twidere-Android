@@ -1,0 +1,73 @@
+{
+  if (database == null)   return false;
+  if (textPlain == null && spans == null && userKey == null && source == null)   return false;
+  final StringBuilder builder=new StringBuilder();
+  final List<String> selectionArgs=new ArrayList<>();
+  builder.append("SELECT ");
+  if (textPlain != null) {
+    selectionArgs.add(textPlain);
+    addTextPlainStatement(builder);
+  }
+  if (quotedTextPlain != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(quotedTextPlain);
+    addTextPlainStatement(builder);
+  }
+  if (spans != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    addSpansStatement(spans,builder,selectionArgs);
+  }
+  if (quotedSpans != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    addSpansStatement(quotedSpans,builder,selectionArgs);
+  }
+  if (userKey != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(String.valueOf(userKey));
+    createUserKeyStatement(builder);
+  }
+  if (retweetedByKey != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(String.valueOf(retweetedByKey));
+    createUserKeyStatement(builder);
+  }
+  if (quotedUserKey != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(String.valueOf(quotedUserKey));
+    createUserKeyStatement(builder);
+  }
+  if (source != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(source);
+    appendSourceStatement(builder);
+  }
+  if (quotedSource != null) {
+    if (!selectionArgs.isEmpty()) {
+      builder.append(" OR ");
+    }
+    selectionArgs.add(quotedSource);
+    appendSourceStatement(builder);
+  }
+  final Cursor cur=database.rawQuery(builder.toString(),selectionArgs.toArray(new String[selectionArgs.size()]));
+  if (cur == null)   return false;
+  try {
+    return cur.moveToFirst() && cur.getInt(0) != 0;
+  }
+  finally {
+    cur.close();
+  }
+}

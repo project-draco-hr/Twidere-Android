@@ -4,6 +4,8 @@
   mAdapter=new CustomAPIConfigArrayAdapter(context,configs);
   final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(context);
   builder.setAdapter(mAdapter,this);
-  getLoaderManager().initLoader(0,null,this);
+  if (!BuildConfig.DEBUG) {
+    getLoaderManager().initLoader(0,null,this);
+  }
   return builder.create();
 }

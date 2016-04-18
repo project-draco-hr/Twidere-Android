@@ -3,7 +3,6 @@
   if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) {
     mTask.cancel(true);
   }
-  saveEditedText();
   setDefaultAPI();
   final String verifier=intent.getStringExtra(EXTRA_OAUTH_VERIFIER);
   final OAuthToken consumerKey=TwitterAPIFactory.getOAuthToken(mConsumerKey,mConsumerSecret);

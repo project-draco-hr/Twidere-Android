@@ -1,0 +1,3 @@
+SpanItem[] spans
+StringBuilder builder
+List<String> selectionArgs

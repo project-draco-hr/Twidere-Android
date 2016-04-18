@@ -1,7 +1,10 @@
 SQLiteDatabase database
 UserKey userKey
 String textPlain
+String quotedTextPlain
 SpanItem[] spans
+SpanItem[] quotedSpans
 String source
+String quotedSource
 UserKey retweetedById
 UserKey quotedUserId

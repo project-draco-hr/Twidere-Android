@@ -8,13 +8,18 @@ case R.id.sign_up:
     }
 case R.id.sign_in:
 {
+    if (mUsernamePasswordContainer.getVisibility() != View.VISIBLE) {
+      mEditUsername.setText(null);
+      mEditPassword.setText(null);
+    }
     doLogin();
     break;
   }
-case R.id.sign_in_method_introduction:
+case R.id.password_sign_in:
 {
   final FragmentManager fm=getSupportFragmentManager();
-  new SignInMethodIntroductionDialogFragment().show(fm.beginTransaction(),"sign_in_method_introduction");
+  PasswordSignInDialogFragment df=new PasswordSignInDialogFragment();
+  df.show(fm.beginTransaction(),"password_sign_in");
   break;
 }
 }

@@ -1,4 +1,4 @@
 {
   if (database == null || status == null)   return false;
-  return isFiltered(database,status.user_key,status.text_plain,status.spans,status.source,status.retweeted_by_user_key,status.quoted_user_key,filterRTs);
+  return isFiltered(database,status.user_key,status.text_plain,status.quoted_text_plain,status.spans,status.quoted_spans,status.source,status.quoted_source,status.retweeted_by_user_key,status.quoted_user_key,filterRTs);
 }

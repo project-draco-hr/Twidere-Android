@@ -1,0 +1,9 @@
+{
+  StringBuilder spansFlat=new StringBuilder();
+  for (  SpanItem span : spans) {
+    spansFlat.append(span.link);
+    spansFlat.append(' ');
+  }
+  selectionArgs.add(spansFlat.toString());
+  builder.append("(SELECT 1 IN (SELECT ? LIKE '%'||").append(Filters.Links.TABLE_NAME).append(".").append(Filters.VALUE).append("||'%' FROM ").append(Filters.Links.TABLE_NAME).append("))");
+}

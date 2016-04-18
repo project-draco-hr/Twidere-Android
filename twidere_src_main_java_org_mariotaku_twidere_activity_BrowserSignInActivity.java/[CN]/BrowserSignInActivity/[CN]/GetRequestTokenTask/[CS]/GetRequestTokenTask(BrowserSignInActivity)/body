@@ -4,4 +4,5 @@
   mConsumerKey=intent.getStringExtra(Accounts.CONSUMER_KEY);
   mConsumerSecret=intent.getStringExtra(Accounts.CONSUMER_SECRET);
   mAPIUrlFormat=intent.getStringExtra(Accounts.API_URL_FORMAT);
+  mSameOAuthSigningUrl=intent.getBooleanExtra(Accounts.SAME_OAUTH_SIGNING_URL,true);
 }

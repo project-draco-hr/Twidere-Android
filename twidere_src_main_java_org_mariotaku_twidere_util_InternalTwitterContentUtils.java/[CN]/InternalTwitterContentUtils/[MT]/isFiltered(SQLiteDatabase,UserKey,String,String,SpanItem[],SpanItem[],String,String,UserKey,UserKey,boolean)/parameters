@@ -1,0 +1,11 @@
+SQLiteDatabase database
+UserKey userKey
+String textPlain
+String quotedTextPlain
+SpanItem[] spans
+SpanItem[] quotedSpans
+String source
+String quotedSource
+UserKey retweetedByKey
+UserKey quotedUserKey
+boolean filterRts

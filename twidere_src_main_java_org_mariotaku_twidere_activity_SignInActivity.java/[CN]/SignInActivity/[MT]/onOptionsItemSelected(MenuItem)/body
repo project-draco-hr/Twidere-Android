@@ -29,17 +29,6 @@ case R.id.edit_api:
   startActivityForResult(intent,REQUEST_EDIT_API);
   break;
 }
-case R.id.open_in_browser:
-{
-if (mAuthType != ParcelableCredentials.AuthType.OAUTH || mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
-saveEditedText();
-final Intent intent=new Intent(this,BrowserSignInActivity.class);
-intent.putExtra(Accounts.CONSUMER_KEY,mConsumerKey);
-intent.putExtra(Accounts.CONSUMER_SECRET,mConsumerSecret);
-intent.putExtra(Accounts.API_URL_FORMAT,mAPIUrlFormat);
-startActivityForResult(intent,REQUEST_BROWSER_SIGN_IN);
-break;
-}
 }
 return super.onOptionsItemSelected(item);
 }

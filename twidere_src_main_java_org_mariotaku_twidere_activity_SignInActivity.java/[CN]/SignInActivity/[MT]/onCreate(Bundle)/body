@@ -8,21 +8,18 @@
     mSameOAuthSigningUrl=savedInstanceState.getBoolean(Accounts.SAME_OAUTH_SIGNING_URL);
     mConsumerKey=Utils.trim(savedInstanceState.getString(Accounts.CONSUMER_KEY));
     mConsumerSecret=Utils.trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
-    mUsername=savedInstanceState.getString(Accounts.SCREEN_NAME);
-    mPassword=savedInstanceState.getString(Accounts.PASSWORD);
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
   }
   final boolean isTwipOMode=mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE;
   mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
   mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
-  mEditUsername.setText(mUsername);
   mEditUsername.addTextChangedListener(this);
-  mEditPassword.setText(mPassword);
   mEditPassword.addTextChangedListener(this);
+  mSignInButton.setOnClickListener(this);
   mSignUpButton.setOnClickListener(this);
+  mPasswordSignInButton.setOnClickListener(this);
   final ColorStateList color=ColorStateList.valueOf(ContextCompat.getColor(this,R.color.material_light_green));
   ViewCompat.setBackgroundTintList(mSignInButton,color);
-  setSignInButton();
   final String consumerKey=mPreferences.getString(KEY_CONSUMER_KEY,null);
   final String consumerSecret=mPreferences.getString(KEY_CONSUMER_SECRET,null);
   if (BuildConfig.SHOW_CUSTOM_TOKEN_DIALOG && savedInstanceState == null && !mPreferences.getBoolean(KEY_CONSUMER_KEY_SECRET_SET,false) && !Utils.isCustomConsumerKeySecret(consumerKey,consumerSecret)) {
@@ -30,4 +27,6 @@
     df.setCancelable(false);
     df.show(getSupportFragmentManager(),"set_consumer_key_secret");
   }
+  updateSignInType();
+  setSignInButton();
 }
