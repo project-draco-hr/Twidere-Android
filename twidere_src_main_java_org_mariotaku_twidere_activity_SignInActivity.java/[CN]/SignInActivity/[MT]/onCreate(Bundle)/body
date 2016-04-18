@@ -10,7 +10,7 @@
     mConsumerSecret=Utils.trim(savedInstanceState.getString(Accounts.CONSUMER_SECRET));
     mAPIChangeTimestamp=savedInstanceState.getLong(EXTRA_API_LAST_CHANGE);
   }
-  final boolean isTwipOMode=mAuthType == ParcelableCredentials.AuthType.TWIP_O_MODE;
+  final boolean isTwipOMode=mAuthType == AuthType.TWIP_O_MODE;
   mUsernamePasswordContainer.setVisibility(isTwipOMode ? View.GONE : View.VISIBLE);
   mSignInSignUpContainer.setOrientation(isTwipOMode ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
   mEditUsername.addTextChangedListener(this);

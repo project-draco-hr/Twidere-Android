@@ -20,6 +20,11 @@
   }
   final String userId=user.getId();
   if (userId == null)   return new SignInResponse(false,false,null);
-  final int color=analyseUserProfileColor(user);
-  return new SignInResponse(Utils.isUserLoggedIn(activity,userId),username,password,user,color,apiUrlFormat,noVersionSuffix,detectAccountType(twitter,user));
+  int color=analyseUserProfileColor(user);
+  final Pair<String,String> accountType=detectAccountType(twitter,user);
+  final ParcelableAccount account=ParcelableAccountUtils.getAccount(activity,new UserKey(userId,accountType.first));
+  if (account != null) {
+    color=account.color;
+  }
+  return new SignInResponse(account != null,username,password,user,color,apiUrlFormat,noVersionSuffix,accountType);
 }

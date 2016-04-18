@@ -1,3 +1,4 @@
 {
   ((APIEditorActivity)getActivity()).setAPIConfig(mAdapter.getItem(which));
+  dismiss();
 }

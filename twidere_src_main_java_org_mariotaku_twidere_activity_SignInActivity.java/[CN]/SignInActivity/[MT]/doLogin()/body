@@ -3,7 +3,7 @@
     mTask.cancel(true);
   }
   setDefaultAPI();
-  if (mAuthType == ParcelableCredentials.AuthType.OAUTH && mEditUsername.length() <= 0) {
+  if (mAuthType == AuthType.OAUTH && mEditUsername.length() <= 0) {
     openBrowserLogin();
     return;
   }

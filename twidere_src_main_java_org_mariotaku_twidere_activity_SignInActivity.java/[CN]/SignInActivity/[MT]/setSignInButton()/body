@@ -1,13 +1,13 @@
 {
 switch (mAuthType) {
-case ParcelableCredentials.AuthType.XAUTH:
-case ParcelableCredentials.AuthType.BASIC:
+case AuthType.XAUTH:
+case AuthType.BASIC:
 {
       mPasswordSignInButton.setVisibility(View.GONE);
       mSignInButton.setEnabled(mEditPassword.getText().length() > 0 && mEditUsername.getText().length() > 0);
       break;
     }
-case ParcelableCredentials.AuthType.OAUTH:
+case AuthType.OAUTH:
 {
     mPasswordSignInButton.setVisibility(View.VISIBLE);
     mSignInButton.setEnabled(true);

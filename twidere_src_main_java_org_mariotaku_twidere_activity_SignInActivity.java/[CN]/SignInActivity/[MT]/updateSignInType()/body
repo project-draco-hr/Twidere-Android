@@ -1,13 +1,13 @@
 {
 switch (mAuthType) {
-case ParcelableCredentials.AuthType.XAUTH:
-case ParcelableCredentials.AuthType.BASIC:
+case AuthType.XAUTH:
+case AuthType.BASIC:
 {
       mUsernamePasswordContainer.setVisibility(View.VISIBLE);
       mSignInSignUpContainer.setOrientation(LinearLayout.HORIZONTAL);
       break;
     }
-case ParcelableCredentials.AuthType.TWIP_O_MODE:
+case AuthType.TWIP_O_MODE:
 {
     mUsernamePasswordContainer.setVisibility(View.GONE);
     mSignInSignUpContainer.setOrientation(LinearLayout.VERTICAL);

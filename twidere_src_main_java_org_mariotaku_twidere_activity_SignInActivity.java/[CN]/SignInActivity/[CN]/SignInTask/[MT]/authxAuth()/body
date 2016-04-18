@@ -7,5 +7,5 @@
   final OAuthToken accessToken=oauth.getAccessToken(username,password);
   final String userId=accessToken.getUserId();
   if (userId == null)   return new SignInResponse(false,false,null);
-  return getOAuthSignInResponse(activity,accessToken,userId,ParcelableCredentials.AuthType.XAUTH);
+  return getOAuthSignInResponse(activity,accessToken,userId,AuthType.XAUTH);
 }

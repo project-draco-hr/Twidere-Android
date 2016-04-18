@@ -1,6 +1,12 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_browser_sign_in);
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+    CookieManager.getInstance().removeAllCookie();
+  }
+ else {
+    CookieManager.getInstance().removeAllCookies(null);
+  }
   mWebView.setWebViewClient(new AuthorizationWebViewClient(this));
   mWebView.setVerticalScrollBarEnabled(false);
   mWebView.addJavascriptInterface(new InjectorJavaScriptInterface(this),"injector");

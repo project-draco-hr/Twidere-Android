@@ -1,8 +1,0 @@
-{
-  final Context context=getActivity();
-  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(context);
-  builder.setTitle(R.string.sign_in_method_introduction_title);
-  builder.setMessage(R.string.sign_in_method_introduction);
-  builder.setPositiveButton(android.R.string.ok,null);
-  return builder.create();
-}
