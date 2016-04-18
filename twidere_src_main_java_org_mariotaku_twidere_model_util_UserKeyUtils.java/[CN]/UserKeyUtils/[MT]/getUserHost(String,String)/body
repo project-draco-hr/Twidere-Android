@@ -1,6 +1,6 @@
 {
   if (def == null) {
-    def=TwidereConstants.USER_TYPE_TWITTER_COM;
+    def=USER_TYPE_TWITTER_COM;
   }
   if (uri == null)   return def;
   final String authority=UriUtils.getAuthority(uri);

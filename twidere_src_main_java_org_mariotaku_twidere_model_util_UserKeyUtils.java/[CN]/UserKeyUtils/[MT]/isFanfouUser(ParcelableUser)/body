@@ -1,0 +1,3 @@
+{
+  return isFanfouUrl(user.profile_image_url) || isFanfouUrl(user.profile_background_url);
+}

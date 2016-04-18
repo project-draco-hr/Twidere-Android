@@ -1,0 +1,5 @@
+{
+  if (isFanfouUser(user))   return USER_TYPE_FANFOU_COM;
+  if (user.extras == null)   return USER_TYPE_TWITTER_COM;
+  return getUserHost(user.extras.statusnet_profile_url,USER_TYPE_TWITTER_COM);
+}
