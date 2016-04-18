@@ -30,6 +30,8 @@
   mUsersListView.setAdapter(mUsersAdapter=new SimpleParcelableUsersAdapter(this));
   mUserListsListView.setOnItemClickListener(this);
   mUsersListView.setOnItemClickListener(this);
+  mScreenNameConfirm.setOnClickListener(this);
+  mCreateList.setOnClickListener(this);
   if (selecting_user) {
     mUsersListContainer.setVisibility(View.VISIBLE);
     mUserListsContainer.setVisibility(View.GONE);
