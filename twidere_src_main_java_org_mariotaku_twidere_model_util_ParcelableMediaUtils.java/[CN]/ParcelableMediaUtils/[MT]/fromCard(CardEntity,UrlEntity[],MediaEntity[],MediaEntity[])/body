@@ -34,15 +34,7 @@
       media.width=NumberUtils.toInt(((CardEntity.StringValue)playerWidth).getValue(),-1);
       media.height=NumberUtils.toInt(((CardEntity.StringValue)playerHeight).getValue(),-1);
     }
-    if (entities != null) {
-      for (      UrlEntity entity : entities) {
-        if (entity.getUrl().equals(media.url)) {
-          media.start=entity.getStart();
-          media.end=entity.getEnd();
-          break;
-        }
-      }
-    }
+    writeLinkInfo(media,urlEntities,mediaEntities,extendedMediaEntities);
     return new ParcelableMedia[]{media};
   }
  else   if ("summary_large_image".equals(name)) {
@@ -60,8 +52,8 @@
     if (summaryPhotoImage instanceof CardEntity.ImageValue) {
       media.preview_url=((CardEntity.ImageValue)summaryPhotoImage).getUrl();
     }
-    if (entities != null) {
-      for (      UrlEntity entity : entities) {
+    if (urlEntities != null) {
+      for (      UrlEntity entity : urlEntities) {
         if (entity.getUrl().equals(media.url)) {
           media.start=entity.getStart();
           media.end=entity.getEnd();

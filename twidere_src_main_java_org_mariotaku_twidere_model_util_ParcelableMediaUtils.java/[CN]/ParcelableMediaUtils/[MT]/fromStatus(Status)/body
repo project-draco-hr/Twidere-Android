@@ -1,7 +1,7 @@
 {
   final ParcelableMedia[] fromEntities=fromEntities(status);
   final ParcelableMedia[] fromAttachments=fromAttachments(status);
-  final ParcelableMedia[] fromCard=fromCard(status.getCard(),status.getUrlEntities());
+  final ParcelableMedia[] fromCard=fromCard(status.getCard(),status.getUrlEntities(),status.getMediaEntities(),status.getExtendedMediaEntities());
   final ParcelableMedia[] fromPhoto=fromPhoto(status);
   final ParcelableMedia[] merged=new ParcelableMedia[fromCard.length + fromAttachments.length + fromEntities.length+ fromPhoto.length];
   TwidereArrayUtils.mergeArray(merged,fromEntities,fromAttachments,fromCard,fromPhoto);

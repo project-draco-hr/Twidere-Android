@@ -1,0 +1,17 @@
+{
+  if (entities == null)   return;
+  for (  UrlEntity[] array : entities) {
+    if (array == null)     continue;
+    for (    UrlEntity entity : array) {
+      if (entity.getUrl().equals(media.url)) {
+        media.page_url=entity.getExpandedUrl();
+        if (media.page_url == null) {
+          media.page_url=media.url;
+        }
+        media.start=entity.getStart();
+        media.end=entity.getEnd();
+        break;
+      }
+    }
+  }
+}

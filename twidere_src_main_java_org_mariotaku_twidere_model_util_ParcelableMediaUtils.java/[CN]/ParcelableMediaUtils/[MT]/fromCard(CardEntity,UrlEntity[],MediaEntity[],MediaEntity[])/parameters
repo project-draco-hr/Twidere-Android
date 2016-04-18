@@ -1,0 +1,4 @@
+CardEntity card
+UrlEntity[] urlEntities
+MediaEntity[] mediaEntities
+MediaEntity[] extendedMediaEntities
