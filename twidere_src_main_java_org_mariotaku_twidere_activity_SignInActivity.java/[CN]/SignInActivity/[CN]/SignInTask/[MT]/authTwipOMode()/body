@@ -10,7 +10,7 @@
   if (userId == null)   return new SignInResponse(false,false,null);
   int color=analyseUserProfileColor(user);
   final Pair<String,String> accountType=detectAccountType(twitter,user);
-  final ParcelableAccount account=ParcelableAccountUtils.getAccount(activity,new UserKey(userId,accountType.first));
+  final ParcelableAccount account=ParcelableAccountUtils.getAccount(activity,new UserKey(userId,UserKeyUtils.getUserHost(user)));
   if (account != null) {
     color=account.color;
   }
