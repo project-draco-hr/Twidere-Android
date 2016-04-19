@@ -6,4 +6,7 @@
     if (e instanceof UnknownHostException)     throw (UnknownHostException)e;
     throw new UnknownHostException("Unable to resolve address " + e.getMessage());
   }
+catch (  SecurityException e) {
+    throw new UnknownHostException("Security exception" + e.getMessage());
+  }
 }
