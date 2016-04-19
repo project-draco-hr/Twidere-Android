@@ -8,7 +8,9 @@
       return getNewestActivityIds(getAccountKeys());
     }
     @Nullable @Override public long[] getSinceSortIds(){
-      return DataStoreUtils.getNewestActivityMaxSortPositions(getContext(),getContentUri(),getAccountKeys());
+      final Context context=getContext();
+      if (context == null)       return null;
+      return DataStoreUtils.getNewestActivityMaxSortPositions(context,getContentUri(),getAccountKeys());
     }
     @Override public boolean hasSinceIds(){
       return true;

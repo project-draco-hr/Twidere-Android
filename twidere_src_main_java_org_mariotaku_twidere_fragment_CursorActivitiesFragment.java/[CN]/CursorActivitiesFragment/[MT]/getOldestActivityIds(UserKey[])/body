@@ -1,3 +1,5 @@
 {
-  return DataStoreUtils.getOldestActivityMaxPositions(getActivity(),getContentUri(),accountKeys);
+  final Context context=getContext();
+  if (context == null)   return null;
+  return DataStoreUtils.getOldestActivityMaxPositions(context,getContentUri(),accountKeys);
 }

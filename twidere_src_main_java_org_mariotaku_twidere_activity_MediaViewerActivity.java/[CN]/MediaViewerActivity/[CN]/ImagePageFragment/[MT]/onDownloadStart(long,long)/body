@@ -2,6 +2,6 @@
   super.onDownloadStart(total,nonce);
   if (mMediaDownloadEvent != null && mMediaDownloadEvent.getNonce() == nonce) {
     mMediaDownloadEvent.setOpenedTime(System.currentTimeMillis());
-    mMediaDownloadEvent.setSize(nonce);
+    mMediaDownloadEvent.setSize(total);
   }
 }

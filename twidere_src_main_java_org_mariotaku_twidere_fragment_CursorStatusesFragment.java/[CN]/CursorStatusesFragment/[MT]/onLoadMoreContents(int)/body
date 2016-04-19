@@ -10,7 +10,9 @@
       return getOldestStatusIds(getAccountKeys());
     }
     @Nullable @Override public long[] getMaxSortIds(){
-      return DataStoreUtils.getOldestStatusSortIds(getContext(),getContentUri(),getAccountKeys());
+      final Context context=getContext();
+      if (context == null)       return null;
+      return DataStoreUtils.getOldestStatusSortIds(context,getContentUri(),getAccountKeys());
     }
     @Override public boolean hasMaxIds(){
       return true;
