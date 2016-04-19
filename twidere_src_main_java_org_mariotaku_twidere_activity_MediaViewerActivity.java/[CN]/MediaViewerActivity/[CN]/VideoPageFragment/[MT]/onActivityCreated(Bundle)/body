@@ -12,6 +12,7 @@
   mVideoView.setOnCompletionListener(this);
   mPlayPauseButton.setOnClickListener(this);
   mVolumeButton.setOnClickListener(this);
+  mVideoControl.setVisibility(View.GONE);
   startLoading(false);
   setMediaViewVisible(false);
   updateVolume();

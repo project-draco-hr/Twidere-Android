@@ -1,5 +1,6 @@
 {
   mVideoView.setVideoURI(result.cacheUri);
+  mVideoControl.setVisibility(View.GONE);
   setMediaViewVisible(true);
   final FragmentActivity activity=getActivity();
   if (activity != null) {
