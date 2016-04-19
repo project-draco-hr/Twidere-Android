@@ -1,5 +1,5 @@
 {
-  if (!isWebLinkHandled(context,uri)) {
+  if (checkHandled && !isWebLinkHandled(context,uri)) {
     return null;
   }
   final Intent intent=new Intent(Intent.ACTION_VIEW);
