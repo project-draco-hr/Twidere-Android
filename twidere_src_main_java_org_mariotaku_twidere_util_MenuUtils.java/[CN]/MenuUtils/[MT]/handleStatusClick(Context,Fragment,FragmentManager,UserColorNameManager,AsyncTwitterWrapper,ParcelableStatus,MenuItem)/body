@@ -104,9 +104,10 @@ break;
 }
 case R.id.open_in_browser:
 {
-final Intent intent=new Intent(Intent.ACTION_VIEW,LinkCreator.getStatusWebLink(status));
+final Uri uri=LinkCreator.getStatusWebLink(status);
+final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-intent.setPackage(IntentUtils.getDefaultBrowserPackage(context));
+intent.setPackage(IntentUtils.getDefaultBrowserPackage(context,uri));
 context.startActivity(intent);
 break;
 }

@@ -1,0 +1,5 @@
+{
+  final IntentFilter filter=getWebLinkIntentFilter(context);
+  if (filter == null)   return false;
+  return filter.match(Intent.ACTION_VIEW,null,uri.getScheme(),uri,Collections.singleton(Intent.CATEGORY_BROWSABLE),LOGTAG) >= 0;
+}

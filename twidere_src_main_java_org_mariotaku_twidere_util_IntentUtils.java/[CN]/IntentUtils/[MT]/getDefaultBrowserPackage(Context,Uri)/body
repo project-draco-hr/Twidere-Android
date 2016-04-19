@@ -1,0 +1,21 @@
+{
+  if (!isWebLinkHandled(context,uri)) {
+    return null;
+  }
+  final Intent intent=new Intent(Intent.ACTION_VIEW);
+  intent.addCategory(Intent.CATEGORY_BROWSABLE);
+  Uri.Builder testBuilder=new Uri.Builder();
+  testBuilder.scheme(SCHEME_HTTP);
+  StringBuilder sb=new StringBuilder();
+  Random random=new Random();
+  int range='z' - 'a';
+  for (int i=0; i < 20; i++) {
+    sb.append((char)('a' + (Math.abs(random.nextInt()) % range)));
+  }
+  sb.append(".com");
+  testBuilder.authority(sb.toString());
+  intent.setData(testBuilder.build());
+  final ComponentName componentName=intent.resolveActivity(context.getPackageManager());
+  if (componentName == null)   return null;
+  return componentName.getPackageName();
+}

@@ -1,0 +1,7 @@
+{
+  Intent testIntent=new Intent(Intent.ACTION_VIEW,Uri.parse("https://twitter.com/user_name"));
+  testIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+  testIntent.setPackage(context.getPackageName());
+  final ResolveInfo resolveInfo=context.getPackageManager().resolveActivity(testIntent,PackageManager.GET_RESOLVED_FILTER);
+  return resolveInfo != null ? resolveInfo.filter : null;
+}

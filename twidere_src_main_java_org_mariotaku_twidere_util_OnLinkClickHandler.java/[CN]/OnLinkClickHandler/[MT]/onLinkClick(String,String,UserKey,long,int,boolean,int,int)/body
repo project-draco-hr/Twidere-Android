@@ -61,10 +61,13 @@ case "fanfou.com":
       }
       break;
     }
-case "twitter.com":
+default :
 {
-    openTwitterLink(link,accountKey);
-    return true;
+    if (IntentUtils.isWebLinkHandled(context,Uri.parse(link))) {
+      openTwitterLink(link,accountKey);
+      return true;
+    }
+    break;
   }
 }
 openLink(link);

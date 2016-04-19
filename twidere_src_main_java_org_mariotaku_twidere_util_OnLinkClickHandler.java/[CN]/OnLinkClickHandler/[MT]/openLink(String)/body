@@ -1,8 +1,9 @@
 {
   if (manager != null && manager.isActive())   return;
-  final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(link));
+  final Uri uri=Uri.parse(link);
+  final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-  intent.setPackage(IntentUtils.getDefaultBrowserPackage(context));
+  intent.setPackage(IntentUtils.getDefaultBrowserPackage(context,uri));
   try {
     context.startActivity(intent);
   }
