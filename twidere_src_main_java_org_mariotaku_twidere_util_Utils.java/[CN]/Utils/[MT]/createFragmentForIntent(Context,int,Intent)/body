@@ -6,7 +6,12 @@
   if (uri == null)   return null;
   final Bundle args=new Bundle();
   if (extras != null) {
-    args.putAll(extras);
+    try {
+      args.putAll(extras);
+    }
+ catch (    BadParcelableException e) {
+      return null;
+    }
   }
   boolean isAccountIdRequired=true;
 switch (linkId) {

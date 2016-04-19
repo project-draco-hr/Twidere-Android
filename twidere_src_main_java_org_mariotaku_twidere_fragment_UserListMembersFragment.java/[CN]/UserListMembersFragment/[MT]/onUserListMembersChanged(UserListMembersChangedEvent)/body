@@ -15,6 +15,7 @@ case UserListMembersChangedEvent.Action.ADDED:
       final ParcelableUsersAdapter adapter=getAdapter();
       final List<ParcelableUser> newUsers=Arrays.asList(event.getUsers());
       final List<ParcelableUser> users=adapter.getData();
+      if (users == null)       return;
       users.removeAll(newUsers);
       users.addAll(0,newUsers);
       for (int i=0, j=users.size(); i < j; i++) {
@@ -28,6 +29,7 @@ case UserListMembersChangedEvent.Action.REMOVED:
     final ParcelableUsersAdapter adapter=getAdapter();
     final List<ParcelableUser> removedUsers=Arrays.asList(event.getUsers());
     final List<ParcelableUser> users=adapter.getData();
+    if (users == null)     return;
     users.removeAll(removedUsers);
     for (int i=0, j=users.size(); i < j; i++) {
       users.get(i).position=i;

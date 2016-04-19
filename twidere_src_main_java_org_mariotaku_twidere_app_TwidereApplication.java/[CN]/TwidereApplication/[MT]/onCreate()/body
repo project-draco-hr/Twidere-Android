@@ -3,6 +3,9 @@
   if (BuildConfig.DEBUG) {
     StrictModeUtils.detectAllVmPolicy();
   }
+  final SharedPreferences preferences=getSharedPreferences();
+  resetTheme(preferences);
+  super.onCreate();
   mProfileImageViewViewProcessor=new ProfileImageViewViewProcessor();
   mFontFamilyTagProcessor=new FontFamilyTagProcessor();
   ATE.registerViewProcessor(TabPagerIndicator.class,new TabPagerIndicatorViewProcessor());
@@ -21,7 +24,6 @@
   ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_ACTIVATED));
   ATE.registerTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED,new IconActionButtonTagProcessor(IconActionButtonTagProcessor.PREFIX_COLOR_DISABLED));
   ATE.registerTagProcessor(ThemedMultiValueSwitch.PREFIX_TINT,new ThemedMultiValueSwitch.TintTagProcessor());
-  final SharedPreferences preferences=getSharedPreferences();
   mProfileImageViewViewProcessor.setStyle(Utils.getProfileImageStyle(preferences));
   mFontFamilyTagProcessor.setFontFamily(ThemeUtils.getThemeFontFamily(preferences));
   final int themeColor=preferences.getInt(KEY_THEME_COLOR,ContextCompat.getColor(this,R.color.branding_color));
@@ -34,8 +36,6 @@
   if (!ATE.config(this,null).isConfigured()) {
     ATE.config(this,null).accentColor(ThemeUtils.getOptimalAccentColor(themeColor,Color.WHITE)).coloredActionBar(false).coloredStatusBar(false).commit();
   }
-  resetTheme(preferences);
-  super.onCreate();
   initializeAsyncTask();
   initDebugMode();
   initBugReport();
