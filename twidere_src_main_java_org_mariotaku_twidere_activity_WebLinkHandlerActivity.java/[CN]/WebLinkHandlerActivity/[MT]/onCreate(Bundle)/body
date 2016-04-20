@@ -2,6 +2,7 @@
   super.onCreate(savedInstanceState);
   final PackageManager packageManager=getPackageManager();
   final Intent intent=getIntent();
+  intent.setExtrasClassLoader(TwidereApplication.class.getClassLoader());
   final Uri uri=intent.getData();
   if (uri == null || uri.getHost() == null) {
     finish();

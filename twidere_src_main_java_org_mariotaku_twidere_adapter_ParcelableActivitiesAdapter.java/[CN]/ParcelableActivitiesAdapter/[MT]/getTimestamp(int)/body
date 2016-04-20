@@ -2,8 +2,10 @@
   int dataPosition=adapterPosition - getActivityStartIndex();
   if (dataPosition < 0 || dataPosition >= getActivityCount())   return RecyclerView.NO_ID;
   if (mData instanceof ObjectCursor) {
+    final Cursor cursor=((ObjectCursor)mData).getCursor();
+    if (!cursor.moveToPosition(dataPosition))     return -1;
     final ParcelableActivityCursorIndices indices=(ParcelableActivityCursorIndices)((ObjectCursor)mData).getIndices();
-    return ((ObjectCursor)mData).getCursor(dataPosition).getLong(indices.timestamp);
+    return cursor.getLong(indices.timestamp);
   }
   return mData.get(dataPosition).timestamp;
 }

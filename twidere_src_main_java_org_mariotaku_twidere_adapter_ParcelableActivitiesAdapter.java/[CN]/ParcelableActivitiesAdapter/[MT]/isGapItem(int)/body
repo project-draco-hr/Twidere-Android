@@ -6,7 +6,8 @@
     return false;
   }
   if (mData instanceof ObjectCursor) {
-    final Cursor cursor=((ObjectCursor)mData).getCursor(dataPosition);
+    final Cursor cursor=((ObjectCursor)mData).getCursor();
+    if (!cursor.moveToPosition(dataPosition))     return false;
     final ParcelableActivityCursorIndices indices=(ParcelableActivityCursorIndices)((ObjectCursor)mData).getIndices();
     return cursor.getShort(indices.is_gap) == 1;
   }
