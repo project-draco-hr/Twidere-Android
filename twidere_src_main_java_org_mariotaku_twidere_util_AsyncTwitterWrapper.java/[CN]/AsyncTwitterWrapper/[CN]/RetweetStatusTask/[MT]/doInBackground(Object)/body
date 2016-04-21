@@ -1,10 +1,13 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,true);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
+  if (credentials == null)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,credentials,true,true);
   if (twitter == null) {
     return SingleResponse.getInstance();
   }
   try {
     final ParcelableStatus result=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
+    ParcelableStatusUtils.updateExtraInformation(result,credentials,mUserColorNameManager);
     Utils.setLastSeen(mContext,result.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
     values.put(Statuses.MY_RETWEET_ID,result.id);

@@ -1,10 +1,13 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
+  if (credentials == null)   return SingleResponse.getInstance();
+  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,credentials,true,true);
   if (twitter == null)   return SingleResponse.getInstance();
   ParcelableStatus status=null;
   TwitterException exception=null;
   try {
     status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountKey,false);
+    ParcelableStatusUtils.updateExtraInformation(status,credentials,mUserColorNameManager);
   }
  catch (  final TwitterException e) {
     exception=e;
