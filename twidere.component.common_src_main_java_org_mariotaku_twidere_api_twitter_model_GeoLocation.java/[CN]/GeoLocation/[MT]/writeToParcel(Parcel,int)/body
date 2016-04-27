@@ -1,0 +1,3 @@
+{
+  GeoLocationParcelablePlease.writeToParcel(this,dest,flags);
+}

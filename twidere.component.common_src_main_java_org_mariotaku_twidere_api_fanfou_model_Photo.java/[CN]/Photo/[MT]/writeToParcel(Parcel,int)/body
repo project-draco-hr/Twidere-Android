@@ -1,0 +1,3 @@
+{
+  PhotoParcelablePlease.writeToParcel(this,dest,flags);
+}

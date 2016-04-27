@@ -1,0 +1,3 @@
+{
+  CardEntity$UserValueParcelablePlease.writeToParcel(this,dest,flags);
+}

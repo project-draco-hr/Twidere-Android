@@ -1,0 +1,3 @@
+{
+  StatusNetConfigParcelablePlease.writeToParcel(this,dest,flags);
+}

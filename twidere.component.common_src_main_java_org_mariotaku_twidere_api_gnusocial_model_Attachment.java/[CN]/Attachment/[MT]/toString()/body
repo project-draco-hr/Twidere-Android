@@ -1,0 +1,3 @@
+{
+  return "Attachment{" + "width=" + width + ", height="+ height+ ", url='"+ url+ '\''+ ", thumbUrl='"+ thumbUrl+ '\''+ ", largeThumbUrl='"+ largeThumbUrl+ '\''+ ", mimetype='"+ mimetype+ '\''+ ", id="+ id+ ", oembed="+ oembed+ ", size="+ size+ ", version='"+ version+ '\''+ '}';
+}

@@ -1,0 +1,3 @@
+{
+  GroupParcelablePlease.writeToParcel(this,dest,flags);
+}

@@ -1,3 +1,3 @@
 {
-  return "UserMentionEntity{" + "indices=" + indices + ", id="+ id+ ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ '}';
+  return "UserMentionEntity{" + "indices=" + indices + ", id='"+ id+ '\''+ ", name='"+ name+ '\''+ ", screenName='"+ screenName+ '\''+ '}';
 }

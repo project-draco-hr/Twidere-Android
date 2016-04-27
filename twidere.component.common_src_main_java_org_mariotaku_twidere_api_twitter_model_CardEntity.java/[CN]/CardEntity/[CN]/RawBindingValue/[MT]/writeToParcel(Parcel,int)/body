@@ -1,0 +1,3 @@
+{
+  CardEntity$RawBindingValueParcelablePlease.writeToParcel(this,dest,flags);
+}

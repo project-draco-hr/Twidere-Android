@@ -1,0 +1,3 @@
+{
+  DMResponse$EntryParcelablePlease.writeToParcel(this,dest,flags);
+}

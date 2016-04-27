@@ -1,0 +1,3 @@
+{
+  MediaEntityParcelablePlease.writeToParcel(this,dest,flags);
+}

@@ -1,0 +1,3 @@
+{
+  CardEntity$BooleanValueParcelablePlease.writeToParcel(this,dest,flags);
+}

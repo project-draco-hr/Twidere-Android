@@ -1,0 +1,3 @@
+{
+  AttachmentParcelablePlease.writeToParcel(this,dest,flags);
+}

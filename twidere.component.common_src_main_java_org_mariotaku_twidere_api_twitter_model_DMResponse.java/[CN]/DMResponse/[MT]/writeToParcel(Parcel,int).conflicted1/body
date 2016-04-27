@@ -1,0 +1,3 @@
+{
+  DMResponseParcelablePlease.writeToParcel(this,dest,flags);
+}

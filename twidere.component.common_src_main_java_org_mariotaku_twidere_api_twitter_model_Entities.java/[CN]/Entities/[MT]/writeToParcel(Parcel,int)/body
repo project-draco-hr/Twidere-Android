@@ -1,0 +1,3 @@
+{
+  EntitiesParcelablePlease.writeToParcel(this,dest,flags);
+}

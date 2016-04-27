@@ -1,0 +1,3 @@
+{
+  ActivityParcelablePlease.writeToParcel(this,dest,flags);
+}

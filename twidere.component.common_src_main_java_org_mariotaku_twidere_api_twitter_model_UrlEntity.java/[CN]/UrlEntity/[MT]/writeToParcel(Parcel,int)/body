@@ -1,0 +1,3 @@
+{
+  UrlEntityParcelablePlease.writeToParcel(this,dest,flags);
+}

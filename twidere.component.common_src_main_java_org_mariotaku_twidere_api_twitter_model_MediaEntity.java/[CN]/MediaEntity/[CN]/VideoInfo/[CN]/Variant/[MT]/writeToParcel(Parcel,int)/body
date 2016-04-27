@@ -1,0 +1,3 @@
+{
+  MediaEntity$VideoInfo$VariantParcelablePlease.writeToParcel(this,dest,flags);
+}

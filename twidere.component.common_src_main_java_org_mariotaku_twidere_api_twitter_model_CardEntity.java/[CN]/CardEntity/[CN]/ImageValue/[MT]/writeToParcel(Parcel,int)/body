@@ -1,0 +1,3 @@
+{
+  CardEntity$ImageValueParcelablePlease.writeToParcel(this,dest,flags);
+}

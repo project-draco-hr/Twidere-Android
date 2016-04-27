@@ -1,0 +1,3 @@
+{
+  HashtagEntityParcelablePlease.writeToParcel(this,dest,flags);
+}

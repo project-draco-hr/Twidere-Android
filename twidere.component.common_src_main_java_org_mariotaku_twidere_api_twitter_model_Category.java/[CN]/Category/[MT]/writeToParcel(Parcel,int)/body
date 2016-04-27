@@ -1,0 +1,3 @@
+{
+  CategoryParcelablePlease.writeToParcel(this,dest,flags);
+}

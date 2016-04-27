@@ -1,0 +1,3 @@
+{
+  UserMentionEntityParcelablePlease.writeToParcel(this,dest,flags);
+}

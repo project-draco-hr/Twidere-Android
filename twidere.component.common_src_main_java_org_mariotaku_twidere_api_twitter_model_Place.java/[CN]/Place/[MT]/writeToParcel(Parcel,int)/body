@@ -1,0 +1,3 @@
+{
+  PlaceParcelablePlease.writeToParcel(this,dest,flags);
+}
