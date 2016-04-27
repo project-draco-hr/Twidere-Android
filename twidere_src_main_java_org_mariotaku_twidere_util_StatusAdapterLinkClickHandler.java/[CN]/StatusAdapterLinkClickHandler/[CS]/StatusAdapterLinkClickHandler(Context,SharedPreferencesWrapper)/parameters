@@ -1,2 +1,2 @@
-IStatusesAdapter<D> adapter
+Context context
 SharedPreferencesWrapper preferences
