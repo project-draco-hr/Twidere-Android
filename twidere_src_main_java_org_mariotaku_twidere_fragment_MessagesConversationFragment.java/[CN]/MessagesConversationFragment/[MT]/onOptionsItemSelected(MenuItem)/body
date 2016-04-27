@@ -4,7 +4,12 @@ case R.id.delete_all:
 {
       final ParcelableCredentials account=mAccount;
       if (account == null || mRecipient == null)       return true;
-      mTwitterWrapper.destroyMessageConversationAsync(account.account_key,mRecipient.key.getId());
+      Bundle args=new Bundle();
+      args.putParcelable(EXTRA_ACCOUNT,account);
+      args.putParcelable(EXTRA_USER,mRecipient);
+      DialogFragment df=new DeleteConversationConfirmDialogFragment();
+      df.setArguments(args);
+      df.show(getFragmentManager(),"delete_conversation_confirm");
       return true;
     }
 }

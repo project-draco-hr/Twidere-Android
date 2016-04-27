@@ -1,0 +1,14 @@
+{
+switch (which) {
+case DialogInterface.BUTTON_POSITIVE:
+{
+      final Bundle args=getArguments();
+      final ParcelableCredentials account=args.getParcelable(EXTRA_ACCOUNT);
+      final ParcelableDirectMessage message=args.getParcelable(EXTRA_MESSAGE);
+      final AsyncTwitterWrapper twitter=mTwitterWrapper;
+      if (account == null || message == null || twitter == null)       return;
+      twitter.destroyDirectMessageAsync(account.account_key,message.id);
+      break;
+    }
+}
+}
