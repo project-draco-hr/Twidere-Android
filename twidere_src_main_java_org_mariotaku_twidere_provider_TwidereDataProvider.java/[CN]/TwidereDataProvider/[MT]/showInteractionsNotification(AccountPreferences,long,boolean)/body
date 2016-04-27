@@ -37,7 +37,7 @@
       if (activity.status_id != null && InternalTwitterContentUtils.isFiltered(db,activity.status_user_key,activity.status_text_plain,activity.status_quote_text_plain,activity.status_spans,activity.status_quote_spans,activity.status_source,activity.status_quote_source,activity.status_retweeted_by_user_key,activity.status_quoted_user_key)) {
         continue;
       }
-      final String[] filteredUserIds=DataStoreUtils.getFilteredUserIds(context);
+      final UserKey[] filteredUserIds=DataStoreUtils.getFilteredUserIds(context);
       if (timestamp == -1) {
         timestamp=activity.timestamp;
       }

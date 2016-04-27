@@ -7,7 +7,7 @@
       if (followingOnly && !user.is_following) {
         continue;
       }
-      if (!ArrayUtils.contains(filteredUserIds,user.key.getId())) {
+      if (!ArrayUtils.contains(filteredUserIds,user.key)) {
         list.add(user.key);
       }
     }
