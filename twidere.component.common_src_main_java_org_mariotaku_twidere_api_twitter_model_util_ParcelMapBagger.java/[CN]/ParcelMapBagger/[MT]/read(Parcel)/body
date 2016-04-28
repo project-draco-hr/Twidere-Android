@@ -1,0 +1,11 @@
+{
+  int size=in.readInt();
+  if (size < 0)   return null;
+  HashMap<String,T> map=new HashMap<>();
+  for (int i=0; i < size; i++) {
+    final String key=in.readString();
+    final T value=in.readParcelable(cls.getClassLoader());
+    map.put(key,value);
+  }
+  return map;
+}

@@ -1,0 +1,3 @@
+Map<String,T> value
+Parcel out
+int flags
