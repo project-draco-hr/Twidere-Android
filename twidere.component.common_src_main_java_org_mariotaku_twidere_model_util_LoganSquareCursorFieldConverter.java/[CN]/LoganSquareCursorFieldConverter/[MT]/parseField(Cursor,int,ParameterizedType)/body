@@ -1,8 +1,0 @@
-{
-  try {
-    return getObject(cursor,columnIndex,fieldType);
-  }
- catch (  IOException e) {
-    return null;
-  }
-}

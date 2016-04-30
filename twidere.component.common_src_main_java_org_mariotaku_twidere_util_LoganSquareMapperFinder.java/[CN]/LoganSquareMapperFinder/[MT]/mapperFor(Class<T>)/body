@@ -1,3 +1,0 @@
-{
-  return mapperFor(Twidere_ParameterizedTypeAccessor.<T>create(cls));
-}

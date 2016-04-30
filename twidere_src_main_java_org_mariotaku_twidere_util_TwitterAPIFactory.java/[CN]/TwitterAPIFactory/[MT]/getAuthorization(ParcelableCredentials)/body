@@ -16,7 +16,7 @@ case ParcelableCredentials.AuthType.BASIC:
     final String username=credentials.basic_auth_username;
     final String loginName=username != null ? username : screenName;
     final String password=credentials.basic_auth_password;
-    if (isEmpty(loginName) || isEmpty(password))     return null;
+    if (TextUtils.isEmpty(loginName) || TextUtils.isEmpty(password))     return null;
     return new BasicAuthorization(loginName,password);
   }
 }

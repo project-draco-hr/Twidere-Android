@@ -1,9 +1,0 @@
-{
-  if (type instanceof Class) {
-    return ((Class)type).isArray();
-  }
- else   if (type instanceof ParameterizedType) {
-    return isArray(((ParameterizedType)type).getRawType());
-  }
-  return false;
-}

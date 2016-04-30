@@ -2,7 +2,7 @@
   final String apiUrlFormat;
   final boolean sameOAuthSigningUrl=credentials.same_oauth_signing_url;
   final boolean noVersionSuffix=credentials.no_version_suffix;
-  if (!isEmpty(credentials.api_url_format)) {
+  if (!TextUtils.isEmpty(credentials.api_url_format)) {
     apiUrlFormat=credentials.api_url_format;
   }
  else {

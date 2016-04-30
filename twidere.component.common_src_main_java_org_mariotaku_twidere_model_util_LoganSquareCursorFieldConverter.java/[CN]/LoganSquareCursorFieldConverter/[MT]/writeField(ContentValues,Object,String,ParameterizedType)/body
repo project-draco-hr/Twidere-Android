@@ -1,7 +1,0 @@
-{
-  try {
-    writeObject(values,object,columnName,fieldType);
-  }
- catch (  IOException ignored) {
-  }
-}
