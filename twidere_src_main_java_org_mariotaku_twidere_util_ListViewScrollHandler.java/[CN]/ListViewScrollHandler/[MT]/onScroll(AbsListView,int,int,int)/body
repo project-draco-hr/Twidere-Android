@@ -1,6 +1,7 @@
 {
   mCalculator.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
-  handleScroll(mDy,getScrollState(),SCROLL_STATE_IDLE);
+  final int scrollState=getScrollState();
+  handleScroll(mDy,scrollState,mOldState,SCROLL_STATE_IDLE);
   if (mOnScrollListener != null) {
     mOnScrollListener.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
   }

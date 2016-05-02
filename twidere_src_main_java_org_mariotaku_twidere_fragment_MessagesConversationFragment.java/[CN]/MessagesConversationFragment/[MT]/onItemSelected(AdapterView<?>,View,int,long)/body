@@ -3,5 +3,6 @@
   if (account != null) {
     mAccount=account;
     updateRecipientInfo();
+    updateAccount();
   }
 }

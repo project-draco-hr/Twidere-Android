@@ -16,5 +16,6 @@
   AsyncTaskUtils.executeTask(new SetReadStateTask(getActivity(),account,recipient));
   updateActionBar();
   updateRecipientInfo();
+  updateAccount();
   mEditText.requestFocus();
 }

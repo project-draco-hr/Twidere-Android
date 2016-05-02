@@ -1,4 +1,6 @@
 {
   mDy=-delta;
-  handleScroll(mDy,getScrollState(),SCROLL_STATE_IDLE);
+  final int scrollState=getScrollState();
+  handleScroll(mDy,scrollState,mOldState,SCROLL_STATE_IDLE);
+  mOldState=scrollState;
 }
