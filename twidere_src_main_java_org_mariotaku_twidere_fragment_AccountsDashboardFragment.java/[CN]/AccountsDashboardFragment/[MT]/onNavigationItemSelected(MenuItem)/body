@@ -71,6 +71,13 @@ IntentUtils.openFilters(getActivity());
 closeAccountsDrawer();
 break;
 }
+case R.id.plus_service:
+{
+final Intent intent=new Intent(getActivity(),PlusServiceDashboardActivity.class);
+startActivity(intent);
+closeAccountsDrawer();
+break;
+}
 case R.id.settings:
 {
 final Intent intent=new Intent(getActivity(),SettingsActivity.class);

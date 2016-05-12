@@ -27,6 +27,12 @@
       final MediaEvent event=MediaEvent.create(getActivity(),status,media,TimelineType.OTHER,dummyItemAdapter.isMediaPreviewEnabled());
       HotMobiLogger.getInstance(getActivity()).log(status.account_key,event);
     }
+    @Override public void onUserProfileClick(    IStatusViewHolder holder,    int position){
+      final FragmentActivity activity=getActivity();
+      final ParcelableStatus status=dummyItemAdapter.getStatus(position);
+      if (status == null)       return;
+      IntentUtils.openUserProfile(activity,status.account_key,status.user_key,status.user_screen_name,null,mPreferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.TIMELINE_STATUS);
+    }
   }
 );
   dummyItemAdapter.setUserClickListener(new IUsersAdapter.SimpleUserClickListener(){

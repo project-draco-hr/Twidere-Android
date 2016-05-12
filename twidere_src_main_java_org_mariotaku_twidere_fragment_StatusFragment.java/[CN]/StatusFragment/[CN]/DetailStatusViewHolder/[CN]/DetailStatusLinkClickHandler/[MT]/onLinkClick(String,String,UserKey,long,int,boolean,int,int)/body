@@ -1,11 +1,6 @@
 {
-  final ParcelableStatus status=adapter.getStatus();
-  ParcelableMedia current;
-  if ((current=ParcelableMediaUtils.findByUrl(status.media,link)) != null && !current.open_browser) {
-    expandOrOpenMedia(current);
-    return true;
-  }
-  if ((current=ParcelableMediaUtils.findByUrl(status.quoted_media,link)) != null && !current.open_browser) {
+  ParcelableMedia current=getCurrentMedia(link,(int)extraId);
+  if (current != null && !current.open_browser) {
     expandOrOpenMedia(current);
     return true;
   }

@@ -1,0 +1,9 @@
+{
+switch (v.getId()) {
+case R.id.google_sign_in:
+{
+      signInWithGoogle();
+      break;
+    }
+}
+}

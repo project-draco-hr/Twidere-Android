@@ -1,0 +1,10 @@
+{
+  Log.d(LOGTAG,"handleSignInResult:" + result.isSuccess());
+  if (result.isSuccess()) {
+    GoogleSignInAccount acct=result.getSignInAccount();
+    acct.getIdToken();
+    Log.d(LOGTAG,"sign in name:" + acct.getDisplayName());
+  }
+ else {
+  }
+}

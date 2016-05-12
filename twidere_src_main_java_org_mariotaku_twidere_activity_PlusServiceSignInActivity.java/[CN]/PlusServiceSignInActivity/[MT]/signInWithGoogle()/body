@@ -1,0 +1,4 @@
+{
+  Intent signInIntent=Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+  startActivityForResult(signInIntent,REQUEST_GOOGLE_SIGN_IN);
+}

@@ -1,0 +1,7 @@
+{
+  super.onActivityResult(requestCode,resultCode,data);
+  if (requestCode == REQUEST_GOOGLE_SIGN_IN) {
+    GoogleSignInResult result=Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+    handleSignInResult(result);
+  }
+}

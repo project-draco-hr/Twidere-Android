@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_plus_service_sign_in);
+  GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestIdToken(GOOGLE_APIS_SERVER_CLIENT_ID).build();
+  mGoogleApiClient=new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
+  mGoogleSignInButton.setOnClickListener(this);
+}
