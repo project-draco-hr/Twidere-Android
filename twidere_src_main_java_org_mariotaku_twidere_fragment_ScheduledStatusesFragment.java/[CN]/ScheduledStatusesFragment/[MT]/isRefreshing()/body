@@ -1,4 +1,0 @@
-{
-  if (getContext() == null || isDetached())   return false;
-  return getLoaderManager().hasRunningLoaders();
-}

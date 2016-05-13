@@ -1,0 +1,70 @@
+{
+  if (action == null)   throw new IOException();
+switch (action) {
+case Activity.Action.FAVORITE:
+case Activity.Action.REPLY:
+case Activity.Action.RETWEET:
+case Activity.Action.QUOTE:
+case Activity.Action.FAVORITED_RETWEET:
+case Activity.Action.RETWEETED_RETWEET:
+case Activity.Action.RETWEETED_MENTION:
+case Activity.Action.FAVORITED_MENTION:
+case Activity.Action.MEDIA_TAGGED:
+case Activity.Action.FAVORITED_MEDIA_TAGGED:
+case Activity.Action.RETWEETED_MEDIA_TAGGED:
+{
+      targetStatuses=STATUS_JSON_MAPPER.parseList(rawTargets).toArray(new Status[targetsSize]);
+      break;
+    }
+case Activity.Action.FOLLOW:
+case Activity.Action.MENTION:
+case Activity.Action.LIST_MEMBER_ADDED:
+{
+    targetUsers=USER_JSON_MAPPER.parseList(rawTargets).toArray(new User[targetsSize]);
+    break;
+  }
+case Activity.Action.LIST_CREATED:
+{
+  targetUserLists=USER_LIST_JSON_MAPPER.parseList(rawTargets).toArray(new UserList[targetsSize]);
+  break;
+}
+}
+switch (action) {
+case Activity.Action.FAVORITE:
+case Activity.Action.FOLLOW:
+case Activity.Action.MENTION:
+case Activity.Action.REPLY:
+case Activity.Action.RETWEET:
+case Activity.Action.LIST_CREATED:
+case Activity.Action.QUOTE:
+{
+targetObjectStatuses=STATUS_JSON_MAPPER.parseList(rawTargetObjects).toArray(new Status[targetObjectsSize]);
+break;
+}
+case Activity.Action.LIST_MEMBER_ADDED:
+{
+targetObjectUserLists=USER_LIST_JSON_MAPPER.parseList(rawTargetObjects).toArray(new UserList[targetObjectsSize]);
+break;
+}
+case Activity.Action.FAVORITED_RETWEET:
+case Activity.Action.RETWEETED_RETWEET:
+case Activity.Action.RETWEETED_MENTION:
+case Activity.Action.FAVORITED_MENTION:
+case Activity.Action.MEDIA_TAGGED:
+case Activity.Action.FAVORITED_MEDIA_TAGGED:
+case Activity.Action.RETWEETED_MEDIA_TAGGED:
+{
+targetObjectUsers=USER_JSON_MAPPER.parseList(rawTargetObjects).toArray(new User[targetObjectsSize]);
+break;
+}
+}
+try {
+maxSortPosition=Long.parseLong(maxPosition);
+minSortPosition=Long.parseLong(minPosition);
+}
+ catch (NumberFormatException e) {
+final long time=createdAt != null ? createdAt.getTime() : -1;
+maxSortPosition=time;
+minSortPosition=time;
+}
+}

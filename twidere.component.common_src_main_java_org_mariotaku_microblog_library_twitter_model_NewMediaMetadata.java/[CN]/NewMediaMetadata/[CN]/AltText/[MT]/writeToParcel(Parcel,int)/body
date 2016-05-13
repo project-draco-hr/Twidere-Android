@@ -1,0 +1,3 @@
+{
+  NewMediaMetadata$AltTextParcelablePlease.writeToParcel(this,dest,flags);
+}

@@ -1,6 +1,0 @@
-Context context
-UserKey accountId
-String sinceId
-String maxId
-String[] states
-List<ScheduledStatus> data

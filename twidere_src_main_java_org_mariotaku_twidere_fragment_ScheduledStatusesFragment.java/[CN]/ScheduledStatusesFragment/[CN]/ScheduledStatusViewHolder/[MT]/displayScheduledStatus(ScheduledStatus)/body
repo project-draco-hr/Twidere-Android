@@ -1,3 +1,0 @@
-{
-  textView.setText(status.getText());
-}

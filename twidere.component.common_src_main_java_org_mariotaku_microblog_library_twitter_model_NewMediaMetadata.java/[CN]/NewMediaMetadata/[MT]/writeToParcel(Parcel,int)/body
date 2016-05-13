@@ -1,0 +1,3 @@
+{
+  NewMediaMetadataParcelablePlease.writeToParcel(this,dest,flags);
+}

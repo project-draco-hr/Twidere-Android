@@ -1,0 +1,3 @@
+{
+  CardResponseParcelablePlease.writeToParcel(this,dest,flags);
+}

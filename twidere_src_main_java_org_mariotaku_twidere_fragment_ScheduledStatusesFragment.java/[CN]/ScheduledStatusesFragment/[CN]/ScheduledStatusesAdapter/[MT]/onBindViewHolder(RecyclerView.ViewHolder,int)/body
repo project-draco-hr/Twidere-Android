@@ -1,9 +1,0 @@
-{
-switch (holder.getItemViewType()) {
-case ITEM_VIEW_TYPE_SCHEDULED_STATUS:
-{
-      ((ScheduledStatusViewHolder)holder).displayScheduledStatus(mData.get(position));
-      break;
-    }
-}
-}

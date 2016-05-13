@@ -5,13 +5,11 @@
   activity.createdAt=status.getCreatedAt();
   if (TextUtils.equals(status.getInReplyToUserId(),twitterId)) {
     activity.action=Action.REPLY;
-    activity.rawAction="reply";
     activity.targetStatuses=new Status[]{status};
     activity.targetObjectStatuses=new Status[0];
   }
  else {
     activity.action=Action.MENTION;
-    activity.rawAction="mention";
     activity.targetObjectStatuses=new Status[]{status};
     activity.targetUsers=null;
   }

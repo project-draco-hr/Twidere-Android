@@ -1,8 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  final Bundle args=getArguments();
-  final Bundle loaderArgs=new Bundle();
-  loaderArgs.putParcelable(EXTRA_ACCOUNT_KEY,args.getParcelable(EXTRA_ACCOUNT_KEY));
-  getLoaderManager().initLoader(0,loaderArgs,this);
-  showProgress();
-}

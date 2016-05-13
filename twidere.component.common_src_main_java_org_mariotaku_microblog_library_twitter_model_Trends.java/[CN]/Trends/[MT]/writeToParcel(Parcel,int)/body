@@ -1,0 +1,3 @@
+{
+  TrendsParcelablePlease.writeToParcel(this,dest,flags);
+}

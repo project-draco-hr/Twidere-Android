@@ -1,0 +1,3 @@
+{
+  AccountSettingsParcelablePlease.writeToParcel(this,dest,flags);
+}

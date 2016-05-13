@@ -1,7 +1,0 @@
-{
-  super(context);
-  mAccountId=accountId;
-  mSinceId=sinceId;
-  mMaxId=maxId;
-  mStates=states;
-}
