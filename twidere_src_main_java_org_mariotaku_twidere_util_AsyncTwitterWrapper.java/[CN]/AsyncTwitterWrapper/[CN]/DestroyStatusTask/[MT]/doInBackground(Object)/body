@@ -1,7 +1,7 @@
 {
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
   if (credentials == null)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,credentials,true,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,credentials,true,true);
   if (twitter == null)   return SingleResponse.getInstance();
   ParcelableStatus status=null;
   TwitterException exception=null;

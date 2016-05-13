@@ -8,7 +8,7 @@
     UserKey accountKey=((MediaExtra)extra).getAccountKey();
     if (accountKey != null) {
       account=ParcelableCredentialsUtils.getCredentials(mContext,accountKey);
-      auth=TwitterAPIFactory.getAuthorization(account);
+      auth=MicroBlogAPIFactory.getAuthorization(account);
     }
   }
   final Uri modifiedUri=getReplacedUri(uri,account != null ? account.api_url_format : null);

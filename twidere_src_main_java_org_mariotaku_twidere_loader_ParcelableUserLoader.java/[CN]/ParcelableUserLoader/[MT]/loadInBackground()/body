@@ -23,7 +23,7 @@
       return SingleResponse.getInstance(user);
     }
   }
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,credentials,true,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,credentials,true,true);
   if (twitter == null)   return SingleResponse.getInstance();
   if (mLoadFromCache) {
     final Expression where;
@@ -76,7 +76,7 @@
       if (mExtras != null) {
         profileUrl=mExtras.getString(EXTRA_PROFILE_URL);
       }
-      if (TwitterAPIFactory.isStatusNetCredentials(credentials) && mUserKey != null && profileUrl != null && !TextUtils.equals(credentials.account_key.getHost(),mUserKey.getHost())) {
+      if (MicroBlogAPIFactory.isStatusNetCredentials(credentials) && mUserKey != null && profileUrl != null && !TextUtils.equals(credentials.account_key.getHost(),mUserKey.getHost())) {
         twitterUser=twitter.showExternalProfile(profileUrl);
       }
  else {

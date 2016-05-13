@@ -1,9 +1,9 @@
 {
   final SignInActivity activity=activityRef.get();
   if (activity == null)   return new SignInResponse(false,false,null);
-  Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(apiUrlFormat,sameOAuthSigningUrl);
+  Endpoint endpoint=MicroBlogAPIFactory.getOAuthSignInEndpoint(apiUrlFormat,sameOAuthSigningUrl);
   OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret());
-  final TwitterOAuth oauth=TwitterAPIFactory.getInstance(activity,endpoint,auth,TwitterOAuth.class);
+  final TwitterOAuth oauth=MicroBlogAPIFactory.getInstance(activity,endpoint,auth,TwitterOAuth.class);
   final OAuthToken accessToken=oauth.getAccessToken(username,password);
   final String userId=accessToken.getUserId();
   if (userId == null)   return new SignInResponse(false,false,null);

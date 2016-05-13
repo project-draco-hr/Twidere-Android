@@ -1,0 +1,9 @@
+{
+  if (mUserKey != null) {
+    return microBlog.getFavorites(mUserKey.getId(),paging);
+  }
+ else   if (mUserScreenName != null) {
+    return microBlog.getFavoritesByScreenName(mUserScreenName,paging);
+  }
+  throw new TwitterException("Null user");
+}

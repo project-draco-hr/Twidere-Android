@@ -2,9 +2,9 @@
   final SignInActivity activity=activityRef.get();
   if (activity == null)   return new SignInResponse(false,false,null);
   final String versionSuffix=noVersionSuffix ? null : "1.1";
-  final Endpoint endpoint=new Endpoint(TwitterAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
+  final Endpoint endpoint=new Endpoint(MicroBlogAPIFactory.getApiUrl(apiUrlFormat,"api",versionSuffix));
   final Authorization auth=new BasicAuthorization(username,password);
-  final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(activity,endpoint,auth,MicroBlog.class);
   User user;
   try {
     user=twitter.verifyCredentials();

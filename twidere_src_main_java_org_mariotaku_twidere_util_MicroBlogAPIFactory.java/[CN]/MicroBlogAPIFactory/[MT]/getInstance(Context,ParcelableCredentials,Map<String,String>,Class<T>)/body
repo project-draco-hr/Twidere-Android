@@ -1,0 +1,4 @@
+{
+  if (credentials == null)   return null;
+  return MicroBlogAPIFactory.getInstance(context,getEndpoint(credentials,cls),credentials,extraRequestParams,cls);
+}

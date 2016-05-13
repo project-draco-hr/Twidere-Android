@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountId,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,mAccountId,false);
   if (twitter == null)   return null;
   try {
     final List<Trends> trends=getTrends(twitter);

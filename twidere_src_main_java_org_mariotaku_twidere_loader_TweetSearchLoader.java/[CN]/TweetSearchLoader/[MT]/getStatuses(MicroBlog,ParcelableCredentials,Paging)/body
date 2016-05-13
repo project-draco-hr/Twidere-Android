@@ -1,0 +1,21 @@
+{
+  if (mQuery == null)   throw new TwitterException("Empty query");
+  final String processedQuery=processQuery(credentials,mQuery);
+switch (ParcelableAccountUtils.getAccountType(credentials)) {
+case ParcelableAccount.Type.TWITTER:
+{
+      final SearchQuery query=new SearchQuery(processedQuery);
+      query.paging(paging);
+      return microBlog.search(query);
+    }
+case ParcelableAccount.Type.STATUSNET:
+{
+    return microBlog.searchStatuses(processedQuery,paging);
+  }
+case ParcelableAccount.Type.FANFOU:
+{
+  return microBlog.searchPublicTimeline(processedQuery,paging);
+}
+}
+throw new TwitterException("Not implemented");
+}

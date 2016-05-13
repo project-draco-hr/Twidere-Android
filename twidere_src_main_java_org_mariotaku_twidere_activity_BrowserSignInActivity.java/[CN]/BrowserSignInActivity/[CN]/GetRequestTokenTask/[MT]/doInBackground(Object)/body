@@ -3,9 +3,9 @@
     return SingleResponse.getInstance();
   }
   try {
-    final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,mSameOAuthSigningUrl);
+    final Endpoint endpoint=MicroBlogAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,mSameOAuthSigningUrl);
     final Authorization auth=new OAuthAuthorization(mConsumerKey,mConsumerSecret);
-    final TwitterOAuth oauth=TwitterAPIFactory.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
+    final TwitterOAuth oauth=MicroBlogAPIFactory.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
     return SingleResponse.getInstance(oauth.getRequestToken(OAUTH_CALLBACK_OOB));
   }
  catch (  final TwitterException e) {

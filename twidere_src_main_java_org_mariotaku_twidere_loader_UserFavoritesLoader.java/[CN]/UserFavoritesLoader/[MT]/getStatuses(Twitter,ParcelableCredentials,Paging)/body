@@ -1,9 +1,0 @@
-{
-  if (mUserKey != null) {
-    return twitter.getFavorites(mUserKey.getId(),paging);
-  }
- else   if (mUserScreenName != null) {
-    return twitter.getFavoritesByScreenName(mUserScreenName,paging);
-  }
-  throw new TwitterException("Null user");
-}

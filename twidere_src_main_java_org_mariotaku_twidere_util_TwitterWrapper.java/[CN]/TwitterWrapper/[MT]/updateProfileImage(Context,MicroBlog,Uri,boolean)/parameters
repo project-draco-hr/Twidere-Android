@@ -1,0 +1,4 @@
+Context context
+MicroBlog twitter
+Uri imageUri
+boolean deleteImage

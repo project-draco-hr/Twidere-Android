@@ -1,0 +1,7 @@
+{
+  if (mListId != null)   return microBlog.getUserListStatuses(mListId,paging);
+ else   if (mListName == null)   throw new TwitterException("No list name or id given");
+ else   if (mUserKey != null)   return microBlog.getUserListStatuses(mListName.replace(' ','-'),mUserKey.getId(),paging);
+ else   if (mScreenName != null)   return microBlog.getUserListStatuses(mListName.replace(' ','-'),mScreenName,paging);
+  throw new TwitterException("User id or screen name is required for list name");
+}

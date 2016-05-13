@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mActivity,mAccountKey,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mActivity,mAccountKey,false);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);

@@ -84,7 +84,7 @@
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
         final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(this,account.account_key);
-        final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,account.account_key,true,true);
+        final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(this,account.account_key,true,true);
         if (twitter == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }

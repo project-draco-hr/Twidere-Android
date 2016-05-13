@@ -1,7 +1,7 @@
 {
   final OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
-  final Endpoint endpoint=TwitterAPIFactory.getOAuthRestEndpoint(apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix);
-  final Twitter twitter=TwitterAPIFactory.getInstance(activity,endpoint,auth,Twitter.class);
+  final Endpoint endpoint=MicroBlogAPIFactory.getOAuthRestEndpoint(apiUrlFormat,sameOAuthSigningUrl,noVersionSuffix);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(activity,endpoint,auth,MicroBlog.class);
   final User user=twitter.verifyCredentials();
   int color=analyseUserProfileColor(user);
   final Pair<String,String> accountType=detectAccountType(twitter,user);

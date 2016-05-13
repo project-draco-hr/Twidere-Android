@@ -1,10 +1,10 @@
 {
-  final TwitterCaps caps=TwitterAPIFactory.getTwitterInstance(getContext(),mAccountKey,true,true,TwitterCaps.class);
+  final TwitterCaps caps=MicroBlogAPIFactory.getTwitterInstance(getContext(),mAccountKey,true,true,TwitterCaps.class);
   if (caps == null)   return null;
   try {
     final CardDataMap params=new CardDataMap();
     params.putString("card_uri",mCardUri);
-    params.putString("cards_platform",TwitterAPIFactory.CARDS_PLATFORM_ANDROID_12);
+    params.putString("cards_platform",MicroBlogAPIFactory.CARDS_PLATFORM_ANDROID_12);
     params.putString("response_card_name",mCardName);
     final CardEntity card=caps.getPassThrough(params).getCard();
     if (card == null || card.getName() == null) {

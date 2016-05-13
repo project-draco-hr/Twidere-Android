@@ -1,0 +1,38 @@
+{
+  final List<Status> statuses=new ArrayList<>();
+  final String maxId=getMaxId(), sinceId=getSinceId();
+  final long maxSortId=getMaxSortId(), sinceSortId=getSinceSortId();
+  final boolean noSinceMaxId=maxId == null && sinceId == null;
+  if ((maxId != null && maxSortId < status.sort_id) || noSinceMaxId) {
+    String inReplyToId=maxId != null ? maxId : status.in_reply_to_status_id;
+    int count=0;
+    while (inReplyToId != null && count < 10) {
+      final Status item=twitter.showStatus(inReplyToId);
+      inReplyToId=item.getInReplyToStatusId();
+      statuses.add(item);
+      count++;
+    }
+  }
+  if (loadReplies) {
+    if ((sinceId != null && sinceSortId > status.sort_id) || noSinceMaxId) {
+      SearchQuery query=new SearchQuery();
+      if (MicroBlogAPIFactory.isTwitterCredentials(credentials)) {
+        query.query("to:" + status.user_screen_name);
+      }
+ else {
+        query.query("@" + status.user_screen_name);
+      }
+      query.sinceId(sinceId != null ? sinceId : status.id);
+      try {
+        for (        Status item : twitter.search(query)) {
+          if (TextUtils.equals(item.getInReplyToStatusId(),status.id)) {
+            statuses.add(item);
+          }
+        }
+      }
+ catch (      TwitterException e) {
+      }
+    }
+  }
+  return statuses;
+}

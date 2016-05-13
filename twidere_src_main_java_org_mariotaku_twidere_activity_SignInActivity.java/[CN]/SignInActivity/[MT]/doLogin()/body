@@ -7,7 +7,7 @@
     openBrowserLogin();
     return;
   }
-  final OAuthToken consumerKey=TwitterAPIFactory.getOAuthToken(mConsumerKey,mConsumerSecret);
+  final OAuthToken consumerKey=MicroBlogAPIFactory.getOAuthToken(mConsumerKey,mConsumerSecret);
   final String apiUrlFormat=TextUtils.isEmpty(mAPIUrlFormat) ? DEFAULT_TWITTER_API_URL_FORMAT : mAPIUrlFormat;
   final String username=String.valueOf(mEditUsername.getText());
   final String password=String.valueOf(mEditPassword.getText());

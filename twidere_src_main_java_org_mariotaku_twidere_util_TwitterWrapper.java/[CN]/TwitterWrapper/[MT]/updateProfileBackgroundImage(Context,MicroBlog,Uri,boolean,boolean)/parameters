@@ -1,0 +1,5 @@
+Context context
+MicroBlog twitter
+Uri imageUri
+boolean tile
+boolean deleteImage

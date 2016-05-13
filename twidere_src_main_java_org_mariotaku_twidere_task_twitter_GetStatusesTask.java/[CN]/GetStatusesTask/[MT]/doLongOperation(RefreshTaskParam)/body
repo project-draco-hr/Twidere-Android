@@ -11,7 +11,7 @@
   for (  final UserKey accountKey : accountKeys) {
     final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,accountKey);
     if (credentials == null)     continue;
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,credentials,true,true);
+    final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,credentials,true,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();

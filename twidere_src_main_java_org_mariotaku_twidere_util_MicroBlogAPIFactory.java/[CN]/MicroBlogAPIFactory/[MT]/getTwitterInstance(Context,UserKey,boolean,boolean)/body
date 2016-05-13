@@ -1,0 +1,3 @@
+{
+  return getTwitterInstance(context,accountKey,includeEntities,includeRetweets,MicroBlog.class);
+}

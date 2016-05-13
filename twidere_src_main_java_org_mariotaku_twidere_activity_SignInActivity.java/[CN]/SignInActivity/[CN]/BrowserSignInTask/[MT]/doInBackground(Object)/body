@@ -1,8 +1,8 @@
 {
   try {
     final String versionSuffix=noVersionSuffix ? null : "1.1";
-    Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(apiUrlFormat,sameOauthSigningUrl);
-    final TwitterOAuth oauth=TwitterAPIFactory.getInstance(context,endpoint,new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret()),TwitterOAuth.class);
+    Endpoint endpoint=MicroBlogAPIFactory.getOAuthSignInEndpoint(apiUrlFormat,sameOauthSigningUrl);
+    final TwitterOAuth oauth=MicroBlogAPIFactory.getInstance(context,endpoint,new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret()),TwitterOAuth.class);
     final OAuthToken accessToken;
     if (oauthVerifier != null) {
       accessToken=oauth.getAccessToken(requestToken,oauthVerifier);
@@ -11,8 +11,8 @@
       accessToken=oauth.getAccessToken(requestToken);
     }
     final OAuthAuthorization auth=new OAuthAuthorization(consumerKey.getOauthToken(),consumerKey.getOauthTokenSecret(),accessToken);
-    endpoint=TwitterAPIFactory.getOAuthEndpoint(apiUrlFormat,"api",versionSuffix,sameOauthSigningUrl);
-    final Twitter twitter=TwitterAPIFactory.getInstance(context,endpoint,auth,Twitter.class);
+    endpoint=MicroBlogAPIFactory.getOAuthEndpoint(apiUrlFormat,"api",versionSuffix,sameOauthSigningUrl);
+    final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,endpoint,auth,MicroBlog.class);
     final User user=twitter.verifyCredentials();
     int color=analyseUserProfileColor(user);
     final Pair<String,String> accountType=detectAccountType(twitter,user);

@@ -1,8 +1,8 @@
 {
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(this,accountKey);
   if (credentials == null)   return SingleResponse.getInstance();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(this,credentials,true,true);
-  final TwitterUpload twitterUpload=TwitterAPIFactory.getTwitterInstance(this,credentials,true,true,TwitterUpload.class);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(this,credentials,true,true);
+  final TwitterUpload twitterUpload=MicroBlogAPIFactory.getTwitterInstance(this,credentials,true,true,TwitterUpload.class);
   if (twitter == null || twitterUpload == null)   return SingleResponse.getInstance();
   try {
     final ParcelableDirectMessage directMessage;

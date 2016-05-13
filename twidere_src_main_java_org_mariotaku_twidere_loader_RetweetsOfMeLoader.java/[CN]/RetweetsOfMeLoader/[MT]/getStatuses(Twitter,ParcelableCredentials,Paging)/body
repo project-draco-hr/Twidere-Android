@@ -1,3 +1,0 @@
-{
-  return twitter.getRetweetsOfMe(paging);
-}

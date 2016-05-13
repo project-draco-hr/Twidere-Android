@@ -22,7 +22,7 @@
   publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
   for (  UserKey accountKey : DataStoreUtils.getAccountKeys(mContext)) {
     final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,accountKey);
-    final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,accountKey,false);
+    final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,accountKey,false);
     if (credentials == null || twitter == null)     continue;
     publishProgress(new LogText("Testing connection for account " + accountKey));
     publishProgress(LogText.LINEBREAK);
@@ -32,7 +32,7 @@
     publishProgress(LogText.LINEBREAK,LogText.LINEBREAK);
     publishProgress(new LogText("Testing DNS functionality"));
     publishProgress(LogText.LINEBREAK);
-    final Endpoint endpoint=TwitterAPIFactory.getEndpoint(credentials,Twitter.class);
+    final Endpoint endpoint=MicroBlogAPIFactory.getEndpoint(credentials,MicroBlog.class);
     final Uri uri=Uri.parse(endpoint.getUrl());
     final String host=uri.getHost();
     if (host != null) {
@@ -48,10 +48,10 @@
     publishProgress(LogText.LINEBREAK);
     final String baseUrl;
     if (credentials.api_url_format != null) {
-      baseUrl=TwitterAPIFactory.getApiBaseUrl(credentials.api_url_format,"api");
+      baseUrl=MicroBlogAPIFactory.getApiBaseUrl(credentials.api_url_format,"api");
     }
  else {
-      baseUrl=TwitterAPIFactory.getApiBaseUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api");
+      baseUrl=MicroBlogAPIFactory.getApiBaseUrl(DEFAULT_TWITTER_API_URL_FORMAT,"api");
     }
     RestHttpClient client=RestAPIFactory.getRestClient(twitter).getRestClient();
     HttpResponse response=null;
@@ -87,13 +87,13 @@
     publishProgress(new LogText("Testing API functionality"));
     publishProgress(LogText.LINEBREAK);
     testTwitter("verify_credentials",twitter,new TwitterTest(){
-      @Override public void execute(      Twitter twitter) throws TwitterException {
+      @Override public void execute(      MicroBlog twitter) throws TwitterException {
         twitter.verifyCredentials();
       }
     }
 );
     testTwitter("get_home_timeline",twitter,new TwitterTest(){
-      @Override public void execute(      Twitter twitter) throws TwitterException {
+      @Override public void execute(      MicroBlog twitter) throws TwitterException {
         twitter.getHomeTimeline(new Paging().count(1));
       }
     }

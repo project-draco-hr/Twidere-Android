@@ -1,6 +1,6 @@
 {
   final List<String> blockedUsers=new ArrayList<>();
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,mAccountKey,false);
   if (twitter != null) {
     for (    final String userId : mUserIds) {
       try {

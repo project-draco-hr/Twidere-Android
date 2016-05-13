@@ -1,6 +1,6 @@
 {
   final ParcelableStatus status=params[0];
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,status.account_key,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,status.account_key,true);
   final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
   if (twitter == null)   return SingleResponse.getInstance();
   try {

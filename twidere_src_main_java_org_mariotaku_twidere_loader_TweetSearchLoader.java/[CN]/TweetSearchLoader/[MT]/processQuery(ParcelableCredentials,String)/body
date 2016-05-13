@@ -1,5 +1,5 @@
 {
-  if (TwitterAPIFactory.isTwitterCredentials(credentials)) {
+  if (MicroBlogAPIFactory.isTwitterCredentials(credentials)) {
     return String.format("%s exclude:retweets",query);
   }
   return query;

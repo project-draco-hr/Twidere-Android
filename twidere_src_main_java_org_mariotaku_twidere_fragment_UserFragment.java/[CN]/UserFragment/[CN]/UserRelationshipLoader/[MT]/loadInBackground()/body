@@ -11,12 +11,12 @@
   if (credentials == null) {
     return SingleResponse.getInstance(new TwitterException("No Account"));
   }
-  if (TwitterAPIFactory.isStatusNetCredentials(credentials)) {
+  if (MicroBlogAPIFactory.isStatusNetCredentials(credentials)) {
     if (!UserKeyUtils.isSameHost(mAccountKey,mUser.key)) {
       return SingleResponse.getInstance(new UserRelationship(mUser,isFiltering));
     }
   }
-  final Twitter twitter=TwitterAPIFactory.getTwitterInstance(context,mAccountKey,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,mAccountKey,false);
   if (twitter == null) {
     return SingleResponse.getInstance(new TwitterException("No Account"));
   }

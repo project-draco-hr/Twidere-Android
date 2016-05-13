@@ -3,7 +3,7 @@
   if (result.hasData()) {
     final OAuthToken token=result.getData();
     mActivity.setRequestToken(token);
-    final Endpoint endpoint=TwitterAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
+    final Endpoint endpoint=MicroBlogAPIFactory.getOAuthSignInEndpoint(mAPIUrlFormat,true);
     mActivity.loadUrl(endpoint.construct("/oauth/authorize",new String[]{"oauth_token",token.getOauthToken()}));
   }
  else {

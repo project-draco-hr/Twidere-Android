@@ -1,5 +1,5 @@
 {
-  final Twitter twitter=TwitterAPIFactory.getDefaultTwitterInstance(getContext(),false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getDefaultTwitterInstance(getContext(),false);
   if (twitter == null)   return null;
   try {
     mSelectedLanguageCode=twitter.getAccountSettings().getLanguage();

@@ -1,5 +1,0 @@
-Context context
-Twitter twitter
-Uri imageUri
-boolean tile
-boolean deleteImage
