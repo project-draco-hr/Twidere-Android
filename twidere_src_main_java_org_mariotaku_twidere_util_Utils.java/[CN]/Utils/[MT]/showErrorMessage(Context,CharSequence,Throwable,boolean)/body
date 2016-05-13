@@ -1,7 +1,7 @@
 {
   if (context == null)   return;
-  if (t instanceof TwitterException) {
-    showTwitterErrorMessage(context,action,(TwitterException)t,longMessage);
+  if (t instanceof MicroBlogException) {
+    showTwitterErrorMessage(context,action,(MicroBlogException)t,longMessage);
     return;
   }
   showErrorMessage(context,getErrorMessage(context,action,t),longMessage);

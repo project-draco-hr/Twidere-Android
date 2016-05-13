@@ -1,0 +1,15 @@
+{
+  final RestConverter<?,Body,MicroBlogException> converter=sBodyConverters.get(type);
+  if (converter != null) {
+    return converter;
+  }
+  if (SimpleBody.supports(type)) {
+    return new SimpleBodyConverter<>(type);
+  }
+  try {
+    return new JsonRequestConverter(LoganSquareMapperFinder.mapperFor(type));
+  }
+ catch (  LoganSquareMapperFinder.ClassLoaderDeadLockException e) {
+    throw new RestConverter.ConvertException(e);
+  }
+}

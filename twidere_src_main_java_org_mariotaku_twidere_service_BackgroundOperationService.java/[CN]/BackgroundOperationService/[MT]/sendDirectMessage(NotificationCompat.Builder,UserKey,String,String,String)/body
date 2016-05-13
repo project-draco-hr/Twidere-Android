@@ -10,7 +10,7 @@ switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.FANFOU:
 {
         if (imageUri != null) {
-          throw new TwitterException("Can't send image DM on Fanfou");
+          throw new MicroBlogException("Can't send image DM on Fanfou");
         }
         final DirectMessage dm=twitter.sendFanfouDirectMessage(recipientId,text);
         directMessage=ParcelableDirectMessageUtils.fromDirectMessage(dm,accountKey,true);
@@ -57,7 +57,7 @@ return SingleResponse.getInstance(directMessage);
  catch (final IOException e) {
 return SingleResponse.getInstance(e);
 }
-catch (final TwitterException e) {
+catch (final MicroBlogException e) {
 return SingleResponse.getInstance(e);
 }
 }

@@ -7,7 +7,7 @@
         final User user=twitter.createBlock(userId);
         blockedUsers.add(user.getId());
       }
- catch (      final TwitterException e) {
+ catch (      final MicroBlogException e) {
         deleteCaches(blockedUsers);
         return ListResponse.getListInstance(e);
       }

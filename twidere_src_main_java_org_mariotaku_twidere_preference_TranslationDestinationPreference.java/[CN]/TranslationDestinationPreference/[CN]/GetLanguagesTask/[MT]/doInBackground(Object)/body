@@ -5,7 +5,7 @@
     mSelectedLanguageCode=twitter.getAccountSettings().getLanguage();
     return twitter.getLanguages();
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
   }
   return null;

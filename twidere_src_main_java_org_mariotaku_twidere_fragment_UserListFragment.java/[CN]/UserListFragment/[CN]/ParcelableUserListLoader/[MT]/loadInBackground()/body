@@ -19,7 +19,7 @@
  else     return SingleResponse.getInstance();
     return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

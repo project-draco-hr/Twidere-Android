@@ -6,7 +6,7 @@
     storeTrends(mContext.getContentResolver(),getContentUri(),trends);
     return null;
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return null;
   }
 }

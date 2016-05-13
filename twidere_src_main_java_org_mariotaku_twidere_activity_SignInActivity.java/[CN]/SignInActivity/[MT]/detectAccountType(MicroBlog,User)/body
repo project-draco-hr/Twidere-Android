@@ -8,7 +8,7 @@
     }
     return Pair.create(ParcelableAccount.Type.STATUSNET,JsonSerializer.serialize(extra,StatusNetAccountExtra.class));
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
   }
   try {
     Paging paging=new Paging();
@@ -18,7 +18,7 @@
     extra.setIsOfficialCredentials(true);
     return Pair.create(ParcelableAccount.Type.TWITTER,JsonSerializer.serialize(extra,TwitterAccountExtra.class));
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
   }
   if (UserKeyUtils.isFanfouUser(user)) {
     return Pair.create(ParcelableAccount.Type.FANFOU,null);

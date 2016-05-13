@@ -1,6 +1,0 @@
-{
-  this(cause.getMessage(),cause);
-  if (cause instanceof TwitterException) {
-    ((TwitterException)cause).setNested();
-  }
-}

@@ -1,5 +1,5 @@
 {
   if (mGroupId != null)   return twitter.getGroupMembers(mGroupId,paging);
  else   if (mGroupName != null)   return twitter.getGroupMembersByName(mGroupName,paging);
-  throw new TwitterException("list_id or list_name and user_id (or screen_name) required");
+  throw new MicroBlogException("list_id or list_name and user_id (or screen_name) required");
 }

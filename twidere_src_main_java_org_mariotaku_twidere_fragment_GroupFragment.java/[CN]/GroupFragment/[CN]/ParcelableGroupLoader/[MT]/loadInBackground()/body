@@ -18,7 +18,7 @@
     }
     return SingleResponse.getInstance(ParcelableGroupUtils.from(group,mAccountKey,0,group.isMember()));
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

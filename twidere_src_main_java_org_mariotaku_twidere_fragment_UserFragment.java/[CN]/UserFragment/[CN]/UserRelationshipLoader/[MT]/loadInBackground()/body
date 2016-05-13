@@ -1,6 +1,6 @@
 {
   if (mAccountKey == null || mUser == null) {
-    return SingleResponse.getInstance(new TwitterException("Null parameters"));
+    return SingleResponse.getInstance(new MicroBlogException("Null parameters"));
   }
   final UserKey userKey=mUser.key;
   final boolean isFiltering=DataStoreUtils.isFilteringUser(context,userKey);
@@ -9,7 +9,7 @@
   }
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
   if (credentials == null) {
-    return SingleResponse.getInstance(new TwitterException("No Account"));
+    return SingleResponse.getInstance(new MicroBlogException("No Account"));
   }
   if (MicroBlogAPIFactory.isStatusNetCredentials(credentials)) {
     if (!UserKeyUtils.isSameHost(mAccountKey,mUser.key)) {
@@ -18,7 +18,7 @@
   }
   final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,mAccountKey,false);
   if (twitter == null) {
-    return SingleResponse.getInstance(new TwitterException("No Account"));
+    return SingleResponse.getInstance(new MicroBlogException("No Account"));
   }
   try {
     final Relationship relationship=twitter.showFriendship(mUser.key.getId());
@@ -31,7 +31,7 @@
     Utils.updateRelationship(context,mAccountKey,userKey,relationship);
     return SingleResponse.getInstance(new UserRelationship(mAccountKey,userKey,relationship,isFiltering));
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

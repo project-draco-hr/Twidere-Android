@@ -2,7 +2,7 @@
   try {
     return showUser(twitter,id,screenName,accountType);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     if (e.getStatusCode() == 200) {
       return showUserAlternative(twitter,id,screenName);
     }

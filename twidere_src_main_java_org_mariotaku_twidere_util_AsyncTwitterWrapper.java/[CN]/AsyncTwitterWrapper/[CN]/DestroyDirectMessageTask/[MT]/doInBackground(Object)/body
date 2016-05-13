@@ -6,7 +6,7 @@
     deleteMessages();
     return SingleResponse.getInstance(message,null);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     if (isMessageNotFound(e)) {
       deleteMessages();
     }

@@ -26,5 +26,5 @@
       if (searchScreenName.equalsIgnoreCase(user.getScreenName()))       return user;
     }
   }
-  throw new TwitterException("can't find user");
+  throw new MicroBlogException("can't find user");
 }

@@ -9,7 +9,7 @@
     succeededWorker(twitter,credentials,args,parcelableUser);
     return SingleResponse.getInstance(parcelableUser,null);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(null,e);
   }
 }

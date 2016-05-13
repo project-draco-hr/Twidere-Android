@@ -22,7 +22,7 @@
     response.getExtras().putParcelable(EXTRA_ACCOUNT,credentials);
     return response;
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

@@ -6,7 +6,7 @@
     final ParcelableUserList list=ParcelableUserListUtils.from(userList,mAccountKey);
     return SingleResponse.getInstance(list);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

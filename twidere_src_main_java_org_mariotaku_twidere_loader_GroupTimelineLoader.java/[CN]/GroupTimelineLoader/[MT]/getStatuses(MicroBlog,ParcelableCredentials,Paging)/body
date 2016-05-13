@@ -1,5 +1,5 @@
 {
   if (mGroupId != null)   return microBlog.getGroupStatuses(mGroupId,paging);
  else   if (mGroupName != null)   return microBlog.getGroupStatusesByName(mGroupName,paging);
-  throw new TwitterException("No group name or id given");
+  throw new MicroBlogException("No group name or id given");
 }

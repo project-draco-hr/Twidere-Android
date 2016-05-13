@@ -11,5 +11,5 @@
     }
     return twitter.showUserByScreenName(screenName);
   }
-  throw new TwitterException("Invalid user id or screen name");
+  throw new MicroBlogException("Invalid user id or screen name");
 }

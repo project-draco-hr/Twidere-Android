@@ -1,7 +1,7 @@
 {
-  final TwitterException te;
+  final MicroBlogException te;
   if (cause != null) {
-    te=new TwitterException(cause);
+    te=new MicroBlogException(cause);
   }
  else {
     te=parseTwitterException(response);

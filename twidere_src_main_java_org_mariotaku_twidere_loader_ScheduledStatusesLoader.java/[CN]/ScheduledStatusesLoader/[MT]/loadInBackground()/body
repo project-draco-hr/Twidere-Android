@@ -11,7 +11,7 @@
   try {
     return twitter.getScheduledStatuses(paging,mStates);
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
     return null;
   }
 }

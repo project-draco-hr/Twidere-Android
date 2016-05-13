@@ -19,7 +19,7 @@
     extras.putParcelable(EXTRA_ACCOUNT,credentials);
     return response;
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     if (e.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND) {
       final ContentResolver cr=getContext().getContentResolver();
       DataStoreUtils.deleteStatus(cr,mAccountKey,mStatusId,null);

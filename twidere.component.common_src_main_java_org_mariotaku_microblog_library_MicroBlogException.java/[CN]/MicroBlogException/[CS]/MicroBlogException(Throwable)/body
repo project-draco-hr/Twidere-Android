@@ -1,0 +1,6 @@
+{
+  this(cause.getMessage(),cause);
+  if (cause instanceof MicroBlogException) {
+    ((MicroBlogException)cause).setNested();
+  }
+}

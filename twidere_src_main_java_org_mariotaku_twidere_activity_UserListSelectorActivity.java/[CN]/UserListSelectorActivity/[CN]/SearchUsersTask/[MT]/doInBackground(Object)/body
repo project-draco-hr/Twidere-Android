@@ -10,7 +10,7 @@
     }
     return SingleResponse.getInstance(data);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
     return SingleResponse.getInstance(e);
   }

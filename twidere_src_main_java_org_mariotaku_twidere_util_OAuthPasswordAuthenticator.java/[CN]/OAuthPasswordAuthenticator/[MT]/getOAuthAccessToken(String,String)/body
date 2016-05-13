@@ -3,7 +3,7 @@
   try {
     requestToken=oauth.getRequestToken(OAUTH_CALLBACK_OOB);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     if (e.isCausedByNetworkIssue())     throw new AuthenticationException(e);
     throw new AuthenticityTokenException(e);
   }
@@ -25,7 +25,7 @@
     }
     return oauth.getAccessToken(requestToken,authorizeResponseData.oauthPin);
   }
- catch (  final IOException|NullPointerException|TwitterException e) {
+ catch (  final IOException|NullPointerException|MicroBlogException e) {
     throw new AuthenticationException(e);
   }
 }

@@ -1,6 +1,6 @@
 {
   if (context == null)   return null;
-  if (t instanceof TwitterException)   return getTwitterErrorMessage(context,action,(TwitterException)t);
+  if (t instanceof MicroBlogException)   return getTwitterErrorMessage(context,action,(MicroBlogException)t);
  else   if (t != null)   return getErrorMessage(context,trimLineBreak(t.getMessage()));
   return context.getString(R.string.error_unknown_error);
 }

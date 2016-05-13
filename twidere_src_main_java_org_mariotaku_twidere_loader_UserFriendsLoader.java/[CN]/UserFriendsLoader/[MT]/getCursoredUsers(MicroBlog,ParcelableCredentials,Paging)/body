@@ -28,5 +28,5 @@ default :
   }
 }
 }
-throw new TwitterException("user_id or screen_name required");
+throw new MicroBlogException("user_id or screen_name required");
 }

@@ -161,7 +161,7 @@
           }
           results.add(SingleResponse.getInstance(result));
         }
- catch (        final TwitterException e) {
+ catch (        final MicroBlogException e) {
           Log.w(LOGTAG,e);
           final SingleResponse<ParcelableStatus> response=SingleResponse.getInstance(e);
           results.add(response);

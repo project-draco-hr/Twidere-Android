@@ -1,5 +1,5 @@
 {
-  if (mQuery == null)   throw new TwitterException("Empty query");
+  if (mQuery == null)   throw new MicroBlogException("Empty query");
   final String processedQuery=processQuery(credentials,mQuery);
 switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.TWITTER:
@@ -17,5 +17,5 @@ case ParcelableAccount.Type.FANFOU:
   return microBlog.searchPublicTimeline(processedQuery,paging);
 }
 }
-throw new TwitterException("Not implemented");
+throw new MicroBlogException("Not implemented");
 }

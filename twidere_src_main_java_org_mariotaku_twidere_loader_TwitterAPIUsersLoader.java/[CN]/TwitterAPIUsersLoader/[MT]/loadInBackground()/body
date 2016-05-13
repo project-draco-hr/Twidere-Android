@@ -1,19 +1,19 @@
 {
   if (mAccountKey == null) {
-    return ListResponse.getListInstance(new TwitterException("No Account"));
+    return ListResponse.getListInstance(new MicroBlogException("No Account"));
   }
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(getContext(),mAccountKey);
   if (credentials == null) {
-    return ListResponse.getListInstance(new TwitterException("No Account"));
+    return ListResponse.getListInstance(new MicroBlogException("No Account"));
   }
   final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(getContext(),credentials,true,true);
-  if (twitter == null)   return ListResponse.getListInstance(new TwitterException("No Account"));
+  if (twitter == null)   return ListResponse.getListInstance(new MicroBlogException("No Account"));
   final List<ParcelableUser> data=getData();
   final List<User> users;
   try {
     users=getUsers(twitter,credentials);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
     return ListResponse.getListInstance(data);
   }

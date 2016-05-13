@@ -12,7 +12,7 @@ return authTwipOMode();
 }
 return authOAuth();
 }
- catch (final TwitterException e) {
+ catch (final MicroBlogException e) {
 Log.w(LOGTAG,e);
 return new SignInResponse(false,false,e);
 }

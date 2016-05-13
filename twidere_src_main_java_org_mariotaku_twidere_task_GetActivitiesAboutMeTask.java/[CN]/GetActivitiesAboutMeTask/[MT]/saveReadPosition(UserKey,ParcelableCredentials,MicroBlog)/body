@@ -6,7 +6,7 @@
         final String tag=Utils.getReadPositionTagWithAccounts(ReadPositionTag.ACTIVITIES_ABOUT_ME,accountId);
         readStateManager.setPosition(tag,response.getCursor(),false);
       }
- catch (      TwitterException e) {
+ catch (      MicroBlogException e) {
       }
     }
   }

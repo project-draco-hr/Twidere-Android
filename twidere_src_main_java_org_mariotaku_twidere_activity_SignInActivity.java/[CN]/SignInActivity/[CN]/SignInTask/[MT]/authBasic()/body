@@ -9,7 +9,7 @@
   try {
     user=twitter.verifyCredentials();
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
     if (e.getStatusCode() == 401) {
       throw new WrongBasicCredentialException();
     }

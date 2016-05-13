@@ -1,5 +1,5 @@
 {
-  if (!(e instanceof TwitterException))   return false;
-  final TwitterException te=(TwitterException)e;
+  if (!(e instanceof MicroBlogException))   return false;
+  final MicroBlogException te=(MicroBlogException)e;
   return te.getErrorCode() == ErrorInfo.PAGE_NOT_FOUND || te.getStatusCode() == HttpResponseCode.NOT_FOUND;
 }

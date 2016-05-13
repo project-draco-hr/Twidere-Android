@@ -7,7 +7,7 @@
         try {
           twitter.setActivitiesAboutMeUnread(cursor);
         }
- catch (        TwitterException e) {
+ catch (        MicroBlogException e) {
           if (BuildConfig.DEBUG) {
             Log.w(LOGTAG,e);
           }

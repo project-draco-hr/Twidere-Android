@@ -87,13 +87,13 @@
     publishProgress(new LogText("Testing API functionality"));
     publishProgress(LogText.LINEBREAK);
     testTwitter("verify_credentials",twitter,new TwitterTest(){
-      @Override public void execute(      MicroBlog twitter) throws TwitterException {
+      @Override public void execute(      MicroBlog twitter) throws MicroBlogException {
         twitter.verifyCredentials();
       }
     }
 );
     testTwitter("get_home_timeline",twitter,new TwitterTest(){
-      @Override public void execute(      MicroBlog twitter) throws TwitterException {
+      @Override public void execute(      MicroBlog twitter) throws MicroBlogException {
         twitter.getHomeTimeline(new Paging().count(1));
       }
     }

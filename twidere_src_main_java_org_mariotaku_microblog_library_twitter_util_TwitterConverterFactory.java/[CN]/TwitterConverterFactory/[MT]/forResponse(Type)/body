@@ -1,0 +1,14 @@
+{
+  RestConverter<HttpResponse,?,MicroBlogException> converter=sResponseConverters.get(type);
+  if (converter != null) {
+    return converter;
+  }
+  final JsonMapper<?> mapper;
+  try {
+    mapper=LoganSquareMapperFinder.mapperFor(type);
+  }
+ catch (  LoganSquareMapperFinder.ClassLoaderDeadLockException e) {
+    throw new RestConverter.ConvertException(e);
+  }
+  return new JsonResponseConverter(mapper);
+}

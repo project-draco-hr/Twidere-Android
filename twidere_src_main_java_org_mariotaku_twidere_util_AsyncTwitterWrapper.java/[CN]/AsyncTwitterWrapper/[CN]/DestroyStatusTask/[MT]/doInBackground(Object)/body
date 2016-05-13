@@ -4,12 +4,12 @@
   final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,credentials,true,true);
   if (twitter == null)   return SingleResponse.getInstance();
   ParcelableStatus status=null;
-  TwitterException exception=null;
+  MicroBlogException exception=null;
   try {
     status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountKey,false);
     ParcelableStatusUtils.updateExtraInformation(status,credentials,mUserColorNameManager);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     exception=e;
   }
   if (status != null || (exception != null && exception.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND)) {

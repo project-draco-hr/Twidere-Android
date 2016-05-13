@@ -1,7 +1,7 @@
 {
-  if (ex instanceof TwitterException) {
-    Log.w(LOGTAG,String.format("Error %d",((TwitterException)ex).getStatusCode()),ex);
-    final HttpResponse response=((TwitterException)ex).getHttpResponse();
+  if (ex instanceof MicroBlogException) {
+    Log.w(LOGTAG,String.format("Error %d",((MicroBlogException)ex).getStatusCode()),ex);
+    final HttpResponse response=((MicroBlogException)ex).getHttpResponse();
     if (response != null) {
       try {
         final Body body=response.getBody();

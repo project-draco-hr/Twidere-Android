@@ -1,5 +1,5 @@
 {
-  final RestAPIFactory<TwitterException> factory=new RestAPIFactory<>();
+  final RestAPIFactory<MicroBlogException> factory=new RestAPIFactory<>();
   final String userAgent;
   if (auth instanceof OAuthAuthorization) {
     final String consumerKey=((OAuthAuthorization)auth).getConsumerKey();

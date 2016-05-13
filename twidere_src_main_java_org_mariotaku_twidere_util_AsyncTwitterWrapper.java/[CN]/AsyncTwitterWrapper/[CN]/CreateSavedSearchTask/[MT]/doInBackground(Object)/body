@@ -4,7 +4,7 @@
   try {
     return SingleResponse.getInstance(twitter.createSavedSearch(mQuery));
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

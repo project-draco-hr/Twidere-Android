@@ -5,7 +5,7 @@
     twitter.removeProfileBannerImage();
     return new SingleResponse<>(true,null);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return new SingleResponse<>(false,e);
   }
 }

@@ -22,7 +22,7 @@
     }
     return new SignInResponse(account != null,auth,user,AuthType.OAUTH,color,apiUrlFormat,sameOauthSigningUrl,noVersionSuffix,accountType);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return new SignInResponse(false,false,e);
   }
 }

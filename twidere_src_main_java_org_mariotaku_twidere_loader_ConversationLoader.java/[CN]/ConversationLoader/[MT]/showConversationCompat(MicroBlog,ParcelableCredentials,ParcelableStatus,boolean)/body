@@ -30,7 +30,7 @@
           }
         }
       }
- catch (      TwitterException e) {
+ catch (      MicroBlogException e) {
       }
     }
   }

@@ -1,0 +1,7 @@
+{
+  super(detailMessage,cause);
+  if (cause instanceof MicroBlogException) {
+    ((MicroBlogException)cause).setNested();
+  }
+  setCausedByNetworkIssue(cause instanceof IOException);
+}

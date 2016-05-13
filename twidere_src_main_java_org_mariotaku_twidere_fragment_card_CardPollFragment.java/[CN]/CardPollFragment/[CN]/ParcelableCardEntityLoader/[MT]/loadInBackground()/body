@@ -12,7 +12,7 @@
     }
     return ParcelableCardEntityUtils.fromCardEntity(card,mAccountKey);
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
     return null;
   }
 }

@@ -4,7 +4,7 @@
   try {
     return twitter.getSavedSearches();
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
   }
   return null;

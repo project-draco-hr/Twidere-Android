@@ -1,17 +1,17 @@
 {
   try {
-    return (TwitterException)converterFactory.forResponse(TwitterException.class).convert(resp);
+    return (MicroBlogException)converterFactory.forResponse(MicroBlogException.class).convert(resp);
   }
  catch (  JsonParseException e) {
-    return new TwitterException("Malformed JSON Data",e);
+    return new MicroBlogException("Malformed JSON Data",e);
   }
 catch (  IOException e) {
-    return new TwitterException("IOException while throwing exception",e);
+    return new MicroBlogException("IOException while throwing exception",e);
   }
 catch (  RestConverter.ConvertException e) {
-    return new TwitterException(e);
+    return new MicroBlogException(e);
   }
-catch (  TwitterException e) {
+catch (  MicroBlogException e) {
     return e;
   }
 }

@@ -45,7 +45,7 @@
                 final CardEntity cardEntity=caps.sendPassThrough(cardDataMap).getCard();
                 return ParcelableCardEntityUtils.fromCardEntity(cardEntity,card.account_key);
               }
- catch (              TwitterException e) {
+ catch (              MicroBlogException e) {
                 Log.w(LOGTAG,e);
               }
               return null;

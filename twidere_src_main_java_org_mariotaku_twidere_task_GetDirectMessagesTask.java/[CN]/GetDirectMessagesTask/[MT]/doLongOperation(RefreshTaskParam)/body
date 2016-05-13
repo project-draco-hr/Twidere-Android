@@ -33,7 +33,7 @@
       storeMessages(accountKey,messages,isOutgoing(),true);
       errorInfoStore.remove(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountKey);
     }
- catch (    final TwitterException e) {
+ catch (    final MicroBlogException e) {
       if (e.getErrorCode() == ErrorInfo.NO_DIRECT_MESSAGE_PERMISSION) {
         errorInfoStore.put(ErrorInfoStore.KEY_DIRECT_MESSAGES,accountKey,ErrorInfoStore.CODE_NO_DM_PERMISSION);
       }

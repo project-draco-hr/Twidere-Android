@@ -46,7 +46,7 @@
       }
       errorInfoStore.remove(getErrorInfoKey(),accountKey);
     }
- catch (    TwitterException e) {
+ catch (    MicroBlogException e) {
       if (BuildConfig.DEBUG) {
         Log.w(LOGTAG,e);
       }

@@ -4,7 +4,7 @@
   try {
     listLoaded=getGroups(twitter);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
   }
   if (listLoaded != null) {

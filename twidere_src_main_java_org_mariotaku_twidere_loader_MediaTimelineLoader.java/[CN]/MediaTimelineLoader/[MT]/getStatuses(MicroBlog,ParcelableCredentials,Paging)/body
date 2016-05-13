@@ -23,7 +23,7 @@ case ParcelableAccount.Type.TWITTER:
           screenName=mUser.getScreenName();
         }
  else {
-          throw new TwitterException("Invalid parameters");
+          throw new MicroBlogException("Invalid parameters");
         }
         final SearchQuery query;
         if (MicroBlogAPIFactory.isTwitterCredentials(credentials)) {
@@ -42,7 +42,7 @@ case ParcelableAccount.Type.TWITTER:
         }
         return result;
       }
-      throw new TwitterException("Wrong user");
+      throw new MicroBlogException("Wrong user");
     }
 case ParcelableAccount.Type.FANFOU:
 {
@@ -52,8 +52,8 @@ case ParcelableAccount.Type.FANFOU:
     if (mUserScreenName != null) {
       return microBlog.getPhotosUserTimeline(mUserScreenName,paging);
     }
-    throw new TwitterException("Wrong user");
+    throw new MicroBlogException("Wrong user");
   }
 }
-throw new TwitterException("Not implemented");
+throw new MicroBlogException("Not implemented");
 }

@@ -3,8 +3,8 @@
   if (result.getData() != null) {
     mActivity.setUserListsData(result.getData(),result.getExtras().getBoolean(EXTRA_IS_MY_ACCOUNT));
   }
- else   if (result.getException() instanceof TwitterException) {
-    final TwitterException te=(TwitterException)result.getException();
+ else   if (result.getException() instanceof MicroBlogException) {
+    final MicroBlogException te=(MicroBlogException)result.getException();
     if (te.getStatusCode() == HttpResponseCode.NOT_FOUND) {
       mActivity.searchUser(mScreenName);
     }

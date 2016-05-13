@@ -5,7 +5,7 @@
     test.execute(twitter);
     publishProgress(new LogText(String.format(Locale.US,"OK (%d ms)",SystemClock.uptimeMillis() - start),LogText.State.OK));
   }
- catch (  TwitterException e) {
+ catch (  MicroBlogException e) {
     publishProgress(new LogText("ERROR: " + e.getMessage(),LogText.State.ERROR));
   }
   publishProgress(LogText.LINEBREAK);

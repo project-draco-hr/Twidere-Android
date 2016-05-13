@@ -92,7 +92,7 @@
     response.getExtras().putParcelable(EXTRA_ACCOUNT,credentials);
     return response;
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
     return SingleResponse.getInstance(e);
   }

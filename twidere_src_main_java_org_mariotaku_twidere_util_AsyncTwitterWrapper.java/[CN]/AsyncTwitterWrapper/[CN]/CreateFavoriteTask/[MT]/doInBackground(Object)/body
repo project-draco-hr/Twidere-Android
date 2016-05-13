@@ -46,7 +46,7 @@ DataStoreUtils.updateActivityStatus(mResolver,mAccountKey,mStatusId,new DataStor
 );
 return SingleResponse.getInstance(result);
 }
- catch (final TwitterException e) {
+ catch (final MicroBlogException e) {
 if (BuildConfig.DEBUG) {
   Log.w(LOGTAG,e);
 }

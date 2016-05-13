@@ -57,7 +57,7 @@
       Log.w(LOGTAG,e);
     }
   }
-catch (  final TwitterException e) {
+catch (  final MicroBlogException e) {
     if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,e);
     }

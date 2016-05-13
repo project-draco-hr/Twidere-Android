@@ -1,3 +1,0 @@
-RestMethod<TwitterException> restMethod
-RestConverter.Factory<TwitterException> factory
-ValueMap valuePool

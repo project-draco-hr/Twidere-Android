@@ -2,5 +2,5 @@
   if (mListId != null)   return twitter.getUserListMembers(mListId,paging);
  else   if (mUserKey != null)   return twitter.getUserListMembers(mListName.replace(' ','-'),mUserKey.getId(),paging);
  else   if (mScreenName != null)   return twitter.getUserListMembersByScreenName(mListName.replace(' ','-'),mScreenName,paging);
-  throw new TwitterException("list_id or list_name and user_id (or screen_name) required");
+  throw new MicroBlogException("list_id or list_name and user_id (or screen_name) required");
 }

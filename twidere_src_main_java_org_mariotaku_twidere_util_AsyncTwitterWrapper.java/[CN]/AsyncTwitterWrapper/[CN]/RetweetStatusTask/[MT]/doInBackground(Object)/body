@@ -39,7 +39,7 @@
 );
     return SingleResponse.getInstance(result);
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

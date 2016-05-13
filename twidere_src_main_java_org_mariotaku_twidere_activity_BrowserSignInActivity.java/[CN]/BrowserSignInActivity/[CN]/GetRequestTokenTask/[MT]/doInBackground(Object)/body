@@ -8,7 +8,7 @@
     final TwitterOAuth oauth=MicroBlogAPIFactory.getInstance(mActivity,endpoint,auth,TwitterOAuth.class);
     return SingleResponse.getInstance(oauth.getRequestToken(OAUTH_CALLBACK_OOB));
   }
- catch (  final TwitterException e) {
+ catch (  final MicroBlogException e) {
     return SingleResponse.getInstance(e);
   }
 }

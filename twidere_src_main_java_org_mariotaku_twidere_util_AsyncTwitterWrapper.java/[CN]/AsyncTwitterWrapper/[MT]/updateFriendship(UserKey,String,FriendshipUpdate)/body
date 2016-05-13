@@ -7,7 +7,7 @@
       try {
         return SingleResponse.getInstance(twitter.updateFriendship(userId,update));
       }
- catch (      TwitterException e) {
+ catch (      MicroBlogException e) {
         return SingleResponse.getInstance(e);
       }
     }

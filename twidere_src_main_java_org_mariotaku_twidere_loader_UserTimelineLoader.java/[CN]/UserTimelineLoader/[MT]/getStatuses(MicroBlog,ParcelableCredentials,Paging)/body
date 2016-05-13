@@ -6,6 +6,6 @@
     return microBlog.getUserTimelineByScreenName(mUserScreenName,paging);
   }
  else {
-    throw new TwitterException("Invalid user");
+    throw new MicroBlogException("Invalid user");
   }
 }

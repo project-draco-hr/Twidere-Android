@@ -1,0 +1,3 @@
+RestMethod<MicroBlogException> restMethod
+RestConverter.Factory<MicroBlogException> factory
+ValueMap valuePool

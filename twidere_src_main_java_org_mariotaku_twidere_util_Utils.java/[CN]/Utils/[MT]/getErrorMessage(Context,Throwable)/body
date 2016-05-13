@@ -1,5 +1,5 @@
 {
   if (t == null)   return null;
-  if (context != null && t instanceof TwitterException)   return getTwitterErrorMessage(context,(TwitterException)t);
+  if (context != null && t instanceof MicroBlogException)   return getTwitterErrorMessage(context,(MicroBlogException)t);
   return t.getMessage();
 }
