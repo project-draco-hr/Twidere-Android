@@ -1,6 +1,7 @@
 {
+  AsyncTwitterWrapper twitter=mTwitterWrapper;
   final Dialog dialog=getDialog();
-  if (dialog == null)   return;
+  if (dialog == null || twitter == null)   return false;
   final EditText editComment=(EditText)dialog.findViewById(R.id.edit_comment);
   if (useQuote(editComment.length() > 0,account)) {
     final Menu menu=mPopupMenu.getMenu();
@@ -15,10 +16,17 @@ switch (ParcelableAccountUtils.getAccountType(account)) {
 case ParcelableAccount.Type.FANFOU:
 {
         if (!status.is_quote || !quoteOriginalStatus) {
-          commentText=getString(R.string.fanfou_repost_format,editingComment,status.user_screen_name,status.text_plain);
+          if (status.user_is_protected && showProtectedConfirmation) {
+            QuoteProtectedStatusWarnFragment.show(this,account,status);
+            return false;
+          }
           update.repost_status_id=status.id;
+          commentText=getString(R.string.fanfou_repost_format,editingComment,status.user_screen_name,status.text_plain);
         }
  else {
+          if (status.quoted_user_is_protected && showProtectedConfirmation) {
+            return false;
+          }
           commentText=getString(R.string.fanfou_repost_format,editingComment,status.quoted_user_screen_name,status.quoted_text_plain);
           update.repost_status_id=status.quoted_id;
         }
@@ -46,4 +54,5 @@ BackgroundOperationService.updateStatusesAsync(getContext(),Draft.Action.QUOTE,u
  else {
 twitter.retweetStatusAsync(status.account_key,status.id);
 }
+return true;
 }

@@ -1,0 +1,9 @@
+{
+  QuoteProtectedStatusWarnFragment f=new QuoteProtectedStatusWarnFragment();
+  Bundle args=new Bundle();
+  args.putParcelable(EXTRA_ACCOUNT,account);
+  args.putParcelable(EXTRA_STATUS,status);
+  f.setArguments(args);
+  f.show(pf.getChildFragmentManager(),"quote_protected_status_warning");
+  return f;
+}
