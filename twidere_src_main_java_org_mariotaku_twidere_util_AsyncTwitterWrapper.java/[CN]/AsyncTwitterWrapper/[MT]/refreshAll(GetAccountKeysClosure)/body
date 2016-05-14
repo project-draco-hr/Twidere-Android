@@ -8,27 +8,33 @@
     }
   }
 );
-  getActivitiesAboutMeAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeysWorker(){
-      return closure.getAccountKeys();
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_MENTIONS)) {
+    getActivitiesAboutMeAsync(new SimpleRefreshTaskParam(){
+      @NonNull @Override public UserKey[] getAccountKeysWorker(){
+        return closure.getAccountKeys();
+      }
+      @Nullable @Override public String[] getSinceIds(){
+        return DataStoreUtils.getNewestActivityMaxPositions(mContext,Activities.AboutMe.CONTENT_URI,getAccountKeys());
+      }
     }
-    @Nullable @Override public String[] getSinceIds(){
-      return DataStoreUtils.getNewestActivityMaxPositions(mContext,Activities.AboutMe.CONTENT_URI,getAccountKeys());
-    }
-  }
 );
-  getReceivedDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeysWorker(){
-      return closure.getAccountKeys();
-    }
   }
-);
-  getSentDirectMessagesAsync(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeysWorker(){
-      return closure.getAccountKeys();
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_DIRECT_MESSAGES)) {
+    getReceivedDirectMessagesAsync(new SimpleRefreshTaskParam(){
+      @NonNull @Override public UserKey[] getAccountKeysWorker(){
+        return closure.getAccountKeys();
+      }
     }
-  }
 );
-  getSavedSearchesAsync(closure.getAccountKeys());
+    getSentDirectMessagesAsync(new SimpleRefreshTaskParam(){
+      @NonNull @Override public UserKey[] getAccountKeysWorker(){
+        return closure.getAccountKeys();
+      }
+    }
+);
+  }
+  if (mPreferences.getBoolean(KEY_HOME_REFRESH_SAVED_SEARCHES)) {
+    getSavedSearchesAsync(closure.getAccountKeys());
+  }
   return true;
 }
