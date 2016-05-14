@@ -1,4 +1,0 @@
-{
-  super.onContentChanged();
-  mGoogleSignInButton=findViewById(R.id.google_sign_in);
-}

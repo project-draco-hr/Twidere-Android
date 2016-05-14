@@ -1,5 +1,5 @@
 {
-  if (action == null)   throw new IOException();
+  if (action == null)   throw new IOException("Malformed Activity object");
 switch (action) {
 case Activity.Action.FAVORITE:
 case Activity.Action.REPLY:
