@@ -1,0 +1,7 @@
+{
+  final Context context=getContext();
+  Intent intent=new Intent(INTENT_ACTION_PLUS_SERVICE_SIGN_IN);
+  intent.setPackage(context.getPackageName());
+  final PackageManager pm=context.getPackageManager();
+  return pm.queryIntentActivities(intent,PackageManager.GET_META_DATA);
+}

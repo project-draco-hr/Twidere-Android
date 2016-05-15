@@ -7,7 +7,7 @@
     ((DialogFragment)f).dismiss();
   }
  else   if (visible) {
-    SupportProgressDialogFragment df=new SupportProgressDialogFragment();
+    ProgressDialogFragment df=new ProgressDialogFragment();
     df.show(fm,DISCARD_STATUS_DIALOG_FRAGMENT_TAG);
     df.setCancelable(false);
   }

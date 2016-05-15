@@ -1,0 +1,6 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final Bundle metaData=getItem(position).activityInfo.metaData;
+  ((TextView)view.findViewById(android.R.id.text1)).setText(metaData.getInt(METADATA_KEY_PLUS_SERVICE_SIGN_IN_LABEL));
+  return view;
+}

@@ -44,7 +44,7 @@
       if (activity == null)       return;
       activity.executeAfterFragmentResumed(new IExtendedActivity.Action(){
         @Override public void execute(        IExtendedActivity activity){
-          final DialogFragment fragment=new SupportProgressDialogFragment();
+          final DialogFragment fragment=new ProgressDialogFragment();
           fragment.setCancelable(false);
           fragment.show(((FragmentActivity)activity).getSupportFragmentManager(),PROGRESS_FRAGMENT_TAG);
         }

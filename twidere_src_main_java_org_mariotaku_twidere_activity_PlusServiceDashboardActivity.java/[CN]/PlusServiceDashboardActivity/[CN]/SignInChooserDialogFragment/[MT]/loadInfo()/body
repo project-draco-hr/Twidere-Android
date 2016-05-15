@@ -1,0 +1,10 @@
+{
+  LoaderManager lm=getLoaderManager();
+  if (mLoaderInitialized) {
+    lm.restartLoader(0,null,this);
+  }
+ else {
+    lm.initLoader(0,null,this);
+    mLoaderInitialized=true;
+  }
+}

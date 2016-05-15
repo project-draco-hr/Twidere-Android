@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_plus_service_dashboard);
-  startActivity(new Intent(this,PlusServiceSignInActivity.class));
+  SignInChooserDialogFragment df=new SignInChooserDialogFragment();
+  df.show(getSupportFragmentManager(),"sign_in_chooser");
 }

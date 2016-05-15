@@ -1,5 +1,5 @@
 {
-  final SupportProgressDialogFragment df=new SupportProgressDialogFragment();
+  final ProgressDialogFragment df=new ProgressDialogFragment();
   df.setCancelable(false);
   mActivity.showDialogFragment(df,FRAGMENT_TAG_SEARCH_USERS);
 }

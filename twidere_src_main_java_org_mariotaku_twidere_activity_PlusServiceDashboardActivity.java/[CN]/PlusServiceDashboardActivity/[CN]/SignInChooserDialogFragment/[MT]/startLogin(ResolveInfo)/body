@@ -1,0 +1,8 @@
+{
+  final FragmentActivity activity=getActivity();
+  if (activity == null)   return;
+  Intent intent=new Intent(INTENT_ACTION_PLUS_SERVICE_SIGN_IN);
+  intent.setClassName(info.activityInfo.packageName,info.activityInfo.name);
+  activity.startActivityForResult(intent,REQUEST_PLUS_SERVICE_SIGN_IN);
+  dismiss();
+}

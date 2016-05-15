@@ -1,0 +1,7 @@
+{
+  MessageDialogFragment df=new MessageDialogFragment();
+  Bundle args=new Bundle();
+  args.putString(EXTRA_MESSAGE,message);
+  df.setArguments(args);
+  return df;
+}
