@@ -1,0 +1,30 @@
+{
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(getContext());
+  builder.title(R.string.edit_description);
+  builder.customView(R.layout.dialog_compose_edit_alt_text,true);
+  builder.negativeText(android.R.string.cancel);
+  builder.positiveText(android.R.string.ok);
+  builder.neutralText(R.string.clear);
+  builder.onNeutral(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
+      ((ComposeActivity)getActivity()).setMediaAltText(getArguments().getInt(EXTRA_POSITION),null);
+    }
+  }
+);
+  builder.onPositive(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
+      final EditText editText=(EditText)dialog.findViewById(R.id.edit_text);
+      ((ComposeActivity)getActivity()).setMediaAltText(getArguments().getInt(EXTRA_POSITION),ParseUtils.parseString(editText.getText()));
+    }
+  }
+);
+  builder.showListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface dialog){
+      MaterialDialog materialDialog=((MaterialDialog)dialog);
+      final EditText editText=(EditText)materialDialog.findViewById(R.id.edit_text);
+      editText.setText(getArguments().getString(EXTRA_TEXT));
+    }
+  }
+);
+  return builder.build();
+}

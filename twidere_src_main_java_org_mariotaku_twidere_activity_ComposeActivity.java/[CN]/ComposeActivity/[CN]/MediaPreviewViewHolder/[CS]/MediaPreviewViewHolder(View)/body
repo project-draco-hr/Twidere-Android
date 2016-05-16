@@ -1,7 +1,10 @@
 {
   super(itemView);
+  imageView=(ImageView)itemView.findViewById(R.id.image);
+  removeView=itemView.findViewById(R.id.remove);
+  editView=itemView.findViewById(R.id.edit);
   itemView.setOnLongClickListener(this);
-  image=(ImageView)itemView.findViewById(R.id.image);
-  remove=itemView.findViewById(R.id.remove);
-  remove.setOnClickListener(this);
+  itemView.setOnClickListener(this);
+  removeView.setOnClickListener(this);
+  editView.setOnClickListener(this);
 }

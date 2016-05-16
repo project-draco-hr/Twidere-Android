@@ -1,0 +1,21 @@
+{
+  final ContextMenu.ContextMenuInfo menuInfo=item.getMenuInfo();
+  if (menuInfo instanceof ExtendedRecyclerView.ContextMenuInfo) {
+    final ExtendedRecyclerView.ContextMenuInfo itemMenuInfo=(ExtendedRecyclerView.ContextMenuInfo)menuInfo;
+switch (itemMenuInfo.getRecyclerViewId()) {
+case R.id.attached_media_preview:
+{
+        final int position=itemMenuInfo.getPosition();
+        final ParcelableMediaUpdate mediaUpdate=mMediaPreviewAdapter.getItem(position);
+        Bundle args=new Bundle();
+        args.putString(EXTRA_TEXT,mediaUpdate.alt_text);
+        args.putInt(EXTRA_POSITION,position);
+        EditAltTextDialogFragment df=new EditAltTextDialogFragment();
+        df.setArguments(args);
+        df.show(getSupportFragmentManager(),"edit_alt_text");
+        return true;
+      }
+  }
+}
+return super.onContextItemSelected(item);
+}

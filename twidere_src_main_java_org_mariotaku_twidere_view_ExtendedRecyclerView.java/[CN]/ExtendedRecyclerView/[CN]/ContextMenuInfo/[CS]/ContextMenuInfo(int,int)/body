@@ -1,0 +1,4 @@
+{
+  this.recyclerViewId=recyclerViewId;
+  this.position=position;
+}

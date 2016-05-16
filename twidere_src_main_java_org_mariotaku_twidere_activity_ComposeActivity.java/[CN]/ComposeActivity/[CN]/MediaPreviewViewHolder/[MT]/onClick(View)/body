@@ -4,6 +4,12 @@ switch (v.getId()) {
 case R.id.remove:
 {
       adapter.remove(getLayoutPosition());
+      break;
     }
+case R.id.edit:
+{
+    itemView.getParent().showContextMenuForChild(itemView);
+    break;
+  }
 }
 }

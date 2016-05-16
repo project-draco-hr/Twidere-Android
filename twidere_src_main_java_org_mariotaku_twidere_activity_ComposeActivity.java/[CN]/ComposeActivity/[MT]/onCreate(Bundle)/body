@@ -87,6 +87,7 @@ final LinearLayoutManager layoutManager=new LinearLayoutManager(this);
 layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 mAttachedMediaPreview.setLayoutManager(layoutManager);
 mAttachedMediaPreview.setAdapter(mMediaPreviewAdapter);
+registerForContextMenu(mAttachedMediaPreview);
 mItemTouchHelper.attachToRecyclerView(mAttachedMediaPreview);
 final int previewGridSpacing=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
 mAttachedMediaPreview.addItemDecoration(new PreviewGridItemDecoration(previewGridSpacing));

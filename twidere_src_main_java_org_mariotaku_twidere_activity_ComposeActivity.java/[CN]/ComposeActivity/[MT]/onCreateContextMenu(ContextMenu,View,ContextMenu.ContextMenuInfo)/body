@@ -1,0 +1,6 @@
+{
+  if (v == mAttachedMediaPreview) {
+    menu.setHeaderTitle(R.string.edit_media);
+    getMenuInflater().inflate(R.menu.menu_attached_media_edit,menu);
+  }
+}

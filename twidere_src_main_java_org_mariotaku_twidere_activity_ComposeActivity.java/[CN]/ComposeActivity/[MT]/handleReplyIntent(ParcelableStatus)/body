@@ -1,5 +1,5 @@
 {
-  if (status == null || status.id == null)   return false;
+  if (status == null)   return false;
   final ParcelableAccount account=ParcelableAccountUtils.getAccount(this,status.account_key);
   if (account == null)   return false;
   int selectionStart=0;
