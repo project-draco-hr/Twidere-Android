@@ -1,5 +1,5 @@
 {
   final ParcelableUser user=getUser();
   if (user == null || !user.equals(event.user))   return;
-  displayUser(event.user);
+  displayUser(event.user,mAccount);
 }

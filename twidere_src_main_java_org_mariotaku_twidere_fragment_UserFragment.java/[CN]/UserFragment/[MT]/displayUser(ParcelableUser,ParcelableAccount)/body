@@ -2,6 +2,7 @@
   final FragmentActivity activity=getActivity();
   if (activity == null)   return;
   mUser=user;
+  mAccount=account;
   if (user == null || user.key == null) {
     mProfileImageView.setVisibility(View.GONE);
     mProfileTypeView.setVisibility(View.GONE);

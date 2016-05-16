@@ -1,4 +1,4 @@
 {
   if (mUser == null || !mUser.key.equals(userId))   return;
-  displayUser(mUser);
+  displayUser(mUser,mAccount);
 }

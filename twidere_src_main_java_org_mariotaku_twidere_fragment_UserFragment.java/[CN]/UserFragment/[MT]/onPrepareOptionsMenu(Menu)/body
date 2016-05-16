@@ -18,6 +18,12 @@
   MenuUtils.setMenuItemAvailability(menu,R.id.mute_user,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.report_spam,!isMyself);
   MenuUtils.setMenuItemAvailability(menu,R.id.enable_retweets,!isMyself);
+  if (mAccount != null) {
+    MenuUtils.setMenuItemAvailability(menu,R.id.add_to_list,TextUtils.equals(ParcelableAccount.Type.TWITTER,ParcelableAccountUtils.getAccountType(mAccount)));
+  }
+ else {
+    MenuUtils.setMenuItemAvailability(menu,R.id.add_to_list,false);
+  }
   final UserRelationship userRelationship=mRelationship;
   if (userRelationship != null) {
     final MenuItem filterItem=menu.findItem(R.id.add_to_filter);
