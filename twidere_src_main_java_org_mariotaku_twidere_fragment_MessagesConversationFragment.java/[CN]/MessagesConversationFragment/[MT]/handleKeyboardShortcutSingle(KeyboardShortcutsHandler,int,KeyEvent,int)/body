@@ -7,14 +7,9 @@
     if (editText.length() == 0 && !textChanged) {
       final FragmentActivity activity=getActivity();
       if (!mNavigateBackPressed) {
-        final SuperToast toast=SuperToast.create(activity,getString(R.string.press_again_to_close),Duration.SHORT);
-        toast.setOnDismissListener(new OnDismissListener(){
-          @Override public void onDismiss(          View view){
-            mNavigateBackPressed=false;
-          }
-        }
-);
-        toast.show();
+        Toast.makeText(activity,R.string.press_again_to_close,Toast.LENGTH_SHORT).show();
+        editText.removeCallbacks(mBackTimeoutRunnable);
+        editText.postDelayed(mBackTimeoutRunnable,2000);
         mNavigateBackPressed=true;
       }
  else {
