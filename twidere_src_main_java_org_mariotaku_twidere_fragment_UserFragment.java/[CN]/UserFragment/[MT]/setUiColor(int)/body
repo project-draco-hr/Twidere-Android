@@ -8,7 +8,7 @@
   final BaseActivity activity=(BaseActivity)getActivity();
   if (Config.coloredActionBar(activity,activity.getATEKey())) {
     mPrimaryColor=color;
-    mPrimaryColorDark=ATEUtil.darkenColor(color);
+    mPrimaryColorDark=ThemeUtils.computeDarkColor(color);
   }
  else {
     mPrimaryColor=Config.primaryColor(activity,activity.getATEKey());
