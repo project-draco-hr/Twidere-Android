@@ -1,3 +1,0 @@
-{
-  return new String[]{"oauth_token","oauth_token_secret"};
-}

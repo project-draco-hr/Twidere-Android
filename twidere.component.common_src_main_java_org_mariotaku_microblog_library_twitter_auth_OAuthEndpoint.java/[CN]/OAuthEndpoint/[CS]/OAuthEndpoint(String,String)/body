@@ -1,4 +1,0 @@
-{
-  super(url);
-  this.signUrl=signUrl != null ? signUrl : url;
-}

@@ -1,9 +1,0 @@
-{
-  if ("oauth_token".equals(key)) {
-    return oauthToken;
-  }
- else   if ("oauth_token_secret".equals(key)) {
-    return oauthTokenSecret;
-  }
-  return null;
-}

@@ -1,4 +1,0 @@
-{
-  this.oauthToken=oauthToken;
-  this.oauthTokenSecret=oauthTokenSecret;
-}

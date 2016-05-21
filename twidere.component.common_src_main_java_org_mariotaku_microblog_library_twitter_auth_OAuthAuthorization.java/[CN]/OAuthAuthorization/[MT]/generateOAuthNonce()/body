@@ -1,7 +1,0 @@
-{
-  final StringBuilder sb=new StringBuilder();
-  for (int i=0; i < 32; i++) {
-    sb.append(VALID_NONCE_CHARACTERS[secureRandom.nextInt(VALID_NONCE_CHARACTERS.length)]);
-  }
-  return sb.toString();
-}
