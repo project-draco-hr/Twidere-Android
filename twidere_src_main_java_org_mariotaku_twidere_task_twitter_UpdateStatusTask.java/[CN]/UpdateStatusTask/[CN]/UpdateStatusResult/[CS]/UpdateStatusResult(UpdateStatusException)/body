@@ -1,0 +1,5 @@
+{
+  this.exception=exception;
+  this.statuses=new ParcelableStatus[0];
+  this.exceptions=new Exception[0];
+}

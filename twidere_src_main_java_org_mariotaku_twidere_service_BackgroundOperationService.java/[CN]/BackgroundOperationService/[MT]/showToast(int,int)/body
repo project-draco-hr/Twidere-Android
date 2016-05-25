@@ -1,3 +1,0 @@
-{
-  mHandler.post(new ToastRunnable(this,resId,duration));
-}

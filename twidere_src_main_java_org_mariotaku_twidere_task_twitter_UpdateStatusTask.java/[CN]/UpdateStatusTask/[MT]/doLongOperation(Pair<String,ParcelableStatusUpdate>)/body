@@ -1,14 +1,15 @@
 {
+  final long draftId=saveDraft(params.first,params.second);
+  mTwitterWrapper.addSendingDraftId(draftId);
   try {
-    final long draftId=saveDraft(params.first,params.second);
-    mTwitterWrapper.addSendingDraftId(draftId);
     final UpdateStatusResult result=doUpdateStatus(params.second);
     deleteOrUpdateDraft(params.second,result,draftId);
-    mTwitterWrapper.removeSendingDraftId(draftId);
     return result;
   }
  catch (  UpdateStatusException e) {
-    e.printStackTrace();
+    return new UpdateStatusResult(e);
   }
-  return null;
+ finally {
+    mTwitterWrapper.removeSendingDraftId(draftId);
+  }
 }

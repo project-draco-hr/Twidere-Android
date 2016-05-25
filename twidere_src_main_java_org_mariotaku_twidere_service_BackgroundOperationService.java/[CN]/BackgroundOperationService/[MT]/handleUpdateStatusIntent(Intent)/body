@@ -14,19 +14,5 @@
   }
  else   return;
   @Draft.Action final String actionType=intent.getStringExtra(EXTRA_ACTION);
-  for (  ParcelableStatusUpdate item : statuses) {
-    UpdateStatusTask task=new UpdateStatusTask(this,new UpdateStatusTask.StateCallback(){
-      @Override public void onStartUploadingMedia(){
-      }
-      @Override public void onUploadingProgressChanged(      int index,      long current,      long total){
-      }
-      @Override public void onShorteningStatus(){
-      }
-      @Override public void onUpdatingStatus(){
-      }
-    }
-);
-    task.setParams(Pair.create(actionType,item));
-    UpdateStatusTask.UpdateStatusResult result=ManualTaskStarter.invokeExecute(task);
-  }
+  updateStatuses(actionType,statuses);
 }

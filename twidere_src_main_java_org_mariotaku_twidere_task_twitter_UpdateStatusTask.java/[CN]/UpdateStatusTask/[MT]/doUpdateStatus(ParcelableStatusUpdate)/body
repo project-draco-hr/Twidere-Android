@@ -5,7 +5,7 @@
   final PendingStatusUpdate pendingUpdate=PendingStatusUpdate.from(update);
   uploadMedia(uploader,update,pendingUpdate);
   shortenStatus(shortener,update,pendingUpdate);
-  UpdateStatusResult result=requestUpdateStatus(update,pendingUpdate);
+  final UpdateStatusResult result=requestUpdateStatus(update,pendingUpdate);
   mediaUploadCallback(uploader,pendingUpdate,result);
   statusShortenCallback(shortener,pendingUpdate,result);
   return result;

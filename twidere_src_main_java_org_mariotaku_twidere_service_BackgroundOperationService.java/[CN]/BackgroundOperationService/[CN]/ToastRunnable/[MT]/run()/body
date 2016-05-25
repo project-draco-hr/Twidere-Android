@@ -1,3 +1,0 @@
-{
-  Toast.makeText(context,resId,duration).show();
-}
