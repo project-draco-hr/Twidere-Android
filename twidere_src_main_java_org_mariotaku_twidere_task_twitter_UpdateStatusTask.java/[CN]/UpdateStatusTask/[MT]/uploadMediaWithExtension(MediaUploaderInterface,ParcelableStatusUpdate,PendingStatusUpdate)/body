@@ -1,0 +1,28 @@
+{
+  final UploaderMediaItem[] media;
+  try {
+    media=UploaderMediaItem.getFromStatusUpdate(context,update);
+  }
+ catch (  FileNotFoundException e) {
+    throw new UploadException(e);
+  }
+  Map<UserKey,MediaUploadResult> sharedMedia=new HashMap<>();
+  for (int i=0; i < pending.length; i++) {
+    ParcelableAccount account=update.accounts[i];
+    final UserKey accountKey=account.account_key;
+    MediaUploadResult uploadResult=sharedMedia.get(accountKey);
+    if (uploadResult == null) {
+      uploadResult=uploader.upload(update,accountKey,media);
+      if (uploadResult == null) {
+        continue;
+      }
+      pending.mediaUploadResults[i]=uploadResult;
+      if (uploadResult.shared_owners != null) {
+        for (        UserKey sharedOwner : uploadResult.shared_owners) {
+          sharedMedia.put(sharedOwner,uploadResult);
+        }
+      }
+    }
+    pending.overrideTexts[i]=Utils.getMediaUploadStatus(context,uploadResult.media_uris,pending.overrideTexts[i]);
+  }
+}

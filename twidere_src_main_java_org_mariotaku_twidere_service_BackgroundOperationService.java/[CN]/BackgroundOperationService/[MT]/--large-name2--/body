@@ -28,7 +28,7 @@
       return true;
     }
  else {
-      final TwitterUpload upload=MicroBlogAPIFactory.getTwitterInstance(this,credentials,true,true,TwitterUpload.class);
+      final TwitterUpload upload=MicroBlogAPIFactory.getInstance(this,credentials,true,true,TwitterUpload.class);
       if (upload == null) {
         throw new UpdateStatusException("Twitter instance is null");
       }
@@ -39,7 +39,7 @@
         final MediaUploadResponse uploadResp;
         try {
           body=getBodyFromMedia(resolver,builder,media,statusUpdate);
-          uploadResp=upload.uploadMedia(body);
+          uploadResp=uploadMedia(upload,body);
           if (!TextUtils.isEmpty(media.alt_text)) {
             upload.createMetadata(new NewMediaMetadata(uploadResp.getId(),media.alt_text));
           }

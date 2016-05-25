@@ -1,0 +1,23 @@
+{
+  final Draft draft=new Draft();
+  draft.account_keys=ParcelableAccountUtils.getAccountKeys(statusUpdate.accounts);
+  if (draftAction != null) {
+    draft.action_type=draftAction;
+  }
+ else {
+    draft.action_type=Draft.Action.UPDATE_STATUS;
+  }
+  draft.text=statusUpdate.text;
+  draft.location=statusUpdate.location;
+  draft.media=statusUpdate.media;
+  final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
+  extra.setInReplyToStatus(statusUpdate.in_reply_to_status);
+  extra.setIsPossiblySensitive(statusUpdate.is_possibly_sensitive);
+  extra.setRepostStatusId(statusUpdate.repost_status_id);
+  extra.setDisplayCoordinates(statusUpdate.display_coordinates);
+  draft.action_extras=extra;
+  final ContentResolver resolver=context.getContentResolver();
+  final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,DraftValuesCreator.create(draft));
+  if (draftUri == null)   return -1;
+  return NumberUtils.toLong(draftUri.getLastPathSegment(),-1);
+}

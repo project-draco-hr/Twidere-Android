@@ -1,0 +1,9 @@
+{
+  stateCallback.onStartUploadingMedia();
+  if (uploader == null) {
+    uploadMediaWithDefaultProvider(update,pendingUpdate);
+  }
+ else {
+    uploadMediaWithExtension(uploader,update,pendingUpdate);
+  }
+}

@@ -1,0 +1,3 @@
+MediaUploaderInterface uploader
+PendingStatusUpdate pendingUpdate
+UpdateStatusResult updateResult

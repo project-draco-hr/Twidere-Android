@@ -1,5 +1,5 @@
 {
-  final TwitterCaps caps=MicroBlogAPIFactory.getTwitterInstance(getContext(),mAccountKey,true,true,TwitterCaps.class);
+  final TwitterCaps caps=MicroBlogAPIFactory.getInstance(getContext(),mAccountKey,true,true,TwitterCaps.class);
   if (caps == null)   return null;
   try {
     final CardDataMap params=new CardDataMap();

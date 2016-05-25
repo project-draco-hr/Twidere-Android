@@ -1,0 +1,10 @@
+{
+  if (info == null)   return false;
+switch (info.getState()) {
+case ProcessingInfo.State.PENDING:
+case ProcessingInfo.State.IN_PROGRESS:
+    return true;
+default :
+  return false;
+}
+}

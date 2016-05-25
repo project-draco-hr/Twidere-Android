@@ -1,0 +1,3 @@
+ParcelableStatusUpdate status
+UserKey currentAccountKey
+UploaderMediaItem[] media

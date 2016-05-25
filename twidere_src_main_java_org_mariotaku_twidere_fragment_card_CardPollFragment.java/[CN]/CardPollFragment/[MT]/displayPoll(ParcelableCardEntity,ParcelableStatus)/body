@@ -39,7 +39,7 @@
             @Override public ParcelableCardEntity doLongOperation(            CardDataMap cardDataMap){
               final Context context=getContext();
               if (context == null)               return null;
-              final TwitterCaps caps=MicroBlogAPIFactory.getTwitterInstance(context,card.account_key,true,true,TwitterCaps.class);
+              final TwitterCaps caps=MicroBlogAPIFactory.getInstance(context,card.account_key,true,true,TwitterCaps.class);
               if (caps == null)               return null;
               try {
                 final CardEntity cardEntity=caps.sendPassThrough(cardDataMap).getCard();

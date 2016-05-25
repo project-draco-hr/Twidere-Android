@@ -1,0 +1,3 @@
+ContentResolver resolver
+ParcelableMediaUpdate media
+ContentLengthInputStream.ReadListener readListener

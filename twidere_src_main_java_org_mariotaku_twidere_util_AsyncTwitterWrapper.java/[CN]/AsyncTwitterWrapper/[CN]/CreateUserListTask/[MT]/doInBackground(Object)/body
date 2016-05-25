@@ -1,5 +1,5 @@
 {
-  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(getContext(),mAccountKey,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(getContext(),mAccountKey,false);
   if (twitter == null || mListName == null)   return SingleResponse.getInstance();
   try {
     final UserListUpdate userListUpdate=new UserListUpdate();

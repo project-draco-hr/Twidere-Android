@@ -39,10 +39,10 @@ case Draft.Action.SEND_DIRECT_MESSAGE:
     if (item.action_extras instanceof SendDirectMessageActionExtra) {
       recipientId=((SendDirectMessageActionExtra)item.action_extras).getRecipientId();
     }
-    if (ArrayUtils.isEmpty(item.account_ids) || recipientId == null) {
+    if (ArrayUtils.isEmpty(item.account_keys) || recipientId == null) {
       return;
     }
-    final UserKey accountKey=item.account_ids[0];
+    final UserKey accountKey=item.account_keys[0];
     final String imageUri=ArrayUtils.isEmpty(item.media) ? null : item.media[0].uri;
     sendMessage(accountKey,recipientId,item.text,imageUri);
     break;

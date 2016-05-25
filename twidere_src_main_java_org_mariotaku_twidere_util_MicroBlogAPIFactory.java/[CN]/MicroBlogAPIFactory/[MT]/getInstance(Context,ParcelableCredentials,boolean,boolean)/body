@@ -1,0 +1,3 @@
+{
+  return getInstance(context,credentials,includeEntities,includeRetweets,MicroBlog.class);
+}

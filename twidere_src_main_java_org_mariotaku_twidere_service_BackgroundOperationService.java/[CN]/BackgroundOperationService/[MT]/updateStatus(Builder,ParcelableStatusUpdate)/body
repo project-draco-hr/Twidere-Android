@@ -84,7 +84,7 @@
       }
       for (      final ParcelableAccount account : statusUpdate.accounts) {
         final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(this,account.account_key);
-        final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(this,account.account_key,true,true);
+        final MicroBlog twitter=MicroBlogAPIFactory.getInstance(this,account.account_key,true,true);
         if (twitter == null || credentials == null) {
           throw new UpdateStatusException("No account found");
         }
@@ -92,7 +92,7 @@
         MediaUploadResult uploadResult=null;
         if (uploader != null && hasMedia) {
           try {
-            uploadResult=uploader.upload(statusUpdate,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
+            uploadResult=uploader.upload(statusUpdate,account.account_key,UploaderMediaItem.getFromStatusUpdate(this,statusUpdate));
           }
  catch (          final Exception e) {
             throw new UploadException(getString(R.string.error_message_media_upload_failed));
@@ -101,7 +101,7 @@
             throw new UploadException(getString(R.string.error_message_media_upload_failed));
           }
           if (uploadResult.error_code != 0)           throw new UploadException(uploadResult.error_message);
-          statusText=getImageUploadStatus(this,uploadResult.media_uris,statusText);
+          statusText=Utils.getMediaUploadStatus(this,uploadResult.media_uris,statusText);
         }
         final boolean shouldShorten=mValidator.getTweetLength(statusText) > TwidereValidator.getTextLimit(credentials);
         StatusShortenResult shortenedResult=null;

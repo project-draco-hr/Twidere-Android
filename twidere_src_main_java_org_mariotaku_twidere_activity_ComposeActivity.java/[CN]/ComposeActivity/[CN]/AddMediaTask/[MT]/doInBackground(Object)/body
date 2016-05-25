@@ -11,7 +11,7 @@
       is=resolver.openInputStream(source);
       os=resolver.openOutputStream(destination);
       if (is == null || os == null)       throw new FileNotFoundException();
-      RestFuUtils.copyStream(is,os);
+      StreamUtils.copy(is,os,null,null);
       if (ContentResolver.SCHEME_FILE.equals(source.getScheme()) && mDeleteSrc) {
         final File file=new File(source.getPath());
         if (!file.delete()) {

@@ -1,7 +1,7 @@
 {
   final ParcelableStatus cached=findStatusInDatabases(context,accountKey,statusId);
   if (cached != null)   return cached;
-  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,accountKey,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,accountKey,true);
   if (twitter == null)   throw new MicroBlogException("Account does not exist");
   final Status status=twitter.showStatus(statusId);
   final String where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.STATUS_ID)).getSQL();

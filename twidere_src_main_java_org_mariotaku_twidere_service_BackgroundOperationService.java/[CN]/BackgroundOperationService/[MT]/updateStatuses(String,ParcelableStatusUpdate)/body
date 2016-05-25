@@ -4,7 +4,7 @@
   for (  final ParcelableStatusUpdate item : statuses) {
     mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
     final Draft draft=new Draft();
-    draft.account_ids=ParcelableAccountUtils.getAccountKeys(item.accounts);
+    draft.account_keys=ParcelableAccountUtils.getAccountKeys(item.accounts);
     if (actionType != null) {
       draft.action_type=actionType;
     }
@@ -50,12 +50,12 @@
       showErrorMessage(R.string.action_updating_status,getString(R.string.no_account_selected),false);
     }
  else     if (failed) {
-      if (exception instanceof MicroBlogException && ((MicroBlogException)exception).getErrorCode() == ErrorInfo.STATUS_IS_DUPLICATE) {
+      if (isDuplicate(exception)) {
         showErrorMessage(getString(R.string.status_is_duplicate),false);
       }
  else {
         final ContentValues accountIdsValues=new ContentValues();
-        accountIdsValues.put(Drafts.ACCOUNT_IDS,TwidereListUtils.toString(failedAccountIds,',',false));
+        accountIdsValues.put(Drafts.ACCOUNT_KEYS,TwidereListUtils.toString(failedAccountIds,',',false));
         resolver.update(Drafts.CONTENT_URI,accountIdsValues,where.getSQL(),null);
         showErrorMessage(R.string.action_updating_status,exception,true);
         final ContentValues notifValues=new ContentValues();
