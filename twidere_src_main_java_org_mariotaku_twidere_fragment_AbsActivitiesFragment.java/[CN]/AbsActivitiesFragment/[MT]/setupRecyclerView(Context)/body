@@ -1,0 +1,14 @@
+{
+  final RecyclerView recyclerView=getRecyclerView();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
+  recyclerView.addItemDecoration(new DividerItemDecoration(context,getLayoutManager().getOrientation()){
+    @Override protected boolean isDividerEnabled(    int childPos){
+      if (childPos == RecyclerView.NO_POSITION || childPos == adapter.getItemCount() - 1) {
+        return false;
+      }
+      final int itemViewType=adapter.getItemViewType(childPos);
+      return itemViewType != ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_EMPTY;
+    }
+  }
+);
+}

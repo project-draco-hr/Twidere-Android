@@ -1,6 +1,23 @@
 {
   if (status == null)   return null;
-  final HtmlBuilder builder=new HtmlBuilder(status.getText(),false,true,false);
-  parseEntities(builder,status);
+  String text=status.getFullText();
+  CodePointArray source;
+  int[] range=null;
+  if (text == null) {
+    text=status.getText();
+    source=new CodePointArray(text);
+  }
+ else {
+    range=status.getDisplayTextRange();
+    if (range != null && range.length == 2) {
+      source=new CodePointArray(text).subCodePointArray(range[0],range[1]);
+    }
+ else {
+      range=null;
+      source=new CodePointArray(text);
+    }
+  }
+  final HtmlBuilder builder=new HtmlBuilder(source,false,true,false);
+  parseEntities(builder,status,range);
   return builder.buildWithIndices();
 }

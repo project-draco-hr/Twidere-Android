@@ -1,3 +1,3 @@
 {
-  displayMedia(mediaArray,loader,accountId,extraId,false,mediaClickListener,loadingHandler);
+  displayMedia(loader,mediaClickListener,loadingHandler,mediaArray,accountId,extraId,false);
 }

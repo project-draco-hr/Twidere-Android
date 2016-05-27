@@ -1,6 +1,0 @@
-{
-  if (compact) {
-    mItemDecoration=new DividerItemDecoration(context,getLayoutManager().getOrientation());
-    getRecyclerView().addItemDecoration(mItemDecoration);
-  }
-}

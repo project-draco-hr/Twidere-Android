@@ -1,3 +1,3 @@
 {
-  return isNetworkAvailable(this) && (isBatteryOkay(this) || !shouldStopAutoRefreshOnBatteryLow(this));
+  return Utils.isNetworkAvailable(this) && (Utils.isBatteryOkay(this) || !Utils.shouldStopAutoRefreshOnBatteryLow(this));
 }

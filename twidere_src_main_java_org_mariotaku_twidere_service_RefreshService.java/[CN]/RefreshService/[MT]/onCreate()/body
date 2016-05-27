@@ -27,7 +27,7 @@
   registerReceiver(mPowerStateReceiver,batteryFilter);
   registerReceiver(mScreenStateReceiver,screenFilter);
   PowerStateReceiver.setServiceReceiverStarted(true);
-  if (hasAutoRefreshAccounts(this)) {
+  if (Utils.hasAutoRefreshAccounts(this)) {
     startAutoRefresh();
   }
  else {

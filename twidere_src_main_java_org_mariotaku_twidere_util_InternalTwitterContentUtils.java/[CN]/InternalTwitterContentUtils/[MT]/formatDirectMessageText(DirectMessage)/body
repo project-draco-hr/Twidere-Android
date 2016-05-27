@@ -1,6 +1,6 @@
 {
   if (message == null)   return null;
   final HtmlBuilder builder=new HtmlBuilder(message.getText(),false,true,true);
-  parseEntities(builder,message);
+  parseEntities(builder,message,null);
   return builder.build();
 }

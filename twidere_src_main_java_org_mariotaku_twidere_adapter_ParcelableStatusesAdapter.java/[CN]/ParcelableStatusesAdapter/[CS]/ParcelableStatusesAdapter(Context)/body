@@ -1,0 +1,22 @@
+{
+  super(context);
+  mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
+  mInflater=LayoutInflater.from(context);
+  mLoadingHandler=new MediaLoadingHandler(getProgressViewIds());
+  mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));
+  mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mLinkHighlightingStyle=Utils.getLinkHighlightingStyleInt(mPreferences.getString(KEY_LINK_HIGHLIGHT_OPTION,null));
+  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST,true);
+  mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+  mDisplayMediaPreview=Utils.isMediaPreviewEnabled(context,mPreferences);
+  mSensitiveContentEnabled=mPreferences.getBoolean(KEY_DISPLAY_SENSITIVE_CONTENTS,false);
+  mShowCardActions=!mPreferences.getBoolean(KEY_HIDE_CARD_ACTIONS,false);
+  mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
+  mShowAbsoluteTime=mPreferences.getBoolean(KEY_SHOW_ABSOLUTE_TIME,false);
+  final StatusAdapterLinkClickHandler<List<ParcelableStatus>> handler=new StatusAdapterLinkClickHandler<>(context,mPreferences);
+  mLinkify=new TwidereLinkify(handler);
+  handler.setAdapter(this);
+  setShowInReplyTo(true);
+  setHasStableIds(true);
+}

@@ -2,7 +2,6 @@
   if (mHolder == null) {
     mHolder=new StatusViewHolder(mAdapter,holder.itemView);
   }
-  mCompactModeChanged=false;
   mHolder.setupViewOptions();
   mHolder.displaySampleStatus();
   mHolder.setStatusClickListener(new IStatusViewHolder.SimpleStatusClickListener(){

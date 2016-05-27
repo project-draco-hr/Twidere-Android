@@ -1,0 +1,12 @@
+{
+  int offset=0;
+  if (range != null) {
+    offset=range[0];
+  }
+  out[0]=entity.getStart() - offset;
+  out[1]=entity.getEnd() - offset;
+  if (range != null) {
+    return out[0] >= 0 && out[1] <= range[1] && out[0] <= out[1];
+  }
+  return true;
+}

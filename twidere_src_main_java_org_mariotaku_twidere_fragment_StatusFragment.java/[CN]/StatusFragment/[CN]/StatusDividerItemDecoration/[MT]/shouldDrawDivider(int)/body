@@ -1,8 +1,0 @@
-{
-switch (viewType) {
-case StatusAdapter.VIEW_TYPE_LIST_STATUS:
-case StatusAdapter.VIEW_TYPE_DETAIL_STATUS:
-    return true;
-}
-return false;
-}

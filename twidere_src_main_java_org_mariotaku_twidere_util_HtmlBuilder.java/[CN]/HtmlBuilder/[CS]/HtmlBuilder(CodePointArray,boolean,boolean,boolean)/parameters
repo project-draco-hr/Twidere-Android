@@ -1,0 +1,4 @@
+CodePointArray source
+boolean strict
+boolean sourceIsEscaped
+boolean shouldReEscape

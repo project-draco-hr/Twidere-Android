@@ -1,5 +1,5 @@
 {
-  if (links.isEmpty())   return escapeSource(source);
+  if (links.isEmpty())   return escapeSource();
   Collections.sort(links);
   final StringBuilder sb=new StringBuilder();
   final int linksSize=links.size();
@@ -10,20 +10,20 @@
     }
     final int start=spec.start, end=spec.end;
     if (i == 0) {
-      if (start >= 0 && start <= codePointsLength) {
+      if (start >= 0 && start <= sourceLength) {
         appendSource(sb,0,start,shouldReEscape,sourceIsEscaped);
       }
     }
  else     if (i > 0) {
       final int lastEnd=links.get(i - 1).end;
-      if (lastEnd >= 0 && lastEnd <= start && start <= codePointsLength) {
+      if (lastEnd >= 0 && lastEnd <= start && start <= sourceLength) {
         appendSource(sb,lastEnd,start,shouldReEscape,sourceIsEscaped);
       }
     }
     sb.append("<a href=\"");
     sb.append(spec.link);
     sb.append("\">");
-    if (start >= 0 && start <= end && end <= codePointsLength) {
+    if (start >= 0 && start <= end && end <= sourceLength) {
       if (isEmpty(spec.display)) {
         append(sb,spec.link,shouldReEscape,false);
       }
@@ -32,8 +32,8 @@
       }
     }
     sb.append("</a>");
-    if (i == linksSize - 1 && end >= 0 && end <= codePointsLength) {
-      appendSource(sb,end,codePointsLength,shouldReEscape,sourceIsEscaped);
+    if (i == linksSize - 1 && end >= 0 && end <= sourceLength) {
+      appendSource(sb,end,sourceLength,shouldReEscape,sourceIsEscaped);
     }
   }
   return sb.toString();

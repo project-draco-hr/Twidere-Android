@@ -4,9 +4,6 @@
   if (profileImageSpace != null) {
     profileImageSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
   }
-  if (statusInfoSpace != null) {
-    statusInfoSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
-  }
   if (statusContentUpperSpace != null) {
     statusContentUpperSpace.setVisibility(View.VISIBLE);
   }

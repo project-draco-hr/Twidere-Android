@@ -99,9 +99,6 @@
   }
   nameView.setName(UserColorNameManager.decideNickname(status.user_nickname,status.user_name));
   nameView.setScreenName("@" + status.user_screen_name);
-  if (statusInfoSpace != null) {
-    statusInfoSpace.setVisibility(View.VISIBLE);
-  }
   if (adapter.isProfileImageEnabled()) {
     profileImageView.setVisibility(View.VISIBLE);
     if (profileImageSpace != null) {
@@ -127,23 +124,11 @@
  else {
     itemContent.drawEnd();
   }
-  if (adapter.isMediaPreviewEnabled() && (adapter.isSensitiveContentEnabled() || !status.is_possibly_sensitive)) {
-    mediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    quoteMediaPreview.setStyle(adapter.getMediaPreviewStyle());
-    final boolean showQuotedMedia=!ArrayUtils.isEmpty(status.quoted_media);
-    final boolean showMedia=!showQuotedMedia && !ArrayUtils.isEmpty(status.media);
-    mediaPreview.setVisibility(showMedia ? View.VISIBLE : View.GONE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(!status.is_quote && (showMedia || showCardActions) ? View.GONE : View.VISIBLE);
-    }
-    quoteMediaPreview.setVisibility(showQuotedMedia ? View.VISIBLE : View.GONE);
-    if (quotedTextMediaSpace != null) {
-      quotedTextMediaSpace.setVisibility(!status.is_quote || showQuotedMedia ? View.GONE : View.VISIBLE);
-    }
-    mediaPreview.displayMedia(status.media,loader,status.account_key,-1,this,adapter.getMediaLoadingHandler());
-    quoteMediaPreview.displayMedia(status.quoted_media,loader,status.account_key,-1,this,adapter.getMediaLoadingHandler());
-  }
- else {
+  final boolean hasQuotedMedia=!ArrayUtils.isEmpty(status.quoted_media);
+  final boolean hasPrimaryMedia=!hasQuotedMedia && !ArrayUtils.isEmpty(status.media);
+  if (!hasPrimaryMedia && !hasQuotedMedia) {
+    mediaLabel.setVisibility(View.GONE);
+    quoteMediaLabel.setVisibility(View.GONE);
     mediaPreview.setVisibility(View.GONE);
     quoteMediaPreview.setVisibility(View.GONE);
     if (textMediaSpace != null) {
@@ -151,6 +136,54 @@
     }
     if (quotedTextMediaSpace != null) {
       quotedTextMediaSpace.setVisibility(status.is_quote ? View.VISIBLE : View.GONE);
+    }
+    if (mediaLabelSpace != null) {
+      mediaLabelSpace.setVisibility(View.GONE);
+    }
+    if (quotedMediaLabelSpace != null) {
+      quotedMediaLabelSpace.setVisibility(View.GONE);
+    }
+  }
+ else {
+    if (textMediaSpace != null) {
+      textMediaSpace.setVisibility(!status.is_quote && (hasPrimaryMedia || showCardActions) ? View.GONE : View.VISIBLE);
+    }
+    if (quotedTextMediaSpace != null) {
+      quotedTextMediaSpace.setVisibility(!status.is_quote || hasQuotedMedia ? View.GONE : View.VISIBLE);
+    }
+    if (!adapter.isSensitiveContentEnabled() && status.is_possibly_sensitive) {
+      mediaLabel.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);
+      quoteMediaLabel.setVisibility(hasQuotedMedia ? View.VISIBLE : View.GONE);
+      mediaPreview.setVisibility(View.GONE);
+      quoteMediaPreview.setVisibility(View.GONE);
+    }
+ else     if (!adapter.isMediaPreviewEnabled()) {
+      mediaLabel.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);
+      quoteMediaLabel.setVisibility(hasQuotedMedia ? View.VISIBLE : View.GONE);
+      if (mediaLabelSpace != null) {
+        mediaLabelSpace.setVisibility(hasPrimaryMedia && !showCardActions ? View.VISIBLE : View.GONE);
+      }
+      if (quotedMediaLabelSpace != null) {
+        quotedMediaLabelSpace.setVisibility(hasQuotedMedia && !showCardActions ? View.VISIBLE : View.GONE);
+      }
+      mediaPreview.setVisibility(View.GONE);
+      quoteMediaPreview.setVisibility(View.GONE);
+    }
+ else {
+      mediaLabel.setVisibility(View.GONE);
+      quoteMediaLabel.setVisibility(View.GONE);
+      if (mediaLabelSpace != null) {
+        mediaLabelSpace.setVisibility(View.GONE);
+      }
+      if (quotedMediaLabelSpace != null) {
+        quotedMediaLabelSpace.setVisibility(View.GONE);
+      }
+      mediaPreview.setStyle(adapter.getMediaPreviewStyle());
+      quoteMediaPreview.setStyle(adapter.getMediaPreviewStyle());
+      mediaPreview.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);
+      quoteMediaPreview.setVisibility(hasQuotedMedia ? View.VISIBLE : View.GONE);
+      mediaPreview.displayMedia(status.media,loader,status.account_key,-1,this,adapter.getMediaLoadingHandler());
+      quoteMediaPreview.displayMedia(status.quoted_media,loader,status.account_key,-1,this,adapter.getMediaLoadingHandler());
     }
   }
   if (adapter.getLinkHighlightingStyle() != VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {

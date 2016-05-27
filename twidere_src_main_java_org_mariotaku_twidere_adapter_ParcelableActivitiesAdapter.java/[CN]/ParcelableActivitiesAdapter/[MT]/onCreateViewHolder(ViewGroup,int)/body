@@ -2,17 +2,9 @@
 switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
-      final View view;
-      if (mCompactCards) {
-        view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
-        final View itemContent=view.findViewById(R.id.item_content);
-        itemContent.setBackgroundColor(mCardBackgroundColor);
-      }
- else {
-        view=mInflater.inflate(R.layout.card_item_status,parent,false);
-        final CardView cardView=(CardView)view.findViewById(R.id.card);
-        cardView.setCardBackgroundColor(mCardBackgroundColor);
-      }
+      final View view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
+      final View itemContent=view.findViewById(R.id.item_content);
+      itemContent.setBackgroundColor(mCardBackgroundColor);
       final StatusViewHolder holder=new StatusViewHolder(mStatusAdapterDelegate,view);
       holder.setupViewOptions();
       holder.setStatusClickListener(mEventListener);
@@ -20,14 +12,8 @@ case ITEM_VIEW_TYPE_STATUS:
     }
 case ITEM_VIEW_TYPE_TITLE_SUMMARY:
 {
-    final View view;
-    if (mCompactCards) {
-      view=mInflater.inflate(R.layout.card_item_activity_summary_compact,parent,false);
-    }
- else {
-      view=mInflater.inflate(R.layout.card_item_activity_summary,parent,false);
-    }
-    final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view,mCompactCards);
+    final View view=mInflater.inflate(R.layout.card_item_activity_summary_compact,parent,false);
+    final ActivityTitleSummaryViewHolder holder=new ActivityTitleSummaryViewHolder(this,view);
     holder.setOnClickListeners();
     holder.setTextSize(getTextSize());
     return holder;

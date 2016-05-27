@@ -1,6 +1,6 @@
 {
-  if (start < 0 || end < 0 || start > end || end > codePointsLength) {
-    final String message=String.format(Locale.US,"text:%s, length:%d, start:%d, end:%d",source,codePointsLength,start,end);
+  if (start < 0 || end < 0 || start > end || end > sourceLength) {
+    final String message=String.format(Locale.US,"text:%s, length:%d, start:%d, end:%d",source,sourceLength,start,end);
     if (throwExceptions)     throw new StringIndexOutOfBoundsException(message);
     return false;
   }

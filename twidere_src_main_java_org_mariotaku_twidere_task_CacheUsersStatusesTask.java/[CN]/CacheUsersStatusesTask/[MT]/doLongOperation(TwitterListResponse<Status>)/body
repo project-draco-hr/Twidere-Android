@@ -13,7 +13,7 @@
       final Set<ContentValues> hashTagValues=new HashSet<>();
       final UserKey accountKey=params.accountKey;
       statusesValues.add(ContentValuesCreator.createStatus(status,accountKey));
-      final String text=InternalTwitterContentUtils.unescapeTwitterStatusText(status.getText());
+      final String text=InternalTwitterContentUtils.unescapeTwitterStatusText(status.getExtendedText());
       for (      final String hashtag : extractor.extractHashtags(text)) {
         final ContentValues values=new ContentValues();
         values.put(CachedHashtags.NAME,hashtag);

@@ -2,7 +2,7 @@
 switch (viewType) {
 case ITEM_VIEW_TYPE_STATUS:
 {
-      return (RecyclerView.ViewHolder)onCreateStatusViewHolder(parent,mCompactCards);
+      return (RecyclerView.ViewHolder)onCreateStatusViewHolder(parent);
     }
 case ITEM_VIEW_TYPE_GAP:
 {

@@ -1,0 +1,9 @@
+{
+  final View view=inflater.inflate(R.layout.card_item_status_compact,parent,false);
+  final View itemContent=view.findViewById(R.id.item_content);
+  itemContent.setBackgroundColor(cardBackgroundColor);
+  final StatusViewHolder holder=new StatusViewHolder(adapter,view);
+  holder.setOnClickListeners();
+  holder.setupViewOptions();
+  return holder;
+}

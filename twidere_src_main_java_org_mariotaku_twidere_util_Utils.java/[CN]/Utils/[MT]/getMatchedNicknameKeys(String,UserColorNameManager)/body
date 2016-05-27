@@ -1,10 +1,10 @@
 {
-  if (isEmpty(str))   return new String[0];
+  if (TextUtils.isEmpty(str))   return new String[0];
   final List<String> list=new ArrayList<>();
   for (  final Entry<String,?> entry : manager.getNameEntries()) {
     final String value=ParseUtils.parseString(entry.getValue());
     final String key=entry.getKey();
-    if (isEmpty(key) || isEmpty(value)) {
+    if (TextUtils.isEmpty(key) || TextUtils.isEmpty(value)) {
       continue;
     }
     if (TwidereStringUtils.startsWithIgnoreCase(value,str)) {

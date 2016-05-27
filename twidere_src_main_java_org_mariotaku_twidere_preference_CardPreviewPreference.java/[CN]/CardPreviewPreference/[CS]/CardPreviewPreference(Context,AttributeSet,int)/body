@@ -1,7 +1,7 @@
 {
   super(context,attrs,defStyle);
   final SharedPreferences preferences=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  setLayoutResources(preferences);
+  setLayoutResource(R.layout.layout_preferences_card_preview_compact);
   preferences.registerOnSharedPreferenceChangeListener(this);
   mAdapter=new DummyItemAdapter(context);
 }

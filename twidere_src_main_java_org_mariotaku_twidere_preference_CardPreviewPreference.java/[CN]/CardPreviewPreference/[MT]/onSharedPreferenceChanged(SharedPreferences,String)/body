@@ -1,8 +1,5 @@
 {
   if (mHolder == null)   return;
-  if (KEY_COMPACT_CARDS.equals(key)) {
-    setLayoutResources(preferences);
-  }
   mAdapter.updateOptions();
   notifyChanged();
 }

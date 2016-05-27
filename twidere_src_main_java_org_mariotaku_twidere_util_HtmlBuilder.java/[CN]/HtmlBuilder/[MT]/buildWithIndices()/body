@@ -1,6 +1,6 @@
 {
   List<SpanItem> items=new ArrayList<>();
-  if (links.isEmpty())   return Pair.create(escapeSource(source),items);
+  if (links.isEmpty())   return Pair.create(escapeSource(),items);
   Collections.sort(links);
   final StringBuilder sb=new StringBuilder();
   final int linksSize=links.size();
@@ -11,18 +11,18 @@
     }
     final int start=spec.start, end=spec.end;
     if (i == 0) {
-      if (start >= 0 && start <= codePointsLength) {
+      if (start >= 0 && start <= sourceLength) {
         appendSource(sb,0,start,false,sourceIsEscaped);
       }
     }
  else     if (i > 0) {
       final int lastEnd=links.get(i - 1).end;
-      if (lastEnd >= 0 && lastEnd <= start && start <= codePointsLength) {
+      if (lastEnd >= 0 && lastEnd <= start && start <= sourceLength) {
         appendSource(sb,lastEnd,start,false,sourceIsEscaped);
       }
     }
     int spanStart=sb.length();
-    if (start >= 0 && start <= end && end <= codePointsLength) {
+    if (start >= 0 && start <= end && end <= sourceLength) {
       if (isEmpty(spec.display)) {
         append(sb,spec.link,false,false);
       }
@@ -35,8 +35,8 @@
     item.end=sb.length();
     item.link=spec.link;
     items.add(item);
-    if (i == linksSize - 1 && end >= 0 && end <= codePointsLength) {
-      appendSource(sb,end,codePointsLength,false,sourceIsEscaped);
+    if (i == linksSize - 1 && end >= 0 && end <= sourceLength) {
+      appendSource(sb,end,sourceLength,false,sourceIsEscaped);
     }
   }
   return Pair.create(sb.toString(),items);

@@ -1,0 +1,8 @@
+{
+  if (source == null)   throw new NullPointerException();
+  this.source=source;
+  this.sourceLength=source.length();
+  this.throwExceptions=strict;
+  this.sourceIsEscaped=sourceIsEscaped;
+  this.shouldReEscape=shouldReEscape;
+}

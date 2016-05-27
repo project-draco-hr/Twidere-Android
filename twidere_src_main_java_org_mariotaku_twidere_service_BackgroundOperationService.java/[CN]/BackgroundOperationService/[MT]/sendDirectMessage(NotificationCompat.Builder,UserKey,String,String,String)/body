@@ -30,7 +30,7 @@ default :
   finally {
           Utils.closeSilently(body);
         }
-        final String path=getImagePathFromUri(this,mediaUri);
+        final String path=Utils.getImagePathFromUri(this,mediaUri);
         if (path != null) {
           final File file=new File(path);
           if (!file.delete()) {

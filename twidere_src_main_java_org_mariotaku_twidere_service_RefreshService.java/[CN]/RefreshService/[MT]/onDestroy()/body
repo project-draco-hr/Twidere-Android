@@ -3,7 +3,7 @@
   unregisterReceiver(mScreenStateReceiver);
   unregisterReceiver(mPowerStateReceiver);
   unregisterReceiver(mStateReceiver);
-  if (hasAutoRefreshAccounts(this)) {
+  if (Utils.hasAutoRefreshAccounts(this)) {
     startService(new Intent(this,getClass()));
   }
   super.onDestroy();

@@ -10,7 +10,7 @@
   resolver.delete(Mentions.CONTENT_URI,where,whereArgs);
   resolver.insert(Statuses.CONTENT_URI,values);
   final Status rt=status.getRetweetedStatus();
-  if (rt != null && rt.getText().contains("@" + account.screen_name) || rt == null && status.getText().contains("@" + account.screen_name)) {
+  if (rt != null && rt.getExtendedText().contains("@" + account.screen_name) || rt == null && status.getExtendedText().contains("@" + account.screen_name)) {
     resolver.insert(Mentions.CONTENT_URI,values);
   }
 }

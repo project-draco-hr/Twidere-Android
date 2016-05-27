@@ -6,7 +6,7 @@
       final RateLimitStatus status=te.getRateLimitStatus();
       if (te.exceededRateLimitation() && status != null) {
         final long secUntilReset=status.getSecondsUntilReset() * 1000;
-        final String nextResetTime=ParseUtils.parseString(getRelativeTimeSpanString(System.currentTimeMillis() + secUntilReset));
+        final String nextResetTime=ParseUtils.parseString(DateUtils.getRelativeTimeSpanString(System.currentTimeMillis() + secUntilReset));
         message=context.getString(R.string.error_message_rate_limit_with_action,action,nextResetTime.trim());
       }
  else       if (isErrorCodeMessageSupported(te)) {

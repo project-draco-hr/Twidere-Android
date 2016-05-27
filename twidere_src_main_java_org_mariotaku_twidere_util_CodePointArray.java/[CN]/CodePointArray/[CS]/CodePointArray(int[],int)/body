@@ -1,0 +1,4 @@
+{
+  this.codePoints=codePoints;
+  this.length=length;
+}

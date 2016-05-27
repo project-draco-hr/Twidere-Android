@@ -4,8 +4,8 @@
   if (te.exceededRateLimitation()) {
     final RateLimitStatus status=te.getRateLimitStatus();
     final long secUntilReset=status.getSecondsUntilReset() * 1000;
-    final String nextResetTime=ParseUtils.parseString(getRelativeTimeSpanString(System.currentTimeMillis() + secUntilReset));
-    if (isEmpty(action))     return context.getString(R.string.error_message_rate_limit,nextResetTime.trim());
+    final String nextResetTime=ParseUtils.parseString(DateUtils.getRelativeTimeSpanString(System.currentTimeMillis() + secUntilReset));
+    if (TextUtils.isEmpty(action))     return context.getString(R.string.error_message_rate_limit,nextResetTime.trim());
     return context.getString(R.string.error_message_rate_limit_with_action,action,nextResetTime.trim());
   }
  else   if (te.getErrorCode() > 0) {
