@@ -1,6 +1,9 @@
 {
-  for (  final LinkSpec spec : links) {
-    if (start >= spec.start && start <= spec.end || end >= spec.start && end <= spec.end)     return true;
+  for (  final SpanSpec spec : spanSpecs) {
+    final int specStart=spec.getStart(), specEnd=spec.getEnd();
+    if (start >= specStart && start <= specEnd || end >= specStart && end <= specEnd) {
+      return true;
+    }
   }
   return false;
 }

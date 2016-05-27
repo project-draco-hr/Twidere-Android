@@ -33,10 +33,10 @@
     mProfileTypeView.setVisibility(View.GONE);
   }
   mScreenNameView.setText(String.format("@%s",user.screen_name));
-  mDescriptionContainer.setVisibility(TextUtils.isEmpty(user.description_html) ? View.GONE : View.VISIBLE);
   final TwidereLinkify linkify=new TwidereLinkify(this);
-  if (user.description_html != null) {
-    final Spannable text=HtmlSpanBuilder.fromHtml(user.description_html);
+  if (user.description_unescaped != null) {
+    final SpannableStringBuilder text=SpannableStringBuilder.valueOf(user.description_unescaped);
+    ParcelableStatusUtils.applySpans(text,user.description_spans);
     linkify.applyAllLinks(text,user.account_key,false,false);
     mDescriptionView.setText(text);
   }
@@ -44,6 +44,7 @@
     mDescriptionView.setText(user.description_plain);
     Linkify.addLinks(mDescriptionView,Linkify.WEB_URLS);
   }
+  mDescriptionContainer.setVisibility(mDescriptionView.length() > 0 ? View.VISIBLE : View.GONE);
   mLocationContainer.setVisibility(TextUtils.isEmpty(user.location) ? View.GONE : View.VISIBLE);
   mLocationView.setText(user.location);
   mURLContainer.setVisibility(TextUtils.isEmpty(user.url) && TextUtils.isEmpty(user.url_expanded) ? View.GONE : View.VISIBLE);

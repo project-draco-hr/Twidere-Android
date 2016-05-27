@@ -4,7 +4,7 @@
   if (mLinkColor != orig.link_color)   return true;
   if (mBackgroundColor != orig.background_color)   return true;
   if (!stringEquals(mName,orig.name))   return true;
-  if (!stringEquals(mDescription,isEmpty(orig.description_expanded) ? orig.description_plain : orig.description_expanded))   return true;
+  if (!stringEquals(mDescription,ParcelableUserUtils.getExpandedDescription(orig)))   return true;
   if (!stringEquals(mLocation,orig.location))   return true;
   if (!stringEquals(mUrl,isEmpty(orig.url_expanded) ? orig.url : orig.url_expanded))   return true;
   return false;

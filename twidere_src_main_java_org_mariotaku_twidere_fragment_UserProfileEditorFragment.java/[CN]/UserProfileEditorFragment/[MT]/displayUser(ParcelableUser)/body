@@ -6,7 +6,7 @@
     mProgressContainer.setVisibility(View.GONE);
     mEditProfileContent.setVisibility(View.VISIBLE);
     mEditName.setText(user.name);
-    mEditDescription.setText(user.description_expanded);
+    mEditDescription.setText(ParcelableUserUtils.getExpandedDescription(user));
     mEditLocation.setText(user.location);
     mEditUrl.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
     mMediaLoader.displayProfileImage(mProfileImageView,user);

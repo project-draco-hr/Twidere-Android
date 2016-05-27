@@ -1,0 +1,8 @@
+{
+  if (TextUtils.isEmpty(user.description_unescaped)) {
+    return user.description_plain;
+  }
+  if (user.description_spans != null) {
+  }
+  return user.description_unescaped;
+}

@@ -1,10 +1,7 @@
 {
-  final int prime=31;
-  int result=1;
-  result=prime * result + (display == null ? 0 : display.hashCode());
-  result=prime * result + (displayIsHtml ? 1231 : 1237);
-  result=prime * result + end;
-  result=prime * result + (link == null ? 0 : link.hashCode());
-  result=prime * result + start;
+  int result=super.hashCode();
+  result=31 * result + (link != null ? link.hashCode() : 0);
+  result=31 * result + (display != null ? display.hashCode() : 0);
+  result=31 * result + (displayIsHtml ? 1 : 0);
   return result;
 }

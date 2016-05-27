@@ -1,0 +1,3 @@
+{
+  return "SpanSpec{" + "start=" + start + ", end="+ end+ '}';
+}

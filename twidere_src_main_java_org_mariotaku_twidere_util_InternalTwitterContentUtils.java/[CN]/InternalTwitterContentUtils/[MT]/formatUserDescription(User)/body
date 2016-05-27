@@ -12,5 +12,5 @@
       }
     }
   }
-  return builder.build();
+  return builder.buildWithIndices();
 }

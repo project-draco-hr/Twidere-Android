@@ -5,7 +5,9 @@
   final UserKey accountKey=UserKey.valueOf(cursor.getString(indices.account_key));
   final long timestamp=cursor.getLong(indices.timestamp);
   final ParcelableMedia[] media=JsonSerializer.parseArray(cursor.getString(indices.media),ParcelableMedia.class);
-  final Spannable text=HtmlSpanBuilder.fromHtml(cursor.getString(indices.text_html));
+  final SpanItem[] spans=JsonSerializer.parseArray(cursor.getString(indices.spans),SpanItem.class);
+  final SpannableStringBuilder text=SpannableStringBuilder.valueOf(cursor.getString(indices.text_unescaped));
+  ParcelableStatusUtils.applySpans(text,spans);
   linkify.applyAllLinks(text,accountKey,false,true);
   textView.setText(text);
   time.setText(Utils.formatToLongTimeString(context,timestamp));

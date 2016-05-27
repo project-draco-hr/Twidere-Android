@@ -1,7 +1,6 @@
 {
+  super(start,end);
   this.link=link;
   this.display=display;
-  this.start=start;
-  this.end=end;
   this.displayIsHtml=displayIsHtml;
 }

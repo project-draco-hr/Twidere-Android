@@ -2,4 +2,4 @@ String link
 String display
 int start
 int end
-boolean display_is_html
+boolean displayIsHtml

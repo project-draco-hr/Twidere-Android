@@ -1,0 +1,8 @@
+{
+  if (isEmpty(display)) {
+    append(sb,link,false,false);
+  }
+ else {
+    append(sb,display,false,displayIsHtml);
+  }
+}

@@ -1,40 +1,34 @@
 {
-  List<SpanItem> items=new ArrayList<>();
-  if (links.isEmpty())   return Pair.create(escapeSource(),items);
-  Collections.sort(links);
+  if (spanSpecs.isEmpty())   return Pair.create(escapeSource(),new SpanItem[0]);
+  Collections.sort(spanSpecs);
   final StringBuilder sb=new StringBuilder();
-  final int linksSize=links.size();
+  final int linksSize=spanSpecs.size();
+  SpanItem[] items=new SpanItem[linksSize];
   for (int i=0; i < linksSize; i++) {
-    final LinkSpec spec=links.get(i);
-    if (spec == null) {
-      continue;
-    }
-    final int start=spec.start, end=spec.end;
+    final SpanSpec spec=spanSpecs.get(i);
+    final int start=spec.getStart(), end=spec.getEnd();
     if (i == 0) {
       if (start >= 0 && start <= sourceLength) {
         appendSource(sb,0,start,false,sourceIsEscaped);
       }
     }
  else     if (i > 0) {
-      final int lastEnd=links.get(i - 1).end;
+      final int lastEnd=spanSpecs.get(i - 1).end;
       if (lastEnd >= 0 && lastEnd <= start && start <= sourceLength) {
         appendSource(sb,lastEnd,start,false,sourceIsEscaped);
       }
     }
     int spanStart=sb.length();
     if (start >= 0 && start <= end && end <= sourceLength) {
-      if (isEmpty(spec.display)) {
-        append(sb,spec.link,false,false);
-      }
- else {
-        append(sb,spec.display,false,spec.displayIsHtml);
-      }
+      spec.appendTo(sb);
     }
     final SpanItem item=new SpanItem();
     item.start=spanStart;
     item.end=sb.length();
-    item.link=spec.link;
-    items.add(item);
+    if (spec instanceof LinkSpec) {
+      item.link=((LinkSpec)spec).link;
+    }
+    items[i]=item;
     if (i == linksSize - 1 && end >= 0 && end <= sourceLength) {
       appendSource(sb,end,sourceLength,false,sourceIsEscaped);
     }

@@ -12,5 +12,5 @@
       }
     }
   }
-  return HtmlEscapeHelper.toPlainText(builder.build());
+  return builder.buildWithIndices().first;
 }
