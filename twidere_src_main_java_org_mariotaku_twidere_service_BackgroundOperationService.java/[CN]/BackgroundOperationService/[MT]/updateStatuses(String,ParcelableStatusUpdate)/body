@@ -3,7 +3,7 @@
   final Builder builder=new Builder(context);
   startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
-    UpdateStatusTask task=new UpdateStatusTask(context,new UpdateStatusTask.StateCallback(){
+    final UpdateStatusTask task=new UpdateStatusTask(context,new UpdateStatusTask.StateCallback(){
       @Override public void onStartUploadingMedia(){
         startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
       }
@@ -20,17 +20,27 @@
     }
 );
     task.setParams(Pair.create(actionType,item));
-    UpdateStatusTask.UpdateStatusResult result=ManualTaskStarter.invokeExecute(task);
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        ManualTaskStarter.invokeBeforeExecute(task);
+      }
+    }
+);
+    final UpdateStatusTask.UpdateStatusResult result=ManualTaskStarter.invokeExecute(task);
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        ManualTaskStarter.invokeAfterExecute(task,result);
+      }
+    }
+);
     if (result.exception != null) {
       Log.w(LOGTAG,result.exception);
     }
- else {
-      for (      ParcelableStatus status : result.statuses) {
-        if (status == null)         continue;
-        final TweetEvent event=TweetEvent.create(context,status,TimelineType.OTHER);
-        event.setAction(TweetEvent.Action.TWEET);
-        HotMobiLogger.getInstance(context).log(status.account_key,event);
-      }
+ else     for (    ParcelableStatus status : result.statuses) {
+      if (status == null)       continue;
+      final TweetEvent event=TweetEvent.create(context,status,TimelineType.OTHER);
+      event.setAction(TweetEvent.Action.TWEET);
+      HotMobiLogger.getInstance(context).log(status.account_key,event);
     }
   }
   if (mPreferences.getBoolean(KEY_REFRESH_AFTER_TWEET)) {

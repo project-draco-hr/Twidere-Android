@@ -1,9 +1,8 @@
 {
-  final Uri mediaUri=Uri.parse(media.uri);
   final String mediaType=resolver.getType(mediaUri);
   final InputStream is=resolver.openInputStream(mediaUri);
   if (is == null) {
-    throw new FileNotFoundException(media.uri);
+    throw new FileNotFoundException(mediaUri.toString());
   }
   final long length=is.available();
   final ContentLengthInputStream cis=new ContentLengthInputStream(is,length);

@@ -1,20 +1,22 @@
 {
   stateCallback.onUpdatingStatus();
-  UpdateStatusResult result=new UpdateStatusResult(new ParcelableStatus[pendingUpdate.length],new Exception[pendingUpdate.length]);
+  UpdateStatusResult result=new UpdateStatusResult(new ParcelableStatus[pendingUpdate.length],new MicroBlogException[pendingUpdate.length]);
   for (int i=0; i < pendingUpdate.length; i++) {
     final ParcelableAccount account=statusUpdate.accounts[i];
     MicroBlog microBlog=MicroBlogAPIFactory.getInstance(context,account.account_key,true);
+    Body body=null;
     try {
 switch (ParcelableAccountUtils.getAccountType(account)) {
 case ParcelableAccount.Type.FANFOU:
 {
           if (!ArrayUtils.isEmpty(statusUpdate.media)) {
             if (statusUpdate.media.length > 1) {
-              result.exceptions[i]=new UpdateStatusException(context.getString(R.string.error_too_many_photos_fanfou));
+              result.exceptions[i]=new MicroBlogException(context.getString(R.string.error_too_many_photos_fanfou));
               break;
             }
-            final Body body=getBodyFromMedia(context.getContentResolver(),statusUpdate.media[0],new ContentLengthInputStream.ReadListener(){
+            body=getBodyFromMedia(context.getContentResolver(),Uri.parse(statusUpdate.media[0].uri),new ContentLengthInputStream.ReadListener(){
               @Override public void onRead(              long length,              long position){
+                stateCallback.onUploadingProgressChanged(-1,position,length);
               }
             }
 );
@@ -39,8 +41,8 @@ default :
  catch (MicroBlogException e) {
   result.exceptions[i]=e;
 }
-catch (IOException e) {
-  result.exceptions[i]=e;
+ finally {
+  Utils.closeSilently(body);
 }
 }
 return result;
