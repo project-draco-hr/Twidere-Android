@@ -4,18 +4,39 @@
   startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
     final UpdateStatusTask task=new UpdateStatusTask(context,new UpdateStatusTask.StateCallback(){
-      @Override public void onStartUploadingMedia(){
+      @WorkerThread @Override public void onStartUploadingMedia(){
         startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
       }
-      @Override public void onUploadingProgressChanged(      int index,      long current,      long total){
+      @WorkerThread @Override public void onUploadingProgressChanged(      int index,      long current,      long total){
         int progress=(int)(current * 100 / total);
         startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,progress,item));
       }
-      @Override public void onShorteningStatus(){
+      @WorkerThread @Override public void onShorteningStatus(){
         startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
       }
-      @Override public void onUpdatingStatus(){
+      @WorkerThread @Override public void onUpdatingStatus(){
         startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
+      }
+      @Override public void afterExecute(      Context handler,      UpdateStatusTask.UpdateStatusResult result){
+        boolean failed=false;
+        if (result.exception != null) {
+          Toast.makeText(context,result.exception.getMessage(),Toast.LENGTH_SHORT).show();
+          failed=true;
+        }
+ else         for (        MicroBlogException e : result.exceptions) {
+          if (e != null) {
+            Toast.makeText(context,R.string.status_not_updated,Toast.LENGTH_SHORT).show();
+            failed=true;
+            break;
+          }
+        }
+        if (failed) {
+        }
+ else {
+          Toast.makeText(context,R.string.status_updated,Toast.LENGTH_SHORT).show();
+        }
+      }
+      @Override public void beforeExecute(){
       }
     }
 );
