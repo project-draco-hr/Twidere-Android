@@ -1,5 +1,4 @@
 {
-  if (statusnetHtml != null)   return statusnetHtml;
   if (fullText != null)   return fullText;
   return text;
 }
