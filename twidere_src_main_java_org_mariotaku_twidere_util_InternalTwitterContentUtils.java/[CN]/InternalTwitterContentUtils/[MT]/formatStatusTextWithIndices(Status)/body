@@ -17,10 +17,9 @@
   textWithIndices.text=pair.first;
   textWithIndices.spans=pair.second;
   if (range != null && range.length == 2) {
-    final int length=source.length();
     textWithIndices.range=new int[2];
-    textWithIndices.range[0]=source.charCount(0,range[0]);
-    textWithIndices.range[1]=pair.first.length() - source.charCount(range[1],length);
+    textWithIndices.range[0]=getResultRangeLength(source,pair.second,0,range[0]);
+    textWithIndices.range[1]=pair.first.length() - getResultRangeLength(source,pair.second,range[1],source.length());
   }
   return textWithIndices;
 }

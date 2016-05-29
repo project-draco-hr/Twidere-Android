@@ -1,0 +1,9 @@
+{
+  List<SpanItem> findResult=findByOrigRange(spans,origStart,origEnd);
+  if (findResult.isEmpty()) {
+    return source.charCount(origStart,origEnd);
+  }
+  SpanItem first=findResult.get(0), last=findResult.get(findResult.size() - 1);
+  if (first.orig_start == -1 || last.orig_end == -1)   return source.charCount(origStart,origEnd);
+  return source.charCount(origStart,first.orig_start) + (last.end - first.start) + source.charCount(first.orig_end,origEnd);
+}
