@@ -1,0 +1,7 @@
+{
+  int count=0;
+  for (int i=start; i < end; i++) {
+    count+=Character.charCount(codePoints[i]);
+  }
+  return count;
+}

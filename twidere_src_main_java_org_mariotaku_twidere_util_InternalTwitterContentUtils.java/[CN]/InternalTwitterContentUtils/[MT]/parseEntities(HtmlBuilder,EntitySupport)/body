@@ -10,7 +10,7 @@
   if (mediaEntities != null) {
     for (    final MediaEntity mediaEntity : mediaEntities) {
       final String mediaUrl=getMediaUrl(mediaEntity);
-      if (mediaUrl != null && getStartEndForEntity(mediaEntity,range,startEnd)) {
+      if (mediaUrl != null && getStartEndForEntity(mediaEntity,startEnd)) {
         builder.addLink(mediaEntity.getExpandedUrl(),mediaEntity.getDisplayUrl(),startEnd[0],startEnd[1]);
       }
     }
@@ -19,7 +19,7 @@
   if (urlEntities != null) {
     for (    final UrlEntity urlEntity : urlEntities) {
       final String expandedUrl=urlEntity.getExpandedUrl();
-      if (expandedUrl != null && getStartEndForEntity(urlEntity,range,startEnd)) {
+      if (expandedUrl != null && getStartEndForEntity(urlEntity,startEnd)) {
         builder.addLink(expandedUrl,urlEntity.getDisplayUrl(),startEnd[0],startEnd[1]);
       }
     }

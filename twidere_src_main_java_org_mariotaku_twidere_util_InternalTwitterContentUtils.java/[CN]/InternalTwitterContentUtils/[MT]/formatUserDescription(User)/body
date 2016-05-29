@@ -1,5 +1,4 @@
 {
-  if (user == null)   return null;
   final String text=user.getDescription();
   if (text == null)   return null;
   final HtmlBuilder builder=new HtmlBuilder(text,false,true,true);
