@@ -25,16 +25,10 @@
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setVisibility(View.VISIBLE);
     mediaLabel.setVisibility(View.GONE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(View.GONE);
-    }
   }
  else {
     mediaPreview.setVisibility(View.GONE);
     mediaLabel.setVisibility(View.VISIBLE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
-    }
   }
   quoteMediaLabel.setVisibility(View.GONE);
   actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
@@ -43,9 +37,6 @@
     statusContentLowerSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
   }
   quoteMediaPreview.setVisibility(View.GONE);
-  if (quotedTextMediaSpace != null) {
-    quotedTextMediaSpace.setVisibility(View.GONE);
-  }
   mediaPreview.displayMedia(R.drawable.nyan_stars_background);
   extraTypeView.setImageResource(R.drawable.ic_action_gallery);
 }

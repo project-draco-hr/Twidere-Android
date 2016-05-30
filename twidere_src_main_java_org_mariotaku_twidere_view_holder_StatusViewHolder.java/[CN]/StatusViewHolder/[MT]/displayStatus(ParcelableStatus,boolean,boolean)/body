@@ -160,26 +160,8 @@
     quoteMediaLabel.setVisibility(View.GONE);
     mediaPreview.setVisibility(View.GONE);
     quoteMediaPreview.setVisibility(View.GONE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(showCardActions && !status.is_quote ? View.GONE : View.VISIBLE);
-    }
-    if (quotedTextMediaSpace != null) {
-      quotedTextMediaSpace.setVisibility(status.is_quote ? View.VISIBLE : View.GONE);
-    }
-    if (mediaLabelSpace != null) {
-      mediaLabelSpace.setVisibility(View.GONE);
-    }
-    if (quotedMediaLabelSpace != null) {
-      quotedMediaLabelSpace.setVisibility(View.GONE);
-    }
   }
  else {
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(!status.is_quote && (hasPrimaryMedia || showCardActions) ? View.GONE : View.VISIBLE);
-    }
-    if (quotedTextMediaSpace != null) {
-      quotedTextMediaSpace.setVisibility(!status.is_quote || hasQuotedMedia ? View.GONE : View.VISIBLE);
-    }
     if (!adapter.isSensitiveContentEnabled() && status.is_possibly_sensitive) {
       mediaLabel.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);
       quoteMediaLabel.setVisibility(hasQuotedMedia ? View.VISIBLE : View.GONE);
@@ -189,24 +171,12 @@
  else     if (!adapter.isMediaPreviewEnabled()) {
       mediaLabel.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);
       quoteMediaLabel.setVisibility(hasQuotedMedia ? View.VISIBLE : View.GONE);
-      if (mediaLabelSpace != null) {
-        mediaLabelSpace.setVisibility(hasPrimaryMedia && !showCardActions ? View.VISIBLE : View.GONE);
-      }
-      if (quotedMediaLabelSpace != null) {
-        quotedMediaLabelSpace.setVisibility(hasQuotedMedia && !showCardActions ? View.VISIBLE : View.GONE);
-      }
       mediaPreview.setVisibility(View.GONE);
       quoteMediaPreview.setVisibility(View.GONE);
     }
  else {
       mediaLabel.setVisibility(View.GONE);
       quoteMediaLabel.setVisibility(View.GONE);
-      if (mediaLabelSpace != null) {
-        mediaLabelSpace.setVisibility(View.GONE);
-      }
-      if (quotedMediaLabelSpace != null) {
-        quotedMediaLabelSpace.setVisibility(View.GONE);
-      }
       mediaPreview.setStyle(adapter.getMediaPreviewStyle());
       quoteMediaPreview.setStyle(adapter.getMediaPreviewStyle());
       mediaPreview.setVisibility(hasPrimaryMedia ? View.VISIBLE : View.GONE);

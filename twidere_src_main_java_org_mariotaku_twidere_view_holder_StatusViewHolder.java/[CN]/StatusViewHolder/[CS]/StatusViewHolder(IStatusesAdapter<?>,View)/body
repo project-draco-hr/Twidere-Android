@@ -36,8 +36,6 @@
   statusContentLowerSpace=itemView.findViewById(R.id.status_content_lower_space);
   quoteIndicatorAnchorTop=itemView.findViewById(R.id.quote_indicator_anchor_top);
   quoteIndicatorAnchorBottom=itemView.findViewById(R.id.quote_indicator_anchor_bottom);
-  mediaLabelSpace=null;
-  quotedMediaLabelSpace=null;
   if (adapter.isMediaPreviewEnabled()) {
     View.inflate(mediaPreview.getContext(),R.layout.layout_card_media_preview,mediaPreview);
     View.inflate(quoteMediaPreview.getContext(),R.layout.layout_card_media_preview,quoteMediaPreview);
