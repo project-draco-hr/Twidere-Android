@@ -43,7 +43,8 @@ default :
  else {
         statusLink=LinkCreator.getQuotedStatusWebLink(status);
       }
-      commentText=editingComment + " " + statusLink;
+      update.attachment_url=statusLink.toString();
+      commentText=editingComment;
       break;
     }
 }

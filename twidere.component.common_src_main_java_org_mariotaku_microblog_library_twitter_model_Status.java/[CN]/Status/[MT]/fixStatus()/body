@@ -6,5 +6,7 @@
   }
   if (quotedStatus == null && repostStatus != null) {
     quotedStatus=repostStatus;
+    quotedStatusId=repostStatus.id;
+    isQuoteStatus=true;
   }
 }

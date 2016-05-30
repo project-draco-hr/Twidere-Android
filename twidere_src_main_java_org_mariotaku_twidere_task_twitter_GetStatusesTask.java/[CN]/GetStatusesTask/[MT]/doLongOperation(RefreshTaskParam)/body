@@ -49,7 +49,6 @@
         sinceId=null;
       }
       final List<Status> statuses=getStatuses(twitter,paging);
-      InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
       storeStatus(accountKey,credentials,statuses,sinceId,maxId,sinceSortId,maxSortId,loadItemLimit,false);
       final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
       cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountKey,statuses));

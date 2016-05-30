@@ -36,9 +36,6 @@
     final Paging paging=new Paging();
     processPaging(credentials,loadItemLimit,paging);
     statuses=getStatuses(twitter,credentials,paging);
-    if (MicroBlogAPIFactory.isTwitterCredentials(credentials) && !Utils.isOfficialCredentials(context,credentials)) {
-      InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
-    }
   }
  catch (  final MicroBlogException e) {
     if (BuildConfig.DEBUG) {
