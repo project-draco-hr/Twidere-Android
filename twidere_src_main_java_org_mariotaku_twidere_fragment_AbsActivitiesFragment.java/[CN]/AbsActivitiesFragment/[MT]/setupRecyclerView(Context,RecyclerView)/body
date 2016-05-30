@@ -1,5 +1,4 @@
 {
-  final RecyclerView recyclerView=getRecyclerView();
   final ParcelableActivitiesAdapter adapter=getAdapter();
   recyclerView.addItemDecoration(new DividerItemDecoration(context,getLayoutManager().getOrientation()){
     @Override protected boolean isDividerEnabled(    int childPos){
