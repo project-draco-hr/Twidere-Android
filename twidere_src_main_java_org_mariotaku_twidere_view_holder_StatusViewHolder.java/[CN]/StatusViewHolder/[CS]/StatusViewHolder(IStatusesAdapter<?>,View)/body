@@ -18,6 +18,8 @@
   quoteMediaPreview=(CardMediaContainer)itemView.findViewById(R.id.quoted_media_preview);
   mediaLabel=itemView.findViewById(R.id.media_label);
   quoteMediaLabel=itemView.findViewById(R.id.quoted_media_label);
+  mediaLabelText=(TextView)itemView.findViewById(R.id.media_label_text);
+  quoteMediaLabelText=(TextView)itemView.findViewById(R.id.quoted_media_label_text);
   quoteIndicator=(ForegroundColorView)itemView.findViewById(R.id.quote_indicator);
   itemMenu=itemView.findViewById(R.id.item_menu);
   actionButtons=itemView.findViewById(R.id.action_buttons);

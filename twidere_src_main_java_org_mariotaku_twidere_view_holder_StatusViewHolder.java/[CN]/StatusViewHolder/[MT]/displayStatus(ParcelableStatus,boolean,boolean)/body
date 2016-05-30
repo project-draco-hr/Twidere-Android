@@ -52,31 +52,47 @@
   }
   boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote) {
-    quotedNameView.setVisibility(View.VISIBLE);
-    quotedTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
-    quotedNameView.setName(UserColorNameManager.decideNickname(status.quoted_user_nickname,status.quoted_user_name));
-    quotedNameView.setScreenName("@" + status.quoted_user_screen_name);
-    int quotedDisplayEnd=-1;
-    if (status.extras.quoted_display_text_range != null) {
-      quotedDisplayEnd=status.extras.quoted_display_text_range[1];
-    }
-    final CharSequence text;
-    if (adapter.getLinkHighlightingStyle() != VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
-      text=SpannableStringBuilder.valueOf(status.quoted_text_unescaped);
-      ParcelableStatusUtils.applySpans((Spannable)text,status.quoted_spans);
-      linkify.applyAllLinks((Spannable)text,status.account_key,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle(),skipLinksInText);
+    boolean quoteContentAvailable=status.quoted_text_plain != null && status.quoted_text_unescaped != null;
+    if (quoteContentAvailable) {
+      quotedNameView.setVisibility(View.VISIBLE);
+      quotedTextView.setVisibility(View.VISIBLE);
+      quotedNameView.setName(UserColorNameManager.decideNickname(status.quoted_user_nickname,status.quoted_user_name));
+      quotedNameView.setScreenName("@" + status.quoted_user_screen_name);
+      int quotedDisplayEnd=-1;
+      if (status.extras.quoted_display_text_range != null) {
+        quotedDisplayEnd=status.extras.quoted_display_text_range[1];
+      }
+      final CharSequence quotedText;
+      if (adapter.getLinkHighlightingStyle() != VALUE_LINK_HIGHLIGHT_OPTION_CODE_NONE) {
+        quotedText=SpannableStringBuilder.valueOf(status.quoted_text_unescaped);
+        ParcelableStatusUtils.applySpans((Spannable)quotedText,status.quoted_spans);
+        linkify.applyAllLinks((Spannable)quotedText,status.account_key,getLayoutPosition(),status.is_possibly_sensitive,adapter.getLinkHighlightingStyle(),skipLinksInText);
+      }
+ else {
+        quotedText=status.quoted_text_unescaped;
+      }
+      if (quotedDisplayEnd == 0 || quotedText.length() == 0) {
+        final SpannableString string=SpannableString.valueOf(context.getString(R.string.no_status_content_text));
+        string.setSpan(new ForegroundColorSpan(ThemeUtils.getColorFromAttribute(context,android.R.attr.textColorTertiary,textView.getCurrentTextColor())),0,string.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        quotedTextView.setText(string);
+      }
+ else       if (quotedDisplayEnd != -1 && quotedDisplayEnd <= quotedText.length()) {
+        quotedTextView.setText(quotedText.subSequence(0,quotedDisplayEnd));
+      }
+ else {
+        quotedTextView.setText(quotedText);
+      }
+      quoteIndicator.setColor(status.quoted_user_color);
     }
  else {
-      text=status.quoted_text_unescaped;
+      quotedNameView.setVisibility(View.GONE);
+      quotedTextView.setVisibility(View.VISIBLE);
+      final SpannableString string=SpannableString.valueOf(context.getString(R.string.status_not_available_text));
+      string.setSpan(new ForegroundColorSpan(ThemeUtils.getColorFromAttribute(context,android.R.attr.textColorTertiary,textView.getCurrentTextColor())),0,string.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      quotedTextView.setText(string);
+      quoteIndicator.setColor(0);
     }
-    if (quotedDisplayEnd != -1 && quotedDisplayEnd <= text.length()) {
-      quotedTextView.setText(text.subSequence(0,quotedDisplayEnd));
-    }
- else {
-      quotedTextView.setText(text);
-    }
-    quoteIndicator.setColor(status.quoted_user_color);
     itemContent.drawStart(status.user_color);
   }
  else {
@@ -208,7 +224,12 @@
  else {
     text=status.text_unescaped;
   }
-  if (displayEnd != -1 && displayEnd <= text.length()) {
+  if (displayEnd == 0 || text.length() == 0) {
+    final SpannableString string=SpannableString.valueOf(context.getString(R.string.no_status_content_text));
+    string.setSpan(new ForegroundColorSpan(ThemeUtils.getColorFromAttribute(context,android.R.attr.textColorTertiary,textView.getCurrentTextColor())),0,string.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    textView.setText(string);
+  }
+ else   if (displayEnd != -1 && displayEnd <= text.length()) {
     textView.setText(text.subSequence(0,displayEnd));
   }
  else {
