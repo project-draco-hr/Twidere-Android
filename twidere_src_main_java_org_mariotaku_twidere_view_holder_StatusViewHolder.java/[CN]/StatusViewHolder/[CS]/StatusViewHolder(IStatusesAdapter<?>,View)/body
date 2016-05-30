@@ -34,8 +34,8 @@
   favoriteCountView=(ActionIconThemedTextView)itemView.findViewById(R.id.favorite_count);
   statusContentUpperSpace=itemView.findViewById(R.id.status_content_upper_space);
   statusContentLowerSpace=itemView.findViewById(R.id.status_content_lower_space);
-  textMediaSpace=null;
-  quotedTextMediaSpace=null;
+  quoteIndicatorAnchorTop=itemView.findViewById(R.id.quote_indicator_anchor_top);
+  quoteIndicatorAnchorBottom=itemView.findViewById(R.id.quote_indicator_anchor_bottom);
   mediaLabelSpace=null;
   quotedMediaLabelSpace=null;
   if (adapter.isMediaPreviewEnabled()) {

@@ -53,6 +53,8 @@
   boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote) {
     quoteIndicator.setVisibility(View.VISIBLE);
+    quoteIndicatorAnchorTop.setVisibility(View.VISIBLE);
+    quoteIndicatorAnchorBottom.setVisibility(View.VISIBLE);
     boolean quoteContentAvailable=status.quoted_text_plain != null && status.quoted_text_unescaped != null;
     if (quoteContentAvailable) {
       quotedNameView.setVisibility(View.VISIBLE);
@@ -96,6 +98,8 @@
     itemContent.drawStart(status.user_color);
   }
  else {
+    quoteIndicatorAnchorTop.setVisibility(View.GONE);
+    quoteIndicatorAnchorBottom.setVisibility(View.GONE);
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
