@@ -1,3 +1,0 @@
-{
-  return getCardHighlightOptionInt(getCardHighlightOption(context));
-}
