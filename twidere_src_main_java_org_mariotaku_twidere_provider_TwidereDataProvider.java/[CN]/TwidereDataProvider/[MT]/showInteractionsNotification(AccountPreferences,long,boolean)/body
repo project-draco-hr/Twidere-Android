@@ -76,5 +76,5 @@
   }
   final int notificationId=Utils.getNotificationId(NOTIFICATION_ID_INTERACTIONS_TIMELINE,accountKey);
   mNotificationManager.notify("interactions",notificationId,builder.build());
-  Utils.sendPebbleNotification(context,pebbleNotificationStringBuilder.toString());
+  Utils.sendPebbleNotification(context,context.getResources().getString(R.string.interactions),pebbleNotificationStringBuilder.toString());
 }
