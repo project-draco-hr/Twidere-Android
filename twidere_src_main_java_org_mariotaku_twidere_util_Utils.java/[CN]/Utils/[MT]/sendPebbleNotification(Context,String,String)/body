@@ -1,0 +1,20 @@
+{
+  String appName;
+  if (title == null) {
+    appName=context.getString(R.string.app_name);
+  }
+ else {
+    appName=context.getString(R.string.app_name) + " - " + title;
+  }
+  if (context == null || TextUtils.isEmpty(message))   return;
+  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
+  if (prefs.getBoolean(KEY_PEBBLE_NOTIFICATIONS,false)) {
+    final List<PebbleMessage> messages=new ArrayList<>();
+    messages.add(new PebbleMessage(appName,message));
+    final Intent intent=new Intent(INTENT_ACTION_PEBBLE_NOTIFICATION);
+    intent.putExtra("messageType","PEBBLE_ALERT");
+    intent.putExtra("sender",appName);
+    intent.putExtra("notificationData",JsonSerializer.serialize(messages,PebbleMessage.class));
+    context.getApplicationContext().sendBroadcast(intent);
+  }
+}
