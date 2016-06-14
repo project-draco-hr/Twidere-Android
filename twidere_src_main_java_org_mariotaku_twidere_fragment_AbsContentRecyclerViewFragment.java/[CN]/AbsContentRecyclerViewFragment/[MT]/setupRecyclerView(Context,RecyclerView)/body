@@ -1,0 +1,6 @@
+{
+  mItemDecoration=createItemDecoration(context,recyclerView,getLayoutManager());
+  if (mItemDecoration != null) {
+    recyclerView.addItemDecoration(mItemDecoration);
+  }
+}

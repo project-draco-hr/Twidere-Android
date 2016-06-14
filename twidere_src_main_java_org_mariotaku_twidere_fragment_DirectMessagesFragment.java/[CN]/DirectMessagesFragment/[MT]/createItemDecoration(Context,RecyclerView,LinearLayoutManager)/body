@@ -4,5 +4,5 @@
   final int decorPaddingLeft=res.getDimensionPixelSize(R.dimen.element_spacing_normal) * 3 + res.getDimensionPixelSize(R.dimen.icon_size_status_profile_image);
   itemDecoration.setPadding(decorPaddingLeft,0,0,0);
   itemDecoration.setDecorationEndOffset(1);
-  recyclerView.addItemDecoration(itemDecoration);
+  return itemDecoration;
 }
