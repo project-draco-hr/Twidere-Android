@@ -1,5 +1,4 @@
 {
-  mFragment=fragment;
   mActivity=fragment.getActivity();
   mAccountKey=accountKey;
   mOriginal=original;

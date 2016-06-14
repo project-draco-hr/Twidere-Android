@@ -1,0 +1,21 @@
+{
+  super.afterExecute(callback,result);
+  if (result.hasData()) {
+    final ParcelableAccount account=result.getExtras().getParcelable(EXTRA_ACCOUNT);
+    if (account != null) {
+      final UpdateAccountInfoTask task=new UpdateAccountInfoTask(mActivity);
+      task.setParams(Pair.create(account,result.getData()));
+      TaskStarter.execute(task);
+    }
+  }
+  callback.executeAfterFragmentResumed(new Action(){
+    @Override public void execute(    IBaseFragment fragment){
+      final Fragment f=((UserProfileEditorFragment)fragment).getFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_TAG);
+      if (f instanceof DialogFragment) {
+        ((DialogFragment)f).dismissAllowingStateLoss();
+      }
+      f.getActivity().finish();
+    }
+  }
+);
+}
