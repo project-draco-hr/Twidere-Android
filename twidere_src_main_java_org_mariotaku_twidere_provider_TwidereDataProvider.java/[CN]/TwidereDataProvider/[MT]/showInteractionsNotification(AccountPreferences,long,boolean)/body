@@ -8,6 +8,7 @@
   Cursor c=query(Activities.AboutMe.CONTENT_URI,Activities.COLUMNS,where,whereArgs,new OrderBy(Activities.TIMESTAMP,false).getSQL());
   if (c == null)   return;
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
+  final StringBuilder pebbleNotificationStringBuilder=new StringBuilder();
   try {
     final int count=c.getCount();
     if (count == 0)     return;
@@ -28,6 +29,7 @@
     while (c.moveToNext()) {
       if (messageLines == 5) {
         style.addLine(resources.getString(R.string.and_N_more,count - c.getPosition()));
+        pebbleNotificationStringBuilder.append(resources.getString(R.string.and_N_more,count - c.getPosition()));
         break;
       }
       final ParcelableActivity activity=ci.newObject(c);
@@ -49,9 +51,15 @@
         final CharSequence summary=message.getSummary();
         if (TextUtils.isEmpty(summary)) {
           style.addLine(message.getTitle());
+          pebbleNotificationStringBuilder.append(message.getTitle());
+          pebbleNotificationStringBuilder.append("\n");
         }
  else {
           style.addLine(SpanFormatter.format(resources.getString(R.string.title_summary_line_format),message.getTitle(),summary));
+          pebbleNotificationStringBuilder.append(message.getTitle());
+          pebbleNotificationStringBuilder.append(": ");
+          pebbleNotificationStringBuilder.append(message.getSummary());
+          pebbleNotificationStringBuilder.append("\n");
         }
         messageLines++;
       }
@@ -72,4 +80,5 @@
   }
   final int notificationId=Utils.getNotificationId(NOTIFICATION_ID_INTERACTIONS_TIMELINE,accountKey);
   mNotificationManager.notify("interactions",notificationId,builder.build());
+  Utils.sendPebbleNotification(context,context.getResources().getString(R.string.interactions),pebbleNotificationStringBuilder.toString());
 }
