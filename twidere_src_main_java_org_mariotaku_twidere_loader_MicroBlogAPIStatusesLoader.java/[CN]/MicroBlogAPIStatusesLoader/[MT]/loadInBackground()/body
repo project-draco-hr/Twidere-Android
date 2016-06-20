@@ -38,6 +38,7 @@
     statuses=getStatuses(twitter,credentials,paging);
   }
  catch (  final MicroBlogException e) {
+    mException.set(e);
     if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,e);
     }

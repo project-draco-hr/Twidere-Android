@@ -4,6 +4,6 @@
   if (!event.running) {
     setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
     setRefreshEnabled(true);
-    onLoadingFinished();
+    showContentOrError();
   }
 }

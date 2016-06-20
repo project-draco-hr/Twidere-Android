@@ -69,5 +69,5 @@
   if (loader instanceof IExtendedLoader) {
     ((IExtendedLoader)loader).setFromUser(false);
   }
-  onLoadingFinished();
+  onStatusesLoaded(loader,data);
 }

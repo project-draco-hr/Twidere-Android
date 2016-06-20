@@ -1,5 +1,5 @@
 {
-  super(context,accountId,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
+  super(context,accountId,sinceId,maxId,-1,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
   mUserId=userId;
   mUserScreenName=screenName;
 }

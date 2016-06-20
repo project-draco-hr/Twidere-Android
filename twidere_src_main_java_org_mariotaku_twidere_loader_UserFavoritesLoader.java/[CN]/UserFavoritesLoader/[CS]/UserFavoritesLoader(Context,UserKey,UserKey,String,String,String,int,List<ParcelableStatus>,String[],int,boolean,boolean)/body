@@ -1,5 +1,5 @@
 {
   super(context,accountKey,sinceId,maxId,page,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
-  mQuery=query;
-  mGapEnabled=makeGap;
+  mUserKey=userKey;
+  mUserScreenName=screenName;
 }

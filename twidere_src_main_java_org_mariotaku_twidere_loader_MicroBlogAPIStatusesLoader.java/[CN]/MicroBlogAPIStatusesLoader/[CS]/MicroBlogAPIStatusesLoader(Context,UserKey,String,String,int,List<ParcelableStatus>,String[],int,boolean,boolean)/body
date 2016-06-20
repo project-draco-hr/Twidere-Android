@@ -4,6 +4,7 @@
   mAccountKey=accountKey;
   mMaxId=maxId;
   mSinceId=sinceId;
+  mPage=page;
   mSavedStatusesFileArgs=savedStatusesArgs;
   mLoadingMore=loadingMore;
 }

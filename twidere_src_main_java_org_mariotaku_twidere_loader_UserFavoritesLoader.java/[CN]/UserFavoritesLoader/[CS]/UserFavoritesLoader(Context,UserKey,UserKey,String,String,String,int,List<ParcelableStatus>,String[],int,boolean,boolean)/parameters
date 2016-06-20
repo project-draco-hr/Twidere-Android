@@ -1,7 +1,10 @@
 Context context
 UserKey accountKey
+UserKey userKey
+String screenName
 String sinceId
 String maxId
+int page
 List<ParcelableStatus> data
 String[] savedStatusesArgs
 int tabPosition
