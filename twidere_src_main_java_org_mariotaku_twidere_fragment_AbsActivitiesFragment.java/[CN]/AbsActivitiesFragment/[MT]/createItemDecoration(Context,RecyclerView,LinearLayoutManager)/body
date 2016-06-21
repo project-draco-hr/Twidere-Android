@@ -1,5 +1,5 @@
 {
-  final ParcelableStatusesAdapter adapter=getAdapter();
+  final ParcelableActivitiesAdapter adapter=getAdapter();
   final DividerItemDecoration itemDecoration=new DividerItemDecoration(context,((LinearLayoutManager)recyclerView.getLayoutManager()).getOrientation());
   final Resources res=context.getResources();
   if (adapter.isProfileImageEnabled()) {
@@ -9,9 +9,9 @@
         final int itemViewType=adapter.getItemViewType(position);
         boolean nextItemIsStatus=false;
         if (position < adapter.getItemCount() - 1) {
-          nextItemIsStatus=adapter.getItemViewType(position + 1) == ParcelableStatusesAdapter.ITEM_VIEW_TYPE_STATUS;
+          nextItemIsStatus=adapter.getItemViewType(position + 1) == ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_STATUS;
         }
-        if (nextItemIsStatus && itemViewType == ParcelableStatusesAdapter.ITEM_VIEW_TYPE_STATUS) {
+        if (nextItemIsStatus && itemViewType == ParcelableActivitiesAdapter.ITEM_VIEW_TYPE_STATUS) {
           rect.left=decorPaddingLeft;
         }
  else {

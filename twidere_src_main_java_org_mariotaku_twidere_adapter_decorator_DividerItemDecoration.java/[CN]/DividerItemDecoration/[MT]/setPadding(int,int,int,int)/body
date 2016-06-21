@@ -1,3 +1,9 @@
 {
-  mPadding.set(left,top,right,bottom);
+  mPadding=new Padding(){
+    @Override public boolean get(    int position,    Rect rect){
+      rect.set(left,top,right,bottom);
+      return true;
+    }
+  }
+;
 }
