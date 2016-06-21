@@ -21,9 +21,10 @@
   final boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote) {
     quoteIndicator.setVisibility(View.VISIBLE);
+    boolean originalIdAvailable=!TextUtils.isEmpty(status.quoted_id);
     boolean quoteContentAvailable=status.quoted_text_plain != null && status.quoted_text_unescaped != null;
+    quoteOriginalLink.setVisibility(originalIdAvailable ? View.VISIBLE : View.GONE);
     if (quoteContentAvailable) {
-      quoteOriginalLink.setVisibility(View.VISIBLE);
       quotedNameView.setVisibility(View.VISIBLE);
       quotedTextView.setVisibility(View.VISIBLE);
       quotedNameView.setName(UserColorNameManager.decideNickname(status.quoted_user_nickname,status.quoted_user_name));
@@ -51,7 +52,6 @@
       quoteIndicator.setColor(status.quoted_user_color);
     }
  else {
-      quoteOriginalLink.setVisibility(View.GONE);
       quotedNameView.setVisibility(View.GONE);
       quotedTextView.setVisibility(View.VISIBLE);
       final SpannableString string=SpannableString.valueOf(context.getString(R.string.status_not_available_text));
