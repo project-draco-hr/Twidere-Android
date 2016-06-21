@@ -1,6 +1,7 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
-  if (isVisibleToUser) {
-    getActivity().supportInvalidateOptionsMenu();
+  final FragmentActivity activity=getActivity();
+  if (isVisibleToUser && activity != null) {
+    activity.supportInvalidateOptionsMenu();
   }
 }
