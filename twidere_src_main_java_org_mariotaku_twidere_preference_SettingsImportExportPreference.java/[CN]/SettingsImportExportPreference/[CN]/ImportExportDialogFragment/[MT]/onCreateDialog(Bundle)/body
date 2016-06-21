@@ -1,5 +1,5 @@
 {
-  AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(getContext());
+  AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
   final Context context=getContext();
   final String[] entries=new String[2];
   final Intent[] values=new Intent[2];

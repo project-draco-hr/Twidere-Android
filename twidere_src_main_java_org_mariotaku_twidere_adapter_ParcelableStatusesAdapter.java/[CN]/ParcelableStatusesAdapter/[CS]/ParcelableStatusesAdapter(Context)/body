@@ -1,6 +1,5 @@
 {
   super(context);
-  mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
   mInflater=LayoutInflater.from(context);
   mLoadingHandler=new MediaLoadingHandler(getProgressViewIds());
   mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,context.getResources().getInteger(R.integer.default_text_size));

@@ -1,2 +1,77 @@
 {
+  final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+  mFilterItems=getFilterItemsInfo();
+  final String[] entries=new String[mFilterItems.length];
+  final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+  for (int i=0, j=entries.length; i < j; i++) {
+    final FilterItemInfo info=mFilterItems[i];
+switch (info.type) {
+case FilterItemInfo.FILTER_TYPE_USER:
+      entries[i]=getString(R.string.user_filter_name,getName(mUserColorNameManager,info.value,nameFirst));
+    break;
+case FilterItemInfo.FILTER_TYPE_KEYWORD:
+  entries[i]=getString(R.string.keyword_filter_name,getName(mUserColorNameManager,info.value,nameFirst));
+break;
+case FilterItemInfo.FILTER_TYPE_SOURCE:
+entries[i]=getString(R.string.source_filter_name,getName(mUserColorNameManager,info.value,nameFirst));
+break;
+}
+}
+builder.setTitle(R.string.add_to_filter);
+builder.setMultiChoiceItems(entries,null,null);
+builder.setPositiveButton(android.R.string.ok,new DialogInterface.OnClickListener(){
+@Override public void onClick(DialogInterface dialog,int which){
+AlertDialog alertDialog=((AlertDialog)dialog);
+final SparseBooleanArray checkPositions=alertDialog.getListView().getCheckedItemPositions();
+final Set<UserKey> userKeys=new HashSet<>();
+final Set<String> keywords=new HashSet<>();
+final Set<String> sources=new HashSet<>();
+final ArrayList<ContentValues> userValues=new ArrayList<>();
+final ArrayList<ContentValues> keywordValues=new ArrayList<>();
+final ArrayList<ContentValues> sourceValues=new ArrayList<>();
+for (int i=0, j=checkPositions.size(); i < j; i++) {
+if (!checkPositions.valueAt(i)) continue;
+final FilterItemInfo info=mFilterItems[checkPositions.keyAt(i)];
+final Object value=info.value;
+if (value instanceof ParcelableUserMention) {
+final ParcelableUserMention mention=(ParcelableUserMention)value;
+userKeys.add(mention.key);
+userValues.add(ContentValuesCreator.createFilteredUser(mention));
+}
+ else if (value instanceof UserItem) {
+final UserItem item=(UserItem)value;
+userKeys.add(item.key);
+userValues.add(createFilteredUser(item));
+}
+ else if (info.type == FilterItemInfo.FILTER_TYPE_KEYWORD) {
+if (value != null) {
+final String keyword=ParseUtils.parseString(value);
+keywords.add(keyword);
+final ContentValues values=new ContentValues();
+values.put(Filters.Keywords.VALUE,"#" + keyword);
+keywordValues.add(values);
+}
+}
+ else if (info.type == FilterItemInfo.FILTER_TYPE_SOURCE) {
+if (value != null) {
+final String source=ParseUtils.parseString(value);
+sources.add(source);
+final ContentValues values=new ContentValues();
+values.put(Filters.Sources.VALUE,source);
+sourceValues.add(values);
+}
+}
+}
+final ContentResolver resolver=getContentResolver();
+ContentResolverUtils.bulkDelete(resolver,Filters.Users.CONTENT_URI,Filters.Users.USER_KEY,userKeys,null);
+ContentResolverUtils.bulkDelete(resolver,Filters.Keywords.CONTENT_URI,Filters.Keywords.VALUE,keywords,null);
+ContentResolverUtils.bulkDelete(resolver,Filters.Sources.CONTENT_URI,Filters.Sources.VALUE,sources,null);
+ContentResolverUtils.bulkInsert(resolver,Filters.Users.CONTENT_URI,userValues);
+ContentResolverUtils.bulkInsert(resolver,Filters.Keywords.CONTENT_URI,keywordValues);
+ContentResolverUtils.bulkInsert(resolver,Filters.Sources.CONTENT_URI,sourceValues);
+}
+}
+);
+builder.setNegativeButton(android.R.string.cancel,null);
+return builder.create();
 }
