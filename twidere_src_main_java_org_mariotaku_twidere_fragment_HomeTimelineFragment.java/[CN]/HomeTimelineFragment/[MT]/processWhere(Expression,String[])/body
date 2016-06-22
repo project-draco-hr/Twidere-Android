@@ -1,0 +1,16 @@
+{
+  final Bundle arguments=getArguments();
+  if (arguments != null) {
+    final HomeTabExtras extras=arguments.getParcelable(EXTRA_EXTRAS);
+    if (extras != null) {
+      List<Expression> expressions=new ArrayList<>();
+      List<String> expressionArgs=new ArrayList<>();
+      Collections.addAll(expressionArgs,whereArgs);
+      expressions.add(where);
+      DataStoreUtils.processTabExtras(expressions,expressionArgs,extras);
+      final Expression expression=Expression.and(expressions.toArray(new Expression[expressions.size()]));
+      return new ParameterizedExpression(expression,expressionArgs.toArray(new String[expressionArgs.size()]));
+    }
+  }
+  return super.processWhere(where,whereArgs);
+}

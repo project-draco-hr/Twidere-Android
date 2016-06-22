@@ -1,0 +1,27 @@
+{
+  if (accountKeys == null) {
+    accountKeys=getActivatedAccountKeys(context);
+  }
+  List<Expression> expressions=new ArrayList<>();
+  List<String> expressionArgs=new ArrayList<>();
+  expressions.add(Expression.inArgs(new Column(Statuses.ACCOUNT_KEY),accountKeys.length));
+  for (  UserKey accountKey : accountKeys) {
+    expressionArgs.add(accountKey.toString());
+  }
+  if (greaterThan) {
+    expressions.add(Expression.greaterThanArgs(compareColumn));
+  }
+ else {
+    expressions.add(Expression.lesserThanArgs(compareColumn));
+  }
+  expressionArgs.add(String.valueOf(compare));
+  expressions.add(buildStatusFilterWhereClause(getTableNameByUri(uri),null));
+  if (extraArgs != null) {
+    Parcelable extras=extraArgs.getParcelable(EXTRA_EXTRAS);
+    if (extras instanceof HomeTabExtras) {
+      processTabExtras(expressions,expressionArgs,(HomeTabExtras)extras);
+    }
+  }
+  Expression selection=Expression.and(expressions.toArray(new Expression[expressions.size()]));
+  return queryCount(context,uri,selection.getSQL(),expressionArgs.toArray(new String[expressionArgs.size()]));
+}

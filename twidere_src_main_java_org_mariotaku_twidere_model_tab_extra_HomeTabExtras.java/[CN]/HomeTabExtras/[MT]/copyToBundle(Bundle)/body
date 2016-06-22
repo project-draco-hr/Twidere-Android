@@ -1,0 +1,6 @@
+{
+  super.copyToBundle(bundle);
+  bundle.putBoolean(IntentConstants.EXTRA_HIDE_RETWEETS,hideRetweets);
+  bundle.putBoolean(IntentConstants.EXTRA_HIDE_QUOTES,hideQuotes);
+  bundle.putBoolean(IntentConstants.EXTRA_HIDE_REPLIES,hideReplies);
+}

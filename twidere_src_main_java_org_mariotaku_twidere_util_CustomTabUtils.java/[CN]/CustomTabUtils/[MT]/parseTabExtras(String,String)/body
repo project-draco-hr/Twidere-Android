@@ -4,6 +4,10 @@ case CustomTabType.NOTIFICATIONS_TIMELINE:
 {
       return JsonSerializer.parse(json,InteractionsTabExtras.class);
     }
+case CustomTabType.HOME_TIMELINE:
+{
+    return JsonSerializer.parse(json,HomeTabExtras.class);
+  }
 }
 return null;
 }

@@ -11,10 +11,10 @@
  else {
     where=accountWhere;
   }
-  final String selection=processWhere(where).getSQL();
   final ParcelableStatusesAdapter adapter=getAdapter();
   adapter.setShowAccountsColor(accountKeys.length > 1);
   final String[] projection=Statuses.COLUMNS;
   final String[] selectionArgs=TwidereArrayUtils.toStringArray(accountKeys,0,accountKeys.length);
-  return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,selection,selectionArgs,sortOrder,fromUser);
+  final ParameterizedExpression expression=processWhere(where,selectionArgs);
+  return new ExtendedObjectCursorLoader<>(context,ParcelableStatusCursorIndices.class,uri,projection,expression.getSQL(),expression.getParameters(),sortOrder,fromUser);
 }

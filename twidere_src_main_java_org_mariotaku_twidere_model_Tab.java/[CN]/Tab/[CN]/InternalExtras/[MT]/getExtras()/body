@@ -2,6 +2,9 @@
   if (interactions != null) {
     return interactions;
   }
+ else   if (home != null) {
+    return home;
+  }
  else {
     return base;
   }

@@ -1,4 +1,0 @@
-{
-  this.where=where;
-  this.whereArgs=whereArgs;
-}
