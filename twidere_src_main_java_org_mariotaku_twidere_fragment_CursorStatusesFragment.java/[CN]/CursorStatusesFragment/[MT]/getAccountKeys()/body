@@ -1,12 +1,12 @@
 {
   final Bundle args=getArguments();
-  final UserKey[] accountKeys=Utils.getAccountKeys(getContext(),args);
+  final Context context=getContext();
+  final UserKey[] accountKeys=Utils.getAccountKeys(context,args);
   if (accountKeys != null) {
     return accountKeys;
   }
-  final FragmentActivity activity=getActivity();
-  if (activity instanceof HomeActivity) {
-    return ((HomeActivity)activity).getActivatedAccountKeys();
+  if (context instanceof HomeActivity) {
+    return ((HomeActivity)context).getActivatedAccountKeys();
   }
-  return DataStoreUtils.getActivatedAccountKeys(getActivity());
+  return DataStoreUtils.getActivatedAccountKeys(context);
 }

@@ -1,5 +1,4 @@
 {
-  if (context == null)   return 0;
   if (accountKeys == null) {
     accountKeys=getActivatedAccountKeys(context);
   }

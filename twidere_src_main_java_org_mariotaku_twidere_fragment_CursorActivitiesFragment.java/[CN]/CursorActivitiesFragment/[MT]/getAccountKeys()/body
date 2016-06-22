@@ -1,13 +1,2 @@
 {
-  final Context context=getContext();
-  if (context == null)   return null;
-  final Bundle args=getArguments();
-  final UserKey[] accountKeys=Utils.getAccountKeys(context,args);
-  if (accountKeys != null) {
-    return accountKeys;
-  }
-  if (context instanceof HomeActivity) {
-    return ((HomeActivity)context).getActivatedAccountKeys();
-  }
-  return DataStoreUtils.getActivatedAccountKeys(context);
 }
