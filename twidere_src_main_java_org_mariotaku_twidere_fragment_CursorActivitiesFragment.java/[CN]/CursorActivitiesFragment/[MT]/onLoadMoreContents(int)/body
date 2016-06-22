@@ -1,25 +1,2 @@
 {
-  if ((position & IndicatorPosition.START) != 0 || isRefreshing())   return;
-  super.onLoadMoreContents(position);
-  if (position == 0)   return;
-  getActivities(new SimpleRefreshTaskParam(){
-    @NonNull @Override public UserKey[] getAccountKeysWorker(){
-      return CursorActivitiesFragment.this.getAccountKeys();
-    }
-    @Nullable @Override public String[] getMaxIds(){
-      return getOldestActivityIds(getAccountKeys());
-    }
-    @Nullable @Override public long[] getMaxSortIds(){
-      final Context context=getContext();
-      if (context == null)       return null;
-      return DataStoreUtils.getOldestActivityMaxSortPositions(context,getContentUri(),getAccountKeys());
-    }
-    @Override public boolean hasMaxIds(){
-      return true;
-    }
-    @Override public boolean shouldAbort(){
-      return getContext() == null;
-    }
-  }
-);
 }

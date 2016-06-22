@@ -1,16 +1,2 @@
 {
-  final String readPositionTag=getReadPositionTagWithAccounts();
-  if (readPositionTag == null)   return;
-  if (position == RecyclerView.NO_POSITION)   return;
-  final ParcelableActivitiesAdapter adapter=getAdapter();
-  final ParcelableActivity activity=adapter.getActivity(position);
-  if (activity == null)   return;
-  if (mReadStateManager.setPosition(readPositionTag,activity.timestamp)) {
-    mTwitterWrapper.setActivitiesAboutMeUnreadAsync(getAccountKeys(),activity.timestamp);
-  }
-  for (  UserKey accountKey : getAccountKeys()) {
-    final String tag=Utils.getReadPositionTagWithAccounts(getReadPositionTag(),accountKey);
-    mReadStateManager.setPosition(tag,activity.timestamp);
-  }
-  mReadStateManager.setPosition(getCurrentReadPositionTag(),activity.timestamp,true);
 }
