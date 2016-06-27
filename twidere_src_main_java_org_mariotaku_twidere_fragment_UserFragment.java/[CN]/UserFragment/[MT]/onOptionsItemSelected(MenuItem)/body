@@ -1,4 +1,5 @@
 {
+  final Context context=getContext();
   final AsyncTwitterWrapper twitter=mTwitterWrapper;
   final ParcelableUser user=getUser();
   final UserRelationship userRelationship=mRelationship;
@@ -148,17 +149,17 @@ return true;
 }
 case R.id.user_mentions:
 {
-IntentUtils.openUserMentions(getActivity(),user.account_key,user.screen_name);
+IntentUtils.openUserMentions(context,user.account_key,user.screen_name);
 return true;
 }
 case R.id.saved_searches:
 {
-IntentUtils.openSavedSearches(getActivity(),user.account_key);
+IntentUtils.openSavedSearches(context,user.account_key);
 return true;
 }
 case R.id.scheduled_statuses:
 {
-IntentUtils.openScheduledStatuses(getActivity(),user.account_key);
+IntentUtils.openScheduledStatuses(context,user.account_key);
 return true;
 }
 case R.id.open_in_browser:
@@ -166,20 +167,17 @@ case R.id.open_in_browser:
 final Uri uri=LinkCreator.getUserWebLink(user);
 final Intent intent=new Intent(Intent.ACTION_VIEW,uri);
 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-intent.setPackage(IntentUtils.getDefaultBrowserPackage(getContext(),uri,true));
+intent.setPackage(IntentUtils.getDefaultBrowserPackage(context,uri,true));
+if (intent.resolveActivity(context.getPackageManager()) != null) {
 startActivity(intent);
+}
 return true;
 }
 default :
 {
-if (item.getIntent() != null) {
-try {
-startActivity(item.getIntent());
-}
- catch (final ActivityNotFoundException e) {
-Log.w(LOGTAG,e);
-return false;
-}
+final Intent intent=item.getIntent();
+if (intent != null && intent.resolveActivity(context.getPackageManager()) != null) {
+startActivity(intent);
 }
 break;
 }

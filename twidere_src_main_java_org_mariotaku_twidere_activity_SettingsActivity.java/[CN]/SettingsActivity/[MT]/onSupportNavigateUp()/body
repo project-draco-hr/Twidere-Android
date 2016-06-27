@@ -1,0 +1,6 @@
+{
+  if (notifyUnsavedChange()) {
+    return true;
+  }
+  return super.onSupportNavigateUp();
+}
