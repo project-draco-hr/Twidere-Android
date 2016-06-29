@@ -1,4 +1,0 @@
-{
-  final UserKey[] filteredUserIds=DataStoreUtils.getFilteredUserIds(getContext());
-  return new ActivityCursor(cursor,indices,filteredUserIds);
-}

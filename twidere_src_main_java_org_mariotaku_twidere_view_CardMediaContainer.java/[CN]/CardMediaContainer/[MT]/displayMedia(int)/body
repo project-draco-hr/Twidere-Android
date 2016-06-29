@@ -1,7 +1,7 @@
 {
   for (int i=0, j=getChildCount(), k=imageRes.length; i < j; i++) {
     final View child=getChildAt(i);
-    final ImageView imageView=(ImageView)child.findViewById(R.id.media_preview);
+    final ImageView imageView=(ImageView)child.findViewById(R.id.mediaPreview);
     final View progress=child.findViewById(R.id.media_preview_progress);
     progress.setVisibility(GONE);
     if (i < k) {

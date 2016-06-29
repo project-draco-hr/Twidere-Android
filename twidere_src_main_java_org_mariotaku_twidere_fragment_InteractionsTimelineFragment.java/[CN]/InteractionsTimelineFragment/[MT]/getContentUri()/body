@@ -1,3 +1,0 @@
-{
-  return Activities.AboutMe.CONTENT_URI;
-}

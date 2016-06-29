@@ -1,4 +1,0 @@
-{
-  final ParcelableMedia current=getCurrentMedia(link,(int)extraId);
-  return current != null && !current.open_browser;
-}

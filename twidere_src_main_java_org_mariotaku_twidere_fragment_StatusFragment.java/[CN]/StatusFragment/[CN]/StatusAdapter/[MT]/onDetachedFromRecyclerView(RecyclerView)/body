@@ -1,4 +1,0 @@
-{
-  super.onDetachedFromRecyclerView(recyclerView);
-  mRecyclerView=null;
-}

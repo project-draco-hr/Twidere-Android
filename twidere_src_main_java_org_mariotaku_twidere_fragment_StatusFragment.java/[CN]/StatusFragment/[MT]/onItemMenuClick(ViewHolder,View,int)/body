@@ -1,6 +1,0 @@
-{
-  if (getActivity() == null)   return;
-  final View view=mLayoutManager.findViewByPosition(position);
-  if (view == null)   return;
-  mRecyclerView.showContextMenuForChild(view);
-}

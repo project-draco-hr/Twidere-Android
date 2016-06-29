@@ -1,5 +1,0 @@
-{
-  final ParcelableStatusesAdapter adapter=getAdapter();
-  adapter.setStatusClickListener(null);
-  super.onDestroy();
-}

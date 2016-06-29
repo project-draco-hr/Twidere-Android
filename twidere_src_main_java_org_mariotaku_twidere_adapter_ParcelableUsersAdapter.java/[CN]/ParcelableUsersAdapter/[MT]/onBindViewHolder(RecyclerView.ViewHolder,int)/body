@@ -1,9 +1,0 @@
-{
-switch (holder.getItemViewType()) {
-case ITEM_VIEW_TYPE_USER:
-{
-      bindUser((UserViewHolder)holder,position);
-      break;
-    }
-}
-}

@@ -1,7 +1,0 @@
-{
-  if (event.uri.equals(Inbox.CONTENT_URI) && !event.running) {
-    setRefreshing(false);
-    setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
-    setRefreshEnabled(true);
-  }
-}

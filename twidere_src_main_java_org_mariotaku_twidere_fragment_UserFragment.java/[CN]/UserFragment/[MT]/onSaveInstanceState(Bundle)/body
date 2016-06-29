@@ -1,4 +1,0 @@
-{
-  outState.putParcelable(EXTRA_USER,getUser());
-  super.onSaveInstanceState(outState);
-}

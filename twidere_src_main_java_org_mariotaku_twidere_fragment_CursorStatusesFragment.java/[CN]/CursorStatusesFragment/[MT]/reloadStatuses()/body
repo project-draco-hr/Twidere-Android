@@ -1,9 +1,0 @@
-{
-  if (getContext() == null || isDetached())   return;
-  final Bundle args=new Bundle(), fragmentArgs=getArguments();
-  if (fragmentArgs != null) {
-    args.putAll(fragmentArgs);
-    args.putBoolean(EXTRA_FROM_USER,true);
-  }
-  getLoaderManager().restartLoader(0,args,this);
-}

@@ -1,7 +1,0 @@
-{
-  final boolean result=super.scrollToStart();
-  if (result) {
-    saveReadPosition(0);
-  }
-  return result;
-}

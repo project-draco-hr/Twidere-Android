@@ -9,10 +9,10 @@
     mEditDescription.setText(ParcelableUserUtils.getExpandedDescription(user));
     mEditLocation.setText(user.location);
     mEditUrl.setText(isEmpty(user.url_expanded) ? user.url : user.url_expanded);
-    mMediaLoader.displayProfileImage(mProfileImageView,user);
+    mediaLoader.displayProfileImage(mProfileImageView,user);
     final int defWidth=getResources().getDisplayMetrics().widthPixels;
-    mMediaLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,defWidth);
-    mMediaLoader.displayImage(mProfileBackgroundView,user.profile_background_url);
+    mediaLoader.displayProfileBanner(mProfileBannerView,user.profile_banner_url,defWidth);
+    mediaLoader.displayImage(mProfileBackgroundView,user.profile_background_url);
     mLinkColor.setColor(user.link_color);
     mBackgroundColor.setColor(user.background_color);
     if (USER_TYPE_FANFOU_COM.equals(user.key.getHost())) {

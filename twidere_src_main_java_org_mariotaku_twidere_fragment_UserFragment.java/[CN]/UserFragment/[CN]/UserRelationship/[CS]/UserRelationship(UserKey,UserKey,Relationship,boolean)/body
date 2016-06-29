@@ -1,7 +1,0 @@
-{
-  super(relationship,accountKey,userKey);
-  this.filtering=filtering;
-  if (relationship != null) {
-    this.can_dm=relationship.canSourceDMTarget();
-  }
-}

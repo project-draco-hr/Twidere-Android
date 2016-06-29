@@ -1,6 +1,6 @@
 {
   mMessagesListView.removeOnScrollListener(mScrollListener);
-  mBus.unregister(this);
+  bus.unregister(this);
   if (mPopupMenu != null) {
     mPopupMenu.dismiss();
   }

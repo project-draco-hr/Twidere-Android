@@ -1,5 +1,0 @@
-{
-  super(context);
-  setOrientation(LinearLayoutManager.VERTICAL);
-  this.recyclerView=recyclerView;
-}

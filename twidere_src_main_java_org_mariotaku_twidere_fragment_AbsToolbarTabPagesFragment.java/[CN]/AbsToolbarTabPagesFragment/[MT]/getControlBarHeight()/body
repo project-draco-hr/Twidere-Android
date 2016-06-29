@@ -1,4 +1,0 @@
-{
-  if (mToolbar == null)   return 0;
-  return mToolbar.getMeasuredHeight();
-}

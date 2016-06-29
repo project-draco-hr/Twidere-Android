@@ -1,7 +1,0 @@
-{
-  if (mCounts == null)   return null;
-  if (position < getCountItemsCount()) {
-    return mCounts.get(position);
-  }
-  return null;
-}

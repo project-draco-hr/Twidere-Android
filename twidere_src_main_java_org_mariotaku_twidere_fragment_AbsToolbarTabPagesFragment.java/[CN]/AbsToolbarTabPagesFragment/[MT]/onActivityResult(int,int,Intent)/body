@@ -1,6 +1,0 @@
-{
-  final Object o=mPagerAdapter.instantiateItem(mViewPager,mViewPager.getCurrentItem());
-  if (o instanceof Fragment) {
-    ((Fragment)o).onActivityResult(requestCode,resultCode,data);
-  }
-}

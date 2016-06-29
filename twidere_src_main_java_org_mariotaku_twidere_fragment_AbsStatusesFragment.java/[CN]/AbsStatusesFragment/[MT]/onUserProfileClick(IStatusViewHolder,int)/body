@@ -1,6 +1,0 @@
-{
-  final ParcelableStatus status=getAdapter().getStatus(position);
-  final Intent intent=IntentUtils.userProfile(status.account_key,status.user_key,status.user_screen_name,UserFragment.Referral.TIMELINE_STATUS,status.extras.user_statusnet_profile_url);
-  IntentUtils.applyNewDocument(intent,mPreferences.getBoolean(KEY_NEW_DOCUMENT_API));
-  startActivity(intent);
-}

@@ -1,3 +1,0 @@
-{
-  deleteStatus(event.status.id);
-}

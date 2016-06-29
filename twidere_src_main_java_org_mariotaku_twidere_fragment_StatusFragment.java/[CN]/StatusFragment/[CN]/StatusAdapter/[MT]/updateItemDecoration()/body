@@ -1,3 +1,0 @@
-{
-  if (mRecyclerView == null)   return;
-}

@@ -1,8 +1,0 @@
-{
-  if ((position & IndicatorPosition.START) != 0)   return;
-  super.onLoadMoreContents(position);
-  if (position == 0)   return;
-  final IStatusesAdapter<List<ParcelableStatus>> adapter=getAdapter();
-  final String maxId=adapter.getStatusId(adapter.getStatusCount() - 1);
-  getStatuses(maxId,null);
-}

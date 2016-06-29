@@ -1,6 +1,0 @@
-{
-  super(itemView);
-  itemView.setOnClickListener(this);
-  this.adapter=adapter;
-  profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
-}

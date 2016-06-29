@@ -1,3 +1,0 @@
-{
-  return getLayoutManager().findFirstCompletelyVisibleItemPosition() <= 0;
-}

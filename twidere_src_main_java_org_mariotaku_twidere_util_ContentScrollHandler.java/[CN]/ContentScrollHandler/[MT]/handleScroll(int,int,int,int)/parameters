@@ -1,4 +1,0 @@
-int dy
-int scrollState
-int oldState
-int idleState

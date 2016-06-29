@@ -1,4 +1,0 @@
-{
-  mMentionsOnly=mentionsOnly;
-  notifyDataSetChanged();
-}

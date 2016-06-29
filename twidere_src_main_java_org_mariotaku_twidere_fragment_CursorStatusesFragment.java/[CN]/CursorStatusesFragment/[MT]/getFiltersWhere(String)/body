@@ -1,4 +1,0 @@
-{
-  if (!isFilterEnabled())   return null;
-  return buildStatusFilterWhereClause(table,null);
-}

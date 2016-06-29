@@ -1,4 +1,0 @@
-{
-  outState.putInt(EXTRA_PAGE,mPage);
-  super.onSaveInstanceState(outState);
-}

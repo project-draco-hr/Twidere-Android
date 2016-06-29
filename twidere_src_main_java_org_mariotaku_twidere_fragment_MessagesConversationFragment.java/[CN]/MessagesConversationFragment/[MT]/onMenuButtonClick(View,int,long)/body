@@ -1,4 +1,0 @@
-{
-  mSelectedDirectMessage=mAdapter.findItem(id);
-  showMenu(button,mSelectedDirectMessage);
-}

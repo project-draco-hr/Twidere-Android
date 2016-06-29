@@ -1,4 +1,0 @@
-{
-  if (isRefreshing())   return;
-  getLoaderManager().restartLoader(0,null,this);
-}

@@ -1,8 +1,0 @@
-{
-  if (data != null) {
-    Collections.sort(data,POSITION_COMPARATOR);
-  }
-  getAdapter().setData(data);
-  showContent();
-  setRefreshing(false);
-}

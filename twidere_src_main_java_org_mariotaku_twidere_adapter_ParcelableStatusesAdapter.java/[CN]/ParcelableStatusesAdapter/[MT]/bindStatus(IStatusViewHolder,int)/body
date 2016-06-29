@@ -1,3 +1,0 @@
-{
-  holder.displayStatus(getStatus(position),isShowInReplyTo());
-}

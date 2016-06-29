@@ -1,6 +1,0 @@
-{
-  mRecyclerView.setOnTouchListener(null);
-  mRecyclerView.removeOnScrollListener(mScrollListener);
-  mBus.unregister(this);
-  super.onStop();
-}

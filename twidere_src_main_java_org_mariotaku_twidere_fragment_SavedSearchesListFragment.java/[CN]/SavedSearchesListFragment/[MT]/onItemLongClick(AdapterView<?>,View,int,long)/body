@@ -1,6 +1,0 @@
-{
-  final SavedSearch item=getAdapter().findItem(id);
-  if (item == null)   return false;
-  DestroySavedSearchDialogFragment.show(getFragmentManager(),getAccountKey(),item.getId(),item.getName());
-  return true;
-}

@@ -1,3 +1,0 @@
-{
-  return mListView.getLastVisiblePosition() >= mListView.getCount() - 1;
-}

@@ -1,4 +1,0 @@
-{
-  final ParcelableStatus status=mStatusAdapter.getStatus(position);
-  AbsStatusesFragment.handleStatusActionClick(getContext(),getFragmentManager(),mTwitterWrapper,(StatusViewHolder)holder,status,id);
-}

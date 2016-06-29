@@ -1,9 +1,0 @@
-{
-  final boolean currentRefreshing=mSwipeRefreshLayout.isRefreshing();
-  if (!currentRefreshing) {
-    updateRefreshProgressOffset();
-  }
-  if (refreshing == currentRefreshing)   return;
-  final boolean layoutRefreshing=refreshing && mAdapter.getLoadMoreIndicatorPosition() != IndicatorPosition.NONE;
-  mSwipeRefreshLayout.setRefreshing(layoutRefreshing);
-}

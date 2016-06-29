@@ -1,5 +1,0 @@
-{
-  mData=data;
-  notifyDataSetChanged();
-  return true;
-}

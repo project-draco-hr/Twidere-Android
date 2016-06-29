@@ -1,5 +1,0 @@
-{
-  if (mLoadMoreIndicatorPosition == position)   return;
-  mLoadMoreIndicatorPosition=IndicatorPositionUtils.apply(position,mLoadMoreSupportedPosition);
-  notifyDataSetChanged();
-}

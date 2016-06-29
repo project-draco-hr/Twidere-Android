@@ -1,5 +1,0 @@
-{
-  this.read_positions=Collections.synchronizedSet(new HashSet<>(read_positions));
-  this.fragment=fragment;
-  adapter=fragment.getAdapter();
-}

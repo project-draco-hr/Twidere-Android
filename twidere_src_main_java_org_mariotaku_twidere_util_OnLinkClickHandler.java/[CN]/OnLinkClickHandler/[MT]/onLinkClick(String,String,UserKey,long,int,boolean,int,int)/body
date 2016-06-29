@@ -7,7 +7,7 @@
 switch (type) {
 case TwidereLinkify.LINK_TYPE_MENTION:
 {
-      IntentUtils.openUserProfile(context,accountKey,null,link,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
+      IntentUtils.openUserProfile(context,accountKey,null,link,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),Referral.USER_MENTION);
       return true;
     }
 case TwidereLinkify.LINK_TYPE_HASHTAG:
@@ -50,7 +50,7 @@ case "fanfou.com":
               id=id.substring(1);
             }
             final String screenName=orig.substring(1,length);
-            IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(id),screenName,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
+            IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(id),screenName,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),Referral.USER_MENTION);
             return true;
           }
         }
@@ -90,7 +90,7 @@ return true;
 }
 case TwidereLinkify.LINK_TYPE_USER_ID:
 {
-IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(link),null,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),UserFragment.Referral.USER_MENTION);
+IntentUtils.openUserProfile(context,accountKey,UserKey.valueOf(link),null,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API),Referral.USER_MENTION);
 return true;
 }
 }

@@ -1,5 +1,0 @@
-{
-  final SavedSearch item=getAdapter().findItem(id);
-  if (item == null)   return;
-  openTweetSearch(getActivity(),getAccountKey(),item.getQuery());
-}

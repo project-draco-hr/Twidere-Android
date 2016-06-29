@@ -1,3 +1,0 @@
-{
-  setRefreshing(mTwitterWrapper.isReceivedDirectMessagesRefreshing() || mTwitterWrapper.isSentDirectMessagesRefreshing());
-}

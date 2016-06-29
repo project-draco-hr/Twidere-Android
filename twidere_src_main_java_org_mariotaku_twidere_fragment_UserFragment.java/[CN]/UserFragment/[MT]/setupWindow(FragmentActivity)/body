@@ -1,8 +1,0 @@
-{
-  if (activity instanceof AppCompatActivity) {
-    ((AppCompatActivity)activity).supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-    ((AppCompatActivity)activity).supportRequestWindowFeature(WindowCompat.FEATURE_ACTION_MODE_OVERLAY);
-  }
-  WindowSupport.setStatusBarColor(activity.getWindow(),Color.TRANSPARENT);
-  return true;
-}

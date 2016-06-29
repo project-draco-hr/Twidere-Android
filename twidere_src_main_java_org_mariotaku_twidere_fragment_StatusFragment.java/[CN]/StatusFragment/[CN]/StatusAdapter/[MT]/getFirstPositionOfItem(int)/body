@@ -1,8 +1,0 @@
-{
-  int position=0;
-  for (int i=0; i < ITEM_TYPES_SUM; i++) {
-    if (itemIdx == i)     return position;
-    position+=getTypeCount(i);
-  }
-  return RecyclerView.NO_POSITION;
-}

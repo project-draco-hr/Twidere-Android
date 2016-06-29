@@ -1,7 +1,0 @@
-{
-  final View view=inflater.inflate(R.layout.card_item_user_compact,parent,false);
-  final UserViewHolder holder=new UserViewHolder(adapter,view);
-  holder.setOnClickListeners();
-  holder.setupViewOptions();
-  return holder;
-}

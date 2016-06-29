@@ -1,4 +1,0 @@
-{
-  if (mListener == null)   return;
-  mListener.onEntryClick(position,getEntry(position));
-}

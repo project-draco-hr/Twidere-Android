@@ -1,5 +1,0 @@
-{
-  if (mPagerIndicator == null)   return false;
-  insets.set(0,mToolbarContainer.getHeight(),0,0);
-  return true;
-}

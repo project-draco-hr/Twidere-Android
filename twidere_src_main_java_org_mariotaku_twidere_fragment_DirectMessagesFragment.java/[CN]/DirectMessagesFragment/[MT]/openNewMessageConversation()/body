@@ -1,9 +1,0 @@
-{
-  final UserKey[] accountIds=getAccountKeys();
-  if (accountIds.length == 1) {
-    IntentUtils.openMessageConversation(getActivity(),accountIds[0],null);
-  }
- else {
-    IntentUtils.openMessageConversation(getActivity(),null,null);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  setStatusClickListener(adapter.getStatusClickListener());
-}

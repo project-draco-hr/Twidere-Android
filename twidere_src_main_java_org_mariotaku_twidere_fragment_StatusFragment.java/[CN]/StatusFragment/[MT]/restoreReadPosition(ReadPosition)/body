@@ -1,6 +1,0 @@
-{
-  if (position == null)   return;
-  final int adapterPosition=mStatusAdapter.findPositionById(position.statusId);
-  if (adapterPosition < 0)   return;
-  mLayoutManager.scrollToPositionWithOffset(adapterPosition,position.offsetTop);
-}

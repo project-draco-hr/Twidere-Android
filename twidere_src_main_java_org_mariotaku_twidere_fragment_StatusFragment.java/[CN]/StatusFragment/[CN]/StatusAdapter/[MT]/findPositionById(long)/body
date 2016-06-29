@@ -1,6 +1,0 @@
-{
-  for (int i=0, j=getItemCount(); i < j; i++) {
-    if (getItemId(i) == itemId)     return i;
-  }
-  return RecyclerView.NO_POSITION;
-}

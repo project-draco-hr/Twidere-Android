@@ -1,4 +1,0 @@
-{
-  text1.setText(text1.getResources().getString(R.string.unsupported_activity_action_title,activity.action));
-  text2.setText(R.string.unsupported_activity_action_summary);
-}

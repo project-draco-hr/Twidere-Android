@@ -1,5 +1,0 @@
-{
-  int dataPosition=adapterPosition - getActivityStartIndex();
-  if (dataPosition < 0 || dataPosition >= getActivityCount())   return null;
-  return mData.get(dataPosition);
-}

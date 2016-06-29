@@ -1,6 +1,0 @@
-{
-  final AsyncTwitterWrapper twitter=mTwitterWrapper;
-  if (twitter == null)   return false;
-  if (!param.hasMaxIds())   return twitter.refreshAll(param.getAccountKeys());
-  return twitter.getHomeTimelineAsync(param);
-}

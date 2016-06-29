@@ -1,5 +1,0 @@
-{
-  int dataPosition=adapterPosition - getStatusStartIndex();
-  if (dataPosition < 0 || dataPosition >= getRawStatusCount())   return null;
-  return mData.get(dataPosition);
-}

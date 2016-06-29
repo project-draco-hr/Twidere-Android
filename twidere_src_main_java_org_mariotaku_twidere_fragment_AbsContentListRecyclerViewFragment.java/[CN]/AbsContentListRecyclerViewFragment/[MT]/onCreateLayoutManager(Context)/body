@@ -1,3 +1,0 @@
-{
-  return new FixedLinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
-}

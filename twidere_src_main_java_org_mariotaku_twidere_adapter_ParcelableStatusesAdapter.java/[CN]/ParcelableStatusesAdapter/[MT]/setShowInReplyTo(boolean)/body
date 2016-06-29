@@ -1,5 +1,0 @@
-{
-  if (mShowInReplyTo == showInReplyTo)   return;
-  mShowInReplyTo=showInReplyTo;
-  notifyDataSetChanged();
-}

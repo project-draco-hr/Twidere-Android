@@ -1,7 +1,0 @@
-{
-  if (adapter.isDetailMediaExpanded()) {
-    IntentUtils.openMedia(adapter.getContext(),adapter.getStatus(),current,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API));
-    return;
-  }
-  adapter.setDetailMediaExpanded(true);
-}

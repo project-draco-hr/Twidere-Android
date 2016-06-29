@@ -1,5 +1,0 @@
-{
-  mDetailMediaExpanded=expanded;
-  notifyDataSetChanged();
-  updateItemDecoration();
-}

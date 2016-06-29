@@ -1,7 +1,0 @@
-{
-  Fragment parent=getParentFragment();
-  if (parent instanceof UserListFragment) {
-    return ((UserListFragment)parent).getUserList();
-  }
-  return null;
-}

@@ -1,4 +1,0 @@
-{
-  if (mData instanceof ObjectCursor)   return false;
-  return getStatus(position).is_filtered;
-}

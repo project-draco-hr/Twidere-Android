@@ -1,6 +1,0 @@
-{
-  account_key=UserKey.valueOf(cursor.getString(ConversationEntries.IDX_ACCOUNT_KEY));
-  conversation_id=cursor.getString(ConversationEntries.IDX_CONVERSATION_ID);
-  screen_name=cursor.getString(ConversationEntries.IDX_SCREEN_NAME);
-  name=cursor.getString(ConversationEntries.IDX_NAME);
-}

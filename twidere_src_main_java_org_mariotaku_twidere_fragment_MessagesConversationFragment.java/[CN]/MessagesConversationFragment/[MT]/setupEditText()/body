@@ -8,7 +8,7 @@
       return true;
     }
   }
-,mPreferences.getBoolean(KEY_QUICK_SEND,false));
+,preferences.getBoolean(KEY_QUICK_SEND,false));
   mEditText.addTextChangedListener(new TextWatcher(){
     @Override public void afterTextChanged(    final Editable s){
       mTextChanged=s.length() == 0;
@@ -17,7 +17,7 @@
     }
     @Override public void onTextChanged(    final CharSequence s,    final int start,    final int before,    final int count){
       if (mSendButton == null || s == null)       return;
-      mSendButton.setEnabled(mValidator.isValidDirectMessage(s.toString()));
+      mSendButton.setEnabled(validator.isValidDirectMessage(s.toString()));
     }
   }
 );

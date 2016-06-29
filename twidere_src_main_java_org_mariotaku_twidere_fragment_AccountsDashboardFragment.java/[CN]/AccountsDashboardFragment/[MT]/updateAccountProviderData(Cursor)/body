@@ -18,9 +18,9 @@
       break;
     }
   }
-  mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
+  mUseStarsForLikes=preferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
   mAccountsAdapter.setAccounts(accounts);
-  UserKey accountKey=UserKey.valueOf(mPreferences.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
+  UserKey accountKey=UserKey.valueOf(preferences.getString(KEY_DEFAULT_ACCOUNT_KEY,null));
   if (accountKey == null) {
     accountKey=defaultId;
   }

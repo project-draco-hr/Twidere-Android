@@ -1,3 +1,0 @@
-{
-  return "ReadPosition{" + "statusId=" + statusId + ", offsetTop="+ offsetTop+ '}';
-}

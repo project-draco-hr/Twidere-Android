@@ -1,5 +1,0 @@
-{
-  final ParcelableUsersAdapter adapter=new ParcelableUsersAdapter(context);
-  adapter.setFollowClickListener(this);
-  return adapter;
-}

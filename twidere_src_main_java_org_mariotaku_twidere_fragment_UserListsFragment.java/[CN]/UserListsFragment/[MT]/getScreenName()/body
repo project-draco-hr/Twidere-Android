@@ -1,3 +1,0 @@
-{
-  return getArguments().getString(EXTRA_SCREEN_NAME);
-}

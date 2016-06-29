@@ -1,3 +1,0 @@
-{
-  mScrollHandler=new ContentScrollHandler(contentListSupport,viewCallback);
-}

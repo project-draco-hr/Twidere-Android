@@ -1,4 +1,0 @@
-{
-  super(context,orientation);
-  this.statusAdapter=statusAdapter;
-}

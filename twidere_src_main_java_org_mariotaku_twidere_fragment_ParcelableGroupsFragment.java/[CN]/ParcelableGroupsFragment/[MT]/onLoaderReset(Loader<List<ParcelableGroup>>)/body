@@ -1,5 +1,0 @@
-{
-  if (loader instanceof IExtendedLoader) {
-    ((IExtendedLoader)loader).setFromUser(false);
-  }
-}

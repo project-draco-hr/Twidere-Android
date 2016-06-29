@@ -1,8 +1,0 @@
-{
-  if (status == null)   return;
-  if (AsyncTaskUtils.isTaskRunning(mLoadTranslationTask)) {
-    mLoadTranslationTask.cancel(true);
-  }
-  mLoadTranslationTask=new LoadTranslationTask(this);
-  AsyncTaskUtils.executeTask(mLoadTranslationTask,status);
-}

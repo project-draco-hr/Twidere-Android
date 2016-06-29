@@ -1,4 +1,4 @@
 {
   final MessageConversationAdapter adapter=adapterRef.get();
-  IntentUtils.openMedia(adapter.getContext(),adapter.getDirectMessage((int)extraId),media,null,adapter.mPreferences.getBoolean(KEY_NEW_DOCUMENT_API));
+  IntentUtils.openMedia(adapter.getContext(),adapter.getDirectMessage((int)extraId),media,null,adapter.preferences.getBoolean(KEY_NEW_DOCUMENT_API));
 }

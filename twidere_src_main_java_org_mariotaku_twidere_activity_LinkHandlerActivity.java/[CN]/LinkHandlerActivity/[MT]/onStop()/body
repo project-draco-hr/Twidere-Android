@@ -1,4 +1,0 @@
-{
-  mMultiSelectHandler.dispatchOnStop();
-  super.onStop();
-}

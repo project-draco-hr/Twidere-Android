@@ -1,5 +1,0 @@
-{
-  super(itemView);
-  text1=(TextView)itemView.findViewById(android.R.id.text1);
-  text2=(TextView)itemView.findViewById(android.R.id.text2);
-}

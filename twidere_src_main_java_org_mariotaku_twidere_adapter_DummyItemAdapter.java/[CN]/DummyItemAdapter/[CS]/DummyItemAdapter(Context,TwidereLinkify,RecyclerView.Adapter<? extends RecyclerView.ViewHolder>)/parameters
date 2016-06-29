@@ -1,3 +1,0 @@
-Context context
-TwidereLinkify linkify
-RecyclerView.Adapter<? extends RecyclerView.ViewHolder> adapter

@@ -1,9 +1,0 @@
-{
-  for (  final int pos : read_positions) {
-    final DirectMessageEntry entry=adapter.getEntry(pos);
-    final String id=entry.conversation_id;
-    final UserKey accountKey=entry.account_key;
-    fragment.addUnreadCountsToRemove(accountKey,id);
-  }
-  return null;
-}

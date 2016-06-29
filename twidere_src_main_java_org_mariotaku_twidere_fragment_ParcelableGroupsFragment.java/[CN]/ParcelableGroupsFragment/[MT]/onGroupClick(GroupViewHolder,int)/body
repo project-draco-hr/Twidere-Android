@@ -1,3 +1,0 @@
-{
-  IntentUtils.openGroupDetails(getContext(),getAdapter().getGroup(position));
-}

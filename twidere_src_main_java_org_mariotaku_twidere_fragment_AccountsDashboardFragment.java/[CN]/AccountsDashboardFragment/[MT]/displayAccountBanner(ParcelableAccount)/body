@@ -5,10 +5,10 @@
   final int width=bannerWidth > 0 ? bannerWidth : defWidth;
   final ImageView bannerView=(ImageView)mAccountProfileBannerView.getNextView();
   if (bannerView.getDrawable() == null || !CompareUtils.objectEquals(account,bannerView.getTag())) {
-    mMediaLoader.displayProfileBanner(bannerView,account,width);
+    mediaLoader.displayProfileBanner(bannerView,account,width);
     bannerView.setTag(account);
   }
  else {
-    mMediaLoader.cancelDisplayTask(bannerView);
+    mediaLoader.cancelDisplayTask(bannerView);
   }
 }

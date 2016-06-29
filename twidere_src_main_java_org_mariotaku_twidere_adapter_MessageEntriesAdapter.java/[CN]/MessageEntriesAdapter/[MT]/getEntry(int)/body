@@ -1,5 +1,0 @@
-{
-  final Cursor c=mCursor;
-  if (c == null || c.isClosed() || !c.moveToPosition(position))   return null;
-  return new DirectMessageEntry(c);
-}

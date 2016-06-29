@@ -1,9 +1,0 @@
-{
-  final Fragment fragment=getCurrentVisibleFragment();
-  if (fragment instanceof KeyboardShortcutCallback) {
-    if (((KeyboardShortcutCallback)fragment).handleKeyboardShortcutSingle(handler,keyCode,event,metaState)) {
-      return true;
-    }
-  }
-  return false;
-}

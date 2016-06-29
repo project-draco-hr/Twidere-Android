@@ -1,4 +1,0 @@
-{
-  Object obj=mData.get(position);
-  return getItemViewType(obj);
-}

@@ -1,4 +1,0 @@
-{
-  mBus.unregister(mUsersBusCallback);
-  super.onStop();
-}

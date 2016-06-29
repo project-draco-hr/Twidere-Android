@@ -1,5 +1,5 @@
 {
-  final AsyncTwitterWrapper twitter=mTwitterWrapper;
+  final AsyncTwitterWrapper twitter=twitterWrapper;
 switch (requestCode) {
 case REQUEST_SELECT_USER:
 {

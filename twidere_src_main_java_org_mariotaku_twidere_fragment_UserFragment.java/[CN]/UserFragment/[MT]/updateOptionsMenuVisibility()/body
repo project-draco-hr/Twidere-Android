@@ -1,3 +1,0 @@
-{
-  setHasOptionsMenu(mUser != null && mRelationship != null);
-}

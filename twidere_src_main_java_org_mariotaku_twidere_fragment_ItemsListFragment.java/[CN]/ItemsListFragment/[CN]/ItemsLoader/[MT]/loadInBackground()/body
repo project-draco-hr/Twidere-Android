@@ -1,3 +1,0 @@
-{
-  return mArguments.<Parcelable>getParcelableArrayList(EXTRA_ITEMS);
-}

@@ -1,6 +1,0 @@
-{
-  final FragmentActivity activity=getActivity();
-  if (activity instanceof IControlBarActivity) {
-    ((IControlBarActivity)activity).setControlBarVisibleAnimate(visible);
-  }
-}

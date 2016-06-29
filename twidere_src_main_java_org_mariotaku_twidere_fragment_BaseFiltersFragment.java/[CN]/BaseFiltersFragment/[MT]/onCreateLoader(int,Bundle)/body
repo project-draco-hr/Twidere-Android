@@ -1,3 +1,0 @@
-{
-  return new CursorLoader(getActivity(),getContentUri(),getContentColumns(),null,null,null);
-}

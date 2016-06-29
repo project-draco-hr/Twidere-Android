@@ -1,3 +1,0 @@
-{
-  IntentUtils.openMessageConversation(getActivity(),entry.account_key,entry.conversation_id);
-}

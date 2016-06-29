@@ -1,3 +1,0 @@
-{
-  this(context,new TwidereLinkify(null),null);
-}

@@ -1,9 +1,0 @@
-{
-  final Context context=getActivity();
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
-  builder.setTitle(android.R.string.dialog_alert_title);
-  builder.setMessage(R.string.sensitive_content_warning);
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setNegativeButton(android.R.string.cancel,null);
-  return builder.create();
-}

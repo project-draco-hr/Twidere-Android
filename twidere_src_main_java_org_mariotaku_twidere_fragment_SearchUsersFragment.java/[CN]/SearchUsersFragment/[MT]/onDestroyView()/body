@@ -1,4 +1,0 @@
-{
-  mPage=1;
-  super.onDestroyView();
-}

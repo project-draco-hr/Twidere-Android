@@ -1,5 +1,0 @@
-{
-  final ContentResolver cr=getContentResolver();
-  cr.unregisterContentObserver(mContentObserver);
-  super.onStop();
-}

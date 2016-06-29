@@ -68,7 +68,7 @@
   }
   try {
     final User twitterUser;
-    if (mExtras != null && UserFragment.Referral.SELF_PROFILE.equals(mExtras.getString(EXTRA_REFERRAL))) {
+    if (mExtras != null && Referral.SELF_PROFILE.equals(mExtras.getString(EXTRA_REFERRAL))) {
       twitterUser=twitter.verifyCredentials();
     }
  else {

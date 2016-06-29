@@ -1,5 +1,0 @@
-{
-  mErrorContainer.setVisibility(View.GONE);
-  mProgressContainer.setVisibility(View.GONE);
-  mSwipeRefreshLayout.setVisibility(View.VISIBLE);
-}

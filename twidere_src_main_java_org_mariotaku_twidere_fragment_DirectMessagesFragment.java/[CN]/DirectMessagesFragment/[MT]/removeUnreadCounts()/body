@@ -1,5 +1,0 @@
-{
-  if (mRemoveUnreadCountsTask != null && mRemoveUnreadCountsTask.getStatus() == AsyncTask.Status.RUNNING)   return;
-  mRemoveUnreadCountsTask=new RemoveUnreadCountsTask(mReadPositions,this);
-  AsyncTaskUtils.executeTask(mRemoveUnreadCountsTask);
-}

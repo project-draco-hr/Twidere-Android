@@ -1,3 +1,0 @@
-{
-  return Filters.Sources.CONTENT_URI;
-}

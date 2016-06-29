@@ -1,8 +1,0 @@
-{
-  final StatusAdapter adapter=(StatusAdapter)recyclerView.getAdapter();
-  int skipped=0;
-  if (!adapter.isConversationsLoading()) {
-    skipped+=adapter.getTypeCount(StatusAdapter.ITEM_IDX_CONVERSATION_LOAD_MORE);
-  }
-  return skipped;
-}

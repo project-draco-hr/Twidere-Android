@@ -1,5 +1,5 @@
 {
-  final AsyncTwitterWrapper twitter=mTwitterWrapper;
+  final AsyncTwitterWrapper twitter=twitterWrapper;
   if (twitter == null)   return false;
   for (  final Draft item : list) {
     if (TextUtils.isEmpty(item.action_type)) {

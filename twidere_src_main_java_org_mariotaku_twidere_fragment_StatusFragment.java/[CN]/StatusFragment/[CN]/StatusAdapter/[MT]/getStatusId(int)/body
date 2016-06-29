@@ -1,4 +1,0 @@
-{
-  final ParcelableStatus status=getStatus(position);
-  return status != null ? status.id : null;
-}

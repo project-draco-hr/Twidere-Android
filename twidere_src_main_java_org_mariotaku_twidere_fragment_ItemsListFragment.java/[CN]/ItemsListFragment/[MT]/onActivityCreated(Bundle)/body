@@ -1,7 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  registerForContextMenu(getRecyclerView());
-  getLoaderManager().initLoader(0,null,this);
-  setRefreshEnabled(false);
-  showContent();
-}

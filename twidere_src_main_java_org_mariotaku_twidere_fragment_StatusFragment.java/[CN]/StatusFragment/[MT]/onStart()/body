@@ -1,6 +1,0 @@
-{
-  super.onStart();
-  mBus.register(this);
-  mRecyclerView.addOnScrollListener(mScrollListener);
-  mRecyclerView.setOnTouchListener(mScrollListener.getOnTouchListener());
-}

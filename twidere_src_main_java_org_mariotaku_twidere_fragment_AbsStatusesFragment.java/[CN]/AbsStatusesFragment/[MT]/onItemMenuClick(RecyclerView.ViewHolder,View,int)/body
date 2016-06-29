@@ -1,7 +1,0 @@
-{
-  if (getActivity() == null)   return;
-  final LinearLayoutManager lm=getLayoutManager();
-  final View view=lm.findViewByPosition(position);
-  if (view == null)   return;
-  getRecyclerView().showContextMenuForChild(view);
-}

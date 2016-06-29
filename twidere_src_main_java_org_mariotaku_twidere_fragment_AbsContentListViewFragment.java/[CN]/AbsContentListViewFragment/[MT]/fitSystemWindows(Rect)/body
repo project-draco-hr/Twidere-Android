@@ -1,7 +1,0 @@
-{
-  mListView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  mErrorContainer.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  mProgressContainer.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  mSystemWindowsInsets.set(insets);
-  updateRefreshProgressOffset();
-}

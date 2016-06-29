@@ -1,8 +1,0 @@
-{
-  mUser=null;
-  mRelationship=null;
-  final LoaderManager lm=getLoaderManager();
-  lm.destroyLoader(LOADER_ID_USER);
-  lm.destroyLoader(LOADER_ID_FRIENDSHIP);
-  super.onDestroyView();
-}

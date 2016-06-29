@@ -1,3 +1,0 @@
-{
-  return getSupportFragmentManager().findFragmentById(android.R.id.content);
-}

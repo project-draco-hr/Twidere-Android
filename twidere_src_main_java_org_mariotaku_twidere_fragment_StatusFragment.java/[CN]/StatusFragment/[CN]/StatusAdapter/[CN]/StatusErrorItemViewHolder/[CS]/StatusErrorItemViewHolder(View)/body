@@ -1,6 +1,0 @@
-{
-  super(itemView);
-  textView=(TextView)itemView.findViewById(android.R.id.text1);
-  textView.setMovementMethod(LinkMovementMethod.getInstance());
-  textView.setLinksClickable(true);
-}

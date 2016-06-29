@@ -1,6 +1,6 @@
 {
   final ContentValues values=new ContentValues();
-  final ParcelableStatus status=ParcelableActivityUtils.getActivityStatus(activity);
+  final ParcelableStatus status=ParcelableActivityExtensionsKt.getActivityStatus(activity);
   activity.account_color=credentials.color;
   if (status != null) {
     ParcelableStatusUtils.updateExtraInformation(status,credentials,manager);

@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   mResolver=getContentResolver();
-  mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));
+  mTextSize=preferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));
   mAdapter=new DraftsAdapter(getActivity());
   mListView.setAdapter(mAdapter);
   mListView.setEmptyView(mEmptyView);

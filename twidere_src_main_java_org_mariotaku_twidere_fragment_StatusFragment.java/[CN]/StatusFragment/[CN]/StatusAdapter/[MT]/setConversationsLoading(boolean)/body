@@ -1,9 +1,0 @@
-{
-  if (loading) {
-    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() | IndicatorPosition.START);
-  }
- else {
-    setLoadMoreIndicatorPosition(getLoadMoreIndicatorPosition() & ~IndicatorPosition.START);
-  }
-  updateItemDecoration();
-}

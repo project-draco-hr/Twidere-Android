@@ -2,13 +2,13 @@
   super.onViewCreated(view,savedInstanceState);
   mNavigationView=(NavigationView)view.findViewById(R.id.navigation_view);
   mAccountSelectorView=mNavigationView.getHeaderView(0);
-  mAccountsSelector=(RecyclerView)mAccountSelectorView.findViewById(R.id.other_accounts_list);
-  mAccountProfileContainer=mAccountSelectorView.findViewById(R.id.profile_container);
-  mNoAccountContainer=mAccountSelectorView.findViewById(R.id.no_account_container);
-  mAccountProfileImageView=(ShapedImageView)mAccountSelectorView.findViewById(R.id.profile_image);
-  mAccountProfileBannerView=(ViewSwitcher)mAccountSelectorView.findViewById(R.id.account_profile_banner);
-  mFloatingProfileImageSnapshotView=(ImageView)mAccountSelectorView.findViewById(R.id.floating_profile_image_snapshot);
+  mAccountsSelector=(RecyclerView)mAccountSelectorView.findViewById(R.id.otherAccountsList);
+  mAccountProfileContainer=mAccountSelectorView.findViewById(R.id.profileContainer);
+  mNoAccountContainer=mAccountSelectorView.findViewById(R.id.noAccountContainer);
+  mAccountProfileImageView=(ShapedImageView)mAccountSelectorView.findViewById(R.id.profileImage);
+  mAccountProfileBannerView=(ViewSwitcher)mAccountSelectorView.findViewById(R.id.accountProfileBanner);
+  mFloatingProfileImageSnapshotView=(ImageView)mAccountSelectorView.findViewById(R.id.floatingProfileImageSnapshot);
   mAccountProfileNameView=(TextView)mAccountSelectorView.findViewById(R.id.name);
-  mAccountProfileScreenNameView=(TextView)mAccountSelectorView.findViewById(R.id.screen_name);
-  mAccountsToggleMenu=(ActionMenuView)mAccountSelectorView.findViewById(R.id.account_dashboard_menu);
+  mAccountProfileScreenNameView=(TextView)mAccountSelectorView.findViewById(R.id.screenName);
+  mAccountsToggleMenu=(ActionMenuView)mAccountSelectorView.findViewById(R.id.accountDashboardMenu);
 }

@@ -1,8 +1,0 @@
-{
-  final Context context=getContext();
-  if (context == null)   return;
-  final ParcelableStatusesAdapter adapter=getAdapter();
-  final ParcelableStatus status=adapter.getStatus(position);
-  if (status == null)   return;
-  handleStatusActionClick(context,getFragmentManager(),mTwitterWrapper,(StatusViewHolder)holder,status,id);
-}

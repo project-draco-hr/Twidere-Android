@@ -1,6 +1,0 @@
-{
-  mBannerWidth=w;
-  if (w != oldw || h != oldh) {
-    requestFitSystemWindows();
-  }
-}

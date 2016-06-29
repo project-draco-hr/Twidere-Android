@@ -4,5 +4,5 @@
   mActivity=activity;
   mInflater=activity.getLayoutInflater();
   mSelection=new HashMap<>();
-  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
+  mNameFirst=preferences.getBoolean(KEY_NAME_FIRST);
 }

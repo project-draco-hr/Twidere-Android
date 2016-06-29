@@ -1,4 +1,0 @@
-{
-  adapter.showCardActions(RecyclerView.NO_POSITION);
-  return !adapter.isCardActionsShown(RecyclerView.NO_POSITION);
-}

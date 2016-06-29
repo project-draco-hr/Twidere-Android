@@ -1,5 +1,0 @@
-String cardName
-ParcelableMedia[] media
-ParcelableLocation location
-String placeFullName
-boolean sensitive

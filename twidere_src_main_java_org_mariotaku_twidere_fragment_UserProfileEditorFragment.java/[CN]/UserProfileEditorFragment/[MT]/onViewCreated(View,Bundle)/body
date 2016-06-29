@@ -3,7 +3,7 @@
   mProgressContainer=view.findViewById(R.id.progress_container);
   mEditProfileContent=view.findViewById(R.id.edit_profile_content);
   mProfileImageView=(ImageView)view.findViewById(R.id.profile_image);
-  mProfileBannerView=(ImageView)view.findViewById(R.id.profile_banner);
+  mProfileBannerView=(ImageView)view.findViewById(R.id.profileBanner);
   mProfileBackgroundView=(ImageView)view.findViewById(R.id.profile_background);
   mEditName=(MaterialEditText)view.findViewById(R.id.name);
   mEditDescription=(MaterialEditText)view.findViewById(R.id.description);

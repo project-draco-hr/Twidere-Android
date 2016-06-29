@@ -1,9 +1,0 @@
-{
-  mFactor=f;
-  final int shadowAlpha=Math.round(mAlpha * TwidereMathUtils.clamp(1 - f,0,1));
-  mShadowDrawable.setAlpha(shadowAlpha);
-  final boolean hasColor=mColor != 0;
-  final int colorAlpha=hasColor ? Math.round(mAlpha * TwidereMathUtils.clamp(f,0,1)) : 0;
-  mColorDrawable.setAlpha(colorAlpha);
-  invalidateSelf();
-}

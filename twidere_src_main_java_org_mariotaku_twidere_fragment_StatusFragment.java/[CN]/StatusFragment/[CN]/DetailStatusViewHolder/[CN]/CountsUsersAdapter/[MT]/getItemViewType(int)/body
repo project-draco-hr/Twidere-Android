@@ -1,7 +1,0 @@
-{
-  final int countItemsCount=getCountItemsCount();
-  if (position < countItemsCount) {
-    return ITEM_VIEW_TYPE_COUNT;
-  }
-  return ITEM_VIEW_TYPE_USER;
-}

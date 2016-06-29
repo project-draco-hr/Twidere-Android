@@ -1,6 +1,6 @@
 {
   super.onResume();
-  final float text_size=mPreferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));
+  final float text_size=preferences.getInt(KEY_TEXT_SIZE,getDefaultTextSize(getActivity()));
   mAdapter.setTextSize(text_size);
   if (mTextSize != text_size) {
     mTextSize=text_size;

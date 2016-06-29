@@ -1,3 +1,0 @@
-{
-  return Activities.DEFAULT_SORT_ORDER;
-}

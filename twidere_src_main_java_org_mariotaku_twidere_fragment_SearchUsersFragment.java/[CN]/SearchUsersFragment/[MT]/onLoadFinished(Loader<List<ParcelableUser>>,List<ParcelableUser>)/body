@@ -1,6 +1,0 @@
-{
-  super.onLoadFinished(loader,data);
-  if (loader instanceof UserSearchLoader) {
-    mPage=((UserSearchLoader)loader).getPage();
-  }
-}

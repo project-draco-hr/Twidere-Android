@@ -6,7 +6,7 @@ case R.id.profile_image:
 {
       break;
     }
-case R.id.profile_banner:
+case R.id.profileBanner:
 {
     break;
   }

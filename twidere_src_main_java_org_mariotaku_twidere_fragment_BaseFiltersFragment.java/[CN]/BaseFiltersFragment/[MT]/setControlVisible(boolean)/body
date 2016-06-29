@@ -1,3 +1,0 @@
-{
-  super.setControlVisible(visible || !isQuickReturnEnabled());
-}

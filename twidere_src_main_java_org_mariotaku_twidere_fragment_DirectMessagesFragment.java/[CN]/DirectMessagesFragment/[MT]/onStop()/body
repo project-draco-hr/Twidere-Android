@@ -1,6 +1,0 @@
-{
-  mBus.unregister(this);
-  final ContentResolver resolver=getContentResolver();
-  resolver.unregisterContentObserver(mReloadContentObserver);
-  super.onStop();
-}

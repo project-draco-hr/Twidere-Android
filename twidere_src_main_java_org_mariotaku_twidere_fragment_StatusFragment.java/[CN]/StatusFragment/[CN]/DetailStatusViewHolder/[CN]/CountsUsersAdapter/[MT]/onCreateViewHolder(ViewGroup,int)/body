@@ -1,9 +1,0 @@
-{
-switch (viewType) {
-case ITEM_VIEW_TYPE_USER:
-    return new ProfileImageViewHolder(this,mInflater.inflate(R.layout.adapter_item_status_interact_user,parent,false));
-case ITEM_VIEW_TYPE_COUNT:
-  return new CountViewHolder(this,mInflater.inflate(R.layout.adapter_item_status_count_label,parent,false));
-}
-throw new UnsupportedOperationException("Unsupported viewType " + viewType);
-}

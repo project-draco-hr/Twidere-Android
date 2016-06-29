@@ -1,5 +1,0 @@
-{
-  final Context context=getActivity();
-  if (context == null)   return;
-  replaceStatusStates(status);
-}

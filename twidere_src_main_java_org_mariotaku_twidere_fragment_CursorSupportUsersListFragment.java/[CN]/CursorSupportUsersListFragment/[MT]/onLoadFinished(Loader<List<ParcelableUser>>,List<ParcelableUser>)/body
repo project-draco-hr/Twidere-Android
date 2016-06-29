@@ -1,7 +1,0 @@
-{
-  super.onLoadFinished(loader,data);
-  final CursorSupportUsersLoader cursorLoader=(CursorSupportUsersLoader)loader;
-  mNextCursor=cursorLoader.getNextCursor();
-  mPrevCursor=cursorLoader.getPrevCursor();
-  mNextPage=cursorLoader.getNextPage();
-}

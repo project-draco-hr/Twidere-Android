@@ -1,4 +1,0 @@
-{
-  if (list == null || list.isEmpty())   return false;
-  return (!TextUtils.equals(mLastId,mLastId=list.get(list.size() - 1).id));
-}

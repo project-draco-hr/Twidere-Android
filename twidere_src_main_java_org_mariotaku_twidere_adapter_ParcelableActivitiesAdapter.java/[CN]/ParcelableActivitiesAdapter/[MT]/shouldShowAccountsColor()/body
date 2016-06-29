@@ -1,3 +1,0 @@
-{
-  return mStatusAdapterDelegate.shouldShowAccountsColor();
-}

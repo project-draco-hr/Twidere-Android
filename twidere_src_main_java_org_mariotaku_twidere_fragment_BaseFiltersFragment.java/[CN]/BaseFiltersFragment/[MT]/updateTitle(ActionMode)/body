@@ -1,6 +1,0 @@
-{
-  final ListView listView=getListView();
-  if (listView == null || mode == null || getActivity() == null)   return;
-  final int count=listView.getCheckedItemCount();
-  mode.setTitle(getResources().getQuantityString(R.plurals.Nitems_selected,count,count));
-}

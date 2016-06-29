@@ -1,3 +1,0 @@
-{
-  return Filters.Keywords.CONTENT_URI;
-}

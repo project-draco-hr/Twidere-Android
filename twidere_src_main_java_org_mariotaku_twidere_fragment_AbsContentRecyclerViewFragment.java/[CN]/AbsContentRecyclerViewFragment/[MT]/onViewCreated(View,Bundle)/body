@@ -1,7 +1,0 @@
-{
-  super.onViewCreated(view,savedInstanceState);
-  mProgressContainer=view.findViewById(R.id.progress_container);
-  mSwipeRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipe_layout);
-  mRecyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
-  mErrorContainer=view.findViewById(R.id.error_container);
-}

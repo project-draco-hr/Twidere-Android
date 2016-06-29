@@ -1,4 +1,0 @@
-{
-  final int paddingVertical=getResources().getDimensionPixelSize(R.dimen.element_spacing_small);
-  return new Rect(0,paddingVertical,0,paddingVertical);
-}

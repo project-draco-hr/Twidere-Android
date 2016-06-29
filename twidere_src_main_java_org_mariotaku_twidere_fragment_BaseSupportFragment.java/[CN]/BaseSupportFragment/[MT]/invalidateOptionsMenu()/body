@@ -1,5 +1,0 @@
-{
-  final FragmentActivity activity=getActivity();
-  if (activity == null)   return;
-  activity.supportInvalidateOptionsMenu();
-}

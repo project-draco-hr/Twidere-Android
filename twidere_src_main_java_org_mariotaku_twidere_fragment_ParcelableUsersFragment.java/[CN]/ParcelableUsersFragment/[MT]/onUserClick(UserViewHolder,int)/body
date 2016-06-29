@@ -1,5 +1,0 @@
-{
-  final ParcelableUser user=getAdapter().getUser(position);
-  final FragmentActivity activity=getActivity();
-  IntentUtils.openUserProfile(activity,user,null,mPreferences.getBoolean(KEY_NEW_DOCUMENT_API),getUserReferral());
-}

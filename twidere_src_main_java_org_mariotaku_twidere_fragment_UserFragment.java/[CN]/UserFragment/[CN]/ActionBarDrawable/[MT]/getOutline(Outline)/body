@@ -1,4 +1,0 @@
-{
-  mColorDrawable.getOutline(outline);
-  outline.setAlpha(mFactor * mOutlineAlphaFactor * 0.99f);
-}

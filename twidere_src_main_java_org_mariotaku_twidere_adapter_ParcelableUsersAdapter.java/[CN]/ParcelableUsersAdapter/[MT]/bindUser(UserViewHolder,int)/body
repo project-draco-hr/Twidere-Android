@@ -1,3 +1,0 @@
-{
-  holder.displayUser(getUser(position));
-}

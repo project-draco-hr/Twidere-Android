@@ -1,3 +1,0 @@
-{
-  return Filters.Users.CONTENT_URI;
-}

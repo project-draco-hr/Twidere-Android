@@ -1,7 +1,0 @@
-{
-  int dataPosition=adapterPosition - getUserStartIndex();
-  if (dataPosition < 0 || dataPosition >= getUserCount())   return false;
-  mData.remove(dataPosition);
-  notifyItemRemoved(adapterPosition);
-  return true;
-}

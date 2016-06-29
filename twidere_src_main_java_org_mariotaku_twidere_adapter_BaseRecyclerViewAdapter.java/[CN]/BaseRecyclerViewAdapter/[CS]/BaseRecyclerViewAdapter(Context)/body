@@ -1,4 +1,0 @@
-{
-  mContext=context;
-  GeneralComponentHelper.build(context).inject((BaseRecyclerViewAdapter<RecyclerView.ViewHolder>)this);
-}

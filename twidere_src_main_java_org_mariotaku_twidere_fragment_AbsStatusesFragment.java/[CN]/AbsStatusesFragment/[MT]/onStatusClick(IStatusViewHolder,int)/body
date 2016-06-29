@@ -1,4 +1,0 @@
-{
-  final ParcelableStatusesAdapter adapter=getAdapter();
-  IntentUtils.openStatus(getActivity(),adapter.getStatus(position),null);
-}

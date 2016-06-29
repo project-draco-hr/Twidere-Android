@@ -1,4 +1,0 @@
-{
-  updateTitle(mode);
-  return true;
-}

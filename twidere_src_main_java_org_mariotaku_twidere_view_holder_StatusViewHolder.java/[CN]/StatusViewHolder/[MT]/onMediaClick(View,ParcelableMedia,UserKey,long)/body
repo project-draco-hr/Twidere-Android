@@ -1,5 +1,0 @@
-{
-  if (statusClickListener == null)   return;
-  final int position=getLayoutPosition();
-  statusClickListener.onMediaClick(this,view,media,position);
-}

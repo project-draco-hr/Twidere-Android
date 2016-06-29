@@ -1,8 +1,0 @@
-{
-  ParcelableMedia current=getCurrentMedia(link,(int)extraId);
-  if (current != null && !current.open_browser) {
-    expandOrOpenMedia(current);
-    return true;
-  }
-  return super.onLinkClick(link,orig,accountKey,extraId,type,sensitive,start,end);
-}

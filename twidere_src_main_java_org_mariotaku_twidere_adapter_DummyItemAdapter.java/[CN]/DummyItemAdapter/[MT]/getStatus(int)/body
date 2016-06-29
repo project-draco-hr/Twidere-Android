@@ -1,9 +1,0 @@
-{
-  if (adapter instanceof ParcelableStatusesAdapter) {
-    return ((ParcelableStatusesAdapter)adapter).getStatus(position);
-  }
- else   if (adapter instanceof VariousItemsAdapter) {
-    return (ParcelableStatus)((VariousItemsAdapter)adapter).getItem(position);
-  }
-  return null;
-}

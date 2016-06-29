@@ -1,5 +1,0 @@
-{
-  final UserKey[] accountKeys=Utils.getAccountKeys(getContext(),getArguments());
-  if (accountKeys == null)   return new UserKey[0];
-  return accountKeys;
-}

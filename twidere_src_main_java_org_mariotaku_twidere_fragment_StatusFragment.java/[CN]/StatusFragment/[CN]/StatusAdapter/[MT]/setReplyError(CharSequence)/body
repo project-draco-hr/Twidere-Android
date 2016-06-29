@@ -1,5 +1,0 @@
-{
-  mReplyError=error;
-  setTypeCount(ITEM_IDX_REPLY_ERROR,error != null ? 1 : 0);
-  updateItemDecoration();
-}

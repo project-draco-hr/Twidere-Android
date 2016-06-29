@@ -1,4 +1,0 @@
-{
-  if (mCounts == null)   return 0;
-  return mCounts.size();
-}

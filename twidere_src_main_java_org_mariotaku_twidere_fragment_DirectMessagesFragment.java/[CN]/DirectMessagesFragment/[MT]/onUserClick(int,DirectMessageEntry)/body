@@ -1,3 +1,0 @@
-{
-  IntentUtils.openUserProfile(getActivity(),entry.account_key,UserKey.valueOf(entry.conversation_id),entry.screen_name,null,mPreferences.getBoolean(KEY_NEW_DOCUMENT_API),null);
-}

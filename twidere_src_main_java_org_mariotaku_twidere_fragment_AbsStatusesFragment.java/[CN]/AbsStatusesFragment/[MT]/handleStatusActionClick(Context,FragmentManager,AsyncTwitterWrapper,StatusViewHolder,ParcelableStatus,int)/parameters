@@ -1,6 +1,0 @@
-Context context
-FragmentManager fm
-AsyncTwitterWrapper twitter
-StatusViewHolder holder
-ParcelableStatus status
-int id

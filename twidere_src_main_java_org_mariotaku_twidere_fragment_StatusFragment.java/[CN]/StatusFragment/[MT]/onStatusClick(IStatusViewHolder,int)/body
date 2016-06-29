@@ -1,3 +1,0 @@
-{
-  IntentUtils.openStatus(getActivity(),mStatusAdapter.getStatus(position),null);
-}

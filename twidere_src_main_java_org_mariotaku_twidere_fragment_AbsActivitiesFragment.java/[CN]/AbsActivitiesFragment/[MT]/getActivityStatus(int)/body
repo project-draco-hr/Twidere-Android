@@ -1,6 +1,0 @@
-{
-  final ParcelableActivitiesAdapter adapter=getAdapter();
-  final ParcelableActivity activity=adapter.getActivity(position);
-  if (activity == null)   return null;
-  return ParcelableActivityUtils.getActivityStatus(activity);
-}

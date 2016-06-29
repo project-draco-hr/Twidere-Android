@@ -1,4 +1,0 @@
-{
-  setLoadMoreIndicatorPosition(position);
-  setRefreshEnabled(position == IndicatorPosition.NONE);
-}

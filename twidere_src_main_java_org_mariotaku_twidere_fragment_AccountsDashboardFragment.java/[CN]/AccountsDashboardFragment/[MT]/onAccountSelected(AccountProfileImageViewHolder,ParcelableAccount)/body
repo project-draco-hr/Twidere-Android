@@ -34,7 +34,7 @@
       clickedColors=clickedImageView.getBorderColors();
       final ParcelableAccount oldSelectedAccount=mAccountsAdapter.getSelectedAccount();
       if (oldSelectedAccount == null)       return;
-      mMediaLoader.displayDashboardProfileImage(clickedImageView,oldSelectedAccount,profileDrawable);
+      mediaLoader.displayDashboardProfileImage(clickedImageView,oldSelectedAccount,profileDrawable);
       clickedImageView.setBorderColors(profileImageView.getBorderColors());
       displayAccountBanner(account);
       mSwitchAccountAnimationPlaying=true;
@@ -48,7 +48,7 @@
     @Override public void onAnimationRepeat(    Animator animation){
     }
     private void finishAnimation(){
-      final Editor editor=mPreferences.edit();
+      final Editor editor=preferences.edit();
       editor.putString(KEY_DEFAULT_ACCOUNT_KEY,account.account_key.toString());
       editor.apply();
       mAccountsAdapter.setSelectedAccount(account);

@@ -4,7 +4,7 @@
 switch (item.getItemId()) {
 case R.id.delete:
 {
-        mTwitterWrapper.destroyDirectMessageAsync(message.account_key,message.id);
+        twitterWrapper.destroyDirectMessageAsync(message.account_key,message.id);
         break;
       }
 case R.id.copy:

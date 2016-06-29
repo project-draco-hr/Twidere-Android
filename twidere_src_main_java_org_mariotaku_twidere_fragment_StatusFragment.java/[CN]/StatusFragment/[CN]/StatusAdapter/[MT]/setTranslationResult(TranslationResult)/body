@@ -1,9 +1,0 @@
-{
-  if (mStatus == null || translation == null || !TextUtils.equals(InternalTwitterContentUtils.getOriginalId(mStatus),translation.getId())) {
-    mTranslationResult=null;
-  }
- else {
-    mTranslationResult=translation;
-  }
-  notifyDataSetChanged();
-}

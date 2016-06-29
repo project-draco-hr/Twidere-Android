@@ -1,9 +1,0 @@
-{
-  super.onStart();
-  final ContentResolver resolver=getContentResolver();
-  resolver.registerContentObserver(Accounts.CONTENT_URI,true,mReloadContentObserver);
-  mBus.register(this);
-  final MessageEntriesAdapter adapter=getAdapter();
-  adapter.updateReadState();
-  updateRefreshState();
-}

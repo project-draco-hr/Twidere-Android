@@ -1,3 +1,0 @@
-{
-  return Filters.Links.CONTENT_URI;
-}

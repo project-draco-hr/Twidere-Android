@@ -1,3 +1,0 @@
-{
-  mScrollHandler.handleScrollStateChanged(newState,RecyclerView.SCROLL_STATE_IDLE);
-}

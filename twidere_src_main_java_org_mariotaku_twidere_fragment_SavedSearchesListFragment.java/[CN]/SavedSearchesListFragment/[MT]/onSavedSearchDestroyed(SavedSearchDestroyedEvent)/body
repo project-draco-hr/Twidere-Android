@@ -1,4 +1,0 @@
-{
-  SavedSearchesAdapter adapter=getAdapter();
-  adapter.removeItem(event.getAccountKey(),event.getSearchId());
-}

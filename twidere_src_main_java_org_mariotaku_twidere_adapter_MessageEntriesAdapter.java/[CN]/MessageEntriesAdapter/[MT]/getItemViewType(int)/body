@@ -1,9 +1,0 @@
-{
-  if ((getLoadMoreIndicatorPosition() & IndicatorPosition.START) != 0 && position == 0) {
-    return ITEM_VIEW_TYPE_LOAD_INDICATOR;
-  }
-  if (position == getMessagesCount()) {
-    return ITEM_VIEW_TYPE_LOAD_INDICATOR;
-  }
-  return ITEM_VIEW_TYPE_MESSAGE;
-}

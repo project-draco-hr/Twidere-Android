@@ -1,3 +1,0 @@
-{
-  return mNavigationHelper.handleKeyboardShortcutRepeat(handler,keyCode,repeatCount,event,metaState);
-}

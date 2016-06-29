@@ -1,8 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  final ListView listView=getListView();
-  listView.setOnItemClickListener(this);
-  listView.setOnItemLongClickListener(this);
-  getLoaderManager().initLoader(0,null,this);
-  showProgress();
-}

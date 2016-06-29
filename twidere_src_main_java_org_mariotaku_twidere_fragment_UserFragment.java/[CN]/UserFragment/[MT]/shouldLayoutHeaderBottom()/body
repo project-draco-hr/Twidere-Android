@@ -1,6 +1,0 @@
-{
-  final HeaderDrawerLayout drawer=mHeaderDrawerLayout;
-  final View card=mProfileDetailsContainer;
-  if (drawer == null || card == null)   return false;
-  return card.getTop() + drawer.getHeaderTop() - drawer.getPaddingTop() <= 0;
-}

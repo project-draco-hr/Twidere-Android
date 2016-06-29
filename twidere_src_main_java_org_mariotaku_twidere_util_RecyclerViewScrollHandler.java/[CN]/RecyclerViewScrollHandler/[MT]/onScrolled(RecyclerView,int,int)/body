@@ -1,5 +1,0 @@
-{
-  final int scrollState=recyclerView.getScrollState();
-  mScrollHandler.handleScroll(dy,scrollState,mOldState,RecyclerView.SCROLL_STATE_IDLE);
-  mOldState=scrollState;
-}

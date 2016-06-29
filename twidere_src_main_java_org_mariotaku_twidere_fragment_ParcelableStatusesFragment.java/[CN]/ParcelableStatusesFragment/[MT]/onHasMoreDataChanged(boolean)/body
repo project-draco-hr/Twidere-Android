@@ -1,3 +1,0 @@
-{
-  mPageDelta=hasMoreData ? 1 : 0;
-}

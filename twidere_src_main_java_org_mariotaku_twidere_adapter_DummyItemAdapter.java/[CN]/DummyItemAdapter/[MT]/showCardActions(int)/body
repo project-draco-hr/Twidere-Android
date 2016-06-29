@@ -1,9 +1,0 @@
-{
-  if (showingActionCardPosition != RecyclerView.NO_POSITION && adapter != null) {
-    adapter.notifyItemChanged(showingActionCardPosition);
-  }
-  showingActionCardPosition=position;
-  if (position != RecyclerView.NO_POSITION && adapter != null) {
-    adapter.notifyItemChanged(position);
-  }
-}

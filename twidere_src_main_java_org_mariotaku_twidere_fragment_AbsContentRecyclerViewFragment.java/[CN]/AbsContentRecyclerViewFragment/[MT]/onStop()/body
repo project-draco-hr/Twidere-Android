@@ -1,4 +1,0 @@
-{
-  mRecyclerView.removeOnScrollListener(mScrollListener);
-  super.onStop();
-}

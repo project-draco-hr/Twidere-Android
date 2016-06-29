@@ -1,6 +1,0 @@
-{
-  if (savedInstanceState != null) {
-    mPage=savedInstanceState.getInt(EXTRA_PAGE,1);
-  }
-  super.onActivityCreated(savedInstanceState);
-}
