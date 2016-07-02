@@ -1,3 +1,0 @@
-{
-  return microBlog.getRetweetsOfMe(paging);
-}

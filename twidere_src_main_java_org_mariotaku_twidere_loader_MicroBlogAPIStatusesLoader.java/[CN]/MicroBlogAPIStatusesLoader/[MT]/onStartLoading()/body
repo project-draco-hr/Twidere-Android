@@ -1,4 +1,0 @@
-{
-  mException.set(null);
-  super.onStartLoading();
-}

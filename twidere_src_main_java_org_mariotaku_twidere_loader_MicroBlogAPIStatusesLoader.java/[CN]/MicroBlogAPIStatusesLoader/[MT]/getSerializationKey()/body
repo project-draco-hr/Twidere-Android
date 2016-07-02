@@ -1,4 +1,0 @@
-{
-  if (mSavedStatusesFileArgs == null)   return null;
-  return TwidereArrayUtils.toString(mSavedStatusesFileArgs,'_',false);
-}

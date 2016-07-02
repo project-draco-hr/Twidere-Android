@@ -1,5 +1,0 @@
-{
-  final List<ParcelableStatus> data=getData();
-  if (data != null)   return ListResponse.getListInstance(data);
-  return ListResponse.emptyListInstance();
-}

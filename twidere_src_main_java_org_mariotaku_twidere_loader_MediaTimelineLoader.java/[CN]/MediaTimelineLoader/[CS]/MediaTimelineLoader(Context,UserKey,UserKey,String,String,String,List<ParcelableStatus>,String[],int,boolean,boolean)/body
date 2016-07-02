@@ -1,5 +1,0 @@
-{
-  super(context,accountKey,sinceId,maxId,-1,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
-  mUserKey=userKey;
-  mUserScreenName=screenName;
-}

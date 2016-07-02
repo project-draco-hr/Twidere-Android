@@ -1,7 +1,0 @@
-{
-  final String key=getSerializationKey();
-  if (key == null)   return null;
-  final File file=mFileCache.get(key);
-  if (file == null)   return null;
-  return JsonSerializer.parseList(file,ParcelableStatus.class);
-}
