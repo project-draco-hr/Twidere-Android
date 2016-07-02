@@ -1,4 +1,4 @@
 {
   this.listener=listener;
-  itemView.findViewById(R.id.item_content).setOnClickListener(this);
+  itemView.findViewById(R.id.itemContent).setOnClickListener(this);
 }

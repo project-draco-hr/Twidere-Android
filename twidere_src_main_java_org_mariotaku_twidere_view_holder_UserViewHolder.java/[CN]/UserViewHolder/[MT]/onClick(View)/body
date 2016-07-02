@@ -1,6 +1,6 @@
 {
 switch (v.getId()) {
-case R.id.item_content:
+case R.id.itemContent:
 {
       if (userClickListener == null)       return;
       userClickListener.onUserClick(this,getLayoutPosition());

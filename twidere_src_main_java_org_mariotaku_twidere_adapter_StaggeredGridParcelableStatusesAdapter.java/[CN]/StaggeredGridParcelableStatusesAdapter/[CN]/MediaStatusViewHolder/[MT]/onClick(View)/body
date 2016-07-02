@@ -1,7 +1,7 @@
 {
   if (listener == null)   return;
 switch (v.getId()) {
-case R.id.item_content:
+case R.id.itemContent:
 {
       listener.onStatusClick(this,getLayoutPosition());
       break;

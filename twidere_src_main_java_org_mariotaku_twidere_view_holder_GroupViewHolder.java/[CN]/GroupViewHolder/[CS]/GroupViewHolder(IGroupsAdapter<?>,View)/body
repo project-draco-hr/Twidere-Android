@@ -1,6 +1,6 @@
 {
   super(itemView);
-  itemContent=(IColorLabelView)itemView.findViewById(R.id.item_content);
+  itemContent=(IColorLabelView)itemView.findViewById(R.id.itemContent);
   this.adapter=adapter;
   profileImageView=(ImageView)itemView.findViewById(R.id.profileImage);
   nameView=(NameView)itemView.findViewById(R.id.name);
