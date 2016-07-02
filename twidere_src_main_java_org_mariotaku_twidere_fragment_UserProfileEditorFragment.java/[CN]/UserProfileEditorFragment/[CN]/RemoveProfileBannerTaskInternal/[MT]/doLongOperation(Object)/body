@@ -1,3 +1,0 @@
-{
-  return TwitterWrapper.deleteProfileBannerImage(getActivity(),mAccountKey);
-}

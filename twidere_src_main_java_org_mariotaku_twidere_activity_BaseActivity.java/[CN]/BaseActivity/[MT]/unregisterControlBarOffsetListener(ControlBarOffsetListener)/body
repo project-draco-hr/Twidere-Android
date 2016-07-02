@@ -1,3 +1,0 @@
-{
-  mControlBarOffsetListeners.remove(listener);
-}

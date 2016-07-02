@@ -1,5 +1,0 @@
-{
-  Collections.swap(mData,fromPosition,toPosition);
-  notifyItemMoved(fromPosition,toPosition);
-  return true;
-}

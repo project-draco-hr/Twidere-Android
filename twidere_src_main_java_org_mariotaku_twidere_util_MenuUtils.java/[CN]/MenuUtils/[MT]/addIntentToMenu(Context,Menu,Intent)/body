@@ -1,3 +1,0 @@
-{
-  addIntentToMenu(context,menu,queryIntent,Menu.NONE);
-}

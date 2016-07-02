@@ -1,3 +1,0 @@
-{
-  mAddImageButton.setActivated(mImageUri != null);
-}

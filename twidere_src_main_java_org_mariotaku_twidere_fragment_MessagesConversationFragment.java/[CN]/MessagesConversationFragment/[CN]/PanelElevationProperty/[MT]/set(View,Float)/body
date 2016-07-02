@@ -1,3 +1,0 @@
-{
-  ViewCompat.setTranslationZ(object,mElevation * value);
-}

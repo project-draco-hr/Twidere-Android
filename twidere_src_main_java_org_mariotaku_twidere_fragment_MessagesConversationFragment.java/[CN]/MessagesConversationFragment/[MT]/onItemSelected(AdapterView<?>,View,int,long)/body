@@ -1,8 +1,0 @@
-{
-  final ParcelableCredentials account=(ParcelableCredentials)mAccountSpinner.getSelectedItem();
-  if (account != null) {
-    mAccount=account;
-    updateRecipientInfo();
-    updateAccount();
-  }
-}

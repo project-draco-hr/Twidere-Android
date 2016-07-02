@@ -1,6 +1,0 @@
-{
-  final SharedPreferences preferences=getSharedPreferences();
-  if (!preferences.getBoolean(KEY_BUG_REPORTS,BuildConfig.DEBUG))   return;
-  BugReporter.setImplementation(new TwidereBugReporter());
-  BugReporter.init(this);
-}

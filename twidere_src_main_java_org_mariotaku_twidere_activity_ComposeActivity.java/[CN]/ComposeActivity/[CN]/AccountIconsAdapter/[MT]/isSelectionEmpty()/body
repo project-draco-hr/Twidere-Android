@@ -1,3 +1,0 @@
-{
-  return getSelectedAccountKeys().length == 0;
-}

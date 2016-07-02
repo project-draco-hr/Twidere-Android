@@ -1,4 +1,0 @@
-{
-  this.activityRef=new WeakReference<>(activity);
-  this.media=activity.getMediaList();
-}

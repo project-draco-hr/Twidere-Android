@@ -1,8 +1,0 @@
-{
-  final Context context=getActivity();
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
-  builder.setMessage(R.string.delete_drafts_confirm);
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setNegativeButton(android.R.string.cancel,null);
-  return builder.create();
-}

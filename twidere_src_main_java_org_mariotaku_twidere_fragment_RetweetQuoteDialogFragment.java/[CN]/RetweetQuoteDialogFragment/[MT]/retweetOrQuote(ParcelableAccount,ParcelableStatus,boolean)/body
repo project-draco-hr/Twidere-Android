@@ -1,5 +1,5 @@
 {
-  AsyncTwitterWrapper twitter=mTwitterWrapper;
+  AsyncTwitterWrapper twitter=twitterWrapper;
   final Dialog dialog=getDialog();
   if (dialog == null || twitter == null)   return false;
   final EditText editComment=(EditText)dialog.findViewById(R.id.edit_comment);

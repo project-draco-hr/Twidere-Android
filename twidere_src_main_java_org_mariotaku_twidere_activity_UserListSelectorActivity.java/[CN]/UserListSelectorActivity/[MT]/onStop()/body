@@ -1,4 +1,4 @@
 {
-  mBus.unregister(this);
+  bus.unregister(this);
   super.onStop();
 }

@@ -1,5 +1,0 @@
-{
-  for (int i=0, j=mTabIndicator.getCount(); i < j; i++) {
-    mTabIndicator.setBadge(i,0);
-  }
-}

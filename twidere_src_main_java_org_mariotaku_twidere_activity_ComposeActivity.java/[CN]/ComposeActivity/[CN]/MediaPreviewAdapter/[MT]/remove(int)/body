@@ -1,7 +1,0 @@
-{
-  boolean result=super.remove(position);
-  if (result) {
-    ((ComposeActivity)getContext()).updateAttachedMediaView();
-  }
-  return result;
-}

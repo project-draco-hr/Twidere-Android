@@ -1,7 +1,0 @@
-{
-  if (data.getData() != null && data.getData().key != null) {
-    displayUser(data.getData());
-  }
- else   if (mUser == null) {
-  }
-}

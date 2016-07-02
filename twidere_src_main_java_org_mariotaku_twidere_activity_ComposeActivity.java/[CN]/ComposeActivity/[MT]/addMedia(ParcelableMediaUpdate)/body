@@ -1,4 +1,0 @@
-{
-  mMediaPreviewAdapter.add(media);
-  updateAttachedMediaView();
-}

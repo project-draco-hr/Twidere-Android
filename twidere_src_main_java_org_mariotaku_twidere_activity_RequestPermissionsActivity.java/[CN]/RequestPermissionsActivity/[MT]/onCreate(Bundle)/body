@@ -10,7 +10,7 @@
     finish();
     return;
   }
-  if (mPermissionsManager.isDenied(caller)) {
+  if (permissionsManager.isDenied(caller)) {
     setResult(RESULT_CANCELED);
     finish();
     return;

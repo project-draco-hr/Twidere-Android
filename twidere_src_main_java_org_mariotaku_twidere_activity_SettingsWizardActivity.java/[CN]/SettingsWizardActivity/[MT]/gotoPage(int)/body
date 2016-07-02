@@ -1,3 +1,0 @@
-{
-  mViewPager.setCurrentItem(TwidereMathUtils.clamp(page,0,getPageCount() - 1));
-}

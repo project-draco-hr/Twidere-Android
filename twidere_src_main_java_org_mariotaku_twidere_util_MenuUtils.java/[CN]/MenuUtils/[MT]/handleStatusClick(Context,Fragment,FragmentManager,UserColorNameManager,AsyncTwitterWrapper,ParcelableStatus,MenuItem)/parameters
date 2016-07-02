@@ -1,7 +1,0 @@
-Context context
-Fragment fragment
-FragmentManager fm
-UserColorNameManager colorNameManager
-AsyncTwitterWrapper twitter
-ParcelableStatus status
-MenuItem item

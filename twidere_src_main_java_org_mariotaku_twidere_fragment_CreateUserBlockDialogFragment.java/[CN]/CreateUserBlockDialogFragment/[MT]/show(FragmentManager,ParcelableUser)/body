@@ -1,8 +1,0 @@
-{
-  final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_USER,user);
-  final CreateUserBlockDialogFragment f=new CreateUserBlockDialogFragment();
-  f.setArguments(args);
-  f.show(fm,FRAGMENT_TAG);
-  return f;
-}

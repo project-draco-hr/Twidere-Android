@@ -1,5 +1,0 @@
-{
-  super.onPreExecute();
-  final ProgressDialogFragment f=ProgressDialogFragment.show(mActivity,FRAGMENT_TAG_DELETING_DRAFTS);
-  f.setCancelable(false);
-}

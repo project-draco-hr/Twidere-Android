@@ -1,5 +1,0 @@
-{
-  if (adapter == null)   return false;
-  adapter.onStartDrag(this);
-  return false;
-}

@@ -1,7 +1,0 @@
-{
-  super.onFitSystemWindows(insets);
-  final Fragment fragment=getLeftDrawerFragment();
-  if (fragment instanceof AccountsDashboardFragment) {
-    ((AccountsDashboardFragment)fragment).requestFitSystemWindows();
-  }
-}

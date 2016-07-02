@@ -1,4 +1,0 @@
-{
-  mData.get(position).alt_text=altText;
-  notifyDataSetChanged();
-}

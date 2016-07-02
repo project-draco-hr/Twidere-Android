@@ -1,5 +1,0 @@
-Context context
-UserKey accountKey
-Uri imageUri
-boolean tile
-boolean deleteImage

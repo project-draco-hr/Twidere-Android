@@ -1,5 +1,0 @@
-{
-  final Bundle args=getArguments();
-  if (!args.containsKey(EXTRA_USER_LIST))   return null;
-  return args.getParcelable(EXTRA_USER_LIST);
-}

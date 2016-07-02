@@ -1,5 +1,0 @@
-{
-  mode.getMenuInflater().inflate(R.menu.action_status_text_selection,menu);
-  mode.setTitle(android.R.string.selectTextMode);
-  return true;
-}

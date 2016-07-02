@@ -1,4 +1,0 @@
-{
-  if (mViewPager == null || mAdapter == null)   return;
-  gotoPage(getPageCount() - 2);
-}

@@ -2,7 +2,7 @@
   super(activity,null,0);
   mRemovedPositions=new SortableIntList();
   mActivity=activity;
-  mMediaLoader=activity.mMediaLoader;
-  mUserColorNameManager=activity.mUserColorNameManager;
+  mMediaLoader=activity.mediaLoader;
+  mUserColorNameManager=activity.userColorNameManager;
   mInflater=LayoutInflater.from(activity);
 }

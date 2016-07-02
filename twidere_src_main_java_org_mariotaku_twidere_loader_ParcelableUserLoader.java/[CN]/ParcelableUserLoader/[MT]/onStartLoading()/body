@@ -1,9 +1,0 @@
-{
-  if (!mOmitIntentExtra && mExtras != null) {
-    final ParcelableUser user=mExtras.getParcelable(EXTRA_USER);
-    if (user != null) {
-      deliverResult(SingleResponse.getInstance(user));
-    }
-  }
-  forceLoad();
-}

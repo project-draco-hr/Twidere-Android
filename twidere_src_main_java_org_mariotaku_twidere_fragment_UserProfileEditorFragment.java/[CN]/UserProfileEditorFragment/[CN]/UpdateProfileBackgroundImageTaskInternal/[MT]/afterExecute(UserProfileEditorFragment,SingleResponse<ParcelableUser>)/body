@@ -1,5 +1,0 @@
-{
-  super.afterExecute(callback,result);
-  setUpdateState(false);
-  getUserInfo();
-}

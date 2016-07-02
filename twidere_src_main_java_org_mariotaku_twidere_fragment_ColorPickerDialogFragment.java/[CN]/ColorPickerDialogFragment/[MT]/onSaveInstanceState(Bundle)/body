@@ -1,6 +1,0 @@
-{
-  if (mController != null) {
-    outState.putInt(EXTRA_COLOR,mController.getColor());
-  }
-  super.onSaveInstanceState(outState);
-}

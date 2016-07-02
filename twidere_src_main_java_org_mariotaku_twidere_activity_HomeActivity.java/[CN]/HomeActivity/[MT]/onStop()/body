@@ -1,9 +1,0 @@
-{
-  mMultiSelectHandler.dispatchOnStop();
-  mReadStateManager.unregisterOnSharedPreferenceChangeListener(mReadStateChangeListener);
-  mBus.unregister(this);
-  final ContentResolver resolver=getContentResolver();
-  resolver.unregisterContentObserver(mAccountChangeObserver);
-  mPreferences.edit().putInt(KEY_SAVED_TAB_POSITION,mViewPager.getCurrentItem()).apply();
-  super.onStop();
-}

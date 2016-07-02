@@ -1,6 +1,0 @@
-{
-  super.onResumeFragments();
-  if (mResumeFragmentsRunnable != null) {
-    mResumeFragmentsRunnable.run();
-  }
-}

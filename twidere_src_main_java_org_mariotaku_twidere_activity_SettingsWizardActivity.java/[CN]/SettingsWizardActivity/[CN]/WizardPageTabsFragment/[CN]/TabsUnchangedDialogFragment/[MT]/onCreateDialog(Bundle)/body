@@ -1,6 +1,0 @@
-{
-  final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-  builder.setMessage(R.string.wizard_page_tabs_unchanged_message);
-  builder.setPositiveButton(android.R.string.ok,this);
-  return builder.create();
-}

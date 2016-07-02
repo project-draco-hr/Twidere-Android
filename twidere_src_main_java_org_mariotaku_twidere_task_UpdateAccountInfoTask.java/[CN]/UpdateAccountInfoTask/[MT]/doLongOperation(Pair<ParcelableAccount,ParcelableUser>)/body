@@ -1,7 +1,7 @@
 {
   final ContentResolver resolver=context.getContentResolver();
-  final ParcelableAccount account=params.first;
-  final ParcelableUser user=params.second;
+  final ParcelableAccount account=params.getFirst();
+  final ParcelableUser user=params.getSecond();
   if (account == null || user == null)   return null;
   if (user.is_cache) {
     return null;

@@ -1,3 +1,0 @@
-{
-  return createDiskCache("files",preferences);
-}

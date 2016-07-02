@@ -1,6 +1,0 @@
-{
-  final Fragment f=(Fragment)mPagerAdapter.instantiateItem(mViewPager,position);
-  if (!(f instanceof RefreshScrollTopInterface))   return false;
-  if (f.getActivity() == null || f.isDetached())   return false;
-  return ((RefreshScrollTopInterface)f).triggerRefresh();
-}

@@ -1,5 +1,0 @@
-{
-  final ParcelableStatus status=mInReplyToStatus;
-  if (!isQuote() || status == null)   return false;
-  return status.user_is_protected && !status.account_key.equals(status.user_key);
-}

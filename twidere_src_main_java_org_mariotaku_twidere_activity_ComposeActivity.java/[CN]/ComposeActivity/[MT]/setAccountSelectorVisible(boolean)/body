@@ -1,3 +1,0 @@
-{
-  mAccountSelectorContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
-}

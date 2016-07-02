@@ -1,5 +1,0 @@
-{
-  DependencyHolder holder=DependencyHolder.get(this);
-  final TwidereDns dns=holder.getDns();
-  dns.reloadDnsSettings();
-}

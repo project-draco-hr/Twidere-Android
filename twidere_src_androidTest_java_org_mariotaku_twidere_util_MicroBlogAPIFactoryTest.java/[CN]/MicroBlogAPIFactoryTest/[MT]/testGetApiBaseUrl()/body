@@ -1,3 +1,0 @@
-{
-  assertEquals("https://media.twitter.com",MicroBlogAPIFactory.getApiBaseUrl("https://api.twitter.com","media"));
-}

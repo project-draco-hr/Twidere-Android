@@ -1,5 +1,0 @@
-{
-  if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING)   return;
-  mTask=new InitialTabSettingsTask(this);
-  AsyncTaskUtils.executeTask(mTask);
-}

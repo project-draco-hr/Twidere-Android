@@ -1,4 +1,0 @@
-{
-  if (handleKeyboardShortcutRepeat(mKeyboardShortcutsHandler,keyCode,event.getRepeatCount(),event,mKeyMetaState))   return true;
-  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event,mKeyMetaState) || super.onKeyDown(keyCode,event);
-}

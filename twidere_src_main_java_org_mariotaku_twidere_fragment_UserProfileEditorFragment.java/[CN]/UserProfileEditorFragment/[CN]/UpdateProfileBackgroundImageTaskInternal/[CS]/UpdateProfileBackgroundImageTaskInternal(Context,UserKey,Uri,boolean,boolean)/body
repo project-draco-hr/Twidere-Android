@@ -1,3 +1,0 @@
-{
-  super(context,accountKey,imageUri,tile,deleteImage);
-}

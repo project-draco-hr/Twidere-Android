@@ -1,5 +1,0 @@
-{
-  if (mViewPager == null || mAdapter == null)   return;
-  final int current=mViewPager.getCurrentItem();
-  mViewPager.setCurrentItem(TwidereMathUtils.clamp(current + 1,mAdapter.getCount() - 1,0));
-}

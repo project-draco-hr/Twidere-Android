@@ -1,4 +1,0 @@
-{
-  mSelectedAccountToSearch=account;
-  onSearchRequested();
-}

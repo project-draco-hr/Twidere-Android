@@ -1,6 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  findPreference(WIZARD_PREFERENCE_KEY_NEXT_PAGE).setOnPreferenceClickListener(this);
-  findPreference(WIZARD_PREFERENCE_KEY_USE_DEFAULTS).setOnPreferenceClickListener(this);
-  findPreference(WIZARD_PREFERENCE_KEY_IMPORT_SETTINGS).setOnPreferenceClickListener(this);
-}

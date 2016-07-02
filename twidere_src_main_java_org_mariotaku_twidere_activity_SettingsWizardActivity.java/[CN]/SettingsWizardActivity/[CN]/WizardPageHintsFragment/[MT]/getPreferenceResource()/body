@@ -1,3 +1,0 @@
-{
-  return R.xml.settings_wizard_page_hints;
-}

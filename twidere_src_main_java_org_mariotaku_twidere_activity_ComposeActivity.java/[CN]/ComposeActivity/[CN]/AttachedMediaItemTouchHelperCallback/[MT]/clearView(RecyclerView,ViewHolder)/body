@@ -1,4 +1,0 @@
-{
-  super.clearView(recyclerView,viewHolder);
-  viewHolder.itemView.setAlpha(ALPHA_FULL);
-}

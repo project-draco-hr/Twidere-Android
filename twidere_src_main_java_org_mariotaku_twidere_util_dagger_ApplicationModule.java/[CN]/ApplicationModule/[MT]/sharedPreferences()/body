@@ -1,3 +1,0 @@
-{
-  return SharedPreferencesWrapper.getInstance(application,Constants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE,SharedPreferenceConstants.class);
-}

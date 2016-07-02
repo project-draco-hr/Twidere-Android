@@ -1,9 +1,0 @@
-{
-  mSelection.clear();
-  if (accountKeys != null) {
-    for (    UserKey accountKey : accountKeys) {
-      mSelection.put(accountKey,true);
-    }
-  }
-  notifyDataSetChanged();
-}

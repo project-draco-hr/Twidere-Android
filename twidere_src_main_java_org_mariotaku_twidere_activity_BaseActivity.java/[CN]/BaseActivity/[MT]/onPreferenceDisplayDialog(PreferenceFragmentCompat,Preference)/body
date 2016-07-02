@@ -1,7 +1,0 @@
-{
-  if (preference instanceof IDialogPreference) {
-    ((IDialogPreference)preference).displayDialog(fragment);
-    return true;
-  }
-  return false;
-}

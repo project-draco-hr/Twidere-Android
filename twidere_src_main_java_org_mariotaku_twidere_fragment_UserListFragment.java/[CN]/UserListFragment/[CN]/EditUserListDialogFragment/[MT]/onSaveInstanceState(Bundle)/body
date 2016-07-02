@@ -1,8 +1,0 @@
-{
-  outState.putParcelable(EXTRA_ACCOUNT_KEY,mAccountKey);
-  outState.putString(EXTRA_LIST_ID,mListId);
-  outState.putString(EXTRA_LIST_NAME,mName);
-  outState.putString(EXTRA_DESCRIPTION,mDescription);
-  outState.putBoolean(EXTRA_IS_PUBLIC,mIsPublic);
-  super.onSaveInstanceState(outState);
-}

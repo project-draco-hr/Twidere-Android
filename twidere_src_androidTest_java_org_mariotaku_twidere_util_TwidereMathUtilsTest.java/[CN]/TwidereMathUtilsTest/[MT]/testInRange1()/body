@@ -1,7 +1,0 @@
-{
-  assertTrue(TwidereMathUtils.inRange(5f,0f,10f,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE));
-  assertFalse(TwidereMathUtils.inRange(0f,0f,10f,TwidereMathUtils.RANGE_EXCLUSIVE_EXCLUSIVE));
-  assertFalse(TwidereMathUtils.inRange(0f,5f,10f,TwidereMathUtils.RANGE_INCLUSIVE_INCLUSIVE));
-  assertFalse(TwidereMathUtils.inRange(5f,5f,10f,TwidereMathUtils.RANGE_EXCLUSIVE_INCLUSIVE));
-  assertFalse(TwidereMathUtils.inRange(10f,5f,10f,TwidereMathUtils.RANGE_INCLUSIVE_EXCLUSIVE));
-}

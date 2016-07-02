@@ -1,5 +1,0 @@
-{
-  super.onContentChanged();
-  mViewPager=(ViewPager)findViewById(R.id.pager);
-  mIndicator=(LinePageIndicator)findViewById(R.id.indicator);
-}

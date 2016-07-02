@@ -1,3 +1,0 @@
-{
-  return R.string.wizard_page_tabs_text;
-}

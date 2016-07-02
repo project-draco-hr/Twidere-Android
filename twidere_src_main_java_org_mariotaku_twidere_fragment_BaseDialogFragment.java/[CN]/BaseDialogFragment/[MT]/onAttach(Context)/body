@@ -1,4 +1,0 @@
-{
-  super.onAttach(context);
-  GeneralComponentHelper.build(context).inject(this);
-}

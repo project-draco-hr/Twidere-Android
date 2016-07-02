@@ -1,7 +1,0 @@
-{
-  super(activity);
-  setHasStableIds(true);
-  mActivity=activity;
-  mInflater=LayoutInflater.from(activity);
-  mDragStartListener=listener;
-}

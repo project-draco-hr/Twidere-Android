@@ -1,5 +1,0 @@
-{
-  assertEquals("www.google.com",UriUtils.getAuthority("http://www.google.com/"));
-  assertEquals("twitter.com",UriUtils.getAuthority("https://twitter.com"));
-  assertNull(UriUtils.getAuthority("www.google.com/"));
-}

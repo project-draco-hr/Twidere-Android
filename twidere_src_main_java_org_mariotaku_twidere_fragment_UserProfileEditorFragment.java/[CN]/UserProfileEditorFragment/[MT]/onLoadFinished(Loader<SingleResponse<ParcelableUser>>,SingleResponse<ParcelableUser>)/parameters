@@ -1,2 +1,0 @@
-Loader<SingleResponse<ParcelableUser>> loader
-SingleResponse<ParcelableUser> data

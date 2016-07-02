@@ -1,5 +1,0 @@
-{
-  if (sApplicationModule != null)   return sApplicationModule;
-  Application application=(Application)context.getApplicationContext();
-  return sApplicationModule=new ApplicationModule(application);
-}

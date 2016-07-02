@@ -1,4 +1,0 @@
-{
-  startActivity(new Intent(this,QuickSearchBarActivity.class));
-  return true;
-}

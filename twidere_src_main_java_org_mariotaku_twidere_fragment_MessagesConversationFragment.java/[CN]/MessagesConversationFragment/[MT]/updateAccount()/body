@@ -1,9 +1,0 @@
-{
-  if (mAccount == null)   return;
-  if (Utils.isOfficialCredentials(getContext(),mAccount)) {
-    mAddImageButton.setVisibility(View.VISIBLE);
-  }
- else {
-    mAddImageButton.setVisibility(View.GONE);
-  }
-}

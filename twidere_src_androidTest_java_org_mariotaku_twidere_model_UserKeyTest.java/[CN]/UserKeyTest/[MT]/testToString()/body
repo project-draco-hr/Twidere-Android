@@ -1,5 +1,0 @@
-{
-  assertEquals("abc@twitter.com",new UserKey("abc","twitter.com").toString());
-  assertEquals("\\@user@twitter.com",new UserKey("@user","twitter.com").toString());
-  assertEquals("\\@u\\\\ser@twitter.com",new UserKey("@u\\ser","twitter.com").toString());
-}

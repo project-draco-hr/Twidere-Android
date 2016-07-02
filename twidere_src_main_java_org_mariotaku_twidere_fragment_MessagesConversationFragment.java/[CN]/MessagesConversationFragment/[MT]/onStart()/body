@@ -1,7 +1,0 @@
-{
-  super.onStart();
-  bus.register(this);
-  updateEmptyText();
-  mMessagesListView.addOnScrollListener(mScrollListener);
-  mScrollListener.reset();
-}

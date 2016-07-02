@@ -1,8 +1,0 @@
-{
-  final FragmentManager fm=mActivity.getSupportFragmentManager();
-  final DialogFragment f=(DialogFragment)fm.findFragmentByTag(FRAGMENT_TAG);
-  if (f != null) {
-    f.dismiss();
-  }
-  nextStep();
-}

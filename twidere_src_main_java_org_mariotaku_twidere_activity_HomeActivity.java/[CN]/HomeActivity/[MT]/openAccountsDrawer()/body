@@ -1,4 +1,0 @@
-{
-  if (mDrawerLayout == null)   return;
-  mDrawerLayout.openDrawer(GravityCompat.START);
-}

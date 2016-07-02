@@ -1,9 +1,0 @@
-{
-  final int start=textView.getSelectionStart(), end=textView.getSelectionEnd();
-  final SpannableString string=SpannableString.valueOf(textView.getText());
-  final URLSpan[] spans=string.getSpans(start,end,URLSpan.class);
-  final boolean selectingLink=spans.length == 1 && URLUtil.isValidUrl(spans[0].getURL());
-  MenuUtils.setMenuItemAvailability(menu,R.id.copy_url,selectingLink);
-  MenuUtils.setMenuItemAvailability(menu,R.id.share_url,selectingLink);
-  return true;
-}

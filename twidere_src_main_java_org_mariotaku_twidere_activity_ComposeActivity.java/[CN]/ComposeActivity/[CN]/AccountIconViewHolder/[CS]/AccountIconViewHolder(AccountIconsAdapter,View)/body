@@ -1,7 +1,0 @@
-{
-  super(itemView);
-  this.adapter=adapter;
-  iconView=(ShapedImageView)itemView.findViewById(android.R.id.icon);
-  nameView=(TextView)itemView.findViewById(android.R.id.text1);
-  itemView.setOnClickListener(this);
-}

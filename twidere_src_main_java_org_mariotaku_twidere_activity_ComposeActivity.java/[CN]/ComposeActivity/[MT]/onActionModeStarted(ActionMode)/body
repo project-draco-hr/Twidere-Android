@@ -1,4 +1,0 @@
-{
-  super.onActionModeStarted(mode);
-  ThemeUtils.applyColorFilterToMenuIcon(mode.getMenu(),ThemeUtils.getContrastActionBarItemColor(this),0,0,Mode.MULTIPLY);
-}

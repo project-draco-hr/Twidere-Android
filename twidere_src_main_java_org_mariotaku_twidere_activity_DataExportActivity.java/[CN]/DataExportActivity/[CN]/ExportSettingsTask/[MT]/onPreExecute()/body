@@ -1,3 +1,0 @@
-{
-  ProgressDialogFragment.show(mActivity,FRAGMENT_TAG).setCancelable(false);
-}

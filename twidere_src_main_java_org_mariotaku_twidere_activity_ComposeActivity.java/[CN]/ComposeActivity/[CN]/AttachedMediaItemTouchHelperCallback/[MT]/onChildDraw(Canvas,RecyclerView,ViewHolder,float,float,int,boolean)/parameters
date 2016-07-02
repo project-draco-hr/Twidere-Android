@@ -1,7 +1,0 @@
-Canvas c
-RecyclerView recyclerView
-ViewHolder viewHolder
-float dX
-float dY
-int actionState
-boolean isCurrentlyActive

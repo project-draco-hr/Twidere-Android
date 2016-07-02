@@ -1,7 +1,0 @@
-{
-  mActivityRef=new WeakReference<>(activity);
-  mSources=sources;
-  mDestinations=destinations;
-  mMediaType=mediaType;
-  mDeleteSrc=deleteSrc;
-}

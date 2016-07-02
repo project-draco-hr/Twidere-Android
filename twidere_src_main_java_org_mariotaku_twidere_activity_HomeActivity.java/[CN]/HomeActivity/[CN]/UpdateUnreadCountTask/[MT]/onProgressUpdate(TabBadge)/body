@@ -1,5 +1,0 @@
-{
-  for (  TabBadge value : values) {
-    mIndicator.setBadge(value.index,value.count);
-  }
-}

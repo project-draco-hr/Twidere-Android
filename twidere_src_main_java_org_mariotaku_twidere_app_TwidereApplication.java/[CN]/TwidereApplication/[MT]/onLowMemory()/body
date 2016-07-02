@@ -1,4 +1,0 @@
-{
-  final DependencyHolder holder=DependencyHolder.get(this);
-  super.onLowMemory();
-}

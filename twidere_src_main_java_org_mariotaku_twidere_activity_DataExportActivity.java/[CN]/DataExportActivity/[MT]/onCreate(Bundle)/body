@@ -1,8 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  if (savedInstanceState == null) {
-    final Intent intent=new Intent(this,FileSelectorActivity.class);
-    intent.setAction(INTENT_ACTION_PICK_DIRECTORY);
-    startActivityForResult(intent,REQUEST_PICK_DIRECTORY);
-  }
-}

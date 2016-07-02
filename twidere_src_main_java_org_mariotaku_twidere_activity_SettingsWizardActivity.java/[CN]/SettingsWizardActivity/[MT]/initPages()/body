@@ -1,9 +1,0 @@
-{
-  mAdapter.addTab(WizardPageWelcomeFragment.class,null,getString(R.string.wizard_page_welcome_title),null,0,null);
-  mAdapter.addTab(WizardPageThemeFragment.class,null,getString(R.string.theme),null,0,null);
-  mAdapter.addTab(WizardPageTabsFragment.class,null,getString(R.string.tabs),null,0,null);
-  mAdapter.addTab(WizardPageCardsFragment.class,null,getString(R.string.cards),null,0,null);
-  mAdapter.addTab(WizardPageUsageStatisticsFragment.class,null,getString(R.string.usage_statistics),null,0,null);
-  mAdapter.addTab(WizardPageHintsFragment.class,null,getString(R.string.hints),null,0,null);
-  mAdapter.addTab(WizardPageFinishedFragment.class,null,getString(R.string.wizard_page_finished_title),null,0,null);
-}

@@ -1,5 +1,0 @@
-{
-  final ProgressDialog dialog=new ProgressDialog(getActivity());
-  dialog.setMessage(getString(R.string.please_wait));
-  return dialog;
-}

@@ -1,5 +1,0 @@
-ComposeActivity activity
-Uri[] sources
-Uri[] destinations
-int mediaType
-boolean deleteSrc

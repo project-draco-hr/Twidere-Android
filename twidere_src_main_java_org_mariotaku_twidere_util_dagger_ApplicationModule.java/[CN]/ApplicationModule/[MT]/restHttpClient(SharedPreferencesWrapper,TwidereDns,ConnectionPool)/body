@@ -1,3 +1,0 @@
-{
-  return HttpClientFactory.createRestHttpClient(application,prefs,dns,connectionPool);
-}

@@ -1,7 +1,0 @@
-{
-  if (menu == null)   return;
-  final MenuItem item=menu.findItem(id);
-  if (item == null)   return;
-  item.setVisible(available);
-  item.setEnabled(available);
-}

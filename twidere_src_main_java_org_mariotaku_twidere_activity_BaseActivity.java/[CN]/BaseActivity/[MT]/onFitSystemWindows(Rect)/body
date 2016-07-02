@@ -1,7 +1,0 @@
-{
-  if (mSystemWindowsInsets == null)   mSystemWindowsInsets=new Rect(insets);
- else {
-    mSystemWindowsInsets.set(insets);
-  }
-  notifyControlBarOffsetChanged();
-}

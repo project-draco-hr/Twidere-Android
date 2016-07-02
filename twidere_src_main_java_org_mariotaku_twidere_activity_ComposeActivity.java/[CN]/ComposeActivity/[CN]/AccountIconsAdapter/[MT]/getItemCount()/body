@@ -1,3 +1,0 @@
-{
-  return mAccounts != null ? mAccounts.length : 0;
-}

@@ -1,4 +1,0 @@
-{
-  ThemeUtils.fixNightMode(getResources(),newConfig);
-  super.onConfigurationChanged(newConfig);
-}

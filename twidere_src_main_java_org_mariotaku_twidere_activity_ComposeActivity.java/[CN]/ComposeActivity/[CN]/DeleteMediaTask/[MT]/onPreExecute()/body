@@ -1,5 +1,0 @@
-{
-  final ComposeActivity activity=mActivity.get();
-  if (activity == null)   return;
-  activity.setProgressVisible(true);
-}

@@ -1,5 +1,0 @@
-{
-  if (mSystemWindowsInsets == null)   return false;
-  insets.set(mSystemWindowsInsets);
-  return true;
-}

@@ -1,3 +1,0 @@
-{
-  mMediaPreviewAdapter.setAltText(position,altText);
-}

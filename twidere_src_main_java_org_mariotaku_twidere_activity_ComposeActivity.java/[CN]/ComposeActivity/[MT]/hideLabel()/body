@@ -1,4 +1,0 @@
-{
-  mReplyLabel.setVisibility(View.GONE);
-  mReplyLabelDivider.setVisibility(View.GONE);
-}

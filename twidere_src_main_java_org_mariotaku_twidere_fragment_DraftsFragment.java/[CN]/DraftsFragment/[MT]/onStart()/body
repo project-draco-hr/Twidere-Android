@@ -1,7 +1,0 @@
-{
-  final AsyncTwitterWrapper twitter=twitterWrapper;
-  if (twitter != null) {
-    twitter.clearNotificationAsync(NOTIFICATION_ID_DRAFTS);
-  }
-  super.onStart();
-}

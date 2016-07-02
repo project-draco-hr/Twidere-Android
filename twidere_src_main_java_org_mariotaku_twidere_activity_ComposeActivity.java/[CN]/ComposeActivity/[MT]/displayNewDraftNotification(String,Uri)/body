@@ -1,5 +1,0 @@
-{
-  final ContentValues values=new ContentValues();
-  values.put(BaseColumns._ID,draftUri.getLastPathSegment());
-  getContentResolver().insert(Drafts.CONTENT_URI_NOTIFICATIONS,values);
-}

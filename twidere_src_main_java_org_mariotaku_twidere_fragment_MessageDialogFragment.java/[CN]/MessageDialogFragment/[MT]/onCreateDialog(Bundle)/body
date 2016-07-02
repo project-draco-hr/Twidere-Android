@@ -1,8 +1,0 @@
-{
-  FragmentActivity activity=getActivity();
-  AlertDialog.Builder builder=new AlertDialog.Builder(activity);
-  final Bundle args=getArguments();
-  builder.setMessage(args.getString(EXTRA_MESSAGE));
-  builder.setPositiveButton(android.R.string.ok,null);
-  return builder.create();
-}

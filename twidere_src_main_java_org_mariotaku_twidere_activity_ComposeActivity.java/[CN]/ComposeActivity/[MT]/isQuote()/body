@@ -1,3 +1,0 @@
-{
-  return INTENT_ACTION_QUOTE.equals(getIntent().getAction());
-}

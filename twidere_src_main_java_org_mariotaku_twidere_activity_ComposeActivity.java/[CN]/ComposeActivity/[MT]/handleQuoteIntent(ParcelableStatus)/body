@@ -1,8 +1,0 @@
-{
-  if (status == null)   return false;
-  mEditText.setText(Utils.getQuoteStatus(this,status));
-  mEditText.setSelection(0);
-  mAccountsAdapter.setSelectedAccountIds(status.account_key);
-  showQuoteLabel(status);
-  return true;
-}

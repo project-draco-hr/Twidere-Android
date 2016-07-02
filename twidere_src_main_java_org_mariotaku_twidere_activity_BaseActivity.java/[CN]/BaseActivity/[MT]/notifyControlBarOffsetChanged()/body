@@ -1,6 +1,0 @@
-{
-  final float offset=getControlBarOffset();
-  for (  final ControlBarOffsetListener l : mControlBarOffsetListeners) {
-    l.onControlBarOffsetChanged(this,offset);
-  }
-}

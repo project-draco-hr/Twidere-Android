@@ -1,3 +1,0 @@
-{
-  return new UILFileCache(cache);
-}

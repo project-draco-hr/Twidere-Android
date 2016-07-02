@@ -1,6 +1,0 @@
-{
-  if (mUserList == null)   return;
-  if (TextUtils.equals(event.getUserList().id,mUserList.id)) {
-    getUserListInfo(true);
-  }
-}

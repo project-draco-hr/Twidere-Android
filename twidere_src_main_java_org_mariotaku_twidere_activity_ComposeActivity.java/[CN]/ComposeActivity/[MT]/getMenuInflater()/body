@@ -1,6 +1,0 @@
-{
-  if (mMenuInflater == null) {
-    mMenuInflater=new SupportMenuInflater(this);
-  }
-  return mMenuInflater;
-}

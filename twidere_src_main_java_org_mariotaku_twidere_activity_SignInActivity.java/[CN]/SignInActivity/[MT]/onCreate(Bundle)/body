@@ -20,9 +20,9 @@
   mPasswordSignInButton.setOnClickListener(this);
   final ColorStateList color=ColorStateList.valueOf(ContextCompat.getColor(this,R.color.material_light_green));
   ViewCompat.setBackgroundTintList(mSignInButton,color);
-  final String consumerKey=mPreferences.getString(KEY_CONSUMER_KEY,null);
-  final String consumerSecret=mPreferences.getString(KEY_CONSUMER_SECRET,null);
-  if (BuildConfig.SHOW_CUSTOM_TOKEN_DIALOG && savedInstanceState == null && !mPreferences.getBoolean(KEY_CONSUMER_KEY_SECRET_SET,false) && !Utils.isCustomConsumerKeySecret(consumerKey,consumerSecret)) {
+  final String consumerKey=preferences.getString(KEY_CONSUMER_KEY,null);
+  final String consumerSecret=preferences.getString(KEY_CONSUMER_SECRET,null);
+  if (BuildConfig.SHOW_CUSTOM_TOKEN_DIALOG && savedInstanceState == null && !preferences.getBoolean(KEY_CONSUMER_KEY_SECRET_SET,false) && !Utils.isCustomConsumerKeySecret(consumerKey,consumerSecret)) {
     final SetConsumerKeySecretDialogFragment df=new SetConsumerKeySecretDialogFragment();
     df.setCancelable(false);
     df.show(getSupportFragmentManager(),"set_consumer_key_secret");

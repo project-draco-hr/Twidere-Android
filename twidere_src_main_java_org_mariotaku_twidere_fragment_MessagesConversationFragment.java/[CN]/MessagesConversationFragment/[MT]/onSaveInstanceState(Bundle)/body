@@ -1,9 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  if (mEditText != null) {
-    outState.putCharSequence(EXTRA_TEXT,mEditText.getText());
-  }
-  outState.putParcelable(EXTRA_ACCOUNT,mAccount);
-  outState.putParcelable(EXTRA_USER,mRecipient);
-  outState.putString(EXTRA_IMAGE_URI,mImageUri);
-}

@@ -1,3 +1,0 @@
-{
-  adapter.getMediaLoader().displayPreviewImage(media.uri,imageView);
-}

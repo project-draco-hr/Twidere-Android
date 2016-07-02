@@ -1,7 +1,0 @@
-{
-  try {
-    Class.forName(AsyncTask.class.getName());
-  }
- catch (  final ClassNotFoundException ignore) {
-  }
-}

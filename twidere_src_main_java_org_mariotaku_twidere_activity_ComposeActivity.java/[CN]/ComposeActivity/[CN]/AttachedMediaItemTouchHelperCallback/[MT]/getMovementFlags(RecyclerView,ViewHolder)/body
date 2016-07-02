@@ -1,5 +1,0 @@
-{
-  final int dragFlags=ItemTouchHelper.START | ItemTouchHelper.END;
-  final int swipeFlags=ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-  return makeMovementFlags(dragFlags,swipeFlags);
-}

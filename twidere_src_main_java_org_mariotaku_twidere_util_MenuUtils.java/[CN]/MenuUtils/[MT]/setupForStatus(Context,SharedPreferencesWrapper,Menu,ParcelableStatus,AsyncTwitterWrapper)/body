@@ -1,5 +1,0 @@
-{
-  final ParcelableCredentials account=ParcelableCredentialsUtils.getCredentials(context,status.account_key);
-  if (account == null)   return;
-  setupForStatus(context,preferences,menu,status,account,twitter);
-}

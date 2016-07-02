@@ -1,4 +1,0 @@
-{
-  holder.setAdapter(null);
-  super.onViewDetachedFromWindow(holder);
-}

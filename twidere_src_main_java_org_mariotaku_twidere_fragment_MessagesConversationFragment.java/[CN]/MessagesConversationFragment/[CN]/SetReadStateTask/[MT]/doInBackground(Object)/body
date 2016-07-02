@@ -1,8 +1,0 @@
-{
-  final ContentResolver resolver=mContext.getContentResolver();
-  final String[] projection={ConversationEntries.MESSAGE_ID};
-  final String selection=Expression.and(Expression.equalsArgs(ConversationEntries.ACCOUNT_KEY),Expression.equalsArgs(ConversationEntries.CONVERSATION_ID)).getSQL();
-  final String[] selectionArgs={String.valueOf(mAccount.account_key),String.valueOf(mRecipient.key)};
-  final String orderBy=new OrderBy(ConversationEntries.MESSAGE_ID,false).getSQL();
-  return resolver.query(ConversationEntries.CONTENT_URI,projection,selection,selectionArgs,orderBy);
-}

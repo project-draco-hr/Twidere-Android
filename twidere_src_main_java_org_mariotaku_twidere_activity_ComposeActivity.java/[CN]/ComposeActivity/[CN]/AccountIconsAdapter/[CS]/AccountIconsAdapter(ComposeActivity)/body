@@ -1,8 +1,0 @@
-{
-  super(activity);
-  setHasStableIds(true);
-  mActivity=activity;
-  mInflater=activity.getLayoutInflater();
-  mSelection=new HashMap<>();
-  mNameFirst=preferences.getBoolean(KEY_NAME_FIRST);
-}

@@ -1,4 +1,0 @@
-{
-  if (handleKeyboardShortcutSingle(mKeyboardShortcutsHandler,keyCode,event,mKeyMetaState))   return true;
-  return isKeyboardShortcutHandled(mKeyboardShortcutsHandler,keyCode,event,mKeyMetaState) || super.onKeyUp(keyCode,event);
-}
