@@ -1,6 +1,6 @@
 {
 switch (v.getId()) {
-case R.id.profile_image:
+case R.id.profileImage:
 {
       adapter.onUserProfileClick(getLayoutPosition());
       break;

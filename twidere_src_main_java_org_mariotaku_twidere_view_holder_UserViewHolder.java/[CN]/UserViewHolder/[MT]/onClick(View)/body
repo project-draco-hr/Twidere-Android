@@ -6,13 +6,13 @@ case R.id.item_content:
       userClickListener.onUserClick(this,getLayoutPosition());
       break;
     }
-case R.id.accept_request:
+case R.id.acceptRequest:
 {
     if (requestClickListener == null)     return;
     requestClickListener.onAcceptClicked(this,getLayoutPosition());
     break;
   }
-case R.id.deny_request:
+case R.id.denyRequest:
 {
   if (requestClickListener == null)   return;
   requestClickListener.onDenyClicked(this,getLayoutPosition());

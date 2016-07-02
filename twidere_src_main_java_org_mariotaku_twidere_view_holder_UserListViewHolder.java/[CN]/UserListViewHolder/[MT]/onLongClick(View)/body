@@ -1,7 +1,7 @@
 {
   if (userListClickListener == null)   return false;
 switch (v.getId()) {
-case R.id.item_content:
+case R.id.itemContent:
 {
       return userListClickListener.onUserListLongClick(this,getLayoutPosition());
     }

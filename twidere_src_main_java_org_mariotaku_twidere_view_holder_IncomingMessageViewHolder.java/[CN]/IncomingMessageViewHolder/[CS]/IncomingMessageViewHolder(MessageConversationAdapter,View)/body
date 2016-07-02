@@ -1,4 +1,4 @@
 {
   super(adapter,itemView);
-  profileImageView=(ImageView)itemView.findViewById(R.id.profile_image);
+  profileImageView=(ImageView)itemView.findViewById(R.id.profileImage);
 }
