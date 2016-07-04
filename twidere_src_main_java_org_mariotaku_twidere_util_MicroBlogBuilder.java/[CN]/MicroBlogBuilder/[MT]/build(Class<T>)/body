@@ -1,0 +1,3 @@
+{
+  return factory.build(cls);
+}

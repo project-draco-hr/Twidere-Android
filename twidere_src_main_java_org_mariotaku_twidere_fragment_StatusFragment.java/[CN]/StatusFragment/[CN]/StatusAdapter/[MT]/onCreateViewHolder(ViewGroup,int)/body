@@ -5,22 +5,14 @@ case VIEW_TYPE_DETAIL_STATUS:
       if (mStatusViewHolder != null) {
         return mStatusViewHolder;
       }
-      final View view;
-      if (mIsCompact) {
-        view=mInflater.inflate(R.layout.header_status_compact,parent,false);
-        final View cardView=view.findViewById(R.id.compact_card);
-        cardView.setBackgroundColor(mCardBackgroundColor);
-      }
- else {
-        view=mInflater.inflate(R.layout.header_status,parent,false);
-        final CardView cardView=(CardView)view.findViewById(R.id.card);
-        cardView.setCardBackgroundColor(mCardBackgroundColor);
-      }
+      final View view=mInflater.inflate(R.layout.header_status_compact,parent,false);
+      final View cardView=view.findViewById(R.id.compact_card);
+      cardView.setBackgroundColor(mCardBackgroundColor);
       return new DetailStatusViewHolder(this,view);
     }
 case VIEW_TYPE_LIST_STATUS:
 {
-    final View view=mInflater.inflate(mCardLayoutResource,parent,false);
+    final View view=mInflater.inflate(R.layout.card_item_status_compact,parent,false);
     final CardView cardView=(CardView)view.findViewById(R.id.card);
     if (cardView != null) {
       cardView.setCardBackgroundColor(mCardBackgroundColor);

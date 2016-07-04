@@ -25,7 +25,7 @@
     }
   }
   if (!isFromUser())   return ListResponse.getListInstance(data);
-  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,credentials,true,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,credentials,true,true);
   if (twitter == null) {
     return ListResponse.getListInstance(new MicroBlogException("No Account"));
   }
@@ -36,11 +36,9 @@
     final Paging paging=new Paging();
     processPaging(credentials,loadItemLimit,paging);
     statuses=getStatuses(twitter,credentials,paging);
-    if (MicroBlogAPIFactory.isTwitterCredentials(credentials) && !Utils.isOfficialCredentials(context,credentials)) {
-      InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
-    }
   }
  catch (  final MicroBlogException e) {
+    mException.set(e);
     if (BuildConfig.DEBUG) {
       Log.w(LOGTAG,e);
     }

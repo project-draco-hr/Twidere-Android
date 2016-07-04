@@ -20,27 +20,53 @@
   final int layoutPosition=getLayoutPosition();
   final boolean skipLinksInText=status.extras != null && status.extras.support_entities;
   if (status.is_quote) {
-    quoteOriginalLink.setVisibility(View.VISIBLE);
-    quotedNameView.setVisibility(View.VISIBLE);
-    quotedTextView.setVisibility(View.VISIBLE);
     quoteIndicator.setVisibility(View.VISIBLE);
-    quotedNameView.setName(UserColorNameManager.decideNickname(status.quoted_user_nickname,status.quoted_user_name));
-    quotedNameView.setScreenName(String.format("@%s",status.quoted_user_screen_name));
-    quotedNameView.updateText(formatter);
-    final SpannableStringBuilder quotedText=SpannableStringBuilder.valueOf(status.quoted_text_unescaped);
-    ParcelableStatusUtils.applySpans(quotedText,status.quoted_spans);
-    linkify.applyAllLinks(quotedText,status.account_key,layoutPosition,status.is_possibly_sensitive,skipLinksInText);
-    quotedTextView.setText(quotedText);
-    quoteIndicator.setColor(status.user_color);
-    profileContainer.drawStart(status.quoted_user_color);
+    boolean originalIdAvailable=!TextUtils.isEmpty(status.quoted_id);
+    boolean quoteContentAvailable=status.quoted_text_plain != null && status.quoted_text_unescaped != null;
+    quoteOriginalLink.setVisibility(originalIdAvailable ? View.VISIBLE : View.GONE);
+    if (quoteContentAvailable) {
+      quotedNameView.setVisibility(View.VISIBLE);
+      quotedTextView.setVisibility(View.VISIBLE);
+      quotedNameView.setName(UserColorNameManager.decideNickname(status.quoted_user_nickname,status.quoted_user_name));
+      quotedNameView.setScreenName(String.format("@%s",status.quoted_user_screen_name));
+      quotedNameView.updateText(formatter);
+      int quotedDisplayEnd=-1;
+      if (status.extras.quoted_display_text_range != null) {
+        quotedDisplayEnd=status.extras.quoted_display_text_range[1];
+      }
+      final SpannableStringBuilder quotedText=SpannableStringBuilder.valueOf(status.quoted_text_unescaped);
+      ParcelableStatusUtils.applySpans(quotedText,status.quoted_spans);
+      linkify.applyAllLinks(quotedText,status.account_key,layoutPosition,status.is_possibly_sensitive,skipLinksInText);
+      if (quotedDisplayEnd != -1 && quotedDisplayEnd <= quotedText.length()) {
+        quotedTextView.setText(quotedText.subSequence(0,quotedDisplayEnd));
+      }
+ else {
+        quotedTextView.setText(quotedText);
+      }
+      if (quotedTextView.length() == 0) {
+        quotedTextView.setVisibility(View.GONE);
+      }
+ else {
+        quotedTextView.setVisibility(View.VISIBLE);
+      }
+      quoteIndicator.setColor(status.quoted_user_color);
+    }
+ else {
+      quotedNameView.setVisibility(View.GONE);
+      quotedTextView.setVisibility(View.VISIBLE);
+      final SpannableString string=SpannableString.valueOf(context.getString(R.string.status_not_available_text));
+      string.setSpan(new ForegroundColorSpan(ThemeUtils.getColorFromAttribute(context,android.R.attr.textColorTertiary,textView.getCurrentTextColor())),0,string.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+      quotedTextView.setText(string);
+      quoteIndicator.setColor(0);
+    }
   }
  else {
     quoteOriginalLink.setVisibility(View.GONE);
     quotedNameView.setVisibility(View.GONE);
     quotedTextView.setVisibility(View.GONE);
     quoteIndicator.setVisibility(View.GONE);
-    profileContainer.drawStart(status.user_color);
   }
+  profileContainer.drawStart(status.user_color);
   final long timestamp;
   if (status.is_retweet) {
     timestamp=status.retweet_timestamp;
@@ -75,10 +101,25 @@
     timeSourceView.setText(timeString);
   }
   timeSourceView.setMovementMethod(LinkMovementMethod.getInstance());
+  int displayEnd=-1;
+  if (status.extras.display_text_range != null) {
+    displayEnd=status.extras.display_text_range[1];
+  }
   final SpannableStringBuilder text=SpannableStringBuilder.valueOf(status.text_unescaped);
   ParcelableStatusUtils.applySpans(text,status.spans);
   linkify.applyAllLinks(text,status.account_key,layoutPosition,status.is_possibly_sensitive,skipLinksInText);
-  textView.setText(text);
+  if (displayEnd != -1 && displayEnd <= text.length()) {
+    textView.setText(text.subSequence(0,displayEnd));
+  }
+ else {
+    textView.setText(text);
+  }
+  if (textView.length() == 0) {
+    textView.setVisibility(View.GONE);
+  }
+ else {
+    textView.setVisibility(View.VISIBLE);
+  }
   final ParcelableLocation location;
   final String placeFullName;
   if (status.is_quote) {

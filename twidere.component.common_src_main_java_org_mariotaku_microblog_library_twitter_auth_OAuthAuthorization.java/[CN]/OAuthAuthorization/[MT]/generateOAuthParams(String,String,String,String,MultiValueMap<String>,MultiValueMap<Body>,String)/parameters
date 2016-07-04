@@ -1,7 +1,0 @@
-String oauthToken
-String oauthTokenSecret
-String method
-String url
-MultiValueMap<String> queries
-MultiValueMap<Body> params
-String bodyType

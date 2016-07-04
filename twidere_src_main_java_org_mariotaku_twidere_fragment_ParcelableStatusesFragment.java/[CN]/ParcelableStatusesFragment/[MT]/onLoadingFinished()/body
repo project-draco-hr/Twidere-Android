@@ -1,6 +1,0 @@
-{
-  showContent();
-  setRefreshEnabled(true);
-  setRefreshing(false);
-  setLoadMoreIndicatorPosition(IndicatorPosition.NONE);
-}

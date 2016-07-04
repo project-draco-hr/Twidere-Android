@@ -11,7 +11,7 @@
   for (  final UserKey accountKey : accountKeys) {
     final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,accountKey);
     if (credentials == null)     continue;
-    final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(context,credentials,true,true);
+    final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,credentials,true,true);
     if (twitter == null)     continue;
     try {
       final Paging paging=new Paging();
@@ -49,7 +49,6 @@
         sinceId=null;
       }
       final List<Status> statuses=getStatuses(twitter,paging);
-      InternalTwitterContentUtils.getStatusesWithQuoteData(twitter,statuses);
       storeStatus(accountKey,credentials,statuses,sinceId,maxId,sinceSortId,maxSortId,loadItemLimit,false);
       final CacheUsersStatusesTask cacheTask=new CacheUsersStatusesTask(context);
       cacheTask.setParams(new TwitterWrapper.StatusListResponse(accountKey,statuses));

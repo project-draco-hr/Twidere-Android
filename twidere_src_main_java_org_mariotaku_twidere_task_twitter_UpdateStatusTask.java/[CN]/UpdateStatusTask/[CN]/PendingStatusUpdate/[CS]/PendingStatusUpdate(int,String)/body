@@ -1,0 +1,8 @@
+{
+  this.length=length;
+  overrideTexts=new String[length];
+  mediaUploadResults=new MediaUploadResult[length];
+  statusShortenResults=new StatusShortenResult[length];
+  mediaIds=new String[length][];
+  Arrays.fill(overrideTexts,defaultText);
+}

@@ -22,7 +22,7 @@
     showOkMessage(R.string.direct_message_sent,false);
   }
  else {
-    final ContentValues values=createMessageDraft(accountId,recipientId,text,imageUri);
+    final ContentValues values=ContentValuesCreator.createMessageDraft(accountId,recipientId,text,imageUri);
     resolver.insert(Drafts.CONTENT_URI,values);
     showErrorMessage(R.string.action_sending_direct_message,result.getException(),true);
   }

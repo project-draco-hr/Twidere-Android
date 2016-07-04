@@ -1,4 +1,9 @@
 {
-  if (id == null || text == null)   throw new IOException("Malformed Status object");
+  if (id == null) {
+    throw new IOException("Malformed Status object (no id)");
+  }
+  if (text == null && fullText == null) {
+    throw new IOException("Malformed Status object (no text)");
+  }
   fixStatus();
 }

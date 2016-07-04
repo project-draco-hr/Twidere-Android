@@ -1,0 +1,3 @@
+{
+  return "ProcessingInfo{" + "state='" + state + '\''+ ", checkAfterSecs="+ checkAfterSecs+ '}';
+}

@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  SpanSpec spanSpec=(SpanSpec)o;
+  if (start != spanSpec.start)   return false;
+  return end == spanSpec.end;
+}

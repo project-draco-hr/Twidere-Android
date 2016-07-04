@@ -1,6 +1,25 @@
 {
-  if (status == null)   return null;
-  final HtmlBuilder builder=new HtmlBuilder(status.getText(),false,true,false);
+  String text=status.getFullText();
+  CodePointArray source;
+  int[] range=null;
+  if (text == null) {
+    text=status.getText();
+    source=new CodePointArray(text);
+  }
+ else {
+    range=status.getDisplayTextRange();
+    source=new CodePointArray(text);
+  }
+  final HtmlBuilder builder=new HtmlBuilder(source,false,true,false);
   parseEntities(builder,status);
-  return builder.buildWithIndices();
+  StatusTextWithIndices textWithIndices=new StatusTextWithIndices();
+  final Pair<String,SpanItem[]> pair=builder.buildWithIndices();
+  textWithIndices.text=pair.first;
+  textWithIndices.spans=pair.second;
+  if (range != null && range.length == 2) {
+    textWithIndices.range=new int[2];
+    textWithIndices.range[0]=getResultRangeLength(source,pair.second,0,range[0]);
+    textWithIndices.range[1]=pair.first.length() - getResultRangeLength(source,pair.second,range[1],source.length());
+  }
+  return textWithIndices;
 }

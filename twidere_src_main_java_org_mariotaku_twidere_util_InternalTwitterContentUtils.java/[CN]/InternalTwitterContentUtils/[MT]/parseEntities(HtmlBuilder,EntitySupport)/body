@@ -6,22 +6,21 @@
   if (mediaEntities == null) {
     mediaEntities=entities.getMediaEntities();
   }
+  int[] startEnd=new int[2];
   if (mediaEntities != null) {
     for (    final MediaEntity mediaEntity : mediaEntities) {
-      final int start=mediaEntity.getStart(), end=mediaEntity.getEnd();
       final String mediaUrl=getMediaUrl(mediaEntity);
-      if (mediaUrl != null && start >= 0 && end >= 0) {
-        builder.addLink(mediaEntity.getExpandedUrl(),mediaEntity.getDisplayUrl(),start,end);
+      if (mediaUrl != null && getStartEndForEntity(mediaEntity,startEnd)) {
+        builder.addLink(mediaEntity.getExpandedUrl(),mediaEntity.getDisplayUrl(),startEnd[0],startEnd[1]);
       }
     }
   }
   final UrlEntity[] urlEntities=entities.getUrlEntities();
   if (urlEntities != null) {
     for (    final UrlEntity urlEntity : urlEntities) {
-      final int start=urlEntity.getStart(), end=urlEntity.getEnd();
       final String expandedUrl=urlEntity.getExpandedUrl();
-      if (expandedUrl != null && start >= 0 && end >= 0) {
-        builder.addLink(expandedUrl,urlEntity.getDisplayUrl(),start,end);
+      if (expandedUrl != null && getStartEndForEntity(urlEntity,startEnd)) {
+        builder.addLink(expandedUrl,urlEntity.getDisplayUrl(),startEnd[0],startEnd[1]);
       }
     }
   }

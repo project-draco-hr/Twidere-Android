@@ -1,6 +1,0 @@
-Context context
-Uri uri
-long compare
-String compareColumn
-boolean greaterThan
-UserKey accountKeys

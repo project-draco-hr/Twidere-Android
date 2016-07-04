@@ -1,3 +1,0 @@
-{
-  return "OAuthToken{" + "screenName='" + screenName + '\''+ ", userId="+ userId+ ", oauthToken='"+ oauthToken+ '\''+ ", oauthTokenSecret='"+ oauthTokenSecret+ '\''+ '}';
-}

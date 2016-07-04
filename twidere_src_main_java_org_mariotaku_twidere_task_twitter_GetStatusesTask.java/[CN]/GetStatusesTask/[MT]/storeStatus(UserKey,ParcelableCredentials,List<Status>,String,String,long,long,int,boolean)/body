@@ -37,7 +37,7 @@
   deleteWhereArgs[0]=accountKey.toString();
   int olderCount=-1;
   if (minPositionKey > 0) {
-    olderCount=DataStoreUtils.getStatusesCount(context,uri,minPositionKey,Statuses.POSITION_KEY,false,accountKey);
+    olderCount=DataStoreUtils.getStatusesCount(context,uri,null,minPositionKey,Statuses.POSITION_KEY,false,accountKey);
   }
   final int rowsDeleted=resolver.delete(writeUri,deleteWhere,deleteWhereArgs);
   final RefreshEvent event=RefreshEvent.create(context,statusIds,getTimelineType());

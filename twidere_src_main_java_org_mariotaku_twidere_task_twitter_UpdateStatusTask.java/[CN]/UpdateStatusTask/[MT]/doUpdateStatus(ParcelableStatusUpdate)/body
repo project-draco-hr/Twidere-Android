@@ -1,0 +1,18 @@
+{
+  final TwidereApplication app=TwidereApplication.getInstance(context);
+  final MediaUploaderInterface uploader=getMediaUploader(app);
+  final StatusShortenerInterface shortener=getStatusShortener(app);
+  final PendingStatusUpdate pendingUpdate=PendingStatusUpdate.from(update);
+  uploadMedia(uploader,update,pendingUpdate);
+  shortenStatus(shortener,update,pendingUpdate);
+  final UpdateStatusResult result;
+  try {
+    result=requestUpdateStatus(update,pendingUpdate);
+  }
+ catch (  IOException e) {
+    return new UpdateStatusResult(new UpdateStatusException(e));
+  }
+  mediaUploadCallback(uploader,pendingUpdate,result);
+  statusShortenCallback(shortener,pendingUpdate,result);
+  return result;
+}

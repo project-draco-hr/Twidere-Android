@@ -1,6 +1,5 @@
 {
-  super(context,accountKey,sinceId,maxId,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
-  mPage=page;
+  super(context,accountKey,sinceId,maxId,page,data,savedStatusesArgs,tabPosition,fromUser,loadingMore);
   mQuery=query;
   mGapEnabled=makeGap;
 }

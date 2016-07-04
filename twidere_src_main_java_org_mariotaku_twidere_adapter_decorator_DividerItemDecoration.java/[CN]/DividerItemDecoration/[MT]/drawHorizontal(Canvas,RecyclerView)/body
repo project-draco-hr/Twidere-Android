@@ -12,7 +12,7 @@
     final RecyclerView.LayoutParams params=(RecyclerView.LayoutParams)child.getLayoutParams();
     final int left=child.getRight() + params.rightMargin + Math.round(ViewCompat.getTranslationX(child));
     final int right=left + mDivider.getIntrinsicHeight();
-    mDivider.setBounds(left + mPadding.left,top + mPadding.top,right - mPadding.right,bottom - mPadding.bottom);
+    mDivider.setBounds(left + mPaddingRect.left,top + mPaddingRect.top,right - mPaddingRect.right,bottom - mPaddingRect.bottom);
     mDivider.draw(c);
   }
 }

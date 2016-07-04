@@ -1,0 +1,22 @@
+{
+  final StatusUpdate status=new StatusUpdate(overrideText);
+  if (statusUpdate.in_reply_to_status != null) {
+    status.inReplyToStatusId(statusUpdate.in_reply_to_status.id);
+  }
+  if (statusUpdate.repost_status_id != null) {
+    status.setRepostStatusId(statusUpdate.repost_status_id);
+  }
+  if (statusUpdate.attachment_url != null) {
+    status.setAttachmentUrl(statusUpdate.attachment_url);
+  }
+  if (statusUpdate.location != null) {
+    status.location(ParcelableLocationUtils.toGeoLocation(statusUpdate.location));
+    status.displayCoordinates(statusUpdate.display_coordinates);
+  }
+  final String[] mediaIds=pendingUpdate.mediaIds[index];
+  if (mediaIds != null) {
+    status.mediaIds(mediaIds);
+  }
+  status.possiblySensitive(statusUpdate.is_possibly_sensitive);
+  return microBlog.updateStatus(status);
+}

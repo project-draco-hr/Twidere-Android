@@ -1,0 +1,2 @@
+AbstractTask<?,Result,?> task
+Result result

@@ -1,4 +1,6 @@
 {
+  final FragmentActivity activity=getActivity();
+  if (activity == null)   return;
   if (data.hasData()) {
     final ReadPosition readPosition=saveReadPosition();
     final ParcelableStatus status=data.getData();
@@ -17,7 +19,7 @@
       if (position != RecyclerView.NO_POSITION) {
         mLayoutManager.scrollToPositionWithOffset(position,0);
       }
-      final TweetEvent event=TweetEvent.create(getActivity(),status,TimelineType.OTHER);
+      final TweetEvent event=TweetEvent.create(activity,status,TimelineType.OTHER);
       event.setAction(TweetEvent.Action.OPEN);
       mStatusEvent=event;
     }

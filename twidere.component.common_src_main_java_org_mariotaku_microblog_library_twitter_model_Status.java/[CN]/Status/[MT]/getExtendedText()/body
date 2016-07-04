@@ -1,0 +1,4 @@
+{
+  if (fullText != null)   return fullText;
+  return text;
+}

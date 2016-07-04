@@ -1,0 +1,1 @@
+AbstractTask<Pair<String,ParcelableStatusUpdate>,UpdateStatusTask.UpdateStatusResult,Context>

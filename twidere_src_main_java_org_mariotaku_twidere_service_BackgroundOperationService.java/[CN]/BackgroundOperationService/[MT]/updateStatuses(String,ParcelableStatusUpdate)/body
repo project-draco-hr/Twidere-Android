@@ -1,91 +1,77 @@
 {
-  final Builder builder=new Builder(this);
-  startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,null));
+  final BackgroundOperationService context=this;
+  final Builder builder=new Builder(context);
+  startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,null));
   for (  final ParcelableStatusUpdate item : statuses) {
-    mNotificationManager.notify(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(this,builder,0,item));
-    final Draft draft=new Draft();
-    draft.account_ids=ParcelableAccountUtils.getAccountKeys(item.accounts);
-    if (actionType != null) {
-      draft.action_type=actionType;
-    }
- else {
-      draft.action_type=Draft.Action.UPDATE_STATUS;
-    }
-    draft.text=item.text;
-    draft.location=item.location;
-    draft.media=item.media;
-    final UpdateStatusActionExtra extra=new UpdateStatusActionExtra();
-    extra.setInReplyToStatus(item.in_reply_to_status);
-    extra.setIsPossiblySensitive(item.is_possibly_sensitive);
-    extra.setRepostStatusId(item.repost_status_id);
-    extra.setDisplayCoordinates(item.display_coordinates);
-    draft.action_extras=extra;
-    final ContentResolver resolver=getContentResolver();
-    final Uri draftUri=resolver.insert(Drafts.CONTENT_URI,DraftValuesCreator.create(draft));
-    final long def=-1;
-    final long draftId=draftUri != null ? NumberUtils.toLong(draftUri.getLastPathSegment(),def) : -1;
-    mTwitter.addSendingDraftId(draftId);
-    final List<SingleResponse<ParcelableStatus>> result=updateStatus(builder,item);
-    boolean failed=false;
-    Exception exception=null;
-    final Expression where=Expression.equals(Drafts._ID,draftId);
-    final List<UserKey> failedAccountIds=new ArrayList<>();
-    Collections.addAll(failedAccountIds,ParcelableAccountUtils.getAccountKeys(item.accounts));
-    for (    final SingleResponse<ParcelableStatus> response : result) {
-      final ParcelableStatus data=response.getData();
-      if (data == null) {
-        failed=true;
-        if (exception == null) {
-          exception=response.getException();
+    final UpdateStatusTask task=new UpdateStatusTask(context,new UpdateStatusTask.StateCallback(){
+      @WorkerThread @Override public void onStartUploadingMedia(){
+        startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
+      }
+      @WorkerThread @Override public void onUploadingProgressChanged(      int index,      long current,      long total){
+        int progress=(int)(current * 100 / total);
+        startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,progress,item));
+      }
+      @WorkerThread @Override public void onShorteningStatus(){
+        startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
+      }
+      @WorkerThread @Override public void onUpdatingStatus(){
+        startForeground(NOTIFICATION_ID_UPDATE_STATUS,updateUpdateStatusNotification(context,builder,0,item));
+      }
+      @Override public void afterExecute(      Context handler,      UpdateStatusTask.UpdateStatusResult result){
+        boolean failed=false;
+        if (result.exception != null) {
+          Toast.makeText(context,result.exception.getMessage(),Toast.LENGTH_SHORT).show();
+          failed=true;
         }
-      }
- else {
-        failedAccountIds.remove(data.account_key);
-        final TweetEvent event=TweetEvent.create(this,data,TimelineType.OTHER);
-        event.setAction(TweetEvent.Action.TWEET);
-        HotMobiLogger.getInstance(this).log(data.account_key,event);
-      }
-    }
-    if (result.isEmpty()) {
-      showErrorMessage(R.string.action_updating_status,getString(R.string.no_account_selected),false);
-    }
- else     if (failed) {
-      if (exception instanceof MicroBlogException && ((MicroBlogException)exception).getErrorCode() == ErrorInfo.STATUS_IS_DUPLICATE) {
-        showErrorMessage(getString(R.string.status_is_duplicate),false);
-      }
- else {
-        final ContentValues accountIdsValues=new ContentValues();
-        accountIdsValues.put(Drafts.ACCOUNT_IDS,TwidereListUtils.toString(failedAccountIds,',',false));
-        resolver.update(Drafts.CONTENT_URI,accountIdsValues,where.getSQL(),null);
-        showErrorMessage(R.string.action_updating_status,exception,true);
-        final ContentValues notifValues=new ContentValues();
-        notifValues.put(BaseColumns._ID,draftId);
-        resolver.insert(Drafts.CONTENT_URI_NOTIFICATIONS,notifValues);
-      }
-    }
- else {
-      showOkMessage(R.string.status_updated,false);
-      resolver.delete(Drafts.CONTENT_URI,where.getSQL(),null);
-      if (item.media != null) {
-        for (        final ParcelableMediaUpdate media : item.media) {
-          final String path=getImagePathFromUri(this,Uri.parse(media.uri));
-          if (path != null) {
-            if (!new File(path).delete()) {
-              Log.d(LOGTAG,String.format("unable to delete %s",path));
-            }
+ else         for (        MicroBlogException e : result.exceptions) {
+          if (e != null) {
+            Toast.makeText(context,R.string.status_not_updated,Toast.LENGTH_SHORT).show();
+            failed=true;
+            break;
           }
         }
-      }
-    }
-    mTwitter.removeSendingDraftId(draftId);
-    if (mPreferences.getBoolean(KEY_REFRESH_AFTER_TWEET,false)) {
-      mHandler.post(new Runnable(){
-        @Override public void run(){
-          mTwitter.refreshAll();
+        if (failed) {
+        }
+ else {
+          Toast.makeText(context,R.string.status_updated,Toast.LENGTH_SHORT).show();
         }
       }
-);
+      @Override public void beforeExecute(){
+      }
     }
+);
+    task.setResultHandler(this);
+    task.setParams(Pair.create(actionType,item));
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        ManualTaskStarter.invokeBeforeExecute(task);
+      }
+    }
+);
+    final UpdateStatusTask.UpdateStatusResult result=ManualTaskStarter.invokeExecute(task);
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        ManualTaskStarter.invokeAfterExecute(task,result);
+      }
+    }
+);
+    if (result.exception != null) {
+      Log.w(LOGTAG,result.exception);
+    }
+ else     for (    ParcelableStatus status : result.statuses) {
+      if (status == null)       continue;
+      final TweetEvent event=TweetEvent.create(context,status,TimelineType.OTHER);
+      event.setAction(TweetEvent.Action.TWEET);
+      HotMobiLogger.getInstance(context).log(status.account_key,event);
+    }
+  }
+  if (mPreferences.getBoolean(KEY_REFRESH_AFTER_TWEET)) {
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        mTwitter.refreshAll();
+      }
+    }
+);
   }
   stopForeground(false);
   mNotificationManager.cancel(NOTIFICATION_ID_UPDATE_STATUS);

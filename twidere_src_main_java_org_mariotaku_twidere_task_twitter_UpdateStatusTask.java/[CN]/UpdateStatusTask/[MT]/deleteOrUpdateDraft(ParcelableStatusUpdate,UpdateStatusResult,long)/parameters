@@ -1,0 +1,3 @@
+ParcelableStatusUpdate update
+UpdateStatusResult result
+long draftId

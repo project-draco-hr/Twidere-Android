@@ -4,7 +4,7 @@
     final InteractionsTabExtras extras=arguments.getParcelable(EXTRA_EXTRAS);
     if (extras != null && extras.isMentionsOnly()) {
       final Expression expression=Expression.and(where,Expression.inArgs(Activities.ACTION,3));
-      return new Where(expression,ArrayUtils.addAll(whereArgs,Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE));
+      return new ParameterizedExpression(expression,ArrayUtils.addAll(whereArgs,Activity.Action.MENTION,Activity.Action.REPLY,Activity.Action.QUOTE));
     }
   }
   return super.processWhere(where,whereArgs);

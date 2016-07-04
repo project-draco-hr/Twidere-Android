@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < pendingUpdate.length; i++) {
+    final MediaUploadResult uploadResult=pendingUpdate.mediaUploadResults[i];
+    final ParcelableStatus status=updateResult.statuses[i];
+    if (uploadResult == null || status == null)     continue;
+    uploader.callback(uploadResult,status);
+  }
+}

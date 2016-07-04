@@ -1,11 +1,11 @@
 {
-  final UserKey[] accountIds=getAccountKeys();
+  final UserKey[] accountKeys=getAccountKeys();
   final ParcelableActivitiesAdapter adapter=getAdapter();
   if (adapter.getItemCount() > 0) {
     showContent();
   }
- else   if (accountIds.length > 0) {
-    final ErrorInfoStore.DisplayErrorInfo errorInfo=ErrorInfoStore.getErrorInfo(getContext(),mErrorInfoStore.get(getErrorInfoKey(),accountIds[0]));
+ else   if (accountKeys.length > 0) {
+    final ErrorInfoStore.DisplayErrorInfo errorInfo=ErrorInfoStore.getErrorInfo(getContext(),mErrorInfoStore.get(getErrorInfoKey(),accountKeys[0]));
     if (errorInfo != null) {
       showEmpty(errorInfo.getIcon(),errorInfo.getMessage());
     }

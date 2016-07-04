@@ -1,4 +1,0 @@
-{
-  if (status == null)   return;
-  status.quotedStatus=quoted;
-}

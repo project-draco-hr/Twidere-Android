@@ -3,14 +3,9 @@
   if (ACTION_NAVIGATION_BACK.equals(action)) {
     if (mEditText.length() == 0 && !mTextChanged) {
       if (!mNavigateBackPressed) {
-        final SuperToast toast=SuperToast.create(this,getString(R.string.press_again_to_close),Duration.SHORT);
-        toast.setOnDismissListener(new OnDismissListener(){
-          @Override public void onDismiss(          View view){
-            mNavigateBackPressed=false;
-          }
-        }
-);
-        toast.show();
+        Toast.makeText(this,getString(R.string.press_again_to_close),Toast.LENGTH_SHORT).show();
+        mEditText.removeCallbacks(mBackTimeoutRunnable);
+        mEditText.postDelayed(mBackTimeoutRunnable,2000);
       }
  else {
         onBackPressed();

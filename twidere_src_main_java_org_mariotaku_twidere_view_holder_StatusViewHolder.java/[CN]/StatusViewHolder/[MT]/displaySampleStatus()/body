@@ -4,9 +4,6 @@
   if (profileImageSpace != null) {
     profileImageSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
   }
-  if (statusInfoSpace != null) {
-    statusInfoSpace.setVisibility(profileImageEnabled ? View.VISIBLE : View.GONE);
-  }
   if (statusContentUpperSpace != null) {
     statusContentUpperSpace.setVisibility(View.VISIBLE);
   }
@@ -27,25 +24,19 @@
   final boolean showCardActions=isCardActionsShown();
   if (adapter.isMediaPreviewEnabled()) {
     mediaPreview.setVisibility(View.VISIBLE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(View.GONE);
-    }
+    mediaLabel.setVisibility(View.GONE);
   }
  else {
     mediaPreview.setVisibility(View.GONE);
-    if (textMediaSpace != null) {
-      textMediaSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
-    }
+    mediaLabel.setVisibility(View.VISIBLE);
   }
+  quoteMediaLabel.setVisibility(View.GONE);
   actionButtons.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
   itemMenu.setVisibility(showCardActions ? View.VISIBLE : View.GONE);
   if (statusContentLowerSpace != null) {
     statusContentLowerSpace.setVisibility(showCardActions ? View.GONE : View.VISIBLE);
   }
   quoteMediaPreview.setVisibility(View.GONE);
-  if (quotedTextMediaSpace != null) {
-    quotedTextMediaSpace.setVisibility(View.GONE);
-  }
   mediaPreview.displayMedia(R.drawable.nyan_stars_background);
   extraTypeView.setImageResource(R.drawable.ic_action_gallery);
 }

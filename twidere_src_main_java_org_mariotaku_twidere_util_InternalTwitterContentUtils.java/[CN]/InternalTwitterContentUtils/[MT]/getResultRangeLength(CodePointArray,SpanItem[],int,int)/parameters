@@ -1,0 +1,4 @@
+CodePointArray source
+SpanItem[] spans
+int origStart
+int origEnd

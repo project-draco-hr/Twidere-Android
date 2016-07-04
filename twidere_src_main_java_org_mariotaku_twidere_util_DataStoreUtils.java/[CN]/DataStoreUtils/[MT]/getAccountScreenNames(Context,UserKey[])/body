@@ -1,5 +1,4 @@
 {
-  if (context == null)   return new String[0];
   final String[] cols=new String[]{Accounts.SCREEN_NAME};
   final String where;
   final String[] whereArgs;

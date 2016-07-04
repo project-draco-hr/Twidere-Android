@@ -1,14 +1,14 @@
 {
-  final Intent intent=new Intent(INTENT_ACTION_EXTENSION_SHORTEN_STATUS);
+  final Intent intent=new Intent(IntentConstants.INTENT_ACTION_EXTENSION_SHORTEN_STATUS);
   final ComponentName component=ComponentName.unflattenFromString(mShortenerName);
   intent.setComponent(component);
-  mToken=bindToService(mContext,intent,mConnection);
+  mToken=ServiceUtils.bindToService(mContext,intent,mConnection);
   while (mIInterface == null) {
     try {
       Thread.sleep(100L);
     }
  catch (    final InterruptedException e) {
-      Log.w(LOGTAG,e);
+      Log.w(TwidereConstants.LOGTAG,e);
     }
   }
 }

@@ -1,10 +1,13 @@
 {
   super.beforeExecute();
-  mFragment.executeAfterFragmentResumed(new Action(){
-    @Override public void execute(    IBaseFragment fragment){
-      final DialogFragment df=ProgressDialogFragment.show(mFragment.getActivity(),DIALOG_FRAGMENT_TAG);
-      df.setCancelable(false);
+  final UserProfileEditorFragment callback=getCallback();
+  if (callback != null) {
+    callback.executeAfterFragmentResumed(new Action(){
+      @Override public void execute(      IBaseFragment fragment){
+        final DialogFragment df=ProgressDialogFragment.show(((UserProfileEditorFragment)fragment).getActivity(),DIALOG_FRAGMENT_TAG);
+        df.setCancelable(false);
+      }
     }
-  }
 );
+  }
 }

@@ -1,0 +1,5 @@
+{
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,accountKey);
+  if (credentials == null)   return null;
+  return getInstance(context,credentials,includeEntities,includeRetweets,cls);
+}

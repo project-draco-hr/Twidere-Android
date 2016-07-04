@@ -2,7 +2,7 @@
   final Context context=getContext();
   List<CustomAPIConfig> configs=CustomAPIConfig.listDefault(context);
   mAdapter=new CustomAPIConfigArrayAdapter(context,configs);
-  final AlertDialogWrapper.Builder builder=new AlertDialogWrapper.Builder(context);
+  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
   builder.setAdapter(mAdapter,this);
   if (!BuildConfig.DEBUG) {
     getLoaderManager().initLoader(0,null,this);

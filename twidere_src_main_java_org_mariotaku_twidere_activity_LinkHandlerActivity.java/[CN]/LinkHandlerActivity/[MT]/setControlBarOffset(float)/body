@@ -4,8 +4,13 @@
   if (fragment instanceof IToolBarSupportFragment) {
     ((IToolBarSupportFragment)fragment).setControlBarOffset(offset);
   }
- else   if (actionBar != null) {
-    actionBar.setHideOffset((int)(getControlBarHeight() * offset));
+ else   if (actionBar != null && !mHideOffsetNotSupported) {
+    try {
+      actionBar.setHideOffset((int)(getControlBarHeight() * offset));
+    }
+ catch (    UnsupportedOperationException e) {
+      mHideOffsetNotSupported=true;
+    }
   }
   notifyControlBarOffsetChanged();
 }

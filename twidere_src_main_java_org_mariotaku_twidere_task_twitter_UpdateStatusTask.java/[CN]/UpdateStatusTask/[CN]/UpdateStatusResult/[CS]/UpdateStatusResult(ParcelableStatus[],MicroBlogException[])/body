@@ -1,0 +1,5 @@
+{
+  this.statuses=statuses;
+  this.exceptions=exceptions;
+  this.exception=null;
+}

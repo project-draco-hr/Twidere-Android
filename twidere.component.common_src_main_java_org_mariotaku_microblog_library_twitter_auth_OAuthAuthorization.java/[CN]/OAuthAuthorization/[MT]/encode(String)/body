@@ -1,3 +1,0 @@
-{
-  return RestFuUtils.encode(value,DEFAULT_ENCODING);
-}

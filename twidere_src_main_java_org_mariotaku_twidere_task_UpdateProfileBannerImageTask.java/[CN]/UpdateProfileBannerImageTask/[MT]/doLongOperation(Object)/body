@@ -1,6 +1,6 @@
 {
   try {
-    final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,mAccountKey,true);
+    final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,mAccountKey,true);
     TwitterWrapper.updateProfileBannerImage(mContext,twitter,mImageUri,mDeleteImage);
     try {
       Thread.sleep(5000L);

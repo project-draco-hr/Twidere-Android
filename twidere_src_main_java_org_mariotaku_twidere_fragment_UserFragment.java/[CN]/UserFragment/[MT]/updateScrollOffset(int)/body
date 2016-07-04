@@ -9,7 +9,7 @@
   profileBannerView.setTranslationY(offset / 2);
   profileBirthdayBannerView.setTranslationY(offset / 2);
   final BaseActivity activity=(BaseActivity)getActivity();
-  final int statusBarColor=(int)sArgbEvaluator.evaluate(factor,0xA0000000,ATEUtil.darkenColor(mPrimaryColorDark));
+  final int statusBarColor=(int)sArgbEvaluator.evaluate(factor,0xA0000000,ThemeUtils.computeDarkColor(mPrimaryColorDark));
   final Window window=activity.getWindow();
   mTintedStatusFrameLayout.setStatusBarColor(statusBarColor);
   ThemeUtils.setLightStatusBar(window,ThemeUtils.isLightColor(statusBarColor));

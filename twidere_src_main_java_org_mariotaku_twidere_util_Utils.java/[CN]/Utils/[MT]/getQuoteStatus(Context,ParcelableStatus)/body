@@ -1,7 +1,7 @@
 {
   if (context == null)   return null;
   String quoteFormat=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getString(KEY_QUOTE_FORMAT,DEFAULT_QUOTE_FORMAT);
-  if (isEmpty(quoteFormat)) {
+  if (TextUtils.isEmpty(quoteFormat)) {
     quoteFormat=DEFAULT_QUOTE_FORMAT;
   }
   String result=quoteFormat.replace(FORMAT_PATTERN_LINK,LinkCreator.getStatusWebLink(status).toString());

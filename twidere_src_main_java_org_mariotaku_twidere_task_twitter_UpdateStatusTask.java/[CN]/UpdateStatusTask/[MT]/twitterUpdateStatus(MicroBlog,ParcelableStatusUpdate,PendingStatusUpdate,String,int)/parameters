@@ -1,0 +1,5 @@
+MicroBlog microBlog
+ParcelableStatusUpdate statusUpdate
+PendingStatusUpdate pendingUpdate
+String overrideText
+int index

@@ -48,7 +48,7 @@
   }
   mFollowButton.setCompoundDrawablePadding(Math.round(mFollowButton.getTextSize() * 0.25f));
   mFollowingYouIndicator.setVisibility(userRelationship.followed_by ? View.VISIBLE : View.GONE);
-  final CacheUserInfoRunnable task=new CacheUserInfoRunnable(getContext().getApplicationContext());
+  final CacheUserInfoTask task=new CacheUserInfoTask(getContext().getApplicationContext());
   task.setParams(Pair.create(user,userRelationship));
   TaskStarter.execute(task);
   mFollowButton.setVisibility(View.VISIBLE);

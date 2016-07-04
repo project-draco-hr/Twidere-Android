@@ -1,3 +1,3 @@
 {
-  return "HtmlBuilder{" + "source='" + source + '\''+ ", codePoints="+ codePoints+ ", codePointsLength="+ codePointsLength+ ", throwExceptions="+ throwExceptions+ ", sourceIsEscaped="+ sourceIsEscaped+ ", shouldReEscape="+ shouldReEscape+ ", links="+ links+ '}';
+  return "HtmlBuilder{" + ", codePoints=" + source + ", codePointsLength="+ sourceLength+ ", throwExceptions="+ throwExceptions+ ", sourceIsEscaped="+ sourceIsEscaped+ ", shouldReEscape="+ shouldReEscape+ ", links="+ spanSpecs+ '}';
 }

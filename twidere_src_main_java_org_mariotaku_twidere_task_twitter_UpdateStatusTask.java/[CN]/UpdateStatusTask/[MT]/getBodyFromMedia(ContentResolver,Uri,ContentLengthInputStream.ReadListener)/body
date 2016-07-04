@@ -1,0 +1,18 @@
+{
+  final String mediaType=resolver.getType(mediaUri);
+  final InputStream is=resolver.openInputStream(mediaUri);
+  if (is == null) {
+    throw new FileNotFoundException(mediaUri.toString());
+  }
+  final long length=is.available();
+  final ContentLengthInputStream cis=new ContentLengthInputStream(is,length);
+  cis.setReadListener(readListener);
+  final ContentType contentType;
+  if (TextUtils.isEmpty(mediaType)) {
+    contentType=ContentType.parse("application/octet-stream");
+  }
+ else {
+    contentType=ContentType.parse(mediaType);
+  }
+  return new FileBody(cis,"attachment",length,contentType);
+}

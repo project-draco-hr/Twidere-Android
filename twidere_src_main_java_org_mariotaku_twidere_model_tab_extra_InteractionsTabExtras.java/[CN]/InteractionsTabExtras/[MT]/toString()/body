@@ -1,0 +1,3 @@
+{
+  return "InteractionsTabExtras{" + "myFollowingOnly=" + myFollowingOnly + ", mentionsOnly="+ mentionsOnly+ "} "+ super.toString();
+}

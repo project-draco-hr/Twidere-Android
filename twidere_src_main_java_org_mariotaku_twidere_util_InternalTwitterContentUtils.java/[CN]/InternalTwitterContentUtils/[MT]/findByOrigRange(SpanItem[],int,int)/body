@@ -1,0 +1,9 @@
+{
+  List<SpanItem> result=new ArrayList<>();
+  for (  SpanItem span : spans) {
+    if (span.orig_start >= start && span.orig_end <= end) {
+      result.add(span);
+    }
+  }
+  return result;
+}

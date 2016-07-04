@@ -3,7 +3,7 @@
   if (bus == null)   return;
   TaskStarter.execute(new AbstractTask<Object,SingleResponse<Relationship>,Bus>(){
     @Override public SingleResponse<Relationship> doLongOperation(    Object param){
-      final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(mContext,accountKey,true);
+      final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,accountKey,true);
       try {
         return SingleResponse.getInstance(twitter.updateFriendship(userId,update));
       }

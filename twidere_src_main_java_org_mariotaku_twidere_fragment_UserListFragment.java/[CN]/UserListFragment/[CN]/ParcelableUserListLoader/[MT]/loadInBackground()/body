@@ -3,7 +3,7 @@
     final ParcelableUserList cache=mExtras.getParcelable(EXTRA_USER_LIST);
     if (cache != null)     return SingleResponse.getInstance(cache);
   }
-  final MicroBlog twitter=MicroBlogAPIFactory.getTwitterInstance(getContext(),mAccountKey,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(getContext(),mAccountKey,true);
   if (twitter == null)   return SingleResponse.getInstance();
   try {
     final UserList list;

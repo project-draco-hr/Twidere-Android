@@ -1,6 +1,0 @@
-{
-  if (status == null)   return null;
-  final HtmlBuilder builder=new HtmlBuilder(status.getText(),false,true,true);
-  parseEntities(builder,status);
-  return builder.build();
-}

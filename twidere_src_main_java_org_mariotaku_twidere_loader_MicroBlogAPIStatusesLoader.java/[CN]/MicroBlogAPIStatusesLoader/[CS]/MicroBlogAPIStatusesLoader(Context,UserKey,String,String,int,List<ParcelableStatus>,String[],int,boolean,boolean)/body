@@ -1,0 +1,10 @@
+{
+  super(context,data,tabPosition,fromUser);
+  GeneralComponentHelper.build(context).inject(this);
+  mAccountKey=accountKey;
+  mMaxId=maxId;
+  mSinceId=sinceId;
+  mPage=page;
+  mSavedStatusesFileArgs=savedStatusesArgs;
+  mLoadingMore=loadingMore;
+}

@@ -1,0 +1,3 @@
+{
+  return "HomeTabExtras{" + "hideRetweets=" + hideRetweets + ", hideQuotes="+ hideQuotes+ ", hideReplies="+ hideReplies+ "} "+ super.toString();
+}

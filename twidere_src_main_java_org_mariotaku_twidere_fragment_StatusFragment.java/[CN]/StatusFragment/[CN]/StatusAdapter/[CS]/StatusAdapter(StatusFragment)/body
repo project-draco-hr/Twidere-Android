@@ -1,0 +1,29 @@
+{
+  super(fragment.getContext());
+  setHasStableIds(true);
+  final Context context=fragment.getActivity();
+  final Resources res=context.getResources();
+  mItemCounts=new int[ITEM_TYPES_SUM];
+  mItemCounts[ITEM_IDX_SPACE]=1;
+  mItemCounts[ITEM_IDX_STATUS]=1;
+  mItemCounts[ITEM_IDX_CONVERSATION_LOAD_MORE]=1;
+  mItemCounts[ITEM_IDX_REPLY_LOAD_MORE]=1;
+  mFragment=fragment;
+  mInflater=LayoutInflater.from(context);
+  mMediaLoadingHandler=new MediaLoadingHandler(R.id.media_preview_progress);
+  mCardBackgroundColor=ThemeUtils.getCardBackgroundColor(context,ThemeUtils.getThemeBackgroundOption(context),ThemeUtils.getUserThemeBackgroundAlpha(context));
+  mNameFirst=mPreferences.getBoolean(KEY_NAME_FIRST,true);
+  mTextSize=mPreferences.getInt(KEY_TEXT_SIZE,res.getInteger(R.integer.default_text_size));
+  mProfileImageStyle=Utils.getProfileImageStyle(mPreferences.getString(KEY_PROFILE_IMAGE_STYLE,null));
+  mMediaPreviewStyle=Utils.getMediaPreviewStyle(mPreferences.getString(KEY_MEDIA_PREVIEW_STYLE,null));
+  mLinkHighlightingStyle=Utils.getLinkHighlightingStyleInt(mPreferences.getString(KEY_LINK_HIGHLIGHT_OPTION,null));
+  mDisplayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
+  mDisplayMediaPreview=Utils.isMediaPreviewEnabled(context,mPreferences);
+  mSensitiveContentEnabled=mPreferences.getBoolean(KEY_DISPLAY_SENSITIVE_CONTENTS,false);
+  mShowCardActions=!mPreferences.getBoolean(KEY_HIDE_CARD_ACTIONS,false);
+  mUseStarsForLikes=mPreferences.getBoolean(KEY_I_WANT_MY_STARS_BACK);
+  mShowAbsoluteTime=mPreferences.getBoolean(KEY_SHOW_ABSOLUTE_TIME);
+  final StatusAdapterLinkClickHandler<List<ParcelableStatus>> listener=new StatusAdapterLinkClickHandler<>(context,mPreferences);
+  listener.setAdapter(this);
+  mTwidereLinkify=new TwidereLinkify(listener);
+}

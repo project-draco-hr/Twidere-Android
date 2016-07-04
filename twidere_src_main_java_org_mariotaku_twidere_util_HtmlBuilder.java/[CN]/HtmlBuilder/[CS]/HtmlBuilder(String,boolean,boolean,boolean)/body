@@ -1,9 +1,3 @@
 {
-  if (source == null)   throw new NullPointerException();
-  this.source=source;
-  this.codePoints=new CodePointArray(source);
-  this.throwExceptions=strict;
-  this.sourceIsEscaped=sourceIsEscaped;
-  this.shouldReEscape=shouldReEscape;
-  this.codePointsLength=codePoints.length();
+  this(new CodePointArray(source),strict,sourceIsEscaped,shouldReEscape);
 }

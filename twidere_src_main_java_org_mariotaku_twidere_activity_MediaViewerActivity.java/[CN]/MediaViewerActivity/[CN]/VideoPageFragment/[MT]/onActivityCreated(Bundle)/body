@@ -5,6 +5,8 @@
   if (handler == null) {
     handler=new Handler(getActivity().getMainLooper());
   }
+  AudioManager am=(AudioManager)getContext().getSystemService(Context.AUDIO_SERVICE);
+  mPlayAudio=am.getRingerMode() == AudioManager.RINGER_MODE_NORMAL;
   mVideoProgressRunnable=new VideoPlayProgressRunnable(handler,mVideoViewProgress,mDurationLabel,mPositionLabel,mVideoView);
   mVideoViewOverlay.setOnClickListener(this);
   mVideoView.setOnPreparedListener(this);

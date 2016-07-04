@@ -4,6 +4,9 @@
   if (extras instanceof InteractionsTabExtras) {
     result.interactions=(InteractionsTabExtras)extras;
   }
+  if (extras instanceof HomeTabExtras) {
+    result.home=(HomeTabExtras)extras;
+  }
  else {
     result.base=extras;
   }

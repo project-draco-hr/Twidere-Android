@@ -1,0 +1,3 @@
+{
+  return "MediaUploadResponse{" + "mediaId='" + mediaId + '\''+ ", size="+ size+ ", image="+ image+ ", video="+ video+ ", processingInfo="+ processingInfo+ "} "+ super.toString();
+}

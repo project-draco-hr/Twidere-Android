@@ -1,0 +1,13 @@
+{
+  if (extras.isHideRetweets()) {
+    expressions.add(Expression.equalsArgs(Statuses.IS_RETWEET));
+    expressionArgs.add("0");
+  }
+  if (extras.isHideQuotes()) {
+    expressions.add(Expression.equalsArgs(Statuses.IS_QUOTE));
+    expressionArgs.add("0");
+  }
+  if (extras.isHideReplies()) {
+    expressions.add(Expression.isNull(new Column(Statuses.IN_REPLY_TO_STATUS_ID)));
+  }
+}

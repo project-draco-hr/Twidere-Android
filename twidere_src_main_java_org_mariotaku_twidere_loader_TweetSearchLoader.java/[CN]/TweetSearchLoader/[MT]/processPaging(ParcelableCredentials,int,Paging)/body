@@ -1,8 +1,9 @@
 {
   if (MicroBlogAPIFactory.isStatusNetCredentials(credentials)) {
     paging.setRpp(loadItemLimit);
-    if (mPage > 0) {
-      paging.setPage(mPage);
+    final int page=getPage();
+    if (page > 0) {
+      paging.setPage(page);
     }
   }
  else {
