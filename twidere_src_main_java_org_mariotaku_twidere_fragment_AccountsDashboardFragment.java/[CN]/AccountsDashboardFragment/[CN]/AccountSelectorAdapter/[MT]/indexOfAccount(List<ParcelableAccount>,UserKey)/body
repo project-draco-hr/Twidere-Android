@@ -1,6 +1,0 @@
-{
-  for (int i=0, j=accounts.size(); i < j; i++) {
-    if (accounts.get(i).account_key.equals(accountId))     return i;
-  }
-  return -1;
-}

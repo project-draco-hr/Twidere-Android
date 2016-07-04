@@ -1,4 +1,0 @@
-{
-  mActivityFirstCreated=false;
-  super.onStop();
-}

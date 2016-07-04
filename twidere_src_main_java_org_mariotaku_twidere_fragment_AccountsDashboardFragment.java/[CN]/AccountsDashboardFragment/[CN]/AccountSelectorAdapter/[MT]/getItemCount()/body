@@ -1,4 +1,0 @@
-{
-  if (mInternalAccounts == null || mInternalAccounts.length == 0)   return 0;
-  return mInternalAccounts.length - 1;
-}

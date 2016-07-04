@@ -22,5 +22,5 @@
       }
     }
   }
-.setResultHandler(bus));
+.setCallback(bus));
 }

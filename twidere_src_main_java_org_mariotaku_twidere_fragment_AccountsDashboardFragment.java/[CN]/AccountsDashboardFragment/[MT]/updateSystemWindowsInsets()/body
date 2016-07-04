@@ -1,4 +1,0 @@
-{
-  if (mAccountProfileContainer == null)   return;
-  final Rect insets=mSystemWindowsInsets;
-}

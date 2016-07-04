@@ -1,8 +1,0 @@
-{
-  final AlertDialog dialog=(AlertDialog)getDialog();
-  if (dialog == null)   return;
-  final boolean hostValid=!isEmpty(mEditHost.getText());
-  final boolean addressValid=!isEmpty(mEditAddress.getText()) || mCheckExclude.isChecked();
-  final Button positiveButton=dialog.getButton(DialogInterface.BUTTON_POSITIVE);
-  positiveButton.setEnabled(hostValid && addressValid);
-}

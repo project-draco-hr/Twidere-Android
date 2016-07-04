@@ -1,3 +1,0 @@
-{
-  return TwidereApplication.Companion.getInstance(getActivity());
-}

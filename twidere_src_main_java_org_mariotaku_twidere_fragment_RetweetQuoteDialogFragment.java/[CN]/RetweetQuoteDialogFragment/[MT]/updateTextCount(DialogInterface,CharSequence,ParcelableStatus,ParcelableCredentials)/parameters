@@ -1,4 +1,0 @@
-DialogInterface dialog
-CharSequence s
-ParcelableStatus status
-ParcelableCredentials credentials

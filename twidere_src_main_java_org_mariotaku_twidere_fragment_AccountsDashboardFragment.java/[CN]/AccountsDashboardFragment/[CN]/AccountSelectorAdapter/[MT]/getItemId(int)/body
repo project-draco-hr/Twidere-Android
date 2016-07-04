@@ -1,3 +1,0 @@
-{
-  return getAdapterAccount(position).hashCode();
-}

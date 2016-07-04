@@ -1,9 +1,0 @@
-{
-  if (!mLoaderInitialized) {
-    mLoaderInitialized=true;
-    getLoaderManager().initLoader(0,null,this);
-  }
- else {
-    getLoaderManager().restartLoader(0,null,this);
-  }
-}

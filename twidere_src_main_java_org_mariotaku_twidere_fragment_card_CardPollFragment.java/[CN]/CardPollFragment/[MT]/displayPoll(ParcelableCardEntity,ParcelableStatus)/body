@@ -52,7 +52,7 @@
             }
           }
 ;
-          task.setResultHandler(CardPollFragment.this);
+          task.setCallback(CardPollFragment.this);
           task.setParams(cardData);
           TaskStarter.execute(task);
         }

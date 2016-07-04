@@ -1,6 +1,0 @@
-{
-  super.onStart();
-  final ContentResolver resolver=getContentResolver();
-  resolver.registerContentObserver(Accounts.CONTENT_URI,true,mReloadContentObserver);
-  getLoaderManager().restartLoader(0,null,this);
-}

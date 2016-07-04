@@ -1,9 +1,0 @@
-{
-  if (extraId != RecyclerView.NO_POSITION) {
-    final ParcelableStatus status=adapter.getStatus((int)extraId);
-    final ParcelableMedia[] media=ParcelableMediaUtils.getAllMedia(status);
-    final ParcelableMedia current=StatusLinkClickHandler.findByLink(media,link);
-    return current != null && !current.open_browser;
-  }
-  return super.isMedia(link,extraId);
-}

@@ -1,4 +1,0 @@
-{
-  final ParcelableMedia[] media={ParcelableMediaUtils.image(link)};
-  IntentUtils.openMedia(context,accountKey,sensitive,null,media,null,preferences.getBoolean(KEY_NEW_DOCUMENT_API));
-}

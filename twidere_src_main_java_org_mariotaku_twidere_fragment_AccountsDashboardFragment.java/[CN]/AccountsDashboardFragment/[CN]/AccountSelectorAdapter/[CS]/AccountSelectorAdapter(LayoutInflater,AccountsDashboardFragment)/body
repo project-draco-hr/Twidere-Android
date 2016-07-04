@@ -1,6 +1,0 @@
-{
-  mInflater=inflater;
-  mImageLoader=fragment.mediaLoader;
-  mFragment=fragment;
-  setHasStableIds(true);
-}

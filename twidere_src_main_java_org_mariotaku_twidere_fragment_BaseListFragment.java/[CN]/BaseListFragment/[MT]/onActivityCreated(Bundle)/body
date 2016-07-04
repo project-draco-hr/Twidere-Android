@@ -1,6 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  mIsInstanceStateSaved=savedInstanceState != null;
-  final ListView lv=getListView();
-  lv.setOnScrollListener(this);
-}

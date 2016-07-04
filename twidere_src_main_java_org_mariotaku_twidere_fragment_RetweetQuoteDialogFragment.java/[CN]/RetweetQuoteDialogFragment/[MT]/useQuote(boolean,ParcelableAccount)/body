@@ -1,3 +1,0 @@
-{
-  return preCondition || ParcelableAccount.Type.FANFOU.equals(account.account_type);
-}

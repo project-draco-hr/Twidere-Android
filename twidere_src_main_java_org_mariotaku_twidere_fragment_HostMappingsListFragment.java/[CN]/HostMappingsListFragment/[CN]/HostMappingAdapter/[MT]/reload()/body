@@ -1,5 +1,0 @@
-{
-  clear();
-  final Map<String,?> all=mHostMapping.getAll();
-  addAll(all.keySet());
-}

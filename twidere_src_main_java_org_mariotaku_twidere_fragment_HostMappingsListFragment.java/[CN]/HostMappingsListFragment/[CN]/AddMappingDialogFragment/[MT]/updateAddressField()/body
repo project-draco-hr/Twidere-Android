@@ -1,3 +1,0 @@
-{
-  mEditAddress.setVisibility(mCheckExclude.isChecked() ? View.GONE : View.VISIBLE);
-}

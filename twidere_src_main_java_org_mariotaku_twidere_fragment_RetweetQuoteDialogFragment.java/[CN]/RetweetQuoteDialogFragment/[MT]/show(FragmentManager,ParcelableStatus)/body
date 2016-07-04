@@ -1,8 +1,0 @@
-{
-  final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_STATUS,status);
-  final RetweetQuoteDialogFragment f=new RetweetQuoteDialogFragment();
-  f.setArguments(args);
-  f.show(fm,FRAGMENT_TAG);
-  return f;
-}

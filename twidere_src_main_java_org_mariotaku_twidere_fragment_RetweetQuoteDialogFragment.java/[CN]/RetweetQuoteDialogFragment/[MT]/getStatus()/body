@@ -1,5 +1,0 @@
-{
-  final Bundle args=getArguments();
-  if (!args.containsKey(EXTRA_STATUS))   return null;
-  return args.getParcelable(EXTRA_STATUS);
-}

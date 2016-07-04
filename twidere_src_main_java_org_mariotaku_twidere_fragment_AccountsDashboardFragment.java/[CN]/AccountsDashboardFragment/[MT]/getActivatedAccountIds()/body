@@ -1,6 +1,0 @@
-{
-  if (mAccountActionProvider != null) {
-    return mAccountActionProvider.getActivatedAccountIds();
-  }
-  return DataStoreUtils.getActivatedAccountKeys(getActivity());
-}
