@@ -1,7 +1,0 @@
-{
-  final Window window=getWindow();
-  final WindowManager.LayoutParams attributes=window.getAttributes();
-  attributes.gravity=Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-  attributes.y=mSystemWindowsInsets.top;
-  window.setAttributes(attributes);
-}

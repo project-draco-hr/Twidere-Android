@@ -1,0 +1,5 @@
+{
+  this.accountKey=accountKey;
+  this.userKey=userKey;
+  this.relationship=relationship;
+}

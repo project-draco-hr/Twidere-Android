@@ -1,5 +1,0 @@
-{
-  final ParcelableAccount account=(ParcelableAccount)mAccountSpinner.getSelectedItem();
-  if (account == null)   return null;
-  return account.account_key;
-}

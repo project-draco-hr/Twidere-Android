@@ -1,5 +1,0 @@
-{
-  this.data=data;
-  this.exception=exception;
-  this.extras=extras != null ? extras : new Bundle();
-}

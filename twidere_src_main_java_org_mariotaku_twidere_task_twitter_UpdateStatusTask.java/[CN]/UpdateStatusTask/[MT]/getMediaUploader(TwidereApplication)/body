@@ -1,5 +1,5 @@
 {
-  final String uploaderComponent=mPreferences.getString(KEY_MEDIA_UPLOADER,null);
+  final String uploaderComponent=preferences.getString(KEY_MEDIA_UPLOADER,null);
   if (ServicePickerPreference.isNoneValue(uploaderComponent))   return null;
   final MediaUploaderInterface uploader=MediaUploaderInterface.getInstance(app,uploaderComponent);
   if (uploader == null) {

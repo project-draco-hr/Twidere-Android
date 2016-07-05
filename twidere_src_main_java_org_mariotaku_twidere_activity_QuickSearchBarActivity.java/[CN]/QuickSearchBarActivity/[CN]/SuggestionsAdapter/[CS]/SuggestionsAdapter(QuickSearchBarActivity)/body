@@ -1,8 +1,0 @@
-{
-  super(activity,null,0);
-  mRemovedPositions=new SortableIntList();
-  mActivity=activity;
-  mMediaLoader=activity.mediaLoader;
-  mUserColorNameManager=activity.userColorNameManager;
-  mInflater=LayoutInflater.from(activity);
-}

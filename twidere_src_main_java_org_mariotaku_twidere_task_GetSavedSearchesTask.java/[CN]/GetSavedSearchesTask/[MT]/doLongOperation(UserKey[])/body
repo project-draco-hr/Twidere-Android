@@ -17,5 +17,5 @@
       }
     }
   }
-  return SingleResponse.getInstance();
+  return SingleResponse.Companion.getInstance();
 }

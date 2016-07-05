@@ -25,7 +25,11 @@
         }
  else         for (        MicroBlogException e : result.exceptions) {
           if (e != null) {
-            Toast.makeText(context,R.string.status_not_updated,Toast.LENGTH_SHORT).show();
+            String errorMessage=Utils.getErrorMessage(context,e);
+            if (TextUtils.isEmpty(errorMessage)) {
+              errorMessage=context.getString(R.string.status_not_updated);
+            }
+            Toast.makeText(context,errorMessage,Toast.LENGTH_SHORT).show();
             failed=true;
             break;
           }

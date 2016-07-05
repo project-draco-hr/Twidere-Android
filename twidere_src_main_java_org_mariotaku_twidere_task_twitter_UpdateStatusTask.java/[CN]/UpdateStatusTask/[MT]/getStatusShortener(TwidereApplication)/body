@@ -1,5 +1,5 @@
 {
-  final String shortenerComponent=mPreferences.getString(KEY_STATUS_SHORTENER,null);
+  final String shortenerComponent=preferences.getString(KEY_STATUS_SHORTENER,null);
   if (ServicePickerPreference.isNoneValue(shortenerComponent))   return null;
   final StatusShortenerInterface shortener=StatusShortenerInterface.getInstance(app,shortenerComponent);
   if (shortener == null)   throw new ShortenerNotFoundException();

@@ -1,3 +1,0 @@
-{
-  return mUsersSearchAdapter.getItemViewType(position) == SuggestionsAdapter.VIEW_TYPE_SEARCH_HISTORY;
-}

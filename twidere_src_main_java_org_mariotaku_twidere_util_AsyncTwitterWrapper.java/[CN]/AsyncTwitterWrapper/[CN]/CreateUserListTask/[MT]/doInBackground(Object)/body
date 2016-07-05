@@ -1,15 +1,15 @@
 {
   final MicroBlog twitter=MicroBlogAPIFactory.getInstance(getContext(),mAccountKey,false);
-  if (twitter == null || mListName == null)   return SingleResponse.getInstance();
+  if (twitter == null || mListName == null)   return SingleResponse.Companion.getInstance();
   try {
     final UserListUpdate userListUpdate=new UserListUpdate();
     userListUpdate.setName(mListName);
     userListUpdate.setMode(mIsPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
     userListUpdate.setDescription(mDescription);
     final UserList list=twitter.createUserList(userListUpdate);
-    return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey),null);
+    return SingleResponse.Companion.getInstance(ParcelableUserListUtils.from(list,mAccountKey),null);
   }
  catch (  final MicroBlogException e) {
-    return SingleResponse.getInstance(null,e);
+    return SingleResponse.Companion.getInstance(null,e);
   }
 }

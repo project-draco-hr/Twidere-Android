@@ -1,6 +1,6 @@
 {
   final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mActivity,mAccountKey,false);
-  if (twitter == null)   return SingleResponse.getInstance();
+  if (twitter == null)   return SingleResponse.Companion.getInstance();
   try {
     final ResponseList<UserList> lists=twitter.getUserLists(mScreenName,true);
     final List<ParcelableUserList> data=new ArrayList<>();
@@ -14,12 +14,12 @@
         data.add(ParcelableUserListUtils.from(item,mAccountKey));
       }
     }
-    final SingleResponse<List<ParcelableUserList>> result=SingleResponse.getInstance(data);
+    final SingleResponse<List<ParcelableUserList>> result=SingleResponse.Companion.getInstance(data);
     result.getExtras().putBoolean(EXTRA_IS_MY_ACCOUNT,isMyAccount);
     return result;
   }
  catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
-    return SingleResponse.getInstance(e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }

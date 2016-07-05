@@ -1,9 +1,0 @@
-{
-switch (v.getId()) {
-case R.id.edit_query:
-{
-      mActivity.setSearchQuery((String)v.getTag());
-      break;
-    }
-}
-}

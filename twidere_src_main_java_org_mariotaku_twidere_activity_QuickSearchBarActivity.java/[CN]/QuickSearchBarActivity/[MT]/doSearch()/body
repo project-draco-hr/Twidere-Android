@@ -1,7 +1,0 @@
-{
-  if (isFinishing())   return;
-  final String query=ParseUtils.parseString(mSearchQuery.getText());
-  if (TextUtils.isEmpty(query))   return;
-  IntentUtils.openSearch(this,getSelectedAccountKey(),query);
-  finish();
-}

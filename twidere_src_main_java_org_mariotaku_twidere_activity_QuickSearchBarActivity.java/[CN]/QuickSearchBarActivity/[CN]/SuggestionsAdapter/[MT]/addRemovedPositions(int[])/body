@@ -1,7 +1,0 @@
-{
-  for (  int position : positions) {
-    mRemovedPositions.add(getActualPosition(position));
-  }
-  mRemovedPositions.sort();
-  notifyDataSetChanged();
-}

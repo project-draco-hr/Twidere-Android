@@ -1,6 +1,6 @@
 {
   final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mActivity,mAccountKey,false);
-  if (twitter == null)   return SingleResponse.getInstance();
+  if (twitter == null)   return SingleResponse.Companion.getInstance();
   try {
     final Paging paging=new Paging();
     final ResponseList<User> lists=twitter.searchUsers(mName,paging);
@@ -8,10 +8,10 @@
     for (    final User item : lists) {
       data.add(ParcelableUserUtils.fromUser(item,mAccountKey));
     }
-    return SingleResponse.getInstance(data);
+    return SingleResponse.Companion.getInstance(data);
   }
  catch (  final MicroBlogException e) {
     Log.w(LOGTAG,e);
-    return SingleResponse.getInstance(e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }

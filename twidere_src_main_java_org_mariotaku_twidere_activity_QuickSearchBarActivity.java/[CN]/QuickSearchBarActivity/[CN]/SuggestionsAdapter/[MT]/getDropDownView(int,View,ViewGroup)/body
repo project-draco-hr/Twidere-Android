@@ -1,3 +1,0 @@
-{
-  return super.getDropDownView(getActualPosition(position),convertView,parent);
-}

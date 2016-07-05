@@ -1,8 +1,8 @@
 {
   final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
-  if (credentials == null)   return SingleResponse.getInstance();
+  if (credentials == null)   return SingleResponse.Companion.getInstance();
   final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,credentials,true,true);
-  if (twitter == null)   return SingleResponse.getInstance();
+  if (twitter == null)   return SingleResponse.Companion.getInstance();
   try {
     final ParcelableStatus result;
 switch (ParcelableAccountUtils.getAccountType(credentials)) {
@@ -42,9 +42,9 @@ DataStoreUtils.updateActivityStatus(mResolver,mAccountKey,mStatusId,new DataStor
   }
 }
 );
-return SingleResponse.getInstance(result);
+return SingleResponse.Companion.getInstance(result);
 }
  catch (final MicroBlogException e) {
-return SingleResponse.getInstance(e);
+return SingleResponse.Companion.getInstance(e);
 }
 }

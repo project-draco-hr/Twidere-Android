@@ -1,8 +1,0 @@
-{
-  _id=cursor.getColumnIndex(Suggestions._ID);
-  type=cursor.getColumnIndex(Suggestions.TYPE);
-  title=cursor.getColumnIndex(Suggestions.TITLE);
-  summary=cursor.getColumnIndex(Suggestions.SUMMARY);
-  icon=cursor.getColumnIndex(Suggestions.ICON);
-  extra_id=cursor.getColumnIndex(Suggestions.EXTRA_ID);
-}

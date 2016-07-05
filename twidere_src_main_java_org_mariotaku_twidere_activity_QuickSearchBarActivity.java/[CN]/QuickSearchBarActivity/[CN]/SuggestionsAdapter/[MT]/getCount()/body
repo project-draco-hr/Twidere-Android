@@ -1,4 +1,0 @@
-{
-  if (mRemovedPositions == null)   return super.getCount();
-  return super.getCount() - mRemovedPositions.size();
-}

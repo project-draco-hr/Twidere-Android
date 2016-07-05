@@ -3,11 +3,11 @@
   if (twitter != null) {
     try {
       final UserList list=twitter.updateUserList(listId,update);
-      return SingleResponse.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
+      return SingleResponse.Companion.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
     }
  catch (    final MicroBlogException e) {
-      return SingleResponse.getInstance(e);
+      return SingleResponse.Companion.getInstance(e);
     }
   }
-  return SingleResponse.getInstance();
+  return SingleResponse.Companion.getInstance();
 }

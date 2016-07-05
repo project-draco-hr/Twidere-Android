@@ -1,9 +1,0 @@
-{
-switch (v.getId()) {
-case R.id.search_submit:
-{
-      doSearch();
-      break;
-    }
-}
-}

@@ -1,5 +1,0 @@
-{
-  icon=(ImageView)view.findViewById(android.R.id.icon);
-  text1=(TextView)view.findViewById(android.R.id.text1);
-  text2=(TextView)view.findViewById(android.R.id.text2);
-}
