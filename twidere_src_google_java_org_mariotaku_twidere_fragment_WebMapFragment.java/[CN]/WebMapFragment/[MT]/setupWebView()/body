@@ -1,9 +1,0 @@
-{
-  final WebView webview=getWebView();
-  webview.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-  webview.setWebViewClient(new MapWebViewClient(getActivity()));
-  webview.loadUrl(MAPVIEW_URI);
-  final WebSettings settings=webview.getSettings();
-  settings.setBuiltInZoomControls(false);
-  webview.addJavascriptInterface(new MapJavaScriptInterface(),"android");
-}

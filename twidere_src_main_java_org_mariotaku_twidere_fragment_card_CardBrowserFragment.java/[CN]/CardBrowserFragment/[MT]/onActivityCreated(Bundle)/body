@@ -1,6 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  final WebView view=getWebView();
-  final WebSettings settings=view.getSettings();
-  settings.setBuiltInZoomControls(false);
-}

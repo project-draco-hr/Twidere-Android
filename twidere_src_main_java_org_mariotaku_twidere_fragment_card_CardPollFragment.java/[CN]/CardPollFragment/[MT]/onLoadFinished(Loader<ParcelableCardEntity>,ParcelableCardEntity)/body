@@ -1,4 +1,0 @@
-{
-  if (data == null)   return;
-  displayPoll(data,getStatus());
-}

@@ -6,7 +6,7 @@
   setPersistent(false);
   setTitle(KeyboardShortcutsHandler.getActionLabel(context,action));
   mPreferencesChangeListener=new OnSharedPreferenceChangeListener(){
-    @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
+    @Override public void onSharedPreferenceChanged(    SharedPreferences preferences,    String key){
       updateSummary();
     }
   }

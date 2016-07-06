@@ -1,5 +1,0 @@
-{
-  final Bundle args=getArguments();
-  adapter.addTab(UserListsFragment.class,args,getString(R.string.follows),null,0,null);
-  adapter.addTab(UserListMembershipsFragment.class,args,getString(R.string.belongs_to),0,1,null);
-}

@@ -1,3 +1,0 @@
-{
-  return PATTERN_POLL_TEXT_ONLY.matcher(card.name).matches() && !TextUtils.isEmpty(card.url);
-}

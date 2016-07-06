@@ -1,8 +1,0 @@
-{
-  final CardPollFragment fragment=new CardPollFragment();
-  final Bundle args=new Bundle();
-  args.putParcelable(EXTRA_STATUS,status);
-  args.putParcelable(EXTRA_CARD,status.card);
-  fragment.setArguments(args);
-  return fragment;
-}

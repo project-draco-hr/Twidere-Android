@@ -1,6 +1,6 @@
 {
   final UserKey userId=UserKey.valueOf(key);
   if (mListener != null && userId != null) {
-    mListener.onUserColorChanged(userId,sharedPreferences.getInt(key,0));
+    mListener.onUserColorChanged(userId,preferences.getInt(key,0));
   }
 }

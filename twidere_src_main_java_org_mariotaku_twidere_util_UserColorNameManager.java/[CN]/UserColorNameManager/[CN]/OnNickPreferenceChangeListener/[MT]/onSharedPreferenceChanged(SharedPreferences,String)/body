@@ -1,6 +1,6 @@
 {
   final UserKey userId=UserKey.valueOf(key);
   if (mListener != null && userId != null) {
-    mListener.onUserNicknameChanged(userId,sharedPreferences.getString(key,null));
+    mListener.onUserNicknameChanged(userId,preferences.getString(key,null));
   }
 }

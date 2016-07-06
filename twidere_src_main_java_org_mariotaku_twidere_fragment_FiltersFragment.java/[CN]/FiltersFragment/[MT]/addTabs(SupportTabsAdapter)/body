@@ -1,6 +1,0 @@
-{
-  adapter.addTab(FilteredUsersFragment.class,null,getString(R.string.users),null,0,null);
-  adapter.addTab(FilteredKeywordsFragment.class,null,getString(R.string.keywords),null,1,null);
-  adapter.addTab(FilteredSourcesFragment.class,null,getString(R.string.sources),null,2,null);
-  adapter.addTab(FilteredLinksFragment.class,null,getString(R.string.links),null,3,null);
-}

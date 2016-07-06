@@ -1,4 +1,0 @@
-{
-  outState.putString(EXTRA_RINGTONE_PREFERENCE_KEY,mRingtonePreferenceKey);
-  super.onSaveInstanceState(outState);
-}

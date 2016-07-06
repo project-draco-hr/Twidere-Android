@@ -13,7 +13,7 @@
   setDialogTitle(KeyboardShortcutsHandler.getActionLabel(context,mAction));
   setTitle(KeyboardShortcutsHandler.getActionLabel(context,mAction));
   mPreferencesChangeListener=new SharedPreferences.OnSharedPreferenceChangeListener(){
-    @Override public void onSharedPreferenceChanged(    SharedPreferences sharedPreferences,    String key){
+    @Override public void onSharedPreferenceChanged(    SharedPreferences preferences,    String key){
       updateSummary();
     }
   }

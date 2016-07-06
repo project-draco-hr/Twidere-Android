@@ -1,4 +1,0 @@
-{
-  final WebView webview=getWebView();
-  webview.loadUrl("javascript:center();");
-}

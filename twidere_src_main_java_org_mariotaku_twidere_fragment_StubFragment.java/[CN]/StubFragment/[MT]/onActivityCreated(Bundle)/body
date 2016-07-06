@@ -1,4 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  mTextView.setText(String.valueOf(getArguments().get(EXTRA_TAB_POSITION)));
-}

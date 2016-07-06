@@ -1,7 +1,0 @@
-{
-  final Bundle bundle=getArguments();
-  if (bundle != null) {
-    latitude=bundle.getDouble(EXTRA_LATITUDE,0.0);
-    longitude=bundle.getDouble(EXTRA_LONGITUDE,0.0);
-  }
-}

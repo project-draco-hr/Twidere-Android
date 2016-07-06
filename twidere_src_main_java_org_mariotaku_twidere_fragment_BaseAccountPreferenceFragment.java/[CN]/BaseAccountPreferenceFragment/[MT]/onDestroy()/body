@@ -1,6 +1,0 @@
-{
-  final PreferenceManager pm=getPreferenceManager();
-  final SharedPreferences prefs=pm.getSharedPreferences();
-  prefs.unregisterOnSharedPreferenceChangeListener(this);
-  super.onDestroy();
-}

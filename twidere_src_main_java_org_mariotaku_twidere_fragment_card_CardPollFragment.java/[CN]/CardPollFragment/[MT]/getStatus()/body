@@ -1,3 +1,0 @@
-{
-  return getArguments().getParcelable(EXTRA_STATUS);
-}

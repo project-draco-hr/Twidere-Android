@@ -1,8 +1,0 @@
-{
-  super(context);
-  mOmitIntentExtra=omitIntentExtra;
-  mExtras=extras;
-  mAccountKey=accountKey;
-  mGroupId=groupId;
-  mGroupName=groupName;
-}

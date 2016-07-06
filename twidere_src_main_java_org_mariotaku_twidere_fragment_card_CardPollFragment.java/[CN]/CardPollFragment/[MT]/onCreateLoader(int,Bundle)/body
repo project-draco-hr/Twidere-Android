@@ -1,4 +1,0 @@
-{
-  final ParcelableCardEntity card=getCard();
-  return new ParcelableCardEntityLoader(getContext(),card.account_key,card.url,card.name);
-}

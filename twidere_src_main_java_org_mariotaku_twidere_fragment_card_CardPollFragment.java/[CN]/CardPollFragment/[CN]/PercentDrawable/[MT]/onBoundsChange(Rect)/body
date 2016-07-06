@@ -1,5 +1,0 @@
-{
-  mBounds.set(bounds);
-  mBounds.right=mBounds.left + mBounds.width() * mPercent;
-  super.onBoundsChange(bounds);
-}

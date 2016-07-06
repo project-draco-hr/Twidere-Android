@@ -1,3 +1,0 @@
-{
-  return R.xml.preferences_account_notifications;
-}

@@ -1,5 +1,0 @@
-{
-  super.onStart();
-  final SharedPreferences preferences=getPreferenceManager().getSharedPreferences();
-  preferences.registerOnSharedPreferenceChangeListener(this);
-}

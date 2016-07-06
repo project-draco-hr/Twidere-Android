@@ -1,4 +1,0 @@
-{
-  mWebView.onResume();
-  super.onResume();
-}

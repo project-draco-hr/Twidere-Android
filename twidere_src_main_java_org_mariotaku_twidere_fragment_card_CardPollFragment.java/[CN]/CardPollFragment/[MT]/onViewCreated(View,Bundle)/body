@@ -1,5 +1,0 @@
-{
-  super.onViewCreated(view,savedInstanceState);
-  mPollContainer=(TableLayout)view.findViewById(R.id.poll_container);
-  mPollSummary=(TextView)view.findViewById(R.id.poll_summary);
-}

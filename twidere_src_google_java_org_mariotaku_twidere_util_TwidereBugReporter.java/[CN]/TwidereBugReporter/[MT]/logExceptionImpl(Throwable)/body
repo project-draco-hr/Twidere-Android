@@ -1,3 +1,0 @@
-{
-  Crashlytics.logException(throwable);
-}
