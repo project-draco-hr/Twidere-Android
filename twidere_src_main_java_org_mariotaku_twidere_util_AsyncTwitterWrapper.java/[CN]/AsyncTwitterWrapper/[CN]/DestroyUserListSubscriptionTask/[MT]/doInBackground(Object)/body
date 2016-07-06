@@ -4,9 +4,9 @@
   try {
     final UserList userList=twitter.destroyUserListSubscription(mListId);
     final ParcelableUserList list=ParcelableUserListUtils.from(userList,mAccountKey);
-    return SingleResponse.Companion.getInstance(list,null);
+    return SingleResponse.Companion.getInstance(list);
   }
  catch (  final MicroBlogException e) {
-    return SingleResponse.Companion.getInstance(null,e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }

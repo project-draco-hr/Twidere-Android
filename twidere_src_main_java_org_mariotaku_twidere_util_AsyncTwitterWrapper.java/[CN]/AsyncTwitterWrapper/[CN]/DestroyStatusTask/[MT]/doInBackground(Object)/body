@@ -16,5 +16,5 @@
     DataStoreUtils.deleteStatus(mResolver,mAccountKey,mStatusId,status);
     DataStoreUtils.deleteActivityStatus(mResolver,mAccountKey,mStatusId,status);
   }
-  return SingleResponse.Companion.getInstance(status,exception);
+  return SingleResponse.Companion.getInstance(status);
 }

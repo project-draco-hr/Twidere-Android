@@ -4,12 +4,12 @@
   try {
     final DirectMessage message=twitter.destroyDirectMessage(mMessageId);
     deleteMessages();
-    return SingleResponse.Companion.getInstance(message,null);
+    return SingleResponse.Companion.getInstance(message);
   }
  catch (  final MicroBlogException e) {
     if (isMessageNotFound(e)) {
       deleteMessages();
     }
-    return SingleResponse.Companion.getInstance(null,e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }

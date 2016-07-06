@@ -7,9 +7,9 @@
     userListUpdate.setMode(mIsPublic ? UserList.Mode.PUBLIC : UserList.Mode.PRIVATE);
     userListUpdate.setDescription(mDescription);
     final UserList list=twitter.createUserList(userListUpdate);
-    return SingleResponse.Companion.getInstance(ParcelableUserListUtils.from(list,mAccountKey),null);
+    return SingleResponse.Companion.getInstance(ParcelableUserListUtils.from(list,mAccountKey));
   }
  catch (  final MicroBlogException e) {
-    return SingleResponse.Companion.getInstance(null,e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }

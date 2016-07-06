@@ -10,6 +10,6 @@
     return SingleResponse.Companion.getInstance(parcelableUser);
   }
  catch (  final MicroBlogException e) {
-    return SingleResponse.Companion.getInstance(null,e);
+    return SingleResponse.Companion.getInstance(e);
   }
 }
