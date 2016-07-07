@@ -1,9 +1,0 @@
-{
-  final ParcelableUser item=getItem(position);
-  if (item != null) {
-    return item.hashCode();
-  }
- else {
-    return -1;
-  }
-}

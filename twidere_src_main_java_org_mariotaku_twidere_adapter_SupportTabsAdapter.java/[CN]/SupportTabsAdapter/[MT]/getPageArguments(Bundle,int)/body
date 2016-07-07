@@ -1,7 +1,0 @@
-{
-  if (args == null) {
-    args=new Bundle();
-  }
-  args.putInt(EXTRA_ADAPTER_POSITION,position);
-  return args;
-}

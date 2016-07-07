@@ -1,6 +1,0 @@
-{
-  final View view=super.newView(context,cursor,parent);
-  final AccountViewHolder holder=new AccountViewHolder(view);
-  view.setTag(holder);
-  return view;
-}

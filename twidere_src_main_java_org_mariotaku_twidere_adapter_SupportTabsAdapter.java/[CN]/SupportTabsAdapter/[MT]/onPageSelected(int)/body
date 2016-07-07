@@ -1,4 +1,0 @@
-{
-  if (mIndicator == null || position < 0 || position >= getCount())   return;
-  announceForAccessibilityCompat(mContext,(View)mIndicator,getPageTitle(position),getClass());
-}

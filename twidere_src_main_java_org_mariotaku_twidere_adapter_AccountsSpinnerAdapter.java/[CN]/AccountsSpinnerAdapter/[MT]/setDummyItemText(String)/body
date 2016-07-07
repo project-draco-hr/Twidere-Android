@@ -1,4 +1,0 @@
-{
-  mDummyItemText=text;
-  notifyDataSetChanged();
-}

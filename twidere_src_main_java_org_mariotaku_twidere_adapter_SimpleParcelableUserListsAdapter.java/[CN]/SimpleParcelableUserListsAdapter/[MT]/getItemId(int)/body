@@ -1,3 +1,0 @@
-{
-  return getItem(position) != null ? getItem(position).hashCode() : -1;
-}

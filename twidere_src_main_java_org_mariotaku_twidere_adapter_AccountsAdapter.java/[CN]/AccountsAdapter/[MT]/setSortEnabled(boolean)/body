@@ -1,5 +1,0 @@
-{
-  if (mSortEnabled == sortEnabled)   return;
-  mSortEnabled=sortEnabled;
-  notifyDataSetChanged();
-}

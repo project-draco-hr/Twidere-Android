@@ -1,7 +1,0 @@
-{
-  super(fm);
-  mContext=context;
-  mIndicator=indicator;
-  mColumns=columns;
-  clear();
-}

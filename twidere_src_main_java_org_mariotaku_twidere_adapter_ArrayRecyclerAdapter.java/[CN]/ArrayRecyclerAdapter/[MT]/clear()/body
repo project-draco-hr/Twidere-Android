@@ -1,4 +1,0 @@
-{
-  mData.clear();
-  notifyDataSetChanged();
-}

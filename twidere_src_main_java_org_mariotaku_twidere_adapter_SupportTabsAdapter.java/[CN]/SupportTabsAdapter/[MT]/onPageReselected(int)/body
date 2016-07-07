@@ -1,7 +1,0 @@
-{
-  if (!(mContext instanceof SupportFragmentCallback))   return;
-  final Fragment f=((SupportFragmentCallback)mContext).getCurrentVisibleFragment();
-  if (f instanceof RefreshScrollTopInterface) {
-    ((RefreshScrollTopInterface)f).scrollToStart();
-  }
-}

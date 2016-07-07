@@ -1,5 +1,0 @@
-{
-  mCurrentThemeBackgroundAlpha=getThemeBackgroundAlpha();
-  mCurrentThemeBackgroundOption=getThemeBackgroundOption();
-  super.onApplyThemeResource(theme,resId,first);
-}

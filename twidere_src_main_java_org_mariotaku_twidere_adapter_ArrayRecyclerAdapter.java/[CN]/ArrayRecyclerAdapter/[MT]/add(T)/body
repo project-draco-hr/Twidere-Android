@@ -1,5 +1,0 @@
-{
-  if (item == null)   return;
-  mData.add(item);
-  notifyDataSetChanged();
-}

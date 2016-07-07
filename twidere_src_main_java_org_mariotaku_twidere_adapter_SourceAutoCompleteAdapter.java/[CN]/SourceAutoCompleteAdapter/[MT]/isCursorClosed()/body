@@ -1,4 +1,0 @@
-{
-  final Cursor cursor=getCursor();
-  return cursor == null || cursor.isClosed();
-}

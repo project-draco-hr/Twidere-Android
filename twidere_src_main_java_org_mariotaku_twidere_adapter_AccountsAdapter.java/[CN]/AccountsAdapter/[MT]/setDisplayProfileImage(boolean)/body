@@ -1,4 +1,0 @@
-{
-  mDisplayProfileImage=display;
-  notifyDataSetChanged();
-}

@@ -1,5 +1,0 @@
-{
-  mData.remove(position);
-  notifyItemRemoved(position);
-  return true;
-}

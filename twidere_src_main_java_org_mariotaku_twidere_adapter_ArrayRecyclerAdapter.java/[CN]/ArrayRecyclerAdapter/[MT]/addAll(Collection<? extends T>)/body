@@ -1,4 +1,0 @@
-{
-  mData.addAll(collection);
-  notifyDataSetChanged();
-}

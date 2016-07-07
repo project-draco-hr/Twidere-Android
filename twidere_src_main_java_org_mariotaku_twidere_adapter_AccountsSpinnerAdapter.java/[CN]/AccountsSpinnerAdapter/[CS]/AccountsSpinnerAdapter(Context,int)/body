@@ -1,6 +1,0 @@
-{
-  super(context,itemViewResource);
-  GeneralComponentHelper.build(context).inject(this);
-  mContext=context;
-  mDisplayProfileImage=context.getSharedPreferences(TwidereConstants.SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE).getBoolean(SharedPreferenceConstants.KEY_DISPLAY_PROFILE_IMAGE,true);
-}

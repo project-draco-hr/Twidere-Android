@@ -1,6 +1,0 @@
-{
-  if (cursor != null) {
-    mIndices=new ParcelableAccountCursorIndices(cursor);
-  }
-  return super.swapCursor(cursor);
-}

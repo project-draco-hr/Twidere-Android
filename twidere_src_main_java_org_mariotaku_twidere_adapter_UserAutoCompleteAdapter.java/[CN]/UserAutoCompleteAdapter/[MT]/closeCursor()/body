@@ -1,7 +1,0 @@
-{
-  final Cursor cursor=swapCursor(null);
-  if (cursor == null)   return;
-  if (!cursor.isClosed()) {
-    cursor.close();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  Collections.sort(mData,comparator);
-  notifyDataSetChanged();
-}

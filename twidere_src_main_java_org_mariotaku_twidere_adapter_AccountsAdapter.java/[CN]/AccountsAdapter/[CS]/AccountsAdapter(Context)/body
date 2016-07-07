@@ -1,4 +1,0 @@
-{
-  super(context,R.layout.list_item_account,null,new String[]{Accounts.NAME},new int[]{android.R.id.text1},0);
-  GeneralComponentHelper.build(context).inject(this);
-}

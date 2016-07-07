@@ -1,7 +1,0 @@
-{
-  clear();
-  if (data != null) {
-    addAll(data);
-  }
-  notifyDataSetChanged();
-}

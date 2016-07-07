@@ -1,3 +1,0 @@
-{
-  this(context,R.layout.list_item_user);
-}

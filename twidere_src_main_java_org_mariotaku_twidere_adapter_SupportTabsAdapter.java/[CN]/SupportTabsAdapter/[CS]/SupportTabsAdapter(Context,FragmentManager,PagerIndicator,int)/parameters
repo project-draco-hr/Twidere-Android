@@ -1,4 +1,0 @@
-Context context
-FragmentManager fm
-PagerIndicator indicator
-int columns

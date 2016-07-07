@@ -1,3 +1,0 @@
-{
-  super(context,R.layout.list_action_item,android.R.id.text1);
-}

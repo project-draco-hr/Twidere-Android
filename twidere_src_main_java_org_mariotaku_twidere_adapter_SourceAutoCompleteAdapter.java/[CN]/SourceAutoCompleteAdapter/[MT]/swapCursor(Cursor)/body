@@ -1,6 +1,0 @@
-{
-  if (cursor != null) {
-    mSourceIdx=cursor.getColumnIndex(CachedStatuses.SOURCE);
-  }
-  return super.swapCursor(cursor);
-}

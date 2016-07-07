@@ -1,4 +1,0 @@
-{
-  super.onContentChanged();
-  mDoneCancelBar=(Toolbar)findViewById(R.id.done_cancel_bar);
-}

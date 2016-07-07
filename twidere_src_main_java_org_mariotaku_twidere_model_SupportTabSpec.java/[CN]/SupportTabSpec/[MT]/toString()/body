@@ -1,3 +1,0 @@
-{
-  return "SupportTabSpec{" + "name=" + name + ", icon="+ icon+ ", type='"+ type+ '\''+ ", cls="+ cls+ ", args="+ args+ ", position="+ position+ ", tag='"+ tag+ '\''+ '}';
-}

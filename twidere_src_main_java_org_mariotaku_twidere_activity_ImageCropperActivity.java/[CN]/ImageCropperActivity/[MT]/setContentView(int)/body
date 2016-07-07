@@ -1,3 +1,0 @@
-{
-  super.setContentView(R.layout.activity_image_cropper);
-}
