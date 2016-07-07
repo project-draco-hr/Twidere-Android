@@ -1,3 +1,0 @@
-{
-  this.activityRef=new WeakReference<>(activity);
-}

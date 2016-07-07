@@ -1,8 +1,0 @@
-SignInActivity activity
-String username
-String password
-int authType
-OAuthToken consumerKey
-String apiUrlFormat
-boolean sameOAuthSigningUrl
-boolean noVersionSuffix

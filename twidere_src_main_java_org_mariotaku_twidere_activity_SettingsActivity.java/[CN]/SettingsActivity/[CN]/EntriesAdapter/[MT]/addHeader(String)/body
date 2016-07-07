@@ -1,4 +1,0 @@
-{
-  mEntries.add(new HeaderEntry(title));
-  notifyDataSetChanged();
-}

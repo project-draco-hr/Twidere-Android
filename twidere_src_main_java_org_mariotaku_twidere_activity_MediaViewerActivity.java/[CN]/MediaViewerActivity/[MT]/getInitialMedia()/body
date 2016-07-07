@@ -1,3 +1,0 @@
-{
-  return getIntent().getParcelableExtra(EXTRA_CURRENT_MEDIA);
-}

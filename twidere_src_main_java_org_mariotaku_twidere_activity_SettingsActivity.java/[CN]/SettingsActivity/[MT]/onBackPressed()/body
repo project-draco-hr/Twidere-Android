@@ -1,4 +1,0 @@
-{
-  if (notifyUnsavedChange())   return;
-  super.onBackPressed();
-}

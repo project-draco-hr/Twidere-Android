@@ -1,4 +1,0 @@
-SignInActivity activity
-OAuthToken accessToken
-String userId
-int authType

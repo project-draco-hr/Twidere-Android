@@ -1,9 +1,0 @@
-{
-switch (requestCode) {
-case REQUEST_SHARE_MEDIA:
-{
-      ShareProvider.clearTempFiles(this);
-      break;
-    }
-}
-}

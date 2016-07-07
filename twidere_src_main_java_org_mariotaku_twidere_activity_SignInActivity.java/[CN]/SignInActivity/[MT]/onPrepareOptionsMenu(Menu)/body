@@ -1,9 +1,0 @@
-{
-  final MenuItem itemBrowser=menu.findItem(R.id.open_in_browser);
-  if (itemBrowser != null) {
-    final boolean is_oauth=mAuthType == AuthType.OAUTH;
-    itemBrowser.setVisible(is_oauth);
-    itemBrowser.setEnabled(is_oauth);
-  }
-  return true;
-}

@@ -1,3 +1,0 @@
-{
-  return getArguments().getBoolean(EXTRA_LOOP,false);
-}

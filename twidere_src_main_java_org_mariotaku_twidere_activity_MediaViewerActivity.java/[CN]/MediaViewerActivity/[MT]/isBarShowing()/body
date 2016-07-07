@@ -1,4 +1,0 @@
-{
-  final ActionBar actionBar=getSupportActionBar();
-  return actionBar != null && actionBar.isShowing();
-}

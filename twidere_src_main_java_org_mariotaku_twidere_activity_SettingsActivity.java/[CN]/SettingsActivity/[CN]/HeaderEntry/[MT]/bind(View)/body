@@ -1,3 +1,0 @@
-{
-  ((TextView)view.findViewById(android.R.id.title)).setText(title);
-}

@@ -1,3 +1,0 @@
-{
-  return MicroBlogAPIFactory.verifyApiFormat(String.valueOf(mEditAPIUrlFormat.getText()));
-}

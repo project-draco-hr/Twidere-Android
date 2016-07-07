@@ -3,7 +3,7 @@
   DefaultAPIPreference preference=(DefaultAPIPreference)getPreference();
   final SharedPreferences preferences=preference.getSharedPreferences();
   final String apiUrlFormat=ParseUtils.parseString(mEditAPIUrlFormat.getText());
-  final int authType=APIEditorActivity.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
+  final int authType=APIEditorActivity.Companion.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId());
   final boolean sameOAuthSigningUrl=mEditSameOAuthSigningUrl.isChecked();
   final boolean noVersionSuffix=mEditNoVersionSuffix.isChecked();
   final String consumerKey=ParseUtils.parseString(mEditConsumerKey.getText());

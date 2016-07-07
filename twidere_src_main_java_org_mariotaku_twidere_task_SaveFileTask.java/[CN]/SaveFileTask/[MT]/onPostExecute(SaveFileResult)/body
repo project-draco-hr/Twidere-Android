@@ -1,9 +1,0 @@
-{
-  dismissProgress();
-  if (result != null && result.savedFile != null) {
-    onFileSaved(result.savedFile,result.mimeType);
-  }
- else {
-    onFileSaveFailed();
-  }
-}

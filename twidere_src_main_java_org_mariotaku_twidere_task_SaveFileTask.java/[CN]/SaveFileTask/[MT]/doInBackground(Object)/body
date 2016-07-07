@@ -1,5 +1,0 @@
-{
-  final Context context=contextRef.get();
-  if (context == null)   return null;
-  return saveFile(context,source,getMimeType,destination);
-}

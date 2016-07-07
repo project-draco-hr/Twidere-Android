@@ -1,6 +1,5 @@
 {
   String cacheKey=getCacheKey(source);
-  if (cacheKey == null)   return null;
   final int indexOfSsp=cacheKey.indexOf("://");
   if (indexOfSsp != -1) {
     cacheKey=cacheKey.substring(indexOfSsp + 3);

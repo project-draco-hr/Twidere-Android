@@ -1,4 +1,0 @@
-{
-  this.savedFile=savedFile;
-  this.mimeType=mimeType;
-}

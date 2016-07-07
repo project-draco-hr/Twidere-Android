@@ -1,6 +1,0 @@
-String tag
-int icon
-String title
-int preference
-String fragment
-Bundle args

@@ -1,4 +1,0 @@
-{
-  imageView.setMaxScale(getResources().getDisplayMetrics().density);
-  imageView.setBitmapDecoderClass(PreviewBitmapDecoder.class);
-}

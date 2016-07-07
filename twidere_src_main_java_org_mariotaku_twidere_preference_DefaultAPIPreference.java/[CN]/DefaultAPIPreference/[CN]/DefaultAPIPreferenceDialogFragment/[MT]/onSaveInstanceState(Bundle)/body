@@ -1,7 +1,7 @@
 {
   super.onSaveInstanceState(outState);
   outState.putString(Accounts.API_URL_FORMAT,ParseUtils.parseString(mEditAPIUrlFormat.getText()));
-  outState.putInt(Accounts.AUTH_TYPE,APIEditorActivity.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId()));
+  outState.putInt(Accounts.AUTH_TYPE,APIEditorActivity.Companion.getCheckedAuthType(mEditAuthType.getCheckedRadioButtonId()));
   outState.putBoolean(Accounts.SAME_OAUTH_SIGNING_URL,mEditSameOAuthSigningUrl.isChecked());
   outState.putString(Accounts.CONSUMER_KEY,ParseUtils.parseString(mEditConsumerKey.getText()));
   outState.putString(Accounts.CONSUMER_SECRET,ParseUtils.parseString(mEditConsumerSecret.getText()));

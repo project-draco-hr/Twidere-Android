@@ -1,7 +1,0 @@
-{
-  final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-  builder.setMessage(R.string.app_restart_confirm);
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setNegativeButton(R.string.dont_restart,this);
-  return builder.create();
-}

@@ -1,6 +1,0 @@
-{
-  if (resultCode == RESULT_SETTINGS_CHANGED && data != null && data.getBooleanExtra(EXTRA_CHANGED,false)) {
-    setShouldNotifyChange(true);
-  }
-  super.onActivityResult(requestCode,resultCode,data);
-}

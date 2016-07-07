@@ -1,3 +1,0 @@
-{
-  addPreference(tag,icon,title,cls,null);
-}

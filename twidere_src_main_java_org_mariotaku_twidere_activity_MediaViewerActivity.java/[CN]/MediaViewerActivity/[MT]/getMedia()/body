@@ -1,4 +1,0 @@
-{
-  if (mMedia != null)   return mMedia;
-  return mMedia=Utils.newParcelableArray(getIntent().getParcelableArrayExtra(EXTRA_MEDIA),ParcelableMedia.CREATOR);
-}

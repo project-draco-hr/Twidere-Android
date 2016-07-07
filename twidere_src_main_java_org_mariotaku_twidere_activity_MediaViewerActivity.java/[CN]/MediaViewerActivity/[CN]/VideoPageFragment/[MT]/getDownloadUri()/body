@@ -1,7 +1,0 @@
-{
-  final Pair<String,String> bestVideoUrlAndType=getBestVideoUrlAndType(getMedia(),SUPPORTED_VIDEO_TYPES);
-  if (bestVideoUrlAndType != null && bestVideoUrlAndType.first != null) {
-    return Uri.parse(bestVideoUrlAndType.first);
-  }
-  return getArguments().getParcelable(ImagePageFragment.EXTRA_MEDIA_URI);
-}

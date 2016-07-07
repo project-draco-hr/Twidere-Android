@@ -1,8 +1,0 @@
-{
-  this.tag=tag;
-  this.icon=icon;
-  this.title=title;
-  this.preference=preference;
-  this.fragment=fragment;
-  this.args=args;
-}

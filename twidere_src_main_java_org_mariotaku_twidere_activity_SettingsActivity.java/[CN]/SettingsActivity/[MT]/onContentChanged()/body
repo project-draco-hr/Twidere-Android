@@ -1,6 +1,0 @@
-{
-  super.onContentChanged();
-  mEntriesListView=(ListView)findViewById(R.id.entries_list);
-  mSlidingPaneLayout=(SlidingPaneLayout)findViewById(R.id.sliding_pane);
-  mDetailFragmentContainer=findViewById(R.id.detail_fragment_container);
-}

@@ -1,8 +1,0 @@
-{
-  if (isTopSettings() && shouldNotifyChange()) {
-    final RestartConfirmDialogFragment df=new RestartConfirmDialogFragment();
-    df.show(getSupportFragmentManager(),"restart_confirm");
-    return true;
-  }
-  return false;
-}

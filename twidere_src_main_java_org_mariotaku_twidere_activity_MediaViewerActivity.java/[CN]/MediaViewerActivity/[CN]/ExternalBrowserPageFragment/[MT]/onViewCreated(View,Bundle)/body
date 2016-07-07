@@ -1,5 +1,0 @@
-{
-  super.onViewCreated(view,savedInstanceState);
-  mWebViewContainer=((AspectLockedFrameLayout)view.findViewById(R.id.webview_container));
-  mWebView=(WebView)view.findViewById(R.id.webview);
-}

@@ -1,5 +1,0 @@
-{
-  final Uri downloadUri=super.getDownloadUri();
-  if (downloadUri == null)   return null;
-  return replaceTwitterMediaUri(downloadUri);
-}

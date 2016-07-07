@@ -1,3 +1,0 @@
-{
-  return inflater.inflate(R.layout.layout_media_viewer_browser_fragment,parent,false);
-}

@@ -1,3 +1,0 @@
-{
-  this(alreadyLoggedIn,true,null,basicUsername,basicPassword,null,user,AuthType.BASIC,color,apiUrlFormat,false,noVersionSuffix,accountType);
-}

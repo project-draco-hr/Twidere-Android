@@ -12,5 +12,5 @@
       mResolver.update(Tabs.CONTENT_URI,values,where,null);
     }
   }
-  SettingsActivity.setShouldNotifyChange(getActivity());
+  SettingsActivity.Companion.setShouldNotifyChange(getActivity());
 }

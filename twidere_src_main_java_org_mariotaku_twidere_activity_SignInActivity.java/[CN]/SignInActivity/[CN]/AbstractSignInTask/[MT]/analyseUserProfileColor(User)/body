@@ -1,4 +1,0 @@
-{
-  if (user == null)   throw new MicroBlogException("Unable to get user info");
-  return ParseUtils.parseColor("#" + user.getProfileLinkColor(),Color.TRANSPARENT);
-}

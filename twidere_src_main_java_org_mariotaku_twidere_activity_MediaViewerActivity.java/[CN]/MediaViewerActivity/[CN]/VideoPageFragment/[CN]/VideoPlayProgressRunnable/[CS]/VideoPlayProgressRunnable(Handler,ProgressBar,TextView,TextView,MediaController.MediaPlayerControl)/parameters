@@ -1,5 +1,0 @@
-Handler handler
-ProgressBar progressBar
-TextView durationLabel
-TextView positionLabel
-MediaController.MediaPlayerControl mediaPlayerControl

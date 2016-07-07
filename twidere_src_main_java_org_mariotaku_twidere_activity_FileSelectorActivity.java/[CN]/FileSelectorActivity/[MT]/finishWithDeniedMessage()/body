@@ -1,5 +1,0 @@
-{
-  if (isFinishing())   return;
-  Toast.makeText(this,R.string.select_file_no_storage_permission_message,Toast.LENGTH_SHORT).show();
-  finish();
-}

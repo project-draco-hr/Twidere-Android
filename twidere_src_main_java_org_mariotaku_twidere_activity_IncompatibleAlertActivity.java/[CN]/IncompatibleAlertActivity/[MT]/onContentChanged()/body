@@ -1,4 +1,0 @@
-{
-  super.onContentChanged();
-  mInfoText=(TextView)findViewById(R.id.info_text);
-}

@@ -1,3 +1,0 @@
-{
-  this(alreadyLoggedIn,succeed,exception,null,null,null,null,0,0,null,false,false,null);
-}

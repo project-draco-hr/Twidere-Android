@@ -1,4 +1,0 @@
-{
-  mWebView.onPause();
-  super.onPause();
-}

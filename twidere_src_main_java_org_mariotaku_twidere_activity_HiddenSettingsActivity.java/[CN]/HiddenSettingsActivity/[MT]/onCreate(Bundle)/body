@@ -1,9 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  final Bundle fragmentArgs=new Bundle();
-  fragmentArgs.putInt(EXTRA_RESID,R.xml.preferences_hidden);
-  final FragmentManager fm=getSupportFragmentManager();
-  final FragmentTransaction ft=fm.beginTransaction();
-  ft.replace(android.R.id.content,Fragment.instantiate(this,SettingsDetailsFragment.class.getName(),fragmentArgs));
-  ft.commit();
-}

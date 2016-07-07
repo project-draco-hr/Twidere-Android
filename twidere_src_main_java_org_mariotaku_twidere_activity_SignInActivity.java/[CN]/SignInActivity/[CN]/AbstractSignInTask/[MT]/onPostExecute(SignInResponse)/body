@@ -1,6 +1,0 @@
-{
-  final SignInActivity activity=activityRef.get();
-  if (activity != null) {
-    activity.onSignInResult(result);
-  }
-}
