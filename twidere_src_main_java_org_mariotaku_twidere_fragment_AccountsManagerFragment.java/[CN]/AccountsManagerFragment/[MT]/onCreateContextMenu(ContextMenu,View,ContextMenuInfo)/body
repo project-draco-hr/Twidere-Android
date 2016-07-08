@@ -1,8 +1,0 @@
-{
-  if (!(menuInfo instanceof AdapterContextMenuInfo))   return;
-  final AdapterContextMenuInfo info=(AdapterContextMenuInfo)menuInfo;
-  final ParcelableAccount account=mAdapter.getAccount(info.position);
-  menu.setHeaderTitle(account.name);
-  final MenuInflater inflater=new MenuInflater(v.getContext());
-  inflater.inflate(R.menu.action_manager_account,menu);
-}

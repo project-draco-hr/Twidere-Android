@@ -1,6 +1,0 @@
-{
-  if (cursor != null) {
-    mIndices=new CursorIndices(cursor);
-  }
-  super.changeCursor(cursor);
-}

@@ -1,4 +1,0 @@
-{
-  final Uri uri=Accounts.CONTENT_URI;
-  return new CursorLoader(getActivity(),uri,Accounts.COLUMNS,null,null,Accounts.SORT_POSITION);
-}

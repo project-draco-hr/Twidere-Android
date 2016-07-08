@@ -1,7 +1,0 @@
-{
-  mAdapter.drop(from,to);
-  if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
-    mListView.moveCheckState(from,to);
-  }
-  saveAccountPositions();
-}

@@ -1,3 +1,0 @@
-{
-  return inflater.inflate(R.layout.layout_draggable_list_with_empty_view,container,false);
-}

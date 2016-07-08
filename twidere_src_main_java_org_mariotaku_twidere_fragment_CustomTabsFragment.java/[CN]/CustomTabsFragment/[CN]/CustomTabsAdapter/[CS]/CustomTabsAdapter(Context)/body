@@ -1,4 +1,0 @@
-{
-  super(context,R.layout.list_item_custom_tab,null,new String[0],new int[0],0);
-  mIconColor=ThemeUtils.getThemeForegroundColor(context);
-}

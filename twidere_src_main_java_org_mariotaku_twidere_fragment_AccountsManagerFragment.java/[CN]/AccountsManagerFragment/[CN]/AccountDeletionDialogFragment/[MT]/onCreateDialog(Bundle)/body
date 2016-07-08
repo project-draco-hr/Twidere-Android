@@ -1,9 +1,0 @@
-{
-  final Context context=getContext();
-  final AlertDialog.Builder builder=new AlertDialog.Builder(context);
-  builder.setNegativeButton(android.R.string.cancel,null);
-  builder.setPositiveButton(android.R.string.ok,this);
-  builder.setTitle(R.string.account_delete_confirm_title);
-  builder.setMessage(R.string.account_delete_confirm_message);
-  return builder.create();
-}

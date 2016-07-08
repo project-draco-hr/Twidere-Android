@@ -1,4 +1,0 @@
-{
-  preferences.unregisterOnSharedPreferenceChangeListener(this);
-  super.onDestroyView();
-}
