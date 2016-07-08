@@ -1,4 +1,0 @@
-{
-  getContentResolver().unregisterContentObserver(mContentObserver);
-  super.onStop();
-}

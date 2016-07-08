@@ -1,8 +1,0 @@
-{
-  final Intent intent=getIntent();
-  final Intent startIntent=intent.getParcelableExtra(EXTRA_START_INTENT);
-  if (startIntent != null) {
-    startIntent.setExtrasClassLoader(TwidereApplication.class.getClassLoader());
-  }
-  return startIntent;
-}

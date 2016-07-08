@@ -1,4 +1,0 @@
-{
-  super.onStart();
-  getContentResolver().registerContentObserver(Accounts.CONTENT_URI,true,mContentObserver);
-}

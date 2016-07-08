@@ -1,4 +1,0 @@
-{
-  super.onContentChanged();
-  mSurfaceView=(SurfaceView)findViewById(R.id.surface);
-}

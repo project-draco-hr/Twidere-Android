@@ -1,5 +1,0 @@
-{
-  super.onResume();
-  final boolean displayProfileImage=mPreferences.getBoolean(KEY_DISPLAY_PROFILE_IMAGE,true);
-  mAdapter.setProfileImageDisplayed(displayProfileImage);
-}

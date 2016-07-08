@@ -1,4 +1,0 @@
-{
-  final Intent intent=getIntent();
-  return intent.getStringExtra(EXTRA_ACCOUNT_HOST);
-}

@@ -1,4 +1,0 @@
-{
-  Toast.makeText(this,R.string.nyan_sakamoto,Toast.LENGTH_SHORT).show();
-  return true;
-}

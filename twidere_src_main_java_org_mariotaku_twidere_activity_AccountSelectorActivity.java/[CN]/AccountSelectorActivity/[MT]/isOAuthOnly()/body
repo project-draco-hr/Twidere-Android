@@ -1,4 +1,0 @@
-{
-  final Intent intent=getIntent();
-  return intent.getBooleanExtra(EXTRA_OAUTH_ONLY,false);
-}

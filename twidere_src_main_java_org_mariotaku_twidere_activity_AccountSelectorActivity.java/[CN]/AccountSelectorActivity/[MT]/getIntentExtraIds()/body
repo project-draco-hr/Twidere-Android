@@ -1,4 +1,0 @@
-{
-  final Intent intent=getIntent();
-  return intent.getLongArrayExtra(EXTRA_IDS);
-}
