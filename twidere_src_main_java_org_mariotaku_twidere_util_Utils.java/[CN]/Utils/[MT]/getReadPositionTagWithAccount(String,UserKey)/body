@@ -1,0 +1,5 @@
+{
+  if (tag == null)   return null;
+  if (accountKey == null)   return tag;
+  return tag + "_" + accountKey;
+}

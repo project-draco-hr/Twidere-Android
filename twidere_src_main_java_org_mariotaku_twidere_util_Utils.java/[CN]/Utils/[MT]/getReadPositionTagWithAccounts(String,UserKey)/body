@@ -1,7 +1,0 @@
-{
-  if (tag == null)   return null;
-  if (ArrayUtils.isEmpty(accountKeys))   return tag;
-  final UserKey[] accountIdsClone=accountKeys.clone();
-  Arrays.sort(accountIdsClone);
-  return tag + "_" + TwidereArrayUtils.toString(accountIdsClone,'_',false);
-}
