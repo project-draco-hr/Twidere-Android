@@ -9,6 +9,7 @@ case R.id.save:
       final int linkColor=mLinkColor.getColor();
       final int backgroundColor=mBackgroundColor.getColor();
       mTask=new UpdateProfileTaskInternal(this,mAccountId,mUser,name,url,location,description,linkColor,backgroundColor);
+      mTask.setResultHandler(this);
       TaskStarter.execute(mTask);
       return true;
     }

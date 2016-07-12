@@ -8,14 +8,16 @@
       TaskStarter.execute(task);
     }
   }
-  callback.executeAfterFragmentResumed(new Action(){
-    @Override public void execute(    IBaseFragment fragment){
-      final Fragment f=((UserProfileEditorFragment)fragment).getFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_TAG);
-      if (f instanceof DialogFragment) {
-        ((DialogFragment)f).dismissAllowingStateLoss();
+  if (callback != null) {
+    callback.executeAfterFragmentResumed(new Action(){
+      @Override public void execute(      IBaseFragment fragment){
+        final Fragment f=((UserProfileEditorFragment)fragment).getFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_TAG);
+        if (f instanceof DialogFragment) {
+          ((DialogFragment)f).dismissAllowingStateLoss();
+        }
+        f.getActivity().finish();
       }
-      f.getActivity().finish();
     }
-  }
 );
+  }
 }
