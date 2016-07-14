@@ -19,11 +19,14 @@
       }
       @Override public void afterExecute(      Context handler,      UpdateStatusTask.UpdateStatusResult result){
         boolean failed=false;
-        if (result.exception != null) {
-          Toast.makeText(context,result.exception.getMessage(),Toast.LENGTH_SHORT).show();
+        final UpdateStatusTask.UpdateStatusException exception=result.getException();
+        final MicroBlogException[] exceptions=result.getExceptions();
+        if (exception != null) {
+          Toast.makeText(context,exception.getMessage(),Toast.LENGTH_SHORT).show();
           failed=true;
+          Log.w(LOGTAG,exception);
         }
- else         for (        MicroBlogException e : result.exceptions) {
+ else         for (        MicroBlogException e : exceptions) {
           if (e != null) {
             String errorMessage=Utils.getErrorMessage(context,e);
             if (TextUtils.isEmpty(errorMessage)) {
@@ -59,10 +62,12 @@
       }
     }
 );
-    if (result.exception != null) {
-      Log.w(LOGTAG,result.exception);
+    final UpdateStatusTask.UpdateStatusException exception=result.getException();
+    final ParcelableStatus[] updatedStatuses=result.getStatuses();
+    if (exception != null) {
+      Log.w(LOGTAG,exception);
     }
- else     for (    ParcelableStatus status : result.statuses) {
+ else     for (    ParcelableStatus status : updatedStatuses) {
       if (status == null)       continue;
       final TweetEvent event=TweetEvent.create(context,status,TimelineType.OTHER);
       event.setAction(TweetEvent.Action.TWEET);

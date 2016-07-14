@@ -1,5 +1,0 @@
-{
-  GeneralComponentHelper.build(context).inject(this);
-  this.context=context;
-  this.stateCallback=stateCallback;
-}

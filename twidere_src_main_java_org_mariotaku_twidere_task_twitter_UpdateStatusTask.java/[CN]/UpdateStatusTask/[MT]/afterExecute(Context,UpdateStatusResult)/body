@@ -1,3 +1,0 @@
-{
-  stateCallback.afterExecute(handler,result);
-}

@@ -1,3 +1,0 @@
-{
-  return exception instanceof MicroBlogException && ((MicroBlogException)exception).getErrorCode() == ErrorInfo.STATUS_IS_DUPLICATE;
-}

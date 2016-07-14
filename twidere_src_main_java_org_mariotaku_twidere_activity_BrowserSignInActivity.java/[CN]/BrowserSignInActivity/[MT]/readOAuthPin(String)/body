@@ -1,8 +1,8 @@
 {
   try {
     OAuthPasswordAuthenticator.OAuthPinData data=new OAuthPasswordAuthenticator.OAuthPinData();
-    OAuthPasswordAuthenticator.readOAuthPINFromHtml(new StringReader(html),data);
-    return data.oauthPin;
+    OAuthPasswordAuthenticator.Companion.readOAuthPINFromHtml(new StringReader(html),data);
+    return data.getOauthPin();
   }
  catch (  final AttoParseException|IOException e) {
     Log.w(LOGTAG,e);

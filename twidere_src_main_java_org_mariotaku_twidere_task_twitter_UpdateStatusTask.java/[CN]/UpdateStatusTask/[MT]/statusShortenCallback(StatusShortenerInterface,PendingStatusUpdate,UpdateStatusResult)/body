@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < pendingUpdate.length; i++) {
-    final StatusShortenResult shortenResult=pendingUpdate.statusShortenResults[i];
-    final ParcelableStatus status=updateResult.statuses[i];
-    if (shortenResult == null || status == null)     continue;
-    shortener.callback(shortenResult,status);
-  }
-}
