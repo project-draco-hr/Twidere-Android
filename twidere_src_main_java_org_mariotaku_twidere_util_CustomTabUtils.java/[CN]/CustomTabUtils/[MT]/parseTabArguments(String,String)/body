@@ -3,7 +3,6 @@ switch (type) {
 case CustomTabType.HOME_TIMELINE:
 case CustomTabType.NOTIFICATIONS_TIMELINE:
 case CustomTabType.DIRECT_MESSAGES:
-case CustomTabType.RETWEETS_OF_ME:
 {
       return JsonSerializer.parse(json,TabArguments.class);
     }
