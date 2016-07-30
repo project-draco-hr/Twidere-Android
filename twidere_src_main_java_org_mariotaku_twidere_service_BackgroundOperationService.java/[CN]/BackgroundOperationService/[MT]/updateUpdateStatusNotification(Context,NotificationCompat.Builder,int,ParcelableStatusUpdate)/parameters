@@ -1,4 +1,0 @@
-Context context
-NotificationCompat.Builder builder
-int progress
-ParcelableStatusUpdate status

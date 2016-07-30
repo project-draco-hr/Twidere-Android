@@ -1,5 +1,0 @@
-{
-  super.onCreate();
-  GeneralComponentHelper.build(this).inject(this);
-  mHandler=new Handler();
-}
