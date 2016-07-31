@@ -1,6 +1,13 @@
 {
   if (te == null)   return null;
-  if (StatusCodeMessageUtils.containsTwitterError(te.getErrorCode()))   return StatusCodeMessageUtils.getTwitterErrorMessage(context,te.getErrorCode());
- else   if (StatusCodeMessageUtils.containsHttpStatus(te.getStatusCode()))   return StatusCodeMessageUtils.getHttpStatusMessage(context,te.getStatusCode());
- else   return te.getMessage();
+  if (StatusCodeMessageUtils.containsTwitterError(te.getErrorCode())) {
+    return StatusCodeMessageUtils.getTwitterErrorMessage(context,te.getErrorCode());
+  }
+ else   if (StatusCodeMessageUtils.containsHttpStatus(te.getStatusCode())) {
+    return StatusCodeMessageUtils.getHttpStatusMessage(context,te.getStatusCode());
+  }
+ else   if (te.getErrorMessage() != null) {
+    return te.getErrorMessage();
+  }
+  return te.getMessage();
 }
