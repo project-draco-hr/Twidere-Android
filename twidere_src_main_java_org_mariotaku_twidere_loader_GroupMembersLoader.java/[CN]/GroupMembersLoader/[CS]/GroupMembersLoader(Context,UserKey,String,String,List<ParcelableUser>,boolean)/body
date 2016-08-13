@@ -1,5 +1,0 @@
-{
-  super(context,accountKey,data,fromUser);
-  mGroupId=groupId;
-  mGroupName=groupName;
-}

@@ -1,7 +1,0 @@
-{
-  super(context);
-  setFromUser(fromUser);
-  if (data != null) {
-    mData.addAll(data);
-  }
-}

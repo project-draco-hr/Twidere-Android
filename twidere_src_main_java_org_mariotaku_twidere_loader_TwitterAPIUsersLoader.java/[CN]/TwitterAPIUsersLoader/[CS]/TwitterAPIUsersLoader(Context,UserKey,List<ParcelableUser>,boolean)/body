@@ -1,4 +1,0 @@
-{
-  super(context,data,fromUser);
-  mAccountKey=accountKey;
-}

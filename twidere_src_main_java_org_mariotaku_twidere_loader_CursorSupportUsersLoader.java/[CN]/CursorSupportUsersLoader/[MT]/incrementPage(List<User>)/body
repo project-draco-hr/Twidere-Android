@@ -1,7 +1,0 @@
-{
-  if (users.isEmpty())   return;
-  if (mPage == -1) {
-    mPage=1;
-  }
-  mNextPage=mPage + 1;
-}

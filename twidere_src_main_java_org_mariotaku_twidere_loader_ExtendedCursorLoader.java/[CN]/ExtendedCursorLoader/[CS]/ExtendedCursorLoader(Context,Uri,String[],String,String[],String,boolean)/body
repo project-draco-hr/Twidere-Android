@@ -1,4 +1,0 @@
-{
-  super(context,uri,projection,selection,selectionArgs,sortOrder);
-  setFromUser(fromUser);
-}

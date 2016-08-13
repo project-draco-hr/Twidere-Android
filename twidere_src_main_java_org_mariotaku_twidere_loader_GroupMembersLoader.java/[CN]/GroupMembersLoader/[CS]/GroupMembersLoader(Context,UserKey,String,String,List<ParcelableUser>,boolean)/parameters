@@ -1,6 +1,0 @@
-Context context
-UserKey accountKey
-String groupId
-String groupName
-List<ParcelableUser> data
-boolean fromUser
