@@ -1,7 +1,0 @@
-{
-  if (mMultiSelectManager.getCount() != 0) {
-    mMultiSelectManager.clearSelectedItems();
-  }
-  mAccountActionProvider=null;
-  mActionMode=null;
-}

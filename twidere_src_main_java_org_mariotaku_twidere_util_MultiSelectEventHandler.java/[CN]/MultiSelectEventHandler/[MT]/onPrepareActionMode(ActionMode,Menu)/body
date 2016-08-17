@@ -1,4 +1,0 @@
-{
-  updateSelectedCount(mode);
-  return true;
-}

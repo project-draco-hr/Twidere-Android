@@ -1,3 +1,0 @@
-{
-  this(context,ParcelableAccountUtils.getAccounts(context,false,false));
-}

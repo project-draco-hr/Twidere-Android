@@ -1,4 +1,0 @@
-{
-  mMultiSelectManager.registerCallback(this);
-  updateMultiSelectState();
-}

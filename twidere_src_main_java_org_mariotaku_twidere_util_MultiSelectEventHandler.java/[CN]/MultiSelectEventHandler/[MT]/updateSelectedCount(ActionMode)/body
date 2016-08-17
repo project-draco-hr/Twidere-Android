@@ -1,5 +1,0 @@
-{
-  if (mode == null || mActivity == null || mMultiSelectManager == null)   return;
-  final int count=mMultiSelectManager.getCount();
-  mode.setTitle(mActivity.getResources().getQuantityString(R.plurals.Nitems_selected,count,count));
-}

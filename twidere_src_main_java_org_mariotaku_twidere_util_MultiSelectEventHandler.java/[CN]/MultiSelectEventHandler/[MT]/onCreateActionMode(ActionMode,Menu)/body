@@ -1,6 +1,0 @@
-{
-  mode.getMenuInflater().inflate(R.menu.action_multi_select_contents,menu);
-  mAccountActionProvider=(AccountActionProvider)menu.findItem(R.id.select_account).getActionProvider();
-  mAccountActionProvider.setSelectedAccountIds(mMultiSelectManager.getFirstSelectAccountKey());
-  return true;
-}

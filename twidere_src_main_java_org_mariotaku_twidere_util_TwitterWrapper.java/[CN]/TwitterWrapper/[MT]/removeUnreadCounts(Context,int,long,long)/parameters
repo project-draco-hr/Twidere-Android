@@ -1,4 +1,4 @@
 Context context
 int position
 long account_id
-long status_ids
+long statusIds

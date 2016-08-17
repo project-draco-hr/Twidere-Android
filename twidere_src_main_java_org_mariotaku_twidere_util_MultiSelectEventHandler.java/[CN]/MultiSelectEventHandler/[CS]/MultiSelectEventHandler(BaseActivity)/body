@@ -1,4 +1,0 @@
-{
-  GeneralComponentHelper.build(activity).inject(this);
-  mActivity=activity;
-}
