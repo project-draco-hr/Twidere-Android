@@ -10,7 +10,7 @@
     final long sortDiff=firstSortId - lastSortId;
     for (int i=0, j=activities.size(); i < j; i++) {
       Activity item=activities.get(i);
-      final ParcelableActivity activity=ParcelableActivityUtils.fromActivity(item,credentials.account_key,false);
+      final ParcelableActivity activity=ParcelableActivityUtils.INSTANCE.fromActivity(item,credentials.account_key,false);
       activity.position_key=GetStatusesTask.getPositionKey(activity.timestamp,activity.timestamp,lastSortId,sortDiff,i,j);
       if (deleteBound[0] < 0) {
         deleteBound[0]=activity.min_sort_position;
