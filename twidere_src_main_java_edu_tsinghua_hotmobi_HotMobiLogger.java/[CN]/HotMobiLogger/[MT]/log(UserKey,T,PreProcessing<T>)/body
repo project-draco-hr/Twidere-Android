@@ -1,3 +1,4 @@
 {
+  if (!BuildConfig.HOTMOBI_LOG_ENABLED)   return;
   mExecutor.execute(new WriteLogTask<>(mApplication,accountId,event,preProcessing));
 }
