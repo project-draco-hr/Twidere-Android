@@ -1,9 +1,0 @@
-{
-  Place place=status.getPlace();
-  if (place != null)   return place.getFullName();
-  final String location=status.getLocation();
-  if (ParcelableLocation.valueOf(location) == null) {
-    return location;
-  }
-  return null;
-}

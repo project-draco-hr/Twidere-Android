@@ -8,12 +8,12 @@
 switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.FANFOU:
 {
-        result=ParcelableStatusUtils.fromStatus(twitter.destroyFanfouFavorite(mStatusId),mAccountKey,false);
+        result=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.destroyFanfouFavorite(mStatusId),mAccountKey,false);
         break;
       }
 default :
 {
-      result=ParcelableStatusUtils.fromStatus(twitter.destroyFavorite(mStatusId),mAccountKey,false);
+      result=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.destroyFavorite(mStatusId),mAccountKey,false);
     }
 }
 final ContentValues values=new ContentValues();

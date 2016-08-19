@@ -1,5 +1,5 @@
 {
-switch (getItemViewType(position)) {
+switch (holder.getItemViewType()) {
 case ITEM_VIEW_TYPE_MESSAGE_INCOMING:
 case ITEM_VIEW_TYPE_MESSAGE_OUTGOING:
 {

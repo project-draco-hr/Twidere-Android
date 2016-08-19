@@ -8,15 +8,15 @@
 switch (ParcelableAccountUtils.getAccountType(credentials)) {
 case ParcelableAccount.Type.FANFOU:
 {
-        result=ParcelableStatusUtils.fromStatus(twitter.createFanfouFavorite(mStatusId),mAccountKey,false);
+        result=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.createFanfouFavorite(mStatusId),mAccountKey,false);
         break;
       }
 default :
 {
-      result=ParcelableStatusUtils.fromStatus(twitter.createFavorite(mStatusId),mAccountKey,false);
+      result=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.createFavorite(mStatusId),mAccountKey,false);
     }
 }
-ParcelableStatusUtils.updateExtraInformation(result,credentials,mUserColorNameManager);
+ParcelableStatusUtils.INSTANCE.updateExtraInformation(result,credentials,mUserColorNameManager);
 Utils.setLastSeen(mContext,result.mentions,System.currentTimeMillis());
 final ContentValues values=new ContentValues();
 values.put(Statuses.IS_FAVORITE,true);

@@ -6,8 +6,8 @@
   ParcelableStatus status=null;
   MicroBlogException exception=null;
   try {
-    status=ParcelableStatusUtils.fromStatus(twitter.destroyStatus(mStatusId),mAccountKey,false);
-    ParcelableStatusUtils.updateExtraInformation(status,credentials,mUserColorNameManager);
+    status=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.destroyStatus(mStatusId),mAccountKey,false);
+    ParcelableStatusUtils.INSTANCE.updateExtraInformation(status,credentials,mUserColorNameManager);
   }
  catch (  final MicroBlogException e) {
     exception=e;

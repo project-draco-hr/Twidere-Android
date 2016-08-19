@@ -1,3 +1,0 @@
-{
-  return USER_TYPE_FANFOU_COM.equals(accountKey.getHost());
-}

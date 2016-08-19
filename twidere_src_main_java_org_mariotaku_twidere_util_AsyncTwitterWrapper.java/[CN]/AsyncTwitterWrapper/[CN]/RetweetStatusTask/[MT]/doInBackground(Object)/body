@@ -6,8 +6,8 @@
     return SingleResponse.Companion.getInstance();
   }
   try {
-    final ParcelableStatus result=ParcelableStatusUtils.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
-    ParcelableStatusUtils.updateExtraInformation(result,credentials,mUserColorNameManager);
+    final ParcelableStatus result=ParcelableStatusUtils.INSTANCE.fromStatus(twitter.retweetStatus(mStatusId),mAccountKey,false);
+    ParcelableStatusUtils.INSTANCE.updateExtraInformation(result,credentials,mUserColorNameManager);
     Utils.setLastSeen(mContext,result.mentions,System.currentTimeMillis());
     final ContentValues values=new ContentValues();
     values.put(Statuses.MY_RETWEET_ID,result.id);
