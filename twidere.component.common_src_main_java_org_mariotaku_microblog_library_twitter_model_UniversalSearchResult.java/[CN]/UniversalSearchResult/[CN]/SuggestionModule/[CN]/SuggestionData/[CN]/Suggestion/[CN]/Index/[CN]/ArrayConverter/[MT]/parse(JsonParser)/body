@@ -1,0 +1,17 @@
+{
+  if (jsonParser.getCurrentToken() == null) {
+    jsonParser.nextToken();
+  }
+  if (jsonParser.getCurrentToken() != JsonToken.START_ARRAY) {
+    jsonParser.skipChildren();
+    return null;
+  }
+  List<Index> list=new ArrayList<>();
+  while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
+    Index index=new Index();
+    index.start=jsonParser.nextIntValue(-1);
+    index.end=jsonParser.nextIntValue(-1);
+    list.add(index);
+  }
+  return list.toArray(new Index[list.size()]);
+}

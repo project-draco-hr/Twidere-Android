@@ -1,0 +1,3 @@
+{
+  put("smart_mute",enabled ? "enabled" : "disabled");
+}

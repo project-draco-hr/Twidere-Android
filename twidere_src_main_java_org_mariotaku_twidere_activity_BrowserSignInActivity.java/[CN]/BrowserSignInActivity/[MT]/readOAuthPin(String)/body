@@ -4,7 +4,7 @@
     OAuthPasswordAuthenticator.Companion.readOAuthPINFromHtml(new StringReader(html),data);
     return data.getOauthPin();
   }
- catch (  final AttoParseException|IOException e) {
+ catch (  final ParseException|IOException e) {
     Log.w(LOGTAG,e);
   }
   return null;

@@ -1,0 +1,16 @@
+{
+  if (writeFieldNameForObject) {
+    jsonGenerator.writeFieldName(fieldName);
+  }
+  if (indices == null) {
+    jsonGenerator.writeNull();
+  }
+ else {
+    jsonGenerator.writeStartArray();
+    for (    Index index : indices) {
+      jsonGenerator.writeNumber(index.start);
+      jsonGenerator.writeNumber(index.end);
+    }
+    jsonGenerator.writeEndArray();
+  }
+}

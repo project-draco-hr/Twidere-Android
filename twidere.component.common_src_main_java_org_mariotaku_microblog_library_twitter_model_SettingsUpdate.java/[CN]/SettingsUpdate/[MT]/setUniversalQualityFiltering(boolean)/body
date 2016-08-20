@@ -1,0 +1,3 @@
+{
+  put("universal_quality_filtering",enabled ? "enabled" : "disabled");
+}

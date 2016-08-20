@@ -1,0 +1,3 @@
+{
+  put("near",location.getLatitude() + "," + location.getLongitude());
+}

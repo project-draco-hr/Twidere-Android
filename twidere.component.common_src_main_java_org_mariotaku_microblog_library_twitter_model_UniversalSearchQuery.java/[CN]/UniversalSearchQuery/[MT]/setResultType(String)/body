@@ -1,0 +1,3 @@
+{
+  put("result_type",resultType);
+}

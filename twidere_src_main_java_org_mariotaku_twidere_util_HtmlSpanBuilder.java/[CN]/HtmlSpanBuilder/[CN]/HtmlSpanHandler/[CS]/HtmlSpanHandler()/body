@@ -1,0 +1,4 @@
+{
+  sb=new SpannableStringBuilder();
+  tagInfo=new ArrayList<>();
+}

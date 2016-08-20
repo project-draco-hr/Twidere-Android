@@ -2,7 +2,7 @@
   try {
     return fromHtml(html);
   }
- catch (  ParseException e) {
+ catch (  HtmlParseException e) {
     return fallback;
   }
 }
