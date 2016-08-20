@@ -1,3 +1,0 @@
-{
-  return inflater.inflate(R.layout.activity_osm_viewer,container,false);
-}

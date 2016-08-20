@@ -1,4 +1,0 @@
-{
-  mOverlays.add(overlay);
-  populate();
-}

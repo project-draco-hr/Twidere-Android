@@ -1,3 +1,0 @@
-{
-  inflater.inflate(R.menu.menu_osm_viewer,menu);
-}

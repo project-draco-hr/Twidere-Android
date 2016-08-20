@@ -1,4 +1,0 @@
-{
-  d.setBounds(-d.getIntrinsicWidth() / 2,-d.getIntrinsicHeight(),d.getIntrinsicWidth() / 2,0);
-  return d;
-}
