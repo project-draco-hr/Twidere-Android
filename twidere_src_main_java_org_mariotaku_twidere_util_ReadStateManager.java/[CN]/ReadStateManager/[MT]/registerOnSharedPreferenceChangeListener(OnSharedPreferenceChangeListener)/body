@@ -1,3 +1,0 @@
-{
-  mPreferences.registerOnSharedPreferenceChangeListener(listener);
-}

@@ -1,5 +1,4 @@
 {
-  if (s == null)   return null;
   final String[] segs=s.split(":");
   if (segs.length != 2)   throw new NumberFormatException();
   return new StringLongPair(segs[0],Long.parseLong(segs[1]));
