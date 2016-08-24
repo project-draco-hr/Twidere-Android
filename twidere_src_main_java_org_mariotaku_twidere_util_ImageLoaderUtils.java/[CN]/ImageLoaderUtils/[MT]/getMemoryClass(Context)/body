@@ -1,4 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR)   return GetMemoryClassAccessor.getMemoryClass(context);
-  return (int)(Debug.getNativeHeapSize() / 1024 / 1024);
-}
