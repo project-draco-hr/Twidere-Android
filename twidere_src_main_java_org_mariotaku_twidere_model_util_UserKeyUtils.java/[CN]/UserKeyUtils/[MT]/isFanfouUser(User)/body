@@ -1,3 +1,3 @@
 {
-  return isFanfouUrl(user.getProfileImageUrlLarge()) || isFanfouUrl(user.getProfileImageUrl()) || isFanfouUrl(user.getProfileBackgroundImageUrl());
+  return user.getUniqueId() != null && user.getProfileImageUrlLarge() != null;
 }

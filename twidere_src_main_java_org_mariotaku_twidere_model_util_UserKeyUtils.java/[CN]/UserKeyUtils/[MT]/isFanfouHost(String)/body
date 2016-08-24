@@ -1,3 +1,0 @@
-{
-  return TextUtils.equals("fanfou.com",host) || host.endsWith(".fanfou.com");
-}
