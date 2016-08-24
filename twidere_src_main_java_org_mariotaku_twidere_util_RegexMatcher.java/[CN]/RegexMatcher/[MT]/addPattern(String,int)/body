@@ -1,3 +1,0 @@
-{
-  patternsList.add(Pair.create(Pattern.compile(pattern),code));
-}

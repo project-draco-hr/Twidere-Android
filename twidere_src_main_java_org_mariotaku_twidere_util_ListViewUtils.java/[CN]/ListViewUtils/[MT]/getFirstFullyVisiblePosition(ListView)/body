@@ -1,8 +1,0 @@
-{
-  final int firstVisiblePosition=listView.getFirstVisiblePosition();
-  final View firstVisibleChild=listView.getChildAt(0);
-  if (firstVisibleChild != null && firstVisibleChild.getTop() < 0 && firstVisiblePosition + 1 < listView.getCount()) {
-    return firstVisiblePosition + 1;
-  }
-  return firstVisiblePosition;
-}
