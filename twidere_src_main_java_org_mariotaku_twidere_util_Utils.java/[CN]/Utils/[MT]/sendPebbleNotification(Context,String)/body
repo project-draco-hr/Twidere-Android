@@ -1,3 +1,0 @@
-{
-  sendPebbleNotification(context,null,message);
-}

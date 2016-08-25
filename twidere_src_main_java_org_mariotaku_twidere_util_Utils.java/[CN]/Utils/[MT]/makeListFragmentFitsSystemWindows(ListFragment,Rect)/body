@@ -1,5 +1,0 @@
-{
-  final ListView listView=fragment.getListView();
-  listView.setPadding(insets.left,insets.top,insets.right,insets.bottom);
-  listView.setClipToPadding(false);
-}

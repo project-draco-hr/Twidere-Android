@@ -7,8 +7,5 @@
   if (start > len || end > len) {
     return false;
   }
-  if (start < 0 || end < 0) {
-    return false;
-  }
-  return true;
+  return !(start < 0 || end < 0);
 }

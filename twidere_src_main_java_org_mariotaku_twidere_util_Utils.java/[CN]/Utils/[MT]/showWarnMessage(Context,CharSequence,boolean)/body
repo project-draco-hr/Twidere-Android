@@ -1,5 +1,0 @@
-{
-  if (context == null || TextUtils.isEmpty(message))   return;
-  final Toast toast=Toast.makeText(context,message,longMessage ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
-  toast.show();
-}

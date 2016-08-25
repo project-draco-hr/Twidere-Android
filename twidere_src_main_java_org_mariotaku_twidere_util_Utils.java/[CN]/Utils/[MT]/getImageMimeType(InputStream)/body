@@ -1,7 +1,0 @@
-{
-  if (is == null)   return null;
-  final BitmapFactory.Options o=new BitmapFactory.Options();
-  o.inJustDecodeBounds=true;
-  BitmapFactory.decodeStream(is,null,o);
-  return o.outMimeType;
-}

@@ -1,3 +1,0 @@
-{
-  return getTwitterProfileImageOfSize(url,"bigger");
-}

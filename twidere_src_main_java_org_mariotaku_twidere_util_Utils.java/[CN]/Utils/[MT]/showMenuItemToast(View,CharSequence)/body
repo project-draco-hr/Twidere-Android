@@ -1,9 +1,0 @@
-{
-  final int[] screenPos=new int[2];
-  final Rect displayFrame=new Rect();
-  v.getLocationOnScreen(screenPos);
-  v.getWindowVisibleDisplayFrame(displayFrame);
-  final int height=v.getHeight();
-  final int midy=screenPos[1] + height / 2;
-  showMenuItemToast(v,text,midy >= displayFrame.height());
-}

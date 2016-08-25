@@ -1,5 +1,0 @@
-{
-  final TextView textView=new TextView(context,null,android.R.attr.listSeparatorTextViewStyle);
-  textView.setText(title);
-  return textView;
-}

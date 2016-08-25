@@ -1,6 +1,0 @@
-{
-  if (isMention)   return ContextCompat.getColor(context,R.color.highlight_reply);
- else   if (isFavorite)   return ContextCompat.getColor(context,R.color.highlight_like);
- else   if (isRetweet)   ContextCompat.getColor(context,R.color.highlight_retweet);
-  return Color.TRANSPARENT;
-}

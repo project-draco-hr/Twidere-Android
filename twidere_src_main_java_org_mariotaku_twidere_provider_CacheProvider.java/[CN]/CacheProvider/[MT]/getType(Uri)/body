@@ -10,7 +10,7 @@ case Type.IMAGE:
 {
         final File file=mSimpleDiskCache.get(getCacheKey(uri));
         if (file == null)         return null;
-        return Utils.getImageMimeType(file);
+        return BitmapUtils.getImageMimeType(file);
       }
 case Type.VIDEO:
 {

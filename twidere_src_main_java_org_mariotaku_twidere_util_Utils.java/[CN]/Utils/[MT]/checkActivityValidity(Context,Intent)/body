@@ -1,4 +1,0 @@
-{
-  final PackageManager pm=context.getPackageManager();
-  return !pm.queryIntentActivities(intent,0).isEmpty();
-}

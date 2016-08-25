@@ -1,5 +1,0 @@
-{
-  if (context == null)   return null;
-  final SharedPreferences prefs=context.getSharedPreferences(SHARED_PREFERENCES_NAME,Context.MODE_PRIVATE);
-  return prefs.getString(KEY_LINK_HIGHLIGHT_OPTION,VALUE_LINK_HIGHLIGHT_OPTION_NONE);
-}

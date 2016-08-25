@@ -1,8 +1,0 @@
-{
-  if (context == null)   return false;
-  final UserKey[] ids=DataStoreUtils.getAccountKeys(context);
-  for (  final UserKey id : ids) {
-    if (TextUtils.equals(id.getId(),accountId))     return true;
-  }
-  return false;
-}

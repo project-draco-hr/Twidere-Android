@@ -12,6 +12,6 @@
     return null;
   }
  finally {
-    closeSilently(is);
+    Utils.closeSilently(is);
   }
 }
