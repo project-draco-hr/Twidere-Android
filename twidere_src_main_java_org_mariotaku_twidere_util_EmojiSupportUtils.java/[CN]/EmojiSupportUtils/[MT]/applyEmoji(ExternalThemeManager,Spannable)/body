@@ -1,3 +1,0 @@
-{
-  applyEmoji(manager,text,0,text.length());
-}

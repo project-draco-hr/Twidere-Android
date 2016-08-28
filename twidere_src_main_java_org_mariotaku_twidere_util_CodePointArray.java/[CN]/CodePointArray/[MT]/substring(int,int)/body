@@ -1,7 +1,0 @@
-{
-  final StringBuilder sb=new StringBuilder();
-  for (int i=start; i < end; i++) {
-    sb.appendCodePoint(codePoints[i]);
-  }
-  return sb.toString();
-}

@@ -1,5 +1,0 @@
-{
-  if (textView.isInEditMode())   return;
-  textView.setSpannableFactory(new EmojiSpannableFactory(textView));
-  textView.setEditableFactory(new EmojiEditableFactory(textView));
-}

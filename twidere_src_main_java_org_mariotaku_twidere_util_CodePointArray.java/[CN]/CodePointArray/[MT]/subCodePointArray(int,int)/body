@@ -1,3 +1,0 @@
-{
-  return new CodePointArray(ArrayUtils.subarray(codePoints,start,end),end - start);
-}
