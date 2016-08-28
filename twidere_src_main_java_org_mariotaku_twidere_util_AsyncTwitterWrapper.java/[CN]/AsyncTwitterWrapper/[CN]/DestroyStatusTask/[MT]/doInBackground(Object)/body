@@ -1,7 +1,7 @@
 {
-  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
   if (credentials == null)   return SingleResponse.Companion.getInstance();
-  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,credentials,true,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,credentials,true,true);
   if (twitter == null)   return SingleResponse.Companion.getInstance();
   ParcelableStatus status=null;
   MicroBlogException exception=null;
@@ -12,9 +12,9 @@
  catch (  final MicroBlogException e) {
     exception=e;
   }
-  if (status != null || (exception != null && exception.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND)) {
-    DataStoreUtils.deleteStatus(mResolver,mAccountKey,mStatusId,status);
-    DataStoreUtils.deleteActivityStatus(mResolver,mAccountKey,mStatusId,status);
+  if (status != null || (exception.getErrorCode() == ErrorInfo.STATUS_NOT_FOUND)) {
+    DataStoreUtils.deleteStatus(resolver,mAccountKey,mStatusId,status);
+    DataStoreUtils.deleteActivityStatus(resolver,mAccountKey,mStatusId,status);
   }
   return SingleResponse.Companion.getInstance(status);
 }

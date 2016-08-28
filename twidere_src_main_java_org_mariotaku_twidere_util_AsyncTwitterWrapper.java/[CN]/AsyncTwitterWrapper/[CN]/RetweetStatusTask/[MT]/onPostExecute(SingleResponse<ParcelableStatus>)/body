@@ -8,7 +8,7 @@
     bus.post(new StatusRetweetedEvent(status));
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_retweeting,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_retweeting,result.getException(),true);
   }
   super.onPostExecute(result);
 }

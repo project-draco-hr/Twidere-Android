@@ -1,15 +1,15 @@
 {
-  final Bus bus=mBus;
+  final Bus bus=this.bus;
   if (bus == null)   return;
   TaskStarter.execute(new AbstractTask<Object,SingleResponse<Relationship>,Bus>(){
     @Override public SingleResponse<Relationship> doLongOperation(    Object param){
-      final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,accountKey,true);
+      final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,accountKey,true);
       try {
         final Relationship relationship=twitter.updateFriendship(userKey.getId(),update);
         if (!relationship.isSourceWantRetweetsFromTarget()) {
           final Expression where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.equalsArgs(Statuses.RETWEETED_BY_USER_KEY));
           final String[] selectionArgs={accountKey.toString(),userKey.toString()};
-          mContext.getContentResolver().delete(Statuses.CONTENT_URI,where.getSQL(),selectionArgs);
+          context.getContentResolver().delete(Statuses.CONTENT_URI,where.getSQL(),selectionArgs);
         }
         return SingleResponse.Companion.getInstance(relationship);
       }

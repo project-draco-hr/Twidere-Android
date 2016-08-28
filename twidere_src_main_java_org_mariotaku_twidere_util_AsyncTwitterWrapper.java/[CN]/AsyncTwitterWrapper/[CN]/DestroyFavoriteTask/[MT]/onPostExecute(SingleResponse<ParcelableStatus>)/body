@@ -9,11 +9,11 @@
     final TweetEvent tweetEvent=TweetEvent.create(getContext(),status,TimelineType.OTHER);
     tweetEvent.setAction(TweetEvent.Action.UNFAVORITE);
     HotMobiLogger.getInstance(getContext()).log(mAccountKey,tweetEvent);
-    Utils.showInfoMessage(mContext,R.string.status_unfavorited,false);
+    Utils.showInfoMessage(context,R.string.status_unfavorited,false);
   }
  else {
     taskEvent.setSucceeded(false);
-    Utils.showErrorMessage(mContext,R.string.action_unfavoriting,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_unfavoriting,result.getException(),true);
   }
   bus.post(taskEvent);
   bus.post(new StatusListChangedEvent());

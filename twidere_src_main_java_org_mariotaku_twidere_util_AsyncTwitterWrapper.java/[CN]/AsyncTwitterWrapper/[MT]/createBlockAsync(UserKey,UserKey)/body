@@ -1,5 +1,5 @@
 {
-  final CreateUserBlockTask task=new CreateUserBlockTask(mContext);
+  final CreateUserBlockTask task=new CreateUserBlockTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

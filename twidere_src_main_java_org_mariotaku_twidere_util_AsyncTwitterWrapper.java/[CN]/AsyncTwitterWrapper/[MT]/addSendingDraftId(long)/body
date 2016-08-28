@@ -1,6 +1,6 @@
 {
-synchronized (mSendingDraftIds) {
-    mSendingDraftIds.add(id);
-    mResolver.notifyChange(Drafts.CONTENT_URI_UNSENT,null);
+synchronized (sendingDraftIds) {
+    sendingDraftIds.add(id);
+    resolver.notifyChange(Drafts.CONTENT_URI_UNSENT,null);
   }
 }

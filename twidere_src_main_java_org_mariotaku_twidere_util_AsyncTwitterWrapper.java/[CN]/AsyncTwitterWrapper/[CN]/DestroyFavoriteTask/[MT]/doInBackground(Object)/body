@@ -1,7 +1,7 @@
 {
-  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(mContext,mAccountKey);
+  final ParcelableCredentials credentials=ParcelableCredentialsUtils.getCredentials(context,mAccountKey);
   if (credentials == null)   return SingleResponse.Companion.getInstance();
-  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,credentials,true,true);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,credentials,true,true);
   if (twitter == null)   return SingleResponse.Companion.getInstance();
   try {
     final ParcelableStatus result;
@@ -24,9 +24,9 @@ values.put(Statuses.REPLY_COUNT,result.reply_count);
 final Expression where=Expression.and(Expression.equalsArgs(Statuses.ACCOUNT_KEY),Expression.or(Expression.equalsArgs(Statuses.STATUS_ID),Expression.equalsArgs(Statuses.RETWEET_ID)));
 final String[] whereArgs={mAccountKey.toString(),mStatusId,mStatusId};
 for (final Uri uri : TwidereDataStore.STATUSES_URIS) {
-  mResolver.update(uri,values,where.getSQL(),whereArgs);
+  resolver.update(uri,values,where.getSQL(),whereArgs);
 }
-DataStoreUtils.updateActivityStatus(mResolver,mAccountKey,mStatusId,new DataStoreUtils.UpdateActivityAction(){
+DataStoreUtils.updateActivityStatus(resolver,mAccountKey,mStatusId,new DataStoreUtils.UpdateActivityAction(){
   @Override public void process(  ParcelableActivity activity){
     ParcelableStatus[][] statusesMatrix={activity.target_statuses,activity.target_object_statuses};
     for (    ParcelableStatus[] statusesArray : statusesMatrix) {

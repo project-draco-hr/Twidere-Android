@@ -1,5 +1,5 @@
 {
-  final ReportSpamAndBlockTask task=new ReportSpamAndBlockTask(mContext);
+  final ReportSpamAndBlockTask task=new ReportSpamAndBlockTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

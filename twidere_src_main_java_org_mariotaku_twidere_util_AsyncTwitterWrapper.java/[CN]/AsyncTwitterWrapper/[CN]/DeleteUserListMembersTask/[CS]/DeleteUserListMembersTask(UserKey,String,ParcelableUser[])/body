@@ -1,5 +1,5 @@
 {
-  super(mContext);
+  super(context);
   mAccountKey=accountKey;
   mUserListId=userListId;
   this.users=users;

@@ -1,5 +1,5 @@
 {
-  final DestroyUserMuteTask task=new DestroyUserMuteTask(mContext);
+  final DestroyUserMuteTask task=new DestroyUserMuteTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

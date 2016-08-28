@@ -1,5 +1,5 @@
 {
-  final CreateFriendshipTask task=new CreateFriendshipTask(mContext);
+  final CreateFriendshipTask task=new CreateFriendshipTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

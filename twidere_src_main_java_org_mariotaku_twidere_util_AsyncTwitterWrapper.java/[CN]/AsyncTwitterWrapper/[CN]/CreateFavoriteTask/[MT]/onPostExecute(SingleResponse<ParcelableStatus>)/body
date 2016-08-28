@@ -12,7 +12,7 @@
   }
  else {
     taskEvent.setSucceeded(false);
-    Utils.showErrorMessage(mContext,R.string.action_favoriting,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_favoriting,result.getException(),true);
   }
   bus.post(taskEvent);
   bus.post(new StatusListChangedEvent());

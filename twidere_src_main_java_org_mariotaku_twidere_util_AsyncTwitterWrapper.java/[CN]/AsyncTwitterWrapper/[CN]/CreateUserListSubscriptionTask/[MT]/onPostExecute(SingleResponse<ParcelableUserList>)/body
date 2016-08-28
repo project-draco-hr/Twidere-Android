@@ -1,12 +1,12 @@
 {
   final boolean succeed=result.hasData();
   if (succeed) {
-    final String message=mContext.getString(R.string.subscribed_to_list,result.getData().name);
-    Utils.showOkMessage(mContext,message,false);
+    final String message=context.getString(R.string.subscribed_to_list,result.getData().name);
+    Utils.showOkMessage(context,message,false);
     bus.post(new UserListSubscriptionEvent(UserListSubscriptionEvent.Action.SUBSCRIBE,result.getData()));
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_subscribing_to_list,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_subscribing_to_list,result.getException(),true);
   }
   super.onPostExecute(result);
 }

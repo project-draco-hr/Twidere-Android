@@ -6,16 +6,16 @@
       final ParcelableUser user=mUsers[0];
       final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
       final String displayName=mUserColorNameManager.getDisplayName(user.key,user.name,user.screen_name,nameFirst);
-      message=mContext.getString(R.string.added_user_to_list,displayName,result.getData().name);
+      message=context.getString(R.string.added_user_to_list,displayName,result.getData().name);
     }
  else {
-      final Resources res=mContext.getResources();
+      final Resources res=context.getResources();
       message=res.getQuantityString(R.plurals.added_N_users_to_list,mUsers.length,mUsers.length,result.getData().name);
     }
-    Utils.showOkMessage(mContext,message,false);
+    Utils.showOkMessage(context,message,false);
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_adding_member,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_adding_member,result.getException(),true);
   }
   bus.post(new UserListMembersChangedEvent(UserListMembersChangedEvent.Action.ADDED,result.getData(),mUsers));
   super.onPostExecute(result);

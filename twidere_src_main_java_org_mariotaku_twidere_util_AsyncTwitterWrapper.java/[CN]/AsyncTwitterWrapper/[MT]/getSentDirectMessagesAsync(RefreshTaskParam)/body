@@ -1,5 +1,5 @@
 {
-  final GetSentDirectMessagesTask task=new GetSentDirectMessagesTask(mContext);
+  final GetSentDirectMessagesTask task=new GetSentDirectMessagesTask(context);
   task.setParams(param);
   TaskStarter.execute(task);
 }

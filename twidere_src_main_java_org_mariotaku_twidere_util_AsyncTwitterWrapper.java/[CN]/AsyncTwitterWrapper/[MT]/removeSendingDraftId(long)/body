@@ -1,6 +1,6 @@
 {
-synchronized (mSendingDraftIds) {
-    mSendingDraftIds.removeElement(id);
-    mResolver.notifyChange(Drafts.CONTENT_URI_UNSENT,null);
+synchronized (sendingDraftIds) {
+    sendingDraftIds.removeElement(id);
+    resolver.notifyChange(Drafts.CONTENT_URI_UNSENT,null);
   }
 }

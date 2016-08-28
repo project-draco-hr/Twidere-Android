@@ -1,3 +1,3 @@
 {
-  return clearNotification(mContext,notificationType,accountKey);
+  return clearNotification(context,notificationType,accountKey);
 }

@@ -6,17 +6,17 @@
       final ParcelableUser user=users[0];
       final boolean nameFirst=mPreferences.getBoolean(KEY_NAME_FIRST);
       final String displayName=mUserColorNameManager.getDisplayName(user.key,user.name,user.screen_name,nameFirst);
-      message=mContext.getString(R.string.deleted_user_from_list,displayName,result.getData().name);
+      message=context.getString(R.string.deleted_user_from_list,displayName,result.getData().name);
     }
  else {
-      final Resources res=mContext.getResources();
+      final Resources res=context.getResources();
       message=res.getQuantityString(R.plurals.deleted_N_users_from_list,users.length,users.length,result.getData().name);
     }
     bus.post(new UserListMembersChangedEvent(UserListMembersChangedEvent.Action.REMOVED,result.getData(),users));
-    Utils.showInfoMessage(mContext,message,false);
+    Utils.showInfoMessage(context,message,false);
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_deleting,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_deleting,result.getException(),true);
   }
   super.onPostExecute(result);
 }

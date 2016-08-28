@@ -1,5 +1,5 @@
 {
-  final DestroyFriendshipTask task=new DestroyFriendshipTask(mContext);
+  final DestroyFriendshipTask task=new DestroyFriendshipTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

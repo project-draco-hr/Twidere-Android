@@ -1,5 +1,5 @@
 {
-  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,mAccountKey,false);
+  final MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,mAccountKey,false);
   if (twitter == null)   return null;
   try {
     return SingleResponse.Companion.getInstance(twitter.createSavedSearch(mQuery));

@@ -1,16 +1,16 @@
 {
   if (result.hasData()) {
-    final String message=mContext.getString(R.string.search_name_saved,result.getData().getQuery());
-    Utils.showOkMessage(mContext,message,false);
+    final String message=context.getString(R.string.search_name_saved,result.getData().getQuery());
+    Utils.showOkMessage(context,message,false);
   }
  else   if (result.hasException()) {
     final Exception exception=result.getException();
     if (exception instanceof MicroBlogException && ((MicroBlogException)exception).getStatusCode() == 403) {
-      final String desc=mContext.getString(R.string.saved_searches_already_saved_hint);
-      Utils.showErrorMessage(mContext,R.string.action_saving_search,desc,false);
+      final String desc=context.getString(R.string.saved_searches_already_saved_hint);
+      Utils.showErrorMessage(context,R.string.action_saving_search,desc,false);
     }
  else {
-      Utils.showErrorMessage(mContext,R.string.action_saving_search,exception,false);
+      Utils.showErrorMessage(context,R.string.action_saving_search,exception,false);
     }
   }
   super.onPostExecute(result);

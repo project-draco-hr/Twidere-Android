@@ -1,11 +1,11 @@
 {
   if (result.hasData()) {
-    final String message=mContext.getString(R.string.search_name_deleted,result.getData().getQuery());
-    Utils.showOkMessage(mContext,message,false);
+    final String message=context.getString(R.string.search_name_deleted,result.getData().getQuery());
+    Utils.showOkMessage(context,message,false);
     bus.post(new SavedSearchDestroyedEvent(mAccountKey,mSearchId));
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_deleting_search,result.getException(),false);
+    Utils.showErrorMessage(context,R.string.action_deleting_search,result.getException(),false);
   }
   super.onPostExecute(result);
 }

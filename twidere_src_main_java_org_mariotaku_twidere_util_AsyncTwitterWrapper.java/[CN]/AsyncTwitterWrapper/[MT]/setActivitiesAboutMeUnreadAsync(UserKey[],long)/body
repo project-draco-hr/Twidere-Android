@@ -2,8 +2,8 @@
   AbstractTask<Object,Object,AsyncTwitterWrapper> task=new AbstractTask<Object,Object,AsyncTwitterWrapper>(){
     @Override public Object doLongOperation(    Object o){
       for (      UserKey accountId : accountKeys) {
-        MicroBlog twitter=MicroBlogAPIFactory.getInstance(mContext,accountId,false);
-        if (!Utils.isOfficialCredentials(mContext,accountId))         continue;
+        MicroBlog twitter=MicroBlogAPIFactory.getInstance(context,accountId,false);
+        if (!Utils.isOfficialCredentials(context,accountId))         continue;
         try {
           twitter.setActivitiesAboutMeUnread(cursor);
         }

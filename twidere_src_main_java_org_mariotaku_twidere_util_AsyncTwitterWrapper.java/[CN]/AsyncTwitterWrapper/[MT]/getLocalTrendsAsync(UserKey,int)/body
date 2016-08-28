@@ -1,4 +1,4 @@
 {
-  final GetLocalTrendsTask task=new GetLocalTrendsTask(mContext,accountId,woeid);
+  final GetLocalTrendsTask task=new GetLocalTrendsTask(context,accountId,woeid);
   TaskStarter.execute(task);
 }

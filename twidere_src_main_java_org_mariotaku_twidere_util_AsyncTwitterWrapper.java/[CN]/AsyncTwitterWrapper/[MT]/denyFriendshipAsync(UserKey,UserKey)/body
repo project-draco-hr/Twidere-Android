@@ -1,5 +1,5 @@
 {
-  final DenyFriendshipTask task=new DenyFriendshipTask(mContext);
+  final DenyFriendshipTask task=new DenyFriendshipTask(context);
   task.setup(accountKey,userKey);
   TaskStarter.execute(task);
 }

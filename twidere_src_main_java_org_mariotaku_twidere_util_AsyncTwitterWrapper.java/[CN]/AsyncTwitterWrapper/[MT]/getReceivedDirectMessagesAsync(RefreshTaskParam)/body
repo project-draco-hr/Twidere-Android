@@ -1,5 +1,5 @@
 {
-  final GetReceivedDirectMessagesTask task=new GetReceivedDirectMessagesTask(mContext);
+  final GetReceivedDirectMessagesTask task=new GetReceivedDirectMessagesTask(context);
   task.setParams(param);
   TaskStarter.execute(task);
 }

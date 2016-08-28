@@ -1,5 +1,5 @@
 {
-  final GetSavedSearchesTask task=new GetSavedSearchesTask(mContext);
+  final GetSavedSearchesTask task=new GetSavedSearchesTask(context);
   task.setParams(accountKeys);
   TaskStarter.execute(task);
 }

@@ -1,5 +1,5 @@
 {
-  super(mContext);
+  super(context);
   this.mAccountKey=accountKey;
   this.mStatusId=statusId;
 }

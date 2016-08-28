@@ -1,7 +1,26 @@
 {
-  mContext=context;
-  mResolver=context.getContentResolver();
-  mBus=bus;
-  mPreferences=preferences;
-  mAsyncTaskManager=asyncTaskManager;
+  this.context=context;
+  resolver=context.getContentResolver();
+  this.bus=bus;
+  this.preferences=preferences;
+  this.asyncTaskManager=asyncTaskManager;
+  bus.register(new Object(){
+    @Subscribe public void onGetDirectMessagesTaskEvent(    GetMessagesTaskEvent event){
+      if (event.running) {
+        getMessageTasks.add(event.uri);
+      }
+ else {
+        getMessageTasks.remove(event.uri);
+      }
+    }
+    @Subscribe public void onGetStatusesTaskEvent(    GetStatusesTaskEvent event){
+      if (event.running) {
+        getStatusTasks.add(event.uri);
+      }
+ else {
+        getStatusTasks.remove(event.uri);
+      }
+    }
+  }
+);
 }

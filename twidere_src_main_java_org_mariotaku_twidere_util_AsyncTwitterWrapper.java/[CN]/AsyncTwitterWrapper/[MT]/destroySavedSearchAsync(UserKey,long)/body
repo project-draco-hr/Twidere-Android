@@ -1,4 +1,4 @@
 {
   final DestroySavedSearchTask task=new DestroySavedSearchTask(accountKey,searchId);
-  return mAsyncTaskManager.add(task,true);
+  return asyncTaskManager.add(task,true);
 }

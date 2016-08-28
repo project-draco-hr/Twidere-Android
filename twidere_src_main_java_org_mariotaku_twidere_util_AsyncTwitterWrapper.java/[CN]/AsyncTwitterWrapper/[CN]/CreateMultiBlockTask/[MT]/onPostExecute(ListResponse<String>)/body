@@ -1,10 +1,10 @@
 {
   if (result.hasData()) {
-    Utils.showInfoMessage(mContext,R.string.users_blocked,false);
+    Utils.showInfoMessage(context,R.string.users_blocked,false);
   }
  else {
-    Utils.showErrorMessage(mContext,R.string.action_blocking,result.getException(),true);
+    Utils.showErrorMessage(context,R.string.action_blocking,result.getException(),true);
   }
-  mBus.post(new UsersBlockedEvent(mAccountKey,mUserIds));
+  AsyncTwitterWrapper.this.bus.post(new UsersBlockedEvent(mAccountKey,mUserIds));
   super.onPostExecute(result);
 }
