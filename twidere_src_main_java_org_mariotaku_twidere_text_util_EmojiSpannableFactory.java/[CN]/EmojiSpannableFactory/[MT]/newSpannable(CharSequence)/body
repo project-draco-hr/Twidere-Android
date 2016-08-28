@@ -1,5 +1,0 @@
-{
-  final Spannable spannable=super.newSpannable(source);
-  EmojiSupportUtils.applyEmoji(externalThemeManager,spannable);
-  return spannable;
-}

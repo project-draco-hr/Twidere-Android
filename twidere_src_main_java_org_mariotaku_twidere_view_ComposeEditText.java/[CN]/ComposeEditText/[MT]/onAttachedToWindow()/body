@@ -1,8 +1,0 @@
-{
-  super.onAttachedToWindow();
-  if (!isInEditMode() && mAdapter == null) {
-    mAdapter=new ComposeAutoCompleteAdapter(getContext());
-  }
-  setAdapter(mAdapter);
-  updateAccountId();
-}

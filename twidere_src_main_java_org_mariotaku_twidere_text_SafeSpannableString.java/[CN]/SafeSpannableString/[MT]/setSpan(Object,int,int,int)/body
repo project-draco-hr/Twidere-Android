@@ -1,6 +1,0 @@
-{
-  if (!CheckUtils.checkRange(this,start,end)) {
-    return;
-  }
-  super.setSpan(what,start,end,flags);
-}

@@ -1,5 +1,0 @@
-{
-  final int selectionEnd=getSelectionEnd(), selectionStart=getSelectionStart();
-  Selection.removeSelection(getText());
-  setSelection(selectionStart,selectionEnd);
-}

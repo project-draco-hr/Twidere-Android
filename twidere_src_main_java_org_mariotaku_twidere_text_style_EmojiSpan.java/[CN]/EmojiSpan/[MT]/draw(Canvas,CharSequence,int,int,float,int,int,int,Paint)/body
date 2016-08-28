@@ -1,8 +1,0 @@
-{
-  final Drawable b=getDrawable();
-  if (b == null)   return;
-  canvas.save();
-  canvas.translate(x,y);
-  b.draw(canvas);
-  canvas.restore();
-}

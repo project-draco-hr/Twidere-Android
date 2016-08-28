@@ -1,4 +1,0 @@
-{
-  super(source);
-  TwidereStringUtils.fixSHY(this);
-}

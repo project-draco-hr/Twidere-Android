@@ -1,3 +1,0 @@
-{
-  GeneralComponentHelper.build(textView.getContext()).inject(this);
-}
