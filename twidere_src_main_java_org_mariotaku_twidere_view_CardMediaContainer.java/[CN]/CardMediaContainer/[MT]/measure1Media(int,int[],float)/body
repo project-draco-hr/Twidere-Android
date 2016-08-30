@@ -1,6 +1,6 @@
 {
   final View child=getChildAt(childIndices[0]);
-  final int childHeight=Math.round(contentWidth * WIDTH_HEIGHT_RATIO);
+  final int childHeight=Math.round(contentWidth * WIDTH_HEIGHT_RATIO * ratioMultiplier);
   final int widthSpec=MeasureSpec.makeMeasureSpec(contentWidth,MeasureSpec.EXACTLY);
   final int heightSpec=MeasureSpec.makeMeasureSpec(childHeight,MeasureSpec.EXACTLY);
   child.measure(widthSpec,heightSpec);

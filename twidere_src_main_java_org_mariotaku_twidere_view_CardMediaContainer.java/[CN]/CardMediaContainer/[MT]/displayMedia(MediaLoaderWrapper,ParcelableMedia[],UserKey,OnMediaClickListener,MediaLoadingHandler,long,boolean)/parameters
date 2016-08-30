@@ -1,7 +1,7 @@
 MediaLoaderWrapper loader
-OnMediaClickListener mediaClickListener
-MediaLoadingHandler loadingHandler
 ParcelableMedia[] mediaArray
 UserKey accountId
+OnMediaClickListener mediaClickListener
+MediaLoadingHandler loadingHandler
 long extraId
 boolean withCredentials

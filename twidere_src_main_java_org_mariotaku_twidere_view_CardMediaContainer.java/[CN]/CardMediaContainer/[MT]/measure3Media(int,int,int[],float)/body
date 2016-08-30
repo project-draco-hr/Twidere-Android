@@ -1,0 +1,11 @@
+{
+  final View child0=getChildAt(childIndices[0]), child1=getChildAt(childIndices[1]), child2=getChildAt(childIndices[2]);
+  final int childWidth=(contentWidth - horizontalSpacing) / 2;
+  final int childLeftHeightSpec=MeasureSpec.makeMeasureSpec(Math.round(childWidth * ratioMultiplier),MeasureSpec.EXACTLY);
+  final int widthSpec=MeasureSpec.makeMeasureSpec(childWidth,MeasureSpec.EXACTLY);
+  child0.measure(widthSpec,childLeftHeightSpec);
+  final int childRightHeight=Math.round((childWidth - horizontalSpacing) / 2 * ratioMultiplier);
+  final int childRightHeightSpec=MeasureSpec.makeMeasureSpec(childRightHeight,MeasureSpec.EXACTLY);
+  child1.measure(widthSpec,childRightHeightSpec);
+  child2.measure(widthSpec,childRightHeightSpec);
+}

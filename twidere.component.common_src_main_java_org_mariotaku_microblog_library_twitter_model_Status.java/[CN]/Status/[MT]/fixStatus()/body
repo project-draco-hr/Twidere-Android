@@ -8,5 +8,8 @@
     quotedStatus=repostStatus;
     quotedStatusId=repostStatusId;
     isQuoteStatus=true;
+    if (photo != null && photo.equals(repostStatus.photo)) {
+      photo=null;
+    }
   }
 }

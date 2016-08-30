@@ -1,0 +1,7 @@
+{
+  int result=url != null ? url.hashCode() : 0;
+  result=31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
+  result=31 * result + (thumbUrl != null ? thumbUrl.hashCode() : 0);
+  result=31 * result + (largeUrl != null ? largeUrl.hashCode() : 0);
+  return result;
+}

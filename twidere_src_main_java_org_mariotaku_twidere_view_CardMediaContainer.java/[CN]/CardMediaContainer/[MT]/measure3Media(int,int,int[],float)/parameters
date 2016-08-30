@@ -1,0 +1,4 @@
+int contentWidth
+int horizontalSpacing
+int[] childIndices
+float ratioMultiplier

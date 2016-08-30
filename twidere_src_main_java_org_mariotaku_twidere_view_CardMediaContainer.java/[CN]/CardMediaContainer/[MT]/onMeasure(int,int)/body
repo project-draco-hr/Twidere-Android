@@ -1,24 +1,34 @@
 {
   final int measuredWidth=resolveSize(getSuggestedMinimumWidth(),widthMeasureSpec);
   final int contentWidth=measuredWidth - getPaddingLeft() - getPaddingRight();
+  float ratioMultiplier=1;
+  int contentHeight=-1;
+  if (getLayoutParams().height != LayoutParams.WRAP_CONTENT) {
+    final int measuredHeight=resolveSize(getSuggestedMinimumWidth(),widthMeasureSpec);
+    ratioMultiplier=contentWidth > 0 ? measuredHeight / (contentWidth * WIDTH_HEIGHT_RATIO) : 1;
+    contentHeight=contentWidth;
+  }
   final int[] childIndices=createChildIndices();
   final int childCount=getChildIndicesInLayout(this,childIndices);
   int heightSum=0;
   if (childCount > 0) {
     if (childCount == 1) {
-      measure1Media(contentWidth,childIndices);
-      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO);
+      measure1Media(contentWidth,childIndices,ratioMultiplier);
+      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO * ratioMultiplier);
     }
  else     if (childCount == 2) {
-      measureGridMedia(childCount,2,contentWidth,1,mHorizontalSpacing,mVerticalSpacing,childIndices);
-      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO);
+      measureGridMedia(childCount,2,contentWidth,ratioMultiplier,mHorizontalSpacing,mVerticalSpacing,childIndices);
+      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO * ratioMultiplier);
     }
  else     if (childCount == 3) {
-      measure3Media(contentWidth,mHorizontalSpacing,childIndices);
-      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO);
+      measure3Media(contentWidth,mHorizontalSpacing,childIndices,ratioMultiplier);
+      heightSum=Math.round(contentWidth * WIDTH_HEIGHT_RATIO * ratioMultiplier);
     }
  else {
-      heightSum=measureGridMedia(childCount,2,contentWidth,WIDTH_HEIGHT_RATIO,mHorizontalSpacing,mVerticalSpacing,childIndices);
+      heightSum=measureGridMedia(childCount,2,contentWidth,WIDTH_HEIGHT_RATIO * ratioMultiplier,mHorizontalSpacing,mVerticalSpacing,childIndices);
+    }
+    if (contentHeight > 0) {
+      heightSum=contentHeight;
     }
   }
   final int height=heightSum + getPaddingTop() + getPaddingBottom();

@@ -10,7 +10,9 @@
   final View.OnClickListener clickListener=new ImageGridClickListener(mediaClickListener,accountId,extraId);
   for (int i=0, j=getChildCount(), k=mediaArray.length; i < j; i++) {
     final View child=getChildAt(i);
-    child.setOnClickListener(clickListener);
+    if (mediaClickListener != null) {
+      child.setOnClickListener(clickListener);
+    }
     final ImageView imageView=(ImageView)child.findViewById(R.id.mediaPreview);
 switch (mMediaPreviewStyle) {
 case VALUE_MEDIA_PREVIEW_STYLE_CODE_CROP:
