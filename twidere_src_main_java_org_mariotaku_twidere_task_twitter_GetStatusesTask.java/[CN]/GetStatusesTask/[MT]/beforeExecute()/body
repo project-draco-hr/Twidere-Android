@@ -1,3 +1,0 @@
-{
-  bus.post(new GetStatusesTaskEvent(getContentUri(),true,null));
-}

@@ -1,5 +1,5 @@
 {
-  if (Utils.isOfficialCredentials(context,credentials)) {
+  if (Utils.isOfficialCredentials(getContext(),credentials)) {
     return twitter.getActivitiesAboutMe(paging);
   }
   final ResponseList<Activity> activities=new ResponseList<>();

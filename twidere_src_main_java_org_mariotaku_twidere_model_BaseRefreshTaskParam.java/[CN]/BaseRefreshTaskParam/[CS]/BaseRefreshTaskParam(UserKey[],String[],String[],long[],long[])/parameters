@@ -1,5 +1,0 @@
-UserKey[] accountKeys
-String[] maxIds
-String[] sinceIds
-long[] maxSortIds
-long[] sinceSortIds

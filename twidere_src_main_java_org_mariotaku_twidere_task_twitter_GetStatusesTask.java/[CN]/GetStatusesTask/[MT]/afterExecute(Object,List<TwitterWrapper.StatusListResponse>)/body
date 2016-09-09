@@ -1,4 +1,0 @@
-{
-  context.getContentResolver().notifyChange(getContentUri(),null);
-  bus.post(new GetStatusesTaskEvent(getContentUri(),false,AsyncTwitterWrapper.getException(result)));
-}

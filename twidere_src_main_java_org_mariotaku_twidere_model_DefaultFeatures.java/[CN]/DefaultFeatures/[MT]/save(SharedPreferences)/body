@@ -1,0 +1,5 @@
+{
+  final SharedPreferences.Editor editor=preferences.edit();
+  editor.putBoolean(KEY_MEDIA_LINK_COUNTS_IN_STATUS,mediaLinkCountsInStatus);
+  editor.apply();
+}

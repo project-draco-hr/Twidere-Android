@@ -1,4 +1,0 @@
-Context context
-SharedPreferencesWrapper prefs
-Dns dns
-ConnectionPool connectionPool

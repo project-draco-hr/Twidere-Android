@@ -1,10 +1,10 @@
 {
   if (ParcelableAccount.Type.TWITTER.equals(ParcelableAccountUtils.getAccountType(credentials))) {
-    if (Utils.isOfficialCredentials(context,credentials)) {
+    if (Utils.isOfficialCredentials(getContext(),credentials)) {
       try {
         CursorTimestampResponse response=twitter.getActivitiesAboutMeUnread(true);
         final String tag=Utils.getReadPositionTagWithAccount(ReadPositionTag.ACTIVITIES_ABOUT_ME,accountKey);
-        readStateManager.setPosition(tag,response.getCursor(),false);
+        getReadStateManager().setPosition(tag,response.getCursor(),false);
       }
  catch (      MicroBlogException e) {
       }

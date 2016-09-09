@@ -1,0 +1,25 @@
+{
+  HttpRequest request=new HttpRequest.Builder().method(GET.METHOD).url(REMOTE_SETTINGS_URL).build();
+  final HttpResponse response=client.newCall(request).execute();
+  try {
+    final JsonMapper<DefaultFeatures> mapper=LoganSquare.mapperFor(DefaultFeatures.class);
+    final JsonParser jsonParser=LoganSquare.JSON_FACTORY.createParser(response.getBody().stream());
+    if (jsonParser.getCurrentToken() == null) {
+      jsonParser.nextToken();
+    }
+    if (jsonParser.getCurrentToken() != JsonToken.START_OBJECT) {
+      jsonParser.skipChildren();
+      return false;
+    }
+    while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
+      String fieldName=jsonParser.getCurrentName();
+      jsonParser.nextToken();
+      mapper.parseField(this,fieldName,jsonParser);
+      jsonParser.skipChildren();
+    }
+  }
+  finally {
+    response.close();
+  }
+  return true;
+}

@@ -1,6 +1,0 @@
-long timestamp
-long sortId
-long lastSortId
-long sortDiff
-int position
-int count

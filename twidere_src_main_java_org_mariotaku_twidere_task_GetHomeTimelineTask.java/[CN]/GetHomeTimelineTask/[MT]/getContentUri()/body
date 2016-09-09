@@ -1,3 +1,0 @@
-{
-  return TwidereDataStore.Statuses.CONTENT_URI;
-}

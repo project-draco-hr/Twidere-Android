@@ -1,5 +1,0 @@
-{
-  final OkHttpClient.Builder builder=new OkHttpClient.Builder();
-  initOkHttpClient(context,prefs,builder,dns,connectionPool);
-  return new OkHttpRestClient(builder.build());
-}

@@ -1,0 +1,3 @@
+{
+  mediaLinkCountsInStatus=preferences.getBoolean(KEY_MEDIA_LINK_COUNTS_IN_STATUS,mediaLinkCountsInStatus);
+}
